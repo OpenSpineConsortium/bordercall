@@ -68,6 +68,18 @@ meaning what they say.
 observations. A random split leaks and inflates everything. `out_of_fold()` groups by case;
 keep it that way, and keep any new split grouped too.
 
+## Ground truth means a count from C2, and this corpus has none
+
+Measured on all 802 CTSpinoPelvic1K volumes, 2026-10-25: **0 are countable.** The most
+cranial labelled vertebra is T6 in the best case and T8 in the commonest (T8 210, T7 182,
+T9 141, T6 121, T10 74, T11 33). It is abdominopelvic CT; C2 is never in the field.
+
+So every number this method reports on that dataset is against the **labels**, which are a
+reader's call at the border, and not against a verified count. `phenotype` records
+`countable` per case and `sweep` refuses a corpus with none, which was exercised against this
+very corpus rather than only against a synthetic case. Use a whole-spine corpus for any claim
+about which border is named most robustly.
+
 ## What the method already found, so you know what to expect
 
 On CTSpinoPelvic1K (802 abdominopelvic CT, 713 with the border in view):
