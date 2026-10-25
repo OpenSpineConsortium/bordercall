@@ -145,6 +145,13 @@ def cmd_plot(a) -> int:
     return 0
 
 
+def cmd_sweep(a) -> int:
+    import sweep
+    return sweep.run(a.levels, a.phenotype, case_key=a.case_key, folds=a.folds,
+                     seed=a.seed, min_class=a.min_class,
+                     countable_only=not a.allow_uncountable)
+
+
 def cmd_selftest(a) -> int:
     c = Corpus.from_csv(a.levels)
     print("levels found: %s" % ", ".join(c.levels))
@@ -254,6 +261,18 @@ def main() -> int:
                    help="draw the last lumbar level for end-plate and pedicle width, "
                         "which the body cut contaminates there")
     p.set_defaults(fn=cmd_plot)
+
+    p = sub.add_parser("sweep", help="which border is most robust in anomalous spines?")
+    p.add_argument("--levels", required=True)
+    p.add_argument("--phenotype", required=True)
+    p.add_argument("--folds", type=int, default=5)
+    p.add_argument("--seed", type=int, default=0)
+    p.add_argument("--case_key", default="case")
+    p.add_argument("--min-class", type=int, default=10,
+                   help="an anomalous class under this many cases is not ranked")
+    p.add_argument("--allow-uncountable", action="store_true",
+                   help="score records with no C2; their ground truth is not a count")
+    p.set_defaults(fn=cmd_sweep)
 
     p = sub.add_parser("selftest", help="reproduce the known CTSpinoPelvic1K answers")
     p.add_argument("--levels", default=DEFAULT_FIXTURE,

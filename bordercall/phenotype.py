@@ -83,6 +83,16 @@ def read_phenotype(path):
     r["lowest_rib_bearing"] = S.name_of(rostral) if rostral else ""
     r["lowest_rib_bearing_id"] = rostral or ""
 
+    # CAN THIS COLUMN BE COUNTED? The whole premise of a "known ground truth" for a
+    # vertebral name is a count from C2 downward. A volume without C2 cannot supply one,
+    # whatever its labels say, so the name of its border vertebra is a reader's call and
+    # not a verified fact. This flag is what `sweep` filters on: results are reported on
+    # countable records, and the rest are set aside rather than quietly averaged in.
+    r["has_c2"] = int(S.CERVICAL_FIRST + 1 in present)
+    top = [v for v in S.VERTEBRA_IDS if v in present]
+    r["topmost"] = S.name_of(min(top)) if top else ""
+    r["countable"] = r["has_c2"]
+
     r["phenotype"] = classify_row(r)
     return r
 
@@ -102,7 +112,8 @@ def classify_row(r):
     return "typical"
 
 
-FIELDS = ["case", "phenotype", "n_lumbar", "has_l6", "has_t13", "has_lumbar_rib",
+FIELDS = ["case", "phenotype", "countable", "has_c2", "topmost",
+          "n_lumbar", "has_l6", "has_t13", "has_lumbar_rib",
           "lowest_rib_bearing", "lowest_rib_bearing_id", "error"]
 
 
@@ -129,6 +140,12 @@ def run(labels_dir, out, jobs=0):
     for k in CLASS_ORDER:
         if c[k]:
             print("  %-30s %5d" % (PRETTY[k], c[k]))
+    n_count = sum(1 for r in rows if r.get("countable"))
+    print("  %-30s %5d of %d  (C2 present, so the column can be counted)"
+          % ("countable", n_count, len(rows)))
+    if n_count == 0:
+        print("  NO RECORD CONTAINS C2. Every border name in this corpus is a reader's")
+        print("  call rather than a verified count; `sweep` will refuse to report on it.")
     bad = [r for r in rows if r.get("error")]
     if bad:
         print("  %d volume(s) failed to read" % len(bad))
@@ -139,7 +156,8 @@ def load(path):
     """phenotype.csv -> {case: row}"""
     out = {}
     for r in csv.DictReader(open(path)):
-        for k in ("n_lumbar", "has_l6", "has_t13", "has_lumbar_rib"):
+        for k in ("n_lumbar", "has_l6", "has_t13", "has_lumbar_rib",
+                  "countable", "has_c2"):
             try:
                 r[k] = int(r[k])
             except (TypeError, ValueError):

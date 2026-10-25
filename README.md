@@ -42,6 +42,7 @@ python run.py measure   --labels LABELS --out levels.csv      # geometry, the sl
 python run.py phenotype --labels LABELS --out phenotype.csv   # ribs and counts
 python run.py border    --levels levels.csv --above T12 --below L1
 python run.py breakout  --levels levels.csv --phenotype phenotype.csv
+python run.py sweep     --levels levels.csv --phenotype phenotype.csv
 python run.py plot      --levels levels.csv --phenotype phenotype.csv --measure endplate
 ```
 
@@ -60,6 +61,48 @@ nothing else.
 (`testdata/ctspinopelvic1k_level_gradients.csv`, 802 records): adjacent-pair AUC 0.988,
 whole-span 0.998, junction placement 95.1%. It fails past 0.004. Seconds to run, and the only
 thing between you and a silently changed model.
+
+## Which border is most robust — `sweep`
+
+`border` answers one junction and `breakout` splits one junction by phenotype. `sweep` asks
+the question those two cannot: across the candidate junctions, **which one holds up when the
+spine is not typical.**
+
+```
+RANKED BY THE WORST ANOMALOUS PHENOTYPE, not by the corpus figure
+  border           n   overall   typical     worst  worst class
+  T12/L1         713     95.0%     95.0%     90.0%  Six lumbar vertebrae
+  ...
+```
+
+It ranks on the **worst-scoring anomalous phenotype**, not on the corpus figure. Ranking on
+the corpus figure picks the border with the most ordinary spines in it, which is the opposite
+of the question: a method that names the border in 97 % of typical columns and 29 % of the
+ones a surgeon would actually get wrong is accurate, not robust. The corpus and typical
+figures print beside it so the gap is visible. A class under `--min-class` (10) is not ranked
+and reads as "no failures seen".
+
+Candidates are C6/C7, C7/T1, T1/T2, T11/T12, T12/L1, L1/L2, L5/L6. A pair whose levels the
+corpus does not carry is skipped, so the same command serves a lumbar-only and a whole-spine
+run.
+
+## Ground truth means a count from C2
+
+A verified vertebral name comes from counting down from C2. A record without C2 cannot supply
+one — its border name is a reader's call, and a disagreement with it means nothing.
+
+`phenotype` records `countable` per case, and **`sweep` scores only countable records** and
+says how many it set aside. On a corpus with no C2 at all it refuses outright:
+
+```
+STOP. No record in this corpus contains C2, so no border name here is a
+verified count -- it is a reader's call, and a disagreement with it means
+nothing.
+```
+
+`--allow-uncountable` overrides it and every number is then marked provisional. The dataset
+this method was built on is itself uncountable — abdominopelvic CT, no C2 — which is why its
+95 % is reported against *labels*, not against a verified count.
 
 ## Reading the output
 
