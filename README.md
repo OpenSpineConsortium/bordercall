@@ -1,0 +1,167 @@
+# bordercall
+
+Name a vertebral border from the shape of the bone, with no count from C2.
+
+A vertebra is normally identified by counting down from C2. On a scan that does not contain
+C2 — which is most of them — that cannot be done, and at a transitional border the name is a
+reader's call. This asks a different question: does the **shape** of the bone put the border
+in the right place, and where does it fail?
+
+Label volumes in, numbers and conference figures out. No CT needed, no training corpus
+needed, no GPU. The model is a logistic regression written out, because the question is
+whether the shape carries the border at all; if hand-built features on a linear model
+separate it, a network will do better.
+
+## Install
+
+```bash
+pip install numpy scipy nibabel matplotlib
+```
+
+Python 3.9+. That is the whole dependency list.
+
+## Run
+
+```bash
+cd bordercall
+
+# 1. Is the identifier map right for this corpus?   NOT OPTIONAL
+python run.py scheme --labels /path/to/labels
+
+# 2. Does this copy still reproduce the published answer?   NOT OPTIONAL
+python run.py selftest
+
+# 3. Everything else
+python run.py all --labels /path/to/labels --outdir out/
+```
+
+`all` runs measure → phenotype → border → breakout → figures. The pieces separately:
+
+```bash
+python run.py measure   --labels LABELS --out levels.csv      # geometry, the slow step
+python run.py phenotype --labels LABELS --out phenotype.csv   # ribs and counts
+python run.py border    --levels levels.csv --above T12 --below L1
+python run.py breakout  --levels levels.csv --phenotype phenotype.csv
+python run.py plot      --levels levels.csv --phenotype phenotype.csv --measure endplate
+```
+
+Any adjacent pair works: `--above C7 --below T1`, `--above L5 --below L6`. Narrow what gets
+measured with `BORDERCALL_LEVELS=T11,T12,L1,L2,L3,L4,L5` in front of `measure`.
+
+## The two commands not to skip
+
+**`scheme`** prints the identifiers in your volumes against the map in `scheme.py` and stops
+if they disagree. A wrong map does not raise — it returns a finite, plausible, wrong number.
+On its first real run this check found that a local dataset copy still carried a retired
+identifier and was a version older than assumed. If it complains, edit `scheme.py` and
+nothing else.
+
+**`selftest`** re-derives three published answers from the bundled fixture
+(`testdata/ctspinopelvic1k_level_gradients.csv`, 802 records): adjacent-pair AUC 0.988,
+whole-span 0.998, junction placement 95.1%. It fails past 0.004. Seconds to run, and the only
+thing between you and a silently changed model.
+
+## Reading the output
+
+One corpus number will mislead you. On CTSpinoPelvic1K the corpus figure is 95%, and broken
+out by phenotype:
+
+| Class | In field | Correct | |
+|---|---|---|---|
+| Rib on a lumbar body | 14 | 5 | **35.7%** |
+| No rib on the last thoracic | 10 | 5 | **50.0%** |
+| Six lumbar vertebrae | 18 | 16 | 88.9% |
+| Four lumbar identifiers | 6 | 6 | 100% |
+| Typical column | 665 | 645 | 97.0% |
+
+Two populations averaged together. Always run `breakout`, and read a class of fewer than
+about twenty cases as "no failures seen" rather than as an accuracy.
+
+The failures are directional, and that is the part worth trusting. Every one runs the way the
+ribs do: a vertebra carrying a rib is called thoracic, one without is called lumbar. The
+classifier never sees a rib — its features are body and canal measures — so the ribs are an
+independent check. Against them: sensitivity 62.5%, specificity 97.0%, precision 41.7%.
+
+## The figures
+
+`plot` writes a PDF and a PNG. **Use the PDF** in a slide or a poster: vector, text stays text
+(`pdf.fonttype 42`), no blurring on a projector.
+
+- `levels_<measure>` — every case, one violin per level, published reference interval over it.
+- `classes_<measure>` — one panel per phenotype over the typical column in grey, with the
+  per-class accuracy in each title.
+
+Conventions, all deliberate: **vertebral body class on the y axis, cranial at the top, the
+measurement on the x axis**, which is the axis order of the morphometry plates a spine
+audience has read for thirty years. Anomalous classes are points rather than violins below
+`--violin-min` (40), because a violin over fourteen cases draws a density through almost
+nothing. `--scale 1.3` for a poster.
+
+## The reference table
+
+`bordercall/reference/panjabi_full_spine.csv`, used by default: 108 rows over **C2–C7, T1–T12
+and L1–L5** for end-plate width, posterior body height, canal width, canal depth and pedicle
+width, from
+
+- Panjabi et al., *Cervical human vertebrae*, Spine 1991;16(8):861–869, Tables 2–4
+- Panjabi et al., *Thoracic human vertebrae*, Spine 1991;16(8):888–901, Tables 3–5
+- Panjabi et al., *Human lumbar vertebrae*, Spine 1992;17(3):299–306
+
+Both 1991 papers are scans with **no text layer**, so every value was read from rendered page
+images; automatic text extraction of the thoracic canal table interleaves rows and columns and
+must not be parsed. `build_panjabi.py` re-checks its own T11/T12 against an earlier
+independent transcription and fails on a disagreement.
+
+Dispersion is always the **standard error** as printed; the population SD is `sem*sqrt(12)`.
+Drawing the SEM as if it were an SD gives an interval 3.5× too narrow. C2 has no upper
+end-plate row — the dens occupies it — so `endplate` and `h_post` start at C3.
+
+Supply your own with `--reference FILE`, columns `measure, level, mean, sem, n` (or `sd`).
+`--no-reference` draws none.
+
+## Traps
+
+1. **The identifier map is assumed, not detected.** Run `scheme` first.
+2. **Only the lumbar measurements are validated.** End-plate width, canal width and
+   transverse-process span were checked against published lumbar norms, and the measurement
+   code states that those comparisons do not transfer to thoracic levels. Widening the range
+   makes the code run over a whole spine; it does not make the numbers validated there. Until
+   each measure is checked against a published series at your levels, a cervical or
+   upper-thoracic result is a pipeline test, not a finding.
+3. **The last lumbar level is withheld for end-plate and pedicle width.** The body is isolated
+   by cutting at the anterior wall of the canal, and there the transverse processes arise in
+   front of that cut, so the cut keeps them. A property of the measurement, not of one cohort.
+   `--no-withhold` overrides.
+4. **The per-case normalisation is the whole method.** Every measure is divided by that case's
+   own median across its levels. Lumbar vertebrae are simply bigger than thoracic ones; raw
+   millimetres teach a classifier size, which says nothing at a border where the two
+   neighbours are nearly the same size.
+5. **Folds are grouped by case.** Two vertebrae from one patient are not independent.
+
+## If your corpus has C2
+
+It can answer what the originating dataset could not. A rib on L1 may be a thirteenth thoracic
+vertebra above five lumbar ones, or a rudimentary rib on a true L1 — different columns, the
+same rib, and only a count from C2 separates them.
+
+A warning on how to test it: relabelling the disagreements to the model's own prediction and
+re-scoring is **circular**, because the target has moved to where the model already points.
+That arm reached 0.9998 against a 0.9880 baseline. Relabelling by an *independent* criterion
+(the ribs) reached 0.9916, about a third as far. Always put the circular arm beside the honest
+one.
+
+## Files
+
+| File | What it is |
+|---|---|
+| `run.py` | the CLI |
+| `scheme.py` | the identifier map, in one place, with its check |
+| `measure_levels.py` | label volumes → wide per-level table |
+| `phenotype.py` | label volumes → per-case phenotype, from the labels alone |
+| `border.py` | features, grouped-CV logistic regression, border evaluation |
+| `plots.py` | the two conference figures |
+| `reference/` | the Panjabi tables and the script that builds them |
+| `render_anchors.py` | the 3-D phenotype gallery |
+| `testdata/` | the fixture `selftest` runs against |
+
+`HANDOFF.md` is the short version, with what the method has already found.
