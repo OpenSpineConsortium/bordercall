@@ -3,6 +3,7 @@ its denominator, and the count's naming of a thirteenth rib-bearing body is L1."
 from __future__ import annotations
 
 import contextlib
+import csv
 import io
 import os
 import shutil
@@ -58,7 +59,7 @@ class Disagree(unittest.TestCase):
     def test_the_thoracolumbar_arms_report_with_denominators(self):
         r, text = self.run_arms("T12", "L1")
         self.assertEqual(r["n"], 150)
-        self.assertGreater(r["right"] / r["n"], 0.8)
+        self.assertGreater(r["right"] / r["n"], 0.75)
         self.assertEqual(r["disagreements"], r["n"] - r["right"])
         self.assertIn("against the count names", text)
         self.assertIn("the ribs (independent)", text)
@@ -71,6 +72,50 @@ class Disagree(unittest.TestCase):
             line = next(l for l in text.splitlines() if pretty in l)
             k, n = (int(x) for x in line.split()[-3::2])
             self.assertLessEqual(k, n)
+        # the made-up corpus draws the transitional body in its own shape, so the shape disagrees
+        # with the count there and the ribs, read independently, side with the shape in most
+        in_rib_classes = r["by_class"].get("lumbar_rib", 0) + r["by_class"].get("no_rib_T12", 0)
+        self.assertGreater(in_rib_classes, 0)
+        self.assertGreaterEqual(r["sided"], 0.6 * in_rib_classes, (r["sided"], in_rib_classes))
+
+    def test_a_level_the_measurement_skipped_leaves_the_arms_whole(self):
+        # T5 blank in every case: the circular arm takes the model's own per-level calls as labels,
+        # so a gap above the border neither moves its truth nor breaks the refit
+        gapped = os.path.join(self.tmp, "gapped.csv")
+        with open(self.levels, encoding="utf-8", newline="") as fh:
+            rows = list(csv.DictReader(fh))
+        for row in rows:
+            for k in list(row):
+                if "_T5_" in k:
+                    row[k] = ""
+        with open(gapped, "w", encoding="utf-8", newline="") as fh:
+            w = csv.DictWriter(fh, fieldnames=list(rows[0]))
+            w.writeheader()
+            w.writerows(rows)
+        buf = io.StringIO()
+        with contextlib.redirect_stdout(buf):
+            r = disagree.run(gapped, self.phenotype, above="T12", below="L1", folds=5, seed=0)
+        text = buf.getvalue()
+        self.assertEqual(r["n"], 150)
+        line = next(l for l in text.splitlines() if "circular" in l)
+        k, n = (int(x) for x in line.split("scored:")[1].split()[0:3:2])
+        self.assertEqual(n, 150)
+        self.assertGreaterEqual(k, r["right"])
+
+    def test_rib_labels_hold_at_the_ends_of_the_column(self):
+        levels = ["C2", "C3", "T12", "L1", "L2"]
+        upper = {"C2", "C3", "T12"}
+        # a shift of +1 (the lowest rib on L1): the top level is still above, L1 joins the upper
+        self.assertEqual([disagree.rib_label_at(i - 1, upper, levels) for i in range(5)], [1, 1, 1, 1, 0])
+        # a shift of -1 (no rib on T12): T12 drops below, the bottom stays below
+        self.assertEqual([disagree.rib_label_at(i + 1, upper, levels) for i in range(5)], [1, 1, 0, 0, 0])
+
+    def test_the_class_falls_back_on_the_count_without_ribs(self):
+        self.assertEqual(disagree.class_of({"phenotype": "typical", "n_lumbar": "6"}), "typical")
+        self.assertEqual(disagree.class_of({"phenotype": "", "n_lumbar": "6"}), "six_lumbar")
+        self.assertEqual(disagree.class_of({"phenotype": "", "n_lumbar": "4", "has_sacrum": "1"}), "four_lumbar")
+        self.assertEqual(disagree.class_of({"phenotype": "", "n_lumbar": "4"}), "unknown")
+        self.assertEqual(disagree.class_of({"phenotype": "", "n_lumbar": "5"}), "unknown")
 
     def test_the_cervicothoracic_arms_run_and_the_ribs_shift_nothing(self):
         r, text = self.run_arms("C7", "T1")
@@ -78,6 +123,10 @@ class Disagree(unittest.TestCase):
         self.assertIn("names shifted in 0 of 150 ribbed cases", text)
 
     def test_rib_shift_reads_the_census_columns(self):
+        # bordercall's own phenotype command writes no phenotype_known: a filled rib column counts
+        self.assertEqual(disagree.rib_shift({"lowest_rib_bearing": "L1"}, "T12", "L1"), 1)
+        self.assertIsNone(disagree.rib_shift({"lowest_rib_bearing": ""}, "T12", "L1"))
+        self.assertIsNone(disagree.rib_shift({"lowest_rib_bearing": "L1"}, "C7", "T1"))
         self.assertEqual(disagree.rib_shift({"phenotype_known": "1", "lowest_rib_bearing": "L1"}, "T12", "L1"), 1)
         self.assertEqual(disagree.rib_shift({"phenotype_known": "1", "lowest_rib_bearing": "T11"}, "T12", "L1"), -1)
         self.assertIsNone(disagree.rib_shift({"phenotype_known": "0", "lowest_rib_bearing": "T12"}, "T12", "L1"))

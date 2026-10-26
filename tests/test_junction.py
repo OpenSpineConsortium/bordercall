@@ -51,8 +51,21 @@ class Reference(unittest.TestCase):
         six = P.synthesize(ref, "six_lumbar", rng)
         self.assertEqual(six.cut("tl"), 17)
         self.assertEqual(len(six), 23)
+        # the count names a thirteenth rib-bearing body L1, so its junction is above it; the
+        # ribs put it below, one level apart, and the same for a rib on L1; no rib on T12 the other way
         t13 = P.synthesize(ref, "t13", rng)
-        self.assertEqual(t13.cut("tl"), 18)
+        self.assertEqual(len(t13), 23)
+        self.assertEqual((t13.cut("tl"), t13.cut("tl", truth="ribs")), (17, 18))
+        rib = P.synthesize(ref, "lumbar_rib", rng)
+        self.assertEqual((rib.cut("tl"), rib.cut("tl", truth="ribs")), (17, 18))
+        norib = P.synthesize(ref, "no_rib_t12", rng)
+        self.assertEqual((norib.cut("tl"), norib.cut("tl", truth="ribs")), (17, 16))
+        self.assertEqual((norib.cut("ct"), norib.cut("ct", truth="ribs")), (5, 5))
+        # a window without the transitional body has one truth
+        sub = t13.window(5, 12)
+        self.assertEqual((sub.cut("tl"), sub.cut("tl", truth="ribs")), (7, 7))
+        sub = t13.window(14, 20)
+        self.assertEqual((sub.cut("tl"), sub.cut("tl", truth="ribs")), (3, 4))
 
 
 class TemplateModel(unittest.TestCase):
@@ -62,11 +75,33 @@ class TemplateModel(unittest.TestCase):
 
     def test_namings_cover_every_structure_once(self):
         t = J.Template("tl", self.ref)
-        names = [n for n, _ in t.namings(6)]
-        self.assertEqual(len(names), len(set(names)))
-        self.assertIn(("T10", "T11", "T12", "L1", "L2", "L3"), names)
-        self.assertIn(("T11", "T12", "T13", "L1", "L2", "L3"), names)
-        self.assertIn(("L1", "L2", "L3", "L4", "L5", "L6"), names)
+        keyed = {(n, c["ct"], c["tl"]) for n, c in t.namings(6)}
+        self.assertEqual(len(keyed), len(t.namings(6)))
+        cuts = {}
+        for n, c in t.namings(6):
+            cuts.setdefault(n, set()).add(c["tl"])
+        # the count's junction follows the position: above the thirteenth thoracic-shaped body
+        self.assertEqual(cuts[("T10", "T11", "T12", "L1", "L2", "L3")], {3})
+        self.assertEqual(cuts[("T11", "T12", "T13", "L1", "L2", "L3")], {2})
+        # the same six lumbar names at two positions: the last six of a column, or the 18th body
+        # of lumbar shape and the five below it
+        self.assertEqual(cuts[("L1", "L2", "L3", "L4", "L5", "L6")], {0, 1})
+
+    def test_the_posterior_is_flat_over_the_cut_before_the_data(self):
+        # every naming equally likely gives every cut the same mass whatever its number of namings
+        t = J.Template("tl", self.ref)
+        n = 6
+        rows = [{"cut": c["tl"]} for _, c in t.namings(n)]
+        counts = {}
+        for r in rows:
+            counts[r["cut"]] = counts.get(r["cut"], 0) + 1
+        self.assertGreater(max(counts.values()), min(counts.values()))
+        flat = {m: np.exp(t.mu[m]["T8"]) * np.ones(n) for m in t.measures}
+        t2 = J.Template("tl", self.ref)
+        t2.loglik = lambda values, names: {m: 0.0 for m in t2.measures}
+        ll, _ = t2.posterior(flat)
+        finite = ll[np.isfinite(ll)]
+        np.testing.assert_allclose(finite, finite[0], atol=1e-9)
 
     def test_a_noiseless_column_is_named_exactly(self):
         rng = np.random.default_rng(1)
