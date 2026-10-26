@@ -331,6 +331,38 @@ Recorded in `records/covariance-sweep.json`. `--from-json` re-reports from that 
 without re-running the sweep, so a change to the reporting is checked against a fixed run
 rather than a fresh draw that moves underneath it.
 
+### What the grid can be hiding, and why refining it is not the check
+
+min and max over a grid are a **relaxation** of min and max over the interval: dropping the
+off-grid r enlarges what is being minimised over, so the reported worst case is an
+**overestimate** of the true one -- the unsafe direction for any claim resting on it. The gap
+is bounded by `L * h / 2` and is unbounded without an `L`.
+
+**Refining the grid is not a reliable check on its own.** On a profile with a narrow dip
+between points, successive refinements can return the identical wrong value and falsely
+confirm; and Monte Carlo noise biases the same quantity the other way, growing as the grid
+thickens, so agreement between a coarse and a fine grid is not evidence either. So the
+command measures the assumption instead of asserting it:
+
+```
+how much the grid can be hiding, measured rather than assumed:
+spineps_7  NOT monotone in r, |slope| <= 0.0333, grid gap L*h/2 = 0.0033 (0.3 MC s.e.)
+           the measured slope 0.0333 is below the noise floor 0.1373, so this
+           run cannot see a slope -- it has not shown there is none
+```
+
+**A is measurably not monotone in r**, which is the opposite of what this file asserted
+before it was measured. What saves the conclusion is not monotonicity but the size of the
+margin: the grid gap is a fraction of one Monte Carlo standard error, while the sign clears
+zero by 8.9 (T12/L1) to 20.0 (C7/T1) standard errors. The margin dwarfs both error terms by
+twenty- to sixty-fold. That is the argument to make; the monotonicity argument is not
+available and should not be repeated.
+
+The measured `L` is a secant estimate from the same grid, so it is a **lower** bound on the
+true `sup |A'|` and the gap it reports is indicative, not certified. Certifying it needs an
+independent bound on A's derivative in r, which this package does not have and does not
+claim. `--r-grid 0,0.1,0.2,...,0.9` runs a finer grid when that matters.
+
 ## Traps
 
 1. **The identifier map is assumed, not detected.** Run `scheme` first.

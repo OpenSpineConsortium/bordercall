@@ -166,3 +166,77 @@ class TestOnTheRecordedRun(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class TestProfileInR(unittest.TestCase):
+    """The grid's own error, measured. This replaces an ASSERTION that was wrong."""
+
+    def test_monotone_rising_is_detected(self):
+        p = CV.profile_in_r(rows((0.0, 0.40), (0.5, 0.50), (1.0, 0.60), se=0.001))
+        self.assertTrue(p["monotone"])
+        self.assertEqual(p["direction"], "rising")
+
+    def test_monotone_falling_is_detected(self):
+        p = CV.profile_in_r(rows((0.0, 0.60), (0.5, 0.50), (1.0, 0.40), se=0.001))
+        self.assertTrue(p["monotone"])
+        self.assertEqual(p["direction"], "falling")
+
+    def test_an_interior_dip_is_flagged_non_monotone(self):
+        """The case that makes grid refinement an unreliable check."""
+        p = CV.profile_in_r(rows((0.0, 0.50), (0.5, 0.30), (1.0, 0.50), se=0.001))
+        self.assertFalse(p["monotone"])
+
+    def test_lipschitz_is_the_steepest_secant(self):
+        p = CV.profile_in_r(rows((0.0, 0.50), (0.2, 0.50), (0.4, 0.30), se=0.001))
+        self.assertAlmostEqual(p["lipschitz"], 1.0, places=6)   # 0.20 over 0.2
+
+    def test_gap_is_lipschitz_times_half_the_widest_spacing(self):
+        p = CV.profile_in_r(rows((0.0, 0.50), (0.4, 0.30), se=0.001))
+        self.assertAlmostEqual(p["h_max"], 0.4, places=9)
+        self.assertAlmostEqual(p["gap"], p["lipschitz"] * 0.4 / 2.0, places=9)
+
+    def test_a_slope_under_the_noise_floor_is_not_informative(self):
+        """A flat-looking profile measured with coarse noise has shown nothing."""
+        p = CV.profile_in_r(rows((0.0, 0.5000), (0.5, 0.5002), (1.0, 0.5001), se=0.01))
+        self.assertFalse(p["informative"])
+
+    def test_a_real_slope_above_the_noise_floor_is_informative(self):
+        p = CV.profile_in_r(rows((0.0, 0.20), (0.5, 0.50), (1.0, 0.80), se=0.001))
+        self.assertTrue(p["informative"])
+
+    def test_too_few_points_returns_none(self):
+        self.assertIsNone(CV.profile_in_r(rows((0.0, 0.5))))
+
+    def test_duplicate_r_values_do_not_divide_by_zero(self):
+        p = CV.profile_in_r(rows((0.0, 0.50), (0.0, 0.52), (0.5, 0.55), se=0.001))
+        self.assertIsNotNone(p)
+        self.assertTrue(math_isfinite(p["lipschitz"]))
+
+    def test_on_the_recorded_run_the_grid_gap_is_small_against_the_margin(self):
+        """The conclusion survives the grid error -- but NOT because A is monotone.
+
+        A is measurably NOT monotone in r on this grid, which is the opposite of what the
+        code used to assert. What saves the conclusion is that the grid gap is a fraction of
+        one Monte Carlo standard error while the sign clears zero by many, so the margin
+        dwarfs both error terms. That is the argument to make; monotonicity is not available.
+        """
+        import json
+        p = os.path.join(os.path.dirname(HERE), "records", "covariance-sweep.json")
+        if not os.path.exists(p):
+            self.skipTest("records/covariance-sweep.json not present")
+        with open(p) as fh:
+            rec = json.load(fh)
+        for key in ("ct", "tl"):
+            prof = CV.profile_in_r(rec["results"]["spineps_7"][key])
+            sign = CV.sign_invariance(rec["results"]["spineps_7"][key],
+                                      rec["results"]["baseline_3"][key])
+            self.assertLess(prof["gap_in_se"], 1.0,
+                            "%s: the grid gap is no longer small against the noise" % key)
+            self.assertGreater(sign["margin_in_se"], 5.0)
+            self.assertGreater(sign["margin_in_se"], 5.0 * prof["gap_in_se"],
+                               "%s: the margin no longer dwarfs the grid gap" % key)
+
+
+def math_isfinite(x):
+    import math as _m
+    return _m.isfinite(x)

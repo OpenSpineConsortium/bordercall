@@ -213,10 +213,15 @@ def cmd_covariance(a) -> int:
         CV.report_from_record(a.from_json)
         return 0
 
+    grid = None
+    if a.r_grid:
+        grid = [float(x) for x in a.r_grid.replace(",", " ").split()]
+
     CV.report()
     if a.sweep:
         print("\n")
-        CV.measure_set_sweep(out_json=a.out, n_columns=a.n_columns, n_eval=a.n_eval)
+        CV.measure_set_sweep(r_grid=grid, out_json=a.out,
+                             n_columns=a.n_columns, n_eval=a.n_eval)
     else:
         print("\nRe-run with --sweep to measure whether the conclusion depends on it,")
         print("or --from-json RECORD.json to re-report a sweep already recorded.")
@@ -408,6 +413,11 @@ def main() -> int:
     p.add_argument("--from-json", default=None, dest="from_json",
                    help="re-report the partial identification from a recorded sweep "
                         "instead of running one; costs nothing and is reproducible")
+    p.add_argument("--r-grid", default=None, dest="r_grid",
+                   help="comma-separated r values to sweep, e.g. "
+                        "0,0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9. A finer grid narrows the "
+                        "L*h/2 term the command reports, but refining is NOT a reliable "
+                        "check on its own -- see the note in covariance.py")
     p.add_argument("--n-columns", type=int, default=600, dest="n_columns")
     p.add_argument("--n-eval", type=int, default=400, dest="n_eval")
     p.set_defaults(fn=cmd_covariance)

@@ -276,10 +276,27 @@ def sweep(fn, r_values=None, label="accuracy"):
 #    the value. sign_invariance() below reports it that way, and names the crossing point if
 #    the sign does turn over inside the set.
 #
-# The grid makes this approximate in one specific way, which is stated rather than hidden:
-# min and max are taken over the GRID, so they bound the true extrema only if A is monotone
-# or smooth in r between grid points. A(r) here is smooth and near-monotone, but a finer
-# grid is the check, and --r-grid takes one.
+# 3. THE GRID DOES NOT BOUND ANYTHING ON ITS OWN, AND IT ERRS IN THE UNSAFE DIRECTION.
+#    min and max over a grid are a RELAXATION of min and max over the interval: dropping the
+#    off-grid r enlarges what is being minimised over, so the reported worst case is an
+#    OVERESTIMATE of the true worst case -- the anti-conservative direction for any claim
+#    that rests on it. The gap is bounded by L * h / 2, with L a Lipschitz constant of A in r
+#    and h the grid spacing, and it is UNBOUNDED without an L.
+#
+#    Refining the grid is NOT the check, which is what this comment used to say and was the
+#    error worth recording. On a profile with a narrow dip between points, successive
+#    refinements can return the identical wrong value and so falsely confirm; and Monte Carlo
+#    noise biases the same quantity the OTHER way, growing as the grid thickens, so the two
+#    errors can cancel and agreement between them is not evidence of correctness either.
+#
+#    So the assumption is measured rather than asserted. profile_in_r() reports whether A is
+#    in fact monotone in r over the grid, the empirical Lipschitz constant, and the implied
+#    L * h / 2 gap next to the Monte Carlo standard error, so the two can be compared instead
+#    of hoped about. Its own limit is stated in its docstring: a secant-based L from the same
+#    grid is a LOWER bound on the true sup |A'|, so the gap it reports is indicative and not
+#    certified. --r-grid runs a finer grid when that matters; the thing that would make it
+#    certified is an independent bound on A's derivative in r, which this package does not
+#    have and does not claim.
 
 # z for a one-sided and a two-sided 95 %: the Imbens-Manski critical value lives between
 # them, so these are the bisection bracket. Hard-coded to keep this module dependency-free.
@@ -317,6 +334,74 @@ def imbens_manski(lo, hi, se_lo, se_hi, alpha: float = 0.05):
             b = m
     c = 0.5 * (a + b)
     return float(lo) - c * float(se_lo), float(hi) + c * float(se_hi), c
+
+
+def profile_in_r(rows, key: str = "acc"):
+    """Is A monotone in r, how steep is it, and how much can the grid be hiding?
+
+    The grid's min and max bound the interval's only up to L * h / 2. This measures L from
+    the grid itself and puts the implied gap beside the Monte Carlo standard error, so the
+    two sources of error can be compared rather than assumed away.
+
+    TWO LIMITS, both stated because neither is removable from inside this computation.
+
+    A secant-based L is a LOWER bound on the true sup |A'|: a dip between two grid points
+    makes the secant shallower than the derivative it is standing in for, which is exactly
+    the case the grid cannot see. So `gap` is INDICATIVE, not certified. Certifying it needs
+    an independent bound on A's derivative in r, which this package does not have.
+
+    And the secants are contaminated by Monte Carlo noise, which inflates L by roughly
+    sqrt(2) * se / h and so inflates the gap. `noise_floor` is that inflation, so a measured
+    L at or below it means the profile is flat to within the noise and the grid is not
+    hiding a slope -- it means the run cannot see one.
+    """
+    rs = sorted(rows, key=lambda x: x["r"])
+    if len(rs) < 2:
+        return None
+    diffs, spacings, slopes = [], [], []
+    for p, q in zip(rs, rs[1:]):
+        h = q["r"] - p["r"]
+        if h <= 0:
+            continue
+        diffs.append(q[key] - p[key])
+        spacings.append(h)
+        slopes.append(abs(q[key] - p[key]) / h)
+    if not slopes:
+        return None
+    signs = {1 if d > 0 else (-1 if d < 0 else 0) for d in diffs}
+    monotone = len(signs - {0}) <= 1
+    lip = max(slopes)
+    h_max = max(spacings)
+    se = max(x["se"] for x in rs)
+    # a secant across spacing h inherits sqrt(2) * se of noise, so L is inflated by that / h
+    noise_floor = math.sqrt(2.0) * se / min(spacings)
+    return {"monotone": monotone, "direction": ("flat" if not (signs - {0})
+                                                else ("rising" if 1 in signs else "falling")),
+            "lipschitz": lip, "h_max": h_max, "gap": lip * h_max / 2.0,
+            "se": se, "noise_floor": noise_floor,
+            "informative": lip > noise_floor,
+            "gap_in_se": (lip * h_max / 2.0) / se if se else float("nan")}
+
+
+def print_profile(rows, name: str = "", key: str = "acc"):
+    """The grid's own error, measured, beside the Monte Carlo error."""
+    p = profile_in_r(rows, key)
+    if p is None:
+        return None
+    print("   %-10s %s in r, |slope| <= %.4f, grid gap L*h/2 = %.4f (%.1f MC s.e.)"
+          % (name, "monotone" if p["monotone"] else "NOT monotone",
+             p["lipschitz"], p["gap"], p["gap_in_se"]))
+    if not p["informative"]:
+        print("              the measured slope %.4f is below the noise floor %.4f, so this"
+              % (p["lipschitz"], p["noise_floor"]))
+        print("              run cannot see a slope -- it has not shown there is none")
+    if not p["monotone"]:
+        print("              non-monotone: the grid may be stepping over an interior"
+              " extremum,")
+        print("              and refining it is not a reliable check. Treat the set as"
+              " a lower")
+        print("              bound on the true spread.")
+    return p
 
 
 def identified_set(rows, key: str = "acc"):
@@ -472,6 +557,9 @@ def report_from_record(path: str):
             s = identified_set(res[n][key])
             print("   %-10s accuracy in [%.4f, %.4f]  (Imbens-Manski 95 %% "
                   "[%.4f, %.4f])" % (n, s["lo"], s["hi"], s["ci_lo"], s["ci_hi"]))
+        print("   how much the grid can be hiding, measured rather than assumed:")
+        for n in names:
+            print_profile(res[n][key], n)
         if len(names) == 2:
             out[key] = print_partial_identification(names[1], res[names[1]][key],
                                                     names[0], res[names[0]][key])
@@ -530,6 +618,9 @@ def measure_set_sweep(r_grid=None, out_json=None, n_columns=600, n_eval=400):
             s = identified_set(results[name][key])
             print("   %-10s accuracy in [%.4f, %.4f]  (Imbens-Manski 95 %% "
                   "[%.4f, %.4f])" % (name, s["lo"], s["hi"], s["ci_lo"], s["ci_hi"]))
+        print("   how much the grid can be hiding, measured rather than assumed:")
+        for name in ("baseline_3", "spineps_7"):
+            print_profile(results[name][key], name)
         verdicts[key] = print_partial_identification(
             "spineps_7", results["spineps_7"][key],
             "baseline_3", results["baseline_3"][key], pretty)
@@ -541,6 +632,8 @@ def measure_set_sweep(r_grid=None, out_json=None, n_columns=600, n_eval=400):
                    key: {
                        "accuracy_sets": {n: identified_set(results[n][key])
                                          for n in ("baseline_3", "spineps_7")},
+                       "grid_error": {n: profile_in_r(results[n][key])
+                                      for n in ("baseline_3", "spineps_7")},
                        "difference": None if verdicts.get(key) is None else {
                            k: v for k, v in verdicts[key].items() if k != "diffs"},
                    } for key in JUNCTIONS},
