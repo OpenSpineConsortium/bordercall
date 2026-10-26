@@ -110,7 +110,11 @@ corrected `matches_record` (all 18 cells match); nothing else in the file was to
 calibration panel, a step larger type, no method word in a label or a caption). Each panel is drawn
 at the exact inches its deck gives it, with its CSV and caption, and each set has one `FIGURES.md`
 naming the record and the code by sha256. The posterior panel scores the record's scoring columns
-again for the fields centred on T12, refuses to draw unless its share named exactly matches the
-record's, and draws the column nearest the median posterior at one, three and nine bodies together.
-The decks are built from these panels and the two records with `python slides/make_exact_slides.py`
-(into `slides/exact/`), and the test `tests/test_exact_slides.py` rebuilds both sets byte for byte.
+again for the fields centred on T12, refuses to draw unless its shares named exactly, answered at
+0.99 and right at 0.99 all match the record's and the record was scored with the generator's own
+settings (161 quadrature nodes, the seven measures), and draws the column nearest the median
+posterior at one, three and nine bodies together. The decks are built from these panels and the
+two records with `python slides/make_exact_slides.py` (into `slides/exact/`; `--pdf` adds a
+LibreOffice preview of each, whose equations are pictures and whose bytes carry the time LibreOffice
+ran), and the test `tests/test_exact_slides.py` rebuilds both figure sets and both decks byte for
+byte, every zip entry of a deck carrying one fixed date.

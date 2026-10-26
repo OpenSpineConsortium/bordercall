@@ -4,6 +4,7 @@
     python slides/make_exact_slides.py --venue neurips      # one of them
     python slides/make_exact_slides.py --refresh-equations  # set the equations again with pandoc
     python slides/make_exact_slides.py --public             # no confidentiality marking (see --help)
+    python slides/make_exact_slides.py --pdf                # also a LibreOffice preview of each as PDF
 
 The owner's ask of 2026-10-26 20:45 UTC: figures and five PowerPoint slides, with the figures,
 the text and the LaTeX as separate elements, styled like Benzel with inspiration from Kevin
@@ -33,7 +34,9 @@ Both decks carry a confidentiality marking in the footer until they are built wi
 is for use only after the provisional is filed and the TTO has read the deck. The build checks the
 saved file, every XML part of it: neither deck may hold a word of the confidential work
 (make_junction_slides.FORBIDDEN) or a template author, and the CNS deck may hold no method word
-(CNS_REFUSED); a deck that fails is deleted and the build stops.
+(CNS_REFUSED); a deck that fails is deleted and the build stops. Every entry of the saved file
+carries one fixed date, so a build gives the same bytes as the committed deck; the PDFs that --pdf
+writes are LibreOffice previews, stamped with the time LibreOffice ran, and the .pptx is the record.
 """
 from __future__ import annotations
 
@@ -79,6 +82,7 @@ SOURCE = ("Synthetic columns from Panjabi's published tables (Spine 1991;16:861,
           "no patient data.")
 MARKING = "Confidential: pre-filing draft, not for distribution"
 BUILT = datetime.datetime(2026, 10, 26)
+ZIP_DATE = (1980, 1, 1, 0, 0, 0)          # the earliest date a zip entry can carry
 # Words of the method the results-only CNS deck may not hold anywhere in the saved file. The
 # anatomical "posterior body height" (and "posterior height") is a measure, not the method.
 CNS_REFUSED = re.compile(
@@ -252,14 +256,17 @@ def equations(N: Numbers) -> Dict[str, str]:
 
 # ---- equations ----------------------------------------------------------------------------------------
 
-def cached_omml(name: str, tex: str, refresh: bool) -> etree._Element:
-    """The equation as Office Math (m:oMathPara), from the cache beside the deck when it was set from
-    this same LaTeX, else from pandoc, which converts LaTeX to Office Math in a Word file."""
-    path = os.path.join(EQDIR, name + ".omml.xml")
-    if not refresh and os.path.exists(path):
-        root = etree.parse(path).getroot()
-        if root.get("tex") == tex:
-            return root[0]
+def cached_omml(name: str, tex: str, refresh: bool, cache_dir: str = EQDIR) -> etree._Element:
+    """The equation as Office Math (m:oMathPara), from the cache beside this deck or the committed one
+    when it was set from this same LaTeX, else from pandoc, which converts LaTeX to Office Math in a
+    Word file. A new setting is written only beside this deck (`cache_dir`), so a build into another
+    folder never changes the committed cache."""
+    path = os.path.join(cache_dir, name + ".omml.xml")
+    for cached in dict.fromkeys((path, os.path.join(EQDIR, name + ".omml.xml"))):
+        if not refresh and os.path.exists(cached):
+            root = etree.parse(cached).getroot()
+            if root.get("tex") == tex:
+                return root[0]
     if not shutil.which("pandoc"):
         raise SystemExit("equation %r is new or changed and pandoc is not installed to set it" % name)
     d = tempfile.mkdtemp()
@@ -273,7 +280,7 @@ def cached_omml(name: str, tex: str, refresh: bool) -> etree._Element:
         raise SystemExit("pandoc gave no equation for %r" % name)
     keep = etree.Element("equation", tex=tex)
     keep.append(copy.deepcopy(para))
-    os.makedirs(EQDIR, exist_ok=True)
+    os.makedirs(cache_dir, exist_ok=True)
     etree.ElementTree(keep).write(path, encoding="utf-8", xml_declaration=True, pretty_print=True)
     return para
 
@@ -281,30 +288,36 @@ def cached_omml(name: str, tex: str, refresh: bool) -> etree._Element:
 def fallback_png(name: str, tex: str, size_pt: float, eqdir: str = EQDIR) -> str:
     """The same equation as a picture at the size it is set, 300 dpi, for an application with no
     Office Math (LibreOffice among them). It is drawn afresh on every build, into `eqdir`, while the
-    Office Math is read from the cache beside the committed deck."""
+    Office Math is read from the cache beside the committed deck. It is drawn from matplotlib's own
+    defaults, whatever another figure in the same process has set, so the picture and the box it
+    sizes are the same in every build."""
     import matplotlib
     matplotlib.use("Agg")
     import matplotlib.pyplot as plt
-    plt.rcParams["mathtext.fontset"] = "cm"
     os.makedirs(eqdir, exist_ok=True)
     path = os.path.join(eqdir, "%s.png" % name)
-    fig = plt.figure(figsize=(0.01, 0.01))
-    fig.text(0, 0, "$" + tex + "$", fontsize=size_pt, color="#111111")
-    fig.savefig(path, dpi=300, bbox_inches="tight", pad_inches=0.03, transparent=True)
-    plt.close(fig)
+    with plt.rc_context():
+        matplotlib.rcdefaults()
+        plt.rcParams["mathtext.fontset"] = "cm"
+        fig = plt.figure(figsize=(0.01, 0.01))
+        fig.text(0, 0, "$" + tex + "$", fontsize=size_pt, color="#111111")
+        fig.savefig(path, dpi=300, bbox_inches="tight", pad_inches=0.03, transparent=True)
+        plt.close(fig)
     return path
 
 
 def styled_math(para: etree._Element, size_pt: float, colour: str = "111111") -> etree._Element:
     """Office Math runs in PowerPoint carry DrawingML run properties: Cambria Math at the size the
-    slide sets, italic as mathematics is."""
+    slide sets, italic as a mathematical letter is, and upright where the run's own style says plain
+    (\\mathrm, \\text), as PowerPoint writes them itself."""
     para = copy.deepcopy(para)
     for jc in para.iter(M_ + "jc"):
         jc.set(M_ + "val", "left")
     for r in para.iter(M_ + "r"):
         for old in r.findall(A_ + "rPr"):
             r.remove(old)
-        rpr = etree.Element(A_ + "rPr", lang="en-US", i="1", sz=str(int(round(size_pt * 100))))
+        rpr = etree.Element(A_ + "rPr", lang="en-US", i="0" if upright(r) else "1",
+                            sz=str(int(round(size_pt * 100))))
         fill = etree.SubElement(rpr, A_ + "solidFill")
         etree.SubElement(fill, A_ + "srgbClr", val=colour)
         etree.SubElement(rpr, A_ + "latin", typeface=MATH)
@@ -312,6 +325,16 @@ def styled_math(para: etree._Element, size_pt: float, colour: str = "111111") ->
         t = r.find(M_ + "t")
         (t.addprevious if t is not None else r.append)(rpr)
     return para
+
+
+def upright(run: etree._Element) -> bool:
+    """An Office Math run whose style is plain (m:sty p) or normal text (m:nor), as pandoc sets
+    \\mathrm and \\text."""
+    props = run.find(M_ + "rPr")
+    if props is None:
+        return False
+    sty = props.find(M_ + "sty")
+    return props.find(M_ + "nor") is not None or (sty is not None and sty.get(M_ + "val") == "p")
 
 
 def attr(text: str) -> str:
@@ -354,7 +377,7 @@ def add_equation(slide, name: str, tex: str, x: Emu, y: Emu, size_pt: float, ref
     ).format(sid=sid, name=name, descr=descr, x=int(x), y=int(y), cx=int(cx), cy=int(cy), rid=rid,
              sz=int(round(size_pt * 100)), **NS)
     el = etree.fromstring(xml)
-    el.find(".//{%s}m" % NS["a14"]).append(styled_math(cached_omml(name, tex, refresh), size_pt))
+    el.find(".//{%s}m" % NS["a14"]).append(styled_math(cached_omml(name, tex, refresh, eqdir), size_pt))
     tree.insert(at, el)
     return cx, cy
 
@@ -524,13 +547,17 @@ APP_XML = ('<?xml version="1.0" encoding="UTF-8" standalone="yes"?>\n'
 
 
 def rewrite_app_xml(path: str, slides: int):
-    """The extended properties a template brings name its own slides and fonts: write them anew."""
+    """The extended properties a template brings name its own slides and fonts: write them anew. Every
+    entry is stored again with one fixed date, so the same build gives the same bytes and a deck can be
+    checked against the committed one by its digest."""
     tmp = path + ".tmp"
     with zipfile.ZipFile(path) as src, zipfile.ZipFile(tmp, "w", zipfile.ZIP_DEFLATED) as dst:
         for item in src.infolist():
             data = (APP_XML % (slides, slides)).encode("utf-8") if item.filename == "docProps/app.xml" \
                 else src.read(item.filename)
-            dst.writestr(item, data)
+            fixed = zipfile.ZipInfo(item.filename, date_time=ZIP_DATE)
+            fixed.compress_type, fixed.external_attr = zipfile.ZIP_DEFLATED, 0o644 << 16
+            dst.writestr(fixed, data)
     os.replace(tmp, path)
 
 
@@ -878,6 +905,27 @@ def build(venue: str, out: str, record: str = RECORD, figures: Optional[str] = N
     return out
 
 
+def to_pdf(pptx: str) -> str:
+    """A LibreOffice preview of the deck beside it. LibreOffice shows each equation's picture, not its
+    Office Math, and stamps the PDF with the time it ran, so the PDF is a preview to read and the .pptx
+    is the record. A fresh user profile keeps a running LibreOffice, or a first start, from hanging."""
+    soffice = shutil.which("soffice") or shutil.which("libreoffice")
+    if not soffice:
+        raise SystemExit("--pdf needs LibreOffice (soffice) on the PATH")
+    profile = tempfile.mkdtemp(prefix="exact_slides_lo_")
+    try:
+        subprocess.run([soffice, "-env:UserInstallation=file://" + profile, "--headless", "--convert-to", "pdf",
+                        "--outdir", os.path.dirname(os.path.abspath(pptx)), pptx],
+                       check=True, timeout=600, env=dict(os.environ, SAL_USE_VCLPLUGIN="svp"),
+                       stdout=subprocess.DEVNULL)
+    finally:
+        shutil.rmtree(profile, ignore_errors=True)
+    pdf = os.path.splitext(pptx)[0] + ".pdf"
+    if not os.path.exists(pdf):
+        raise SystemExit("LibreOffice wrote no PDF for %s" % pptx)
+    return pdf
+
+
 def main(argv: Optional[List[str]] = None) -> int:
     ap = argparse.ArgumentParser(description=__doc__.split("\n")[0])
     ap.add_argument("--venue", choices=("neurips", "cns", "both"), default="both")
@@ -889,10 +937,15 @@ def main(argv: Optional[List[str]] = None) -> int:
     ap.add_argument("--public", action="store_true",
                     help="leave out the footer's confidentiality marking; for use only after the provisional is filed "
                          "and the TTO has read the deck")
+    ap.add_argument("--pdf", action="store_true",
+                    help="also write a LibreOffice preview of each deck as PDF beside it (equations as pictures)")
     a = ap.parse_args(argv)
     for v in (("neurips", "cns") if a.venue == "both" else (a.venue,)):
-        print("wrote", build(v, os.path.join(a.outdir, "exact_slides_%s.pptx" % v), a.record, a.figures, a.refresh,
-                             public=a.public))
+        out = build(v, os.path.join(a.outdir, "exact_slides_%s.pptx" % v), a.record, a.figures, a.refresh,
+                    public=a.public)
+        print("wrote", out)
+        if a.pdf:
+            print("wrote", to_pdf(out))
     return 0
 
 

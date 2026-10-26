@@ -3,9 +3,9 @@
 Built with `python run.py exact-slide-figures --json ../records/exact-2026-10-26/exact.json --outdir ../records/exact-2026-10-26/slide-figures`, which writes this set into its `cns/` folder.
 
 - Run: `../records/exact-2026-10-26/exact.json`, sha256 b3438f9082cb732b15f0dfa97a722f48877fade5909d691cd8f7266891f754c7; scoring seed 97; 2000 columns; synth {"noise_mm": 1.0, "rho": 0.5, "scale_sd": 0.07}; 161 Gauss-Hermite nodes.
-- The posterior panel scores the record's scoring columns again for the fields centred on T12; its share named exactly at each width equals the record's `by_centre` rate, checked before it draws; the column drawn is scoring column 1476, the one with the least summed distance of its rank from the median rank of the posterior at T12 over one, three and nine bodies.
+- The posterior panel scores the record's scoring columns again for the fields centred on T12; its shares named exactly, answered at 0.99 and right at 0.99 at each width equal the record's `by_centre` rates, checked before it draws; the column drawn is scoring column 1476, the one with the least summed distance of its rank from the median rank of the posterior at T12 over one, three and nine bodies.
 - Reference table: `bordercall/reference/panjabi_full_spine.csv`, sha256 6b51079dbe60b6ec336a85f73c2c11a174fdc2abce4d5d398d405b814edc853c.
-- Code: `bordercall/exact_slide_figures.py`, sha256 42537955b2b97b5a055fdb930185332b46f0d9c83161b8222435d3adca7dcab8.
+- Code: `bordercall/exact_slide_figures.py`, sha256 70162828c2dce67e18817dd638f25d5e58d91e58510c209400595a29d0ad3c7f.
 - Code: `bordercall/exact_figures.py`, sha256 44e2676650cd246c94ab370c9813eb4173ec6ae0100cea40f31dc6b953e223ac.
 - Code: `bordercall/exact.py`, sha256 022b73c36011dcd01368b06aaffabde983cf79754947ab92eb888e255948b260.
 - Code: `bordercall/neighbour.py`, sha256 e527384fbfc0b367bda12433fe3f0f2f5cd7bcb9027ea8517d2177d7b0c537d1.

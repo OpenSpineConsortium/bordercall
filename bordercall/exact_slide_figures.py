@@ -357,11 +357,12 @@ def fig_measures(d: dict, outdir: str, venue: str) -> List[str]:
 
 def centred_posteriors(d: dict) -> Dict[int, np.ndarray]:
     """The exact rule's posterior over the middle body's level, (columns, 22), for the record's
-    scoring columns' fields centred on CENTRE, at each width shown; refuses a mismatch with the
-    record's own rate."""
+    scoring columns' fields centred on CENTRE, at each width shown; refuses a record scored with other
+    settings, or any mismatch with its own rates for these fields (named, answered and right at 0.99)."""
     measures = list(d["measures"])
     synth = {k: d["synth"][k] for k in ("rho", "noise_mm", "scale_sd")}
-    if any(abs(NB.SYNTH[k] - synth[k]) > 1e-12 for k in synth) or int(d["score_seed"]) != int(E.SCORE_SEED):
+    if (any(abs(NB.SYNTH[k] - synth[k]) > 1e-12 for k in synth) or int(d["score_seed"]) != int(E.SCORE_SEED)
+            or int(d["gh_nodes"]) != int(E.GH_NODES) or measures != list(E.MEASURES7)):
         raise ValueError("the record was scored with other settings than the generator's defaults")
     ref = P.load_reference(measures=measures)
     cols = NB.draw_columns(ref, ["typical"], int(d["score_seed"]), int(d["n_columns"]), measures)
@@ -373,10 +374,14 @@ def centred_posteriors(d: dict) -> Dict[int, np.ndarray]:
         start = centre - E.target_offset(n)
         X = V[:, :, start:start + n]
         post = np.concatenate([E.chunked_posterior(X[i:i + 200], mu, sd, synth, n) for i in range(0, len(X), 200)])
-        exact = float(np.mean(post.argmax(1) == start))
-        recorded = d["widths"][str(n)]["regimes"]["both"]["by_centre"][CENTRE]["exact"]
-        if abs(exact - recorded) > 1e-12:
-            raise ValueError("%d bodies: named exactly %.6f here, %.6f in the record" % (n, exact, recorded))
+        hit, sure = post.argmax(1) == start, post.max(1) >= 0.99
+        here = {"exact": float(hit.mean()), "answered_099": float(sure.mean()),
+                "precision_099": float(hit[sure].mean()) if sure.any() else float("nan")}
+        recorded = d["widths"][str(n)]["regimes"]["both"]["by_centre"][CENTRE]
+        for key, value in here.items():
+            same = (np.isnan(value) and np.isnan(recorded[key])) or abs(value - recorded[key]) <= 1e-12
+            if not same:
+                raise ValueError("%d bodies: %s %.6f here, %.6f in the record" % (n, key, value, recorded[key]))
         out[n] = E.target_posterior(post, n)
     return out
 
@@ -655,8 +660,8 @@ def write_record(outdir: str, json_path: str, d: dict, written: List[str], colum
              % (json_path, JF.sha256(json_path), d["score_seed"], d["n_columns"],
                 json.dumps(d["synth"], sort_keys=True), d["gh_nodes"]),
              "- The posterior panel scores the record's scoring columns again for the fields centred on %s; "
-             "its share named exactly at each width equals the record's `by_centre` rate, checked before it "
-             "draws; the column drawn is scoring column %d, the one with the least summed distance of its rank "
+             "its shares named exactly, answered at 0.99 and right at 0.99 at each width equal the record's "
+             "`by_centre` rates, checked before it draws; the column drawn is scoring column %d, the one with the least summed distance of its rank "
              "from the median rank of the posterior at %s over one, three and nine bodies."
              % (CENTRE, column, CENTRE),
              "- Reference table: `bordercall/reference/panjabi_full_spine.csv`, sha256 %s." % JF.sha256(P.DEFAULT_REFERENCE)]

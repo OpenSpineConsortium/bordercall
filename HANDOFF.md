@@ -464,9 +464,12 @@ builds `slides/exact/exact_slides_neurips.pptx` on a plain 16:9 deck, with the m
 `exact_slides_cns.pptx` on the CNS template the junction deck carries, results only, with speaker
 notes written for each venue. The NeurIPS equations are native Office Math set by pandoc, kept as
 `slides/exact/equations/*.omml.xml` so a build needs no pandoc, and every constant in them is read
-from the record. Murphy's pyprobml repository was outside this session's GitHub access, so its
-conventions (prior, likelihood and posterior as stacked panels, the posterior in one colour, the
-notation p(k | x_{1:n})) were followed from the book.
+from the record; a build into another folder writes any new equation there and never into the
+committed cache. Each deck is the same bytes from build to build (one fixed date on every zip
+entry, the equation pictures drawn from matplotlib's defaults), and `--pdf` adds the LibreOffice
+previews committed beside them. Murphy's pyprobml repository was outside this session's GitHub
+access, so its conventions (prior, likelihood and posterior as stacked panels, the posterior in
+one colour, the notation p(k | x_{1:n})) were followed from the book.
 
 Both decks carry "Confidential: pre-filing draft, not for distribution" in every footer until they
 are built with `--public`, which is for use only after the provisional is filed and the TTO has

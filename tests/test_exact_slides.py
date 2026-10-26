@@ -3,10 +3,12 @@ byte as delivered, each panel at the inches its venue's deck gives it; the two d
 slides each in which every figure, word and equation is an element of its own; the NeurIPS deck
 with every equation as native Office Math beside its picture and its LaTeX; the CNS deck results
 only, with no equation and no method word anywhere in the saved file, and a build that refuses one;
-the confidentiality marking until --public; the file's properties the speaker's; and the numbers
-on the slides the record's."""
+the confidentiality marking until --public; the file's properties the speaker's; the numbers on
+the slides the record's; each deck rebuilt byte for byte as committed, its equation cache current
+and never written by a build into another folder, and its plain mathematics upright."""
 import json
 import os
+import re
 import shutil
 import sys
 import tempfile
@@ -61,6 +63,19 @@ class ExactSlideFigures(unittest.TestCase):
                             open(os.path.join(DELIVERED[venue], f), "rb") as gh:
                         self.assertEqual(fh.read(), gh.read(), (venue, f))
 
+    def test_the_posterior_panel_refuses_a_record_it_does_not_reproduce(self):
+        import copy
+        with open(os.path.join(RECORD, "exact.json")) as fh:
+            d = json.load(fh)
+        other = copy.deepcopy(d)
+        other["gh_nodes"] = 81
+        with self.assertRaises(ValueError):
+            self.F.centred_posteriors(other)
+        other = copy.deepcopy(d)
+        other["widths"]["1"]["regimes"]["both"]["by_centre"][self.F.CENTRE]["answered_099"] += 0.001
+        with self.assertRaisesRegex(ValueError, "answered_099"):
+            self.F.centred_posteriors(other)
+
     def test_each_panel_is_drawn_at_the_inches_its_deck_gives_it(self):
         from PIL import Image
         for venue in self.F.VENUES:
@@ -91,6 +106,13 @@ class ExactSlideFigures(unittest.TestCase):
             with open(os.path.join(self.built(venue), "FIGURES.md"), encoding="utf-8") as fh:
                 text = fh.read()
             self.assertIn(self.F.JF.sha256(os.path.join(RECORD, "exact.json")), text)
+            self.assertIn(self.F.JF.sha256(os.path.join(ROOT, "bordercall", "exact_slide_figures.py")), text)
+            # The committed record names the code as it now stands.
+            with open(os.path.join(DELIVERED[venue], "FIGURES.md"), encoding="utf-8") as fh:
+                named = re.findall(r"- Code: `([^`]+)`, sha256 ([0-9a-f]{64})", fh.read())
+            self.assertIn("bordercall/exact_slide_figures.py", dict(named))
+            for path, digest in named:
+                self.assertEqual(self.F.JF.sha256(os.path.join(ROOT, path)), digest, (venue, path))
             for name in self.F.SIZES[venue]:
                 self.assertIn("`%s.csv`" % name, text)
 
@@ -152,6 +174,30 @@ class ExactSlides(unittest.TestCase):
         self.assertEqual(seen, set(self.EQ))
         self.assertIn("covariance", seen)
         self.assertIn("estimate", seen)
+
+    def test_each_deck_is_rebuilt_byte_for_byte_as_committed(self):
+        import hashlib
+        for venue, path in self.decks.items():
+            with open(path, "rb") as fh, open(os.path.join(ROOT, "slides", "exact", os.path.basename(path)), "rb") as gh:
+                self.assertEqual(hashlib.sha256(fh.read()).hexdigest(), hashlib.sha256(gh.read()).hexdigest(), venue)
+
+    def test_the_committed_equation_cache_is_current_and_a_build_elsewhere_writes_none(self):
+        from lxml import etree
+        for name, tex in self.EQ.items():
+            root = etree.parse(os.path.join(self.S.EQDIR, name + ".omml.xml")).getroot()
+            self.assertEqual(root.get("tex"), tex, name)
+            self.assertFalse(os.path.exists(os.path.join(self.eqdir, name + ".omml.xml")), name)
+
+    def test_plain_math_runs_are_upright_and_letters_italic(self):
+        upright = italic = 0
+        for root in self.slides("neurips"):
+            for run in root.iter("{%s}r" % NS["m"]):
+                rpr = run.find("a:rPr", NS)
+                plain = self.S.upright(run)
+                self.assertEqual(rpr.get("i"), "0" if plain else "1")
+                upright, italic = upright + plain, italic + (not plain)
+        self.assertGreater(upright, 0)
+        self.assertGreater(italic, 0)
 
     def test_the_equations_take_their_constants_from_the_record(self):
         d = self.N.d
