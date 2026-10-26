@@ -140,27 +140,58 @@ audience has read for thirty years. Anomalous classes are points rather than vio
 `--violin-min` (40), because a violin over fourteen cases draws a density through almost
 nothing. `--scale 1.3` for a poster.
 
-## The reference table
+## The reference table and the papers
 
-`bordercall/reference/panjabi_full_spine.csv`, used by default: 108 rows over **C2–C7, T1–T12
-and L1–L5** for end-plate width, posterior body height, canal width, canal depth and pedicle
-width, from
+`bordercall/reference/panjabi_full_spine.csv`, used by default: **296 rows over C2-C7,
+T1-T12 and L1-L5**, every linear dimension of the body, canal and pedicle tables of all three
+papers. The PDFs themselves are in `bordercall/reference/papers/`, with a README naming which
+table and page each value came from.
 
-- Panjabi et al., *Cervical human vertebrae*, Spine 1991;16(8):861–869, Tables 2–4
-- Panjabi et al., *Thoracic human vertebrae*, Spine 1991;16(8):888–901, Tables 3–5
-- Panjabi et al., *Human lumbar vertebrae*, Spine 1992;17(3):299–306
+| Measure | Panjabi | Levels |
+|---|---|---|
+| `endplate`, `endplate_depth` | EPWu, EPDu | C3-L5 |
+| `endplate_lower`, `endplate_lower_depth` | EPWl, EPDl | C2-L5 |
+| `h_post` | VBHp | C3-L5 |
+| `canal_w`, `canal_ap` | SCW, SCD | C2-L5 |
+| `pedicle`, `pedicle_h` (and `_left` / `_right`) | PDW, PDH | C2-L5 |
+
+Rebuild with `python reference/build_panjabi.py`. It carries two checks and fails on either:
+T11/T12 against an earlier independent transcription, and the pedicle means against the
+lumbar paper's own prose ("the width was initially 8.6 mm at L1, then decreased to 8.2 at
+L2"). That second check caught a real error in the inherited data: `h_post` L1 carried a
+standard error of 0.92, which is `canal_w` L1's, one table away. The table reads 1.03.
 
 Both 1991 papers are scans with **no text layer**, so every value was read from rendered page
-images; automatic text extraction of the thoracic canal table interleaves rows and columns and
-must not be parsed. `build_panjabi.py` re-checks its own T11/T12 against an earlier
-independent transcription and fails on a disagreement.
+images; automatic text extraction of the thoracic canal table interleaves rows and columns
+and must not be parsed.
 
-Dispersion is always the **standard error** as printed; the population SD is `sem*sqrt(12)`.
-Drawing the SEM as if it were an SD gives an interval 3.5× too narrow. C2 has no upper
-end-plate row — the dens occupies it — so `endplate` and `h_post` start at C3.
+Dispersion is always the **standard error**; the population SD is `sem*sqrt(12)`. Drawing the
+SEM as an SD gives an interval 3.5x too narrow. C2 has no upper end-plate row -- the dens
+occupies it -- so `endplate`, `endplate_depth` and `h_post` start at C3. There is **no
+anterior body height** in these papers.
 
 Supply your own with `--reference FILE`, columns `measure, level, mean, sem, n` (or `sd`).
 `--no-reference` draws none.
+
+## Taking these measurements on a SPINEPS segmentation
+
+`bordercall/SPINEPS_MAPPING.md` and `bordercall/spineps_map.py`.
+
+```bash
+python spineps_map.py --table                                  # the mapping, then stop
+python spineps_map.py --subregion sub.nii.gz --instance inst.nii.gz --out measures.csv
+```
+
+With VERIDAH labelling, SPINEPS's instance identifiers **already are** the VerSe-native
+scheme this package uses -- 1 C1, 2-7 C2-C7, 8-19 T1-T12, 28 T13, 20-25 L1-L6, 26 sacrum --
+so no remapping is needed. Without VERIDAH the instance labels are arbitrary indices and mean
+nothing anatomically.
+
+Six of Panjabi's structures have their own SPINEPS subregion label and are measured as
+geometric extents. **The pedicle does not.** SPINEPS labels the whole posterior arch as 41
+`Arcus_Vertebrae` and never isolates the pedicle, so PDW and PDH are **refused** rather than
+approximated: an extent of 41 is not a pedicle width, and returning one would be a finite,
+plausible, wrong number. The mapping doc names the two honest ways to get it.
 
 ## Traps
 
