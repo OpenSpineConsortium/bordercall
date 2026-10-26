@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<equation tex="p(k \mid x_{1:n}) = \dfrac{p(x_{1:n} \mid k)\, p(k)}{\sum_{k'=1}^{23-n} p(x_{1:n} \mid k')\, p(k')}">
+<equation tex="p(k \mid x_{1:n}) = \dfrac{p(x_{1:n} \mid k)\, p(k)}{\sum_{k'}\; p(x_{1:n} \mid k')\, p(k')}">
   <m:oMathPara xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math">
     <m:oMathParaPr>
       <m:jc m:val="center"/>
@@ -128,7 +128,7 @@
               <m:chr m:val="∑"/>
               <m:limLoc m:val="undOvr"/>
               <m:subHide m:val="off"/>
-              <m:supHide m:val="off"/>
+              <m:supHide m:val="on"/>
             </m:naryPr>
             <m:sub>
               <m:r>
@@ -140,36 +140,21 @@
                 </m:rPr>
                 <m:t>′</m:t>
               </m:r>
-              <m:r>
-                <m:rPr>
-                  <m:sty m:val="p"/>
-                </m:rPr>
-                <m:t>=</m:t>
-              </m:r>
-              <m:r>
-                <m:t>1</m:t>
-              </m:r>
             </m:sub>
             <m:sup>
               <m:r>
-                <m:t>23</m:t>
-              </m:r>
-              <m:r>
-                <m:rPr>
-                  <m:sty m:val="p"/>
-                </m:rPr>
-                <m:t>−</m:t>
-              </m:r>
-              <m:r>
-                <m:t>n</m:t>
+                <m:t>​</m:t>
               </m:r>
             </m:sup>
             <m:e>
               <m:r>
-                <m:t>p</m:t>
+                <m:t> </m:t>
               </m:r>
             </m:e>
           </m:nary>
+          <m:r>
+            <m:t>p</m:t>
+          </m:r>
           <m:d>
             <m:dPr>
               <m:begChr m:val="("/>

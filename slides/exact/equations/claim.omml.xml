@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<equation tex="\Pr(\ell \geq c \mid x_{1:n}) = \sum_{j \geq c} p(\ell = j \mid x_{1:n}) \geq 0.99">
+<equation tex="\Pr(\ell \geq c \mid x_{1:n}) = \sum_{k:\, \ell \geq c} p(k \mid x_{1:n})">
   <m:oMathPara xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math">
     <m:oMathParaPr>
       <m:jc m:val="center"/>
@@ -78,7 +78,22 @@
         </m:naryPr>
         <m:sub>
           <m:r>
-            <m:t>j</m:t>
+            <m:t>k</m:t>
+          </m:r>
+          <m:r>
+            <m:rPr>
+              <m:sty m:val="p"/>
+            </m:rPr>
+            <m:t>:</m:t>
+          </m:r>
+          <m:r>
+            <m:t> </m:t>
+          </m:r>
+          <m:r>
+            <m:rPr>
+              <m:sty m:val="p"/>
+            </m:rPr>
+            <m:t>ℓ</m:t>
           </m:r>
           <m:r>
             <m:rPr>
@@ -110,19 +125,7 @@
         </m:dPr>
         <m:e>
           <m:r>
-            <m:rPr>
-              <m:sty m:val="p"/>
-            </m:rPr>
-            <m:t>ℓ</m:t>
-          </m:r>
-          <m:r>
-            <m:rPr>
-              <m:sty m:val="p"/>
-            </m:rPr>
-            <m:t>=</m:t>
-          </m:r>
-          <m:r>
-            <m:t>j</m:t>
+            <m:t>k</m:t>
           </m:r>
           <m:r>
             <m:rPr>
@@ -153,15 +156,6 @@
           </m:sSub>
         </m:e>
       </m:d>
-      <m:r>
-        <m:rPr>
-          <m:sty m:val="p"/>
-        </m:rPr>
-        <m:t>≥</m:t>
-      </m:r>
-      <m:r>
-        <m:t>0.99</m:t>
-      </m:r>
     </m:oMath>
   </m:oMathPara>
 </equation>

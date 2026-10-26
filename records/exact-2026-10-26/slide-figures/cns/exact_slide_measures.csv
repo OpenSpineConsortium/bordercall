@@ -1,0 +1,8 @@
+measure,name,planes
+endplate,upper end-plate width,ap
+endplate_depth,upper end-plate depth,lateral
+endplate_lower,lower end-plate width,ap
+endplate_lower_depth,lower end-plate depth,lateral
+h_post,posterior body height,ap+lateral
+canal_w,canal width,ap
+canal_ap,canal depth,lateral

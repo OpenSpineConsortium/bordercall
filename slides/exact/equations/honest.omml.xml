@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<equation tex="\tilde{\sigma}_{m,\ell} = \sigma_{m,\ell}\sqrt{1 + 1/12},\qquad \sigma_{\mathrm{error}} = 2\ \mathrm{mm}">
+<equation tex="\tilde{\sigma}_{m,\ell} = \sigma_{m,\ell}\sqrt{1 + 1/12},\qquad \sigma_{\mathrm{err}} = 2\ \mathrm{mm}">
   <m:oMathPara xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math">
     <m:oMathParaPr>
       <m:jc m:val="center"/>
@@ -122,18 +122,6 @@
               <m:sty m:val="p"/>
             </m:rPr>
             <m:t>r</m:t>
-          </m:r>
-          <m:r>
-            <m:rPr>
-              <m:sty m:val="p"/>
-            </m:rPr>
-            <m:t>r</m:t>
-          </m:r>
-          <m:r>
-            <m:rPr>
-              <m:sty m:val="p"/>
-            </m:rPr>
-            <m:t>o</m:t>
           </m:r>
           <m:r>
             <m:rPr>

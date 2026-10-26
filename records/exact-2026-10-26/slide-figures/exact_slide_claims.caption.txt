@@ -1,1 +1,1 @@
-What a field says for certain about its middle body: at each border, the share of fields whose middle body lies within two levels of it that say which side at probability 0.99, by bodies in view, both planes. 2000 synthetic columns.
+What a field says for certain about its middle body: at each border, the share of fields whose middle body lies within two levels of it that say which side at probability 0.99, by bodies in view, both planes. 2,000 synthetic columns.

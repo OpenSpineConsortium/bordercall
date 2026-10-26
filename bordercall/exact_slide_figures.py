@@ -3,6 +3,8 @@
     python run.py exact-slide-figures --json ../records/exact-2026-10-26/exact.json \
         --outdir ../records/exact-2026-10-26/slide-figures
 
+writes the NeurIPS set into `--outdir` and the CNS set into `--outdir`/cns (`--venue` builds one).
+
 The owner's ask of 2026-10-26 20:45 UTC: figures and five slides, styled like Benzel but with
 inspiration from Kevin Murphy's chapter on Bayes' rule (Probabilistic Machine Learning: An
 Introduction, 2022), ready for a Congress of Neurological Surgeons talk or a NeurIPS oral.
@@ -16,18 +18,20 @@ figure reads the same printed in black. A run of widths is one hue from light to
 three and nine bodies). The type is Caladea where it is installed, the face PowerPoint's Cambria
 is measured from, so a figure's type matches the slide's.
 
-Each panel is its own file, drawn at the size it takes on the slide (inches, below), so the
-deck places it with no scaling of its type, and a person editing the deck moves or swaps one
-panel without touching the others. Every panel is written as junction_figures.py writes: PDF
-with no date inside, PNG at 300 dpi, the CSV of the numbers drawn and a caption under sixty
-words; FIGURES.md records the run and the code by sha256.
+Each panel is its own file, drawn at the exact size it takes on its venue's slide (inches,
+SIZES), so the deck places it with no scaling of its type, and a person editing the deck moves
+or swaps one panel without touching the others. The two venues differ in what a panel says as
+well as its size: the CNS talk shows results and not methods, so its panels and captions name
+no rule, no posterior and no generator, and it has no calibration panel. Every panel is written
+as junction_figures.py writes: PDF with no date inside, PNG at 300 dpi, the CSV of the numbers
+drawn and a caption under sixty words; FIGURES.md records the run and the code by sha256.
 
   exact_slide_view        the column C3 to L5, three bodies in view and the rest unseen
   exact_slide_measures    the seven measures on a vertebra, AP and lateral, schematic
   exact_slide_posterior   the prior and the posterior over the middle body's level, one, three
                           and nine bodies, for the scoring column a stated rule picks
   exact_slide_ceiling     share named exactly, and named at posterior 0.99, by bodies in view
-  exact_slide_calibration error the posterior predicts against error counted
+  exact_slide_calibration error the posterior predicts against error counted (NeurIPS only)
   exact_slide_claims      the column beside the share of fields that say which side of each
                           border their middle body is on, at 0.99
   exact_slide_robust      the name's precision at 0.99 and the share named, when the rule's
@@ -36,8 +40,10 @@ words; FIGURES.md records the run and the code by sha256.
 The posterior panel is the one panel not read from the record: it scores the record's own
 scoring columns again (the same seed, table and settings) for the fields centred on T12, and
 refuses to draw unless the share it names exactly at each width equals the record's
-`by_centre` rate for T12, so the panel and the record cannot disagree. Every number is about
-synthetic columns drawn from Panjabi's tables, never a patient.
+`by_centre` rate for T12, so the panel and the record cannot disagree. The column it draws is
+the one whose posterior at T12 lies nearest the median at all three widths together (least
+summed rank distance from each width's median), a rule stated before looking. Every number is
+about synthetic columns drawn from Panjabi's tables, never a patient.
 """
 from __future__ import annotations
 
@@ -59,8 +65,8 @@ import panjabi as P                                                 # noqa: E402
 
 INK = JF.INK
 BLUE = "#1B4F8C"                    # the posterior and the exact rule
-GREY = "#7F7F7F"                    # the prior and anything set beside the rule for reference
-FAINT = "#BDBDBD"                   # what is not in view
+GREY = "#595959"                    # the prior and anything set beside the rule; the deck's text grey
+FAINT = "#BDBDBD"                   # the outline of a body not in view
 WIDTH_BLUE = {1: "#6B95CC", 3: "#4A78B5", 9: BLUE}      # one hue, light to dark
 WIDTH_MARK = {1: dict(linestyle=":", marker="^", markerfacecolor="white"),
               3: dict(linestyle="--", marker="s", markerfacecolor="white"),
@@ -69,71 +75,128 @@ FACE = ["Caladea"] + JF.SERIF
 SHOWN = (1, 3, 9)
 CENTRE = "T12"                      # the level the posterior panel's fields are centred on
 VIEW = 3                            # bodies in view in the column drawing
-WORLDS = [("none", "Generator as assumed"), ("table_specimens", "Table from twelve spines"),
-          ("table_levels", "Data from a redrawn table"), ("combined", "Twelve-spine table, r 0.4, 1.5 mm"),
-          ("noise_mm=2", "Measurement error 2 mm"), ("noise_mm=3", "Measurement error 3 mm")]
-ROBUST_RULES = {"nominal": ("Printed table", dict(marker="s", markerfacecolor="white"), GREY),
-                "honest": ("Spreads widened, 2 mm error", dict(marker="o"), BLUE)}
-SIZES = {"exact_slide_view": (2.3, 5.3), "exact_slide_measures": (3.8, 5.1),
-         "exact_slide_posterior": (6.3, 5.25), "exact_slide_ceiling": (5.6, 4.15),
-         "exact_slide_calibration": (3.65, 3.6), "exact_slide_claims": (5.45, 5.3),
-         "exact_slide_robust": (7.4, 4.0)}
+TICKED = ("C3", "C7", "T4", "T8", "T12", "L5")          # the levels named under the posterior rows
+VENUES = ("neurips", "cns")
+CNS_SCALE = 11.10 / 12.13           # the CNS template's content box against the plain deck's
 
-CAPTIONS = {
-    "exact_slide_view":
-        "A field of view: three consecutive vertebral bodies seen, the rest of the column unseen, "
-        "and no C2 or sacrum to count from. Bodies drawn to Panjabi's mean upper end-plate width, "
-        "canal width hatched, C3 to L5, the tables' range.",
-    "exact_slide_measures":
-        "The seven measures each body gives, schematic and not to scale: the AP plane shows the "
-        "upper and lower end-plate widths and the canal width, the lateral plane the two end-plate "
-        "depths, the canal depth and the posterior body height, which both planes show.",
-    "exact_slide_posterior":
-        "Bayes' rule over every place. Top, the prior over the middle body's level; below, its "
-        "posterior from one, three and nine bodies centred on T12, for the scoring column whose "
-        "three-body posterior at T12 is the median of %d. Uniform prior, so the posterior is the "
-        "normalised likelihood. Synthetic columns.",
-    "exact_slide_ceiling":
-        "Share of fields named exactly by the exact rule (solid) and named at posterior 0.99 "
-        "(dashed), both planes, by consecutive bodies in view; crosses, a linear classifier fitted "
-        "on other synthetic columns, scored on the first 1,000. %d synthetic columns.",
-    "exact_slide_calibration":
-        "The posterior is the chance of being right: error the posterior predicts against error "
-        "counted, by posterior bin, one, three and nine bodies, both planes; dotted, exact "
-        "agreement; a bin with no error counted sits on the floor. %d synthetic columns.",
-    "exact_slide_claims":
-        "What a field says for certain about its middle body: at each border, the share of fields "
-        "whose middle body lies within two levels of it that say which side at probability 0.99, "
-        "by bodies in view, both planes. %d synthetic columns.",
-    "exact_slide_robust":
-        "When the table or error model is wrong, three bodies, both planes: the name's precision "
-        "at posterior 0.99 (A) and the share named (B), for the printed table and for spreads "
-        "widened by the root of 13/12 with 2 mm error. Bars, two standard errors; dotted, 99 per "
-        "cent.",
-}
+NEURIPS_SIZES = {"exact_slide_view": (2.3, 5.3), "exact_slide_measures": (3.8, 5.1),
+                 "exact_slide_posterior": (6.3, 5.25), "exact_slide_ceiling": (5.6, 4.15),
+                 "exact_slide_calibration": (3.65, 3.6), "exact_slide_claims": (5.45, 5.3),
+                 "exact_slide_robust": (7.4, 4.0)}
+SIZES = {"neurips": NEURIPS_SIZES,
+         "cns": {k: (round(w * CNS_SCALE, 2), round(h * CNS_SCALE, 2)) for k, (w, h) in NEURIPS_SIZES.items()
+                 if k != "exact_slide_calibration"}}
+SIZES["cns"]["exact_slide_ceiling"] = (6.9, 4.7)        # the CNS slide 3 drops the calibration panel
+
+# What a CNS panel says in place of a method word.
+SURE = {"neurips": "posterior 0.99", "cns": "99% confidence"}
 
 
-def style():
+def world_names(d: dict, venue: str) -> List[tuple]:
+    """The robustness worlds drawn, by record key, with each venue's label; the combined world's
+    settings are read from the record."""
+    com = d["robust"]["combined"]
+    combined = ("Twelve-spine table, measures\ncorrelated %g, %g mm error" % (com["r_between"], com["noise_mm"])
+                if venue == "neurips" else "Twelve-spine table\nand more error")
+    return [("none", "Generator as assumed" if venue == "neurips" else "Anatomy as the tables say"),
+            ("table_specimens", "Table from twelve spines"), ("table_levels", "Data from a redrawn table"),
+            ("combined", combined), ("noise_mm=2", "Measurement error 2 mm"), ("noise_mm=3", "Measurement error 3 mm")]
+
+
+def robust_rules(d: dict, venue: str) -> Dict[str, tuple]:
+    """The rule in its blue with filled circles, as on the other slides; the corrected rule in ink,
+    open diamonds."""
+    h = d["robust"]["rules"]["honest"]
+    corrected = "Spreads widened, %g mm error" % h["noise_mm"] if venue == "neurips" else "Corrected rule"
+    return {"nominal": ("Printed table", dict(marker="o"), BLUE),
+            "honest": (corrected, dict(marker="D", markerfacecolor="white"), INK)}
+
+
+def captions(d: dict, venue: str) -> Dict[str, str]:
+    n_col = "{:,}".format(d["n_columns"])
+    rob, h, com = d["robust"], d["robust"]["rules"]["honest"], d["robust"]["combined"]
+    common = {
+        "exact_slide_view":
+            "A field of view: three consecutive vertebral bodies seen, the rest of the column unseen, "
+            "and no C2 or sacrum to count from. Bodies drawn to Panjabi's mean upper end-plate width, "
+            "C3 to L5, the tables' range.",
+        "exact_slide_measures":
+            "The seven measures each body gives, schematic and not to scale: the AP plane shows the "
+            "upper and lower end-plate widths and the canal width, the lateral plane the two end-plate "
+            "depths, the canal depth and the posterior body height, which both planes show.",
+    }
+    if venue == "cns":
+        return dict(common, **{
+            "exact_slide_posterior":
+                "Probability of each level for the middle body, every level equally likely before "
+                "looking, then from one, three and nine bodies centred on T12, for the synthetic column "
+                "nearest the median of %s at all three widths." % n_col,
+            "exact_slide_ceiling":
+                "Share of fields named exactly (solid) and named at 99%% confidence (dashed), both "
+                "planes, by consecutive bodies in view; crosses, a linear classifier fitted on other "
+                "synthetic columns, scored on the first 1,000. %s synthetic columns." % n_col,
+            "exact_slide_claims":
+                "What a field says for certain about its middle body: at each border, the share of fields "
+                "whose middle body lies within two levels of it that say which side at 99%% confidence, "
+                "by bodies in view, both planes. %s synthetic columns." % n_col,
+            "exact_slide_robust":
+                "When the anatomy table or the measurement error is wrong, three bodies, both planes: how "
+                "often a name given at 99% confidence is right (A) and the share named (B), printed table "
+                "and a corrected rule, on separate synthetic columns. Bars, two standard errors; dotted, 99 "
+                "per cent.",
+        })
+    return dict(common, **{
+        "exact_slide_posterior":
+            "Bayes' rule over every place. Top, the prior over the middle body's level for one body (for "
+            "n bodies, uniform over the 23 - n places); below, its posterior from one, three and nine "
+            "bodies centred on T12, for the scoring column nearest the median of %s at all three widths. "
+            "Uniform prior, so the posterior is the normalised likelihood." % n_col,
+        "exact_slide_ceiling":
+            "Share of fields named exactly by the exact rule (solid) and named at posterior 0.99 "
+            "(dashed), both planes, by consecutive bodies in view; crosses, a linear classifier fitted "
+            "on other synthetic columns, scored on the first 1,000. %s synthetic columns." % n_col,
+        "exact_slide_calibration":
+            "The posterior is the chance of being right: error the posterior predicts against error "
+            "counted, by posterior bin, one, three and nine bodies, both planes; dotted, exact "
+            "agreement; a bin with no error counted sits on the floor. %s synthetic columns." % n_col,
+        "exact_slide_claims":
+            "What a field says for certain about its middle body: at each border, the share of fields "
+            "whose middle body lies within two levels of it that say which side at probability 0.99, "
+            "by bodies in view, both planes. %s synthetic columns." % n_col,
+        "exact_slide_robust":
+            "Three bodies, when the table or error model is wrong: precision at posterior 0.99 (A) and "
+            "share named (B), printed table and spreads widened by the root of "
+            "1 + 1/%d with %g mm error (chosen on a pilot); combined, measures correlated %g. Separate "
+            "columns: %d per error world, %d x %d per table world. Bars, two SE."
+            % (h["table_n"], h["noise_mm"], com["r_between"], rob["misspecified_columns"],
+               rob["worlds"], rob["columns_per_world"]),
+    })
+
+
+def style(venue: str = "neurips"):
     """junction_figures' ink style at slide size: larger type, the slide's serif, Computer Modern
-    for mathematics as the equations on the slides are set."""
+    for mathematics as the equations on the slides are set. The CNS hall is larger, so its type is
+    a step larger again."""
     plt = JF.style()
+    big = venue == "cns"
     plt.rcParams.update({
-        "font.serif": FACE, "font.size": 13, "axes.labelsize": 13, "axes.titlesize": 13,
-        "xtick.labelsize": 12, "ytick.labelsize": 12, "legend.fontsize": 11.5, "mathtext.fontset": "cm",
+        "font.serif": FACE, "font.size": 14 if big else 13, "axes.labelsize": 14 if big else 13,
+        "axes.titlesize": 13, "xtick.labelsize": 13 if big else 12, "ytick.labelsize": 13 if big else 12,
+        "legend.fontsize": 12.5 if big else 11.5, "mathtext.fontset": "cm",
         "axes.linewidth": 0.9, "xtick.major.width": 0.9, "ytick.major.width": 0.9, "xtick.major.size": 4,
         "ytick.major.size": 4, "lines.linewidth": 1.6, "lines.markersize": 6, "lines.markeredgewidth": 1.1,
-        "errorbar.capsize": 3, "hatch.linewidth": 0.6})
+        "errorbar.capsize": 3})
     return plt
 
 
-def figure(name: str):
-    plt = style()
-    return plt, plt.figure(figsize=SIZES[name])
+def figure(name: str, venue: str):
+    plt = style(venue)
+    return plt, plt.figure(figsize=SIZES[venue][name])
 
 
-def save(fig, outdir: str, name: str, caption: str) -> List[str]:
+def save(fig, outdir: str, name: str, caption: str, venue: str) -> List[str]:
     """At the exact size the slide gives the panel: no tight bounding box, which would change it."""
-    w, h = SIZES[name]
+    w, h = SIZES[venue][name]
     fig.set_size_inches(w, h)
     paths = []
     for ext in ("pdf", "png"):
@@ -162,27 +225,25 @@ def body_label(n: int) -> str:
 
 # ---- the column as rows: one body per row, so a border is half a row ----------------------------
 
-def draw_rows(ax, ref, seen=None, labels=True, mark_seen=False):
-    """The column C3 to L5 as rows, top to bottom, each body a box of its mean upper end-plate width
-    with its canal width hatched over it, as junction_figures draws the column but one row per
-    body, so that a plot beside it can share its rows. Bodies outside `seen` are drawn faint."""
+def draw_rows(ax, ref, seen=None, labels=True, mark_seen=False, label_size=13.5):
+    """The column C3 to L5 as rows, top to bottom, each body a box of its mean upper end-plate width,
+    as junction_figures draws the column but one row per body, so that a plot beside it can share
+    its rows. A body outside `seen` keeps a faint dashed outline; every label stays legible, since
+    the outline alone says a body is out of view."""
     from matplotlib.patches import Rectangle
     levels = list(P.LEVELS)
     widest = max(ref["endplate"][lv][0] for lv in levels)
     for i, lv in enumerate(levels):
-        w, c = ref["endplate"][lv][0], ref["canal_w"][lv][0]
+        w = ref["endplate"][lv][0]
         inview = seen is None or i in seen
-        edge = INK if inview else FAINT
-        ax.add_patch(Rectangle((-w / 2, i - 0.36), w, 0.72, facecolor="white", edgecolor=edge,
-                               linewidth=1.0 if inview else 0.8, linestyle="-" if inview else (0, (3, 2))))
-        ax.add_patch(Rectangle((-c / 2, i - 0.36), c, 0.72, facecolor="none", edgecolor="none", hatch="////",
-                               hatchcolor=edge, linewidth=0.0))
+        ax.add_patch(Rectangle((-w / 2, i - 0.36), w, 0.72, facecolor="white", edgecolor=INK if inview else FAINT,
+                               linewidth=1.0 if inview else 0.9, linestyle="-" if inview else (0, (3, 2))))
         if labels:
             hidden = mark_seen and inview
             ax.text(-widest / 2 - 3, i, "?" if hidden else lv, ha="right", va="center",
-                    fontsize=12.5 if hidden else 10.5, color=BLUE if hidden else (INK if inview else FAINT),
-                    fontweight="bold" if hidden else "normal")
-    ax.set_xlim(-widest / 2 - 15, widest / 2 + 4)
+                    fontsize=label_size + 1 if hidden else label_size,
+                    color=BLUE if hidden else (INK if inview else GREY), fontweight="bold" if hidden else "normal")
+    ax.set_xlim(-widest / 2 - 17, widest / 2 + 4)
     ax.set_ylim(len(levels) - 0.4, -0.6)
     for side in ("left", "bottom", "top", "right"):
         ax.spines[side].set_visible(False)
@@ -191,9 +252,9 @@ def draw_rows(ax, ref, seen=None, labels=True, mark_seen=False):
     return widest
 
 
-def fig_view(ref, outdir: str) -> List[str]:
+def fig_view(d: dict, ref, outdir: str, venue: str) -> List[str]:
     name = "exact_slide_view"
-    plt, fig = figure(name)
+    plt, fig = figure(name, venue)
     ax = fig.add_axes([0.02, 0.03, 0.96, 0.94])
     centre = P.LEVELS.index(CENTRE)
     start = centre - E.target_offset(VIEW)
@@ -202,15 +263,16 @@ def fig_view(ref, outdir: str) -> List[str]:
     x = widest / 2 + 2.5
     ax.plot([x, x + 1.5, x + 1.5, x], [start - 0.42, start - 0.42, start + VIEW - 0.58, start + VIEW - 0.58],
             color=BLUE, linewidth=1.6, solid_capstyle="butt")
-    ax.set_xlim(-widest / 2 - 15, widest / 2 + 30)
-    ax.text(x + 3, start + (VIEW - 1) / 2, "in view:\n%d bodies" % VIEW, ha="left", va="center", fontsize=12.5,
+    # The CNS panel is narrower while its type is not, so its column takes a little less of it.
+    ax.set_xlim(-widest / 2 - 17, widest / 2 + (35 if venue == "cns" else 30))
+    ax.text(x + 3, start + (VIEW - 1) / 2, "in view:\n%d bodies" % VIEW, ha="left", va="center", fontsize=13,
             color=BLUE, linespacing=1.1)
-    ax.text(x + 3, 2.0, "unseen", ha="left", va="center", fontsize=11.5, color=GREY, style="italic")
-    ax.text(x + 3, 20.0, "unseen", ha="left", va="center", fontsize=11.5, color=GREY, style="italic")
-    rows = [{"level": lv, "row": i, "in_view": int(i in seen), "endplate_mean_mm": ref["endplate"][lv][0],
-             "canal_w_mean_mm": ref["canal_w"][lv][0]} for i, lv in enumerate(P.LEVELS)]
-    JF.write_csv(outdir, name, rows, ["level", "row", "in_view", "endplate_mean_mm", "canal_w_mean_mm"])
-    return save(fig, outdir, name, CAPTIONS[name])
+    ax.text(x + 3, 2.0, "unseen", ha="left", va="center", fontsize=12.5, color=GREY, style="italic")
+    ax.text(x + 3, 20.0, "unseen", ha="left", va="center", fontsize=12.5, color=GREY, style="italic")
+    rows = [{"level": lv, "row": i, "in_view": int(i in seen), "endplate_mean_mm": ref["endplate"][lv][0]}
+            for i, lv in enumerate(P.LEVELS)]
+    JF.write_csv(outdir, name, rows, ["level", "row", "in_view", "endplate_mean_mm"])
+    return save(fig, outdir, name, captions(d, venue)[name], venue)
 
 
 # ---- the seven measures --------------------------------------------------------------------------
@@ -269,15 +331,15 @@ def draw_lateral(ax):
     dimension(ax, (-16.5, -4.5), (16.5, -4.5), "lower end-plate depth", offset=(0, -2.8))
     dimension(ax, (12.5, 0.5), (12.5, 26.5), "posterior\nheight", offset=(-8.5, 0), size=11)
     dimension(ax, (16.5, 10.5), (30.7, 10.5), "canal\ndepth", offset=(0, -5.4), size=11)
-    ax.text(-11.5, 13.5, "front", ha="left", va="center", fontsize=10, color=GREY, style="italic", rotation=90)
+    ax.text(-11.5, 13.5, "front", ha="left", va="center", fontsize=10.5, color=GREY, style="italic", rotation=90)
     ax.text(0, 42, "Lateral", ha="center", va="bottom", fontsize=13.5, fontweight="bold")
     ax.set_xlim(-28, 55)
     ax.set_ylim(-11, 47)
 
 
-def fig_measures(outdir: str) -> List[str]:
+def fig_measures(d: dict, outdir: str, venue: str) -> List[str]:
     name = "exact_slide_measures"
-    plt, fig = figure(name)
+    plt, fig = figure(name, venue)
     for k, draw in enumerate((draw_ap, draw_lateral)):
         ax = fig.add_axes([0.02, 0.52 - 0.5 * k, 0.96, 0.46])
         draw(ax)
@@ -288,7 +350,7 @@ def fig_measures(outdir: str) -> List[str]:
         planes = [p for p in ("ap", "lateral") if m in NB.REGIMES[p]]
         rows.append({"measure": m, "name": NB.MEASURE_NAME[m], "planes": "+".join(planes)})
     JF.write_csv(outdir, name, rows, ["measure", "name", "planes"])
-    return save(fig, outdir, name, CAPTIONS[name])
+    return save(fig, outdir, name, captions(d, venue)[name], venue)
 
 
 # ---- prior to posterior ----------------------------------------------------------------------------
@@ -319,65 +381,77 @@ def centred_posteriors(d: dict) -> Dict[int, np.ndarray]:
     return out
 
 
-def median_column(tp: np.ndarray) -> int:
-    """The column whose posterior at CENTRE is the lower median: a rule stated before looking."""
-    p = tp[:, P.LEVELS.index(CENTRE)]
-    order = np.argsort(p, kind="stable")
-    return int(order[(len(p) - 1) // 2])
+def median_column(tps: Dict[int, np.ndarray]) -> int:
+    """The column whose posterior at CENTRE lies nearest the median at every width shown together:
+    the least sum, over the widths, of its rank's distance from the median rank. A rule stated
+    before looking, so that no width's row is an outlier picked to make a point."""
+    k = P.LEVELS.index(CENTRE)
+    total = 0.0
+    for n in SHOWN:
+        p = tps[n][:, k]
+        rank = np.argsort(np.argsort(p, kind="stable"), kind="stable")
+        total = total + np.abs(rank - (len(p) - 1) / 2.0)
+    return int(np.argmin(total))
 
 
-def fig_posterior(d: dict, outdir: str, tps: Dict[int, np.ndarray]) -> List[str]:
+def fig_posterior(d: dict, outdir: str, tps: Dict[int, np.ndarray], venue: str) -> List[str]:
     name = "exact_slide_posterior"
-    plt, fig = figure(name)
+    plt, fig = figure(name, venue)
+    cns = venue == "cns"
     levels = list(P.LEVELS)
     centre = levels.index(CENTRE)
-    col = median_column(tps[3])
+    col = median_column(tps)
     xs = np.arange(len(levels))
     rows_spec = [("prior", None)] + [("posterior", n) for n in SHOWN]
-    gs = fig.add_gridspec(len(rows_spec), 1, left=0.13, right=0.755, top=0.95, bottom=0.115, hspace=0.42)
+    gs = fig.add_gridspec(len(rows_spec), 1, left=0.14, right=0.70, top=0.94, bottom=0.10, hspace=0.42)
     rows = []
     for r, (kind, n) in enumerate(rows_spec):
         ax = fig.add_subplot(gs[r, 0])
         if kind == "prior":
             p = np.full(len(levels), 1.0 / len(levels))
             ax.bar(xs, p, width=0.72, color=GREY, edgecolor=GREY, linewidth=0.6)
-            label, sub = "prior", "every level\nequally likely"
+            label = "before looking" if cns else "prior"
+            sub = "every level\nequally likely" if cns else "one body:\n1/%d each" % len(levels)
         else:
             p = tps[n][col]
             ax.bar(xs, p, width=0.72, color=BLUE, edgecolor=BLUE, linewidth=0.6)
-            label = "posterior"
-            sub = "%s\n$p(\\mathrm{%s}\\mid x)=%.2f$" % (body_label(n), CENTRE, p[centre])
+            label = body_label(n) if cns else "posterior"
+            sub = ("P(%s) = %.3f" % (CENTRE, p[centre]) if cns else
+                   "%s\n$p(\\ell=\\mathrm{%s}\\mid x_{1:n})$\n$=%.3f$" % (body_label(n), CENTRE, p[centre]))
         ax.set_ylim(0, 1.0)
         ax.set_yticks([0, 0.5, 1.0])
         ax.set_yticklabels(["0", "0.5", "1"])
         ax.set_xlim(-0.7, len(levels) - 0.3)
         ax.set_xticks(xs)
-        ax.set_xticklabels(levels if r == len(rows_spec) - 1 else [], rotation=90, fontsize=10.5)
+        last = r == len(rows_spec) - 1
+        ax.set_xticklabels([lv if (last and lv in TICKED) else "" for lv in levels], fontsize=13)
         ax.tick_params(axis="x", length=2.5)
-        ax.text(1.03, 0.92, label, transform=ax.transAxes, ha="left", va="top", fontsize=13,
+        ax.text(1.03, 0.95, label, transform=ax.transAxes, ha="left", va="top", fontsize=13,
                 color=GREY if kind == "prior" else BLUE, fontweight="bold")
-        ax.text(1.03, 0.55, sub, transform=ax.transAxes, ha="left", va="top", fontsize=12, linespacing=1.15)
+        ax.text(1.03, 0.60 if cns or kind == "prior" else 0.62, sub, transform=ax.transAxes, ha="left", va="top",
+                fontsize=12, linespacing=1.15)
         ax.plot([centre], [1.16], marker="v", color=INK, markersize=6, clip_on=False, zorder=5)
         if r == 0:
-            ax.text(centre - 0.8, 1.16, "true level", fontsize=11.5, ha="right", va="center")
+            ax.text(centre - 0.8, 1.16, "true level", fontsize=12, ha="right", va="center")
         for k, lv in enumerate(levels):
             rows.append({"row": kind if n is None else "posterior_%d" % n, "column": col, "level": lv,
                          "probability": p[k], "truth": int(k == centre)})
-    fig.text(0.035, 0.53, "Probability of the middle body's level", rotation=90, ha="center", va="center", fontsize=13)
+    fig.text(0.035, 0.52, "Probability of the middle body's level", rotation=90, ha="center", va="center",
+             fontsize=13)
     for n in SHOWN:
         tp = tps[n]
         rows.append({"row": "all_columns_%d" % n, "column": "", "level": CENTRE,
                      "probability": float(tp[:, centre].mean()), "truth": 1})
     JF.write_csv(outdir, name, rows, ["row", "column", "level", "probability", "truth"])
-    return save(fig, outdir, name, CAPTIONS[name] % d["n_columns"])
+    return save(fig, outdir, name, captions(d, venue)[name], venue)
 
 
 # ---- the ceiling and the share named when sure ---------------------------------------------------
 
-def fig_ceiling(d: dict, outdir: str) -> List[str]:
+def fig_ceiling(d: dict, outdir: str, venue: str) -> List[str]:
     name = "exact_slide_ceiling"
-    plt, fig = figure(name)
-    ax = fig.add_axes([0.14, 0.16, 0.83, 0.80])
+    plt, fig = figure(name, venue)
+    ax = fig.add_axes([0.13, 0.15, 0.84, 0.81])
     ns = EF.widths_of(d)
     both = {n: d["widths"][str(n)]["regimes"]["both"] for n in ns}
     exact = [100 * both[n]["exact"] for n in ns]
@@ -389,14 +463,15 @@ def fig_ceiling(d: dict, outdir: str) -> List[str]:
     ax.plot(cx, [100 * cl[str(n)]["exact"] for n in cx], linestyle="none", marker="x", color=GREY,
             markersize=7, markeredgewidth=1.6)
     ax.text(5.6, 100 * both[5]["exact"] + 3.5, "named exactly", color=BLUE, fontsize=13, ha="right", va="bottom")
-    ax.text(6.6, 100 * both[6]["selective"]["0.99"]["answered"] - 3, "named at\nposterior 0.99", color=BLUE,
+    ax.text(6.6, 100 * both[6]["selective"]["0.99"]["answered"] - 3, "named at\n%s" % SURE[venue], color=BLUE,
             fontsize=13, ha="left", va="top", linespacing=1.1)
     # The crosses sit too close to both curves for a direct label, so they take a one-entry key in the
     # empty lower right.
     ax.plot([13.2], [20], linestyle="none", marker="x", color=GREY, markersize=7, markeredgewidth=1.6)
-    ax.text(13.9, 20, "fitted classifier", color=GREY, fontsize=12.5, ha="left", va="center")
+    ax.text(13.9, 20, "linear classifier", color=GREY, fontsize=12.5, ha="left", va="center")
+    # The three-body point's label sits above and left of it, clear of the curve and of the cross at five.
     e3 = 100 * both[3]["exact"]
-    ax.annotate("%.0f%%" % e3, xy=(3, e3), xytext=(3.6, e3 - 9), fontsize=12.5, color=BLUE, ha="left",
+    ax.annotate("%.0f%%" % e3, xy=(3, e3), xytext=(1.0, e3 + 9), fontsize=13, color=BLUE, ha="left", va="bottom",
                 arrowprops=dict(arrowstyle="-", color=BLUE, linewidth=0.7, shrinkA=0, shrinkB=3))
     ax.set_xlabel("Consecutive bodies in view")
     ax.set_ylabel("Fields, per cent")
@@ -411,15 +486,18 @@ def fig_ceiling(d: dict, outdir: str) -> List[str]:
              "classifier_exact": cl.get(str(n), {}).get("exact", "")} for n in ns]
     JF.write_csv(outdir, name, rows, ["bodies", "exact", "se_cluster", "answered_099", "precision_099",
                                       "errors_099", "n_answered_099", "classifier_exact"])
-    return save(fig, outdir, name, CAPTIONS[name] % d["n_columns"])
+    return save(fig, outdir, name, captions(d, venue)[name], venue)
 
 
 # ---- calibration ----------------------------------------------------------------------------------
 
-def fig_calibration(d: dict, outdir: str) -> List[str]:
+ODDS = {1e-4: "1 in 10,000", 1e-3: "1 in 1,000", 1e-2: "1 in 100", 1e-1: "1 in 10", 1.0: "1"}
+
+
+def fig_calibration(d: dict, outdir: str, venue: str) -> List[str]:
     name = "exact_slide_calibration"
-    plt, fig = figure(name)
-    ax = fig.add_axes([0.25, 0.19, 0.71, 0.76])
+    plt, fig = figure(name, venue)
+    ax = fig.add_axes([0.335, 0.20, 0.625, 0.75])
     floor, lo = 1e-5, 4e-6
     rows = []
     for n in SHOWN:
@@ -438,34 +516,43 @@ def fig_calibration(d: dict, outdir: str) -> List[str]:
         if zx:
             ax.plot(zx, [floor] * len(zx), linestyle="none", marker=st["marker"], markersize=5.5,
                     markerfacecolor="white", markeredgecolor=st["color"], clip_on=False)
-    ax.plot([lo, 1], [lo, 1], color=GREY, linewidth=0.8, linestyle=":")
+    ax.plot([lo, 1], [lo, 1], color=GREY, linewidth=1.2, linestyle=":")
+    ax.text(2.2e-3, 5.5e-4, "predicted = counted", fontsize=11.5, color=GREY, rotation=44, ha="center", va="center",
+            rotation_mode="anchor")
     ax.axhline(floor, color=GREY, linewidth=0.5, linestyle="-")
-    ax.text(1.2e-3, floor * 1.6, "no error counted", fontsize=11, color=GREY, ha="left", va="bottom", style="italic")
+    ax.text(1.1e-3, floor * 1.6, "no error counted", fontsize=11.5, color=GREY, ha="left", va="bottom",
+            style="italic")
+    # The floor is not on the scale: a break on the axis says so.
+    for y in (1.9e-5, 2.6e-5):
+        ax.plot([-0.035, 0.035], [y * 0.82, y * 1.22], transform=ax.get_yaxis_transform(), color=INK,
+                linewidth=0.9, clip_on=False)
     ax.set_xscale("log")
     ax.set_yscale("log")
     ax.set_xlim(lo, 1)
     ax.set_ylim(lo, 1)
-    ticks = [1e-4, 1e-3, 1e-2, 1e-1, 1]
-    for setter in (ax.set_xticks, ax.set_yticks):
-        setter(ticks)
-    ax.set_xticklabels(["$10^{-4}$", "$10^{-3}$", "0.01", "0.1", "1"])
-    ax.set_yticklabels(["$10^{-4}$", "$10^{-3}$", "0.01", "0.1", "1"])
+    ticks = sorted(ODDS)
+    ax.set_xticks(ticks)
+    ax.set_xticklabels([ODDS[t] if t in (1e-4, 1e-2, 1.0) else "" for t in ticks], fontsize=12)
+    ax.set_yticks(ticks)
+    ax.set_yticklabels([ODDS[t] for t in ticks], fontsize=12)
     ax.minorticks_off()
     ax.set_xlabel("Error the posterior predicts")
     ax.set_ylabel("Error counted")
-    ax.legend(loc="upper left", fontsize=11, handlelength=2.0, borderpad=0.35, labelspacing=0.3)
+    leg = ax.legend(loc="upper left", fontsize=11, handlelength=2.0, borderpad=0.35, labelspacing=0.3,
+                    title="the widths overlap", title_fontsize=10.5)
+    leg._legend_box.align = "left"
     JF.write_csv(outdir, name, rows, ["bodies", "bin_lo", "bin_hi", "n", "error_predicted", "error_counted"])
-    return save(fig, outdir, name, CAPTIONS[name] % d["n_columns"])
+    return save(fig, outdir, name, captions(d, venue)[name], venue)
 
 
 # ---- the border claims beside the column ---------------------------------------------------------
 
-def fig_claims(d: dict, ref, outdir: str) -> List[str]:
+def fig_claims(d: dict, ref, outdir: str, venue: str) -> List[str]:
     name = "exact_slide_claims"
-    plt, fig = figure(name)
-    gs = fig.add_gridspec(1, 2, width_ratios=[0.95, 1.6], left=0.02, right=0.83, top=0.92, bottom=0.12, wspace=0.04)
+    plt, fig = figure(name, venue)
+    gs = fig.add_gridspec(1, 2, width_ratios=[0.95, 1.6], left=0.02, right=0.83, top=0.92, bottom=0.21, wspace=0.04)
     a = fig.add_subplot(gs[0, 0])
-    draw_rows(a, ref)
+    draw_rows(a, ref, label_size=13)
     b = fig.add_subplot(gs[0, 1], sharey=a)
     rows = []
     for n in SHOWN:
@@ -486,11 +573,14 @@ def fig_claims(d: dict, ref, outdir: str) -> List[str]:
         y = E.CUT_NAMES.index(cut) + 0.5
         for ax in (a, b):
             ax.axhline(y, color=INK, linewidth=0.7, linestyle=(0, (1, 2)))
-        b.text(103, y, cut, ha="left", va="center", fontsize=12, fontweight="bold",
+        b.text(103, y, cut, ha="left", va="center", fontsize=12.5, fontweight="bold",
                bbox=dict(facecolor="white", edgecolor="none", pad=1.0))
     b.set_xlim(0, 100)
     b.set_xticks([0, 25, 50, 75, 100])
-    b.set_xlabel("Side of the border said at 0.99, per cent")
+    b.set_xlabel("Fields near this border that say\nwhich side at %s, %%" % ("0.99" if venue == "neurips" else
+                                                                           SURE[venue]), linespacing=1.1)
+    b.text(98, 21.6, "one marker per border\nbetween adjacent bodies", fontsize=11.5, color=GREY, style="italic",
+           ha="right", va="bottom", linespacing=1.05)
     b.tick_params(axis="y", left=False, labelleft=False)
     b.spines["left"].set_visible(False)
     b.set_ylim(len(P.LEVELS) - 0.4, -0.6)
@@ -498,7 +588,7 @@ def fig_claims(d: dict, ref, outdir: str) -> List[str]:
              borderaxespad=0.1, columnspacing=0.9)
     JF.write_csv(outdir, name, rows, ["bodies", "border", "decided_within_two", "n_decided_within_two", "n_within_two",
                                       "errors_within_two", "precision_within_two"])
-    return save(fig, outdir, name, CAPTIONS[name] % d["n_columns"])
+    return save(fig, outdir, name, captions(d, venue)[name], venue)
 
 
 # ---- robustness ----------------------------------------------------------------------------------
@@ -507,16 +597,18 @@ def world_path(key: str) -> tuple:
     return next(w[1] for w in EF.WORLDS if w[0] == key)
 
 
-def fig_robust(d: dict, outdir: str) -> List[str]:
+def fig_robust(d: dict, outdir: str, venue: str) -> List[str]:
     name = "exact_slide_robust"
-    plt, fig = figure(name)
+    plt, fig = figure(name, venue)
     rob = d["robust"]
-    gs = fig.add_gridspec(1, 2, width_ratios=[1.35, 1.0], left=0.335, right=0.98, top=0.85, bottom=0.17, wspace=0.10)
+    worlds = world_names(d, venue)
+    gs = fig.add_gridspec(1, 2, width_ratios=[1.35, 1.0], left=0.36, right=0.98,
+                          top=0.82 if venue == "cns" else 0.85, bottom=0.18, wspace=0.10)
     a, b = fig.add_subplot(gs[0, 0]), fig.add_subplot(gs[0, 1])
-    ys = np.arange(len(WORLDS))[::-1]
+    ys = np.arange(len(worlds))[::-1]
     rows = []
-    for j, (rule, (label, mark, colour)) in enumerate(ROBUST_RULES.items()):
-        nums = [EF.world_numbers(EF.world_cells(rob, world_path(k), rule)[EF.HEADLINE]) for k, _ in WORLDS]
+    for j, (rule, (label, mark, colour)) in enumerate(robust_rules(d, venue).items()):
+        nums = [EF.world_numbers(EF.world_cells(rob, world_path(k), rule)[EF.HEADLINE]) for k, _ in worlds]
         off = ys + (0.14 if j == 0 else -0.14)
         face = mark.get("markerfacecolor", colour)
         a.errorbar([100 * u["precision_099"] for u in nums], off, xerr=[200 * u["precision_099_se"] for u in nums],
@@ -524,42 +616,48 @@ def fig_robust(d: dict, outdir: str) -> List[str]:
                    markeredgecolor=colour, markersize=6, elinewidth=1.0, capsize=2.5, label=label)
         b.plot([100 * u["answered_099"] for u in nums], off, linestyle="none", color=colour, marker=mark["marker"],
                markerfacecolor=face, markeredgecolor=colour, markersize=6)
-        for (k, wname), u in zip(WORLDS, nums):
-            rows.append({"world": k, "name": wname, "rule": rule, "bodies": int(EF.HEADLINE), **u})
+        for (k, wname), u in zip(worlds, nums):
+            rows.append({"world": k, "name": wname.replace("\n", " "), "rule": rule, "bodies": int(EF.HEADLINE), **u})
     a.axvline(99.0, color=INK, linewidth=0.8, linestyle=":")
     a.set_yticks(ys)
-    a.set_yticklabels([w for _, w in WORLDS], fontsize=12)
+    a.set_yticklabels([w for _, w in worlds], fontsize=12, linespacing=1.0)
     a.set_xlim(80, 100.6)
     a.set_xticks([80, 85, 90, 95, 99])
-    a.set_xlabel("Name right at 0.99, per cent")
+    a.set_xlabel("Names right, per cent")
+    fig.text(0.01, 0.975, "Names given at %s,\nthree bodies" % ("0.99" if venue == "neurips" else "99% confidence"),
+             fontsize=12, color=GREY, style="italic", ha="left", va="top", linespacing=1.05)
     b.set_yticks(ys)
     b.set_yticklabels([])
     b.set_xlim(0, 25)
     b.set_xticks([0, 10, 20])
-    b.set_xlabel("Fields named at 0.99, per cent")
+    b.set_xlabel("Fields named, per cent")
     for ax in (a, b):
-        ax.set_ylim(-0.6, len(WORLDS) - 0.4)
+        ax.set_ylim(-0.6, len(worlds) - 0.4)
     JF.letter(a, "A")
     JF.letter(b, "B")
     handles, labels = a.get_legend_handles_labels()
-    fig.legend(handles, labels, loc="upper left", bbox_to_anchor=(0.32, 1.0), ncol=2, frameon=False, fontsize=12,
+    fig.legend(handles, labels, loc="upper left", bbox_to_anchor=(0.345, 1.0), ncol=2, frameon=False, fontsize=12,
                handletextpad=0.3, columnspacing=1.4)
     JF.write_csv(outdir, name, rows, ["world", "name", "rule", "bodies"] + EF.ROBUST_FIELDS[3:])
-    return save(fig, outdir, name, CAPTIONS[name])
+    return save(fig, outdir, name, captions(d, venue)[name], venue)
 
 
 # ---- the record ----------------------------------------------------------------------------------
 
-def write_record(outdir: str, json_path: str, d: dict, written: List[str], column: int) -> str:
+def write_record(outdir: str, json_path: str, d: dict, written: List[str], column: int, venue: str) -> str:
     import matplotlib
-    cmd = "python run.py exact-slide-figures --json %s --outdir %s" % (json_path, outdir)
-    lines = ["# The exact-identification slide figures", "", "Built with `%s`." % cmd, "",
+    cmd = "python run.py exact-slide-figures --json %s --outdir %s" % (
+        json_path, os.path.dirname(outdir.rstrip("/")) if venue == "cns" else outdir)
+    lines = ["# The exact-identification slide figures, %s" % ("CNS (results only)" if venue == "cns" else "NeurIPS"),
+             "", "Built with `%s`%s." % (cmd, ", which writes this set into its `cns/` folder" if venue == "cns" else ""),
+             "",
              "- Run: `%s`, sha256 %s; scoring seed %s; %d columns; synth %s; %d Gauss-Hermite nodes."
              % (json_path, JF.sha256(json_path), d["score_seed"], d["n_columns"],
                 json.dumps(d["synth"], sort_keys=True), d["gh_nodes"]),
              "- The posterior panel scores the record's scoring columns again for the fields centred on %s; "
              "its share named exactly at each width equals the record's `by_centre` rate, checked before it "
-             "draws; the column drawn is scoring column %d, the lower median of the three-body posterior at %s."
+             "draws; the column drawn is scoring column %d, the one with the least summed distance of its rank "
+             "from the median rank of the posterior at %s over one, three and nine bodies."
              % (CENTRE, column, CENTRE),
              "- Reference table: `bordercall/reference/panjabi_full_spine.csv`, sha256 %s." % JF.sha256(P.DEFAULT_REFERENCE)]
     for nm in ("exact_slide_figures.py", "exact_figures.py", "exact.py", "neighbour.py", "junction_figures.py",
@@ -567,8 +665,9 @@ def write_record(outdir: str, json_path: str, d: dict, written: List[str], colum
         lines.append("- Code: `bordercall/%s`, sha256 %s." % (nm, JF.sha256(os.path.join(HERE, nm))))
     lines += ["- Python %s, numpy %s, matplotlib %s; serif type %s where installed, embedded in the PDF."
               % (platform.python_version(), np.__version__, matplotlib.__version__, FACE[0]),
-              "- Each panel is drawn at the size the slide gives it, in inches: %s."
-              % "; ".join("%s %.2g x %.2g" % (k, w, h) for k, (w, h) in SIZES.items()), ""]
+              "- Each panel is drawn at the size the %s slide gives it, in inches: %s."
+              % ("CNS" if venue == "cns" else "NeurIPS",
+                 "; ".join("%s %.3g x %.3g" % (k, w, h) for k, (w, h) in SIZES[venue].items())), ""]
     lines += ["| Figure | Files | Caption |", "|---|---|---|"]
     names = []
     for p in written:
@@ -586,21 +685,31 @@ def write_record(outdir: str, json_path: str, d: dict, written: List[str], colum
     return path
 
 
-def run(json_path: str, outdir: str) -> List[str]:
-    os.makedirs(outdir, exist_ok=True)
+def venue_dir(outdir: str, venue: str) -> str:
+    return os.path.join(outdir, "cns") if venue == "cns" else outdir
+
+
+def run(json_path: str, outdir: str, venue: str = "both") -> List[str]:
+    """Both sets, the NeurIPS one into `outdir` and the CNS one into `outdir`/cns, or one of them."""
     with open(json_path, encoding="utf-8") as fh:
         d = json.load(fh)
     ref = P.load_reference(measures=list(d["measures"]))
     tps = centred_posteriors(d)
-    written = []
-    written += fig_view(ref, outdir)
-    written += fig_measures(outdir)
-    written += fig_posterior(d, outdir, tps)
-    written += fig_ceiling(d, outdir)
-    written += fig_calibration(d, outdir)
-    written += fig_claims(d, ref, outdir)
-    written += fig_robust(d, outdir)
-    written.append(write_record(outdir, json_path, d, written, median_column(tps[3])))
-    for p in written:
+    written_all = []
+    for v in (VENUES if venue == "both" else (venue,)):
+        out = venue_dir(outdir, v)
+        os.makedirs(out, exist_ok=True)
+        written = []
+        written += fig_view(d, ref, out, v)
+        written += fig_measures(d, out, v)
+        written += fig_posterior(d, out, tps, v)
+        written += fig_ceiling(d, out, v)
+        if v == "neurips":
+            written += fig_calibration(d, out, v)
+        written += fig_claims(d, ref, out, v)
+        written += fig_robust(d, out, v)
+        written.append(write_record(out, json_path, d, written, median_column(tps), v))
+        written_all += written
+    for p in written_all:
         print("wrote %s" % p)
-    return written
+    return written_all

@@ -1,1 +1,1 @@
-Share of fields named exactly by the exact rule (solid) and named at posterior 0.99 (dashed), both planes, by consecutive bodies in view; crosses, a linear classifier fitted on other synthetic columns, scored on the first 1,000. 2000 synthetic columns.
+Share of fields named exactly by the exact rule (solid) and named at posterior 0.99 (dashed), both planes, by consecutive bodies in view; crosses, a linear classifier fitted on other synthetic columns, scored on the first 1,000. 2,000 synthetic columns.

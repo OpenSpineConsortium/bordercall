@@ -321,7 +321,7 @@ def cmd_exact_figures(a) -> int:
 
 def cmd_exact_slide_figures(a) -> int:
     import exact_slide_figures as XS
-    XS.run(a.json, a.outdir)
+    XS.run(a.json, a.outdir, a.venue)
     return 0
 
 
@@ -629,7 +629,9 @@ def main() -> int:
                        help="the panels of the five exact-identification slides, each at its slide size, from "
                             "the recorded JSON")
     p.add_argument("--json", required=True, help="exact.json")
-    p.add_argument("--outdir", default="figures/exact-slides")
+    p.add_argument("--outdir", default="figures/exact-slides",
+                   help="the NeurIPS set goes here, the CNS set into its cns/ folder")
+    p.add_argument("--venue", choices=("both", "neurips", "cns"), default="both")
     p.set_defaults(fn=cmd_exact_slide_figures)
 
     p = sub.add_parser("exact-supplement",

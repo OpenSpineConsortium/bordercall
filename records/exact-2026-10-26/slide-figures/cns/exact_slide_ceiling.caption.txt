@@ -1,0 +1,1 @@
+Share of fields named exactly (solid) and named at 99% confidence (dashed), both planes, by consecutive bodies in view; crosses, a linear classifier fitted on other synthetic columns, scored on the first 1,000. 2,000 synthetic columns.

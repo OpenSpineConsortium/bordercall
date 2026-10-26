@@ -451,19 +451,55 @@ only; the anomalous phenotypes and a real series' prior are section 10's open qu
 
 **Built on 2026-10-26** (the owner's ask of 20:45 UTC: figures and five PowerPoint slides with
 the figures, the text and the LaTeX as separate elements, styled like Benzel with inspiration
-from Murphy's chapter on Bayes' rule, ready for the CNS or a NeurIPS main-conference oral).
+from Murphy's chapter on Bayes' rule, ready for the CNS or a NeurIPS main-conference oral), and
+corrected the same evening from a review of 47 findings.
 `python run.py exact-slide-figures --json ../records/exact-2026-10-26/exact.json --outdir
-../records/exact-2026-10-26/slide-figures` draws seven panels from the record (the field of view,
-the seven measures, the prior and posteriors, the ceiling, the calibration, the border claims, the
-robustness), and `python slides/make_exact_slides.py` builds `slides/exact/exact_slides_cns.pptx`
-on the CNS template the junction deck carries and `exact_slides_neurips.pptx` on a plain 16:9
-deck, with speaker notes written for each venue. The equations are native Office Math set by
-pandoc, kept as `slides/exact/equations/*.omml.xml` so a build needs no pandoc. Murphy's
-pyprobml repository was outside this session's GitHub access, so its conventions (prior,
-likelihood and posterior as stacked panels, the posterior in one colour, the notation
-p(k | x_{1:n})) were followed from the book. Slide 2 shows the method: until the provisional is
-filed and the tech-transfer office has read the deck, it stays private, and a results-only talk
-moves slide 2's equations to the notes.
+../records/exact-2026-10-26/slide-figures` draws two figure sets from the record, each panel at
+the exact inches its deck gives it, so no deck scales a picture: the NeurIPS set into
+`slide-figures/` (seven panels: the field of view, the seven measures, the prior and posteriors,
+the ceiling, the calibration, the border claims, the robustness) and the CNS set into
+`slide-figures/cns/` (six panels, no calibration, a step larger type, no method word in a label or
+a caption); `--venue neurips` or `--venue cns` draws one. `python slides/make_exact_slides.py`
+builds `slides/exact/exact_slides_neurips.pptx` on a plain 16:9 deck, with the method, and
+`exact_slides_cns.pptx` on the CNS template the junction deck carries, results only, with speaker
+notes written for each venue. The NeurIPS equations are native Office Math set by pandoc, kept as
+`slides/exact/equations/*.omml.xml` so a build needs no pandoc, and every constant in them is read
+from the record. Murphy's pyprobml repository was outside this session's GitHub access, so its
+conventions (prior, likelihood and posterior as stacked panels, the posterior in one colour, the
+notation p(k | x_{1:n})) were followed from the book.
+
+Both decks carry "Confidential: pre-filing draft, not for distribution" in every footer until they
+are built with `--public`, which is for use only after the provisional is filed and the TTO has
+read the deck. The build checks the saved file, every XML part of it (slides, notes, alternative
+text, properties): neither deck may hold a word of the confidential work or a template's author,
+and the CNS deck may hold no method word (`CNS_REFUSED` in the builder: Bayes, likelihood,
+posterior, prior, Gauss, Hermite, quadrature, rank-one, Sherman, covariance, enumeration,
+generator, 13/12, 1/12, LaTeX, equation; "posterior body height" is a measure and allowed). A deck
+that fails is deleted and the build stops. The file's properties name the speaker.
+
+What the results-only CNS talk cuts, against the NeurIPS deck: every equation (the problem, Bayes'
+rule, the likelihood, the covariance and the size prior, the selective guarantee with its k-hat and
+p-hat, the border claim and the middle body, the widened spreads); slide 1's place k (now "Seven
+measures per body. Which levels are in view?"); slide 2's rule and method text (now the share of
+T12 fields named exactly from one, three and nine bodies); slide 3's calibration panel and
+guarantee (now a result sentence, "at 99% confidence"); slide 4's claim as a sum (now the claim as
+a result with its condition); slide 5's spread inflation and 2 mm (now "a corrected rule") and the
+next steps (now "test the rule on real full-spine CT"); and every method sentence of the notes,
+each number in which says synthetic.
+
+For the TTO to read before either deck is shown, and to confirm that the provisional as filed
+covers each element:
+
+- the seven-measure schematic (`exact_slide_measures`, on slide 1 of both decks), which names the
+  feature set;
+- the CNS slide 2 statement that no formula or network on these measures names more fields
+  correctly on average;
+- the NeurIPS method elements: consecutive bodies reduced to one place k over C3 to L5; the
+  size-scaled Gaussian likelihood with its diagonal-plus-rank-one covariance; the Gauss-Hermite
+  quadrature over log size; the selective guarantee, answering only at posterior at least
+  1 - epsilon; region and border claims made by summing the posterior; the widened-spread
+  correction for a table from a small sample (spreads times the root of 1 + 1/n, and an assumed
+  error); and anomalous phenotypes as places of their own, which neither deck now says.
 
 ## What one evaluation costs, and where enumeration stops being free
 

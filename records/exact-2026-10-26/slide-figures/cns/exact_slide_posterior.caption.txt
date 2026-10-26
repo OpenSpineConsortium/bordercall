@@ -1,0 +1,1 @@
+Probability of each level for the middle body, every level equally likely before looking, then from one, three and nine bodies centred on T12, for the synthetic column nearest the median of 2,000 at all three widths.
