@@ -155,7 +155,9 @@ def run(labels_dir, out, jobs=0):
 def load(path):
     """phenotype.csv -> {case: row}"""
     out = {}
-    for r in csv.DictReader(open(path)):
+    with open(path, encoding="utf-8", newline="") as fh:
+        rows = list(csv.DictReader(fh))
+    for r in rows:
         for k in ("n_lumbar", "has_l6", "has_t13", "has_lumbar_rib",
                   "countable", "has_c2"):
             try:

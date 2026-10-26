@@ -60,7 +60,8 @@ class Corpus:
     @classmethod
     def from_csv(cls, path: str, case_key: str = "case",
                  levels: Optional[Sequence[str]] = None) -> "Corpus":
-        rows = list(csv.DictReader(open(path)))
+        with open(path, encoding="utf-8", newline="") as fh:
+            rows = list(csv.DictReader(fh))
         if not rows:
             raise SystemExit("%s has no rows" % path)
         if levels is None:

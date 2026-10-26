@@ -89,11 +89,13 @@ MIN_VOX = 3000
 
 
 def _canal(mask):
-    """(anterior wall y, transverse width in voxels) of the canal, or (None, None)."""
+    """(anterior wall y, transverse width, anteroposterior depth, all in voxels) of the canal,
+    or (None, None, None). The depth is new for bordercall (Panjabi's spinal canal depth,
+    SCD): the same filled hole measured front to back, so nothing already written changes."""
     zs = np.nonzero(mask.any(axis=(0, 1)))[0]
     if len(zs) < 5:
-        return None, None
-    fronts, widths = [], []
+        return None, None, None
+    fronts, widths, depths = [], [], []
     for z in range(int(np.percentile(zs, 30)), int(np.percentile(zs, 70)) + 1):
         sl = mask[:, :, z]
         if sl.sum() < 60:
@@ -108,12 +110,14 @@ def _canal(mask):
         big = cc == (int(np.argmax(sizes)) + 1)
         if big.sum() < 20:
             continue
-        fronts.append(int(np.nonzero(big.any(axis=0))[0].max()))
+        ys = np.nonzero(big.any(axis=0))[0]
+        fronts.append(int(ys.max()))
+        depths.append(int(ys.max() - ys.min() + 1))
         xs = np.nonzero(big.any(axis=1))[0]
         widths.append(int(xs.max() - xs.min() + 1))
     if not fronts:
-        return None, None
-    return float(np.median(fronts)), float(np.median(widths))
+        return None, None, None
+    return float(np.median(fronts)), float(np.median(widths)), float(np.median(depths))
 
 
 def one(path: str) -> dict:
@@ -152,9 +156,11 @@ def one(path: str) -> dict:
         r[f"tp_span_{name}_mm"] = round(
             float(_big[:, 0].max() - _big[:, 0].min()) * sp[0], 1)
 
-        front, cw = _canal(m)
+        front, cw, cd = _canal(m)
         if cw is not None:
             r[f"canal_width_{name}_mm"] = round(cw * sp[0], 1)
+        if cd is not None:
+            r[f"canal_ap_{name}_mm"] = round(cd * sp[1], 1)
         if front is None:
             continue
 
@@ -392,8 +398,12 @@ def main() -> int:
     ap.add_argument("--labels", default="data/v5_final")
     ap.add_argument("--manifest", default="data/hf_export/manifest.json")
     ap.add_argument("--workers", type=int, default=12)
-    ap.add_argument("--out", default="morphometrics")
+    ap.add_argument("--jobs", type=int, default=0, help="the same as --workers, as run.py passes it")
+    ap.add_argument("--out", default="morphometrics",
+                    help="a folder, which gets level_gradients.csv, or a path ending in .csv")
     a = ap.parse_args()
+    if a.jobs:
+        a.workers = a.jobs
 
     files = sorted(str(p) for p in Path(a.labels).glob("*_label.nii.gz"))
     print(f"{len(files)} case(s)\n", flush=True)
@@ -418,8 +428,12 @@ def main() -> int:
 
     ok = [x for x in res if "error" not in x]
     cols = sorted({k for x in ok for k in x}, key=lambda k: (k != "case", k))
-    out = Path(a.out); out.mkdir(parents=True, exist_ok=True)
-    p = out / "level_gradients.csv"
+    if a.out.endswith(".csv"):
+        p = Path(a.out)
+        p.parent.mkdir(parents=True, exist_ok=True)
+    else:
+        out = Path(a.out); out.mkdir(parents=True, exist_ok=True)
+        p = out / "level_gradients.csv"
     with open(p, "w", newline="") as fh:
         w = csv.DictWriter(fh, fieldnames=cols, extrasaction="ignore")
         w.writeheader(); w.writerows(ok)

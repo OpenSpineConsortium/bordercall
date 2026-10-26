@@ -138,13 +138,19 @@ could not.
 4. Only then move to borders with no published answer (C7/T1, L5/S1).
 5. Because the corpus has C2, add the true count as a column and ask the question
    CTSpinoPelvic1K could not: of the cases where shape and name disagree, how many are
-   *counted* anomalies?
+   *counted* anomalies? That is `disagree`, which also runs the rib arm and the circular arm
+   beside it. SchwingNet's `grid/bordercall.sbatch` runs steps 1 to 5 over the census's
+   existing SPINEPS masks, counted from C2 by `tools/bordercall_corpus.py` there, a pilot of a
+   few hundred countable cases first.
 
 ## Files
 
 | File | What it is |
 |---|---|
-| `run.py` | CLI: `measure`, `border`, `selftest` |
+| `run.py` | CLI: `scheme`, `selftest`, `measure`, `phenotype`, `border`, `breakout`, `sweep`, `plot`, `disagree`, `panjabi`, `panjabi-corpus`, `synth-corpus`, `all` |
+| `disagree.py` | step 5 below as a command: the count, the ribs and the circular arm, with denominators |
+| `panjabi.py`, `junction.py` | the junction named from Panjabi's tables with no CT; the owner's junction predictor for the CNS slides, robust to lumbosacral anomalies by construction and weak at a TLTV by construction (README, `panjabi`) |
+| `synth_corpus.py` | a made-up corpus in SchwingNet's grid layout, so the commands run anywhere; nothing from it is a finding |
 | `border.py` | corpus loading, shape features, grouped-CV logistic regression, border evaluation. No corpus-specific knowledge |
 | `measure_levels.py` | label volumes -> wide per-level table. CTSpinoPelvic1K's `extract_level_gradients.py` with `LEVELS` widened to the full spine; everything else unchanged |
 | `_separability_reference.py` | the original thoracolumbar experiment, kept verbatim as the thing `selftest` is checking against |

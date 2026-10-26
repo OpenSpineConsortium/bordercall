@@ -44,6 +44,10 @@ python run.py border    --levels levels.csv --above T12 --below L1
 python run.py breakout  --levels levels.csv --phenotype phenotype.csv
 python run.py sweep     --levels levels.csv --phenotype phenotype.csv
 python run.py plot      --levels levels.csv --phenotype phenotype.csv --measure endplate
+python run.py disagree  --levels levels.csv --phenotype phenotype.csv --above T12 --below L1
+python run.py panjabi                                         # Panjabi's tables alone, no corpus
+python run.py panjabi-corpus --levels levels.csv --phenotype phenotype.csv
+python run.py synth-corpus --out out/synth                    # a made-up corpus to run the rest on
 ```
 
 Any adjacent pair works: `--above C7 --below T1`, `--above L5 --below L6`. Narrow what gets
@@ -103,6 +107,53 @@ nothing.
 `--allow-uncountable` overrides it and every number is then marked provisional. The dataset
 this method was built on is itself uncountable — abdominopelvic CT, no C2 — which is why its
 95 % is reported against *labels*, not against a verified count.
+
+## Where the shape disagrees with the name: `disagree`
+
+On a corpus counted from C2, `disagree` reports three things at one border and the difference
+between them is the point. Against the **count's** names: the out-of-fold accuracy, the
+disagreements by class with their denominators, and how many of the disagreements fall in a
+counted anomaly (four or six lumbar identifiers, a thirteenth rib-bearing body, no rib on the
+twelfth), which is the question CTSpinoPelvic1K could not answer. Against the **ribs**, an
+independent reading (the census's rib table sets the lowest rib-bearing body to T12, or the
+first to T1): the names shifted, the model refitted out of fold and scored against them, and
+how many of the count's disagreements the ribs side with. And the **circular** arm, the
+disagreements relabelled to the model's own call, refitted and scored, printed beside the rib
+arm so the rib arm can be read against it: it proves nothing, and it is never reported alone.
+
+## Naming the junction from Panjabi's tables alone: `panjabi`
+
+`junction.py` names the cervicothoracic (C7/T1) and thoracolumbar (T12/L1) junctions in a
+window of consecutive bodies from the **shape profile** down the window, fitted on no CT at
+all: `panjabi.py` draws synthetic columns from Panjabi's published means and spreads (a patient
+size, a spine-wide tilt, per-level noise, and the lumbosacral and thoracolumbar phenotypes as
+re-namings and blends of the same table), and the model is read off the table.
+
+Two arms. The **profile template** scores every naming an 11-13 thoracic, 4-6 lumbar column
+allows for an n-level window, each measure's log-likelihood with a free offset per measure (a
+patient's size and the measurement convention both cancel), and places the junction by the
+posterior over cuts. The **local rule** is a logistic regression on the log ratios of each
+level to its neighbours at one and two levels, the ablation: the T12/L1 step is small beside
+the per-level spread, so it is weak there, and it says so. `explain` prints, per measure, the
+log-likelihood gap between the best naming and the runner-up, which is the explanation a slide
+shows.
+
+On synthetic columns (`python run.py panjabi`, three measures a CT mask gives, windows of 5 to
+12 levels) the template names C7/T1 exactly in about four windows of five and within one level
+in 96 of 100, T12/L1 exactly in two of five and within one level in 86 of 100; a lumbosacral
+twin (the same column with four or six lumbar bodies) changes the C7/T1 call in fewer than 1
+in 100 and the T12/L1 call in about 1 in 6; a thoracolumbar transitional body (TLTV) blended
+halfway between T12 and L1 is where it breaks, as the owner expected. Those are numbers about
+Panjabi's tables and the generator, not about a spine: `panjabi-corpus` runs the same two
+models on a measured corpus counted from C2, by phenotype, with bordercall's own model fitted
+on that corpus out of fold printed beside them as the ceiling, and only that table is a result.
+Adding the canal depth and the pedicle width, which Panjabi gives and a CT mask gives only in
+part, lifts the synthetic T12/L1 figure to three in five.
+
+`synth-corpus` writes a made-up corpus in the layout SchwingNet's grid job writes (the count's
+names, the rib reading, the fabricated anterior height and transverse-process span the
+published model needs), so every command downstream of `measure` can be run end to end with no
+CT. Nothing from it is a finding.
 
 ## Reading the output
 
@@ -203,6 +254,11 @@ one.
 | `phenotype.py` | label volumes → per-case phenotype, from the labels alone |
 | `border.py` | features, grouped-CV logistic regression, border evaluation |
 | `plots.py` | the two conference figures |
+| `sweep.py` | every candidate border ranked by its worst anomalous class |
+| `disagree.py` | the count, the ribs and the circular arm where the shape disagrees with the name |
+| `panjabi.py` | synthetic columns from Panjabi's tables, with the phenotypes and their twins |
+| `junction.py` | the junction named from the shape profile, fitted on the tables alone |
+| `synth_corpus.py` | a made-up corpus in the grid job's layout, to run the commands on |
 | `reference/` | the Panjabi tables and the script that builds them |
 | `render_anchors.py` | the 3-D phenotype gallery |
 | `testdata/` | the fixture `selftest` runs against |

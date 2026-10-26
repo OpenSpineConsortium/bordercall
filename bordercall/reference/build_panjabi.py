@@ -91,6 +91,12 @@ LUMBAR = {
                  ("L4", 25.4, 0.49), ("L5", 27.1, 0.88)],
     "canal_ap": [("L1", 19.0, 0.67), ("L2", 18.2, 0.53), ("L3", 17.5, 0.53),
                  ("L4", 18.6, 0.71), ("L5", 19.7, 0.49)],
+    # Table 4: the mean of the right and left pedicle widths, the two standard errors
+    # averaged, as panjabi_1992.csv already carries them and as the thoracic rows above
+    # are built. The first build of this table left the lumbar pedicle out, so a
+    # whole-spine model had no pedicle below T12.
+    "pedicle":  [("L1", 8.6, 0.915), ("L2", 8.25, 0.675), ("L3", 10.15, 0.600),
+                 ("L4", 14.05, 0.320), ("L5", 18.6, 1.030)],
 }
 LUMBAR_SRC = ("Panjabi MM et al. Spine 1992;17(3):299-306", "2-5", "301")
 THOR_SRC = "Panjabi MM et al. Spine 1991;16(8):888-901"
