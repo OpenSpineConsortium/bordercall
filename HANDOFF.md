@@ -315,7 +315,56 @@ So grow the ground set — the transcribed Panjabi table carries more than seven
 `SPINEPS_MAPPING.md` says which are honestly measurable from a segmentation — and at `m` around 12
 switch from `--shard/--of` enumeration to OCBA, now that step 5 has shown whether you can trust
 it. **The pedicle measures stay excluded**: SPINEPS labels the whole arch 41 and never isolates
-the pedicle, so PDW and PDH cannot be read off one.
+the pedicle, so PDW and PDH cannot be read off one. The table does carry six pedicle rows,
+which is why the ground set looks larger than seven at first glance: 13 measures over 23
+levels, C2-L5, and six of the 13 are refused rather than approximated.
+
+### Step 7 — the neighbour-identity and dimensionality study
+
+Specified in full at **`docs/NEIGHBOUR_IDENTITY_STUDY.md`**; that file is the brief, this is the
+one-paragraph version. Can vertebra `i` be named from the vertebrae **adjacent** to it, with its
+own measurements withheld — and does the discriminating information fit in one radiographic
+plane, or does it need a volume?
+
+The second question is the one that decides the clinical plan, and it is decided by a clean
+partition of the seven measures by anatomical axis: `h_post` is craniocaudal and visible in both
+planes, `endplate_depth`/`endplate_lower_depth`/`canal_ap` are antero-posterior and **lateral
+only**, `endplate`/`endplate_lower`/`canal_w` are transverse and **AP only**. So run three
+regimes — `lateral` (4 measures), `ap` (4 measures), `both` (7) — and if a single plane reaches
+`both` within the margin, one fluoroscopic shot is enough. If not, the information is genuinely
+3-D and the recovery route is fluoroscopy-to-CT registration used **as a measurement device for
+the missing axis, not as a level localiser**. Keep those two uses separate; conflating them is
+how this becomes the registration-based approach whose published naming accuracy peaks near 73 %.
+
+Everything is run across all six phenotypes, because a neighbour-based rule is *more* exposed to
+transitional anatomy than a target-based one — the neighbour relation is exactly what a
+transitional vertebra breaks. Report the **signed** offset per phenotype: a systematic one-level
+shift in `six_lumbar` is the dangerous outcome, and it is the first thing to look for.
+
+Three traps are written out in the brief and each would yield a plausible wrong answer: absolute
+position must not reach the model, the per-case median normalisation leaks position when it is
+estimated from two or three visible bodies, and chance is not 1/23.
+
+### Latency, measured
+
+Measured on a Windows workstation, 2026-10-26, single core. Re-measure on a compute node (step 1).
+
+| operation | time | rate |
+|---|---|---|
+| **place one window (inference only)** | **0.40 ms** | **2,500 /s** |
+| synthesize one column | 1.15 ms | 868 /s |
+| `load_reference`, 7 measures | 3.9 ms | — |
+| train, 120 columns | 0.35 s | — |
+| train, 600 columns | 2.35 s | — |
+| train, 2000 columns | 7.69 s | — |
+| evaluate one phenotype, 400 windows | 0.71 s | 561 /s |
+| **one full `A(S, r)` evaluation** | **7.24 s** | — |
+
+Two things follow. **Inference is 0.40 ms, so naming is not the latency problem** — the budget is
+spent on segmentation and, if step 7 says 3-D, on registration. A 3-D answer is therefore a
+pipeline cost rather than a real-time one, and that is where latency work belongs. And training
+scales linearly in `n_columns` (0.35 / 2.35 / 7.69 s at 120 / 600 / 2000), so a wall-time estimate
+for any new sweep is arithmetic, not a guess.
 
 ### Grid etiquette that will bite otherwise
 
