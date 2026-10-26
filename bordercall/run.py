@@ -209,12 +209,17 @@ def cmd_covariance(a) -> int:
     """
     import covariance as CV
 
+    if a.from_json:
+        CV.report_from_record(a.from_json)
+        return 0
+
     CV.report()
     if a.sweep:
         print("\n")
         CV.measure_set_sweep(out_json=a.out, n_columns=a.n_columns, n_eval=a.n_eval)
     else:
-        print("\nRe-run with --sweep to measure whether the conclusion depends on it.")
+        print("\nRe-run with --sweep to measure whether the conclusion depends on it,")
+        print("or --from-json RECORD.json to re-report a sweep already recorded.")
     return 0
 
 
@@ -400,6 +405,9 @@ def main() -> int:
                    help="also run the 7-against-3 measure-set sweep over the whole r grid "
                         "(a few minutes; synthetic columns only, no corpus is read)")
     p.add_argument("--out", default=None, help="write the sweep's JSON here")
+    p.add_argument("--from-json", default=None, dest="from_json",
+                   help="re-report the partial identification from a recorded sweep "
+                        "instead of running one; costs nothing and is reproducible")
     p.add_argument("--n-columns", type=int, default=600, dest="n_columns")
     p.add_argument("--n-eval", type=int, default=400, dest="n_eval")
     p.set_defaults(fn=cmd_covariance)

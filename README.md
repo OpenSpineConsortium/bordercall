@@ -298,19 +298,38 @@ rather than asserting a number:
 
 So `r` is swept, not assumed. `--sweep` reruns the whole measure-set comparison across
 r = 0.0 … 0.9, drawing fresh columns at every point, selecting on one seed and scoring on
-another so the chosen measure set is scored on columns the choice never saw:
+another so the chosen measure set is scored on columns the choice never saw.
+
+**r is unidentified, not merely unknown**, so a single accuracy is the wrong object to
+report. Nothing in the available data can pin r down, which is Manski's situation exactly,
+and the right report is an **identified set** -- the values the quantity takes as r ranges
+over everything it could be -- with an **Imbens-Manski** interval rather than a naive
+`[min - 2 se, max + 2 se]`, which over-covers because only one end can bind at a time:
 
 ```
-7 SPINEPS-measurable measures against 3, exact junction placement
-  C7/T1    0.4175 -> 0.7100   +0.2925 +/- 0.0137
-  T12/L1   0.2283 -> 0.3454   +0.1171 +/- 0.0129
+cervico-thoracic C7/T1
+  baseline_3 accuracy in [0.4150, 0.4225]   (Imbens-Manski 95 % [0.3977, 0.4398])
+  spineps_7  accuracy in [0.6950, 0.7100]   (Imbens-Manski 95 % [0.6795, 0.7253])
+  difference [+0.2750 at r=0.40, +0.2925 at r=0.00], IM 95 % [+0.2521, +0.3152]
+  worst case over r: +0.2750 +/- 0.0138  (20.0 s.e. from zero)
 
-r = 0.00 -> 0.90 moves accuracy by at most 1.6 Monte Carlo standard errors,
-and the verdict is "7 better" at every r on the grid.
+thoraco-lumbar T12/L1
+  difference [+0.1154 at r=0.40, +0.1262 at r=0.90], IM 95 % [+0.0934, +0.1481]
+  worst case over r: +0.1154 +/- 0.0130  (8.9 s.e. from zero)
 ```
 
-The conclusion does not depend on the unmeasurable quantity. Quote it that way. Recorded in
-`records/covariance-sweep.json`.
+**The accuracy is not identified; the conclusion drawn from it is.** The identified set of
+the difference lies entirely above zero at both junctions, so the *size* of the gain stays
+unknown while its *direction* is known exactly: seven measures beat three whatever r turns
+out to be. That is the strongest honest claim available when a parameter cannot be measured,
+and it is a statement about the **sign**, not about the value -- so quote the worst case over
+r and the interval, never the r = 0 figure alone. If a future comparison's sign *does* turn
+over inside the set, the command says so and names the crossing r instead of picking a
+winner.
+
+Recorded in `records/covariance-sweep.json`. `--from-json` re-reports from that record
+without re-running the sweep, so a change to the reporting is checked against a fixed run
+rather than a fresh draw that moves underneath it.
 
 ## Traps
 

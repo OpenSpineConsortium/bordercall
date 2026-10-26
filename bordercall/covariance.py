@@ -252,6 +252,163 @@ def sweep(fn, r_values=None, label="accuracy"):
 
 
 # ---------------------------------------------------------------------------
+# what an unidentified nuisance parameter does to a reported number
+# ---------------------------------------------------------------------------
+# r is not merely unknown, it is UNIDENTIFIED: no amount of data from Panjabi's tables can
+# pin it down, because the tables carry no covariance at all (ratio_test above). That has a
+# name and a literature -- Manski's partial identification -- and the right object to report
+# is not a point estimate but an IDENTIFIED SET: the set of values the quantity takes as r
+# ranges over everything it could be.
+#
+# Two consequences, and the second is the one that matters here.
+#
+# 1. An accuracy quoted at one r is not the answer. The identified set of the accuracy is
+#    [min_r A(r), max_r A(r)], and a naive [min - 2 se, max + 2 se] OVER-covers, because it
+#    pays the full two-sided price at both ends when only one end can bind at a time. Imbens
+#    & Manski (Econometrica 2004;72:1845) give the interval that covers the PARAMETER at the
+#    stated rate; it narrows from 1.96 standard errors toward 1.645 as the set widens
+#    relative to the sampling error. imbens_manski() below.
+#
+# 2. A quantity can be unidentified while the CONCLUSION DRAWN FROM IT IS POINT-IDENTIFIED.
+#    If the identified set of a difference lies entirely above zero, the sign of that
+#    difference is known exactly even though its size is not. That is the honest form of
+#    "the conclusion does not depend on r", and it is a statement about the SIGN, not about
+#    the value. sign_invariance() below reports it that way, and names the crossing point if
+#    the sign does turn over inside the set.
+#
+# The grid makes this approximate in one specific way, which is stated rather than hidden:
+# min and max are taken over the GRID, so they bound the true extrema only if A is monotone
+# or smooth in r between grid points. A(r) here is smooth and near-monotone, but a finer
+# grid is the check, and --r-grid takes one.
+
+# z for a one-sided and a two-sided 95 %: the Imbens-Manski critical value lives between
+# them, so these are the bisection bracket. Hard-coded to keep this module dependency-free.
+_Z_ONE_SIDED = 1.6448536269514722
+_Z_TWO_SIDED = 1.9599639845400545
+
+
+def _phi(x: float) -> float:
+    """Standard normal CDF."""
+    return 0.5 * (1.0 + math.erf(x / math.sqrt(2.0)))
+
+
+def imbens_manski(lo, hi, se_lo, se_hi, alpha: float = 0.05):
+    """CI covering a parameter whose identified set is [lo, hi]. Imbens & Manski (2004).
+
+    c solves Phi(c + delta/sigma_max) - Phi(-c) = 1 - alpha, with delta the width of the
+    estimated set. delta = 0 gives c = 1.96 (the set is a point, so this is an ordinary
+    two-sided interval); a wide set gives c -> 1.645, because only one end can bind.
+    """
+    s = max(float(se_lo), float(se_hi))
+    if not s > 0:
+        return float(lo), float(hi), float("nan")
+    delta = max(float(hi) - float(lo), 0.0)
+
+    def f(c):
+        return _phi(c + delta / s) - _phi(-c) - (1.0 - alpha)
+
+    a, b = _Z_ONE_SIDED, _Z_TWO_SIDED
+    # f is increasing in c, f(a) <= 0 <= f(b) for every delta >= 0, so bisect
+    for _ in range(200):
+        m = 0.5 * (a + b)
+        if f(m) < 0.0:
+            a = m
+        else:
+            b = m
+    c = 0.5 * (a + b)
+    return float(lo) - c * float(se_lo), float(hi) + c * float(se_hi), c
+
+
+def identified_set(rows, key: str = "acc"):
+    """The identified set of `key` over an r grid, and its Imbens-Manski interval.
+
+    rows: the dicts a sweep produces, each with an "r", a value and an "se".
+    """
+    lo_row = min(rows, key=lambda x: x[key])
+    hi_row = max(rows, key=lambda x: x[key])
+    ci_lo, ci_hi, c = imbens_manski(lo_row[key], hi_row[key], lo_row["se"], hi_row["se"])
+    return {"lo": lo_row[key], "lo_at_r": lo_row["r"],
+            "hi": hi_row[key], "hi_at_r": hi_row["r"],
+            "width": hi_row[key] - lo_row[key],
+            "ci_lo": ci_lo, "ci_hi": ci_hi, "critical_value": c}
+
+
+def sign_invariance(rows_a, rows_b, key: str = "acc"):
+    """Is the SIGN of (a - b) the same at every r? -> the point-identified conclusion.
+
+    Returns the identified set of the difference, the worst case over r with its standard
+    error, whether the sign is constant, and -- if it is not -- the r at which the
+    difference crosses zero, linearly interpolated between the two grid points that straddle
+    it. A constant sign whose worst case clears zero by several standard errors is the
+    strongest statement available when r cannot be measured: the SIZE of the difference
+    stays unidentified, the DIRECTION does not.
+    """
+    by_r_b = {x["r"]: x for x in rows_b}
+    diffs = []
+    for a in rows_a:
+        b = by_r_b.get(a["r"])
+        if b is None:
+            continue
+        diffs.append({"r": a["r"], "acc": a[key] - b[key],
+                      "se": math.sqrt(a["se"] ** 2 + b["se"] ** 2)})
+    if not diffs:
+        return None
+    diffs.sort(key=lambda x: x["r"])
+
+    signs = {1 if d["acc"] > 0 else (-1 if d["acc"] < 0 else 0) for d in diffs}
+    constant = len(signs) == 1 and 0 not in signs
+
+    crossing = None
+    for p, q in zip(diffs, diffs[1:]):
+        if p["acc"] == 0.0:
+            crossing = p["r"]
+            break
+        if (p["acc"] > 0) != (q["acc"] > 0):
+            span = q["acc"] - p["acc"]
+            crossing = p["r"] if span == 0 else p["r"] + (q["r"] - p["r"]) * (-p["acc"] / span)
+            break
+
+    worst = min(diffs, key=lambda d: abs(d["acc"]))
+    iset = identified_set(diffs)
+    # does the interval itself keep the sign, or only the point estimates?
+    certified = constant and (iset["ci_lo"] > 0.0 or iset["ci_hi"] < 0.0)
+    return {"diffs": diffs, "set": iset, "sign_constant": constant,
+            "sign_certified": certified, "crossing_r": crossing,
+            "worst_case": worst,
+            "margin_in_se": (abs(worst["acc"]) / worst["se"]) if worst["se"] else float("nan")}
+
+
+def print_partial_identification(name_a, rows_a, name_b, rows_b, pretty=""):
+    """The honest report of a comparison whose nuisance parameter cannot be measured."""
+    v = sign_invariance(rows_a, rows_b)
+    if v is None:
+        print("   no shared r values -- nothing to compare")
+        return None
+    s = v["set"]
+    print("   identified set of (%s - %s) over the r grid:" % (name_a, name_b))
+    print("     [%+.4f at r = %.2f, %+.4f at r = %.2f], width %.4f"
+          % (s["lo"], s["lo_at_r"], s["hi"], s["hi_at_r"], s["width"]))
+    print("     Imbens-Manski 95 %% interval  [%+.4f, %+.4f]   (critical value %.3f)"
+          % (s["ci_lo"], s["ci_hi"], s["critical_value"]))
+    w = v["worst_case"]
+    print("     worst case over r: %+.4f +/- %.4f at r = %.2f  (%.1f s.e. from zero)"
+          % (w["acc"], w["se"], w["r"], v["margin_in_se"]))
+    if v["crossing_r"] is not None:
+        print("     THE SIGN TURNS OVER at r = %.3f. The direction is NOT identified."
+              % v["crossing_r"])
+        print("     Report the set, not a winner, and say which side of %.3f you believe."
+              % v["crossing_r"])
+    elif v["sign_certified"]:
+        print("     the sign is CONSTANT over the grid and the interval excludes zero, so")
+        print("     the SIZE of the difference is unidentified and its DIRECTION is not:")
+        print("     %s beats %s whatever r turns out to be." % (name_a, name_b))
+    elif v["sign_constant"]:
+        print("     the sign is constant over the grid but the interval touches zero, so")
+        print("     the direction is suggested and not established. More replications.")
+    return v
+
+
+# ---------------------------------------------------------------------------
 # the measure-set sweep
 # ---------------------------------------------------------------------------
 # Every measure this package can take downstream of a SPINEPS segmentation. The pedicle
@@ -291,6 +448,36 @@ def _score(measures, r, fit_seed=FIT_SEED, eval_seed=EVAL_SEED,
     return out
 
 
+def report_from_record(path: str):
+    """Re-report the partial identification from a recorded sweep, without re-running it.
+
+    The sweep costs minutes; the inference on top of it costs nothing, and separating the two
+    means a change to the REPORTING can be checked against a fixed record rather than against
+    a fresh draw that moves underneath it.
+    """
+    with open(path) as fh:
+        rec = json.load(fh)
+    res = rec["results"]
+    names = [n for n in ("baseline_3", "spineps_7") if n in res]
+    print("re-reported from %s" % path)
+    print("grid: %s" % ", ".join("%.2f" % r for r in rec.get("grid", [])))
+    d = rec.get("design", {})
+    if d:
+        print("design: fit seed %s, eval seed %s, %s columns, %s eval windows"
+              % (d.get("fit_seed"), d.get("eval_seed"), d.get("n_columns"), d.get("n_eval")))
+    out = {}
+    for key in [k for k in JUNCTIONS if k in res.get(names[0], {})]:
+        print("\n  %s" % JUNCTIONS[key])
+        for n in names:
+            s = identified_set(res[n][key])
+            print("   %-10s accuracy in [%.4f, %.4f]  (Imbens-Manski 95 %% "
+                  "[%.4f, %.4f])" % (n, s["lo"], s["hi"], s["ci_lo"], s["ci_hi"]))
+        if len(names) == 2:
+            out[key] = print_partial_identification(names[1], res[names[1]][key],
+                                                    names[0], res[names[0]][key])
+    return out
+
+
 def measure_set_sweep(r_grid=None, out_json=None, n_columns=600, n_eval=400):
     """7 SPINEPS-measurable measures against 3, across the whole r grid. Synthetic only."""
     r_grid = list(R_GRID if r_grid is None else r_grid)
@@ -321,6 +508,7 @@ def measure_set_sweep(r_grid=None, out_json=None, n_columns=600, n_eval=400):
 
     print("\n" + "=" * 72)
     print("7 MEASURES AGAINST 3, scored on columns neither fit saw")
+    verdicts = {}
     for key, pretty in JUNCTIONS.items():
         print("\n  %s" % pretty)
         for r in r_grid:
@@ -333,13 +521,36 @@ def measure_set_sweep(r_grid=None, out_json=None, n_columns=600, n_eval=400):
             print("    r=%.2f   3: %.4f   7: %.4f   diff %+.4f +/- %.4f   %s"
                   % (r, a3["acc"], a7["acc"], d, se, verdict))
 
+    print("\n" + "=" * 72)
+    print("PARTIAL IDENTIFICATION. r cannot be measured, so the accuracy is not a point --")
+    print("it is an interval. What survives that is a statement about the SIGN.")
+    for key, pretty in JUNCTIONS.items():
+        print("\n  %s" % pretty)
+        for name in ("baseline_3", "spineps_7"):
+            s = identified_set(results[name][key])
+            print("   %-10s accuracy in [%.4f, %.4f]  (Imbens-Manski 95 %% "
+                  "[%.4f, %.4f])" % (name, s["lo"], s["hi"], s["ci_lo"], s["ci_hi"]))
+        verdicts[key] = print_partial_identification(
+            "spineps_7", results["spineps_7"][key],
+            "baseline_3", results["baseline_3"][key], pretty)
+
     payload = {"grid": r_grid,
                "measures": {"spineps_7": SPINEPS_7, "baseline_3": BASELINE_3},
                "results": results,
+               "partial_identification": {
+                   key: {
+                       "accuracy_sets": {n: identified_set(results[n][key])
+                                         for n in ("baseline_3", "spineps_7")},
+                       "difference": None if verdicts.get(key) is None else {
+                           k: v for k, v in verdicts[key].items() if k != "diffs"},
+                   } for key in JUNCTIONS},
                "design": {"fit_seed": FIT_SEED, "eval_seed": EVAL_SEED,
                           "n_columns": n_columns, "n_eval": n_eval,
                           "note": "selection and scoring use different seeds; "
-                                  "synthetic columns only, no cohort is read"}}
+                                  "synthetic columns only, no cohort is read; "
+                                  "r is unidentified, so the reported object is a "
+                                  "Manski identified set with an Imbens-Manski interval, "
+                                  "and the conclusion is a claim about the sign"}}
     if out_json:
         os.makedirs(os.path.dirname(os.path.abspath(out_json)), exist_ok=True)
         with open(out_json, "w") as fh:
