@@ -1,0 +1,17 @@
+panel,junction,class,k,n,rate,wilson_lo,wilson_hi
+twin,ct,four_lumbar,498,500,0.996,0.985534,0.998902
+twin,tl,four_lumbar,498,500,0.996,0.985534,0.998902
+twin,ct,six_lumbar,496,500,0.992,0.979613,0.996885
+twin,tl,six_lumbar,496,500,0.992,0.979613,0.996885
+phenotype,ct,typical,426,500,0.852,0.818194,0.880439
+phenotype,tl,typical,321,500,0.642,0.599042,0.682792
+phenotype,ct,four_lumbar,426,500,0.852,0.818194,0.880439
+phenotype,tl,four_lumbar,326,500,0.652,0.609233,0.69245
+phenotype,ct,six_lumbar,426,500,0.852,0.818194,0.880439
+phenotype,tl,six_lumbar,297,500,0.594,0.550397,0.63617
+phenotype,ct,t13,426,500,0.852,0.818194,0.880439
+phenotype,tl,t13,304,500,0.608,0.564541,0.649813
+phenotype,ct,lumbar_rib,426,500,0.852,0.818194,0.880439
+phenotype,tl,lumbar_rib,321,500,0.642,0.599042,0.682792
+phenotype,ct,no_rib_t12,426,500,0.852,0.818194,0.880439
+phenotype,tl,no_rib_t12,341,500,0.682,0.639925,0.7213

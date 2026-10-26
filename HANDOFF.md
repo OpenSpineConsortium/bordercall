@@ -5,6 +5,77 @@ the CTSpinoPelvic1K thoracolumbar experiment (`03_ctspinopelvic1k_dataset/mdpa/`
 corpus and the border taken out as parameters, so it can be pointed at the full-spine
 segmented census this folder owns.
 
+## Where this stands at the checkpoint of 2026-10-26, 03:10 UTC
+
+Written on the owner's word to push everything and hand off, so that a new account's project
+continues from git alone. Nothing needed is held only in a thread, a scratch folder or OneDrive.
+The commands further down that name `06_transitional_ct_census` and `03_ctspinopelvic1k_dataset`
+are from the spine-program origin; in this repository it is `cd bordercall && python run.py ...`,
+and `selftest` takes no argument.
+
+### In this repository
+
+| What | Where | Rebuilt by |
+|---|---|---|
+| The method and its tests | `bordercall/` (`run.py`, `panjabi.py`, `junction.py`, `junction_figures.py`, `disagree.py`, `synth_corpus.py`, `reference/panjabi_full_spine.csv`) and `tests/` | `cd bordercall && python run.py selftest`; `python -m unittest discover tests` (31 tests) |
+| The recorded runs every figure and slide number is read from | `records/panjabi-2026-10-26/three-measures/panjabi_junction.json` and `four-measures/panjabi_junction.json` | the commands in `records/README.md`; a re-run is a new record beside these, never a replacement |
+| The five figures: PDF, PNG, the CSV of the numbers drawn and the caption of each, with `FIGURES.md` naming the record and the code by sha256 | `records/panjabi-2026-10-26/figures/` | `cd bordercall && python run.py panjabi-figures --json ../records/panjabi-2026-10-26/three-measures/panjabi_junction.json --outdir ../figures/junction` (the root `figures/` is ignored by git; the copy under `records/` is the committed one) |
+| The six CNS slides, as PowerPoint and as PDF | `slides/junction_slides.pptx`, `slides/junction_slides.pdf` | `python slides/make_junction_slides.py --template <deck> --out out/junction_slides.pptx --figures records/panjabi-2026-10-26/figures`, where `<deck>` is the owner's CNS deck, which spine-program holds at `provisional_patent/wsu_tto/TTO_package_2026-09-25/followup/CNS2026_spine_talk_v10_2026-09-26_CNS_template_ACCME.pptx` (sha256 59497c01f0cadee96a9a6a96489015bfc72be3d366051308c6345426ed72a3f5) and this repository does not |
+
+Pull request #1 (merged as aa31c7a) brought the code, the tests and the records; the pull
+request after it brings the figures and the slides, which until then were attached to a thread
+and in a `figures/` that git ignored.
+
+### What the slides say, and what they do not
+
+Everything on them is fitted to Panjabi's published tables and scored on synthetic columns drawn
+from those tables: no CT, no patient and no SPINEPS mask has been measured yet. The numbers are in
+the CSV beside each figure; the headline ones, three measures (end-plate width, posterior height,
+canal width):
+
+- A window of eight bodies names the cervicothoracic junction exactly in 85.6% of 250 windows
+  and within one level in 98.4% (`junction_width.csv`, row `ct,8`); the thoracolumbar junction is
+  the hard one, exact in the sixties and within one in the nineties (row `tl,8`).
+- By class, 500 windows each (`junction_twins.csv`, `phenotype` rows): C7/T1 exact in 85.2% of
+  every class; T12/L1 exact in 59.4% (six lumbar) to 65.2% (four lumbar).
+- A lumbosacral twin, the same column with the lumbosacral levels added or taken away, changes
+  the call in 0.4% (four lumbar) and 0.8% (six lumbar) of 500 at either junction (`twin` rows):
+  the anomaly at L5/S1 leaves the two junctions where they were, which is what the owner asked
+  the predictor to be robust to.
+- At a thirteenth thoracic body the count and the ribs name the junction one level apart and the
+  shape cannot choose; `junction_blend.csv` scores both truths side by side. That is the TLTV
+  case the owner named as the hard one, and it is not solved here.
+
+### Not done, in the order to take it
+
+1. The grid pilot. The owner approved two CPU jobs on 2026-10-25 at 23:56 UTC ("Two CPU jobs:
+   pilot, then full"); none has been sent. The route is in place: SchwingNet #404 (merged) gives
+   `grid/gate.sh` the word `bordercall <pilot|full>`, `grid/bordercall.sbatch`,
+   `tools/bordercall_corpus.py` (the count from C2 over the census's existing SPINEPS masks, the
+   ribs from the census's rib table) and `grid/bordercall/`, this repository vendored at 6938a2e;
+   symphony-template #495 (merged 03:08 UTC) gives grid-accounts.yml the dispatch word
+   `schwingnet-bordercall-<stage>`; hpcworker #50 (the gate's pass-through) had its review
+   section added at 03:04 UTC and its check re-run, and is merged next. Then, each on a dispatch
+   of symphony-template's grid-accounts.yml, action `job`: `update`; `schwingnet-status` once
+   (last sent 2026-10-25 23:41 UTC; never twice for one read); `schwingnet-bordercall-pilot`;
+   read its report; `schwingnet-bordercall-full` only if the report says countable > 0 and the
+   pilot ended well. A third job needs the owner's word and count again.
+2. What the pilot answers that nothing here does: the published T12/L1 answer against a count
+   from C2 on real masks; the per-class tables with denominators; the rib arm beside the circular
+   arm (`disagree`); the `sweep` winner with its typical-versus-worst gap.
+3. The owner's rules from this thread, which stand: only full-spine C2-to-pelvis CTs are truth
+   (00:16 UTC), nothing from the 802 CTSpinoPelvic1K columns; existing SPINEPS masks, never
+   re-run and never TotalSegmentator (00:17 UTC); figures in Benzel's style with the code that
+   makes them committed and runnable from recorded inputs (01:17 UTC); the OneDrive upload is
+   stopped (02:48 UTC; `junction_twins.pdf` is the one verified copy in Documents/bordercall_figures
+   and stays); the public deck: count-free naming from morphometry sat near Part A of the
+   provisional and was left out of v12_public, so check with the TTO before showing these slides.
+4. Not known: traps 1 and 2 below (the identifier map is assumed; only the lumbar measurements
+   are validated); every number above is synthetic until the pilot reports.
+5. SchwingNet's vendored copy takes `bordercall/` only, so this commit (records, figures, slides)
+   leaves its VENDORED record true; after any change under `bordercall/` run
+   `python3 tools/bordercall_vendor.py copy` there and commit the copy with the change.
+
 ## Run this first
 
 ```bash
