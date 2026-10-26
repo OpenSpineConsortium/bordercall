@@ -20,6 +20,8 @@ Run the commands in this order on a corpus you have not measured before.
     python run.py neighbour-enumerate --arm flank --shard 0 --of 1 --out out/neighbour/shard0.json
     python run.py neighbour-more --outdir out/neighbour     # the field with the target in it, continued
     python run.py neighbour-figures --json out/neighbour/neighbour.json --outdir figures/neighbour
+    python run.py identify --outdir out/identify               # which vertebrae a normal spine identifies best
+    python run.py identify-figures --json out/identify/identify.json --outdir figures/identify
 
 `scheme` and `selftest` are not optional. The first catches a corpus numbered differently
 from this package's assumption, which produces finite, plausible, wrong numbers and raises
@@ -285,6 +287,18 @@ def cmd_neighbour_figures(a) -> int:
     return 0
 
 
+def cmd_identify(a) -> int:
+    import identify as ID
+    ID.run(outdir=a.outdir, n_fit=a.n_fit, n_select=a.n_select, n_score=a.n_score, quick=a.quick)
+    return 0
+
+
+def cmd_identify_figures(a) -> int:
+    import identify_figures as IF
+    IF.run(a.json, a.outdir)
+    return 0
+
+
 def cmd_selftest(a) -> int:
     c = Corpus.from_csv(a.levels)
     print("levels found: %s" % ", ".join(c.levels))
@@ -541,6 +555,23 @@ def main() -> int:
     p.add_argument("--enumerate-json", default=None, dest="enumerate_json", help="the gathered enumeration JSON")
     p.add_argument("--outdir", default="figures/neighbour")
     p.set_defaults(fn=cmd_neighbour_figures)
+
+    p = sub.add_parser("identify",
+                       help="which vertebrae of a normal spine can be identified best, and by what: "
+                            "Kunkel 2010's frame, the closed-form isolation of every level, the classifier "
+                            "level by level at every width, abstention, the size, the unidentified r; "
+                            "typical columns only; writes identify.json")
+    p.add_argument("--outdir", default=None, help="write identify.json here")
+    p.add_argument("--n-fit", type=int, default=1000, dest="n_fit", help="typical columns fitted on")
+    p.add_argument("--n-select", type=int, default=500, dest="n_select", help="typical columns the confidence thresholds are chosen on")
+    p.add_argument("--n-score", type=int, default=1000, dest="n_score", help="typical columns scored")
+    p.add_argument("--quick", action="store_true", help="a small run to check the command")
+    p.set_defaults(fn=cmd_identify)
+
+    p = sub.add_parser("identify-figures", help="the identifiability study's figures from its recorded JSON")
+    p.add_argument("--json", required=True, help="identify.json")
+    p.add_argument("--outdir", default="figures/identify")
+    p.set_defaults(fn=cmd_identify_figures)
 
     p = sub.add_parser("selftest", help="reproduce the known CTSpinoPelvic1K answers")
     p.add_argument("--levels", default=DEFAULT_FIXTURE,

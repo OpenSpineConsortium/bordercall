@@ -1,0 +1,1 @@
+Which measure isolates which level, one body, size unknown: the nearest-rival distance of each level along each measure alone (rows), and along all seven (top row), the area of a square proportional to the distance; from the within-level moments of 10000 synthetic columns.

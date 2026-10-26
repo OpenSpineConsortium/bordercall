@@ -1,0 +1,177 @@
+measure,level,d
+all seven,C3,0.956487
+endplate,C3,0.532111
+endplate_depth,C3,0.0708074
+endplate_lower,C3,0.10341
+endplate_lower_depth,C3,0.168619
+h_post,C3,0.106175
+canal_w,C3,0.150164
+canal_ap,C3,0.00447396
+all seven,C4,0.956487
+endplate,C4,0.131465
+endplate_depth,C4,0.0457333
+endplate_lower,C4,0.10341
+endplate_lower_depth,C4,0.168619
+h_post,C4,0.027164
+canal_w,C4,0.0172821
+canal_ap,C4,0.106239
+all seven,C5,1.17895
+endplate,C5,0.131465
+endplate_depth,C5,0.0457333
+endplate_lower,C5,0.938183
+endplate_lower_depth,C5,0.210109
+h_post,C5,0.027164
+canal_w,C5,0.0172821
+canal_ap,C5,0.0600122
+all seven,C6,1.17895
+endplate,C6,0.378358
+endplate_depth,C6,0.468466
+endplate_lower,C6,0.348553
+endplate_lower_depth,C6,0.210109
+h_post,C6,0.236577
+canal_w,C6,0.107617
+canal_ap,C6,0.00163868
+all seven,C7,2.19586
+endplate,C7,0.825421
+endplate_depth,C7,0.118505
+endplate_lower,C7,0.348553
+endplate_lower_depth,C7,0.444969
+h_post,C7,0.587451
+canal_w,C7,0.026711
+canal_ap,C7,0.00550445
+all seven,T1,1.65612
+endplate,T1,0.0235368
+endplate_depth,T1,0.118505
+endplate_lower,T1,0.110178
+endplate_lower_depth,T1,0.460588
+h_post,T1,0.645907
+canal_w,T1,0.0584959
+canal_ap,T1,0.0107685
+all seven,T2,1.65612
+endplate,T2,0.0152391
+endplate_depth,T2,0.451167
+endplate_lower,T2,0.110178
+endplate_lower_depth,T2,0.530989
+h_post,T2,0.0262624
+canal_w,T2,0.11044
+canal_ap,T2,0.00550445
+all seven,T3,0.815038
+endplate,T3,0.0508706
+endplate_depth,T3,0.211314
+endplate_lower,T3,0.0115499
+endplate_lower_depth,T3,0.346658
+h_post,T3,0.0262624
+canal_w,T3,0.0473635
+canal_ap,T3,0.00447396
+all seven,T4,0.519067
+endplate,T4,0.0235368
+endplate_depth,T4,0.211314
+endplate_lower,T4,0.0115499
+endplate_lower_depth,T4,0.346658
+h_post,T4,0.0232144
+canal_w,T4,0.040183
+canal_ap,T4,0.00320439
+all seven,T5,0.519067
+endplate,T5,0.0152391
+endplate_depth,T5,0.308356
+endplate_lower,T5,0.138547
+endplate_lower_depth,T5,0.354198
+h_post,T5,0.0232144
+canal_w,T5,0.024382
+canal_ap,T5,0.0400261
+all seven,T6,0.692963
+endplate,T6,0.383102
+endplate_depth,T6,0.450867
+endplate_lower,T6,0.1177
+endplate_lower_depth,T6,0.354198
+h_post,T6,0.271614
+canal_w,T6,0.0314924
+canal_ap,T6,0.0107685
+all seven,T7,0.623366
+endplate,T7,0.491792
+endplate_depth,T7,0.18795
+endplate_lower,T7,0.262195
+endplate_lower_depth,T7,0.268233
+h_post,T7,0.166024
+canal_w,T7,0.024382
+canal_ap,T7,0.00447534
+all seven,T8,0.623366
+endplate,T8,0.23661
+endplate_depth,T8,0.18795
+endplate_lower,T8,0.415965
+endplate_lower_depth,T8,0.268233
+h_post,T8,0.166024
+canal_w,T8,0.0525181
+canal_ap,T8,0.0520099
+all seven,T9,0.692286
+endplate,T9,0.23661
+endplate_depth,T9,0.325035
+endplate_lower,T9,0.542727
+endplate_lower_depth,T9,0.110359
+h_post,T9,0.243138
+canal_w,T9,0.0525181
+canal_ap,T9,0.0186151
+all seven,T10,0.692286
+endplate,T10,0.379861
+endplate_depth,T10,0.325035
+endplate_lower,T10,0.542727
+endplate_lower_depth,T10,0.0801321
+h_post,T10,0.363762
+canal_w,T10,0.0473635
+canal_ap,T10,0.0337192
+all seven,T11,1.09636
+endplate,T11,0.762876
+endplate_depth,T11,0.161095
+endplate_lower,T11,0.724294
+endplate_lower_depth,T11,0.0801321
+h_post,T11,0.323808
+canal_w,T11,0.11044
+canal_ap,T11,0.00320439
+all seven,T12,0.615198
+endplate,T12,0.479514
+endplate_depth,T12,0.161095
+endplate_lower,T12,0.271505
+endplate_lower_depth,T12,0.0491364
+h_post,T12,0.0828726
+canal_w,T12,0.0584959
+canal_ap,T12,0.00163868
+all seven,L1,0.615198
+endplate,L1,0.345414
+endplate_depth,L1,0.123178
+endplate_lower,L1,0.271505
+endplate_lower_depth,L1,0.0501008
+h_post,L1,0.00936076
+canal_w,L1,0.0532389
+canal_ap,L1,0.165379
+all seven,L2,0.746115
+endplate,L2,0.345414
+endplate_depth,L2,0.00673426
+endplate_lower,L2,0.460308
+endplate_lower_depth,L2,0.0501008
+h_post,L2,0.0677236
+canal_w,L2,0.0532389
+canal_ap,L2,0.0480465
+all seven,L3,0.74975
+endplate,L3,0.350718
+endplate_depth,L3,0.0782464
+endplate_lower,L3,0.232885
+endplate_lower_depth,L3,0.0606523
+h_post,L3,0.00936076
+canal_w,L3,0.026711
+canal_ap,L3,0.0600122
+all seven,L4,0.74975
+endplate,L4,0.125905
+endplate_depth,L4,0.0782464
+endplate_lower,L4,0.0231512
+endplate_lower_depth,L4,0.127632
+h_post,L4,0.0627607
+canal_w,L4,0.107617
+canal_ap,L4,0.107475
+all seven,L5,0.871929
+endplate,L5,0.125905
+endplate_depth,L5,0.00673426
+endplate_lower,L5,0.0231512
+endplate_lower_depth,L5,0.0491364
+h_post,L5,0.0828726
+canal_w,L5,0.359714
+canal_ap,L5,0.260862

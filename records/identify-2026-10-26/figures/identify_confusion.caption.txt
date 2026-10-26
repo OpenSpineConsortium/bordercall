@@ -1,0 +1,1 @@
+What each level is mistaken for, both planes, typical columns: the share of each true level (rows) given each name (columns), the area of a square proportional to the share; A, one body; B, five bodies. The diagonal is the recall. 1000 synthetic columns scored.

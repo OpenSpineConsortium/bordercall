@@ -392,6 +392,35 @@ for any new sweep is arithmetic, not a guess.
 - `reqp` with `--qos=requeue` is preemptible, which is why each shard writes its own file and the
   script skips a shard that is already complete.
 
+### Step 8 — which vertebrae of a normal spine can be named best, and by what
+
+**Done on 2026-10-26**: the results, the five verdicts and the nine figures are
+`docs/LEVEL_IDENTIFIABILITY_RESULTS.md`, drawn from `records/identify-2026-10-26/` by the two
+`identify` commands of `run.py` (`identify`, 308 s; `identify-figures`). The owner's ask of
+08:21 UTC, with Kunkel et al. 2010 attached: T12 looks like the most isolated point along the
+x axis of Kunkel's Fig 2A; evaluate, as thoroughly as the neighbour study, which vertebrae of
+the synthetic normal spine can be identified best, formulated on the prior research. The
+formulation is section 0 of the results: Kunkel's Table 1 and Fig 2A fits are reproduced from
+Panjabi's table first (the external check), then a level's identifiability is measured four
+ways, loosest to most honest: the gap to the nearest level along one measure in units of one
+body's spread, the nearest-rival Mahalanobis distance in the seven-measure space (size unknown,
+known and removed; by plane; by measure subset; with the field around the body named as a
+whole), the classifier of the neighbour study refitted on typical columns and scored per level
+by width and plane with abstention, and the exact likelihood of the generator at one body as
+the ceiling no rule can pass; the table's own sampling error is propagated by 400 redraws.
+What it found: the premise does not hold (over Kunkel's sixteen levels T1 is the most isolated
+along the body height, over all twenty-two T12's rival is L5 at 0.2 mm, and the spreads are
+wider than the gap at every one of Kunkel's sixteen levels); the cervicothoracic junction is
+what a field names with near certainty (C7 and T1 at 99% and 96% from nine bodies, 100% and 97%
+of them kept by a detector held to 95% precision), the thoracolumbar junction is not (T12 16%
+from one body, 77% from nine, its commonest error T11; the Bayes rule's own one-body recall
+37%); the width of the field is the largest lever, then both planes, then the
+patient's size, and the pedicle rows, which no SPINEPS label gives, would move the lumbar
+levels most. Three skeptics refuted the design before the run, four the text after it and three the
+corrected text again (one stopped at the usage limit; its sections were checked by script);
+section 12 lists what changed. Typical columns only; the anomalous phenotypes are the
+neighbour study's.
+
 ## What one evaluation costs, and where enumeration stops being free
 
 Measured on a Windows workstation, 2026-10-26. One evaluation of `A(S, r)` -- train the junction

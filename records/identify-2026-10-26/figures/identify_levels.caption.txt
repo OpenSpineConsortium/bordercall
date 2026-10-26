@@ -1,0 +1,1 @@
+Which levels the classifier names, typical columns, both planes: A, the share of each true level named exactly (recall), B, the share of calls of each name that are right (precision), by the number of bodies in the field. Bars, 95% Wilson intervals on the recall; 1000 synthetic columns scored. Levels at the ends of the column drop out as the field widens.

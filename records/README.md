@@ -50,3 +50,23 @@ columns per phenotype to choose thresholds and the winning subset on (seed 23), 
 columns per phenotype scored (seed 97); rho 0.5, noise 1.0 mm, scale spread 0.07,
 blend 0.5, r 0 in the main cells and swept over 0, 0.2, 0.4, 0.6, 0.8, 0.9. The record
 carries every setting, and `figures/FIGURES.md` the sha256 of each record and code file.
+
+## identify-2026-10-26
+
+Which vertebrae of a normal spine can be identified best, and by what, framed from Kunkel
+2010 (the owner's ask of 2026-10-26 08:21 UTC), answered in `docs/LEVEL_IDENTIFIABILITY_RESULTS.md`.
+Typical columns only, run from `bordercall/`:
+
+| file | command |
+|---|---|
+| `identify.json` | `python run.py identify --outdir ../records/identify-2026-10-26` |
+| `figures/` | `python run.py identify-figures --json ../records/identify-2026-10-26/identify.json --outdir ../records/identify-2026-10-26/figures` |
+
+The run (308 s) took the command's defaults: 1,000 typical columns fitted on (seed 11), 500 the
+confidence thresholds are chosen on (seed 23), 1,000 scored (seed 97), 10,000 for the
+within-level moments (seed 5), 400 redraws of the reference table for its sampling error
+(seed 17), 41 Gauss-Hermite nodes for the exact likelihood at one body; rho 0.5, noise
+1.0 mm, scale spread 0.07, r 0 in the main cells and swept over 0, 0.4 and 0.8 (and over 0,
+0.3, 0.6, 0.9 in the formula). The arm with the table's pedicle rows draws its own columns
+with nine measures on the same seeds. The record carries every setting, and
+`figures/FIGURES.md` the sha256 of the record and of each code file.

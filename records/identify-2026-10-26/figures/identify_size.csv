@@ -1,0 +1,133 @@
+panel,variant,level,recall,exact_all
+A,scale_sd 0.00,C3,0.634,0.415545
+A,scale_sd 0.00,C4,0.573,0.415545
+A,scale_sd 0.00,C5,0.444,0.415545
+A,scale_sd 0.00,C6,0.638,0.415545
+A,scale_sd 0.00,C7,0.643,0.415545
+A,scale_sd 0.00,T1,0.579,0.415545
+A,scale_sd 0.00,T2,0.564,0.415545
+A,scale_sd 0.00,T3,0.329,0.415545
+A,scale_sd 0.00,T4,0.341,0.415545
+A,scale_sd 0.00,T5,0.339,0.415545
+A,scale_sd 0.00,T6,0.261,0.415545
+A,scale_sd 0.00,T7,0.28,0.415545
+A,scale_sd 0.00,T8,0.349,0.415545
+A,scale_sd 0.00,T9,0.298,0.415545
+A,scale_sd 0.00,T10,0.34,0.415545
+A,scale_sd 0.00,T11,0.544,0.415545
+A,scale_sd 0.00,T12,0.229,0.415545
+A,scale_sd 0.00,L1,0.398,0.415545
+A,scale_sd 0.00,L2,0.22,0.415545
+A,scale_sd 0.00,L3,0.42,0.415545
+A,scale_sd 0.00,L4,0.507,0.415545
+A,scale_sd 0.00,L5,0.212,0.415545
+A,scale_sd 0.07,C3,0.551,0.365409
+A,scale_sd 0.07,C4,0.529,0.365409
+A,scale_sd 0.07,C5,0.379,0.365409
+A,scale_sd 0.07,C6,0.587,0.365409
+A,scale_sd 0.07,C7,0.614,0.365409
+A,scale_sd 0.07,T1,0.558,0.365409
+A,scale_sd 0.07,T2,0.565,0.365409
+A,scale_sd 0.07,T3,0.325,0.365409
+A,scale_sd 0.07,T4,0.295,0.365409
+A,scale_sd 0.07,T5,0.323,0.365409
+A,scale_sd 0.07,T6,0.179,0.365409
+A,scale_sd 0.07,T7,0.219,0.365409
+A,scale_sd 0.07,T8,0.244,0.365409
+A,scale_sd 0.07,T9,0.267,0.365409
+A,scale_sd 0.07,T10,0.278,0.365409
+A,scale_sd 0.07,T11,0.411,0.365409
+A,scale_sd 0.07,T12,0.158,0.365409
+A,scale_sd 0.07,L1,0.319,0.365409
+A,scale_sd 0.07,L2,0.177,0.365409
+A,scale_sd 0.07,L3,0.362,0.365409
+A,scale_sd 0.07,L4,0.413,0.365409
+A,scale_sd 0.07,L5,0.286,0.365409
+A,scale_sd 0.14,C3,0.478,0.330182
+A,scale_sd 0.14,C4,0.521,0.330182
+A,scale_sd 0.14,C5,0.349,0.330182
+A,scale_sd 0.14,C6,0.57,0.330182
+A,scale_sd 0.14,C7,0.6,0.330182
+A,scale_sd 0.14,T1,0.542,0.330182
+A,scale_sd 0.14,T2,0.533,0.330182
+A,scale_sd 0.14,T3,0.303,0.330182
+A,scale_sd 0.14,T4,0.258,0.330182
+A,scale_sd 0.14,T5,0.297,0.330182
+A,scale_sd 0.14,T6,0.129,0.330182
+A,scale_sd 0.14,T7,0.2,0.330182
+A,scale_sd 0.14,T8,0.181,0.330182
+A,scale_sd 0.14,T9,0.244,0.330182
+A,scale_sd 0.14,T10,0.224,0.330182
+A,scale_sd 0.14,T11,0.327,0.330182
+A,scale_sd 0.14,T12,0.117,0.330182
+A,scale_sd 0.14,L1,0.214,0.330182
+A,scale_sd 0.14,L2,0.162,0.330182
+A,scale_sd 0.14,L3,0.322,0.330182
+A,scale_sd 0.14,L4,0.439,0.330182
+A,scale_sd 0.14,L5,0.254,0.330182
+B,absolute,C3,0.551,0.365409
+B,absolute,C4,0.529,0.365409
+B,absolute,C5,0.379,0.365409
+B,absolute,C6,0.587,0.365409
+B,absolute,C7,0.614,0.365409
+B,absolute,T1,0.558,0.365409
+B,absolute,T2,0.565,0.365409
+B,absolute,T3,0.325,0.365409
+B,absolute,T4,0.295,0.365409
+B,absolute,T5,0.323,0.365409
+B,absolute,T6,0.179,0.365409
+B,absolute,T7,0.219,0.365409
+B,absolute,T8,0.244,0.365409
+B,absolute,T9,0.267,0.365409
+B,absolute,T10,0.278,0.365409
+B,absolute,T11,0.411,0.365409
+B,absolute,T12,0.158,0.365409
+B,absolute,L1,0.319,0.365409
+B,absolute,L2,0.177,0.365409
+B,absolute,L3,0.362,0.365409
+B,absolute,L4,0.413,0.365409
+B,absolute,L5,0.286,0.365409
+B,shape_only,C3,0.399,0.302682
+B,shape_only,C4,0.502,0.302682
+B,shape_only,C5,0.362,0.302682
+B,shape_only,C6,0.553,0.302682
+B,shape_only,C7,0.571,0.302682
+B,shape_only,T1,0.509,0.302682
+B,shape_only,T2,0.419,0.302682
+B,shape_only,T3,0.271,0.302682
+B,shape_only,T4,0.225,0.302682
+B,shape_only,T5,0.277,0.302682
+B,shape_only,T6,0.101,0.302682
+B,shape_only,T7,0.182,0.302682
+B,shape_only,T8,0.173,0.302682
+B,shape_only,T9,0.205,0.302682
+B,shape_only,T10,0.178,0.302682
+B,shape_only,T11,0.328,0.302682
+B,shape_only,T12,0.087,0.302682
+B,shape_only,L1,0.144,0.302682
+B,shape_only,L2,0.172,0.302682
+B,shape_only,L3,0.285,0.302682
+B,shape_only,L4,0.42,0.302682
+B,shape_only,L5,0.296,0.302682
+B,published_means,C3,0.383,0.322182
+B,published_means,C4,0.482,0.322182
+B,published_means,C5,0.368,0.322182
+B,published_means,C6,0.565,0.322182
+B,published_means,C7,0.575,0.322182
+B,published_means,T1,0.6,0.322182
+B,published_means,T2,0.469,0.322182
+B,published_means,T3,0.354,0.322182
+B,published_means,T4,0.19,0.322182
+B,published_means,T5,0.236,0.322182
+B,published_means,T6,0.143,0.322182
+B,published_means,T7,0.173,0.322182
+B,published_means,T8,0.179,0.322182
+B,published_means,T9,0.13,0.322182
+B,published_means,T10,0.268,0.322182
+B,published_means,T11,0.34,0.322182
+B,published_means,T12,0.085,0.322182
+B,published_means,L1,0.202,0.322182
+B,published_means,L2,0.193,0.322182
+B,published_means,L3,0.268,0.322182
+B,published_means,L4,0.279,0.322182
+B,published_means,L5,0.606,0.322182
