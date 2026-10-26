@@ -48,6 +48,8 @@ python run.py disagree  --levels levels.csv --phenotype phenotype.csv --above T1
 python run.py panjabi                                         # Panjabi's tables alone, no corpus
 python run.py panjabi-corpus --levels levels.csv --phenotype phenotype.csv
 python run.py synth-corpus --out out/synth                    # a made-up corpus to run the rest on
+python run.py covariance                                      # what the literature can and cannot supply
+python run.py covariance --sweep --out ../records/covariance-sweep.json
 ```
 
 Any adjacent pair works: `--above C7 --below T1`, `--above L5 --below L6`. Narrow what gets
@@ -271,6 +273,45 @@ geometric extents. **The pedicle does not.** SPINEPS labels the whole posterior 
 approximated: an extent of 41 is not a pedicle width, and returning one would be a finite,
 plausible, wrong number. The mapping doc names the two honest ways to get it.
 
+## The between-measure correlation: `covariance`
+
+Synthetic columns draw each measure's departure from its published mean **independently**.
+Real vertebrae do not work that way -- a wide body tends to come with a deep one -- so
+independence hands the classifier more information than it would really have, and **every
+accuracy this package reports at the default is an upper bound.**
+
+No published source gives the within-patient value. `run.py covariance` shows the search
+rather than asserting a number:
+
+- Panjabi's tables could only hide it in the **ratio rows**, since a mean of per-specimen
+  ratios carries a covariance and a ratio of means does not. All three two-decimal rows
+  reproduce `mean(a)/mean(b)` to within 0.0044 against a 0.005 rounding tolerance. They are
+  ratios of means. The thoracic row is printed to one decimal and is reported as
+  **uninformative** rather than counted either way. And n = 12: a correlation from twelve
+  specimens has a 95 % interval of roughly 0.00 to 0.84.
+- **Kunkel et al. (J Anat 2010;216:320) is the near miss worth knowing about.** Alone in the
+  lineage they regress each parameter on *another parameter* rather than on level, with R²
+  up to 0.982 -- the exact shape of relation wanted. But each of their data points is the
+  **mean at one level across the 12 cadavers**, so the fit runs over sixteen level means, not
+  over individuals. Reading a within-patient correlation out of it is the ecological fallacy,
+  in the direction that inflates.
+
+So `r` is swept, not assumed. `--sweep` reruns the whole measure-set comparison across
+r = 0.0 … 0.9, drawing fresh columns at every point, selecting on one seed and scoring on
+another so the chosen measure set is scored on columns the choice never saw:
+
+```
+7 SPINEPS-measurable measures against 3, exact junction placement
+  C7/T1    0.4175 -> 0.7100   +0.2925 +/- 0.0137
+  T12/L1   0.2283 -> 0.3454   +0.1171 +/- 0.0129
+
+r = 0.00 -> 0.90 moves accuracy by at most 1.6 Monte Carlo standard errors,
+and the verdict is "7 better" at every r on the grid.
+```
+
+The conclusion does not depend on the unmeasurable quantity. Quote it that way. Recorded in
+`records/covariance-sweep.json`.
+
 ## Traps
 
 1. **The identifier map is assumed, not detected.** Run `scheme` first.
@@ -313,6 +354,7 @@ one.
 | `border.py` | features, grouped-CV logistic regression, border evaluation |
 | `plots.py` | the two conference figures |
 | `sweep.py` | every candidate border ranked by its worst anomalous class |
+| `covariance.py` | the between-measure correlation: what the literature supplies, the exchangeable draw, and the sweep that shows the conclusion survives it |
 | `disagree.py` | the count, the ribs and the circular arm where the shape disagrees with the name |
 | `panjabi.py` | synthetic columns from Panjabi's tables, with the phenotypes and their twins |
 | `junction.py` | the junction named from the shape profile, fitted on the tables alone |

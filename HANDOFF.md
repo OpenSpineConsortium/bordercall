@@ -17,7 +17,7 @@ and `selftest` takes no argument.
 
 | What | Where | Rebuilt by |
 |---|---|---|
-| The method and its tests | `bordercall/` (`run.py`, `panjabi.py`, `junction.py`, `junction_figures.py`, `disagree.py`, `synth_corpus.py`, `reference/panjabi_full_spine.csv`) and `tests/` | `cd bordercall && python run.py selftest`; `python -m unittest discover tests` (31 tests) |
+| The method and its tests | `bordercall/` (`run.py`, `panjabi.py`, `junction.py`, `junction_figures.py`, `disagree.py`, `synth_corpus.py`, `reference/panjabi_full_spine.csv`) and `tests/` | `cd bordercall && python run.py selftest`; `python -m unittest discover -s tests` from the repository root (37 tests; 36 pass, and `test_junction_figures.JunctionFigures` errors in `setUpClass` on a matplotlib colour fault that is present on `origin/main` independently of any of this work) |
 | The recorded runs every figure and slide number is read from | `records/panjabi-2026-10-26/three-measures/panjabi_junction.json` and `four-measures/panjabi_junction.json` | the commands in `records/README.md`; a re-run is a new record beside these, never a replacement |
 | The five figures: PDF, PNG, the CSV of the numbers drawn and the caption of each, with `FIGURES.md` naming the record and the code by sha256 | `records/panjabi-2026-10-26/figures/` | `cd bordercall && python run.py panjabi-figures --json ../records/panjabi-2026-10-26/three-measures/panjabi_junction.json --outdir ../figures/junction` (the root `figures/` is ignored by git; the copy under `records/` is the committed one) |
 | The six CNS slides, as PowerPoint and as PDF | `slides/junction_slides.pptx`, `slides/junction_slides.pdf` | `python slides/make_junction_slides.py --template <deck> --out out/junction_slides.pptx --figures records/panjabi-2026-10-26/figures`, where `<deck>` is the owner's CNS deck, which spine-program holds at `provisional_patent/wsu_tto/TTO_package_2026-09-25/followup/CNS2026_spine_talk_v10_2026-09-26_CNS_template_ACCME.pptx` (sha256 59497c01f0cadee96a9a6a96489015bfc72be3d366051308c6345426ed72a3f5) and this repository does not |
@@ -107,7 +107,7 @@ python run.py border --levels levels.csv --above L5  --below L6
 BORDERCALL_LEVELS=T11,T12,L1,L2,L3,L4,L5 python run.py measure --labels ... --out ...
 ```
 
-## The four traps, in the order they will bite
+## The five traps, in the order they will bite
 
 **1. The identifier map is assumed, not detected.** `measure_levels.py` carries
 `VERSE_NAMES`: 1–7 are C1–C7, 8–19 are T1–T12, 20–25 are L1–L6, 28 is T13. If your corpus
@@ -138,6 +138,19 @@ meaning what they say.
 **4. Folds are grouped by case.** Two vertebrae from one patient are not independent
 observations. A random split leaks and inflates everything. `out_of_fold()` groups by case;
 keep it that way, and keep any new split grouped too.
+
+**5. Every synthetic accuracy is an upper bound, and the default hides it.** The generator
+draws each measure's departure from its published mean independently. Real vertebrae do not
+work that way — a wide body tends to come with a deep one — so independence hands the
+classifier more information than it would have. No published source gives the within-patient
+correlation; `run.py covariance` shows why, including the one paper that looks like the
+answer and is not (Kunkel 2010 regresses parameter on parameter, which is the right shape,
+but over sixteen *level means* rather than over individuals — reading a within-patient
+correlation from it is the ecological fallacy). So pass `--r-between` and sweep it rather
+than quoting the default. On the measure-set question the sweep settles it: the verdict is
+unchanged across r = 0.0 to 0.9, moving by at most 1.6 Monte Carlo standard errors. **Do
+that sweep for any new synthetic claim before quoting it.** `r_between=0` reproduces the
+recorded runs exactly, which is what the tests check.
 
 ## Ground truth means a count from C2, and this corpus has none
 
@@ -218,7 +231,8 @@ could not.
 
 | File | What it is |
 |---|---|
-| `run.py` | CLI: `scheme`, `selftest`, `measure`, `phenotype`, `border`, `breakout`, `sweep`, `plot`, `disagree`, `panjabi`, `panjabi-corpus`, `panjabi-figures`, `synth-corpus`, `all` |
+| `run.py` | CLI: `scheme`, `selftest`, `measure`, `phenotype`, `border`, `breakout`, `sweep`, `plot`, `disagree`, `panjabi`, `panjabi-corpus`, `panjabi-figures`, `synth-corpus`, `covariance`, `all` |
+| `covariance.py` | the between-measure correlation: what the literature does and does not supply, the exchangeable draw that puts it into the generator, and the sweep showing the measure-set conclusion survives the whole range of it |
 | `disagree.py` | step 5 below as a command: the count, the ribs and the circular arm, with denominators |
 | `panjabi.py`, `junction.py` | the junction named from Panjabi's tables with no CT; the owner's junction predictor for the CNS slides, robust to lumbosacral anomalies by construction; at a TLTV the count and the ribs name the junction one level apart and the shape cannot choose (README, `panjabi`) |
 | `junction_figures.py`, `records/`, `slides/make_junction_slides.py` | the five figures from a recorded `panjabi` run (textbook line figures, each with its CSV, caption and `FIGURES.md`), the recorded runs, and the six CNS slides built from them on the deck's own template |
