@@ -158,7 +158,7 @@ with open(out, "w", newline="", encoding="utf-8") as fh:
              "# SD is sem*sqrt(n). Cervical levels are absent: see build_panjabi.py.\n")
     w = csv.DictWriter(fh, fieldnames=["measure", "level", "mean", "sem", "n",
                                        "panjabi_name", "source_table", "source_page",
-                                       "citation"])
+                                       "citation"], lineterminator="\n")
     w.writeheader()
     for r in sorted(ROWS, key=lambda x: (x["measure"], x["level"])):
         w.writerow(r)
