@@ -228,6 +228,27 @@ def cmd_covariance(a) -> int:
     return 0
 
 
+def cmd_enumerate(a) -> int:
+    """Every subset, every r. Exhaustive is the right method at these counts, not a fallback.
+
+    7.24 s per evaluation, measured, so the whole ground set of 7 measures is 127 subsets and
+    about 3 hours of single-core work -- cheaper than reasoning about which subsets to try, and
+    exact. HANDOFF.md has the Slurm array job and the crossover where this stops being true.
+    """
+    import covariance as CV
+
+    if a.gather:
+        CV.gather_shards(a.gather, out_json=a.out)
+        return 0
+
+    measures = ([x for x in a.measures.replace(",", " ").split()] if a.measures else None)
+    grid = ([float(x) for x in a.r_grid.replace(",", " ").split()] if a.r_grid else None)
+    CV.enumerate_subsets(measures=measures, min_k=a.min_k, r_grid=grid,
+                         shard=a.shard, n_shards=a.n_shards,
+                         n_columns=a.n_columns, n_eval=a.n_eval, out_json=a.out)
+    return 0
+
+
 def cmd_selftest(a) -> int:
     c = Corpus.from_csv(a.levels)
     print("levels found: %s" % ", ".join(c.levels))
@@ -421,6 +442,25 @@ def main() -> int:
     p.add_argument("--n-columns", type=int, default=600, dest="n_columns")
     p.add_argument("--n-eval", type=int, default=400, dest="n_eval")
     p.set_defaults(fn=cmd_covariance)
+
+    p = sub.add_parser("enumerate",
+                       help="score EVERY subset of the measures at every r: the exact answer, "
+                            "and the ground truth any budget-allocation procedure must be "
+                            "tested against")
+    p.add_argument("--measures", default=None,
+                   help="comma-separated ground set; defaults to the 7 SPINEPS-measurable")
+    p.add_argument("--min-k", type=int, default=1, dest="min_k")
+    p.add_argument("--r-grid", default=None, dest="r_grid")
+    p.add_argument("--shard", type=int, default=0,
+                   help="this task's index, for a Slurm array job")
+    p.add_argument("--of", type=int, default=1, dest="n_shards",
+                   help="how many shards in total")
+    p.add_argument("--n-columns", type=int, default=600, dest="n_columns")
+    p.add_argument("--n-eval", type=int, default=400, dest="n_eval")
+    p.add_argument("--out", default=None, help="write this shard's JSON here")
+    p.add_argument("--gather", nargs="+", default=None,
+                   help="instead of scoring, merge these shard JSONs and rank the subsets")
+    p.set_defaults(fn=cmd_enumerate)
 
     p = sub.add_parser("selftest", help="reproduce the known CTSpinoPelvic1K answers")
     p.add_argument("--levels", default=DEFAULT_FIXTURE,

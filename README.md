@@ -12,6 +12,8 @@ needed, no GPU. The model is a logistic regression written out, because the ques
 whether the shape carries the border at all; if hand-built features on a linear model
 separate it, a network will do better.
 
+The literature survey behind the statistical reporting here -- what mathematical problem this is, and what software does and does not exist for it -- is committed at `research/solver-survey-2026-10-26/` (start at its `INDEX.md`). `CHECKPOINT_2026-10-26.md` records the state of the work, and `HANDOFF.md` has a numbered plan for running the measure-set study on the Wayne State grid, which needs no CT and no label access.
+
 ## Install
 
 ```bash
@@ -50,6 +52,8 @@ python run.py panjabi-corpus --levels levels.csv --phenotype phenotype.csv
 python run.py synth-corpus --out out/synth                    # a made-up corpus to run the rest on
 python run.py covariance                                      # what the literature can and cannot supply
 python run.py covariance --sweep --out ../records/covariance-sweep.json
+python run.py enumerate --shard 0 --of 16 --out out/shard_0.json   # every subset, sharded
+python run.py enumerate --gather out/shard_*.json --out out/gathered.json
 ```
 
 Any adjacent pair works: `--above C7 --below T1`, `--above L5 --below L6`. Narrow what gets
@@ -434,7 +438,7 @@ one.
 | `border.py` | features, grouped-CV logistic regression, border evaluation |
 | `plots.py` | the two conference figures |
 | `sweep.py` | every candidate border ranked by its worst anomalous class |
-| `covariance.py` | the between-measure correlation: what the literature supplies, the exchangeable draw, and the sweep that shows the conclusion survives it |
+| `covariance.py` | the between-measure correlation: what the literature supplies, the exchangeable draw, the sweep that shows the conclusion survives it, the partial-identification reporting (identified set, Imbens-Manski interval, sign invariance), the measured grid error and coverage check, and exhaustive subset enumeration |
 | `disagree.py` | the count, the ribs and the circular arm where the shape disagrees with the name |
 | `panjabi.py` | synthetic columns from Panjabi's tables, with the phenotypes and their twins |
 | `junction.py` | the junction named from the shape profile, fitted on the tables alone |

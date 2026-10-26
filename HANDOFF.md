@@ -7,6 +7,13 @@ segmented census this folder owns.
 
 ## Where this stands at the checkpoint of 2026-10-26, 03:10 UTC
 
+> **Later the same day**, a literature survey of optimisation software turned into six commits
+> that changed how every synthetic number here is reported, and added `run.py enumerate`.
+> `CHECKPOINT_2026-10-26.md` records what changed and what is still open;
+> `research/solver-survey-2026-10-26/INDEX.md` is the survey. **If you are a new account picking
+> this up to run on the grid, go to "FOR THE NEXT ACCOUNT" below** — it is a numbered plan with
+> the Slurm scripts in it, and it needs no CT, no labels and no data access.
+
 Written on the owner's word to push everything and hand off, so that a new account's project
 continues from git alone. Nothing needed is held only in a thread, a scratch folder or OneDrive.
 The commands further down that name `06_transitional_ct_census` and `03_ctspinopelvic1k_dataset`
@@ -151,6 +158,181 @@ than quoting the default. On the measure-set question the sweep settles it: the 
 unchanged across r = 0.0 to 0.9, moving by at most 1.6 Monte Carlo standard errors. **Do
 that sweep for any new synthetic claim before quoting it.** `r_between=0` reproduces the
 recorded runs exactly, which is what the tests check.
+
+## FOR THE NEXT ACCOUNT: run the measure-set study on the Wayne State grid
+
+Everything in this section is **pure synthetic** — columns drawn from Panjabi's published means
+and spreads. **No CT, no labels, no corpus, no data access of any kind.** That is the whole
+reason it is the right first thing to run on a new account: it needs nothing but the repository
+and a Python with numpy and scipy, so nothing is blocked on an access list.
+
+The literature survey behind all of this is committed at
+`research/solver-survey-2026-10-26/` — start at its `INDEX.md`, and read
+`adversarial-verification.txt` beside any notes file, because all seven of the survey's
+decision-changing claims needed correction.
+
+### What to pull, and what it needs
+
+```bash
+git clone git@github.com:OpenSpineConsortium/bordercall.git   # private
+cd bordercall && git log --oneline -8                          # expect 400e73a or later on main
+```
+
+`numpy`, `scipy`. (`nibabel` is needed only for the label-reading commands, which this study
+does not use.) On the grid: `~/mambaforge/envs/spineps/bin/python` has all three.
+
+### Step 0 — prove the copy works before trusting a number from it
+
+Not optional, and the reason is in the traps above: a corpus numbered differently, or a drifted
+model, produces finite, plausible, wrong numbers and raises nothing.
+
+```bash
+cd ~/bordercall/bordercall && python run.py selftest
+cd ~/bordercall && python -m unittest discover -s tests
+```
+
+Expect 70 tests, 69 passing. The single error is `test_junction_figures.JunctionFigures` in
+`setUpClass`, a matplotlib colour fault present on `origin/main` independently of this work. **If
+anything else fails, stop** — do not run the study on a copy whose tests do not pass.
+
+### Step 1 — re-measure the per-evaluation cost on a compute node
+
+The 7.24 s in the next section is a Windows workstation. A grid core will differ, and every wall
+time below scales off it, so measure it rather than inherit it.
+
+```python
+import time, panjabi as P, junction as J, covariance as CV
+ref = P.load_reference(measures=CV.SPINEPS_7)
+t = time.perf_counter()
+m = J.train(ref, "tl", measures=CV.SPINEPS_7, n_columns=600, seed=11,
+            rho=0.5, noise_mm=1.0, scale_sd=0.07, r_between=0.0)
+for ph in P.PHENOTYPES:
+    J.evaluate(m, ref, ph, seed=97, n=400, rho=0.5, noise_mm=1.0, scale_sd=0.07, r_between=0.0)
+print("%.2f s per evaluation" % (time.perf_counter() - t))
+```
+
+### Step 2 — the study itself: enumerate every subset
+
+This is the science, and at this size exhaustive enumeration is the **right** method, not a
+fallback: exact by construction, no relaxation or optimality gap, and it returns the whole ranked
+distribution instead of an argmax. 127 subsets of the 7 measures, 6 values of `r`, both
+junctions — about 3.1 hours of single-core work, so 16 shards is roughly 12 minutes each.
+
+Save as `~/bordercall/jobs/enumerate.sbatch`:
+
+```bash
+#!/bin/bash
+#SBATCH --job-name=bc-enum
+#SBATCH --partition=reqp
+#SBATCH --qos=requeue
+#SBATCH --array=0-15
+#SBATCH --cpus-per-task=1
+#SBATCH --mem=4G
+#SBATCH --time=2:00:00
+#SBATCH --output=logs/enum_%A_%a.out
+set -euo pipefail
+OUT=/rs/rs_grp_oschome/go2432/bordercall/enum-${SLURM_ARRAY_JOB_ID}
+mkdir -p "$OUT"
+SHARD_OUT="$OUT/shard_${SLURM_ARRAY_TASK_ID}.json"
+# reqp is requeueable, so a preempted task restarts: finished shards are not redone
+if [ -s "$SHARD_OUT" ]; then echo "shard already complete, nothing to do"; exit 0; fi
+cd ~/bordercall/bordercall
+exec ~/mambaforge/envs/spineps/bin/python run.py enumerate \
+     --shard "$SLURM_ARRAY_TASK_ID" --of 16 --out "$SHARD_OUT"
+```
+
+```bash
+mkdir -p ~/bordercall/logs
+sbatch -D ~/bordercall ~/bordercall/jobs/enumerate.sbatch
+```
+
+`sbatch -D` is load-bearing: `#SBATCH --output` resolves against the **submit** directory, and
+without it the logs land wherever you happened to be standing.
+
+### Step 3 — gather, and read off two answers
+
+```bash
+OUT=/rs/rs_grp_oschome/go2432/bordercall/enum-<jobid>
+cd ~/bordercall/bordercall
+python run.py enumerate --gather $OUT/shard_*.json --out $OUT/gathered.json
+```
+
+The gather prints, per junction, the top five subsets **by worst case over `r`** — the maximin
+criterion, which is the right one when `r` cannot be measured — and it refuses to call a winner
+whose lead is inside the noise. It also answers a structural question that decides which methods
+are even admissible: **is `A` monotone in `S`?** A small pilot already says no at T12/L1, with 7
+of 18 supersets scoring lower by more than 2 standard errors and a worst drop of −0.1028. If
+that holds at full `n`, then **adding a measure can hurt**, a cardinality constraint is not
+needed to make the problem non-trivial, and every submodular-greedy guarantee is ruled out on
+its own terms, independently of the Krause-Guestrin argument. Only drops clearing 2 s.e. count;
+the command says "neither established nor refuted" when none do, rather than reporting scatter.
+
+### Step 4 — close the Lipschitz question with a fine grid
+
+`A(S, ·)` was measured **not** monotone in `r`, so the grid's `L*h/2` term is not disposable, and
+refining the grid is not a check on itself (a 0.02 dip hidden between points takes the interval's
+coverage from 0.95 to 0.42 — `covariance.coverage_check()` measures exactly that). A 19-point
+grid cuts `h` by an order of magnitude. Cost scales linearly: ~10 hours single core, so widen the
+array.
+
+```bash
+python run.py covariance --sweep --r-grid 0,0.05,0.1,0.15,0.2,0.25,0.3,0.35,0.4,0.45,0.5,0.55,0.6,0.65,0.7,0.75,0.8,0.85,0.9 \
+       --out $OUT/sweep-fine.json
+python run.py covariance --from-json $OUT/sweep-fine.json     # re-report, costs nothing
+```
+
+Compare the reported `L` and `gap` against the coarse run's. **If the fine grid's worst case drops
+materially, the coarse grid was hiding a dip and every interval quoted from it was optimistic.**
+
+### Step 5 — test OCBA against ground truth, which is the thing you now have
+
+This is why step 2 comes first. `sim-tools` 1.3.0 (MIT, PyPI 2026-06-24) ships OCBA, OCBA-m, KN
+and KN++, and is the one package the survey says to adopt. Its `ovs` module is **2021 code under a
+2026 version string with no tests of its own**, so pin the commit and validate it yourself — and
+the enumeration gives you the only validation that means anything: *did it find the subset that is
+actually best?*
+
+```bash
+~/mambaforge/envs/spineps/bin/python -m pip install --user 'sim-tools==1.3.0'
+```
+
+Compute nodes have internet, so run the install inside a job. Then feed the enumeration's
+per-subset means and variances to `sim_tools.ovs.fixed_budget` and report **attained probability
+of correct selection against the known best**, and the budget it used against the 127 × 6 × 2
+evaluations enumeration spent. Do not quote a figure for OCBA's saving over equal allocation from
+the literature — the survey could not source one.
+
+### Step 6 — where this stops being free, and OCBA starts earning its keep
+
+| measures `m` | subsets | single-core |
+|---|---|---|
+| 7 | 127 | 0.5 h |
+| 9 | 511 | 2.1 h |
+| 12 | 4,095 | 16.5 h |
+| 17 | 131,071 | **22 days** |
+
+So grow the ground set — the transcribed Panjabi table carries more than seven measures, and
+`SPINEPS_MAPPING.md` says which are honestly measurable from a segmentation — and at `m` around 12
+switch from `--shard/--of` enumeration to OCBA, now that step 5 has shown whether you can trust
+it. **The pedicle measures stay excluded**: SPINEPS labels the whole arch 41 and never isolates
+the pedicle, so PDW and PDH cannot be read off one.
+
+### Grid etiquette that will bite otherwise
+
+- **Nothing on the login node.** Everything through `sbatch`, including the gather.
+- **`sbatch -D <dir>`**, because `--output` resolves against the submit directory.
+- **Chain with `afterany`, not `afterok`**, and check the output yourself — `afterok` strands a
+  dependent job permanently when the parent exits non-zero for a trivial reason.
+- **`/tmp` is node-local and swept.** A cleaner once deleted the multiprocessing listener sockets
+  of two 18-hour runs at the same minute. Put IPC under `/dev/shm`.
+- **Large outputs go on CephFS**, `/rs/rs_grp_oschome/go2432/`, not the home directory, which is a
+  Panasas soft quota and has been 93 % full. `df-ceph oschome` for usage.
+- **Nothing container-related on `warrior`**, and nothing of ours under its `/tmp`. Container
+  builds and execs run only inside Slurm jobs.
+- **The grid's bash is 4.2.** `${var/pat/"$new"}` keeps the quotes there; a suite written against
+  WSL's 5.2 will not catch it.
+- `reqp` with `--qos=requeue` is preemptible, which is why each shard writes its own file and the
+  script skips a shard that is already complete.
 
 ## What one evaluation costs, and where enumeration stops being free
 

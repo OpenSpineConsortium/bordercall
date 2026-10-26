@@ -79,6 +79,7 @@ import json
 import math
 import os
 import sys
+from collections import defaultdict
 from typing import Dict, List, Optional, Sequence
 
 import numpy as np
@@ -648,6 +649,201 @@ def _score(measures, r, fit_seed=FIT_SEED, eval_seed=EVAL_SEED,
             hits += s.exact
             tot += s.n
         out[key] = (hits / tot if tot else float("nan"), tot)
+    return out
+
+
+def subsets_of(measures: Sequence[str], min_k: int = 1):
+    """Every non-empty subset, in a fixed order so a shard index means the same thing twice."""
+    ms = list(measures)
+    out = []
+    for mask in range(1, 1 << len(ms)):
+        pick = [ms[i] for i in range(len(ms)) if mask & (1 << i)]
+        if len(pick) >= min_k:
+            out.append(pick)
+    out.sort(key=lambda s: (len(s), [list(ms).index(x) for x in s]))
+    return out
+
+
+def enumerate_subsets(measures=None, min_k: int = 1, r_grid=None, shard: int = 0,
+                      n_shards: int = 1, n_columns: int = 600, n_eval: int = 400,
+                      out_json: Optional[str] = None, quiet: bool = False):
+    """Score EVERY subset at every r. The exact answer, and the ground truth for any procedure.
+
+    At the measure counts this package uses, exhaustive enumeration is not a fallback -- it is
+    the right method. It is exact by construction, with no relaxation, big-M, tolerance or
+    optimality gap, and it returns the whole ranked distribution rather than an argmax, which
+    is worth more here than a winner: a single plausible number is this project's recurring
+    failure mode, and a distribution shows how far the runner-up is behind.
+
+    It is also the only honest way to test a budget-allocation procedure. Run OCBA or KN
+    against this and you know whether it found the true best, not merely whether it converged.
+
+    Sharding is by subset index, so shard i of n takes subsets i, i+n, i+2n, ... Each shard
+    writes its own JSON and gather_shards() merges them. That keeps a Slurm array job's tasks
+    independent, which matters because a task that dies takes only its own subsets with it.
+    """
+    import junction as J
+    import panjabi as P
+
+    measures = list(SPINEPS_7 if measures is None else measures)
+    r_grid = list(R_GRID if r_grid is None else r_grid)
+    all_subsets = subsets_of(measures, min_k)
+    mine = [(i, s) for i, s in enumerate(all_subsets) if i % n_shards == shard]
+
+    if not quiet:
+        print("EXHAUSTIVE ENUMERATION. Synthetic columns only; no corpus is read.")
+        print("  ground set %d measures -> %d non-empty subsets (min_k=%d)"
+              % (len(measures), len(all_subsets), min_k))
+        print("  shard %d of %d -> %d subsets x %d r values x %d junctions = %d evaluations"
+              % (shard, n_shards, len(mine), len(r_grid), len(JUNCTIONS),
+                 len(mine) * len(r_grid) * len(JUNCTIONS)))
+        print("  fit seed %d, score seed %d (different, so the score is on columns the fit "
+              "never saw)\n" % (FIT_SEED, EVAL_SEED))
+
+    rows = []
+    for n, (idx, ms) in enumerate(mine, 1):
+        ref = P.load_reference(measures=ms)
+        for r in r_grid:
+            for key in JUNCTIONS:
+                model = J.train(ref, key, measures=ms, n_columns=n_columns, seed=FIT_SEED,
+                                rho=0.5, noise_mm=1.0, scale_sd=0.07, r_between=r)
+                hits = tot = 0
+                for ph in P.PHENOTYPES:
+                    s = J.evaluate(model, ref, ph, seed=EVAL_SEED, n=n_eval,
+                                   rho=0.5, noise_mm=1.0, scale_sd=0.07, r_between=r)
+                    hits += s.exact
+                    tot += s.n
+                acc = hits / tot if tot else float("nan")
+                rows.append({"subset_index": idx, "measures": ms, "k": len(ms),
+                             "r": r, "junction": key, "acc": acc, "n": tot,
+                             "se": binomial_se(acc, tot)})
+        if not quiet:
+            print("  [%4d/%4d] subset %4d  k=%d  %s"
+                  % (n, len(mine), idx, len(ms), ",".join(ms)))
+
+    payload = {"ground_set": measures, "min_k": min_k, "grid": r_grid,
+               "n_subsets_total": len(all_subsets), "shard": shard, "n_shards": n_shards,
+               "design": {"fit_seed": FIT_SEED, "eval_seed": EVAL_SEED,
+                          "n_columns": n_columns, "n_eval": n_eval},
+               "rows": rows}
+    if out_json:
+        os.makedirs(os.path.dirname(os.path.abspath(out_json)), exist_ok=True)
+        with open(out_json, "w") as fh:
+            json.dump(payload, fh, indent=2)
+        if not quiet:
+            print("\nwrote %s" % out_json)
+    return payload
+
+
+def gather_shards(paths: Sequence[str], out_json: Optional[str] = None):
+    """Merge shard JSONs, rank the subsets, and answer the two open structural questions."""
+    rows, ground, grid, total = [], None, None, None
+    seen_shards = []
+    for p in paths:
+        with open(p) as fh:
+            d = json.load(fh)
+        rows.extend(d["rows"])
+        ground = ground or d["ground_set"]
+        grid = grid or d["grid"]
+        total = total or d["n_subsets_total"]
+        seen_shards.append(d["shard"])
+
+    by_subset = defaultdict(dict)
+    for x in rows:
+        by_subset[tuple(x["measures"])].setdefault(x["junction"], []).append(x)
+
+    done = len(by_subset)
+    print("gathered %d shards, %d of %d subsets present" % (len(paths), done, total))
+    if done != total:
+        print("  INCOMPLETE -- %d subsets are missing. Every number below is over what is"
+              % (total - done))
+        print("  present, not over the ground set. Do not report a winner from a partial run.")
+
+    out = {"ground_set": ground, "grid": grid, "n_subsets_total": total,
+           "n_subsets_present": done, "complete": done == total,
+           "shards": sorted(seen_shards), "junctions": {}}
+
+    for key, pretty in JUNCTIONS.items():
+        ranked = []
+        for ms, per in by_subset.items():
+            got = per.get(key)
+            if not got:
+                continue
+            worst = min(got, key=lambda x: x["acc"])
+            ranked.append({"measures": list(ms), "k": len(ms),
+                           "worst_acc": worst["acc"], "worst_at_r": worst["r"],
+                           "se": worst["se"],
+                           "best_acc": max(x["acc"] for x in got),
+                           "rows": sorted(got, key=lambda x: x["r"])})
+        # the maximin choice: best WORST case over r, which is the robust criterion
+        ranked.sort(key=lambda x: -x["worst_acc"])
+        print("\n  %s -- top 5 by WORST case over r (the maximin choice)" % pretty)
+        for x in ranked[:5]:
+            print("    %.4f +/- %.4f at r=%.2f   k=%d  %s"
+                  % (x["worst_acc"], x["se"], x["worst_at_r"], x["k"],
+                     ",".join(x["measures"])))
+        if len(ranked) > 1:
+            gap = ranked[0]["worst_acc"] - ranked[1]["worst_acc"]
+            se = (ranked[0]["se"] ** 2 + ranked[1]["se"] ** 2) ** 0.5
+            print("    winner over runner-up: %+.4f +/- %.4f (%.1f s.e.)%s"
+                  % (gap, se, gap / se if se else float("nan"),
+                     "" if gap > 2 * se else "   <- INSIDE THE NOISE, do not call a winner"))
+
+        # is A monotone in S? compare every subset against every superset one element larger
+        acc_at = {}
+        for ms, per in by_subset.items():
+            for x in per.get(key, []):
+                acc_at[(frozenset(ms), x["r"])] = x
+        # A drop has to clear the noise to be a drop. Counting every negative difference
+        # would report Monte Carlo scatter as a structural finding, which is exactly the
+        # failure this package exists to avoid: at n_eval 60 the standard error is 0.024 and
+        # half the "violations" are nothing.
+        viol, sig, tested, worst_v, worst_sig = 0, 0, 0, 0.0, 0.0
+        for (fs, r), x in acc_at.items():
+            for e in ground:
+                if e in fs:
+                    continue
+                y = acc_at.get((fs | {e}, r))
+                if y is None:
+                    continue
+                tested += 1
+                d = y["acc"] - x["acc"]
+                if d >= 0:
+                    continue
+                viol += 1
+                worst_v = min(worst_v, d)
+                se_d = math.sqrt(x["se"] ** 2 + y["se"] ** 2)
+                if d < -2.0 * se_d:
+                    sig += 1
+                    worst_sig = min(worst_sig, d)
+        if tested:
+            print("    monotone in S? %d of %d supersets scored lower, of which %d by more"
+                  % (viol, tested, sig))
+            print("      than 2 s.e. (worst drop %+.4f, worst significant %+.4f)"
+                  % (worst_v, worst_sig))
+            if sig:
+                print("      ADDING A MEASURE CAN HURT, beyond the noise. The objective is not")
+                print("      monotone in S, so a cardinality constraint is not needed to make")
+                print("      the problem non-trivial and the unconstrained argmax is a real")
+                print("      answer -- which also rules out every submodular-greedy guarantee,")
+                print("      all of which assume monotonicity.")
+            elif viol:
+                print("      No drop clears the noise. On this run monotonicity is neither")
+                print("      established nor refuted; raise --n-eval before concluding either.")
+            else:
+                print("      No subset was beaten by a superset, so the full set may win by")
+                print("      construction. Fix k before asking which subset is best, and")
+                print("      re-check at higher --n-eval before relying on it.")
+        out["junctions"][key] = {"ranked": ranked,
+                                 "monotone_in_S": {"drops": viol, "significant_drops": sig,
+                                                   "tested": tested, "worst_drop": worst_v,
+                                                   "worst_significant_drop": worst_sig}}
+
+    if out_json:
+        os.makedirs(os.path.dirname(os.path.abspath(out_json)), exist_ok=True)
+        with open(out_json, "w") as fh:
+            json.dump(out, fh, indent=2)
+        print("\nwrote %s" % out_json)
     return out
 
 
