@@ -363,6 +363,35 @@ true `sup |A'|` and the gap it reports is indicative, not certified. Certifying 
 independent bound on A's derivative in r, which this package does not have and does not
 claim. `--r-grid 0,0.1,0.2,...,0.9` runs a finer grid when that matters.
 
+### Does the interval actually cover? Measured, not assumed
+
+The Imbens-Manski construction has a documented small-sample under-coverage, and Stoye (2009)
+argues the result "implicitly assumes superefficient estimation of a nuisance parameter", so
+it is pointwise valid but not uniformly so. On top of that, this package estimates the
+endpoints by taking min and max over a grid of noisy Monte Carlo values, which is **not** how
+the formula assumes they arrive. So `covariance.coverage_check()` measures coverage against a
+known truth. At 20,000 trials, a true set of [0.40, 0.45] and se = 0.01:
+
+| regime | covers the true value |
+|---|---|
+| unbiased endpoints, at the lower end | **0.9515** ± 0.0015 |
+| unbiased endpoints, at the upper end | **0.9520** ± 0.0015 |
+| min/max over a 6-point noisy grid, true minimum | 0.9916 ± 0.0006 (over-covers) |
+| min/max over a 6-point noisy grid, true maximum | 0.9925 ± 0.0006 (over-covers) |
+| **the same, with a 0.02 dip hidden between grid points** | **0.4242** ± 0.0035 |
+
+The formula is right. The pipeline is conservative when the grid can see the extremum,
+because the min of noisy values sits below the true min. And **a dip of 0.02 -- two accuracy
+points, far too small to notice in a printed table -- takes coverage from 0.95 to 0.42.**
+That is the measured reason monotonicity or a Lipschitz bound is load-bearing rather than a
+formality, and the reason the accuracy interval here is reported as uncertified.
+
+**The sign conclusion is a different matter and survives this.** Breaking coverage of the
+accuracy takes a dip of about 0.02; overturning the sign would take one the size of the
+margin, which is 0.1154 to 0.2750 -- five to fourteen times larger, and grossly visible. A
+test asserts that ratio, so it fails if a future run erodes the margin toward the dip size
+that is enough to break the interval.
+
 ## Traps
 
 1. **The identifier map is assumed, not detected.** Run `scheme` first.

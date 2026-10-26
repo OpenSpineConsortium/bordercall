@@ -240,3 +240,72 @@ class TestProfileInR(unittest.TestCase):
 def math_isfinite(x):
     import math as _m
     return _m.isfinite(x)
+
+
+class TestCoverage(unittest.TestCase):
+    """Measured coverage, not assumed coverage.
+
+    The Imbens-Manski construction has a documented small-sample under-coverage and a Stoye
+    (2009) superefficiency objection, and this package estimates the endpoints by taking min
+    and max over a grid of noisy values, which is not how the formula assumes they arrive. So
+    coverage is measured against a known truth. Trial counts here are small enough to keep
+    the suite fast and the tolerances are set accordingly; the headline numbers in the README
+    come from 20,000-trial runs.
+    """
+
+    def test_the_formula_covers_at_its_nominal_rate(self):
+        got = CV.coverage_check(trials=4000, seed=5, quiet=True)
+        for name in ("at_lower", "at_upper"):
+            c = got["formula"][name]
+            self.assertGreater(c["coverage"], 0.95 - 4 * c["se"],
+                               "%s: coverage %.4f is below nominal" % (name, c["coverage"]))
+
+    def test_the_midpoint_of_a_wide_set_is_covered_always(self):
+        """Not a strength -- it is why the ENDPOINTS are the test that matters."""
+        got = CV.coverage_check(trials=2000, seed=5, quiet=True)
+        self.assertGreater(got["formula"]["at_middle"]["coverage"], 0.999)
+
+    def test_the_pipeline_over_covers_when_the_grid_sees_the_truth(self):
+        """min of noisy values sits below the true min, so the interval is conservative."""
+        got = CV.coverage_check(trials=4000, seed=7, dip=0.0, quiet=True)
+        self.assertGreater(got["pipeline"]["covers_true_min"]["coverage"], 0.95)
+        self.assertGreater(got["pipeline"]["covers_true_max"]["coverage"], 0.95)
+
+    def test_a_dip_between_grid_points_destroys_coverage(self):
+        """The failure is on the record, measured. This is the case a refined grid hides.
+
+        A dip of 0.02 -- two accuracy points, far too small to notice in a printed table --
+        takes coverage of the true minimum from 0.95 to about 0.42. That is why monotonicity
+        or a Lipschitz bound is load-bearing and not a formality.
+        """
+        got = CV.coverage_check(trials=4000, seed=7, dip=0.02, quiet=True)
+        self.assertLess(got["pipeline"]["covers_true_min"]["coverage"], 0.60)
+        # and the upper end is untouched, because the dip is only at the bottom
+        self.assertGreater(got["pipeline"]["covers_true_max"]["coverage"], 0.95)
+
+    def test_a_dip_too_small_to_matter_does_not_break_it(self):
+        got = CV.coverage_check(trials=4000, seed=7, dip=0.001, quiet=True)
+        self.assertGreater(got["pipeline"]["covers_true_min"]["coverage"], 0.90)
+
+    def test_the_sign_margin_dwarfs_the_dip_that_would_break_coverage(self):
+        """Why the SIGN claim survives even though the VALUE interval is not certified.
+
+        A dip of 0.02 breaks coverage of the accuracy. To overturn the sign conclusion a dip
+        would have to be as large as the margin, which is 8.9 to 20.0 standard errors. This
+        asserts that gap, so it fails if a future run erodes the margin toward the dip size
+        that the test above shows is enough to break the interval.
+        """
+        import json
+        p = os.path.join(os.path.dirname(HERE), "records", "covariance-sweep.json")
+        if not os.path.exists(p):
+            self.skipTest("records/covariance-sweep.json not present")
+        with open(p) as fh:
+            rec = json.load(fh)
+        BREAKS_COVERAGE = 0.02
+        for key in ("ct", "tl"):
+            v = CV.sign_invariance(rec["results"]["spineps_7"][key],
+                                   rec["results"]["baseline_3"][key])
+            margin = abs(v["worst_case"]["acc"])
+            self.assertGreater(margin, 4 * BREAKS_COVERAGE,
+                               "%s: the margin %.4f is no longer large against the %.3f dip "
+                               "that breaks coverage" % (key, margin, BREAKS_COVERAGE))

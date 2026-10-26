@@ -315,6 +315,19 @@ def imbens_manski(lo, hi, se_lo, se_hi, alpha: float = 0.05):
     c solves Phi(c + delta/sigma_max) - Phi(-c) = 1 - alpha, with delta the width of the
     estimated set. delta = 0 gives c = 1.96 (the set is a point, so this is an ordinary
     two-sided interval); a wide set gives c -> 1.645, because only one end can bind.
+
+    TWO KNOWN WEAKNESSES, both worth a footnote in anything that leans on this interval.
+
+    delta is ESTIMATED, not known, and Stoye (2009) argues that Imbens and Manski's result
+    "implicitly assumes superefficient estimation of a nuisance parameter" -- so the interval
+    is pointwise valid but not uniformly so, and it is least trustworthy exactly where delta
+    is small relative to the sampling error, because that is where c is most sensitive to
+    getting delta wrong.
+
+    And raw estimated bounds can UNDER-cover in small samples. So coverage is not taken on
+    faith here: coverage_check() measures it against a known truth, including the case where
+    the grid steps over a dip and the endpoints are therefore wrong, which is the case this
+    package's own sweep could be in.
     """
     s = max(float(se_lo), float(se_hi))
     if not s > 0:
@@ -334,6 +347,105 @@ def imbens_manski(lo, hi, se_lo, se_hi, alpha: float = 0.05):
             b = m
     c = 0.5 * (a + b)
     return float(lo) - c * float(se_lo), float(hi) + c * float(se_hi), c
+
+
+def coverage_check(lo_true: float = 0.40, hi_true: float = 0.45, se: float = 0.01,
+                   trials: int = 20000, seed: int = 0, grid_n: int = 6, dip: float = 0.0,
+                   alpha: float = 0.05, quiet: bool = False):
+    """Does the interval this module builds actually cover at its nominal rate?
+
+    Measured against a known truth rather than trusted, because the construction has a
+    documented small-sample under-coverage and because the way this package ESTIMATES the
+    endpoints -- min and max over a grid of noisy Monte Carlo values -- is not the way the
+    formula assumes they arrive.
+
+    Three regimes are reported and they are not the same question.
+
+    `formula`      the endpoints are unbiased draws, which is what Imbens & Manski assume.
+                   Coverage of the true value at the lower endpoint, the midpoint and the
+                   upper endpoint. The endpoints are the hard cases.
+
+    `pipeline`     the endpoints are min and max over `grid_n` noisy evaluations of a true
+                   profile, which is what this package actually does. The min of noisy values
+                   sits BELOW the true min and the max ABOVE the true max, so this should
+                   over-cover -- and over-coverage is not a licence to ignore it, because the
+                   same bias makes the reported worst case pessimistic as an estimate while
+                   the grid makes it optimistic as a bound.
+
+    `dip`          with dip > 0 the true profile has a narrow dip BETWEEN grid points, so the
+                   grid cannot see the true minimum at all. This is the case the report of a
+                   refined grid falsely confirms, and the regime where coverage of the true
+                   worst case is expected to FAIL. It is included so that the failure is on
+                   the record and measured, not described.
+    """
+    rng = np.random.default_rng(seed)
+    out = {"lo_true": lo_true, "hi_true": hi_true, "se": se, "trials": trials,
+           "grid_n": grid_n, "dip": dip, "nominal": 1.0 - alpha}
+
+    def rate(hits):
+        p = hits / trials
+        return {"coverage": p, "se": binomial_se(p, trials)}
+
+    # --- regime 1: the formula's own assumption, unbiased endpoints
+    lo_hat = rng.normal(lo_true, se, trials)
+    hi_hat = rng.normal(hi_true, se, trials)
+    formula = {}
+    for name, theta in (("at_lower", lo_true),
+                        ("at_middle", 0.5 * (lo_true + hi_true)),
+                        ("at_upper", hi_true)):
+        hits = 0
+        for a, b in zip(lo_hat, hi_hat):
+            # the estimated set can come out inverted; order it, as the sweep's min/max do
+            l, h = (a, b) if a <= b else (b, a)
+            ci_lo, ci_hi, _ = imbens_manski(l, h, se, se, alpha)
+            if ci_lo <= theta <= ci_hi:
+                hits += 1
+        formula[name] = rate(hits)
+    out["formula"] = formula
+
+    # --- regime 2 and 3: endpoints as min/max over a noisy grid of a true profile
+    rs = np.linspace(0.0, 0.9, grid_n)
+    true = lo_true + (hi_true - lo_true) * (rs - rs[0]) / (rs[-1] - rs[0])
+    # the true minimum of the FUNCTION, which a dip puts between grid points
+    true_min = float(true.min()) - dip
+    true_max = float(true.max())
+    hits_min = hits_max = 0
+    for _ in range(trials):
+        obs = true + rng.normal(0.0, se, grid_n)
+        l, h = float(obs.min()), float(obs.max())
+        ci_lo, ci_hi, _ = imbens_manski(l, h, se, se, alpha)
+        if ci_lo <= true_min <= ci_hi:
+            hits_min += 1
+        if ci_lo <= true_max <= ci_hi:
+            hits_max += 1
+    out["pipeline"] = {"true_min": true_min, "true_max": true_max,
+                       "covers_true_min": rate(hits_min),
+                       "covers_true_max": rate(hits_max)}
+
+    if not quiet:
+        print("COVERAGE OF THE IMBENS-MANSKI INTERVAL, measured against a known truth")
+        print("  identified set [%.4f, %.4f], se %.4f, %d trials, nominal %.0f %%"
+              % (lo_true, hi_true, se, trials, 100 * (1 - alpha)))
+        print("\n  1. unbiased endpoints -- the formula's own assumption")
+        for name in ("at_lower", "at_middle", "at_upper"):
+            c = formula[name]
+            flag = "" if c["coverage"] >= (1 - alpha) - 2 * c["se"] else "   <- UNDER-COVERS"
+            print("     covering the true value %-9s %.4f +/- %.4f%s"
+                  % (name.replace("at_", "") + ":", c["coverage"], c["se"], flag))
+        print("\n  2. endpoints as min/max over a %d-point noisy grid -- what this package does"
+              % grid_n)
+        for k, label in (("covers_true_min", "true minimum"),
+                         ("covers_true_max", "true maximum")):
+            c = out["pipeline"][k]
+            flag = "" if c["coverage"] >= (1 - alpha) - 2 * c["se"] else "   <- UNDER-COVERS"
+            print("     covering the %-13s %.4f +/- %.4f%s"
+                  % (label + ":", c["coverage"], c["se"], flag))
+        if dip > 0:
+            print("\n     a dip of %.3f sits BETWEEN grid points, so the grid cannot see the"
+                  % dip)
+            print("     true minimum. Under-coverage here is the expected result and is the")
+            print("     reason a refined grid is not a check on itself.")
+    return out
 
 
 def profile_in_r(rows, key: str = "acc"):
