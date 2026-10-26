@@ -202,9 +202,11 @@ with open(out, "w", newline="", encoding="utf-8") as fh:
              "# population SD is sem*sqrt(n), n=12. C2 carries no upper end-plate row:\n"
              "# the dens occupies it, so endplate/endplate_depth/h_post start at C3.\n"
              "# There is no anterior body height in these papers; h_post is posterior.\n")
+    # An explicit LF terminator: without it csv writes CRLF on Windows and the file churns
+    # every time it is rebuilt on another platform. Kept from PR #1.
     w = csv.DictWriter(fh, fieldnames=["measure", "level", "mean", "sem", "n",
                                        "panjabi_name", "source_table", "source_page",
-                                       "citation"])
+                                       "citation"], lineterminator="\n")
     w.writeheader()
     for r in sorted(ROWS, key=lambda x: (x["measure"], x["level"])):
         w.writerow(r)

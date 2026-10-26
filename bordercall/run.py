@@ -1,6 +1,6 @@
 """bordercall: name a vertebral border from the shape of the bone, on any corpus.
 
-Seven commands. Run them in this order on a corpus you have not measured before.
+Run the commands in this order on a corpus you have not measured before.
 
     python run.py scheme    --labels LABELS                 # 1. is the identifier map right?
     python run.py selftest  --levels KNOWN.csv              # 2. does this copy still work?
@@ -11,13 +11,18 @@ Seven commands. Run them in this order on a corpus you have not measured before.
     python run.py plot      --levels levels.csv --phenotype phenotype.csv
 
     python run.py all --labels LABELS --outdir out/         # 3-7 in one go
+    python run.py panjabi                                    # both junctions from Panjabi's tables alone
+    python run.py panjabi-corpus --levels levels.csv --phenotype phenotype.csv
+    python run.py disagree --levels levels.csv --phenotype phenotype.csv --above T12 --below L1
+    python run.py synth-corpus --out out/synth         # a made-up corpus to run the rest on
+    python run.py panjabi-figures --json out/panjabi/panjabi_junction.json --outdir figures/junction
 
 `scheme` and `selftest` are not optional. The first catches a corpus numbered differently
 from this package's assumption, which produces finite, plausible, wrong numbers and raises
 nothing. The second catches a copy of the code whose model has drifted from the published
 one. Both take seconds; skipping them costs a re-run of everything downstream.
 
-See INSTRUCTIONS.md for the full walk-through and HANDOFF.md for the traps.
+See README.md for the full walk-through and HANDOFF.md for the traps.
 """
 from __future__ import annotations
 
@@ -85,7 +90,9 @@ def _accuracy_by_class(levels_csv, phenotype_csv, above, below, case_key="case",
     for g, d in per_case.items():
         if above not in d or below not in d:
             continue
-        k = phen.get(g, {}).get("phenotype", "typical")
+        # a case the file has no class for is unknown, never typical: the grid writes every
+        # countable case with its phenotype empty where the ribs were not read
+        k = phen.get(g, {}).get("phenotype") or "unknown"
         present = sorted(d, key=lambda l: order[l])
         seq = [d[l] for l in present]
         n = sum(seq)
@@ -105,22 +112,22 @@ def cmd_breakout(a) -> int:
     print("border %s/%s, broken out by phenotype\n" % (a.above, a.below))
     print("  %-30s %7s %9s %10s" % ("class", "cases", "correct", "accuracy"))
     tot_n = tot_k = 0
-    for k in PH.CLASS_ORDER:
+    for k in PH.CLASS_ORDER + ["unknown"]:
         if k not in acc:
             continue
         n, ok = acc[k]
         tot_n += n
         tot_k += ok
-        print("  %-30s %7d %9d %9.1f%%" % (PH.PRETTY.get(k, k), n, ok,
+        print("  %-30s %7d %9d %9.1f%%" % (PH.PRETTY.get(k, "No rib reading"), n, ok,
                                            100.0 * ok / n if n else float("nan")))
     if tot_n:
         print("  %-30s %7d %9d %9.1f%%" % ("ALL", tot_n, tot_k, 100.0 * tot_k / tot_n))
     print("\n  offsets, per class (0 = the border is where the labels put it)")
-    for k in PH.CLASS_ORDER:
+    for k in PH.CLASS_ORDER + ["unknown"]:
         if k in offs:
             d = ", ".join("%s:%d" % (x, offs[k][x])
                           for x in sorted(offs[k], key=lambda z: (isinstance(z, str), z)))
-            print("    %-30s %s" % (PH.PRETTY.get(k, k), d))
+            print("    %-30s %s" % (PH.PRETTY.get(k, "No rib reading"), d))
     print("\n  A corpus average over classes of very different size hides the result.")
     print("  Read the per-class rows, and read a class of fewer than ~20 cases as")
     print("  'no failures seen' rather than as an accuracy.")
@@ -150,6 +157,44 @@ def cmd_sweep(a) -> int:
     return sweep.run(a.levels, a.phenotype, case_key=a.case_key, folds=a.folds,
                      seed=a.seed, min_class=a.min_class,
                      countable_only=not a.allow_uncountable)
+
+
+def cmd_panjabi(a) -> int:
+    import junction
+    measures = [m.strip() for m in a.measures.split(",") if m.strip()]
+    junction.run_synthetic(outdir=a.outdir, n_columns=a.n_columns, n_eval=a.n_eval,
+                           measures=measures, within=a.within, profile=a.profile,
+                           margin=a.margin, seed=a.seed, rho=a.rho, noise_mm=a.noise_mm,
+                           scale_sd=a.scale_sd)
+    return 0
+
+
+def cmd_panjabi_corpus(a) -> int:
+    import junction
+    measures = [m.strip() for m in a.measures.split(",") if m.strip()]
+    junction.run_corpus(a.levels, a.phenotype, outdir=a.outdir, n_columns=a.n_columns,
+                        margin=a.margin, seed=a.seed, measures=measures, rho=a.rho,
+                        noise_mm=a.noise_mm, scale_sd=a.scale_sd)
+    return 0
+
+
+def cmd_disagree(a) -> int:
+    import disagree
+    disagree.run(a.levels, a.phenotype, above=a.above, below=a.below, folds=a.folds,
+                 seed=a.seed, case_key=a.case_key)
+    return 0
+
+
+def cmd_panjabi_figures(a) -> int:
+    import junction_figures
+    junction_figures.run(a.json, a.outdir)
+    return 0
+
+
+def cmd_synth_corpus(a) -> int:
+    import synth_corpus
+    synth_corpus.write(a.out, n=a.n, seed=a.seed)
+    return 0
 
 
 def cmd_selftest(a) -> int:
@@ -273,6 +318,55 @@ def main() -> int:
     p.add_argument("--allow-uncountable", action="store_true",
                    help="score records with no C2; their ground truth is not a count")
     p.set_defaults(fn=cmd_sweep)
+
+    def synth_args(p):
+        p.add_argument("--n-columns", type=int, default=2000, dest="n_columns",
+                       help="synthetic columns the local rule is fitted on")
+        p.add_argument("--margin", type=float, default=0.0,
+                       help="abstain when the best cut beats the runner-up by less (log-likelihood)")
+        p.add_argument("--seed", type=int, default=0)
+        p.add_argument("--rho", type=float, default=0.5, help="share of a measure's spread a column keeps across levels")
+        p.add_argument("--noise-mm", type=float, default=1.0, dest="noise_mm", help="measurement noise, mm")
+        p.add_argument("--scale-sd", type=float, default=0.07, dest="scale_sd", help="patient size spread, log")
+        p.add_argument("--outdir", default=None, help="write the tables as JSON here")
+
+    p = sub.add_parser("panjabi", help="name both junctions from Panjabi's tables on synthetic columns")
+    p.add_argument("--measures", default=",".join(["endplate", "h_post", "canal_w"]),
+                   help="of endplate, h_post, canal_w, canal_ap, pedicle; a CT mask gives the first three or four")
+    p.add_argument("--n-eval", type=int, default=500, dest="n_eval", help="windows scored per phenotype")
+    p.add_argument("--within", action="store_true", help="local rule: add the within-vertebra ratios")
+    p.add_argument("--profile", action="store_true", help="local rule: add the level over its window median")
+    synth_args(p)
+    p.set_defaults(fn=cmd_panjabi)
+
+    p = sub.add_parser("panjabi-corpus", help="the Panjabi models on a measured corpus counted from C2, both junctions")
+    p.add_argument("--levels", required=True, help="measure's levels.csv")
+    p.add_argument("--phenotype", required=True, help="phenotype.csv with countable per case")
+    p.add_argument("--measures", default=",".join(["endplate", "h_post", "canal_w", "canal_ap"]),
+                   help="of endplate, h_post, canal_w, canal_ap; a measure the table lacks is dropped")
+    synth_args(p)
+    p.set_defaults(fn=cmd_panjabi_corpus)
+
+    p = sub.add_parser("disagree", help="where the shape disagrees with the name: the count, the ribs, the circular arm")
+    p.add_argument("--levels", required=True)
+    p.add_argument("--phenotype", required=True, help="phenotype.csv with countable, phenotype and the rib-bearing names")
+    p.add_argument("--above", default="T12")
+    p.add_argument("--below", default="L1")
+    p.add_argument("--folds", type=int, default=5)
+    p.add_argument("--seed", type=int, default=0)
+    p.add_argument("--case_key", default="case")
+    p.set_defaults(fn=cmd_disagree)
+
+    p = sub.add_parser("panjabi-figures", help="the junction predictor's figures from a panjabi run's JSON")
+    p.add_argument("--json", required=True, help="panjabi_junction.json")
+    p.add_argument("--outdir", default="figures/junction")
+    p.set_defaults(fn=cmd_panjabi_figures)
+
+    p = sub.add_parser("synth-corpus", help="a made-up corpus in the grid job's layout, to run every command on")
+    p.add_argument("--out", required=True)
+    p.add_argument("--n", type=int, default=300)
+    p.add_argument("--seed", type=int, default=0)
+    p.set_defaults(fn=cmd_synth_corpus)
 
     p = sub.add_parser("selftest", help="reproduce the known CTSpinoPelvic1K answers")
     p.add_argument("--levels", default=DEFAULT_FIXTURE,
