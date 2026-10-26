@@ -22,6 +22,9 @@ Run the commands in this order on a corpus you have not measured before.
     python run.py neighbour-figures --json out/neighbour/neighbour.json --outdir figures/neighbour
     python run.py identify --outdir out/identify               # which vertebrae a normal spine identifies best
     python run.py identify-figures --json out/identify/identify.json --outdir figures/identify
+    python run.py exact --outdir out/exact                     # the generator's own Bayes rule, by enumeration
+    python run.py exact-figures --json out/exact/exact.json --outdir figures/exact
+    python run.py exact-supplement --outdir out/exact          # the checks the second review asked for
 
 `scheme` and `selftest` are not optional. The first catches a corpus numbered differently
 from this package's assumption, which produces finite, plausible, wrong numbers and raises
@@ -299,6 +302,31 @@ def cmd_identify_figures(a) -> int:
     return 0
 
 
+def cmd_exact(a) -> int:
+    import exact as E
+    if a.quick:
+        E.run(a.outdir, n_score=60, widths=(1, 3, 9), n_worlds=2, identify_json=a.identify_json,
+              processes=a.processes, quick=True, robust_columns=20)
+    else:
+        E.run(a.outdir, identify_json=a.identify_json, processes=a.processes)
+    return 0
+
+
+def cmd_exact_figures(a) -> int:
+    import exact_figures as EF
+    EF.run(a.json, a.outdir)
+    return 0
+
+
+def cmd_exact_supplement(a) -> int:
+    import exact_supplement as ES
+    if a.quick:
+        ES.run(a.outdir, record_json=a.record_json, processes=a.processes, n_score=40, n_worlds=2, quick=True)
+    else:
+        ES.run(a.outdir, record_json=a.record_json, processes=a.processes)
+    return 0
+
+
 def cmd_selftest(a) -> int:
     c = Corpus.from_csv(a.levels)
     print("levels found: %s" % ", ".join(c.levels))
@@ -572,6 +600,34 @@ def main() -> int:
     p.add_argument("--json", required=True, help="identify.json")
     p.add_argument("--outdir", default="figures/identify")
     p.set_defaults(fn=cmd_identify_figures)
+
+    p = sub.add_parser("exact",
+                       help="name a run of 1 to 22 consecutive vertebrae with the generator's own Bayes rule, "
+                            "every place enumerated: the ceiling for any formula or network, the selective "
+                            "guarantee, the coarse claims (which border a body is below), all 127 measure "
+                            "subsets, and what survives a wrong table or generator; writes exact.json")
+    p.add_argument("--outdir", default=None, help="write exact.json here")
+    p.add_argument("--identify-json", default=os.path.join(HERE, "..", "records", "identify-2026-10-26", "identify.json"),
+                   dest="identify_json", help="the identifiability study's record, for its fitted classifiers")
+    p.add_argument("--processes", type=int, default=4, help="processes to run the widths and worlds in")
+    p.add_argument("--quick", action="store_true", help="a small run to check the command")
+    p.set_defaults(fn=cmd_exact)
+
+    p = sub.add_parser("exact-figures", help="the exact study's figures from its recorded JSON")
+    p.add_argument("--json", required=True, help="exact.json")
+    p.add_argument("--outdir", default="figures/exact")
+    p.set_defaults(fn=cmd_exact_figures)
+
+    p = sub.add_parser("exact-supplement",
+                       help="the checks the exact study's second review asked for: the region claim near the "
+                            "regional borders, the quadrature on every scoring column, the exact rule on the "
+                            "classifier's fields and on columns of another length; writes supplement.json")
+    p.add_argument("--outdir", default=None, help="write supplement.json here")
+    p.add_argument("--record-json", default=os.path.join(HERE, "..", "records", "exact-2026-10-26", "exact.json"),
+                   dest="record_json", help="the exact study's record, to check the region counts against")
+    p.add_argument("--processes", type=int, default=4, help="processes to run the worlds and chunks in")
+    p.add_argument("--quick", action="store_true", help="a small run to check the command")
+    p.set_defaults(fn=cmd_exact_supplement)
 
     p = sub.add_parser("selftest", help="reproduce the known CTSpinoPelvic1K answers")
     p.add_argument("--levels", default=DEFAULT_FIXTURE,

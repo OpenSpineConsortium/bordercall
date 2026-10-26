@@ -1,0 +1,1 @@
+How many measures naming needs: the share named exactly by the best subset of each size of the seven SPINEPS measures, every one of the 127 subsets scored on the same fields, by the number of bodies in view; the best single measure is named in the CSV. 2000 synthetic columns.

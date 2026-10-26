@@ -421,6 +421,32 @@ corrected text again (one stopped at the usage limit; its sections were checked 
 section 12 lists what changed. Typical columns only; the anomalous phenotypes are the
 neighbour study's.
 
+### Step 9 — is there a function that names a vertebra exactly, and what can be said for certain
+
+**Done on 2026-10-26**: the results, the verdicts and the eight figures are
+`docs/EXACT_IDENTIFICATION_RESULTS.md`, drawn from `records/exact-2026-10-26/` by the three
+`exact` commands of `run.py` (`exact`, 4,652 s; `exact-supplement`, 879 s; `exact-figures`).
+The owner's asks: at 10:43 UTC, whether any formula, function or network takes 1 to n
+consecutive bodies' measurements and names a vertebra unambiguously, using the solver survey's
+"exactness by construction ... plus the entire ranked score distribution"; at 11:26 UTC, which
+weaker statements (such as "below L1" or "below T4") can be said nearly certainly from as local
+a morphology as possible, in measures downstream of SPINEPS. The answer is the generator's own
+Bayes rule, which enumerates every place a field can take and integrates the patient's size by
+quadrature (no fitting), with its whole posterior. No function names every field (the Bayes
+error is positive), but the rule names 47%, 73%, 86% and 96% of fields exactly from one, three,
+five and nine bodies (the identifiability study's classifier, on the same columns, 36.5% to
+83.3%), and its names at posterior 0.99 are right 99.78% of the time from three bodies and
+99.93% from nine; one body says its region nearly certainly away from the thoracolumbar
+junction, and the side of C7/T1. On a table estimated from twelve spines, as Panjabi's is, its
+names at 0.99 fall to 95 to 96 per cent; a rule with widened spreads and 2 mm of error brings
+them back to 98.9 to 99.3 per cent pooled, but its lumbar names stay at 96.75 to 97.65 per
+cent, and near T12/L1 one body's region claim is right only 94 to 97 per cent. Four skeptics
+read the code during the first run, five more read the finished text, each finding re-checked by
+another (99 readers; 82 problems fixed, their own checks recorded as `supplement.json`), and
+six more read the passages that changed and two more read those corrections, each finding
+re-checked (42 readers, 33 more fixes); section 12 lists what changed. Typical columns and a uniform prior over places
+only; the anomalous phenotypes and a real series' prior are section 10's open questions.
+
 ## What one evaluation costs, and where enumeration stops being free
 
 Measured on a Windows workstation, 2026-10-26. One evaluation of `A(S, r)` -- train the junction

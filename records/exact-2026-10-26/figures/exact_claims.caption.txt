@@ -1,0 +1,1 @@
+What a field says for certain about its middle body: at each border, the share of fields whose middle body lies within two levels of it for which the rule says above or below at probability 0.99, both planes, by the bodies in view. Wrong claims and the precision near each border are in the CSV. 2000 synthetic columns.

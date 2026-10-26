@@ -70,3 +70,35 @@ within-level moments (seed 5), 400 redraws of the reference table for its sampli
 0.3, 0.6, 0.9 in the formula). The arm with the table's pedicle rows draws its own columns
 with nine measures on the same seeds. The record carries every setting, and
 `figures/FIGURES.md` the sha256 of the record and of each code file.
+
+## exact-2026-10-26
+
+Whether any function of 1 to n consecutive bodies' measurements names a vertebra
+unambiguously, and what a field can say for certain about one body (the owner's asks of
+2026-10-26 10:43 and 11:26 UTC), answered in `docs/EXACT_IDENTIFICATION_RESULTS.md`. Typical
+columns only, run from `bordercall/`:
+
+| file | command |
+|---|---|
+| `exact.json` | `OMP_NUM_THREADS=1 python run.py exact --outdir ../records/exact-2026-10-26` |
+| `supplement.json` | `OMP_NUM_THREADS=1 python run.py exact-supplement --outdir ../records/exact-2026-10-26` |
+| `figures/` | `python run.py exact-figures --json ../records/exact-2026-10-26/exact.json --outdir ../records/exact-2026-10-26/figures` |
+
+The run (4,652 s on four processes) took the command's defaults: 2,000 typical columns scored
+(seed 97) at every width from 1 to 22, every one of the 127 subsets of the seven measures, 161
+Gauss-Hermite nodes; 5,000 columns fitted on (seed 11) and 1,000 for the network's early
+stopping (seed 23) for the challengers at 1, 3, 5 and 9 bodies; the robustness worlds from
+seed 29 (40 specimen worlds and 40 level worlds of 100 columns, 20 combined worlds, single
+draws of 500 columns for each setting set wrong and for the two biases, 400 columns with the
+correlation known) and the pilot from seed 5 (16 specimen worlds); rho 0.5, noise 1.0 mm,
+scale spread 0.07, r 0. The record is written after each part and is `complete` only at the
+end; `figures/FIGURES.md` holds the sha256 of the record and of each code file.
+
+`supplement.json` holds the checks the second review of the results asked for (879 s on four
+processes): the region claim split near the two regional borders, under the generator on the
+2,000 scoring columns and in the record's specimen, level and combined worlds drawn again from
+its seeds; the quadrature on all 2,000 columns; the exact rule on the first 1,000 columns, the
+classifier's; and its names at 0.99 on 150 columns each of three anomalous phenotypes (seed 99).
+The run's comparison with the record read the record's pooled share of region claims as a
+count, so `region_split.matches_record` was computed again from the saved tallies by the
+corrected `matches_record` (all 18 cells match); nothing else in the file was touched.

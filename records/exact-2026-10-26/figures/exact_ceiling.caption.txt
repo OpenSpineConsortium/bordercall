@@ -1,0 +1,1 @@
+Naming a run of consecutive bodies. A, share named exactly by the generator's Bayes rule, by plane; crosses, the earlier linear classifier, both planes, first 1,000 columns. B, share named at posterior 0.99 and 0.999, both planes. C, points by which approximations and rules fitted on 5,000 columns fall short of it, bars two standard errors. 2000 synthetic columns.
