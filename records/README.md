@@ -83,6 +83,7 @@ columns only, run from `bordercall/`:
 | `exact.json` | `OMP_NUM_THREADS=1 python run.py exact --outdir ../records/exact-2026-10-26` |
 | `supplement.json` | `OMP_NUM_THREADS=1 python run.py exact-supplement --outdir ../records/exact-2026-10-26` |
 | `figures/` | `python run.py exact-figures --json ../records/exact-2026-10-26/exact.json --outdir ../records/exact-2026-10-26/figures` |
+| `slide-figures/` | `python run.py exact-slide-figures --json ../records/exact-2026-10-26/exact.json --outdir ../records/exact-2026-10-26/slide-figures` |
 
 The run (4,652 s on four processes) took the command's defaults: 2,000 typical columns scored
 (seed 97) at every width from 1 to 22, every one of the 127 subsets of the seven measures, 161
@@ -102,3 +103,11 @@ classifier's; and its names at 0.99 on 150 columns each of three anomalous pheno
 The run's comparison with the record read the record's pooled share of region claims as a
 count, so `region_split.matches_record` was computed again from the saved tallies by the
 corrected `matches_record` (all 18 cells match); nothing else in the file was touched.
+
+`slide-figures/` holds the seven panels of the five exact-rule slides (the owner's ask of
+2026-10-26 20:45 UTC), each drawn at the size its slide gives it, with its CSV, caption and one
+`FIGURES.md` naming the record and the code by sha256. The posterior panel scores the record's
+scoring columns again for the fields centred on T12 and refuses to draw unless its share named
+exactly matches the record's. The decks are built from these panels and the two records with
+`python slides/make_exact_slides.py` (into `slides/exact/`), and the test
+`tests/test_exact_slides.py` rebuilds the panels byte for byte.

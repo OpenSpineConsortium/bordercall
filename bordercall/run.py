@@ -25,6 +25,7 @@ Run the commands in this order on a corpus you have not measured before.
     python run.py exact --outdir out/exact                     # the generator's own Bayes rule, by enumeration
     python run.py exact-figures --json out/exact/exact.json --outdir figures/exact
     python run.py exact-supplement --outdir out/exact          # the checks the second review asked for
+    python run.py exact-slide-figures --json out/exact/exact.json --outdir figures/exact-slides
 
 `scheme` and `selftest` are not optional. The first catches a corpus numbered differently
 from this package's assumption, which produces finite, plausible, wrong numbers and raises
@@ -315,6 +316,12 @@ def cmd_exact(a) -> int:
 def cmd_exact_figures(a) -> int:
     import exact_figures as EF
     EF.run(a.json, a.outdir)
+    return 0
+
+
+def cmd_exact_slide_figures(a) -> int:
+    import exact_slide_figures as XS
+    XS.run(a.json, a.outdir)
     return 0
 
 
@@ -617,6 +624,13 @@ def main() -> int:
     p.add_argument("--json", required=True, help="exact.json")
     p.add_argument("--outdir", default="figures/exact")
     p.set_defaults(fn=cmd_exact_figures)
+
+    p = sub.add_parser("exact-slide-figures",
+                       help="the panels of the five exact-identification slides, each at its slide size, from "
+                            "the recorded JSON")
+    p.add_argument("--json", required=True, help="exact.json")
+    p.add_argument("--outdir", default="figures/exact-slides")
+    p.set_defaults(fn=cmd_exact_slide_figures)
 
     p = sub.add_parser("exact-supplement",
                        help="the checks the exact study's second review asked for: the region claim near the "

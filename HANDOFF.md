@@ -447,6 +447,24 @@ six more read the passages that changed and two more read those corrections, eac
 re-checked (42 readers, 33 more fixes); section 12 lists what changed. Typical columns and a uniform prior over places
 only; the anomalous phenotypes and a real series' prior are section 10's open questions.
 
+### Step 10 — five slides on the exact rule, for the CNS or a NeurIPS oral
+
+**Built on 2026-10-26** (the owner's ask of 20:45 UTC: figures and five PowerPoint slides with
+the figures, the text and the LaTeX as separate elements, styled like Benzel with inspiration
+from Murphy's chapter on Bayes' rule, ready for the CNS or a NeurIPS main-conference oral).
+`python run.py exact-slide-figures --json ../records/exact-2026-10-26/exact.json --outdir
+../records/exact-2026-10-26/slide-figures` draws seven panels from the record (the field of view,
+the seven measures, the prior and posteriors, the ceiling, the calibration, the border claims, the
+robustness), and `python slides/make_exact_slides.py` builds `slides/exact/exact_slides_cns.pptx`
+on the CNS template the junction deck carries and `exact_slides_neurips.pptx` on a plain 16:9
+deck, with speaker notes written for each venue. The equations are native Office Math set by
+pandoc, kept as `slides/exact/equations/*.omml.xml` so a build needs no pandoc. Murphy's
+pyprobml repository was outside this session's GitHub access, so its conventions (prior,
+likelihood and posterior as stacked panels, the posterior in one colour, the notation
+p(k | x_{1:n})) were followed from the book. Slide 2 shows the method: until the provisional is
+filed and the tech-transfer office has read the deck, it stays private, and a results-only talk
+moves slide 2's equations to the notes.
+
 ## What one evaluation costs, and where enumeration stops being free
 
 Measured on a Windows workstation, 2026-10-26. One evaluation of `A(S, r)` -- train the junction
