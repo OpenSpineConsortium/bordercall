@@ -1,12 +1,14 @@
 # The neighbour-identity figures
 
-Built with `python run.py neighbour-figures --json ../records/neighbour-2026-10-26/neighbour.json --enumerate-json ../records/neighbour-2026-10-26/enumerate.json --outdir ../records/neighbour-2026-10-26/figures`.
+Built with `python run.py neighbour-figures --json ../records/neighbour-2026-10-26/neighbour.json --enumerate-json ../records/neighbour-2026-10-26/enumerate.json --more-json ../records/neighbour-2026-10-26/neighbour_more.json --outdir ../records/neighbour-2026-10-26/figures`.
 
 - Run: `../records/neighbour-2026-10-26/neighbour.json`, sha256 6989c3bc51335986f7c6a22747a03f41d0bebbaa3a31e78b3bfe5da6a08ab02a; seeds {"fit": 11, "score": 97, "select": 23}; columns {"fit_typical": 300, "score_per_phenotype": 200, "select_per_phenotype": 150}; synth {"blend": 0.5, "noise_mm": 1.0, "r_between": 0.0, "rho": 0.5, "scale_sd": 0.07}.
 - Enumeration: `../records/neighbour-2026-10-26/enumerate.json`, sha256 9b59b26e159723efa85789bccbfa8421e8cfdffd72dcd132c6df44857062fe27.
+- The series continued: `../records/neighbour-2026-10-26/neighbour_more.json`, sha256 fe89e710defe53510a9cd26e2daac9e1323148e24a489d00ca08e7f6b29676df.
 - Reference table: `bordercall/reference/panjabi_full_spine.csv`, sha256 6b51079dbe60b6ec336a85f73c2c11a174fdc2abce4d5d398d405b814edc853c.
-- Code: `bordercall/neighbour_figures.py`, sha256 448629be4d8258ac1a95b43d51c44d26c9609f3f66a82f38730809faaffe335b.
+- Code: `bordercall/neighbour_figures.py`, sha256 46e3bac01181c6a0f3e7657a7382b146e822f013360f458a3497afc8efcd3209.
 - Code: `bordercall/neighbour.py`, sha256 e527384fbfc0b367bda12433fe3f0f2f5cd7bcb9027ea8517d2177d7b0c537d1.
+- Code: `bordercall/neighbour_more.py`, sha256 c4e00b32754c35b2b8c7cf81dec5b0f864c3b0357d800f01aba44b3a512cdb64.
 - Code: `bordercall/junction_figures.py`, sha256 aca7801c59e24b8a2db3600d7cfdc77291ff39ec9f3ef403988a65ece82ebf3f.
 - Code: `bordercall/panjabi.py`, sha256 b1c68d1143cdf10d2180db2d9907020573c845d89b393a2401f4fab4e96b5f17.
 - Code: `bordercall/covariance.py`, sha256 4a8105951e797787762aa97e724dfc3e054088b68814ad02a52e5a466322ccd9.
@@ -24,3 +26,4 @@ Built with `python run.py neighbour-figures --json ../records/neighbour-2026-10-
 | neighbour_coverage | `neighbour_coverage.caption.txt`, `neighbour_coverage.csv`, `neighbour_coverage.pdf`, `neighbour_coverage.png` | Selective naming: exact rate against coverage as the model abstains below a confidence, both neighbours visible, solution C, three regimes; solid markers, typical columns; open markers, the worst phenotype. The thresholds were chosen on the selection seed and scored on another. |
 | neighbour_r | `neighbour_r.caption.txt`, `neighbour_r.csv`, `neighbour_r.pdf`, `neighbour_r.png` | The unidentified correlation r between a patient's offsets in the different measures, swept: exact naming over all six phenotypes, both neighbours visible, solution C, three regimes, with 95% column-clustered intervals. At the right, each regime's identified set over the grid (thick) inside its Imbens-Manski interval (thin). |
 | neighbour_subsets | `neighbour_subsets.caption.txt`, `neighbour_subsets.csv`, `neighbour_subsets.pdf`, `neighbour_subsets.png` | Every subset of the seven measures, both neighbours visible, solution C: the worst phenotype's exact rate on the scoring seed against the number of measures. Filled, the subset chosen on the selection seed; squares, the AP set; triangles, the lateral set; the circle at seven, the full set. |
+| neighbour_field | `neighbour_field.caption.txt`, `neighbour_field.csv`, `neighbour_field.pdf`, `neighbour_field.png` | The field of view named as a whole, the target in it: exact naming by the direct classifier on every visible body against the number of bodies, three regimes. Filled markers, typical columns; open markers, the worst phenotype; crosses, the published means with nothing fitted, both planes. Bars, 95% column-clustered intervals; 200 synthetic columns per phenotype. |

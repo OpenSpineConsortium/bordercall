@@ -1,7 +1,8 @@
 """The figures of the neighbour-identity study, from its recorded JSON and nothing else.
 
     python run.py neighbour-figures --json records/neighbour-2026-10-26/neighbour.json \
-        --enumerate-json records/neighbour-2026-10-26/enumerate.json --outdir figures/neighbour
+        --enumerate-json records/neighbour-2026-10-26/enumerate.json \
+        --more-json records/neighbour-2026-10-26/neighbour_more.json --outdir figures/neighbour
 
 Drawn as junction_figures.py draws: black ink, serif type, an axis on two sides, no grid, no
 colour; a series is told apart by its line and marker. The three projection regimes keep one
@@ -43,6 +44,12 @@ PHENOTYPE_MARKER = {"typical": "o", "four_lumbar": "v", "six_lumbar": "^", "t13"
 Z = 1.959964
 
 CAPTIONS = {
+    "neighbour_field":
+        "The field of view named as a whole, the target in it: exact naming by the direct "
+        "classifier on every visible body against the number of bodies, three regimes. Filled "
+        "markers, typical columns; open markers, the worst phenotype; crosses, the published means "
+        "with nothing fitted, both planes. Bars, 95%% column-clustered intervals; %d synthetic "
+        "columns per phenotype.",
     "neighbour_arms":
         "Naming a vertebra from its neighbours alone, solution C, by what is visible and by "
         "projection regime. A, typical columns, named exactly; B, the worst of the six phenotypes; "
@@ -426,18 +433,67 @@ def fig_subsets(e, outdir):
 
 # ---- the record ------------------------------------------------------------------------------------
 
-def write_record(outdir: str, json_path: str, d: dict, enumerate_json: Optional[str], written: List[str]) -> str:
+# ---- 10 the field ----------------------------------------------------------------------------------
+
+def fig_field(more: dict, outdir: str):
+    plt = style()
+    rows = []
+    fig, ax = plt.subplots(figsize=(4.8, 3.0))
+    cells = {(c["regime"], c["half"]): c for c in more["field"]}
+    halves = sorted({c["half"] for c in more["field"]})
+    for regime in ("both", "ap", "lateral"):
+        x, typ, se_t, worst, se_w, pub, worst_ph = [], [], [], [], [], [], []
+        for h in halves:
+            w = cells[(regime, h)]["arms"]["with_target"]
+            g = w["C_field"]
+            x.append(w["visible_bodies"])
+            typ.append(g["per_phenotype"]["typical"]["exact_rate"])
+            se_t.append(g["per_phenotype"]["typical"]["se_cluster"])
+            wp = g["worst"]["phenotype"]
+            worst.append(g["worst"]["exact_rate"])
+            se_w.append(g["per_phenotype"][wp]["se_cluster"])
+            worst_ph.append(wp)
+            pub.append(w["G_B"]["per_phenotype"]["typical"]["exact_rate"])
+            rows.append({"regime": regime, "visible_bodies": w["visible_bodies"], "exact_typical": typ[-1],
+                         "se_typical": se_t[-1], "exact_worst": worst[-1], "se_worst": se_w[-1],
+                         "worst_phenotype": wp, "exact_published_typical": pub[-1],
+                         "within_one_typical": g["per_phenotype"]["typical"]["within_one_rate"],
+                         "exact_G_typical": w["G"]["per_phenotype"]["typical"]["exact_rate"],
+                         "exact_G_worst": w["G"]["worst"]["exact_rate"]})
+        _series(ax, x, typ, se_t, regime)
+        st = dict(REGIME_STYLE[regime], markerfacecolor="white", linestyle="none")
+        ax.errorbar(np.asarray(x, float), 100 * np.asarray(worst), yerr=Z * 100 * np.asarray(se_w), color=INK,
+                    elinewidth=0.7, label="_nolegend_", **st)
+        if regime == "both":
+            ax.plot(x, 100 * np.asarray(pub), linestyle="none", marker="x", color=INK, markersize=5,
+                    label="Published means, nothing fitted")
+    ax.set_xlabel("Bodies in the field of view, the target among them")
+    ax.set_ylabel("Named exactly, per cent")
+    ax.set_xticks([1, 3, 5, 7, 9])
+    ax.set_ylim(0, 103)
+    ax.legend(loc="lower right")
+    write_csv(outdir, "neighbour_field", rows, ["regime", "visible_bodies", "exact_typical", "se_typical", "exact_worst",
+                                                "se_worst", "worst_phenotype", "exact_published_typical", "within_one_typical",
+                                                "exact_G_typical", "exact_G_worst"])
+    return save(fig, outdir, "neighbour_field", CAPTIONS["neighbour_field"] % more["n_columns"]["score_per_phenotype"])
+
+
+def write_record(outdir: str, json_path: str, d: dict, enumerate_json: Optional[str], written: List[str],
+                 more_json: Optional[str] = None) -> str:
     import matplotlib
-    cmd = "python run.py neighbour-figures --json %s%s --outdir %s" % (
-        json_path, (" --enumerate-json %s" % enumerate_json) if enumerate_json else "", outdir)
+    cmd = "python run.py neighbour-figures --json %s%s%s --outdir %s" % (
+        json_path, (" --enumerate-json %s" % enumerate_json) if enumerate_json else "",
+        (" --more-json %s" % more_json) if more_json else "", outdir)
     lines = ["# The neighbour-identity figures", "", "Built with `%s`." % cmd, "",
              "- Run: `%s`, sha256 %s; seeds %s; columns %s; synth %s."
              % (json_path, sha256(json_path), json.dumps(d["seeds"], sort_keys=True),
                 json.dumps(d["n_columns"], sort_keys=True), json.dumps(d["synth"], sort_keys=True))]
     if enumerate_json:
         lines.append("- Enumeration: `%s`, sha256 %s." % (enumerate_json, sha256(enumerate_json)))
+    if more_json:
+        lines.append("- The series continued: `%s`, sha256 %s." % (more_json, sha256(more_json)))
     lines.append("- Reference table: `bordercall/reference/panjabi_full_spine.csv`, sha256 %s." % sha256(P.DEFAULT_REFERENCE))
-    for name in ("neighbour_figures.py", "neighbour.py", "junction_figures.py", "panjabi.py", "covariance.py"):
+    for name in ("neighbour_figures.py", "neighbour.py", "neighbour_more.py", "junction_figures.py", "panjabi.py", "covariance.py"):
         lines.append("- Code: `bordercall/%s`, sha256 %s." % (name, sha256(os.path.join(HERE, name))))
     lines += ["- Python %s, numpy %s, matplotlib %s; serif type %s, embedded in the PDF."
               % (platform.python_version(), np.__version__, matplotlib.__version__, JF.SERIF[0]),
@@ -459,7 +515,7 @@ def write_record(outdir: str, json_path: str, d: dict, enumerate_json: Optional[
     return path
 
 
-def run(json_path: str, outdir: str, enumerate_json: Optional[str] = None) -> List[str]:
+def run(json_path: str, outdir: str, enumerate_json: Optional[str] = None, more_json: Optional[str] = None) -> List[str]:
     os.makedirs(outdir, exist_ok=True)
     with open(json_path, encoding="utf-8") as fh:
         d = json.load(fh)
@@ -476,7 +532,11 @@ def run(json_path: str, outdir: str, enumerate_json: Optional[str] = None) -> Li
         with open(enumerate_json, encoding="utf-8") as fh:
             e = json.load(fh)
         written += fig_subsets(e, outdir)
-    written.append(write_record(outdir, json_path, d, enumerate_json, written))
+    if more_json:
+        with open(more_json, encoding="utf-8") as fh:
+            more = json.load(fh)
+        written += fig_field(more, outdir)
+    written.append(write_record(outdir, json_path, d, enumerate_json, written, more_json=more_json))
     for p in written:
         print("%7.0f KB  %s" % (os.path.getsize(p) / 1024, p))
     return written

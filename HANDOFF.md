@@ -322,8 +322,14 @@ levels, C2-L5, and six of the 13 are refused rather than approximated.
 ### Step 7 — the neighbour-identity and dimensionality study
 
 **Done on 2026-10-26**: the results, the four verdicts and the figures are
-`docs/NEIGHBOUR_IDENTITY_RESULTS.md`, drawn from `records/neighbour-2026-10-26/` by the three
-`neighbour` commands of `run.py`. Specified in full at **`docs/NEIGHBOUR_IDENTITY_STUDY.md`**;
+`docs/NEIGHBOUR_IDENTITY_RESULTS.md`, drawn from `records/neighbour-2026-10-26/` by the five
+`neighbour` commands of `run.py`. The owner's word of 06:31 UTC removed the one constraint the
+brief had put on the problem: the target body is measurable too, so the main arm is the field
+of view with the target in it, named as a whole (`neighbour-more`), and the neighbour-only arms
+are the obscured case. A review by four independent readers told to refute the verdicts
+found one thing of substance, that a fit on typical columns never learns the last name a longer
+column carries, so every anomalous rate is given with that body excluded (its section 12 lists
+every correction). Specified in full at **`docs/NEIGHBOUR_IDENTITY_STUDY.md`**;
 that file is the brief, this is the one-paragraph version. Can vertebra `i` be named from the vertebrae **adjacent** to it, with its
 own measurements withheld — and does the discriminating information fit in one radiographic
 plane, or does it need a volume?
@@ -336,7 +342,8 @@ regimes — `lateral` (4 measures), `ap` (4 measures), `both` (7) — and if a s
 `both` within the margin, one fluoroscopic shot is enough. If not, the information is genuinely
 3-D and the recovery route is fluoroscopy-to-CT registration used **as a measurement device for
 the missing axis, not as a level localiser**. Keep those two uses separate; conflating them is
-how this becomes the registration-based approach whose published naming accuracy peaks near 73 %.
+how this becomes the registration-based approach, whose published naming accuracy is a number
+this repository does not record with its source.
 
 Everything is run across all six phenotypes, because a neighbour-based rule is *more* exposed to
 transitional anatomy than a target-based one — the neighbour relation is exactly what a

@@ -18,6 +18,7 @@ Run the commands in this order on a corpus you have not measured before.
     python run.py panjabi-figures --json out/panjabi/panjabi_junction.json --outdir figures/junction
     python run.py neighbour --outdir out/neighbour          # name a vertebra from its neighbours alone
     python run.py neighbour-enumerate --arm flank --shard 0 --of 1 --out out/neighbour/shard0.json
+    python run.py neighbour-more --outdir out/neighbour     # the field with the target in it, continued
     python run.py neighbour-figures --json out/neighbour/neighbour.json --outdir figures/neighbour
 
 `scheme` and `selftest` are not optional. The first catches a corpus numbered differently
@@ -270,9 +271,17 @@ def cmd_neighbour_enumerate(a) -> int:
     return 0
 
 
+def cmd_neighbour_more(a) -> int:
+    import neighbour_more as NM
+    grid = [float(x) for x in a.r_grid.split(",")] if a.r_grid else None
+    NM.run(outdir=a.outdir, n_fit=a.n_fit, n_select=a.n_select, n_score=a.n_score,
+           r_grid=grid, quick=a.quick)
+    return 0
+
+
 def cmd_neighbour_figures(a) -> int:
     import neighbour_figures as NF
-    NF.run(a.json, a.outdir, enumerate_json=a.enumerate_json)
+    NF.run(a.json, a.outdir, enumerate_json=a.enumerate_json, more_json=a.more_json)
     return 0
 
 
@@ -515,8 +524,20 @@ def main() -> int:
     p.add_argument("--quick", action="store_true")
     p.set_defaults(fn=cmd_neighbour_enumerate)
 
+    p = sub.add_parser("neighbour-more",
+                       help="the series continued: the field decoded with the target in it, a nonlinear "
+                            "classifier, the size of the fit; writes neighbour_more.json")
+    p.add_argument("--outdir", default=None, help="write neighbour_more.json here")
+    p.add_argument("--n-fit", type=int, default=300, dest="n_fit", help="typical columns fitted on")
+    p.add_argument("--n-select", type=int, default=150, dest="n_select", help="columns per phenotype the width is chosen on")
+    p.add_argument("--n-score", type=int, default=200, dest="n_score", help="columns per phenotype scored")
+    p.add_argument("--r-grid", default=None, dest="r_grid", help="comma-separated r values for the sweep")
+    p.add_argument("--quick", action="store_true", help="a small run to check the command")
+    p.set_defaults(fn=cmd_neighbour_more)
+
     p = sub.add_parser("neighbour-figures", help="the neighbour study's figures from its recorded JSON")
     p.add_argument("--json", required=True, help="neighbour.json")
+    p.add_argument("--more-json", default=None, dest="more_json", help="neighbour_more.json, for the field figure")
     p.add_argument("--enumerate-json", default=None, dest="enumerate_json", help="the gathered enumeration JSON")
     p.add_argument("--outdir", default="figures/neighbour")
     p.set_defaults(fn=cmd_neighbour_figures)

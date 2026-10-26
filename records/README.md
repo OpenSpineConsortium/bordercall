@@ -41,8 +41,9 @@ one radiographic plane. Synthetic columns only, run from `bordercall/`:
 | file | command |
 |---|---|
 | `neighbour.json`, `models.json` | `python run.py neighbour --outdir ../records/neighbour-2026-10-26` |
-| `enumerate.json` | `python run.py neighbour-enumerate --arm flank --shard 0 --of 1 --out ../records/neighbour-2026-10-26/enumerate-shard0.json`, then `python run.py neighbour-enumerate --gather ../records/neighbour-2026-10-26/enumerate-shard0.json --out ../records/neighbour-2026-10-26/enumerate.json` (the shard file is deleted once gathered) |
-| `figures/` | `python run.py neighbour-figures --json ../records/neighbour-2026-10-26/neighbour.json --enumerate-json ../records/neighbour-2026-10-26/enumerate.json --outdir ../records/neighbour-2026-10-26/figures` |
+| `enumerate.json` | `python run.py neighbour-enumerate --arm flank --shard 0 --of 1 --out ../records/neighbour-2026-10-26/enumerate-shard0.json`, then `python run.py neighbour-enumerate --gather ../records/neighbour-2026-10-26/enumerate-shard0.json --out ../records/neighbour-2026-10-26/enumerate.json` (the gather deletes the shard file, which carries the time of every fit and the gathered record does not, so the shard was run again afterwards and kept as `enumerate-shard0.json`; do not gather it again) |
+| `neighbour_more.json` | `python run.py neighbour-more --outdir ../records/neighbour-2026-10-26` (the series continued on the owner's word of 06:31 UTC: the target measurable, the field named as a whole, a nonlinear classifier, the size of the fit) |
+| `figures/` | `python run.py neighbour-figures --json ../records/neighbour-2026-10-26/neighbour.json --enumerate-json ../records/neighbour-2026-10-26/enumerate.json --more-json ../records/neighbour-2026-10-26/neighbour_more.json --outdir ../records/neighbour-2026-10-26/figures` |
 
 The run took the command's defaults: 300 typical columns fitted on (seed 11), 150
 columns per phenotype to choose thresholds and the winning subset on (seed 23), 200

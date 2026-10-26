@@ -97,16 +97,19 @@ class TestPosition(unittest.TestCase):
         ref = _ref()
         constant = NB.external_constant(ref, MEASURES)
         rng = np.random.default_rng(3)
-        norms = ["external", ("median", 1), ("median", 2), ("median", "all")]
+        norms = ["external"] + [("median", k) for k in NB.MEDIAN_BODIES]
         for arm in NB.ARMS:
             for norm in norms:
+                moved_count = 0
                 for _ in range(20):
                     values, i, moved, j = self._column_and_moved(rng, ref, arm, norm)
                     f0 = NB.features(values, i, arm, MEASURES, norm, constant)
                     f1 = NB.features(moved, j, arm, MEASURES, norm, constant)
-                    self.assertNotEqual(i, j) if i != j else None
+                    moved_count += int(i != j)
                     np.testing.assert_allclose(f0, f1, rtol=0, atol=1e-12,
                                                err_msg="%s %s: the features moved with the window" % (arm, norm))
+                # A trial where the block lands where it was tests nothing, so most must move.
+                self.assertGreater(moved_count, 10, "%s %s: the window seldom moved" % (arm, norm))
 
     def test_fitted_models_do_not_move_with_the_window(self):
         ref = _ref()
@@ -202,3 +205,98 @@ class TestFit(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+import neighbour_more as NM   # noqa: E402
+
+
+class TestField(unittest.TestCase):
+    """Solution G, the field decoded as a whole, with the target in it."""
+
+    def test_field_features_do_not_move_with_the_window(self):
+        ref = _ref()
+        constant = NB.external_constant(ref, MEASURES)
+        rng = np.random.default_rng(7)
+        for half in (0, 1, 2, 3):
+            for with_target in (True, False):
+                offs = NM.field_offsets(half, with_target)
+                if not offs:
+                    continue
+                for _ in range(20):
+                    col = P.synthesize(ref, "typical", rng, measures=MEASURES)
+                    n = len(col)
+                    i = int(rng.integers(half, n - half))
+                    block = list(range(i - half, i + half + 1))
+                    others = [j for j in range(n) if j not in block]
+                    rng.shuffle(others)
+                    split = int(rng.integers(0, len(others) + 1))
+                    order = others[:split] + block + others[split:]
+                    moved = {m: col.values[m][order] for m in MEASURES}
+                    f0 = NM.field_features(col.values, i, offs, MEASURES, constant)
+                    f1 = NM.field_features(moved, split + half, offs, MEASURES, constant)
+                    np.testing.assert_allclose(f0, f1, rtol=0, atol=1e-12)
+
+    def test_published_field_names_a_noise_free_column_exactly(self):
+        """Nothing fitted: a column at the table's means, at any size, is named exactly at every
+        eligible target for every half-width and regime, the size profiled out over the field."""
+        ref = _ref()
+        for regime, measures in NB.REGIMES.items():
+            constant = NB.external_constant(ref, measures)
+            pub = NM.build_published_self(ref, measures, constant)
+            for size in (0.8, 1.0, 1.3):
+                values = {m: np.asarray([size * ref[m][lv][0] for lv in P.LEVELS]) for m in measures}
+                for half in (0, 1, 2, 4):
+                    for with_target in (True, False):
+                        offs = NM.field_offsets(half, with_target)
+                        if not offs:
+                            continue
+                        model = NM.Field(offs=offs, p=len(measures), published=pub)
+                        targets = NM.field_targets(len(P.LEVELS), offs)
+                        X = np.asarray([NM.field_features(values, i, offs, measures, constant) for i in targets])
+                        self.assertEqual(model.predict(X).tolist(), targets, (regime, size, half, with_target))
+
+    def test_fitted_field_is_position_free_and_names_in_range(self):
+        ref = _ref()
+        constant = NB.external_constant(ref, MEASURES)
+        cols = NB.draw_columns(ref, ("typical",), 11, 40, MEASURES)
+        model = NM.train_self(NM.self_rows(cols, MEASURES, constant), MEASURES)
+        for half in (1, 2):
+            offs = NM.field_offsets(half, True)
+            g = NM.Field(offs=offs, p=len(MEASURES), self_model=model)
+            r = NM.field_shuffle_invariance(ref, offs, MEASURES, g, constant, trials=30)
+            self.assertEqual(r["identical"], r["trials"])
+            # the candidate set: the names whose implied bodies exist in the table
+            self.assertEqual(NM.candidates(offs).tolist(), list(range(half, NB.K - half)))
+            # a six-lumbar and a t13 column have a body beyond the table; the field still answers
+            rng = np.random.default_rng(2)
+            for ph in ("six_lumbar", "t13"):
+                col = P.synthesize(ref, ph, rng, measures=MEASURES)
+                rows = NM.field_rows([col], offs, MEASURES, constant)
+                pred = g.predict(rows.X)
+                self.assertTrue(((pred >= half) & (pred < NB.K - half)).all(), ph)
+
+    def test_field_with_one_body_is_the_self_model(self):
+        ref = _ref()
+        constant = NB.external_constant(ref, MEASURES)
+        cols = NB.draw_columns(ref, ("typical",), 11, 30, MEASURES)
+        rows = NM.self_rows(cols, MEASURES, constant)
+        model = NM.train_self(rows, MEASURES)
+        g = NM.Field(offs=(0,), p=len(MEASURES), self_model=model)
+        np.testing.assert_array_equal(g.predict(rows.X), model.predict(rows.X))
+
+
+class TestNonlinear(unittest.TestCase):
+    """Solution H, one hidden layer: deterministic from its seed, position-free, and at least as
+    good as chance on what it was fitted on."""
+
+    def test_mlp_is_deterministic_and_position_free(self):
+        ref = _ref()
+        constant = NB.external_constant(ref, MEASURES)
+        cols = NB.draw_columns(ref, ("typical",), 11, 30, MEASURES)
+        rows = NB.rows_of(cols, "flank", MEASURES, "external", constant)
+        a = NM.train_mlp(rows, "flank", MEASURES, hidden=16, steps=200)
+        b = NM.train_mlp(rows, "flank", MEASURES, hidden=16, steps=200)
+        np.testing.assert_array_equal(a.predict(rows.X), b.predict(rows.X))
+        self.assertGreater(float((a.predict(rows.X) == rows.y).mean()), 0.2)
+        r = NB.shuffle_invariance(ref, "flank", MEASURES, a, "external", constant, trials=30)
+        self.assertEqual(r["identical"], r["trials"])
