@@ -98,6 +98,11 @@ pedicle,C4,5.4,0.53,12,PDW (mean of l/r),4,864,Panjabi MM et al. Spine 1991;16(8
 pedicle,C5,5.6,0.405,12,PDW (mean of l/r),4,864,Panjabi MM et al. Spine 1991;16(8):861-869
 pedicle,C6,5.95,0.44,12,PDW (mean of l/r),4,864,Panjabi MM et al. Spine 1991;16(8):861-869
 pedicle,C7,6.55,0.385,12,PDW (mean of l/r),4,864,Panjabi MM et al. Spine 1991;16(8):861-869
+pedicle,L1,8.6,0.915,12,pedicle,2-5,301,Panjabi MM et al. Spine 1992;17(3):299-306
+pedicle,L2,8.25,0.675,12,pedicle,2-5,301,Panjabi MM et al. Spine 1992;17(3):299-306
+pedicle,L3,10.15,0.6,12,pedicle,2-5,301,Panjabi MM et al. Spine 1992;17(3):299-306
+pedicle,L4,14.05,0.32,12,pedicle,2-5,301,Panjabi MM et al. Spine 1992;17(3):299-306
+pedicle,L5,18.6,1.03,12,pedicle,2-5,301,Panjabi MM et al. Spine 1992;17(3):299-306
 pedicle,T1,8.45,0.485,12,PDW (mean of l/r),5,894,Panjabi MM et al. Spine 1991;16(8):888-901
 pedicle,T10,9.0,0.74,12,PDW (mean of l/r),5,894,Panjabi MM et al. Spine 1991;16(8):888-901
 pedicle,T11,9.75,0.635,12,PDW (mean of l/r),5,894,Panjabi MM et al. Spine 1991;16(8):888-901
