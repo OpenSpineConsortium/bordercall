@@ -1,0 +1,1 @@
+Is there a scalar formula? A, the first linear discriminant of the neighbour features, its class mean and one within-class SD by true level, both neighbours visible: monotone, but flat across the thoracic bodies. B, exact naming against the number of discriminant directions kept, typical columns. C, the share of the between-class separation each direction carries.

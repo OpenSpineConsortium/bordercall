@@ -30,3 +30,22 @@ which writes, for each of the five figures, the PDF, a PNG, the CSV of the
 numbers drawn and the caption, and one `FIGURES.md` naming the record, the
 code and their hashes. The slides are made from the same record with
 `slides/make_junction_slides.py` (README, "The junction from Panjabi's tables").
+
+## neighbour-2026-10-26
+
+The neighbour-identity and dimensionality study of `docs/NEIGHBOUR_IDENTITY_STUDY.md`,
+answered in `docs/NEIGHBOUR_IDENTITY_RESULTS.md`: can a vertebra be named from its
+neighbours alone, with its own measurements withheld, and does the information fit in
+one radiographic plane. Synthetic columns only, run from `bordercall/`:
+
+| file | command |
+|---|---|
+| `neighbour.json`, `models.json` | `python run.py neighbour --outdir ../records/neighbour-2026-10-26` |
+| `enumerate.json` | `python run.py neighbour-enumerate --arm flank --shard 0 --of 1 --out ../records/neighbour-2026-10-26/enumerate-shard0.json`, then `python run.py neighbour-enumerate --gather ../records/neighbour-2026-10-26/enumerate-shard0.json --out ../records/neighbour-2026-10-26/enumerate.json` (the shard file is deleted once gathered) |
+| `figures/` | `python run.py neighbour-figures --json ../records/neighbour-2026-10-26/neighbour.json --enumerate-json ../records/neighbour-2026-10-26/enumerate.json --outdir ../records/neighbour-2026-10-26/figures` |
+
+The run took the command's defaults: 300 typical columns fitted on (seed 11), 150
+columns per phenotype to choose thresholds and the winning subset on (seed 23), 200
+columns per phenotype scored (seed 97); rho 0.5, noise 1.0 mm, scale spread 0.07,
+blend 0.5, r 0 in the main cells and swept over 0, 0.2, 0.4, 0.6, 0.8, 0.9. The record
+carries every setting, and `figures/FIGURES.md` the sha256 of each record and code file.

@@ -1,0 +1,6408 @@
+{
+ "all_rows": [
+  {
+   "k": 7,
+   "measures": [
+    "endplate",
+    "endplate_depth",
+    "endplate_lower",
+    "endplate_lower_depth",
+    "h_post",
+    "canal_w",
+    "canal_ap"
+   ],
+   "score": {
+    "four_lumbar": 0.4992105263157895,
+    "lumbar_rib": 0.52275,
+    "no_rib_t12": 0.519,
+    "six_lumbar": 0.48928571428571427,
+    "t13": 0.4576190476190476,
+    "typical": 0.52225
+   },
+   "score_se": {
+    "four_lumbar": 0.009416335131432578,
+    "lumbar_rib": 0.009131902634645379,
+    "no_rib_t12": 0.009580130190783515,
+    "six_lumbar": 0.008411590298764975,
+    "t13": 0.008558323980431352,
+    "typical": 0.008922456987482055
+   },
+   "score_worst": {
+    "exact_rate": 0.4576190476190476,
+    "phenotype": "t13"
+   },
+   "select_worst": {
+    "exact_rate": 0.44571428571428573,
+    "phenotype": "t13"
+   }
+  },
+  {
+   "k": 6,
+   "measures": [
+    "endplate",
+    "endplate_depth",
+    "endplate_lower",
+    "h_post",
+    "canal_w",
+    "canal_ap"
+   ],
+   "score": {
+    "four_lumbar": 0.47526315789473683,
+    "lumbar_rib": 0.492,
+    "no_rib_t12": 0.506,
+    "six_lumbar": 0.4695238095238095,
+    "t13": 0.43452380952380953,
+    "typical": 0.494
+   },
+   "score_se": {
+    "four_lumbar": 0.009496798039964512,
+    "lumbar_rib": 0.008315693222386466,
+    "no_rib_t12": 0.009761991723621789,
+    "six_lumbar": 0.008899365969648855,
+    "t13": 0.008391245799847073,
+    "typical": 0.008998604023506052
+   },
+   "score_worst": {
+    "exact_rate": 0.43452380952380953,
+    "phenotype": "t13"
+   },
+   "select_worst": {
+    "exact_rate": 0.44222222222222224,
+    "phenotype": "t13"
+   }
+  },
+  {
+   "k": 6,
+   "measures": [
+    "endplate",
+    "endplate_depth",
+    "endplate_lower",
+    "endplate_lower_depth",
+    "h_post",
+    "canal_w"
+   ],
+   "score": {
+    "four_lumbar": 0.47710526315789475,
+    "lumbar_rib": 0.4915,
+    "no_rib_t12": 0.491,
+    "six_lumbar": 0.4638095238095238,
+    "t13": 0.44023809523809526,
+    "typical": 0.4935
+   },
+   "score_se": {
+    "four_lumbar": 0.010067199288298693,
+    "lumbar_rib": 0.00927734312599178,
+    "no_rib_t12": 0.009104088208632028,
+    "six_lumbar": 0.008627610933252027,
+    "t13": 0.008753858134982816,
+    "typical": 0.00889857704168673
+   },
+   "score_worst": {
+    "exact_rate": 0.44023809523809526,
+    "phenotype": "t13"
+   },
+   "select_worst": {
+    "exact_rate": 0.43142857142857144,
+    "phenotype": "t13"
+   }
+  },
+  {
+   "k": 6,
+   "measures": [
+    "endplate",
+    "endplate_lower",
+    "endplate_lower_depth",
+    "h_post",
+    "canal_w",
+    "canal_ap"
+   ],
+   "score": {
+    "four_lumbar": 0.47578947368421054,
+    "lumbar_rib": 0.50025,
+    "no_rib_t12": 0.501,
+    "six_lumbar": 0.48095238095238096,
+    "t13": 0.43404761904761907,
+    "typical": 0.506
+   },
+   "score_se": {
+    "four_lumbar": 0.009236201792095838,
+    "lumbar_rib": 0.00913671633723712,
+    "no_rib_t12": 0.009732347762221823,
+    "six_lumbar": 0.008685266756731282,
+    "t13": 0.008386084024678936,
+    "typical": 0.008808116403230848
+   },
+   "score_worst": {
+    "exact_rate": 0.43404761904761907,
+    "phenotype": "t13"
+   },
+   "select_worst": {
+    "exact_rate": 0.43142857142857144,
+    "phenotype": "t13"
+   }
+  },
+  {
+   "k": 6,
+   "measures": [
+    "endplate",
+    "endplate_depth",
+    "endplate_lower",
+    "endplate_lower_depth",
+    "h_post",
+    "canal_ap"
+   ],
+   "score": {
+    "four_lumbar": 0.47157894736842104,
+    "lumbar_rib": 0.4865,
+    "no_rib_t12": 0.49675,
+    "six_lumbar": 0.4664285714285714,
+    "t13": 0.43547619047619046,
+    "typical": 0.4855
+   },
+   "score_se": {
+    "four_lumbar": 0.010445604348429451,
+    "lumbar_rib": 0.009672462595601833,
+    "no_rib_t12": 0.010303665128262703,
+    "six_lumbar": 0.008601536417544903,
+    "t13": 0.008529032236349196,
+    "typical": 0.009474841057523161
+   },
+   "score_worst": {
+    "exact_rate": 0.43547619047619046,
+    "phenotype": "t13"
+   },
+   "select_worst": {
+    "exact_rate": 0.4311111111111111,
+    "phenotype": "t13"
+   }
+  },
+  {
+   "k": 6,
+   "measures": [
+    "endplate",
+    "endplate_depth",
+    "endplate_lower",
+    "endplate_lower_depth",
+    "canal_w",
+    "canal_ap"
+   ],
+   "score": {
+    "four_lumbar": 0.4792105263157895,
+    "lumbar_rib": 0.50825,
+    "no_rib_t12": 0.50825,
+    "six_lumbar": 0.4776190476190476,
+    "t13": 0.4480952380952381,
+    "typical": 0.5075
+   },
+   "score_se": {
+    "four_lumbar": 0.009767673154663373,
+    "lumbar_rib": 0.009131765063000095,
+    "no_rib_t12": 0.00960774329152163,
+    "six_lumbar": 0.008240328094134783,
+    "t13": 0.008214567484095731,
+    "typical": 0.00935582209296307
+   },
+   "score_worst": {
+    "exact_rate": 0.4480952380952381,
+    "phenotype": "t13"
+   },
+   "select_worst": {
+    "exact_rate": 0.4282539682539683,
+    "phenotype": "t13"
+   }
+  },
+  {
+   "k": 6,
+   "measures": [
+    "endplate_depth",
+    "endplate_lower",
+    "endplate_lower_depth",
+    "h_post",
+    "canal_w",
+    "canal_ap"
+   ],
+   "score": {
+    "four_lumbar": 0.4713157894736842,
+    "lumbar_rib": 0.47775,
+    "no_rib_t12": 0.4975,
+    "six_lumbar": 0.4530952380952381,
+    "t13": 0.4228571428571429,
+    "typical": 0.493
+   },
+   "score_se": {
+    "four_lumbar": 0.009284735243994067,
+    "lumbar_rib": 0.009020478516315893,
+    "no_rib_t12": 0.009522190428297671,
+    "six_lumbar": 0.008465872471688342,
+    "t13": 0.008825564385377873,
+    "typical": 0.0082138502958976
+   },
+   "score_worst": {
+    "exact_rate": 0.4228571428571429,
+    "phenotype": "t13"
+   },
+   "select_worst": {
+    "exact_rate": 0.42317460317460315,
+    "phenotype": "t13"
+   }
+  },
+  {
+   "k": 5,
+   "measures": [
+    "endplate",
+    "endplate_lower",
+    "endplate_lower_depth",
+    "h_post",
+    "canal_w"
+   ],
+   "score": {
+    "four_lumbar": 0.4660526315789474,
+    "lumbar_rib": 0.47925,
+    "no_rib_t12": 0.4705,
+    "six_lumbar": 0.45071428571428573,
+    "t13": 0.4247619047619048,
+    "typical": 0.47925
+   },
+   "score_se": {
+    "four_lumbar": 0.009631336142724548,
+    "lumbar_rib": 0.009073108286020246,
+    "no_rib_t12": 0.008581489369508942,
+    "six_lumbar": 0.008651598570123981,
+    "t13": 0.00856876936230199,
+    "typical": 0.009176367259455236
+   },
+   "score_worst": {
+    "exact_rate": 0.4247619047619048,
+    "phenotype": "t13"
+   },
+   "select_worst": {
+    "exact_rate": 0.4174603174603175,
+    "phenotype": "t13"
+   }
+  },
+  {
+   "k": 5,
+   "measures": [
+    "endplate",
+    "endplate_depth",
+    "endplate_lower",
+    "endplate_lower_depth",
+    "canal_w"
+   ],
+   "score": {
+    "four_lumbar": 0.4605263157894737,
+    "lumbar_rib": 0.48525,
+    "no_rib_t12": 0.47325,
+    "six_lumbar": 0.4542857142857143,
+    "t13": 0.42523809523809525,
+    "typical": 0.47275
+   },
+   "score_se": {
+    "four_lumbar": 0.00969868575386614,
+    "lumbar_rib": 0.009979863520078668,
+    "no_rib_t12": 0.009268994486672752,
+    "six_lumbar": 0.008618360784850631,
+    "t13": 0.008695166517109599,
+    "typical": 0.009389649358489212
+   },
+   "score_worst": {
+    "exact_rate": 0.42523809523809525,
+    "phenotype": "t13"
+   },
+   "select_worst": {
+    "exact_rate": 0.413968253968254,
+    "phenotype": "t13"
+   }
+  },
+  {
+   "k": 5,
+   "measures": [
+    "endplate",
+    "endplate_depth",
+    "endplate_lower",
+    "h_post",
+    "canal_w"
+   ],
+   "score": {
+    "four_lumbar": 0.4478947368421053,
+    "lumbar_rib": 0.46525,
+    "no_rib_t12": 0.47025,
+    "six_lumbar": 0.44785714285714284,
+    "t13": 0.4126190476190476,
+    "typical": 0.46175
+   },
+   "score_se": {
+    "four_lumbar": 0.010087314903600094,
+    "lumbar_rib": 0.008215054662969559,
+    "no_rib_t12": 0.009431700396100856,
+    "six_lumbar": 0.009201890631251146,
+    "t13": 0.008407118733103236,
+    "typical": 0.009556611934063841
+   },
+   "score_worst": {
+    "exact_rate": 0.4126190476190476,
+    "phenotype": "t13"
+   },
+   "select_worst": {
+    "exact_rate": 0.413968253968254,
+    "phenotype": "t13"
+   }
+  },
+  {
+   "k": 5,
+   "measures": [
+    "endplate",
+    "endplate_lower",
+    "endplate_lower_depth",
+    "canal_w",
+    "canal_ap"
+   ],
+   "score": {
+    "four_lumbar": 0.4610526315789474,
+    "lumbar_rib": 0.48325,
+    "no_rib_t12": 0.483,
+    "six_lumbar": 0.4585714285714286,
+    "t13": 0.4266666666666667,
+    "typical": 0.48975
+   },
+   "score_se": {
+    "four_lumbar": 0.009117889071062955,
+    "lumbar_rib": 0.009244565835529388,
+    "no_rib_t12": 0.009559651388694402,
+    "six_lumbar": 0.008634674008461341,
+    "t13": 0.008239844094951133,
+    "typical": 0.009237904627649483
+   },
+   "score_worst": {
+    "exact_rate": 0.4266666666666667,
+    "phenotype": "t13"
+   },
+   "select_worst": {
+    "exact_rate": 0.413015873015873,
+    "phenotype": "t13"
+   }
+  },
+  {
+   "k": 5,
+   "measures": [
+    "endplate",
+    "endplate_depth",
+    "endplate_lower",
+    "endplate_lower_depth",
+    "canal_ap"
+   ],
+   "score": {
+    "four_lumbar": 0.45052631578947366,
+    "lumbar_rib": 0.474,
+    "no_rib_t12": 0.47325,
+    "six_lumbar": 0.44595238095238093,
+    "t13": 0.41904761904761906,
+    "typical": 0.47275
+   },
+   "score_se": {
+    "four_lumbar": 0.009661945588522824,
+    "lumbar_rib": 0.009987177709091034,
+    "no_rib_t12": 0.00992988927456017,
+    "six_lumbar": 0.008514189649101823,
+    "t13": 0.008573023700980191,
+    "typical": 0.009234504201049234
+   },
+   "score_worst": {
+    "exact_rate": 0.41904761904761906,
+    "phenotype": "t13"
+   },
+   "select_worst": {
+    "exact_rate": 0.41174603174603175,
+    "phenotype": "t13"
+   }
+  },
+  {
+   "k": 5,
+   "measures": [
+    "endplate",
+    "endplate_lower",
+    "h_post",
+    "canal_w",
+    "canal_ap"
+   ],
+   "score": {
+    "four_lumbar": 0.4423684210526316,
+    "lumbar_rib": 0.45775,
+    "no_rib_t12": 0.47175,
+    "six_lumbar": 0.4514285714285714,
+    "t13": 0.4095238095238095,
+    "typical": 0.477
+   },
+   "score_se": {
+    "four_lumbar": 0.008598189041903962,
+    "lumbar_rib": 0.008425683844128382,
+    "no_rib_t12": 0.009652098347642486,
+    "six_lumbar": 0.008821690181835063,
+    "t13": 0.008037957332313649,
+    "typical": 0.009376545098806368
+   },
+   "score_worst": {
+    "exact_rate": 0.4095238095238095,
+    "phenotype": "t13"
+   },
+   "select_worst": {
+    "exact_rate": 0.41079365079365077,
+    "phenotype": "t13"
+   }
+  },
+  {
+   "k": 5,
+   "measures": [
+    "endplate",
+    "endplate_depth",
+    "endplate_lower",
+    "canal_w",
+    "canal_ap"
+   ],
+   "score": {
+    "four_lumbar": 0.44605263157894737,
+    "lumbar_rib": 0.4775,
+    "no_rib_t12": 0.48125,
+    "six_lumbar": 0.45,
+    "t13": 0.4219047619047619,
+    "typical": 0.47675
+   },
+   "score_se": {
+    "four_lumbar": 0.009496999579665207,
+    "lumbar_rib": 0.0083707284914389,
+    "no_rib_t12": 0.009487081271670247,
+    "six_lumbar": 0.008813872024694105,
+    "t13": 0.007945563948702878,
+    "typical": 0.009262215213072213
+   },
+   "score_worst": {
+    "exact_rate": 0.4219047619047619,
+    "phenotype": "t13"
+   },
+   "select_worst": {
+    "exact_rate": 0.40984126984126984,
+    "phenotype": "t13"
+   }
+  },
+  {
+   "k": 5,
+   "measures": [
+    "endplate",
+    "endplate_depth",
+    "endplate_lower",
+    "endplate_lower_depth",
+    "h_post"
+   ],
+   "score": {
+    "four_lumbar": 0.4423684210526316,
+    "lumbar_rib": 0.45525,
+    "no_rib_t12": 0.45375,
+    "six_lumbar": 0.4438095238095238,
+    "t13": 0.41214285714285714,
+    "typical": 0.44675
+   },
+   "score_se": {
+    "four_lumbar": 0.010910073570479255,
+    "lumbar_rib": 0.009831478901311577,
+    "no_rib_t12": 0.01039386113271825,
+    "six_lumbar": 0.009125182325417454,
+    "t13": 0.008922112204550565,
+    "typical": 0.009478072419216874
+   },
+   "score_worst": {
+    "exact_rate": 0.41214285714285714,
+    "phenotype": "t13"
+   },
+   "select_worst": {
+    "exact_rate": 0.4092063492063492,
+    "phenotype": "t13"
+   }
+  },
+  {
+   "k": 5,
+   "measures": [
+    "endplate",
+    "endplate_lower",
+    "endplate_lower_depth",
+    "h_post",
+    "canal_ap"
+   ],
+   "score": {
+    "four_lumbar": 0.4473684210526316,
+    "lumbar_rib": 0.46675,
+    "no_rib_t12": 0.46775,
+    "six_lumbar": 0.4502380952380952,
+    "t13": 0.4169047619047619,
+    "typical": 0.4675
+   },
+   "score_se": {
+    "four_lumbar": 0.010018149150761825,
+    "lumbar_rib": 0.00955200983876163,
+    "no_rib_t12": 0.009872920555818704,
+    "six_lumbar": 0.008923389259467422,
+    "t13": 0.008635911102046468,
+    "typical": 0.009449349237118137
+   },
+   "score_worst": {
+    "exact_rate": 0.4169047619047619,
+    "phenotype": "t13"
+   },
+   "select_worst": {
+    "exact_rate": 0.4073015873015873,
+    "phenotype": "t13"
+   }
+  },
+  {
+   "k": 5,
+   "measures": [
+    "endplate",
+    "endplate_depth",
+    "endplate_lower",
+    "h_post",
+    "canal_ap"
+   ],
+   "score": {
+    "four_lumbar": 0.43342105263157893,
+    "lumbar_rib": 0.46025,
+    "no_rib_t12": 0.46475,
+    "six_lumbar": 0.435952380952381,
+    "t13": 0.4002380952380952,
+    "typical": 0.4565
+   },
+   "score_se": {
+    "four_lumbar": 0.010585508655674168,
+    "lumbar_rib": 0.009452988015017278,
+    "no_rib_t12": 0.010952142926083772,
+    "six_lumbar": 0.00907721447640565,
+    "t13": 0.008738223848285423,
+    "typical": 0.009399762105404101
+   },
+   "score_worst": {
+    "exact_rate": 0.4002380952380952,
+    "phenotype": "t13"
+   },
+   "select_worst": {
+    "exact_rate": 0.4050793650793651,
+    "phenotype": "t13"
+   }
+  },
+  {
+   "k": 6,
+   "measures": [
+    "endplate",
+    "endplate_depth",
+    "endplate_lower_depth",
+    "h_post",
+    "canal_w",
+    "canal_ap"
+   ],
+   "score": {
+    "four_lumbar": 0.46789473684210525,
+    "lumbar_rib": 0.47825,
+    "no_rib_t12": 0.48925,
+    "six_lumbar": 0.44642857142857145,
+    "t13": 0.4230952380952381,
+    "typical": 0.4945
+   },
+   "score_se": {
+    "four_lumbar": 0.009677420776775681,
+    "lumbar_rib": 0.009040511141995387,
+    "no_rib_t12": 0.009503222806953069,
+    "six_lumbar": 0.008292210434063564,
+    "t13": 0.008144827212777843,
+    "typical": 0.009041987485527848
+   },
+   "score_worst": {
+    "exact_rate": 0.4230952380952381,
+    "phenotype": "t13"
+   },
+   "select_worst": {
+    "exact_rate": 0.40253968253968253,
+    "phenotype": "t13"
+   }
+  },
+  {
+   "k": 5,
+   "measures": [
+    "endplate_depth",
+    "endplate_lower",
+    "endplate_lower_depth",
+    "h_post",
+    "canal_w"
+   ],
+   "score": {
+    "four_lumbar": 0.45,
+    "lumbar_rib": 0.449,
+    "no_rib_t12": 0.4705,
+    "six_lumbar": 0.4297619047619048,
+    "t13": 0.41285714285714287,
+    "typical": 0.45675
+   },
+   "score_se": {
+    "four_lumbar": 0.009812833833644225,
+    "lumbar_rib": 0.008980436582150678,
+    "no_rib_t12": 0.0091894493795601,
+    "six_lumbar": 0.00818849970865623,
+    "t13": 0.008861320471012108,
+    "typical": 0.008650656436590208
+   },
+   "score_worst": {
+    "exact_rate": 0.41285714285714287,
+    "phenotype": "t13"
+   },
+   "select_worst": {
+    "exact_rate": 0.40095238095238095,
+    "phenotype": "t13"
+   }
+  },
+  {
+   "k": 4,
+   "measures": [
+    "endplate",
+    "endplate_depth",
+    "endplate_lower",
+    "endplate_lower_depth"
+   ],
+   "score": {
+    "four_lumbar": 0.4236842105263158,
+    "lumbar_rib": 0.438,
+    "no_rib_t12": 0.4365,
+    "six_lumbar": 0.4276190476190476,
+    "t13": 0.4085714285714286,
+    "typical": 0.436
+   },
+   "score_se": {
+    "four_lumbar": 0.010662632289202072,
+    "lumbar_rib": 0.010020331091130642,
+    "no_rib_t12": 0.009827085429576818,
+    "six_lumbar": 0.00920722931764736,
+    "t13": 0.009344812275869705,
+    "typical": 0.009950631908420913
+   },
+   "score_worst": {
+    "exact_rate": 0.4085714285714286,
+    "phenotype": "t13"
+   },
+   "select_worst": {
+    "exact_rate": 0.3987301587301587,
+    "phenotype": "t13"
+   }
+  },
+  {
+   "k": 5,
+   "measures": [
+    "endplate_depth",
+    "endplate_lower",
+    "h_post",
+    "canal_w",
+    "canal_ap"
+   ],
+   "score": {
+    "four_lumbar": 0.42605263157894735,
+    "lumbar_rib": 0.44725,
+    "no_rib_t12": 0.481,
+    "six_lumbar": 0.4319047619047619,
+    "t13": 0.3983333333333333,
+    "typical": 0.46175
+   },
+   "score_se": {
+    "four_lumbar": 0.009501835250048165,
+    "lumbar_rib": 0.008726709851033241,
+    "no_rib_t12": 0.009573571242313826,
+    "six_lumbar": 0.008422234576146836,
+    "t13": 0.008304157040041551,
+    "typical": 0.00837993460714942
+   },
+   "score_worst": {
+    "exact_rate": 0.3983333333333333,
+    "phenotype": "t13"
+   },
+   "select_worst": {
+    "exact_rate": 0.3980952380952381,
+    "phenotype": "t13"
+   }
+  },
+  {
+   "k": 5,
+   "measures": [
+    "endplate_lower",
+    "endplate_lower_depth",
+    "h_post",
+    "canal_w",
+    "canal_ap"
+   ],
+   "score": {
+    "four_lumbar": 0.4457894736842105,
+    "lumbar_rib": 0.45875,
+    "no_rib_t12": 0.4685,
+    "six_lumbar": 0.4407142857142857,
+    "t13": 0.4085714285714286,
+    "typical": 0.471
+   },
+   "score_se": {
+    "four_lumbar": 0.009161067950636865,
+    "lumbar_rib": 0.00862709809889978,
+    "no_rib_t12": 0.009630810587007413,
+    "six_lumbar": 0.008566358741003017,
+    "t13": 0.008778961102913497,
+    "typical": 0.008077513921732286
+   },
+   "score_worst": {
+    "exact_rate": 0.4085714285714286,
+    "phenotype": "t13"
+   },
+   "select_worst": {
+    "exact_rate": 0.39714285714285713,
+    "phenotype": "t13"
+   }
+  },
+  {
+   "k": 5,
+   "measures": [
+    "endplate_depth",
+    "endplate_lower",
+    "endplate_lower_depth",
+    "h_post",
+    "canal_ap"
+   ],
+   "score": {
+    "four_lumbar": 0.43236842105263157,
+    "lumbar_rib": 0.44025,
+    "no_rib_t12": 0.455,
+    "six_lumbar": 0.4226190476190476,
+    "t13": 0.39380952380952383,
+    "typical": 0.45575
+   },
+   "score_se": {
+    "four_lumbar": 0.00982082766484041,
+    "lumbar_rib": 0.009890718836135086,
+    "no_rib_t12": 0.009556759821794061,
+    "six_lumbar": 0.008532638691473608,
+    "t13": 0.00891644306669869,
+    "typical": 0.00912763694947422
+   },
+   "score_worst": {
+    "exact_rate": 0.39380952380952383,
+    "phenotype": "t13"
+   },
+   "select_worst": {
+    "exact_rate": 0.3968253968253968,
+    "phenotype": "t13"
+   }
+  },
+  {
+   "k": 4,
+   "measures": [
+    "endplate",
+    "endplate_lower",
+    "endplate_lower_depth",
+    "canal_w"
+   ],
+   "score": {
+    "four_lumbar": 0.445,
+    "lumbar_rib": 0.46,
+    "no_rib_t12": 0.44475,
+    "six_lumbar": 0.4342857142857143,
+    "t13": 0.4123809523809524,
+    "typical": 0.4585
+   },
+   "score_se": {
+    "four_lumbar": 0.009495973514829038,
+    "lumbar_rib": 0.009377616887699258,
+    "no_rib_t12": 0.009346737129869139,
+    "six_lumbar": 0.008864213291776215,
+    "t13": 0.008759990219161072,
+    "typical": 0.009411782949657162
+   },
+   "score_worst": {
+    "exact_rate": 0.4123809523809524,
+    "phenotype": "t13"
+   },
+   "select_worst": {
+    "exact_rate": 0.3961904761904762,
+    "phenotype": "t13"
+   }
+  },
+  {
+   "k": 4,
+   "measures": [
+    "endplate",
+    "endplate_depth",
+    "endplate_lower",
+    "canal_w"
+   ],
+   "score": {
+    "four_lumbar": 0.4139473684210526,
+    "lumbar_rib": 0.45425,
+    "no_rib_t12": 0.4455,
+    "six_lumbar": 0.42023809523809524,
+    "t13": 0.4,
+    "typical": 0.44025
+   },
+   "score_se": {
+    "four_lumbar": 0.009868901513473683,
+    "lumbar_rib": 0.008859437661521863,
+    "no_rib_t12": 0.00946555511675579,
+    "six_lumbar": 0.009333083660851282,
+    "t13": 0.008479472707685341,
+    "typical": 0.009594134907489865
+   },
+   "score_worst": {
+    "exact_rate": 0.4,
+    "phenotype": "t13"
+   },
+   "select_worst": {
+    "exact_rate": 0.3949206349206349,
+    "phenotype": "t13"
+   }
+  },
+  {
+   "k": 5,
+   "measures": [
+    "endplate",
+    "endplate_depth",
+    "endplate_lower_depth",
+    "h_post",
+    "canal_w"
+   ],
+   "score": {
+    "four_lumbar": 0.4336842105263158,
+    "lumbar_rib": 0.44525,
+    "no_rib_t12": 0.45775,
+    "six_lumbar": 0.42214285714285715,
+    "t13": 0.4042857142857143,
+    "typical": 0.46825
+   },
+   "score_se": {
+    "four_lumbar": 0.009780793175585759,
+    "lumbar_rib": 0.009415035953731152,
+    "no_rib_t12": 0.008558823211976594,
+    "six_lumbar": 0.008307586795161557,
+    "t13": 0.008744041113454911,
+    "typical": 0.00841135792907752
+   },
+   "score_worst": {
+    "exact_rate": 0.4042857142857143,
+    "phenotype": "t13"
+   },
+   "select_worst": {
+    "exact_rate": 0.3942857142857143,
+    "phenotype": "t13"
+   }
+  },
+  {
+   "k": 4,
+   "measures": [
+    "endplate",
+    "endplate_lower",
+    "h_post",
+    "canal_w"
+   ],
+   "score": {
+    "four_lumbar": 0.42289473684210527,
+    "lumbar_rib": 0.42975,
+    "no_rib_t12": 0.435,
+    "six_lumbar": 0.4142857142857143,
+    "t13": 0.38476190476190475,
+    "typical": 0.437
+   },
+   "score_se": {
+    "four_lumbar": 0.008995990142234442,
+    "lumbar_rib": 0.008783389273832647,
+    "no_rib_t12": 0.009719689388506468,
+    "six_lumbar": 0.00912668067232426,
+    "t13": 0.008236524477239712,
+    "typical": 0.009452605926090957
+   },
+   "score_worst": {
+    "exact_rate": 0.38476190476190475,
+    "phenotype": "t13"
+   },
+   "select_worst": {
+    "exact_rate": 0.3933333333333333,
+    "phenotype": "t13"
+   }
+  },
+  {
+   "k": 5,
+   "measures": [
+    "endplate_depth",
+    "endplate_lower",
+    "endplate_lower_depth",
+    "canal_w",
+    "canal_ap"
+   ],
+   "score": {
+    "four_lumbar": 0.44526315789473686,
+    "lumbar_rib": 0.46075,
+    "no_rib_t12": 0.48125,
+    "six_lumbar": 0.4328571428571429,
+    "t13": 0.4116666666666667,
+    "typical": 0.47
+   },
+   "score_se": {
+    "four_lumbar": 0.009318724443788447,
+    "lumbar_rib": 0.008724406215846182,
+    "no_rib_t12": 0.009259230760239037,
+    "six_lumbar": 0.008297379108734666,
+    "t13": 0.007858012960588958,
+    "typical": 0.00849918707315721
+   },
+   "score_worst": {
+    "exact_rate": 0.4116666666666667,
+    "phenotype": "t13"
+   },
+   "select_worst": {
+    "exact_rate": 0.3933333333333333,
+    "phenotype": "t13"
+   }
+  },
+  {
+   "k": 5,
+   "measures": [
+    "endplate",
+    "endplate_depth",
+    "endplate_lower_depth",
+    "canal_w",
+    "canal_ap"
+   ],
+   "score": {
+    "four_lumbar": 0.4457894736842105,
+    "lumbar_rib": 0.46675,
+    "no_rib_t12": 0.47175,
+    "six_lumbar": 0.4257142857142857,
+    "t13": 0.41404761904761905,
+    "typical": 0.47225
+   },
+   "score_se": {
+    "four_lumbar": 0.009591599190887201,
+    "lumbar_rib": 0.008813231686720773,
+    "no_rib_t12": 0.009448202482523,
+    "six_lumbar": 0.00851728398777059,
+    "t13": 0.008242315649848215,
+    "typical": 0.009240624067985296
+   },
+   "score_worst": {
+    "exact_rate": 0.41404761904761905,
+    "phenotype": "t13"
+   },
+   "select_worst": {
+    "exact_rate": 0.39015873015873015,
+    "phenotype": "t13"
+   }
+  },
+  {
+   "k": 4,
+   "measures": [
+    "endplate",
+    "endplate_lower",
+    "endplate_lower_depth",
+    "canal_ap"
+   ],
+   "score": {
+    "four_lumbar": 0.43236842105263157,
+    "lumbar_rib": 0.45425,
+    "no_rib_t12": 0.45025,
+    "six_lumbar": 0.43047619047619046,
+    "t13": 0.40404761904761904,
+    "typical": 0.45075
+   },
+   "score_se": {
+    "four_lumbar": 0.009834991425227734,
+    "lumbar_rib": 0.009620810123746644,
+    "no_rib_t12": 0.00962550984096388,
+    "six_lumbar": 0.008782075682399937,
+    "t13": 0.008364315291926827,
+    "typical": 0.009306867162579982
+   },
+   "score_worst": {
+    "exact_rate": 0.40404761904761904,
+    "phenotype": "t13"
+   },
+   "select_worst": {
+    "exact_rate": 0.3888888888888889,
+    "phenotype": "t13"
+   }
+  },
+  {
+   "k": 5,
+   "measures": [
+    "endplate",
+    "endplate_depth",
+    "h_post",
+    "canal_w",
+    "canal_ap"
+   ],
+   "score": {
+    "four_lumbar": 0.42578947368421055,
+    "lumbar_rib": 0.44775,
+    "no_rib_t12": 0.468,
+    "six_lumbar": 0.4219047619047619,
+    "t13": 0.3914285714285714,
+    "typical": 0.4615
+   },
+   "score_se": {
+    "four_lumbar": 0.0093957089606303,
+    "lumbar_rib": 0.008741812393296827,
+    "no_rib_t12": 0.009371184315623449,
+    "six_lumbar": 0.008526643790264259,
+    "t13": 0.00785266392531314,
+    "typical": 0.009288169922138191
+   },
+   "score_worst": {
+    "exact_rate": 0.3914285714285714,
+    "phenotype": "t13"
+   },
+   "select_worst": {
+    "exact_rate": 0.3873015873015873,
+    "phenotype": "t13"
+   }
+  },
+  {
+   "k": 4,
+   "measures": [
+    "endplate",
+    "endplate_depth",
+    "endplate_lower_depth",
+    "canal_w"
+   ],
+   "score": {
+    "four_lumbar": 0.41289473684210526,
+    "lumbar_rib": 0.445,
+    "no_rib_t12": 0.441,
+    "six_lumbar": 0.39666666666666667,
+    "t13": 0.39285714285714285,
+    "typical": 0.433
+   },
+   "score_se": {
+    "four_lumbar": 0.009563894313732422,
+    "lumbar_rib": 0.009290130928211755,
+    "no_rib_t12": 0.00877381898020967,
+    "six_lumbar": 0.008507043283956657,
+    "t13": 0.008457607522983033,
+    "typical": 0.009245669908681657
+   },
+   "score_worst": {
+    "exact_rate": 0.39285714285714285,
+    "phenotype": "t13"
+   },
+   "select_worst": {
+    "exact_rate": 0.3850793650793651,
+    "phenotype": "t13"
+   }
+  },
+  {
+   "k": 4,
+   "measures": [
+    "endplate",
+    "endplate_depth",
+    "endplate_lower",
+    "canal_ap"
+   ],
+   "score": {
+    "four_lumbar": 0.40921052631578947,
+    "lumbar_rib": 0.44725,
+    "no_rib_t12": 0.442,
+    "six_lumbar": 0.4073809523809524,
+    "t13": 0.39714285714285713,
+    "typical": 0.441
+   },
+   "score_se": {
+    "four_lumbar": 0.01030201042841586,
+    "lumbar_rib": 0.00905869678470286,
+    "no_rib_t12": 0.009799753868306947,
+    "six_lumbar": 0.009011701227319504,
+    "t13": 0.008353835921080669,
+    "typical": 0.009555182234666611
+   },
+   "score_worst": {
+    "exact_rate": 0.39714285714285713,
+    "phenotype": "t13"
+   },
+   "select_worst": {
+    "exact_rate": 0.38285714285714284,
+    "phenotype": "t13"
+   }
+  },
+  {
+   "k": 4,
+   "measures": [
+    "endplate",
+    "endplate_lower",
+    "endplate_lower_depth",
+    "h_post"
+   ],
+   "score": {
+    "four_lumbar": 0.4192105263157895,
+    "lumbar_rib": 0.43575,
+    "no_rib_t12": 0.42525,
+    "six_lumbar": 0.4207142857142857,
+    "t13": 0.39595238095238094,
+    "typical": 0.433
+   },
+   "score_se": {
+    "four_lumbar": 0.010315108684334995,
+    "lumbar_rib": 0.00974149222933896,
+    "no_rib_t12": 0.009628772183868732,
+    "six_lumbar": 0.00885274896351851,
+    "t13": 0.008902806408162843,
+    "typical": 0.009754782360179666
+   },
+   "score_worst": {
+    "exact_rate": 0.39595238095238094,
+    "phenotype": "t13"
+   },
+   "select_worst": {
+    "exact_rate": 0.3825396825396825,
+    "phenotype": "t13"
+   }
+  },
+  {
+   "k": 4,
+   "measures": [
+    "endplate_lower",
+    "endplate_lower_depth",
+    "h_post",
+    "canal_w"
+   ],
+   "score": {
+    "four_lumbar": 0.4276315789473684,
+    "lumbar_rib": 0.43375,
+    "no_rib_t12": 0.44025,
+    "six_lumbar": 0.41333333333333333,
+    "t13": 0.3883333333333333,
+    "typical": 0.438
+   },
+   "score_se": {
+    "four_lumbar": 0.009038904331057302,
+    "lumbar_rib": 0.008572316521965566,
+    "no_rib_t12": 0.00936888829259886,
+    "six_lumbar": 0.008349196947372673,
+    "t13": 0.008473406572628595,
+    "typical": 0.008647479081926814
+   },
+   "score_worst": {
+    "exact_rate": 0.3883333333333333,
+    "phenotype": "t13"
+   },
+   "select_worst": {
+    "exact_rate": 0.3825396825396825,
+    "phenotype": "t13"
+   }
+  },
+  {
+   "k": 4,
+   "measures": [
+    "endplate_depth",
+    "endplate_lower",
+    "endplate_lower_depth",
+    "canal_w"
+   ],
+   "score": {
+    "four_lumbar": 0.43342105263157893,
+    "lumbar_rib": 0.43525,
+    "no_rib_t12": 0.44625,
+    "six_lumbar": 0.41285714285714287,
+    "t13": 0.39666666666666667,
+    "typical": 0.43225
+   },
+   "score_se": {
+    "four_lumbar": 0.00982153633797102,
+    "lumbar_rib": 0.009207255577878888,
+    "no_rib_t12": 0.009077676384555332,
+    "six_lumbar": 0.008052899431691811,
+    "t13": 0.008399202974332779,
+    "typical": 0.00866676128990994
+   },
+   "score_worst": {
+    "exact_rate": 0.39666666666666667,
+    "phenotype": "t13"
+   },
+   "select_worst": {
+    "exact_rate": 0.38222222222222224,
+    "phenotype": "t13"
+   }
+  },
+  {
+   "k": 5,
+   "measures": [
+    "endplate",
+    "endplate_depth",
+    "endplate_lower_depth",
+    "h_post",
+    "canal_ap"
+   ],
+   "score": {
+    "four_lumbar": 0.4392105263157895,
+    "lumbar_rib": 0.43875,
+    "no_rib_t12": 0.4615,
+    "six_lumbar": 0.4207142857142857,
+    "t13": 0.3871428571428571,
+    "typical": 0.446
+   },
+   "score_se": {
+    "four_lumbar": 0.010510418437206162,
+    "lumbar_rib": 0.01008405316034696,
+    "no_rib_t12": 0.009561425326349455,
+    "six_lumbar": 0.00880758339287709,
+    "t13": 0.008488270132345847,
+    "typical": 0.009245126381453379
+   },
+   "score_worst": {
+    "exact_rate": 0.3871428571428571,
+    "phenotype": "t13"
+   },
+   "select_worst": {
+    "exact_rate": 0.38126984126984126,
+    "phenotype": "t13"
+   }
+  },
+  {
+   "k": 4,
+   "measures": [
+    "endplate",
+    "endplate_depth",
+    "endplate_lower",
+    "h_post"
+   ],
+   "score": {
+    "four_lumbar": 0.4031578947368421,
+    "lumbar_rib": 0.417,
+    "no_rib_t12": 0.42125,
+    "six_lumbar": 0.4135714285714286,
+    "t13": 0.3838095238095238,
+    "typical": 0.42075
+   },
+   "score_se": {
+    "four_lumbar": 0.010848289257188223,
+    "lumbar_rib": 0.009333572621962462,
+    "no_rib_t12": 0.010671178837829715,
+    "six_lumbar": 0.009569032973658192,
+    "t13": 0.008871152212830045,
+    "typical": 0.009982884221853656
+   },
+   "score_worst": {
+    "exact_rate": 0.3838095238095238,
+    "phenotype": "t13"
+   },
+   "select_worst": {
+    "exact_rate": 0.38031746031746033,
+    "phenotype": "t13"
+   }
+  },
+  {
+   "k": 5,
+   "measures": [
+    "endplate",
+    "endplate_lower_depth",
+    "h_post",
+    "canal_w",
+    "canal_ap"
+   ],
+   "score": {
+    "four_lumbar": 0.44842105263157894,
+    "lumbar_rib": 0.4615,
+    "no_rib_t12": 0.46375,
+    "six_lumbar": 0.4342857142857143,
+    "t13": 0.40095238095238095,
+    "typical": 0.4675
+   },
+   "score_se": {
+    "four_lumbar": 0.00920691734183631,
+    "lumbar_rib": 0.009165631127742883,
+    "no_rib_t12": 0.009201386584389164,
+    "six_lumbar": 0.008354654296113677,
+    "t13": 0.00870728002019612,
+    "typical": 0.008452869632564176
+   },
+   "score_worst": {
+    "exact_rate": 0.40095238095238095,
+    "phenotype": "t13"
+   },
+   "select_worst": {
+    "exact_rate": 0.38031746031746033,
+    "phenotype": "t13"
+   }
+  },
+  {
+   "k": 4,
+   "measures": [
+    "endplate",
+    "endplate_lower_depth",
+    "h_post",
+    "canal_w"
+   ],
+   "score": {
+    "four_lumbar": 0.4142105263157895,
+    "lumbar_rib": 0.43275,
+    "no_rib_t12": 0.442,
+    "six_lumbar": 0.39976190476190476,
+    "t13": 0.38761904761904764,
+    "typical": 0.4385
+   },
+   "score_se": {
+    "four_lumbar": 0.009118423390209653,
+    "lumbar_rib": 0.008843967793454378,
+    "no_rib_t12": 0.00899078254960442,
+    "six_lumbar": 0.008329640586117494,
+    "t13": 0.008873720806627636,
+    "typical": 0.008310177207865706
+   },
+   "score_worst": {
+    "exact_rate": 0.38761904761904764,
+    "phenotype": "t13"
+   },
+   "select_worst": {
+    "exact_rate": 0.3780952380952381,
+    "phenotype": "t13"
+   }
+  },
+  {
+   "k": 4,
+   "measures": [
+    "endplate",
+    "endplate_lower",
+    "h_post",
+    "canal_ap"
+   ],
+   "score": {
+    "four_lumbar": 0.40210526315789474,
+    "lumbar_rib": 0.421,
+    "no_rib_t12": 0.4235,
+    "six_lumbar": 0.4061904761904762,
+    "t13": 0.3645238095238095,
+    "typical": 0.43
+   },
+   "score_se": {
+    "four_lumbar": 0.009906648167704315,
+    "lumbar_rib": 0.007848758823876352,
+    "no_rib_t12": 0.010603107063355766,
+    "six_lumbar": 0.008866462610958883,
+    "t13": 0.008747998551849276,
+    "typical": 0.00932387652035537
+   },
+   "score_worst": {
+    "exact_rate": 0.3645238095238095,
+    "phenotype": "t13"
+   },
+   "select_worst": {
+    "exact_rate": 0.37777777777777777,
+    "phenotype": "t13"
+   }
+  },
+  {
+   "k": 4,
+   "measures": [
+    "endplate_depth",
+    "endplate_lower",
+    "h_post",
+    "canal_w"
+   ],
+   "score": {
+    "four_lumbar": 0.4023684210526316,
+    "lumbar_rib": 0.41625,
+    "no_rib_t12": 0.43425,
+    "six_lumbar": 0.40476190476190477,
+    "t13": 0.38142857142857145,
+    "typical": 0.423
+   },
+   "score_se": {
+    "four_lumbar": 0.009642169679486482,
+    "lumbar_rib": 0.00834959677659097,
+    "no_rib_t12": 0.009678094599422806,
+    "six_lumbar": 0.008815487914711293,
+    "t13": 0.007988114896721979,
+    "typical": 0.0087672299848949
+   },
+   "score_worst": {
+    "exact_rate": 0.38142857142857145,
+    "phenotype": "t13"
+   },
+   "select_worst": {
+    "exact_rate": 0.37746031746031744,
+    "phenotype": "t13"
+   }
+  },
+  {
+   "k": 4,
+   "measures": [
+    "endplate",
+    "endplate_lower",
+    "canal_w",
+    "canal_ap"
+   ],
+   "score": {
+    "four_lumbar": 0.4181578947368421,
+    "lumbar_rib": 0.437,
+    "no_rib_t12": 0.44375,
+    "six_lumbar": 0.42595238095238097,
+    "t13": 0.3945238095238095,
+    "typical": 0.45325
+   },
+   "score_se": {
+    "four_lumbar": 0.009208712558030758,
+    "lumbar_rib": 0.008014120703687106,
+    "no_rib_t12": 0.009576047773208626,
+    "six_lumbar": 0.009410655266676634,
+    "t13": 0.008360227344193207,
+    "typical": 0.009616238752167786
+   },
+   "score_worst": {
+    "exact_rate": 0.3945238095238095,
+    "phenotype": "t13"
+   },
+   "select_worst": {
+    "exact_rate": 0.37682539682539684,
+    "phenotype": "t13"
+   }
+  },
+  {
+   "k": 4,
+   "measures": [
+    "endplate_depth",
+    "endplate_lower",
+    "h_post",
+    "canal_ap"
+   ],
+   "score": {
+    "four_lumbar": 0.39052631578947367,
+    "lumbar_rib": 0.41925,
+    "no_rib_t12": 0.42875,
+    "six_lumbar": 0.3976190476190476,
+    "t13": 0.36523809523809525,
+    "typical": 0.42375
+   },
+   "score_se": {
+    "four_lumbar": 0.009746005252552073,
+    "lumbar_rib": 0.009368754200873342,
+    "no_rib_t12": 0.00998389091934839,
+    "six_lumbar": 0.008450868392412535,
+    "t13": 0.008679426509603223,
+    "typical": 0.00900821442549401
+   },
+   "score_worst": {
+    "exact_rate": 0.36523809523809525,
+    "phenotype": "t13"
+   },
+   "select_worst": {
+    "exact_rate": 0.3765079365079365,
+    "phenotype": "t13"
+   }
+  },
+  {
+   "k": 4,
+   "measures": [
+    "endplate_depth",
+    "endplate_lower",
+    "endplate_lower_depth",
+    "h_post"
+   ],
+   "score": {
+    "four_lumbar": 0.40578947368421053,
+    "lumbar_rib": 0.41875,
+    "no_rib_t12": 0.41275,
+    "six_lumbar": 0.4045238095238095,
+    "t13": 0.38261904761904764,
+    "typical": 0.40525
+   },
+   "score_se": {
+    "four_lumbar": 0.010397184670554956,
+    "lumbar_rib": 0.00997129989560239,
+    "no_rib_t12": 0.009873556761146303,
+    "six_lumbar": 0.008886280155369575,
+    "t13": 0.008958945702386787,
+    "typical": 0.009136028820722125
+   },
+   "score_worst": {
+    "exact_rate": 0.38261904761904764,
+    "phenotype": "t13"
+   },
+   "select_worst": {
+    "exact_rate": 0.3761904761904762,
+    "phenotype": "t13"
+   }
+  },
+  {
+   "k": 4,
+   "measures": [
+    "endplate_depth",
+    "endplate_lower",
+    "endplate_lower_depth",
+    "canal_ap"
+   ],
+   "score": {
+    "four_lumbar": 0.4052631578947368,
+    "lumbar_rib": 0.4235,
+    "no_rib_t12": 0.43025,
+    "six_lumbar": 0.40404761904761904,
+    "t13": 0.38357142857142856,
+    "typical": 0.427
+   },
+   "score_se": {
+    "four_lumbar": 0.009786199837632181,
+    "lumbar_rib": 0.009437110003922316,
+    "no_rib_t12": 0.009712561803351347,
+    "six_lumbar": 0.008479321527149116,
+    "t13": 0.00831800456648675,
+    "typical": 0.009275514857914734
+   },
+   "score_worst": {
+    "exact_rate": 0.38357142857142856,
+    "phenotype": "t13"
+   },
+   "select_worst": {
+    "exact_rate": 0.3746031746031746,
+    "phenotype": "t13"
+   }
+  },
+  {
+   "k": 3,
+   "measures": [
+    "endplate",
+    "endplate_lower",
+    "endplate_lower_depth"
+   ],
+   "score": {
+    "four_lumbar": 0.405,
+    "lumbar_rib": 0.414,
+    "no_rib_t12": 0.40525,
+    "six_lumbar": 0.4042857142857143,
+    "t13": 0.3883333333333333,
+    "typical": 0.4165
+   },
+   "score_se": {
+    "four_lumbar": 0.010421305754848922,
+    "lumbar_rib": 0.009855488484409671,
+    "no_rib_t12": 0.009400346807458888,
+    "six_lumbar": 0.009463737321593195,
+    "t13": 0.00955425559382528,
+    "typical": 0.010137930666114993
+   },
+   "score_worst": {
+    "exact_rate": 0.3883333333333333,
+    "phenotype": "t13"
+   },
+   "select_worst": {
+    "exact_rate": 0.37238095238095237,
+    "phenotype": "t13"
+   }
+  },
+  {
+   "k": 4,
+   "measures": [
+    "endplate_lower",
+    "endplate_lower_depth",
+    "h_post",
+    "canal_ap"
+   ],
+   "score": {
+    "four_lumbar": 0.4,
+    "lumbar_rib": 0.419,
+    "no_rib_t12": 0.42525,
+    "six_lumbar": 0.4064285714285714,
+    "t13": 0.3678571428571429,
+    "typical": 0.4335
+   },
+   "score_se": {
+    "four_lumbar": 0.010121823686741067,
+    "lumbar_rib": 0.009374669173392348,
+    "no_rib_t12": 0.009337323790995439,
+    "six_lumbar": 0.008274602462343506,
+    "t13": 0.00874369902852193,
+    "typical": 0.008697238630680141
+   },
+   "score_worst": {
+    "exact_rate": 0.3678571428571429,
+    "phenotype": "t13"
+   },
+   "select_worst": {
+    "exact_rate": 0.37174603174603177,
+    "phenotype": "t13"
+   }
+  },
+  {
+   "k": 4,
+   "measures": [
+    "endplate",
+    "endplate_depth",
+    "endplate_lower_depth",
+    "canal_ap"
+   ],
+   "score": {
+    "four_lumbar": 0.4176315789473684,
+    "lumbar_rib": 0.42725,
+    "no_rib_t12": 0.4345,
+    "six_lumbar": 0.39166666666666666,
+    "t13": 0.37238095238095237,
+    "typical": 0.41725
+   },
+   "score_se": {
+    "four_lumbar": 0.010592738723807327,
+    "lumbar_rib": 0.010011284462191381,
+    "no_rib_t12": 0.009156580411055243,
+    "six_lumbar": 0.00827157231739932,
+    "t13": 0.00881393666598273,
+    "typical": 0.009381618266937354
+   },
+   "score_worst": {
+    "exact_rate": 0.37238095238095237,
+    "phenotype": "t13"
+   },
+   "select_worst": {
+    "exact_rate": 0.37142857142857144,
+    "phenotype": "t13"
+   }
+  },
+  {
+   "k": 3,
+   "measures": [
+    "endplate",
+    "endplate_depth",
+    "endplate_lower"
+   ],
+   "score": {
+    "four_lumbar": 0.3718421052631579,
+    "lumbar_rib": 0.408,
+    "no_rib_t12": 0.39425,
+    "six_lumbar": 0.38142857142857145,
+    "t13": 0.3669047619047619,
+    "typical": 0.40025
+   },
+   "score_se": {
+    "four_lumbar": 0.01073631766951496,
+    "lumbar_rib": 0.009605536510694833,
+    "no_rib_t12": 0.010273749908671597,
+    "six_lumbar": 0.009853066541452243,
+    "t13": 0.008980668779019535,
+    "typical": 0.010232826647902826
+   },
+   "score_worst": {
+    "exact_rate": 0.3669047619047619,
+    "phenotype": "t13"
+   },
+   "select_worst": {
+    "exact_rate": 0.3711111111111111,
+    "phenotype": "t13"
+   }
+  },
+  {
+   "k": 4,
+   "measures": [
+    "endplate_depth",
+    "endplate_lower",
+    "canal_w",
+    "canal_ap"
+   ],
+   "score": {
+    "four_lumbar": 0.39289473684210524,
+    "lumbar_rib": 0.43725,
+    "no_rib_t12": 0.449,
+    "six_lumbar": 0.4054761904761905,
+    "t13": 0.3738095238095238,
+    "typical": 0.4355
+   },
+   "score_se": {
+    "four_lumbar": 0.009371139010623837,
+    "lumbar_rib": 0.008853905676516055,
+    "no_rib_t12": 0.009615471201774814,
+    "six_lumbar": 0.008532905775661074,
+    "t13": 0.007740050740449875,
+    "typical": 0.008650021059026852
+   },
+   "score_worst": {
+    "exact_rate": 0.3738095238095238,
+    "phenotype": "t13"
+   },
+   "select_worst": {
+    "exact_rate": 0.37015873015873013,
+    "phenotype": "t13"
+   }
+  },
+  {
+   "k": 3,
+   "measures": [
+    "endplate",
+    "endplate_lower",
+    "canal_w"
+   ],
+   "score": {
+    "four_lumbar": 0.39,
+    "lumbar_rib": 0.40925,
+    "no_rib_t12": 0.40725,
+    "six_lumbar": 0.38642857142857145,
+    "t13": 0.36833333333333335,
+    "typical": 0.411
+   },
+   "score_se": {
+    "four_lumbar": 0.008971295232140937,
+    "lumbar_rib": 0.00918184178653525,
+    "no_rib_t12": 0.009136028820722125,
+    "six_lumbar": 0.009368058208139832,
+    "t13": 0.008251158782754004,
+    "typical": 0.009655888405761667
+   },
+   "score_worst": {
+    "exact_rate": 0.36833333333333335,
+    "phenotype": "t13"
+   },
+   "select_worst": {
+    "exact_rate": 0.3682539682539683,
+    "phenotype": "t13"
+   }
+  },
+  {
+   "k": 4,
+   "measures": [
+    "endplate",
+    "endplate_depth",
+    "h_post",
+    "canal_w"
+   ],
+   "score": {
+    "four_lumbar": 0.395,
+    "lumbar_rib": 0.42425,
+    "no_rib_t12": 0.43375,
+    "six_lumbar": 0.38857142857142857,
+    "t13": 0.37166666666666665,
+    "typical": 0.425
+   },
+   "score_se": {
+    "four_lumbar": 0.009693284130516762,
+    "lumbar_rib": 0.008910339964976493,
+    "no_rib_t12": 0.009112208801724813,
+    "six_lumbar": 0.008727410068576347,
+    "t13": 0.00798602840518058,
+    "typical": 0.009174467519772295
+   },
+   "score_worst": {
+    "exact_rate": 0.37166666666666665,
+    "phenotype": "t13"
+   },
+   "select_worst": {
+    "exact_rate": 0.3676190476190476,
+    "phenotype": "t13"
+   }
+  },
+  {
+   "k": 4,
+   "measures": [
+    "endplate",
+    "endplate_lower_depth",
+    "canal_w",
+    "canal_ap"
+   ],
+   "score": {
+    "four_lumbar": 0.42157894736842105,
+    "lumbar_rib": 0.446,
+    "no_rib_t12": 0.4415,
+    "six_lumbar": 0.4080952380952381,
+    "t13": 0.38333333333333336,
+    "typical": 0.449
+   },
+   "score_se": {
+    "four_lumbar": 0.009115980532736628,
+    "lumbar_rib": 0.008962232313447416,
+    "no_rib_t12": 0.008833396542234579,
+    "six_lumbar": 0.008299576107891771,
+    "t13": 0.008308083992118518,
+    "typical": 0.009015341474927488
+   },
+   "score_worst": {
+    "exact_rate": 0.38333333333333336,
+    "phenotype": "t13"
+   },
+   "select_worst": {
+    "exact_rate": 0.3676190476190476,
+    "phenotype": "t13"
+   }
+  },
+  {
+   "k": 4,
+   "measures": [
+    "endplate_lower",
+    "endplate_lower_depth",
+    "canal_w",
+    "canal_ap"
+   ],
+   "score": {
+    "four_lumbar": 0.41578947368421054,
+    "lumbar_rib": 0.43925,
+    "no_rib_t12": 0.44425,
+    "six_lumbar": 0.42333333333333334,
+    "t13": 0.39071428571428574,
+    "typical": 0.451
+   },
+   "score_se": {
+    "four_lumbar": 0.008757812849290638,
+    "lumbar_rib": 0.00856454579785864,
+    "no_rib_t12": 0.009271027302094462,
+    "six_lumbar": 0.008794717319160244,
+    "t13": 0.00811764069354339,
+    "typical": 0.008739386959169995
+   },
+   "score_worst": {
+    "exact_rate": 0.39071428571428574,
+    "phenotype": "t13"
+   },
+   "select_worst": {
+    "exact_rate": 0.36634920634920637,
+    "phenotype": "t13"
+   }
+  },
+  {
+   "k": 4,
+   "measures": [
+    "endplate",
+    "endplate_depth",
+    "h_post",
+    "canal_ap"
+   ],
+   "score": {
+    "four_lumbar": 0.3944736842105263,
+    "lumbar_rib": 0.41225,
+    "no_rib_t12": 0.42925,
+    "six_lumbar": 0.38666666666666666,
+    "t13": 0.3519047619047619,
+    "typical": 0.414
+   },
+   "score_se": {
+    "four_lumbar": 0.01023123498115206,
+    "lumbar_rib": 0.009019085709492723,
+    "no_rib_t12": 0.009591384717756873,
+    "six_lumbar": 0.008953745320215986,
+    "t13": 0.00873621868324388,
+    "typical": 0.009570946404372813
+   },
+   "score_worst": {
+    "exact_rate": 0.3519047619047619,
+    "phenotype": "t13"
+   },
+   "select_worst": {
+    "exact_rate": 0.3657142857142857,
+    "phenotype": "t13"
+   }
+  },
+  {
+   "k": 4,
+   "measures": [
+    "endplate",
+    "endplate_depth",
+    "canal_w",
+    "canal_ap"
+   ],
+   "score": {
+    "four_lumbar": 0.40078947368421053,
+    "lumbar_rib": 0.43425,
+    "no_rib_t12": 0.446,
+    "six_lumbar": 0.39476190476190476,
+    "t13": 0.3773809523809524,
+    "typical": 0.442
+   },
+   "score_se": {
+    "four_lumbar": 0.009310037866626628,
+    "lumbar_rib": 0.009123506968100858,
+    "no_rib_t12": 0.00899720783041709,
+    "six_lumbar": 0.00878045364344376,
+    "t13": 0.007872790006074446,
+    "typical": 0.009333572621962462
+   },
+   "score_worst": {
+    "exact_rate": 0.3773809523809524,
+    "phenotype": "t13"
+   },
+   "select_worst": {
+    "exact_rate": 0.3653968253968254,
+    "phenotype": "t13"
+   }
+  },
+  {
+   "k": 4,
+   "measures": [
+    "endplate_lower",
+    "h_post",
+    "canal_w",
+    "canal_ap"
+   ],
+   "score": {
+    "four_lumbar": 0.4002631578947368,
+    "lumbar_rib": 0.41475,
+    "no_rib_t12": 0.442,
+    "six_lumbar": 0.4116666666666667,
+    "t13": 0.3692857142857143,
+    "typical": 0.43975
+   },
+   "score_se": {
+    "four_lumbar": 0.00942313278325649,
+    "lumbar_rib": 0.008774087448433816,
+    "no_rib_t12": 0.009728991023310603,
+    "six_lumbar": 0.008949528726499546,
+    "t13": 0.007811472188797414,
+    "typical": 0.00864063018244322
+   },
+   "score_worst": {
+    "exact_rate": 0.3692857142857143,
+    "phenotype": "t13"
+   },
+   "select_worst": {
+    "exact_rate": 0.36444444444444446,
+    "phenotype": "t13"
+   }
+  },
+  {
+   "k": 4,
+   "measures": [
+    "endplate",
+    "endplate_lower_depth",
+    "h_post",
+    "canal_ap"
+   ],
+   "score": {
+    "four_lumbar": 0.40842105263157896,
+    "lumbar_rib": 0.41,
+    "no_rib_t12": 0.43,
+    "six_lumbar": 0.40214285714285714,
+    "t13": 0.36547619047619045,
+    "typical": 0.4235
+   },
+   "score_se": {
+    "four_lumbar": 0.00993611184384902,
+    "lumbar_rib": 0.009569896267612534,
+    "no_rib_t12": 0.009263045940753101,
+    "six_lumbar": 0.009024336865629284,
+    "t13": 0.00852595886761662,
+    "typical": 0.009275988887943227
+   },
+   "score_worst": {
+    "exact_rate": 0.36547619047619045,
+    "phenotype": "t13"
+   },
+   "select_worst": {
+    "exact_rate": 0.36317460317460315,
+    "phenotype": "t13"
+   }
+  },
+  {
+   "k": 3,
+   "measures": [
+    "endplate",
+    "endplate_lower_depth",
+    "canal_w"
+   ],
+   "score": {
+    "four_lumbar": 0.39552631578947367,
+    "lumbar_rib": 0.4145,
+    "no_rib_t12": 0.40675,
+    "six_lumbar": 0.3788095238095238,
+    "t13": 0.3730952380952381,
+    "typical": 0.42175
+   },
+   "score_se": {
+    "four_lumbar": 0.009085293635742748,
+    "lumbar_rib": 0.008496156387851754,
+    "no_rib_t12": 0.008621562748197423,
+    "six_lumbar": 0.008318689488782992,
+    "t13": 0.009181311584521042,
+    "typical": 0.008772512317563826
+   },
+   "score_worst": {
+    "exact_rate": 0.3730952380952381,
+    "phenotype": "t13"
+   },
+   "select_worst": {
+    "exact_rate": 0.3628571428571429,
+    "phenotype": "t13"
+   }
+  },
+  {
+   "k": 5,
+   "measures": [
+    "endplate_depth",
+    "endplate_lower_depth",
+    "h_post",
+    "canal_w",
+    "canal_ap"
+   ],
+   "score": {
+    "four_lumbar": 0.41947368421052633,
+    "lumbar_rib": 0.41525,
+    "no_rib_t12": 0.44325,
+    "six_lumbar": 0.3919047619047619,
+    "t13": 0.3773809523809524,
+    "typical": 0.43875
+   },
+   "score_se": {
+    "four_lumbar": 0.009130627873950905,
+    "lumbar_rib": 0.00937893970821069,
+    "no_rib_t12": 0.008599677889258119,
+    "six_lumbar": 0.007820310749837411,
+    "t13": 0.008411590298764975,
+    "typical": 0.008308117208958294
+   },
+   "score_worst": {
+    "exact_rate": 0.3773809523809524,
+    "phenotype": "t13"
+   },
+   "select_worst": {
+    "exact_rate": 0.36253968253968255,
+    "phenotype": "t13"
+   }
+  },
+  {
+   "k": 3,
+   "measures": [
+    "endplate_lower",
+    "endplate_lower_depth",
+    "canal_w"
+   ],
+   "score": {
+    "four_lumbar": 0.40131578947368424,
+    "lumbar_rib": 0.40925,
+    "no_rib_t12": 0.41225,
+    "six_lumbar": 0.39404761904761904,
+    "t13": 0.3676190476190476,
+    "typical": 0.41175
+   },
+   "score_se": {
+    "four_lumbar": 0.00911939653392703,
+    "lumbar_rib": 0.008768931422440096,
+    "no_rib_t12": 0.00925963778772145,
+    "six_lumbar": 0.008364042824237769,
+    "t13": 0.008640280747481443,
+    "typical": 0.008818219347595723
+   },
+   "score_worst": {
+    "exact_rate": 0.3676190476190476,
+    "phenotype": "t13"
+   },
+   "select_worst": {
+    "exact_rate": 0.3574603174603175,
+    "phenotype": "t13"
+   }
+  },
+  {
+   "k": 3,
+   "measures": [
+    "endplate_depth",
+    "endplate_lower",
+    "endplate_lower_depth"
+   ],
+   "score": {
+    "four_lumbar": 0.37315789473684213,
+    "lumbar_rib": 0.4,
+    "no_rib_t12": 0.389,
+    "six_lumbar": 0.38166666666666665,
+    "t13": 0.36952380952380953,
+    "typical": 0.388
+   },
+   "score_se": {
+    "four_lumbar": 0.010225740321055337,
+    "lumbar_rib": 0.009249473704978866,
+    "no_rib_t12": 0.009772281588103462,
+    "six_lumbar": 0.008953220343209863,
+    "t13": 0.00865398544737266,
+    "typical": 0.009217091399641577
+   },
+   "score_worst": {
+    "exact_rate": 0.36952380952380953,
+    "phenotype": "t13"
+   },
+   "select_worst": {
+    "exact_rate": 0.35619047619047617,
+    "phenotype": "t13"
+   }
+  },
+  {
+   "k": 4,
+   "measures": [
+    "endplate",
+    "h_post",
+    "canal_w",
+    "canal_ap"
+   ],
+   "score": {
+    "four_lumbar": 0.3981578947368421,
+    "lumbar_rib": 0.41675,
+    "no_rib_t12": 0.433,
+    "six_lumbar": 0.3933333333333333,
+    "t13": 0.36238095238095236,
+    "typical": 0.42925
+   },
+   "score_se": {
+    "four_lumbar": 0.008674587729586285,
+    "lumbar_rib": 0.008820356053160361,
+    "no_rib_t12": 0.00932010308998995,
+    "six_lumbar": 0.008345647757005284,
+    "t13": 0.008092985624722972,
+    "typical": 0.009142077191584221
+   },
+   "score_worst": {
+    "exact_rate": 0.36238095238095236,
+    "phenotype": "t13"
+   },
+   "select_worst": {
+    "exact_rate": 0.3558730158730159,
+    "phenotype": "t13"
+   }
+  },
+  {
+   "k": 3,
+   "measures": [
+    "endplate_depth",
+    "endplate_lower",
+    "canal_w"
+   ],
+   "score": {
+    "four_lumbar": 0.36736842105263157,
+    "lumbar_rib": 0.40125,
+    "no_rib_t12": 0.404,
+    "six_lumbar": 0.3807142857142857,
+    "t13": 0.3576190476190476,
+    "typical": 0.38875
+   },
+   "score_se": {
+    "four_lumbar": 0.010087107908598751,
+    "lumbar_rib": 0.008892416027945969,
+    "no_rib_t12": 0.008976238873916405,
+    "six_lumbar": 0.008622706286808423,
+    "t13": 0.008066189453489993,
+    "typical": 0.008997748880949228
+   },
+   "score_worst": {
+    "exact_rate": 0.3576190476190476,
+    "phenotype": "t13"
+   },
+   "select_worst": {
+    "exact_rate": 0.35523809523809524,
+    "phenotype": "t13"
+   }
+  },
+  {
+   "k": 3,
+   "measures": [
+    "endplate_lower",
+    "h_post",
+    "canal_w"
+   ],
+   "score": {
+    "four_lumbar": 0.3786842105263158,
+    "lumbar_rib": 0.381,
+    "no_rib_t12": 0.40175,
+    "six_lumbar": 0.37,
+    "t13": 0.3580952380952381,
+    "typical": 0.38775
+   },
+   "score_se": {
+    "four_lumbar": 0.008834544663709667,
+    "lumbar_rib": 0.008047909307460263,
+    "no_rib_t12": 0.009624726714125863,
+    "six_lumbar": 0.008729172502612268,
+    "t13": 0.007814844777973272,
+    "typical": 0.008458422551534152
+   },
+   "score_worst": {
+    "exact_rate": 0.3580952380952381,
+    "phenotype": "t13"
+   },
+   "select_worst": {
+    "exact_rate": 0.3520634920634921,
+    "phenotype": "t13"
+   }
+  },
+  {
+   "k": 3,
+   "measures": [
+    "endplate",
+    "endplate_depth",
+    "endplate_lower_depth"
+   ],
+   "score": {
+    "four_lumbar": 0.37842105263157894,
+    "lumbar_rib": 0.38725,
+    "no_rib_t12": 0.40475,
+    "six_lumbar": 0.3676190476190476,
+    "t13": 0.3535714285714286,
+    "typical": 0.38475
+   },
+   "score_se": {
+    "four_lumbar": 0.010950142569587712,
+    "lumbar_rib": 0.010211319342453638,
+    "no_rib_t12": 0.009507980646798746,
+    "six_lumbar": 0.008790635085985751,
+    "t13": 0.008959327262910492,
+    "typical": 0.009196333522184604
+   },
+   "score_worst": {
+    "exact_rate": 0.3535714285714286,
+    "phenotype": "t13"
+   },
+   "select_worst": {
+    "exact_rate": 0.3511111111111111,
+    "phenotype": "t13"
+   }
+  },
+  {
+   "k": 4,
+   "measures": [
+    "endplate",
+    "endplate_depth",
+    "endplate_lower_depth",
+    "h_post"
+   ],
+   "score": {
+    "four_lumbar": 0.3989473684210526,
+    "lumbar_rib": 0.408,
+    "no_rib_t12": 0.4165,
+    "six_lumbar": 0.38952380952380955,
+    "t13": 0.3761904761904762,
+    "typical": 0.41025
+   },
+   "score_se": {
+    "four_lumbar": 0.010744628485931294,
+    "lumbar_rib": 0.009786925952411716,
+    "no_rib_t12": 0.009596835219547942,
+    "six_lumbar": 0.00926152351747996,
+    "t13": 0.008672137094263305,
+    "typical": 0.009087082194746032
+   },
+   "score_worst": {
+    "exact_rate": 0.3761904761904762,
+    "phenotype": "t13"
+   },
+   "select_worst": {
+    "exact_rate": 0.3495238095238095,
+    "phenotype": "t13"
+   }
+  },
+  {
+   "k": 3,
+   "measures": [
+    "endplate",
+    "endplate_depth",
+    "canal_w"
+   ],
+   "score": {
+    "four_lumbar": 0.365,
+    "lumbar_rib": 0.409,
+    "no_rib_t12": 0.4045,
+    "six_lumbar": 0.35904761904761906,
+    "t13": 0.35714285714285715,
+    "typical": 0.39825
+   },
+   "score_se": {
+    "four_lumbar": 0.009313027710706296,
+    "lumbar_rib": 0.009475968016474422,
+    "no_rib_t12": 0.008389018306137109,
+    "six_lumbar": 0.008710420230679958,
+    "t13": 0.008136586265337713,
+    "typical": 0.009552667416688877
+   },
+   "score_worst": {
+    "exact_rate": 0.35714285714285715,
+    "phenotype": "t13"
+   },
+   "select_worst": {
+    "exact_rate": 0.3485714285714286,
+    "phenotype": "t13"
+   }
+  },
+  {
+   "k": 4,
+   "measures": [
+    "endplate_depth",
+    "endplate_lower_depth",
+    "h_post",
+    "canal_w"
+   ],
+   "score": {
+    "four_lumbar": 0.39263157894736844,
+    "lumbar_rib": 0.39075,
+    "no_rib_t12": 0.4015,
+    "six_lumbar": 0.37166666666666665,
+    "t13": 0.36,
+    "typical": 0.39475
+   },
+   "score_se": {
+    "four_lumbar": 0.008676693628290318,
+    "lumbar_rib": 0.008946220532104338,
+    "no_rib_t12": 0.008681335029213377,
+    "six_lumbar": 0.008078241098073058,
+    "t13": 0.008423113946228303,
+    "typical": 0.008162894814879949
+   },
+   "score_worst": {
+    "exact_rate": 0.36,
+    "phenotype": "t13"
+   },
+   "select_worst": {
+    "exact_rate": 0.34825396825396826,
+    "phenotype": "t13"
+   }
+  },
+  {
+   "k": 3,
+   "measures": [
+    "endplate",
+    "endplate_lower",
+    "canal_ap"
+   ],
+   "score": {
+    "four_lumbar": 0.36473684210526314,
+    "lumbar_rib": 0.3935,
+    "no_rib_t12": 0.3985,
+    "six_lumbar": 0.3688095238095238,
+    "t13": 0.35214285714285715,
+    "typical": 0.3985
+   },
+   "score_se": {
+    "four_lumbar": 0.009218627185273175,
+    "lumbar_rib": 0.008442162075115152,
+    "no_rib_t12": 0.00989841619735604,
+    "six_lumbar": 0.00890549382575391,
+    "t13": 0.008631951778496232,
+    "typical": 0.009208023047441347
+   },
+   "score_worst": {
+    "exact_rate": 0.35214285714285715,
+    "phenotype": "t13"
+   },
+   "select_worst": {
+    "exact_rate": 0.34793650793650793,
+    "phenotype": "t13"
+   }
+  },
+  {
+   "k": 3,
+   "measures": [
+    "endplate_lower",
+    "endplate_lower_depth",
+    "canal_ap"
+   ],
+   "score": {
+    "four_lumbar": 0.37394736842105264,
+    "lumbar_rib": 0.4015,
+    "no_rib_t12": 0.39725,
+    "six_lumbar": 0.3769047619047619,
+    "t13": 0.3538095238095238,
+    "typical": 0.40275
+   },
+   "score_se": {
+    "four_lumbar": 0.009307944404344523,
+    "lumbar_rib": 0.008724640206545387,
+    "no_rib_t12": 0.009318468585766633,
+    "six_lumbar": 0.008531570271111979,
+    "t13": 0.008083969466511296,
+    "typical": 0.008776950598530519
+   },
+   "score_worst": {
+    "exact_rate": 0.3538095238095238,
+    "phenotype": "t13"
+   },
+   "select_worst": {
+    "exact_rate": 0.3473015873015873,
+    "phenotype": "t13"
+   }
+  },
+  {
+   "k": 3,
+   "measures": [
+    "endplate",
+    "endplate_lower_depth",
+    "canal_ap"
+   ],
+   "score": {
+    "four_lumbar": 0.38710526315789473,
+    "lumbar_rib": 0.3935,
+    "no_rib_t12": 0.4045,
+    "six_lumbar": 0.3740476190476191,
+    "t13": 0.34904761904761905,
+    "typical": 0.3975
+   },
+   "score_se": {
+    "four_lumbar": 0.009670999780354933,
+    "lumbar_rib": 0.009669864601277268,
+    "no_rib_t12": 0.009438973519696284,
+    "six_lumbar": 0.008495566417489416,
+    "t13": 0.00827620317048133,
+    "typical": 0.00935582209296307
+   },
+   "score_worst": {
+    "exact_rate": 0.34904761904761905,
+    "phenotype": "t13"
+   },
+   "select_worst": {
+    "exact_rate": 0.34634920634920635,
+    "phenotype": "t13"
+   }
+  },
+  {
+   "k": 4,
+   "measures": [
+    "endplate_depth",
+    "h_post",
+    "canal_w",
+    "canal_ap"
+   ],
+   "score": {
+    "four_lumbar": 0.3705263157894737,
+    "lumbar_rib": 0.383,
+    "no_rib_t12": 0.41525,
+    "six_lumbar": 0.3676190476190476,
+    "t13": 0.3404761904761905,
+    "typical": 0.40275
+   },
+   "score_se": {
+    "four_lumbar": 0.008563656353249781,
+    "lumbar_rib": 0.008575997824945348,
+    "no_rib_t12": 0.009023959592865448,
+    "six_lumbar": 0.008467100583718572,
+    "t13": 0.008349128707939992,
+    "typical": 0.00873390479481109
+   },
+   "score_worst": {
+    "exact_rate": 0.3404761904761905,
+    "phenotype": "t13"
+   },
+   "select_worst": {
+    "exact_rate": 0.3450793650793651,
+    "phenotype": "t13"
+   }
+  },
+  {
+   "k": 3,
+   "measures": [
+    "endplate",
+    "endplate_lower",
+    "h_post"
+   ],
+   "score": {
+    "four_lumbar": 0.37236842105263157,
+    "lumbar_rib": 0.37625,
+    "no_rib_t12": 0.3845,
+    "six_lumbar": 0.37976190476190474,
+    "t13": 0.3445238095238095,
+    "typical": 0.384
+   },
+   "score_se": {
+    "four_lumbar": 0.010332367568411311,
+    "lumbar_rib": 0.009146610844993285,
+    "no_rib_t12": 0.010735455276791943,
+    "six_lumbar": 0.00906678930283177,
+    "t13": 0.0085395801655147,
+    "typical": 0.009782560629115037
+   },
+   "score_worst": {
+    "exact_rate": 0.3445238095238095,
+    "phenotype": "t13"
+   },
+   "select_worst": {
+    "exact_rate": 0.34476190476190477,
+    "phenotype": "t13"
+   }
+  },
+  {
+   "k": 3,
+   "measures": [
+    "endplate_depth",
+    "endplate_lower",
+    "canal_ap"
+   ],
+   "score": {
+    "four_lumbar": 0.36,
+    "lumbar_rib": 0.397,
+    "no_rib_t12": 0.39925,
+    "six_lumbar": 0.3719047619047619,
+    "t13": 0.3423809523809524,
+    "typical": 0.39225
+   },
+   "score_se": {
+    "four_lumbar": 0.009902431914693317,
+    "lumbar_rib": 0.008915009082141946,
+    "no_rib_t12": 0.009882967811534098,
+    "six_lumbar": 0.008555660698230709,
+    "t13": 0.008264354035539925,
+    "typical": 0.009195650462973564
+   },
+   "score_worst": {
+    "exact_rate": 0.3423809523809524,
+    "phenotype": "t13"
+   },
+   "select_worst": {
+    "exact_rate": 0.34285714285714286,
+    "phenotype": "t13"
+   }
+  },
+  {
+   "k": 3,
+   "measures": [
+    "endplate_lower",
+    "endplate_lower_depth",
+    "h_post"
+   ],
+   "score": {
+    "four_lumbar": 0.3786842105263158,
+    "lumbar_rib": 0.39125,
+    "no_rib_t12": 0.3925,
+    "six_lumbar": 0.3823809523809524,
+    "t13": 0.3607142857142857,
+    "typical": 0.39025
+   },
+   "score_se": {
+    "four_lumbar": 0.010126618727601809,
+    "lumbar_rib": 0.009115654848478134,
+    "no_rib_t12": 0.009640197979576309,
+    "six_lumbar": 0.008559122803492154,
+    "t13": 0.008914701678426343,
+    "typical": 0.008936525889565495
+   },
+   "score_worst": {
+    "exact_rate": 0.3607142857142857,
+    "phenotype": "t13"
+   },
+   "select_worst": {
+    "exact_rate": 0.3406349206349206,
+    "phenotype": "t13"
+   }
+  },
+  {
+   "k": 3,
+   "measures": [
+    "endplate",
+    "h_post",
+    "canal_w"
+   ],
+   "score": {
+    "four_lumbar": 0.3663157894736842,
+    "lumbar_rib": 0.38425,
+    "no_rib_t12": 0.38875,
+    "six_lumbar": 0.355,
+    "t13": 0.34404761904761905,
+    "typical": 0.388
+   },
+   "score_se": {
+    "four_lumbar": 0.008890636452393411,
+    "lumbar_rib": 0.008421806315039559,
+    "no_rib_t12": 0.008828613115758256,
+    "six_lumbar": 0.008071891082909186,
+    "t13": 0.008181538917081626,
+    "typical": 0.009162409549006123
+   },
+   "score_worst": {
+    "exact_rate": 0.34404761904761905,
+    "phenotype": "t13"
+   },
+   "select_worst": {
+    "exact_rate": 0.34,
+    "phenotype": "t13"
+   }
+  },
+  {
+   "k": 3,
+   "measures": [
+    "endplate_lower",
+    "h_post",
+    "canal_ap"
+   ],
+   "score": {
+    "four_lumbar": 0.35526315789473684,
+    "lumbar_rib": 0.37325,
+    "no_rib_t12": 0.37925,
+    "six_lumbar": 0.36714285714285716,
+    "t13": 0.3269047619047619,
+    "typical": 0.378
+   },
+   "score_se": {
+    "four_lumbar": 0.009295617073519993,
+    "lumbar_rib": 0.00857920165312747,
+    "no_rib_t12": 0.009708551248084517,
+    "six_lumbar": 0.008636521336275477,
+    "t13": 0.008341806788331439,
+    "typical": 0.008570136298852227
+   },
+   "score_worst": {
+    "exact_rate": 0.3269047619047619,
+    "phenotype": "t13"
+   },
+   "select_worst": {
+    "exact_rate": 0.3396825396825397,
+    "phenotype": "t13"
+   }
+  },
+  {
+   "k": 3,
+   "measures": [
+    "endplate",
+    "endplate_depth",
+    "canal_ap"
+   ],
+   "score": {
+    "four_lumbar": 0.3589473684210526,
+    "lumbar_rib": 0.3925,
+    "no_rib_t12": 0.406,
+    "six_lumbar": 0.3569047619047619,
+    "t13": 0.34095238095238095,
+    "typical": 0.38625
+   },
+   "score_se": {
+    "four_lumbar": 0.01011329355611471,
+    "lumbar_rib": 0.009574817788260618,
+    "no_rib_t12": 0.009232888559696737,
+    "six_lumbar": 0.008665548366011713,
+    "t13": 0.008701258115773828,
+    "typical": 0.009430634753784948
+   },
+   "score_worst": {
+    "exact_rate": 0.34095238095238095,
+    "phenotype": "t13"
+   },
+   "select_worst": {
+    "exact_rate": 0.3384126984126984,
+    "phenotype": "t13"
+   }
+  },
+  {
+   "k": 4,
+   "measures": [
+    "endplate_lower_depth",
+    "h_post",
+    "canal_w",
+    "canal_ap"
+   ],
+   "score": {
+    "four_lumbar": 0.38605263157894737,
+    "lumbar_rib": 0.388,
+    "no_rib_t12": 0.404,
+    "six_lumbar": 0.37547619047619046,
+    "t13": 0.355,
+    "typical": 0.407
+   },
+   "score_se": {
+    "four_lumbar": 0.00886270364918166,
+    "lumbar_rib": 0.008669243271155352,
+    "no_rib_t12": 0.00903899981125897,
+    "six_lumbar": 0.00844026022611335,
+    "t13": 0.008177080900815297,
+    "typical": 0.007806066446478289
+   },
+   "score_worst": {
+    "exact_rate": 0.355,
+    "phenotype": "t13"
+   },
+   "select_worst": {
+    "exact_rate": 0.3384126984126984,
+    "phenotype": "t13"
+   }
+  },
+  {
+   "k": 3,
+   "measures": [
+    "endplate_depth",
+    "endplate_lower",
+    "h_post"
+   ],
+   "score": {
+    "four_lumbar": 0.34868421052631576,
+    "lumbar_rib": 0.381,
+    "no_rib_t12": 0.38125,
+    "six_lumbar": 0.36428571428571427,
+    "t13": 0.34214285714285714,
+    "typical": 0.369
+   },
+   "score_se": {
+    "four_lumbar": 0.009789310871061364,
+    "lumbar_rib": 0.009287155446174412,
+    "no_rib_t12": 0.010823141385348165,
+    "six_lumbar": 0.008637576774781934,
+    "t13": 0.008573538731507319,
+    "typical": 0.009354546364652976
+   },
+   "score_worst": {
+    "exact_rate": 0.34214285714285714,
+    "phenotype": "t13"
+   },
+   "select_worst": {
+    "exact_rate": 0.3377777777777778,
+    "phenotype": "t13"
+   }
+  },
+  {
+   "k": 4,
+   "measures": [
+    "endplate_depth",
+    "endplate_lower_depth",
+    "canal_w",
+    "canal_ap"
+   ],
+   "score": {
+    "four_lumbar": 0.37973684210526315,
+    "lumbar_rib": 0.39175,
+    "no_rib_t12": 0.418,
+    "six_lumbar": 0.3661904761904762,
+    "t13": 0.3628571428571429,
+    "typical": 0.40475
+   },
+   "score_se": {
+    "four_lumbar": 0.00908452752938078,
+    "lumbar_rib": 0.008816794589541647,
+    "no_rib_t12": 0.00871837428946798,
+    "six_lumbar": 0.008285010133100075,
+    "t13": 0.007999304884396548,
+    "typical": 0.008642810792326754
+   },
+   "score_worst": {
+    "exact_rate": 0.3628571428571429,
+    "phenotype": "t13"
+   },
+   "select_worst": {
+    "exact_rate": 0.33555555555555555,
+    "phenotype": "t13"
+   }
+  },
+  {
+   "k": 3,
+   "measures": [
+    "endplate_lower",
+    "canal_w",
+    "canal_ap"
+   ],
+   "score": {
+    "four_lumbar": 0.3581578947368421,
+    "lumbar_rib": 0.38325,
+    "no_rib_t12": 0.397,
+    "six_lumbar": 0.3711904761904762,
+    "t13": 0.3445238095238095,
+    "typical": 0.402
+   },
+   "score_se": {
+    "four_lumbar": 0.008747455498608439,
+    "lumbar_rib": 0.008640484788883938,
+    "no_rib_t12": 0.009219816978965914,
+    "six_lumbar": 0.008548382380708966,
+    "t13": 0.007231857584794948,
+    "typical": 0.008788697629919393
+   },
+   "score_worst": {
+    "exact_rate": 0.3445238095238095,
+    "phenotype": "t13"
+   },
+   "select_worst": {
+    "exact_rate": 0.3304761904761905,
+    "phenotype": "t13"
+   }
+  },
+  {
+   "k": 3,
+   "measures": [
+    "endplate",
+    "endplate_lower_depth",
+    "h_post"
+   ],
+   "score": {
+    "four_lumbar": 0.3655263157894737,
+    "lumbar_rib": 0.38275,
+    "no_rib_t12": 0.38925,
+    "six_lumbar": 0.36952380952380953,
+    "t13": 0.3507142857142857,
+    "typical": 0.38975
+   },
+   "score_se": {
+    "four_lumbar": 0.01061321902898778,
+    "lumbar_rib": 0.009341359240619726,
+    "no_rib_t12": 0.009248641758218299,
+    "six_lumbar": 0.008693397188958386,
+    "t13": 0.008399660833799135,
+    "typical": 0.009399678573570065
+   },
+   "score_worst": {
+    "exact_rate": 0.3507142857142857,
+    "phenotype": "t13"
+   },
+   "select_worst": {
+    "exact_rate": 0.32761904761904764,
+    "phenotype": "t13"
+   }
+  },
+  {
+   "k": 4,
+   "measures": [
+    "endplate_depth",
+    "endplate_lower_depth",
+    "h_post",
+    "canal_ap"
+   ],
+   "score": {
+    "four_lumbar": 0.3792105263157895,
+    "lumbar_rib": 0.35125,
+    "no_rib_t12": 0.383,
+    "six_lumbar": 0.34476190476190477,
+    "t13": 0.3304761904761905,
+    "typical": 0.36875
+   },
+   "score_se": {
+    "four_lumbar": 0.009724110134367877,
+    "lumbar_rib": 0.01062989467511415,
+    "no_rib_t12": 0.009238873520056328,
+    "six_lumbar": 0.008945341990987614,
+    "t13": 0.00852397060971442,
+    "typical": 0.009754766261890676
+   },
+   "score_worst": {
+    "exact_rate": 0.3304761904761905,
+    "phenotype": "t13"
+   },
+   "select_worst": {
+    "exact_rate": 0.3273015873015873,
+    "phenotype": "t13"
+   }
+  },
+  {
+   "k": 2,
+   "measures": [
+    "endplate",
+    "endplate_lower_depth"
+   ],
+   "score": {
+    "four_lumbar": 0.33973684210526317,
+    "lumbar_rib": 0.36375,
+    "no_rib_t12": 0.35925,
+    "six_lumbar": 0.3388095238095238,
+    "t13": 0.33785714285714286,
+    "typical": 0.3615
+   },
+   "score_se": {
+    "four_lumbar": 0.010451982316919909,
+    "lumbar_rib": 0.009738654654127635,
+    "no_rib_t12": 0.008861564428508266,
+    "six_lumbar": 0.008540914417592561,
+    "t13": 0.008799946936129375,
+    "typical": 0.009199833404652873
+   },
+   "score_worst": {
+    "exact_rate": 0.33785714285714286,
+    "phenotype": "t13"
+   },
+   "select_worst": {
+    "exact_rate": 0.326031746031746,
+    "phenotype": "t13"
+   }
+  },
+  {
+   "k": 3,
+   "measures": [
+    "endplate",
+    "h_post",
+    "canal_ap"
+   ],
+   "score": {
+    "four_lumbar": 0.3505263157894737,
+    "lumbar_rib": 0.36075,
+    "no_rib_t12": 0.38325,
+    "six_lumbar": 0.34809523809523807,
+    "t13": 0.3130952380952381,
+    "typical": 0.37275
+   },
+   "score_se": {
+    "four_lumbar": 0.009831894846167498,
+    "lumbar_rib": 0.008557208457371748,
+    "no_rib_t12": 0.009773036823000236,
+    "six_lumbar": 0.008700930718950292,
+    "t13": 0.008292210434063562,
+    "typical": 0.008658785151596472
+   },
+   "score_worst": {
+    "exact_rate": 0.3130952380952381,
+    "phenotype": "t13"
+   },
+   "select_worst": {
+    "exact_rate": 0.3253968253968254,
+    "phenotype": "t13"
+   }
+  },
+  {
+   "k": 3,
+   "measures": [
+    "endplate",
+    "canal_w",
+    "canal_ap"
+   ],
+   "score": {
+    "four_lumbar": 0.36578947368421055,
+    "lumbar_rib": 0.393,
+    "no_rib_t12": 0.3975,
+    "six_lumbar": 0.3647619047619048,
+    "t13": 0.345,
+    "typical": 0.4065
+   },
+   "score_se": {
+    "four_lumbar": 0.008739913360692759,
+    "lumbar_rib": 0.00855105859031941,
+    "no_rib_t12": 0.009308706142652225,
+    "six_lumbar": 0.008997417431499462,
+    "t13": 0.008265095104149819,
+    "typical": 0.009682847602252255
+   },
+   "score_worst": {
+    "exact_rate": 0.345,
+    "phenotype": "t13"
+   },
+   "select_worst": {
+    "exact_rate": 0.3250793650793651,
+    "phenotype": "t13"
+   }
+  },
+  {
+   "k": 2,
+   "measures": [
+    "endplate_lower",
+    "endplate_lower_depth"
+   ],
+   "score": {
+    "four_lumbar": 0.3510526315789474,
+    "lumbar_rib": 0.3705,
+    "no_rib_t12": 0.355,
+    "six_lumbar": 0.35285714285714287,
+    "t13": 0.3352380952380952,
+    "typical": 0.368
+   },
+   "score_se": {
+    "four_lumbar": 0.009527529252994781,
+    "lumbar_rib": 0.008625295858300519,
+    "no_rib_t12": 0.00914704005176225,
+    "six_lumbar": 0.008913119755712323,
+    "t13": 0.00880151683360466,
+    "typical": 0.009195257680951387
+   },
+   "score_worst": {
+    "exact_rate": 0.3352380952380952,
+    "phenotype": "t13"
+   },
+   "select_worst": {
+    "exact_rate": 0.3219047619047619,
+    "phenotype": "t13"
+   }
+  },
+  {
+   "k": 3,
+   "measures": [
+    "endplate",
+    "endplate_depth",
+    "h_post"
+   ],
+   "score": {
+    "four_lumbar": 0.35289473684210526,
+    "lumbar_rib": 0.36025,
+    "no_rib_t12": 0.38325,
+    "six_lumbar": 0.3566666666666667,
+    "t13": 0.32476190476190475,
+    "typical": 0.36575
+   },
+   "score_se": {
+    "four_lumbar": 0.010675988930958499,
+    "lumbar_rib": 0.00961114237689489,
+    "no_rib_t12": 0.009689121885628897,
+    "six_lumbar": 0.009589329541625793,
+    "t13": 0.00822544940906342,
+    "typical": 0.008991743141550369
+   },
+   "score_worst": {
+    "exact_rate": 0.32476190476190475,
+    "phenotype": "t13"
+   },
+   "select_worst": {
+    "exact_rate": 0.3219047619047619,
+    "phenotype": "t13"
+   }
+  },
+  {
+   "k": 3,
+   "measures": [
+    "endplate_lower_depth",
+    "h_post",
+    "canal_w"
+   ],
+   "score": {
+    "four_lumbar": 0.36210526315789476,
+    "lumbar_rib": 0.366,
+    "no_rib_t12": 0.37,
+    "six_lumbar": 0.335,
+    "t13": 0.33214285714285713,
+    "typical": 0.36675
+   },
+   "score_se": {
+    "four_lumbar": 0.008110513280556092,
+    "lumbar_rib": 0.00849001778620341,
+    "no_rib_t12": 0.008152133857595863,
+    "six_lumbar": 0.007459882564682237,
+    "t13": 0.008243974459822088,
+    "typical": 0.008238571343925156
+   },
+   "score_worst": {
+    "exact_rate": 0.33214285714285713,
+    "phenotype": "t13"
+   },
+   "select_worst": {
+    "exact_rate": 0.31777777777777777,
+    "phenotype": "t13"
+   }
+  },
+  {
+   "k": 2,
+   "measures": [
+    "endplate",
+    "endplate_lower"
+   ],
+   "score": {
+    "four_lumbar": 0.32421052631578945,
+    "lumbar_rib": 0.347,
+    "no_rib_t12": 0.35325,
+    "six_lumbar": 0.33,
+    "t13": 0.32904761904761903,
+    "typical": 0.35125
+   },
+   "score_se": {
+    "four_lumbar": 0.010281739463722388,
+    "lumbar_rib": 0.009428653004933271,
+    "no_rib_t12": 0.009791016675386087,
+    "six_lumbar": 0.009235341739769623,
+    "t13": 0.009374213960294208,
+    "typical": 0.009651187210538625
+   },
+   "score_worst": {
+    "exact_rate": 0.32421052631578945,
+    "phenotype": "four_lumbar"
+   },
+   "select_worst": {
+    "exact_rate": 0.3165079365079365,
+    "phenotype": "six_lumbar"
+   }
+  },
+  {
+   "k": 2,
+   "measures": [
+    "endplate",
+    "endplate_depth"
+   ],
+   "score": {
+    "four_lumbar": 0.3171052631578947,
+    "lumbar_rib": 0.35325,
+    "no_rib_t12": 0.355,
+    "six_lumbar": 0.3219047619047619,
+    "t13": 0.3238095238095238,
+    "typical": 0.34
+   },
+   "score_se": {
+    "four_lumbar": 0.010462897428957682,
+    "lumbar_rib": 0.010230248158619353,
+    "no_rib_t12": 0.009050389369452204,
+    "six_lumbar": 0.009471259664152038,
+    "t13": 0.008452553678777362,
+    "typical": 0.009745505342046625
+   },
+   "score_worst": {
+    "exact_rate": 0.3171052631578947,
+    "phenotype": "four_lumbar"
+   },
+   "select_worst": {
+    "exact_rate": 0.3143859649122807,
+    "phenotype": "four_lumbar"
+   }
+  },
+  {
+   "k": 2,
+   "measures": [
+    "endplate_lower",
+    "canal_w"
+   ],
+   "score": {
+    "four_lumbar": 0.33,
+    "lumbar_rib": 0.347,
+    "no_rib_t12": 0.353,
+    "six_lumbar": 0.3352380952380952,
+    "t13": 0.3242857142857143,
+    "typical": 0.3405
+   },
+   "score_se": {
+    "four_lumbar": 0.009174733035724442,
+    "lumbar_rib": 0.008992179740330598,
+    "no_rib_t12": 0.008900906170343914,
+    "six_lumbar": 0.008142466010485615,
+    "t13": 0.007328993721935732,
+    "typical": 0.008360516802568496
+   },
+   "score_worst": {
+    "exact_rate": 0.3242857142857143,
+    "phenotype": "t13"
+   },
+   "select_worst": {
+    "exact_rate": 0.3136507936507936,
+    "phenotype": "t13"
+   }
+  },
+  {
+   "k": 3,
+   "measures": [
+    "endplate_depth",
+    "endplate_lower_depth",
+    "canal_w"
+   ],
+   "score": {
+    "four_lumbar": 0.35868421052631577,
+    "lumbar_rib": 0.37125,
+    "no_rib_t12": 0.3765,
+    "six_lumbar": 0.3280952380952381,
+    "t13": 0.33666666666666667,
+    "typical": 0.3605
+   },
+   "score_se": {
+    "four_lumbar": 0.009298068876308402,
+    "lumbar_rib": 0.008885349440138347,
+    "no_rib_t12": 0.008987078943666762,
+    "six_lumbar": 0.007696054368321765,
+    "t13": 0.007847946498696462,
+    "typical": 0.008459109448595436
+   },
+   "score_worst": {
+    "exact_rate": 0.3280952380952381,
+    "phenotype": "six_lumbar"
+   },
+   "select_worst": {
+    "exact_rate": 0.3136507936507936,
+    "phenotype": "t13"
+   }
+  },
+  {
+   "k": 2,
+   "measures": [
+    "endplate_depth",
+    "endplate_lower"
+   ],
+   "score": {
+    "four_lumbar": 0.3063157894736842,
+    "lumbar_rib": 0.35675,
+    "no_rib_t12": 0.3385,
+    "six_lumbar": 0.3361904761904762,
+    "t13": 0.32,
+    "typical": 0.33675
+   },
+   "score_se": {
+    "four_lumbar": 0.010270360759873401,
+    "lumbar_rib": 0.00950850914871284,
+    "no_rib_t12": 0.010295325084375181,
+    "six_lumbar": 0.009017657977704891,
+    "t13": 0.007838139694470265,
+    "typical": 0.009787166630504782
+   },
+   "score_worst": {
+    "exact_rate": 0.3063157894736842,
+    "phenotype": "four_lumbar"
+   },
+   "select_worst": {
+    "exact_rate": 0.31142857142857144,
+    "phenotype": "t13"
+   }
+  },
+  {
+   "k": 2,
+   "measures": [
+    "endplate",
+    "canal_w"
+   ],
+   "score": {
+    "four_lumbar": 0.3310526315789474,
+    "lumbar_rib": 0.35575,
+    "no_rib_t12": 0.35875,
+    "six_lumbar": 0.3157142857142857,
+    "t13": 0.32404761904761903,
+    "typical": 0.3615
+   },
+   "score_se": {
+    "four_lumbar": 0.008618341556756063,
+    "lumbar_rib": 0.008840984250215744,
+    "no_rib_t12": 0.008692380276677491,
+    "six_lumbar": 0.007968977212856559,
+    "t13": 0.007606006277105536,
+    "typical": 0.009521926560688005
+   },
+   "score_worst": {
+    "exact_rate": 0.3157142857142857,
+    "phenotype": "six_lumbar"
+   },
+   "select_worst": {
+    "exact_rate": 0.31047619047619046,
+    "phenotype": "t13"
+   }
+  },
+  {
+   "k": 3,
+   "measures": [
+    "endplate_depth",
+    "h_post",
+    "canal_w"
+   ],
+   "score": {
+    "four_lumbar": 0.34078947368421053,
+    "lumbar_rib": 0.354,
+    "no_rib_t12": 0.36725,
+    "six_lumbar": 0.3383333333333333,
+    "t13": 0.31785714285714284,
+    "typical": 0.35725
+   },
+   "score_se": {
+    "four_lumbar": 0.008383756838188008,
+    "lumbar_rib": 0.008077513921732286,
+    "no_rib_t12": 0.0087295885401548,
+    "six_lumbar": 0.007774185537980905,
+    "t13": 0.007944828931397158,
+    "typical": 0.008792681258785228
+   },
+   "score_worst": {
+    "exact_rate": 0.31785714285714284,
+    "phenotype": "t13"
+   },
+   "select_worst": {
+    "exact_rate": 0.30698412698412697,
+    "phenotype": "t13"
+   }
+  },
+  {
+   "k": 3,
+   "measures": [
+    "endplate_depth",
+    "canal_w",
+    "canal_ap"
+   ],
+   "score": {
+    "four_lumbar": 0.3263157894736842,
+    "lumbar_rib": 0.3565,
+    "no_rib_t12": 0.37125,
+    "six_lumbar": 0.32880952380952383,
+    "t13": 0.31261904761904763,
+    "typical": 0.36475
+   },
+   "score_se": {
+    "four_lumbar": 0.008532390142151453,
+    "lumbar_rib": 0.008412347350157296,
+    "no_rib_t12": 0.008976781188294196,
+    "six_lumbar": 0.008523686535011139,
+    "t13": 0.007884649510278214,
+    "typical": 0.008902017585099859
+   },
+   "score_worst": {
+    "exact_rate": 0.31261904761904763,
+    "phenotype": "t13"
+   },
+   "select_worst": {
+    "exact_rate": 0.30253968253968255,
+    "phenotype": "t13"
+   }
+  },
+  {
+   "k": 3,
+   "measures": [
+    "endplate_depth",
+    "endplate_lower_depth",
+    "h_post"
+   ],
+   "score": {
+    "four_lumbar": 0.3331578947368421,
+    "lumbar_rib": 0.31725,
+    "no_rib_t12": 0.337,
+    "six_lumbar": 0.3078571428571429,
+    "t13": 0.30023809523809525,
+    "typical": 0.32025
+   },
+   "score_se": {
+    "four_lumbar": 0.0101225800447624,
+    "lumbar_rib": 0.010060105172432445,
+    "no_rib_t12": 0.008883953124346046,
+    "six_lumbar": 0.008697574190954916,
+    "t13": 0.00907784211656947,
+    "typical": 0.009816773026983796
+   },
+   "score_worst": {
+    "exact_rate": 0.30023809523809525,
+    "phenotype": "t13"
+   },
+   "select_worst": {
+    "exact_rate": 0.2984126984126984,
+    "phenotype": "t13"
+   }
+  },
+  {
+   "k": 2,
+   "measures": [
+    "endplate_lower",
+    "canal_ap"
+   ],
+   "score": {
+    "four_lumbar": 0.3076315789473684,
+    "lumbar_rib": 0.3245,
+    "no_rib_t12": 0.3435,
+    "six_lumbar": 0.32,
+    "t13": 0.2945238095238095,
+    "typical": 0.3355
+   },
+   "score_se": {
+    "four_lumbar": 0.00859009049104916,
+    "lumbar_rib": 0.008198158268475602,
+    "no_rib_t12": 0.009059476839366335,
+    "six_lumbar": 0.008003577180842054,
+    "t13": 0.007757164457999203,
+    "typical": 0.008700704644253399
+   },
+   "score_worst": {
+    "exact_rate": 0.2945238095238095,
+    "phenotype": "t13"
+   },
+   "select_worst": {
+    "exact_rate": 0.2958730158730159,
+    "phenotype": "t13"
+   }
+  },
+  {
+   "k": 3,
+   "measures": [
+    "endplate_depth",
+    "h_post",
+    "canal_ap"
+   ],
+   "score": {
+    "four_lumbar": 0.3257894736842105,
+    "lumbar_rib": 0.3245,
+    "no_rib_t12": 0.344,
+    "six_lumbar": 0.3157142857142857,
+    "t13": 0.28833333333333333,
+    "typical": 0.34075
+   },
+   "score_se": {
+    "four_lumbar": 0.009667346723507117,
+    "lumbar_rib": 0.009350718135429021,
+    "no_rib_t12": 0.009019520984729168,
+    "six_lumbar": 0.008441154592298427,
+    "t13": 0.008359000570029066,
+    "typical": 0.009120063888297777
+   },
+   "score_worst": {
+    "exact_rate": 0.28833333333333333,
+    "phenotype": "t13"
+   },
+   "select_worst": {
+    "exact_rate": 0.2949206349206349,
+    "phenotype": "t13"
+   }
+  },
+  {
+   "k": 3,
+   "measures": [
+    "endplate_lower_depth",
+    "h_post",
+    "canal_ap"
+   ],
+   "score": {
+    "four_lumbar": 0.3307894736842105,
+    "lumbar_rib": 0.31475,
+    "no_rib_t12": 0.34725,
+    "six_lumbar": 0.31523809523809526,
+    "t13": 0.285,
+    "typical": 0.33275
+   },
+   "score_se": {
+    "four_lumbar": 0.009645633841424962,
+    "lumbar_rib": 0.008972301738821667,
+    "no_rib_t12": 0.009432366361411086,
+    "six_lumbar": 0.008747754317374644,
+    "t13": 0.007796725077488156,
+    "typical": 0.009327900952567223
+   },
+   "score_worst": {
+    "exact_rate": 0.285,
+    "phenotype": "t13"
+   },
+   "select_worst": {
+    "exact_rate": 0.29428571428571426,
+    "phenotype": "t13"
+   }
+  },
+  {
+   "k": 3,
+   "measures": [
+    "endplate_lower_depth",
+    "canal_w",
+    "canal_ap"
+   ],
+   "score": {
+    "four_lumbar": 0.3368421052631579,
+    "lumbar_rib": 0.3495,
+    "no_rib_t12": 0.3695,
+    "six_lumbar": 0.335,
+    "t13": 0.32166666666666666,
+    "typical": 0.368
+   },
+   "score_se": {
+    "four_lumbar": 0.008507883465949143,
+    "lumbar_rib": 0.008128908028059071,
+    "no_rib_t12": 0.008930144872127548,
+    "six_lumbar": 0.008562234174259354,
+    "t13": 0.007656773523526355,
+    "typical": 0.008113825907318406
+   },
+   "score_worst": {
+    "exact_rate": 0.32166666666666666,
+    "phenotype": "t13"
+   },
+   "select_worst": {
+    "exact_rate": 0.29079365079365077,
+    "phenotype": "t13"
+   }
+  },
+  {
+   "k": 3,
+   "measures": [
+    "endplate_depth",
+    "endplate_lower_depth",
+    "canal_ap"
+   ],
+   "score": {
+    "four_lumbar": 0.33342105263157895,
+    "lumbar_rib": 0.328,
+    "no_rib_t12": 0.34725,
+    "six_lumbar": 0.30976190476190474,
+    "t13": 0.30142857142857143,
+    "typical": 0.329
+   },
+   "score_se": {
+    "four_lumbar": 0.00935924815928017,
+    "lumbar_rib": 0.009678500236822379,
+    "no_rib_t12": 0.009531734222397944,
+    "six_lumbar": 0.008931047754228441,
+    "t13": 0.008038736990538897,
+    "typical": 0.010089797822578137
+   },
+   "score_worst": {
+    "exact_rate": 0.30142857142857143,
+    "phenotype": "t13"
+   },
+   "select_worst": {
+    "exact_rate": 0.29015873015873017,
+    "phenotype": "t13"
+   }
+  },
+  {
+   "k": 2,
+   "measures": [
+    "endplate_lower",
+    "h_post"
+   ],
+   "score": {
+    "four_lumbar": 0.32052631578947366,
+    "lumbar_rib": 0.3375,
+    "no_rib_t12": 0.33375,
+    "six_lumbar": 0.33071428571428574,
+    "t13": 0.3011904761904762,
+    "typical": 0.326
+   },
+   "score_se": {
+    "four_lumbar": 0.010198478537999687,
+    "lumbar_rib": 0.008964965310310763,
+    "no_rib_t12": 0.009898590707264834,
+    "six_lumbar": 0.008480799621185588,
+    "t13": 0.008418360872593846,
+    "typical": 0.009249202057121866
+   },
+   "score_worst": {
+    "exact_rate": 0.3011904761904762,
+    "phenotype": "t13"
+   },
+   "select_worst": {
+    "exact_rate": 0.28825396825396826,
+    "phenotype": "t13"
+   }
+  },
+  {
+   "k": 3,
+   "measures": [
+    "h_post",
+    "canal_w",
+    "canal_ap"
+   ],
+   "score": {
+    "four_lumbar": 0.3394736842105263,
+    "lumbar_rib": 0.3325,
+    "no_rib_t12": 0.35525,
+    "six_lumbar": 0.32595238095238094,
+    "t13": 0.2957142857142857,
+    "typical": 0.347
+   },
+   "score_se": {
+    "four_lumbar": 0.008659912470306732,
+    "lumbar_rib": 0.007763382027345592,
+    "no_rib_t12": 0.008892133472257499,
+    "six_lumbar": 0.008426207922694034,
+    "t13": 0.007590203236909313,
+    "typical": 0.008264168585650968
+   },
+   "score_worst": {
+    "exact_rate": 0.2957142857142857,
+    "phenotype": "t13"
+   },
+   "select_worst": {
+    "exact_rate": 0.2876190476190476,
+    "phenotype": "t13"
+   }
+  },
+  {
+   "k": 2,
+   "measures": [
+    "endplate",
+    "h_post"
+   ],
+   "score": {
+    "four_lumbar": 0.3105263157894737,
+    "lumbar_rib": 0.316,
+    "no_rib_t12": 0.33425,
+    "six_lumbar": 0.3078571428571429,
+    "t13": 0.28714285714285714,
+    "typical": 0.3225
+   },
+   "score_se": {
+    "four_lumbar": 0.009976377672857261,
+    "lumbar_rib": 0.009152257595559545,
+    "no_rib_t12": 0.009586799314970957,
+    "six_lumbar": 0.008795284146137325,
+    "t13": 0.008142955797608105,
+    "typical": 0.00899993020631788
+   },
+   "score_worst": {
+    "exact_rate": 0.28714285714285714,
+    "phenotype": "t13"
+   },
+   "select_worst": {
+    "exact_rate": 0.286984126984127,
+    "phenotype": "t13"
+   }
+  },
+  {
+   "k": 2,
+   "measures": [
+    "endplate",
+    "canal_ap"
+   ],
+   "score": {
+    "four_lumbar": 0.30394736842105263,
+    "lumbar_rib": 0.326,
+    "no_rib_t12": 0.34175,
+    "six_lumbar": 0.30666666666666664,
+    "t13": 0.28523809523809524,
+    "typical": 0.33525
+   },
+   "score_se": {
+    "four_lumbar": 0.009717952756174443,
+    "lumbar_rib": 0.008966436578966201,
+    "no_rib_t12": 0.00914551198387691,
+    "six_lumbar": 0.008300468472694198,
+    "t13": 0.007645547955310931,
+    "typical": 0.00917308097494317
+   },
+   "score_worst": {
+    "exact_rate": 0.28523809523809524,
+    "phenotype": "t13"
+   },
+   "select_worst": {
+    "exact_rate": 0.2834920634920635,
+    "phenotype": "t13"
+   }
+  },
+  {
+   "k": 2,
+   "measures": [
+    "endplate_lower_depth",
+    "canal_w"
+   ],
+   "score": {
+    "four_lumbar": 0.3131578947368421,
+    "lumbar_rib": 0.3345,
+    "no_rib_t12": 0.33325,
+    "six_lumbar": 0.2938095238095238,
+    "t13": 0.29714285714285715,
+    "typical": 0.32925
+   },
+   "score_se": {
+    "four_lumbar": 0.008398790329829677,
+    "lumbar_rib": 0.008524204379383893,
+    "no_rib_t12": 0.008820356053160361,
+    "six_lumbar": 0.007526280789149495,
+    "t13": 0.00856797143862491,
+    "typical": 0.007678180761026335
+   },
+   "score_worst": {
+    "exact_rate": 0.2938095238095238,
+    "phenotype": "six_lumbar"
+   },
+   "select_worst": {
+    "exact_rate": 0.28,
+    "phenotype": "t13"
+   }
+  },
+  {
+   "k": 2,
+   "measures": [
+    "endplate_depth",
+    "canal_w"
+   ],
+   "score": {
+    "four_lumbar": 0.2939473684210526,
+    "lumbar_rib": 0.323,
+    "no_rib_t12": 0.326,
+    "six_lumbar": 0.2873809523809524,
+    "t13": 0.27785714285714286,
+    "typical": 0.32025
+   },
+   "score_se": {
+    "four_lumbar": 0.007846342903092406,
+    "lumbar_rib": 0.008378903875254433,
+    "no_rib_t12": 0.007861553288027914,
+    "six_lumbar": 0.007475141786798024,
+    "t13": 0.007732888892227638,
+    "typical": 0.008297979865560428
+   },
+   "score_worst": {
+    "exact_rate": 0.27785714285714286,
+    "phenotype": "t13"
+   },
+   "select_worst": {
+    "exact_rate": 0.2726984126984127,
+    "phenotype": "t13"
+   }
+  },
+  {
+   "k": 2,
+   "measures": [
+    "endplate_lower_depth",
+    "h_post"
+   ],
+   "score": {
+    "four_lumbar": 0.3026315789473684,
+    "lumbar_rib": 0.27925,
+    "no_rib_t12": 0.29475,
+    "six_lumbar": 0.27095238095238094,
+    "t13": 0.25952380952380955,
+    "typical": 0.2905
+   },
+   "score_se": {
+    "four_lumbar": 0.009684322642314105,
+    "lumbar_rib": 0.008192697293609939,
+    "no_rib_t12": 0.0087137439812548,
+    "six_lumbar": 0.007847075279055824,
+    "t13": 0.00808566076198804,
+    "typical": 0.00918397938733176
+   },
+   "score_worst": {
+    "exact_rate": 0.25952380952380955,
+    "phenotype": "t13"
+   },
+   "select_worst": {
+    "exact_rate": 0.2606349206349206,
+    "phenotype": "t13"
+   }
+  },
+  {
+   "k": 2,
+   "measures": [
+    "h_post",
+    "canal_w"
+   ],
+   "score": {
+    "four_lumbar": 0.29368421052631577,
+    "lumbar_rib": 0.2895,
+    "no_rib_t12": 0.31425,
+    "six_lumbar": 0.28476190476190477,
+    "t13": 0.275,
+    "typical": 0.299
+   },
+   "score_se": {
+    "four_lumbar": 0.00739971440843943,
+    "lumbar_rib": 0.007778255349460252,
+    "no_rib_t12": 0.007999509250023155,
+    "six_lumbar": 0.007168415627860107,
+    "t13": 0.007235480661514446,
+    "typical": 0.0075601441054038345
+   },
+   "score_worst": {
+    "exact_rate": 0.275,
+    "phenotype": "t13"
+   },
+   "select_worst": {
+    "exact_rate": 0.26,
+    "phenotype": "t13"
+   }
+  },
+  {
+   "k": 1,
+   "measures": [
+    "endplate"
+   ],
+   "score": {
+    "four_lumbar": 0.2594736842105263,
+    "lumbar_rib": 0.29475,
+    "no_rib_t12": 0.2875,
+    "six_lumbar": 0.2695238095238095,
+    "t13": 0.26,
+    "typical": 0.2885
+   },
+   "score_se": {
+    "four_lumbar": 0.009346094897411892,
+    "lumbar_rib": 0.009252172772112781,
+    "no_rib_t12": 0.008992948102701886,
+    "six_lumbar": 0.008549332077867528,
+    "t13": 0.007972765548121074,
+    "typical": 0.009145048362241651
+   },
+   "score_worst": {
+    "exact_rate": 0.2594736842105263,
+    "phenotype": "four_lumbar"
+   },
+   "select_worst": {
+    "exact_rate": 0.2584126984126984,
+    "phenotype": "six_lumbar"
+   }
+  },
+  {
+   "k": 2,
+   "measures": [
+    "endplate_depth",
+    "endplate_lower_depth"
+   ],
+   "score": {
+    "four_lumbar": 0.2913157894736842,
+    "lumbar_rib": 0.29125,
+    "no_rib_t12": 0.30375,
+    "six_lumbar": 0.26,
+    "t13": 0.27071428571428574,
+    "typical": 0.28375
+   },
+   "score_se": {
+    "four_lumbar": 0.009415595960525333,
+    "lumbar_rib": 0.009211620774132649,
+    "no_rib_t12": 0.009242255348106217,
+    "six_lumbar": 0.00837018821897085,
+    "t13": 0.007804759138088047,
+    "typical": 0.008832169813703224
+   },
+   "score_worst": {
+    "exact_rate": 0.26,
+    "phenotype": "six_lumbar"
+   },
+   "select_worst": {
+    "exact_rate": 0.25523809523809526,
+    "phenotype": "t13"
+   }
+  },
+  {
+   "k": 2,
+   "measures": [
+    "endplate_lower_depth",
+    "canal_ap"
+   ],
+   "score": {
+    "four_lumbar": 0.266578947368421,
+    "lumbar_rib": 0.276,
+    "no_rib_t12": 0.2955,
+    "six_lumbar": 0.26595238095238094,
+    "t13": 0.25952380952380955,
+    "typical": 0.2825
+   },
+   "score_se": {
+    "four_lumbar": 0.008467518426477293,
+    "lumbar_rib": 0.008058828923490712,
+    "no_rib_t12": 0.008776896923058282,
+    "six_lumbar": 0.007729204125009677,
+    "t13": 0.006891154252232665,
+    "typical": 0.009268130405104913
+   },
+   "score_worst": {
+    "exact_rate": 0.25952380952380955,
+    "phenotype": "t13"
+   },
+   "select_worst": {
+    "exact_rate": 0.24984126984126984,
+    "phenotype": "t13"
+   }
+  },
+  {
+   "k": 1,
+   "measures": [
+    "endplate_lower"
+   ],
+   "score": {
+    "four_lumbar": 0.25763157894736843,
+    "lumbar_rib": 0.28725,
+    "no_rib_t12": 0.28275,
+    "six_lumbar": 0.27714285714285714,
+    "t13": 0.2780952380952381,
+    "typical": 0.274
+   },
+   "score_se": {
+    "four_lumbar": 0.008871494809096749,
+    "lumbar_rib": 0.008994676678053167,
+    "no_rib_t12": 0.009137403802021996,
+    "six_lumbar": 0.008315007368084968,
+    "t13": 0.007767165194596707,
+    "typical": 0.008550470908892625
+   },
+   "score_worst": {
+    "exact_rate": 0.25763157894736843,
+    "phenotype": "four_lumbar"
+   },
+   "select_worst": {
+    "exact_rate": 0.24825396825396825,
+    "phenotype": "t13"
+   }
+  },
+  {
+   "k": 2,
+   "measures": [
+    "endplate_depth",
+    "h_post"
+   ],
+   "score": {
+    "four_lumbar": 0.27631578947368424,
+    "lumbar_rib": 0.27575,
+    "no_rib_t12": 0.28925,
+    "six_lumbar": 0.27095238095238094,
+    "t13": 0.24976190476190477,
+    "typical": 0.27875
+   },
+   "score_se": {
+    "four_lumbar": 0.009988579065328417,
+    "lumbar_rib": 0.008789680307013303,
+    "no_rib_t12": 0.00881038032706521,
+    "six_lumbar": 0.008291884064102252,
+    "t13": 0.008069773300797627,
+    "typical": 0.008699603612525997
+   },
+   "score_worst": {
+    "exact_rate": 0.24976190476190477,
+    "phenotype": "t13"
+   },
+   "select_worst": {
+    "exact_rate": 0.24793650793650793,
+    "phenotype": "t13"
+   }
+  },
+  {
+   "k": 2,
+   "measures": [
+    "endplate_depth",
+    "canal_ap"
+   ],
+   "score": {
+    "four_lumbar": 0.25921052631578945,
+    "lumbar_rib": 0.277,
+    "no_rib_t12": 0.295,
+    "six_lumbar": 0.2642857142857143,
+    "t13": 0.24571428571428572,
+    "typical": 0.28075
+   },
+   "score_se": {
+    "four_lumbar": 0.008922655948059629,
+    "lumbar_rib": 0.008431217417175197,
+    "no_rib_t12": 0.008853923412758605,
+    "six_lumbar": 0.008328631634363586,
+    "t13": 0.007948431658742728,
+    "typical": 0.008555740234180433
+   },
+   "score_worst": {
+    "exact_rate": 0.24571428571428572,
+    "phenotype": "t13"
+   },
+   "select_worst": {
+    "exact_rate": 0.23904761904761904,
+    "phenotype": "t13"
+   }
+  },
+  {
+   "k": 2,
+   "measures": [
+    "h_post",
+    "canal_ap"
+   ],
+   "score": {
+    "four_lumbar": 0.2613157894736842,
+    "lumbar_rib": 0.25325,
+    "no_rib_t12": 0.267,
+    "six_lumbar": 0.2561904761904762,
+    "t13": 0.2261904761904762,
+    "typical": 0.273
+   },
+   "score_se": {
+    "four_lumbar": 0.008510971103759231,
+    "lumbar_rib": 0.007766031400824553,
+    "no_rib_t12": 0.007768962859970305,
+    "six_lumbar": 0.007790017602817945,
+    "t13": 0.007680937315797006,
+    "typical": 0.007279764754054342
+   },
+   "score_worst": {
+    "exact_rate": 0.2261904761904762,
+    "phenotype": "t13"
+   },
+   "select_worst": {
+    "exact_rate": 0.23809523809523808,
+    "phenotype": "t13"
+   }
+  },
+  {
+   "k": 1,
+   "measures": [
+    "endplate_lower_depth"
+   ],
+   "score": {
+    "four_lumbar": 0.22842105263157894,
+    "lumbar_rib": 0.2405,
+    "no_rib_t12": 0.23625,
+    "six_lumbar": 0.21642857142857144,
+    "t13": 0.22738095238095238,
+    "typical": 0.2295
+   },
+   "score_se": {
+    "four_lumbar": 0.00841278356240778,
+    "lumbar_rib": 0.008170528605203106,
+    "no_rib_t12": 0.007772984235131189,
+    "six_lumbar": 0.007417143362273232,
+    "t13": 0.0071163863019808055,
+    "typical": 0.00797444095487035
+   },
+   "score_worst": {
+    "exact_rate": 0.21642857142857144,
+    "phenotype": "six_lumbar"
+   },
+   "select_worst": {
+    "exact_rate": 0.21365079365079365,
+    "phenotype": "t13"
+   }
+  },
+  {
+   "k": 1,
+   "measures": [
+    "endplate_depth"
+   ],
+   "score": {
+    "four_lumbar": 0.21368421052631578,
+    "lumbar_rib": 0.22975,
+    "no_rib_t12": 0.24025,
+    "six_lumbar": 0.21595238095238095,
+    "t13": 0.2011904761904762,
+    "typical": 0.226
+   },
+   "score_se": {
+    "four_lumbar": 0.008297828939936091,
+    "lumbar_rib": 0.007830630971194798,
+    "no_rib_t12": 0.00797056062541507,
+    "six_lumbar": 0.007629789478422341,
+    "t13": 0.006905091954386192,
+    "typical": 0.0076591981684060485
+   },
+   "score_worst": {
+    "exact_rate": 0.2011904761904762,
+    "phenotype": "t13"
+   },
+   "select_worst": {
+    "exact_rate": 0.19649122807017544,
+    "phenotype": "four_lumbar"
+   }
+  },
+  {
+   "k": 1,
+   "measures": [
+    "h_post"
+   ],
+   "score": {
+    "four_lumbar": 0.20763157894736842,
+    "lumbar_rib": 0.19375,
+    "no_rib_t12": 0.202,
+    "six_lumbar": 0.21,
+    "t13": 0.18761904761904763,
+    "typical": 0.20875
+   },
+   "score_se": {
+    "four_lumbar": 0.007537980872866042,
+    "lumbar_rib": 0.007070512586878411,
+    "no_rib_t12": 0.007382581700381925,
+    "six_lumbar": 0.0071940417035746725,
+    "t13": 0.00698876625195065,
+    "typical": 0.007671305766347996
+   },
+   "score_worst": {
+    "exact_rate": 0.18761904761904763,
+    "phenotype": "t13"
+   },
+   "select_worst": {
+    "exact_rate": 0.1765079365079365,
+    "phenotype": "t13"
+   }
+  },
+  {
+   "k": 2,
+   "measures": [
+    "canal_w",
+    "canal_ap"
+   ],
+   "score": {
+    "four_lumbar": 0.19421052631578947,
+    "lumbar_rib": 0.21375,
+    "no_rib_t12": 0.2155,
+    "six_lumbar": 0.20904761904761904,
+    "t13": 0.1869047619047619,
+    "typical": 0.22125
+   },
+   "score_se": {
+    "four_lumbar": 0.006822546455158582,
+    "lumbar_rib": 0.00673378846082767,
+    "no_rib_t12": 0.007629863964750815,
+    "six_lumbar": 0.007277505709950106,
+    "t13": 0.006422009714747233,
+    "typical": 0.007905197545995042
+   },
+   "score_worst": {
+    "exact_rate": 0.1869047619047619,
+    "phenotype": "t13"
+   },
+   "select_worst": {
+    "exact_rate": 0.17015873015873015,
+    "phenotype": "t13"
+   }
+  },
+  {
+   "k": 1,
+   "measures": [
+    "canal_w"
+   ],
+   "score": {
+    "four_lumbar": 0.1531578947368421,
+    "lumbar_rib": 0.1795,
+    "no_rib_t12": 0.17325,
+    "six_lumbar": 0.1554761904761905,
+    "t13": 0.15880952380952382,
+    "typical": 0.1755
+   },
+   "score_se": {
+    "four_lumbar": 0.006634281972854407,
+    "lumbar_rib": 0.006726812023536854,
+    "no_rib_t12": 0.006486141972578322,
+    "six_lumbar": 0.005510416675753999,
+    "t13": 0.006106779535770003,
+    "typical": 0.006545069877281101
+   },
+   "score_worst": {
+    "exact_rate": 0.1531578947368421,
+    "phenotype": "four_lumbar"
+   },
+   "select_worst": {
+    "exact_rate": 0.15015873015873016,
+    "phenotype": "t13"
+   }
+  },
+  {
+   "k": 1,
+   "measures": [
+    "canal_ap"
+   ],
+   "score": {
+    "four_lumbar": 0.09394736842105263,
+    "lumbar_rib": 0.1055,
+    "no_rib_t12": 0.116,
+    "six_lumbar": 0.10857142857142857,
+    "t13": 0.0988095238095238,
+    "typical": 0.116
+   },
+   "score_se": {
+    "four_lumbar": 0.00500389608641638,
+    "lumbar_rib": 0.005361199708233017,
+    "no_rib_t12": 0.005242367028385318,
+    "six_lumbar": 0.004298590107571227,
+    "t13": 0.0044133954310023385,
+    "typical": 0.005133396418938425
+   },
+   "score_worst": {
+    "exact_rate": 0.09394736842105263,
+    "phenotype": "four_lumbar"
+   },
+   "select_worst": {
+    "exact_rate": 0.09333333333333334,
+    "phenotype": "t13"
+   }
+  }
+ ],
+ "arm": "flank",
+ "complete": true,
+ "ground_set": [
+  "endplate",
+  "endplate_depth",
+  "endplate_lower",
+  "endplate_lower_depth",
+  "h_post",
+  "canal_w",
+  "canal_ap"
+ ],
+ "n_subsets_present": 127,
+ "n_subsets_total": 127,
+ "n_supersets_worse_by_2se": 0,
+ "named": {
+  "ap": {
+   "fit_seconds": 0.491946728999892,
+   "k": 4,
+   "measures": [
+    "endplate",
+    "endplate_lower",
+    "h_post",
+    "canal_w"
+   ],
+   "score": {
+    "four_lumbar": 0.42289473684210527,
+    "lumbar_rib": 0.42975,
+    "no_rib_t12": 0.435,
+    "six_lumbar": 0.4142857142857143,
+    "t13": 0.38476190476190475,
+    "typical": 0.437
+   },
+   "score_offsets": {
+    "four_lumbar": {
+     "-1": 630,
+     "-12": 1,
+     "-2": 256,
+     "-3": 84,
+     "-4": 40,
+     "-5": 9,
+     "-6": 11,
+     "-7": 2,
+     "-8": 1,
+     "0": 1607,
+     "1": 697,
+     "2": 253,
+     "3": 115,
+     "4": 63,
+     "5": 24,
+     "6": 6,
+     "7": 1
+    },
+    "lumbar_rib": {
+     "-1": 725,
+     "-10": 1,
+     "-2": 313,
+     "-3": 107,
+     "-4": 40,
+     "-5": 22,
+     "-6": 6,
+     "-7": 1,
+     "-8": 3,
+     "-9": 4,
+     "0": 1719,
+     "1": 632,
+     "2": 221,
+     "3": 119,
+     "4": 56,
+     "5": 21,
+     "6": 5,
+     "7": 3,
+     "9": 2
+    },
+    "no_rib_t12": {
+     "-1": 654,
+     "-11": 1,
+     "-2": 283,
+     "-3": 93,
+     "-4": 54,
+     "-5": 31,
+     "-6": 14,
+     "-7": 1,
+     "-8": 1,
+     "-9": 2,
+     "0": 1740,
+     "1": 697,
+     "2": 245,
+     "3": 96,
+     "4": 54,
+     "5": 22,
+     "6": 6,
+     "7": 4,
+     "8": 1,
+     "9": 1
+    },
+    "six_lumbar": {
+     "-1": 833,
+     "-2": 289,
+     "-3": 104,
+     "-4": 41,
+     "-5": 17,
+     "-6": 8,
+     "-7": 4,
+     "-8": 1,
+     "0": 1740,
+     "1": 725,
+     "2": 233,
+     "3": 112,
+     "4": 56,
+     "5": 25,
+     "6": 8,
+     "7": 3,
+     "8": 1
+    },
+    "t13": {
+     "-1": 939,
+     "-10": 1,
+     "-2": 335,
+     "-3": 148,
+     "-4": 57,
+     "-5": 24,
+     "-6": 13,
+     "-7": 4,
+     "-8": 2,
+     "-9": 3,
+     "0": 1616,
+     "1": 673,
+     "2": 222,
+     "3": 92,
+     "4": 48,
+     "5": 10,
+     "6": 5,
+     "7": 6,
+     "8": 2
+    },
+    "typical": {
+     "-1": 725,
+     "-12": 1,
+     "-2": 275,
+     "-3": 109,
+     "-4": 38,
+     "-5": 25,
+     "-6": 12,
+     "-7": 6,
+     "-8": 2,
+     "0": 1748,
+     "1": 643,
+     "2": 217,
+     "3": 126,
+     "4": 47,
+     "5": 19,
+     "6": 4,
+     "7": 2,
+     "8": 1
+    }
+   },
+   "score_se": {
+    "four_lumbar": 0.008995990142234442,
+    "lumbar_rib": 0.008783389273832647,
+    "no_rib_t12": 0.009719689388506468,
+    "six_lumbar": 0.00912668067232426,
+    "t13": 0.008236524477239712,
+    "typical": 0.009452605926090957
+   },
+   "score_worst": {
+    "exact_rate": 0.38476190476190475,
+    "phenotype": "t13"
+   },
+   "select": {
+    "four_lumbar": 0.42912280701754385,
+    "lumbar_rib": 0.44066666666666665,
+    "no_rib_t12": 0.43033333333333335,
+    "six_lumbar": 0.4088888888888889,
+    "t13": 0.3933333333333333,
+    "typical": 0.434
+   },
+   "select_worst": {
+    "exact_rate": 0.3933333333333333,
+    "phenotype": "t13"
+   }
+  },
+  "both": {
+   "fit_seconds": 2.594366151000031,
+   "k": 7,
+   "measures": [
+    "endplate",
+    "endplate_depth",
+    "endplate_lower",
+    "endplate_lower_depth",
+    "h_post",
+    "canal_w",
+    "canal_ap"
+   ],
+   "score": {
+    "four_lumbar": 0.4992105263157895,
+    "lumbar_rib": 0.52275,
+    "no_rib_t12": 0.519,
+    "six_lumbar": 0.48928571428571427,
+    "t13": 0.4576190476190476,
+    "typical": 0.52225
+   },
+   "score_offsets": {
+    "four_lumbar": {
+     "-1": 602,
+     "-10": 1,
+     "-12": 1,
+     "-2": 177,
+     "-3": 70,
+     "-4": 21,
+     "-5": 5,
+     "-6": 1,
+     "0": 1897,
+     "1": 670,
+     "2": 205,
+     "3": 85,
+     "4": 42,
+     "5": 16,
+     "6": 6,
+     "7": 1
+    },
+    "lumbar_rib": {
+     "-1": 645,
+     "-2": 249,
+     "-3": 81,
+     "-4": 24,
+     "-5": 7,
+     "-6": 1,
+     "-7": 3,
+     "0": 2091,
+     "1": 607,
+     "2": 163,
+     "3": 73,
+     "4": 40,
+     "5": 9,
+     "6": 4,
+     "7": 1,
+     "8": 1,
+     "9": 1
+    },
+    "no_rib_t12": {
+     "-1": 615,
+     "-2": 201,
+     "-3": 86,
+     "-4": 35,
+     "-5": 10,
+     "-6": 3,
+     "0": 2076,
+     "1": 666,
+     "2": 167,
+     "3": 82,
+     "4": 37,
+     "5": 16,
+     "6": 4,
+     "7": 2
+    },
+    "six_lumbar": {
+     "-1": 803,
+     "-2": 207,
+     "-3": 97,
+     "-4": 30,
+     "-5": 6,
+     "-6": 3,
+     "-7": 1,
+     "0": 2055,
+     "1": 667,
+     "2": 192,
+     "3": 64,
+     "4": 47,
+     "5": 15,
+     "6": 5,
+     "7": 5,
+     "8": 3
+    },
+    "t13": {
+     "-1": 940,
+     "-10": 1,
+     "-2": 308,
+     "-3": 82,
+     "-4": 49,
+     "-5": 14,
+     "-6": 5,
+     "-7": 2,
+     "0": 1922,
+     "1": 563,
+     "2": 192,
+     "3": 76,
+     "4": 28,
+     "5": 9,
+     "6": 4,
+     "7": 4,
+     "8": 1
+    },
+    "typical": {
+     "-1": 678,
+     "-12": 1,
+     "-2": 212,
+     "-3": 71,
+     "-4": 33,
+     "-5": 3,
+     "-6": 6,
+     "-7": 1,
+     "-8": 2,
+     "0": 2089,
+     "1": 592,
+     "2": 176,
+     "3": 90,
+     "4": 39,
+     "5": 4,
+     "6": 3
+    }
+   },
+   "score_se": {
+    "four_lumbar": 0.009416335131432578,
+    "lumbar_rib": 0.009131902634645379,
+    "no_rib_t12": 0.009580130190783515,
+    "six_lumbar": 0.008411590298764975,
+    "t13": 0.008558323980431352,
+    "typical": 0.008922456987482055
+   },
+   "score_worst": {
+    "exact_rate": 0.4576190476190476,
+    "phenotype": "t13"
+   },
+   "select": {
+    "four_lumbar": 0.5214035087719299,
+    "lumbar_rib": 0.5343333333333333,
+    "no_rib_t12": 0.5173333333333333,
+    "six_lumbar": 0.4857142857142857,
+    "t13": 0.44571428571428573,
+    "typical": 0.5253333333333333
+   },
+   "select_worst": {
+    "exact_rate": 0.44571428571428573,
+    "phenotype": "t13"
+   }
+  },
+  "lateral": {
+   "fit_seconds": 0.40293634399995426,
+   "k": 4,
+   "measures": [
+    "endplate_depth",
+    "endplate_lower_depth",
+    "h_post",
+    "canal_ap"
+   ],
+   "score": {
+    "four_lumbar": 0.3792105263157895,
+    "lumbar_rib": 0.35125,
+    "no_rib_t12": 0.383,
+    "six_lumbar": 0.34476190476190477,
+    "t13": 0.3304761904761905,
+    "typical": 0.36875
+   },
+   "score_offsets": {
+    "four_lumbar": {
+     "-1": 539,
+     "-10": 1,
+     "-2": 245,
+     "-3": 145,
+     "-4": 81,
+     "-5": 36,
+     "-6": 8,
+     "-7": 8,
+     "-8": 2,
+     "0": 1441,
+     "1": 597,
+     "10": 3,
+     "11": 1,
+     "12": 1,
+     "13": 1,
+     "2": 291,
+     "3": 165,
+     "4": 105,
+     "5": 57,
+     "6": 36,
+     "7": 16,
+     "8": 9,
+     "9": 12
+    },
+    "lumbar_rib": {
+     "-1": 636,
+     "-10": 1,
+     "-11": 1,
+     "-12": 1,
+     "-2": 289,
+     "-3": 176,
+     "-4": 138,
+     "-5": 52,
+     "-6": 35,
+     "-7": 14,
+     "-8": 7,
+     "-9": 5,
+     "0": 1405,
+     "1": 569,
+     "10": 2,
+     "12": 1,
+     "2": 276,
+     "3": 153,
+     "4": 112,
+     "5": 59,
+     "6": 36,
+     "7": 20,
+     "8": 6,
+     "9": 6
+    },
+    "no_rib_t12": {
+     "-1": 607,
+     "-10": 2,
+     "-12": 1,
+     "-2": 251,
+     "-3": 165,
+     "-4": 109,
+     "-5": 54,
+     "-6": 26,
+     "-7": 7,
+     "-8": 6,
+     "0": 1532,
+     "1": 596,
+     "10": 1,
+     "2": 278,
+     "3": 140,
+     "4": 111,
+     "5": 50,
+     "6": 39,
+     "7": 15,
+     "8": 8,
+     "9": 2
+    },
+    "six_lumbar": {
+     "-1": 707,
+     "-10": 4,
+     "-11": 2,
+     "-12": 1,
+     "-13": 1,
+     "-2": 295,
+     "-3": 202,
+     "-4": 119,
+     "-5": 46,
+     "-6": 28,
+     "-7": 18,
+     "-8": 4,
+     "-9": 1,
+     "0": 1448,
+     "1": 600,
+     "10": 4,
+     "12": 1,
+     "2": 295,
+     "3": 171,
+     "4": 121,
+     "5": 63,
+     "6": 37,
+     "7": 18,
+     "8": 10,
+     "9": 4
+    },
+    "t13": {
+     "-1": 843,
+     "-10": 3,
+     "-11": 2,
+     "-2": 304,
+     "-3": 166,
+     "-4": 94,
+     "-5": 76,
+     "-6": 26,
+     "-7": 29,
+     "-8": 6,
+     "-9": 5,
+     "0": 1388,
+     "1": 551,
+     "10": 1,
+     "11": 1,
+     "2": 271,
+     "3": 204,
+     "4": 110,
+     "5": 54,
+     "6": 37,
+     "7": 20,
+     "8": 7,
+     "9": 2
+    },
+    "typical": {
+     "-1": 585,
+     "-12": 1,
+     "-2": 285,
+     "-3": 189,
+     "-4": 126,
+     "-5": 60,
+     "-6": 28,
+     "-7": 9,
+     "-8": 5,
+     "-9": 2,
+     "0": 1475,
+     "1": 612,
+     "10": 2,
+     "11": 1,
+     "2": 248,
+     "3": 138,
+     "4": 105,
+     "5": 56,
+     "6": 40,
+     "7": 18,
+     "8": 9,
+     "9": 6
+    }
+   },
+   "score_se": {
+    "four_lumbar": 0.009724110134367877,
+    "lumbar_rib": 0.01062989467511415,
+    "no_rib_t12": 0.009238873520056328,
+    "six_lumbar": 0.008945341990987614,
+    "t13": 0.00852397060971442,
+    "typical": 0.009754766261890676
+   },
+   "score_worst": {
+    "exact_rate": 0.3304761904761905,
+    "phenotype": "t13"
+   },
+   "select": {
+    "four_lumbar": 0.37087719298245614,
+    "lumbar_rib": 0.3606666666666667,
+    "no_rib_t12": 0.35233333333333333,
+    "six_lumbar": 0.3415873015873016,
+    "t13": 0.3273015873015873,
+    "typical": 0.361
+   },
+   "select_worst": {
+    "exact_rate": 0.3273015873015873,
+    "phenotype": "t13"
+   }
+  }
+ },
+ "ranked_by_selection": [
+  {
+   "fit_seconds": 2.594366151000031,
+   "k": 7,
+   "measures": [
+    "endplate",
+    "endplate_depth",
+    "endplate_lower",
+    "endplate_lower_depth",
+    "h_post",
+    "canal_w",
+    "canal_ap"
+   ],
+   "score": {
+    "four_lumbar": 0.4992105263157895,
+    "lumbar_rib": 0.52275,
+    "no_rib_t12": 0.519,
+    "six_lumbar": 0.48928571428571427,
+    "t13": 0.4576190476190476,
+    "typical": 0.52225
+   },
+   "score_offsets": {
+    "four_lumbar": {
+     "-1": 602,
+     "-10": 1,
+     "-12": 1,
+     "-2": 177,
+     "-3": 70,
+     "-4": 21,
+     "-5": 5,
+     "-6": 1,
+     "0": 1897,
+     "1": 670,
+     "2": 205,
+     "3": 85,
+     "4": 42,
+     "5": 16,
+     "6": 6,
+     "7": 1
+    },
+    "lumbar_rib": {
+     "-1": 645,
+     "-2": 249,
+     "-3": 81,
+     "-4": 24,
+     "-5": 7,
+     "-6": 1,
+     "-7": 3,
+     "0": 2091,
+     "1": 607,
+     "2": 163,
+     "3": 73,
+     "4": 40,
+     "5": 9,
+     "6": 4,
+     "7": 1,
+     "8": 1,
+     "9": 1
+    },
+    "no_rib_t12": {
+     "-1": 615,
+     "-2": 201,
+     "-3": 86,
+     "-4": 35,
+     "-5": 10,
+     "-6": 3,
+     "0": 2076,
+     "1": 666,
+     "2": 167,
+     "3": 82,
+     "4": 37,
+     "5": 16,
+     "6": 4,
+     "7": 2
+    },
+    "six_lumbar": {
+     "-1": 803,
+     "-2": 207,
+     "-3": 97,
+     "-4": 30,
+     "-5": 6,
+     "-6": 3,
+     "-7": 1,
+     "0": 2055,
+     "1": 667,
+     "2": 192,
+     "3": 64,
+     "4": 47,
+     "5": 15,
+     "6": 5,
+     "7": 5,
+     "8": 3
+    },
+    "t13": {
+     "-1": 940,
+     "-10": 1,
+     "-2": 308,
+     "-3": 82,
+     "-4": 49,
+     "-5": 14,
+     "-6": 5,
+     "-7": 2,
+     "0": 1922,
+     "1": 563,
+     "2": 192,
+     "3": 76,
+     "4": 28,
+     "5": 9,
+     "6": 4,
+     "7": 4,
+     "8": 1
+    },
+    "typical": {
+     "-1": 678,
+     "-12": 1,
+     "-2": 212,
+     "-3": 71,
+     "-4": 33,
+     "-5": 3,
+     "-6": 6,
+     "-7": 1,
+     "-8": 2,
+     "0": 2089,
+     "1": 592,
+     "2": 176,
+     "3": 90,
+     "4": 39,
+     "5": 4,
+     "6": 3
+    }
+   },
+   "score_se": {
+    "four_lumbar": 0.009416335131432578,
+    "lumbar_rib": 0.009131902634645379,
+    "no_rib_t12": 0.009580130190783515,
+    "six_lumbar": 0.008411590298764975,
+    "t13": 0.008558323980431352,
+    "typical": 0.008922456987482055
+   },
+   "score_worst": {
+    "exact_rate": 0.4576190476190476,
+    "phenotype": "t13"
+   },
+   "select": {
+    "four_lumbar": 0.5214035087719299,
+    "lumbar_rib": 0.5343333333333333,
+    "no_rib_t12": 0.5173333333333333,
+    "six_lumbar": 0.4857142857142857,
+    "t13": 0.44571428571428573,
+    "typical": 0.5253333333333333
+   },
+   "select_worst": {
+    "exact_rate": 0.44571428571428573,
+    "phenotype": "t13"
+   }
+  },
+  {
+   "fit_seconds": 1.2066425839998374,
+   "k": 6,
+   "measures": [
+    "endplate",
+    "endplate_depth",
+    "endplate_lower",
+    "h_post",
+    "canal_w",
+    "canal_ap"
+   ],
+   "score": {
+    "four_lumbar": 0.47526315789473683,
+    "lumbar_rib": 0.492,
+    "no_rib_t12": 0.506,
+    "six_lumbar": 0.4695238095238095,
+    "t13": 0.43452380952380953,
+    "typical": 0.494
+   },
+   "score_offsets": {
+    "four_lumbar": {
+     "-1": 594,
+     "-10": 1,
+     "-12": 1,
+     "-2": 215,
+     "-3": 82,
+     "-4": 24,
+     "-5": 9,
+     "-6": 1,
+     "-8": 2,
+     "0": 1806,
+     "1": 637,
+     "2": 244,
+     "3": 108,
+     "4": 50,
+     "5": 19,
+     "6": 6,
+     "7": 1
+    },
+    "lumbar_rib": {
+     "-1": 685,
+     "-2": 259,
+     "-3": 91,
+     "-4": 41,
+     "-5": 10,
+     "-6": 3,
+     "-7": 5,
+     "-9": 1,
+     "0": 1968,
+     "1": 604,
+     "2": 177,
+     "3": 86,
+     "4": 53,
+     "5": 11,
+     "6": 3,
+     "7": 1,
+     "8": 1,
+     "9": 1
+    },
+    "no_rib_t12": {
+     "-1": 614,
+     "-2": 234,
+     "-3": 85,
+     "-4": 53,
+     "-5": 8,
+     "-6": 4,
+     "-7": 2,
+     "-9": 1,
+     "0": 2024,
+     "1": 630,
+     "10": 1,
+     "2": 191,
+     "3": 88,
+     "4": 40,
+     "5": 17,
+     "6": 4,
+     "7": 4
+    },
+    "six_lumbar": {
+     "-1": 786,
+     "-2": 238,
+     "-3": 111,
+     "-4": 35,
+     "-5": 9,
+     "-6": 5,
+     "-7": 2,
+     "-9": 1,
+     "0": 1972,
+     "1": 668,
+     "10": 1,
+     "2": 203,
+     "3": 84,
+     "4": 53,
+     "5": 18,
+     "6": 4,
+     "7": 6,
+     "8": 4
+    },
+    "t13": {
+     "-1": 936,
+     "-10": 1,
+     "-2": 324,
+     "-3": 101,
+     "-4": 54,
+     "-5": 20,
+     "-6": 4,
+     "-7": 5,
+     "0": 1825,
+     "1": 590,
+     "2": 199,
+     "3": 84,
+     "4": 35,
+     "5": 11,
+     "6": 6,
+     "7": 5
+    },
+    "typical": {
+     "-1": 670,
+     "-11": 1,
+     "-12": 1,
+     "-2": 233,
+     "-3": 80,
+     "-4": 39,
+     "-5": 11,
+     "-6": 7,
+     "-7": 3,
+     "-8": 4,
+     "0": 1976,
+     "1": 615,
+     "10": 1,
+     "2": 210,
+     "3": 97,
+     "4": 42,
+     "5": 7,
+     "6": 3
+    }
+   },
+   "score_se": {
+    "four_lumbar": 0.009496798039964512,
+    "lumbar_rib": 0.008315693222386466,
+    "no_rib_t12": 0.009761991723621789,
+    "six_lumbar": 0.008899365969648855,
+    "t13": 0.008391245799847073,
+    "typical": 0.008998604023506052
+   },
+   "score_worst": {
+    "exact_rate": 0.43452380952380953,
+    "phenotype": "t13"
+   },
+   "select": {
+    "four_lumbar": 0.47578947368421054,
+    "lumbar_rib": 0.5063333333333333,
+    "no_rib_t12": 0.49633333333333335,
+    "six_lumbar": 0.46285714285714286,
+    "t13": 0.44222222222222224,
+    "typical": 0.493
+   },
+   "select_worst": {
+    "exact_rate": 0.44222222222222224,
+    "phenotype": "t13"
+   }
+  },
+  {
+   "fit_seconds": 1.2740140259998043,
+   "k": 6,
+   "measures": [
+    "endplate",
+    "endplate_depth",
+    "endplate_lower",
+    "endplate_lower_depth",
+    "h_post",
+    "canal_w"
+   ],
+   "score": {
+    "four_lumbar": 0.47710526315789475,
+    "lumbar_rib": 0.4915,
+    "no_rib_t12": 0.491,
+    "six_lumbar": 0.4638095238095238,
+    "t13": 0.44023809523809526,
+    "typical": 0.4935
+   },
+   "score_offsets": {
+    "four_lumbar": {
+     "-1": 593,
+     "-10": 1,
+     "-12": 1,
+     "-2": 190,
+     "-3": 75,
+     "-4": 22,
+     "-5": 6,
+     "-6": 1,
+     "0": 1813,
+     "1": 715,
+     "2": 232,
+     "3": 95,
+     "4": 36,
+     "5": 15,
+     "6": 5
+    },
+    "lumbar_rib": {
+     "-1": 713,
+     "-2": 265,
+     "-3": 90,
+     "-4": 23,
+     "-5": 10,
+     "-6": 1,
+     "-7": 4,
+     "-8": 1,
+     "0": 1966,
+     "1": 623,
+     "2": 168,
+     "3": 91,
+     "4": 35,
+     "5": 6,
+     "6": 2,
+     "7": 1,
+     "9": 1
+    },
+    "no_rib_t12": {
+     "-1": 637,
+     "-2": 224,
+     "-3": 92,
+     "-4": 43,
+     "-5": 10,
+     "-6": 1,
+     "0": 1964,
+     "1": 694,
+     "2": 190,
+     "3": 84,
+     "4": 39,
+     "5": 13,
+     "6": 8,
+     "7": 1
+    },
+    "six_lumbar": {
+     "-1": 811,
+     "-2": 236,
+     "-3": 91,
+     "-4": 28,
+     "-5": 8,
+     "-7": 1,
+     "-8": 1,
+     "0": 1948,
+     "1": 700,
+     "2": 211,
+     "3": 98,
+     "4": 44,
+     "5": 14,
+     "6": 5,
+     "7": 4
+    },
+    "t13": {
+     "-1": 945,
+     "-10": 1,
+     "-2": 298,
+     "-3": 111,
+     "-4": 45,
+     "-5": 13,
+     "-6": 4,
+     "-7": 2,
+     "0": 1849,
+     "1": 606,
+     "2": 203,
+     "3": 80,
+     "4": 28,
+     "5": 10,
+     "6": 3,
+     "7": 2
+    },
+    "typical": {
+     "-1": 708,
+     "-12": 1,
+     "-2": 238,
+     "-3": 102,
+     "-4": 29,
+     "-5": 2,
+     "-6": 5,
+     "-7": 3,
+     "-8": 2,
+     "0": 1974,
+     "1": 595,
+     "2": 202,
+     "3": 97,
+     "4": 36,
+     "5": 4,
+     "6": 2
+    }
+   },
+   "score_se": {
+    "four_lumbar": 0.010067199288298693,
+    "lumbar_rib": 0.00927734312599178,
+    "no_rib_t12": 0.009104088208632028,
+    "six_lumbar": 0.008627610933252027,
+    "t13": 0.008753858134982816,
+    "typical": 0.00889857704168673
+   },
+   "score_worst": {
+    "exact_rate": 0.44023809523809526,
+    "phenotype": "t13"
+   },
+   "select": {
+    "four_lumbar": 0.4905263157894737,
+    "lumbar_rib": 0.5073333333333333,
+    "no_rib_t12": 0.492,
+    "six_lumbar": 0.4546031746031746,
+    "t13": 0.43142857142857144,
+    "typical": 0.5056666666666667
+   },
+   "select_worst": {
+    "exact_rate": 0.43142857142857144,
+    "phenotype": "t13"
+   }
+  },
+  {
+   "fit_seconds": 2.7472264240000186,
+   "k": 6,
+   "measures": [
+    "endplate",
+    "endplate_lower",
+    "endplate_lower_depth",
+    "h_post",
+    "canal_w",
+    "canal_ap"
+   ],
+   "score": {
+    "four_lumbar": 0.47578947368421054,
+    "lumbar_rib": 0.50025,
+    "no_rib_t12": 0.501,
+    "six_lumbar": 0.48095238095238096,
+    "t13": 0.43404761904761907,
+    "typical": 0.506
+   },
+   "score_offsets": {
+    "four_lumbar": {
+     "-1": 610,
+     "-12": 1,
+     "-2": 195,
+     "-3": 78,
+     "-4": 15,
+     "-5": 6,
+     "-6": 2,
+     "-7": 1,
+     "0": 1808,
+     "1": 691,
+     "2": 211,
+     "3": 95,
+     "4": 58,
+     "5": 19,
+     "6": 9,
+     "7": 1
+    },
+    "lumbar_rib": {
+     "-1": 668,
+     "-2": 268,
+     "-3": 81,
+     "-4": 24,
+     "-5": 10,
+     "-6": 3,
+     "-7": 1,
+     "-8": 1,
+     "-9": 1,
+     "0": 2001,
+     "1": 617,
+     "2": 172,
+     "3": 85,
+     "4": 47,
+     "5": 13,
+     "6": 4,
+     "7": 2,
+     "8": 1,
+     "9": 1
+    },
+    "no_rib_t12": {
+     "-1": 620,
+     "-2": 201,
+     "-3": 82,
+     "-4": 39,
+     "-5": 16,
+     "-6": 5,
+     "-7": 1,
+     "-8": 1,
+     "0": 2004,
+     "1": 701,
+     "10": 1,
+     "2": 181,
+     "3": 83,
+     "4": 41,
+     "5": 17,
+     "6": 3,
+     "7": 4
+    },
+    "six_lumbar": {
+     "-1": 790,
+     "-15": 1,
+     "-2": 221,
+     "-3": 98,
+     "-4": 29,
+     "-5": 9,
+     "-6": 6,
+     "-7": 3,
+     "-8": 2,
+     "0": 2020,
+     "1": 665,
+     "2": 209,
+     "3": 69,
+     "4": 47,
+     "5": 18,
+     "6": 5,
+     "7": 6,
+     "8": 2
+    },
+    "t13": {
+     "-1": 933,
+     "-10": 1,
+     "-2": 314,
+     "-3": 105,
+     "-4": 48,
+     "-5": 17,
+     "-6": 7,
+     "-7": 2,
+     "-8": 1,
+     "0": 1823,
+     "1": 602,
+     "2": 218,
+     "3": 84,
+     "4": 24,
+     "5": 11,
+     "6": 5,
+     "7": 3,
+     "8": 2
+    },
+    "typical": {
+     "-1": 680,
+     "-11": 1,
+     "-12": 1,
+     "-2": 222,
+     "-3": 79,
+     "-4": 37,
+     "-5": 12,
+     "-6": 8,
+     "-7": 3,
+     "-8": 1,
+     "0": 2024,
+     "1": 602,
+     "2": 187,
+     "3": 90,
+     "4": 43,
+     "5": 5,
+     "6": 5
+    }
+   },
+   "score_se": {
+    "four_lumbar": 0.009236201792095838,
+    "lumbar_rib": 0.00913671633723712,
+    "no_rib_t12": 0.009732347762221823,
+    "six_lumbar": 0.008685266756731282,
+    "t13": 0.008386084024678936,
+    "typical": 0.008808116403230848
+   },
+   "score_worst": {
+    "exact_rate": 0.43404761904761907,
+    "phenotype": "t13"
+   },
+   "select": {
+    "four_lumbar": 0.5,
+    "lumbar_rib": 0.5073333333333333,
+    "no_rib_t12": 0.5,
+    "six_lumbar": 0.4749206349206349,
+    "t13": 0.43142857142857144,
+    "typical": 0.5066666666666667
+   },
+   "select_worst": {
+    "exact_rate": 0.43142857142857144,
+    "phenotype": "t13"
+   }
+  },
+  {
+   "fit_seconds": 0.7728946160000305,
+   "k": 6,
+   "measures": [
+    "endplate",
+    "endplate_depth",
+    "endplate_lower",
+    "endplate_lower_depth",
+    "h_post",
+    "canal_ap"
+   ],
+   "score": {
+    "four_lumbar": 0.47157894736842104,
+    "lumbar_rib": 0.4865,
+    "no_rib_t12": 0.49675,
+    "six_lumbar": 0.4664285714285714,
+    "t13": 0.43547619047619046,
+    "typical": 0.4855
+   },
+   "score_offsets": {
+    "four_lumbar": {
+     "-1": 618,
+     "-11": 1,
+     "-2": 177,
+     "-3": 91,
+     "-4": 29,
+     "-5": 15,
+     "-6": 4,
+     "-7": 2,
+     "0": 1792,
+     "1": 665,
+     "2": 223,
+     "3": 106,
+     "4": 57,
+     "5": 9,
+     "6": 10,
+     "7": 1
+    },
+    "lumbar_rib": {
+     "-1": 666,
+     "-11": 1,
+     "-2": 264,
+     "-3": 95,
+     "-4": 42,
+     "-5": 13,
+     "-6": 2,
+     "-7": 6,
+     "0": 1946,
+     "1": 639,
+     "2": 178,
+     "3": 89,
+     "4": 43,
+     "5": 10,
+     "6": 2,
+     "7": 2,
+     "8": 1,
+     "9": 1
+    },
+    "no_rib_t12": {
+     "-1": 603,
+     "-2": 218,
+     "-3": 97,
+     "-4": 61,
+     "-5": 14,
+     "-6": 3,
+     "-7": 3,
+     "-8": 1,
+     "0": 1987,
+     "1": 669,
+     "2": 185,
+     "3": 87,
+     "4": 48,
+     "5": 16,
+     "6": 7,
+     "7": 1
+    },
+    "six_lumbar": {
+     "-1": 773,
+     "-2": 224,
+     "-3": 114,
+     "-4": 53,
+     "-5": 16,
+     "-6": 6,
+     "-7": 1,
+     "-8": 2,
+     "0": 1959,
+     "1": 667,
+     "2": 214,
+     "3": 86,
+     "4": 57,
+     "5": 13,
+     "6": 7,
+     "7": 4,
+     "8": 3,
+     "9": 1
+    },
+    "t13": {
+     "-1": 932,
+     "-10": 1,
+     "-11": 1,
+     "-2": 318,
+     "-3": 107,
+     "-4": 52,
+     "-5": 23,
+     "-6": 7,
+     "-7": 2,
+     "-8": 1,
+     "0": 1829,
+     "1": 586,
+     "2": 197,
+     "3": 92,
+     "4": 34,
+     "5": 6,
+     "6": 7,
+     "7": 4,
+     "9": 1
+    },
+    "typical": {
+     "-1": 662,
+     "-10": 1,
+     "-2": 231,
+     "-3": 94,
+     "-4": 52,
+     "-5": 11,
+     "-6": 6,
+     "-7": 2,
+     "-8": 1,
+     "-9": 1,
+     "0": 1942,
+     "1": 647,
+     "2": 176,
+     "3": 94,
+     "4": 59,
+     "5": 11,
+     "6": 8,
+     "7": 1,
+     "8": 1
+    }
+   },
+   "score_se": {
+    "four_lumbar": 0.010445604348429451,
+    "lumbar_rib": 0.009672462595601833,
+    "no_rib_t12": 0.010303665128262703,
+    "six_lumbar": 0.008601536417544903,
+    "t13": 0.008529032236349196,
+    "typical": 0.009474841057523161
+   },
+   "score_worst": {
+    "exact_rate": 0.43547619047619046,
+    "phenotype": "t13"
+   },
+   "select": {
+    "four_lumbar": 0.48596491228070177,
+    "lumbar_rib": 0.5033333333333333,
+    "no_rib_t12": 0.48933333333333334,
+    "six_lumbar": 0.45904761904761904,
+    "t13": 0.4311111111111111,
+    "typical": 0.492
+   },
+   "select_worst": {
+    "exact_rate": 0.4311111111111111,
+    "phenotype": "t13"
+   }
+  },
+  {
+   "fit_seconds": 2.7553517010001087,
+   "k": 6,
+   "measures": [
+    "endplate",
+    "endplate_depth",
+    "endplate_lower",
+    "endplate_lower_depth",
+    "canal_w",
+    "canal_ap"
+   ],
+   "score": {
+    "four_lumbar": 0.4792105263157895,
+    "lumbar_rib": 0.50825,
+    "no_rib_t12": 0.50825,
+    "six_lumbar": 0.4776190476190476,
+    "t13": 0.4480952380952381,
+    "typical": 0.5075
+   },
+   "score_offsets": {
+    "four_lumbar": {
+     "-1": 639,
+     "-2": 190,
+     "-3": 67,
+     "-4": 26,
+     "-5": 8,
+     "-6": 1,
+     "-7": 1,
+     "0": 1821,
+     "1": 668,
+     "2": 219,
+     "3": 88,
+     "4": 45,
+     "5": 17,
+     "6": 8,
+     "7": 2
+    },
+    "lumbar_rib": {
+     "-1": 668,
+     "-2": 230,
+     "-3": 77,
+     "-4": 32,
+     "-5": 9,
+     "-7": 3,
+     "0": 2033,
+     "1": 648,
+     "10": 1,
+     "2": 157,
+     "3": 80,
+     "4": 46,
+     "5": 7,
+     "6": 6,
+     "7": 1,
+     "8": 1,
+     "9": 1
+    },
+    "no_rib_t12": {
+     "-1": 629,
+     "-2": 201,
+     "-3": 91,
+     "-4": 36,
+     "-5": 16,
+     "-6": 2,
+     "0": 2033,
+     "1": 672,
+     "10": 1,
+     "2": 179,
+     "3": 73,
+     "4": 45,
+     "5": 15,
+     "6": 5,
+     "7": 2
+    },
+    "six_lumbar": {
+     "-1": 805,
+     "-2": 227,
+     "-3": 92,
+     "-4": 32,
+     "-5": 8,
+     "-6": 3,
+     "-7": 2,
+     "0": 2006,
+     "1": 678,
+     "2": 193,
+     "3": 75,
+     "4": 50,
+     "5": 15,
+     "6": 7,
+     "7": 3,
+     "8": 3,
+     "9": 1
+    },
+    "t13": {
+     "-1": 963,
+     "-10": 1,
+     "-2": 292,
+     "-3": 94,
+     "-4": 44,
+     "-5": 18,
+     "-6": 5,
+     "-7": 2,
+     "0": 1882,
+     "1": 578,
+     "2": 188,
+     "3": 83,
+     "4": 31,
+     "5": 10,
+     "6": 5,
+     "7": 3,
+     "8": 1
+    },
+    "typical": {
+     "-1": 715,
+     "-12": 1,
+     "-2": 214,
+     "-3": 75,
+     "-4": 32,
+     "-6": 6,
+     "-7": 2,
+     "-8": 1,
+     "0": 2030,
+     "1": 594,
+     "2": 179,
+     "3": 90,
+     "4": 51,
+     "5": 6,
+     "6": 4
+    }
+   },
+   "score_se": {
+    "four_lumbar": 0.009767673154663373,
+    "lumbar_rib": 0.009131765063000095,
+    "no_rib_t12": 0.00960774329152163,
+    "six_lumbar": 0.008240328094134783,
+    "t13": 0.008214567484095731,
+    "typical": 0.00935582209296307
+   },
+   "score_worst": {
+    "exact_rate": 0.4480952380952381,
+    "phenotype": "t13"
+   },
+   "select": {
+    "four_lumbar": 0.5024561403508772,
+    "lumbar_rib": 0.519,
+    "no_rib_t12": 0.495,
+    "six_lumbar": 0.4749206349206349,
+    "t13": 0.4282539682539683,
+    "typical": 0.5123333333333333
+   },
+   "select_worst": {
+    "exact_rate": 0.4282539682539683,
+    "phenotype": "t13"
+   }
+  },
+  {
+   "fit_seconds": 1.4799972079999861,
+   "k": 6,
+   "measures": [
+    "endplate_depth",
+    "endplate_lower",
+    "endplate_lower_depth",
+    "h_post",
+    "canal_w",
+    "canal_ap"
+   ],
+   "score": {
+    "four_lumbar": 0.4713157894736842,
+    "lumbar_rib": 0.47775,
+    "no_rib_t12": 0.4975,
+    "six_lumbar": 0.4530952380952381,
+    "t13": 0.4228571428571429,
+    "typical": 0.493
+   },
+   "score_offsets": {
+    "four_lumbar": {
+     "-1": 594,
+     "-10": 1,
+     "-12": 1,
+     "-2": 202,
+     "-3": 78,
+     "-4": 38,
+     "-5": 6,
+     "-6": 1,
+     "0": 1791,
+     "1": 667,
+     "10": 1,
+     "2": 230,
+     "3": 95,
+     "4": 55,
+     "5": 24,
+     "6": 11,
+     "7": 4,
+     "8": 1
+    },
+    "lumbar_rib": {
+     "-1": 662,
+     "-2": 268,
+     "-3": 104,
+     "-4": 51,
+     "-5": 9,
+     "-6": 3,
+     "-7": 3,
+     "-8": 1,
+     "-9": 1,
+     "0": 1911,
+     "1": 633,
+     "10": 1,
+     "2": 195,
+     "3": 85,
+     "4": 44,
+     "5": 18,
+     "6": 8,
+     "7": 2,
+     "9": 1
+    },
+    "no_rib_t12": {
+     "-1": 605,
+     "-2": 226,
+     "-3": 99,
+     "-4": 47,
+     "-5": 14,
+     "-6": 2,
+     "0": 1990,
+     "1": 647,
+     "10": 1,
+     "2": 190,
+     "3": 93,
+     "4": 49,
+     "5": 27,
+     "6": 5,
+     "7": 4,
+     "8": 1
+    },
+    "six_lumbar": {
+     "-1": 787,
+     "-10": 1,
+     "-2": 240,
+     "-3": 114,
+     "-4": 46,
+     "-5": 19,
+     "-6": 5,
+     "-7": 1,
+     "0": 1903,
+     "1": 656,
+     "2": 258,
+     "3": 76,
+     "4": 50,
+     "5": 26,
+     "6": 8,
+     "7": 6,
+     "8": 3,
+     "9": 1
+    },
+    "t13": {
+     "-1": 937,
+     "-10": 1,
+     "-2": 323,
+     "-3": 115,
+     "-4": 51,
+     "-5": 19,
+     "-6": 10,
+     "-7": 5,
+     "0": 1776,
+     "1": 581,
+     "2": 227,
+     "3": 90,
+     "4": 41,
+     "5": 11,
+     "6": 6,
+     "7": 5,
+     "8": 1,
+     "9": 1
+    },
+    "typical": {
+     "-1": 654,
+     "-12": 1,
+     "-2": 251,
+     "-3": 111,
+     "-4": 45,
+     "-5": 9,
+     "-6": 8,
+     "-7": 3,
+     "-8": 1,
+     "0": 1972,
+     "1": 580,
+     "2": 192,
+     "3": 105,
+     "4": 45,
+     "5": 17,
+     "6": 5,
+     "7": 1
+    }
+   },
+   "score_se": {
+    "four_lumbar": 0.009284735243994067,
+    "lumbar_rib": 0.009020478516315893,
+    "no_rib_t12": 0.009522190428297671,
+    "six_lumbar": 0.008465872471688342,
+    "t13": 0.008825564385377873,
+    "typical": 0.0082138502958976
+   },
+   "score_worst": {
+    "exact_rate": 0.4228571428571429,
+    "phenotype": "t13"
+   },
+   "select": {
+    "four_lumbar": 0.4789473684210526,
+    "lumbar_rib": 0.49666666666666665,
+    "no_rib_t12": 0.4723333333333333,
+    "six_lumbar": 0.4615873015873016,
+    "t13": 0.42317460317460315,
+    "typical": 0.49566666666666664
+   },
+   "select_worst": {
+    "exact_rate": 0.42317460317460315,
+    "phenotype": "t13"
+   }
+  },
+  {
+   "fit_seconds": 0.5524367560001338,
+   "k": 5,
+   "measures": [
+    "endplate",
+    "endplate_lower",
+    "endplate_lower_depth",
+    "h_post",
+    "canal_w"
+   ],
+   "score": {
+    "four_lumbar": 0.4660526315789474,
+    "lumbar_rib": 0.47925,
+    "no_rib_t12": 0.4705,
+    "six_lumbar": 0.45071428571428573,
+    "t13": 0.4247619047619048,
+    "typical": 0.47925
+   },
+   "score_offsets": {
+    "four_lumbar": {
+     "-1": 600,
+     "-12": 1,
+     "-2": 199,
+     "-3": 81,
+     "-4": 15,
+     "-5": 2,
+     "-6": 3,
+     "0": 1771,
+     "1": 717,
+     "2": 233,
+     "3": 105,
+     "4": 49,
+     "5": 18,
+     "6": 6
+    },
+    "lumbar_rib": {
+     "-1": 707,
+     "-2": 275,
+     "-3": 102,
+     "-4": 22,
+     "-5": 9,
+     "-6": 3,
+     "-7": 1,
+     "-8": 1,
+     "-9": 1,
+     "0": 1917,
+     "1": 615,
+     "2": 203,
+     "3": 92,
+     "4": 39,
+     "5": 8,
+     "6": 3,
+     "7": 1,
+     "9": 1
+    },
+    "no_rib_t12": {
+     "-1": 648,
+     "-2": 224,
+     "-3": 75,
+     "-4": 54,
+     "-5": 14,
+     "-6": 4,
+     "-7": 1,
+     "-8": 1,
+     "0": 1882,
+     "1": 732,
+     "2": 206,
+     "3": 91,
+     "4": 44,
+     "5": 14,
+     "6": 7,
+     "7": 3
+    },
+    "six_lumbar": {
+     "-1": 815,
+     "-2": 227,
+     "-3": 101,
+     "-4": 29,
+     "-5": 10,
+     "-6": 1,
+     "-7": 2,
+     "-8": 2,
+     "0": 1893,
+     "1": 716,
+     "2": 229,
+     "3": 90,
+     "4": 55,
+     "5": 16,
+     "6": 8,
+     "7": 5,
+     "8": 1
+    },
+    "t13": {
+     "-1": 925,
+     "-2": 299,
+     "-3": 125,
+     "-4": 45,
+     "-5": 13,
+     "-6": 9,
+     "-7": 2,
+     "0": 1784,
+     "1": 660,
+     "2": 207,
+     "3": 78,
+     "4": 32,
+     "5": 13,
+     "6": 2,
+     "7": 4,
+     "8": 2
+    },
+    "typical": {
+     "-1": 723,
+     "-11": 1,
+     "-12": 1,
+     "-2": 242,
+     "-3": 100,
+     "-4": 29,
+     "-5": 6,
+     "-6": 6,
+     "-7": 4,
+     "0": 1917,
+     "1": 617,
+     "2": 196,
+     "3": 108,
+     "4": 41,
+     "5": 5,
+     "6": 2,
+     "7": 1,
+     "8": 1
+    }
+   },
+   "score_se": {
+    "four_lumbar": 0.009631336142724548,
+    "lumbar_rib": 0.009073108286020246,
+    "no_rib_t12": 0.008581489369508942,
+    "six_lumbar": 0.008651598570123981,
+    "t13": 0.00856876936230199,
+    "typical": 0.009176367259455236
+   },
+   "score_worst": {
+    "exact_rate": 0.4247619047619048,
+    "phenotype": "t13"
+   },
+   "select": {
+    "four_lumbar": 0.4663157894736842,
+    "lumbar_rib": 0.483,
+    "no_rib_t12": 0.468,
+    "six_lumbar": 0.4444444444444444,
+    "t13": 0.4174603174603175,
+    "typical": 0.486
+   },
+   "select_worst": {
+    "exact_rate": 0.4174603174603175,
+    "phenotype": "t13"
+   }
+  },
+  {
+   "fit_seconds": 0.523811963000071,
+   "k": 5,
+   "measures": [
+    "endplate",
+    "endplate_depth",
+    "endplate_lower",
+    "endplate_lower_depth",
+    "canal_w"
+   ],
+   "score": {
+    "four_lumbar": 0.4605263157894737,
+    "lumbar_rib": 0.48525,
+    "no_rib_t12": 0.47325,
+    "six_lumbar": 0.4542857142857143,
+    "t13": 0.42523809523809525,
+    "typical": 0.47275
+   },
+   "score_offsets": {
+    "four_lumbar": {
+     "-1": 643,
+     "-2": 185,
+     "-3": 68,
+     "-4": 28,
+     "-5": 6,
+     "-6": 1,
+     "0": 1750,
+     "1": 740,
+     "2": 226,
+     "3": 90,
+     "4": 45,
+     "5": 11,
+     "6": 5,
+     "7": 2
+    },
+    "lumbar_rib": {
+     "-1": 736,
+     "-2": 255,
+     "-3": 91,
+     "-4": 27,
+     "-5": 11,
+     "-6": 1,
+     "-7": 4,
+     "-8": 1,
+     "0": 1941,
+     "1": 640,
+     "2": 161,
+     "3": 81,
+     "4": 40,
+     "5": 7,
+     "6": 2,
+     "7": 1,
+     "9": 1
+    },
+    "no_rib_t12": {
+     "-1": 675,
+     "-2": 221,
+     "-3": 91,
+     "-4": 41,
+     "-5": 9,
+     "-6": 2,
+     "0": 1893,
+     "1": 724,
+     "2": 197,
+     "3": 82,
+     "4": 44,
+     "5": 12,
+     "6": 7,
+     "7": 2
+    },
+    "six_lumbar": {
+     "-1": 816,
+     "-2": 239,
+     "-3": 96,
+     "-4": 32,
+     "-5": 8,
+     "-6": 1,
+     "-7": 2,
+     "0": 1908,
+     "1": 717,
+     "2": 210,
+     "3": 93,
+     "4": 54,
+     "5": 14,
+     "6": 5,
+     "7": 3,
+     "8": 1,
+     "9": 1
+    },
+    "t13": {
+     "-1": 964,
+     "-10": 1,
+     "-2": 295,
+     "-3": 107,
+     "-4": 57,
+     "-5": 16,
+     "-6": 6,
+     "-7": 2,
+     "0": 1786,
+     "1": 625,
+     "2": 199,
+     "3": 98,
+     "4": 30,
+     "5": 8,
+     "6": 3,
+     "7": 2,
+     "8": 1
+    },
+    "typical": {
+     "-1": 739,
+     "-12": 1,
+     "-2": 242,
+     "-3": 97,
+     "-4": 33,
+     "-5": 2,
+     "-6": 4,
+     "-7": 3,
+     "-8": 1,
+     "0": 1891,
+     "1": 612,
+     "2": 216,
+     "3": 107,
+     "4": 43,
+     "5": 7,
+     "6": 2
+    }
+   },
+   "score_se": {
+    "four_lumbar": 0.00969868575386614,
+    "lumbar_rib": 0.009979863520078668,
+    "no_rib_t12": 0.009268994486672752,
+    "six_lumbar": 0.008618360784850631,
+    "t13": 0.008695166517109599,
+    "typical": 0.009389649358489212
+   },
+   "score_worst": {
+    "exact_rate": 0.42523809523809525,
+    "phenotype": "t13"
+   },
+   "select": {
+    "four_lumbar": 0.46982456140350876,
+    "lumbar_rib": 0.48033333333333333,
+    "no_rib_t12": 0.48033333333333333,
+    "six_lumbar": 0.44952380952380955,
+    "t13": 0.413968253968254,
+    "typical": 0.486
+   },
+   "select_worst": {
+    "exact_rate": 0.413968253968254,
+    "phenotype": "t13"
+   }
+  },
+  {
+   "fit_seconds": 0.5536729790001118,
+   "k": 5,
+   "measures": [
+    "endplate",
+    "endplate_depth",
+    "endplate_lower",
+    "h_post",
+    "canal_w"
+   ],
+   "score": {
+    "four_lumbar": 0.4478947368421053,
+    "lumbar_rib": 0.46525,
+    "no_rib_t12": 0.47025,
+    "six_lumbar": 0.44785714285714284,
+    "t13": 0.4126190476190476,
+    "typical": 0.46175
+   },
+   "score_offsets": {
+    "four_lumbar": {
+     "-1": 627,
+     "-10": 1,
+     "-12": 1,
+     "-2": 231,
+     "-3": 80,
+     "-4": 30,
+     "-5": 7,
+     "-6": 2,
+     "-8": 1,
+     "0": 1702,
+     "1": 689,
+     "2": 241,
+     "3": 113,
+     "4": 52,
+     "5": 20,
+     "6": 3
+    },
+    "lumbar_rib": {
+     "-1": 737,
+     "-2": 285,
+     "-3": 99,
+     "-4": 34,
+     "-5": 12,
+     "-6": 3,
+     "-7": 6,
+     "-8": 1,
+     "0": 1861,
+     "1": 624,
+     "2": 187,
+     "3": 92,
+     "4": 44,
+     "5": 9,
+     "6": 4,
+     "7": 1,
+     "9": 1
+    },
+    "no_rib_t12": {
+     "-1": 645,
+     "-2": 259,
+     "-3": 96,
+     "-4": 51,
+     "-5": 9,
+     "-6": 3,
+     "-7": 2,
+     "-9": 1,
+     "0": 1881,
+     "1": 672,
+     "2": 216,
+     "3": 98,
+     "4": 42,
+     "5": 18,
+     "6": 7
+    },
+    "six_lumbar": {
+     "-1": 810,
+     "-2": 270,
+     "-3": 96,
+     "-4": 43,
+     "-5": 7,
+     "-6": 4,
+     "-7": 3,
+     "0": 1881,
+     "1": 683,
+     "2": 228,
+     "3": 102,
+     "4": 49,
+     "5": 16,
+     "6": 4,
+     "7": 3,
+     "8": 1
+    },
+    "t13": {
+     "-1": 910,
+     "-10": 1,
+     "-2": 338,
+     "-3": 118,
+     "-4": 57,
+     "-5": 16,
+     "-6": 7,
+     "-7": 5,
+     "0": 1733,
+     "1": 637,
+     "2": 231,
+     "3": 95,
+     "4": 36,
+     "5": 9,
+     "6": 4,
+     "7": 2,
+     "8": 1
+    },
+    "typical": {
+     "-1": 710,
+     "-11": 1,
+     "-12": 1,
+     "-2": 270,
+     "-3": 99,
+     "-4": 31,
+     "-5": 3,
+     "-6": 8,
+     "-7": 3,
+     "-8": 3,
+     "0": 1847,
+     "1": 646,
+     "2": 214,
+     "3": 114,
+     "4": 41,
+     "5": 6,
+     "6": 2,
+     "7": 1
+    }
+   },
+   "score_se": {
+    "four_lumbar": 0.010087314903600094,
+    "lumbar_rib": 0.008215054662969559,
+    "no_rib_t12": 0.009431700396100856,
+    "six_lumbar": 0.009201890631251146,
+    "t13": 0.008407118733103236,
+    "typical": 0.009556611934063841
+   },
+   "score_worst": {
+    "exact_rate": 0.4126190476190476,
+    "phenotype": "t13"
+   },
+   "select": {
+    "four_lumbar": 0.44070175438596493,
+    "lumbar_rib": 0.472,
+    "no_rib_t12": 0.45666666666666667,
+    "six_lumbar": 0.44,
+    "t13": 0.413968253968254,
+    "typical": 0.463
+   },
+   "select_worst": {
+    "exact_rate": 0.413968253968254,
+    "phenotype": "t13"
+   }
+  }
+ ],
+ "shards": [
+  0
+ ],
+ "supersets_worse_by_2se": [],
+ "winner": {
+  "fit_seconds": 2.594366151000031,
+  "k": 7,
+  "measures": [
+   "endplate",
+   "endplate_depth",
+   "endplate_lower",
+   "endplate_lower_depth",
+   "h_post",
+   "canal_w",
+   "canal_ap"
+  ],
+  "score": {
+   "four_lumbar": 0.4992105263157895,
+   "lumbar_rib": 0.52275,
+   "no_rib_t12": 0.519,
+   "six_lumbar": 0.48928571428571427,
+   "t13": 0.4576190476190476,
+   "typical": 0.52225
+  },
+  "score_offsets": {
+   "four_lumbar": {
+    "-1": 602,
+    "-10": 1,
+    "-12": 1,
+    "-2": 177,
+    "-3": 70,
+    "-4": 21,
+    "-5": 5,
+    "-6": 1,
+    "0": 1897,
+    "1": 670,
+    "2": 205,
+    "3": 85,
+    "4": 42,
+    "5": 16,
+    "6": 6,
+    "7": 1
+   },
+   "lumbar_rib": {
+    "-1": 645,
+    "-2": 249,
+    "-3": 81,
+    "-4": 24,
+    "-5": 7,
+    "-6": 1,
+    "-7": 3,
+    "0": 2091,
+    "1": 607,
+    "2": 163,
+    "3": 73,
+    "4": 40,
+    "5": 9,
+    "6": 4,
+    "7": 1,
+    "8": 1,
+    "9": 1
+   },
+   "no_rib_t12": {
+    "-1": 615,
+    "-2": 201,
+    "-3": 86,
+    "-4": 35,
+    "-5": 10,
+    "-6": 3,
+    "0": 2076,
+    "1": 666,
+    "2": 167,
+    "3": 82,
+    "4": 37,
+    "5": 16,
+    "6": 4,
+    "7": 2
+   },
+   "six_lumbar": {
+    "-1": 803,
+    "-2": 207,
+    "-3": 97,
+    "-4": 30,
+    "-5": 6,
+    "-6": 3,
+    "-7": 1,
+    "0": 2055,
+    "1": 667,
+    "2": 192,
+    "3": 64,
+    "4": 47,
+    "5": 15,
+    "6": 5,
+    "7": 5,
+    "8": 3
+   },
+   "t13": {
+    "-1": 940,
+    "-10": 1,
+    "-2": 308,
+    "-3": 82,
+    "-4": 49,
+    "-5": 14,
+    "-6": 5,
+    "-7": 2,
+    "0": 1922,
+    "1": 563,
+    "2": 192,
+    "3": 76,
+    "4": 28,
+    "5": 9,
+    "6": 4,
+    "7": 4,
+    "8": 1
+   },
+   "typical": {
+    "-1": 678,
+    "-12": 1,
+    "-2": 212,
+    "-3": 71,
+    "-4": 33,
+    "-5": 3,
+    "-6": 6,
+    "-7": 1,
+    "-8": 2,
+    "0": 2089,
+    "1": 592,
+    "2": 176,
+    "3": 90,
+    "4": 39,
+    "5": 4,
+    "6": 3
+   }
+  },
+  "score_se": {
+   "four_lumbar": 0.009416335131432578,
+   "lumbar_rib": 0.009131902634645379,
+   "no_rib_t12": 0.009580130190783515,
+   "six_lumbar": 0.008411590298764975,
+   "t13": 0.008558323980431352,
+   "typical": 0.008922456987482055
+  },
+  "score_worst": {
+   "exact_rate": 0.4576190476190476,
+   "phenotype": "t13"
+  },
+  "select": {
+   "four_lumbar": 0.5214035087719299,
+   "lumbar_rib": 0.5343333333333333,
+   "no_rib_t12": 0.5173333333333333,
+   "six_lumbar": 0.4857142857142857,
+   "t13": 0.44571428571428573,
+   "typical": 0.5253333333333333
+  },
+  "select_worst": {
+   "exact_rate": 0.44571428571428573,
+   "phenotype": "t13"
+  }
+ },
+ "winner_scored": {
+  "exact_rate": 0.4576190476190476,
+  "phenotype": "t13"
+ }
+}

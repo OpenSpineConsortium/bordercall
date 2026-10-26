@@ -16,6 +16,9 @@ Run the commands in this order on a corpus you have not measured before.
     python run.py disagree --levels levels.csv --phenotype phenotype.csv --above T12 --below L1
     python run.py synth-corpus --out out/synth         # a made-up corpus to run the rest on
     python run.py panjabi-figures --json out/panjabi/panjabi_junction.json --outdir figures/junction
+    python run.py neighbour --outdir out/neighbour          # name a vertebra from its neighbours alone
+    python run.py neighbour-enumerate --arm flank --shard 0 --of 1 --out out/neighbour/shard0.json
+    python run.py neighbour-figures --json out/neighbour/neighbour.json --outdir figures/neighbour
 
 `scheme` and `selftest` are not optional. The first catches a corpus numbered differently
 from this package's assumption, which produces finite, plausible, wrong numbers and raises
@@ -249,6 +252,30 @@ def cmd_enumerate(a) -> int:
     return 0
 
 
+def cmd_neighbour(a) -> int:
+    import neighbour as NB
+    grid = [float(x) for x in a.r_grid.split(",")] if a.r_grid else None
+    NB.run(outdir=a.outdir, n_fit=a.n_fit, n_select=a.n_select, n_score=a.n_score,
+           r_grid=grid, quick=a.quick)
+    return 0
+
+
+def cmd_neighbour_enumerate(a) -> int:
+    import neighbour as NB
+    if a.gather:
+        NB.gather_subsets(a.gather, out_json=a.out)
+        return 0
+    NB.enumerate_subsets(arm=a.arm, shard=a.shard, n_shards=a.n_shards, n_fit=a.n_fit,
+                         n_select=a.n_select, n_score=a.n_score, out_json=a.out, quick=a.quick)
+    return 0
+
+
+def cmd_neighbour_figures(a) -> int:
+    import neighbour_figures as NF
+    NF.run(a.json, a.outdir, enumerate_json=a.enumerate_json)
+    return 0
+
+
 def cmd_selftest(a) -> int:
     c = Corpus.from_csv(a.levels)
     print("levels found: %s" % ", ".join(c.levels))
@@ -461,6 +488,38 @@ def main() -> int:
     p.add_argument("--gather", nargs="+", default=None,
                    help="instead of scoring, merge these shard JSONs and rank the subsets")
     p.set_defaults(fn=cmd_enumerate)
+
+    p = sub.add_parser("neighbour",
+                       help="name a vertebra from its neighbours alone, on synthetic columns: "
+                            "solutions A to F, three projection regimes, six phenotypes, the "
+                            "r sweep and the latency (docs/NEIGHBOUR_IDENTITY_STUDY.md)")
+    p.add_argument("--outdir", default=None, help="write neighbour.json and models.json here")
+    p.add_argument("--n-fit", type=int, default=300, dest="n_fit", help="typical columns fitted on")
+    p.add_argument("--n-select", type=int, default=150, dest="n_select", help="columns per phenotype thresholds are chosen on")
+    p.add_argument("--n-score", type=int, default=200, dest="n_score", help="columns per phenotype scored")
+    p.add_argument("--r-grid", default=None, dest="r_grid", help="comma-separated r values for the sweep")
+    p.add_argument("--quick", action="store_true", help="a small run to check the command")
+    p.set_defaults(fn=cmd_neighbour)
+
+    p = sub.add_parser("neighbour-enumerate",
+                       help="solution D: every subset of the seven measures on one arm, chosen on "
+                            "one seed and scored on another; shard with --shard/--of, then --gather")
+    p.add_argument("--arm", default="flank", choices=list(["below1", "above1", "flank", "flank2", "with_target"]))
+    p.add_argument("--shard", type=int, default=0)
+    p.add_argument("--of", type=int, default=1, dest="n_shards")
+    p.add_argument("--n-fit", type=int, default=300, dest="n_fit")
+    p.add_argument("--n-select", type=int, default=150, dest="n_select")
+    p.add_argument("--n-score", type=int, default=200, dest="n_score")
+    p.add_argument("--out", default=None, help="this shard's JSON, or the gathered JSON")
+    p.add_argument("--gather", nargs="+", default=None, help="merge these shard JSONs and rank")
+    p.add_argument("--quick", action="store_true")
+    p.set_defaults(fn=cmd_neighbour_enumerate)
+
+    p = sub.add_parser("neighbour-figures", help="the neighbour study's figures from its recorded JSON")
+    p.add_argument("--json", required=True, help="neighbour.json")
+    p.add_argument("--enumerate-json", default=None, dest="enumerate_json", help="the gathered enumeration JSON")
+    p.add_argument("--outdir", default="figures/neighbour")
+    p.set_defaults(fn=cmd_neighbour_figures)
 
     p = sub.add_parser("selftest", help="reproduce the known CTSpinoPelvic1K answers")
     p.add_argument("--levels", default=DEFAULT_FIXTURE,

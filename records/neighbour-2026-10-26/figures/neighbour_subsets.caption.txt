@@ -1,0 +1,1 @@
+Every subset of the seven measures, both neighbours visible, solution C: the worst phenotype's exact rate on the scoring seed against the number of measures. Filled, the subset chosen on the selection seed; squares, the AP set; triangles, the lateral set; the circle at seven, the full set.

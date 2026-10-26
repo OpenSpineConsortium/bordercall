@@ -1,0 +1,1 @@
+The unidentified correlation r between a patient's offsets in the different measures, swept: exact naming over all six phenotypes, both neighbours visible, solution C, three regimes, with 95% column-clustered intervals. At the right, each regime's identified set over the grid (thick) inside its Imbens-Manski interval (thin).

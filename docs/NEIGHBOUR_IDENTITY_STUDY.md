@@ -1,6 +1,7 @@
 # Naming a vertebra from its neighbours, and how many dimensions that takes
 
-**Status: specified, not implemented.** Everything here is synthetic — columns drawn from
+**Status: implemented; the results, the verdicts and the figures are `docs/NEIGHBOUR_IDENTITY_RESULTS.md`,
+drawn from `records/neighbour-2026-10-26/`.** Everything here is synthetic — columns drawn from
 Panjabi's published means and spreads. No CT, no labels, no corpus, no data access.
 
 ## The question

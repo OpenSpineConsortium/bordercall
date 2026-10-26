@@ -1,0 +1,1 @@
+Naming a vertebra from its neighbours alone, solution C, by what is visible and by projection regime. A, typical columns, named exactly; B, the worst of the six phenotypes; C, the worst phenotype, named within one level. Bars are 95% intervals from column-clustered errors; 200 synthetic columns per phenotype.

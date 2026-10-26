@@ -321,8 +321,10 @@ levels, C2-L5, and six of the 13 are refused rather than approximated.
 
 ### Step 7 — the neighbour-identity and dimensionality study
 
-Specified in full at **`docs/NEIGHBOUR_IDENTITY_STUDY.md`**; that file is the brief, this is the
-one-paragraph version. Can vertebra `i` be named from the vertebrae **adjacent** to it, with its
+**Done on 2026-10-26**: the results, the four verdicts and the figures are
+`docs/NEIGHBOUR_IDENTITY_RESULTS.md`, drawn from `records/neighbour-2026-10-26/` by the three
+`neighbour` commands of `run.py`. Specified in full at **`docs/NEIGHBOUR_IDENTITY_STUDY.md`**;
+that file is the brief, this is the one-paragraph version. Can vertebra `i` be named from the vertebrae **adjacent** to it, with its
 own measurements withheld — and does the discriminating information fit in one radiographic
 plane, or does it need a volume?
 

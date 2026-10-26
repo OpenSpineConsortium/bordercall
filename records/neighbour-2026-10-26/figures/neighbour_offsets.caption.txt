@@ -1,0 +1,1 @@
+The signed offset of the name, by phenotype: both neighbours visible, seven measures, solution C, scored against the count from C2. Filled bars, the count's truth. The text gives the exact rate against the count and, where it differs, against the rib reading. 200 synthetic columns per phenotype.

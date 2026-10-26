@@ -1,0 +1,1 @@
+Selective naming: exact rate against coverage as the model abstains below a confidence, both neighbours visible, solution C, three regimes; solid markers, typical columns; open markers, the worst phenotype. The thresholds were chosen on the selection seed and scored on another.
