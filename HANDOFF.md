@@ -152,6 +152,35 @@ unchanged across r = 0.0 to 0.9, moving by at most 1.6 Monte Carlo standard erro
 that sweep for any new synthetic claim before quoting it.** `r_between=0` reproduces the
 recorded runs exactly, which is what the tests check.
 
+## What one evaluation costs, and where enumeration stops being free
+
+Measured on a Windows workstation, 2026-10-26. One evaluation of `A(S, r)` -- train the junction
+model on 600 synthetic columns, then score six phenotypes at 400 windows each -- is **7.24 s**
+(2.40 s train, 4.84 s evaluate, `n = 2400`, 7 measures). Reproduce with `J.train` followed by
+`J.evaluate` over `P.PHENOTYPES`, which is exactly what `covariance._score()` calls.
+
+That number decides how this problem should be attacked, so it is recorded rather than guessed
+at. Enumerating every subset, scored at both junctions:
+
+| measures `m` | subsets | cost |
+|---|---|---|
+| 7 | 127 | **0.5 h** -- free |
+| 9 | 511 | 2.1 h -- free overnight |
+| 12 | 4,095 | 16.5 h -- one night |
+| 17 | 131,071 | **22 days** -- not enumerable |
+
+So **at the 7 measures in use there is no optimization problem**: enumerate, which is exact by
+construction and returns the whole ranked distribution instead of an argmax. Above roughly
+`m = 12` the binding constraint becomes simulator throughput, and the thing to reach for is a
+replication-budget rule -- `sim-tools` 1.3.0 (MIT, PyPI 2026-06-24) ships OCBA, OCBA-m, KN and
+KN++, with the caveat that every commit touching its `ovs` module since 2021-07-05 is
+formatting and the module has no tests, so pin the commit and write your own.
+
+The closed-form separability of the published Gaussians runs about 290,000 times faster than
+this, and it is **a different function, not a cheap version of this one**. Use it to rank and
+screen; report the final accuracy from the simulator on held-out draws. Never quote the two
+interchangeably.
+
 ## Ground truth means a count from C2, and this corpus has none
 
 Measured on all 802 CTSpinoPelvic1K volumes, 2026-10-25: **0 are countable.** The most

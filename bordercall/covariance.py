@@ -328,6 +328,12 @@ def imbens_manski(lo, hi, se_lo, se_hi, alpha: float = 0.05):
     faith here: coverage_check() measures it against a known truth, including the case where
     the grid steps over a dip and the endpoints are therefore wrong, which is the case this
     package's own sweep could be in.
+
+    The twelve lines are written out rather than imported on purpose. A full-text sweep of the
+    complete crandb index -- all 25,529 CRAN packages, matching name, title and description
+    against "Manski" and "Imbens" -- returns ZERO hits, and the one readable reference
+    implementation of the resampling version (medrobust's bound_ci) is not on CRAN and has no
+    users. So there is nothing to depend on, and a dependency would not have been checkable.
     """
     s = max(float(se_lo), float(se_hi))
     if not s > 0:
