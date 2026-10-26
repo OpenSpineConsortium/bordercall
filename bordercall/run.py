@@ -165,7 +165,7 @@ def cmd_panjabi(a) -> int:
     junction.run_synthetic(outdir=a.outdir, n_columns=a.n_columns, n_eval=a.n_eval,
                            measures=measures, within=a.within, profile=a.profile,
                            margin=a.margin, seed=a.seed, rho=a.rho, noise_mm=a.noise_mm,
-                           scale_sd=a.scale_sd)
+                           scale_sd=a.scale_sd, r_between=a.r_between)
     return 0
 
 
@@ -174,7 +174,7 @@ def cmd_panjabi_corpus(a) -> int:
     measures = [m.strip() for m in a.measures.split(",") if m.strip()]
     junction.run_corpus(a.levels, a.phenotype, outdir=a.outdir, n_columns=a.n_columns,
                         margin=a.margin, seed=a.seed, measures=measures, rho=a.rho,
-                        noise_mm=a.noise_mm, scale_sd=a.scale_sd)
+                        noise_mm=a.noise_mm, scale_sd=a.scale_sd, r_between=a.r_between)
     return 0
 
 
@@ -194,6 +194,27 @@ def cmd_panjabi_figures(a) -> int:
 def cmd_synth_corpus(a) -> int:
     import synth_corpus
     synth_corpus.write(a.out, n=a.n, seed=a.seed)
+    return 0
+
+
+def cmd_covariance(a) -> int:
+    """The between-measure covariance: what the literature does and does not supply.
+
+    The generator draws each measure's departure from its published mean independently.
+    Real vertebrae do not work that way -- a wide body tends to come with a deep one -- so
+    independence hands the classifier more information than it would really have, and every
+    accuracy at r = 0 is an upper bound. No published source gives the within-patient value
+    (see the report), so it is swept rather than assumed, and the sweep's job is to show
+    whether the conclusion survives the whole range.
+    """
+    import covariance as CV
+
+    CV.report()
+    if a.sweep:
+        print("\n")
+        CV.measure_set_sweep(out_json=a.out, n_columns=a.n_columns, n_eval=a.n_eval)
+    else:
+        print("\nRe-run with --sweep to measure whether the conclusion depends on it.")
     return 0
 
 
@@ -328,6 +349,10 @@ def main() -> int:
         p.add_argument("--rho", type=float, default=0.5, help="share of a measure's spread a column keeps across levels")
         p.add_argument("--noise-mm", type=float, default=1.0, dest="noise_mm", help="measurement noise, mm")
         p.add_argument("--scale-sd", type=float, default=0.07, dest="scale_sd", help="patient size spread, log")
+        p.add_argument("--r-between", type=float, default=0.0, dest="r_between",
+                       help="correlation between the measures' patient offsets. 0.0 is "
+                            "the OPTIMISTIC end, not a neutral default: nothing published "
+                            "supplies the real value, so sweep it (run.py covariance)")
         p.add_argument("--outdir", default=None, help="write the tables as JSON here")
 
     p = sub.add_parser("panjabi", help="name both junctions from Panjabi's tables on synthetic columns")
@@ -367,6 +392,17 @@ def main() -> int:
     p.add_argument("--n", type=int, default=300)
     p.add_argument("--seed", type=int, default=0)
     p.set_defaults(fn=cmd_synth_corpus)
+
+    p = sub.add_parser("covariance",
+                       help="can the literature supply the between-measure covariance, and "
+                            "does the answer change what we conclude?")
+    p.add_argument("--sweep", action="store_true",
+                   help="also run the 7-against-3 measure-set sweep over the whole r grid "
+                        "(a few minutes; synthetic columns only, no corpus is read)")
+    p.add_argument("--out", default=None, help="write the sweep's JSON here")
+    p.add_argument("--n-columns", type=int, default=600, dest="n_columns")
+    p.add_argument("--n-eval", type=int, default=400, dest="n_eval")
+    p.set_defaults(fn=cmd_covariance)
 
     p = sub.add_parser("selftest", help="reproduce the known CTSpinoPelvic1K answers")
     p.add_argument("--levels", default=DEFAULT_FIXTURE,
