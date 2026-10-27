@@ -1,7 +1,8 @@
 __pycache__/
 *.pyc
 /out/
-/figures/
+/archive/out/
+/archive/figures/
 *.nii.gz
 levels.csv
 phenotype.csv
