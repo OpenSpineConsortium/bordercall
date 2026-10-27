@@ -51,10 +51,12 @@ every table of all four papers, with every value's cell, is step b of TODO.md's 
 
 ## The facets paper's tables
 
-Printed page = PDF page + 1297. Every table but the first and the last two prints the mean
-with the standard error of the mean in parentheses in one cell, for the right (r) and left (l)
-facets where a dimension has a side, at every level from C2 to L5; the comparison tables
-quote other authors beside this series and enter no reference table.
+Printed page = PDF page + 1297. Tables 2 to 7 print the mean with the standard error of the
+mean in parentheses in one cell, for the right (r) and left (l) facets where a dimension has a
+side, at every level from C2 to L5, except their ratio columns, which print the ratio alone;
+Table 8 prints the card angles as means alone, computed from the mean plane angles, with no
+standard error; the comparison tables quote other authors beside this series and enter no
+reference table.
 
 | Table | Printed page | PDF page | What it holds |
 |---|---|---|---|
@@ -69,14 +71,18 @@ quote other authors beside this series and enter no reference table.
 | Table 9 | 1308 | 11 | comparison with previous studies: linear dimensions |
 | Table 10 | 1308 | 11 | comparison with previous studies: angular dimensions |
 
-Figures 3 to 8 (PDF pages 8 to 10) draw the same tables against level and print no value the
-tables do not.
+Figures 3 to 7 (PDF pages 8 and 9) plot the tables against level, mostly as left-right
+averages; Figure 4 also draws the elliptical approximation pi x FCW x FCH / 4 of each area,
+which no table prints; Figure 8 (PDF page 10) is a diagram that prints the superior right card
+angles of C5, T6 and L3, and its C5 CAY reads +9.8 where Table 8 and the text of page 1306
+say 9.2, a disagreement step b records.
 
 ## Four things to know before using the numbers
 
-**Dispersion is the STANDARD ERROR, not the SD.** Every table says so in its note: "the upper
-row shows the means, while the lower row shows the standard error of the means", and the facets
-paper's tables say "Means (and Standard Errors of the Mean)" in their titles. The population SD
+**Dispersion is the STANDARD ERROR, not the SD.** Every table of the first three papers says
+so in its note: "the upper row shows the means, while the lower row shows the standard error of
+the means", and Tables 2 to 7 of the facets paper say "Means (and Standard Errors of the Mean)"
+in their titles, while its Table 8 prints averages alone. The population SD
 is `sem * sqrt(12)`. Drawing the standard error as if it were an SD gives an interval 3.5x too
 narrow and makes any cohort look aberrant for a reason that is arithmetic rather than
 anatomical.
@@ -90,11 +96,13 @@ C2, because the dens occupies where that end-plate would be. Those values do not
 are omitted rather than filled. So end-plate width and posterior body height start at C3,
 while canal and pedicle run from C2.
 
-**Both 1991 papers are scans with no text layer, and no paper is read by text extraction.**
-Every value in the CSV was read from rendered page images. Automatic text extraction of the
-thoracic canal table interleaves rows and columns and produces plausible, wrong numbers; do not
-parse it. The facets paper carries an OCR text layer from its scanner, which is not read
-either. The builder that produced the CSV re-checks its own T11 and T12 values against an
+**The first three papers are scans with no text layer, and no paper is read by text
+extraction.** Every value in the CSV was read from rendered page images. Automatic text
+extraction, tried on a document-delivery copy of the thoracic paper that carried a partial text
+layer, interleaved the canal table's rows and columns and produced plausible, wrong numbers;
+that copy is not in this repository, and the committed scans carry no text to extract. The
+facets paper carries a text layer written by the OCR program that scanned it (ABBYY
+FineReader), which is not read either. The builder that produced the CSV re-checks its own T11 and T12 values against an
 earlier independent transcription and fails on any disagreement; all ten match.
 
 ## The CSV

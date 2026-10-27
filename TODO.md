@@ -4,7 +4,7 @@ Written on 27 October 2026, when the old repository moved under [archive/](archi
 
 ## The order of work, in the owner's words of 27 October 2026, 05:48 UTC
 
-1. **Item P below, and nothing else, until the owner says otherwise.** Flesh out Panjabi: extract the rest of the data and tables from all of Panjabi's papers, going past what a SPINEPS segmentation can easily measure, to see how more measurements improve accuracy. On 27 October 2026 at 08:10 UTC the owner widened it from three papers to four, the articular facets paper of 1993 added, and set its five steps, a to e, each a pull request merged once green (item P).
+1. **Item P below, and nothing else, until the owner says otherwise.** Flesh out Panjabi: extract the rest of the data and tables from all three papers, going past what a SPINEPS segmentation can easily measure, to see how more measurements improve accuracy. On 27 October 2026 at 08:10 UTC the owner widened it from three papers to four, the articular facets paper of 1993 added, and set its five steps, a to e, each a pull request merged once green (item P).
 2. **Then gold tier 1, 2 and 3 data** for segmentation-based empirical testing of this Bayesian generator (item 5).
 3. **Everything else after that,** items 1 to 4, 6 and 7, in any order the owner picks.
 
