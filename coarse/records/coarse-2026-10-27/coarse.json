@@ -1,0 +1,3059 @@
+{
+ "claims": [
+  {
+   "below": "T1",
+   "name": "below C7",
+   "use": "the cervicothoracic junction, where a body called cervical or thoracic decides the approach and the hardware; kept as a reference border, with no source checked here for its clinical use"
+  },
+  {
+   "below": "T6",
+   "name": "below T5",
+   "use": "the upper end of the T5 to T12 sagittal curve, on which the Lenke classification of adolescent idiopathic scoliosis grades its sagittal thoracic modifier (under +10, +10 to +40, over +40 degrees) and so the extent of the fusion (Lenke LG et al. J Bone Joint Surg Am 2001;83(8):1169-1181)"
+  },
+  {
+   "above": "T6",
+   "name": "at or above T6",
+   "use": "autonomic dysreflexia follows spinal cord injury at or above T6, so the injured level's side of the T6/T7 border sets the monitoring (Krassioukov A, Warburton DE, Teasell R, Eng JJ. Arch Phys Med Rehabil 2009;90(4):682-695; the level is in the review's background, not its abstract)"
+  },
+  {
+   "below": "L1",
+   "name": "below T12",
+   "use": "thoracic or lumbar: half of the spine surgeons surveyed reported operating at a wrong level at least once in their careers (Mody MG et al. Spine 2008;33(2):194-198), and the count from the lowest rib or the sacrum is the one a transitional column misleads"
+  },
+  {
+   "below": "L3",
+   "name": "below L2",
+   "use": "the interspace for a spinal needle: anaesthetists identified a marked lumbar interspace correctly in only 29 per cent of patients and placed it one space higher than they assumed in 51 per cent (Broadbent CR et al. Anaesthesia 2000;55:1122-1126), and the conus was damaged where spinal anaesthesia was given above the intended space (Reynolds F. Anaesthesia 2001;56:238-247)"
+  },
+  {
+   "interval": [
+    "T11",
+    "T12",
+    "L1",
+    "L2"
+   ],
+   "name": "within the thoracolumbar junction, T11 to L2",
+   "use": "the junction of the rib-stiffened thoracic spine and the mobile lumbar spine; injuries of the thoracolumbar spine are classified and their treatment chosen by the Thoracolumbar Injury Classification and Severity Score (Vaccaro AR et al. Spine 2005;30(20):2325-2333)"
+  }
+ ],
+ "claims_text_corrected": "the claims' reasons and sources were corrected after the run on 2026-10-27; the borders, and so every number, are as run",
+ "columns": 400,
+ "command": [
+  "python",
+  "-m",
+  "coarse",
+  "--outdir",
+  "coarse/records/coarse-2026-10-27"
+ ],
+ "level": 0.99,
+ "results": {
+  "film | all seven": {
+   "1": {
+    "exact rule": {
+     "claims": {
+      "at or above T6": {
+       "decided": 0.6117,
+       "decided_within_two": 0.0325,
+       "errors": 2,
+       "errors_within_two": 0,
+       "n_decided": 5383,
+       "n_decided_within_two": 52,
+       "precision": 0.99963,
+       "precision_se": 0.000262441780058977,
+       "said_false": 0.2914,
+       "said_true": 0.3203
+      },
+      "below C7": {
+       "decided": 0.895,
+       "decided_within_two": 0.5337,
+       "errors": 2,
+       "errors_within_two": 0,
+       "n_decided": 7876,
+       "n_decided_within_two": 854,
+       "precision": 0.99975,
+       "precision_se": 0.00017932218605216737,
+       "said_false": 0.1853,
+       "said_true": 0.7097
+      },
+      "below L2": {
+       "decided": 0.6835,
+       "decided_within_two": 0.04,
+       "errors": 5,
+       "errors_within_two": 4,
+       "n_decided": 6015,
+       "n_decided_within_two": 64,
+       "precision": 0.99917,
+       "precision_se": 0.0003688530360076485,
+       "said_false": 0.6777,
+       "said_true": 0.0058
+      },
+      "below T12": {
+       "decided": 0.6474,
+       "decided_within_two": 0.0444,
+       "errors": 4,
+       "errors_within_two": 4,
+       "n_decided": 5697,
+       "n_decided_within_two": 71,
+       "precision": 0.9993,
+       "precision_se": 0.0003495736051001462,
+       "said_false": 0.6084,
+       "said_true": 0.039
+      },
+      "below T5": {
+       "decided": 0.6167,
+       "decided_within_two": 0.0244,
+       "errors": 2,
+       "errors_within_two": 1,
+       "n_decided": 5427,
+       "n_decided_within_two": 39,
+       "precision": 0.99963,
+       "precision_se": 0.0003681647278401164,
+       "said_false": 0.293,
+       "said_true": 0.3237
+      },
+      "within the thoracolumbar junction, T11 to L2": {
+       "decided": 0.5385,
+       "errors": 2,
+       "n_decided": 4739,
+       "precision": 0.99958,
+       "precision_se": 0.00029753988308083213,
+       "said_false": 0.5384,
+       "said_true": 0.0001
+      }
+     },
+     "n_named": 40,
+     "named_exactly": 0.0045,
+     "named_wrong": 0
+    },
+    "scale-free exact rule": {
+     "claims": {
+      "at or above T6": {
+       "decided": 0.4016,
+       "decided_within_two": 0.0094,
+       "errors": 3,
+       "errors_within_two": 1,
+       "n_decided": 3534,
+       "n_decided_within_two": 15,
+       "precision": 0.99915,
+       "precision_se": 0.000488464436291771,
+       "said_false": 0.1192,
+       "said_true": 0.2824
+      },
+      "below C7": {
+       "decided": 0.8584,
+       "decided_within_two": 0.4637,
+       "errors": 4,
+       "errors_within_two": 0,
+       "n_decided": 7554,
+       "n_decided_within_two": 742,
+       "precision": 0.99947,
+       "precision_se": 0.0003235769778705904,
+       "said_false": 0.1784,
+       "said_true": 0.68
+      },
+      "below L2": {
+       "decided": 0.5942,
+       "decided_within_two": 0.0419,
+       "errors": 3,
+       "errors_within_two": 2,
+       "n_decided": 5229,
+       "n_decided_within_two": 67,
+       "precision": 0.99943,
+       "precision_se": 0.0003301952572197709,
+       "said_false": 0.5914,
+       "said_true": 0.0028
+      },
+      "below T12": {
+       "decided": 0.4607,
+       "decided_within_two": 0.0125,
+       "errors": 5,
+       "errors_within_two": 4,
+       "n_decided": 4054,
+       "n_decided_within_two": 20,
+       "precision": 0.99877,
+       "precision_se": 0.0005479259798757012,
+       "said_false": 0.4452,
+       "said_true": 0.0155
+      },
+      "below T5": {
+       "decided": 0.4142,
+       "decided_within_two": 0.0125,
+       "errors": 3,
+       "errors_within_two": 2,
+       "n_decided": 3645,
+       "n_decided_within_two": 20,
+       "precision": 0.99918,
+       "precision_se": 0.0004730666111991442,
+       "said_false": 0.2702,
+       "said_true": 0.144
+      },
+      "within the thoracolumbar junction, T11 to L2": {
+       "decided": 0.4201,
+       "errors": 5,
+       "n_decided": 3697,
+       "precision": 0.99865,
+       "precision_se": 0.0005998469333417026,
+       "said_false": 0.4201,
+       "said_true": 0.0
+      }
+     },
+     "n_named": 18,
+     "named_exactly": 0.002,
+     "named_wrong": 0
+    }
+   },
+   "3": {
+    "exact rule": {
+     "claims": {
+      "at or above T6": {
+       "decided": 0.7192,
+       "decided_within_two": 0.0975,
+       "errors": 5,
+       "errors_within_two": 4,
+       "n_decided": 5754,
+       "n_decided_within_two": 156,
+       "precision": 0.99913,
+       "precision_se": 0.00045799653436158174,
+       "said_false": 0.3483,
+       "said_true": 0.371
+      },
+      "below C7": {
+       "decided": 0.9858,
+       "decided_within_two": 0.9313,
+       "errors": 0,
+       "errors_within_two": 0,
+       "n_decided": 7886,
+       "n_decided_within_two": 1490,
+       "precision": 1.0,
+       "precision_se": 0.0,
+       "said_false": 0.1923,
+       "said_true": 0.7935
+      },
+      "below L2": {
+       "decided": 0.8183,
+       "decided_within_two": 0.2031,
+       "errors": 3,
+       "errors_within_two": 3,
+       "n_decided": 6546,
+       "n_decided_within_two": 325,
+       "precision": 0.99954,
+       "precision_se": 0.00026381957523946494,
+       "said_false": 0.8011,
+       "said_true": 0.0171
+      },
+      "below T12": {
+       "decided": 0.8245,
+       "decided_within_two": 0.4219,
+       "errors": 2,
+       "errors_within_two": 2,
+       "n_decided": 6596,
+       "n_decided_within_two": 675,
+       "precision": 0.9997,
+       "precision_se": 0.0002141069983943283,
+       "said_false": 0.721,
+       "said_true": 0.1035
+      },
+      "below T5": {
+       "decided": 0.734,
+       "decided_within_two": 0.1237,
+       "errors": 5,
+       "errors_within_two": 5,
+       "n_decided": 5872,
+       "n_decided_within_two": 198,
+       "precision": 0.99915,
+       "precision_se": 0.00037802311426925515,
+       "said_false": 0.3436,
+       "said_true": 0.3904
+      },
+      "within the thoracolumbar junction, T11 to L2": {
+       "decided": 0.6719,
+       "errors": 3,
+       "n_decided": 5375,
+       "precision": 0.99944,
+       "precision_se": 0.00032146713845527836,
+       "said_false": 0.6404,
+       "said_true": 0.0315
+      }
+     },
+     "n_named": 1396,
+     "named_exactly": 0.1745,
+     "named_wrong": 3
+    },
+    "scale-free exact rule": {
+     "claims": {
+      "at or above T6": {
+       "decided": 0.6481,
+       "decided_within_two": 0.0669,
+       "errors": 3,
+       "errors_within_two": 2,
+       "n_decided": 5185,
+       "n_decided_within_two": 107,
+       "precision": 0.99942,
+       "precision_se": 0.0003329070126525386,
+       "said_false": 0.2908,
+       "said_true": 0.3574
+      },
+      "below C7": {
+       "decided": 0.9836,
+       "decided_within_two": 0.9206,
+       "errors": 0,
+       "errors_within_two": 0,
+       "n_decided": 7869,
+       "n_decided_within_two": 1473,
+       "precision": 1.0,
+       "precision_se": 0.0,
+       "said_false": 0.1918,
+       "said_true": 0.7919
+      },
+      "below L2": {
+       "decided": 0.8054,
+       "decided_within_two": 0.1837,
+       "errors": 2,
+       "errors_within_two": 2,
+       "n_decided": 6443,
+       "n_decided_within_two": 294,
+       "precision": 0.99969,
+       "precision_se": 0.00021919764413727962,
+       "said_false": 0.7914,
+       "said_true": 0.014
+      },
+      "below T12": {
+       "decided": 0.764,
+       "decided_within_two": 0.3269,
+       "errors": 2,
+       "errors_within_two": 2,
+       "n_decided": 6112,
+       "n_decided_within_two": 523,
+       "precision": 0.99967,
+       "precision_se": 0.00023097037036935687,
+       "said_false": 0.6879,
+       "said_true": 0.0761
+      },
+      "below T5": {
+       "decided": 0.6703,
+       "decided_within_two": 0.08,
+       "errors": 4,
+       "errors_within_two": 4,
+       "n_decided": 5362,
+       "n_decided_within_two": 128,
+       "precision": 0.99925,
+       "precision_se": 0.00037061931906079795,
+       "said_false": 0.3341,
+       "said_true": 0.3361
+      },
+      "within the thoracolumbar junction, T11 to L2": {
+       "decided": 0.6138,
+       "errors": 2,
+       "n_decided": 4910,
+       "precision": 0.99959,
+       "precision_se": 0.00028741944688155397,
+       "said_false": 0.6008,
+       "said_true": 0.013
+      }
+     },
+     "n_named": 1229,
+     "named_exactly": 0.1536,
+     "named_wrong": 3
+    }
+   },
+   "5": {
+    "exact rule": {
+     "claims": {
+      "at or above T6": {
+       "decided": 0.8018,
+       "decided_within_two": 0.2687,
+       "errors": 4,
+       "errors_within_two": 4,
+       "n_decided": 5773,
+       "n_decided_within_two": 430,
+       "precision": 0.99931,
+       "precision_se": 0.00034489195624062266,
+       "said_false": 0.3983,
+       "said_true": 0.4035
+      },
+      "below C7": {
+       "decided": 0.9956,
+       "decided_within_two": 0.98,
+       "errors": 0,
+       "errors_within_two": 0,
+       "n_decided": 7168,
+       "n_decided_within_two": 1568,
+       "precision": 1.0,
+       "precision_se": 0.0,
+       "said_false": 0.1639,
+       "said_true": 0.8317
+      },
+      "below L2": {
+       "decided": 0.9196,
+       "decided_within_two": 0.5375,
+       "errors": 1,
+       "errors_within_two": 1,
+       "n_decided": 6621,
+       "n_decided_within_two": 645,
+       "precision": 0.99985,
+       "precision_se": 0.00015100210090957417,
+       "said_false": 0.8993,
+       "said_true": 0.0203
+      },
+      "below T12": {
+       "decided": 0.9232,
+       "decided_within_two": 0.7163,
+       "errors": 0,
+       "errors_within_two": 0,
+       "n_decided": 6647,
+       "n_decided_within_two": 1146,
+       "precision": 1.0,
+       "precision_se": 0.0,
+       "said_false": 0.7982,
+       "said_true": 0.125
+      },
+      "below T5": {
+       "decided": 0.8297,
+       "decided_within_two": 0.3613,
+       "errors": 2,
+       "errors_within_two": 2,
+       "n_decided": 5974,
+       "n_decided_within_two": 578,
+       "precision": 0.99967,
+       "precision_se": 0.00023627048724619441,
+       "said_false": 0.3731,
+       "said_true": 0.4567
+      },
+      "within the thoracolumbar junction, T11 to L2": {
+       "decided": 0.8169,
+       "errors": 3,
+       "n_decided": 5882,
+       "precision": 0.99949,
+       "precision_se": 0.00037990532892298763,
+       "said_false": 0.6933,
+       "said_true": 0.1236
+      }
+     },
+     "n_named": 2710,
+     "named_exactly": 0.3764,
+     "named_wrong": 5
+    },
+    "scale-free exact rule": {
+     "claims": {
+      "at or above T6": {
+       "decided": 0.7761,
+       "decided_within_two": 0.2244,
+       "errors": 2,
+       "errors_within_two": 2,
+       "n_decided": 5588,
+       "n_decided_within_two": 359,
+       "precision": 0.99964,
+       "precision_se": 0.00025272108107194844,
+       "said_false": 0.3786,
+       "said_true": 0.3975
+      },
+      "below C7": {
+       "decided": 0.9946,
+       "decided_within_two": 0.9756,
+       "errors": 0,
+       "errors_within_two": 0,
+       "n_decided": 7161,
+       "n_decided_within_two": 1561,
+       "precision": 1.0,
+       "precision_se": 0.0,
+       "said_false": 0.1633,
+       "said_true": 0.8313
+      },
+      "below L2": {
+       "decided": 0.9124,
+       "decided_within_two": 0.5025,
+       "errors": 1,
+       "errors_within_two": 1,
+       "n_decided": 6569,
+       "n_decided_within_two": 603,
+       "precision": 0.99985,
+       "precision_se": 0.000152194186831236,
+       "said_false": 0.8944,
+       "said_true": 0.0179
+      },
+      "below T12": {
+       "decided": 0.9062,
+       "decided_within_two": 0.6694,
+       "errors": 0,
+       "errors_within_two": 0,
+       "n_decided": 6525,
+       "n_decided_within_two": 1071,
+       "precision": 1.0,
+       "precision_se": 0.0,
+       "said_false": 0.7894,
+       "said_true": 0.1168
+      },
+      "below T5": {
+       "decided": 0.8129,
+       "decided_within_two": 0.3369,
+       "errors": 3,
+       "errors_within_two": 3,
+       "n_decided": 5853,
+       "n_decided_within_two": 539,
+       "precision": 0.99949,
+       "precision_se": 0.00029482975401132823,
+       "said_false": 0.3713,
+       "said_true": 0.4417
+      },
+      "within the thoracolumbar junction, T11 to L2": {
+       "decided": 0.7738,
+       "errors": 1,
+       "n_decided": 5571,
+       "precision": 0.99982,
+       "precision_se": 0.00017956719863285165,
+       "said_false": 0.6732,
+       "said_true": 0.1006
+      }
+     },
+     "n_named": 2504,
+     "named_exactly": 0.3478,
+     "named_wrong": 3
+    }
+   },
+   "9": {
+    "exact rule": {
+     "claims": {
+      "at or above T6": {
+       "decided": 0.9632,
+       "decided_within_two": 0.8719,
+       "errors": 0,
+       "errors_within_two": 0,
+       "n_decided": 5394,
+       "n_decided_within_two": 1395,
+       "precision": 1.0,
+       "precision_se": 0.0,
+       "said_false": 0.4821,
+       "said_true": 0.4811
+      },
+      "below C7": {
+       "decided": 0.9982,
+       "decided_within_two": 0.9917,
+       "errors": 0,
+       "errors_within_two": 0,
+       "n_decided": 5590,
+       "n_decided_within_two": 1190,
+       "precision": 1.0,
+       "precision_se": 0.0,
+       "said_false": 0.0704,
+       "said_true": 0.9279
+      },
+      "below L2": {
+       "settled_by_field_size": true
+      },
+      "below T12": {
+       "decided": 0.9775,
+       "decided_within_two": 0.9,
+       "errors": 0,
+       "errors_within_two": 0,
+       "n_decided": 5474,
+       "n_decided_within_two": 1080,
+       "precision": 1.0,
+       "precision_se": 0.0,
+       "said_false": 0.9179,
+       "said_true": 0.0596
+      },
+      "below T5": {
+       "decided": 0.9723,
+       "decided_within_two": 0.9038,
+       "errors": 1,
+       "errors_within_two": 1,
+       "n_decided": 5445,
+       "n_decided_within_two": 1446,
+       "precision": 0.99982,
+       "precision_se": 0.00018364199520283525,
+       "said_false": 0.4141,
+       "said_true": 0.5582
+      },
+      "within the thoracolumbar junction, T11 to L2": {
+       "decided": 0.9623,
+       "errors": 0,
+       "n_decided": 5389,
+       "precision": 1.0,
+       "precision_se": 0.0,
+       "said_false": 0.7673,
+       "said_true": 0.195
+      }
+     },
+     "n_named": 4138,
+     "named_exactly": 0.7389,
+     "named_wrong": 3
+    },
+    "scale-free exact rule": {
+     "claims": {
+      "at or above T6": {
+       "decided": 0.9595,
+       "decided_within_two": 0.8594,
+       "errors": 0,
+       "errors_within_two": 0,
+       "n_decided": 5373,
+       "n_decided_within_two": 1375,
+       "precision": 1.0,
+       "precision_se": 0.0,
+       "said_false": 0.4789,
+       "said_true": 0.4805
+      },
+      "below C7": {
+       "decided": 0.998,
+       "decided_within_two": 0.9908,
+       "errors": 0,
+       "errors_within_two": 0,
+       "n_decided": 5589,
+       "n_decided_within_two": 1189,
+       "precision": 1.0,
+       "precision_se": 0.0,
+       "said_false": 0.0704,
+       "said_true": 0.9277
+      },
+      "below L2": {
+       "settled_by_field_size": true
+      },
+      "below T12": {
+       "decided": 0.9761,
+       "decided_within_two": 0.8942,
+       "errors": 0,
+       "errors_within_two": 0,
+       "n_decided": 5466,
+       "n_decided_within_two": 1073,
+       "precision": 1.0,
+       "precision_se": 0.0,
+       "said_false": 0.9168,
+       "said_true": 0.0593
+      },
+      "below T5": {
+       "decided": 0.9688,
+       "decided_within_two": 0.8912,
+       "errors": 1,
+       "errors_within_two": 1,
+       "n_decided": 5425,
+       "n_decided_within_two": 1426,
+       "precision": 0.99982,
+       "precision_se": 0.00018431730344694423,
+       "said_false": 0.4132,
+       "said_true": 0.5555
+      },
+      "within the thoracolumbar junction, T11 to L2": {
+       "decided": 0.9554,
+       "errors": 0,
+       "n_decided": 5350,
+       "precision": 1.0,
+       "precision_se": 0.0,
+       "said_false": 0.7641,
+       "said_true": 0.1913
+      }
+     },
+     "n_named": 3988,
+     "named_exactly": 0.7121,
+     "named_wrong": 4
+    }
+   }
+  },
+  "film, magnification wrong | all seven": {
+   "1": {
+    "exact rule": {
+     "claims": {
+      "at or above T6": {
+       "decided": 0.6636,
+       "decided_within_two": 0.1,
+       "errors": 22,
+       "errors_within_two": 19,
+       "n_decided": 5840,
+       "n_decided_within_two": 160,
+       "precision": 0.99623,
+       "precision_se": 0.0008489938731077242,
+       "said_false": 0.3837,
+       "said_true": 0.2799
+      },
+      "below C7": {
+       "decided": 0.9149,
+       "decided_within_two": 0.635,
+       "errors": 8,
+       "errors_within_two": 3,
+       "n_decided": 8051,
+       "n_decided_within_two": 1016,
+       "precision": 0.99901,
+       "precision_se": 0.0003901630320579286,
+       "said_false": 0.1735,
+       "said_true": 0.7414
+      },
+      "below L2": {
+       "decided": 0.6103,
+       "decided_within_two": 0.0437,
+       "errors": 1,
+       "errors_within_two": 1,
+       "n_decided": 5371,
+       "n_decided_within_two": 70,
+       "precision": 0.99981,
+       "precision_se": 0.00018623866019827254,
+       "said_false": 0.5949,
+       "said_true": 0.0155
+      },
+      "below T12": {
+       "decided": 0.5522,
+       "decided_within_two": 0.0475,
+       "errors": 3,
+       "errors_within_two": 3,
+       "n_decided": 4859,
+       "n_decided_within_two": 76,
+       "precision": 0.99938,
+       "precision_se": 0.0003557798296854821,
+       "said_false": 0.4745,
+       "said_true": 0.0776
+      },
+      "below T5": {
+       "decided": 0.6887,
+       "decided_within_two": 0.1087,
+       "errors": 20,
+       "errors_within_two": 18,
+       "n_decided": 6061,
+       "n_decided_within_two": 174,
+       "precision": 0.9967,
+       "precision_se": 0.0007526342295412978,
+       "said_false": 0.2677,
+       "said_true": 0.421
+      },
+      "within the thoracolumbar junction, T11 to L2": {
+       "decided": 0.4434,
+       "errors": 1,
+       "n_decided": 3902,
+       "precision": 0.99974,
+       "precision_se": 0.00025627476471869415,
+       "said_false": 0.4432,
+       "said_true": 0.0002
+      }
+     },
+     "n_named": 58,
+     "named_exactly": 0.0066,
+     "named_wrong": 0
+    },
+    "scale-free exact rule": {
+     "claims": {
+      "at or above T6": {
+       "decided": 0.4016,
+       "decided_within_two": 0.0094,
+       "errors": 3,
+       "errors_within_two": 1,
+       "n_decided": 3534,
+       "n_decided_within_two": 15,
+       "precision": 0.99915,
+       "precision_se": 0.000488464436291771,
+       "said_false": 0.1192,
+       "said_true": 0.2824
+      },
+      "below C7": {
+       "decided": 0.8584,
+       "decided_within_two": 0.4637,
+       "errors": 4,
+       "errors_within_two": 0,
+       "n_decided": 7554,
+       "n_decided_within_two": 742,
+       "precision": 0.99947,
+       "precision_se": 0.0003235769778705904,
+       "said_false": 0.1784,
+       "said_true": 0.68
+      },
+      "below L2": {
+       "decided": 0.5942,
+       "decided_within_two": 0.0419,
+       "errors": 3,
+       "errors_within_two": 2,
+       "n_decided": 5229,
+       "n_decided_within_two": 67,
+       "precision": 0.99943,
+       "precision_se": 0.0003301952572197709,
+       "said_false": 0.5914,
+       "said_true": 0.0028
+      },
+      "below T12": {
+       "decided": 0.4607,
+       "decided_within_two": 0.0125,
+       "errors": 5,
+       "errors_within_two": 4,
+       "n_decided": 4054,
+       "n_decided_within_two": 20,
+       "precision": 0.99877,
+       "precision_se": 0.0005479259798757012,
+       "said_false": 0.4452,
+       "said_true": 0.0155
+      },
+      "below T5": {
+       "decided": 0.4142,
+       "decided_within_two": 0.0125,
+       "errors": 3,
+       "errors_within_two": 2,
+       "n_decided": 3645,
+       "n_decided_within_two": 20,
+       "precision": 0.99918,
+       "precision_se": 0.0004730666111991442,
+       "said_false": 0.2702,
+       "said_true": 0.144
+      },
+      "within the thoracolumbar junction, T11 to L2": {
+       "decided": 0.4201,
+       "errors": 5,
+       "n_decided": 3697,
+       "precision": 0.99865,
+       "precision_se": 0.0005998469333417026,
+       "said_false": 0.4201,
+       "said_true": 0.0
+      }
+     },
+     "n_named": 18,
+     "named_exactly": 0.002,
+     "named_wrong": 0
+    }
+   },
+   "3": {
+    "exact rule": {
+     "claims": {
+      "at or above T6": {
+       "decided": 0.7438,
+       "decided_within_two": 0.1519,
+       "errors": 13,
+       "errors_within_two": 12,
+       "n_decided": 5950,
+       "n_decided_within_two": 243,
+       "precision": 0.99782,
+       "precision_se": 0.0005947241476761921,
+       "said_false": 0.3969,
+       "said_true": 0.3469
+      },
+      "below C7": {
+       "decided": 0.9889,
+       "decided_within_two": 0.9469,
+       "errors": 0,
+       "errors_within_two": 0,
+       "n_decided": 7911,
+       "n_decided_within_two": 1515,
+       "precision": 1.0,
+       "precision_se": 0.0,
+       "said_false": 0.1925,
+       "said_true": 0.7964
+      },
+      "below L2": {
+       "decided": 0.8079,
+       "decided_within_two": 0.2288,
+       "errors": 2,
+       "errors_within_two": 2,
+       "n_decided": 6463,
+       "n_decided_within_two": 366,
+       "precision": 0.99969,
+       "precision_se": 0.00021852292854549935,
+       "said_false": 0.782,
+       "said_true": 0.0259
+      },
+      "below T12": {
+       "decided": 0.8124,
+       "decided_within_two": 0.4838,
+       "errors": 7,
+       "errors_within_two": 6,
+       "n_decided": 6499,
+       "n_decided_within_two": 774,
+       "precision": 0.99892,
+       "precision_se": 0.0004048162118669015,
+       "said_false": 0.6684,
+       "said_true": 0.144
+      },
+      "below T5": {
+       "decided": 0.7756,
+       "decided_within_two": 0.1756,
+       "errors": 17,
+       "errors_within_two": 17,
+       "n_decided": 6205,
+       "n_decided_within_two": 281,
+       "precision": 0.99726,
+       "precision_se": 0.000723250307662544,
+       "said_false": 0.3274,
+       "said_true": 0.4482
+      },
+      "within the thoracolumbar junction, T11 to L2": {
+       "decided": 0.6524,
+       "errors": 5,
+       "n_decided": 5219,
+       "precision": 0.99904,
+       "precision_se": 0.00042629640901837294,
+       "said_false": 0.5985,
+       "said_true": 0.0539
+      }
+     },
+     "n_named": 1572,
+     "named_exactly": 0.1965,
+     "named_wrong": 6
+    },
+    "scale-free exact rule": {
+     "claims": {
+      "at or above T6": {
+       "decided": 0.6481,
+       "decided_within_two": 0.0669,
+       "errors": 3,
+       "errors_within_two": 2,
+       "n_decided": 5185,
+       "n_decided_within_two": 107,
+       "precision": 0.99942,
+       "precision_se": 0.0003329070126525386,
+       "said_false": 0.2908,
+       "said_true": 0.3574
+      },
+      "below C7": {
+       "decided": 0.9836,
+       "decided_within_two": 0.9206,
+       "errors": 0,
+       "errors_within_two": 0,
+       "n_decided": 7869,
+       "n_decided_within_two": 1473,
+       "precision": 1.0,
+       "precision_se": 0.0,
+       "said_false": 0.1918,
+       "said_true": 0.7919
+      },
+      "below L2": {
+       "decided": 0.8054,
+       "decided_within_two": 0.1837,
+       "errors": 2,
+       "errors_within_two": 2,
+       "n_decided": 6443,
+       "n_decided_within_two": 294,
+       "precision": 0.99969,
+       "precision_se": 0.00021919764413727962,
+       "said_false": 0.7914,
+       "said_true": 0.014
+      },
+      "below T12": {
+       "decided": 0.764,
+       "decided_within_two": 0.3269,
+       "errors": 2,
+       "errors_within_two": 2,
+       "n_decided": 6112,
+       "n_decided_within_two": 523,
+       "precision": 0.99967,
+       "precision_se": 0.00023097037036935687,
+       "said_false": 0.6879,
+       "said_true": 0.0761
+      },
+      "below T5": {
+       "decided": 0.6703,
+       "decided_within_two": 0.08,
+       "errors": 4,
+       "errors_within_two": 4,
+       "n_decided": 5362,
+       "n_decided_within_two": 128,
+       "precision": 0.99925,
+       "precision_se": 0.00037061931906079795,
+       "said_false": 0.3341,
+       "said_true": 0.3361
+      },
+      "within the thoracolumbar junction, T11 to L2": {
+       "decided": 0.6138,
+       "errors": 2,
+       "n_decided": 4910,
+       "precision": 0.99959,
+       "precision_se": 0.00028741944688155397,
+       "said_false": 0.6008,
+       "said_true": 0.013
+      }
+     },
+     "n_named": 1229,
+     "named_exactly": 0.1536,
+     "named_wrong": 3
+    }
+   },
+   "5": {
+    "exact rule": {
+     "claims": {
+      "at or above T6": {
+       "decided": 0.8185,
+       "decided_within_two": 0.3094,
+       "errors": 7,
+       "errors_within_two": 7,
+       "n_decided": 5893,
+       "n_decided_within_two": 495,
+       "precision": 0.99881,
+       "precision_se": 0.0004451502884976876,
+       "said_false": 0.4293,
+       "said_true": 0.3892
+      },
+      "below C7": {
+       "decided": 0.9961,
+       "decided_within_two": 0.9825,
+       "errors": 1,
+       "errors_within_two": 1,
+       "n_decided": 7172,
+       "n_decided_within_two": 1572,
+       "precision": 0.99986,
+       "precision_se": 0.0001394298002706428,
+       "said_false": 0.1639,
+       "said_true": 0.8322
+      },
+      "below L2": {
+       "decided": 0.9194,
+       "decided_within_two": 0.5508,
+       "errors": 1,
+       "errors_within_two": 1,
+       "n_decided": 6620,
+       "n_decided_within_two": 661,
+       "precision": 0.99985,
+       "precision_se": 0.00015102492509351512,
+       "said_false": 0.8935,
+       "said_true": 0.026
+      },
+      "below T12": {
+       "decided": 0.9249,
+       "decided_within_two": 0.7625,
+       "errors": 2,
+       "errors_within_two": 2,
+       "n_decided": 6659,
+       "n_decided_within_two": 1220,
+       "precision": 0.9997,
+       "precision_se": 0.0002122186953699822,
+       "said_false": 0.7825,
+       "said_true": 0.1424
+      },
+      "below T5": {
+       "decided": 0.8503,
+       "decided_within_two": 0.4069,
+       "errors": 6,
+       "errors_within_two": 6,
+       "n_decided": 6122,
+       "n_decided_within_two": 651,
+       "precision": 0.99902,
+       "precision_se": 0.0003968755322032129,
+       "said_false": 0.3663,
+       "said_true": 0.484
+      },
+      "within the thoracolumbar junction, T11 to L2": {
+       "decided": 0.8163,
+       "errors": 6,
+       "n_decided": 5877,
+       "precision": 0.99898,
+       "precision_se": 0.0004796388481584274,
+       "said_false": 0.6708,
+       "said_true": 0.1454
+      }
+     },
+     "n_named": 2933,
+     "named_exactly": 0.4074,
+     "named_wrong": 11
+    },
+    "scale-free exact rule": {
+     "claims": {
+      "at or above T6": {
+       "decided": 0.7761,
+       "decided_within_two": 0.2244,
+       "errors": 2,
+       "errors_within_two": 2,
+       "n_decided": 5588,
+       "n_decided_within_two": 359,
+       "precision": 0.99964,
+       "precision_se": 0.00025272108107194844,
+       "said_false": 0.3786,
+       "said_true": 0.3975
+      },
+      "below C7": {
+       "decided": 0.9946,
+       "decided_within_two": 0.9756,
+       "errors": 0,
+       "errors_within_two": 0,
+       "n_decided": 7161,
+       "n_decided_within_two": 1561,
+       "precision": 1.0,
+       "precision_se": 0.0,
+       "said_false": 0.1633,
+       "said_true": 0.8313
+      },
+      "below L2": {
+       "decided": 0.9124,
+       "decided_within_two": 0.5025,
+       "errors": 1,
+       "errors_within_two": 1,
+       "n_decided": 6569,
+       "n_decided_within_two": 603,
+       "precision": 0.99985,
+       "precision_se": 0.000152194186831236,
+       "said_false": 0.8944,
+       "said_true": 0.0179
+      },
+      "below T12": {
+       "decided": 0.9062,
+       "decided_within_two": 0.6694,
+       "errors": 0,
+       "errors_within_two": 0,
+       "n_decided": 6525,
+       "n_decided_within_two": 1071,
+       "precision": 1.0,
+       "precision_se": 0.0,
+       "said_false": 0.7894,
+       "said_true": 0.1168
+      },
+      "below T5": {
+       "decided": 0.8129,
+       "decided_within_two": 0.3369,
+       "errors": 3,
+       "errors_within_two": 3,
+       "n_decided": 5853,
+       "n_decided_within_two": 539,
+       "precision": 0.99949,
+       "precision_se": 0.00029482975401132823,
+       "said_false": 0.3713,
+       "said_true": 0.4417
+      },
+      "within the thoracolumbar junction, T11 to L2": {
+       "decided": 0.7738,
+       "errors": 1,
+       "n_decided": 5571,
+       "precision": 0.99982,
+       "precision_se": 0.00017956719863285165,
+       "said_false": 0.6732,
+       "said_true": 0.1006
+      }
+     },
+     "n_named": 2504,
+     "named_exactly": 0.3478,
+     "named_wrong": 3
+    }
+   },
+   "9": {
+    "exact rule": {
+     "claims": {
+      "at or above T6": {
+       "decided": 0.9675,
+       "decided_within_two": 0.8862,
+       "errors": 0,
+       "errors_within_two": 0,
+       "n_decided": 5418,
+       "n_decided_within_two": 1418,
+       "precision": 1.0,
+       "precision_se": 0.0,
+       "said_false": 0.4871,
+       "said_true": 0.4804
+      },
+      "below C7": {
+       "decided": 0.9984,
+       "decided_within_two": 0.9925,
+       "errors": 1,
+       "errors_within_two": 1,
+       "n_decided": 5591,
+       "n_decided_within_two": 1191,
+       "precision": 0.99982,
+       "precision_se": 0.00017885818398362925,
+       "said_false": 0.0702,
+       "said_true": 0.9282
+      },
+      "below L2": {
+       "settled_by_field_size": true
+      },
+      "below T12": {
+       "decided": 0.9793,
+       "decided_within_two": 0.9092,
+       "errors": 0,
+       "errors_within_two": 0,
+       "n_decided": 5484,
+       "n_decided_within_two": 1091,
+       "precision": 1.0,
+       "precision_se": 0.0,
+       "said_false": 0.9164,
+       "said_true": 0.0629
+      },
+      "below T5": {
+       "decided": 0.9759,
+       "decided_within_two": 0.9156,
+       "errors": 2,
+       "errors_within_two": 2,
+       "n_decided": 5465,
+       "n_decided_within_two": 1465,
+       "precision": 0.99963,
+       "precision_se": 0.00025842088063473813,
+       "said_false": 0.4141,
+       "said_true": 0.5618
+      },
+      "within the thoracolumbar junction, T11 to L2": {
+       "decided": 0.9666,
+       "errors": 0,
+       "n_decided": 5413,
+       "precision": 1.0,
+       "precision_se": 0.0,
+       "said_false": 0.763,
+       "said_true": 0.2036
+      }
+     },
+     "n_named": 4281,
+     "named_exactly": 0.7645,
+     "named_wrong": 10
+    },
+    "scale-free exact rule": {
+     "claims": {
+      "at or above T6": {
+       "decided": 0.9595,
+       "decided_within_two": 0.8594,
+       "errors": 0,
+       "errors_within_two": 0,
+       "n_decided": 5373,
+       "n_decided_within_two": 1375,
+       "precision": 1.0,
+       "precision_se": 0.0,
+       "said_false": 0.4789,
+       "said_true": 0.4805
+      },
+      "below C7": {
+       "decided": 0.998,
+       "decided_within_two": 0.9908,
+       "errors": 0,
+       "errors_within_two": 0,
+       "n_decided": 5589,
+       "n_decided_within_two": 1189,
+       "precision": 1.0,
+       "precision_se": 0.0,
+       "said_false": 0.0704,
+       "said_true": 0.9277
+      },
+      "below L2": {
+       "settled_by_field_size": true
+      },
+      "below T12": {
+       "decided": 0.9761,
+       "decided_within_two": 0.8942,
+       "errors": 0,
+       "errors_within_two": 0,
+       "n_decided": 5466,
+       "n_decided_within_two": 1073,
+       "precision": 1.0,
+       "precision_se": 0.0,
+       "said_false": 0.9168,
+       "said_true": 0.0593
+      },
+      "below T5": {
+       "decided": 0.9688,
+       "decided_within_two": 0.8912,
+       "errors": 1,
+       "errors_within_two": 1,
+       "n_decided": 5425,
+       "n_decided_within_two": 1426,
+       "precision": 0.99982,
+       "precision_se": 0.00018431730344694423,
+       "said_false": 0.4132,
+       "said_true": 0.5555
+      },
+      "within the thoracolumbar junction, T11 to L2": {
+       "decided": 0.9554,
+       "errors": 0,
+       "n_decided": 5350,
+       "precision": 1.0,
+       "precision_se": 0.0,
+       "said_false": 0.7641,
+       "said_true": 0.1913
+      }
+     },
+     "n_named": 3988,
+     "named_exactly": 0.7121,
+     "named_wrong": 4
+    }
+   }
+  },
+  "nominal | AP film (EPWu, EPWl, SCW)": {
+   "1": {
+    "exact rule": {
+     "claims": {
+      "at or above T6": {
+       "decided": 0.5394,
+       "decided_within_two": 0.0187,
+       "errors": 1,
+       "errors_within_two": 1,
+       "n_decided": 4747,
+       "n_decided_within_two": 30,
+       "precision": 0.99979,
+       "precision_se": 0.00021061128038535234,
+       "said_false": 0.3114,
+       "said_true": 0.2281
+      },
+      "below C7": {
+       "decided": 0.8034,
+       "decided_within_two": 0.4181,
+       "errors": 5,
+       "errors_within_two": 5,
+       "n_decided": 7070,
+       "n_decided_within_two": 669,
+       "precision": 0.99929,
+       "precision_se": 0.0003144044092482819,
+       "said_false": 0.1651,
+       "said_true": 0.6383
+      },
+      "below L2": {
+       "decided": 0.6918,
+       "decided_within_two": 0.0094,
+       "errors": 1,
+       "errors_within_two": 1,
+       "n_decided": 6088,
+       "n_decided_within_two": 15,
+       "precision": 0.99984,
+       "precision_se": 0.00016418335958625436,
+       "said_false": 0.691,
+       "said_true": 0.0008
+      },
+      "below T12": {
+       "decided": 0.6841,
+       "decided_within_two": 0.0669,
+       "errors": 3,
+       "errors_within_two": 3,
+       "n_decided": 6020,
+       "n_decided_within_two": 107,
+       "precision": 0.9995,
+       "precision_se": 0.000286910653389837,
+       "said_false": 0.6445,
+       "said_true": 0.0395
+      },
+      "below T5": {
+       "decided": 0.5385,
+       "decided_within_two": 0.0081,
+       "errors": 2,
+       "errors_within_two": 2,
+       "n_decided": 4739,
+       "n_decided_within_two": 13,
+       "precision": 0.99958,
+       "precision_se": 0.0002975919713936878,
+       "said_false": 0.2085,
+       "said_true": 0.33
+      },
+      "within the thoracolumbar junction, T11 to L2": {
+       "decided": 0.5484,
+       "errors": 1,
+       "n_decided": 4826,
+       "precision": 0.99979,
+       "precision_se": 0.00020704754682920399,
+       "said_false": 0.5484,
+       "said_true": 0.0
+      }
+     },
+     "n_named": 0,
+     "named_exactly": 0.0,
+     "named_wrong": 0
+    },
+    "scale-free exact rule": {
+     "claims": {
+      "at or above T6": {
+       "decided": 0.2075,
+       "decided_within_two": 0.0013,
+       "errors": 1,
+       "errors_within_two": 0,
+       "n_decided": 1826,
+       "n_decided_within_two": 2,
+       "precision": 0.99945,
+       "precision_se": 0.0005472367591758366,
+       "said_false": 0.0005,
+       "said_true": 0.207
+      },
+      "below C7": {
+       "decided": 0.764,
+       "decided_within_two": 0.3656,
+       "errors": 8,
+       "errors_within_two": 4,
+       "n_decided": 6723,
+       "n_decided_within_two": 585,
+       "precision": 0.99881,
+       "precision_se": 0.0004168233443444121,
+       "said_false": 0.1527,
+       "said_true": 0.6112
+      },
+      "below L2": {
+       "decided": 0.3308,
+       "decided_within_two": 0.0025,
+       "errors": 4,
+       "errors_within_two": 0,
+       "n_decided": 2911,
+       "n_decided_within_two": 4,
+       "precision": 0.99863,
+       "precision_se": 0.0006827534237729586,
+       "said_false": 0.3308,
+       "said_true": 0.0
+      },
+      "below T12": {
+       "decided": 0.2882,
+       "decided_within_two": 0.0063,
+       "errors": 1,
+       "errors_within_two": 0,
+       "n_decided": 2536,
+       "n_decided_within_two": 10,
+       "precision": 0.99961,
+       "precision_se": 0.00039408284225997837,
+       "said_false": 0.2882,
+       "said_true": 0.0
+      },
+      "below T5": {
+       "decided": 0.2028,
+       "decided_within_two": 0.0019,
+       "errors": 0,
+       "errors_within_two": 0,
+       "n_decided": 1785,
+       "n_decided_within_two": 3,
+       "precision": 1.0,
+       "precision_se": 0.0,
+       "said_false": 0.2003,
+       "said_true": 0.0025
+      },
+      "within the thoracolumbar junction, T11 to L2": {
+       "decided": 0.2645,
+       "errors": 3,
+       "n_decided": 2328,
+       "precision": 0.99871,
+       "precision_se": 0.0007407906613341347,
+       "said_false": 0.2645,
+       "said_true": 0.0
+      }
+     },
+     "n_named": 0,
+     "named_exactly": 0.0,
+     "named_wrong": 0
+    }
+   },
+   "3": {
+    "exact rule": {
+     "claims": {
+      "at or above T6": {
+       "decided": 0.6425,
+       "decided_within_two": 0.055,
+       "errors": 5,
+       "errors_within_two": 5,
+       "n_decided": 5140,
+       "n_decided_within_two": 88,
+       "precision": 0.99903,
+       "precision_se": 0.00043221029930427265,
+       "said_false": 0.3399,
+       "said_true": 0.3026
+      },
+      "below C7": {
+       "decided": 0.9301,
+       "decided_within_two": 0.6737,
+       "errors": 2,
+       "errors_within_two": 2,
+       "n_decided": 7441,
+       "n_decided_within_two": 1078,
+       "precision": 0.99973,
+       "precision_se": 0.00018979909802780123,
+       "said_false": 0.169,
+       "said_true": 0.7611
+      },
+      "below L2": {
+       "decided": 0.7608,
+       "decided_within_two": 0.0331,
+       "errors": 0,
+       "errors_within_two": 0,
+       "n_decided": 6086,
+       "n_decided_within_two": 53,
+       "precision": 1.0,
+       "precision_se": 0.0,
+       "said_false": 0.7595,
+       "said_true": 0.0013
+      },
+      "below T12": {
+       "decided": 0.7592,
+       "decided_within_two": 0.215,
+       "errors": 1,
+       "errors_within_two": 1,
+       "n_decided": 6074,
+       "n_decided_within_two": 344,
+       "precision": 0.99984,
+       "precision_se": 0.0001645880858862255,
+       "said_false": 0.7001,
+       "said_true": 0.0591
+      },
+      "below T5": {
+       "decided": 0.632,
+       "decided_within_two": 0.0319,
+       "errors": 6,
+       "errors_within_two": 5,
+       "n_decided": 5056,
+       "n_decided_within_two": 51,
+       "precision": 0.99881,
+       "precision_se": 0.0004807699593714721,
+       "said_false": 0.2655,
+       "said_true": 0.3665
+      },
+      "within the thoracolumbar junction, T11 to L2": {
+       "decided": 0.6079,
+       "errors": 2,
+       "n_decided": 4863,
+       "precision": 0.99959,
+       "precision_se": 0.0002901752633851353,
+       "said_false": 0.604,
+       "said_true": 0.0039
+      }
+     },
+     "n_named": 109,
+     "named_exactly": 0.0136,
+     "named_wrong": 0
+    },
+    "scale-free exact rule": {
+     "claims": {
+      "at or above T6": {
+       "decided": 0.329,
+       "decided_within_two": 0.0238,
+       "errors": 3,
+       "errors_within_two": 3,
+       "n_decided": 2632,
+       "n_decided_within_two": 38,
+       "precision": 0.99886,
+       "precision_se": 0.0006559713536814044,
+       "said_false": 0.0493,
+       "said_true": 0.2797
+      },
+      "below C7": {
+       "decided": 0.9275,
+       "decided_within_two": 0.6663,
+       "errors": 3,
+       "errors_within_two": 3,
+       "n_decided": 7420,
+       "n_decided_within_two": 1066,
+       "precision": 0.9996,
+       "precision_se": 0.0002328032359887901,
+       "said_false": 0.1686,
+       "said_true": 0.7589
+      },
+      "below L2": {
+       "decided": 0.5506,
+       "decided_within_two": 0.0413,
+       "errors": 2,
+       "errors_within_two": 2,
+       "n_decided": 4405,
+       "n_decided_within_two": 66,
+       "precision": 0.99955,
+       "precision_se": 0.0003203932911611249,
+       "said_false": 0.5506,
+       "said_true": 0.0
+      },
+      "below T12": {
+       "decided": 0.43,
+       "decided_within_two": 0.0725,
+       "errors": 3,
+       "errors_within_two": 3,
+       "n_decided": 3440,
+       "n_decided_within_two": 116,
+       "precision": 0.99913,
+       "precision_se": 0.0005006977396062096,
+       "said_false": 0.43,
+       "said_true": 0.0
+      },
+      "below T5": {
+       "decided": 0.4075,
+       "decided_within_two": 0.0381,
+       "errors": 8,
+       "errors_within_two": 7,
+       "n_decided": 3260,
+       "n_decided_within_two": 61,
+       "precision": 0.99755,
+       "precision_se": 0.0008556201207286108,
+       "said_false": 0.2601,
+       "said_true": 0.1474
+      },
+      "within the thoracolumbar junction, T11 to L2": {
+       "decided": 0.39,
+       "errors": 3,
+       "n_decided": 3120,
+       "precision": 0.99904,
+       "precision_se": 0.0005526650024869101,
+       "said_false": 0.39,
+       "said_true": 0.0
+      }
+     },
+     "n_named": 58,
+     "named_exactly": 0.0073,
+     "named_wrong": 1
+    }
+   },
+   "5": {
+    "exact rule": {
+     "claims": {
+      "at or above T6": {
+       "decided": 0.7283,
+       "decided_within_two": 0.1119,
+       "errors": 3,
+       "errors_within_two": 3,
+       "n_decided": 5244,
+       "n_decided_within_two": 179,
+       "precision": 0.99943,
+       "precision_se": 0.000329178583474825,
+       "said_false": 0.3681,
+       "said_true": 0.3603
+      },
+      "below C7": {
+       "decided": 0.9575,
+       "decided_within_two": 0.8156,
+       "errors": 1,
+       "errors_within_two": 1,
+       "n_decided": 6894,
+       "n_decided_within_two": 1305,
+       "precision": 0.99985,
+       "precision_se": 0.0001450589202781518,
+       "said_false": 0.1469,
+       "said_true": 0.8106
+      },
+      "below L2": {
+       "decided": 0.8353,
+       "decided_within_two": 0.1333,
+       "errors": 0,
+       "errors_within_two": 0,
+       "n_decided": 6014,
+       "n_decided_within_two": 160,
+       "precision": 1.0,
+       "precision_se": 0.0,
+       "said_false": 0.8329,
+       "said_true": 0.0024
+      },
+      "below T12": {
+       "decided": 0.825,
+       "decided_within_two": 0.3769,
+       "errors": 1,
+       "errors_within_two": 1,
+       "n_decided": 5940,
+       "n_decided_within_two": 603,
+       "precision": 0.99983,
+       "precision_se": 0.00016826261834167978,
+       "said_false": 0.7514,
+       "said_true": 0.0736
+      },
+      "below T5": {
+       "decided": 0.7568,
+       "decided_within_two": 0.1819,
+       "errors": 3,
+       "errors_within_two": 3,
+       "n_decided": 5449,
+       "n_decided_within_two": 291,
+       "precision": 0.99945,
+       "precision_se": 0.0003166606060093351,
+       "said_false": 0.3371,
+       "said_true": 0.4197
+      },
+      "within the thoracolumbar junction, T11 to L2": {
+       "decided": 0.6718,
+       "errors": 2,
+       "n_decided": 4837,
+       "precision": 0.99959,
+       "precision_se": 0.0002921516647513546,
+       "said_false": 0.6364,
+       "said_true": 0.0354
+      }
+     },
+     "n_named": 750,
+     "named_exactly": 0.1042,
+     "named_wrong": 2
+    },
+    "scale-free exact rule": {
+     "claims": {
+      "at or above T6": {
+       "decided": 0.5426,
+       "decided_within_two": 0.085,
+       "errors": 4,
+       "errors_within_two": 4,
+       "n_decided": 3907,
+       "n_decided_within_two": 136,
+       "precision": 0.99898,
+       "precision_se": 0.0005089224160822094,
+       "said_false": 0.1925,
+       "said_true": 0.3501
+      },
+      "below C7": {
+       "decided": 0.9568,
+       "decided_within_two": 0.8131,
+       "errors": 1,
+       "errors_within_two": 1,
+       "n_decided": 6889,
+       "n_decided_within_two": 1301,
+       "precision": 0.99985,
+       "precision_se": 0.00014514282663411336,
+       "said_false": 0.1465,
+       "said_true": 0.8103
+      },
+      "below L2": {
+       "decided": 0.7211,
+       "decided_within_two": 0.135,
+       "errors": 2,
+       "errors_within_two": 2,
+       "n_decided": 5192,
+       "n_decided_within_two": 162,
+       "precision": 0.99961,
+       "precision_se": 0.00027190154950656483,
+       "said_false": 0.7211,
+       "said_true": 0.0
+      },
+      "below T12": {
+       "decided": 0.5763,
+       "decided_within_two": 0.1825,
+       "errors": 1,
+       "errors_within_two": 1,
+       "n_decided": 4149,
+       "n_decided_within_two": 292,
+       "precision": 0.99976,
+       "precision_se": 0.00024088342730327109,
+       "said_false": 0.576,
+       "said_true": 0.0003
+      },
+      "below T5": {
+       "decided": 0.6836,
+       "decided_within_two": 0.1931,
+       "errors": 2,
+       "errors_within_two": 2,
+       "n_decided": 4922,
+       "n_decided_within_two": 309,
+       "precision": 0.99959,
+       "precision_se": 0.00028672511352854306,
+       "said_false": 0.3331,
+       "said_true": 0.3506
+      },
+      "within the thoracolumbar junction, T11 to L2": {
+       "decided": 0.4856,
+       "errors": 1,
+       "n_decided": 3496,
+       "precision": 0.99971,
+       "precision_se": 0.00028586860742391064,
+       "said_false": 0.4821,
+       "said_true": 0.0035
+      }
+     },
+     "n_named": 647,
+     "named_exactly": 0.0899,
+     "named_wrong": 1
+    }
+   },
+   "9": {
+    "exact rule": {
+     "claims": {
+      "at or above T6": {
+       "decided": 0.9166,
+       "decided_within_two": 0.7125,
+       "errors": 1,
+       "errors_within_two": 1,
+       "n_decided": 5133,
+       "n_decided_within_two": 1140,
+       "precision": 0.99981,
+       "precision_se": 0.00019481244224490063,
+       "said_false": 0.4611,
+       "said_true": 0.4555
+      },
+      "below C7": {
+       "decided": 0.9752,
+       "decided_within_two": 0.8842,
+       "errors": 0,
+       "errors_within_two": 0,
+       "n_decided": 5461,
+       "n_decided_within_two": 1061,
+       "precision": 1.0,
+       "precision_se": 0.0,
+       "said_false": 0.0607,
+       "said_true": 0.9145
+      },
+      "below L2": {
+       "settled_by_field_size": true
+      },
+      "below T12": {
+       "decided": 0.8991,
+       "decided_within_two": 0.5583,
+       "errors": 0,
+       "errors_within_two": 0,
+       "n_decided": 5035,
+       "n_decided_within_two": 670,
+       "precision": 1.0,
+       "precision_se": 0.0,
+       "said_false": 0.8727,
+       "said_true": 0.0264
+      },
+      "below T5": {
+       "decided": 0.912,
+       "decided_within_two": 0.6937,
+       "errors": 2,
+       "errors_within_two": 2,
+       "n_decided": 5107,
+       "n_decided_within_two": 1110,
+       "precision": 0.99961,
+       "precision_se": 0.000276492631184848,
+       "said_false": 0.3877,
+       "said_true": 0.5243
+      },
+      "within the thoracolumbar junction, T11 to L2": {
+       "decided": 0.8514,
+       "errors": 0,
+       "n_decided": 4768,
+       "precision": 1.0,
+       "precision_se": 0.0,
+       "said_false": 0.7157,
+       "said_true": 0.1357
+      }
+     },
+     "n_named": 1587,
+     "named_exactly": 0.2834,
+     "named_wrong": 2
+    },
+    "scale-free exact rule": {
+     "claims": {
+      "at or above T6": {
+       "decided": 0.9125,
+       "decided_within_two": 0.7013,
+       "errors": 2,
+       "errors_within_two": 2,
+       "n_decided": 5110,
+       "n_decided_within_two": 1122,
+       "precision": 0.99961,
+       "precision_se": 0.0002763856064077331,
+       "said_false": 0.4595,
+       "said_true": 0.453
+      },
+      "below C7": {
+       "decided": 0.975,
+       "decided_within_two": 0.8833,
+       "errors": 0,
+       "errors_within_two": 0,
+       "n_decided": 5460,
+       "n_decided_within_two": 1060,
+       "precision": 1.0,
+       "precision_se": 0.0,
+       "said_false": 0.0602,
+       "said_true": 0.9148
+      },
+      "below L2": {
+       "settled_by_field_size": true
+      },
+      "below T12": {
+       "decided": 0.8662,
+       "decided_within_two": 0.4917,
+       "errors": 0,
+       "errors_within_two": 0,
+       "n_decided": 4851,
+       "n_decided_within_two": 590,
+       "precision": 1.0,
+       "precision_se": 0.0,
+       "said_false": 0.8484,
+       "said_true": 0.0179
+      },
+      "below T5": {
+       "decided": 0.9107,
+       "decided_within_two": 0.6887,
+       "errors": 3,
+       "errors_within_two": 3,
+       "n_decided": 5100,
+       "n_decided_within_two": 1102,
+       "precision": 0.99941,
+       "precision_se": 0.00033858660591078984,
+       "said_false": 0.3866,
+       "said_true": 0.5241
+      },
+      "within the thoracolumbar junction, T11 to L2": {
+       "decided": 0.7936,
+       "errors": 1,
+       "n_decided": 4444,
+       "precision": 0.99977,
+       "precision_se": 0.00022503532283898471,
+       "said_false": 0.6877,
+       "said_true": 0.1059
+      }
+     },
+     "n_named": 1451,
+     "named_exactly": 0.2591,
+     "named_wrong": 1
+    }
+   }
+  },
+  "nominal | all seven": {
+   "1": {
+    "exact rule": {
+     "claims": {
+      "at or above T6": {
+       "decided": 0.6717,
+       "decided_within_two": 0.0462,
+       "errors": 3,
+       "errors_within_two": 1,
+       "n_decided": 5911,
+       "n_decided_within_two": 74,
+       "precision": 0.99949,
+       "precision_se": 0.000292209912582196,
+       "said_false": 0.3342,
+       "said_true": 0.3375
+      },
+      "below C7": {
+       "decided": 0.906,
+       "decided_within_two": 0.5637,
+       "errors": 1,
+       "errors_within_two": 1,
+       "n_decided": 7973,
+       "n_decided_within_two": 902,
+       "precision": 0.99987,
+       "precision_se": 0.0001254384944264987,
+       "said_false": 0.1874,
+       "said_true": 0.7186
+      },
+      "below L2": {
+       "decided": 0.7077,
+       "decided_within_two": 0.0331,
+       "errors": 2,
+       "errors_within_two": 2,
+       "n_decided": 6228,
+       "n_decided_within_two": 53,
+       "precision": 0.99968,
+       "precision_se": 0.00022661345048261873,
+       "said_false": 0.699,
+       "said_true": 0.0088
+      },
+      "below T12": {
+       "decided": 0.7064,
+       "decided_within_two": 0.0681,
+       "errors": 2,
+       "errors_within_two": 2,
+       "n_decided": 6216,
+       "n_decided_within_two": 109,
+       "precision": 0.99968,
+       "precision_se": 0.00022712258152061984,
+       "said_false": 0.6508,
+       "said_true": 0.0556
+      },
+      "below T5": {
+       "decided": 0.6715,
+       "decided_within_two": 0.0394,
+       "errors": 1,
+       "errors_within_two": 1,
+       "n_decided": 5909,
+       "n_decided_within_two": 63,
+       "precision": 0.99983,
+       "precision_se": 0.00016917102961768325,
+       "said_false": 0.3028,
+       "said_true": 0.3686
+      },
+      "within the thoracolumbar junction, T11 to L2": {
+       "decided": 0.5735,
+       "errors": 0,
+       "n_decided": 5047,
+       "precision": 1.0,
+       "precision_se": 0.0,
+       "said_false": 0.5734,
+       "said_true": 0.0001
+      }
+     },
+     "n_named": 51,
+     "named_exactly": 0.0058,
+     "named_wrong": 0
+    },
+    "scale-free exact rule": {
+     "claims": {
+      "at or above T6": {
+       "decided": 0.4016,
+       "decided_within_two": 0.0094,
+       "errors": 3,
+       "errors_within_two": 1,
+       "n_decided": 3534,
+       "n_decided_within_two": 15,
+       "precision": 0.99915,
+       "precision_se": 0.000488464436291771,
+       "said_false": 0.1192,
+       "said_true": 0.2824
+      },
+      "below C7": {
+       "decided": 0.8584,
+       "decided_within_two": 0.4637,
+       "errors": 4,
+       "errors_within_two": 0,
+       "n_decided": 7554,
+       "n_decided_within_two": 742,
+       "precision": 0.99947,
+       "precision_se": 0.0003235769778705904,
+       "said_false": 0.1784,
+       "said_true": 0.68
+      },
+      "below L2": {
+       "decided": 0.5942,
+       "decided_within_two": 0.0419,
+       "errors": 3,
+       "errors_within_two": 2,
+       "n_decided": 5229,
+       "n_decided_within_two": 67,
+       "precision": 0.99943,
+       "precision_se": 0.0003301952572197709,
+       "said_false": 0.5914,
+       "said_true": 0.0028
+      },
+      "below T12": {
+       "decided": 0.4607,
+       "decided_within_two": 0.0125,
+       "errors": 5,
+       "errors_within_two": 4,
+       "n_decided": 4054,
+       "n_decided_within_two": 20,
+       "precision": 0.99877,
+       "precision_se": 0.0005479259798757012,
+       "said_false": 0.4452,
+       "said_true": 0.0155
+      },
+      "below T5": {
+       "decided": 0.4142,
+       "decided_within_two": 0.0125,
+       "errors": 3,
+       "errors_within_two": 2,
+       "n_decided": 3645,
+       "n_decided_within_two": 20,
+       "precision": 0.99918,
+       "precision_se": 0.0004730666111991442,
+       "said_false": 0.2702,
+       "said_true": 0.144
+      },
+      "within the thoracolumbar junction, T11 to L2": {
+       "decided": 0.4201,
+       "errors": 5,
+       "n_decided": 3697,
+       "precision": 0.99865,
+       "precision_se": 0.0005998469333417026,
+       "said_false": 0.4201,
+       "said_true": 0.0
+      }
+     },
+     "n_named": 18,
+     "named_exactly": 0.002,
+     "named_wrong": 0
+    }
+   },
+   "3": {
+    "exact rule": {
+     "claims": {
+      "at or above T6": {
+       "decided": 0.7466,
+       "decided_within_two": 0.1187,
+       "errors": 3,
+       "errors_within_two": 2,
+       "n_decided": 5973,
+       "n_decided_within_two": 190,
+       "precision": 0.9995,
+       "precision_se": 0.0002890050467547057,
+       "said_false": 0.3678,
+       "said_true": 0.3789
+      },
+      "below C7": {
+       "decided": 0.9854,
+       "decided_within_two": 0.9294,
+       "errors": 0,
+       "errors_within_two": 0,
+       "n_decided": 7883,
+       "n_decided_within_two": 1487,
+       "precision": 1.0,
+       "precision_se": 0.0,
+       "said_false": 0.1919,
+       "said_true": 0.7935
+      },
+      "below L2": {
+       "decided": 0.8236,
+       "decided_within_two": 0.2069,
+       "errors": 2,
+       "errors_within_two": 2,
+       "n_decided": 6589,
+       "n_decided_within_two": 331,
+       "precision": 0.9997,
+       "precision_se": 0.00021433110503705786,
+       "said_false": 0.8041,
+       "said_true": 0.0195
+      },
+      "below T12": {
+       "decided": 0.8489,
+       "decided_within_two": 0.46,
+       "errors": 3,
+       "errors_within_two": 3,
+       "n_decided": 6791,
+       "n_decided_within_two": 736,
+       "precision": 0.99956,
+       "precision_se": 0.00025445244755224506,
+       "said_false": 0.733,
+       "said_true": 0.1159
+      },
+      "below T5": {
+       "decided": 0.7586,
+       "decided_within_two": 0.135,
+       "errors": 4,
+       "errors_within_two": 4,
+       "n_decided": 6069,
+       "n_decided_within_two": 216,
+       "precision": 0.99934,
+       "precision_se": 0.00032786036392274515,
+       "said_false": 0.3471,
+       "said_true": 0.4115
+      },
+      "within the thoracolumbar junction, T11 to L2": {
+       "decided": 0.6961,
+       "errors": 2,
+       "n_decided": 5569,
+       "precision": 0.99964,
+       "precision_se": 0.0002536251053779149,
+       "said_false": 0.6555,
+       "said_true": 0.0406
+      }
+     },
+     "n_named": 1328,
+     "named_exactly": 0.166,
+     "named_wrong": 3
+    },
+    "scale-free exact rule": {
+     "claims": {
+      "at or above T6": {
+       "decided": 0.6481,
+       "decided_within_two": 0.0669,
+       "errors": 3,
+       "errors_within_two": 2,
+       "n_decided": 5185,
+       "n_decided_within_two": 107,
+       "precision": 0.99942,
+       "precision_se": 0.0003329070126525386,
+       "said_false": 0.2908,
+       "said_true": 0.3574
+      },
+      "below C7": {
+       "decided": 0.9836,
+       "decided_within_two": 0.9206,
+       "errors": 0,
+       "errors_within_two": 0,
+       "n_decided": 7869,
+       "n_decided_within_two": 1473,
+       "precision": 1.0,
+       "precision_se": 0.0,
+       "said_false": 0.1918,
+       "said_true": 0.7919
+      },
+      "below L2": {
+       "decided": 0.8054,
+       "decided_within_two": 0.1837,
+       "errors": 2,
+       "errors_within_two": 2,
+       "n_decided": 6443,
+       "n_decided_within_two": 294,
+       "precision": 0.99969,
+       "precision_se": 0.00021919764413727962,
+       "said_false": 0.7914,
+       "said_true": 0.014
+      },
+      "below T12": {
+       "decided": 0.764,
+       "decided_within_two": 0.3269,
+       "errors": 2,
+       "errors_within_two": 2,
+       "n_decided": 6112,
+       "n_decided_within_two": 523,
+       "precision": 0.99967,
+       "precision_se": 0.00023097037036935687,
+       "said_false": 0.6879,
+       "said_true": 0.0761
+      },
+      "below T5": {
+       "decided": 0.6703,
+       "decided_within_two": 0.08,
+       "errors": 4,
+       "errors_within_two": 4,
+       "n_decided": 5362,
+       "n_decided_within_two": 128,
+       "precision": 0.99925,
+       "precision_se": 0.00037061931906079795,
+       "said_false": 0.3341,
+       "said_true": 0.3361
+      },
+      "within the thoracolumbar junction, T11 to L2": {
+       "decided": 0.6138,
+       "errors": 2,
+       "n_decided": 4910,
+       "precision": 0.99959,
+       "precision_se": 0.00028741944688155397,
+       "said_false": 0.6008,
+       "said_true": 0.013
+      }
+     },
+     "n_named": 1229,
+     "named_exactly": 0.1536,
+     "named_wrong": 3
+    }
+   },
+   "5": {
+    "exact rule": {
+     "claims": {
+      "at or above T6": {
+       "decided": 0.8168,
+       "decided_within_two": 0.29,
+       "errors": 3,
+       "errors_within_two": 3,
+       "n_decided": 5881,
+       "n_decided_within_two": 464,
+       "precision": 0.99949,
+       "precision_se": 0.00029363900930024606,
+       "said_false": 0.4086,
+       "said_true": 0.4082
+      },
+      "below C7": {
+       "decided": 0.9954,
+       "decided_within_two": 0.9794,
+       "errors": 0,
+       "errors_within_two": 0,
+       "n_decided": 7167,
+       "n_decided_within_two": 1567,
+       "precision": 1.0,
+       "precision_se": 0.0,
+       "said_false": 0.164,
+       "said_true": 0.8314
+      },
+      "below L2": {
+       "decided": 0.9189,
+       "decided_within_two": 0.5283,
+       "errors": 1,
+       "errors_within_two": 1,
+       "n_decided": 6616,
+       "n_decided_within_two": 634,
+       "precision": 0.99985,
+       "precision_se": 0.00015111591359705384,
+       "said_false": 0.8981,
+       "said_true": 0.0208
+      },
+      "below T12": {
+       "decided": 0.9332,
+       "decided_within_two": 0.7344,
+       "errors": 0,
+       "errors_within_two": 0,
+       "n_decided": 6719,
+       "n_decided_within_two": 1175,
+       "precision": 1.0,
+       "precision_se": 0.0,
+       "said_false": 0.8019,
+       "said_true": 0.1313
+      },
+      "below T5": {
+       "decided": 0.8326,
+       "decided_within_two": 0.3575,
+       "errors": 3,
+       "errors_within_two": 3,
+       "n_decided": 5995,
+       "n_decided_within_two": 572,
+       "precision": 0.9995,
+       "precision_se": 0.00028795274738828755,
+       "said_false": 0.3729,
+       "said_true": 0.4597
+      },
+      "within the thoracolumbar junction, T11 to L2": {
+       "decided": 0.8293,
+       "errors": 2,
+       "n_decided": 5971,
+       "precision": 0.99967,
+       "precision_se": 0.0002365106092761927,
+       "said_false": 0.6989,
+       "said_true": 0.1304
+      }
+     },
+     "n_named": 2669,
+     "named_exactly": 0.3707,
+     "named_wrong": 4
+    },
+    "scale-free exact rule": {
+     "claims": {
+      "at or above T6": {
+       "decided": 0.7761,
+       "decided_within_two": 0.2244,
+       "errors": 2,
+       "errors_within_two": 2,
+       "n_decided": 5588,
+       "n_decided_within_two": 359,
+       "precision": 0.99964,
+       "precision_se": 0.00025272108107194844,
+       "said_false": 0.3786,
+       "said_true": 0.3975
+      },
+      "below C7": {
+       "decided": 0.9946,
+       "decided_within_two": 0.9756,
+       "errors": 0,
+       "errors_within_two": 0,
+       "n_decided": 7161,
+       "n_decided_within_two": 1561,
+       "precision": 1.0,
+       "precision_se": 0.0,
+       "said_false": 0.1633,
+       "said_true": 0.8313
+      },
+      "below L2": {
+       "decided": 0.9124,
+       "decided_within_two": 0.5025,
+       "errors": 1,
+       "errors_within_two": 1,
+       "n_decided": 6569,
+       "n_decided_within_two": 603,
+       "precision": 0.99985,
+       "precision_se": 0.000152194186831236,
+       "said_false": 0.8944,
+       "said_true": 0.0179
+      },
+      "below T12": {
+       "decided": 0.9062,
+       "decided_within_two": 0.6694,
+       "errors": 0,
+       "errors_within_two": 0,
+       "n_decided": 6525,
+       "n_decided_within_two": 1071,
+       "precision": 1.0,
+       "precision_se": 0.0,
+       "said_false": 0.7894,
+       "said_true": 0.1168
+      },
+      "below T5": {
+       "decided": 0.8129,
+       "decided_within_two": 0.3369,
+       "errors": 3,
+       "errors_within_two": 3,
+       "n_decided": 5853,
+       "n_decided_within_two": 539,
+       "precision": 0.99949,
+       "precision_se": 0.00029482975401132823,
+       "said_false": 0.3713,
+       "said_true": 0.4417
+      },
+      "within the thoracolumbar junction, T11 to L2": {
+       "decided": 0.7738,
+       "errors": 1,
+       "n_decided": 5571,
+       "precision": 0.99982,
+       "precision_se": 0.00017956719863285165,
+       "said_false": 0.6732,
+       "said_true": 0.1006
+      }
+     },
+     "n_named": 2504,
+     "named_exactly": 0.3478,
+     "named_wrong": 3
+    }
+   },
+   "9": {
+    "exact rule": {
+     "claims": {
+      "at or above T6": {
+       "decided": 0.9616,
+       "decided_within_two": 0.8662,
+       "errors": 0,
+       "errors_within_two": 0,
+       "n_decided": 5385,
+       "n_decided_within_two": 1386,
+       "precision": 1.0,
+       "precision_se": 0.0,
+       "said_false": 0.4813,
+       "said_true": 0.4804
+      },
+      "below C7": {
+       "decided": 0.9979,
+       "decided_within_two": 0.99,
+       "errors": 0,
+       "errors_within_two": 0,
+       "n_decided": 5588,
+       "n_decided_within_two": 1188,
+       "precision": 1.0,
+       "precision_se": 0.0,
+       "said_false": 0.0704,
+       "said_true": 0.9275
+      },
+      "below L2": {
+       "settled_by_field_size": true
+      },
+      "below T12": {
+       "decided": 0.9782,
+       "decided_within_two": 0.9025,
+       "errors": 0,
+       "errors_within_two": 0,
+       "n_decided": 5478,
+       "n_decided_within_two": 1083,
+       "precision": 1.0,
+       "precision_se": 0.0,
+       "said_false": 0.9175,
+       "said_true": 0.0607
+      },
+      "below T5": {
+       "decided": 0.9709,
+       "decided_within_two": 0.8988,
+       "errors": 1,
+       "errors_within_two": 1,
+       "n_decided": 5437,
+       "n_decided_within_two": 1438,
+       "precision": 0.99982,
+       "precision_se": 0.00018391152703308263,
+       "said_false": 0.4134,
+       "said_true": 0.5575
+      },
+      "within the thoracolumbar junction, T11 to L2": {
+       "decided": 0.9609,
+       "errors": 0,
+       "n_decided": 5381,
+       "precision": 1.0,
+       "precision_se": 0.0,
+       "said_false": 0.7662,
+       "said_true": 0.1946
+      }
+     },
+     "n_named": 4081,
+     "named_exactly": 0.7288,
+     "named_wrong": 4
+    },
+    "scale-free exact rule": {
+     "claims": {
+      "at or above T6": {
+       "decided": 0.9595,
+       "decided_within_two": 0.8594,
+       "errors": 0,
+       "errors_within_two": 0,
+       "n_decided": 5373,
+       "n_decided_within_two": 1375,
+       "precision": 1.0,
+       "precision_se": 0.0,
+       "said_false": 0.4789,
+       "said_true": 0.4805
+      },
+      "below C7": {
+       "decided": 0.998,
+       "decided_within_two": 0.9908,
+       "errors": 0,
+       "errors_within_two": 0,
+       "n_decided": 5589,
+       "n_decided_within_two": 1189,
+       "precision": 1.0,
+       "precision_se": 0.0,
+       "said_false": 0.0704,
+       "said_true": 0.9277
+      },
+      "below L2": {
+       "settled_by_field_size": true
+      },
+      "below T12": {
+       "decided": 0.9761,
+       "decided_within_two": 0.8942,
+       "errors": 0,
+       "errors_within_two": 0,
+       "n_decided": 5466,
+       "n_decided_within_two": 1073,
+       "precision": 1.0,
+       "precision_se": 0.0,
+       "said_false": 0.9168,
+       "said_true": 0.0593
+      },
+      "below T5": {
+       "decided": 0.9688,
+       "decided_within_two": 0.8912,
+       "errors": 1,
+       "errors_within_two": 1,
+       "n_decided": 5425,
+       "n_decided_within_two": 1426,
+       "precision": 0.99982,
+       "precision_se": 0.00018431730344694423,
+       "said_false": 0.4132,
+       "said_true": 0.5555
+      },
+      "within the thoracolumbar junction, T11 to L2": {
+       "decided": 0.9554,
+       "errors": 0,
+       "n_decided": 5350,
+       "precision": 1.0,
+       "precision_se": 0.0,
+       "said_false": 0.7641,
+       "said_true": 0.1913
+      }
+     },
+     "n_named": 3988,
+     "named_exactly": 0.7121,
+     "named_wrong": 4
+    }
+   }
+  },
+  "nominal | lateral film (EPDu, EPDl, VBHp, SCD)": {
+   "1": {
+    "exact rule": {
+     "claims": {
+      "at or above T6": {
+       "decided": 0.5613,
+       "decided_within_two": 0.0469,
+       "errors": 3,
+       "errors_within_two": 1,
+       "n_decided": 4939,
+       "n_decided_within_two": 75,
+       "precision": 0.99939,
+       "precision_se": 0.00034970283190450803,
+       "said_false": 0.2411,
+       "said_true": 0.3201
+      },
+      "below C7": {
+       "decided": 0.7199,
+       "decided_within_two": 0.1862,
+       "errors": 1,
+       "errors_within_two": 1,
+       "n_decided": 6335,
+       "n_decided_within_two": 298,
+       "precision": 0.99984,
+       "precision_se": 0.00015777543265943256,
+       "said_false": 0.0602,
+       "said_true": 0.6597
+      },
+      "below L2": {
+       "decided": 0.4825,
+       "decided_within_two": 0.0006,
+       "errors": 5,
+       "errors_within_two": 1,
+       "n_decided": 4246,
+       "n_decided_within_two": 1,
+       "precision": 0.99882,
+       "precision_se": 0.0005217157370554082,
+       "said_false": 0.4825,
+       "said_true": 0.0
+      },
+      "below T12": {
+       "decided": 0.4591,
+       "decided_within_two": 0.0044,
+       "errors": 2,
+       "errors_within_two": 0,
+       "n_decided": 4040,
+       "n_decided_within_two": 7,
+       "precision": 0.9995,
+       "precision_se": 0.0003488763299640156,
+       "said_false": 0.4591,
+       "said_true": 0.0
+      },
+      "below T5": {
+       "decided": 0.5913,
+       "decided_within_two": 0.0469,
+       "errors": 0,
+       "errors_within_two": 0,
+       "n_decided": 5203,
+       "n_decided_within_two": 75,
+       "precision": 1.0,
+       "precision_se": 0.0,
+       "said_false": 0.2839,
+       "said_true": 0.3074
+      },
+      "within the thoracolumbar junction, T11 to L2": {
+       "decided": 0.4269,
+       "errors": 1,
+       "n_decided": 3757,
+       "precision": 0.99973,
+       "precision_se": 0.0002657803329273296,
+       "said_false": 0.4269,
+       "said_true": 0.0
+      }
+     },
+     "n_named": 0,
+     "named_exactly": 0.0,
+     "named_wrong": 0
+    },
+    "scale-free exact rule": {
+     "claims": {
+      "at or above T6": {
+       "decided": 0.2112,
+       "decided_within_two": 0.0131,
+       "errors": 2,
+       "errors_within_two": 0,
+       "n_decided": 1859,
+       "n_decided_within_two": 21,
+       "precision": 0.99892,
+       "precision_se": 0.0007568258199205083,
+       "said_false": 0.0,
+       "said_true": 0.2112
+      },
+      "below C7": {
+       "decided": 0.1747,
+       "decided_within_two": 0.0187,
+       "errors": 12,
+       "errors_within_two": 4,
+       "n_decided": 1537,
+       "n_decided_within_two": 30,
+       "precision": 0.99219,
+       "precision_se": 0.0021921850918369887,
+       "said_false": 0.0088,
+       "said_true": 0.1659
+      },
+      "below L2": {
+       "decided": 0.2745,
+       "decided_within_two": 0.0025,
+       "errors": 3,
+       "errors_within_two": 1,
+       "n_decided": 2416,
+       "n_decided_within_two": 4,
+       "precision": 0.99876,
+       "precision_se": 0.0007135636677234451,
+       "said_false": 0.2745,
+       "said_true": 0.0
+      },
+      "below T12": {
+       "decided": 0.2575,
+       "decided_within_two": 0.0006,
+       "errors": 3,
+       "errors_within_two": 1,
+       "n_decided": 2266,
+       "n_decided_within_two": 1,
+       "precision": 0.99868,
+       "precision_se": 0.0007603133932933941,
+       "said_false": 0.2575,
+       "said_true": 0.0
+      },
+      "below T5": {
+       "decided": 0.194,
+       "decided_within_two": 0.0175,
+       "errors": 2,
+       "errors_within_two": 1,
+       "n_decided": 1707,
+       "n_decided_within_two": 28,
+       "precision": 0.99883,
+       "precision_se": 0.0008240723279294722,
+       "said_false": 0.194,
+       "said_true": 0.0
+      },
+      "within the thoracolumbar junction, T11 to L2": {
+       "decided": 0.2681,
+       "errors": 3,
+       "n_decided": 2359,
+       "precision": 0.99873,
+       "precision_se": 0.0007287512359614764,
+       "said_false": 0.2681,
+       "said_true": 0.0
+      }
+     },
+     "n_named": 0,
+     "named_exactly": 0.0,
+     "named_wrong": 0
+    }
+   },
+   "3": {
+    "exact rule": {
+     "claims": {
+      "at or above T6": {
+       "decided": 0.6369,
+       "decided_within_two": 0.0756,
+       "errors": 1,
+       "errors_within_two": 1,
+       "n_decided": 5095,
+       "n_decided_within_two": 121,
+       "precision": 0.9998,
+       "precision_se": 0.00019626601997390218,
+       "said_false": 0.2915,
+       "said_true": 0.3454
+      },
+      "below C7": {
+       "decided": 0.8699,
+       "decided_within_two": 0.5681,
+       "errors": 2,
+       "errors_within_two": 2,
+       "n_decided": 6959,
+       "n_decided_within_two": 909,
+       "precision": 0.99971,
+       "precision_se": 0.00020305108241900393,
+       "said_false": 0.1222,
+       "said_true": 0.7476
+      },
+      "below L2": {
+       "decided": 0.6136,
+       "decided_within_two": 0.0144,
+       "errors": 1,
+       "errors_within_two": 1,
+       "n_decided": 4909,
+       "n_decided_within_two": 23,
+       "precision": 0.9998,
+       "precision_se": 0.0002035164871219082,
+       "said_false": 0.6136,
+       "said_true": 0.0
+      },
+      "below T12": {
+       "decided": 0.574,
+       "decided_within_two": 0.0813,
+       "errors": 1,
+       "errors_within_two": 0,
+       "n_decided": 4592,
+       "n_decided_within_two": 130,
+       "precision": 0.99978,
+       "precision_se": 0.00021751354570108189,
+       "said_false": 0.5473,
+       "said_true": 0.0267
+      },
+      "below T5": {
+       "decided": 0.6709,
+       "decided_within_two": 0.0838,
+       "errors": 3,
+       "errors_within_two": 3,
+       "n_decided": 5367,
+       "n_decided_within_two": 134,
+       "precision": 0.99944,
+       "precision_se": 0.00032158501069376385,
+       "said_false": 0.3086,
+       "said_true": 0.3623
+      },
+      "within the thoracolumbar junction, T11 to L2": {
+       "decided": 0.4934,
+       "errors": 1,
+       "n_decided": 3947,
+       "precision": 0.99975,
+       "precision_se": 0.0002530348102046449,
+       "said_false": 0.4919,
+       "said_true": 0.0015
+      }
+     },
+     "n_named": 215,
+     "named_exactly": 0.0269,
+     "named_wrong": 1
+    },
+    "scale-free exact rule": {
+     "claims": {
+      "at or above T6": {
+       "decided": 0.3459,
+       "decided_within_two": 0.0256,
+       "errors": 3,
+       "errors_within_two": 3,
+       "n_decided": 2767,
+       "n_decided_within_two": 41,
+       "precision": 0.99892,
+       "precision_se": 0.0006233272418400088,
+       "said_false": 0.0505,
+       "said_true": 0.2954
+      },
+      "below C7": {
+       "decided": 0.771,
+       "decided_within_two": 0.3681,
+       "errors": 6,
+       "errors_within_two": 4,
+       "n_decided": 6168,
+       "n_decided_within_two": 589,
+       "precision": 0.99903,
+       "precision_se": 0.00045633178349365876,
+       "said_false": 0.0769,
+       "said_true": 0.6941
+      },
+      "below L2": {
+       "decided": 0.4999,
+       "decided_within_two": 0.0362,
+       "errors": 2,
+       "errors_within_two": 2,
+       "n_decided": 3999,
+       "n_decided_within_two": 58,
+       "precision": 0.9995,
+       "precision_se": 0.0003527008680540069,
+       "said_false": 0.4999,
+       "said_true": 0.0
+      },
+      "below T12": {
+       "decided": 0.4022,
+       "decided_within_two": 0.0219,
+       "errors": 1,
+       "errors_within_two": 1,
+       "n_decided": 3218,
+       "n_decided_within_two": 35,
+       "precision": 0.99969,
+       "precision_se": 0.0003103891631173362,
+       "said_false": 0.4001,
+       "said_true": 0.0021
+      },
+      "below T5": {
+       "decided": 0.3596,
+       "decided_within_two": 0.0462,
+       "errors": 5,
+       "errors_within_two": 4,
+       "n_decided": 2877,
+       "n_decided_within_two": 74,
+       "precision": 0.99826,
+       "precision_se": 0.000913697448737187,
+       "said_false": 0.2667,
+       "said_true": 0.0929
+      },
+      "within the thoracolumbar junction, T11 to L2": {
+       "decided": 0.3771,
+       "errors": 0,
+       "n_decided": 3017,
+       "precision": 1.0,
+       "precision_se": 0.0,
+       "said_false": 0.3771,
+       "said_true": 0.0
+      }
+     },
+     "n_named": 102,
+     "named_exactly": 0.0127,
+     "named_wrong": 3
+    }
+   },
+   "5": {
+    "exact rule": {
+     "claims": {
+      "at or above T6": {
+       "decided": 0.6707,
+       "decided_within_two": 0.1194,
+       "errors": 1,
+       "errors_within_two": 1,
+       "n_decided": 4829,
+       "n_decided_within_two": 191,
+       "precision": 0.99979,
+       "precision_se": 0.00020704721757950535,
+       "said_false": 0.3181,
+       "said_true": 0.3526
+      },
+      "below C7": {
+       "decided": 0.9289,
+       "decided_within_two": 0.735,
+       "errors": 4,
+       "errors_within_two": 4,
+       "n_decided": 6688,
+       "n_decided_within_two": 1176,
+       "precision": 0.9994,
+       "precision_se": 0.0002979650114013977,
+       "said_false": 0.1264,
+       "said_true": 0.8025
+      },
+      "below L2": {
+       "decided": 0.8164,
+       "decided_within_two": 0.2758,
+       "errors": 5,
+       "errors_within_two": 5,
+       "n_decided": 5878,
+       "n_decided_within_two": 331,
+       "precision": 0.99915,
+       "precision_se": 0.00037823163470751976,
+       "said_false": 0.8106,
+       "said_true": 0.0058
+      },
+      "below T12": {
+       "decided": 0.7018,
+       "decided_within_two": 0.2719,
+       "errors": 2,
+       "errors_within_two": 0,
+       "n_decided": 5053,
+       "n_decided_within_two": 435,
+       "precision": 0.9996,
+       "precision_se": 0.000279223933000752,
+       "said_false": 0.6431,
+       "said_true": 0.0587
+      },
+      "below T5": {
+       "decided": 0.6957,
+       "decided_within_two": 0.13,
+       "errors": 3,
+       "errors_within_two": 3,
+       "n_decided": 5009,
+       "n_decided_within_two": 208,
+       "precision": 0.9994,
+       "precision_se": 0.00034456502936679596,
+       "said_false": 0.3149,
+       "said_true": 0.3808
+      },
+      "within the thoracolumbar junction, T11 to L2": {
+       "decided": 0.5665,
+       "errors": 1,
+       "n_decided": 4079,
+       "precision": 0.99975,
+       "precision_se": 0.0002449376260276693,
+       "said_false": 0.5394,
+       "said_true": 0.0271
+      }
+     },
+     "n_named": 916,
+     "named_exactly": 0.1272,
+     "named_wrong": 5
+    },
+    "scale-free exact rule": {
+     "claims": {
+      "at or above T6": {
+       "decided": 0.4815,
+       "decided_within_two": 0.0694,
+       "errors": 5,
+       "errors_within_two": 5,
+       "n_decided": 3467,
+       "n_decided_within_two": 111,
+       "precision": 0.99856,
+       "precision_se": 0.0007577306388805141,
+       "said_false": 0.1635,
+       "said_true": 0.3181
+      },
+      "below C7": {
+       "decided": 0.8843,
+       "decided_within_two": 0.6519,
+       "errors": 4,
+       "errors_within_two": 4,
+       "n_decided": 6367,
+       "n_decided_within_two": 1043,
+       "precision": 0.99937,
+       "precision_se": 0.0003840325141532212,
+       "said_false": 0.1083,
+       "said_true": 0.776
+      },
+      "below L2": {
+       "decided": 0.7857,
+       "decided_within_two": 0.2925,
+       "errors": 5,
+       "errors_within_two": 5,
+       "n_decided": 5657,
+       "n_decided_within_two": 351,
+       "precision": 0.99912,
+       "precision_se": 0.0003930865402884128,
+       "said_false": 0.781,
+       "said_true": 0.0047
+      },
+      "below T12": {
+       "decided": 0.5787,
+       "decided_within_two": 0.1837,
+       "errors": 4,
+       "errors_within_two": 2,
+       "n_decided": 4167,
+       "n_decided_within_two": 294,
+       "precision": 0.99904,
+       "precision_se": 0.00047751758831574573,
+       "said_false": 0.5478,
+       "said_true": 0.031
+      },
+      "below T5": {
+       "decided": 0.5181,
+       "decided_within_two": 0.0969,
+       "errors": 7,
+       "errors_within_two": 7,
+       "n_decided": 3730,
+       "n_decided_within_two": 155,
+       "precision": 0.99812,
+       "precision_se": 0.0007960636770137003,
+       "said_false": 0.2826,
+       "said_true": 0.2354
+      },
+      "within the thoracolumbar junction, T11 to L2": {
+       "decided": 0.4574,
+       "errors": 3,
+       "n_decided": 3293,
+       "precision": 0.99909,
+       "precision_se": 0.000524394089637356,
+       "said_false": 0.4518,
+       "said_true": 0.0056
+      }
+     },
+     "n_named": 721,
+     "named_exactly": 0.1001,
+     "named_wrong": 4
+    }
+   },
+   "9": {
+    "exact rule": {
+     "claims": {
+      "at or above T6": {
+       "decided": 0.7886,
+       "decided_within_two": 0.4081,
+       "errors": 1,
+       "errors_within_two": 1,
+       "n_decided": 4416,
+       "n_decided_within_two": 653,
+       "precision": 0.99977,
+       "precision_se": 0.00022640459553284622,
+       "said_false": 0.3996,
+       "said_true": 0.3889
+      },
+      "below C7": {
+       "decided": 0.9739,
+       "decided_within_two": 0.89,
+       "errors": 3,
+       "errors_within_two": 3,
+       "n_decided": 5454,
+       "n_decided_within_two": 1068,
+       "precision": 0.99945,
+       "precision_se": 0.00031683276513635897,
+       "said_false": 0.0579,
+       "said_true": 0.9161
+      },
+      "below L2": {
+       "settled_by_field_size": true
+      },
+      "below T12": {
+       "decided": 0.9018,
+       "decided_within_two": 0.6075,
+       "errors": 0,
+       "errors_within_two": 0,
+       "n_decided": 5050,
+       "n_decided_within_two": 729,
+       "precision": 1.0,
+       "precision_se": 0.0,
+       "said_false": 0.8679,
+       "said_true": 0.0339
+      },
+      "below T5": {
+       "decided": 0.8254,
+       "decided_within_two": 0.4919,
+       "errors": 2,
+       "errors_within_two": 2,
+       "n_decided": 4622,
+       "n_decided_within_two": 787,
+       "precision": 0.99957,
+       "precision_se": 0.0003056080345343698,
+       "said_false": 0.337,
+       "said_true": 0.4884
+      },
+      "within the thoracolumbar junction, T11 to L2": {
+       "decided": 0.8071,
+       "errors": 0,
+       "n_decided": 4520,
+       "precision": 1.0,
+       "precision_se": 0.0,
+       "said_false": 0.6761,
+       "said_true": 0.1311
+      }
+     },
+     "n_named": 1634,
+     "named_exactly": 0.2918,
+     "named_wrong": 7
+    },
+    "scale-free exact rule": {
+     "claims": {
+      "at or above T6": {
+       "decided": 0.7291,
+       "decided_within_two": 0.3475,
+       "errors": 6,
+       "errors_within_two": 4,
+       "n_decided": 4083,
+       "n_decided_within_two": 556,
+       "precision": 0.99853,
+       "precision_se": 0.0006897039887290287,
+       "said_false": 0.3582,
+       "said_true": 0.3709
+      },
+      "below C7": {
+       "decided": 0.967,
+       "decided_within_two": 0.8742,
+       "errors": 2,
+       "errors_within_two": 2,
+       "n_decided": 5415,
+       "n_decided_within_two": 1049,
+       "precision": 0.99963,
+       "precision_se": 0.00026089215345168347,
+       "said_false": 0.0557,
+       "said_true": 0.9113
+      },
+      "below L2": {
+       "settled_by_field_size": true
+      },
+      "below T12": {
+       "decided": 0.8888,
+       "decided_within_two": 0.5892,
+       "errors": 0,
+       "errors_within_two": 0,
+       "n_decided": 4977,
+       "n_decided_within_two": 707,
+       "precision": 1.0,
+       "precision_se": 0.0,
+       "said_false": 0.8593,
+       "said_true": 0.0295
+      },
+      "below T5": {
+       "decided": 0.7789,
+       "decided_within_two": 0.4281,
+       "errors": 3,
+       "errors_within_two": 2,
+       "n_decided": 4362,
+       "n_decided_within_two": 685,
+       "precision": 0.99931,
+       "precision_se": 0.00039626804535164385,
+       "said_false": 0.3196,
+       "said_true": 0.4593
+      },
+      "within the thoracolumbar junction, T11 to L2": {
+       "decided": 0.758,
+       "errors": 1,
+       "n_decided": 4245,
+       "precision": 0.99976,
+       "precision_se": 0.00023578194901029156,
+       "said_false": 0.6477,
+       "said_true": 0.1104
+      }
+     },
+     "n_named": 1449,
+     "named_exactly": 0.2587,
+     "named_wrong": 6
+    }
+   }
+  }
+ },
+ "seed": 97,
+ "widths": [
+  1,
+  3,
+  5,
+  9
+ ],
+ "world_seed": 20261027
+}
