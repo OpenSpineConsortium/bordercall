@@ -49,7 +49,7 @@ from typing import Dict, List, Optional, Sequence, Tuple
 
 import numpy as np
 
-from . import RULE_LEVELS, SEVEN, archive_path, rule_index
+from . import RULE_LEVELS, SEVEN, archive_path
 from .column import Column, offsets_of
 
 archive_path()
@@ -82,7 +82,7 @@ def place_loglik(X: np.ndarray, offsets: Sequence[int], mu: np.ndarray, sd: np.n
     (measures, nodes). X is (measures, n) with NaN where a value is missing. With noise_scales
     the measurement error is noise_mm at size 1 and grows with s, as it must when the chords are
     in an unknown unit and s carries the unit."""
-    nm, n = X.shape
+    nm = X.shape[0]
     pos = start + np.asarray(offsets, int)
     s = sizes[:, None]
     out = np.zeros((nm, len(sizes)))
@@ -104,7 +104,7 @@ def place_loglik(X: np.ndarray, offsets: Sequence[int], mu: np.ndarray, sd: np.n
     return out
 
 
-def size_nodes(X: np.ndarray, offsets: Sequence[int], mu: np.ndarray, scale_sd: float,
+def size_nodes(X: np.ndarray, mu: np.ndarray, scale_sd: float,
                scale_log_mean: float = 0.0, scale_extra_sd: Optional[float] = 0.0) -> Tuple[np.ndarray, np.ndarray]:
     """Sizes and log weights. A known scale: log s normal about scale_log_mean with the spread of
     the generator and of the study added in quadrature. An unknown one (scale_extra_sd None): a
@@ -127,7 +127,7 @@ def size_nodes(X: np.ndarray, offsets: Sequence[int], mu: np.ndarray, scale_sd: 
 def log_evidence(X: np.ndarray, offsets: Sequence[int], mu: np.ndarray, sd: np.ndarray, synth: dict,
                  scale_log_mean: float = 0.0, scale_extra_sd: Optional[float] = 0.0) -> np.ndarray:
     """log p(field | place) at every place the field fits, the size integrated out."""
-    sizes, logw = size_nodes(X, offsets, mu, synth["scale_sd"], scale_log_mean, scale_extra_sd)
+    sizes, logw = size_nodes(X, mu, synth["scale_sd"], scale_log_mean, scale_extra_sd)
     unknown = scale_extra_sd is None
     return np.array([EX.logsumexp(place_loglik(X, offsets, mu, sd, k, sizes, synth["rho"], synth["noise_mm"], unknown)
                                   .sum(0) + logw, axis=0) for k in range(places(offsets))])

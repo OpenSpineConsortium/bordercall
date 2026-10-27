@@ -14,7 +14,7 @@ from __future__ import annotations
 
 import math
 from dataclasses import dataclass
-from typing import Dict, List, Sequence, Tuple
+from typing import Dict, Sequence, Tuple
 
 import numpy as np
 
@@ -72,6 +72,21 @@ def spinous_reach(s: Shape) -> float:
     return math.sqrt(3.0 ** 2 + back ** 2 + 6.0 ** 2)
 
 
+def grid_about(lo: np.ndarray, hi: np.ndarray, spacing, grid_turn: Tuple[Sequence[float], float]):
+    """A volume's grid for the world box [lo, hi]: its axes (the turn times the spacing), its shape
+    and its affine, the origin and size chosen so the box fits inside it whatever the turn.
+    Returns (axes, shape, affine)."""
+    A = rotation(*grid_turn) @ np.diag(spacing)
+    corners = np.array([[a, b, c] for a in (lo[0], hi[0]) for b in (lo[1], hi[1]) for c in (lo[2], hi[2])])
+    ijk = corners @ np.linalg.inv(A).T
+    i0, i1 = np.floor(ijk.min(0)), np.ceil(ijk.max(0))
+    shape_v = tuple(int(v) for v in (i1 - i0 + 1))
+    origin = A @ (i0 + 0.37)                         # off the half-millimetre lattice, so no centre sits on a surface
+    affine = np.eye(4)
+    affine[:3, :3], affine[:3, 3] = A, origin
+    return A, shape_v, affine
+
+
 def column(levels: Sequence[str], values: Dict[str, int], shape: Shape = Shape(), gap: float = 36.0,
            tilt: Tuple[Sequence[float], float] = ((1.0, 0.3, 0.0), 18.0), turns: Dict[str, float] = None,
            spacing=(0.9, 0.9, 1.4), grid_turn: Tuple[Sequence[float], float] = ((0.0, 0.0, 1.0), 9.0),
@@ -94,16 +109,8 @@ def column(levels: Sequence[str], values: Dict[str, int], shape: Shape = Shape()
     reach = math.sqrt((shape.TP / 2) ** 2 + max(shape.D, shape.CD + shape.T + shape.LS) ** 2 + (shape.H / 2) ** 2)
     lo = allc.min(0) - margin - reach
     hi = allc.max(0) + margin + reach
-    A = rotation(*grid_turn) @ np.diag(spacing)
-    # the grid's origin and size chosen so the box [lo, hi] fits inside it whatever the turn
-    corners = np.array([[a, b, c] for a in (lo[0], hi[0]) for b in (lo[1], hi[1]) for c in (lo[2], hi[2])])
-    Ainv = np.linalg.inv(A)
-    ijk = corners @ Ainv.T
-    i0, i1 = np.floor(ijk.min(0)), np.ceil(ijk.max(0))
-    shape_v = tuple(int(v) for v in (i1 - i0 + 1))
-    origin = A @ (i0 + 0.37)                         # off the half-millimetre lattice, so no centre sits on a surface
-    affine = np.eye(4)
-    affine[:3, :3], affine[:3, 3] = A, origin
+    A, shape_v, affine = grid_about(lo, hi, spacing, grid_turn)
+    Ainv, origin = np.linalg.inv(A), affine[:3, 3]
     lab = np.zeros(shape_v, np.int16)
     sub = np.zeros(shape_v, np.int16) if subregions else None
     for lv, c, Ri in frames:
@@ -140,3 +147,74 @@ def save(path: str, data: np.ndarray, affine: np.ndarray) -> None:
     import nibabel as nib
     nib.save(nib.Nifti1Image(data, affine), path)
 
+
+# ---- a CT in Hounsfield units, for the mask-free mode -------------------------------------------
+
+AIR, SOFT, CSF, DISC, TRABECULAR, CORTEX, ARCH = -1000.0, 40.0, 15.0, 90.0, 230.0, 800.0, 700.0
+CORTEX_MM = 1.0
+
+
+def tissue(q: np.ndarray, s: Shape, gap: float, trabecular: float = TRABECULAR, cortex: float = CORTEX,
+           cortex_mm: float = CORTEX_MM) -> np.ndarray:
+    """The HU of each local point (N, 3) of one vertebra's slab: the body a trabecular core in a
+    cortical shell cortex_mm thick (wall and end-plates), the arch, processes and spinous solid,
+    the canal CSF from end to end, the disc filling the body's outline between end-plates, soft
+    tissue elsewhere."""
+    x, y, z = q[:, 0], q[:, 1], q[:, 2]
+    out = np.full(len(q), SOFT)
+    yb = s.D / 2.0
+    r_body = (x / (s.W / 2)) ** 2 + ((y - yb) / (s.D / 2)) ** 2
+    r_core = (x / (s.W / 2 - cortex_mm)) ** 2 + ((y - yb) / (s.D / 2 - cortex_mm)) ** 2
+    out[(r_body <= 1.0) & (np.abs(z) <= gap / 2.0)] = DISC
+    yc = -s.CD / 2.0
+    out[(x / (s.CW / 2)) ** 2 + ((y - yc) / (s.CD / 2)) ** 2 <= 1.0] = CSF
+    parts = inside(q, s)
+    out[parts["arch"] | parts["tp"] | parts["spinous"]] = ARCH
+    body = parts["body"]
+    out[body] = cortex
+    out[body & (r_core <= 1.0) & (np.abs(z) <= s.H / 2 - cortex_mm)] = trabecular
+    return out
+
+
+def hu_column(n: int = 4, shape: Shape = Shape(), gap: float = 36.0,
+              tilt: Tuple[Sequence[float], float] = ((1.0, 0.3, 0.0), 18.0),
+              spacing=(0.9, 0.9, 1.4), grid_turn: Tuple[Sequence[float], float] = ((0.0, 0.0, 1.0), 9.0),
+              blur_mm: float = 0.6, noise_hu: float = 0.0, margin: float = 10.0, sub: int = 2, seed: int = 7,
+              trabecular: float = TRABECULAR, cortex: float = CORTEX, cortex_mm: float = CORTEX_MM):
+    """A CT of n vertebrae down a tilted column, rendered at sub x sub x sub points per voxel,
+    blurred by a Gaussian of blur_mm standard deviation (the scanner's point spread), with
+    Gaussian noise of noise_hu from a fixed seed; the patient a cylinder of soft tissue round
+    the column with air outside it. Returns (hu, affine)."""
+    R0 = rotation(*tilt)
+    ez = R0 @ np.array([0.0, 0.0, 1.0])
+    reach = math.sqrt((shape.TP / 2) ** 2 + max(shape.D, shape.CD + shape.T + shape.LS) ** 2) + 2.0
+    radius = reach + 0.5 * margin
+    ends = [ez * (gap / 2.0), ez * (-gap * (n - 1) - gap / 2.0)]
+    lo = np.minimum(*ends) - radius - margin
+    hi = np.maximum(*ends) + radius + margin
+    A, shape_v, affine = grid_about(lo, hi, spacing, grid_turn)
+    origin = affine[:3, 3]
+    offs = (np.stack(np.meshgrid(*[np.arange(sub)] * 3, indexing="ij"), -1).reshape(-1, 3) + 0.5) / sub - 0.5
+    hu = np.empty(shape_v, np.float32)
+    ii, jj = np.meshgrid(np.arange(shape_v[0]), np.arange(shape_v[1]), indexing="ij")
+    plane = np.stack([ii.ravel(), jj.ravel()], axis=1).astype(float)
+    for k in range(shape_v[2]):
+        g = (np.column_stack([plane, np.full(len(plane), float(k))])[:, None, :] + offs[None]).reshape(-1, 3)
+        world = g @ A.T + origin
+        along = world @ ez
+        radial = np.linalg.norm(world - along[:, None] * ez, axis=1)
+        val = np.full(len(g), AIR)
+        live = radial <= radius
+        w, al = world[live], along[live]
+        i = np.clip(np.round(-al / gap), 0, n - 1)
+        q = (w - (-gap * i)[:, None] * ez) @ R0
+        v = tissue(q, shape, gap, trabecular, cortex, cortex_mm)
+        v[(al > gap / 2.0) | (al < -gap * (n - 1) - gap / 2.0)] = SOFT
+        val[live] = v
+        hu[:, :, k] = val.reshape(len(plane), len(offs)).mean(1).reshape(shape_v[0], shape_v[1])
+    if blur_mm > 0:
+        from scipy import ndimage
+        hu = ndimage.gaussian_filter(hu, sigma=[blur_mm / s for s in spacing], mode="nearest")
+    if noise_hu > 0:
+        hu = hu + np.random.default_rng(seed).normal(0.0, noise_hu, hu.shape).astype(np.float32)
+    return hu.astype(np.float32), affine

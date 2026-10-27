@@ -6,10 +6,12 @@ import json
 import math
 import os
 import sys
-from typing import List
+from typing import List, Optional
 
 from . import SEVEN
 from . import column as C
+
+XR_VIEWS = ("ap", "pa", "lateral")
 
 
 def finish_directory(out: str, argv: List[str], inputs: dict) -> None:
@@ -27,10 +29,10 @@ def cmd_ingest_ct(a, argv) -> None:
     col = V.ingest(a.labels, a.scheme, a.study, a.source, a.annotation, a.made_by or a.scheme,
                    a.subject, a.subregion, a.label_map)
     path = C.write_column(col, a.out)
-    inputs = {a.labels: C.sha256_of(a.labels)}
+    inputs = C.digests(a.labels)
     for extra in (a.subregion, a.label_map):
         if extra:
-            inputs[extra] = C.sha256_of(extra)
+            inputs.update(C.digests(extra))
     finish_directory(a.out, argv, inputs)
     report(col, path)
 
@@ -40,7 +42,48 @@ def cmd_ingest_xr(a, argv) -> None:
     col = R.ingest(a.xr, a.study, a.source, a.annotation, a.subject, a.anterior, a.magnification,
                    a.magnification_sd)
     path = C.write_column(col, a.out)
-    finish_directory(a.out, argv, {p: C.sha256_of(p) for p in a.xr})
+    finish_directory(a.out, argv, {k: v for p in a.xr for k, v in C.digests(p).items()})
+    report(col, path)
+
+
+def nifti_sidecar(path: str) -> Optional[str]:
+    """The dcm2niix sidecar that readers.sidecar_covariates reads beside a NIfTI, found by the
+    reader's own rule (readers.sidecar_path), where there is one: its values become the study's
+    covariates, so it is an input like the volume."""
+    from . import readers as RD
+    low = path.lower()
+    if os.path.isdir(path) or not (low.endswith(".nii") or low.endswith(".nii.gz")):
+        return None
+    side = RD.sidecar_path(path)
+    return side if os.path.isfile(side) else None
+
+
+def cmd_ingest_raw_ct(a, argv) -> None:
+    from . import intensity as I
+    col = I.ingest(a.volume, a.study, a.source, a.subject, a.series, fit_edges=not a.half_maximum_only)
+    path = C.write_column(col, a.out)
+    inputs = C.digests(a.volume)
+    side = nifti_sidecar(a.volume)
+    if side:
+        inputs.update(C.digests(side))
+    finish_directory(a.out, argv, inputs)
+    report(col, path)
+
+
+def cmd_ingest_image(a, argv) -> None:
+    """Every file that changes the column is hashed: the image, its corners, FleXray's arrays and
+    the label_names.json that named their channels, given or found beside them."""
+    from . import film as F
+    col = F.ingest_image(a.image, a.study, a.source, a.annotation, corners=a.corners, flexray=a.flexray,
+                         flexray_names=a.flexray_names, mask_content=a.mask_content, view=a.view,
+                         subject_id=a.subject, anterior=a.anterior, pixel_mm=a.pixel_mm, modality=a.modality)
+    path = C.write_column(col, a.out)
+    inputs = C.digests(a.image)
+    names = F.names_file(a.flexray, a.flexray_names) if a.flexray else None
+    for extra in (a.corners, a.flexray, names):
+        if extra:
+            inputs.update(C.digests(extra))
+    finish_directory(a.out, argv, inputs)
     report(col, path)
 
 
@@ -160,12 +203,53 @@ def parser() -> argparse.ArgumentParser:
     x.add_argument("--subject")
     x.add_argument("--source", required=True)
     x.add_argument("--anterior", choices=("left", "right"), help="which side of a lateral image is anterior")
-    x.add_argument("--magnification", type=float, help="the image's magnification, where its geometry gives it")
-    x.add_argument("--magnification-sd", type=float, help="spread of log magnification")
+    x.add_argument("--magnification", type=float, help="the image's magnification, where its geometry gives it: a "
+                                                         "finite number of 1 or more")
+    x.add_argument("--magnification-sd", type=float, help="spread of log magnification, a finite number of 0 or more")
     x.add_argument("--annotation", required=True, choices=("human", "machine"),
                    help="who drew the corners, the caller's statement, never inferred")
     x.add_argument("--out", required=True)
     x.set_defaults(func=cmd_ingest_xr)
+
+    r = sub.add_parser("ingest-raw-ct", help="a CT's intensities, with no labels, to a column (intensity.py)")
+    r.add_argument("--volume", required=True, help="NIfTI file, folder of one DICOM series, or one DICOM file")
+    r.add_argument("--series", help="the Series Instance UID, where the folder holds several; held to the series "
+                                    "read, whatever --volume is, and refused for a NIfTI, which names none")
+    r.add_argument("--study", required=True)
+    r.add_argument("--subject", help="the person's id in the source, to pair studies (default: the study)")
+    r.add_argument("--source", required=True)
+    r.add_argument("--half-maximum-only", action="store_true",
+                   help="leave each edge at the half-maximum, without the blurred-step fit (edges.py)")
+    r.add_argument("--out", required=True)
+    r.set_defaults(func=cmd_ingest_raw_ct)
+
+    g = sub.add_parser("ingest-image", help="one radiograph or frame with its corners or FleXray masks (film.py)")
+    g.add_argument("--image", required=True, help="one DICOM radiograph, or a PNG, JPEG, TIFF or BMP")
+    g.add_argument("--corners", help="its schwingnet-spine-xr/1 annotation")
+    g.add_argument("--flexray", help="FleXray's masks, probabilities or logits for it (.npy, channels x 256 x 256)")
+    g.add_argument("--flexray-names", help="FleXray's label_names.json, if not beside the arrays (it is hashed "
+                                           "either way)")
+    g.add_argument("--mask-content", choices=("whole", "body"), default="whole",
+                   help="whole vertebrae (how FleXray's channels are read here: they name bodies, never measure "
+                        "them) or bodies alone")
+    g.add_argument("--view", choices=XR_VIEWS, help="ap, pa or lateral, where no annotation says it")
+    g.add_argument("--study", required=True)
+    g.add_argument("--subject")
+    g.add_argument("--source", required=True)
+    g.add_argument("--anterior", choices=("left", "right"), help="which side of a lateral image is anterior")
+    g.add_argument("--pixel-mm", type=float, help="the pixel's length at the detector, a finite number above 0, in "
+                                                    "place of the header's; the "
+                                                    "header's magnification, where it states or implies one, "
+                                                    "still applies, else the default")
+    g.add_argument("--modality", help="film, fluoroscopy, or drr or synthetic for a made image; held to the "
+                                      "annotation's and written into it where it states none (default: the "
+                                      "annotation's, else film)")
+    g.add_argument("--annotation", choices=("human", "machine"),
+                   help="who drew the corners, required with --corners and held to the reader id; the study's "
+                        "annotation is machine once a model names or draws the bodies")
+    g.add_argument("--out", required=True)
+    g.set_defaults(func=cmd_ingest_image)
+
     k = sub.add_parser("check", help="read every column back and report")
     k.add_argument("directories", nargs="+")
     k.set_defaults(func=cmd_check)

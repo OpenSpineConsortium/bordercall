@@ -16,10 +16,13 @@ view:
   neither, VBHp is not taken and the flag says so; the depths need no side.
 
 The canal is not in four corners. A body may carry, beside its corners, an optional `chords`
-object naming a measure and two points, {"canal_w": [[x1, y1], [x2, y2]]} for the
-interpedicular distance on an AP or {"canal_ap": [...]} for the depth of the canal on a lateral
-(the posterior body wall to the spinolaminar line); this is the one addition to version 1 the
-importer reads, and an annotation without it loses nothing.
+object naming a measure and two points, for any measure the corners do not give and the view
+shows: {"canal_w": [[x1, y1], [x2, y2]]} for the interpedicular distance on an AP or
+{"canal_ap": [...]} for the depth of the canal on a lateral (the posterior body wall to the
+spinolaminar line), and likewise tp_span on an AP and spinous_length on a lateral, which are kept
+in the record only (the package's EXTRA). A chord the corners give, or one on a view that does
+not show it, is not read and its flag says so. This is the one addition to version 1 the importer
+reads, and an annotation without it loses nothing.
 
 A corner that is null or marked not visible gives no chord, never a guessed one. C1, C2 and the
 sacrum are named and kept, never measured, as on a CT: the rule's column runs from C3 to L5. A
@@ -29,19 +32,28 @@ mistake the importer cannot settle, so both bodies are kept as "?" and the study
 
 MILLIMETRES, AND THE MAGNIFICATION. A film's pixel is a length at the detector, `pixel_mm`; the
 body sits nearer the source, so its shadow is magnified by m = source-to-image distance over
-source-to-object distance, 1.1 to 1.3 for a spine film and more on a C-arm. A chord in
-millimetres is pixels times pixel_mm over m. m is rarely recorded, so it enters the rule as what
-it is, a scale on every chord at once, which the rule already integrates over as the patient's
-size (archive/bordercall/exact.py): the chords are divided by a nominal m0 and the study carries
-the spread of log m, which bridge.py adds to the size spread. The defaults, m0 = 1.15 and a
-spread of 0.08 in log m (m from 0.98 to 1.35 within two spreads), are a choice stated here and
-recorded in every study, to be replaced by the image's own geometry where its header has it
-(`--magnification`, `--magnification-sd`). An image with no pixel_mm has no millimetres at all:
-its chords stay in pixels, the study says its scale is unknown, and the rule names it from the
-chords' proportions alone (bridge.py, a flat prior on the scale).
+source-to-object distance: against CT or MRI, vertebral bodies on lateral digital films were
+magnified 1.06 to 1.63, more than the nominal 1.1 to 1.2 (Ravi and Rampersaud 2009, the report's
+row D7). A chord in millimetres is pixels times pixel_mm over m. m is rarely recorded, so it
+enters the rule as what it is, a scale on every chord at once, which the rule already integrates
+over as the patient's size (archive/bordercall/exact.py): the chords are divided by a nominal m0
+and the study carries the spread of log m, which bridge.py adds to the size spread. The defaults,
+m0 = 1.26, midway between that study's cervical and lumbar means of 1.21 and 1.31, and a spread of
+0.10 in log m (m from 1.03 to 1.54 within two spreads), are a choice stated and sourced in
+readers.py (DEFAULT_MAGNIFICATION) and recorded in every study, to be replaced by the image's own
+geometry where its header has it (`--magnification`, `--magnification-sd`). An image with no
+pixel_mm has no millimetres at all: its chords stay in pixels, the study says its scale is
+unknown, and the rule names it from the chords' proportions alone (bridge.py, a flat prior on the
+scale). A pixel_mm that is not a positive length (zero, negative or not a number) is refused,
+never read as a scale. Each view's pixel is recorded as its annotation states it
+(pixel_mm_stated) and as its chords were scaled, at the detector and at the patient
+(pixel_mm_at_detector, pixel_mm_at_patient), since film.py may take the scale from the image's
+own header instead of the annotation. An annotation that states no modality (absent, null or
+blank) is read as film, this module's own choice.
 
 Two views of one study (an AP and a lateral of the same patient on one day) are merged by level
-into one column, each measure from the view that shows it. Views that disagree on whether they
+into one column, each measure from the view that shows it, each view in its own scale; where the
+views' magnifications are uncertain by different amounts, the study carries the larger spread. Views that disagree on whether they
 have a pixel size cannot share one scale and are refused, and so are two views that both lack
 one, since each image's pixel is a unit of its own.
 
@@ -58,11 +70,16 @@ import numpy as np
 
 from . import LEVELS, MEASURES, NOT_MEASURED, PLANES, SEVEN
 from .column import Body, Column, facts_from_levels
+from .readers import (DEFAULT_MAGNIFICATION, DEFAULT_MAGNIFICATION_LOG_SD, LEAST_LOG_SD, LEAST_MAGNIFICATION,
+                      STATED_LOG_SD, caller_value)
 
 FORMAT = "schwingnet-spine-xr/1"
 NAMES = set(LEVELS) | {"?"}
 VIEWS = ("ap", "pa", "lateral")
-M0, M_LOG_SD = 1.15, 0.08
+# The magnification an annotation's pixel_mm is divided by where none is given, and the spread of
+# its log: the reader's default, so a film scaled by its annotation and one scaled by its header
+# share one, chosen and sourced in readers.py; a stated factor shares STATED_LOG_SD the same way.
+M0, M_LOG_SD = DEFAULT_MAGNIFICATION, DEFAULT_MAGNIFICATION_LOG_SD
 FROM_CORNERS = ("endplate", "endplate_lower", "endplate_depth", "endplate_lower_depth", "h_post")
 
 
@@ -156,16 +173,83 @@ def view_bodies(doc: dict, view: str) -> Tuple[List[Tuple[str, dict]], List[str]
     return [(names[i], bodies[i]) for i in order], problems
 
 
+def modality_of(image: dict) -> str:
+    """The image's modality as its annotation states it, without the spaces around it, or film
+    where it states none (the field absent, null or blank). The format names no default; film is
+    this module's own choice, the one it has always read an absent field as."""
+    said = str(image.get("modality") or "").strip()
+    return said or "film"
+
+
+def stated_pixel(image: dict) -> Optional[float]:
+    """The annotation's pixel_mm as a length, or None where it gives none. A pixel_mm that is not
+    a positive finite number is refused: zero would put every chord at 0 mm and a negative one
+    below it, each with the scale called known."""
+    pixel = image.get("pixel_mm")
+    if pixel is None:
+        return None
+    try:
+        value = float(pixel)
+    except (TypeError, ValueError):
+        value = math.nan
+    if not (math.isfinite(value) and value > 0):
+        raise SystemExit("the annotation's pixel_mm is %r; it must be a positive length in millimetres, or null where "
+                         "the scale is unknown" % (pixel,))
+    return value
+
+
+def doc_scale(doc: dict, magnification: Optional[float] = None, magnification_sd: Optional[float] = None) -> dict:
+    """An annotation's own scale: its pixel_mm, a length at the detector, over the stated
+    magnification or the default; or unknown where it gives no pixel_mm. A stated magnification
+    carries the spread a header's stated factor does (readers.STATED_LOG_SD), so one fact gets one
+    spread whichever route states it, unless --magnification-sd gives another. The caller's values
+    are held to the bounds a header's are (readers.caller_value): a magnification of 1 or more, a
+    spread of 0 or more, each a finite number."""
+    magnification = caller_value(magnification, "--magnification", LEAST_MAGNIFICATION, inclusive=True)
+    magnification_sd = caller_value(magnification_sd, "--magnification-sd", LEAST_LOG_SD, inclusive=True)
+    pixel = stated_pixel(doc["image"])
+    if pixel is None:
+        return {"pixel_mm": None, "pixel_mm_at_detector": None, "magnification": None, "log_sd": None,
+                "basis": "unknown: the annotation gives no pixel_mm"}
+    stated = magnification is not None
+    m0 = magnification if stated else M0
+    msd = magnification_sd if magnification_sd is not None else (STATED_LOG_SD if stated else M_LOG_SD)
+    return {"pixel_mm": float(pixel) / m0, "pixel_mm_at_detector": float(pixel), "magnification": m0, "log_sd": msd,
+            "basis": "the annotation's pixel_mm over %s magnification %.3f" % ("the stated" if stated else "the default", m0)}
+
+
 def ingest(paths: Sequence[str], study_id: str, source: str, annotation: str, subject_id: Optional[str] = None,
            anterior: Optional[str] = None, magnification: Optional[float] = None,
            magnification_sd: Optional[float] = None) -> Column:
+    docs = [read(p) for p in paths]
+    return ingest_docs(docs, [doc_scale(d, magnification, magnification_sd) for d in docs], study_id, source,
+                       annotation, subject_id, anterior)
+
+
+def ingest_docs(docs: Sequence[dict], scales: Sequence[dict], study_id: str, source: str, annotation: str,
+                subject_id: Optional[str] = None, anterior: Optional[str] = None,
+                extra: Optional[dict] = None) -> Column:
+    """Annotations of the views of one study, each with its own scale (`doc_scale`, or the image's
+    header through film.py), to one column."""
+    views, known = check_views(docs, scales, annotation)
+    col_bodies, problems = merge_views(docs, views, scales, known, anterior)
+    study = study_record(docs, views, scales, known, col_bodies, problems, annotation)
+    study.update({"study_id": study_id, "subject_id": subject_id or study_id, "source": source})
+    study.update(extra or {})
+    study.update(facts_from_levels([b.level for b in col_bodies], study["expresses"]))
+    return Column(study=study, bodies=col_bodies)
+
+
+def check_views(docs: Sequence[dict], scales: Sequence[dict], annotation: str) -> Tuple[List[str], bool]:
+    """Each annotation's view, and whether the views have a pixel size, after refusing what one
+    column cannot hold: two annotations of one view, views that disagree on having a pixel size,
+    several views with none, and a statement of human beside a model's reader id."""
     if annotation not in ("human", "machine"):
         raise SystemExit("--annotation must say who drew the corners: human or machine")
-    docs = [read(p) for p in paths]
     views = [view_of(d["image"]) for d in docs]
     if len(set(views)) != len(views):
         raise SystemExit("two annotations of the same view (%s); one per view per study" % ", ".join(views))
-    scaled = [d["image"].get("pixel_mm") is not None for d in docs]
+    scaled = [sc.get("pixel_mm") is not None for sc in scales]
     if len(set(scaled)) > 1:
         raise SystemExit("one view has a pixel size and another has none; they cannot share one scale")
     if len(docs) > 1 and not any(scaled):
@@ -175,15 +259,20 @@ def ingest(paths: Sequence[str], study_id: str, source: str, annotation: str, su
     if annotation == "human" and any(annotation_of(r) == "machine" for r in readers):
         raise SystemExit("--annotation human, but a reader id says a model drew the corners (%s)"
                          % ", ".join(str(r.get("id")) for r in readers))
-    known = scaled[0]
-    m0 = float(magnification) if magnification else M0
-    msd = float(magnification_sd) if magnification_sd is not None else (M_LOG_SD if not magnification else 0.02)
+    return views, scaled[0]
+
+
+def merge_views(docs: Sequence[dict], views: Sequence[str], scales: Sequence[dict], known: bool,
+                anterior: Optional[str]) -> Tuple[List[Body], List[str]]:
+    """The views' bodies merged by level, each measure from the view that shows it in that view's
+    scale (or in pixels where the scale is unknown): the named bodies in the order of the levels,
+    then each view's unnamed ones; with the problems the views' names raised."""
     order: List[str] = []
     bodies: Dict[str, Body] = {}
     problems: List[str] = []
-    for d, view in zip(docs, views):
+    for d, view, sc in zip(docs, views, scales):
         side = anterior or d["image"].get("anterior")
-        mm = float(d["image"]["pixel_mm"]) / m0 if known else 1.0
+        mm = float(sc["pixel_mm"]) if known else 1.0
         listed, found = view_bodies(d, view)
         problems += found
         for i, (level, b) in enumerate(listed):
@@ -191,32 +280,49 @@ def ingest(paths: Sequence[str], study_id: str, source: str, annotation: str, su
             if key not in bodies:
                 bodies[key] = Body(level=level)
                 order.append(key)
-            if level in NOT_MEASURED:
-                bodies[key].flags["all"] = "named, not measured: %s" % (
-                    "the sacrum carries no row" if level == "sacrum" else "the rule's column starts at C3")
-                continue
-            vals, flags = corner_chords(b, view, side)
-            for m, v in vals.items():
-                bodies[key].values[m] = v * mm if np.isfinite(v) else math.nan
-                bodies[key].methods[m] = "%s view, %s" % (view, "corners" if m in FROM_CORNERS else "chord points")
-            bodies[key].flags.update(flags)
+            add_view(bodies[key], b, view, side, mm)
     named = sorted((k for k in order if not k.startswith("?")), key=LEVELS.index)
     keys = named + [k for k in order if k.startswith("?")] if named else order
-    col_bodies = [bodies[k] for k in keys]
-    levels = [b.level for b in col_bodies]
+    return [bodies[k] for k in keys], problems
+
+
+def add_view(body: Body, drawn: dict, view: str, side: Optional[str], mm: float) -> None:
+    """One view's chords of one body into its merged record, at mm per pixel; a body the rule's
+    column leaves out is named and kept with the reason, never measured."""
+    if body.level in NOT_MEASURED:
+        body.flags["all"] = "named, not measured: %s" % (
+            "the sacrum carries no row" if body.level == "sacrum" else "the rule's column starts at C3")
+        return
+    vals, flags = corner_chords(drawn, view, side)
+    for m, v in vals.items():
+        body.values[m] = v * mm if np.isfinite(v) else math.nan
+        body.methods[m] = "%s view, %s" % (view, "corners" if m in FROM_CORNERS else "chord points")
+    body.flags.update(flags)
+
+
+def study_record(docs: Sequence[dict], views: Sequence[str], scales: Sequence[dict], known: bool,
+                 col_bodies: Sequence[Body], problems: List[str], annotation: str) -> dict:
+    """What the study's record says of its views, its readers and its scale, before its ids and
+    the facts its levels give."""
+    readers = [d.get("reader", {}) for d in docs]
     calls = [d.get("column", {}) for d in docs if d.get("column")]
     expresses = {"L6": True, "T13": True, "ribs": any(c.get("ribs") for c in calls)}
-    study = {"study_id": study_id, "subject_id": subject_id or study_id, "source": source,
-             "modality": str(docs[0]["image"].get("modality", "film")), "views": views, "annotation": annotation,
-             "made_by": ",".join(sorted({str(r.get("id", "")) for r in readers})), "scheme": FORMAT,
-             "expresses": expresses, "pixel_mm": [d["image"].get("pixel_mm") for d in docs],
-             "magnification": m0 if known else None, "scale_known": bool(known),
-             "scale_log_mean": 0.0, "scale_log_sd": msd if known else None,
-             "reader_call": [c.get("call") for c in calls], "problems": problems,
-             "plane_of": {m: "/".join(PLANES[m]) for m in MEASURES},
-             "measured": sorted(m for m in SEVEN if any(np.isfinite(b.values.get(m, math.nan)) for b in col_bodies))}
-    study.update(facts_from_levels(levels, expresses))
-    return Column(study=study, bodies=col_bodies)
+    magnifications = sorted({sc.get("magnification") for sc in scales if sc.get("magnification") is not None})
+    return {"modality": modality_of(docs[0]["image"]), "views": list(views), "annotation": annotation,
+            "made_by": ",".join(sorted({str(r.get("id", "")) for r in readers})), "scheme": FORMAT,
+            "expresses": expresses,
+            # each view's pixel as its annotation states it, beside the pixel its chords were scaled by
+            # (at the patient) and the detector's pixel that came from: on film.py's route the image's
+            # own header can set the scale over the annotation's pixel_mm
+            "pixel_mm_stated": [d["image"].get("pixel_mm") for d in docs],
+            "pixel_mm_at_detector": [sc.get("pixel_mm_at_detector") for sc in scales],
+            "pixel_mm_at_patient": [sc.get("pixel_mm") for sc in scales],
+            "magnification": (magnifications[0] if len(magnifications) == 1 else magnifications) if known else None,
+            "scale_known": bool(known), "scale_basis": [sc.get("basis") for sc in scales],
+            "scale_log_mean": 0.0, "scale_log_sd": max(float(sc["log_sd"]) for sc in scales) if known else None,
+            "reader_call": [c.get("call") for c in calls], "problems": problems,
+            "plane_of": {m: "/".join(PLANES[m]) for m in MEASURES},
+            "measured": sorted(m for m in SEVEN if any(np.isfinite(b.values.get(m, math.nan)) for b in col_bodies))}
 
 
 def ingest_one(path: str, **kw) -> Column:

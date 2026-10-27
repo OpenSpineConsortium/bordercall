@@ -7,10 +7,13 @@ the tiers and the scores are read from; and the files a directory of imports hol
                                  reads: a column `body`, a column `offset` (the body's place in the
                                  study's own count, so a body missing between two seen ones leaves
                                  a gap), one column per measure in millimetres, blank where it was
-                                 not taken, and '#' lines naming the study and its levels
+                                 not taken, and '#' lines naming the study, its levels and the scale
+                                 its values carry, which only `python -m scanimport name` reads
+                                 (schwingcheck skips every '#' line)
     <out>/studies.csv            one row per study: the facts and the tier
     <out>/MANIFEST.json          what made the directory: the command, the code's commit, the
-                                 inputs' sha256, the counts
+                                 Python and library versions the run used, the inputs' sha256
+                                 (DIGESTS says how a folder's is taken), the counts
 
 A body's name is the one its labels give it, and the study says whether those labels were
 counted from C2 (`countable`): only a countable study's names are a truth anything is scored
@@ -129,17 +132,80 @@ def facts_from_levels(levels: List[str], expresses: Dict[str, bool]) -> Dict[str
 
 # ---- the files ----------------------------------------------------------------------------------
 
-def sha256_of(path: str) -> str:
+# How every input's digest is taken, the package's one rule, named in each manifest so a digest can
+# be taken again the same way: a file's is the sha256 of its bytes; a folder's is the sha256 of one
+# line per file under it, at any depth, "<path relative to the folder> <the file's sha256>\n", the
+# lines sorted, so it changes with any file's bytes, name or place and with a file added or removed.
+DIGESTS = ("sha256 of a file's bytes; of a folder, the sha256 of one line per file under it, its path relative "
+           "to the folder, a space and its sha256, the lines sorted and each ended by a newline")
+
+
+def file_sha256(path: str) -> str:
     h = hashlib.sha256()
-    if os.path.isdir(path):
-        for name in sorted(os.listdir(path)):
-            h.update(name.encode())
-            h.update(sha256_of(os.path.join(path, name)).encode())
-        return h.hexdigest()
     with open(path, "rb") as fh:
         for chunk in iter(lambda: fh.read(1 << 20), b""):
             h.update(chunk)
     return h.hexdigest()
+
+
+def folder_files(path: str) -> List[str]:
+    """Every file under a folder, at any depth, as paths relative to it, sorted."""
+    return sorted(os.path.relpath(os.path.join(r, f), path) for r, _, fs in os.walk(path) for f in fs)
+
+
+def sha256_of(path: str) -> str:
+    """A file's or a folder's digest, by DIGESTS."""
+    if not os.path.isdir(path):
+        return file_sha256(path)
+    lines = "".join("%s %s\n" % (rel, file_sha256(os.path.join(path, rel))) for rel in folder_files(path))
+    return hashlib.sha256(lines.encode()).hexdigest()
+
+
+def digests(path: str) -> Dict[str, str]:
+    """An input's entry in a manifest: a file under its path, a folder under its path with its count
+    of files, each with its digest (sha256_of)."""
+    if not os.path.isdir(path):
+        return {path: sha256_of(path)}
+    return {"%s/ (%d files)" % (path.rstrip("/"), len(folder_files(path))): sha256_of(path)}
+
+
+# The libraries whose versions a run records where it imported them, by module and by the
+# distribution importlib.metadata knows them as: the mask-free mode's chords hold bit for bit only on
+# the same numpy, scipy and BLAS build (intensity.py), and a pydicom decoder or Pillow changes what
+# a compressed or colour file reads as.
+LIBRARIES = (("numpy", "numpy"), ("scipy", "scipy"), ("nibabel", "nibabel"), ("pydicom", "pydicom"),
+             ("PIL", "Pillow"))
+
+
+def versions_of() -> Dict[str, object]:
+    """The Python and the version of each of LIBRARIES the run imported, with numpy's BLAS where
+    numpy reports it."""
+    import platform
+    import sys
+    from importlib import metadata
+    out: Dict[str, object] = {"python": platform.python_version()}
+    for module, dist in LIBRARIES:
+        if module in sys.modules:
+            try:
+                out[dist] = metadata.version(dist)
+            except metadata.PackageNotFoundError:
+                out[dist] = getattr(sys.modules[module], "__version__", None)
+    blas = blas_of()
+    if blas:
+        out["blas"] = blas
+    return out
+
+
+def blas_of() -> Optional[str]:
+    """numpy's BLAS as its build configuration names it (name and version), or None where numpy
+    is not imported or does not say."""
+    import sys
+    np = sys.modules.get("numpy")
+    try:
+        deps = np.show_config(mode="dicts")["Build Dependencies"]["blas"]
+        return " ".join(str(deps[k]) for k in ("name", "version") if deps.get(k))
+    except Exception:                         # an older numpy has no dicts mode; a newer may move the key
+        return None
 
 
 def commit_of() -> Dict[str, object]:
@@ -180,8 +246,9 @@ def field_bodies(col: Column) -> List[Body]:
 
 def write_field(col: Column, path: str) -> None:
     """The study as one field in the format bridge.read_field and `python -m schwingcheck name`
-    read, with the scale its values carry, so a field named from its file is named as its column
-    would be."""
+    read, headed by the scale its values carry, so a field `python -m scanimport name` names from
+    its file is named as its column would be. schwingcheck skips the '#' lines and names every
+    field with its scale taken as known, at the generator's spread."""
     bodies = field_bodies(col)
     offs = offsets_of([b.level for b in bodies]) if all(b.level != "?" for b in bodies) else None
     s = col.study
@@ -215,7 +282,10 @@ STUDY_FIELDS = ["study_id", "subject_id", "source", "modality", "views", "annota
 
 
 def write_tables(directory: str, columns: List[Column]) -> None:
-    """bodies.csv and studies.csv from every column of the directory."""
+    """bodies.csv and studies.csv from every column of the directory. bodies.csv has a row for each
+    measure a body has a value or a reason for, its own or, for a body not measured at all (C1, C2
+    or the sacrum, a mask-free body bounded by one disc or left out for metal), the body's reason
+    (flags["all"]), so every body is in it with why it was not measured."""
     with open(os.path.join(directory, "bodies.csv"), "w", newline="") as fh:
         w = csv.writer(fh, lineterminator="\n")
         w.writerow(["study_id", "body", "level", "measure", "value_mm", "plane", "method", "flag"])
@@ -223,11 +293,12 @@ def write_tables(directory: str, columns: List[Column]) -> None:
             for i, b in enumerate(col.bodies):
                 for m in MEASURES:
                     v = _clean(b.values.get(m, math.nan))
-                    if v is None and m not in b.flags:
+                    why = b.flags.get(m) or ("" if v is not None else b.flags.get("all", ""))
+                    if v is None and not why:
                         continue
                     w.writerow([col.study["study_id"], i, b.level, m, "" if v is None else v,
                                 col.study.get("plane_of", {}).get(m, "/".join(PLANES[m]) if col.study.get("modality") == "ct" else ""),
-                                b.methods.get(m, ""), b.flags.get(m, "")])
+                                b.methods.get(m, ""), why])
     with open(os.path.join(directory, "studies.csv"), "w", newline="") as fh:
         w = csv.DictWriter(fh, fieldnames=STUDY_FIELDS, extrasaction="ignore", lineterminator="\n")
         w.writeheader()
@@ -246,7 +317,7 @@ def write_run(directory: str, command: List[str], extra: Optional[dict] = None) 
     if os.path.exists(path):
         with open(path) as fh:
             runs = json.load(fh).get("runs", [])
-    runs.append({"command": command, **commit_of(), **(extra or {})})
+    runs.append({"command": command, **commit_of(), "versions": versions_of(), **(extra or {})})
     with open(path, "w", newline="\n") as fh:
         json.dump({"format": "bordercall-runs/1", "runs": runs}, fh, indent=1, sort_keys=True)
         fh.write("\n")
@@ -259,9 +330,9 @@ def write_manifest(directory: str, command: List[str], inputs: Dict[str, str], e
         with open(path) as fh:
             prior = json.load(fh)
     runs = prior.get("runs", [])
-    runs.append({"command": command, "inputs": inputs, **commit_of(), **(extra or {})})
+    runs.append({"command": command, "inputs": inputs, **commit_of(), "versions": versions_of(), **(extra or {})})
     cols = read_columns(directory)
     with open(path, "w", newline="\n") as fh:
-        json.dump({"format": "bordercall-imports/1", "runs": runs, "studies": len(cols),
+        json.dump({"format": "bordercall-imports/1", "digests": DIGESTS, "runs": runs, "studies": len(cols),
                    "bodies": sum(len(c.bodies) for c in cols)}, fh, indent=1, sort_keys=True)
         fh.write("\n")
