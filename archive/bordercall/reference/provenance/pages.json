@@ -368,6 +368,20 @@
     }
    },
    "sha256": "f4078fa2cd2cf2c140fcee7f018917e055d2ca825c42e9b01d84cf1f4b7c1e2c"
+  },
+  "thoracic-p892": {
+   "file": "Panjabi_1991_Thoracic_Spine_16-8_888-901_p892.pdf",
+   "pages": {
+    "1": {
+     "sha256": "f7fa1f3b619bfccc362b60151988492b9ea446262445af4a7e249978f25abf12",
+     "size": [
+      2741,
+      2014
+     ],
+     "turned": false
+    }
+   },
+   "sha256": "a1a43be91d80a5d5735bcd61fa0f07fee5b5bf73f8aeb6f3652e6dae00541a6a"
   }
  },
  "pdftoppm": "pdftoppm version 24.02.0"

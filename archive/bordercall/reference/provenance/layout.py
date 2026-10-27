@@ -1,6 +1,7 @@
 """Find every cell of every table on the rendered pages and cut its image out.
 
     python3 layout.py            # cells.csv, cells/<table>/*.png, and the reading strips under archive/out/
+    python3 layout.py thoracic-t3     # one table again, its cells and strips replacing its earlier ones
 
 For each table in tables.py the body region is read for lines of print: a line is a run of
 pixel rows that carry ink, horizontal rules masked out first. The lines must match the rows
@@ -272,6 +273,17 @@ def cells_of(t: Table, dark: np.ndarray) -> list[Cell]:
     return cells
 
 
+def read_cells() -> list[Cell]:
+    """cells.csv as it stands, so one table can be laid out again without the others."""
+    path = os.path.join(HERE, "cells.csv")
+    if not os.path.exists(path):
+        return []
+    with open(path, newline="", encoding="utf-8") as f:
+        return [Cell(r["table"], int(r["row"]), int(r["col"]), r["row_label"], r["col_label"], r["measure"],
+                     r["level"], r["statistic"], r["fmt"], int(r["x0"]), int(r["y0"]), int(r["x1"]), int(r["y1"]))
+                for r in csv.DictReader(f)]
+
+
 def write_cells(all_cells: list[Cell]) -> None:
     with open(os.path.join(HERE, "cells.csv"), "w", newline="") as f:
         w = csv.writer(f, lineterminator="\n")
@@ -397,8 +409,8 @@ def run(keys: list[str] | None = None) -> None:
     for t in TABLES:
         if keys and t.key not in keys:
             continue
-        dark = load_page(t.paper, t.page) < INK
-        with Image.open(page_path(t.paper, t.page)) as im:
+        dark = load_page(t.source or t.paper, t.page) < (t.ink or INK)
+        with Image.open(page_path(t.source or t.paper, t.page)) as im:
             page = im.convert("L")
         cells = cells_of(t, dark)
         print("%-14s %3d cells" % (t.key, len(cells)), file=sys.stderr)
@@ -407,8 +419,21 @@ def run(keys: list[str] | None = None) -> None:
         pass1 += write_pass1(t, page, dark)
         pass2 += write_pass2(t, page, cells)
         all_cells += cells
-    if not keys:
-        write_cells(all_cells)
+    if keys:
+        # one table laid out again, or added: its cells and strips replace its earlier ones in
+        # the records, and every other table's stay as they were
+        all_cells = [c for c in read_cells() if c.table not in keys] + all_cells
+        for which, mine in (("pass1", pass1), ("pass2", pass2)):
+            path = os.path.join(STRIPS, which + ".json")
+            with open(path, encoding="utf-8") as f:
+                kept = [s for s in json.load(f) if s["table"] not in keys]
+            with open(path, "w") as f:
+                json.dump(kept + mine, f, indent=1)
+        pass1, pass2 = None, None
+    order = {t.key: i for i, t in enumerate(TABLES)}
+    all_cells.sort(key=lambda c: (order[c.table], c.row, c.col))
+    write_cells(all_cells)
+    if pass1 is not None:
         with open(os.path.join(STRIPS, "pass1.json"), "w") as f:
             json.dump(pass1, f, indent=1)
         with open(os.path.join(STRIPS, "pass2.json"), "w") as f:

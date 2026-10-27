@@ -9,8 +9,9 @@ the images, twice, by eye (README.md).
 
 Two tables are nomenclature (cervical Table 1, lumbar Table 1, facets Table 1) and the
 thoracic Table 2 is nomenclature too; they print no number and are left out. The thoracic
-body table (Table 3, printed page 892) is on a page the scan at hand does not carry (the
-PDF goes from page 891 to 893), so it is listed with no region and no row is read from it.
+body table (Table 3, printed page 892) is on a page the thoracic scan does not carry (the
+PDF goes from page 891 to 893): it is read from a one-page file of its own, named by its
+`source`, render.py's key for that file (the owner's second scan, 27 October 2026).
 """
 from __future__ import annotations
 
@@ -51,6 +52,8 @@ class Table:
     col_edges: list[int] | None = None   # explicit column boundaries where the print is skewed
     axis: str = "cols"               # which axis carries the vertebral level: cols or rows
     note: str = ""
+    source: str = ""                 # render.py's key of the file the page is in, when not the paper's own
+    ink: int = 0                     # grey below this is ink on this page, where layout.py's INK is too strict
 
 
 CERVICAL = ["C%d" % i for i in range(2, 8)]
@@ -147,6 +150,18 @@ TABLES: list[Table] = [
                 Col("Sex", "text", statistic="text"), Col("Weight (kg)", "num", statistic="value"),
                 Col("Height (cm)", "num", statistic="value"), Col("Cause of death", "text", statistic="text")],
           axis="rows"),
+    Table("thoracic-t3", "thoracic", 1, 892, "Table 3. Vertebral Body Dimensions (See Figure 3 and Table 2 for Nomenclature)",
+          x=(70, 2500), header=(493, 519), body=(540, 1512), label_x=260,
+          rows=section("Linear dimensions (mm)") + lines("EPWu") + lines("EPDu") + lines("EPWl")
+          + lines("EPDl") + lines("VBHp") + single("EPWu/EPDu") + single("EPWl/EPDl")
+          + section("Cross-sectional area (mm2)") + lines("EPAu") + lines("EPAl")
+          + section("Angular dimension (deg)") + lines("EPItu") + lines("EPItl") + single("EPIt", "mean"),
+          cols=level_cols(THORACIC), source="thoracic-p892", ink=170,
+          note="Printed page 892 is not in the thoracic scan the other tables were read from (its page 4 is 891 and "
+               "its page 5 is 893); this table is read from the one-page file the owner supplied on 27 October 2026, "
+               "a landscape scan whose table reads upright with no turn and prints its lightest digits paler than "
+               "the other scans (two ratio cells, T7 and T12 of EPWu/EPDu, reach grey 140 in four pixels or fewer), "
+               "so ink on this page is grey below 170. Its last row, EPIt, prints one line, a mean with no standard error."),
     Table("thoracic-t4", "thoracic", 5, 893, "Table 4. Spinal Canal Dimensions",
           x=(200, 2300), header=(456, 490), body=(498, 832), label_x=400,
           rows=section("Liner dimensions (mm)") + lines("SCW") + lines("SCD") + single("SCW/SCD")
@@ -261,12 +276,6 @@ TABLES: list[Table] = [
           cols=compare_cols(["Present Study", "Malmivaara (1987)", "Ahmed (1990)", "Van Schaik (1985)",
                              "Horwitz & Smith (1940)"]), axis="rows"),
 ]
-
-ABSENT = {
-    "thoracic-t3": ("Table 3. Vertebral Body Dimensions", 892,
-                    "printed page 892 is not in the scan at hand: the PDF's page 4 is 891 and its page 5 is 893"),
-}
-
 
 def by_key() -> dict[str, Table]:
     return {t.key: t for t in TABLES}
