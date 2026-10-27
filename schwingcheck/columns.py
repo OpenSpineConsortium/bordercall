@@ -141,7 +141,9 @@ def draw_columns(ref: Dict[str, Dict[str, tuple]], phenotypes: Sequence[str], se
                  blend: float = SYNTH["blend"]) -> Columns:
     """n columns, the phenotypes cycled in turn, from one seeded stream in the archive's order.
     noise_mm is one error for every measure, as the archive's, or each measure's own; the stream
-    is the same either way, and the same error for every measure gives the archive's columns."""
+    is the same either way, and the same error for every measure gives the archive's columns.
+    Every column is padded with NaN to the widest phenotype listed, drawn or not, so the layout
+    depends on the phenotypes and not on how many columns are drawn."""
     measures = list(measures)
     M = len(measures)
     noise = np.broadcast_to(np.asarray(noise_mm, float), (M,))

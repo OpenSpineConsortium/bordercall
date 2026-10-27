@@ -29,7 +29,12 @@ Three things generalise rule.py without changing its contiguous, complete answer
   table and nothing changes.
 
 Every sum over bodies is the same batched matrix product as rule.py's, so no Python loop runs
-per field, place or body; fields go through in chunks only to bound memory.
+per place or body, nor per field while the fields share one row of mean factors, as every field
+does while the hooks are zero: fields go through in chunks only to bound memory. Each further
+row of factors is one more call, so with a weight or age hook on it is one call per patient
+whose weight or age is known, one per field where each field is a patient of its own, slower
+though the same answer; a graph taking the factors on the fields' side of the product would
+make it one call again.
 """
 from __future__ import annotations
 

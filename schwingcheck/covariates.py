@@ -15,7 +15,7 @@ anatomy gives one and a hook fixed at zero where it does not, so that item 5's d
 height, weight, age and sex per patient) estimates them without changing the model's shape:
 
 - Height scales the patient's size s, which multiplies every length (and, in step e, every
-  area by s^2): log s = beta_height * log(height / HEIGHT_REF) + e, e ~ N(0, scale_sd^2). The
+  area by s^2): log s = beta_height * log(height / HEIGHT_REF) + eps, eps ~ N(0, scale_sd^2). The
   prior beta_height ~ N(1, 0.5^2) is isometric scaling, every length in proportion to stature,
   as a starting belief and not a measurement. Integrated over that prior, a patient of known
   height has log s ~ N(log(h / HEIGHT_REF), scale_sd^2 + 0.5^2 log(h / HEIGHT_REF)^2); a patient
@@ -23,9 +23,9 @@ height, weight, age and sex per patient) estimates them without changing the mod
   reproduced. The residual SD is kept at the archive's 0.07, which overstates it once height is
   known: conservative until item 5 estimates it.
 - Sex shifts log s by `sex_size` (male against female), a hook at 0.
-- Weight and age shift a measure's mean by a factor exp(gamma * z), z the covariate standardised
-  on Panjabi's twelve specimens, gamma one coefficient per measure (`weight_effects`,
-  `age_effects`), every one 0 today. The owner's expectations, weight on the disc spaces and the
+- Weight and age shift a measure's mean by a factor exp(gamma_weight * w + gamma_age * a), w and
+  a the patient's weight and age standardised on Panjabi's twelve specimens, each gamma one
+  coefficient per measure (`weight_effects`, `age_effects`), every one 0 today. The owner's expectations, weight on the disc spaces and the
   facets and age on the facets, are where item 5 will look first: the facet measures enter in
   step e, and no disc space is in Panjabi's tables.
 
@@ -92,8 +92,8 @@ class CovariateModel:
         return mean, sd
 
     def mean_factors(self, covs: Sequence[Covariates], measures: Sequence[str]) -> np.ndarray:
-        """exp(gamma_weight z_weight + gamma_age z_age) for each patient and measure (P, M): all
-        ones while the hooks are zero."""
+        """exp(gamma_weight w + gamma_age a) for each patient and measure (P, M), w and a the
+        weight and age standardised: all ones while the hooks are zero."""
         zw = standardised(covs, "weight_kg")
         za = standardised(covs, "age_years")
         gw = np.array([self.weight_effects.get(m, 0.0) for m in measures])

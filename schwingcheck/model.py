@@ -3,7 +3,7 @@
     m = model.naming(X, hyp, mu, sd, keys)              # the rule: the level summed out, log s free
     idata = model.sample(m)                             # NUTS on the size alone
     post, se = model.hypothesis_posterior(m, idata)     # p(level | x), Rao-Blackwellised, and its error
-    logev = model.quadrature_evidence(m)                # the same model integrated on rule.py's nodes
+    logev = model.quadrature_evidence(m)                # its likelihoods integrated on rule.py's nodes
 
 Three models over the same table and the same covariates (covariates.py), each a pm.Model with
 named dimensions:
@@ -15,13 +15,17 @@ named dimensions:
   hypotheses is then the average over the draws of p(h | x, s), the Rao-Blackwellised estimate:
   no sampler ever moves a discrete level (the owner's word of 27 October 2026, 09:46 UTC, on
   Metropolis bottlenecks), and the average has a smaller error than counting sampled levels
-  would. `quadrature_evidence` integrates the same model over log s on rule.py's Gauss-Hermite
-  nodes instead of sampling it, which is the exact rule computed from the model's own graph.
-- `fixed_level` is the development baseline: the level of every body is known and every
-  continuous variable of the generator is explicit, the patient's size, the patient's offset in
-  each measure and the population's coefficient of height, so ArviZ's trace, summary and forest
-  plots apply as they stand. Once item 5 brings spines of known level with their covariates, it
-  is the model that estimates the coefficients the naming model takes as given.
+  would. `quadrature_evidence` integrates over log s, on rule.py's Gauss-Hermite nodes instead
+  of by sampling, each hypothesis's likelihood, the term the observed density sums, built from
+  the model's own variables and size prior: the exact rule computed from the model's graph.
+- `fixed_level` is the development baseline: the level of every body is known, and three of the
+  generator's continuous variables are explicit, the patient's size, the patient's offset in
+  each measure and the population's coefficient of height, while each body's own draw and the
+  error are integrated in closed form, so ArviZ's trace, summary and forest plots apply as they
+  stand. It is where item 5's spines of known level, with their covariates, will estimate what
+  the naming model takes as given: beta_height is free in it today, while the hooks of weight,
+  age and sex are data held at zero, as in the naming model, and the SD of log s and rho are
+  constants, each needing a prior in its place before it can be estimated.
 - `generator` is columns.py's generator as a forward model; pm.draw gives columns that match
   the NumPy generator's in distribution, though not draw for draw, since the random streams
   differ.
@@ -55,6 +59,7 @@ LOG2PI = math.log(2.0 * math.pi)
 HERE = os.path.dirname(os.path.abspath(__file__))
 GRAPH_DIR = os.path.join(HERE, "graphs")
 NAMING_SIGNATURE = "(),(m,b),(m),(m,l),(m,l),(h,b),(h),(),(m)->(m,b)"
+N_BATCHES = 20          # batches per chain for hypothesis_posterior's Monte Carlo error
 
 
 # ---- the covariates, as data and as pieces of the graph -------------------------------------
@@ -100,8 +105,9 @@ def size_location(data: dict, cm: CV.CovariateModel, beta):
 
 
 def mean_factor(data: dict):
-    """exp(gamma_weight z_weight + gamma_age z_age) for every patient and measure, z standardised
-    on Panjabi's twelve specimens and 0 where unknown: all ones while the hooks are zero."""
+    """exp(gamma_weight w + gamma_age a) for every patient and measure, w and a the weight and
+    age standardised on Panjabi's twelve specimens and 0 where unknown: all ones while the hooks
+    are zero."""
     import pytensor.tensor as pt
     (wm, ws), (am, asd) = CV.REFERENCE["weight_kg"], CV.REFERENCE["age_years"]
     zw = _where_known(data, "weight_kg", 0.0, lambda w: (w - wm) / ws)
@@ -155,7 +161,8 @@ def _naming_logp(value, log_s, read, factor, mu, sd, idx, log_prior, rho, noise)
     import pytensor.tensor as pt
     ll = hypothesis_loglik(value, read, factor, _core(mu, 2), _core(sd, 2), _core(idx, 2), log_s,
                            _core(rho, 0), _core(noise, 1))
-    return pt.logsumexp(ll + _core(log_prior, 1), axis=-1)
+    lp = _core(log_prior, 1)
+    return pt.logsumexp(ll + lp, axis=-1) - pt.logsumexp(lp)
 
 
 def _naming_random(log_s, read, factor, mu, sd, idx, log_prior, rho, noise, rng=None, size=None):
@@ -198,7 +205,9 @@ def naming(X: np.ndarray, hyp: Hypotheses, mu: np.ndarray, sd: np.ndarray, measu
     """The rule as a PyMC model over fields X (fields, measures, bodies), NaN where not read,
     scored under every hypothesis of `hyp` with the table (measures, levels) and each measure's
     error `noise`; `covs` gives each field's patient, unknown by default, which leaves the
-    archive's size prior."""
+    archive's size prior. A log prior over the hypotheses is normalised in the density, as
+    rule.py's posterior normalises it, so that the observed density is a density whatever the
+    prior's sum, one set later with pm.set_data included."""
     import pymc as pm
     import pytensor.tensor as pt
     X = np.asarray(X, float)
@@ -259,24 +268,28 @@ def _of_log_s(model, out):
     return model.compile_fn(graph, inputs=[model.rvs_to_values[model["log_s"]]], point_fn=False)
 
 
-def hypothesis_posterior(model, idata, n_batches: int = 20) -> Tuple[np.ndarray, np.ndarray]:
+def hypothesis_posterior(model, idata, n_batches: int = N_BATCHES) -> Tuple[np.ndarray, np.ndarray]:
     """p(h | x) for every field, (fields, hypotheses): the mean over the posterior draws of log s
-    of p(h | x, s), and its Monte Carlo standard error by batch means within each chain."""
-    lp = np.asarray(model["log_prior"].get_value(), float)
-    fn = _of_log_s(model, model.schwingcheck["hypothesis_loglik"])
+    of p(h | x, s), and its Monte Carlo standard error by batch means, each chain's draws cut into
+    n_batches batches of one size. The last draws of a chain, fewer than n_batches, that fill no
+    batch are left out of the mean and the error alike, so the two describe the same draws, and
+    the draws are summed batch by batch, so the memory taken grows with the batches and not with
+    the draws."""
     draws = np.asarray(idata.posterior["log_s"].values)            # (chains, draws, fields)
     nc, nd, F = draws.shape
-    per = np.empty((nc, nd, F, lp.size))
-    for c in range(nc):
-        for d in range(nd):
-            a = fn(draws[c, d]) + lp
-            a = np.exp(a - a.max(axis=1, keepdims=True))
-            per[c, d] = a / a.sum(axis=1, keepdims=True)
     size = nd // n_batches
     if size < 1:
         raise ValueError("%d draws make no %d batches" % (nd, n_batches))
-    batches = per[:, :size * n_batches].reshape(nc * n_batches, size, F, lp.size).mean(axis=1)
-    return per.mean(axis=(0, 1)), batches.std(axis=0, ddof=1) / math.sqrt(batches.shape[0])
+    lp = np.asarray(model["log_prior"].get_value(), float)
+    fn = _of_log_s(model, model.schwingcheck["hypothesis_loglik"])
+    sums = np.zeros((nc, n_batches, F, lp.size))
+    for c in range(nc):
+        for d in range(size * n_batches):
+            a = fn(draws[c, d]) + lp
+            a = np.exp(a - a.max(axis=1, keepdims=True))
+            sums[c, d // size] += a / a.sum(axis=1, keepdims=True)
+    batches = sums.reshape(nc * n_batches, F, lp.size) / size
+    return batches.mean(axis=0), batches.std(axis=0, ddof=1) / math.sqrt(batches.shape[0])
 
 
 def quadrature_evidence(model, scale_sd: float = SYNTH["scale_sd"], n_nodes: int = GH_NODES) -> np.ndarray:
@@ -306,11 +319,11 @@ def fixed_level(X: np.ndarray, field_levels: np.ndarray, mu: np.ndarray, sd: np.
                 covs: Optional[Sequence[CV.Covariates]] = None, cm: Optional[CV.CovariateModel] = None,
                 noise: Optional[np.ndarray] = None):
     """Fields X (fields, measures, bodies) whose bodies' levels are known, field_levels (fields,
-    bodies) as indices into the table's levels, with the generator's continuous variables
-    explicit: log s per patient on the height prior, the patient's offset z in each measure, and
-    beta_height shared by every patient. Each value read is normal given s and z, as
-    columns.py draws it, with its measure's own error; integrating z out gives rule.py's
-    covariance Delta + u u'."""
+    bodies) as indices into the table's levels, with three of the generator's continuous
+    variables explicit: log s per patient on the height prior, the patient's offset z in each
+    measure, and beta_height shared by every patient. Each value read is normal given s and z,
+    the body's own draw and the measure's own error integrated in closed form, as columns.py
+    draws them; integrating z out too gives rule.py's covariance Delta + u u'."""
     import pymc as pm
     import pytensor.tensor as pt
     X = np.asarray(X, float)
@@ -350,9 +363,10 @@ def fixed_level(X: np.ndarray, field_levels: np.ndarray, mu: np.ndarray, sd: np.
 
 def _layout(ref, measures: Sequence[str], phenotypes: Sequence[str], n: int, blend: float):
     """Each column's phenotype, level names, transitional position and its (measures, bodies)
-    means and SDs, padded to the widest phenotype; no draw is made here."""
+    means and SDs, padded to the widest phenotype listed, drawn or not, as columns.py pads them;
+    no draw is made here."""
     phen = [phenotypes[c % len(phenotypes)] for c in range(n)]
-    prof = {p: C.profiles(ref, measures, p, blend) for p in dict.fromkeys(phen)}
+    prof = {p: C.profiles(ref, measures, p, blend) for p in dict.fromkeys(phenotypes)}
     width = max(len(prof[p][0]) for p in prof)
     M = len(measures)
     mean, spread, present = np.zeros((n, M, width)), np.zeros((n, M, width)), np.zeros((n, width))

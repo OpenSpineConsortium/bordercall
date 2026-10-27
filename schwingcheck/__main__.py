@@ -14,8 +14,10 @@ bodies are consecutive without it, whatever their numbers), and prints the ranke
 their posteriors, the 99 per cent set and whether the top place reaches 0.99. --offsets gives
 the offsets on the command line instead, one per body, counted from the first as the column's
 are. With no body there is nothing to name and it says so; with no measure the posterior is the
-prior and it says that too; offsets for some bodies and not others, a number of them other than
-the bodies', or offsets that do not rise down the column are refused. The engine is numpy
+prior and it says that too; a measure not registered, or one that is an area or an angle (until
+step e), offsets for some bodies and not others, a number of them other than the bodies',
+offsets that do not rise down the column, and a NUTS run of fewer than 20 draws a chain, too few
+for its Monte Carlo error, are refused before anything is computed. The engine is numpy
 (rule.py, the reference), pytensor (compiled.py, the same rule as one compiled function) or nuts
 (model.py's naming model: the place summed out, the size sampled by NUTS, the posterior averaged
 over the draws), which also prints each place's Monte Carlo error.
@@ -24,8 +26,8 @@ over the draws), which also prints each place's Monte Carlo error.
 widths given under the three regimes (both planes, AP, lateral) and writes one InferenceData
 per width and regime, with the rates in its attributes, so the record of 2026-10-26 can be
 reproduced from this package (tests/test_schwingcheck_record.py holds the rates to it), with
-either engine of the exact rule or with pymc, the naming model integrated over the size on the
-same nodes from its own graph.
+either engine of the exact rule or with pymc, the naming model's likelihood of each hypothesis,
+built from the model's own variables, integrated over the size on the same nodes.
 
 `graph` writes or checks graphs/*.mmd, the three PyMC models' graphs as Mermaid text, which the
 README draws.
@@ -91,12 +93,15 @@ def counted_from_first(offsets, n_bodies: int) -> np.ndarray:
 def cmd_name(args) -> int:
     keys = list(args.measures) if args.measures else list(MS.SPINEPS_7)
     try:
+        ms = MS.select(keys)
+        if args.engine == "nuts":
+            check_sampling(args)
         X, offsets = read_field(args.field, keys)
         if X.shape[2] and args.offsets:
             offsets = args.offsets
         offsets = counted_from_first(offsets, X.shape[2])
-    except ValueError as err:
-        print("refused: %s" % err)
+    except (ValueError, KeyError) as err:
+        print("refused: %s" % (err.args[0] if err.args else err))
         return 2
     if X.shape[2] == 0:
         print("nothing to name: the field has no body")
@@ -105,7 +110,6 @@ def cmd_name(args) -> int:
     if not present:
         print("no measure was read on any body: the posterior is the prior, 1/%d at every place" % R.places_of(len(LEVELS), offsets))
         return 1
-    ms = MS.select(keys)
     post, se = name_with(args, X, offsets, ms)
     order = np.argsort(-post)
     size, member = R.credible_sets(post[None, :], 0.99)
@@ -114,12 +118,25 @@ def cmd_name(args) -> int:
     for k in order:
         if post[k] < 1e-6 and k != order[0]:
             continue
-        err = "" if se is None else " +- %.4f" % se[k]
+        err = "" if se is None else " +- %.6f" % se[k]
         print("  %-5s %.6f%s%s" % (LEVELS[k], post[k], err, "  <- named" if k == order[0] else ""))
     inset = [LEVELS[k] for k in range(len(post)) if member[0, k]]
     print("99%% set: {%s} (%d places)" % (", ".join(inset), int(size[0])))
     print("the top place reaches 0.99: %s" % ("yes" if post[order[0]] >= 0.99 else "no"))
+    if se is not None:
+        print("the errors are Monte Carlo errors by batch means; below 0.001 a place's estimate runs low "
+              "and its error is too small (schwingcheck/README.md, The naming model)")
     return 0
+
+
+def check_sampling(args) -> None:
+    """Refuse a NUTS run whose draws cannot give its Monte Carlo error before it samples."""
+    from .model import N_BATCHES
+    if args.chains < 1:
+        raise ValueError("NUTS needs one chain at least, not %d" % args.chains)
+    if args.draws < N_BATCHES:
+        raise ValueError("%d draws a chain make no %d batches for the Monte Carlo error: give --draws %d or more"
+                         % (args.draws, N_BATCHES, N_BATCHES))
 
 
 def name_with(args, X, offsets, ms):
@@ -164,8 +181,8 @@ def rescore(widths, n_columns: int = N_SCORE, seed: int = SCORE_SEED, outdir=Non
     in a different order of sums) and the share named exactly identically. Each measure's error is
     its own, 1 mm for all seven as in the archive. The engine is numpy (rule.py), pytensor
     (compiled.py), which gives the same posteriors to within 1e-10, or pymc, model.py's naming
-    model over each regime's measures integrated over log s on rule.py's nodes from its own graph
-    (quadrature_evidence), one model per width and regime."""
+    model over each regime's measures, its likelihood of each hypothesis integrated over log s on
+    rule.py's nodes (quadrature_evidence), one model per width and regime."""
     if engine not in ("numpy", "pytensor", "pymc"):
         raise ValueError("the engine is numpy, pytensor or pymc, not %r" % (engine,))
     regimes = MS.REGIMES if regimes is None else regimes

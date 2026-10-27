@@ -1,13 +1,18 @@
-"""The PyMC rewrite of step d against the NumPy reference, each claim checked against code that
-does not share its arithmetic.
+"""The PyMC rewrite of step d against the NumPy reference, each claim checked against code it
+does not share: rule.py, the compiled rule, ArviZ, or a closed form on a grid.
 
 - The compiled rule (compiled.py) equals rule.py to 1e-10 on contiguous, gapped and incomplete
   fields, under every regime and with each measure's own error, and its generalisations (several
   gap patterns at once, a size prior of each field's own, scaled means) equal what rule.py
   computes for each case by hand.
 - The naming model (model.py), integrated over log s on rule.py's nodes, equals the compiled rule
-  to 1e-6; sampled by NUTS, its Rao-Blackwellised posterior is within four Monte Carlo standard
-  errors of the exact one, with no discrete variable sampled.
+  to 1e-6, and its observed density is rule.py's likelihood summed over the hypotheses, at three
+  sizes and at every node of the rule's quadrature, and integrated over the sizes; sampled by
+  NUTS, its Rao-Blackwellised posterior is within five Monte Carlo standard errors of the exact
+  one at every place above 0.05 and within five plus 1e-3 everywhere, with no discrete variable
+  sampled, and at the places above 0.05 its errors are within 0.6 to 1.6 of ArviZ's own for the
+  same draws and as large as their distances from the exact posterior, a mean square z between 0.4
+  and 2.5, bounds a correct sampler crosses in fewer than one run in a thousand.
 - The covariates leave the archive's answers where nothing is known, and a known height or a
   non-zero hook moves the model exactly as it moves the compiled rule.
 - The fixed-level baseline's NUTS posterior of log s is the closed form's, integrated on a grid.
@@ -120,6 +125,10 @@ class CompiledRule(unittest.TestCase):
         k = 5
         want = both["post"][:, (hyp.place == k)].sum(1)
         self.assertLess(np.abs(by_place[:, k] - want).max(), 1e-15)
+        sizes, logw = R.quadrature(R.SYNTH["scale_sd"])
+        by_rule = np.concatenate([R.log_evidence(R.loglik(X, p, mu, sd, R.SYNTH, sizes=sizes), logw)
+                                  for p in pats], axis=1)
+        self.assertLess(np.abs(both["logev"] - by_rule).max(), 1e-10)
 
     def test_a_size_prior_of_each_fields_own_reweights_the_nodes(self):
         X, _, keys, mu, sd = fields([0, 1, 2], 4, 34, n_fields=15)
@@ -148,8 +157,9 @@ class CompiledRule(unittest.TestCase):
         fac = np.ones((len(X), len(keys)))
         fac[::2, 0] = 1.08
         got = rule.evaluate(X, hyp, factors=fac)["all"]["logev"]
-        scaled = K.ExactRule(mu * fac[0][:, None], sd).evaluate(X[::2], hyp)["all"]["logev"]
-        self.assertLess(np.abs(got[::2] - scaled).max(), 1e-12)
+        sizes, logw = R.quadrature(R.SYNTH["scale_sd"])
+        scaled = R.log_evidence(R.loglik(X[::2], [0, 1, 2], mu * fac[0][:, None], sd, R.SYNTH, sizes=sizes), logw)
+        self.assertLess(np.abs(got[::2] - scaled).max(), 1e-10)
         self.assertLess(np.abs(got[1::2] - plain[1::2]).max(), 1e-12)
 
 
@@ -167,20 +177,47 @@ class NamingModel(unittest.TestCase):
 
     def test_the_observed_density_is_the_sum_over_hypotheses(self):
         X, _, keys, mu, sd = fields([0, 2], 4, 42, n_fields=10, missing=0.1)
-        hyp = K.hypotheses(len(LEVELS), [[0, 1], [0, 2]])
+        pats = [[0, 1], [0, 2]]
+        hyp = K.hypotheses(len(LEVELS), pats)
         lp = np.log(np.linspace(1.0, 2.0, len(hyp)))
         lp -= np.log(np.exp(lp).sum())
         m = MD.naming(X, hyp, mu, sd, keys, log_prior=lp)
         logp = m.compile_logp(vars=[m["x"]], sum=False)
-        ll = MD._of_log_s(m, m.schwingcheck["hypothesis_loglik"])
+        density = lambda model_logp, t: np.asarray(model_logp({"log_s": np.full(len(X), t)})[0])
+
+        def by_rule(sizes):
+            """rule.py's log likelihood of every hypothesis at every size, (fields, hypotheses, sizes)."""
+            return np.concatenate([R.loglik(X, p, mu, sd, R.SYNTH, sizes=sizes).sum(2) for p in pats], axis=1)
+
         for t in (-0.1, 0.0, 0.07):
-            point = np.full(len(X), t)
-            a = ll(point) + lp
-            top = a.max(axis=1)
-            want = top + np.log(np.exp(a - top[:, None]).sum(axis=1))
-            self.assertLess(np.abs(np.asarray(logp({"log_s": point})[0]) - want).max(), 1e-10)
+            want = R.logsumexp(by_rule(np.array([math.exp(t)]))[:, :, 0] + lp, axis=1)
+            self.assertLess(np.abs(density(logp, t) - want).max(), 1e-9)
+        # at every one of rule.py's nodes, where quadrature_evidence integrates, and integrated
+        # over log s on them, the observed density is rule.py's evidence summed over the hypotheses
+        sizes, logw = R.quadrature(R.SYNTH["scale_sd"])
+        at_nodes = np.stack([density(logp, t) for t in np.log(sizes)], axis=1)
+        self.assertLess(np.abs(at_nodes - R.logsumexp(by_rule(sizes) + lp[None, :, None], axis=1)).max(), 1e-9)
+        got = R.logsumexp(at_nodes + logw, axis=1)
+        want = R.logsumexp(R.logsumexp(by_rule(sizes) + logw, axis=2) + lp, axis=1)
+        self.assertLess(np.abs(got - want).max(), 1e-9)
+        # a prior given with any other sum is normalised, so the density stays a density, and
+        # so is one set later in the model's data
+        import pymc as pm
+        shifted = MD.naming(X, hyp, mu, sd, keys, log_prior=lp + 3.0)
+        other = shifted.compile_logp(vars=[shifted["x"]], sum=False)
+        self.assertLess(np.abs(density(other, 0.0) - density(logp, 0.0)).max(), 1e-12)
+        with shifted:
+            pm.set_data({"log_prior": lp - 5.0})
+        self.assertLess(np.abs(density(other, 0.0) - density(logp, 0.0)).max(), 1e-12)
 
     def test_nuts_gives_the_exact_posterior_within_monte_carlo_error(self):
+        # The bounds are set so that a correct sampler crosses them in fewer than one run in a
+        # thousand, by what 24 other seeds of the sampler measured (schwingcheck/README.md, The
+        # naming model): the errors are right there, but the largest of 130 distances is the tail
+        # of the tail, and four errors failed one of those runs; with R-hat below 1.01 and the
+        # gapped fields' mean square z taken alone, the old bounds failed about one run in fifteen
+        import arviz as az
+        z = []
         for offsets, n_fields, missing in (([0], 24, 0.0), ([0, 2, 4], 12, 0.2)):
             X, _, keys, mu, sd = fields(offsets, 6, 43, n_fields=n_fields, missing=missing)
             hyp = K.hypotheses(len(LEVELS), [offsets])
@@ -188,8 +225,39 @@ class NamingModel(unittest.TestCase):
             idata = MD.sample(m, draws=1500, tune=1000, chains=4, seed=44)
             post, se = MD.hypothesis_posterior(m, idata)
             want = K.ExactRule(mu, sd).evaluate(X, hyp)["all"]["post"]
-            self.assertTrue(np.all(np.abs(post - want) <= 4.0 * se + 1e-3), np.abs(post - want).max())
-            self.assertLess(float(r_hat(idata).max()), 1.01)
+            lead = want > 0.05
+            # every place above 0.05 within five of its own errors; the far tail, carried by the
+            # few draws that reach the sizes it needs, runs low and is held to 1e-3 besides
+            self.assertTrue(np.all(np.abs(post - want)[lead] <= 5.0 * se[lead]), np.abs(post - want)[lead].max())
+            self.assertTrue(np.all(np.abs(post - want) <= 5.0 * se + 1e-3), np.abs(post - want).max())
+            self.assertLess(float(r_hat(idata).max()), 1.02)
+            # the errors themselves, where they can be trusted: by batch means, within 0.6 to 1.6
+            # of ArviZ's error of the same draws, which it computes from their effective sample size
+            theirs = np.asarray(az.mcse(per_draw(m, idata), method="mean"))
+            ratio = se[lead] / theirs[lead]
+            self.assertTrue(np.all((ratio > 0.6) & (ratio < 1.6)), (ratio.min(), ratio.max()))
+            z.append((post - want)[lead] / se[lead])
+        # and as large as the distances from the exact posterior: a mean square z of 1 over both
+        # kinds of field, some 40 independent terms, which an error doubled or halved cannot give
+        z2 = float(np.mean(np.concatenate(z) ** 2))
+        self.assertTrue(0.4 < z2 < 2.5, z2)
+
+    def test_the_posterior_and_its_error_come_from_the_same_draws(self):
+        import arviz as az
+        X, _, keys, mu, sd = fields([0, 1], 2, 47, n_fields=3)
+        m = MD.naming(X, K.hypotheses(len(LEVELS), [[0, 1]]), mu, sd, keys)
+        draws = np.random.default_rng(48).normal(0.0, 0.07, size=(2, 47, len(X)))
+        post, se = MD.hypothesis_posterior(m, az.from_dict({"posterior": {"log_s": draws}}))
+        # 47 draws a chain fill 20 batches of 2, and the 7 left over count in neither the mean
+        # nor the error; p(h | x, s) here is rule.py's, each field at its own size
+        fi = np.arange(len(X))
+        per = np.array([[R.posterior(R.loglik(X, [0, 1], mu, sd, R.SYNTH, sizes=np.exp(draws[c, d])).sum(2)[fi, :, fi])
+                         for d in range(40)] for c in range(2)])
+        batches = per.reshape(2, 20, 2, len(X), -1).mean(axis=2).reshape(40, len(X), -1)
+        self.assertLess(np.abs(post - per.mean(axis=(0, 1))).max(), 1e-10)
+        self.assertLess(np.abs(se - batches.std(axis=0, ddof=1) / math.sqrt(40)).max(), 1e-10)
+        with self.assertRaises(ValueError):
+            MD.hypothesis_posterior(m, az.from_dict({"posterior": {"log_s": draws[:, :19]}}))
 
     def test_its_prior_draws_have_the_fields_shape(self):
         X, _, keys, mu, sd = fields([0, 1, 2], 2, 45, n_fields=5, missing=0.3)
@@ -204,6 +272,14 @@ class NamingModel(unittest.TestCase):
 def r_hat(idata):
     import arviz as az
     return np.asarray(az.summary(idata, kind="diagnostics")["r_hat"], float)
+
+
+def per_draw(m, idata):
+    """p(h | x, s) at every draw of log s, (chains, draws, fields, hypotheses)."""
+    fn = MD._of_log_s(m, m.schwingcheck["hypothesis_loglik"])
+    lp = np.asarray(m["log_prior"].get_value(), float)
+    draws = np.asarray(idata.posterior["log_s"].values)
+    return np.array([[softmax(fn(t) + lp) for t in chain] for chain in draws])
 
 
 class Covariates(unittest.TestCase):
@@ -293,6 +369,10 @@ class Generator(unittest.TestCase):
         self.assertEqual(a.transitional_at, b.transitional_at)
         self.assertTrue(np.array_equal(np.isfinite(a.values), np.isfinite(b.values)))
         self.assertGreaterEqual(np.nanmin(a.values), C.FLOOR)
+        ref, keys, _, _ = seven()
+        for n in (1, 2):                    # fewer columns than phenotypes: padded to the widest listed
+            short = MD.draw(MD.generator(ref, keys, C.PHENOTYPES, n), seed=73)
+            self.assertEqual(short.values.shape, C.draw_columns(ref, C.PHENOTYPES, 74, n, keys).values.shape)
 
     def _z_scores(self, a, b):
         """Two-sample z scores of every mean, SD and correlation, phenotype by phenotype."""

@@ -12,6 +12,7 @@ import sys
 import tempfile
 import unittest
 from contextlib import redirect_stdout
+from unittest import mock
 
 import numpy as np
 
@@ -125,17 +126,45 @@ class Name(unittest.TestCase):
         want = posteriors(exact["numpy"][1])
         got = posteriors(out)
         self.assertGreater(len(got), 1)
+        self.assertEqual(named(out), named(exact["numpy"][1]))
+        # every place, a place an engine does not print (below 1e-6) counting as 0, within a bound
+        # that does not come from the output under test, and then within its printed errors
+        for place in LEVELS:
+            self.assertLess(abs(got.get(place, (0.0, None))[0] - want.get(place, (0.0, None))[0]), 0.01, place)
         for place, (p, se) in got.items():
             self.assertIsNotNone(se, place)
-            if place in want:
-                self.assertLess(abs(p - want[place][0]), 4.0 * se + 0.01, place)
+            self.assertLess(se, 0.01, place)
+            self.assertLess(abs(p - want.get(place, (0.0, None))[0]), 4.0 * se + 0.01, place)
+        self.assertIn("below 0.001 a place's estimate runs low", out)
+        self.assertNotIn("Monte Carlo", exact["numpy"][1])
 
-    def test_an_area_is_refused_until_step_e(self):
+    def test_an_area_or_an_unknown_measure_is_refused(self):
         keys, values = self._column()
         with tempfile.TemporaryDirectory() as d:
             path = self._write(d, keys, values, [3, 4])
-            with self.assertRaises(ValueError):
-                run(["name", path, "--measures", "endplate", "canal_area"])
+            for measures, why in ((["endplate", "canal_area"], "canal_area is an area"),
+                                  (["endplate", "nonesuch"], "no measure 'nonesuch' is registered")):
+                code, out = run(["name", path, "--measures"] + measures)
+                self.assertEqual(code, 2, out)
+                self.assertIn("refused: " + why, out)
+
+    def test_nuts_is_refused_before_it_samples_when_it_cannot_give_its_error(self):
+        keys, values = self._column()
+        with tempfile.TemporaryDirectory() as d:
+            path = self._write(d, keys, values, [3, 4])
+            for extra, why in ((["--draws", "19"], "19 draws a chain make no 20 batches"),
+                               (["--chains", "0"], "one chain at least")):
+                # no model is built, so nothing is sampled
+                with mock.patch("schwingcheck.model.naming", side_effect=AssertionError("a model was built")):
+                    code, out = run(["name", path, "--engine", "nuts"] + extra)
+                self.assertEqual(code, 2, out)
+                self.assertIn(why, out)
+                self.assertNotIn("posterior", out)
+
+
+def named(out):
+    """The place `name` names: the first word of the line it marks."""
+    return next(line.split()[0] for line in out.splitlines() if line.endswith("<- named"))
 
 
 def posteriors(out):

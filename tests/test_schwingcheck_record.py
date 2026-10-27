@@ -10,9 +10,9 @@ does so with both engines of the exact rule, rule.py's NumPy and compiled.py's P
 The 127 subsets of the seven measures that exact.json also records at each width
 (`widths[n].subsets`) are not rescored here. Set SCHWINGCHECK_RECORD_WIDTHS to run fewer widths,
 or SCHWINGCHECK_RECORD_ENGINES fewer engines, while developing, never in a pull request. Setting
-SCHWINGCHECK_RECORD_ENGINES to "numpy pytensor pymc" also rescores from the PyMC naming model's
-own graph, integrated on the same nodes, about eight minutes more, which the default leaves out
-for time; test_schwingcheck_cli.py holds the three engines to one another on four columns.
+SCHWINGCHECK_RECORD_ENGINES to "numpy pytensor pymc" also rescores with the PyMC naming model's
+likelihood of each hypothesis, built from the model's own variables and integrated on the same
+nodes, about eight minutes more, which the default leaves out for time; test_schwingcheck_cli.py holds the three engines to one another on four columns.
 """
 from __future__ import annotations
 
