@@ -72,6 +72,8 @@ ENDPLATE_SHARE, ENDPLATE_MM = 0.12, (1.0, 3.0)
 POSTERIOR_SHARE = 0.20
 MIDLINE_MM = 10.0
 AXIS_SEARCH_DEG = 20.0
+CORE_SHARE = 0.5                       # the central half across, for the axis and the end-plates' level
+BAND_LAYERS = 2.0                      # a turn of the axis under this many layers across the core is not told from them
 TURNS = 4                              # at most this many turns of the frame toward the body
 
 
@@ -232,21 +234,33 @@ def sections(local: np.ndarray, slab: float, pixel: float, as_hole: bool) -> Lis
 
 # ---- where a surface lies between voxel centres -------------------------------------------------
 
-def edge_gap(values: np.ndarray, top: bool, cap: float, k: int = 12) -> float:
+def edge_gap(values: np.ndarray, top: bool, cap: float) -> float:
     """The spacing of the positions next to one end of voxel centres projected on an axis. On
     an axis along the volume's grid the centres stack in layers one spacing apart; on an axis
-    turned a little off it each layer spreads into a cluster, the clusters still a spacing apart;
-    on an axis well off it the positions spread evenly and the spacing shrinks. So the spacing is
-    the median of the steps between the distinct positions next to the end that are wider than
-    a tenth of a voxel's shadow (the steps between clusters), or, where no step is that wide, the
-    mean step. The surface lies about half this spacing beyond the outermost centre."""
+    turned a little off it each layer spreads into a cluster, and the outermost points of two
+    neighbouring clusters are still a spacing apart; on an axis well off it the positions spread
+    evenly and the spacing shrinks. So the distinct positions within 2.5 voxel shadows of the end
+    are split into clusters wherever two are more than a tenth of a shadow apart. Where the empty
+    step after the outermost cluster is at least as wide as that cluster, the positions are
+    layers and the spacing is the distance from the end to the outermost point of the next layer
+    in; where the clusters are wider than the steps between them, it is the median of those
+    steps; where there is one cluster, it is their mean step. Choosing the tail by position, not by a count, keeps a
+    broad face whose outer layer alone holds many positions from reading as one dense cluster.
+    The surface lies about half this spacing beyond the outermost centre."""
     u = np.unique(np.round(values, 4))
-    tail = u[-k:] if top else u[:k]
-    if len(tail) < 2:
+    if len(u) < 2:
         return cap
-    steps = np.diff(tail)
-    wide = steps[steps > 0.1 * cap]
-    gap = float(np.median(wide)) if len(wide) else float(steps.mean())
+    tail = u[u >= u[-1] - 2.5 * cap][::-1] if top else u[u <= u[0] + 2.5 * cap]
+    steps = np.abs(np.diff(tail))
+    if not len(steps):
+        return cap
+    breaks = np.flatnonzero(steps > 0.1 * cap)
+    if len(breaks) and steps[breaks[0]] >= abs(tail[breaks[0]] - tail[0]):
+        gap = float(abs(tail[breaks[0] + 1] - tail[0]))        # layers: end to the next layer's end
+    elif len(breaks):
+        gap = float(np.median(steps[breaks]))                   # clusters wider than their gaps
+    else:
+        gap = float(steps.mean())                               # an even spread
     return min(gap, cap)
 
 
@@ -323,14 +337,24 @@ def body_chords(body: np.ndarray, wall: float, grid: VoxelGrid, frame: Frame,
     out: Dict[str, float] = {}
     if len(body) < MIN_BODY_VOXELS:
         return {k: NAN for k in ("endplate", "endplate_depth", "endplate_lower", "endplate_lower_depth", "h_post")}
-    z0, z1 = float(body[:, 2].min()), float(body[:, 2].max())
-    height = z1 - z0 + fz
+    # the body's height from its central part, so a spur or an uncinate process at the rim does
+    # not set the end-plates' thickness
+    core = body[central(body[:, 0], body[:, 1])]
+    core = core if len(core) >= MIN_CHORD_POINTS else body
+    height = float(core[:, 2].max() - core[:, 2].min()) + fz
     t = min(max(ENDPLATE_SHARE * height, ENDPLATE_MM[0]), ENDPLATE_MM[1])
     t = max(t, fz)
-    # an end-plate label on thick slices is a layer thinner than one voxel's shadow, which samples
-    # the rim too sparsely to reach its widest point, so the label is added to the slab, not put
-    # in its place
-    top, bot = body[body[:, 2] >= z1 - t], body[body[:, 2] <= z0 + t]
+    # each end-plate is the slab within t of the plane resting on the highest (or lowest) points
+    # of the body's central part, cell by cell across the column (plate). A slab at one level
+    # holds only part of a plate tilted against the frame by more than t over the body's width,
+    # which the frame kept inside refine_axis's quantization band can be; the plane follows the
+    # plate where its tilt can be told from the voxel layers and is level where it cannot, and
+    # resting it on the central part keeps a spur or an uncinate process at the rim from lifting
+    # it. An end-plate label on thick slices is a layer thinner than one voxel's shadow, which
+    # samples the rim too sparsely to reach its widest point, so the label is added to the slab,
+    # not put in its place
+    inner = central(body[:, 0], body[:, 1])
+    top, bot = plate(body, inner, max(fx, fy), t, True, fz), plate(body, inner, max(fx, fy), t, False, fz)
     if sup_label is not None and len(sup_label):
         top = np.concatenate([top, sup_label])
     if inf_label is not None and len(inf_label):
@@ -346,18 +370,76 @@ def body_chords(body: np.ndarray, wall: float, grid: VoxelGrid, frame: Frame,
     return out
 
 
-def column_height(pts: np.ndarray, pixel: float, fz: float) -> float:
-    """The median, over the cells of a grid across the column, of the height along z of the
-    points in each cell."""
-    if len(pts) < MIN_CHORD_POINTS:
-        return NAN
+def cells(pts: np.ndarray, pixel: float) -> Tuple[np.ndarray, np.ndarray, np.ndarray]:
+    """The points grouped by cells of a grid across the column: the order that groups them, and
+    where each cell's run starts and ends in it."""
     ij = np.floor((pts[:, :2] - pts[:, :2].min(0)) / pixel).astype(int)
     key = ij[:, 0] * (ij[:, 1].max() + 1) + ij[:, 1]
-    order = np.argsort(key)
-    key, z = key[order], pts[order, 2]
+    order = np.argsort(key, kind="stable")
+    key = key[order]
     starts = np.flatnonzero(np.r_[True, key[1:] != key[:-1]])
-    ends = np.r_[starts[1:], len(key)]
-    hs = [z[a:b].max() - z[a:b].min() + fz for a, b in zip(starts, ends) if b - a >= 2]
+    return order, starts, np.r_[starts[1:], len(key)]
+
+
+def plate_plane(pts: np.ndarray, inner: np.ndarray, pixel: float, top: bool, layer: float) -> np.ndarray:
+    """The plane z = c0 + c1 x + c2 y resting on the highest (top) or lowest points of the inner
+    points' cells, as (c0, c1, c2). Each cell gives one point, its mean position across and its
+    extreme height. Voxel centres stack in layers about `layer` apart along z, so on a plate
+    oblique to the layers the cells' extremes form a staircase whose treads fall short of the
+    plate by up to one layer while the steps' outer edges touch it. A least-squares plane runs
+    through the staircase's middle and tilts with it; the plane that rests on the extremes from
+    outside and lies nearest them on average (envelope) runs through the edges, and so along the
+    plate, once there are edges on both sides of the middle. Where the plane's rise across the
+    cells is under two layers the staircase has too few steps to tell a tilt from the layers, as
+    for the axis (refine_axis), and the plane is level through the outermost extreme; so it is
+    with fewer than six cells."""
+    core = pts[inner] if inner.sum() >= MIN_CHORD_POINTS else pts
+    order, starts, ends = cells(core, pixel)
+    z, xy = core[order, 2], core[order, :2]
+    ext = np.array([[*xy[a:b].mean(0), z[a:b].max() if top else z[a:b].min()] for a, b in zip(starts, ends)])
+    c = envelope(ext, top, layer) if len(ext) >= 6 else None
+    if c is not None and max(abs(c[1]) * np.ptp(ext[:, 0]), abs(c[2]) * np.ptp(ext[:, 1])) < 2.0 * layer:
+        c = None
+    if c is None:
+        c = np.array([ext[:, 2].max() if top else ext[:, 2].min(), 0.0, 0.0])
+    return c
+
+
+def plate(pts: np.ndarray, inner: np.ndarray, pixel: float, t: float, top: bool, layer: float) -> np.ndarray:
+    """The points within t of the end-plate's plane (plate_plane), and beyond it; the slab is
+    never thinner than one layer, so it holds the lowest tread of the staircase."""
+    c = plate_plane(pts, inner, pixel, top, layer)
+    t = max(t, layer)
+    d = pts[:, 2] - (c[0] + c[1] * pts[:, 0] + c[2] * pts[:, 1])
+    return pts[d >= -t - 1e-6] if top else pts[d <= t + 1e-6]
+
+
+def envelope(ext: np.ndarray, top: bool, layer: float) -> Optional[np.ndarray]:
+    """The plane z = c0 + c1 x + c2 y resting on the points `ext` from above (top) or below with
+    the least mean distance to them, or None when the programme finds none."""
+    from scipy.optimize import linprog
+    sign = 1.0 if top else -1.0
+    A = np.column_stack([np.ones(len(ext)), ext[:, 0], ext[:, 1]])
+    ls = np.linalg.lstsq(A, ext[:, 2], rcond=None)[0]
+    keep = sign * (ext[:, 2] - A @ ls) <= 1.5 * layer
+    if keep.sum() < 6:
+        return None
+    A, zk = A[keep], ext[keep, 2]
+    # minimise the mean of sign * (plane - z) subject to sign * (plane - z) >= 0 at every point
+    got = linprog(sign * A.mean(0), A_ub=-sign * A, b_ub=-sign * zk, bounds=[(None, None)] * 3, method="highs")
+    return got.x if got.status == 0 else None
+
+
+def column_height(pts: np.ndarray, pixel: float, fz: float) -> float:
+    """The median, over the cells of a grid across the column, of the height along z of the
+    points in each cell, surface to surface: each end lies half the spacing of the centres next
+    to it beyond the outermost centre (surface), which on an oblique grid is less than half of
+    one voxel's shadow."""
+    if len(pts) < MIN_CHORD_POINTS:
+        return NAN
+    order, starts, ends = cells(pts, pixel)
+    z = pts[order, 2]
+    hs = [surface(z[a:b], True, fz) - surface(z[a:b], False, fz) for a, b in zip(starts, ends) if b - a >= 2]
     return float(np.median(hs)) if hs else NAN
 
 
@@ -391,24 +473,70 @@ def thickness(pts: np.ndarray, n: np.ndarray) -> float:
     return float(hi - lo)
 
 
-def refine_axis(body: np.ndarray, ez: np.ndarray) -> np.ndarray:
+def span_along(pts: np.ndarray, n: np.ndarray) -> float:
+    """The full extent of points along n. The core it is taken on has no rim, so no percentile
+    trim is needed, and a trim would cut the core's corners, whose share shrinks as n tilts, and
+    so make a tilted direction look thinner than the axis."""
+    h = pts @ n
+    return float(h.max() - h.min())
+
+
+def central(a: np.ndarray, b: np.ndarray, share: float = CORE_SHARE) -> np.ndarray:
+    """Which points, given by two positions across the column, lie within CORE_SHARE of the
+    body's middle once each position is scaled by the body's half-width along it (from the 2nd
+    to the 98th percentile). The rim, where uncinate processes rise at C3 to C7 and osteophytes
+    grow, is left out, so neither tilts the axis nor lifts an end-plate."""
+    (a0, a1), (b0, b1) = np.percentile(a, [2, 98]), np.percentile(b, [2, 98])
+    ha, hb = max(0.5 * (a1 - a0), 1e-6), max(0.5 * (b1 - b0), 1e-6)
+    return ((a - 0.5 * (a0 + a1)) / ha) ** 2 + ((b - 0.5 * (b0 + b1)) / hb) ** 2 <= share ** 2
+
+
+def core_of(body: np.ndarray, ez: np.ndarray) -> np.ndarray:
+    """The body's central part across ez (world points)."""
+    e1 = unit(np.cross(ez, [1.0, 0.0, 0.0]) if abs(ez[0]) < 0.9 else np.cross(ez, [0.0, 1.0, 0.0]))
+    e2 = np.cross(ez, e1)
+    return body[central(body @ e1, body @ e2)]
+
+
+def refine_axis(body: np.ndarray, ez: np.ndarray, grid: Optional["VoxelGrid"] = None) -> np.ndarray:
     """The body's own axis: the direction, within AXIS_SEARCH_DEG of the column's, along which the
-    body is thinnest, its two end-plates' rims then lying across it. A body is a short cylinder,
-    and its thickness along a direction tilted by t from its axis grows as its width times t, so
-    the thinnest direction is the axis even where a neighbour's turn or slip tilts the line
-    through the neighbours. A wedged body gives the direction between its two end-plates'."""
-    if len(body) < MIN_BODY_VOXELS:
+    central part of the body (core_of) is thinnest, its two end-plates lying across it. A body is
+    a short cylinder, and its thickness along a direction tilted by t from its axis grows as its
+    width times t, so the thinnest direction is the axis even where a neighbour's turn or slip
+    tilts the line through the neighbours. A wedged body gives the direction between its two
+    end-plates'.
+
+    Voxel centres sit on the scan's layers, so along a direction near the layers' normal their
+    spread can fall short of the true thickness by up to one voxel's shadow there, and along the
+    axis by about as much; a turn smaller than the angle at which the core's width rises by two
+    shadows cannot be told from that quantization, and the column's axis through the neighbours
+    is kept instead (with 3 mm slices and a 22 mm core, about 15 degrees; with 1 mm voxels,
+    about 5). The end-plates are then read on planes resting on the body (plate_plane), which
+    follow a plate the kept axis leaves off by more than the layers hide. The cost is a body tilted
+    against the line through its neighbours by less than the band on thick slices, a wedge or a
+    slip at a junction: it is measured in its neighbours' frame, and on synthetic spines a body
+    bent 10 degrees on 3 mm slices reads its end-plate depths up to 3 mm short (on 1 mm voxels an
+    8 degree bend reads within half a millimetre)."""
+    core = core_of(body, ez) if len(body) >= MIN_BODY_VOXELS else body
+    if len(core) < MIN_BODY_VOXELS:
         return ez
-    best = (thickness(body, ez), 0.0, 0.0)
+    best = (span_along(core, ez), 0.0, 0.0)
     for step, span in ((2.5, AXIS_SEARCH_DEG), (0.5, 2.5)):
         a0, b0 = best[1], best[2]
-        grid = np.radians(np.arange(-span, span + 1e-9, step))
-        for a in grid:
-            for b in grid:
-                t = thickness(body, tilted(ez, a0 + a, b0 + b))
+        grid_deg = np.radians(np.arange(-span, span + 1e-9, step))
+        for a in grid_deg:
+            for b in grid_deg:
+                t = span_along(core, tilted(ez, a0 + a, b0 + b))
                 if t < best[0] - 1e-9:
                     best = (t, a0 + a, b0 + b)
-    return tilted(ez, best[1], best[2])
+    found = tilted(ez, best[1], best[2])
+    if grid is not None:
+        width = float(np.ptp(core @ unit(np.cross(ez, grid.anterior()) if abs(ez @ grid.anterior()) < 0.99
+                                       else np.cross(ez, [1.0, 0.0, 0.0]))))
+        resolvable = math.atan2(BAND_LAYERS * grid.footprint(ez), max(width, 1e-6))
+        if math.acos(min(1.0, abs(float(found @ ez)))) < resolvable:
+            return ez
+    return found
 
 
 def measure_whole(idx: np.ndarray, grid: VoxelGrid, ez: np.ndarray, touching: np.ndarray) -> Measured:
@@ -460,7 +588,7 @@ def measure_whole(idx: np.ndarray, grid: VoxelGrid, ez: np.ndarray, touching: np
     if found:
         wall = float(np.median([s.canal[:, 1].max() for s in found]))
         body = pts[connected_front(idx, loc, wall, grid.shape)]
-        frame = frame_from(frame.origin, refine_axis(body, frame.ez), frame.ey)
+        frame = frame_from(frame.origin, refine_axis(body, frame.ez, grid), frame.ey)
         fz = grid.footprint(frame.ez)
         loc = frame.local(pts)
     secs = sections(loc, fz, pixel, as_hole=True)
@@ -539,7 +667,7 @@ def measure_labelled(idx: np.ndarray, sub: np.ndarray, canal_idx: np.ndarray, gr
     pts = grid.world(idx.astype(float))
     is_body = np.isin(sub, labels["body"])
     if is_body.sum() >= MIN_BODY_VOXELS:
-        ez = refine_axis(pts[is_body], ez)
+        ez = refine_axis(pts[is_body], ez, grid)
     frame = frame_from(pts.mean(0), ez, grid.anterior())
     fz = grid.footprint(frame.ez)
     pixel = max(grid.footprint(frame.ex), grid.footprint(frame.ey))

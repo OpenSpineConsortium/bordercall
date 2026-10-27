@@ -228,11 +228,30 @@ def clustered_se(rows: List[dict], key: str) -> float:
 
 # ---- a field file ----------------------------------------------------------------------------------
 
-def read_field(path: str) -> Tuple[List[str], np.ndarray, List[int], List[str]]:
+def field_header(lines: Sequence[str]) -> dict:
+    """The scale a field file's '#' lines state (column.write_field's): scale_known,
+    scale_log_mean and scale_log_sd, each only where the file states it."""
+    out = {}
+    for line in lines:
+        parts = line[1:].split()
+        if len(parts) != 2:
+            continue
+        key, value = parts
+        if key == "scale_known":
+            out[key] = value == "True"
+        elif key in ("scale_log_mean", "scale_log_sd"):
+            out[key] = float(value)
+    return out
+
+
+def read_field(path: str) -> Tuple[List[str], np.ndarray, List[int], List[str], dict]:
     """A field CSV (column.write_field's, or schwingcheck's: `body`, the measures, optional
-    `offset`): the measures it holds, values (measures, bodies), offsets, notes."""
+    `offset`): the measures it holds, values (measures, bodies), offsets, notes, and the scale its
+    header states."""
     with open(path) as fh:
-        rows = list(csv.DictReader(l for l in fh if not l.startswith("#")))
+        lines = fh.read().splitlines()
+    header = field_header([l for l in lines if l.startswith("#")])
+    rows = list(csv.DictReader(l for l in lines if not l.startswith("#")))
     if not rows:
         raise SystemExit("%s holds no bodies" % path)
     measures = [m for m in SEVEN if m in rows[0]]
@@ -249,19 +268,29 @@ def read_field(path: str) -> Tuple[List[str], np.ndarray, List[int], List[str]]:
     if any(b <= a for a, b in zip(offs, offs[1:])):
         raise SystemExit("%s: offsets must rise from the top body down" % path)
     keep = np.isfinite(X).any(0)
+    if not keep.any():
+        raise SystemExit("%s holds no measured body" % path)
     if not keep.all():
         notes.append("%d bodies with no value left out" % int((~keep).sum()))
         X, offs = X[:, keep], [o for o, k in zip(offs, keep) if k]
         offs = [o - offs[0] for o in offs]
     if offs[-1] >= L:
         raise SystemExit("%s spans %d levels, more than the rule's column holds" % (path, offs[-1] + 1))
-    return measures, X, offs, notes
+    return measures, X, offs, notes, header
 
 
-def name_field(path: str, scale_known: bool = True, scale_extra_sd: float = 0.0) -> dict:
-    measures, X, offs, notes = read_field(path)
+def name_field(path: str, scale_known: Optional[bool] = None, scale_extra_sd: Optional[float] = None,
+               scale_log_mean: Optional[float] = None) -> dict:
+    """Name one field file. The scale is the file's own (its header), each part overridden by an
+    argument given; a file that states none is read as millimetres at the generator's spread."""
+    measures, X, offs, notes, header = read_field(path)
+    known = header.get("scale_known", True) if scale_known is None else scale_known
+    extra = header.get("scale_log_sd", 0.0) if scale_extra_sd is None else scale_extra_sd
+    shift = header.get("scale_log_mean", 0.0) if scale_log_mean is None else scale_log_mean
+    if not known:
+        notes.append("scale unknown: named from the chords' proportions alone")
     mu, sd = reference(measures)
-    post = posterior(log_evidence(X, offs, mu, sd, NB.SYNTH, 0.0, scale_extra_sd if scale_known else None))
+    post = posterior(log_evidence(X, offs, mu, sd, NB.SYNTH, shift, extra if known else None))
     out = named(post, offs)
     out.update({"field": path, "measures": measures, "bodies": len(offs), "offsets": offs, "notes": notes,
                 "posterior_by_place": {RULE_LEVELS[k]: round(float(p), 6) for k, p in enumerate(post)}})

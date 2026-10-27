@@ -28,16 +28,17 @@ def cmd_ingest_ct(a, argv) -> None:
                    a.subject, a.subregion, a.label_map)
     path = C.write_column(col, a.out)
     inputs = {a.labels: C.sha256_of(a.labels)}
-    if a.subregion:
-        inputs[a.subregion] = C.sha256_of(a.subregion)
+    for extra in (a.subregion, a.label_map):
+        if extra:
+            inputs[extra] = C.sha256_of(extra)
     finish_directory(a.out, argv, inputs)
     report(col, path)
 
 
 def cmd_ingest_xr(a, argv) -> None:
     from . import radiograph as R
-    col = R.ingest(a.xr, a.study, a.source, a.subject, a.anterior, a.magnification, a.magnification_sd,
-                   a.annotation)
+    col = R.ingest(a.xr, a.study, a.source, a.annotation, a.subject, a.anterior, a.magnification,
+                   a.magnification_sd)
     path = C.write_column(col, a.out)
     finish_directory(a.out, argv, {p: C.sha256_of(p) for p in a.xr})
     report(col, path)
@@ -53,7 +54,9 @@ def report(col: C.Column, path: str) -> None:
 
 
 def cmd_check(a, argv) -> None:
-    """Read every column back and say what each holds; non-zero exit on any problem."""
+    """Read every column back and say what each holds; non-zero exit on any problem: facts that
+    differ from the labels, names that give no offsets, a missing field file, or a problem the
+    import recorded."""
     bad = 0
     for d in a.directories:
         cols = C.read_columns(d)
@@ -76,7 +79,7 @@ def cmd_check(a, argv) -> None:
             print("%s %s: %d bodies, countable %s, %s%s" % (d, col.study["study_id"], len(col.bodies),
                                                           col.study.get("countable"), col.study.get("phenotype"),
                                                           "".join("\n  " + n for n in notes)))
-            bad += bool(mismatch or not os.path.exists(field))
+            bad += bool(notes)
     sys.exit(1 if bad else 0)
 
 
@@ -86,6 +89,7 @@ def cmd_tiers(a, argv) -> None:
     rows = T.person_tiers(cols)
     os.makedirs(a.out, exist_ok=True)
     counts = T.write(a.out, rows)
+    C.write_run(a.out, ["python", "-m", "scanimport"] + argv, {"tiers": counts})
     for t, n in counts.items():
         print("%-9s %d" % (t, n))
     print("%d persons, %d studies; %s" % (len(rows), len(cols), os.path.join(a.out, "tiers.csv")))
@@ -93,7 +97,7 @@ def cmd_tiers(a, argv) -> None:
 
 def cmd_name(a, argv) -> None:
     from . import bridge as B
-    out = B.name_field(a.field, scale_known=not a.scale_unknown, scale_extra_sd=a.scale_sd)
+    out = B.name_field(a.field, scale_known=False if a.scale_unknown else None, scale_extra_sd=a.scale_sd)
     if a.json:
         print(json.dumps(out, indent=1))
         return
@@ -111,6 +115,7 @@ def cmd_score(a, argv) -> None:
     measures = a.measures or SEVEN
     res = B.score_directory(a.directories, measures, a.n, a.all)
     B.write_scores(a.out, res)
+    C.write_run(a.out, ["python", "-m", "scanimport"] + argv, {"skipped": res["skipped"]})
     for s in res["summary"]:
         print("%-7s n=%-2d fields %-5d studies %-4d exact %.3f (se %.3f) within one %.3f answered@0.99 %.3f precision %s" % (
             s["group"], s["n"], s["fields"], s["studies"], s["exact"], s["exact_se"], s["within_one"],
@@ -122,7 +127,10 @@ def cmd_score(a, argv) -> None:
 def cmd_compare(a, argv) -> None:
     from . import compare as K
     rows = K.compare(a.directories, counted_only=not a.all)
-    path = K.write(a.out, rows)
+    path = K.write(a.out, rows, counted_only=not a.all)
+    C.write_run(a.out, ["python", "-m", "scanimport"] + argv, {"counted_only": not a.all})
+    print("bodies from %s" % ("studies counted from C2 only" if not a.all else
+                              "every named body, counted from C2 or not (--all)"))
     for m, s in K.ratio_spread(rows).items():
         print("%-21s levels %-2d mean log(import/Panjabi) %+.4f, spread %s" % (
             m, s["levels"], s["mean_log_ratio"], s["sd_log_ratio"]))
@@ -154,7 +162,8 @@ def parser() -> argparse.ArgumentParser:
     x.add_argument("--anterior", choices=("left", "right"), help="which side of a lateral image is anterior")
     x.add_argument("--magnification", type=float, help="the image's magnification, where its geometry gives it")
     x.add_argument("--magnification-sd", type=float, help="spread of log magnification")
-    x.add_argument("--annotation", choices=("human", "machine"), help="overrides the reader field")
+    x.add_argument("--annotation", required=True, choices=("human", "machine"),
+                   help="who drew the corners, the caller's statement, never inferred")
     x.add_argument("--out", required=True)
     x.set_defaults(func=cmd_ingest_xr)
     k = sub.add_parser("check", help="read every column back and report")
@@ -167,7 +176,7 @@ def parser() -> argparse.ArgumentParser:
     n = sub.add_parser("name", help="name one field file with the exact rule")
     n.add_argument("field")
     n.add_argument("--scale-unknown", action="store_true", help="the values are in pixels, scale unknown")
-    n.add_argument("--scale-sd", type=float, default=0.0, help="extra spread of log scale (a film's magnification)")
+    n.add_argument("--scale-sd", type=float, help="extra spread of log scale; the field file's own by default")
     n.add_argument("--json", action="store_true")
     n.set_defaults(func=cmd_name)
     s = sub.add_parser("score", help="score the rule on every countable import against its own names")

@@ -32,6 +32,18 @@ class Schemes(unittest.TestCase):
         self.assertIsNone(S.level_of("moose", 20))          # a VerSe id means nothing to MOOSE
         self.assertEqual(S.rib_of("moose", 32), 1)
 
+    def test_enhance_pet_ids(self):
+        self.assertEqual(S.level_of("enhance", 2), "C2")
+        self.assertEqual(S.level_of("enhance", 19), "T12")
+        self.assertEqual(S.level_of("enhance", 25), "L6")
+        self.assertEqual(S.level_of("enhance", 28), "sacrum")
+        self.assertIsNone(S.level_of("enhance", 26))        # a hip
+        self.assertFalse(S.EXPRESSES["enhance"]["T13"])
+        self.assertEqual(S.problems("enhance", {2: 50, 28: 90, 26: 400, 27: 400}), [])
+
+    def test_enhance_read_as_verse_is_reported(self):
+        self.assertTrue(any("ENHANCE" in p for p in S.problems("verse", {2: 50, 24: 50, 26: 400, 27: 400, 28: 90})))
+
     def test_totalseg_by_name_and_label_map(self):
         self.assertEqual(S.TOTALSEG_FILES["vertebrae_L5"], "L5")
         self.assertEqual(S.TOTALSEG_FILES["vertebrae_S1"], "sacrum")

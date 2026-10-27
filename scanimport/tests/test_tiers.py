@@ -15,6 +15,10 @@ class Tiers(unittest.TestCase):
     def tier(self, *cols):
         return T.person_tiers(cols)[0]
 
+    def test_common_spellings_of_x_ray_are_x_rays(self):
+        for m in ("xray", "x-ray", "XR", "radiography"):
+            self.assertEqual(self.tier(study("a", "p", m, True, "human"))["tier"], "gold 3", m)
+
     def test_a_whole_pair_with_a_person_annotating_one_is_gold_1(self):
         r = self.tier(study("a", "p", "ct", True, "machine"), study("b", "p", "film", True, "human"))
         self.assertEqual(r["tier"], "gold 1")

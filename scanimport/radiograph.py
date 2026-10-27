@@ -21,8 +21,11 @@ interpedicular distance on an AP or {"canal_ap": [...]} for the depth of the can
 (the posterior body wall to the spinolaminar line); this is the one addition to version 1 the
 importer reads, and an annotation without it loses nothing.
 
-A corner that is null or marked not visible gives no chord, never a guessed one; a body named
-"?" keeps its place in the column with its chords and no name.
+A corner that is null or marked not visible gives no chord, never a guessed one. C1, C2 and the
+sacrum are named and kept, never measured, as on a CT: the rule's column runs from C3 to L5. A
+body named "?" keeps its place in its view, top down by the mean height of its corners on the
+image as shown head up, with its chords and no name. A level named twice on one view is a
+mistake the importer cannot settle, so both bodies are kept as "?" and the study says why.
 
 MILLIMETRES, AND THE MAGNIFICATION. A film's pixel is a length at the detector, `pixel_mm`; the
 body sits nearer the source, so its shadow is magnified by m = source-to-image distance over
@@ -39,7 +42,11 @@ chords' proportions alone (bridge.py, a flat prior on the scale).
 
 Two views of one study (an AP and a lateral of the same patient on one day) are merged by level
 into one column, each measure from the view that shows it. Views that disagree on whether they
-have a pixel size cannot share one scale and are refused.
+have a pixel size cannot share one scale and are refused, and so are two views that both lack
+one, since each image's pixel is a unit of its own.
+
+Who drew the corners is the caller's statement (`--annotation`), never inferred; a reader id the
+format marks as a model's ("model:<run id>") beside a statement of human is refused.
 """
 from __future__ import annotations
 
@@ -49,7 +56,7 @@ from typing import Dict, List, Optional, Sequence, Tuple
 
 import numpy as np
 
-from . import LEVELS, MEASURES, PLANES, SEVEN
+from . import LEVELS, MEASURES, NOT_MEASURED, PLANES, SEVEN
 from .column import Body, Column, facts_from_levels
 
 FORMAT = "schwingnet-spine-xr/1"
@@ -119,13 +126,41 @@ def corner_chords(body: dict, view: str, anterior: Optional[str]) -> Tuple[Dict[
 
 
 def annotation_of(reader: dict) -> str:
-    """human, or machine for a model's pseudo-labels (the format names them "model:<run id>")."""
-    return "machine" if str(reader.get("id", "")).startswith("model:") else "human"
+    """machine for a reader id the format marks as a model's ("model:<run id>"), else unknown:
+    whether a person drew the corners is the caller's statement, never read from the file."""
+    return "machine" if str(reader.get("id", "")).startswith("model:") else "unknown"
 
 
-def ingest(paths: Sequence[str], study_id: str, source: str, subject_id: Optional[str] = None,
+def mean_height(body: dict) -> float:
+    """The mean image row of a body's given corners, for its order on the view; NaN with none."""
+    ys = [c[1] for c in (corner(body, i) for i in range(4)) if c is not None]
+    return float(np.mean(ys)) if ys else math.nan
+
+
+def view_bodies(doc: dict, view: str) -> Tuple[List[Tuple[str, dict]], List[str]]:
+    """One view's bodies top down, each with the level it may be keyed by: its name, or "?" for
+    an unnamed body, a body with a name outside the 27 and both bodies of a level named twice."""
+    bodies = list(doc.get("bodies", []))
+    problems = []
+    names = []
+    for i, b in enumerate(bodies):
+        level = str(b.get("level", "?"))
+        if level not in NAMES:
+            problems.append("body %d of the %s view is named %r, not one of the 27 names; read as ?" % (i, view, level))
+            level = "?"
+        names.append(level)
+    for lv in sorted({n for n in names if n != "?" and names.count(n) > 1}):
+        problems.append("%s is named %d times on the %s view; those bodies are read as ?" % (lv, names.count(lv), view))
+        names = ["?" if n == lv else n for n in names]
+    order = sorted(range(len(bodies)), key=lambda i: (math.isnan(mean_height(bodies[i])), mean_height(bodies[i]), i))
+    return [(names[i], bodies[i]) for i in order], problems
+
+
+def ingest(paths: Sequence[str], study_id: str, source: str, annotation: str, subject_id: Optional[str] = None,
            anterior: Optional[str] = None, magnification: Optional[float] = None,
-           magnification_sd: Optional[float] = None, annotation: Optional[str] = None) -> Column:
+           magnification_sd: Optional[float] = None) -> Column:
+    if annotation not in ("human", "machine"):
+        raise SystemExit("--annotation must say who drew the corners: human or machine")
     docs = [read(p) for p in paths]
     views = [view_of(d["image"]) for d in docs]
     if len(set(views)) != len(views):
@@ -133,41 +168,46 @@ def ingest(paths: Sequence[str], study_id: str, source: str, subject_id: Optiona
     scaled = [d["image"].get("pixel_mm") is not None for d in docs]
     if len(set(scaled)) > 1:
         raise SystemExit("one view has a pixel size and another has none; they cannot share one scale")
+    if len(docs) > 1 and not any(scaled):
+        raise SystemExit("no view has a pixel size, and each image's pixel is a unit of its own; "
+                         "give pixel_mm or ingest each view as a study of its own")
+    readers = [d.get("reader", {}) for d in docs]
+    if annotation == "human" and any(annotation_of(r) == "machine" for r in readers):
+        raise SystemExit("--annotation human, but a reader id says a model drew the corners (%s)"
+                         % ", ".join(str(r.get("id")) for r in readers))
     known = scaled[0]
     m0 = float(magnification) if magnification else M0
     msd = float(magnification_sd) if magnification_sd is not None else (M_LOG_SD if not magnification else 0.02)
     order: List[str] = []
     bodies: Dict[str, Body] = {}
-    readers, problems = [], []
+    problems: List[str] = []
     for d, view in zip(docs, views):
         side = anterior or d["image"].get("anterior")
         mm = float(d["image"]["pixel_mm"]) / m0 if known else 1.0
-        readers.append(d.get("reader", {}))
-        for i, b in enumerate(d.get("bodies", [])):
-            level = str(b.get("level", "?"))
-            if level not in NAMES:
-                problems.append("body %d of the %s view is named %r, not one of the 27 names; read as ?" % (i, view, level))
-                level = "?"
+        listed, found = view_bodies(d, view)
+        problems += found
+        for i, (level, b) in enumerate(listed):
             key = level if level != "?" else "?%s%d" % (view, i)
             if key not in bodies:
                 bodies[key] = Body(level=level)
                 order.append(key)
+            if level in NOT_MEASURED:
+                bodies[key].flags["all"] = "named, not measured: %s" % (
+                    "the sacrum carries no row" if level == "sacrum" else "the rule's column starts at C3")
+                continue
             vals, flags = corner_chords(b, view, side)
             for m, v in vals.items():
                 bodies[key].values[m] = v * mm if np.isfinite(v) else math.nan
                 bodies[key].methods[m] = "%s view, %s" % (view, "corners" if m in FROM_CORNERS else "chord points")
             bodies[key].flags.update(flags)
-    named = [k for k in order if not k.startswith("?")]
-    named.sort(key=LEVELS.index)
-    keys = named + [k for k in order if k.startswith("?")]
+    named = sorted((k for k in order if not k.startswith("?")), key=LEVELS.index)
+    keys = named + [k for k in order if k.startswith("?")] if named else order
     col_bodies = [bodies[k] for k in keys]
     levels = [b.level for b in col_bodies]
-    kinds = {annotation_of(r) for r in readers}
-    ann = annotation or ("machine" if "machine" in kinds else "human")
     calls = [d.get("column", {}) for d in docs if d.get("column")]
     expresses = {"L6": True, "T13": True, "ribs": any(c.get("ribs") for c in calls)}
     study = {"study_id": study_id, "subject_id": subject_id or study_id, "source": source,
-             "modality": str(docs[0]["image"].get("modality", "film")), "views": views, "annotation": ann,
+             "modality": str(docs[0]["image"].get("modality", "film")), "views": views, "annotation": annotation,
              "made_by": ",".join(sorted({str(r.get("id", "")) for r in readers})), "scheme": FORMAT,
              "expresses": expresses, "pixel_mm": [d["image"].get("pixel_mm") for d in docs],
              "magnification": m0 if known else None, "scale_known": bool(known),

@@ -26,6 +26,11 @@ The schemes, with where each map comes from:
   SchwingNet docs/research/flepp-and-killeen-critique.md). A multilabel TotalSegmentator volume
   is read with its own class map given as JSON (`--label-map`), never with ids assumed here,
   since the ids differ between its versions.
+- enhance: ENHANCE.PET 1.6k's vertebra group, clin_ct_vertebrae in the release's labels.json (C1
+  to C7 = 1 to 7, T1 to T12 = 8 to 19, L1 to L6 = 20 to 25, hips 26 and 27, sacrum 28; no T13;
+  read from the public bucket enhance-pet-1-6k on 2026-10-27, holdings/gold-tier-3.md). Its ids up
+  to 25 are VerSe's, and 26 to 28 are not: read as VerSe, its hips would be a sacrum and a coccyx
+  and its sacrum a T13, so `problems` names a VerSe read that holds 26, 27 and 28 together.
 """
 from __future__ import annotations
 
@@ -33,7 +38,7 @@ from typing import Dict, Optional
 
 from . import CERVICAL, LUMBAR, THORACIC
 
-SCHEMES = ("verse", "spineps", "ctspinopelvic", "moose", "totalseg")
+SCHEMES = ("verse", "spineps", "ctspinopelvic", "moose", "totalseg", "enhance")
 
 VERSE: Dict[int, str] = {**{n: "C%d" % n for n in range(1, 8)},
                          **{7 + n: "T%d" % n for n in range(1, 13)},
@@ -42,6 +47,11 @@ VERSE: Dict[int, str] = {**{n: "C%d" % n for n in range(1, 8)},
 
 CTSPINOPELVIC: Dict[int, str] = {**VERSE, 29: "sacrum"}
 CTSPINOPELVIC_RIBS: Dict[int, int] = {**{33 + n: n for n in range(1, 14)}, **{46 + n: n for n in range(1, 14)}}
+
+ENHANCE: Dict[int, str] = {**{n: "C%d" % n for n in range(1, 8)},
+                           **{7 + n: "T%d" % n for n in range(1, 13)},
+                           **{19 + n: "L%d" % n for n in range(1, 7)},
+                           28: "sacrum"}
 CTSPINOPELVIC_LUMBAR_RIBS = (60, 61)
 
 MOOSE: Dict[int, str] = {**{58 + n: "C%d" % n for n in range(1, 8)},
@@ -70,6 +80,7 @@ EXPRESSES: Dict[str, Dict[str, bool]] = {
     "ctspinopelvic": {"L6": True, "T13": True, "ribs": True},
     "moose": {"L6": True, "T13": False, "ribs": True},
     "totalseg": {"L6": False, "T13": False, "ribs": True},
+    "enhance": {"L6": True, "T13": False, "ribs": False},
 }
 
 VERTEBRAE = set(CERVICAL + THORACIC + LUMBAR)
@@ -82,6 +93,8 @@ def table_of(scheme: str) -> Dict[int, str]:
         return CTSPINOPELVIC
     if scheme == "moose":
         return MOOSE
+    if scheme == "enhance":
+        return ENHANCE
     raise ValueError("scheme %r has no id table here; totalseg is read by file name or with --label-map" % scheme)
 
 
@@ -120,4 +133,7 @@ def problems(scheme: str, present: Dict[int, int]) -> list:
         odd = sorted(v for v in present if 0 < v < 100 and v not in table and v != 27)
         if odd:
             out.append("values %s are not VerSe vertebra ids; the volume may be in another scheme" % odd)
+        if all(v in present for v in (26, 27, 28)):
+            out.append("values 26, 27 and 28 together look like ENHANCE.PET's hips and sacrum, not a VerSe "
+                       "sacrum, coccyx and T13; read the volume as enhance")
     return out

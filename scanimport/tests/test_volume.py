@@ -61,6 +61,30 @@ class Ingest(unittest.TestCase):
         self.assertTrue(all(abs(b.values["endplate"] - 44.0) < 1.2 for b in col.bodies))
         self.assertIn("subregions", col.bodies[0].methods["endplate"])
 
+    def test_spineps_end_plates_are_joined_and_discs_left_out(self):
+        # SPINEPS writes vertebra X's end-plate as 200 + X and the disc below it as 100 + X: the
+        # same vertebrae with their rims relabelled must give the same chords
+        lab, aff = V.load(self.path("verse.nii.gz"))
+        lab = np.asarray(lab).astype(np.int32)
+        written = lab.copy()
+        for lv, v in ids_for(schemes.VERSE).items():
+            pts = np.argwhere(lab == v)
+            top = pts[:, 2] >= np.percentile(pts[:, 2], 92)
+            written[tuple(pts[top].T)] = 200 + v
+        written[(lab == 0) & (np.indices(lab.shape)[2] == 3)] = 120          # a slab of "disc"
+        written[0, 0, 0] = 211                                                  # an end-plate of no vertebra here
+        PH.save(self.path("spineps.nii.gz"), written, aff)
+        plain = V.ingest(self.path("verse.nii.gz"), "spineps", "s1", "test", "machine", "SPINEPS")
+        parts = V.ingest(self.path("spineps.nii.gz"), "spineps", "s1", "test", "machine", "SPINEPS")
+        self.assertEqual(parts.levels, LEVELS)
+        for a, b in zip(plain.bodies, parts.bodies):
+            for m in a.values:
+                if math.isfinite(a.values[m]):
+                    self.assertAlmostEqual(a.values[m], b.values[m], places=6)
+        self.assertGreater(parts.study["labels_merged"]["endplate_voxels_joined"], 0)
+        self.assertGreater(parts.study["labels_merged"]["disc_voxels_left_out"], 0)
+        self.assertTrue(any("211" in p for p in parts.study["problems"]))
+
     def test_the_wrong_scheme_names_nothing_and_says_so(self):
         col = V.ingest(self.path("moose.nii.gz"), "verse", "s1", "test", "machine", "phantom")
         self.assertEqual(col.levels, [])

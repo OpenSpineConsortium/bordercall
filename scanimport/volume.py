@@ -29,11 +29,10 @@ from typing import Dict, List, Optional, Tuple
 import numpy as np
 from scipy import ndimage
 
-from . import CERVICAL, LEVELS, MEASURES, SEVEN, schemes
+from . import CERVICAL, LEVELS, MEASURES, NOT_MEASURED, SEVEN, schemes
 from . import geometry as G
 from .column import Body, Column, facts_from_levels
 
-NOT_MEASURED = ("C1", "C2", "sacrum")
 
 
 def load(path: str):
@@ -42,12 +41,40 @@ def load(path: str):
     return np.asanyarray(img.dataobj), np.asarray(img.affine, float)
 
 
-def read_labels(labels: str, scheme: str, label_map: Optional[Dict[int, str]] = None
-                ) -> Tuple[np.ndarray, G.VoxelGrid, Dict[int, str], List[str]]:
-    """The label volume as integers, its grid, which value names which level, and any problems
-    in words. A TotalSegmentator folder of one mask per structure is stacked into one volume,
-    each level under its index in LEVELS plus one."""
+def spineps_parts(vol: np.ndarray) -> Tuple[np.ndarray, Dict[str, int], List[str]]:
+    """A SPINEPS instance volume with its end-plates joined to their vertebrae and its discs left
+    out. SPINEPS writes the disc below vertebra X as 100 + X and that vertebra's end-plate as
+    200 + X (archive/bordercall/SPINEPS_MAPPING.md); an end-plate read as nothing would take the
+    end-plate rim off the body and shorten every end-plate chord, so each 200 + X becomes X, and
+    each 100 + X becomes background, a disc being no part of a vertebra. An end-plate whose
+    vertebra is absent from the volume is left out and named."""
+    out = vol.astype(np.int32, copy=True)
+    plates = (out > 200) & (out < 300)
+    discs = (out > 100) & (out < 200)
+    counts = {"endplate_voxels_joined": 0, "disc_voxels_left_out": int(discs.sum())}
     problems: List[str] = []
+    vertebrae = set(np.unique(out[(out > 0) & (out < 100)]).tolist())
+    for v in np.unique(out[plates]).tolist():
+        here = out == v
+        if v - 200 in vertebrae:
+            out[here] = v - 200
+            counts["endplate_voxels_joined"] += int(here.sum())
+        else:
+            out[here] = 0
+            problems.append("end-plate label %d has no vertebra %d in the volume; its %d voxels are left out"
+                            % (v, v - 200, int(here.sum())))
+    out[discs] = 0
+    return out, counts, problems
+
+
+def read_labels(labels: str, scheme: str, label_map: Optional[Dict[int, str]] = None
+                ) -> Tuple[np.ndarray, G.VoxelGrid, Dict[int, str], List[str], Dict[str, int]]:
+    """The label volume as integers, its grid, which value names which level, any problems in
+    words, and what was joined or left out before naming (SPINEPS's end-plates and discs). A
+    TotalSegmentator folder of one mask per structure is stacked into one volume, each level
+    under its index in LEVELS plus one."""
+    problems: List[str] = []
+    merged: Dict[str, int] = {}
     if scheme == "totalseg" and os.path.isdir(labels):
         vol, affine, names = None, None, {}
         for fname in sorted(os.listdir(labels)):
@@ -69,18 +96,20 @@ def read_labels(labels: str, scheme: str, label_map: Optional[Dict[int, str]] = 
             names[v] = level
         if vol is None:
             raise SystemExit("no vertebrae_*.nii.gz or sacrum file under %s" % labels)
-        return vol, G.VoxelGrid(affine, vol.shape), names, problems
+        return vol, G.VoxelGrid(affine, vol.shape), names, problems, merged
     data, affine = load(labels)
     vol = np.asarray(data)
     if not np.issubdtype(vol.dtype, np.integer):
         if not np.allclose(vol, np.round(vol)):
             raise SystemExit("%s holds non-integer values; it is not a label volume" % labels)
         vol = np.round(vol).astype(np.int32)
+    if scheme == "spineps" and label_map is None:
+        vol, merged, problems = spineps_parts(vol)
     present = {int(v): int(c) for v, c in zip(*np.unique(vol[vol > 0], return_counts=True))}
     if label_map is None:
         problems += schemes.problems(scheme, present)
     names = {v: schemes.level_of(scheme, v, label_map) for v in present}
-    return vol, G.VoxelGrid(affine, vol.shape), {v: n for v, n in names.items() if n}, problems
+    return vol, G.VoxelGrid(affine, vol.shape), {v: n for v, n in names.items() if n}, problems, merged
 
 
 def vertebra_voxels(vol: np.ndarray, names: Dict[int, str]) -> Dict[str, np.ndarray]:
@@ -150,7 +179,7 @@ def ingest(labels: str, scheme: str, study_id: str, source: str, annotation: str
     if label_map_path:
         with open(label_map_path) as fh:
             label_map = {int(k): v for k, v in json.load(fh).items()}
-    vol, grid, names, problems = read_labels(labels, scheme, label_map)
+    vol, grid, names, problems, merged = read_labels(labels, scheme, label_map)
     sub = None
     if subregion:
         sdata, saff = load(subregion)
@@ -166,6 +195,7 @@ def ingest(labels: str, scheme: str, study_id: str, source: str, annotation: str
              "views": ["ct"], "annotation": annotation, "made_by": made_by, "scheme": scheme,
              "expresses": expresses, "scale_log_mean": 0.0, "scale_log_sd": 0.0,
              "spacing_mm": [round(float(s), 4) for s in grid.spacing], "problems": problems,
+             "labels_merged": merged,
              "measured": sorted(m for m in SEVEN if any(np.isfinite(b.values.get(m, math.nan)) for b in bodies))}
     study.update(facts_from_levels(levels, expresses))
     return Column(study=study, bodies=bodies)

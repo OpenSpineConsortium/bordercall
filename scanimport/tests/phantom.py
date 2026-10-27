@@ -29,6 +29,8 @@ class Shape:
     T: float = 5.0
     TP: float = 78.0
     LS: float = 26.0
+    uncinate: float = 0.0        # uncinate processes rising this far above the superior end-plate
+    osteophyte: float = 0.0      # an anterior marginal spur rising this far above it
 
 
 def rotation(axis: Sequence[float], angle_deg: float) -> np.ndarray:
@@ -52,6 +54,14 @@ def inside(q: np.ndarray, s: Shape) -> Dict[str, np.ndarray]:
     tp = (np.abs(y - yc) <= 3.0) & (np.abs(x) <= s.TP / 2) & (np.abs(x) >= s.CW / 2) & (np.abs(z) <= 3.0)
     yback = yc - s.CD / 2 - s.T
     spin = (np.abs(x) <= 3.0) & (y <= yback + 0.5) & (y >= yback - s.LS) & (z >= -6.0) & (z <= 2.0)
+    if s.uncinate > 0:
+        # 2.5 mm wide at the posterolateral rims, from 1 mm in front of the posterior wall to 40 per cent
+        # of the depth, as at C3 to C7
+        body = body | ((np.abs(x) >= s.W / 2 - 3.0) & (np.abs(x) <= s.W / 2 - 0.5) & (y >= 1.0) & (y <= 0.4 * s.D)
+                       & (z > s.H / 2) & (z <= s.H / 2 + s.uncinate))
+    if s.osteophyte > 0:
+        # 8 mm wide and 3 mm deep at the anterior rim of the superior end-plate
+        body = body | ((np.abs(x) <= 4.0) & (y >= s.D - 3.5) & (y <= s.D - 0.5) & (z > s.H / 2) & (z <= s.H / 2 + s.osteophyte))
     return {"body": body, "canal": canal & zarch, "arch": arch, "tp": tp, "spinous": spin}
 
 
@@ -65,17 +75,20 @@ def spinous_reach(s: Shape) -> float:
 def column(levels: Sequence[str], values: Dict[str, int], shape: Shape = Shape(), gap: float = 36.0,
            tilt: Tuple[Sequence[float], float] = ((1.0, 0.3, 0.0), 18.0), turns: Dict[str, float] = None,
            spacing=(0.9, 0.9, 1.4), grid_turn: Tuple[Sequence[float], float] = ((0.0, 0.0, 1.0), 9.0),
-           margin: float = 50.0, subregions: bool = False):
+           margin: float = 50.0, subregions: bool = False,
+           bends: Dict[str, Tuple[Sequence[float], float]] = None):
     """A labelled volume holding the levels top down, each under values[level]; with
-    subregions, a SPINEPS-style subregion volume beside it. Returns (labels, affine, subregion or
+    subregions, a SPINEPS-style subregion volume beside it. `turns` turns a level about the
+    column's axis, `bends` tilts it about an axis across the column (a wedge or a slip leaves a
+    body tilted against the line through its neighbours). Returns (labels, affine, subregion or
     None, the column's world direction)."""
-    turns = turns or {}
+    turns, bends = turns or {}, bends or {}
     R0 = rotation(*tilt)
     ez = R0 @ np.array([0.0, 0.0, 1.0])
     centres = [ez * (-gap * i) for i in range(len(levels))]
     frames = []
     for lv, c in zip(levels, centres):
-        Ri = R0 @ rotation((0, 0, 1), turns.get(lv, 0.0))
+        Ri = R0 @ rotation(*bends.get(lv, ((1.0, 0.0, 0.0), 0.0))) @ rotation((0, 0, 1), turns.get(lv, 0.0))
         frames.append((lv, c, Ri))
     allc = np.array(centres)
     reach = math.sqrt((shape.TP / 2) ** 2 + max(shape.D, shape.CD + shape.T + shape.LS) ** 2 + (shape.H / 2) ** 2)
@@ -126,3 +139,4 @@ def column(levels: Sequence[str], values: Dict[str, int], shape: Shape = Shape()
 def save(path: str, data: np.ndarray, affine: np.ndarray) -> None:
     import nibabel as nib
     nib.save(nib.Nifti1Image(data, affine), path)
+

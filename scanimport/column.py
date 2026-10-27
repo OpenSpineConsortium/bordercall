@@ -27,7 +27,7 @@ import subprocess
 from dataclasses import asdict, dataclass, field
 from typing import Dict, List, Optional
 
-from . import CERVICAL, LUMBAR, MEASURES, PLANES, ROOT, THORACIC
+from . import CERVICAL, LUMBAR, MEASURES, NOT_MEASURED, PLANES, ROOT, THORACIC
 
 FORMAT = "bordercall-column/1"
 
@@ -71,9 +71,16 @@ class Column:
 
 def own_sequence(levels: List[str]) -> List[str]:
     """The names a column holding these levels runs through, top down: seven cervical, twelve
-    thoracic and T13 where the column has one, five lumbar and L6 where it has one, the sacrum."""
+    thoracic and T13 where the column has one, five lumbar, L6 where it has one and four where it
+    shows L4 above the sacrum with no L5 (the case facts_from_levels calls four_lumbar), and the
+    sacrum."""
     thor = THORACIC[:13] if "T13" in levels else THORACIC[:12]
-    lum = LUMBAR[:6] if "L6" in levels else LUMBAR[:5]
+    if "L6" in levels:
+        lum = LUMBAR[:6]
+    elif "L4" in levels and "sacrum" in levels and "L5" not in levels:
+        lum = LUMBAR[:4]
+    else:
+        lum = LUMBAR[:5]
     return CERVICAL + thor + lum + ["sacrum"]
 
 
@@ -161,15 +168,33 @@ def _clean(v: float) -> Optional[float]:
     return None if v is None or (isinstance(v, float) and not math.isfinite(v)) else round(float(v), 3)
 
 
+def field_bodies(col: Column) -> List[Body]:
+    """The bodies a field file holds: never C1, C2 or the sacrum, which carry no measure; the named
+    bodies alone where some are named, since an unnamed body among them has no place to be
+    compared at; and every body, top down, where none is named."""
+    bodies = [b for b in col.bodies if b.level not in NOT_MEASURED]
+    if any(b.level != "?" for b in bodies):
+        bodies = [b for b in bodies if b.level != "?"]
+    return bodies
+
+
 def write_field(col: Column, path: str) -> None:
-    offs = offsets_of(col.levels)
+    """The study as one field in the format bridge.read_field and `python -m schwingcheck name`
+    read, with the scale its values carry, so a field named from its file is named as its column
+    would be."""
+    bodies = field_bodies(col)
+    offs = offsets_of([b.level for b in bodies]) if all(b.level != "?" for b in bodies) else None
+    s = col.study
     with open(path, "w", newline="") as fh:
-        fh.write("# study %s\n" % col.study["study_id"])
+        fh.write("# study %s\n" % s["study_id"])
         fh.write("# levels %s\n" % " ".join(col.levels))
-        fh.write("# countable %s\n" % bool(col.study.get("countable")))
+        fh.write("# countable %s\n" % bool(s.get("countable")))
+        fh.write("# scale_known %s\n" % bool(s.get("scale_known", True)))
+        fh.write("# scale_log_mean %r\n" % float(s.get("scale_log_mean") or 0.0))
+        fh.write("# scale_log_sd %r\n" % float(s.get("scale_log_sd") or 0.0))
         w = csv.writer(fh, lineterminator="\n")
         w.writerow(["body", "offset", "level"] + MEASURES)
-        for i, b in enumerate(col.bodies):
+        for i, b in enumerate(bodies):
             v = [_clean(b.values.get(m, math.nan)) for m in MEASURES]
             w.writerow([i, offs[i] if offs else "", b.level] + ["" if x is None else x for x in v])
 
@@ -211,6 +236,20 @@ def write_tables(directory: str, columns: List[Column]) -> None:
             row["n_bodies"] = len(col.bodies)
             row["views"] = "+".join(col.study.get("views", [])) if isinstance(col.study.get("views"), list) else col.study.get("views", "")
             w.writerow(row)
+
+
+def write_run(directory: str, command: List[str], extra: Optional[dict] = None) -> None:
+    """A run record for a directory a command wrote tables to without importing (tiers, compare,
+    score): RUNS.json, one entry per run, so nothing in it is unaccounted for."""
+    path = os.path.join(directory, "RUNS.json")
+    runs = []
+    if os.path.exists(path):
+        with open(path) as fh:
+            runs = json.load(fh).get("runs", [])
+    runs.append({"command": command, **commit_of(), **(extra or {})})
+    with open(path, "w", newline="\n") as fh:
+        json.dump({"format": "bordercall-runs/1", "runs": runs}, fh, indent=1, sort_keys=True)
+        fh.write("\n")
 
 
 def write_manifest(directory: str, command: List[str], inputs: Dict[str, str], extra: Optional[dict] = None) -> None:

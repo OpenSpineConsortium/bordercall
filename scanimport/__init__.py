@@ -49,6 +49,8 @@ THORACIC = ["T%d" % i for i in range(1, 14)]
 LUMBAR = ["L%d" % i for i in range(1, 7)]
 LEVELS = CERVICAL + THORACIC + LUMBAR + ["sacrum"]
 RULE_LEVELS = CERVICAL[2:] + THORACIC[:12] + LUMBAR[:5]
+# Named and kept, never measured: the rule's column starts at C3 and the sacrum carries no row.
+NOT_MEASURED = ("C1", "C2", "sacrum")
 
 # The archive's seven measures (covariance.SPINEPS_7), the only ones the rule and the comparison
 # use; and two more a mask gives, kept in the record only: the reference table

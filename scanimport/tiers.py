@@ -37,7 +37,8 @@ from typing import Dict, Iterable, List, Tuple
 from .column import Column
 
 CT = ("ct",)
-XRAY = ("film", "xr", "radiograph", "cr", "dx", "fluoro", "fluoroscopy", "c-arm")
+XRAY = ("film", "xr", "xray", "x-ray", "x_ray", "radiograph", "radiography", "plain film", "cr", "dx", "rf",
+        "fluoro", "fluoroscopy", "c-arm", "carm")
 SYNTHETIC = ("drr", "synthetic")
 ORDER = ["gold 1", "gold 2", "gold 3", "gold 4", "silver 1", "silver 2", "silver 3", "silver 4"]
 

@@ -1,6 +1,8 @@
 """The exact rule extended to missing measures, gaps and an unknown scale: the archive's rule
 where nothing is missing, the normal marginal where something is."""
 import math
+import os
+import tempfile
 import unittest
 
 import numpy as np
@@ -89,6 +91,33 @@ class Marginals(unittest.TestCase):
         tight = np.mean([B.posterior(B.log_evidence(x, [0, 1, 2], MU, SD, NB.SYNTH))[t] for x, t in zip(X, truth)])
         loose = np.mean([B.posterior(B.log_evidence(x, [0, 1, 2], MU, SD, NB.SYNTH, 0.0, 0.2))[t] for x, t in zip(X, truth)])
         self.assertGreater(tight, loose)
+
+
+class FieldFiles(unittest.TestCase):
+    def write(self, d, text):
+        path = os.path.join(d, "f.csv")
+        with open(path, "w") as fh:
+            fh.write(text)
+        return path
+
+    def test_a_field_file_is_named_at_the_scale_it_states(self):
+        X = columns(1, 11)[0][:, 6:9] * 6.25          # pixels, 0.16 mm each
+        rows = "".join("%d,%d,?,%s\n" % (j, j, ",".join("%.4f" % v for v in X[:, j])) for j in range(3))
+        head = "body,offset,level," + ",".join(SEVEN) + "\n"
+        with tempfile.TemporaryDirectory() as d:
+            unknown = B.name_field(self.write(d, "# scale_known False\n# scale_log_mean 0.0\n# scale_log_sd 0.0\n" + head + rows))
+            want = B.posterior(B.log_evidence(X, [0, 1, 2], MU, SD, NB.SYNTH, 0.0, None))
+            self.assertLess(max(abs(unknown["posterior_by_place"][RULE_LEVELS[k]] - want[k]) for k in range(len(want))), 1e-5)
+            self.assertTrue(any("scale unknown" in n for n in unknown["notes"]))
+            forced = B.name_field(self.write(d, "# scale_known False\n" + head + rows), scale_known=True)
+            self.assertNotEqual(forced["names"], unknown["names"])
+
+    def test_a_field_with_no_measured_body_says_so(self):
+        head = "body,offset,level," + ",".join(SEVEN) + "\n"
+        with tempfile.TemporaryDirectory() as d:
+            with self.assertRaises(SystemExit) as cm:
+                B.read_field(self.write(d, head + "0,0,C2" + "," * len(SEVEN) + "\n"))
+            self.assertIn("no measured body", str(cm.exception))
 
 
 class Scoring(unittest.TestCase):

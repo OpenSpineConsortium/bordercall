@@ -29,6 +29,8 @@ class Facts(unittest.TestCase):
         self.assertEqual(C.facts_from_levels(six, ALL)["phenotype"], "six_lumbar")
         self.assertEqual(C.facts_from_levels(four, ALL)["phenotype"], "four_lumbar")
         self.assertTrue(C.facts_from_levels(six, ALL)["countable"])
+        self.assertTrue(C.facts_from_levels(four, ALL)["countable"])     # a whole four-lumbar spine is a count
+        self.assertEqual(C.offsets_of(["L3", "L4", "sacrum"]), [0, 1, 2])  # and has no phantom L5 gap
 
     def test_a_missing_body_or_no_c2_is_not_a_count(self):
         gap = [lv for lv in SPINE if lv != "T7"]
@@ -62,10 +64,19 @@ class Files(unittest.TestCase):
             with open(os.path.join(d, "fields", "s1.csv")) as fh:
                 lines = fh.read().splitlines()
             self.assertEqual(lines[0], "# study s1")
-            self.assertTrue(lines[3].startswith("body,offset,level,endplate"))
-            self.assertTrue(lines[5].startswith("1,2,L3,44.0"))
+            self.assertEqual(lines[3:6], ["# scale_known True", "# scale_log_mean 0.0", "# scale_log_sd 0.0"])
+            self.assertTrue(lines[6].startswith("body,offset,level,endplate"))
+            self.assertTrue(lines[8].startswith("1,2,L3,44.0"))
             C.write_tables(d, [back])
             self.assertTrue(os.path.exists(os.path.join(d, "bodies.csv")))
+
+    def test_the_field_holds_only_bodies_the_rule_can_place(self):
+        named = C.Column(study={"study_id": "s2"}, bodies=[C.Body("C2"), C.Body("L4", {"endplate": 45.0}),
+                                                            C.Body("?", {"endplate": 46.0}), C.Body("L5", {"endplate": 47.0}),
+                                                            C.Body("sacrum")])
+        self.assertEqual([b.level for b in C.field_bodies(named)], ["L4", "L5"])
+        unnamed = C.Column(study={"study_id": "s3"}, bodies=[C.Body("?", {"endplate": 40.0}), C.Body("?", {"endplate": 41.0})])
+        self.assertEqual(len(C.field_bodies(unnamed)), 2)
 
     def test_not_a_column(self):
         with self.assertRaises(ValueError):

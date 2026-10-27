@@ -76,12 +76,14 @@ def ratio_spread(rows: List[Dict]) -> Dict[str, Dict[str, float]]:
     return out
 
 
-def write(out: str, rows: List[Dict]) -> str:
+def write(out: str, rows: List[Dict], counted_only: bool = True) -> str:
+    """compare.csv, its first line saying which bodies it was taken from."""
     os.makedirs(out, exist_ok=True)
     path = os.path.join(out, "compare.csv")
     fields = ["measure", "level", "bodies", "studies", "panjabi_mean", "panjabi_sd", "import_mean", "import_sd",
               "difference_mm", "difference_in_sd", "ratio"]
     with open(path, "w", newline="") as fh:
+        fh.write("# bodies %s\n" % ("counted_from_c2" if counted_only else "every_named_body"))
         w = csv.DictWriter(fh, fieldnames=fields, lineterminator="\n")
         w.writeheader()
         for r in rows:
