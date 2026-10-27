@@ -393,6 +393,12 @@ def report() -> str:
     w("  of such a table, including the transcriptions this repository checks (README.md). They say nothing about the")
     w("  measurements: the standard errors in the tables are the papers' own statement of that, from twelve")
     w("  specimens, and only a re-measurement could test them.")
+    w("- Not in this record yet: the Methods of the cervical, lumbar and facets papers summarise the twelve")
+    w("  specimens (their number, their age, weight and height as a mean and a range, and the count of men and")
+    w("  women), and the prose passes did not read them. schwingcheck/table.py reads their 36 numbers by eye for its")
+    w("  specimens table and holds them to the thoracic paper's Table 1: they agree but for the weight's range,")
+    w("  54-85 kg in each of the three where Table 1's heaviest specimen weighs 84 kg. They join prose.csv when two")
+    w("  passes have read them (TODO.md, item P, step b).")
     w("")
     return "\n".join(out)
 
