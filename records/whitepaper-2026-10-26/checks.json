@@ -1,0 +1,194 @@
+{
+ "anomalous": {
+  "four_lumbar": {
+   "1": {
+    "answered": 18,
+    "exact_count": 0.4774603174603175,
+    "exact_own": 0.4774603174603175,
+    "fields": 3150,
+    "precision_count": 1.0,
+    "precision_own": 1.0,
+    "right_count_all": 1504,
+    "right_own_all": 1504,
+    "wrong_count": 0,
+    "wrong_own": 0
+   },
+   "3": {
+    "answered": 504,
+    "exact_count": 0.736140350877193,
+    "exact_own": 0.736140350877193,
+    "fields": 2850,
+    "precision_count": 1.0,
+    "precision_own": 1.0,
+    "right_count_all": 2098,
+    "right_own_all": 2098,
+    "wrong_count": 0,
+    "wrong_own": 0
+   },
+   "5": {
+    "answered": 980,
+    "exact_count": 0.8552941176470589,
+    "exact_own": 0.8552941176470589,
+    "fields": 2550,
+    "precision_count": 0.9989795918367347,
+    "precision_own": 0.9989795918367347,
+    "right_count_all": 2181,
+    "right_own_all": 2181,
+    "wrong_count": 1,
+    "wrong_own": 1
+   },
+   "9": {
+    "answered": 1410,
+    "exact_count": 0.9558974358974359,
+    "exact_own": 0.9558974358974359,
+    "fields": 1950,
+    "precision_count": 0.9985815602836879,
+    "precision_own": 0.9985815602836879,
+    "right_count_all": 1864,
+    "right_own_all": 1864,
+    "wrong_count": 2,
+    "wrong_own": 2
+   }
+  },
+  "six_lumbar": {
+   "1": {
+    "answered": 20,
+    "exact_count": 0.46260869565217394,
+    "exact_own": 0.46260869565217394,
+    "fields": 3450,
+    "precision_count": 0.9,
+    "precision_own": 0.9,
+    "right_count_all": 1596,
+    "right_own_all": 1596,
+    "wrong_count": 2,
+    "wrong_own": 2
+   },
+   "3": {
+    "answered": 531,
+    "exact_count": 0.7025396825396826,
+    "exact_own": 0.7025396825396826,
+    "fields": 3150,
+    "precision_count": 0.9717514124293786,
+    "precision_own": 0.9717514124293786,
+    "right_count_all": 2213,
+    "right_own_all": 2213,
+    "wrong_count": 15,
+    "wrong_own": 15
+   },
+   "5": {
+    "answered": 1073,
+    "exact_count": 0.8105263157894737,
+    "exact_own": 0.8105263157894737,
+    "fields": 2850,
+    "precision_count": 0.9636533084808947,
+    "precision_own": 0.9636533084808947,
+    "right_count_all": 2310,
+    "right_own_all": 2310,
+    "wrong_count": 39,
+    "wrong_own": 39
+   },
+   "9": {
+    "answered": 1649,
+    "exact_count": 0.8933333333333333,
+    "exact_own": 0.8933333333333333,
+    "fields": 2250,
+    "precision_count": 0.929047907822923,
+    "precision_own": 0.929047907822923,
+    "right_count_all": 2010,
+    "right_own_all": 2010,
+    "wrong_count": 117,
+    "wrong_own": 117
+   }
+  },
+  "t13": {
+   "1": {
+    "answered": 18,
+    "exact_count": 0.40608695652173915,
+    "exact_own": 0.46260869565217394,
+    "fields": 3450,
+    "precision_count": 1.0,
+    "precision_own": 1.0,
+    "right_count_all": 1401,
+    "right_own_all": 1596,
+    "wrong_count": 0,
+    "wrong_own": 0
+   },
+   "3": {
+    "answered": 506,
+    "exact_count": 0.6120634920634921,
+    "exact_own": 0.6911111111111111,
+    "fields": 3150,
+    "precision_count": 0.9624505928853755,
+    "precision_own": 1.0,
+    "right_count_all": 1928,
+    "right_own_all": 2177,
+    "wrong_count": 19,
+    "wrong_own": 0
+   },
+   "5": {
+    "answered": 964,
+    "exact_count": 0.7456140350877193,
+    "exact_own": 0.7733333333333333,
+    "fields": 2850,
+    "precision_count": 0.9118257261410788,
+    "precision_own": 0.9865145228215768,
+    "right_count_all": 2125,
+    "right_own_all": 2204,
+    "wrong_count": 85,
+    "wrong_own": 13
+   },
+   "9": {
+    "answered": 1484,
+    "exact_count": 0.8595555555555555,
+    "exact_own": 0.8724444444444445,
+    "fields": 2250,
+    "precision_count": 0.90633423180593,
+    "precision_own": 0.9501347708894878,
+    "right_count_all": 1934,
+    "right_own_all": 1963,
+    "wrong_count": 139,
+    "wrong_own": 74
+   }
+  }
+ },
+ "anomalous_columns": 150,
+ "anomalous_seed": 99,
+ "claim_level": 0.99,
+ "n_columns": 2000,
+ "record": "records/exact-2026-10-26/exact.json",
+ "regime": "both",
+ "score_seed": 97,
+ "seconds": 114.5,
+ "study": "checks the white paper's review asked for: the within-one Bayes rule, and anomalous columns judged by the count from C2",
+ "supplement": "records/exact-2026-10-26/supplement.json",
+ "within_one": {
+  "1": {
+   "argmax_within_one": 0.7646363636363637,
+   "best_within_one": 0.8145454545454546,
+   "best_within_one_predicted": 0.8144610883660488,
+   "exact": 0.4727272727272727,
+   "fields": 44000
+  },
+  "3": {
+   "argmax_within_one": 0.909675,
+   "best_within_one": 0.9443,
+   "best_within_one_predicted": 0.9406089861761427,
+   "exact": 0.730825,
+   "fields": 40000
+  },
+  "5": {
+   "argmax_within_one": 0.9659444444444445,
+   "best_within_one": 0.9835833333333334,
+   "best_within_one_predicted": 0.9816058281263172,
+   "exact": 0.8565277777777778,
+   "fields": 36000
+  },
+  "9": {
+   "argmax_within_one": 0.9965714285714286,
+   "best_within_one": 0.9991071428571429,
+   "best_within_one_predicted": 0.9989559840268009,
+   "exact": 0.9611428571428572,
+   "fields": 28000
+  }
+ }
+}

@@ -26,6 +26,9 @@ Run the commands in this order on a corpus you have not measured before.
     python run.py exact-figures --json out/exact/exact.json --outdir figures/exact
     python run.py exact-supplement --outdir out/exact          # the checks the second review asked for
     python run.py exact-slide-figures --json out/exact/exact.json --outdir figures/exact-slides
+    python run.py second-opinion --outdir out/whitepaper       # the exact rule beside a registration's answer
+    python run.py study-power --outdir out/whitepaper          # readers and cases for the white paper's study
+    python run.py whitepaper-checks --outdir out/whitepaper    # within-one best rule; anomalous by the count from C2
 
 `scheme` and `selftest` are not optional. The first catches a corpus numbered differently
 from this package's assumption, which produces finite, plausible, wrong numbers and raises
@@ -331,6 +334,24 @@ def cmd_exact_supplement(a) -> int:
         ES.run(a.outdir, record_json=a.record_json, processes=a.processes, n_score=40, n_worlds=2, quick=True)
     else:
         ES.run(a.outdir, record_json=a.record_json, processes=a.processes)
+    return 0
+
+
+def cmd_second_opinion(a) -> int:
+    import second_opinion as SO
+    SO.run(a.outdir, record_json=a.record_json)
+    return 0
+
+
+def cmd_study_power(a) -> int:
+    import study_power as SP
+    SP.run(a.outdir, power_reps=a.power_reps, size_reps=a.size_reps)
+    return 0
+
+
+def cmd_whitepaper_checks(a) -> int:
+    import whitepaper_checks as WC
+    WC.run(a.outdir, record_json=a.record_json, supplement_json=a.supplement_json)
     return 0
 
 
@@ -644,6 +665,36 @@ def main() -> int:
     p.add_argument("--processes", type=int, default=4, help="processes to run the worlds and chunks in")
     p.add_argument("--quick", action="store_true", help="a small run to check the command")
     p.set_defaults(fn=cmd_exact_supplement)
+
+    p = sub.add_parser("second-opinion",
+                       help="what the exact rule says about an answer one level off, on the exact study's own "
+                            "scoring columns, for the white paper's comparison with registration; writes "
+                            "second_opinion.json")
+    p.add_argument("--outdir", default=None, help="write second_opinion.json here")
+    p.add_argument("--record-json", default=os.path.join(HERE, "..", "records", "exact-2026-10-26", "exact.json"),
+                   dest="record_json", help="the exact study's record, whose columns and exact shares it must match")
+    p.set_defaults(fn=cmd_second_opinion)
+
+    p = sub.add_parser("study-power",
+                       help="power of the white paper's randomized reader study by simulation, over readers, "
+                            "cases and strata; writes study_power.json")
+    p.add_argument("--outdir", default=None, help="write study_power.json here")
+    p.add_argument("--power-reps", type=int, default=None, dest="power_reps",
+                   help="simulated studies per power cell (default the module's)")
+    p.add_argument("--size-reps", type=int, default=None, dest="size_reps",
+                   help="simulated studies per size cell (default the module's)")
+    p.set_defaults(fn=cmd_study_power)
+
+    p = sub.add_parser("whitepaper-checks",
+                       help="the within-one Bayes rule on the exact study's scoring columns, and the anomalous "
+                            "columns judged by the count from C2 as well as by their own names; writes checks.json")
+    p.add_argument("--outdir", default=None, help="write checks.json here")
+    p.add_argument("--record-json", default=os.path.join(HERE, "..", "records", "exact-2026-10-26", "exact.json"),
+                   dest="record_json", help="the exact study's record, whose shares it must match")
+    p.add_argument("--supplement-json",
+                   default=os.path.join(HERE, "..", "records", "exact-2026-10-26", "supplement.json"),
+                   dest="supplement_json", help="the supplement, whose own-name anomalous counts it must match")
+    p.set_defaults(fn=cmd_whitepaper_checks)
 
     p = sub.add_parser("selftest", help="reproduce the known CTSpinoPelvic1K answers")
     p.add_argument("--levels", default=DEFAULT_FIXTURE,
