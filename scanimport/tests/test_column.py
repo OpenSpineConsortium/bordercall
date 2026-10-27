@@ -70,6 +70,24 @@ class Files(unittest.TestCase):
             C.write_tables(d, [back])
             self.assertTrue(os.path.exists(os.path.join(d, "bodies.csv")))
 
+    def test_a_body_measured_not_at_all_has_its_rows_in_bodies_csv_with_its_reason(self):
+        import csv
+        col = C.Column(study={"study_id": "s4", "modality": "ct"},
+                       bodies=[C.Body("?", flags={"all": "bounded by one disc"}),
+                               C.Body("?", flags={"all": "metal: 12 voxels"}),
+                               C.Body("?", {"endplate": 40.0}, flags={"h_post": "cut by the field"})])
+        with tempfile.TemporaryDirectory() as d:
+            C.write_tables(d, [col])
+            with open(os.path.join(d, "bodies.csv")) as fh:
+                rows = list(csv.DictReader(fh))
+        by_body = {i: [r for r in rows if r["body"] == str(i)] for i in range(3)}
+        self.assertEqual(len(by_body[0]), len(C.MEASURES))
+        self.assertTrue(all(r["flag"] == "bounded by one disc" and r["value_mm"] == "" for r in by_body[0]))
+        self.assertTrue(all(r["flag"] == "metal: 12 voxels" for r in by_body[1]))
+        # a body with chords of its own keeps only the rows it has a value or a reason for
+        self.assertEqual({(r["measure"], r["value_mm"], r["flag"]) for r in by_body[2]},
+                         {("endplate", "40.0", ""), ("h_post", "", "cut by the field")})
+
     def test_the_field_holds_only_bodies_the_rule_can_place(self):
         named = C.Column(study={"study_id": "s2"}, bodies=[C.Body("C2"), C.Body("L4", {"endplate": 45.0}),
                                                             C.Body("?", {"endplate": 46.0}), C.Body("L5", {"endplate": 47.0}),

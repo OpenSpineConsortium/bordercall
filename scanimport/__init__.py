@@ -3,7 +3,11 @@
     python -m scanimport ingest-ct --labels seg.nii.gz --scheme verse --study s0001 --source verse \
                                    --annotation human --out imports/verse
     python -m scanimport ingest-xr --xr ap.json --xr lateral.json --study f0001 --source aasce \
-                                   --out imports/aasce
+                                   --annotation human --out imports/aasce
+    python -m scanimport ingest-raw-ct --volume ct_dicom_folder --study s0002 --source enhance \
+                                   --out imports/raw
+    python -m scanimport ingest-image --image ap.dcm --corners ap.json --flexray ap_probabilities.npy \
+                                   --study f0002 --source x --annotation human --out imports/x
     python -m scanimport check     imports/verse
     python -m scanimport tiers     imports/verse imports/aasce --out imports/tiers
     python -m scanimport compare   imports/verse --out imports/compare
@@ -11,16 +15,21 @@
     python -m scanimport score     imports/verse --n 1 3 5 9 --out imports/scores
 
 The owner's ask of 27 October 2026, 09:44 UTC: "get 2D/3D scan to bordercall-importable data
-pipeline done so i can start importing empirical data". A scan comes in as one of two things:
+pipeline done so i can start importing empirical data". A scan comes in as one of four things:
 
 - a CT's label volume (NIfTI), whole-vertebra instance labels in one of the schemes in
   schemes.py (VerSe, SPINEPS, TotalSegmentator, MOOSE, CTSpinoPelvic1K), with SPINEPS's
   subregion volume where there is one (volume.py);
 - a radiograph's annotation in SchwingNet's X-ray format, four corners per body with the level
   named (SchwingNet docs/research/xr-annotation-format.md, "schwingnet-spine-xr/1";
-  radiograph.py).
+  radiograph.py);
+- a CT with no labels at all, its chords taken from the intensities by published training-free
+  rules, the owner's ask of 27 October 2026, 13:45 UTC (intensity.py, edges.py, the mask-free
+  mode; its bodies are found but never named);
+- one radiograph or frame, DICOM or a picture file, with its corners or FleXray's masks, measured
+  at the scale its own header gives (film.py, readers.py).
 
-Either way it leaves as one column (column.py): the study's bodies from the top down, each with
+Each leaves as one column (column.py): the study's bodies from the top down, each with
 the name its labels give it, the measures taken on it in millimetres (NaN where a measure could
 not be taken), how each was taken, and the study's facts the tiers are read from. A directory of
 imports holds the columns as JSON, the bodies as one long CSV, one field file per study in the

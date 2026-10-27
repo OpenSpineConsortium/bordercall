@@ -67,7 +67,15 @@ from scipy import ndimage
 NAN = float("nan")
 MIN_BODY_VOXELS = 40
 MIN_CHORD_POINTS = 8
-CANAL_AREA_MM2 = (12.0, 1200.0)       # a hole outside these bounds is not a canal
+# This module's choice, with no source: a hole smaller than 12 mm2 (about 4 by 3 mm, far below the
+# narrowest canal of Panjabi's means) or larger than 1,200 mm2 is not a canal; the mask-free mode
+# takes the lower bound and a tighter upper one (intensity.py, step 2).
+CANAL_AREA_MM2 = (12.0, 1200.0)
+# The end-plate's slab: 12 per cent of the body's height, held to 1 to 3 mm, this module's choice.
+# The share is the same as the band of 12 per cent of the body's height at its lower edge that
+# Radimsky's public code takes on a 2D mask's contour (masks_corners_magnification.md, section 3),
+# which the note itself finds sensitive to osteophytes; no source sets a slab for a 3D chord, and
+# the report's row C16 calls these chord definitions conventional, with Panjabi's own not retrieved.
 ENDPLATE_SHARE, ENDPLATE_MM = 0.12, (1.0, 3.0)
 POSTERIOR_SHARE = 0.20
 MIDLINE_MM = 10.0
@@ -514,9 +522,15 @@ def refine_axis(body: np.ndarray, ez: np.ndarray, grid: Optional["VoxelGrid"] = 
     about 5). The end-plates are then read on planes resting on the body (plate_plane), which
     follow a plate the kept axis leaves off by more than the layers hide. The cost is a body tilted
     against the line through its neighbours by less than the band on thick slices, a wedge or a
-    slip at a junction: it is measured in its neighbours' frame, and on synthetic spines a body
-    bent 10 degrees on 3 mm slices reads its end-plate depths up to 3 mm short (on 1 mm voxels an
-    8 degree bend reads within half a millimetre)."""
+    slip at a junction: it is measured in its neighbours' frame, its end-plate slabs cut its
+    plates obliquely, and nothing flags it. On the phantom with 0.7 by 0.7 by 3 mm voxels a body
+    bent 10 degrees sideways reads its end-plate widths 16.5 and 15.8 mm short, and bent 10
+    degrees forward its end-plate depths 7.5 and 2.3 mm short (tests/test_geometry.py,
+    KnownFailure). The angle between the kept axis and the thinnest direction cannot flag it:
+    it is 10.5 degrees on that sideways bend and up to 14 degrees on straight phantoms with 5 mm
+    slices, each inside the band its slices cannot resolve. On 1 mm voxels an 8 degree sideways
+    bend is within the bounds of tests/test_geometry.py (0.46 mm with whole-vertebra labels,
+    0.63 mm with SPINEPS subregions)."""
     core = core_of(body, ez) if len(body) >= MIN_BODY_VOXELS else body
     if len(core) < MIN_BODY_VOXELS:
         return ez

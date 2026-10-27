@@ -79,6 +79,33 @@ class Chords(unittest.TestCase):
             self.check(name, True)
 
 
+class KnownFailure(unittest.TestCase):
+    """The one case README.md admits falls outside the bound, measured here so that its numbers
+    there can be had again and so that a change which mends it, or starts to flag it, fails here
+    first and the README is corrected with it: the middle body bent 10 degrees against its
+    neighbours on 0.7 by 0.7 by 3 mm voxels, measured in its neighbours' frame."""
+
+    def end_plate_errors(self, **kw):
+        lab, aff, _, _ = PH.column(LEVELS, IDS, margin=12.0, spacing=(0.7, 0.7, 3.0), **kw)
+        bodies = V.measure_volume(lab, G.VoxelGrid(aff, lab.shape), NAMES, None)
+        bent, t = bodies[LEVELS.index("L1")], truth(PH.Shape())
+        names = ("endplate", "endplate_lower", "endplate_depth", "endplate_lower_depth")
+        return {m: round(b - t[m], 2) for m, b in ((m, bent.values[m]) for m in names)}, bent.flags
+
+    def test_a_sideways_bend_cuts_the_end_plate_widths_and_nothing_flags_it(self):
+        err, flags = self.end_plate_errors(bends={"L1": ((0, 1, 0), 10.0)})
+        self.assertAlmostEqual(err["endplate"], -16.47, delta=0.05)
+        self.assertAlmostEqual(err["endplate_lower"], -15.84, delta=0.05)
+        self.assertEqual(flags, {})
+
+    def test_a_forward_bend_shortens_the_end_plate_depths_and_nothing_flags_it(self):
+        err, flags = self.end_plate_errors(bends={"L1": ((1, 0, 0), 10.0)}, tilt=((1, 0, 0), 0.0),
+                                           grid_turn=((0, 0, 1), 0.0))
+        self.assertAlmostEqual(err["endplate_depth"], -7.52, delta=0.05)
+        self.assertAlmostEqual(err["endplate_lower_depth"], -2.31, delta=0.05)
+        self.assertEqual(flags, {})
+
+
 class Surfaces(unittest.TestCase):
     def test_edge_gap_on_a_grid_axis_and_off_it(self):
         on = np.arange(0.0, 20.0, 1.5)
