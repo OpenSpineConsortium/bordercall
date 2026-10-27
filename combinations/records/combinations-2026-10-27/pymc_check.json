@@ -1,0 +1,53 @@
+{
+ "chains": 4,
+ "draws": 1000,
+ "fields": [
+  {
+   "deterministic_logp_difference": 0.0,
+   "divergences": 0,
+   "double_counted_top": [
+    "L3",
+    0.5635
+   ],
+   "ess_log_s": 1467.8,
+   "exact_top": [
+    "L3",
+    0.5061
+   ],
+   "largest_mcse": 0.006202299834415215,
+   "max_abs_difference_from_exact": 0.004331068569738972,
+   "pymc_top": [
+    "L3",
+    0.5018
+   ],
+   "r_hat_log_s": 1.0017,
+   "seconds": 6.3,
+   "true_place": "L2",
+   "within_monte_carlo_error": true
+  },
+  {
+   "deterministic_logp_difference": 0.0,
+   "divergences": 0,
+   "double_counted_top": [
+    "T9",
+    0.6533
+   ],
+   "ess_log_s": 803.9,
+   "exact_top": [
+    "T9",
+    0.7864
+   ],
+   "largest_mcse": 0.014150860477412599,
+   "max_abs_difference_from_exact": 0.007344575027246503,
+   "pymc_top": [
+    "T9",
+    0.7937
+   ],
+   "r_hat_log_s": 1.0068,
+   "seconds": 6.0,
+   "true_place": "T8",
+   "within_monte_carlo_error": true
+  }
+ ],
+ "n": 3
+}

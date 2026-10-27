@@ -1,0 +1,1480 @@
+{
+ "columns": 400,
+ "command": [
+  "python",
+  "-m",
+  "combinations",
+  "study",
+  "--outdir",
+  "combinations/records/combinations-2026-10-27"
+ ],
+ "measures": [
+  "endplate",
+  "endplate_depth",
+  "endplate_lower",
+  "endplate_lower_depth",
+  "h_post",
+  "canal_w",
+  "canal_ap"
+ ],
+ "seed": 97,
+ "synth": {
+  "blend": 0.5,
+  "noise_mm": 1.0,
+  "rho": 0.5,
+  "scale_sd": 0.07
+ },
+ "widths": [
+  1,
+  3,
+  5,
+  9
+ ],
+ "world_seed": 20261027,
+ "worlds": {
+  "film": {
+   "1": {
+    "aspect: EPWu / EPDu": {
+     "answered_099": 0.0,
+     "exact": 0.0924,
+     "log_loss": 2.9121,
+     "n_fields": 8800,
+     "precision_099": null,
+     "se": 0.0027,
+     "within_one": 0.22
+    },
+    "body size: EPWu x EPDu x VBHp": {
+     "answered_099": 0.0,
+     "exact": 0.1798,
+     "log_loss": 2.1771,
+     "n_fields": 8800,
+     "precision_099": null,
+     "se": 0.0055,
+     "within_one": 0.4661
+    },
+    "canal to body: SCW / EPWu and SCD / EPDu": {
+     "answered_099": 0.0001,
+     "exact": 0.2017,
+     "log_loss": 2.2343,
+     "n_fields": 8800,
+     "precision_099": 1.0,
+     "se": 0.0039,
+     "within_one": 0.4367
+    },
+    "every ratio (all scale-free contrasts)": {
+     "answered_099": 0.0039,
+     "exact": 0.3836,
+     "log_loss": 1.6848,
+     "n_fields": 8800,
+     "precision_099": 1.0,
+     "se": 0.0049,
+     "within_one": 0.6364
+    },
+    "every within-body ratio": {
+     "answered_099": 0.0039,
+     "exact": 0.3836,
+     "log_loss": 1.6848,
+     "n_fields": 8800,
+     "precision_099": 1.0,
+     "se": 0.0049,
+     "within_one": 0.6364
+    },
+    "exact rule with the aspect observed again (counted twice)": {
+     "answered_099": 0.0089,
+     "exact": 0.4301,
+     "log_loss": 1.5047,
+     "n_fields": 8800,
+     "precision_099": 1.0,
+     "se": 0.0056,
+     "within_one": 0.7072
+    },
+    "exact rule, raw measures": {
+     "answered_099": 0.0045,
+     "exact": 0.4433,
+     "log_loss": 1.45,
+     "n_fields": 8800,
+     "precision_099": 1.0,
+     "se": 0.0056,
+     "within_one": 0.716
+    },
+    "exact rule, scale-free (every ratio)": {
+     "answered_099": 0.002,
+     "exact": 0.3964,
+     "log_loss": 1.656,
+     "n_fields": 8800,
+     "precision_099": 1.0,
+     "se": 0.0048,
+     "within_one": 0.6438
+    },
+    "height to width: VBHp / EPWu": {
+     "answered_099": 0.0,
+     "exact": 0.0933,
+     "log_loss": 2.9663,
+     "n_fields": 8800,
+     "precision_099": null,
+     "se": 0.0024,
+     "within_one": 0.1948
+    },
+    "raw measures (the formula rule)": {
+     "answered_099": 0.0059,
+     "exact": 0.4334,
+     "log_loss": 1.4755,
+     "n_fields": 8800,
+     "precision_099": 1.0,
+     "se": 0.0058,
+     "within_one": 0.7107
+    }
+   },
+   "3": {
+    "aspect: EPWu / EPDu": {
+     "answered_099": 0.0,
+     "exact": 0.1706,
+     "log_loss": 2.5912,
+     "n_fields": 8000,
+     "precision_099": null,
+     "se": 0.0049,
+     "within_one": 0.3367
+    },
+    "body size: EPWu x EPDu x VBHp": {
+     "answered_099": 0.0,
+     "exact": 0.274,
+     "log_loss": 1.9114,
+     "n_fields": 8000,
+     "precision_099": null,
+     "se": 0.0072,
+     "within_one": 0.5723
+    },
+    "canal to body: SCW / EPWu and SCD / EPDu": {
+     "answered_099": 0.0186,
+     "exact": 0.3745,
+     "log_loss": 1.7041,
+     "n_fields": 8000,
+     "precision_099": 0.9933,
+     "se": 0.0063,
+     "within_one": 0.627
+    },
+    "every ratio (all scale-free contrasts)": {
+     "answered_099": 0.1593,
+     "exact": 0.6835,
+     "log_loss": 0.8368,
+     "n_fields": 8000,
+     "precision_099": 0.9976,
+     "se": 0.0066,
+     "within_one": 0.8601
+    },
+    "every within-body ratio": {
+     "answered_099": 0.1341,
+     "exact": 0.636,
+     "log_loss": 0.9576,
+     "n_fields": 8000,
+     "precision_099": 0.9972,
+     "se": 0.0067,
+     "within_one": 0.8311
+    },
+    "exact rule with the aspect observed again (counted twice)": {
+     "answered_099": 0.1948,
+     "exact": 0.704,
+     "log_loss": 0.7944,
+     "n_fields": 8000,
+     "precision_099": 0.9936,
+     "se": 0.0068,
+     "within_one": 0.8788
+    },
+    "exact rule, raw measures": {
+     "answered_099": 0.1745,
+     "exact": 0.7131,
+     "log_loss": 0.735,
+     "n_fields": 8000,
+     "precision_099": 0.9979,
+     "se": 0.0066,
+     "within_one": 0.8872
+    },
+    "exact rule, scale-free (every ratio)": {
+     "answered_099": 0.1536,
+     "exact": 0.698,
+     "log_loss": 0.7982,
+     "n_fields": 8000,
+     "precision_099": 0.9976,
+     "se": 0.0064,
+     "within_one": 0.8688
+    },
+    "height to width: VBHp / EPWu": {
+     "answered_099": 0.0,
+     "exact": 0.1211,
+     "log_loss": 2.7807,
+     "n_fields": 8000,
+     "precision_099": null,
+     "se": 0.0039,
+     "within_one": 0.269
+    },
+    "neighbour ratios: each measure over the body above": {
+     "answered_099": 0.018,
+     "exact": 0.413,
+     "log_loss": 1.8144,
+     "n_fields": 8000,
+     "precision_099": 0.9931,
+     "se": 0.006,
+     "within_one": 0.5541
+    },
+    "raw measures (the formula rule)": {
+     "answered_099": 0.1653,
+     "exact": 0.7015,
+     "log_loss": 0.77,
+     "n_fields": 8000,
+     "precision_099": 0.9977,
+     "se": 0.0067,
+     "within_one": 0.883
+    }
+   },
+   "5": {
+    "aspect: EPWu / EPDu": {
+     "answered_099": 0.0004,
+     "exact": 0.2486,
+     "log_loss": 2.2365,
+     "n_fields": 7200,
+     "precision_099": 1.0,
+     "se": 0.008,
+     "within_one": 0.4526
+    },
+    "body size: EPWu x EPDu x VBHp": {
+     "answered_099": 0.0006,
+     "exact": 0.3683,
+     "log_loss": 1.685,
+     "n_fields": 7200,
+     "precision_099": 1.0,
+     "se": 0.0092,
+     "within_one": 0.6718
+    },
+    "canal to body: SCW / EPWu and SCD / EPDu": {
+     "answered_099": 0.0543,
+     "exact": 0.4928,
+     "log_loss": 1.3775,
+     "n_fields": 7200,
+     "precision_099": 1.0,
+     "se": 0.0089,
+     "within_one": 0.7183
+    },
+    "every ratio (all scale-free contrasts)": {
+     "answered_099": 0.3519,
+     "exact": 0.8271,
+     "log_loss": 0.4416,
+     "n_fields": 7200,
+     "precision_099": 0.9988,
+     "se": 0.0063,
+     "within_one": 0.9463
+    },
+    "every within-body ratio": {
+     "answered_099": 0.2672,
+     "exact": 0.7685,
+     "log_loss": 0.6082,
+     "n_fields": 7200,
+     "precision_099": 0.9974,
+     "se": 0.0075,
+     "within_one": 0.9072
+    },
+    "exact rule with the aspect observed again (counted twice)": {
+     "answered_099": 0.4135,
+     "exact": 0.8346,
+     "log_loss": 0.4422,
+     "n_fields": 7200,
+     "precision_099": 0.994,
+     "se": 0.0065,
+     "within_one": 0.9501
+    },
+    "exact rule, raw measures": {
+     "answered_099": 0.3764,
+     "exact": 0.8493,
+     "log_loss": 0.3874,
+     "n_fields": 7200,
+     "precision_099": 0.9982,
+     "se": 0.006,
+     "within_one": 0.9556
+    },
+    "exact rule, scale-free (every ratio)": {
+     "answered_099": 0.3478,
+     "exact": 0.8408,
+     "log_loss": 0.4108,
+     "n_fields": 7200,
+     "precision_099": 0.9988,
+     "se": 0.0063,
+     "within_one": 0.9485
+    },
+    "height to width: VBHp / EPWu": {
+     "answered_099": 0.0,
+     "exact": 0.1544,
+     "log_loss": 2.5927,
+     "n_fields": 7200,
+     "precision_099": null,
+     "se": 0.0056,
+     "within_one": 0.3414
+    },
+    "neighbour ratios: each measure over the body above": {
+     "answered_099": 0.1753,
+     "exact": 0.7135,
+     "log_loss": 0.8079,
+     "n_fields": 7200,
+     "precision_099": 0.9952,
+     "se": 0.0068,
+     "within_one": 0.8474
+    },
+    "raw measures (the formula rule)": {
+     "answered_099": 0.3592,
+     "exact": 0.8346,
+     "log_loss": 0.4149,
+     "n_fields": 7200,
+     "precision_099": 0.9988,
+     "se": 0.0061,
+     "within_one": 0.9518
+    }
+   },
+   "9": {
+    "aspect: EPWu / EPDu": {
+     "answered_099": 0.0052,
+     "exact": 0.4589,
+     "log_loss": 1.4811,
+     "n_fields": 5600,
+     "precision_099": 0.9655,
+     "se": 0.0138,
+     "within_one": 0.7082
+    },
+    "body size: EPWu x EPDu x VBHp": {
+     "answered_099": 0.0046,
+     "exact": 0.4648,
+     "log_loss": 1.4,
+     "n_fields": 5600,
+     "precision_099": 1.0,
+     "se": 0.0121,
+     "within_one": 0.7593
+    },
+    "canal to body: SCW / EPWu and SCD / EPDu": {
+     "answered_099": 0.0988,
+     "exact": 0.662,
+     "log_loss": 0.8935,
+     "n_fields": 5600,
+     "precision_099": 1.0,
+     "se": 0.0123,
+     "within_one": 0.862
+    },
+    "every ratio (all scale-free contrasts)": {
+     "answered_099": 0.7118,
+     "exact": 0.9564,
+     "log_loss": 0.1145,
+     "n_fields": 5600,
+     "precision_099": 0.9995,
+     "se": 0.0047,
+     "within_one": 0.997
+    },
+    "every within-body ratio": {
+     "answered_099": 0.5404,
+     "exact": 0.9104,
+     "log_loss": 0.2353,
+     "n_fields": 5600,
+     "precision_099": 0.9967,
+     "se": 0.0069,
+     "within_one": 0.9812
+    },
+    "exact rule with the aspect observed again (counted twice)": {
+     "answered_099": 0.765,
+     "exact": 0.9514,
+     "log_loss": 0.1313,
+     "n_fields": 5600,
+     "precision_099": 0.996,
+     "se": 0.005,
+     "within_one": 0.9962
+    },
+    "exact rule, raw measures": {
+     "answered_099": 0.7389,
+     "exact": 0.9616,
+     "log_loss": 0.0971,
+     "n_fields": 5600,
+     "precision_099": 0.9993,
+     "se": 0.0045,
+     "within_one": 0.9973
+    },
+    "exact rule, scale-free (every ratio)": {
+     "answered_099": 0.7121,
+     "exact": 0.9593,
+     "log_loss": 0.101,
+     "n_fields": 5600,
+     "precision_099": 0.999,
+     "se": 0.0046,
+     "within_one": 0.9973
+    },
+    "height to width: VBHp / EPWu": {
+     "answered_099": 0.0,
+     "exact": 0.2387,
+     "log_loss": 2.153,
+     "n_fields": 5600,
+     "precision_099": null,
+     "se": 0.0103,
+     "within_one": 0.4745
+    },
+    "neighbour ratios: each measure over the body above": {
+     "answered_099": 0.5804,
+     "exact": 0.9296,
+     "log_loss": 0.1795,
+     "n_fields": 5600,
+     "precision_099": 0.9985,
+     "se": 0.0061,
+     "within_one": 0.9912
+    },
+    "raw measures (the formula rule)": {
+     "answered_099": 0.7182,
+     "exact": 0.9557,
+     "log_loss": 0.11,
+     "n_fields": 5600,
+     "precision_099": 0.9993,
+     "se": 0.0047,
+     "within_one": 0.9968
+    }
+   }
+  },
+  "film, magnification wrong": {
+   "1": {
+    "aspect: EPWu / EPDu": {
+     "answered_099": 0.0,
+     "exact": 0.0924,
+     "log_loss": 2.9121,
+     "n_fields": 8800,
+     "precision_099": null,
+     "se": 0.0027,
+     "within_one": 0.22
+    },
+    "body size: EPWu x EPDu x VBHp": {
+     "answered_099": 0.0,
+     "exact": 0.0894,
+     "log_loss": 2.6436,
+     "n_fields": 8800,
+     "precision_099": null,
+     "se": 0.0037,
+     "within_one": 0.2833
+    },
+    "canal to body: SCW / EPWu and SCD / EPDu": {
+     "answered_099": 0.0001,
+     "exact": 0.2017,
+     "log_loss": 2.2343,
+     "n_fields": 8800,
+     "precision_099": 1.0,
+     "se": 0.0039,
+     "within_one": 0.4367
+    },
+    "every ratio (all scale-free contrasts)": {
+     "answered_099": 0.0039,
+     "exact": 0.3836,
+     "log_loss": 1.6848,
+     "n_fields": 8800,
+     "precision_099": 1.0,
+     "se": 0.0049,
+     "within_one": 0.6364
+    },
+    "every within-body ratio": {
+     "answered_099": 0.0039,
+     "exact": 0.3836,
+     "log_loss": 1.6848,
+     "n_fields": 8800,
+     "precision_099": 1.0,
+     "se": 0.0049,
+     "within_one": 0.6364
+    },
+    "exact rule with the aspect observed again (counted twice)": {
+     "answered_099": 0.0118,
+     "exact": 0.395,
+     "log_loss": 1.6764,
+     "n_fields": 8800,
+     "precision_099": 0.9904,
+     "se": 0.005,
+     "within_one": 0.6508
+    },
+    "exact rule, raw measures": {
+     "answered_099": 0.0066,
+     "exact": 0.3924,
+     "log_loss": 1.6382,
+     "n_fields": 8800,
+     "precision_099": 1.0,
+     "se": 0.0052,
+     "within_one": 0.643
+    },
+    "exact rule, scale-free (every ratio)": {
+     "answered_099": 0.002,
+     "exact": 0.3964,
+     "log_loss": 1.656,
+     "n_fields": 8800,
+     "precision_099": 1.0,
+     "se": 0.0048,
+     "within_one": 0.6438
+    },
+    "height to width: VBHp / EPWu": {
+     "answered_099": 0.0,
+     "exact": 0.0933,
+     "log_loss": 2.9663,
+     "n_fields": 8800,
+     "precision_099": null,
+     "se": 0.0024,
+     "within_one": 0.1948
+    },
+    "raw measures (the formula rule)": {
+     "answered_099": 0.0056,
+     "exact": 0.3898,
+     "log_loss": 1.6437,
+     "n_fields": 8800,
+     "precision_099": 1.0,
+     "se": 0.0054,
+     "within_one": 0.6415
+    }
+   },
+   "3": {
+    "aspect: EPWu / EPDu": {
+     "answered_099": 0.0,
+     "exact": 0.1706,
+     "log_loss": 2.5912,
+     "n_fields": 8000,
+     "precision_099": null,
+     "se": 0.0049,
+     "within_one": 0.3367
+    },
+    "body size: EPWu x EPDu x VBHp": {
+     "answered_099": 0.0,
+     "exact": 0.1683,
+     "log_loss": 2.44,
+     "n_fields": 8000,
+     "precision_099": null,
+     "se": 0.0057,
+     "within_one": 0.3696
+    },
+    "canal to body: SCW / EPWu and SCD / EPDu": {
+     "answered_099": 0.0186,
+     "exact": 0.3745,
+     "log_loss": 1.7041,
+     "n_fields": 8000,
+     "precision_099": 0.9933,
+     "se": 0.0063,
+     "within_one": 0.627
+    },
+    "every ratio (all scale-free contrasts)": {
+     "answered_099": 0.1593,
+     "exact": 0.6835,
+     "log_loss": 0.8368,
+     "n_fields": 8000,
+     "precision_099": 0.9976,
+     "se": 0.0066,
+     "within_one": 0.8601
+    },
+    "every within-body ratio": {
+     "answered_099": 0.1341,
+     "exact": 0.636,
+     "log_loss": 0.9576,
+     "n_fields": 8000,
+     "precision_099": 0.9972,
+     "se": 0.0067,
+     "within_one": 0.8311
+    },
+    "exact rule with the aspect observed again (counted twice)": {
+     "answered_099": 0.2174,
+     "exact": 0.6837,
+     "log_loss": 0.8578,
+     "n_fields": 8000,
+     "precision_099": 0.9908,
+     "se": 0.0068,
+     "within_one": 0.8572
+    },
+    "exact rule, raw measures": {
+     "answered_099": 0.1965,
+     "exact": 0.6949,
+     "log_loss": 0.8058,
+     "n_fields": 8000,
+     "precision_099": 0.9962,
+     "se": 0.0068,
+     "within_one": 0.8639
+    },
+    "exact rule, scale-free (every ratio)": {
+     "answered_099": 0.1536,
+     "exact": 0.698,
+     "log_loss": 0.7982,
+     "n_fields": 8000,
+     "precision_099": 0.9976,
+     "se": 0.0064,
+     "within_one": 0.8688
+    },
+    "height to width: VBHp / EPWu": {
+     "answered_099": 0.0,
+     "exact": 0.1211,
+     "log_loss": 2.7807,
+     "n_fields": 8000,
+     "precision_099": null,
+     "se": 0.0039,
+     "within_one": 0.269
+    },
+    "neighbour ratios: each measure over the body above": {
+     "answered_099": 0.018,
+     "exact": 0.413,
+     "log_loss": 1.8144,
+     "n_fields": 8000,
+     "precision_099": 0.9931,
+     "se": 0.006,
+     "within_one": 0.5541
+    },
+    "raw measures (the formula rule)": {
+     "answered_099": 0.168,
+     "exact": 0.6919,
+     "log_loss": 0.824,
+     "n_fields": 8000,
+     "precision_099": 0.997,
+     "se": 0.0067,
+     "within_one": 0.8635
+    }
+   },
+   "5": {
+    "aspect: EPWu / EPDu": {
+     "answered_099": 0.0004,
+     "exact": 0.2486,
+     "log_loss": 2.2365,
+     "n_fields": 7200,
+     "precision_099": 1.0,
+     "se": 0.008,
+     "within_one": 0.4526
+    },
+    "body size: EPWu x EPDu x VBHp": {
+     "answered_099": 0.0001,
+     "exact": 0.256,
+     "log_loss": 2.1598,
+     "n_fields": 7200,
+     "precision_099": 1.0,
+     "se": 0.0081,
+     "within_one": 0.4868
+    },
+    "canal to body: SCW / EPWu and SCD / EPDu": {
+     "answered_099": 0.0543,
+     "exact": 0.4928,
+     "log_loss": 1.3775,
+     "n_fields": 7200,
+     "precision_099": 1.0,
+     "se": 0.0089,
+     "within_one": 0.7183
+    },
+    "every ratio (all scale-free contrasts)": {
+     "answered_099": 0.3519,
+     "exact": 0.8271,
+     "log_loss": 0.4416,
+     "n_fields": 7200,
+     "precision_099": 0.9988,
+     "se": 0.0063,
+     "within_one": 0.9463
+    },
+    "every within-body ratio": {
+     "answered_099": 0.2672,
+     "exact": 0.7685,
+     "log_loss": 0.6082,
+     "n_fields": 7200,
+     "precision_099": 0.9974,
+     "se": 0.0075,
+     "within_one": 0.9072
+    },
+    "exact rule with the aspect observed again (counted twice)": {
+     "answered_099": 0.4431,
+     "exact": 0.8281,
+     "log_loss": 0.4717,
+     "n_fields": 7200,
+     "precision_099": 0.9909,
+     "se": 0.0067,
+     "within_one": 0.9442
+    },
+    "exact rule, raw measures": {
+     "answered_099": 0.4074,
+     "exact": 0.8424,
+     "log_loss": 0.4189,
+     "n_fields": 7200,
+     "precision_099": 0.9962,
+     "se": 0.0064,
+     "within_one": 0.9483
+    },
+    "exact rule, scale-free (every ratio)": {
+     "answered_099": 0.3478,
+     "exact": 0.8408,
+     "log_loss": 0.4108,
+     "n_fields": 7200,
+     "precision_099": 0.9988,
+     "se": 0.0063,
+     "within_one": 0.9485
+    },
+    "height to width: VBHp / EPWu": {
+     "answered_099": 0.0,
+     "exact": 0.1544,
+     "log_loss": 2.5927,
+     "n_fields": 7200,
+     "precision_099": null,
+     "se": 0.0056,
+     "within_one": 0.3414
+    },
+    "neighbour ratios: each measure over the body above": {
+     "answered_099": 0.1753,
+     "exact": 0.7135,
+     "log_loss": 0.8079,
+     "n_fields": 7200,
+     "precision_099": 0.9952,
+     "se": 0.0068,
+     "within_one": 0.8474
+    },
+    "raw measures (the formula rule)": {
+     "answered_099": 0.37,
+     "exact": 0.8315,
+     "log_loss": 0.4367,
+     "n_fields": 7200,
+     "precision_099": 0.9974,
+     "se": 0.0064,
+     "within_one": 0.9465
+    }
+   },
+   "9": {
+    "aspect: EPWu / EPDu": {
+     "answered_099": 0.0052,
+     "exact": 0.4589,
+     "log_loss": 1.4811,
+     "n_fields": 5600,
+     "precision_099": 0.9655,
+     "se": 0.0138,
+     "within_one": 0.7082
+    },
+    "body size: EPWu x EPDu x VBHp": {
+     "answered_099": 0.0032,
+     "exact": 0.3839,
+     "log_loss": 1.733,
+     "n_fields": 5600,
+     "precision_099": 1.0,
+     "se": 0.0112,
+     "within_one": 0.6338
+    },
+    "canal to body: SCW / EPWu and SCD / EPDu": {
+     "answered_099": 0.0988,
+     "exact": 0.662,
+     "log_loss": 0.8935,
+     "n_fields": 5600,
+     "precision_099": 1.0,
+     "se": 0.0123,
+     "within_one": 0.862
+    },
+    "every ratio (all scale-free contrasts)": {
+     "answered_099": 0.7118,
+     "exact": 0.9564,
+     "log_loss": 0.1145,
+     "n_fields": 5600,
+     "precision_099": 0.9995,
+     "se": 0.0047,
+     "within_one": 0.997
+    },
+    "every within-body ratio": {
+     "answered_099": 0.5404,
+     "exact": 0.9104,
+     "log_loss": 0.2353,
+     "n_fields": 5600,
+     "precision_099": 0.9967,
+     "se": 0.0069,
+     "within_one": 0.9812
+    },
+    "exact rule with the aspect observed again (counted twice)": {
+     "answered_099": 0.7877,
+     "exact": 0.9496,
+     "log_loss": 0.1408,
+     "n_fields": 5600,
+     "precision_099": 0.9948,
+     "se": 0.0052,
+     "within_one": 0.9962
+    },
+    "exact rule, raw measures": {
+     "answered_099": 0.7645,
+     "exact": 0.9586,
+     "log_loss": 0.1065,
+     "n_fields": 5600,
+     "precision_099": 0.9977,
+     "se": 0.0047,
+     "within_one": 0.9971
+    },
+    "exact rule, scale-free (every ratio)": {
+     "answered_099": 0.7121,
+     "exact": 0.9593,
+     "log_loss": 0.101,
+     "n_fields": 5600,
+     "precision_099": 0.999,
+     "se": 0.0046,
+     "within_one": 0.9973
+    },
+    "height to width: VBHp / EPWu": {
+     "answered_099": 0.0,
+     "exact": 0.2387,
+     "log_loss": 2.153,
+     "n_fields": 5600,
+     "precision_099": null,
+     "se": 0.0103,
+     "within_one": 0.4745
+    },
+    "neighbour ratios: each measure over the body above": {
+     "answered_099": 0.5804,
+     "exact": 0.9296,
+     "log_loss": 0.1795,
+     "n_fields": 5600,
+     "precision_099": 0.9985,
+     "se": 0.0061,
+     "within_one": 0.9912
+    },
+    "raw measures (the formula rule)": {
+     "answered_099": 0.7184,
+     "exact": 0.9523,
+     "log_loss": 0.1165,
+     "n_fields": 5600,
+     "precision_099": 0.9993,
+     "se": 0.0049,
+     "within_one": 0.9957
+    }
+   }
+  },
+  "nominal": {
+   "1": {
+    "aspect: EPWu / EPDu": {
+     "answered_099": 0.0,
+     "exact": 0.0924,
+     "log_loss": 2.9121,
+     "n_fields": 8800,
+     "precision_099": null,
+     "se": 0.0027,
+     "within_one": 0.22
+    },
+    "body size: EPWu x EPDu x VBHp": {
+     "answered_099": 0.0,
+     "exact": 0.2133,
+     "log_loss": 2.0026,
+     "n_fields": 8800,
+     "precision_099": null,
+     "se": 0.0052,
+     "within_one": 0.5436
+    },
+    "canal to body: SCW / EPWu and SCD / EPDu": {
+     "answered_099": 0.0001,
+     "exact": 0.2017,
+     "log_loss": 2.2343,
+     "n_fields": 8800,
+     "precision_099": 1.0,
+     "se": 0.0039,
+     "within_one": 0.4367
+    },
+    "every ratio (all scale-free contrasts)": {
+     "answered_099": 0.0039,
+     "exact": 0.3836,
+     "log_loss": 1.6848,
+     "n_fields": 8800,
+     "precision_099": 1.0,
+     "se": 0.0049,
+     "within_one": 0.6364
+    },
+    "every within-body ratio": {
+     "answered_099": 0.0039,
+     "exact": 0.3836,
+     "log_loss": 1.6848,
+     "n_fields": 8800,
+     "precision_099": 1.0,
+     "se": 0.0049,
+     "within_one": 0.6364
+    },
+    "exact rule with the aspect observed again (counted twice)": {
+     "answered_099": 0.0106,
+     "exact": 0.4623,
+     "log_loss": 1.3801,
+     "n_fields": 8800,
+     "precision_099": 1.0,
+     "se": 0.0059,
+     "within_one": 0.7494
+    },
+    "exact rule, raw measures": {
+     "answered_099": 0.0058,
+     "exact": 0.4778,
+     "log_loss": 1.3322,
+     "n_fields": 8800,
+     "precision_099": 1.0,
+     "se": 0.0061,
+     "within_one": 0.7612
+    },
+    "exact rule, scale-free (every ratio)": {
+     "answered_099": 0.002,
+     "exact": 0.3964,
+     "log_loss": 1.656,
+     "n_fields": 8800,
+     "precision_099": 1.0,
+     "se": 0.0048,
+     "within_one": 0.6438
+    },
+    "height to width: VBHp / EPWu": {
+     "answered_099": 0.0,
+     "exact": 0.0933,
+     "log_loss": 2.9663,
+     "n_fields": 8800,
+     "precision_099": null,
+     "se": 0.0024,
+     "within_one": 0.1948
+    },
+    "raw measures (the formula rule)": {
+     "answered_099": 0.0084,
+     "exact": 0.4723,
+     "log_loss": 1.3599,
+     "n_fields": 8800,
+     "precision_099": 1.0,
+     "se": 0.0064,
+     "within_one": 0.7582
+    }
+   },
+   "3": {
+    "aspect: EPWu / EPDu": {
+     "answered_099": 0.0,
+     "exact": 0.1706,
+     "log_loss": 2.5912,
+     "n_fields": 8000,
+     "precision_099": null,
+     "se": 0.0049,
+     "within_one": 0.3367
+    },
+    "body size: EPWu x EPDu x VBHp": {
+     "answered_099": 0.0,
+     "exact": 0.3244,
+     "log_loss": 1.688,
+     "n_fields": 8000,
+     "precision_099": null,
+     "se": 0.0078,
+     "within_one": 0.6667
+    },
+    "canal to body: SCW / EPWu and SCD / EPDu": {
+     "answered_099": 0.0186,
+     "exact": 0.3745,
+     "log_loss": 1.7041,
+     "n_fields": 8000,
+     "precision_099": 0.9933,
+     "se": 0.0063,
+     "within_one": 0.627
+    },
+    "every ratio (all scale-free contrasts)": {
+     "answered_099": 0.1593,
+     "exact": 0.6835,
+     "log_loss": 0.8368,
+     "n_fields": 8000,
+     "precision_099": 0.9976,
+     "se": 0.0066,
+     "within_one": 0.8601
+    },
+    "every within-body ratio": {
+     "answered_099": 0.1341,
+     "exact": 0.636,
+     "log_loss": 0.9576,
+     "n_fields": 8000,
+     "precision_099": 0.9972,
+     "se": 0.0067,
+     "within_one": 0.8311
+    },
+    "exact rule with the aspect observed again (counted twice)": {
+     "answered_099": 0.1903,
+     "exact": 0.7209,
+     "log_loss": 0.7351,
+     "n_fields": 8000,
+     "precision_099": 0.9928,
+     "se": 0.0069,
+     "within_one": 0.901
+    },
+    "exact rule, raw measures": {
+     "answered_099": 0.166,
+     "exact": 0.7349,
+     "log_loss": 0.6798,
+     "n_fields": 8000,
+     "precision_099": 0.9977,
+     "se": 0.0067,
+     "within_one": 0.909
+    },
+    "exact rule, scale-free (every ratio)": {
+     "answered_099": 0.1536,
+     "exact": 0.698,
+     "log_loss": 0.7982,
+     "n_fields": 8000,
+     "precision_099": 0.9976,
+     "se": 0.0064,
+     "within_one": 0.8688
+    },
+    "height to width: VBHp / EPWu": {
+     "answered_099": 0.0,
+     "exact": 0.1211,
+     "log_loss": 2.7807,
+     "n_fields": 8000,
+     "precision_099": null,
+     "se": 0.0039,
+     "within_one": 0.269
+    },
+    "neighbour ratios: each measure over the body above": {
+     "answered_099": 0.018,
+     "exact": 0.413,
+     "log_loss": 1.8144,
+     "n_fields": 8000,
+     "precision_099": 0.9931,
+     "se": 0.006,
+     "within_one": 0.5541
+    },
+    "raw measures (the formula rule)": {
+     "answered_099": 0.1716,
+     "exact": 0.7199,
+     "log_loss": 0.7139,
+     "n_fields": 8000,
+     "precision_099": 0.9978,
+     "se": 0.0066,
+     "within_one": 0.9048
+    }
+   },
+   "5": {
+    "aspect: EPWu / EPDu": {
+     "answered_099": 0.0004,
+     "exact": 0.2486,
+     "log_loss": 2.2365,
+     "n_fields": 7200,
+     "precision_099": 1.0,
+     "se": 0.008,
+     "within_one": 0.4526
+    },
+    "body size: EPWu x EPDu x VBHp": {
+     "answered_099": 0.0015,
+     "exact": 0.4168,
+     "log_loss": 1.4745,
+     "n_fields": 7200,
+     "precision_099": 1.0,
+     "se": 0.0098,
+     "within_one": 0.755
+    },
+    "canal to body: SCW / EPWu and SCD / EPDu": {
+     "answered_099": 0.0543,
+     "exact": 0.4928,
+     "log_loss": 1.3775,
+     "n_fields": 7200,
+     "precision_099": 1.0,
+     "se": 0.0089,
+     "within_one": 0.7183
+    },
+    "every ratio (all scale-free contrasts)": {
+     "answered_099": 0.3519,
+     "exact": 0.8271,
+     "log_loss": 0.4416,
+     "n_fields": 7200,
+     "precision_099": 0.9988,
+     "se": 0.0063,
+     "within_one": 0.9463
+    },
+    "every within-body ratio": {
+     "answered_099": 0.2672,
+     "exact": 0.7685,
+     "log_loss": 0.6082,
+     "n_fields": 7200,
+     "precision_099": 0.9974,
+     "se": 0.0075,
+     "within_one": 0.9072
+    },
+    "exact rule with the aspect observed again (counted twice)": {
+     "answered_099": 0.4085,
+     "exact": 0.8403,
+     "log_loss": 0.4136,
+     "n_fields": 7200,
+     "precision_099": 0.9942,
+     "se": 0.0065,
+     "within_one": 0.9601
+    },
+    "exact rule, raw measures": {
+     "answered_099": 0.3707,
+     "exact": 0.8607,
+     "log_loss": 0.3612,
+     "n_fields": 7200,
+     "precision_099": 0.9985,
+     "se": 0.006,
+     "within_one": 0.9657
+    },
+    "exact rule, scale-free (every ratio)": {
+     "answered_099": 0.3478,
+     "exact": 0.8408,
+     "log_loss": 0.4108,
+     "n_fields": 7200,
+     "precision_099": 0.9988,
+     "se": 0.0063,
+     "within_one": 0.9485
+    },
+    "height to width: VBHp / EPWu": {
+     "answered_099": 0.0,
+     "exact": 0.1544,
+     "log_loss": 2.5927,
+     "n_fields": 7200,
+     "precision_099": null,
+     "se": 0.0056,
+     "within_one": 0.3414
+    },
+    "neighbour ratios: each measure over the body above": {
+     "answered_099": 0.1753,
+     "exact": 0.7135,
+     "log_loss": 0.8079,
+     "n_fields": 7200,
+     "precision_099": 0.9952,
+     "se": 0.0068,
+     "within_one": 0.8474
+    },
+    "raw measures (the formula rule)": {
+     "answered_099": 0.3721,
+     "exact": 0.8454,
+     "log_loss": 0.3888,
+     "n_fields": 7200,
+     "precision_099": 0.9978,
+     "se": 0.0061,
+     "within_one": 0.9631
+    }
+   },
+   "9": {
+    "aspect: EPWu / EPDu": {
+     "answered_099": 0.0052,
+     "exact": 0.4589,
+     "log_loss": 1.4811,
+     "n_fields": 5600,
+     "precision_099": 0.9655,
+     "se": 0.0138,
+     "within_one": 0.7082
+    },
+    "body size: EPWu x EPDu x VBHp": {
+     "answered_099": 0.0057,
+     "exact": 0.5088,
+     "log_loss": 1.2436,
+     "n_fields": 5600,
+     "precision_099": 1.0,
+     "se": 0.0124,
+     "within_one": 0.8186
+    },
+    "canal to body: SCW / EPWu and SCD / EPDu": {
+     "answered_099": 0.0988,
+     "exact": 0.662,
+     "log_loss": 0.8935,
+     "n_fields": 5600,
+     "precision_099": 1.0,
+     "se": 0.0123,
+     "within_one": 0.862
+    },
+    "every ratio (all scale-free contrasts)": {
+     "answered_099": 0.7118,
+     "exact": 0.9564,
+     "log_loss": 0.1145,
+     "n_fields": 5600,
+     "precision_099": 0.9995,
+     "se": 0.0047,
+     "within_one": 0.997
+    },
+    "every within-body ratio": {
+     "answered_099": 0.5404,
+     "exact": 0.9104,
+     "log_loss": 0.2353,
+     "n_fields": 5600,
+     "precision_099": 0.9967,
+     "se": 0.0069,
+     "within_one": 0.9812
+    },
+    "exact rule with the aspect observed again (counted twice)": {
+     "answered_099": 0.7557,
+     "exact": 0.9518,
+     "log_loss": 0.1295,
+     "n_fields": 5600,
+     "precision_099": 0.996,
+     "se": 0.005,
+     "within_one": 0.9973
+    },
+    "exact rule, raw measures": {
+     "answered_099": 0.7288,
+     "exact": 0.9618,
+     "log_loss": 0.0962,
+     "n_fields": 5600,
+     "precision_099": 0.999,
+     "se": 0.0045,
+     "within_one": 0.9979
+    },
+    "exact rule, scale-free (every ratio)": {
+     "answered_099": 0.7121,
+     "exact": 0.9593,
+     "log_loss": 0.101,
+     "n_fields": 5600,
+     "precision_099": 0.999,
+     "se": 0.0046,
+     "within_one": 0.9973
+    },
+    "height to width: VBHp / EPWu": {
+     "answered_099": 0.0,
+     "exact": 0.2387,
+     "log_loss": 2.153,
+     "n_fields": 5600,
+     "precision_099": null,
+     "se": 0.0103,
+     "within_one": 0.4745
+    },
+    "neighbour ratios: each measure over the body above": {
+     "answered_099": 0.5804,
+     "exact": 0.9296,
+     "log_loss": 0.1795,
+     "n_fields": 5600,
+     "precision_099": 0.9985,
+     "se": 0.0061,
+     "within_one": 0.9912
+    },
+    "raw measures (the formula rule)": {
+     "answered_099": 0.7293,
+     "exact": 0.9561,
+     "log_loss": 0.1073,
+     "n_fields": 5600,
+     "precision_099": 0.999,
+     "se": 0.0047,
+     "within_one": 0.998
+    }
+   }
+  },
+  "pixels": {
+   "1": {
+    "aspect: EPWu / EPDu": {
+     "answered_099": 0.0,
+     "exact": 0.0924,
+     "log_loss": 2.9121,
+     "n_fields": 8800,
+     "precision_099": null,
+     "se": 0.0027,
+     "within_one": 0.22
+    },
+    "canal to body: SCW / EPWu and SCD / EPDu": {
+     "answered_099": 0.0001,
+     "exact": 0.2017,
+     "log_loss": 2.2343,
+     "n_fields": 8800,
+     "precision_099": 1.0,
+     "se": 0.0039,
+     "within_one": 0.4367
+    },
+    "every ratio (all scale-free contrasts)": {
+     "answered_099": 0.0039,
+     "exact": 0.3836,
+     "log_loss": 1.6848,
+     "n_fields": 8800,
+     "precision_099": 1.0,
+     "se": 0.0049,
+     "within_one": 0.6364
+    },
+    "every within-body ratio": {
+     "answered_099": 0.0039,
+     "exact": 0.3836,
+     "log_loss": 1.6848,
+     "n_fields": 8800,
+     "precision_099": 1.0,
+     "se": 0.0049,
+     "within_one": 0.6364
+    },
+    "exact rule, scale-free (every ratio)": {
+     "answered_099": 0.002,
+     "exact": 0.3964,
+     "log_loss": 1.656,
+     "n_fields": 8800,
+     "precision_099": 1.0,
+     "se": 0.0048,
+     "within_one": 0.6438
+    },
+    "height to width: VBHp / EPWu": {
+     "answered_099": 0.0,
+     "exact": 0.0933,
+     "log_loss": 2.9663,
+     "n_fields": 8800,
+     "precision_099": null,
+     "se": 0.0024,
+     "within_one": 0.1948
+    }
+   },
+   "3": {
+    "aspect: EPWu / EPDu": {
+     "answered_099": 0.0,
+     "exact": 0.1706,
+     "log_loss": 2.5912,
+     "n_fields": 8000,
+     "precision_099": null,
+     "se": 0.0049,
+     "within_one": 0.3367
+    },
+    "canal to body: SCW / EPWu and SCD / EPDu": {
+     "answered_099": 0.0186,
+     "exact": 0.3745,
+     "log_loss": 1.7041,
+     "n_fields": 8000,
+     "precision_099": 0.9933,
+     "se": 0.0063,
+     "within_one": 0.627
+    },
+    "every ratio (all scale-free contrasts)": {
+     "answered_099": 0.1593,
+     "exact": 0.6835,
+     "log_loss": 0.8368,
+     "n_fields": 8000,
+     "precision_099": 0.9976,
+     "se": 0.0066,
+     "within_one": 0.8601
+    },
+    "every within-body ratio": {
+     "answered_099": 0.1341,
+     "exact": 0.636,
+     "log_loss": 0.9576,
+     "n_fields": 8000,
+     "precision_099": 0.9972,
+     "se": 0.0067,
+     "within_one": 0.8311
+    },
+    "exact rule, scale-free (every ratio)": {
+     "answered_099": 0.1536,
+     "exact": 0.698,
+     "log_loss": 0.7982,
+     "n_fields": 8000,
+     "precision_099": 0.9976,
+     "se": 0.0064,
+     "within_one": 0.8688
+    },
+    "height to width: VBHp / EPWu": {
+     "answered_099": 0.0,
+     "exact": 0.1211,
+     "log_loss": 2.7807,
+     "n_fields": 8000,
+     "precision_099": null,
+     "se": 0.0039,
+     "within_one": 0.269
+    },
+    "neighbour ratios: each measure over the body above": {
+     "answered_099": 0.018,
+     "exact": 0.413,
+     "log_loss": 1.8144,
+     "n_fields": 8000,
+     "precision_099": 0.9931,
+     "se": 0.006,
+     "within_one": 0.5541
+    }
+   },
+   "5": {
+    "aspect: EPWu / EPDu": {
+     "answered_099": 0.0004,
+     "exact": 0.2486,
+     "log_loss": 2.2365,
+     "n_fields": 7200,
+     "precision_099": 1.0,
+     "se": 0.008,
+     "within_one": 0.4526
+    },
+    "canal to body: SCW / EPWu and SCD / EPDu": {
+     "answered_099": 0.0543,
+     "exact": 0.4928,
+     "log_loss": 1.3775,
+     "n_fields": 7200,
+     "precision_099": 1.0,
+     "se": 0.0089,
+     "within_one": 0.7183
+    },
+    "every ratio (all scale-free contrasts)": {
+     "answered_099": 0.3519,
+     "exact": 0.8271,
+     "log_loss": 0.4416,
+     "n_fields": 7200,
+     "precision_099": 0.9988,
+     "se": 0.0063,
+     "within_one": 0.9463
+    },
+    "every within-body ratio": {
+     "answered_099": 0.2672,
+     "exact": 0.7685,
+     "log_loss": 0.6082,
+     "n_fields": 7200,
+     "precision_099": 0.9974,
+     "se": 0.0075,
+     "within_one": 0.9072
+    },
+    "exact rule, scale-free (every ratio)": {
+     "answered_099": 0.3478,
+     "exact": 0.8408,
+     "log_loss": 0.4108,
+     "n_fields": 7200,
+     "precision_099": 0.9988,
+     "se": 0.0063,
+     "within_one": 0.9485
+    },
+    "height to width: VBHp / EPWu": {
+     "answered_099": 0.0,
+     "exact": 0.1544,
+     "log_loss": 2.5927,
+     "n_fields": 7200,
+     "precision_099": null,
+     "se": 0.0056,
+     "within_one": 0.3414
+    },
+    "neighbour ratios: each measure over the body above": {
+     "answered_099": 0.1753,
+     "exact": 0.7135,
+     "log_loss": 0.8079,
+     "n_fields": 7200,
+     "precision_099": 0.9952,
+     "se": 0.0068,
+     "within_one": 0.8474
+    }
+   },
+   "9": {
+    "aspect: EPWu / EPDu": {
+     "answered_099": 0.0052,
+     "exact": 0.4589,
+     "log_loss": 1.4811,
+     "n_fields": 5600,
+     "precision_099": 0.9655,
+     "se": 0.0138,
+     "within_one": 0.7082
+    },
+    "canal to body: SCW / EPWu and SCD / EPDu": {
+     "answered_099": 0.0988,
+     "exact": 0.662,
+     "log_loss": 0.8935,
+     "n_fields": 5600,
+     "precision_099": 1.0,
+     "se": 0.0123,
+     "within_one": 0.862
+    },
+    "every ratio (all scale-free contrasts)": {
+     "answered_099": 0.7118,
+     "exact": 0.9564,
+     "log_loss": 0.1145,
+     "n_fields": 5600,
+     "precision_099": 0.9995,
+     "se": 0.0047,
+     "within_one": 0.997
+    },
+    "every within-body ratio": {
+     "answered_099": 0.5404,
+     "exact": 0.9104,
+     "log_loss": 0.2353,
+     "n_fields": 5600,
+     "precision_099": 0.9967,
+     "se": 0.0069,
+     "within_one": 0.9812
+    },
+    "exact rule, scale-free (every ratio)": {
+     "answered_099": 0.7121,
+     "exact": 0.9593,
+     "log_loss": 0.101,
+     "n_fields": 5600,
+     "precision_099": 0.999,
+     "se": 0.0046,
+     "within_one": 0.9973
+    },
+    "height to width: VBHp / EPWu": {
+     "answered_099": 0.0,
+     "exact": 0.2387,
+     "log_loss": 2.153,
+     "n_fields": 5600,
+     "precision_099": null,
+     "se": 0.0103,
+     "within_one": 0.4745
+    },
+    "neighbour ratios: each measure over the body above": {
+     "answered_099": 0.5804,
+     "exact": 0.9296,
+     "log_loss": 0.1795,
+     "n_fields": 5600,
+     "precision_099": 0.9985,
+     "se": 0.0061,
+     "within_one": 0.9912
+    }
+   }
+  }
+ }
+}
