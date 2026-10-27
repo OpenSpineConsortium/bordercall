@@ -67,11 +67,12 @@ SPECIMEN_FIELDS = [name for _, name, _ in SPECIMEN_COLUMNS] + \
 # refer to that study for the methods and print the same summary to the decimal, so they describe
 # the same twelve, as the facets paper's 276 vertebrae, twelve spines of 23 levels, say too. The
 # three summaries, the same 12 numbers in each paper, were read from the page images by eye, twice,
-# at 100 and 200 dpi (the first three papers have no text layer, and the facets paper's OCR layer
-# is not read), but the prose passes of step b did not read the Methods, so no pass record holds
-# them yet (TODO.md, item P, step b). Each of the three gives the weight's range as 54-85 kg, while
-# Table 1's heaviest specimen weighs 84 kg; tests/test_schwingcheck_table.py holds every other
-# statement to Table 1 and that one as the papers' own contradiction (SPECIMEN_CONTRADICTIONS).
+# at 100 and 200 dpi, for step c, and then by the two independent prose passes of step b, whose
+# record, the provenance folder's prose.csv, tests/test_schwingcheck_table.py holds this list to
+# (the first three papers have no text layer, and the facets paper's OCR layer is not read). Each
+# of the three gives the weight's range as 54-85 kg, while Table 1's heaviest specimen weighs
+# 84 kg; the same test holds every other statement to Table 1 and that one as the papers' own
+# contradiction (SPECIMEN_CONTRADICTIONS).
 _SUMMARY = (("mean", "age_years", 46.3), ("min", "age_years", 19), ("max", "age_years", 59),
             ("mean", "weight_kg", 67.8), ("min", "weight_kg", 54), ("max", "weight_kg", 85),
             ("mean", "height_cm", 167.8), ("min", "height_cm", 157), ("max", "height_cm", 178),

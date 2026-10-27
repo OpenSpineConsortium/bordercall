@@ -77,6 +77,11 @@ PROSE_KINDS = {
     ("facets", "1307", "CAYsr", "C5", "+9.8"): NO_SUCH,
     ("facets", "1307", "Ts", "C2-C7", "50"): RANGE_END,
     ("facets", "1307", "Ts", "L5", "80"): ROUND,
+    # the summary of the twelve spines the three later papers print in their Methods, against the
+    # thoracic paper's Table 1, which each names as its specimens' record
+    ("cervical", "861", "weight", "", "85"): RANGE_END,
+    ("lumbar", "299", "weight", "", "85"): RANGE_END,
+    ("facets", "1299", "weight", "", "85"): RANGE_END,
 }
 # the comparison-table cell of each disagreement between tables
 CROSS_KINDS = {
@@ -212,7 +217,13 @@ def consistent(c: dict) -> bool:
 # ---- the report ----------------------------------------------------------------------------------
 
 def prose_computed(prov_index: Dict[str, dict], p: dict) -> float:
-    return check_prose.evaluate(p["rule"], check_prose.cell_values(prov_index, p["cells"]))
+    return check_prose.evaluate(p["rule"], check_prose.cell_values(prov_index, p["cells"], p["rule"]))
+
+
+def says(p: dict) -> str:
+    """What a prose row says, as measure, level and the number printed; a specimen's age or weight
+    speaks of no level."""
+    return " ".join(x for x in (p["measure"], p["level"], p["printed"]) if x)
 
 
 def paper_of_cross(r: dict) -> str:
@@ -315,8 +326,11 @@ def report() -> str:
     w("## The text against the tables\n")
     w("prose.csv holds every number the four papers state in their abstracts, results, discussions and figure labels")
     w("to the cells the sentence speaks of, under the rule the sentence states (one cell's value, the mean of right and")
-    w("left, the end of a run, a ratio, a percentage) and a tolerance set for the sentence's own rounding. Those that")
-    w("do not hold:\n")
+    w("left, the end of a run, a ratio, a percentage, a count of rows) and a tolerance set for the sentence's own")
+    w("rounding. The summary of the twelve spines that the cervical, lumbar and facets papers each print in their")
+    w("Methods is held to the thoracic paper's Table 1, which each of them names as its specimens' record, so the one")
+    w("number of it that does not hold, printed alike in all three, contradicts the first paper rather than its own")
+    w("tables. Those that do not hold:\n")
     w("| paper, page | the sentence | says | the table gives | difference | what happened | cells |")
     w("|---|---|---|---|---|---|---|")
     for p in prose:
@@ -324,8 +338,8 @@ def report() -> str:
             continue
         got = prose_computed(prov_index, p)
         d = float(p["value"]) - got
-        w("| %s, %s | %s | %s %s %s | %s (%s) | %s (%s) | %s | %s |" % (
-            p["paper"], p["printed_page"], p["quote"].replace("|", "/"), p["measure"], p["level"], p["printed"],
+        w("| %s, %s | %s | %s | %s (%s) | %s (%s) | %s | %s |" % (
+            p["paper"], p["printed_page"], p["quote"].replace("|", "/"), says(p),
             fmt(got, 2), p["rule"], fmt(d, 2), relative(d, got),
             PROSE_KINDS[(p["paper"], p["printed_page"], p["measure"], p["level"], p["printed"])],
             " ".join(image(c) for c in p["cells"].split(";"))))
@@ -335,8 +349,8 @@ def report() -> str:
     w("| paper, page | the sentence | says | the table gives | difference |")
     w("|---|---|---|---|---|")
     for p, got in loose:
-        w("| %s, %s | %s | %s %s %s | %s (%s) | %s |" % (p["paper"], p["printed_page"], p["quote"].replace("|", "/"),
-                                                        p["measure"], p["level"], p["printed"], fmt(got, 2), p["rule"], fmt(float(p["value"]) - got, 2)))
+        w("| %s, %s | %s | %s | %s (%s) | %s |" % (p["paper"], p["printed_page"], p["quote"].replace("|", "/"),
+                                                  says(p), fmt(got, 2), p["rule"], fmt(float(p["value"]) - got, 2)))
     w("")
 
     # inside the tables
@@ -393,14 +407,6 @@ def report() -> str:
     w("  of such a table, including the transcriptions this repository checks (README.md). They say nothing about the")
     w("  measurements: the standard errors in the tables are the papers' own statement of that, from twelve")
     w("  specimens, and only a re-measurement could test them.")
-    w("- Not in this record yet, as bookkeeping: all four papers measured the same twelve spines, whose age, sex,")
-    w("  weight and height one by one are the thoracic paper's Table 1, which is in this record, and the Methods of")
-    w("  the cervical, lumbar and facets papers each print one summary of them, the same 12 numbers in each paper")
-    w("  (the number of spines, the count of men and of women, and the mean, minimum and maximum of age, weight")
-    w("  and height), which the prose passes did not read. schwingcheck/table.py reads the three summaries by eye")
-    w("  and holds them to Table 1: they agree in every number but the weight's maximum, 85 kg in each of the three")
-    w("  where Table 1's heaviest specimen, S15, weighs 84 kg. They join prose.csv when two passes have read them")
-    w("  (TODO.md, item P, step b).")
     w("")
     return "\n".join(out)
 

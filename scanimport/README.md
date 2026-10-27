@@ -145,7 +145,7 @@ On complete fields of consecutive bodies, its log evidence equals the archive's 
 python -m unittest discover -s scanimport/tests -t .
 ```
 
-There are 168 tests, and they took 281 seconds, about five minutes, on 27 October 2026 with other jobs sharing the CPU. The archive's own 240 tests are unchanged and pass (run them with the same Python, `cd archive && python -m unittest discover -s tests`).
+There are 168 tests, and they took 281 seconds, about five minutes, on 27 October 2026 with other jobs sharing the CPU. The archive's own 242 tests are unchanged and pass (run them with the same Python, `cd archive && python -m unittest discover -s tests`).
 
 ## What comes next, on the owner's word
 

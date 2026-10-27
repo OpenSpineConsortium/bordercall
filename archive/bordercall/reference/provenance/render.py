@@ -89,5 +89,36 @@ def render_all(papers=PAPERS, keys=None) -> dict:
     return record
 
 
+QUADRANTS_DIR = os.path.join(OUT, "quadrants")
+# how far past the page's middle each quadrant reaches, in pixels at 300 dpi, so a line of print
+# the middle crosses is whole in one of the two quadrants it falls in
+QUADRANT_OVERLAP = 60
+
+
+def quadrants(page_keys) -> list:
+    """Cut the rendered pages named `<paper>-<NN>` into the four quadrant crops the prose passes
+    read, `<paper>-<NN>-<tl|tr|bl|br>.png` under out/provenance/quadrants/ (README.md, step 5)."""
+    from PIL import Image
+    os.makedirs(QUADRANTS_DIR, exist_ok=True)
+    made = []
+    for page_key in page_keys:
+        with Image.open(os.path.join(PAGES_DIR, page_key + ".png")) as im:
+            w, h = im.size
+            mx, my = w // 2, h // 2
+            boxes = {"tl": (0, 0, mx + QUADRANT_OVERLAP, my + QUADRANT_OVERLAP),
+                     "tr": (mx - QUADRANT_OVERLAP, 0, w, my + QUADRANT_OVERLAP),
+                     "bl": (0, my - QUADRANT_OVERLAP, mx + QUADRANT_OVERLAP, h),
+                     "br": (mx - QUADRANT_OVERLAP, my - QUADRANT_OVERLAP, w, h)}
+            for q, box in boxes.items():
+                dest = os.path.join(QUADRANTS_DIR, "%s-%s.png" % (page_key, q))
+                im.crop(box).save(dest)
+                made.append(dest)
+    return made
+
+
 if __name__ == "__main__":
-    render_all(keys=sys.argv[1:] or None)
+    if sys.argv[1:2] == ["quadrants"]:      # python3 render.py quadrants cervical-01 lumbar-01 ...
+        for path in quadrants(sys.argv[2:]):
+            print(path, file=sys.stderr)
+    else:
+        render_all(keys=sys.argv[1:] or None)
