@@ -4,44 +4,51 @@ Written on 27 October 2026, when the old repository moved under [archive/](archi
 
 ## The order of work, in the owner's words of 27 October 2026, 05:48 UTC
 
-1. **Item P below, and nothing else, until the owner says otherwise.** Flesh out Panjabi: extract the rest of the data and tables from all three papers, going past what a SPINEPS segmentation can easily measure, to see how more measurements improve accuracy.
+1. **Item P below, and nothing else, until the owner says otherwise.** Flesh out Panjabi: extract the rest of the data and tables from all of Panjabi's papers, going past what a SPINEPS segmentation can easily measure, to see how more measurements improve accuracy. On 27 October 2026 at 08:10 UTC the owner widened it from three papers to four, the articular facets paper of 1993 added, and set its five steps, a to e, each a pull request merged once green (item P).
 2. **Then gold tier 1, 2 and 3 data** for segmentation-based empirical testing of this Bayesian generator (item 5).
 3. **Everything else after that,** items 1 to 4, 6 and 7, in any order the owner picks.
 
-## P. THE PRIORITY: the rest of Panjabi's three papers
+## P. THE PRIORITY: the rest of Panjabi's four papers, read so every number can be checked, on a rule rewritten in PyMC
+
+**The owner's widening of 27 October 2026, 08:10 UTC.** Item P covers four papers, not three: the articular facets paper of 1993 joins the cervical, thoracic and lumbar papers. The work goes in five steps, a to e, in this order, each a pull request in this repository merged once green. The thread doing it keeps every finding here, tells the owner in one line with the link as each step merges, and stops after step e. The first step writes this item as it stands here. Where the steps below and the older steps 1 to 6 differ, the steps a to e hold.
+
+- **a. Four papers.** The fourth is Panjabi MM, Oxland T, Takata K, Goel V, Duranceau J, Krag M. Articular facets of the human spine: quantitative three-dimensional anatomy. Spine 1993;18(10):1298-1310, the citation taken from the PDF's own first page. Its PDF is [archive/bordercall/reference/papers/Panjabi_1993_Facets_Spine_18-10_1298-1310.pdf](archive/bordercall/reference/papers/Panjabi_1993_Facets_Spine_18-10_1298-1310.pdf), beside the other three, and [papers/README.md](archive/bordercall/reference/papers/README.md)'s table map lists its tables.
+- **b. Show where every number comes from, so the owner can check that it is true.** One provenance file, one row per printed value of the four papers, every value already in the reference CSVs included: the paper's file and its sha256, the PDF page and the printed page, the table, the row and column labels, mean or standard error, the string exactly as printed, the value and its units, the cell's box on the page as rendered at a stated dpi by a committed command, and what each of two independent reading passes read. A Markdown page in this repository, which GitHub shows with its images, sets every value beside the image of the cell it was read from and says plainly how the numbers were read: rendered pages read by eye by Claude, twice, never by text extraction. Tests fail when the two passes disagree, when a value the papers also state in prose disagrees, or when a CSV holds a value the provenance file does not. The pull request lists every existing value that changes.
+- **c. Refactor for PyMC and for scale.** Items 1 and 2 below, the package `schwingcheck/` and one object per measure, are built on data shaped for PyMC: the checked table as one long CSV, one row per value with its kind (length, area or angle) and its planes, loaded into an xarray Dataset with named dimensions (level, measure, side); columns, synthetic or real, as arrays (column, body, measure) with NaN for a missing value and integer offsets for gaps; results as ArviZ InferenceData in NetCDF, with the command, the seeds and the digests in its attributes; the code vectorised, with no loop per body or per field, so one call names thousands of fields and the measures can grow past twenty. The archive's 222 tests still pass.
+- **d. Rewrite the naming rule and the column generator in PyMC.** PyMC and the packages it brings (PyTensor, ArviZ, xarray and theirs) are allowed as new dependencies of bordercall by the owner's word of 27 October 2026, pinned to exact versions; nothing else new. The current NumPy code stays as the reference, and tests prove the rewrite before anything new is scored with it: on the seven measures and the same fields the PyMC rule gives every field the same answer as the current code (to 1e-6 where it integrates the same way, within Monte Carlo error where it samples); the PyMC generator's columns match the current generator's in distribution, within Monte Carlo error; and rescoring seed 97's 2,000 columns reproduces the record's rates at 1, 3 and 9 bodies ([archive/records/exact-2026-10-26/exact.json](archive/records/exact-2026-10-26/exact.json)).
+- **e. Only then add the new measures**, the facets' among them, to the PyMC model, each kind as step 4 below says, and score them as step 5 below says, at 1, 3 and 9 bodies and per phenotype.
 
 **What is in now.** The reference table holds, for every level, the body table (upper and lower end-plate widths and depths, posterior body height), the canal table (width and depth) and the pedicle table (width and height, left and right). The rule uses the seven of these a SPINEPS mask can measure.
 
-**What is out.** [archive/bordercall/reference/build_panjabi.py](archive/bordercall/reference/build_panjabi.py) says what it leaves out: "Surface areas, angular dimensions, pars interarticularis, spinous and transverse process tables, rib articulations and the uncovertebral joints are in the papers and are not transcribed here".
+**What is out.** [archive/bordercall/reference/build_panjabi.py](archive/bordercall/reference/build_panjabi.py) says what it leaves out of the first three papers: "Surface areas, angular dimensions, pars interarticularis, spinous and transverse process tables, rib articulations and the uncovertebral joints are in the papers and are not transcribed here". Nothing of the facets paper is in: its facet widths, heights, areas, interfacet distances, plane angles and card angles, superior and inferior, left and right, C2 to L5.
 
-**Steps.**
+**Steps.** The older plan, kept because its traps still hold; the steps a to e above say in which pull request each lands.
 
-1. **Inventory every table and figure value in all three papers**: cervical 1991, thoracic 1991 and lumbar 1992, in [archive/bordercall/reference/papers/](archive/bordercall/reference/papers/). For each, write down the levels it covers, its mnemonic and what it measures. Count the dimensions gained, and say for each whether a SPINEPS mask, an AP view, a lateral view or only a CT can read it.
-2. **Transcribe the tables**, following [papers/README.md](archive/bordercall/reference/papers/README.md):
-   - *Read from page images.* The papers are scans, so read every value from rendered page images. Automatic text extraction of the thoracic canal table already produced plausible, wrong numbers, so never parse it.
+1. **Inventory every table and figure value in all four papers**: cervical 1991, thoracic 1991, lumbar 1992 and facets 1993, in [archive/bordercall/reference/papers/](archive/bordercall/reference/papers/). For each, write down the levels it covers, its mnemonic and what it measures. Count the dimensions gained, and say for each whether a SPINEPS mask, an AP view, a lateral view or only a CT can read it. This is the first part of step b's page.
+2. **Transcribe the tables**, following [papers/README.md](archive/bordercall/reference/papers/README.md), as step b says:
+   - *Read from page images.* The papers are scans, so read every value from rendered page images. Automatic text extraction of the thoracic canal table already produced plausible, wrong numbers, so never parse it; the facets paper carries an OCR text layer, which is not read either.
    - *Two independent passes per table.* Check every value the papers also state in prose. The earlier pass found a standard error copied from the row above, VBHp L1.
-3. **Put the values into build_panjabi.py.** They go into its region tables and its `CANON` map, and `python build_panjabi.py` regenerates panjabi_full_spine.csv. Every dispersion is a standard error; the population SD is sem x sqrt(12).
+3. **Put the values into the table.** The checked long CSV of step c is the table the package reads, written from the provenance file by committed code. build_panjabi.py and panjabi_full_spine.csv stay as the archive's record and are held to the same provenance by test, so one source feeds both. Every dispersion is a standard error; the population SD is sem x sqrt(12).
 4. **Model each kind of dimension honestly.** The likelihood and the generator now take every measure as a length: value = s x (mean + spread) + error, with the patient's size s.
    - *Areas.* Under the same isometric scaling, areas go with s^2.
    - *Angles.* Angles do not scale with s.
-   - *Code.* Each kind needs its own term in `place_loglik` and in `panjabi.synthesize`.
+   - *Code.* Each kind needs its own term in the likelihood and in the generator; in step e that is the PyMC model of step d.
    - *Left and right pairs.* Pairs such as the pedicles and facets are near duplicates. Take their mean, or model their correlation. Never add them as two independent measures, or the posterior grows overconfident.
 5. **Score how more measurements improve accuracy.**
    - *Do not enumerate every subset.* The record enumerated all 127 subsets of seven measures. With 20 or more measures that is past a million subsets, so do not enumerate.
    - *Score these instead:*
      - the seven-measure baseline;
-     - each family added to it in turn (areas, angles, processes, and so on);
+     - each family added to it in turn (areas, angles, processes, facets, and so on);
      - everything an AP view could read, everything a lateral view could read, and everything at all;
      - a forward order chosen greedily on selection columns from a seed of their own, then scored on the scoring columns.
-   - *Report* the share named exactly and named at 0.99, with the precision there, at 1, 3 and 9 bodies.
+   - *Report* the share named exactly and named at 0.99, with the precision there, at 1, 3 and 9 bodies, and per phenotype: the typical column and each anomalous column the archive's generator draws, reported apart.
    - *Report the twelve-spine table worlds too* (the `robust` part of exact.py). More measures from the same twelve specimens can make the rule more confident without making it more right.
 6. **Deliver.**
-   - the new build_panjabi.py, the CSV and papers/README.md's table map;
-   - a record with its command, seeds and digests;
+   - the provenance file and its page, the long CSV, build_panjabi.py and papers/README.md's table map;
+   - a record with its command, seeds and digests, as InferenceData;
    - figures drawn by committed code in the style of Benzel's textbooks;
    - the README's tables brought up to date;
    - tests, with the archive's 222 still passing.
-   The work may live in archive/bordercall or, after item 1, in the new package.
 
 Still synthetic: this item says how much more Panjabi's tables could name, not what a patient's measurements do. Item 5 is where that gets tested.
 
