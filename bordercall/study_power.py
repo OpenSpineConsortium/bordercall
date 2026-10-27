@@ -48,6 +48,26 @@ five per aid, at 5% and at 1.25%, the level Holm's correction across four strata
 stratum it tests, with critical values calibrated the same way at no difference. Every cell draws
 from its own generator, seeded from SEED and the cell's indices, so a cell's numbers do not depend
 on which other cells were run or in what order.
+
+The three-arm design. The owner's revision of 2026-10-27 randomizes each case within reader and
+stratum to one of three aids, registration alone (A), the exact rule alone (B) and the two together
+(C), a third of each stratum's cases to each, in four strata, and makes C minus A over the whole
+case mix the primary contrast. `run_three` simulates that design with the same model and the same
+two analyses, so that its power, its size and its critical values carry a record:
+
+    python run.py study-power-three --outdir ../records/whitepaper-2026-10-26
+
+Each aid has its own reader-by-aid and case-by-aid terms, independent between aids, with SDs the
+setting's divided by the square root of two, so that the logit difference between any two aids
+varies exactly as the two-arm setting's does. A contrast uses only the cases each reader read with
+its two aids, a third each; the third aid's cases do not enter it. Its estimate is still the mean of
+the readers' differences, and since every case is equally likely to fall to each aid, the mean given
+the cases is the average over all the cases of their differences, so the case term of the variance
+is Var(delta_c) over the number of cases, as in two arms. delta_c is estimated from the readers who
+read case c with each of the two aids; a case read with either by fewer than two readers, which can
+happen with a third of twenty readers, is left out of that estimate rather than given an infinite
+sampling variance. The accuracy of the aid outside a contrast changes nothing in it, so the nulls and
+effects below name only the two aids compared, the third set equal to A.
 """
 from __future__ import annotations
 
@@ -75,6 +95,12 @@ STRATUM_NULLS = ((0.90, 0.90), (0.95, 0.95))
 STRATUM_EFFECTS = ((0.80, 0.95), (0.85, 0.95))
 GH_NODES = 81
 PROCESSES = 4
+
+ARMS = ("A", "B", "C")                            # registration alone, the exact rule alone, the two together
+THREE_STRATA = 4
+THREE_GRID = ((20, 48), (20, 60), (30, 48), (30, 60), (40, 48), (40, 60))
+THREE_SUPERIORITY_POWER = ((0.90, 0.95), (0.85, 0.95))   # (A, C)
+THREE_STRATUM_CASES = 12
 
 
 def total_sd(reader_by_aid: float, case_by_aid: float) -> float:
@@ -275,6 +301,185 @@ def run(outdir: Optional[str] = None, power_reps: Optional[int] = None, size_rep
     if outdir:
         os.makedirs(outdir, exist_ok=True)
         with open(os.path.join(outdir, "study_power.json"), "w", encoding="utf-8", newline="\n") as fh:
+            json.dump(out, fh, indent=1, sort_keys=True)
+            fh.write("\n")
+    return out
+
+
+def total_sd_arms(reader_by_aid: float, case_by_aid: float) -> float:
+    """SD of the summed random effects in one aid's logit when each aid has its own interaction terms."""
+    return math.sqrt(READER_SD ** 2 + CASE_SD ** 2 + (reader_by_aid ** 2 + case_by_aid ** 2) / 2.0)
+
+
+def allocate_arms(rng, reps: int, readers: int, cases: int, strata: int, arms: int = 3) -> np.ndarray:
+    """Each case's aid, 0 to arms - 1: an equal share of each stratum's cases to each aid, for every reader."""
+    per = cases // strata
+    if per * strata != cases or per % arms:
+        raise ValueError("%d cases in %d strata do not split equally among %d aids" % (cases, strata, arms))
+    keys = rng.random((reps, readers, strata, per))
+    ranks = keys.argsort(-1).argsort(-1)
+    return (ranks // (per // arms)).reshape(reps, readers, cases)
+
+
+def draw_arms(rng, reps: int, readers: int, cases: int, accuracies: Sequence[float],
+              interaction: Tuple[float, float], strata: int) -> Tuple[np.ndarray, np.ndarray]:
+    """Simulated studies with one aid per entry of accuracies: whether each answer is right, and each
+    case's aid, each (reps, readers, cases)."""
+    from scipy import special
+    ra, ca = interaction
+    k = len(accuracies)
+    tau = total_sd_arms(ra, ca)
+    b = np.array([calibrate(p, tau) for p in accuracies])
+    u = READER_SD * rng.standard_normal((reps, readers, 1))
+    c = CASE_SD * rng.standard_normal((reps, 1, cases))
+    v = ra / math.sqrt(2.0) * rng.standard_normal((reps, readers, 1, k))
+    g = ca / math.sqrt(2.0) * rng.standard_normal((reps, 1, cases, k))
+    arm = allocate_arms(rng, reps, readers, cases, strata, k)
+    by_aid = np.take_along_axis(v + g, arm[..., None], -1)[..., 0]
+    logit = b[arm] + u + c + by_aid
+    return rng.random((reps, readers, cases)) < special.expit(logit), arm
+
+
+def analyse_pair(right: np.ndarray, on_x: np.ndarray, on_y: np.ndarray):
+    """The two analyses of `analyse` for the contrast y minus x, where each reader read only some cases
+    with x and some with y and the rest with other aids, which do not enter."""
+    _, r, c = right.shape
+    y = right.astype(float)
+    d = (y * on_y).sum(2) / on_y.sum(2) - (y * on_x).sum(2) / on_x.sum(2)
+    m = d.mean(1)
+    v_readers = d.var(1, ddof=1) / r
+    ny_c, nx_c = on_y.sum(1), on_x.sum(1)
+    valid = (ny_c >= 2) & (nx_c >= 2)
+    with np.errstate(divide="ignore", invalid="ignore"):
+        p_y = np.where(valid, (y * on_y).sum(1) / ny_c, np.nan)
+        p_x = np.where(valid, (y * on_x).sum(1) / nx_c, np.nan)
+        noise_c = p_y * (1 - p_y) / (ny_c - 1) + p_x * (1 - p_x) / (nx_c - 1)
+        s2 = np.nanvar(p_y - p_x, axis=1, ddof=1)
+        noise = np.nanmean(noise_c, axis=1)
+    n_valid = valid.sum(1)
+    keep = (n_valid >= 2) & (s2 > noise)
+    v_cases = np.where(keep, s2 - noise, 0.0) / c
+    total = v_readers + v_cases
+    df_noise = np.where(valid, ny_c + nx_c - 2, 0).sum(1)
+    with np.errstate(divide="ignore", invalid="ignore"):
+        den = np.where(keep, v_readers ** 2 / (r - 1) + (s2 / c) ** 2 / (n_valid - 1) + (noise / c) ** 2 / df_noise,
+                       v_readers ** 2 / (r - 1))
+        df = np.where(den > 0, total ** 2 / den, float(r - 1))
+    return {"random": (m, total, df), "t_interval": (m, v_readers, np.full(m.shape, float(r - 1)))}
+
+
+def pivots_three(rng, reps: int, readers: int, cases: int, p_a: float, p_c: float, interaction, strata: int):
+    """`pivots` for the contrast C minus A in the three-arm design, B as accurate as A."""
+    parts = {"random": [], "t_interval": []}
+    done = 0
+    while done < reps:
+        n = min(CHUNK, reps - done)
+        right, arm = draw_arms(rng, n, readers, cases, (p_a, p_a, p_c), interaction, strata)
+        for k, (m, var, df) in analyse_pair(right, arm == 0, arm == 2).items():
+            parts[k].append(np.stack([m, np.sqrt(var), df]))
+        done += n
+    return {k: np.concatenate(v, axis=1) for k, v in parts.items()}
+
+
+def three_grid_cell(args) -> dict:
+    """One three-arm design: nominal sizes, calibrated critical values, and power at both, for C minus A."""
+    i, readers, cases, size_reps, power_reps = args
+    row = {"readers": readers, "cases": cases, "decisions": readers * cases,
+           "contrast_cases_per_reader": 2 * cases // len(ARMS), "size": {}, "power": {}}
+    k_ni, k_sup = 0.0, 0.0
+    for k, (iname, ra, ca) in enumerate(INTERACTIONS):
+        for q, (p_a, p_c) in enumerate(NI_NULLS + SUPERIORITY_NULLS):
+            is_ni = q < len(NI_NULLS)
+            bound = -MARGIN if is_ni else 0.0
+            piv = pivots_three(cell_rng(10, i, k, q), size_reps, readers, cases, p_a, p_c, (ra, ca), THREE_STRATA)
+            key = "%s_%g_%g_%s" % ("noninferiority" if is_ni else "superiority", p_a, p_c, iname)
+            nominal = {a: float(np.mean(m - t_crit(df, ALPHA) * se > bound)) for a, (m, se, df) in piv.items()}
+            m, se, _ = piv["random"]
+            quant = pivot_quantile(m, se, p_c - p_a, 1.0 - ALPHA / 2.0, two_sided=False)
+            row["size"][key] = dict(nominal, pivot_975=quant)
+            if is_ni:
+                k_ni = max(k_ni, quant)
+            else:
+                k_sup = max(k_sup, quant)
+    row["critical_noninferiority"], row["critical_superiority"] = k_ni, k_sup
+    claims = [("noninferiority", NI_POWER, k_ni, -MARGIN)]
+    claims += [("superiority", p, k_sup, 0.0) for p in THREE_SUPERIORITY_POWER]
+    for k, (iname, ra, ca) in enumerate(INTERACTIONS):
+        for q, (claim, (p_a, p_c), crit, bound) in enumerate(claims):
+            piv = pivots_three(cell_rng(11, i, k, q), power_reps, readers, cases, p_a, p_c, (ra, ca), THREE_STRATA)
+            m, se, df = piv["random"]
+            mt, set_, dft = piv["t_interval"]
+            row["power"]["%s_%g_%g_%s" % (claim, p_a, p_c, iname)] = {
+                "calibrated": float(np.mean(m - crit * se > bound)),
+                "random_nominal": float(np.mean(m - t_crit(df, ALPHA) * se > bound)),
+                "t_interval_nominal": float(np.mean(mt - t_crit(dft, ALPHA) * set_ > bound))}
+    return row
+
+
+def three_stratum_cell(args) -> dict:
+    """One stratum of the three-arm design, a third of its cases to each aid: one two-sided contrast,
+    critical values calibrated at no difference, and power at each effect, at 5% and at Holm's first level."""
+    i, readers, size_reps, power_reps = args
+    row = {"readers": readers, "cases_in_stratum": THREE_STRATUM_CASES,
+           "cases_per_aid": THREE_STRATUM_CASES // len(ARMS), "size": {}, "power": {}}
+    crit = {ALPHA: 0.0, HOLM_FIRST: 0.0}
+    for k, (iname, ra, ca) in enumerate(INTERACTIONS):
+        for q, (p_a, p_c) in enumerate(STRATUM_NULLS):
+            piv = pivots_three(cell_rng(12, i, k, q), size_reps, readers, THREE_STRATUM_CASES, p_a, p_c, (ra, ca), 1)
+            entry = {}
+            for a in (ALPHA, HOLM_FIRST):
+                for name, (m, se, df) in piv.items():
+                    entry["%s_nominal_at_%g" % (name, a)] = float(np.mean(np.abs(m) > t_crit(df, a) * se))
+                m, se, _ = piv["random"]
+                quant = pivot_quantile(m, se, 0.0, 1.0 - a, two_sided=True)
+                entry["pivot_abs_at_%g" % a] = quant
+                crit[a] = max(crit[a], quant)
+            row["size"]["%g_%g_%s" % (p_a, p_c, iname)] = entry
+    row["critical_at_5"], row["critical_at_holm_first"] = crit[ALPHA], crit[HOLM_FIRST]
+    for k, (iname, ra, ca) in enumerate(INTERACTIONS):
+        for q, (p_a, p_c) in enumerate(STRATUM_EFFECTS):
+            piv = pivots_three(cell_rng(13, i, k, q), power_reps, readers, THREE_STRATUM_CASES, p_a, p_c, (ra, ca), 1)
+            m, se, df = piv["random"]
+            mt, set_, dft = piv["t_interval"]
+            entry = {}
+            for a, tag in ((ALPHA, "at_5"), (HOLM_FIRST, "at_holm_first")):
+                entry["calibrated_" + tag] = float(np.mean(m > crit[a] * se))
+                entry["t_interval_nominal_" + tag] = float(np.mean(mt > t_crit(dft, a) * set_))
+            row["power"]["%g_%g_%s" % (p_a, p_c, iname)] = entry
+    return row
+
+
+def run_three(outdir: Optional[str] = None, power_reps: Optional[int] = None, size_reps: Optional[int] = None,
+              processes: int = PROCESSES, designs: Sequence[Tuple[int, int]] = THREE_GRID,
+              stratum_readers: Sequence[int] = STRATUM_READERS) -> dict:
+    from concurrent.futures import ProcessPoolExecutor
+    t0 = time.time()
+    power_reps = power_reps or POWER_REPS
+    size_reps = size_reps or SIZE_REPS
+    grid_jobs = [(THREE_GRID.index(d), d[0], d[1], size_reps, power_reps) for d in designs]
+    stratum_jobs = [(STRATUM_READERS.index(s), s, size_reps, power_reps) for s in stratum_readers]
+    with ProcessPoolExecutor(max_workers=processes) as ex:
+        grid = list(ex.map(three_grid_cell, grid_jobs))
+        strata = list(ex.map(three_stratum_cell, stratum_jobs))
+    for row in grid + strata:
+        print(json.dumps(row, sort_keys=True))
+    out = {"study": "power and size of the three-arm randomized reader study, contrast C minus A",
+           "arms": {"A": "registration alone", "B": "the exact rule alone", "C": "registration with the exact rule"},
+           "seed": SEED, "reader_sd_logit": READER_SD, "case_sd_logit": CASE_SD,
+           "interactions": {n: {"reader_by_aid_sd_logit": ra, "case_by_aid_sd_logit": ca} for n, ra, ca in INTERACTIONS},
+           "interaction_per_aid": "independent between aids, each SD the setting's over sqrt(2), so any two aids' "
+                                  "logit difference varies as the setting says",
+           "power_reps": power_reps, "size_reps": size_reps, "margin": MARGIN, "alpha": ALPHA,
+           "holm_first_alpha": HOLM_FIRST, "strata": THREE_STRATA, "gh_nodes": GH_NODES,
+           "ni_nulls_a_c": [list(p) for p in NI_NULLS], "superiority_nulls_a_c": [list(p) for p in SUPERIORITY_NULLS],
+           "analyses": {"random": "law of total variance over the contrast's two aids: readers' variance given the "
+                                  "cases plus the variance of the cases' differences over all cases, Satterthwaite "
+                                  "df; critical value calibrated",
+                        "t_interval": "t interval over readers' differences, R - 1 df, nominal (cases fixed)"},
+           "grid": grid, "stratum": strata, "seconds": round(time.time() - t0, 1)}
+    if outdir:
+        os.makedirs(outdir, exist_ok=True)
+        with open(os.path.join(outdir, "study_power_three_arms.json"), "w", encoding="utf-8", newline="\n") as fh:
             json.dump(out, fh, indent=1, sort_keys=True)
             fh.write("\n")
     return out

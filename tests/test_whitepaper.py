@@ -11,7 +11,10 @@ hand, the numbers worked by hand; and its committed record must be monotone wher
 cases can only help, with critical values that are the largest of the quantiles they are taken
 from. The white paper's checks must agree with the exact study and its supplement wherever they
 overlap, the within-one Bayes rule must never do worse than the likeliest place, and the count from
-C2 must change nothing on columns where it names the bodies as the columns do.
+C2 must change nothing on columns where it names the bodies as the columns do. The three-arm design
+must give every reader a third of each stratum with each aid, hit each aid's accuracy, reduce to the
+two-arm analysis on a two-arm study, ignore the third aid's cases, and stay finite where a case was
+read with an aid by one reader only; its record must keep the same monotone shape.
 """
 from __future__ import annotations
 
@@ -164,6 +167,96 @@ class PowerRecordTest(unittest.TestCase):
 
     def test_a_stratum_at_holm_s_first_level_never_beats_five_percent(self):
         for s in self.rec["strata"]:
+            for v in s["power"].values():
+                self.assertLessEqual(v["calibrated_at_holm_first"], v["calibrated_at_5"])
+            self.assertGreater(s["critical_at_holm_first"], s["critical_at_5"])
+
+
+class ThreeArmTest(unittest.TestCase):
+    def test_each_reader_gets_a_third_of_each_stratum_per_aid(self):
+        arm = SP.allocate_arms(np.random.default_rng(3), 5, 7, 48, 4)
+        for k in range(3):
+            self.assertTrue(((arm == k).reshape(5, 7, 4, 12).sum(-1) == 4).all())
+
+    def test_a_split_that_is_not_equal_is_refused(self):
+        with self.assertRaises(ValueError):
+            SP.allocate_arms(np.random.default_rng(3), 1, 2, 40, 4)
+
+    def test_draws_hit_each_aid_s_calibrated_accuracy(self):
+        right, arm = SP.draw_arms(np.random.default_rng(11), 400, 30, 48, (0.90, 0.80, 0.95), (0.25, 0.5), 4)
+        for k, p in enumerate((0.90, 0.80, 0.95)):
+            self.assertAlmostEqual(right[arm == k].mean(), p, delta=0.006)
+
+    def test_any_two_aids_differ_as_the_two_arm_setting_says(self):
+        ra, ca = 0.25, 1.0
+        self.assertAlmostEqual(SP.total_sd_arms(ra, ca) ** 2 - SP.total_sd(ra, ca) ** 2, (ra ** 2 + ca ** 2) / 4)
+
+    def test_pair_analysis_is_the_two_arm_analysis_on_a_two_arm_study(self):
+        on_b = np.array([[[True, False, True, False],
+                          [False, True, False, True],
+                          [True, False, True, False],
+                          [False, True, False, True]]])
+        right = np.array([[[1, 1, 1, 0],
+                           [1, 1, 0, 1],
+                           [1, 1, 0, 0],
+                           [0, 1, 1, 1]]], dtype=bool)
+        two, pair = SP.analyse(right, on_b), SP.analyse_pair(right, ~on_b, on_b)
+        for k in two:
+            for a, b in zip(two[k], pair[k]):
+                self.assertAlmostEqual(float(a[0]), float(b[0]))
+
+    def test_the_third_aid_s_cases_do_not_enter(self):
+        right, arm = SP.draw_arms(np.random.default_rng(5), 50, 20, 48, (0.9, 0.9, 0.95), (0.0, 0.0), 4)
+        base = SP.analyse_pair(right, arm == 0, arm == 2)
+        flipped = right.copy()
+        flipped[arm == 1] = ~flipped[arm == 1]
+        other = SP.analyse_pair(flipped, arm == 0, arm == 2)
+        for k in base:
+            for a, b in zip(base[k], other[k]):
+                np.testing.assert_array_equal(a, b)
+
+    def test_a_case_read_by_one_reader_with_an_aid_leaves_the_variance_finite(self):
+        # Three readers, three cases: case 0 is read with x by one reader only.
+        on_x = np.array([[[True, False, False], [False, True, False], [False, False, True]]])
+        on_y = np.array([[[False, True, True], [True, False, True], [True, True, False]]])
+        right = np.ones((1, 3, 3), dtype=bool)
+        right[0, 1, 2] = False
+        m, total, df = SP.analyse_pair(right, on_x, on_y)["random"]
+        self.assertTrue(np.isfinite(total).all() and np.isfinite(df).all())
+
+
+class ThreeArmRecordTest(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        cls.rec = _load("study_power_three_arms.json")
+        cls.grid = {(r["readers"], r["cases"]): r for r in cls.rec["grid"]}
+
+    def test_record_is_this_code_s(self):
+        self.assertEqual(self.rec["seed"], SP.SEED)
+        self.assertEqual((self.rec["power_reps"], self.rec["size_reps"]), (SP.POWER_REPS, SP.SIZE_REPS))
+        self.assertEqual(sorted(self.grid), sorted(SP.THREE_GRID))
+
+    def test_critical_values_are_the_largest_quantiles(self):
+        for r in self.rec["grid"]:
+            ni = [v["pivot_975"] for k, v in r["size"].items() if k.startswith("noninferiority")]
+            sup = [v["pivot_975"] for k, v in r["size"].items() if k.startswith("superiority")]
+            self.assertEqual(r["critical_noninferiority"], max(ni))
+            self.assertEqual(r["critical_superiority"], max(sup))
+
+    def test_power_grows_with_readers_at_the_same_cases(self):
+        for key in ("noninferiority_0.95_0.95_%s", "superiority_0.9_0.95_%s", "superiority_0.85_0.95_%s"):
+            for s in SETTINGS:
+                for cases in (48, 60):
+                    ps = [self.grid[(r, cases)]["power"][key % s]["calibrated"] for r in (20, 30, 40)]
+                    self.assertEqual(ps, sorted(ps))
+
+    def test_power_falls_as_the_aid_effect_varies_more(self):
+        for r in self.rec["grid"]:
+            ps = [r["power"]["noninferiority_0.95_0.95_%s" % s]["calibrated"] for s in SETTINGS]
+            self.assertEqual(ps, sorted(ps, reverse=True))
+
+    def test_a_stratum_at_holm_s_first_level_never_beats_five_percent(self):
+        for s in self.rec["stratum"]:
             for v in s["power"].values():
                 self.assertLessEqual(v["calibrated_at_holm_first"], v["calibrated_at_5"])
             self.assertGreater(s["critical_at_holm_first"], s["critical_at_5"])

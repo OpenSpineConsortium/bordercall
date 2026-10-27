@@ -445,7 +445,7 @@ one.
 | `junction_figures.py` | the five junction figures from a recorded run, with their CSV, caption and `FIGURES.md` |
 | `exact_slide_figures.py` | the figure panels of the exact-rule slides from the recorded `exact` run, a NeurIPS set and a results-only CNS set (`cns/`), each panel at the inches its deck gives it, with their CSV, caption and one `FIGURES.md` per set |
 | `second_opinion.py` | what the exact rule says about a registration's answer one level off, on the exact study's scoring columns, for the white paper |
-| `study_power.py` | the power, size and critical values of the white paper's randomized reader study, by simulation |
+| `study_power.py` | the power, size and critical values of the white paper's randomized reader study, by simulation, for the two-arm design and the three-arm design (`run_three`) |
 | `whitepaper_checks.py` | the within-one Bayes rule, and anomalous columns scored by the count from C2, for the white paper |
 | `records/` | the recorded `panjabi` runs the figures and slides are drawn from |
 | `slides/` | the CNS junction slides, and the exact-rule slides for the CNS or NeurIPS, each built from a record and its figures |

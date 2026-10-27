@@ -28,6 +28,7 @@ Run the commands in this order on a corpus you have not measured before.
     python run.py exact-slide-figures --json out/exact/exact.json --outdir figures/exact-slides
     python run.py second-opinion --outdir out/whitepaper       # the exact rule beside a registration's answer
     python run.py study-power --outdir out/whitepaper          # readers and cases for the white paper's study
+    python run.py study-power-three --outdir out/whitepaper    # the same for the three-arm design, C minus A
     python run.py whitepaper-checks --outdir out/whitepaper    # within-one best rule; anomalous by the count from C2
 
 `scheme` and `selftest` are not optional. The first catches a corpus numbered differently
@@ -346,6 +347,12 @@ def cmd_second_opinion(a) -> int:
 def cmd_study_power(a) -> int:
     import study_power as SP
     SP.run(a.outdir, power_reps=a.power_reps, size_reps=a.size_reps)
+    return 0
+
+
+def cmd_study_power_three(a) -> int:
+    import study_power as SP
+    SP.run_three(a.outdir, power_reps=a.power_reps, size_reps=a.size_reps)
     return 0
 
 
@@ -684,6 +691,16 @@ def main() -> int:
     p.add_argument("--size-reps", type=int, default=None, dest="size_reps",
                    help="simulated studies per size cell (default the module's)")
     p.set_defaults(fn=cmd_study_power)
+
+    p = sub.add_parser("study-power-three",
+                       help="power and size of the three-arm design (registration, the exact rule, both), for "
+                            "the contrast of both against registration; writes study_power_three_arms.json")
+    p.add_argument("--outdir", default=None, help="write study_power_three_arms.json here")
+    p.add_argument("--power-reps", type=int, default=None, dest="power_reps",
+                   help="simulated studies per power cell (default the module's)")
+    p.add_argument("--size-reps", type=int, default=None, dest="size_reps",
+                   help="simulated studies per size cell (default the module's)")
+    p.set_defaults(fn=cmd_study_power_three)
 
     p = sub.add_parser("whitepaper-checks",
                        help="the within-one Bayes rule on the exact study's scoring columns, and the anomalous "

@@ -555,8 +555,16 @@ a t interval over readers treats the shared cases as fixed and lets up to 9% of 
 through when the aid's effect varies by case. Power at moderate variation is 89% and 81%. Aid B
 takes its measures by hand from the same radiographs the readers see; Aid A's settings are
 frozen and reviewed outside the team before any of the rule's outputs on the cases exist. The
-owner's rewrite randomizes each case to one of three configurations instead; the power above is
-for two arms, and `study_power.py` has to simulate the three-arm design before the plan is final.
+owner's rewrite of 2026-10-27 randomizes each case to one of three configurations instead,
+registration alone (A), the rule alone (B) and the two together (C), 40 readers by 48 cases in
+four strata of 12, with C minus A over the whole case mix as the primary and a t interval over
+readers. `study_power_three_arms.json` simulates that design with the same model: under the
+rewrite's own assumptions (no variation in the aids' difference, the t interval at its nominal
+value) it reproduces the rewrite's powers, 0.98 for noninferiority and 0.91 for superiority at 90%
+against 95%; but that t interval lets 4.2% of null studies through at a nominal 2.5% with no
+variation and 7.2% when the difference varies widely, and up to 12.1% at a nominal 5% inside a
+12-case stratum. With the calibrated critical values (2.31 and 2.05 at 40 by 48) and moderate or
+wide variation, power is 0.92 and 0.85 for noninferiority and 0.85 and 0.75 for superiority.
 
 New code: `second_opinion.py`, `whitepaper_checks.py` and `study_power.py`, with their records
 in `records/whitepaper-2026-10-26/` and `tests/test_whitepaper.py`.

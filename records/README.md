@@ -132,6 +132,7 @@ without a CT reads the AP, lateral and both-plane regimes of `exact-2026-10-26/e
 | `second_opinion.json` | `python run.py second-opinion --outdir ../records/whitepaper-2026-10-26` |
 | `checks.json` | `python run.py whitepaper-checks --outdir ../records/whitepaper-2026-10-26` |
 | `study_power.json` | `python run.py study-power --outdir ../records/whitepaper-2026-10-26` |
+| `study_power_three_arms.json` | `python run.py study-power-three --outdir ../records/whitepaper-2026-10-26` |
 
 `second_opinion.json` scores the exact study's own 2,000 scoring columns again (seed 97, both
 planes, the record's table and settings) at 1, 3, 5 and 9 bodies, and for every field keeps the
@@ -169,6 +170,18 @@ noninferiority with both aids at 95% and of superiority at 90% against 95%. The 
 10-case stratum's two-sided comparison at 20, 30 and 40 readers, at 5% and at 1.25%, the level
 Holm's correction across four strata gives the first stratum it tests. `--power-reps` and
 `--size-reps` shorten a trial run.
+
+`study_power_three_arms.json` simulates the owner's three-arm design of 2026-10-27 the same way
+(the same seed with its own cell keys; 10,000 studies per power cell and 20,000 per size cell; 251
+s): every case randomized within reader and stratum to registration alone (A), the rule alone (B)
+or the two together (C), a third of each stratum to each, in four strata, and the contrast C minus
+A over all the cases. Each aid has its own reader-by-aid and case-by-aid terms, independent between
+aids with SDs the setting's over the square root of two, so that any two aids differ as the
+two-arm settings say. A contrast uses each reader's cases with its two aids; its case variance
+term is over all the cases, since each case is equally likely to fall to each aid, and leaves out
+of its estimate a case read with either aid by fewer than two readers. The grid is 20, 30 and 40
+readers by 48 and 60 cases, with the power of superiority at 85% against 95% beside 90% against
+95%, and one 12-case stratum, 4 per aid, at 20, 30 and 40 readers.
 
 `tests/test_whitepaper.py` recomputes the nine-body second-opinion counts to the bit, by place as
 well as overall; checks the power model's draws against the accuracy its quadrature calibrates to,
