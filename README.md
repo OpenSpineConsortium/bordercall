@@ -12,7 +12,7 @@ Everything else this repository built on the way, including the junction predict
 
 The owner, 27 October 2026: the next account works on this and nothing else until the owner says otherwise.
 
-The rule uses seven of Panjabi's measures, the linear dimensions a SPINEPS mask can measure. The three papers hold far more:
+The rule uses seven of Panjabi's measures, the linear dimensions a SPINEPS mask can measure. The four papers hold far more:
 
 - the pedicle widths and heights, already transcribed but unused;
 - the surface areas;
@@ -20,11 +20,12 @@ The rule uses seven of Panjabi's measures, the linear dimensions a SPINEPS mask 
 - the pars interarticularis;
 - the spinous and transverse processes;
 - the rib articulations;
-- the uncovertebral joints.
+- the uncovertebral joints;
+- the articular facets of the fourth paper, 1993: widths, heights, areas, interfacet distances, plane angles and card angles, superior and inferior, left and right, C2 to L5.
 
 [archive/bordercall/reference/build_panjabi.py](archive/bordercall/reference/build_panjabi.py) lists what it leaves out, and the scanned papers are in [archive/bordercall/reference/papers/](archive/bordercall/reference/papers/).
 
-The next account transcribes every remaining table of all three papers, going past what a SPINEPS segmentation can measure. It then scores the rule with the longer list, to see how much more measurements raise accuracy: at 1, 3 and 9 bodies, by plane, and by how each measure could be read. [TODO.md](TODO.md), item P, gives the steps and the traps.
+The next account transcribes every remaining table of all four papers, going past what a SPINEPS segmentation can measure, so that every number can be checked against the image of the cell it was read from. It then rewrites the rule and the generator in PyMC, proved against the code below, and scores the rule with the longer list, to see how much more measurements raise accuracy: at 1, 3 and 9 bodies, by plane, by how each measure could be read, and per phenotype. [TODO.md](TODO.md), item P, gives the five steps, a to e, the owner set on 27 October 2026, and the traps.
 
 After that, and only when the owner says so, the work turns to gold tier 1, 2 and 3 data: full spines from C2 to the sacrum, with real images and human annotation. That data is for testing this Bayesian generator empirically against segmentations of real spines.
 
@@ -276,16 +277,17 @@ Anatomy
 1. Panjabi MM, Duranceau J, Goel V, Oxland T, Takata K. Cervical human vertebrae: quantitative three-dimensional anatomy of the middle and lower regions. Spine 1991;16(8):861-869.
 2. Panjabi MM, Takata K, Goel V, Federico D, Oxland T, Duranceau J, Krag M. Thoracic human vertebrae: quantitative three-dimensional anatomy. Spine 1991;16(8):888-901.
 3. Panjabi MM, Goel V, Oxland T, Takata K, Duranceau J, Krag M, Price M. Human lumbar vertebrae: quantitative three-dimensional anatomy. Spine 1992;17(3):299-306.
-4. Benzel EC. Biomechanics of Spine Stabilization. 3rd ed. New York: Thieme; 2015. doi:10.1055/b-003-106374. The reference for the spine's regional anatomy and for the drawing style of this repository's figures.
-5. Steinmetz MP, Berven SH, Benzel EC, eds. Benzel's Spine Surgery: Techniques, Complication Avoidance, and Management. 5th ed. Philadelphia: Elsevier; 2022.
+4. Panjabi MM, Oxland T, Takata K, Goel V, Duranceau J, Krag M. Articular facets of the human spine: quantitative three-dimensional anatomy. Spine 1993;18(10):1298-1310.
+5. Benzel EC. Biomechanics of Spine Stabilization. 3rd ed. New York: Thieme; 2015. doi:10.1055/b-003-106374. The reference for the spine's regional anatomy and for the drawing style of this repository's figures.
+6. Steinmetz MP, Berven SH, Benzel EC, eds. Benzel's Spine Surgery: Techniques, Complication Avoidance, and Management. 5th ed. Philadelphia: Elsevier; 2022.
 
 Statistics
 
-6. Duda RO, Hart PE, Stork DG. Pattern Classification. 2nd ed. New York: Wiley; 2001. Chapter 2, Bayesian decision theory: the Bayes rule and its error.
-7. Chow CK. On optimum recognition error and reject tradeoff. IEEE Trans Inf Theory 1970;16(1):41-46. Abstaining by a threshold on the posterior.
-8. Sherman J, Morrison WJ. Adjustment of an inverse matrix corresponding to a change in one element of a given matrix. Ann Math Stat 1950;21(1):124-127. The closed-form inverse of a rank-one update.
-9. Golub GH, Welsch JH. Calculation of Gauss quadrature rules. Math Comput 1969;23(106):221-230. The quadrature over the patient's size.
-10. Gelman A, Carlin JB, Stern HS, Dunson DB, Vehtari A, Rubin DB. Bayesian Data Analysis. 3rd ed. Boca Raton: CRC Press; 2013. Posteriors, credible sets and posterior predictive checks.
-11. Gneiting T, Raftery AE. Strictly proper scoring rules, prediction, and estimation. J Am Stat Assoc 2007;102(477):359-378. The log loss the record reports.
-12. Li H, Ruan J, Durbin R. Mapping short DNA sequencing reads and calling variants using mapping quality scores. Genome Res 2008;18(11):1851-1858. The mapping quality the record reports beside each posterior.
-13. Cameron AC, Miller DL. A practitioner's guide to cluster-robust inference. J Hum Resour 2015;50(2):317-372. Standard errors clustered by column.
+7. Duda RO, Hart PE, Stork DG. Pattern Classification. 2nd ed. New York: Wiley; 2001. Chapter 2, Bayesian decision theory: the Bayes rule and its error.
+8. Chow CK. On optimum recognition error and reject tradeoff. IEEE Trans Inf Theory 1970;16(1):41-46. Abstaining by a threshold on the posterior.
+9. Sherman J, Morrison WJ. Adjustment of an inverse matrix corresponding to a change in one element of a given matrix. Ann Math Stat 1950;21(1):124-127. The closed-form inverse of a rank-one update.
+10. Golub GH, Welsch JH. Calculation of Gauss quadrature rules. Math Comput 1969;23(106):221-230. The quadrature over the patient's size.
+11. Gelman A, Carlin JB, Stern HS, Dunson DB, Vehtari A, Rubin DB. Bayesian Data Analysis. 3rd ed. Boca Raton: CRC Press; 2013. Posteriors, credible sets and posterior predictive checks.
+12. Gneiting T, Raftery AE. Strictly proper scoring rules, prediction, and estimation. J Am Stat Assoc 2007;102(477):359-378. The log loss the record reports.
+13. Li H, Ruan J, Durbin R. Mapping short DNA sequencing reads and calling variants using mapping quality scores. Genome Res 2008;18(11):1851-1858. The mapping quality the record reports beside each posterior.
+14. Cameron AC, Miller DL. A practitioner's guide to cluster-robust inference. J Hum Resour 2015;50(2):317-372. Standard errors clustered by column.
