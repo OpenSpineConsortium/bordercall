@@ -47,7 +47,10 @@ scan above is the one every value was read from.
 The lumbar column above was corrected on 27 October 2026 from "Tables 2-5, p. 301" to the
 pages the paper prints, as build_panjabi.py already had them; the end-plate depths, the lower
 end-plate rows and the pedicle heights come from the same tables as their widths. The map of
-every table of all four papers, with every value's cell, is step b of TODO.md's item P.
+every table of all four papers, with every value's cell, is [../provenance/](../provenance/README.md)
+(step b of TODO.md's item P): one row per printed value in provenance.csv, one page per table
+under tables/ with the image of every cell, and the thoracic body table's page 892, which this
+scan does not carry, listed in absent.csv.
 
 ## The facets paper's tables
 
@@ -102,8 +105,10 @@ extraction, tried on a document-delivery copy of the thoracic paper that carried
 layer, interleaved the canal table's rows and columns and produced plausible, wrong numbers;
 that copy is not in this repository, and the committed scans carry no text to extract. The
 facets paper carries a text layer written by the OCR program that scanned it (ABBYY
-FineReader), which is not read either. The builder that produced the CSV re-checks its own T11 and T12 values against an
-earlier independent transcription and fails on any disagreement; all ten match.
+FineReader), which is not read either. The builder that produced the CSV re-checks its own T11
+and T12 values against an earlier independent transcription and fails on any disagreement; all
+ten match. Since 27 October 2026 every value of the CSV is also held by test to the cell it was
+read from in [../provenance/provenance.csv](../provenance/provenance.csv), read twice by eye.
 
 ## The CSV
 

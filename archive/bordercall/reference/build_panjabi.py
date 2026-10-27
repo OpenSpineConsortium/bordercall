@@ -89,6 +89,11 @@ T = {
              (27.4, .54), (27.9, .52), (29.3, 1.03), (30.5, .85), (31.9, .71), (32.8, 1.21)],
     "EPWl": [(27.8, .64), (27.4, .65), (25.9, .87), (26.0, .92), (27.0, .96), (28.2, .82),
              (29.1, .69), (30.5, .70), (33.0, 1.10), (35.4, .98), (39.1, .71), (42.1, .91)],
+    # T3's mean, 23.3 in this transcription of Table 3, whose page 892 the scan at hand does not
+    # carry, is printed as 23.2 by Table 8's Present Study column (provenance/cells/thoracic-t8a/
+    # r03_c01.png, read so by both passes). The archive's records were computed with 23.3 and
+    # their tests hold them to the bit, so 23.3 stands here until a scan of page 892 decides it;
+    # provenance/absent.csv says so, and the checked table of item P's step c takes Table 8's 23.2.
     "EPDl": [(19.7, .52), (21.6, .64), (23.3, .75), (24.5, .78), (25.8, .77), (26.9, .67),
              (28.5, .87), (29.4, .71), (31.0, .89), (31.6, 1.11), (31.8, .78), (33.4, .78)],
     "VBHp": [(14.1, .41), (15.6, .58), (15.7, .57), (16.2, .48), (16.2, .60), (17.4, .54),

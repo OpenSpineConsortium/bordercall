@@ -1,0 +1,374 @@
+{
+ "dpi": 300,
+ "papers": {
+  "cervical": {
+   "file": "Panjabi_1991_Cervical_Spine_16-8_861-869.pdf",
+   "pages": {
+    "1": {
+     "sha256": "47247b8e92f6cb630951c89f730cc8c51364fec1f757265c39c03afec2451096",
+     "size": [
+      2550,
+      3300
+     ],
+     "turned": false
+    },
+    "2": {
+     "sha256": "58e96090f1052cca62e7602ac92b7aca8c7c1e87d3fd695f0d219c2ca93d06f1",
+     "size": [
+      2550,
+      3300
+     ],
+     "turned": false
+    },
+    "3": {
+     "sha256": "284ad17701c3a34b8a539bc66a53c3fdadfda4e166e87d2fd5db83dd9bf0b09b",
+     "size": [
+      2550,
+      3300
+     ],
+     "turned": false
+    },
+    "4": {
+     "sha256": "b8cd63d62ee71f9cb4e50342ee63fa93155e20e3e1c7ebf8c6df333b0fcc0286",
+     "size": [
+      2550,
+      3300
+     ],
+     "turned": false
+    },
+    "5": {
+     "sha256": "012180a409715703b80df19a520592c985428d7225e4c5d0b117b225ea0ec2b9",
+     "size": [
+      2550,
+      3300
+     ],
+     "turned": false
+    },
+    "6": {
+     "sha256": "ba98c292f1e58320f936cd0d31a946ddd9046f1b127e8d1e0692863893a1f5e9",
+     "size": [
+      2550,
+      3300
+     ],
+     "turned": false
+    },
+    "7": {
+     "sha256": "50c443fe8d108c4a768a9bdeba62605f8e6a3033444bcbd3de5e99e3a43375ba",
+     "size": [
+      2550,
+      3300
+     ],
+     "turned": false
+    },
+    "8": {
+     "sha256": "712ed44ca47147b0376e90c5833133ff4dccb28d4088bc80b71e88069b64bbe1",
+     "size": [
+      2550,
+      3300
+     ],
+     "turned": false
+    },
+    "9": {
+     "sha256": "9c5c3bb2b94f7ec89a22297908383bf08979df2c400e913a30bd5a461f39e3db",
+     "size": [
+      2550,
+      3300
+     ],
+     "turned": false
+    }
+   },
+   "sha256": "a95f369e673c6567cd6061a8d0925883f78edbe643f92bcaaca45cbd4ec99391"
+  },
+  "facets": {
+   "file": "Panjabi_1993_Facets_Spine_18-10_1298-1310.pdf",
+   "pages": {
+    "1": {
+     "sha256": "04a04e049c6aa1ee4093e630f9ce36a9a9aaa9e87f079579c1c7234d10e9dfc4",
+     "size": [
+      2555,
+      3396
+     ],
+     "turned": false
+    },
+    "10": {
+     "sha256": "8d0d4e366092b655ad4a96c2abe22910b78a37ac0a94188c1c8774ccf4322a40",
+     "size": [
+      2550,
+      3388
+     ],
+     "turned": false
+    },
+    "11": {
+     "sha256": "654a52a745ca399d7e9f6d1dd1985c78e88e1999cc9da6fc820164b2d9aa3c2a",
+     "size": [
+      2567,
+      3405
+     ],
+     "turned": false
+    },
+    "12": {
+     "sha256": "07802ee1df1ab575de9980c0c541bc39d334bb06398a2910ab6872293ecd1a96",
+     "size": [
+      2550,
+      3388
+     ],
+     "turned": false
+    },
+    "13": {
+     "sha256": "5b22d67686d1ee6c724a5879cec97d4a555f9b78aa37e00a1535fc720c21dc1b",
+     "size": [
+      2559,
+      3396
+     ],
+     "turned": false
+    },
+    "2": {
+     "sha256": "73bc50f5578b7f083ccaa53f3a94e19724089c42de55e27e43c131e170c8e106",
+     "size": [
+      2555,
+      3392
+     ],
+     "turned": false
+    },
+    "3": {
+     "sha256": "ff0d54c52783a4d138844afb71d3901461e2592da0ca7a803a2a832efaa25f5a",
+     "size": [
+      2550,
+      3388
+     ],
+     "turned": false
+    },
+    "4": {
+     "sha256": "3cac22b514bf93f12d3f626de8edc4748a4d1fb47c3a69d4210403311044d22f",
+     "size": [
+      2555,
+      3396
+     ],
+     "turned": false
+    },
+    "5": {
+     "sha256": "42a120fb5ec50f8a23c8d71f771b3485fe095b10afe36ce47b82515622ddc8e0",
+     "size": [
+      2550,
+      3392
+     ],
+     "turned": false
+    },
+    "6": {
+     "sha256": "876a79bea40732edc3df1e5e7f7bb779849f9bf9b4766a0c48513620e75c3c37",
+     "size": [
+      2550,
+      3392
+     ],
+     "turned": false
+    },
+    "7": {
+     "sha256": "590c07adaf051922d2d57df0cd0bfb57da253b5d442e1e8a8e1dde0652c53fe9",
+     "size": [
+      2567,
+      3400
+     ],
+     "turned": false
+    },
+    "8": {
+     "sha256": "d357d9ec31b0bfcda67681332576836793afc0e2bf5a0f7a995db6e713a2117e",
+     "size": [
+      2550,
+      3392
+     ],
+     "turned": false
+    },
+    "9": {
+     "sha256": "81cf6bde55afa9432f6f8a7d0835356c620ad6f765dbbd43cfe92287b8f03fa1",
+     "size": [
+      2567,
+      3400
+     ],
+     "turned": false
+    }
+   },
+   "sha256": "2b22fe5e6c14d2289a4366f3c94879db1da0f79ae54e05a7f8e54a07e1c0279f"
+  },
+  "lumbar": {
+   "file": "Panjabi_1992_Lumbar_Spine_17-3_299-306.pdf",
+   "pages": {
+    "1": {
+     "sha256": "933ee125ee71f93cc0fed80abf12452d475174dca743fb89dd8f5f7aca808be2",
+     "size": [
+      2550,
+      3300
+     ],
+     "turned": false
+    },
+    "2": {
+     "sha256": "91770839d09ece4d4673f74cf220854d93cad488860b03376f097362e54b943d",
+     "size": [
+      2550,
+      3300
+     ],
+     "turned": false
+    },
+    "3": {
+     "sha256": "91957078f4a114258a1a72507a788a0572bf3f5f044680f6cf00fbfd7f68f02e",
+     "size": [
+      2550,
+      3300
+     ],
+     "turned": false
+    },
+    "4": {
+     "sha256": "06bfbe73efb7c8eb2a56848d2e535c37538ad6446142c567e27ae083d81289d1",
+     "size": [
+      2550,
+      3300
+     ],
+     "turned": false
+    },
+    "5": {
+     "sha256": "3d9c5a5f4c01454644a4d6a2723c2c38f4d6679870e30d34689f211f43b38586",
+     "size": [
+      2550,
+      3300
+     ],
+     "turned": false
+    },
+    "6": {
+     "sha256": "cf0bde8b827d65517423dbef654816f272f7cbf3ae346739b874383745d38c1b",
+     "size": [
+      2550,
+      3300
+     ],
+     "turned": false
+    },
+    "7": {
+     "sha256": "91dba8a6db77f3ff74266f8c677843ea9ddeeb5c724e4993d21037db34d0ac8f",
+     "size": [
+      2550,
+      3300
+     ],
+     "turned": false
+    },
+    "8": {
+     "sha256": "46809ae8b8c75b123d6f044630df56e858c379bf4a30775674f770d0d21cca9a",
+     "size": [
+      2550,
+      3300
+     ],
+     "turned": false
+    }
+   },
+   "sha256": "842736d7102c0327c690af3605c5248ca4516253ac330157875bfb783d6b5eac"
+  },
+  "thoracic": {
+   "file": "Panjabi_1991_Thoracic_Spine_16-8_888-901.pdf",
+   "pages": {
+    "1": {
+     "sha256": "9cfcf65f1a1b4222672829a53c831524d4ae4d04904aacd7a5a5ae4e39f3eadf",
+     "size": [
+      2550,
+      3300
+     ],
+     "turned": false
+    },
+    "10": {
+     "sha256": "2a7a1d5f10177ed3265995148b128ebf775936b139a66c3182920a2134cfa2b0",
+     "size": [
+      2550,
+      3300
+     ],
+     "turned": false
+    },
+    "11": {
+     "sha256": "f05603ebaef87c92af7ff4f740b48c0f55b4c6d6d2020e93a521aac0a1571e7a",
+     "size": [
+      2550,
+      3300
+     ],
+     "turned": false
+    },
+    "12": {
+     "sha256": "3f51c256ae79e480700dfc66c9457ac34c6ffc2dfda7d0c57a7eb93cb0cd03b7",
+     "size": [
+      2550,
+      3300
+     ],
+     "turned": false
+    },
+    "13": {
+     "sha256": "bedabc65e1d05ef6b1741c9ad45fabfc32e607488a318d19262b399ffbfe87a8",
+     "size": [
+      2550,
+      3300
+     ],
+     "turned": false
+    },
+    "2": {
+     "sha256": "eb28e22a4d3d52ff608e6a5a01815ee9cc59d12b8e3b1ef7b62b51848278fef1",
+     "size": [
+      2550,
+      3300
+     ],
+     "turned": false
+    },
+    "3": {
+     "sha256": "53f45278d94b56fd7c4aaf3d2e4636baa5ec7a61de7ded8c2c6413d49318f575",
+     "size": [
+      2550,
+      3300
+     ],
+     "turned": false
+    },
+    "4": {
+     "sha256": "a2842754ad7c6ffbcffca318637ced79f0ce41fcb1db4f6a792d504cf554545c",
+     "size": [
+      2550,
+      3300
+     ],
+     "turned": false
+    },
+    "5": {
+     "sha256": "e446ee28a0521e31e9bf336411eb02b7fb7c5ecac8ce92225c33d72b89fe2a2b",
+     "size": [
+      2550,
+      3300
+     ],
+     "turned": false
+    },
+    "6": {
+     "sha256": "8c0be85ef80b5859ad7fe2660ebafd098bea450ba432887c4d8d85d67546afd5",
+     "size": [
+      3300,
+      2550
+     ],
+     "turned": true
+    },
+    "7": {
+     "sha256": "45f70958c170233da9f838a6aeba7a5b02d2173e6b490992a2215f0ae30fde3c",
+     "size": [
+      3300,
+      2550
+     ],
+     "turned": true
+    },
+    "8": {
+     "sha256": "a5e520b741799ba8a74862993f1364571ecf2a599cf1fe88ab44092625b4e9cf",
+     "size": [
+      2550,
+      3300
+     ],
+     "turned": false
+    },
+    "9": {
+     "sha256": "a8a145c444c76393a74e78a0079ea61d255d01836c0f2f9afd6e01af8662616c",
+     "size": [
+      2550,
+      3300
+     ],
+     "turned": false
+    }
+   },
+   "sha256": "f4078fa2cd2cf2c140fcee7f018917e055d2ca825c42e9b01d84cf1f4b7c1e2c"
+  }
+ },
+ "pdftoppm": "pdftoppm version 24.02.0"
+}

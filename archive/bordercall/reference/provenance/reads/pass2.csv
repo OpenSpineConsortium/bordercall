@@ -1,0 +1,3536 @@
+table,cell,round,read,source
+cervical-t2,r01_c00,1,-,pass2 agents
+cervical-t2,r01_c01,1,15.0,pass2 agents
+cervical-t2,r01_c02,1,15.3,pass2 agents
+cervical-t2,r01_c03,1,15.2,pass2 agents
+cervical-t2,r01_c04,1,16.4,pass2 agents
+cervical-t2,r01_c05,1,18.1 (C3-5),pass2 agents
+cervical-t2,r02_c00,1,-,pass2 agents
+cervical-t2,r02_c01,1,0.55,pass2 agents
+cervical-t2,r02_c02,1,0.75,pass2 agents
+cervical-t2,r02_c03,1,0.35,pass2 agents
+cervical-t2,r02_c04,1,0.52,pass2 agents
+cervical-t2,r02_c05,1,0.66,pass2 agents
+cervical-t2,r03_c00,1,-,pass2 agents
+cervical-t2,r03_c01,1,15.8,pass2 agents
+cervical-t2,r03_c02,1,17.2,pass2 agents
+cervical-t2,r03_c03,1,17.5,pass2 agents
+cervical-t2,r03_c04,1,18.5 (C3),pass2 agents
+cervical-t2,r03_c05,1,21.8 (C3-6),pass2 agents
+cervical-t2,r04_c00,1,-,pass2 agents
+cervical-t2,r04_c01,1,0.46,pass2 agents
+cervical-t2,r04_c02,1,0.66,pass2 agents
+cervical-t2,r04_c03,1,0.58,pass2 agents
+cervical-t2,r04_c04,1,0.55,pass2 agents
+cervical-t2,r04_c05,1,0.66,pass2 agents
+cervical-t2,r05_c00,1,15.6,pass2 agents
+cervical-t2,r05_c01,1,15.6,pass2 agents
+cervical-t2,r05_c02,1,15.9,pass2 agents
+cervical-t2,r05_c03,1,17.9,pass2 agents
+cervical-t2,r05_c04,1,18.5 (C2-4),pass2 agents
+cervical-t2,r05_c05,1,16.8,pass2 agents
+cervical-t2,r06_c00,1,0.58,pass2 agents
+cervical-t2,r06_c01,1,0.40,pass2 agents
+cervical-t2,r06_c02,1,0.38,pass2 agents
+cervical-t2,r06_c03,1,0.52,pass2 agents
+cervical-t2,r06_c04,1,0.69,pass2 agents
+cervical-t2,r06_c05,1,0.32,pass2 agents
+cervical-t2,r07_c00,1,17.5,pass2 agents
+cervical-t2,r07_c01,1,17.2,pass2 agents
+cervical-t2,r07_c02,1,17.0,pass2 agents
+cervical-t2,r07_c03,1,19.4,pass2 agents
+cervical-t2,r07_c04,1,22.0 (C2-4),pass2 agents
+cervical-t2,r07_c05,1,23.4 (C2-5),pass2 agents
+cervical-t2,r08_c00,1,0.52,pass2 agents
+cervical-t2,r08_c01,1,0.29,pass2 agents
+cervical-t2,r08_c02,1,0.49,pass2 agents
+cervical-t2,r08_c03,1,0.40,pass2 agents
+cervical-t2,r08_c04,1,0.75,pass2 agents
+cervical-t2,r08_c05,1,0.98,pass2 agents
+cervical-t2,r09_c00,1,-,pass2 agents
+cervical-t2,r09_c01,1,11.6,pass2 agents
+cervical-t2,r09_c02,1,11.4,pass2 agents
+cervical-t2,r09_c03,1,11.4,pass2 agents
+cervical-t2,r09_c04,1,10.9,pass2 agents
+cervical-t2,r09_c05,1,12.8 (C6),pass2 agents
+cervical-t2,r10_c00,1,-,pass2 agents
+cervical-t2,r10_c01,1,0.35,pass2 agents
+cervical-t2,r10_c02,1,0.43,pass2 agents
+cervical-t2,r10_c03,1,0.32,pass2 agents
+cervical-t2,r10_c04,1,0.26,pass2 agents
+cervical-t2,r10_c05,1,0.46,pass2 agents
+cervical-t2,r11_c00,1,-,pass2 agents
+cervical-t2,r11_c01,1,1.05,pass2 agents
+cervical-t2,r11_c02,1,1.12,pass2 agents
+cervical-t2,r11_c03,1,1.15,pass2 agents
+cervical-t2,r11_c04,1,1.13,pass2 agents
+cervical-t2,r11_c05,1,1.20,pass2 agents
+cervical-t2,r12_c00,1,1.12,pass2 agents
+cervical-t2,r12_c01,1,1.10,pass2 agents
+cervical-t2,r12_c02,1,1.07,pass2 agents
+cervical-t2,r12_c03,1,1.08,pass2 agents
+cervical-t2,r12_c04,1,1.19,pass2 agents
+cervical-t2,r12_c05,1,1.39,pass2 agents
+cervical-t2,r14_c00,1,-,pass2 agents
+cervical-t2,r14_c01,1,169.4,pass2 agents
+cervical-t2,r14_c02,1,183.0,pass2 agents
+cervical-t2,r14_c03,1,182.9,pass2 agents
+cervical-t2,r14_c04,1,221.2 (C3),pass2 agents
+cervical-t2,r14_c05,1,278.3 (C3-6),pass2 agents
+cervical-t2,r15_c00,1,-,pass2 agents
+cervical-t2,r15_c01,1,8.78,pass2 agents
+cervical-t2,r15_c02,1,9.32,pass2 agents
+cervical-t2,r15_c03,1,7.77,pass2 agents
+cervical-t2,r15_c04,1,7.62,pass2 agents
+cervical-t2,r15_c05,1,12.93,pass2 agents
+cervical-t2,r16_c00,1,194.4,pass2 agents
+cervical-t2,r16_c01,1,190.7,pass2 agents
+cervical-t2,r16_c02,1,199.2,pass2 agents
+cervical-t2,r16_c03,1,246.2,pass2 agents
+cervical-t2,r16_c04,1,289.9 (C2-4),pass2 agents
+cervical-t2,r16_c05,1,280.3 (C2-4),pass2 agents
+cervical-t2,r17_c00,1,9.64,pass2 agents
+cervical-t2,r17_c01,1,5.74,pass2 agents
+cervical-t2,r17_c02,1,7.27,pass2 agents
+cervical-t2,r17_c03,1,12.07,pass2 agents
+cervical-t2,r17_c04,1,16.54,pass2 agents
+cervical-t2,r17_c05,1,13.71,pass2 agents
+cervical-t2,r19_c00,1,-,pass2 agents
+cervical-t2,r19_c01,1,2.7,pass2 agents
+cervical-t2,r19_c02,1,3.5,pass2 agents
+cervical-t2,r19_c03,1,1.7,pass2 agents
+cervical-t2,r19_c04,1,4.7,pass2 agents
+cervical-t2,r19_c05,1,2.2,pass2 agents
+cervical-t2,r20_c00,1,-,pass2 agents
+cervical-t2,r20_c01,1,0.77,pass2 agents
+cervical-t2,r20_c02,1,1.5,pass2 agents
+cervical-t2,r20_c03,1,0.43,pass2 agents
+cervical-t2,r20_c04,1,1.1,pass2 agents
+cervical-t2,r20_c05,1,0.54,pass2 agents
+cervical-t2,r21_c00,1,4.2,pass2 agents
+cervical-t2,r21_c01,1,4.0,pass2 agents
+cervical-t2,r21_c02,1,2.1,pass2 agents
+cervical-t2,r21_c03,1,2.7,pass2 agents
+cervical-t2,r21_c04,1,2.7,pass2 agents
+cervical-t2,r21_c05,1,1.8,pass2 agents
+cervical-t2,r22_c00,1,1.2,pass2 agents
+cervical-t2,r22_c01,1,0.84,pass2 agents
+cervical-t2,r22_c02,1,0.4,pass2 agents
+cervical-t2,r22_c03,1,1.1,pass2 agents
+cervical-t2,r22_c04,1,0.69,pass2 agents
+cervical-t2,r22_c05,1,0.42,pass2 agents
+cervical-t3,r01_c00,1,24.5,pass2 agents
+cervical-t3,r01_c01,1,22.9,pass2 agents
+cervical-t3,r01_c02,1,24.7,pass2 agents
+cervical-t3,r01_c03,1,24.9,pass2 agents
+cervical-t3,r01_c04,1,25.8,pass2 agents
+cervical-t3,r01_c05,1,24.5,pass2 agents
+cervical-t3,r02_c00,1,0.61,pass2 agents
+cervical-t3,r02_c01,1,1.15,pass2 agents
+cervical-t3,r02_c02,1,0.52,pass2 agents
+cervical-t3,r02_c03,1,1.13,pass2 agents
+cervical-t3,r02_c04,1,0.66,pass2 agents
+cervical-t3,r02_c05,1,0.92,pass2 agents
+cervical-t3,r03_c00,1,"21.0 (C3,C7)",pass2 agents
+cervical-t3,r03_c01,1,16.2,pass2 agents
+cervical-t3,r03_c02,1,17.7,pass2 agents
+cervical-t3,r03_c03,1,17.4,pass2 agents
+cervical-t3,r03_c04,1,18.1,pass2 agents
+cervical-t3,r03_c05,1,15.2,pass2 agents
+cervical-t3,r04_c00,1,0.35,pass2 agents
+cervical-t3,r04_c01,1,1.33,pass2 agents
+cervical-t3,r04_c02,1,0.46,pass2 agents
+cervical-t3,r04_c03,1,0.72,pass2 agents
+cervical-t3,r04_c04,1,0.46,pass2 agents
+cervical-t3,r04_c05,1,1.15,pass2 agents
+cervical-t3,r05_c00,1,1.17,pass2 agents
+cervical-t3,r05_c01,1,1.41,pass2 agents
+cervical-t3,r05_c02,1,1.40,pass2 agents
+cervical-t3,r05_c03,1,1.43,pass2 agents
+cervical-t3,r05_c04,1,1.42,pass2 agents
+cervical-t3,r05_c05,1,1.61,pass2 agents
+cervical-t3,r07_c00,1,374.5 (C7),pass2 agents
+cervical-t3,r07_c01,1,248.7,pass2 agents
+cervical-t3,r07_c02,1,272.0,pass2 agents
+cervical-t3,r07_c03,1,249.5,pass2 agents
+cervical-t3,r07_c04,1,266.5,pass2 agents
+cervical-t3,r07_c05,1,223.8,pass2 agents
+cervical-t3,r08_c00,1,13.08,pass2 agents
+cervical-t3,r08_c01,1,34.21,pass2 agents
+cervical-t3,r08_c02,1,26.18,pass2 agents
+cervical-t3,r08_c03,1,34.09,pass2 agents
+cervical-t3,r08_c04,1,24.94,pass2 agents
+cervical-t3,r08_c05,1,36.26,pass2 agents
+cervical-t4,r01_c00,1,7.7,pass2 agents
+cervical-t4,r01_c01,1,5.8,pass2 agents
+cervical-t4,r01_c02,1,5.7,pass2 agents
+cervical-t4,r01_c03,1,6.1,pass2 agents
+cervical-t4,r01_c04,1,6.3,pass2 agents
+cervical-t4,r01_c05,1,6.6,pass2 agents
+cervical-t4,r02_c00,1,0.35,pass2 agents
+cervical-t4,r02_c01,1,0.64,pass2 agents
+cervical-t4,r02_c02,1,0.60,pass2 agents
+cervical-t4,r02_c03,1,0.46,pass2 agents
+cervical-t4,r02_c04,1,0.49,pass2 agents
+cervical-t4,r02_c05,1,0.42,pass2 agents
+cervical-t4,r03_c00,1,9.4 (C3-7),pass2 agents
+cervical-t4,r03_c01,1,7.6,pass2 agents
+cervical-t4,r03_c02,1,7.4,pass2 agents
+cervical-t4,r03_c03,1,6.7,pass2 agents
+cervical-t4,r03_c04,1,7.1,pass2 agents
+cervical-t4,r03_c05,1,7.5,pass2 agents
+cervical-t4,r04_c00,1,0.46,pass2 agents
+cervical-t4,r04_c01,1,0.46,pass2 agents
+cervical-t4,r04_c02,1,0.42,pass2 agents
+cervical-t4,r04_c03,1,0.42,pass2 agents
+cervical-t4,r04_c04,1,0.39,pass2 agents
+cervical-t4,r04_c05,1,0.32,pass2 agents
+cervical-t4,r05_c00,1,8.3 (C3-7),pass2 agents
+cervical-t4,r05_c01,1,5.4,pass2 agents
+cervical-t4,r05_c02,1,5.1,pass2 agents
+cervical-t4,r05_c03,1,5.1,pass2 agents
+cervical-t4,r05_c04,1,5.6,pass2 agents
+cervical-t4,r05_c05,1,6.5 (C4-5),pass2 agents
+cervical-t4,r06_c00,1,0.07,pass2 agents
+cervical-t4,r06_c01,1,0.32,pass2 agents
+cervical-t4,r06_c02,1,0.46,pass2 agents
+cervical-t4,r06_c03,1,0.35,pass2 agents
+cervical-t4,r06_c04,1,0.39,pass2 agents
+cervical-t4,r06_c05,1,0.35,pass2 agents
+cervical-t4,r07_c00,1,11.1 (C3-7),pass2 agents
+cervical-t4,r07_c01,1,7.2,pass2 agents
+cervical-t4,r07_c02,1,7.3,pass2 agents
+cervical-t4,r07_c03,1,7.3,pass2 agents
+cervical-t4,r07_c04,1,7.5,pass2 agents
+cervical-t4,r07_c05,1,7.5,pass2 agents
+cervical-t4,r08_c00,1,0.14,pass2 agents
+cervical-t4,r08_c01,1,0.35,pass2 agents
+cervical-t4,r08_c02,1,0.49,pass2 agents
+cervical-t4,r08_c03,1,0.39,pass2 agents
+cervical-t4,r08_c04,1,0.32,pass2 agents
+cervical-t4,r08_c05,1,0.28,pass2 agents
+cervical-t4,r09_c00,1,1.22,pass2 agents
+cervical-t4,r09_c01,1,1.3,pass2 agents
+cervical-t4,r09_c02,1,1.3,pass2 agents
+cervical-t4,r09_c03,1,1.1,pass2 agents
+cervical-t4,r09_c04,1,1.1,pass2 agents
+cervical-t4,r09_c05,1,1.1,pass2 agents
+cervical-t4,r10_c00,1,1.34,pass2 agents
+cervical-t4,r10_c01,1,1.3,pass2 agents
+cervical-t4,r10_c02,1,1.43,pass2 agents
+cervical-t4,r10_c03,1,1.43,pass2 agents
+cervical-t4,r10_c04,1,1.34,pass2 agents
+cervical-t4,r10_c05,1,1.15,pass2 agents
+cervical-t4,r12_c00,1,32.3,pass2 agents
+cervical-t4,r12_c01,1,24.2,pass2 agents
+cervical-t4,r12_c02,1,24.7,pass2 agents
+cervical-t4,r12_c03,1,23.8,pass2 agents
+cervical-t4,r12_c04,1,24.5,pass2 agents
+cervical-t4,r12_c05,1,30.4,pass2 agents
+cervical-t4,r13_c00,1,2.44,pass2 agents
+cervical-t4,r13_c01,1,2.69,pass2 agents
+cervical-t4,r13_c02,1,2.65,pass2 agents
+cervical-t4,r13_c03,1,2.83,pass2 agents
+cervical-t4,r13_c04,1,2.58,pass2 agents
+cervical-t4,r13_c05,1,3.08,pass2 agents
+cervical-t4,r14_c00,1,51.8 (C3-7),pass2 agents
+cervical-t4,r14_c01,1,21.4,pass2 agents
+cervical-t4,r14_c02,1,24.0,pass2 agents
+cervical-t4,r14_c03,1,23.9,pass2 agents
+cervical-t4,r14_c04,1,27.9,pass2 agents
+cervical-t4,r14_c05,1,27.8,pass2 agents
+cervical-t4,r15_c00,1,0.28,pass2 agents
+cervical-t4,r15_c01,1,2.02,pass2 agents
+cervical-t4,r15_c02,1,3.08,pass2 agents
+cervical-t4,r15_c03,1,2.58,pass2 agents
+cervical-t4,r15_c04,1,2.47,pass2 agents
+cervical-t4,r15_c05,1,2.37,pass2 agents
+cervical-t4,r17_c00,1,-,pass2 agents
+cervical-t4,r17_c01,1,41.6,pass2 agents
+cervical-t4,r17_c02,1,44.6,pass2 agents
+cervical-t4,r17_c03,1,39.3,pass2 agents
+cervical-t4,r17_c04,1,29.6 (C3-5),pass2 agents
+cervical-t4,r17_c05,1,33.1 (C4),pass2 agents
+cervical-t4,r18_c00,1,-,pass2 agents
+cervical-t4,r18_c01,1,1.13,pass2 agents
+cervical-t4,r18_c02,1,1.66,pass2 agents
+cervical-t4,r18_c03,1,4.45,pass2 agents
+cervical-t4,r18_c04,1,2.30,pass2 agents
+cervical-t4,r18_c05,1,2.23,pass2 agents
+cervical-t4,r19_c00,1,-,pass2 agents
+cervical-t4,r19_c01,1,-9.2,pass2 agents
+cervical-t4,r19_c02,1,-8.6,pass2 agents
+cervical-t4,r19_c03,1,-6.3,pass2 agents
+cervical-t4,r19_c04,1,7.1 (C3-5),pass2 agents
+cervical-t4,r19_c05,1,13.4 (C3-5),pass2 agents
+cervical-t4,r20_c00,1,-,pass2 agents
+cervical-t4,r20_c01,1,2.58,pass2 agents
+cervical-t4,r20_c02,1,2.44,pass2 agents
+cervical-t4,r20_c03,1,1.63,pass2 agents
+cervical-t4,r20_c04,1,1.13,pass2 agents
+cervical-t4,r20_c05,1,1.70,pass2 agents
+cervical-t4,r21_c00,1,-,pass2 agents
+cervical-t4,r21_c01,1,42.9,pass2 agents
+cervical-t4,r21_c02,1,43.9,pass2 agents
+cervical-t4,r21_c03,1,41.2,pass2 agents
+cervical-t4,r21_c04,1,34.1,pass2 agents
+cervical-t4,r21_c05,1,26.7 (C3-5),pass2 agents
+cervical-t4,r22_c00,1,-,pass2 agents
+cervical-t4,r22_c01,1,2.16,pass2 agents
+cervical-t4,r22_c02,1,2.47,pass2 agents
+cervical-t4,r22_c03,1,4.77,pass2 agents
+cervical-t4,r22_c04,1,2.16,pass2 agents
+cervical-t4,r22_c05,1,2.69,pass2 agents
+cervical-t4,r23_c00,1,-,pass2 agents
+cervical-t4,r23_c01,1,-7.1,pass2 agents
+cervical-t4,r23_c02,1,-6.5,pass2 agents
+cervical-t4,r23_c03,1,-5.7,pass2 agents
+cervical-t4,r23_c04,1,5.9 (C3-5),pass2 agents
+cervical-t4,r23_c05,1,9.2 (C3-5),pass2 agents
+cervical-t4,r24_c00,1,-,pass2 agents
+cervical-t4,r24_c01,1,0.67,pass2 agents
+cervical-t4,r24_c02,1,1.66,pass2 agents
+cervical-t4,r24_c03,1,1.48,pass2 agents
+cervical-t4,r24_c04,1,2.51,pass2 agents
+cervical-t4,r24_c05,1,1.52,pass2 agents
+cervical-t5,r01_c00,1,33.7,pass2 agents
+cervical-t5,r01_c01,1,29.6,pass2 agents
+cervical-t5,r01_c02,1,30.3,pass2 agents
+cervical-t5,r01_c03,1,28.5,pass2 agents
+cervical-t5,r01_c04,1,34.2,pass2 agents
+cervical-t5,r01_c05,1,45.7 (C2-6),pass2 agents
+cervical-t5,r02_c00,1,1.39,pass2 agents
+cervical-t5,r02_c01,1,0.78,pass2 agents
+cervical-t5,r02_c02,1,1.07,pass2 agents
+cervical-t5,r02_c03,1,0.98,pass2 agents
+cervical-t5,r02_c04,1,1.88,pass2 agents
+cervical-t5,r02_c05,1,0.84,pass2 agents
+cervical-t5,r03_c00,1,52.6,pass2 agents
+cervical-t5,r03_c01,1,50.3,pass2 agents
+cervical-t5,r03_c02,1,48.5,pass2 agents
+cervical-t5,r03_c03,1,46.4,pass2 agents
+cervical-t5,r03_c04,1,49.5,pass2 agents
+cervical-t5,r03_c05,1,66.6 (C2-6),pass2 agents
+cervical-t5,r04_c00,1,2.08,pass2 agents
+cervical-t5,r04_c01,1,1.62,pass2 agents
+cervical-t5,r04_c02,1,2.14,pass2 agents
+cervical-t5,r04_c03,1,2.97,pass2 agents
+cervical-t5,r04_c04,1,2.11,pass2 agents
+cervical-t5,r04_c05,1,1.13,pass2 agents
+cervical-t6,r01_c00,1,-,pass2 agents
+cervical-t6,r01_c01,1,46.7,pass2 agents
+cervical-t6,r01_c02,1,40.9,pass2 agents
+cervical-t6,r01_c03,1,45.3,pass2 agents
+cervical-t6,r01_c04,1,48.8,pass2 agents
+cervical-t6,r01_c05,1,43.1,pass2 agents
+cervical-t6,r02_c00,1,-,pass2 agents
+cervical-t6,r02_c01,1,4.27,pass2 agents
+cervical-t6,r02_c02,1,3.18,pass2 agents
+cervical-t6,r02_c03,1,6.09,pass2 agents
+cervical-t6,r02_c04,1,3.32,pass2 agents
+cervical-t6,r02_c05,1,3.84,pass2 agents
+cervical-t6,r03_c00,1,-,pass2 agents
+cervical-t6,r03_c01,1,40.5,pass2 agents
+cervical-t6,r03_c02,1,37.0,pass2 agents
+cervical-t6,r03_c03,1,40.4,pass2 agents
+cervical-t6,r03_c04,1,58.1,pass2 agents
+cervical-t6,r03_c05,1,41.2,pass2 agents
+cervical-t6,r04_c00,1,-,pass2 agents
+cervical-t6,r04_c01,1,3.95,pass2 agents
+cervical-t6,r04_c02,1,3.41,pass2 agents
+cervical-t6,r04_c03,1,4.73,pass2 agents
+cervical-t6,r04_c04,1,7.45,pass2 agents
+cervical-t6,r04_c05,1,3.15,pass2 agents
+cervical-t6,r05_c00,1,19.8,pass2 agents
+cervical-t6,r05_c01,1,22.6,pass2 agents
+cervical-t6,r05_c02,1,25.5,pass2 agents
+cervical-t6,r05_c03,1,27.2,pass2 agents
+cervical-t6,r05_c04,1,25.6,pass2 agents
+cervical-t6,r05_c05,1,23.4,pass2 agents
+cervical-t6,r06_c00,1,3.70,pass2 agents
+cervical-t6,r06_c01,1,2.51,pass2 agents
+cervical-t6,r06_c02,1,3.26,pass2 agents
+cervical-t6,r06_c03,1,2.94,pass2 agents
+cervical-t6,r06_c04,1,2.66,pass2 agents
+cervical-t6,r06_c05,1,2.71,pass2 agents
+cervical-t6,r07_c00,1,17.7,pass2 agents
+cervical-t6,r07_c01,1,22.3,pass2 agents
+cervical-t6,r07_c02,1,23.5,pass2 agents
+cervical-t6,r07_c03,1,30.5,pass2 agents
+cervical-t6,r07_c04,1,23.9,pass2 agents
+cervical-t6,r07_c05,1,19.0,pass2 agents
+cervical-t6,r08_c00,1,2.40,pass2 agents
+cervical-t6,r08_c01,1,2.89,pass2 agents
+cervical-t6,r08_c02,1,1.96,pass2 agents
+cervical-t6,r08_c03,1,3.84,pass2 agents
+cervical-t6,r08_c04,1,1.79,pass2 agents
+cervical-t6,r08_c05,1,3.00,pass2 agents
+cervical-t6,r10_c00,1,-,pass2 agents
+cervical-t6,r10_c01,1,76.6,pass2 agents
+cervical-t6,r10_c02,1,76.2,pass2 agents
+cervical-t6,r10_c03,1,82.7,pass2 agents
+cervical-t6,r10_c04,1,104.0 (C3-5),pass2 agents
+cervical-t6,r10_c05,1,115.6 (C3-6),pass2 agents
+cervical-t6,r11_c00,1,-,pass2 agents
+cervical-t6,r11_c01,1,2.22,pass2 agents
+cervical-t6,r11_c02,1,2.45,pass2 agents
+cervical-t6,r11_c03,1,1.44,pass2 agents
+cervical-t6,r11_c04,1,2.40,pass2 agents
+cervical-t6,r11_c05,1,2.68,pass2 agents
+cervical-t6,r12_c00,1,-,pass2 agents
+cervical-t6,r12_c01,1,38.7,pass2 agents
+cervical-t6,r12_c02,1,40.0,pass2 agents
+cervical-t6,r12_c03,1,34.5,pass2 agents
+cervical-t6,r12_c04,1,40.8,pass2 agents
+cervical-t6,r12_c05,1,47.3,pass2 agents
+cervical-t6,r13_c00,1,-,pass2 agents
+cervical-t6,r13_c01,1,3.87,pass2 agents
+cervical-t6,r13_c02,1,2.89,pass2 agents
+cervical-t6,r13_c03,1,2.08,pass2 agents
+cervical-t6,r13_c04,1,3.52,pass2 agents
+cervical-t6,r13_c05,1,3.00,pass2 agents
+cervical-t6,r14_c00,1,78.4,pass2 agents
+cervical-t6,r14_c01,1,81.6,pass2 agents
+cervical-t6,r14_c02,1,83.5,pass2 agents
+cervical-t6,r14_c03,1,84.9,pass2 agents
+cervical-t6,r14_c04,1,106.2 (C2-5),pass2 agents
+cervical-t6,r14_c05,1,113.4 (C2-5),pass2 agents
+cervical-t6,r15_c00,1,3.20,pass2 agents
+cervical-t6,r15_c01,1,1.59,pass2 agents
+cervical-t6,r15_c02,1,1.39,pass2 agents
+cervical-t6,r15_c03,1,1.10,pass2 agents
+cervical-t6,r15_c04,1,2.28,pass2 agents
+cervical-t6,r15_c05,1,2.17,pass2 agents
+cervical-t6,r16_c00,1,63.7 (C5),pass2 agents
+cervical-t6,r16_c01,1,47.8,pass2 agents
+cervical-t6,r16_c02,1,47.8,pass2 agents
+cervical-t6,r16_c03,1,45.0,pass2 agents
+cervical-t6,r16_c04,1,49.2,pass2 agents
+cervical-t6,r16_c05,1,59.8,pass2 agents
+cervical-t6,r17_c00,1,5.05,pass2 agents
+cervical-t6,r17_c01,1,4.01,pass2 agents
+cervical-t6,r17_c02,1,3.46,pass2 agents
+cervical-t6,r17_c03,1,3.03,pass2 agents
+cervical-t6,r17_c04,1,4.33,pass2 agents
+cervical-t6,r17_c05,1,4.47,pass2 agents
+cervical-t7,r00_c00,1,C2,pass2 agents
+cervical-t7,r00_c01,1,15.6,pass2 agents
+cervical-t7,r00_c02,1,-,pass2 agents
+cervical-t7,r00_c03,1,15.3,pass2 agents
+cervical-t7,r00_c04,1,16.1,pass2 agents
+cervical-t7,r01_c00,1,C3,pass2 agents
+cervical-t7,r01_c01,1,15.6,pass2 agents
+cervical-t7,r01_c02,1,14.4,pass2 agents
+cervical-t7,r01_c03,1,15.6,pass2 agents
+cervical-t7,r01_c04,1,16.4,pass2 agents
+cervical-t7,r02_c00,1,C4,pass2 agents
+cervical-t7,r02_c01,1,15.9,pass2 agents
+cervical-t7,r02_c02,1,14.1,pass2 agents
+cervical-t7,r02_c03,1,15.8,pass2 agents
+cervical-t7,r02_c04,1,16.5,pass2 agents
+cervical-t7,r03_c00,1,C5,pass2 agents
+cervical-t7,r03_c01,1,17.9,pass2 agents
+cervical-t7,r03_c02,1,14.8,pass2 agents
+cervical-t7,r03_c03,1,16.1,pass2 agents
+cervical-t7,r03_c04,1,16.8,pass2 agents
+cervical-t7,r04_c00,1,C6,pass2 agents
+cervical-t7,r04_c01,1,18.5,pass2 agents
+cervical-t7,r04_c02,1,14.4,pass2 agents
+cervical-t7,r04_c03,1,16.6,pass2 agents
+cervical-t7,r04_c04,1,17.3,pass2 agents
+cervical-t7,r05_c00,1,C7,pass2 agents
+cervical-t7,r05_c01,1,16.8,pass2 agents
+cervical-t7,r05_c02,1,14.5,pass2 agents
+cervical-t7,r05_c03,1,16.3,pass2 agents
+cervical-t7,r05_c04,1,16.7,pass2 agents
+cervical-t7,r06_c00,1,C2,pass2 agents
+cervical-t7,r06_c01,1,17.5,pass2 agents
+cervical-t7,r06_c02,1,-,pass2 agents
+cervical-t7,r06_c03,1,-,pass2 agents
+cervical-t7,r06_c04,1,19.5,pass2 agents
+cervical-t7,r07_c00,1,C3,pass2 agents
+cervical-t7,r07_c01,1,17.2,pass2 agents
+cervical-t7,r07_c02,1,-,pass2 agents
+cervical-t7,r07_c03,1,-,pass2 agents
+cervical-t7,r07_c04,1,20.5,pass2 agents
+cervical-t7,r08_c00,1,C4,pass2 agents
+cervical-t7,r08_c01,1,17.0,pass2 agents
+cervical-t7,r08_c02,1,-,pass2 agents
+cervical-t7,r08_c03,1,-,pass2 agents
+cervical-t7,r08_c04,1,21.5,pass2 agents
+cervical-t7,r09_c00,1,C5,pass2 agents
+cervical-t7,r09_c01,1,19.4,pass2 agents
+cervical-t7,r09_c02,1,-,pass2 agents
+cervical-t7,r09_c03,1,-,pass2 agents
+cervical-t7,r09_c04,1,22.5,pass2 agents
+cervical-t7,r10_c00,1,C6,pass2 agents
+cervical-t7,r10_c01,1,22.0,pass2 agents
+cervical-t7,r10_c02,1,-,pass2 agents
+cervical-t7,r10_c03,1,-,pass2 agents
+cervical-t7,r10_c04,1,24.8,pass2 agents
+cervical-t7,r11_c00,1,C7,pass2 agents
+cervical-t7,r11_c01,1,23.4,pass2 agents
+cervical-t7,r11_c02,1,-,pass2 agents
+cervical-t7,r11_c03,1,-,pass2 agents
+cervical-t7,r11_c04,1,29.3,pass2 agents
+cervical-t7,r12_c00,1,C2,pass2 agents
+cervical-t7,r12_c01,1,194.4,pass2 agents
+cervical-t7,r12_c02,1,326.8,pass2 agents
+cervical-t7,r12_c03,1,-,pass2 agents
+cervical-t7,r12_c04,1,246.6,pass2 agents
+cervical-t7,r13_c00,1,C3,pass2 agents
+cervical-t7,r13_c01,1,190.7,pass2 agents
+cervical-t7,r13_c02,1,309.7,pass2 agents
+cervical-t7,r13_c03,1,-,pass2 agents
+cervical-t7,r13_c04,1,264.0,pass2 agents
+cervical-t7,r14_c00,1,C4,pass2 agents
+cervical-t7,r14_c01,1,199.2,pass2 agents
+cervical-t7,r14_c02,1,329.5,pass2 agents
+cervical-t7,r14_c03,1,-,pass2 agents
+cervical-t7,r14_c04,1,278.6,pass2 agents
+cervical-t7,r15_c00,1,C5,pass2 agents
+cervical-t7,r15_c01,1,246.2,pass2 agents
+cervical-t7,r15_c02,1,361.1,pass2 agents
+cervical-t7,r15_c03,1,-,pass2 agents
+cervical-t7,r15_c04,1,296.9,pass2 agents
+cervical-t7,r16_c00,1,C6,pass2 agents
+cervical-t7,r16_c01,1,289.9,pass2 agents
+cervical-t7,r16_c02,1,421.7,pass2 agents
+cervical-t7,r16_c03,1,-,pass2 agents
+cervical-t7,r16_c04,1,337.0,pass2 agents
+cervical-t7,r17_c00,1,C7,pass2 agents
+cervical-t7,r17_c01,1,280.3,pass2 agents
+cervical-t7,r17_c02,1,440.5,pass2 agents
+cervical-t7,r17_c03,1,-,pass2 agents
+cervical-t7,r17_c04,1,384.3,pass2 agents
+cervical-t7,r18_c00,1,C2,pass2 agents
+cervical-t7,r18_c01,1,21.0,pass2 agents
+cervical-t7,r18_c02,1,-,pass2 agents
+cervical-t7,r18_c03,1,-,pass2 agents
+cervical-t7,r18_c04,1,22.0,pass2 agents
+cervical-t7,r19_c00,1,C3,pass2 agents
+cervical-t7,r19_c01,1,16.2,pass2 agents
+cervical-t7,r19_c02,1,-,pass2 agents
+cervical-t7,r19_c03,1,-,pass2 agents
+cervical-t7,r19_c04,1,16.5,pass2 agents
+cervical-t7,r20_c00,1,C4,pass2 agents
+cervical-t7,r20_c01,1,17.7,pass2 agents
+cervical-t7,r20_c02,1,-,pass2 agents
+cervical-t7,r20_c03,1,-,pass2 agents
+cervical-t7,r20_c04,1,15.4,pass2 agents
+cervical-t7,r21_c00,1,C5,pass2 agents
+cervical-t7,r21_c01,1,17.4,pass2 agents
+cervical-t7,r21_c02,1,-,pass2 agents
+cervical-t7,r21_c03,1,-,pass2 agents
+cervical-t7,r21_c04,1,15.4,pass2 agents
+cervical-t7,r22_c00,1,C6,pass2 agents
+cervical-t7,r22_c01,1,18.1,pass2 agents
+cervical-t7,r22_c02,1,-,pass2 agents
+cervical-t7,r22_c03,1,-,pass2 agents
+cervical-t7,r22_c04,1,15.4,pass2 agents
+cervical-t7,r23_c00,1,C7,pass2 agents
+cervical-t7,r23_c01,1,15.2,pass2 agents
+cervical-t7,r23_c02,1,-,pass2 agents
+cervical-t7,r23_c03,1,-,pass2 agents
+cervical-t7,r23_c04,1,15.5,pass2 agents
+cervical-t7,r24_c00,1,C2,pass2 agents
+cervical-t7,r24_c01,1,24.5,pass2 agents
+cervical-t7,r24_c02,1,-,pass2 agents
+cervical-t7,r24_c03,1,-,pass2 agents
+cervical-t7,r24_c04,1,24.5,pass2 agents
+cervical-t7,r25_c00,1,C3,pass2 agents
+cervical-t7,r25_c01,1,22.9,pass2 agents
+cervical-t7,r25_c02,1,-,pass2 agents
+cervical-t7,r25_c03,1,-,pass2 agents
+cervical-t7,r25_c04,1,23.9,pass2 agents
+cervical-t7,r26_c00,1,C4,pass2 agents
+cervical-t7,r26_c01,1,24.7,pass2 agents
+cervical-t7,r26_c02,1,-,pass2 agents
+cervical-t7,r26_c03,1,-,pass2 agents
+cervical-t7,r26_c04,1,24.7,pass2 agents
+cervical-t7,r27_c00,1,C5,pass2 agents
+cervical-t7,r27_c01,1,24.9,pass2 agents
+cervical-t7,r27_c02,1,-,pass2 agents
+cervical-t7,r27_c03,1,-,pass2 agents
+cervical-t7,r27_c04,1,25.6,pass2 agents
+cervical-t7,r28_c00,1,C6,pass2 agents
+cervical-t7,r28_c01,1,25.8,pass2 agents
+cervical-t7,r28_c02,1,-,pass2 agents
+cervical-t7,r28_c03,1,-,pass2 agents
+cervical-t7,r28_c04,1,25.9,pass2 agents
+cervical-t7,r29_c00,1,C7,pass2 agents
+cervical-t7,r29_c01,1,24.5,pass2 agents
+cervical-t7,r29_c02,1,-,pass2 agents
+cervical-t7,r29_c03,1,-,pass2 agents
+cervical-t7,r29_c04,1,25.6,pass2 agents
+cervical-t7,r30_c00,1,C3,pass2 agents
+cervical-t7,r30_c01,1,11.6,pass2 agents
+cervical-t7,r30_c02,1,-,pass2 agents
+cervical-t7,r30_c03,1,14.5,pass2 agents
+cervical-t7,r30_c04,1,14.3,pass2 agents
+cervical-t7,r31_c00,1,C4,pass2 agents
+cervical-t7,r31_c01,1,11.4,pass2 agents
+cervical-t7,r31_c02,1,-,pass2 agents
+cervical-t7,r31_c03,1,13.9,pass2 agents
+cervical-t7,r31_c04,1,13.8,pass2 agents
+cervical-t7,r32_c00,1,C5,pass2 agents
+cervical-t7,r32_c01,1,11.4,pass2 agents
+cervical-t7,r32_c02,1,-,pass2 agents
+cervical-t7,r32_c03,1,13.8,pass2 agents
+cervical-t7,r32_c04,1,13.3,pass2 agents
+cervical-t7,r33_c00,1,C6,pass2 agents
+cervical-t7,r33_c01,1,10.9,pass2 agents
+cervical-t7,r33_c02,1,-,pass2 agents
+cervical-t7,r33_c03,1,13.9,pass2 agents
+cervical-t7,r33_c04,1,13.0,pass2 agents
+cervical-t7,r34_c00,1,C7,pass2 agents
+cervical-t7,r34_c01,1,12.8,pass2 agents
+cervical-t7,r34_c02,1,-,pass2 agents
+cervical-t7,r34_c03,1,14.9,pass2 agents
+cervical-t7,r34_c04,1,14.6,pass2 agents
+facets-t10,r00_c00,1,T11,pass2 agents
+facets-t10,r00_c01,1,75,pass2 agents
+facets-t10,r00_c02,1,73,pass2 agents
+facets-t10,r00_c03,1,-,pass2 agents
+facets-t10,r00_c04,1,-,pass2 agents
+facets-t10,r00_c05,1,-,pass2 agents
+facets-t10,r01_c00,1,T12,pass2 agents
+facets-t10,r01_c01,1,70,pass2 agents
+facets-t10,r01_c02,1,98,pass2 agents
+facets-t10,r01_c03,1,-,pass2 agents
+facets-t10,r01_c04,1,-,pass2 agents
+facets-t10,r01_c05,1,-,pass2 agents
+facets-t10,r02_c00,1,L1,pass2 agents
+facets-t10,r02_c01,1,137,pass2 agents
+facets-t10,r02_c02,1,117,pass2 agents
+facets-t10,r02_c03,1,-,pass2 agents
+facets-t10,r02_c04,1,-,pass2 agents
+facets-t10,r02_c05,1,155,pass2 agents
+facets-t10,r03_c00,1,L2,pass2 agents
+facets-t10,r03_c01,1,137,pass2 agents
+facets-t10,r03_c02,1,-,pass2 agents
+facets-t10,r03_c03,1,-,pass2 agents
+facets-t10,r03_c04,1,-,pass2 agents
+facets-t10,r03_c05,1,150,pass2 agents
+facets-t10,r04_c00,1,L3,pass2 agents
+facets-t10,r04_c01,1,132,pass2 agents
+facets-t10,r04_c02,1,-,pass2 agents
+facets-t10,r04_c03,1,151,pass2 agents
+facets-t10,r04_c04,1,-,pass2 agents
+facets-t10,r04_c05,1,135,pass2 agents
+facets-t10,r05_c00,1,L4,pass2 agents
+facets-t10,r05_c01,1,122,pass2 agents
+facets-t10,r05_c02,1,-,pass2 agents
+facets-t10,r05_c03,1,-,pass2 agents
+facets-t10,r05_c04,1,143,pass2 agents
+facets-t10,r05_c05,1,135,pass2 agents
+facets-t10,r06_c00,1,L5,pass2 agents
+facets-t10,r06_c01,1,118,pass2 agents
+facets-t10,r06_c02,1,-,pass2 agents
+facets-t10,r06_c03,1,129,pass2 agents
+facets-t10,r06_c04,1,132,pass2 agents
+facets-t10,r06_c05,1,135,pass2 agents
+facets-t10,r07_c00,1,S1,pass2 agents
+facets-t10,r07_c01,1,-,pass2 agents
+facets-t10,r07_c02,1,-,pass2 agents
+facets-t10,r07_c03,1,-,pass2 agents
+facets-t10,r07_c04,1,127,pass2 agents
+facets-t10,r07_c05,1,-,pass2 agents
+facets-t2,r00_c00,1,16.8 (0.3),pass2 agents
+facets-t2,r00_c01,1,16.0 (0.5),pass2 agents
+facets-t2,r00_c02,1,18.0 (0.4),pass2 agents
+facets-t2,r00_c03,1,17.7 (0.6),pass2 agents
+facets-t2,r00_c04,1,0.93,pass2 agents
+facets-t2,r00_c05,1,0.90,pass2 agents
+facets-t2,r01_c00,1,11.4 (0.7),pass2 agents
+facets-t2,r01_c01,1,10.8 (0.5),pass2 agents
+facets-t2,r01_c02,1,12.5 (1.1),pass2 agents
+facets-t2,r01_c03,1,10.6 (0.6),pass2 agents
+facets-t2,r01_c04,1,0.91,pass2 agents
+facets-t2,r01_c05,1,1.02,pass2 agents
+facets-t2,r02_c00,1,12.0 (0.6),pass2 agents
+facets-t2,r02_c01,1,11.0 (1.0),pass2 agents
+facets-t2,r02_c02,1,12.3 (1.2),pass2 agents
+facets-t2,r02_c03,1,12.0 (1.1),pass2 agents
+facets-t2,r02_c04,1,0.96,pass2 agents
+facets-t2,r02_c05,1,0.91,pass2 agents
+facets-t2,r03_c00,1,12.3 (0.8),pass2 agents
+facets-t2,r03_c01,1,11.8 (0.8),pass2 agents
+facets-t2,r03_c02,1,12.0 (0.9),pass2 agents
+facets-t2,r03_c03,1,11.2 (0.8),pass2 agents
+facets-t2,r03_c04,1,1.04,pass2 agents
+facets-t2,r03_c05,1,1.05,pass2 agents
+facets-t2,r04_c00,1,11.6 (0.5),pass2 agents
+facets-t2,r04_c01,1,13.2 (0.7),pass2 agents
+facets-t2,r04_c02,1,10.2 (0.6),pass2 agents
+facets-t2,r04_c03,1,11.7 (0.6),pass2 agents
+facets-t2,r04_c04,1,1.14,pass2 agents
+facets-t2,r04_c05,1,1.13,pass2 agents
+facets-t2,r05_c00,1,12.3 (0.9),pass2 agents
+facets-t2,r05_c01,1,12.8 (0.6),pass2 agents
+facets-t2,r05_c02,1,12.1 (0.8),pass2 agents
+facets-t2,r05_c03,1,10.7 (0.3),pass2 agents
+facets-t2,r05_c04,1,1.02,pass2 agents
+facets-t2,r05_c05,1,1.20,pass2 agents
+facets-t2,r06_c00,1,13.3 (0.7),pass2 agents
+facets-t2,r06_c01,1,14.0 (0.9),pass2 agents
+facets-t2,r06_c02,1,12.6 (0.6),pass2 agents
+facets-t2,r06_c03,1,12.6 (1.2),pass2 agents
+facets-t2,r06_c04,1,1.06,pass2 agents
+facets-t2,r06_c05,1,1.11,pass2 agents
+facets-t2,r07_c00,1,11.7 (0.6),pass2 agents
+facets-t2,r07_c01,1,12.1 (0.5),pass2 agents
+facets-t2,r07_c02,1,12.2 (0.5),pass2 agents
+facets-t2,r07_c03,1,13.0 (0.8),pass2 agents
+facets-t2,r07_c04,1,0.96,pass2 agents
+facets-t2,r07_c05,1,0.94,pass2 agents
+facets-t2,r08_c00,1,10.8 (0.5),pass2 agents
+facets-t2,r08_c01,1,10.6 (0.3),pass2 agents
+facets-t2,r08_c02,1,10.8 (0.4),pass2 agents
+facets-t2,r08_c03,1,11.7 (0.5),pass2 agents
+facets-t2,r08_c04,1,1.00,pass2 agents
+facets-t2,r08_c05,1,0.90,pass2 agents
+facets-t2,r09_c00,1,10.5 (0.4),pass2 agents
+facets-t2,r09_c01,1,10.3 (0.2),pass2 agents
+facets-t2,r09_c02,1,11.0 (0.4),pass2 agents
+facets-t2,r09_c03,1,11.5 (0.4),pass2 agents
+facets-t2,r09_c04,1,0.95,pass2 agents
+facets-t2,r09_c05,1,0.90,pass2 agents
+facets-t2,r10_c00,1,10.6 (0.3),pass2 agents
+facets-t2,r10_c01,1,9.8 (0.3),pass2 agents
+facets-t2,r10_c02,1,12.1 (0.5),pass2 agents
+facets-t2,r10_c03,1,10.9 (0.5),pass2 agents
+facets-t2,r10_c04,1,0.88,pass2 agents
+facets-t2,r10_c05,1,0.91,pass2 agents
+facets-t2,r11_c00,1,9.6 (0.5),pass2 agents
+facets-t2,r11_c01,1,10.1 (0.3),pass2 agents
+facets-t2,r11_c02,1,11.7 (0.5),pass2 agents
+facets-t2,r11_c03,1,11.8 (0.7),pass2 agents
+facets-t2,r11_c04,1,0.83,pass2 agents
+facets-t2,r11_c05,1,0.86,pass2 agents
+facets-t2,r12_c00,1,9.6 (0.5),pass2 agents
+facets-t2,r12_c01,1,9.9 (0.4),pass2 agents
+facets-t2,r12_c02,1,11.9 (0.7),pass2 agents
+facets-t2,r12_c03,1,11.0 (0.4),pass2 agents
+facets-t2,r12_c04,1,0.80,pass2 agents
+facets-t2,r12_c05,1,0.90,pass2 agents
+facets-t2,r13_c00,1,10.0 (0.4),pass2 agents
+facets-t2,r13_c01,1,10.3 (0.3),pass2 agents
+facets-t2,r13_c02,1,11.5 (0.7),pass2 agents
+facets-t2,r13_c03,1,11.7 (0.7),pass2 agents
+facets-t2,r13_c04,1,0.87,pass2 agents
+facets-t2,r13_c05,1,0.89,pass2 agents
+facets-t2,r14_c00,1,11.0 (0.4),pass2 agents
+facets-t2,r14_c01,1,10.7 (0.3),pass2 agents
+facets-t2,r14_c02,1,12.1 (0.7),pass2 agents
+facets-t2,r14_c03,1,11.7 (0.7),pass2 agents
+facets-t2,r14_c04,1,0.91,pass2 agents
+facets-t2,r14_c05,1,0.91,pass2 agents
+facets-t2,r15_c00,1,11.5 (1.0),pass2 agents
+facets-t2,r15_c01,1,12.9 (0.9),pass2 agents
+facets-t2,r15_c02,1,12.0 (0.7),pass2 agents
+facets-t2,r15_c03,1,12.4 (0.6),pass2 agents
+facets-t2,r15_c04,1,0.96,pass2 agents
+facets-t2,r15_c05,1,1.03,pass2 agents
+facets-t2,r16_c00,1,11.4 (0.4),pass2 agents
+facets-t2,r16_c01,1,11.3 (0.5),pass2 agents
+facets-t2,r16_c02,1,12.5 (0.5),pass2 agents
+facets-t2,r16_c03,1,12.0 (0.6),pass2 agents
+facets-t2,r16_c04,1,0.91,pass2 agents
+facets-t2,r16_c05,1,0.95,pass2 agents
+facets-t2,r17_c00,1,11.2 (0.7),pass2 agents
+facets-t2,r17_c01,1,10.5 (0.7),pass2 agents
+facets-t2,r17_c02,1,13.4 (0.5),pass2 agents
+facets-t2,r17_c03,1,12.5 (0.7),pass2 agents
+facets-t2,r17_c04,1,0.84,pass2 agents
+facets-t2,r17_c05,1,0.84,pass2 agents
+facets-t2,r18_c00,1,10.2 (0.6),pass2 agents
+facets-t2,r18_c01,1,10.5 (0.6),pass2 agents
+facets-t2,r18_c02,1,12.7 (0.3),pass2 agents
+facets-t2,r18_c03,1,12.2 (0.7),pass2 agents
+facets-t2,r18_c04,1,0.80,pass2 agents
+facets-t2,r18_c05,1,0.86,pass2 agents
+facets-t2,r19_c00,1,11.1 (0.7),pass2 agents
+facets-t2,r19_c01,1,11.4 (1.0),pass2 agents
+facets-t2,r19_c02,1,14.6 (0.6),pass2 agents
+facets-t2,r19_c03,1,14.6 (0.7),pass2 agents
+facets-t2,r19_c04,1,0.76,pass2 agents
+facets-t2,r19_c05,1,0.78,pass2 agents
+facets-t2,r20_c00,1,13.8 (0.9),pass2 agents
+facets-t2,r20_c01,1,13.9 (0.7),pass2 agents
+facets-t2,r20_c02,1,16.0 (0.8),pass2 agents
+facets-t2,r20_c03,1,15.9 (0.8),pass2 agents
+facets-t2,r20_c04,1,0.86,pass2 agents
+facets-t2,r20_c05,1,0.87,pass2 agents
+facets-t2,r21_c00,1,14.1 (1.0),pass2 agents
+facets-t2,r21_c01,1,15.3 (0.6),pass2 agents
+facets-t2,r21_c02,1,16.1 (0.5),pass2 agents
+facets-t2,r21_c03,1,17.3 (0.7),pass2 agents
+facets-t2,r21_c04,1,0.88,pass2 agents
+facets-t2,r21_c05,1,0.89,pass2 agents
+facets-t2,r22_c00,1,16.3 (0.7),pass2 agents
+facets-t2,r22_c01,1,14.9 (0.6),pass2 agents
+facets-t2,r22_c02,1,17.4 (0.7),pass2 agents
+facets-t2,r22_c03,1,17.5 (0.7),pass2 agents
+facets-t2,r22_c04,1,0.93,pass2 agents
+facets-t2,r22_c05,1,0.85,pass2 agents
+facets-t3,r00_c00,1,11.4 (0.3),pass2 agents
+facets-t3,r00_c01,1,10.4 (0.5),pass2 agents
+facets-t3,r00_c02,1,13.0 (0.7),pass2 agents
+facets-t3,r00_c03,1,11.8 (0.6),pass2 agents
+facets-t3,r00_c04,1,0.88,pass2 agents
+facets-t3,r00_c05,1,0.88,pass2 agents
+facets-t3,r01_c00,1,11.7 (0.3),pass2 agents
+facets-t3,r01_c01,1,11.0 (0.7),pass2 agents
+facets-t3,r01_c02,1,12.9 (1.0),pass2 agents
+facets-t3,r01_c03,1,11.9 (1.2),pass2 agents
+facets-t3,r01_c04,1,0.90,pass2 agents
+facets-t3,r01_c05,1,0.92,pass2 agents
+facets-t3,r02_c00,1,12.2 (0.5),pass2 agents
+facets-t3,r02_c01,1,11.1 (0.6),pass2 agents
+facets-t3,r02_c02,1,13.0 (0.7),pass2 agents
+facets-t3,r02_c03,1,11.5 (1.0),pass2 agents
+facets-t3,r02_c04,1,0.94,pass2 agents
+facets-t3,r02_c05,1,0.97,pass2 agents
+facets-t3,r03_c00,1,11.2 (0.6),pass2 agents
+facets-t3,r03_c01,1,12.3 (0.8),pass2 agents
+facets-t3,r03_c02,1,10.8 (0.5),pass2 agents
+facets-t3,r03_c03,1,11.5 (0.5),pass2 agents
+facets-t3,r03_c04,1,1.04,pass2 agents
+facets-t3,r03_c05,1,1.07,pass2 agents
+facets-t3,r04_c00,1,12.7 (0.5),pass2 agents
+facets-t3,r04_c01,1,13.1 (0.9),pass2 agents
+facets-t3,r04_c02,1,12.3 (0.4),pass2 agents
+facets-t3,r04_c03,1,12.2 (0.7),pass2 agents
+facets-t3,r04_c04,1,1.03,pass2 agents
+facets-t3,r04_c05,1,1.07,pass2 agents
+facets-t3,r05_c00,1,12.6 (0.7),pass2 agents
+facets-t3,r05_c01,1,13.9 (0.7),pass2 agents
+facets-t3,r05_c02,1,11.4 (0.5),pass2 agents
+facets-t3,r05_c03,1,13.9 (0.9),pass2 agents
+facets-t3,r05_c04,1,1.10,pass2 agents
+facets-t3,r05_c05,1,1.00,pass2 agents
+facets-t3,r06_c00,1,11.9 (0.3),pass2 agents
+facets-t3,r06_c01,1,13.2 (0.9),pass2 agents
+facets-t3,r06_c02,1,12.5 (0.4),pass2 agents
+facets-t3,r06_c03,1,13.3 (1.1),pass2 agents
+facets-t3,r06_c04,1,0.96,pass2 agents
+facets-t3,r06_c05,1,0.99,pass2 agents
+facets-t3,r07_c00,1,11.1 (0.6),pass2 agents
+facets-t3,r07_c01,1,11.0 (0.5),pass2 agents
+facets-t3,r07_c02,1,11.2 (0.5),pass2 agents
+facets-t3,r07_c03,1,11.8 (0.4),pass2 agents
+facets-t3,r07_c04,1,0.98,pass2 agents
+facets-t3,r07_c05,1,0.93,pass2 agents
+facets-t3,r08_c00,1,9.9 (0.5),pass2 agents
+facets-t3,r08_c01,1,10.4 (0.3),pass2 agents
+facets-t3,r08_c02,1,11.0 (0.4),pass2 agents
+facets-t3,r08_c03,1,10.7 (0.5),pass2 agents
+facets-t3,r08_c04,1,0.90,pass2 agents
+facets-t3,r08_c05,1,0.97,pass2 agents
+facets-t3,r09_c00,1,10.4 (0.4),pass2 agents
+facets-t3,r09_c01,1,9.8 (0.3),pass2 agents
+facets-t3,r09_c02,1,11.0 (0.4),pass2 agents
+facets-t3,r09_c03,1,11.0 (0.4),pass2 agents
+facets-t3,r09_c04,1,0.94,pass2 agents
+facets-t3,r09_c05,1,0.89,pass2 agents
+facets-t3,r10_c00,1,9.7 (0.4),pass2 agents
+facets-t3,r10_c01,1,9.7 (0.3),pass2 agents
+facets-t3,r10_c02,1,10.9 (0.3),pass2 agents
+facets-t3,r10_c03,1,11.2 (0.3),pass2 agents
+facets-t3,r10_c04,1,0.89,pass2 agents
+facets-t3,r10_c05,1,0.87,pass2 agents
+facets-t3,r11_c00,1,9.6 (0.4),pass2 agents
+facets-t3,r11_c01,1,9.7 (0.3),pass2 agents
+facets-t3,r11_c02,1,10.3 (0.4),pass2 agents
+facets-t3,r11_c03,1,11.1 (0.3),pass2 agents
+facets-t3,r11_c04,1,0.93,pass2 agents
+facets-t3,r11_c05,1,0.87,pass2 agents
+facets-t3,r12_c00,1,9.8 (0.5),pass2 agents
+facets-t3,r12_c01,1,10.3 (0.3),pass2 agents
+facets-t3,r12_c02,1,10.6 (0.5),pass2 agents
+facets-t3,r12_c03,1,11.0 (0.4),pass2 agents
+facets-t3,r12_c04,1,0.92,pass2 agents
+facets-t3,r12_c05,1,0.94,pass2 agents
+facets-t3,r13_c00,1,10.4 (0.4),pass2 agents
+facets-t3,r13_c01,1,10.7 (0.3),pass2 agents
+facets-t3,r13_c02,1,10.9 (0.5),pass2 agents
+facets-t3,r13_c03,1,11.6 (0.2),pass2 agents
+facets-t3,r13_c04,1,0.95,pass2 agents
+facets-t3,r13_c05,1,0.92,pass2 agents
+facets-t3,r14_c00,1,11.9 (0.7),pass2 agents
+facets-t3,r14_c01,1,12.6 (0.6),pass2 agents
+facets-t3,r14_c02,1,12.3 (0.5),pass2 agents
+facets-t3,r14_c03,1,12.5 (0.7),pass2 agents
+facets-t3,r14_c04,1,0.97,pass2 agents
+facets-t3,r14_c05,1,1.01,pass2 agents
+facets-t3,r15_c00,1,11.9 (0.5),pass2 agents
+facets-t3,r15_c01,1,11.4 (0.3),pass2 agents
+facets-t3,r15_c02,1,12.4 (0.3),pass2 agents
+facets-t3,r15_c03,1,11.7 (0.5),pass2 agents
+facets-t3,r15_c04,1,0.96,pass2 agents
+facets-t3,r15_c05,1,0.97,pass2 agents
+facets-t3,r16_c00,1,11.4 (0.6),pass2 agents
+facets-t3,r16_c01,1,10.9 (0.7),pass2 agents
+facets-t3,r16_c02,1,13.3 (0.5),pass2 agents
+facets-t3,r16_c03,1,12.5 (0.6),pass2 agents
+facets-t3,r16_c04,1,0.86,pass2 agents
+facets-t3,r16_c05,1,0.87,pass2 agents
+facets-t3,r17_c00,1,9.5 (0.6),pass2 agents
+facets-t3,r17_c01,1,9.8 (0.7),pass2 agents
+facets-t3,r17_c02,1,12.5 (0.5),pass2 agents
+facets-t3,r17_c03,1,12.7 (0.7),pass2 agents
+facets-t3,r17_c04,1,0.76,pass2 agents
+facets-t3,r17_c05,1,0.77,pass2 agents
+facets-t3,r18_c00,1,12.4 (0.7),pass2 agents
+facets-t3,r18_c01,1,10.7 (0.5),pass2 agents
+facets-t3,r18_c02,1,15.3 (0.7),pass2 agents
+facets-t3,r18_c03,1,15.7 (0.6),pass2 agents
+facets-t3,r18_c04,1,0.81,pass2 agents
+facets-t3,r18_c05,1,0.68,pass2 agents
+facets-t3,r19_c00,1,12.7 (0.7),pass2 agents
+facets-t3,r19_c01,1,12.7 (0.8),pass2 agents
+facets-t3,r19_c02,1,16.0 (0.6),pass2 agents
+facets-t3,r19_c03,1,16.3 (0.6),pass2 agents
+facets-t3,r19_c04,1,0.79,pass2 agents
+facets-t3,r19_c05,1,0.78,pass2 agents
+facets-t3,r20_c00,1,13.8 (0.4),pass2 agents
+facets-t3,r20_c01,1,13.4 (0.4),pass2 agents
+facets-t3,r20_c02,1,15.7 (0.3),pass2 agents
+facets-t3,r20_c03,1,16.4 (0.5),pass2 agents
+facets-t3,r20_c04,1,0.88,pass2 agents
+facets-t3,r20_c05,1,0.82,pass2 agents
+facets-t3,r21_c00,1,14.7 (0.5),pass2 agents
+facets-t3,r21_c01,1,14.1 (0.6),pass2 agents
+facets-t3,r21_c02,1,16.2 (0.7),pass2 agents
+facets-t3,r21_c03,1,15.6 (0.7),pass2 agents
+facets-t3,r21_c04,1,0.91,pass2 agents
+facets-t3,r21_c05,1,0.90,pass2 agents
+facets-t3,r22_c00,1,15.6 (0.9),pass2 agents
+facets-t3,r22_c01,1,16.1 (0.9),pass2 agents
+facets-t3,r22_c02,1,18.4 (1.0),pass2 agents
+facets-t3,r22_c03,1,17.3 (1.0),pass2 agents
+facets-t3,r22_c04,1,0.85,pass2 agents
+facets-t3,r22_c05,1,0.93,pass2 agents
+facets-t4,r00_c00,1,211.3 (5.6),pass2 agents
+facets-t4,r00_c01,1,205.1 (9.2),pass2 agents
+facets-t4,r00_c02,1,94.6 (7.4),pass2 agents
+facets-t4,r00_c03,1,85.0 (6.4),pass2 agents
+facets-t4,r01_c00,1,101.3 (15.2),pass2 agents
+facets-t4,r01_c01,1,81.9 (8.5),pass2 agents
+facets-t4,r01_c02,1,105.7 (10.5),pass2 agents
+facets-t4,r01_c03,1,91.7 (19.3),pass2 agents
+facets-t4,r02_c00,1,104.2 (15.5),pass2 agents
+facets-t4,r02_c01,1,95.6 (19.2),pass2 agents
+facets-t4,r02_c02,1,105.3 (9.6),pass2 agents
+facets-t4,r02_c03,1,85.7 (10.7),pass2 agents
+facets-t4,r03_c00,1,107.0 (15.8),pass2 agents
+facets-t4,r03_c01,1,87.2 (12.5),pass2 agents
+facets-t4,r03_c02,1,83.0 (7.1),pass2 agents
+facets-t4,r03_c03,1,86.4 (9.4),pass2 agents
+facets-t4,r04_c00,1,79.5 (6.2),pass2 agents
+facets-t4,r04_c01,1,94.6 (9.9),pass2 agents
+facets-t4,r04_c02,1,97.8 (7.2),pass2 agents
+facets-t4,r04_c03,1,94.4 (7.0),pass2 agents
+facets-t4,r05_c00,1,79.9 (5.5),pass2 agents
+facets-t4,r05_c01,1,83.9 (6.5),pass2 agents
+facets-t4,r05_c02,1,94.3 (3.5),pass2 agents
+facets-t4,r05_c03,1,114.6 (9.1),pass2 agents
+facets-t4,r06_c00,1,102.9 (6.0),pass2 agents
+facets-t4,r06_c01,1,114.8 (12.4),pass2 agents
+facets-t4,r06_c02,1,84.5 (5.5),pass2 agents
+facets-t4,r06_c03,1,94.4 (7.0),pass2 agents
+facets-t4,r07_c00,1,80.0 (6.9),pass2 agents
+facets-t4,r07_c01,1,93.2 (10.0),pass2 agents
+facets-t4,r07_c02,1,82.6 (4.9),pass2 agents
+facets-t4,r07_c03,1,86.8 (6.5),pass2 agents
+facets-t4,r08_c00,1,79.7 (4.6),pass2 agents
+facets-t4,r08_c01,1,85.8 (5.2),pass2 agents
+facets-t4,r08_c02,1,73.3 (5.7),pass2 agents
+facets-t4,r08_c03,1,78.9 (4.6),pass2 agents
+facets-t4,r09_c00,1,74.9 (4.7),pass2 agents
+facets-t4,r09_c01,1,79.6 (4.0),pass2 agents
+facets-t4,r09_c02,1,77.6 (3.4),pass2 agents
+facets-t4,r09_c03,1,73.2 (3.9),pass2 agents
+facets-t4,r10_c00,1,85.6 (6.1),pass2 agents
+facets-t4,r10_c01,1,73.5 (3.5),pass2 agents
+facets-t4,r10_c02,1,72.3 (4.5),pass2 agents
+facets-t4,r10_c03,1,74.6 (2.1),pass2 agents
+facets-t4,r11_c00,1,74.7 (5.4),pass2 agents
+facets-t4,r11_c01,1,77.8 (4.8),pass2 agents
+facets-t4,r11_c02,1,69.4 (4.1),pass2 agents
+facets-t4,r11_c03,1,73.7 (3.1),pass2 agents
+facets-t4,r12_c00,1,75.8 (7.4),pass2 agents
+facets-t4,r12_c01,1,74.6 (3.6),pass2 agents
+facets-t4,r12_c02,1,69.6 (4.1),pass2 agents
+facets-t4,r12_c03,1,76.7 (4.0),pass2 agents
+facets-t4,r13_c00,1,77.5 (4.8),pass2 agents
+facets-t4,r13_c01,1,78.0 (5.3),pass2 agents
+facets-t4,r13_c02,1,75.9 (2.0),pass2 agents
+facets-t4,r13_c03,1,80.8 (2.6),pass2 agents
+facets-t4,r14_c00,1,82.1 (5.3),pass2 agents
+facets-t4,r14_c01,1,83.3 (4.8),pass2 agents
+facets-t4,r14_c02,1,89.5 (3.5),pass2 agents
+facets-t4,r14_c03,1,99.0 (10.3),pass2 agents
+facets-t4,r15_c00,1,87.0 (7.5),pass2 agents
+facets-t4,r15_c01,1,94.8 (13.5),pass2 agents
+facets-t4,r15_c02,1,98.5 (5.3),pass2 agents
+facets-t4,r15_c03,1,89.8 (6.2),pass2 agents
+facets-t4,r16_c00,1,91.9 (3.4),pass2 agents
+facets-t4,r16_c01,1,87.7 (6.3),pass2 agents
+facets-t4,r16_c02,1,100.3 (6.1),pass2 agents
+facets-t4,r16_c03,1,92.4 (8.9),pass2 agents
+facets-t4,r17_c00,1,100.8 (9.1),pass2 agents
+facets-t4,r17_c01,1,88.4 (9.2),pass2 agents
+facets-t4,r17_c02,1,90.8 (9.1),pass2 agents
+facets-t4,r17_c03,1,90.0 (7.2),pass2 agents
+facets-t4,r18_c00,1,96.7 (6.2),pass2 agents
+facets-t4,r18_c01,1,99.2 (11.4),pass2 agents
+facets-t4,r18_c02,1,127.9 (7.5),pass2 agents
+facets-t4,r18_c03,1,125.9 (6.9),pass2 agents
+facets-t4,r19_c00,1,138.0 (11.4),pass2 agents
+facets-t4,r19_c01,1,148.2 (12.8),pass2 agents
+facets-t4,r19_c02,1,150.9 (9.8),pass2 agents
+facets-t4,r19_c03,1,153.6 (10.1),pass2 agents
+facets-t4,r20_c00,1,170.3 (13.1),pass2 agents
+facets-t4,r20_c01,1,164.4 (12.0),pass2 agents
+facets-t4,r20_c02,1,159.8 (4.8),pass2 agents
+facets-t4,r20_c03,1,167.9 (9.7),pass2 agents
+facets-t4,r21_c00,1,175.0 (7.0),pass2 agents
+facets-t4,r21_c01,1,194.3 (11.0),pass2 agents
+facets-t4,r21_c02,1,182.1 (15.6),pass2 agents
+facets-t4,r21_c03,1,167.9 (11.8),pass2 agents
+facets-t4,r22_c00,1,211.9 (14.0),pass2 agents
+facets-t4,r22_c01,1,199.1 (12.0),pass2 agents
+facets-t4,r22_c02,1,197.3 (21.8),pass2 agents
+facets-t4,r22_c03,1,182.7 (17.2),pass2 agents
+facets-t5,r00_c00,1,30.3 (0.6),pass2 agents
+facets-t5,r00_c01,1,35.9 (0.8),pass2 agents
+facets-t5,r00_c02,1,20.1 (0.9),pass2 agents
+facets-t5,r00_c03,1,20.2 (0.8),pass2 agents
+facets-t5,r00_c04,1,0.84,pass2 agents
+facets-t5,r00_c05,1,1.64,pass2 agents
+facets-t5,r01_c00,1,35.9 (0.6),pass2 agents
+facets-t5,r01_c01,1,37.8 (0.9),pass2 agents
+facets-t5,r01_c02,1,12.2 (0.4),pass2 agents
+facets-t5,r01_c03,1,13.0 (0.5),pass2 agents
+facets-t5,r01_c04,1,0.95,pass2 agents
+facets-t5,r01_c05,1,2.93,pass2 agents
+facets-t5,r02_c00,1,37.6 (0.8),pass2 agents
+facets-t5,r02_c01,1,38.0 (0.8),pass2 agents
+facets-t5,r02_c02,1,15.8 (3.6),pass2 agents
+facets-t5,r02_c03,1,15.9 (3.3),pass2 agents
+facets-t5,r02_c04,1,0.99,pass2 agents
+facets-t5,r02_c05,1,2.38,pass2 agents
+facets-t5,r03_c00,1,38.3 (0.9),pass2 agents
+facets-t5,r03_c01,1,40.5 (0.9),pass2 agents
+facets-t5,r03_c02,1,13.3 (0.7),pass2 agents
+facets-t5,r03_c03,1,12.7 (0.6),pass2 agents
+facets-t5,r03_c04,1,0.94,pass2 agents
+facets-t5,r03_c05,1,3.04,pass2 agents
+facets-t5,r04_c00,1,39.9 (0.7),pass2 agents
+facets-t5,r04_c01,1,38.8 (0.8),pass2 agents
+facets-t5,r04_c02,1,13.9 (1.1),pass2 agents
+facets-t5,r04_c03,1,13.5 (0.8),pass2 agents
+facets-t5,r04_c04,1,1.03,pass2 agents
+facets-t5,r04_c05,1,2.88,pass2 agents
+facets-t5,r05_c00,1,38.6 (0.8),pass2 agents
+facets-t5,r05_c01,1,33.6 (0.8),pass2 agents
+facets-t5,r05_c02,1,17.6 (0.7),pass2 agents
+facets-t5,r05_c03,1,17.0 (0.7),pass2 agents
+facets-t5,r05_c04,1,1.15,pass2 agents
+facets-t5,r05_c05,1,2.09,pass2 agents
+facets-t5,r06_c00,1,33.2 (1.0),pass2 agents
+facets-t5,r06_c01,1,28.2 (0.6),pass2 agents
+facets-t5,r06_c02,1,18.0 (0.6),pass2 agents
+facets-t5,r06_c03,1,18.6 (0.7),pass2 agents
+facets-t5,r06_c04,1,1.18,pass2 agents
+facets-t5,r06_c05,1,1.68,pass2 agents
+facets-t5,r07_c00,1,28.2 (0.5),pass2 agents
+facets-t5,r07_c01,1,24.3 (0.6),pass2 agents
+facets-t5,r07_c02,1,21.2 (0.6),pass2 agents
+facets-t5,r07_c03,1,20.9 (0.8),pass2 agents
+facets-t5,r07_c04,1,1.16,pass2 agents
+facets-t5,r07_c05,1,1.25,pass2 agents
+facets-t5,r08_c00,1,24.6 (0.7),pass2 agents
+facets-t5,r08_c01,1,22.3 (0.7),pass2 agents
+facets-t5,r08_c02,1,21.5 (0.7),pass2 agents
+facets-t5,r08_c03,1,21.1 (0.8),pass2 agents
+facets-t5,r08_c04,1,1.10,pass2 agents
+facets-t5,r08_c05,1,1.10,pass2 agents
+facets-t5,r09_c00,1,22.1 (0.8),pass2 agents
+facets-t5,r09_c01,1,21.1 (0.7),pass2 agents
+facets-t5,r09_c02,1,20.9 (0.6),pass2 agents
+facets-t5,r09_c03,1,20.1 (0.6),pass2 agents
+facets-t5,r09_c04,1,1.05,pass2 agents
+facets-t5,r09_c05,1,1.04,pass2 agents
+facets-t5,r10_c00,1,20.8 (0.8),pass2 agents
+facets-t5,r10_c01,1,20.8 (0.8),pass2 agents
+facets-t5,r10_c02,1,21.2 (0.8),pass2 agents
+facets-t5,r10_c03,1,21.1 (0.7),pass2 agents
+facets-t5,r10_c04,1,1.00,pass2 agents
+facets-t5,r10_c05,1,0.98,pass2 agents
+facets-t5,r11_c00,1,20.9 (0.9),pass2 agents
+facets-t5,r11_c01,1,21.4 (0.7),pass2 agents
+facets-t5,r11_c02,1,21.8 (0.7),pass2 agents
+facets-t5,r11_c03,1,22.0 (0.5),pass2 agents
+facets-t5,r11_c04,1,0.97,pass2 agents
+facets-t5,r11_c05,1,0.97,pass2 agents
+facets-t5,r12_c00,1,21.0 (0.7),pass2 agents
+facets-t5,r12_c01,1,22.3 (0.9),pass2 agents
+facets-t5,r12_c02,1,24.0 (0.8),pass2 agents
+facets-t5,r12_c03,1,23.6 (0.7),pass2 agents
+facets-t5,r12_c04,1,0.94,pass2 agents
+facets-t5,r12_c05,1,0.91,pass2 agents
+facets-t5,r13_c00,1,21.8 (0.9),pass2 agents
+facets-t5,r13_c01,1,23.4 (1.0),pass2 agents
+facets-t5,r13_c02,1,24.0 (0.5),pass2 agents
+facets-t5,r13_c03,1,25.2 (0.4),pass2 agents
+facets-t5,r13_c04,1,0.93,pass2 agents
+facets-t5,r13_c05,1,0.92,pass2 agents
+facets-t5,r14_c00,1,23.0 (1.0),pass2 agents
+facets-t5,r14_c01,1,24.6 (0.9),pass2 agents
+facets-t5,r14_c02,1,25.7 (0.8),pass2 agents
+facets-t5,r14_c03,1,25.9 (0.8),pass2 agents
+facets-t5,r14_c04,1,0.93,pass2 agents
+facets-t5,r14_c05,1,0.92,pass2 agents
+facets-t5,r15_c00,1,24.2 (0.9),pass2 agents
+facets-t5,r15_c01,1,24.6 (1.1),pass2 agents
+facets-t5,r15_c02,1,26.1 (0.5),pass2 agents
+facets-t5,r15_c03,1,25.8 (0.7),pass2 agents
+facets-t5,r15_c04,1,0.99,pass2 agents
+facets-t5,r15_c05,1,0.94,pass2 agents
+facets-t5,r16_c00,1,25.2 (1.2),pass2 agents
+facets-t5,r16_c01,1,24.6 (0.7),pass2 agents
+facets-t5,r16_c02,1,29.9 (1.1),pass2 agents
+facets-t5,r16_c03,1,29.8 (1.0),pass2 agents
+facets-t5,r16_c04,1,1.02,pass2 agents
+facets-t5,r16_c05,1,0.83,pass2 agents
+facets-t5,r17_c00,1,25.9 (0.8),pass2 agents
+facets-t5,r17_c01,1,24.9 (0.4),pass2 agents
+facets-t5,r17_c02,1,31.6 (1.2),pass2 agents
+facets-t5,r17_c03,1,31.1 (1.5),pass2 agents
+facets-t5,r17_c04,1,1.04,pass2 agents
+facets-t5,r17_c05,1,0.81,pass2 agents
+facets-t5,r18_c00,1,26.2 (0.6),pass2 agents
+facets-t5,r18_c01,1,24.8 (0.8),pass2 agents
+facets-t5,r18_c02,1,32.5 (0.5),pass2 agents
+facets-t5,r18_c03,1,31.8 (1.0),pass2 agents
+facets-t5,r18_c04,1,1.06,pass2 agents
+facets-t5,r18_c05,1,0.79,pass2 agents
+facets-t5,r19_c00,1,26.4 (0.9),pass2 agents
+facets-t5,r19_c01,1,26.6 (0.9),pass2 agents
+facets-t5,r19_c02,1,33.0 (0.7),pass2 agents
+facets-t5,r19_c03,1,32.4 (0.6),pass2 agents
+facets-t5,r19_c04,1,0.99,pass2 agents
+facets-t5,r19_c05,1,0.81,pass2 agents
+facets-t5,r20_c00,1,28.6 (1.0),pass2 agents
+facets-t5,r20_c01,1,29.1 (1.5),pass2 agents
+facets-t5,r20_c02,1,32.4 (0.9),pass2 agents
+facets-t5,r20_c03,1,31.6 (0.7),pass2 agents
+facets-t5,r20_c04,1,0.98,pass2 agents
+facets-t5,r20_c05,1,0.90,pass2 agents
+facets-t5,r21_c00,1,31.4 (1.6),pass2 agents
+facets-t5,r21_c01,1,34.8 (1.7),pass2 agents
+facets-t5,r21_c02,1,28.5 (1.0),pass2 agents
+facets-t5,r21_c03,1,28.3 (1.3),pass2 agents
+facets-t5,r21_c04,1,0.90,pass2 agents
+facets-t5,r21_c05,1,1.16,pass2 agents
+facets-t5,r22_c00,1,35.0 (2.1),pass2 agents
+facets-t5,r22_c01,1,40.6 (2.0),pass2 agents
+facets-t5,r22_c02,1,26.1 (1.8),pass2 agents
+facets-t5,r22_c03,1,26.4 (1.5),pass2 agents
+facets-t5,r22_c04,1,0.86,pass2 agents
+facets-t5,r22_c05,1,1.44,pass2 agents
+facets-t6,r00_c00,1,40.7 (4.7),pass2 agents
+facets-t6,r00_c01,1,-114.1 (2.9),pass2 agents
+facets-t6,r00_c02,1,33.5 (2.1),pass2 agents
+facets-t6,r00_c03,1,118.5 (1.7),pass2 agents
+facets-t6,r01_c00,1,48.8 (3.1),pass2 agents
+facets-t6,r01_c01,1,-76.8 (3.9),pass2 agents
+facets-t6,r01_c02,1,55.2 (3.2),pass2 agents
+facets-t6,r01_c03,1,71.6 (5.3),pass2 agents
+facets-t6,r02_c00,1,47.0 (4.6),pass2 agents
+facets-t6,r02_c01,1,-83.9 (1.3),pass2 agents
+facets-t6,r02_c02,1,49.7 (4.8),pass2 agents
+facets-t6,r02_c03,1,85.2 (1.3),pass2 agents
+facets-t6,r03_c00,1,45.8 (2.9),pass2 agents
+facets-t6,r03_c01,1,-83.4 (1.3),pass2 agents
+facets-t6,r03_c02,1,45.3 (2.8),pass2 agents
+facets-t6,r03_c03,1,83.7 (1.1),pass2 agents
+facets-t6,r04_c00,1,47.2 (2.8),pass2 agents
+facets-t6,r04_c01,1,-81.2 (3.1),pass2 agents
+facets-t6,r04_c02,1,48.0 (5.4),pass2 agents
+facets-t6,r04_c03,1,76.8 (1.7),pass2 agents
+facets-t6,r05_c00,1,59.4 (4.5),pass2 agents
+facets-t6,r05_c01,1,-80.2 (2.6),pass2 agents
+facets-t6,r05_c02,1,51.6 (5.2),pass2 agents
+facets-t6,r05_c03,1,85.5 (1.5),pass2 agents
+facets-t6,r06_c00,1,62.2 (2.6),pass2 agents
+facets-t6,r06_c01,1,-86.4 (0.9),pass2 agents
+facets-t6,r06_c02,1,57.7 (3.8),pass2 agents
+facets-t6,r06_c03,1,85.3 (1.1),pass2 agents
+facets-t6,r07_c00,1,66.5 (1.9),pass2 agents
+facets-t6,r07_c01,1,-75.5 (1.7),pass2 agents
+facets-t6,r07_c02,1,66.6 (1.8),pass2 agents
+facets-t6,r07_c03,1,74.4 (2.3),pass2 agents
+facets-t6,r08_c00,1,69.4 (2.2),pass2 agents
+facets-t6,r08_c01,1,-74.7 (1.4),pass2 agents
+facets-t6,r08_c02,1,69.4 (1.2),pass2 agents
+facets-t6,r08_c03,1,74.3 (1.9),pass2 agents
+facets-t6,r09_c00,1,72.8 (1.6),pass2 agents
+facets-t6,r09_c01,1,-77.2 (1.6),pass2 agents
+facets-t6,r09_c02,1,73.2 (1.2),pass2 agents
+facets-t6,r09_c03,1,74.6 (1.2),pass2 agents
+facets-t6,r10_c00,1,73.2 (2.2),pass2 agents
+facets-t6,r10_c01,1,-73.4 (1.1),pass2 agents
+facets-t6,r10_c02,1,74.5 (1.7),pass2 agents
+facets-t6,r10_c03,1,75.3 (1.3),pass2 agents
+facets-t6,r11_c00,1,73.5 (1.5),pass2 agents
+facets-t6,r11_c01,1,-72.5 (1.1),pass2 agents
+facets-t6,r11_c02,1,74.6 (1.3),pass2 agents
+facets-t6,r11_c03,1,72.9 (1.1),pass2 agents
+facets-t6,r12_c00,1,74.7 (0.8),pass2 agents
+facets-t6,r12_c01,1,-73.5 (1.3),pass2 agents
+facets-t6,r12_c02,1,72.7 (1.1),pass2 agents
+facets-t6,r12_c03,1,74.1 (1.6),pass2 agents
+facets-t6,r13_c00,1,74.5 (1.2),pass2 agents
+facets-t6,r13_c01,1,-72.2 (1.3),pass2 agents
+facets-t6,r13_c02,1,73.0 (1.3),pass2 agents
+facets-t6,r13_c03,1,74.4 (1.8),pass2 agents
+facets-t6,r14_c00,1,77.7 (0.4),pass2 agents
+facets-t6,r14_c01,1,-74.0 (1.2),pass2 agents
+facets-t6,r14_c02,1,78.2 (1.3),pass2 agents
+facets-t6,r14_c03,1,73.3 (1.2),pass2 agents
+facets-t6,r15_c00,1,78.1 (1.1),pass2 agents
+facets-t6,r15_c01,1,-76.2 (1.7),pass2 agents
+facets-t6,r15_c02,1,78.1 (2.3),pass2 agents
+facets-t6,r15_c03,1,74.0 (1.6),pass2 agents
+facets-t6,r16_c00,1,75.6 (1.1),pass2 agents
+facets-t6,r16_c01,1,-77.0 (1.8),pass2 agents
+facets-t6,r16_c02,1,76.0 (1.7),pass2 agents
+facets-t6,r16_c03,1,71.6 (2.4),pass2 agents
+facets-t6,r17_c00,1,77.1 (2.1),pass2 agents
+facets-t6,r17_c01,1,-72.5 (5.5),pass2 agents
+facets-t6,r17_c02,1,78.2 (2.6),pass2 agents
+facets-t6,r17_c03,1,67.4 (5.1),pass2 agents
+facets-t6,r18_c00,1,82.9 (1.4),pass2 agents
+facets-t6,r18_c01,1,-139.1 (8.9),pass2 agents
+facets-t6,r18_c02,1,81.3 (2.7),pass2 agents
+facets-t6,r18_c03,1,134.2 (8.2),pass2 agents
+facets-t6,r19_c00,1,85.7 (0.9),pass2 agents
+facets-t6,r19_c01,1,-135.4 (9.2),pass2 agents
+facets-t6,r19_c02,1,83.8 (1.3),pass2 agents
+facets-t6,r19_c03,1,139.7 (9.0),pass2 agents
+facets-t6,r20_c00,1,81.9 (1.6),pass2 agents
+facets-t6,r20_c01,1,-131.5 (9.0),pass2 agents
+facets-t6,r20_c02,1,84.1 (1.5),pass2 agents
+facets-t6,r20_c03,1,133.1 (5.5),pass2 agents
+facets-t6,r21_c00,1,81.2 (1.6),pass2 agents
+facets-t6,r21_c01,1,-120.8 (3.7),pass2 agents
+facets-t6,r21_c02,1,81.3 (2.5),pass2 agents
+facets-t6,r21_c03,1,123.6 (3.1),pass2 agents
+facets-t6,r22_c00,1,86.0 (1.0),pass2 agents
+facets-t6,r22_c01,1,-117.6 (4.1),pass2 agents
+facets-t6,r22_c02,1,85.1 (1.2),pass2 agents
+facets-t6,r22_c03,1,119.8 (4.5),pass2 agents
+facets-t7,r00_c00,1,31.4 (5.2),pass2 agents
+facets-t7,r00_c01,1,-74.3 (3.4),pass2 agents
+facets-t7,r00_c02,1,36.1 (4.9),pass2 agents
+facets-t7,r00_c03,1,70.8 (3.5),pass2 agents
+facets-t7,r01_c00,1,44.2 (6.5),pass2 agents
+facets-t7,r01_c01,1,-75.2 (3.1),pass2 agents
+facets-t7,r01_c02,1,41.0 (4.1),pass2 agents
+facets-t7,r01_c03,1,79.4 (2.4),pass2 agents
+facets-t7,r02_c00,1,44.9 (5.7),pass2 agents
+facets-t7,r02_c01,1,-74.3 (2.8),pass2 agents
+facets-t7,r02_c02,1,47.7 (6.3),pass2 agents
+facets-t7,r02_c03,1,75.0 (5.0),pass2 agents
+facets-t7,r03_c00,1,49.1 (4.7),pass2 agents
+facets-t7,r03_c01,1,-75.1 (3.6),pass2 agents
+facets-t7,r03_c02,1,54.3 (3.1),pass2 agents
+facets-t7,r03_c03,1,72.0 (4.5),pass2 agents
+facets-t7,r04_c00,1,55.0 (4.0),pass2 agents
+facets-t7,r04_c01,1,-81.6 (2.3),pass2 agents
+facets-t7,r04_c02,1,54.7 (4.6),pass2 agents
+facets-t7,r04_c03,1,83.1 (2.1),pass2 agents
+facets-t7,r05_c00,1,49.8 (2.9),pass2 agents
+facets-t7,r05_c01,1,-82.4 (1.4),pass2 agents
+facets-t7,r05_c02,1,49.1 (2.7),pass2 agents
+facets-t7,r05_c03,1,80.1 (3.6),pass2 agents
+facets-t7,r06_c00,1,66.3 (2.6),pass2 agents
+facets-t7,r06_c01,1,-75.5 (2.2),pass2 agents
+facets-t7,r06_c02,1,62.2 (5.3),pass2 agents
+facets-t7,r06_c03,1,75.4 (2.8),pass2 agents
+facets-t7,r07_c00,1,69.6 (2.3),pass2 agents
+facets-t7,r07_c01,1,-75.8 (1.1),pass2 agents
+facets-t7,r07_c02,1,70.0 (2.4),pass2 agents
+facets-t7,r07_c03,1,76.5 (1.8),pass2 agents
+facets-t7,r08_c00,1,73.8 (1.8),pass2 agents
+facets-t7,r08_c01,1,-75.1 (1.4),pass2 agents
+facets-t7,r08_c02,1,75.4 (2.2),pass2 agents
+facets-t7,r08_c03,1,74.9 (1.2),pass2 agents
+facets-t7,r09_c00,1,72.7 (3.0),pass2 agents
+facets-t7,r09_c01,1,-75.3 (1.0),pass2 agents
+facets-t7,r09_c02,1,74.4 (2.6),pass2 agents
+facets-t7,r09_c03,1,73.7 (1.5),pass2 agents
+facets-t7,r10_c00,1,76.8 (2.8),pass2 agents
+facets-t7,r10_c01,1,-72.2 (1.3),pass2 agents
+facets-t7,r10_c02,1,76.4 (2.7),pass2 agents
+facets-t7,r10_c03,1,73.6 (1.7),pass2 agents
+facets-t7,r11_c00,1,77.8 (2.2),pass2 agents
+facets-t7,r11_c01,1,-73.5 (1.7),pass2 agents
+facets-t7,r11_c02,1,76.7 (2.7),pass2 agents
+facets-t7,r11_c03,1,74.7 (1.3),pass2 agents
+facets-t7,r12_c00,1,77.6 (2.1),pass2 agents
+facets-t7,r12_c01,1,-73.8 (1.2),pass2 agents
+facets-t7,r12_c02,1,77.0 (1.5),pass2 agents
+facets-t7,r12_c03,1,74.6 (1.8),pass2 agents
+facets-t7,r13_c00,1,74.3 (2.0),pass2 agents
+facets-t7,r13_c01,1,-75.0 (1.3),pass2 agents
+facets-t7,r13_c02,1,77.1 (1.6),pass2 agents
+facets-t7,r13_c03,1,74.7 (1.4),pass2 agents
+facets-t7,r14_c00,1,77.9 (2.1),pass2 agents
+facets-t7,r14_c01,1,-75.7 (1.6),pass2 agents
+facets-t7,r14_c02,1,77.5 (2.4),pass2 agents
+facets-t7,r14_c03,1,75.4 (1.4),pass2 agents
+facets-t7,r15_c00,1,77.9 (1.7),pass2 agents
+facets-t7,r15_c01,1,-76.8 (2.2),pass2 agents
+facets-t7,r15_c02,1,76.7 (2.4),pass2 agents
+facets-t7,r15_c03,1,74.0 (2.0),pass2 agents
+facets-t7,r16_c00,1,75.5 (2.1),pass2 agents
+facets-t7,r16_c01,1,-72.2 (5.3),pass2 agents
+facets-t7,r16_c02,1,76.1 (2.1),pass2 agents
+facets-t7,r16_c03,1,70.5 (4.7),pass2 agents
+facets-t7,r17_c00,1,75.4 (1.9),pass2 agents
+facets-t7,r17_c01,1,-139.7 (9.5),pass2 agents
+facets-t7,r17_c02,1,78.4 (3.0),pass2 agents
+facets-t7,r17_c03,1,138.8 (8.8),pass2 agents
+facets-t7,r18_c00,1,81.4 (1.6),pass2 agents
+facets-t7,r18_c01,1,-152.1 (5.8),pass2 agents
+facets-t7,r18_c02,1,81.8 (1.9),pass2 agents
+facets-t7,r18_c03,1,154.8 (6.3),pass2 agents
+facets-t7,r19_c00,1,82.8 (2.5),pass2 agents
+facets-t7,r19_c01,1,-142.5 (5.1),pass2 agents
+facets-t7,r19_c02,1,78.7 (4.0),pass2 agents
+facets-t7,r19_c03,1,136.7 (8.1),pass2 agents
+facets-t7,r20_c00,1,75.6 (4.1),pass2 agents
+facets-t7,r20_c01,1,-130.6 (6.3),pass2 agents
+facets-t7,r20_c02,1,77.8 (3.3),pass2 agents
+facets-t7,r20_c03,1,123.3 (3.3),pass2 agents
+facets-t7,r21_c00,1,70.5 (6.7),pass2 agents
+facets-t7,r21_c01,1,-112.7 (7.1),pass2 agents
+facets-t7,r21_c02,1,80.3 (1.2),pass2 agents
+facets-t7,r21_c03,1,114.7 (4.9),pass2 agents
+facets-t7,r22_c00,1,71.0 (3.7),pass2 agents
+facets-t7,r22_c01,1,-127.6 (7.2),pass2 agents
+facets-t7,r22_c02,1,81.6 (1.2),pass2 agents
+facets-t7,r22_c03,1,125.1 (2.9),pass2 agents
+facets-t8,r00_c00,1,-40.7,pass2 agents
+facets-t8,r00_c01,1,38.9,pass2 agents
+facets-t8,r00_c02,1,-33.5,pass2 agents
+facets-t8,r00_c03,1,-59.9,pass2 agents
+facets-t8,r00_c04,1,-31.4,pass2 agents
+facets-t8,r00_c05,1,-31.3,pass2 agents
+facets-t8,r00_c06,1,-36.1,pass2 agents
+facets-t8,r00_c07,1,33.9,pass2 agents
+facets-t8,r01_c00,1,-48.8,pass2 agents
+facets-t8,r01_c01,1,-17.6,pass2 agents
+facets-t8,r01_c02,1,-55.2,pass2 agents
+facets-t8,r01_c03,1,22.6,pass2 agents
+facets-t8,r01_c04,1,-44.1,pass2 agents
+facets-t8,r01_c05,1,-21.5,pass2 agents
+facets-t8,r01_c06,1,-41.0,pass2 agents
+facets-t8,r01_c07,1,16.3,pass2 agents
+facets-t8,r02_c00,1,-47.0,pass2 agents
+facets-t8,r02_c01,1,-8.4,pass2 agents
+facets-t8,r02_c02,1,-49.7,pass2 agents
+facets-t8,r02_c03,1,6.4,pass2 agents
+facets-t8,r02_c04,1,-44.9,pass2 agents
+facets-t8,r02_c05,1,22.5,pass2 agents
+facets-t8,r02_c06,1,-47.7,pass2 agents
+facets-t8,r02_c07,1,-20.6,pass2 agents
+facets-t8,r03_c00,1,-45.8,pass2 agents
+facets-t8,r03_c01,1,9.2,pass2 agents
+facets-t8,r03_c02,1,-45.3,pass2 agents
+facets-t8,r03_c03,1,-8.9,pass2 agents
+facets-t8,r03_c04,1,-49.1,pass2 agents
+facets-t8,r03_c05,1,19.9,pass2 agents
+facets-t8,r03_c06,1,-54.3,pass2 agents
+facets-t8,r03_c07,1,-22.3,pass2 agents
+facets-t8,r04_c00,1,-47.2,pass2 agents
+facets-t8,r04_c01,1,12.1,pass2 agents
+facets-t8,r04_c02,1,-48.0,pass2 agents
+facets-t8,r04_c03,1,-17.9,pass2 agents
+facets-t8,r04_c04,1,-55.0,pass2 agents
+facets-t8,r04_c05,1,10.3,pass2 agents
+facets-t8,r04_c06,1,-54.7,pass2 agents
+facets-t8,r04_c07,1,-8.5,pass2 agents
+facets-t8,r05_c00,1,-59.4,pass2 agents
+facets-t8,r05_c01,1,11.4,pass2 agents
+facets-t8,r05_c02,1,-51.6,pass2 agents
+facets-t8,r05_c03,1,-5.8,pass2 agents
+facets-t8,r05_c04,1,-49.8,pass2 agents
+facets-t8,r05_c05,1,9.9,pass2 agents
+facets-t8,r05_c06,1,-49.1,pass2 agents
+facets-t8,r05_c07,1,-13.1,pass2 agents
+facets-t8,r06_c00,1,-62.2,pass2 agents
+facets-t8,r06_c01,1,4.1,pass2 agents
+facets-t8,r06_c02,1,-47.7,pass2 agents
+facets-t8,r06_c03,1,-5.6,pass2 agents
+facets-t8,r06_c04,1,-66.3,pass2 agents
+facets-t8,r06_c05,1,15.9,pass2 agents
+facets-t8,r06_c06,1,-62.2,pass2 agents
+facets-t8,r06_c07,1,-16.5,pass2 agents
+facets-t8,r07_c00,1,-66.5,pass2 agents
+facets-t8,r07_c01,1,15.8,pass2 agents
+facets-t8,r07_c02,1,-66.6,pass2 agents
+facets-t8,r07_c03,1,-17.0,pass2 agents
+facets-t8,r07_c04,1,-69.6,pass2 agents
+facets-t8,r07_c05,1,15.1,pass2 agents
+facets-t8,r07_c06,1,-70.0,pass2 agents
+facets-t8,r07_c07,1,-14.4,pass2 agents
+facets-t8,r08_c00,1,-69.4,pass2 agents
+facets-t8,r08_c01,1,16.4,pass2 agents
+facets-t8,r08_c02,1,-69.4,pass2 agents
+facets-t8,r08_c03,1,-16.8,pass2 agents
+facets-t8,r08_c04,1,-73.8,pass2 agents
+facets-t8,r08_c05,1,15.5,pass2 agents
+facets-t8,r08_c06,1,-75.4,pass2 agents
+facets-t8,r08_c07,1,-15.6,pass2 agents
+facets-t8,r09_c00,1,-72.8,pass2 agents
+facets-t8,r09_c01,1,13.4,pass2 agents
+facets-t8,r09_c02,1,-73.2,pass2 agents
+facets-t8,r09_c03,1,-16.1,pass2 agents
+facets-t8,r09_c04,1,-72.7,pass2 agents
+facets-t8,r09_c05,1,15.4,pass2 agents
+facets-t8,r09_c06,1,-74.4,pass2 agents
+facets-t8,r09_c07,1,-16.9,pass2 agents
+facets-t8,r10_c00,1,-73.2,pass2 agents
+facets-t8,r10_c01,1,17.3,pass2 agents
+facets-t8,r10_c02,1,-74.5,pass2 agents
+facets-t8,r10_c03,1,-15.3,pass2 agents
+facets-t8,r10_c04,1,-76.8,pass2 agents
+facets-t8,r10_c05,1,18.4,pass2 agents
+facets-t8,r10_c06,1,-76.4,pass2 agents
+facets-t8,r10_c07,1,-16.9,pass2 agents
+facets-t8,r11_c00,1,-73.5,pass2 agents
+facets-t8,r11_c01,1,18.2,pass2 agents
+facets-t8,r11_c02,1,-74.6,pass2 agents
+facets-t8,r11_c03,1,-17.8,pass2 agents
+facets-t8,r11_c04,1,-77.8,pass2 agents
+facets-t8,r11_c05,1,18.4,pass2 agents
+facets-t8,r11_c06,1,-76.7,pass2 agents
+facets-t8,r11_c07,1,-15.8,pass2 agents
+facets-t8,r12_c00,1,-74.7,pass2 agents
+facets-t8,r12_c01,1,17.2,pass2 agents
+facets-t8,r12_c02,1,-72.7,pass2 agents
+facets-t8,r12_c03,1,-16.7,pass2 agents
+facets-t8,r12_c04,1,-77.5,pass2 agents
+facets-t8,r12_c05,1,16.6,pass2 agents
+facets-t8,r12_c06,1,-77.0,pass2 agents
+facets-t8,r12_c07,1,-15.8,pass2 agents
+facets-t8,r13_c00,1,-74.5,pass2 agents
+facets-t8,r13_c01,1,18.5,pass2 agents
+facets-t8,r13_c02,1,-73.0,pass2 agents
+facets-t8,r13_c03,1,-16.3,pass2 agents
+facets-t8,r13_c04,1,-74.3,pass2 agents
+facets-t8,r13_c05,1,15.6,pass2 agents
+facets-t8,r13_c06,1,-77.1,pass2 agents
+facets-t8,r13_c07,1,-15.7,pass2 agents
+facets-t8,r14_c00,1,-77.7,pass2 agents
+facets-t8,r14_c01,1,16.4,pass2 agents
+facets-t8,r14_c02,1,-78.2,pass2 agents
+facets-t8,r14_c03,1,-17.1,pass2 agents
+facets-t8,r14_c04,1,-77.9,pass2 agents
+facets-t8,r14_c05,1,14.7,pass2 agents
+facets-t8,r14_c06,1,-77.5,pass2 agents
+facets-t8,r14_c07,1,-15.0,pass2 agents
+facets-t8,r15_c00,1,-78.1,pass2 agents
+facets-t8,r15_c01,1,14.1,pass2 agents
+facets-t8,r15_c02,1,-78.1,pass2 agents
+facets-t8,r15_c03,1,-16.4,pass2 agents
+facets-t8,r15_c04,1,-77.9,pass2 agents
+facets-t8,r15_c05,1,13.5,pass2 agents
+facets-t8,r15_c06,1,-76.7,pass2 agents
+facets-t8,r15_c07,1,-16.5,pass2 agents
+facets-t8,r16_c00,1,-75.6,pass2 agents
+facets-t8,r16_c01,1,13.5,pass2 agents
+facets-t8,r16_c02,1,-76.0,pass2 agents
+facets-t8,r16_c03,1,-19.0,pass2 agents
+facets-t8,r16_c04,1,-75.5,pass2 agents
+facets-t8,r16_c05,1,18.4,pass2 agents
+facets-t8,r16_c06,1,-76.1,pass2 agents
+facets-t8,r16_c07,1,-20.1,pass2 agents
+facets-t8,r17_c00,1,-77.1,pass2 agents
+facets-t8,r17_c01,1,18.0,pass2 agents
+facets-t8,r17_c02,1,-78.2,pass2 agents
+facets-t8,r17_c03,1,-23.1,pass2 agents
+facets-t8,r17_c04,1,-75.4,pass2 agents
+facets-t8,r17_c05,1,-52.0,pass2 agents
+facets-t8,r17_c06,1,-78.4,pass2 agents
+facets-t8,r17_c07,1,50.2,pass2 agents
+facets-t8,r18_c00,1,-82.9,pass2 agents
+facets-t8,r18_c01,1,-50.5,pass2 agents
+facets-t8,r18_c02,1,-81.3,pass2 agents
+facets-t8,r18_c03,1,44.9,pass2 agents
+facets-t8,r18_c04,1,-81.3,pass2 agents
+facets-t8,r18_c05,1,-63.4,pass2 agents
+facets-t8,r18_c06,1,-81.7,pass2 agents
+facets-t8,r18_c07,1,66.1,pass2 agents
+facets-t8,r19_c00,1,-85.7,pass2 agents
+facets-t8,r19_c01,1,-45.6,pass2 agents
+facets-t8,r19_c02,1,-83.8,pass2 agents
+facets-t8,r19_c03,1,50.1,pass2 agents
+facets-t8,r19_c04,1,-82.8,pass2 agents
+facets-t8,r19_c05,1,-53.1,pass2 agents
+facets-t8,r19_c06,1,-78.7,pass2 agents
+facets-t8,r19_c07,1,47.9,pass2 agents
+facets-t8,r20_c00,1,-81.9,pass2 agents
+facets-t8,r20_c01,1,-42.0,pass2 agents
+facets-t8,r20_c02,1,-84.1,pass2 agents
+facets-t8,r20_c03,1,43.4,pass2 agents
+facets-t8,r20_c04,1,-75.6,pass2 agents
+facets-t8,r20_c05,1,-42.2,pass2 agents
+facets-t8,r20_c06,1,-77.8,pass2 agents
+facets-t8,r20_c07,1,34.2,pass2 agents
+facets-t8,r21_c00,1,-81.2,pass2 agents
+facets-t8,r21_c01,1,-31.2,pass2 agents
+facets-t8,r21_c02,1,-81.3,pass2 agents
+facets-t8,r21_c03,1,34.0,pass2 agents
+facets-t8,r21_c04,1,-70.5,pass2 agents
+facets-t8,r21_c05,1,-24.2,pass2 agents
+facets-t8,r21_c06,1,-80.3,pass2 agents
+facets-t8,r21_c07,1,25.1,pass2 agents
+facets-t8,r22_c00,1,-86.0,pass2 agents
+facets-t8,r22_c01,1,-27.7,pass2 agents
+facets-t8,r22_c02,1,-85.1,pass2 agents
+facets-t8,r22_c03,1,29.9,pass2 agents
+facets-t8,r22_c04,1,-71.0,pass2 agents
+facets-t8,r22_c05,1,-40.2,pass2 agents
+facets-t8,r22_c06,1,-81.6,pass2 agents
+facets-t8,r22_c07,1,35.5,pass2 agents
+facets-t9,r00_c00,1,C2,pass2 agents
+facets-t9,r00_c01,1,17.8,pass2 agents
+facets-t9,r00_c02,1,18.8,pass2 agents
+facets-t9,r00_c03,1,-,pass2 agents
+facets-t9,r01_c00,1,C3,pass2 agents
+facets-t9,r01_c01,1,11.5,pass2 agents
+facets-t9,r01_c02,1,11.3,pass2 agents
+facets-t9,r01_c03,1,-,pass2 agents
+facets-t9,r02_c00,1,C4,pass2 agents
+facets-t9,r02_c01,1,12.0,pass2 agents
+facets-t9,r02_c02,1,11.5,pass2 agents
+facets-t9,r02_c03,1,-,pass2 agents
+facets-t9,r03_c00,1,C5,pass2 agents
+facets-t9,r03_c01,1,11.3,pass2 agents
+facets-t9,r03_c02,1,11.1,pass2 agents
+facets-t9,r03_c03,1,-,pass2 agents
+facets-t9,r04_c00,1,C6,pass2 agents
+facets-t9,r04_c01,1,10.8,pass2 agents
+facets-t9,r04_c02,1,10.6,pass2 agents
+facets-t9,r04_c03,1,-,pass2 agents
+facets-t9,r05_c00,1,C7,pass2 agents
+facets-t9,r05_c01,1,11.0,pass2 agents
+facets-t9,r05_c02,1,10.2,pass2 agents
+facets-t9,r05_c03,1,-,pass2 agents
+facets-t9,r06_c00,1,C2,pass2 agents
+facets-t9,r06_c01,1,16.4,pass2 agents
+facets-t9,r06_c02,1,17.5,pass2 agents
+facets-t9,r06_c03,1,-,pass2 agents
+facets-t9,r07_c00,1,C3,pass2 agents
+facets-t9,r07_c01,1,11.0,pass2 agents
+facets-t9,r07_c02,1,12.0,pass2 agents
+facets-t9,r07_c03,1,-,pass2 agents
+facets-t9,r08_c00,1,C4,pass2 agents
+facets-t9,r08_c01,1,11.3,pass2 agents
+facets-t9,r08_c02,1,12.4,pass2 agents
+facets-t9,r08_c03,1,-,pass2 agents
+facets-t9,r09_c00,1,C5,pass2 agents
+facets-t9,r09_c01,1,12.0,pass2 agents
+facets-t9,r09_c02,1,12.7,pass2 agents
+facets-t9,r09_c03,1,-,pass2 agents
+facets-t9,r10_c00,1,C6,pass2 agents
+facets-t9,r10_c01,1,12.3,pass2 agents
+facets-t9,r10_c02,1,13.0,pass2 agents
+facets-t9,r10_c03,1,-,pass2 agents
+facets-t9,r11_c00,1,C7,pass2 agents
+facets-t9,r11_c01,1,13.4,pass2 agents
+facets-t9,r11_c02,1,13.6,pass2 agents
+facets-t9,r11_c03,1,-,pass2 agents
+facets-t9,r12_c00,1,T6,pass2 agents
+facets-t9,r12_c01,1,20.9,pass2 agents
+facets-t9,r12_c02,1,-,pass2 agents
+facets-t9,r12_c03,1,19.0,pass2 agents
+facets-t9,r13_c00,1,T12,pass2 agents
+facets-t9,r13_c01,1,25.9,pass2 agents
+facets-t9,r13_c02,1,-,pass2 agents
+facets-t9,r13_c03,1,22.5,pass2 agents
+facets-t9,r14_c00,1,L3,pass2 agents
+facets-t9,r14_c01,1,28.6,pass2 agents
+facets-t9,r14_c02,1,-,pass2 agents
+facets-t9,r14_c03,1,26.6,pass2 agents
+facets-t9,r15_c00,1,T6,pass2 agents
+facets-t9,r15_c01,1,21.9,pass2 agents
+facets-t9,r15_c02,1,-,pass2 agents
+facets-t9,r15_c03,1,20.4,pass2 agents
+facets-t9,r16_c00,1,T12,pass2 agents
+facets-t9,r16_c01,1,31.4,pass2 agents
+facets-t9,r16_c02,1,-,pass2 agents
+facets-t9,r16_c03,1,29.4,pass2 agents
+facets-t9,r17_c00,1,L3,pass2 agents
+facets-t9,r17_c01,1,32.0,pass2 agents
+facets-t9,r17_c02,1,-,pass2 agents
+facets-t9,r17_c03,1,29.9,pass2 agents
+lumbar-t2,r01_c00,1,34.1 +/- 1.34,pass2 agents
+lumbar-t2,r01_c01,1,34.6 +/- 1.10,pass2 agents
+lumbar-t2,r01_c02,1,35.2 +/- 1.10,pass2 agents
+lumbar-t2,r01_c03,1,35.5 +/- 0.88,pass2 agents
+lumbar-t2,r01_c04,1,34.7 +/- 1.17,pass2 agents
+lumbar-t2,r02_c00,1,41.2 +/- 1.03,pass2 agents
+lumbar-t2,r02_c01,1,42.6 +/- 0.74,pass2 agents
+lumbar-t2,r02_c02,1,44.1 +/- 0.88,pass2 agents
+lumbar-t2,r02_c03,1,46.6^ (L1) +/- 1.20,pass2 agents
+lumbar-t2,r02_c04,1,47.3^ (L1) +/- 1.20,pass2 agents
+lumbar-t2,r03_c00,1,35.3 +/- 1.27,pass2 agents
+lumbar-t2,r03_c01,1,34.9 +/- 0.74,pass2 agents
+lumbar-t2,r03_c02,1,34.8 +/- 1.24,pass2 agents
+lumbar-t2,r03_c03,1,33.9 +/- 0.85,pass2 agents
+lumbar-t2,r03_c04,1,33.2 +/- 0.92,pass2 agents
+lumbar-t2,r04_c00,1,43.3 +/- 0.78,pass2 agents
+lumbar-t2,r04_c01,1,45.5 +/- 1.10,pass2 agents
+lumbar-t2,r04_c02,1,48.0 +/- 1.24,pass2 agents
+lumbar-t2,r04_c03,1,49.5^ (L1) +/- 1.38,pass2 agents
+lumbar-t2,r04_c04,1,49.4^ (L1) +/- 1.41,pass2 agents
+lumbar-t2,r05_c00,1,23.8 +/- 1.03,pass2 agents
+lumbar-t2,r05_c01,1,24.3 +/- 0.95,pass2 agents
+lumbar-t2,r05_c02,1,23.8 +/- 1.10,pass2 agents
+lumbar-t2,r05_c03,1,24.1 +/- 1.10,pass2 agents
+lumbar-t2,r05_c04,1,22.9 +/- 0.95,pass2 agents
+lumbar-t2,r06_c00,1,1.21,pass2 agents
+lumbar-t2,r06_c01,1,1.23,pass2 agents
+lumbar-t2,r06_c02,1,1.25,pass2 agents
+lumbar-t2,r06_c03,1,1.31,pass2 agents
+lumbar-t2,r06_c04,1,1.36,pass2 agents
+lumbar-t2,r07_c00,1,1.23,pass2 agents
+lumbar-t2,r07_c01,1,1.30,pass2 agents
+lumbar-t2,r07_c02,1,1.38,pass2 agents
+lumbar-t2,r07_c03,1,1.46,pass2 agents
+lumbar-t2,r07_c04,1,1.49,pass2 agents
+lumbar-t2,r09_c00,1,1057 +/- 60.78,pass2 agents
+lumbar-t2,r09_c01,1,1136 +/- 61.84,pass2 agents
+lumbar-t2,r09_c02,1,1194 +/- 55.19,pass2 agents
+lumbar-t2,r09_c03,1,1239 +/- 58.41,pass2 agents
+lumbar-t2,r09_c04,1,1237 +/- 58.48,pass2 agents
+lumbar-t2,r10_c00,1,1117 +/- 49.00,pass2 agents
+lumbar-t2,r10_c01,1,1197 +/- 51.41,pass2 agents
+lumbar-t2,r10_c02,1,1290 +/- 64.35,pass2 agents
+lumbar-t2,r10_c03,1,1273 +/- 51.72,pass2 agents
+lumbar-t2,r10_c04,1,1218 +/- 59.43,pass2 agents
+lumbar-t2,r12_c00,1,2.7 +/- 0.77,pass2 agents
+lumbar-t2,r12_c01,1,3.5 +/- 1.5,pass2 agents
+lumbar-t2,r12_c02,1,1.7 +/- 0.43,pass2 agents
+lumbar-t2,r12_c03,1,4.7 +/- 1.1,pass2 agents
+lumbar-t2,r12_c04,1,2.2 +/- 0.54,pass2 agents
+lumbar-t2,r13_c00,1,4.0 +/- 0.84,pass2 agents
+lumbar-t2,r13_c01,1,2.1 +/- 0.4,pass2 agents
+lumbar-t2,r13_c02,1,2.7 +/- 1.1,pass2 agents
+lumbar-t2,r13_c03,1,2.7 +/- 0.69,pass2 agents
+lumbar-t2,r13_c04,1,1.8 +/- 0.42,pass2 agents
+lumbar-t3,r01_c00,1,23.7 +/- 0.92*,pass2 agents
+lumbar-t3,r01_c01,1,23.8 +/- 0.71,pass2 agents
+lumbar-t3,r01_c02,1,24.3 +/- 0.64,pass2 agents
+lumbar-t3,r01_c03,1,25.4 +/- 0.49,pass2 agents
+lumbar-t3,r01_c04,1,27.1 +/- 0.88,pass2 agents
+lumbar-t3,r02_c00,1,19.0 +/- 0.67,pass2 agents
+lumbar-t3,r02_c01,1,18.2 +/- 0.53,pass2 agents
+lumbar-t3,r02_c02,1,17.5 +/- 0.53,pass2 agents
+lumbar-t3,r02_c03,1,18.6 +/- 0.71,pass2 agents
+lumbar-t3,r02_c04,1,19.7 +/- 0.49,pass2 agents
+lumbar-t3,r03_c00,1,1.25,pass2 agents
+lumbar-t3,r03_c01,1,1.31,pass2 agents
+lumbar-t3,r03_c02,1,1.39,pass2 agents
+lumbar-t3,r03_c03,1,1.37,pass2 agents
+lumbar-t3,r03_c04,1,1.38,pass2 agents
+lumbar-t3,r05_c00,1,320 +/- 18.10,pass2 agents
+lumbar-t3,r05_c01,1,281 +/- 15.38,pass2 agents
+lumbar-t3,r05_c02,1,280 +/- 14.64,pass2 agents
+lumbar-t3,r05_c03,1,290 +/- 15.17,pass2 agents
+lumbar-t3,r05_c04,1,330 +/- 21.21,pass2 agents
+lumbar-t4,r01_c00,1,8.0 +/- 0.95*,pass2 agents
+lumbar-t4,r01_c01,1,7.8 +/- 0.57,pass2 agents
+lumbar-t4,r01_c02,1,10.2 +/- 0.67,pass2 agents
+lumbar-t4,r01_c03,1,13.4^ (L1-L2) +/- 0.18,pass2 agents
+lumbar-t4,r01_c04,1,18.0^ (L1-L4) +/- 1.03,pass2 agents
+lumbar-t4,r02_c00,1,15.9 +/- 0.81,pass2 agents
+lumbar-t4,r02_c01,1,15.0 +/- 0.53,pass2 agents
+lumbar-t4,r02_c02,1,14.2 +/- 0.64,pass2 agents
+lumbar-t4,r02_c03,1,15.7 +/- 0.57,pass2 agents
+lumbar-t4,r02_c04,1,19.6^ (L1-L4) +/- 0.74,pass2 agents
+lumbar-t4,r03_c00,1,9.2 +/- 0.88,pass2 agents
+lumbar-t4,r03_c01,1,8.7 +/- 0.78,pass2 agents
+lumbar-t4,r03_c02,1,10.1 +/- 0.53,pass2 agents
+lumbar-t4,r03_c03,1,14.7^ (L1-L3) +/- 0.46,pass2 agents
+lumbar-t4,r03_c04,1,19.2^ (L1-L4) +/- 1.03,pass2 agents
+lumbar-t4,r04_c00,1,15.8 +/- 0.74,pass2 agents
+lumbar-t4,r04_c01,1,14.9 +/- 0.53,pass2 agents
+lumbar-t4,r04_c02,1,14.6 +/- 0.60,pass2 agents
+lumbar-t4,r04_c03,1,15.2 +/- 0.46,pass2 agents
+lumbar-t4,r04_c04,1,19.5^ (L1-L4) +/- 0.99,pass2 agents
+lumbar-t4,r05_c00,1,2.00,pass2 agents
+lumbar-t4,r05_c01,1,1.91,pass2 agents
+lumbar-t4,r05_c02,1,1.39,pass2 agents
+lumbar-t4,r05_c03,1,1.17,pass2 agents
+lumbar-t4,r05_c04,1,1.09,pass2 agents
+lumbar-t4,r06_c00,1,1.72,pass2 agents
+lumbar-t4,r06_c01,1,1.71,pass2 agents
+lumbar-t4,r06_c02,1,1.44,pass2 agents
+lumbar-t4,r06_c03,1,1.03,pass2 agents
+lumbar-t4,r06_c04,1,1.02,pass2 agents
+lumbar-t4,r08_c00,1,86.4 +/- 11.42,pass2 agents
+lumbar-t4,r08_c01,1,83.3 +/- 8.94,pass2 agents
+lumbar-t4,r08_c02,1,92.9 +/- 7.71,pass2 agents
+lumbar-t4,r08_c03,1,102.8 +/- 6.65,pass2 agents
+lumbar-t4,r08_c04,1,143.9^ (L1-L3) +/- 9.55,pass2 agents
+lumbar-t4,r09_c00,1,88.5 +/- 11.74,pass2 agents
+lumbar-t4,r09_c01,1,83.6 +/- 8.87,pass2 agents
+lumbar-t4,r09_c02,1,95.3 +/- 9.37,pass2 agents
+lumbar-t4,r09_c03,1,112.3 +/- 7.53,pass2 agents
+lumbar-t4,r09_c04,1,158.7^ (L1-L4) +/- 10.82,pass2 agents
+lumbar-t4,r11_c00,1,16.5 +/- 5.02,pass2 agents
+lumbar-t4,r11_c01,1,17.1 +/- 3.75,pass2 agents
+lumbar-t4,r11_c02,1,19.8 +/- 2.33,pass2 agents
+lumbar-t4,r11_c03,1,18.4 +/- 1.66,pass2 agents
+lumbar-t4,r11_c04,1,25.9 +/- 1.73,pass2 agents
+lumbar-t4,r12_c00,1,2.2 +/- 0.67,pass2 agents
+lumbar-t4,r12_c01,1,3.3 +/- 0.67,pass2 agents
+lumbar-t4,r12_c02,1,2.9 +/- 1.06,pass2 agents
+lumbar-t4,r12_c03,1,4.8 +/- 1.06,pass2 agents
+lumbar-t4,r12_c04,1,5.2 +/- 1.80,pass2 agents
+lumbar-t4,r13_c00,1,12.4 +/- 1.87,pass2 agents
+lumbar-t4,r13_c01,1,11.2 +/- 2.02,pass2 agents
+lumbar-t4,r13_c02,1,17.1 +/- 1.56,pass2 agents
+lumbar-t4,r13_c03,1,14.7 +/- 2.16,pass2 agents
+lumbar-t4,r13_c04,1,23.2^ (L1-L2) +/- 2.51,pass2 agents
+lumbar-t4,r14_c00,1,2.9 +/- 0.74,pass2 agents
+lumbar-t4,r14_c01,1,2.1 +/- 0.64,pass2 agents
+lumbar-t4,r14_c02,1,2.4 +/- 0.67,pass2 agents
+lumbar-t4,r14_c03,1,3.0 +/- 1.17,pass2 agents
+lumbar-t4,r14_c04,1,5.7 +/- 1.48,pass2 agents
+lumbar-t5,r01_c00,1,61.0 +/- 2.19*,pass2 agents
+lumbar-t5,r01_c01,1,75.2 +/- 6.58,pass2 agents
+lumbar-t5,r01_c02,1,70.0 +/- 6.86,pass2 agents
+lumbar-t5,r01_c03,1,86.2 +/- 7.39,pass2 agents
+lumbar-t5,r01_c04,1,92.9^ (L1) +/- 9.76,pass2 agents
+lumbar-t5,r02_c00,1,63.2 +/- 1.17,pass2 agents
+lumbar-t5,r02_c01,1,64.4 +/- 5.90,pass2 agents
+lumbar-t5,r02_c02,1,75.1 +/- 8.91,pass2 agents
+lumbar-t5,r02_c03,1,77.5 +/- 8.91,pass2 agents
+lumbar-t5,r02_c04,1,71.7 +/- 9.69,pass2 agents
+lumbar-t5,r04_c00,1,67.7 +/- 1.24,pass2 agents
+lumbar-t5,r04_c01,1,71.7 +/- 1.70,pass2 agents
+lumbar-t5,r04_c02,1,71.7 +/- 1.77,pass2 agents
+lumbar-t5,r04_c03,1,70.1 +/- 1.17,pass2 agents
+lumbar-t5,r04_c04,1,68.3 +/- 1.63,pass2 agents
+lumbar-t5,r05_c00,1,71.2 +/- 1.66,pass2 agents
+lumbar-t5,r05_c01,1,76.1 +/- 1.48,pass2 agents
+lumbar-t5,r05_c02,1,85.7^ (L1) +/- 2.44,pass2 agents
+lumbar-t5,r05_c03,1,79.4 +/- 3.78,pass2 agents
+lumbar-t5,r05_c04,1,"92.5^ (L1,L2,L4) +/- 3.68",pass2 agents
+lumbar-t6,r01_c00,1,L1,pass2 agents
+lumbar-t6,r01_c01,1,35.3,pass2 agents
+lumbar-t6,r01_c02,1,32.3,pass2 agents
+lumbar-t6,r01_c03,1,-,pass2 agents
+lumbar-t6,r01_c04,1,29.5,pass2 agents
+lumbar-t6,r01_c05,1,31.0,pass2 agents
+lumbar-t6,r01_c06,1,-,pass2 agents
+lumbar-t6,r01_c07,1,34.1,pass2 agents
+lumbar-t6,r02_c00,1,L2,pass2 agents
+lumbar-t6,r02_c01,1,34.9,pass2 agents
+lumbar-t6,r02_c02,1,33.4,pass2 agents
+lumbar-t6,r02_c03,1,-,pass2 agents
+lumbar-t6,r02_c04,1,-,pass2 agents
+lumbar-t6,r02_c05,1,32.5,pass2 agents
+lumbar-t6,r02_c06,1,-,pass2 agents
+lumbar-t6,r02_c07,1,34.7,pass2 agents
+lumbar-t6,r03_c00,1,L3,pass2 agents
+lumbar-t6,r03_c01,1,34.8,pass2 agents
+lumbar-t6,r03_c02,1,34.2,pass2 agents
+lumbar-t6,r03_c03,1,-,pass2 agents
+lumbar-t6,r03_c04,1,32.6,pass2 agents
+lumbar-t6,r03_c05,1,30.5,pass2 agents
+lumbar-t6,r03_c06,1,32.7,pass2 agents
+lumbar-t6,r03_c07,1,34.6,pass2 agents
+lumbar-t6,r04_c00,1,L4,pass2 agents
+lumbar-t6,r04_c01,1,33.9,pass2 agents
+lumbar-t6,r04_c02,1,35.6,pass2 agents
+lumbar-t6,r04_c03,1,-,pass2 agents
+lumbar-t6,r04_c04,1,-,pass2 agents
+lumbar-t6,r04_c05,1,32.0,pass2 agents
+lumbar-t6,r04_c06,1,-,pass2 agents
+lumbar-t6,r04_c07,1,34.9,pass2 agents
+lumbar-t6,r05_c00,1,L5,pass2 agents
+lumbar-t6,r05_c01,1,33.2,pass2 agents
+lumbar-t6,r05_c02,1,34.5,pass2 agents
+lumbar-t6,r05_c03,1,-,pass2 agents
+lumbar-t6,r05_c04,1,34.5,pass2 agents
+lumbar-t6,r05_c05,1,33.0,pass2 agents
+lumbar-t6,r05_c06,1,-,pass2 agents
+lumbar-t6,r05_c07,1,33.9,pass2 agents
+lumbar-t6,r06_c00,1,L1,pass2 agents
+lumbar-t6,r06_c01,1,43.3,pass2 agents
+lumbar-t6,r06_c02,1,49.1,pass2 agents
+lumbar-t6,r06_c03,1,-,pass2 agents
+lumbar-t6,r06_c04,1,44.3,pass2 agents
+lumbar-t6,r06_c05,1,-,pass2 agents
+lumbar-t6,r06_c06,1,-,pass2 agents
+lumbar-t6,r06_c07,1,-,pass2 agents
+lumbar-t6,r07_c00,1,L2,pass2 agents
+lumbar-t6,r07_c01,1,45.5,pass2 agents
+lumbar-t6,r07_c02,1,54.8,pass2 agents
+lumbar-t6,r07_c03,1,-,pass2 agents
+lumbar-t6,r07_c04,1,-,pass2 agents
+lumbar-t6,r07_c05,1,-,pass2 agents
+lumbar-t6,r07_c06,1,-,pass2 agents
+lumbar-t6,r07_c07,1,-,pass2 agents
+lumbar-t6,r08_c00,1,L3,pass2 agents
+lumbar-t6,r08_c01,1,48.0,pass2 agents
+lumbar-t6,r08_c02,1,53.8,pass2 agents
+lumbar-t6,r08_c03,1,-,pass2 agents
+lumbar-t6,r08_c04,1,48.4,pass2 agents
+lumbar-t6,r08_c05,1,-,pass2 agents
+lumbar-t6,r08_c06,1,44.3,pass2 agents
+lumbar-t6,r08_c07,1,-,pass2 agents
+lumbar-t6,r09_c00,1,L4,pass2 agents
+lumbar-t6,r09_c01,1,49.5,pass2 agents
+lumbar-t6,r09_c02,1,50.9,pass2 agents
+lumbar-t6,r09_c03,1,-,pass2 agents
+lumbar-t6,r09_c04,1,-,pass2 agents
+lumbar-t6,r09_c05,1,-,pass2 agents
+lumbar-t6,r09_c06,1,-,pass2 agents
+lumbar-t6,r09_c07,1,-,pass2 agents
+lumbar-t6,r10_c00,1,L5,pass2 agents
+lumbar-t6,r10_c01,1,49.4,pass2 agents
+lumbar-t6,r10_c02,1,52.7,pass2 agents
+lumbar-t6,r10_c03,1,-,pass2 agents
+lumbar-t6,r10_c04,1,52.9,pass2 agents
+lumbar-t6,r10_c05,1,-,pass2 agents
+lumbar-t6,r10_c06,1,-,pass2 agents
+lumbar-t6,r10_c07,1,-,pass2 agents
+lumbar-t6,r11_c00,1,L1,pass2 agents
+lumbar-t6,r11_c01,1,23.8,pass2 agents
+lumbar-t6,r11_c02,1,25.8,pass2 agents
+lumbar-t6,r11_c03,1,-,pass2 agents
+lumbar-t6,r11_c04,1,27.4,pass2 agents
+lumbar-t6,r11_c05,1,-,pass2 agents
+lumbar-t6,r11_c06,1,-,pass2 agents
+lumbar-t6,r11_c07,1,27.1,pass2 agents
+lumbar-t6,r12_c00,1,L2,pass2 agents
+lumbar-t6,r12_c01,1,24.3,pass2 agents
+lumbar-t6,r12_c02,1,25.2,pass2 agents
+lumbar-t6,r12_c03,1,-,pass2 agents
+lumbar-t6,r12_c04,1,-,pass2 agents
+lumbar-t6,r12_c05,1,-,pass2 agents
+lumbar-t6,r12_c06,1,-,pass2 agents
+lumbar-t6,r12_c07,1,28.0,pass2 agents
+lumbar-t6,r13_c00,1,L3,pass2 agents
+lumbar-t6,r13_c01,1,23.8,pass2 agents
+lumbar-t6,r13_c02,1,26.0,pass2 agents
+lumbar-t6,r13_c03,1,-,pass2 agents
+lumbar-t6,r13_c04,1,27.4,pass2 agents
+lumbar-t6,r13_c05,1,-,pass2 agents
+lumbar-t6,r13_c06,1,23.0,pass2 agents
+lumbar-t6,r13_c07,1,27.9,pass2 agents
+lumbar-t6,r14_c00,1,L4,pass2 agents
+lumbar-t6,r14_c01,1,24.1,pass2 agents
+lumbar-t6,r14_c02,1,26.4,pass2 agents
+lumbar-t6,r14_c03,1,-,pass2 agents
+lumbar-t6,r14_c04,1,-,pass2 agents
+lumbar-t6,r14_c05,1,-,pass2 agents
+lumbar-t6,r14_c06,1,-,pass2 agents
+lumbar-t6,r14_c07,1,27.1,pass2 agents
+lumbar-t6,r15_c00,1,L5,pass2 agents
+lumbar-t6,r15_c01,1,22.9,pass2 agents
+lumbar-t6,r15_c02,1,23.1,pass2 agents
+lumbar-t6,r15_c03,1,-,pass2 agents
+lumbar-t6,r15_c04,1,27.6,pass2 agents
+lumbar-t6,r15_c05,1,-,pass2 agents
+lumbar-t6,r15_c06,1,-,pass2 agents
+lumbar-t6,r15_c07,1,25.7,pass2 agents
+lumbar-t6,r16_c00,1,L1,pass2 agents
+lumbar-t6,r16_c01,1,19.0,pass2 agents
+lumbar-t6,r16_c02,1,17.2,pass2 agents
+lumbar-t6,r16_c03,1,-,pass2 agents
+lumbar-t6,r16_c04,1,17.6,pass2 agents
+lumbar-t6,r16_c05,1,-,pass2 agents
+lumbar-t6,r16_c06,1,-,pass2 agents
+lumbar-t6,r16_c07,1,-,pass2 agents
+lumbar-t6,r17_c00,1,L2,pass2 agents
+lumbar-t6,r17_c01,1,18.2,pass2 agents
+lumbar-t6,r17_c02,1,16.0,pass2 agents
+lumbar-t6,r17_c03,1,-,pass2 agents
+lumbar-t6,r17_c04,1,-,pass2 agents
+lumbar-t6,r17_c05,1,-,pass2 agents
+lumbar-t6,r17_c06,1,-,pass2 agents
+lumbar-t6,r17_c07,1,-,pass2 agents
+lumbar-t6,r18_c00,1,L3,pass2 agents
+lumbar-t6,r18_c01,1,17.5,pass2 agents
+lumbar-t6,r18_c02,1,16.2,pass2 agents
+lumbar-t6,r18_c03,1,-,pass2 agents
+lumbar-t6,r18_c04,1,16.0,pass2 agents
+lumbar-t6,r18_c05,1,-,pass2 agents
+lumbar-t6,r18_c06,1,12.1,pass2 agents
+lumbar-t6,r18_c07,1,-,pass2 agents
+lumbar-t6,r19_c00,1,L4,pass2 agents
+lumbar-t6,r19_c01,1,18.6,pass2 agents
+lumbar-t6,r19_c02,1,16.1,pass2 agents
+lumbar-t6,r19_c03,1,-,pass2 agents
+lumbar-t6,r19_c04,1,-,pass2 agents
+lumbar-t6,r19_c05,1,-,pass2 agents
+lumbar-t6,r19_c06,1,-,pass2 agents
+lumbar-t6,r19_c07,1,-,pass2 agents
+lumbar-t6,r20_c00,1,L5,pass2 agents
+lumbar-t6,r20_c01,1,19.7,pass2 agents
+lumbar-t6,r20_c02,1,17.3,pass2 agents
+lumbar-t6,r20_c03,1,-,pass2 agents
+lumbar-t6,r20_c04,1,17.6,pass2 agents
+lumbar-t6,r20_c05,1,-,pass2 agents
+lumbar-t6,r20_c06,1,-,pass2 agents
+lumbar-t6,r20_c07,1,-,pass2 agents
+lumbar-t6,r21_c00,1,L1,pass2 agents
+lumbar-t6,r21_c01,1,23.7,pass2 agents
+lumbar-t6,r21_c02,1,22.1,pass2 agents
+lumbar-t6,r21_c03,1,-,pass2 agents
+lumbar-t6,r21_c04,1,22.2,pass2 agents
+lumbar-t6,r21_c05,1,-,pass2 agents
+lumbar-t6,r21_c06,1,-,pass2 agents
+lumbar-t6,r21_c07,1,-,pass2 agents
+lumbar-t6,r22_c00,1,L2,pass2 agents
+lumbar-t6,r22_c01,1,23.8,pass2 agents
+lumbar-t6,r22_c02,1,23.0,pass2 agents
+lumbar-t6,r22_c03,1,-,pass2 agents
+lumbar-t6,r22_c04,1,-,pass2 agents
+lumbar-t6,r22_c05,1,-,pass2 agents
+lumbar-t6,r22_c06,1,-,pass2 agents
+lumbar-t6,r22_c07,1,-,pass2 agents
+lumbar-t6,r23_c00,1,L3,pass2 agents
+lumbar-t6,r23_c01,1,24.3,pass2 agents
+lumbar-t6,r23_c02,1,22.7,pass2 agents
+lumbar-t6,r23_c03,1,-,pass2 agents
+lumbar-t6,r23_c04,1,22.8,pass2 agents
+lumbar-t6,r23_c05,1,-,pass2 agents
+lumbar-t6,r23_c06,1,21.5,pass2 agents
+lumbar-t6,r23_c07,1,-,pass2 agents
+lumbar-t6,r24_c00,1,L4,pass2 agents
+lumbar-t6,r24_c01,1,25.4,pass2 agents
+lumbar-t6,r24_c02,1,22.0,pass2 agents
+lumbar-t6,r24_c03,1,-,pass2 agents
+lumbar-t6,r24_c04,1,-,pass2 agents
+lumbar-t6,r24_c05,1,-,pass2 agents
+lumbar-t6,r24_c06,1,-,pass2 agents
+lumbar-t6,r24_c07,1,-,pass2 agents
+lumbar-t6,r25_c00,1,L5,pass2 agents
+lumbar-t6,r25_c01,1,27.1,pass2 agents
+lumbar-t6,r25_c02,1,26.0,pass2 agents
+lumbar-t6,r25_c03,1,-,pass2 agents
+lumbar-t6,r25_c04,1,25.9,pass2 agents
+lumbar-t6,r25_c05,1,-,pass2 agents
+lumbar-t6,r25_c06,1,-,pass2 agents
+lumbar-t6,r25_c07,1,-,pass2 agents
+lumbar-t6,r26_c00,1,L1,pass2 agents
+lumbar-t6,r26_c01,1,15.9,pass2 agents
+lumbar-t6,r26_c02,1,15.6,pass2 agents
+lumbar-t6,r26_c03,1,15.4,pass2 agents
+lumbar-t6,r26_c04,1,15.3,pass2 agents
+lumbar-t6,r26_c05,1,-,pass2 agents
+lumbar-t6,r26_c06,1,-,pass2 agents
+lumbar-t6,r26_c07,1,-,pass2 agents
+lumbar-t6,r27_c00,1,L2,pass2 agents
+lumbar-t6,r27_c01,1,14.9,pass2 agents
+lumbar-t6,r27_c02,1,15.3,pass2 agents
+lumbar-t6,r27_c03,1,15.0,pass2 agents
+lumbar-t6,r27_c04,1,-,pass2 agents
+lumbar-t6,r27_c05,1,-,pass2 agents
+lumbar-t6,r27_c06,1,-,pass2 agents
+lumbar-t6,r27_c07,1,-,pass2 agents
+lumbar-t6,r28_c00,1,L3,pass2 agents
+lumbar-t6,r28_c01,1,14.4,pass2 agents
+lumbar-t6,r28_c02,1,14.5,pass2 agents
+lumbar-t6,r28_c03,1,14.9,pass2 agents
+lumbar-t6,r28_c04,1,14.1,pass2 agents
+lumbar-t6,r28_c05,1,-,pass2 agents
+lumbar-t6,r28_c06,1,-,pass2 agents
+lumbar-t6,r28_c07,1,-,pass2 agents
+lumbar-t6,r29_c00,1,L4,pass2 agents
+lumbar-t6,r29_c01,1,15.4,pass2 agents
+lumbar-t6,r29_c02,1,13.1,pass2 agents
+lumbar-t6,r29_c03,1,14.8,pass2 agents
+lumbar-t6,r29_c04,1,-,pass2 agents
+lumbar-t6,r29_c05,1,-,pass2 agents
+lumbar-t6,r29_c06,1,-,pass2 agents
+lumbar-t6,r29_c07,1,-,pass2 agents
+lumbar-t6,r30_c00,1,L5,pass2 agents
+lumbar-t6,r30_c01,1,19.6,pass2 agents
+lumbar-t6,r30_c02,1,13.7,pass2 agents
+lumbar-t6,r30_c03,1,14.0,pass2 agents
+lumbar-t6,r30_c04,1,16.2,pass2 agents
+lumbar-t6,r30_c05,1,-,pass2 agents
+lumbar-t6,r30_c06,1,-,pass2 agents
+lumbar-t6,r30_c07,1,-,pass2 agents
+lumbar-t6,r31_c00,1,L1,pass2 agents
+lumbar-t6,r31_c01,1,8.6,pass2 agents
+lumbar-t6,r31_c02,1,7.0,pass2 agents
+lumbar-t6,r31_c03,1,8.7,pass2 agents
+lumbar-t6,r31_c04,1,8.3,pass2 agents
+lumbar-t6,r31_c05,1,7.0,pass2 agents
+lumbar-t6,r31_c06,1,-,pass2 agents
+lumbar-t6,r31_c07,1,-,pass2 agents
+lumbar-t6,r32_c00,1,L2,pass2 agents
+lumbar-t6,r32_c01,1,8.3,pass2 agents
+lumbar-t6,r32_c02,1,7.5,pass2 agents
+lumbar-t6,r32_c03,1,8.9,pass2 agents
+lumbar-t6,r32_c04,1,-,pass2 agents
+lumbar-t6,r32_c05,1,8.4,pass2 agents
+lumbar-t6,r32_c06,1,-,pass2 agents
+lumbar-t6,r32_c07,1,-,pass2 agents
+lumbar-t6,r33_c00,1,L3,pass2 agents
+lumbar-t6,r33_c01,1,10.2,pass2 agents
+lumbar-t6,r33_c02,1,9.2,pass2 agents
+lumbar-t6,r33_c03,1,10.3,pass2 agents
+lumbar-t6,r33_c04,1,9.1,pass2 agents
+lumbar-t6,r33_c05,1,9.1,pass2 agents
+lumbar-t6,r33_c06,1,8.4,pass2 agents
+lumbar-t6,r33_c07,1,-,pass2 agents
+lumbar-t6,r34_c00,1,L4,pass2 agents
+lumbar-t6,r34_c01,1,14.1,pass2 agents
+lumbar-t6,r34_c02,1,10.4,pass2 agents
+lumbar-t6,r34_c03,1,12.9,pass2 agents
+lumbar-t6,r34_c04,1,-,pass2 agents
+lumbar-t6,r34_c05,1,10.8,pass2 agents
+lumbar-t6,r34_c06,1,-,pass2 agents
+lumbar-t6,r34_c07,1,-,pass2 agents
+lumbar-t6,r35_c00,1,L5,pass2 agents
+lumbar-t6,r35_c01,1,18.6,pass2 agents
+lumbar-t6,r35_c02,1,10.7,pass2 agents
+lumbar-t6,r35_c03,1,18.0,pass2 agents
+lumbar-t6,r35_c04,1,9.7,pass2 agents
+lumbar-t6,r35_c05,1,13.8,pass2 agents
+lumbar-t6,r35_c06,1,-,pass2 agents
+lumbar-t6,r35_c07,1,-,pass2 agents
+lumbar-t6,r37_c00,1,L1,pass2 agents
+lumbar-t6,r37_c01,1,14.5,pass2 agents
+lumbar-t6,r37_c02,1,7.5,pass2 agents
+lumbar-t6,r37_c03,1,10.9,pass2 agents
+lumbar-t6,r37_c04,1,11.6,pass2 agents
+lumbar-t6,r37_c05,1,11.0,pass2 agents
+lumbar-t6,r37_c06,1,-,pass2 agents
+lumbar-t6,r37_c07,1,-,pass2 agents
+lumbar-t6,r38_c00,1,L2,pass2 agents
+lumbar-t6,r38_c01,1,14.1,pass2 agents
+lumbar-t6,r38_c02,1,11.5,pass2 agents
+lumbar-t6,r38_c03,1,12.0,pass2 agents
+lumbar-t6,r38_c04,1,-,pass2 agents
+lumbar-t6,r38_c05,1,12.0,pass2 agents
+lumbar-t6,r38_c06,1,-,pass2 agents
+lumbar-t6,r38_c07,1,-,pass2 agents
+lumbar-t6,r39_c00,1,L3,pass2 agents
+lumbar-t6,r39_c01,1,18.5,pass2 agents
+lumbar-t6,r39_c02,1,14.0,pass2 agents
+lumbar-t6,r39_c03,1,14.4,pass2 agents
+lumbar-t6,r39_c04,1,14.7,pass2 agents
+lumbar-t6,r39_c05,1,16.0,pass2 agents
+lumbar-t6,r39_c06,1,-,pass2 agents
+lumbar-t6,r39_c07,1,-,pass2 agents
+lumbar-t6,r40_c00,1,L4,pass2 agents
+lumbar-t6,r40_c01,1,16.0,pass2 agents
+lumbar-t6,r40_c02,1,20.0,pass2 agents
+lumbar-t6,r40_c03,1,17.7,pass2 agents
+lumbar-t6,r40_c04,1,-,pass2 agents
+lumbar-t6,r40_c05,1,18.0,pass2 agents
+lumbar-t6,r40_c06,1,-,pass2 agents
+lumbar-t6,r40_c07,1,-,pass2 agents
+lumbar-t6,r41_c00,1,L5,pass2 agents
+lumbar-t6,r41_c01,1,24.6,pass2 agents
+lumbar-t6,r41_c02,1,31.5,pass2 agents
+lumbar-t6,r41_c03,1,29.8,pass2 agents
+lumbar-t6,r41_c04,1,23.1,pass2 agents
+lumbar-t6,r41_c05,1,27.0,pass2 agents
+lumbar-t6,r41_c06,1,-,pass2 agents
+lumbar-t6,r41_c07,1,-,pass2 agents
+lumbar-t6,r42_c00,1,L1,pass2 agents
+lumbar-t6,r42_c01,1,2.6,pass2 agents
+lumbar-t6,r42_c02,1,-,pass2 agents
+lumbar-t6,r42_c03,1,2.4,pass2 agents
+lumbar-t6,r42_c04,1,-,pass2 agents
+lumbar-t6,r42_c05,1,-,pass2 agents
+lumbar-t6,r42_c06,1,-,pass2 agents
+lumbar-t6,r42_c07,1,-,pass2 agents
+lumbar-t6,r43_c00,1,L2,pass2 agents
+lumbar-t6,r43_c01,1,2.7,pass2 agents
+lumbar-t6,r43_c02,1,-,pass2 agents
+lumbar-t6,r43_c03,1,1.8,pass2 agents
+lumbar-t6,r43_c04,1,-,pass2 agents
+lumbar-t6,r43_c05,1,-,pass2 agents
+lumbar-t6,r43_c06,1,-,pass2 agents
+lumbar-t6,r43_c07,1,-,pass2 agents
+lumbar-t6,r44_c00,1,L3,pass2 agents
+lumbar-t6,r44_c01,1,2.7,pass2 agents
+lumbar-t6,r44_c02,1,-,pass2 agents
+lumbar-t6,r44_c03,1,0.2,pass2 agents
+lumbar-t6,r44_c04,1,-,pass2 agents
+lumbar-t6,r44_c05,1,-,pass2 agents
+lumbar-t6,r44_c06,1,-,pass2 agents
+lumbar-t6,r44_c07,1,-,pass2 agents
+lumbar-t6,r45_c00,1,L4,pass2 agents
+lumbar-t6,r45_c01,1,3.9,pass2 agents
+lumbar-t6,r45_c02,1,-,pass2 agents
+lumbar-t6,r45_c03,1,0.2,pass2 agents
+lumbar-t6,r45_c04,1,-,pass2 agents
+lumbar-t6,r45_c05,1,-,pass2 agents
+lumbar-t6,r45_c06,1,-,pass2 agents
+lumbar-t6,r45_c07,1,-,pass2 agents
+lumbar-t6,r46_c00,1,L5,pass2 agents
+lumbar-t6,r46_c01,1,5.5,pass2 agents
+lumbar-t6,r46_c02,1,-,pass2 agents
+lumbar-t6,r46_c03,1,-1.8,pass2 agents
+lumbar-t6,r46_c04,1,-,pass2 agents
+lumbar-t6,r46_c05,1,-,pass2 agents
+lumbar-t6,r46_c06,1,-,pass2 agents
+lumbar-t6,r46_c07,1,-,pass2 agents
+thoracic-t1,r00_c00,1,S3,pass2 agents
+thoracic-t1,r00_c01,1,48,pass2 agents
+thoracic-t1,r00_c02,1,M,pass2 agents
+thoracic-t1,r00_c03,1,70,pass2 agents
+thoracic-t1,r00_c04,1,178,pass2 agents
+thoracic-t1,r00_c05,1,Coronary artery disease,pass2 agents
+thoracic-t1,r01_c00,1,S4,pass2 agents
+thoracic-t1,r01_c01,1,42,pass2 agents
+thoracic-t1,r01_c02,1,F,pass2 agents
+thoracic-t1,r01_c03,1,60,pass2 agents
+thoracic-t1,r01_c04,1,167,pass2 agents
+thoracic-t1,r01_c05,1,Breast carcinoma,pass2 agents
+thoracic-t1,r02_c00,1,S7,pass2 agents
+thoracic-t1,r02_c01,1,53,pass2 agents
+thoracic-t1,r02_c02,1,M,pass2 agents
+thoracic-t1,r02_c03,1,54,pass2 agents
+thoracic-t1,r02_c04,1,167,pass2 agents
+thoracic-t1,r02_c05,1,Esophageal carcinoma,pass2 agents
+thoracic-t1,r03_c00,1,S9,pass2 agents
+thoracic-t1,r03_c01,1,19,pass2 agents
+thoracic-t1,r03_c02,1,F,pass2 agents
+thoracic-t1,r03_c03,1,68,pass2 agents
+thoracic-t1,r03_c04,1,166,pass2 agents
+thoracic-t1,r03_c05,1,Acute lymphocytic leukemia,pass2 agents
+thoracic-t1,r04_c00,1,S10,pass2 agents
+thoracic-t1,r04_c01,1,44,pass2 agents
+thoracic-t1,r04_c02,1,F,pass2 agents
+thoracic-t1,r04_c03,1,66,pass2 agents
+thoracic-t1,r04_c04,1,161,pass2 agents
+thoracic-t1,r04_c05,1,Right lung carcinoma,pass2 agents
+thoracic-t1,r05_c00,1,S13,pass2 agents
+thoracic-t1,r05_c01,1,56,pass2 agents
+thoracic-t1,r05_c02,1,M,pass2 agents
+thoracic-t1,r05_c03,1,70,pass2 agents
+thoracic-t1,r05_c04,1,157,pass2 agents
+thoracic-t1,r05_c05,1,Renal failure,pass2 agents
+thoracic-t1,r06_c00,1,S14,pass2 agents
+thoracic-t1,r06_c01,1,56,pass2 agents
+thoracic-t1,r06_c02,1,M,pass2 agents
+thoracic-t1,r06_c03,1,74,pass2 agents
+thoracic-t1,r06_c04,1,177,pass2 agents
+thoracic-t1,r06_c05,1,Pancreatic carcinoma,pass2 agents
+thoracic-t1,r07_c00,1,S15,pass2 agents
+thoracic-t1,r07_c01,1,59,pass2 agents
+thoracic-t1,r07_c02,1,M,pass2 agents
+thoracic-t1,r07_c03,1,84,pass2 agents
+thoracic-t1,r07_c04,1,171,pass2 agents
+thoracic-t1,r07_c05,1,Myocardial infarction,pass2 agents
+thoracic-t1,r08_c00,1,S20,pass2 agents
+thoracic-t1,r08_c01,1,49,pass2 agents
+thoracic-t1,r08_c02,1,F,pass2 agents
+thoracic-t1,r08_c03,1,57,pass2 agents
+thoracic-t1,r08_c04,1,157,pass2 agents
+thoracic-t1,r08_c05,1,Third degree burns,pass2 agents
+thoracic-t1,r09_c00,1,S22,pass2 agents
+thoracic-t1,r09_c01,1,53,pass2 agents
+thoracic-t1,r09_c02,1,M,pass2 agents
+thoracic-t1,r09_c03,1,68,pass2 agents
+thoracic-t1,r09_c04,1,172,pass2 agents
+thoracic-t1,r09_c05,1,Carcinomatosis,pass2 agents
+thoracic-t1,r10_c00,1,S23,pass2 agents
+thoracic-t1,r10_c01,1,57,pass2 agents
+thoracic-t1,r10_c02,1,M,pass2 agents
+thoracic-t1,r10_c03,1,75,pass2 agents
+thoracic-t1,r10_c04,1,170,pass2 agents
+thoracic-t1,r10_c05,1,Myocardial infarction,pass2 agents
+thoracic-t1,r11_c00,1,S24,pass2 agents
+thoracic-t1,r11_c01,1,20,pass2 agents
+thoracic-t1,r11_c02,1,M,pass2 agents
+thoracic-t1,r11_c03,1,68,pass2 agents
+thoracic-t1,r11_c04,1,170,pass2 agents
+thoracic-t1,r11_c05,1,Subdural hemorrhage,pass2 agents
+thoracic-t4,r01_c00,1,21.8,pass2 agents
+thoracic-t4,r01_c01,1,19.5,pass2 agents
+thoracic-t4,r01_c02,1,18.3,pass2 agents
+thoracic-t4,r01_c03,1,17.0,pass2 agents
+thoracic-t4,r01_c04,1,17.1,pass2 agents
+thoracic-t4,r01_c05,1,17.3,pass2 agents
+thoracic-t4,r01_c06,1,17.3,pass2 agents
+thoracic-t4,r01_c07,1,17.7,pass2 agents
+thoracic-t4,r01_c08,1,17.9,pass2 agents
+thoracic-t4,r01_c09,1,18.2,pass2 agents
+thoracic-t4,r01_c10,1,19.4,pass2 agents
+thoracic-t4,r01_c11,1,22.2 (T4),pass2 agents
+thoracic-t4,r02_c00,1,0.71,pass2 agents
+thoracic-t4,r02_c01,1,0.34,pass2 agents
+thoracic-t4,r02_c02,1,0.54,pass2 agents
+thoracic-t4,r02_c03,1,0.57,pass2 agents
+thoracic-t4,r02_c04,1,0.68,pass2 agents
+thoracic-t4,r02_c05,1,0.74,pass2 agents
+thoracic-t4,r02_c06,1,0.83,pass2 agents
+thoracic-t4,r02_c07,1,0.63,pass2 agents
+thoracic-t4,r02_c08,1,1.19,pass2 agents
+thoracic-t4,r02_c09,1,0.78,pass2 agents
+thoracic-t4,r02_c10,1,0.95,pass2 agents
+thoracic-t4,r02_c11,1,1.12,pass2 agents
+thoracic-t4,r03_c00,1,16.4,pass2 agents
+thoracic-t4,r03_c01,1,15.3,pass2 agents
+thoracic-t4,r03_c02,1,15.9,pass2 agents
+thoracic-t4,r03_c03,1,16.2,pass2 agents
+thoracic-t4,r03_c04,1,16.3,pass2 agents
+thoracic-t4,r03_c05,1,16.5,pass2 agents
+thoracic-t4,r03_c06,1,16.1,pass2 agents
+thoracic-t4,r03_c07,1,15.9,pass2 agents
+thoracic-t4,r03_c08,1,15.7,pass2 agents
+thoracic-t4,r03_c09,1,15.5,pass2 agents
+thoracic-t4,r03_c10,1,16.0,pass2 agents
+thoracic-t4,r03_c11,1,18.1,pass2 agents
+thoracic-t4,r04_c00,1,0.42,pass2 agents
+thoracic-t4,r04_c01,1,1.25,pass2 agents
+thoracic-t4,r04_c02,1,1.09,pass2 agents
+thoracic-t4,r04_c03,1,0.89,pass2 agents
+thoracic-t4,r04_c04,1,0.72,pass2 agents
+thoracic-t4,r04_c05,1,0.62,pass2 agents
+thoracic-t4,r04_c06,1,0.69,pass2 agents
+thoracic-t4,r04_c07,1,0.76,pass2 agents
+thoracic-t4,r04_c08,1,0.82,pass2 agents
+thoracic-t4,r04_c09,1,0.70,pass2 agents
+thoracic-t4,r04_c10,1,0.46,pass2 agents
+thoracic-t4,r04_c11,1,0.62,pass2 agents
+thoracic-t4,r05_c00,1,1.3,pass2 agents
+thoracic-t4,r05_c01,1,1.3,pass2 agents
+thoracic-t4,r05_c02,1,1.2,pass2 agents
+thoracic-t4,r05_c03,1,1.0,pass2 agents
+thoracic-t4,r05_c04,1,1.0,pass2 agents
+thoracic-t4,r05_c05,1,1.0,pass2 agents
+thoracic-t4,r05_c06,1,1.1,pass2 agents
+thoracic-t4,r05_c07,1,1.1,pass2 agents
+thoracic-t4,r05_c08,1,1.1,pass2 agents
+thoracic-t4,r05_c09,1,1.2,pass2 agents
+thoracic-t4,r05_c10,1,1.2,pass2 agents
+thoracic-t4,r05_c11,1,1.2,pass2 agents
+thoracic-t4,r07_c00,1,213.0,pass2 agents
+thoracic-t4,r07_c01,1,200.0,pass2 agents
+thoracic-t4,r07_c02,1,180.0,pass2 agents
+thoracic-t4,r07_c03,1,192.0,pass2 agents
+thoracic-t4,r07_c04,1,201.0,pass2 agents
+thoracic-t4,r07_c05,1,206.0,pass2 agents
+thoracic-t4,r07_c06,1,199.0,pass2 agents
+thoracic-t4,r07_c07,1,194.0,pass2 agents
+thoracic-t4,r07_c08,1,200.0,pass2 agents
+thoracic-t4,r07_c09,1,202.0,pass2 agents
+thoracic-t4,r07_c10,1,220.0,pass2 agents
+thoracic-t4,r07_c11,1,280.0,pass2 agents
+thoracic-t4,r08_c00,1,30.6,pass2 agents
+thoracic-t4,r08_c01,1,27.6,pass2 agents
+thoracic-t4,r08_c02,1,25.7,pass2 agents
+thoracic-t4,r08_c03,1,25.9,pass2 agents
+thoracic-t4,r08_c04,1,15.7,pass2 agents
+thoracic-t4,r08_c05,1,14.3,pass2 agents
+thoracic-t4,r08_c06,1,17.0,pass2 agents
+thoracic-t4,r08_c07,1,15.9,pass2 agents
+thoracic-t4,r08_c08,1,16.2,pass2 agents
+thoracic-t4,r08_c09,1,14.7,pass2 agents
+thoracic-t4,r08_c10,1,15.7,pass2 agents
+thoracic-t4,r08_c11,1,16.3,pass2 agents
+thoracic-t5,r01_c00,1,8.2,pass2 agents
+thoracic-t5,r01_c01,1,8.4,pass2 agents
+thoracic-t5,r01_c02,1,7.0,pass2 agents
+thoracic-t5,r01_c03,1,5.5,pass2 agents
+thoracic-t5,r01_c04,1,6.2,pass2 agents
+thoracic-t5,r01_c05,1,6.0,pass2 agents
+thoracic-t5,r01_c06,1,6.5,pass2 agents
+thoracic-t5,r01_c07,1,6.7,pass2 agents
+thoracic-t5,r01_c08,1,7.6,pass2 agents
+thoracic-t5,r01_c09,1,8.3,pass2 agents
+thoracic-t5,r01_c10,1,8.8,pass2 agents
+thoracic-t5,r01_c11,1,8.8,pass2 agents
+thoracic-t5,r02_c00,1,0.44,pass2 agents
+thoracic-t5,r02_c01,1,1.06,pass2 agents
+thoracic-t5,r02_c02,1,0.78,pass2 agents
+thoracic-t5,r02_c03,1,0.71,pass2 agents
+thoracic-t5,r02_c04,1,0.53,pass2 agents
+thoracic-t5,r02_c05,1,0.78,pass2 agents
+thoracic-t5,r02_c06,1,0.80,pass2 agents
+thoracic-t5,r02_c07,1,0.35,pass2 agents
+thoracic-t5,r02_c08,1,0.54,pass2 agents
+thoracic-t5,r02_c09,1,0.70,pass2 agents
+thoracic-t5,r02_c10,1,0.43,pass2 agents
+thoracic-t5,r02_c11,1,0.81,pass2 agents
+thoracic-t5,r03_c00,1,8.7,pass2 agents
+thoracic-t5,r03_c01,1,7.9,pass2 agents
+thoracic-t5,r03_c02,1,6.5,pass2 agents
+thoracic-t5,r03_c03,1,7.0,pass2 agents
+thoracic-t5,r03_c04,1,5.7,pass2 agents
+thoracic-t5,r03_c05,1,6.0,pass2 agents
+thoracic-t5,r03_c06,1,5.2,pass2 agents
+thoracic-t5,r03_c07,1,6.7,pass2 agents
+thoracic-t5,r03_c08,1,7.7,pass2 agents
+thoracic-t5,r03_c09,1,9.7 (T1),pass2 agents
+thoracic-t5,r03_c10,1,10.7 (T5-7),pass2 agents
+thoracic-t5,r03_c11,1,8.6,pass2 agents
+thoracic-t5,r04_c00,1,0.53,pass2 agents
+thoracic-t5,r04_c01,1,0.97,pass2 agents
+thoracic-t5,r04_c02,1,0.55,pass2 agents
+thoracic-t5,r04_c03,1,0.49,pass2 agents
+thoracic-t5,r04_c04,1,0.38,pass2 agents
+thoracic-t5,r04_c05,1,0.87,pass2 agents
+thoracic-t5,r04_c06,1,0.45,pass2 agents
+thoracic-t5,r04_c07,1,0.63,pass2 agents
+thoracic-t5,r04_c08,1,0.65,pass2 agents
+thoracic-t5,r04_c09,1,0.78,pass2 agents
+thoracic-t5,r04_c10,1,0.84,pass2 agents
+thoracic-t5,r04_c11,1,0.68,pass2 agents
+thoracic-t5,r05_c00,1,9.3,pass2 agents
+thoracic-t5,r05_c01,1,11.1,pass2 agents
+thoracic-t5,r05_c02,1,11.8,pass2 agents
+thoracic-t5,r05_c03,1,11.9,pass2 agents
+thoracic-t5,r05_c04,1,11.2,pass2 agents
+thoracic-t5,r05_c05,1,12.0,pass2 agents
+thoracic-t5,r05_c06,1,11.8,pass2 agents
+thoracic-t5,r05_c07,1,12.5,pass2 agents
+thoracic-t5,r05_c08,1,13.9 (T1),pass2 agents
+thoracic-t5,r05_c09,1,"14.7 (T1-2, T5)",pass2 agents
+thoracic-t5,r05_c10,1,16.9 (T1-8),pass2 agents
+thoracic-t5,r05_c11,1,16.5 (T1-8),pass2 agents
+thoracic-t5,r06_c00,1,0.53,pass2 agents
+thoracic-t5,r06_c01,1,0.44,pass2 agents
+thoracic-t5,r06_c02,1,0.23,pass2 agents
+thoracic-t5,r06_c03,1,0.46,pass2 agents
+thoracic-t5,r06_c04,1,0.51,pass2 agents
+thoracic-t5,r06_c05,1,0.44,pass2 agents
+thoracic-t5,r06_c06,1,0.30,pass2 agents
+thoracic-t5,r06_c07,1,0.52,pass2 agents
+thoracic-t5,r06_c08,1,0.79,pass2 agents
+thoracic-t5,r06_c09,1,0.49,pass2 agents
+thoracic-t5,r06_c10,1,0.49,pass2 agents
+thoracic-t5,r06_c11,1,0.71,pass2 agents
+thoracic-t5,r07_c00,1,9.9,pass2 agents
+thoracic-t5,r07_c01,1,11.6,pass2 agents
+thoracic-t5,r07_c02,1,12.0,pass2 agents
+thoracic-t5,r07_c03,1,12.2,pass2 agents
+thoracic-t5,r07_c04,1,11.4,pass2 agents
+thoracic-t5,r07_c05,1,11.6,pass2 agents
+thoracic-t5,r07_c06,1,12.2,pass2 agents
+thoracic-t5,r07_c07,1,12.5,pass2 agents
+thoracic-t5,r07_c08,1,13.8 (T1),pass2 agents
+thoracic-t5,r07_c09,1,"15.0 (T1-2, T5-6)",pass2 agents
+thoracic-t5,r07_c10,1,17.8 (T1-9),pass2 agents
+thoracic-t5,r07_c11,1,16.8 (T1-8),pass2 agents
+thoracic-t5,r08_c00,1,0.41,pass2 agents
+thoracic-t5,r08_c01,1,0.30,pass2 agents
+thoracic-t5,r08_c02,1,0.32,pass2 agents
+thoracic-t5,r08_c03,1,0.50,pass2 agents
+thoracic-t5,r08_c04,1,0.36,pass2 agents
+thoracic-t5,r08_c05,1,0.47,pass2 agents
+thoracic-t5,r08_c06,1,0.27,pass2 agents
+thoracic-t5,r08_c07,1,0.41,pass2 agents
+thoracic-t5,r08_c08,1,0.55,pass2 agents
+thoracic-t5,r08_c09,1,0.24,pass2 agents
+thoracic-t5,r08_c10,1,0.29,pass2 agents
+thoracic-t5,r08_c11,1,0.94,pass2 agents
+thoracic-t5,r09_c00,1,1.1,pass2 agents
+thoracic-t5,r09_c01,1,1.3,pass2 agents
+thoracic-t5,r09_c02,1,1.7,pass2 agents
+thoracic-t5,r09_c03,1,2.2,pass2 agents
+thoracic-t5,r09_c04,1,1.8,pass2 agents
+thoracic-t5,r09_c05,1,2.0,pass2 agents
+thoracic-t5,r09_c06,1,1.8,pass2 agents
+thoracic-t5,r09_c07,1,1.9,pass2 agents
+thoracic-t5,r09_c08,1,1.8,pass2 agents
+thoracic-t5,r09_c09,1,1.8,pass2 agents
+thoracic-t5,r09_c10,1,1.9,pass2 agents
+thoracic-t5,r09_c11,1,1.9,pass2 agents
+thoracic-t5,r10_c00,1,1.1,pass2 agents
+thoracic-t5,r10_c01,1,1.5,pass2 agents
+thoracic-t5,r10_c02,1,1.4,pass2 agents
+thoracic-t5,r10_c03,1,1.4,pass2 agents
+thoracic-t5,r10_c04,1,2.0,pass2 agents
+thoracic-t5,r10_c05,1,1.9,pass2 agents
+thoracic-t5,r10_c06,1,2.3,pass2 agents
+thoracic-t5,r10_c07,1,1.9,pass2 agents
+thoracic-t5,r10_c08,1,1.8,pass2 agents
+thoracic-t5,r10_c09,1,1.6,pass2 agents
+thoracic-t5,r10_c10,1,1.7,pass2 agents
+thoracic-t5,r10_c11,1,1.9,pass2 agents
+thoracic-t5,r12_c00,1,52.2,pass2 agents
+thoracic-t5,r12_c01,1,46.3,pass2 agents
+thoracic-t5,r12_c02,1,38.1,pass2 agents
+thoracic-t5,r12_c03,1,32.5,pass2 agents
+thoracic-t5,r12_c04,1,31.6,pass2 agents
+thoracic-t5,r12_c05,1,33.5,pass2 agents
+thoracic-t5,r12_c06,1,36.8,pass2 agents
+thoracic-t5,r12_c07,1,43.8,pass2 agents
+thoracic-t5,r12_c08,1,52.3,pass2 agents
+thoracic-t5,r12_c09,1,64.8,pass2 agents
+thoracic-t5,r12_c10,1,88.4 (T2-8),pass2 agents
+thoracic-t5,r12_c11,1,90.9 (T1-9),pass2 agents
+thoracic-t5,r13_c00,1,6.14,pass2 agents
+thoracic-t5,r13_c01,1,3.98,pass2 agents
+thoracic-t5,r13_c02,1,3.0,pass2 agents
+thoracic-t5,r13_c03,1,4.08,pass2 agents
+thoracic-t5,r13_c04,1,1.72,pass2 agents
+thoracic-t5,r13_c05,1,2.27,pass2 agents
+thoracic-t5,r13_c06,1,3.75,pass2 agents
+thoracic-t5,r13_c07,1,4.67,pass2 agents
+thoracic-t5,r13_c08,1,5.17,pass2 agents
+thoracic-t5,r13_c09,1,4.68,pass2 agents
+thoracic-t5,r13_c10,1,7.5,pass2 agents
+thoracic-t5,r13_c11,1,13.00,pass2 agents
+thoracic-t5,r14_c00,1,54.4,pass2 agents
+thoracic-t5,r14_c01,1,45.5,pass2 agents
+thoracic-t5,r14_c02,1,41.9,pass2 agents
+thoracic-t5,r14_c03,1,38.4,pass2 agents
+thoracic-t5,r14_c04,1,33.1,pass2 agents
+thoracic-t5,r14_c05,1,34.6,pass2 agents
+thoracic-t5,r14_c06,1,34.5,pass2 agents
+thoracic-t5,r14_c07,1,42.0,pass2 agents
+thoracic-t5,r14_c08,1,51.6,pass2 agents
+thoracic-t5,r14_c09,1,61.6,pass2 agents
+thoracic-t5,r14_c10,1,98.3 (T1-10),pass2 agents
+thoracic-t5,r14_c11,1,97.0 (T1-10),pass2 agents
+thoracic-t5,r15_c00,1,4.60,pass2 agents
+thoracic-t5,r15_c01,1,4.95,pass2 agents
+thoracic-t5,r15_c02,1,2.29,pass2 agents
+thoracic-t5,r15_c03,1,3.19,pass2 agents
+thoracic-t5,r15_c04,1,3.13,pass2 agents
+thoracic-t5,r15_c05,1,3.78,pass2 agents
+thoracic-t5,r15_c06,1,3.40,pass2 agents
+thoracic-t5,r15_c07,1,3.78,pass2 agents
+thoracic-t5,r15_c08,1,4.90,pass2 agents
+thoracic-t5,r15_c09,1,5.26,pass2 agents
+thoracic-t5,r15_c10,1,5.93,pass2 agents
+thoracic-t5,r15_c11,1,12.30,pass2 agents
+thoracic-t5,r17_c00,1,28.1,pass2 agents
+thoracic-t5,r17_c01,1,28.9,pass2 agents
+thoracic-t5,r17_c02,1,22.5,pass2 agents
+thoracic-t5,r17_c03,1,21.8,pass2 agents
+thoracic-t5,r17_c04,1,20.2,pass2 agents
+thoracic-t5,r17_c05,1,19.4,pass2 agents
+thoracic-t5,r17_c06,1,23.4,pass2 agents
+thoracic-t5,r17_c07,1,22.5,pass2 agents
+thoracic-t5,r17_c08,1,19.3,pass2 agents
+thoracic-t5,r17_c09,1,14.4,pass2 agents
+thoracic-t5,r17_c10,1,12.9,pass2 agents
+thoracic-t5,r17_c11,1,8.0,pass2 agents
+thoracic-t5,r18_c00,1,1.72,pass2 agents
+thoracic-t5,r18_c01,1,6.17,pass2 agents
+thoracic-t5,r18_c02,1,3.21,pass2 agents
+thoracic-t5,r18_c03,1,4.37,pass2 agents
+thoracic-t5,r18_c04,1,3.56,pass2 agents
+thoracic-t5,r18_c05,1,3.96,pass2 agents
+thoracic-t5,r18_c06,1,4.32,pass2 agents
+thoracic-t5,r18_c07,1,4.70,pass2 agents
+thoracic-t5,r18_c08,1,5.00,pass2 agents
+thoracic-t5,r18_c09,1,1.94,pass2 agents
+thoracic-t5,r18_c10,1,1.32,pass2 agents
+thoracic-t5,r18_c11,1,1.10,pass2 agents
+thoracic-t5,r19_c00,1,26.0,pass2 agents
+thoracic-t5,r19_c01,1,28.3,pass2 agents
+thoracic-t5,r19_c02,1,16.2,pass2 agents
+thoracic-t5,r19_c03,1,17.2,pass2 agents
+thoracic-t5,r19_c04,1,11.0,pass2 agents
+thoracic-t5,r19_c05,1,13.4,pass2 agents
+thoracic-t5,r19_c06,1,18.0,pass2 agents
+thoracic-t5,r19_c07,1,16.7,pass2 agents
+thoracic-t5,r19_c08,1,10.2,pass2 agents
+thoracic-t5,r19_c09,1,10.4,pass2 agents
+thoracic-t5,r19_c10,1,13.2,pass2 agents
+thoracic-t5,r19_c11,1,11.5,pass2 agents
+thoracic-t5,r20_c00,1,2.52,pass2 agents
+thoracic-t5,r20_c01,1,8.58,pass2 agents
+thoracic-t5,r20_c02,1,2.21,pass2 agents
+thoracic-t5,r20_c03,1,1.97,pass2 agents
+thoracic-t5,r20_c04,1,2.01,pass2 agents
+thoracic-t5,r20_c05,1,2.58,pass2 agents
+thoracic-t5,r20_c06,1,3.60,pass2 agents
+thoracic-t5,r20_c07,1,3.27,pass2 agents
+thoracic-t5,r20_c08,1,1.99,pass2 agents
+thoracic-t5,r20_c09,1,2.29,pass2 agents
+thoracic-t5,r20_c10,1,2.02,pass2 agents
+thoracic-t5,r20_c11,1,2.70,pass2 agents
+thoracic-t5,r21_c00,1,4.6,pass2 agents
+thoracic-t5,r21_c01,1,16.5,pass2 agents
+thoracic-t5,r21_c02,1,8.1,pass2 agents
+thoracic-t5,r21_c03,1,6.4,pass2 agents
+thoracic-t5,r21_c04,1,8.6,pass2 agents
+thoracic-t5,r21_c05,1,7.0,pass2 agents
+thoracic-t5,r21_c06,1,10.9,pass2 agents
+thoracic-t5,r21_c07,1,12.1,pass2 agents
+thoracic-t5,r21_c08,1,8.3,pass2 agents
+thoracic-t5,r21_c09,1,6.8,pass2 agents
+thoracic-t5,r21_c10,1,8.9,pass2 agents
+thoracic-t5,r21_c11,1,4.8,pass2 agents
+thoracic-t5,r22_c00,1,1.3,pass2 agents
+thoracic-t5,r22_c01,1,7.93,pass2 agents
+thoracic-t5,r22_c02,1,1.23,pass2 agents
+thoracic-t5,r22_c03,1,1.48,pass2 agents
+thoracic-t5,r22_c04,1,1.81,pass2 agents
+thoracic-t5,r22_c05,1,1.44,pass2 agents
+thoracic-t5,r22_c06,1,1.92,pass2 agents
+thoracic-t5,r22_c07,1,1.82,pass2 agents
+thoracic-t5,r22_c08,1,1.64,pass2 agents
+thoracic-t5,r22_c09,1,0.84,pass2 agents
+thoracic-t5,r22_c10,1,0.89,pass2 agents
+thoracic-t5,r22_c11,1,1.00,pass2 agents
+thoracic-t5,r23_c00,1,10.5,pass2 agents
+thoracic-t5,r23_c01,1,19.2,pass2 agents
+thoracic-t5,r23_c02,1,9.4,pass2 agents
+thoracic-t5,r23_c03,1,10.5,pass2 agents
+thoracic-t5,r23_c04,1,7.6,pass2 agents
+thoracic-t5,r23_c05,1,9.6,pass2 agents
+thoracic-t5,r23_c06,1,12.1,pass2 agents
+thoracic-t5,r23_c07,1,11.1,pass2 agents
+thoracic-t5,r23_c08,1,8.5,pass2 agents
+thoracic-t5,r23_c09,1,7.3,pass2 agents
+thoracic-t5,r23_c10,1,8.4,pass2 agents
+thoracic-t5,r23_c11,1,5.3,pass2 agents
+thoracic-t5,r24_c00,1,1.5,pass2 agents
+thoracic-t5,r24_c01,1,9.77,pass2 agents
+thoracic-t5,r24_c02,1,1.28,pass2 agents
+thoracic-t5,r24_c03,1,1.41,pass2 agents
+thoracic-t5,r24_c04,1,1.99,pass2 agents
+thoracic-t5,r24_c05,1,1.52,pass2 agents
+thoracic-t5,r24_c06,1,1.92,pass2 agents
+thoracic-t5,r24_c07,1,1.70,pass2 agents
+thoracic-t5,r24_c08,1,1.71,pass2 agents
+thoracic-t5,r24_c09,1,1.88,pass2 agents
+thoracic-t5,r24_c10,1,1.12,pass2 agents
+thoracic-t5,r24_c11,1,1.12,pass2 agents
+thoracic-t6,r01_c00,1,45.3,pass2 agents
+thoracic-t6,r01_c01,1,29.0,pass2 agents
+thoracic-t6,r01_c02,1,26.7,pass2 agents
+thoracic-t6,r01_c03,1,31.3,pass2 agents
+thoracic-t6,r01_c04,1,42.6,pass2 agents
+thoracic-t6,r01_c05,1,53.4,pass2 agents
+thoracic-t6,r01_c06,1,47.8,pass2 agents
+thoracic-t6,r01_c07,1,39.5,pass2 agents
+thoracic-t6,r01_c08,1,45.1,pass2 agents
+thoracic-t6,r01_c09,1,56.3,pass2 agents
+thoracic-t6,r01_c10,1,71.9 (T2-4),pass2 agents
+thoracic-t6,r01_c11,1,61.0,pass2 agents
+thoracic-t6,r02_c00,1,5.54,pass2 agents
+thoracic-t6,r02_c01,1,2.42,pass2 agents
+thoracic-t6,r02_c02,1,2.20,pass2 agents
+thoracic-t6,r02_c03,1,3.71,pass2 agents
+thoracic-t6,r02_c04,1,5.51,pass2 agents
+thoracic-t6,r02_c05,1,6.08,pass2 agents
+thoracic-t6,r02_c06,1,4.04,pass2 agents
+thoracic-t6,r02_c07,1,6.83,pass2 agents
+thoracic-t6,r02_c08,1,4.35,pass2 agents
+thoracic-t6,r02_c09,1,5.69,pass2 agents
+thoracic-t6,r02_c10,1,5.38,pass2 agents
+thoracic-t6,r02_c11,1,8.77,pass2 agents
+thoracic-t6,r03_c00,1,56.6,pass2 agents
+thoracic-t6,r03_c01,1,29.5,pass2 agents
+thoracic-t6,r03_c02,1,34.2,pass2 agents
+thoracic-t6,r03_c03,1,36.9,pass2 agents
+thoracic-t6,r03_c04,1,41.3,pass2 agents
+thoracic-t6,r03_c05,1,51.4,pass2 agents
+thoracic-t6,r03_c06,1,53.4,pass2 agents
+thoracic-t6,r03_c07,1,44.1,pass2 agents
+thoracic-t6,r03_c08,1,40.7,pass2 agents
+thoracic-t6,r03_c09,1,51.9,pass2 agents
+thoracic-t6,r03_c10,1,60.0,pass2 agents
+thoracic-t6,r03_c11,1,47.9,pass2 agents
+thoracic-t6,r04_c00,1,7.44,pass2 agents
+thoracic-t6,r04_c01,1,2.14,pass2 agents
+thoracic-t6,r04_c02,1,3.29,pass2 agents
+thoracic-t6,r04_c03,1,5.72,pass2 agents
+thoracic-t6,r04_c04,1,3.38,pass2 agents
+thoracic-t6,r04_c05,1,5.65,pass2 agents
+thoracic-t6,r04_c06,1,7.85,pass2 agents
+thoracic-t6,r04_c07,1,7.14,pass2 agents
+thoracic-t6,r04_c08,1,3.65,pass2 agents
+thoracic-t6,r04_c09,1,6.23,pass2 agents
+thoracic-t6,r04_c10,1,7.48,pass2 agents
+thoracic-t6,r04_c11,1,4.20,pass2 agents
+thoracic-t6,r05_c00,1,27.9,pass2 agents
+thoracic-t6,r05_c01,1,21.0,pass2 agents
+thoracic-t6,r05_c02,1,22.5,pass2 agents
+thoracic-t6,r05_c03,1,22.7,pass2 agents
+thoracic-t6,r05_c04,1,25.2,pass2 agents
+thoracic-t6,r05_c05,1,39.4,pass2 agents
+thoracic-t6,r05_c06,1,40.7,pass2 agents
+thoracic-t6,r05_c07,1,44.5,pass2 agents
+thoracic-t6,r05_c08,1,38.7,pass2 agents
+thoracic-t6,r05_c09,1,30.0,pass2 agents
+thoracic-t6,r05_c10,1,-,pass2 agents
+thoracic-t6,r05_c11,1,-,pass2 agents
+thoracic-t6,r06_c00,1,2.22,pass2 agents
+thoracic-t6,r06_c01,1,2.67,pass2 agents
+thoracic-t6,r06_c02,1,2.85,pass2 agents
+thoracic-t6,r06_c03,1,3.41,pass2 agents
+thoracic-t6,r06_c04,1,4.15,pass2 agents
+thoracic-t6,r06_c05,1,6.66,pass2 agents
+thoracic-t6,r06_c06,1,4.61,pass2 agents
+thoracic-t6,r06_c07,1,6.33,pass2 agents
+thoracic-t6,r06_c08,1,6.45,pass2 agents
+thoracic-t6,r06_c09,1,6.39,pass2 agents
+thoracic-t6,r06_c10,1,-,pass2 agents
+thoracic-t6,r06_c11,1,-,pass2 agents
+thoracic-t6,r07_c00,1,19.5,pass2 agents
+thoracic-t6,r07_c01,1,12.1,pass2 agents
+thoracic-t6,r07_c02,1,19.9,pass2 agents
+thoracic-t6,r07_c03,1,20.0,pass2 agents
+thoracic-t6,r07_c04,1,25.7,pass2 agents
+thoracic-t6,r07_c05,1,33.4,pass2 agents
+thoracic-t6,r07_c06,1,30.7,pass2 agents
+thoracic-t6,r07_c07,1,25.5,pass2 agents
+thoracic-t6,r07_c08,1,26.2,pass2 agents
+thoracic-t6,r07_c09,1,26.9,pass2 agents
+thoracic-t6,r07_c10,1,-,pass2 agents
+thoracic-t6,r07_c11,1,-,pass2 agents
+thoracic-t6,r08_c00,1,1.52,pass2 agents
+thoracic-t6,r08_c01,1,1.58,pass2 agents
+thoracic-t6,r08_c02,1,4.12,pass2 agents
+thoracic-t6,r08_c03,1,2.09,pass2 agents
+thoracic-t6,r08_c04,1,4.97,pass2 agents
+thoracic-t6,r08_c05,1,4.70,pass2 agents
+thoracic-t6,r08_c06,1,3.80,pass2 agents
+thoracic-t6,r08_c07,1,4.09,pass2 agents
+thoracic-t6,r08_c08,1,1.40,pass2 agents
+thoracic-t6,r08_c09,1,2.52,pass2 agents
+thoracic-t6,r08_c10,1,-,pass2 agents
+thoracic-t6,r08_c11,1,-,pass2 agents
+thoracic-t6,r09_c00,1,74.7,pass2 agents
+thoracic-t6,r09_c01,1,45.8,pass2 agents
+thoracic-t6,r09_c02,1,51.7,pass2 agents
+thoracic-t6,r09_c03,1,55.5,pass2 agents
+thoracic-t6,r09_c04,1,67.4,pass2 agents
+thoracic-t6,r09_c05,1,88.8,pass2 agents
+thoracic-t6,r09_c06,1,86.3,pass2 agents
+thoracic-t6,r09_c07,1,76.8,pass2 agents
+thoracic-t6,r09_c08,1,75.4,pass2 agents
+thoracic-t6,r09_c09,1,82.6,pass2 agents
+thoracic-t6,r09_c10,1,66.0,pass2 agents
+thoracic-t6,r09_c11,1,54.5,pass2 agents
+thoracic-t6,r11_c00,1,49.7,pass2 agents
+thoracic-t6,r11_c01,1,49.4,pass2 agents
+thoracic-t6,r11_c02,1,61.5,pass2 agents
+thoracic-t6,r11_c03,1,61.2,pass2 agents
+thoracic-t6,r11_c04,1,51.3,pass2 agents
+thoracic-t6,r11_c05,1,48.2,pass2 agents
+thoracic-t6,r11_c06,1,50.5,pass2 agents
+thoracic-t6,r11_c07,1,63.8,pass2 agents
+thoracic-t6,r11_c08,1,60.9,pass2 agents
+thoracic-t6,r11_c09,1,62.3,pass2 agents
+thoracic-t6,r11_c10,1,"16.7 (T3-4, T8-10)",pass2 agents
+thoracic-t6,r12_c00,1,4.92,pass2 agents
+thoracic-t6,r12_c01,1,5.24,pass2 agents
+thoracic-t6,r12_c02,1,4.40,pass2 agents
+thoracic-t6,r12_c03,1,3.90,pass2 agents
+thoracic-t6,r12_c04,1,2.79,pass2 agents
+thoracic-t6,r12_c05,1,4.35,pass2 agents
+thoracic-t6,r12_c06,1,4.42,pass2 agents
+thoracic-t6,r12_c07,1,26.7,pass2 agents
+thoracic-t6,r12_c08,1,4.97,pass2 agents
+thoracic-t6,r12_c09,1,17.3,pass2 agents
+thoracic-t6,r12_c10,1,1.61,pass2 agents
+thoracic-t6,r12_c11,1,-,pass2 agents
+thoracic-t6,r13_c00,1,65.0,pass2 agents
+thoracic-t6,r13_c01,1,50.8,pass2 agents
+thoracic-t6,r13_c02,1,55.9,pass2 agents
+thoracic-t6,r13_c03,1,59.2,pass2 agents
+thoracic-t6,r13_c04,1,51.3,pass2 agents
+thoracic-t6,r13_c05,1,48.7,pass2 agents
+thoracic-t6,r13_c06,1,42.3,pass2 agents
+thoracic-t6,r13_c07,1,40.0,pass2 agents
+thoracic-t6,r13_c08,1,48.6,pass2 agents
+thoracic-t6,r13_c09,1,49.3,pass2 agents
+thoracic-t6,r13_c10,1,"11.7 (T1-6, T9-10)",pass2 agents
+thoracic-t6,r14_c00,1,4.20,pass2 agents
+thoracic-t6,r14_c01,1,2.40,pass2 agents
+thoracic-t6,r14_c02,1,8.01,pass2 agents
+thoracic-t6,r14_c03,1,2.78,pass2 agents
+thoracic-t6,r14_c04,1,3.39,pass2 agents
+thoracic-t6,r14_c05,1,6.07,pass2 agents
+thoracic-t6,r14_c06,1,3.50,pass2 agents
+thoracic-t6,r14_c07,1,6.00,pass2 agents
+thoracic-t6,r14_c08,1,6.18,pass2 agents
+thoracic-t6,r14_c09,1,8.67,pass2 agents
+thoracic-t6,r14_c10,1,0.35,pass2 agents
+thoracic-t6,r14_c11,1,-,pass2 agents
+thoracic-t6,r15_c00,1,TA 132.0,pass2 agents
+thoracic-t6,r15_c00,1,132.0,reread-pass2-1.json
+thoracic-t6,r15_c01,1,95.9,pass2 agents
+thoracic-t6,r15_c02,1,110.4,pass2 agents
+thoracic-t6,r15_c03,1,115.7,pass2 agents
+thoracic-t6,r15_c04,1,118.7,pass2 agents
+thoracic-t6,r15_c05,1,137.3,pass2 agents
+thoracic-t6,r15_c06,1,132.7,pass2 agents
+thoracic-t6,r15_c07,1,128.7,pass2 agents
+thoracic-t6,r15_c08,1,130.1,pass2 agents
+thoracic-t6,r15_c09,1,138.4,pass2 agents
+thoracic-t6,r15_c10,1,80.2,pass2 agents
+thoracic-t6,r15_c11,1,54.5,pass2 agents
+thoracic-t7,r01_c00,1,-,pass2 agents
+thoracic-t7,r01_c01,1,-,pass2 agents
+thoracic-t7,r01_c02,1,118.0,pass2 agents
+thoracic-t7,r01_c03,1,75.0,pass2 agents
+thoracic-t7,r01_c04,1,89.0,pass2 agents
+thoracic-t7,r01_c05,1,"58.0 (T9, T11)",pass2 agents
+thoracic-t7,r01_c06,1,113.0,pass2 agents
+thoracic-t7,r01_c07,1,113.0,pass2 agents
+thoracic-t7,r01_c08,1,140.0,pass2 agents
+thoracic-t7,r01_c09,1,131.0,pass2 agents
+thoracic-t7,r01_c10,1,145.0,pass2 agents
+thoracic-t7,r01_c11,1,86.0,pass2 agents
+thoracic-t7,r02_c00,1,-,pass2 agents
+thoracic-t7,r02_c01,1,-,pass2 agents
+thoracic-t7,r02_c02,1,1.3,pass2 agents
+thoracic-t7,r02_c03,1,2.8,pass2 agents
+thoracic-t7,r02_c04,1,10.8,pass2 agents
+thoracic-t7,r02_c05,1,9.6,pass2 agents
+thoracic-t7,r02_c06,1,4.1,pass2 agents
+thoracic-t7,r02_c07,1,4.5,pass2 agents
+thoracic-t7,r02_c08,1,19.0,pass2 agents
+thoracic-t7,r02_c09,1,13.2,pass2 agents
+thoracic-t7,r02_c10,1,32.4,pass2 agents
+thoracic-t7,r02_c11,1,3.4,pass2 agents
+thoracic-t7,r03_c00,1,-,pass2 agents
+thoracic-t7,r03_c01,1,-,pass2 agents
+thoracic-t7,r03_c02,1,73.0,pass2 agents
+thoracic-t7,r03_c03,1,66.0 (T11),pass2 agents
+thoracic-t7,r03_c04,1,81.0,pass2 agents
+thoracic-t7,r03_c05,1,98.0,pass2 agents
+thoracic-t7,r03_c06,1,98.0,pass2 agents
+thoracic-t7,r03_c07,1,121.0,pass2 agents
+thoracic-t7,r03_c08,1,124.0,pass2 agents
+thoracic-t7,r03_c09,1,148.0,pass2 agents
+thoracic-t7,r03_c10,1,179.0,pass2 agents
+thoracic-t7,r03_c11,1,98.0,pass2 agents
+thoracic-t7,r04_c00,1,-,pass2 agents
+thoracic-t7,r04_c01,1,-,pass2 agents
+thoracic-t7,r04_c02,1,17.6,pass2 agents
+thoracic-t7,r04_c03,1,6.3,pass2 agents
+thoracic-t7,r04_c04,1,5.4,pass2 agents
+thoracic-t7,r04_c05,1,19.7,pass2 agents
+thoracic-t7,r04_c06,1,7.1,pass2 agents
+thoracic-t7,r04_c07,1,15.3,pass2 agents
+thoracic-t7,r04_c08,1,7.3,pass2 agents
+thoracic-t7,r04_c09,1,12.9,pass2 agents
+thoracic-t7,r04_c10,1,45.6,pass2 agents
+thoracic-t7,r04_c11,1,9.9,pass2 agents
+thoracic-t7,r06_c00,1,50.1,pass2 agents
+thoracic-t7,r06_c01,1,52.1,pass2 agents
+thoracic-t7,r06_c02,1,51.7,pass2 agents
+thoracic-t7,r06_c03,1,51.1,pass2 agents
+thoracic-t7,r06_c04,1,52.1,pass2 agents
+thoracic-t7,r06_c05,1,53.8,pass2 agents
+thoracic-t7,r06_c06,1,50.5,pass2 agents
+thoracic-t7,r06_c07,1,52.8,pass2 agents
+thoracic-t7,r06_c08,1,51.3,pass2 agents
+thoracic-t7,r06_c09,1,49.3,pass2 agents
+thoracic-t7,r06_c10,1,45.6,pass2 agents
+thoracic-t7,r06_c11,1,47.4,pass2 agents
+thoracic-t7,r07_c00,1,1.45,pass2 agents
+thoracic-t7,r07_c01,1,1.46,pass2 agents
+thoracic-t7,r07_c02,1,1.53,pass2 agents
+thoracic-t7,r07_c03,1,2.00,pass2 agents
+thoracic-t7,r07_c04,1,1.90,pass2 agents
+thoracic-t7,r07_c05,1,1.31,pass2 agents
+thoracic-t7,r07_c06,1,1.79,pass2 agents
+thoracic-t7,r07_c07,1,1.22,pass2 agents
+thoracic-t7,r07_c08,1,1.09,pass2 agents
+thoracic-t7,r07_c09,1,1.02,pass2 agents
+thoracic-t7,r07_c10,1,1.15,pass2 agents
+thoracic-t7,r07_c11,1,1.70,pass2 agents
+thoracic-t7,r08_c00,1,75.3 (T3-12),pass2 agents
+thoracic-t7,r08_c01,1,69.4 (T11-12),pass2 agents
+thoracic-t7,r08_c02,1,60.8,pass2 agents
+thoracic-t7,r08_c03,1,56.9,pass2 agents
+thoracic-t7,r08_c04,1,61.1,pass2 agents
+thoracic-t7,r08_c05,1,61.3,pass2 agents
+thoracic-t7,r08_c06,1,60.4,pass2 agents
+thoracic-t7,r08_c07,1,59.9,pass2 agents
+thoracic-t7,r08_c08,1,59.3,pass2 agents
+thoracic-t7,r08_c09,1,58.4,pass2 agents
+thoracic-t7,r08_c10,1,52.2,pass2 agents
+thoracic-t7,r08_c11,1,"46.9 (T1-3, T5)",pass2 agents
+thoracic-t7,r09_c00,1,1.74,pass2 agents
+thoracic-t7,r09_c01,1,0.90,pass2 agents
+thoracic-t7,r09_c02,1,1.54,pass2 agents
+thoracic-t7,r09_c03,1,3.77,pass2 agents
+thoracic-t7,r09_c04,1,1.90,pass2 agents
+thoracic-t7,r09_c05,1,1.75,pass2 agents
+thoracic-t7,r09_c06,1,2.34,pass2 agents
+thoracic-t7,r09_c07,1,1.92,pass2 agents
+thoracic-t7,r09_c08,1,1.46,pass2 agents
+thoracic-t7,r09_c09,1,1.48,pass2 agents
+thoracic-t7,r09_c10,1,1.28,pass2 agents
+thoracic-t7,r09_c11,1,1.84,pass2 agents
+thoracic-t8a,r01_c00,1,T1,pass2 agents
+thoracic-t8a,r01_c01,1,19.7,pass2 agents
+thoracic-t8a,r01_c02,1,-,pass2 agents
+thoracic-t8a,r01_c03,1,-,pass2 agents
+thoracic-t8a,r01_c04,1,15.5,pass2 agents
+thoracic-t8a,r01_c05,1,-,pass2 agents
+thoracic-t8a,r01_c06,1,-,pass2 agents
+thoracic-t8a,r02_c00,1,T2,pass2 agents
+thoracic-t8a,r02_c01,1,21.6,pass2 agents
+thoracic-t8a,r02_c02,1,19.0,pass2 agents
+thoracic-t8a,r02_c03,1,-,pass2 agents
+thoracic-t8a,r02_c04,1,-,pass2 agents
+thoracic-t8a,r02_c05,1,-,pass2 agents
+thoracic-t8a,r02_c06,1,-,pass2 agents
+thoracic-t8a,r03_c00,1,T3,pass2 agents
+thoracic-t8a,r03_c01,1,23.2,pass2 agents
+thoracic-t8a,r03_c02,1,-,pass2 agents
+thoracic-t8a,r03_c03,1,-,pass2 agents
+thoracic-t8a,r03_c04,1,18.7,pass2 agents
+thoracic-t8a,r03_c05,1,-,pass2 agents
+thoracic-t8a,r03_c06,1,-,pass2 agents
+thoracic-t8a,r04_c00,1,T4,pass2 agents
+thoracic-t8a,r04_c01,1,24.5,pass2 agents
+thoracic-t8a,r04_c02,1,-,pass2 agents
+thoracic-t8a,r04_c03,1,-,pass2 agents
+thoracic-t8a,r04_c04,1,-,pass2 agents
+thoracic-t8a,r04_c05,1,-,pass2 agents
+thoracic-t8a,r04_c06,1,-,pass2 agents
+thoracic-t8a,r05_c00,1,T5,pass2 agents
+thoracic-t8a,r05_c01,1,25.8,pass2 agents
+thoracic-t8a,r05_c02,1,-,pass2 agents
+thoracic-t8a,r05_c03,1,-,pass2 agents
+thoracic-t8a,r05_c04,1,-,pass2 agents
+thoracic-t8a,r05_c05,1,-,pass2 agents
+thoracic-t8a,r05_c06,1,-,pass2 agents
+thoracic-t8a,r06_c00,1,T6,pass2 agents
+thoracic-t8a,r06_c01,1,26.9,pass2 agents
+thoracic-t8a,r06_c02,1,-,pass2 agents
+thoracic-t8a,r06_c03,1,-,pass2 agents
+thoracic-t8a,r06_c04,1,23.7,pass2 agents
+thoracic-t8a,r06_c05,1,-,pass2 agents
+thoracic-t8a,r06_c06,1,21.8,pass2 agents
+thoracic-t8a,r07_c00,1,T7,pass2 agents
+thoracic-t8a,r07_c01,1,28.5,pass2 agents
+thoracic-t8a,r07_c02,1,28.0,pass2 agents
+thoracic-t8a,r07_c03,1,-,pass2 agents
+thoracic-t8a,r07_c04,1,-,pass2 agents
+thoracic-t8a,r07_c05,1,-,pass2 agents
+thoracic-t8a,r07_c06,1,-,pass2 agents
+thoracic-t8a,r08_c00,1,T8,pass2 agents
+thoracic-t8a,r08_c01,1,29.4,pass2 agents
+thoracic-t8a,r08_c02,1,-,pass2 agents
+thoracic-t8a,r08_c03,1,-,pass2 agents
+thoracic-t8a,r08_c04,1,-,pass2 agents
+thoracic-t8a,r08_c05,1,-,pass2 agents
+thoracic-t8a,r08_c06,1,-,pass2 agents
+thoracic-t8a,r09_c00,1,T9,pass2 agents
+thoracic-t8a,r09_c01,1,31.0,pass2 agents
+thoracic-t8a,r09_c02,1,-,pass2 agents
+thoracic-t8a,r09_c03,1,-,pass2 agents
+thoracic-t8a,r09_c04,1,27.4,pass2 agents
+thoracic-t8a,r09_c05,1,32.5,pass2 agents
+thoracic-t8a,r09_c06,1,-,pass2 agents
+thoracic-t8a,r10_c00,1,T10,pass2 agents
+thoracic-t8a,r10_c01,1,31.6,pass2 agents
+thoracic-t8a,r10_c02,1,-,pass2 agents
+thoracic-t8a,r10_c03,1,-,pass2 agents
+thoracic-t8a,r10_c04,1,-,pass2 agents
+thoracic-t8a,r10_c05,1,32.0,pass2 agents
+thoracic-t8a,r10_c06,1,-,pass2 agents
+thoracic-t8a,r11_c00,1,T11,pass2 agents
+thoracic-t8a,r11_c01,1,31.8,pass2 agents
+thoracic-t8a,r11_c02,1,-,pass2 agents
+thoracic-t8a,r11_c03,1,-,pass2 agents
+thoracic-t8a,r11_c04,1,-,pass2 agents
+thoracic-t8a,r11_c05,1,31.0,pass2 agents
+thoracic-t8a,r11_c06,1,-,pass2 agents
+thoracic-t8a,r12_c00,1,T12,pass2 agents
+thoracic-t8a,r12_c01,1,33.4,pass2 agents
+thoracic-t8a,r12_c02,1,31.2,pass2 agents
+thoracic-t8a,r12_c03,1,-,pass2 agents
+thoracic-t8a,r12_c04,1,28.8,pass2 agents
+thoracic-t8a,r12_c05,1,32.0,pass2 agents
+thoracic-t8a,r12_c06,1,27.5,pass2 agents
+thoracic-t8a,r13_c00,1,T1,pass2 agents
+thoracic-t8a,r13_c01,1,27.8,pass2 agents
+thoracic-t8a,r13_c02,1,-,pass2 agents
+thoracic-t8a,r13_c03,1,-,pass2 agents
+thoracic-t8a,r13_c04,1,26.4,pass2 agents
+thoracic-t8a,r13_c05,1,-,pass2 agents
+thoracic-t8a,r13_c06,1,-,pass2 agents
+thoracic-t8a,r14_c00,1,T2,pass2 agents
+thoracic-t8a,r14_c01,1,27.4,pass2 agents
+thoracic-t8a,r14_c02,1,33.5,pass2 agents
+thoracic-t8a,r14_c03,1,-,pass2 agents
+thoracic-t8a,r14_c04,1,-,pass2 agents
+thoracic-t8a,r14_c05,1,-,pass2 agents
+thoracic-t8a,r14_c06,1,-,pass2 agents
+thoracic-t8a,r15_c00,1,T3,pass2 agents
+thoracic-t8a,r15_c01,1,25.9,pass2 agents
+thoracic-t8a,r15_c02,1,-,pass2 agents
+thoracic-t8a,r15_c03,1,-,pass2 agents
+thoracic-t8a,r15_c04,1,27.6,pass2 agents
+thoracic-t8a,r15_c05,1,-,pass2 agents
+thoracic-t8a,r15_c06,1,-,pass2 agents
+thoracic-t8a,r16_c00,1,T4,pass2 agents
+thoracic-t8a,r16_c01,1,26.0,pass2 agents
+thoracic-t8a,r16_c02,1,-,pass2 agents
+thoracic-t8a,r16_c03,1,-,pass2 agents
+thoracic-t8a,r16_c04,1,-,pass2 agents
+thoracic-t8a,r16_c05,1,-,pass2 agents
+thoracic-t8a,r16_c06,1,-,pass2 agents
+thoracic-t8a,r17_c00,1,T5,pass2 agents
+thoracic-t8a,r17_c01,1,27.0,pass2 agents
+thoracic-t8a,r17_c02,1,-,pass2 agents
+thoracic-t8a,r17_c03,1,-,pass2 agents
+thoracic-t8a,r17_c04,1,-,pass2 agents
+thoracic-t8a,r17_c05,1,-,pass2 agents
+thoracic-t8a,r17_c06,1,-,pass2 agents
+thoracic-t8a,r18_c00,1,T6,pass2 agents
+thoracic-t8a,r18_c01,1,28.2,pass2 agents
+thoracic-t8a,r18_c02,1,-,pass2 agents
+thoracic-t8a,r18_c03,1,-,pass2 agents
+thoracic-t8a,r18_c04,1,28.7,pass2 agents
+thoracic-t8a,r18_c05,1,-,pass2 agents
+thoracic-t8a,r18_c06,1,25.1,pass2 agents
+thoracic-t8a,r19_c00,1,T7,pass2 agents
+thoracic-t8a,r19_c01,1,29.1,pass2 agents
+thoracic-t8a,r19_c02,1,33.2,pass2 agents
+thoracic-t8a,r19_c03,1,-,pass2 agents
+thoracic-t8a,r19_c04,1,-,pass2 agents
+thoracic-t8a,r19_c05,1,-,pass2 agents
+thoracic-t8a,r19_c06,1,-,pass2 agents
+thoracic-t8a,r20_c00,1,T8,pass2 agents
+thoracic-t8a,r20_c01,1,30.5,pass2 agents
+thoracic-t8a,r20_c02,1,-,pass2 agents
+thoracic-t8a,r20_c03,1,-,pass2 agents
+thoracic-t8a,r20_c04,1,-,pass2 agents
+thoracic-t8a,r20_c05,1,-,pass2 agents
+thoracic-t8a,r20_c06,1,-,pass2 agents
+thoracic-t8a,r21_c00,1,T9,pass2 agents
+thoracic-t8a,r21_c01,1,33.0,pass2 agents
+thoracic-t8a,r21_c02,1,32.5,pass2 agents
+thoracic-t8a,r21_c03,1,-,pass2 agents
+thoracic-t8a,r21_c04,1,-,pass2 agents
+thoracic-t8a,r21_c05,1,-,pass2 agents
+thoracic-t8a,r21_c06,1,-,pass2 agents
+thoracic-t8a,r22_c00,1,T10,pass2 agents
+thoracic-t8a,r22_c01,1,35.4,pass2 agents
+thoracic-t8a,r22_c02,1,-,pass2 agents
+thoracic-t8a,r22_c03,1,-,pass2 agents
+thoracic-t8a,r22_c04,1,-,pass2 agents
+thoracic-t8a,r22_c05,1,-,pass2 agents
+thoracic-t8a,r22_c06,1,-,pass2 agents
+thoracic-t8a,r23_c00,1,T11,pass2 agents
+thoracic-t8a,r23_c01,1,39.1,pass2 agents
+thoracic-t8a,r23_c02,1,-,pass2 agents
+thoracic-t8a,r23_c03,1,-,pass2 agents
+thoracic-t8a,r23_c04,1,-,pass2 agents
+thoracic-t8a,r23_c05,1,-,pass2 agents
+thoracic-t8a,r23_c06,1,-,pass2 agents
+thoracic-t8a,r24_c00,1,T12,pass2 agents
+thoracic-t8a,r24_c01,1,42.1,pass2 agents
+thoracic-t8a,r24_c02,1,46.8,pass2 agents
+thoracic-t8a,r24_c03,1,-,pass2 agents
+thoracic-t8a,r24_c04,1,41.7,pass2 agents
+thoracic-t8a,r24_c05,1,-,pass2 agents
+thoracic-t8a,r24_c06,1,37.3,pass2 agents
+thoracic-t8a,r25_c00,1,T1,pass2 agents
+thoracic-t8a,r25_c01,1,14.1,pass2 agents
+thoracic-t8a,r25_c02,1,-,pass2 agents
+thoracic-t8a,r25_c03,1,-,pass2 agents
+thoracic-t8a,r25_c04,1,16.8,pass2 agents
+thoracic-t8a,r25_c05,1,-,pass2 agents
+thoracic-t8a,r25_c06,1,-,pass2 agents
+thoracic-t8a,r26_c00,1,T2,pass2 agents
+thoracic-t8a,r26_c01,1,15.6,pass2 agents
+thoracic-t8a,r26_c02,1,16.5,pass2 agents
+thoracic-t8a,r26_c03,1,-,pass2 agents
+thoracic-t8a,r26_c04,1,-,pass2 agents
+thoracic-t8a,r26_c05,1,-,pass2 agents
+thoracic-t8a,r26_c06,1,-,pass2 agents
+thoracic-t8a,r27_c00,1,T3,pass2 agents
+thoracic-t8a,r27_c01,1,15.7,pass2 agents
+thoracic-t8a,r27_c02,1,-,pass2 agents
+thoracic-t8a,r27_c03,1,-,pass2 agents
+thoracic-t8a,r27_c04,1,18.6,pass2 agents
+thoracic-t8a,r27_c05,1,-,pass2 agents
+thoracic-t8a,r27_c06,1,-,pass2 agents
+thoracic-t8a,r28_c00,1,T4,pass2 agents
+thoracic-t8a,r28_c01,1,16.2,pass2 agents
+thoracic-t8a,r28_c02,1,-,pass2 agents
+thoracic-t8a,r28_c03,1,-,pass2 agents
+thoracic-t8a,r28_c04,1,-,pass2 agents
+thoracic-t8a,r28_c05,1,-,pass2 agents
+thoracic-t8a,r28_c06,1,-,pass2 agents
+thoracic-t8a,r29_c00,1,T5,pass2 agents
+thoracic-t8a,r29_c01,1,16.2,pass2 agents
+thoracic-t8a,r29_c02,1,-,pass2 agents
+thoracic-t8a,r29_c03,1,-,pass2 agents
+thoracic-t8a,r29_c04,1,-,pass2 agents
+thoracic-t8a,r29_c05,1,-,pass2 agents
+thoracic-t8a,r29_c06,1,-,pass2 agents
+thoracic-t8a,r30_c00,1,T6,pass2 agents
+thoracic-t8a,r30_c01,1,17.4,pass2 agents
+thoracic-t8a,r30_c02,1,-,pass2 agents
+thoracic-t8a,r30_c03,1,-,pass2 agents
+thoracic-t8a,r30_c04,1,19.8,pass2 agents
+thoracic-t8a,r30_c05,1,-,pass2 agents
+thoracic-t8a,r30_c06,1,17.5,pass2 agents
+thoracic-t8a,r31_c00,1,T7,pass2 agents
+thoracic-t8a,r31_c01,1,18.2,pass2 agents
+thoracic-t8a,r31_c02,1,19.1,pass2 agents
+thoracic-t8a,r31_c03,1,-,pass2 agents
+thoracic-t8a,r31_c04,1,-,pass2 agents
+thoracic-t8a,r31_c05,1,-,pass2 agents
+thoracic-t8a,r31_c06,1,-,pass2 agents
+thoracic-t8a,r32_c00,1,T8,pass2 agents
+thoracic-t8a,r32_c01,1,18.7,pass2 agents
+thoracic-t8a,r32_c02,1,-,pass2 agents
+thoracic-t8a,r32_c03,1,-,pass2 agents
+thoracic-t8a,r32_c04,1,-,pass2 agents
+thoracic-t8a,r32_c05,1,-,pass2 agents
+thoracic-t8a,r32_c06,1,-,pass2 agents
+thoracic-t8a,r33_c00,1,T9,pass2 agents
+thoracic-t8a,r33_c01,1,19.3,pass2 agents
+thoracic-t8a,r33_c02,1,-,pass2 agents
+thoracic-t8a,r33_c03,1,-,pass2 agents
+thoracic-t8a,r33_c04,1,21.8,pass2 agents
+thoracic-t8a,r33_c05,1,-,pass2 agents
+thoracic-t8a,r33_c06,1,-,pass2 agents
+thoracic-t8a,r34_c00,1,T10,pass2 agents
+thoracic-t8a,r34_c01,1,20.2,pass2 agents
+thoracic-t8a,r34_c02,1,-,pass2 agents
+thoracic-t8a,r34_c03,1,-,pass2 agents
+thoracic-t8a,r34_c04,1,-,pass2 agents
+thoracic-t8a,r34_c05,1,-,pass2 agents
+thoracic-t8a,r34_c06,1,-,pass2 agents
+thoracic-t8a,r35_c00,1,T11,pass2 agents
+thoracic-t8a,r35_c01,1,21.3,pass2 agents
+thoracic-t8a,r35_c02,1,-,pass2 agents
+thoracic-t8a,r35_c03,1,-,pass2 agents
+thoracic-t8a,r35_c04,1,-,pass2 agents
+thoracic-t8a,r35_c05,1,-,pass2 agents
+thoracic-t8a,r35_c06,1,-,pass2 agents
+thoracic-t8a,r36_c00,1,T12,pass2 agents
+thoracic-t8a,r36_c01,1,22.7,pass2 agents
+thoracic-t8a,r36_c02,1,24.8,pass2 agents
+thoracic-t8a,r36_c03,1,-,pass2 agents
+thoracic-t8a,r36_c04,1,25.9,pass2 agents
+thoracic-t8a,r36_c05,1,-,pass2 agents
+thoracic-t8a,r36_c06,1,23.6,pass2 agents
+thoracic-t8a,r37_c00,1,T1,pass2 agents
+thoracic-t8a,r37_c01,1,16.4,pass2 agents
+thoracic-t8a,r37_c02,1,-,pass2 agents
+thoracic-t8a,r37_c03,1,-,pass2 agents
+thoracic-t8a,r37_c04,1,15.2,pass2 agents
+thoracic-t8a,r37_c05,1,-,pass2 agents
+thoracic-t8a,r37_c06,1,-,pass2 agents
+thoracic-t8a,r38_c00,1,T2,pass2 agents
+thoracic-t8a,r38_c01,1,15.3,pass2 agents
+thoracic-t8a,r38_c02,1,15.0,pass2 agents
+thoracic-t8a,r38_c03,1,-,pass2 agents
+thoracic-t8a,r38_c04,1,-,pass2 agents
+thoracic-t8a,r38_c05,1,-,pass2 agents
+thoracic-t8a,r38_c06,1,-,pass2 agents
+thoracic-t8a,r39_c00,1,T3,pass2 agents
+thoracic-t8a,r39_c01,1,15.9,pass2 agents
+thoracic-t8a,r39_c02,1,-,pass2 agents
+thoracic-t8a,r39_c03,1,-,pass2 agents
+thoracic-t8a,r39_c04,1,15.6,pass2 agents
+thoracic-t8a,r39_c05,1,-,pass2 agents
+thoracic-t8a,r39_c06,1,-,pass2 agents
+thoracic-t8a,r40_c00,1,T4,pass2 agents
+thoracic-t8a,r40_c01,1,16.2,pass2 agents
+thoracic-t8a,r40_c02,1,-,pass2 agents
+thoracic-t8a,r40_c03,1,-,pass2 agents
+thoracic-t8a,r40_c04,1,-,pass2 agents
+thoracic-t8a,r40_c05,1,-,pass2 agents
+thoracic-t8a,r40_c06,1,-,pass2 agents
+thoracic-t8a,r41_c00,1,T5,pass2 agents
+thoracic-t8a,r41_c01,1,16.3,pass2 agents
+thoracic-t8a,r41_c02,1,-,pass2 agents
+thoracic-t8a,r41_c03,1,-,pass2 agents
+thoracic-t8a,r41_c04,1,-,pass2 agents
+thoracic-t8a,r41_c05,1,-,pass2 agents
+thoracic-t8a,r41_c06,1,-,pass2 agents
+thoracic-t8a,r42_c00,1,T6,pass2 agents
+thoracic-t8a,r42_c01,1,16.5,pass2 agents
+thoracic-t8a,r42_c02,1,-,pass2 agents
+thoracic-t8a,r42_c03,1,-,pass2 agents
+thoracic-t8a,r42_c04,1,15.7,pass2 agents
+thoracic-t8a,r42_c05,1,-,pass2 agents
+thoracic-t8a,r42_c06,1,14.5,pass2 agents
+thoracic-t8a,r43_c00,1,T7,pass2 agents
+thoracic-t8a,r43_c01,1,16.1,pass2 agents
+thoracic-t8a,r43_c02,1,16.6,pass2 agents
+thoracic-t8a,r43_c03,1,-,pass2 agents
+thoracic-t8a,r43_c04,1,-,pass2 agents
+thoracic-t8a,r43_c05,1,-,pass2 agents
+thoracic-t8a,r43_c06,1,-,pass2 agents
+thoracic-t8a,r44_c00,1,T8,pass2 agents
+thoracic-t8a,r44_c01,1,15.9,pass2 agents
+thoracic-t8a,r44_c02,1,-,pass2 agents
+thoracic-t8a,r44_c03,1,-,pass2 agents
+thoracic-t8a,r44_c04,1,-,pass2 agents
+thoracic-t8a,r44_c05,1,-,pass2 agents
+thoracic-t8a,r44_c06,1,-,pass2 agents
+thoracic-t8a,r45_c00,1,T9,pass2 agents
+thoracic-t8a,r45_c01,1,15.7,pass2 agents
+thoracic-t8a,r45_c02,1,-,pass2 agents
+thoracic-t8a,r45_c03,1,-,pass2 agents
+thoracic-t8a,r45_c04,1,15.4,pass2 agents
+thoracic-t8a,r45_c05,1,-,pass2 agents
+thoracic-t8a,r45_c06,1,-,pass2 agents
+thoracic-t8a,r46_c00,1,T10,pass2 agents
+thoracic-t8a,r46_c01,1,15.5,pass2 agents
+thoracic-t8a,r46_c02,1,-,pass2 agents
+thoracic-t8a,r46_c03,1,-,pass2 agents
+thoracic-t8a,r46_c04,1,-,pass2 agents
+thoracic-t8a,r46_c05,1,-,pass2 agents
+thoracic-t8a,r46_c06,1,-,pass2 agents
+thoracic-t8a,r47_c00,1,T11,pass2 agents
+thoracic-t8a,r47_c01,1,16.0,pass2 agents
+thoracic-t8a,r47_c02,1,-,pass2 agents
+thoracic-t8a,r47_c03,1,-,pass2 agents
+thoracic-t8a,r47_c04,1,-,pass2 agents
+thoracic-t8a,r47_c05,1,-,pass2 agents
+thoracic-t8a,r47_c06,1,-,pass2 agents
+thoracic-t8a,r48_c00,1,T12,pass2 agents
+thoracic-t8a,r48_c01,1,18.1,pass2 agents
+thoracic-t8a,r48_c02,1,17.2,pass2 agents
+thoracic-t8a,r48_c03,1,-,pass2 agents
+thoracic-t8a,r48_c04,1,17.9,pass2 agents
+thoracic-t8a,r48_c05,1,-,pass2 agents
+thoracic-t8a,r48_c06,1,14.6,pass2 agents
+thoracic-t8a,r49_c00,1,T1,pass2 agents
+thoracic-t8a,r49_c01,1,21.8,pass2 agents
+thoracic-t8a,r49_c02,1,-,pass2 agents
+thoracic-t8a,r49_c03,1,-,pass2 agents
+thoracic-t8a,r49_c04,1,21.2,pass2 agents
+thoracic-t8a,r49_c05,1,-,pass2 agents
+thoracic-t8a,r49_c06,1,-,pass2 agents
+thoracic-t8a,r50_c00,1,T2,pass2 agents
+thoracic-t8a,r50_c01,1,19.5,pass2 agents
+thoracic-t8a,r50_c02,1,18.3,pass2 agents
+thoracic-t8a,r50_c03,1,-,pass2 agents
+thoracic-t8a,r50_c04,1,-,pass2 agents
+thoracic-t8a,r50_c05,1,-,pass2 agents
+thoracic-t8a,r50_c06,1,-,pass2 agents
+thoracic-t8a,r51_c00,1,T3,pass2 agents
+thoracic-t8a,r51_c01,1,18.3,pass2 agents
+thoracic-t8a,r51_c02,1,-,pass2 agents
+thoracic-t8a,r51_c03,1,-,pass2 agents
+thoracic-t8a,r51_c04,1,17.4,pass2 agents
+thoracic-t8a,r51_c05,1,-,pass2 agents
+thoracic-t8a,r51_c06,1,-,pass2 agents
+thoracic-t8a,r52_c00,1,T4,pass2 agents
+thoracic-t8a,r52_c01,1,17.0,pass2 agents
+thoracic-t8a,r52_c02,1,-,pass2 agents
+thoracic-t8a,r52_c03,1,-,pass2 agents
+thoracic-t8a,r52_c04,1,-,pass2 agents
+thoracic-t8a,r52_c05,1,-,pass2 agents
+thoracic-t8a,r52_c06,1,-,pass2 agents
+thoracic-t8a,r53_c00,1,T5,pass2 agents
+thoracic-t8a,r53_c01,1,17.1,pass2 agents
+thoracic-t8a,r53_c02,1,-,pass2 agents
+thoracic-t8a,r53_c03,1,-,pass2 agents
+thoracic-t8a,r53_c04,1,-,pass2 agents
+thoracic-t8a,r53_c05,1,-,pass2 agents
+thoracic-t8a,r53_c06,1,-,pass2 agents
+thoracic-t8a,r54_c00,1,T6,pass2 agents
+thoracic-t8a,r54_c01,1,17.3,pass2 agents
+thoracic-t8a,r54_c02,1,-,pass2 agents
+thoracic-t8a,r54_c03,1,-,pass2 agents
+thoracic-t8a,r54_c04,1,16.5,pass2 agents
+thoracic-t8a,r54_c05,1,-,pass2 agents
+thoracic-t8a,r54_c06,1,15.1,pass2 agents
+thoracic-t8a,r55_c00,1,T7,pass2 agents
+thoracic-t8a,r55_c01,1,17.3,pass2 agents
+thoracic-t8a,r55_c02,1,17.1,pass2 agents
+thoracic-t8a,r55_c03,1,-,pass2 agents
+thoracic-t8a,r55_c04,1,-,pass2 agents
+thoracic-t8a,r55_c05,1,-,pass2 agents
+thoracic-t8a,r55_c06,1,-,pass2 agents
+thoracic-t8a,r56_c00,1,T8,pass2 agents
+thoracic-t8a,r56_c01,1,17.7,pass2 agents
+thoracic-t8a,r56_c02,1,-,pass2 agents
+thoracic-t8a,r56_c03,1,-,pass2 agents
+thoracic-t8a,r56_c04,1,-,pass2 agents
+thoracic-t8a,r56_c05,1,-,pass2 agents
+thoracic-t8a,r56_c06,1,-,pass2 agents
+thoracic-t8a,r57_c00,1,T9,pass2 agents
+thoracic-t8a,r57_c01,1,17.9,pass2 agents
+thoracic-t8a,r57_c02,1,-,pass2 agents
+thoracic-t8a,r57_c03,1,-,pass2 agents
+thoracic-t8a,r57_c04,1,16.8,pass2 agents
+thoracic-t8a,r57_c05,1,-,pass2 agents
+thoracic-t8a,r57_c06,1,-,pass2 agents
+thoracic-t8a,r58_c00,1,T10,pass2 agents
+thoracic-t8a,r58_c01,1,18.2,pass2 agents
+thoracic-t8a,r58_c02,1,-,pass2 agents
+thoracic-t8a,r58_c03,1,-,pass2 agents
+thoracic-t8a,r58_c04,1,-,pass2 agents
+thoracic-t8a,r58_c05,1,-,pass2 agents
+thoracic-t8a,r58_c06,1,-,pass2 agents
+thoracic-t8a,r59_c00,1,T11,pass2 agents
+thoracic-t8a,r59_c01,1,19.4,pass2 agents
+thoracic-t8a,r59_c02,1,-,pass2 agents
+thoracic-t8a,r59_c03,1,-,pass2 agents
+thoracic-t8a,r59_c04,1,-,pass2 agents
+thoracic-t8a,r59_c05,1,-,pass2 agents
+thoracic-t8a,r59_c06,1,-,pass2 agents
+thoracic-t8a,r60_c00,1,T12,pass2 agents
+thoracic-t8a,r60_c01,1,22.2,pass2 agents
+thoracic-t8a,r60_c02,1,20.2,pass2 agents
+thoracic-t8a,r60_c03,1,-,pass2 agents
+thoracic-t8a,r60_c04,1,19.9,pass2 agents
+thoracic-t8a,r60_c05,1,-,pass2 agents
+thoracic-t8a,r60_c06,1,19.5,pass2 agents
+thoracic-t8a,r61_c00,1,T1,pass2 agents
+thoracic-t8a,r61_c01,1,9.6,pass2 agents
+thoracic-t8a,r61_c02,1,-,pass2 agents
+thoracic-t8a,r61_c03,1,9.9,pass2 agents
+thoracic-t8a,r61_c04,1,9.2,pass2 agents
+thoracic-t8a,r61_c05,1,-,pass2 agents
+thoracic-t8a,r61_c06,1,-,pass2 agents
+thoracic-t8a,r62_c00,1,T2,pass2 agents
+thoracic-t8a,r62_c01,1,11.4,pass2 agents
+thoracic-t8a,r62_c02,1,11.8,pass2 agents
+thoracic-t8a,r62_c03,1,12.0,pass2 agents
+thoracic-t8a,r62_c04,1,-,pass2 agents
+thoracic-t8a,r63_c00,1,T3,pass2 agents
+thoracic-t8a,r63_c01,1,11.9,pass2 agents
+thoracic-t8a,r63_c02,1,-,pass2 agents
+thoracic-t8a,r63_c03,1,12.4,pass2 agents
+thoracic-t8a,r63_c04,1,11.8,pass2 agents
+thoracic-t8a,r63_c05,1,-,pass2 agents
+thoracic-t8a,r63_c06,1,-,pass2 agents
+thoracic-t8a,r64_c00,1,T4,pass2 agents
+thoracic-t8a,r64_c01,1,12.1,pass2 agents
+thoracic-t8a,r64_c02,1,-,pass2 agents
+thoracic-t8a,r64_c03,1,12.1,pass2 agents
+thoracic-t8a,r64_c04,1,-,pass2 agents
+thoracic-t8a,r64_c05,1,-,pass2 agents
+thoracic-t8a,r64_c06,1,-,pass2 agents
+thoracic-t8a,r65_c00,1,T5,pass2 agents
+thoracic-t8a,r65_c01,1,11.3,pass2 agents
+thoracic-t8a,r65_c02,1,-,pass2 agents
+thoracic-t8a,r65_c03,1,11.9,pass2 agents
+thoracic-t8a,r65_c04,1,-,pass2 agents
+thoracic-t8a,r65_c05,1,-,pass2 agents
+thoracic-t8a,r65_c06,1,-,pass2 agents
+thoracic-t8a,r66_c00,1,T6,pass2 agents
+thoracic-t8a,r66_c01,1,11.8,pass2 agents
+thoracic-t8a,r66_c02,1,-,pass2 agents
+thoracic-t8a,r66_c03,1,12.2,pass2 agents
+thoracic-t8a,r66_c04,1,11.5,pass2 agents
+thoracic-t8a,r66_c05,1,-,pass2 agents
+thoracic-t8a,r66_c06,1,-,pass2 agents
+thoracic-t8a,r67_c00,1,T7,pass2 agents
+thoracic-t8a,r67_c01,1,12.0,pass2 agents
+thoracic-t8a,r67_c02,1,12.0,pass2 agents
+thoracic-t8a,r67_c03,1,12.1,pass2 agents
+thoracic-t8a,r67_c04,1,-,pass2 agents
+thoracic-t8a,r67_c05,1,-,pass2 agents
+thoracic-t8a,r67_c06,1,-,pass2 agents
+thoracic-t8a,r68_c00,1,T8,pass2 agents
+thoracic-t8a,r68_c01,1,12.5,pass2 agents
+thoracic-t8a,r68_c02,1,-,pass2 agents
+thoracic-t8a,r68_c03,1,12.8,pass2 agents
+thoracic-t8a,r68_c04,1,-,pass2 agents
+thoracic-t8a,r68_c05,1,-,pass2 agents
+thoracic-t8a,r68_c06,1,-,pass2 agents
+thoracic-t8a,r69_c00,1,T9,pass2 agents
+thoracic-t8a,r69_c01,1,13.9,pass2 agents
+thoracic-t8a,r69_c02,1,-,pass2 agents
+thoracic-t8a,r69_c03,1,13.8,pass2 agents
+thoracic-t8a,r69_c04,1,12.9,pass2 agents
+thoracic-t8a,r69_c05,1,-,pass2 agents
+thoracic-t8a,r69_c06,1,-,pass2 agents
+thoracic-t8a,r70_c00,1,T10,pass2 agents
+thoracic-t8a,r70_c01,1,14.9,pass2 agents
+thoracic-t8a,r70_c02,1,-,pass2 agents
+thoracic-t8a,r70_c03,1,15.2,pass2 agents
+thoracic-t8a,r70_c04,1,-,pass2 agents
+thoracic-t8a,r70_c05,1,-,pass2 agents
+thoracic-t8a,r70_c06,1,-,pass2 agents
+thoracic-t8b,r00_c00,1,T11,pass2 agents
+thoracic-t8b,r00_c01,1,17.4,pass2 agents
+thoracic-t8b,r00_c02,1,-,pass2 agents
+thoracic-t8b,r00_c03,1,17.4,pass2 agents
+thoracic-t8b,r00_c04,1,-,pass2 agents
+thoracic-t8b,r00_c05,1,-,pass2 agents
+thoracic-t8b,r00_c06,1,-,pass2 agents
+thoracic-t8b,r01_c00,1,T12,pass2 agents
+thoracic-t8b,r01_c01,1,16.7,pass2 agents
+thoracic-t8b,r01_c02,1,17.1,pass2 agents
+thoracic-t8b,r01_c03,1,15.8,pass2 agents
+thoracic-t8b,r01_c04,1,16.0,pass2 agents
+thoracic-t8b,r01_c05,1,-,pass2 agents
+thoracic-t8b,r01_c06,1,-,pass2 agents
+thoracic-t8b,r02_c00,1,T1,pass2 agents
+thoracic-t8b,r02_c01,1,8.5,pass2 agents
+thoracic-t8b,r02_c02,1,-,pass2 agents
+thoracic-t8b,r02_c03,1,7.9,pass2 agents
+thoracic-t8b,r02_c04,1,7.3,pass2 agents
+thoracic-t8b,r02_c05,1,-,pass2 agents
+thoracic-t8b,r02_c06,1,-,pass2 agents
+thoracic-t8b,r03_c00,1,T2,pass2 agents
+thoracic-t8b,r03_c01,1,8.2,pass2 agents
+thoracic-t8b,r03_c02,1,6.2,pass2 agents
+thoracic-t8b,r03_c03,1,7.0,pass2 agents
+thoracic-t8b,r03_c04,1,-,pass2 agents
+thoracic-t8b,r03_c05,1,-,pass2 agents
+thoracic-t8b,r03_c06,1,-,pass2 agents
+thoracic-t8b,r04_c00,1,T3,pass2 agents
+thoracic-t8b,r04_c01,1,6.8,pass2 agents
+thoracic-t8b,r04_c02,1,-,pass2 agents
+thoracic-t8b,r04_c03,1,5.6,pass2 agents
+thoracic-t8b,r04_c04,1,3.9,pass2 agents
+thoracic-t8b,r04_c05,1,-,pass2 agents
+thoracic-t8b,r04_c06,1,-,pass2 agents
+thoracic-t8b,r05_c00,1,T4,pass2 agents
+thoracic-t8b,r05_c01,1,6.3,pass2 agents
+thoracic-t8b,r05_c02,1,-,pass2 agents
+thoracic-t8b,r05_c03,1,4.7,pass2 agents
+thoracic-t8b,r05_c04,1,-,pass2 agents
+thoracic-t8b,r05_c05,1,-,pass2 agents
+thoracic-t8b,r05_c06,1,-,pass2 agents
+thoracic-t8b,r06_c00,1,T5,pass2 agents
+thoracic-t8b,r06_c01,1,6.0,pass2 agents
+thoracic-t8b,r06_c02,1,-,pass2 agents
+thoracic-t8b,r06_c03,1,4.5,pass2 agents
+thoracic-t8b,r06_c04,1,-,pass2 agents
+thoracic-t8b,r06_c05,1,-,pass2 agents
+thoracic-t8b,r06_c06,1,-,pass2 agents
+thoracic-t8b,r07_c00,1,T6,pass2 agents
+thoracic-t8b,r07_c01,1,6.0,pass2 agents
+thoracic-t8b,r07_c02,1,-,pass2 agents
+thoracic-t8b,r07_c03,1,5.2,pass2 agents
+thoracic-t8b,r07_c04,1,3.5,pass2 agents
+thoracic-t8b,r07_c05,1,-,pass2 agents
+thoracic-t8b,r07_c06,1,4.1,pass2 agents
+thoracic-t8b,r08_c00,1,T7,pass2 agents
+thoracic-t8b,r08_c01,1,5.9,pass2 agents
+thoracic-t8b,r08_c02,1,5.0,pass2 agents
+thoracic-t8b,r08_c03,1,5.3,pass2 agents
+thoracic-t8b,r08_c04,1,-,pass2 agents
+thoracic-t8b,r08_c05,1,-,pass2 agents
+thoracic-t8b,r08_c06,1,-,pass2 agents
+thoracic-t8b,r09_c00,1,T8,pass2 agents
+thoracic-t8b,r09_c01,1,6.7,pass2 agents
+thoracic-t8b,r09_c02,1,-,pass2 agents
+thoracic-t8b,r09_c03,1,5.9,pass2 agents
+thoracic-t8b,r09_c04,1,-,pass2 agents
+thoracic-t8b,r09_c05,1,-,pass2 agents
+thoracic-t8b,r09_c06,1,-,pass2 agents
+thoracic-t8b,r10_c00,1,T9,pass2 agents
+thoracic-t8b,r10_c01,1,7.7,pass2 agents
+thoracic-t8b,r10_c02,1,-,pass2 agents
+thoracic-t8b,r10_c03,1,6.1,pass2 agents
+thoracic-t8b,r10_c04,1,3.9,pass2 agents
+thoracic-t8b,r10_c05,1,6.9,pass2 agents
+thoracic-t8b,r10_c06,1,-,pass2 agents
+thoracic-t8b,r11_c00,1,T10,pass2 agents
+thoracic-t8b,r11_c01,1,9.0,pass2 agents
+thoracic-t8b,r11_c02,1,-,pass2 agents
+thoracic-t8b,r11_c03,1,6.3,pass2 agents
+thoracic-t8b,r11_c04,1,-,pass2 agents
+thoracic-t8b,r11_c05,1,7.5,pass2 agents
+thoracic-t8b,r11_c06,1,-,pass2 agents
+thoracic-t8b,r12_c00,1,T11,pass2 agents
+thoracic-t8b,r12_c01,1,9.8,pass2 agents
+thoracic-t8b,r12_c02,1,-,pass2 agents
+thoracic-t8b,r12_c03,1,7.8,pass2 agents
+thoracic-t8b,r12_c04,1,-,pass2 agents
+thoracic-t8b,r12_c05,1,7.8,pass2 agents
+thoracic-t8b,r12_c06,1,-,pass2 agents
+thoracic-t8b,r13_c00,1,T12,pass2 agents
+thoracic-t8b,r13_c01,1,8.7,pass2 agents
+thoracic-t8b,r13_c02,1,7.7,pass2 agents
+thoracic-t8b,r13_c03,1,7.1,pass2 agents
+thoracic-t8b,r13_c04,1,7.4,pass2 agents
+thoracic-t8b,r13_c05,1,7.6,pass2 agents
+thoracic-t8b,r13_c06,1,7.7,pass2 agents
+thoracic-t8b,r15_c00,1,T1,pass2 agents
+thoracic-t8b,r15_c01,1,27.1,pass2 agents
+thoracic-t8b,r15_c02,1,-,pass2 agents
+thoracic-t8b,r15_c03,1,26.6,pass2 agents
+thoracic-t8b,r15_c04,1,29.8,pass2 agents
+thoracic-t8b,r15_c05,1,-,pass2 agents
+thoracic-t8b,r15_c06,1,-,pass2 agents
+thoracic-t8b,r16_c00,1,T2,pass2 agents
+thoracic-t8b,r16_c01,1,28.6,pass2 agents
+thoracic-t8b,r16_c02,1,23.0,pass2 agents
+thoracic-t8b,r16_c03,1,19.1,pass2 agents
+thoracic-t8b,r16_c04,1,-,pass2 agents
+thoracic-t8b,r16_c05,1,-,pass2 agents
+thoracic-t8b,r16_c06,1,-,pass2 agents
+thoracic-t8b,r17_c00,1,T3,pass2 agents
+thoracic-t8b,r17_c01,1,19.4,pass2 agents
+thoracic-t8b,r17_c02,1,-,pass2 agents
+thoracic-t8b,r17_c03,1,14.6,pass2 agents
+thoracic-t8b,r17_c04,1,15.3,pass2 agents
+thoracic-t8b,r17_c05,1,-,pass2 agents
+thoracic-t8b,r17_c06,1,-,pass2 agents
+thoracic-t8b,r18_c00,1,T4,pass2 agents
+thoracic-t8b,r18_c01,1,19.5,pass2 agents
+thoracic-t8b,r18_c02,1,-,pass2 agents
+thoracic-t8b,r18_c03,1,12.6,pass2 agents
+thoracic-t8b,r18_c04,1,-,pass2 agents
+thoracic-t8b,r18_c05,1,-,pass2 agents
+thoracic-t8b,r18_c06,1,-,pass2 agents
+thoracic-t8b,r19_c00,1,T5,pass2 agents
+thoracic-t8b,r19_c01,1,15.6,pass2 agents
+thoracic-t8b,r19_c02,1,-,pass2 agents
+thoracic-t8b,r19_c03,1,9.4,pass2 agents
+thoracic-t8b,r19_c04,1,-,pass2 agents
+thoracic-t8b,r19_c05,1,-,pass2 agents
+thoracic-t8b,r19_c06,1,-,pass2 agents
+thoracic-t8b,r20_c00,1,T6,pass2 agents
+thoracic-t8b,r20_c01,1,16.4,pass2 agents
+thoracic-t8b,r20_c02,1,-,pass2 agents
+thoracic-t8b,r20_c03,1,9.6,pass2 agents
+thoracic-t8b,r20_c04,1,10.2,pass2 agents
+thoracic-t8b,r20_c05,1,-,pass2 agents
+thoracic-t8b,r20_c06,1,-,pass2 agents
+thoracic-t8b,r21_c00,1,T7,pass2 agents
+thoracic-t8b,r21_c01,1,20.7,pass2 agents
+thoracic-t8b,r21_c02,1,7.5,pass2 agents
+thoracic-t8b,r21_c03,1,8.7,pass2 agents
+thoracic-t8b,r21_c04,1,-,pass2 agents
+thoracic-t8b,r21_c05,1,-,pass2 agents
+thoracic-t8b,r21_c06,1,-,pass2 agents
+thoracic-t8b,r22_c00,1,T8,pass2 agents
+thoracic-t8b,r22_c01,1,19.6,pass2 agents
+thoracic-t8b,r22_c02,1,-,pass2 agents
+thoracic-t8b,r22_c03,1,8.1,pass2 agents
+thoracic-t8b,r22_c04,1,-,pass2 agents
+thoracic-t8b,r22_c05,1,-,pass2 agents
+thoracic-t8b,r22_c06,1,-,pass2 agents
+thoracic-t8b,r23_c00,1,T9,pass2 agents
+thoracic-t8b,r23_c01,1,14.8,pass2 agents
+thoracic-t8b,r23_c02,1,-,pass2 agents
+thoracic-t8b,r23_c03,1,7.6,pass2 agents
+thoracic-t8b,r23_c04,1,9.2,pass2 agents
+thoracic-t8b,r23_c05,1,6.0,pass2 agents
+thoracic-t8b,r23_c06,1,-,pass2 agents
+thoracic-t8b,r24_c00,1,T10,pass2 agents
+thoracic-t8b,r24_c01,1,12.4,pass2 agents
+thoracic-t8b,r24_c02,1,-,pass2 agents
+thoracic-t8b,r24_c03,1,4.6,pass2 agents
+thoracic-t8b,r24_c04,1,-,pass2 agents
+thoracic-t8b,r24_c05,1,6.0,pass2 agents
+thoracic-t8b,r24_c06,1,-,pass2 agents
+thoracic-t8b,r25_c00,1,T11,pass2 agents
+thoracic-t8b,r25_c01,1,13.1,pass2 agents
+thoracic-t8b,r25_c02,1,-,pass2 agents
+thoracic-t8b,r25_c03,1,1.2,pass2 agents
+thoracic-t8b,r25_c04,1,-,pass2 agents
+thoracic-t8b,r25_c05,1,0.0,pass2 agents
+thoracic-t8b,r25_c06,1,-,pass2 agents
+thoracic-t8b,r26_c00,1,T12,pass2 agents
+thoracic-t8b,r26_c01,1,9.8,pass2 agents
+thoracic-t8b,r26_c02,1,-3.0,pass2 agents
+thoracic-t8b,r26_c03,1,-4.2,pass2 agents
+thoracic-t8b,r26_c04,1,9.5,pass2 agents
+thoracic-t8b,r26_c05,1,0.0,pass2 agents
+thoracic-t8b,r26_c06,1,-,pass2 agents
+thoracic-t8b,r27_c00,1,T1,pass2 agents
+thoracic-t8b,r27_c01,1,7.6,pass2 agents
+thoracic-t8b,r27_c02,1,-,pass2 agents
+thoracic-t8b,r27_c03,1,12.6,pass2 agents
+thoracic-t8b,r27_c04,1,-,pass2 agents
+thoracic-t8b,r27_c05,1,-,pass2 agents
+thoracic-t8b,r27_c06,1,-,pass2 agents
+thoracic-t8b,r28_c00,1,T2,pass2 agents
+thoracic-t8b,r28_c01,1,17.9,pass2 agents
+thoracic-t8b,r28_c02,1,137,pass2 agents
+thoracic-t8b,r28_c03,1,17.5,pass2 agents
+thoracic-t8b,r28_c04,1,-,pass2 agents
+thoracic-t8b,r28_c05,1,-,pass2 agents
+thoracic-t8b,r28_c06,1,-,pass2 agents
+thoracic-t8b,r29_c00,1,T3,pass2 agents
+thoracic-t8b,r29_c01,1,8.8,pass2 agents
+thoracic-t8b,r29_c02,1,-,pass2 agents
+thoracic-t8b,r29_c03,1,17.3,pass2 agents
+thoracic-t8b,r29_c04,1,-,pass2 agents
+thoracic-t8b,r29_c05,1,-,pass2 agents
+thoracic-t8b,r29_c06,1,-,pass2 agents
+thoracic-t8b,r30_c00,1,T4,pass2 agents
+thoracic-t8b,r30_c01,1,8.5,pass2 agents
+thoracic-t8b,r30_c02,1,-,pass2 agents
+thoracic-t8b,r30_c03,1,16.3,pass2 agents
+thoracic-t8b,r30_c04,1,-,pass2 agents
+thoracic-t8b,r30_c05,1,-,pass2 agents
+thoracic-t8b,r30_c06,1,-,pass2 agents
+thoracic-t8b,r31_c00,1,T5,pass2 agents
+thoracic-t8b,r31_c01,1,8.1,pass2 agents
+thoracic-t8b,r31_c02,1,-,pass2 agents
+thoracic-t8b,r31_c03,1,15.0,pass2 agents
+thoracic-t8b,r31_c04,1,-,pass2 agents
+thoracic-t8b,r31_c05,1,-,pass2 agents
+thoracic-t8b,r31_c06,1,-,pass2 agents
+thoracic-t8b,r32_c00,1,T6,pass2 agents
+thoracic-t8b,r32_c01,1,8.3,pass2 agents
+thoracic-t8b,r32_c02,1,-,pass2 agents
+thoracic-t8b,r32_c03,1,15.0,pass2 agents
+thoracic-t8b,r32_c04,1,-,pass2 agents
+thoracic-t8b,r32_c05,1,-,pass2 agents
+thoracic-t8b,r32_c06,1,-,pass2 agents
+thoracic-t8b,r33_c00,1,T7,pass2 agents
+thoracic-t8b,r33_c01,1,11.5,pass2 agents
+thoracic-t8b,r33_c02,1,110,pass2 agents
+thoracic-t8b,r33_c03,1,15.7,pass2 agents
+thoracic-t8b,r33_c04,1,-,pass2 agents
+thoracic-t8b,r33_c05,1,-,pass2 agents
+thoracic-t8b,r33_c06,1,-,pass2 agents
+thoracic-t8b,r34_c00,1,T8,pass2 agents
+thoracic-t8b,r34_c01,1,11.6,pass2 agents
+thoracic-t8b,r34_c02,1,-,pass2 agents
+thoracic-t8b,r34_c03,1,16.6,pass2 agents
+thoracic-t8b,r34_c04,1,-,pass2 agents
+thoracic-t8b,r34_c05,1,-,pass2 agents
+thoracic-t8b,r34_c06,1,-,pass2 agents
+thoracic-t8b,r35_c00,1,T9,pass2 agents
+thoracic-t8b,r35_c01,1,8.4,pass2 agents
+thoracic-t8b,r35_c02,1,-,pass2 agents
+thoracic-t8b,r35_c03,1,16.0,pass2 agents
+thoracic-t8b,r35_c04,1,-,pass2 agents
+thoracic-t8b,r35_c05,1,-,pass2 agents
+thoracic-t8b,r35_c06,1,-,pass2 agents
+thoracic-t8b,r36_c00,1,T10,pass2 agents
+thoracic-t8b,r36_c01,1,7.1,pass2 agents
+thoracic-t8b,r36_c02,1,-,pass2 agents
+thoracic-t8b,r36_c03,1,16.8,pass2 agents
+thoracic-t8b,r36_c04,1,-,pass2 agents
+thoracic-t8b,r36_c05,1,-,pass2 agents
+thoracic-t8b,r36_c06,1,-,pass2 agents
+thoracic-t8b,r37_c00,1,T11,pass2 agents
+thoracic-t8b,r37_c01,1,8.7,pass2 agents
+thoracic-t8b,r37_c02,1,-,pass2 agents
+thoracic-t8b,r37_c03,1,15.4,pass2 agents
+thoracic-t8b,r37_c04,1,-,pass2 agents
+thoracic-t8b,r37_c05,1,-,pass2 agents
+thoracic-t8b,r37_c06,1,-,pass2 agents
+thoracic-t8b,r38_c00,1,T12,pass2 agents
+thoracic-t8b,r38_c01,1,5.1,pass2 agents
+thoracic-t8b,r38_c02,1,20,pass2 agents
+thoracic-t8b,r38_c03,1,11.6,pass2 agents
+thoracic-t8b,r38_c04,1,-,pass2 agents
+thoracic-t8b,r38_c05,1,-,pass2 agents
+thoracic-t8b,r38_c06,1,-,pass2 agents
