@@ -118,3 +118,60 @@ two records with `python slides/make_exact_slides.py` (into `slides/exact/`; `--
 LibreOffice preview of each, whose equations are pictures and whose bytes carry the time LibreOffice
 ran), and the test `tests/test_exact_slides.py` rebuilds both figure sets and both decks byte for
 byte, every zip entry of a deck carrying one fixed date.
+
+## whitepaper-2026-10-26
+
+The computations new to the white paper `docs/SCHWINGCHECK_LEVELCHECK.md`, which sets the exact
+rule against the labeller whose CT labels LevelCheck transfers and specifies a randomized browser
+study of surgeons using either aid (the owner's ask of 2026-10-26 21:18 UTC, reframed on the owner's
+comments in the Doc), and the checks its review asked for. Its section on one or two C-arm views
+without a CT reads the AP, lateral and both-plane regimes of `exact-2026-10-26/exact.json` directly. Run from `bordercall/`:
+
+| file | command |
+|---|---|
+| `second_opinion.json` | `python run.py second-opinion --outdir ../records/whitepaper-2026-10-26` |
+| `checks.json` | `python run.py whitepaper-checks --outdir ../records/whitepaper-2026-10-26` |
+| `study_power.json` | `python run.py study-power --outdir ../records/whitepaper-2026-10-26` |
+
+`second_opinion.json` scores the exact study's own 2,000 scoring columns again (seed 97, both
+planes, the record's table and settings) at 1, 3, 5 and 9 bodies, and for every field keeps the
+posterior the rule gives the true place and each place one level away: the share of each below
+0.01 and 0.05 and at or above 0.5, 0.9 and 0.99, overall and, under `by_centre`, for the fields
+centred on each level, since the share of off-by-one answers the rule contradicts varies widely by
+place. It refuses to write unless the share it names exactly matches `exact-2026-10-26/exact.json`
+at every width (76 s). Its `latency` is the median and maximum of 50 single-field calls at three
+bodies on the machine that ran it, a four-CPU x86_64 cloud container with Python 3.13.17 and numpy
+2.5.3, measured with nothing else running, and does not include reading the measures off an image.
+
+`checks.json` holds two numbers the paper's review found no record held (115 s). Within one level:
+the rule that names the likeliest place is the Bayes rule for naming exactly, not for naming within
+one level, whose Bayes rule names the centre of the likeliest run of three places; both are scored
+on the same 2,000 columns at 1, 3, 5 and 9 bodies, and the file refuses to write unless the first
+rule's exact and within-one shares equal `exact.json`'s. The count from C2: the supplement scored
+the rule's names at 0.99 on three anomalous phenotypes (seed 99, 150 columns each) against each
+column's own names, which call the thirteenth rib-bearing body T13; the study takes as truth each
+body's number counted from C2, under which that body is L1. The same columns are scored both ways,
+and the file refuses to write unless the own-name counts at 1, 3 and 5 bodies equal
+`supplement.json`'s. On six- and four-lumbar columns the two conventions agree.
+
+`study_power.json` simulates the study's analyses (seed 20261026; every cell its own generator
+seeded from that and the cell's indices; 10,000 studies per cell for power, 20,000 for size; 120
+s). Correctness is logistic with a reader intercept (SD 0.5) and a case intercept (SD 1.0), every
+reader reading the same cases, and a reader-by-aid and a case-by-aid term at three settings (none;
+0.25 and 0.5; 0.25 and 1.0), each aid's intercept set by Gauss-Hermite quadrature to its stated
+accuracy. The primary analysis is the per-reader difference over the two primary strata with a
+variance that treats readers and cases as random (the law of total variance, Satterthwaite degrees
+of freedom) and critical values calibrated by simulation, because near 95% a nominal t value lets
+too many null studies through; the t interval over readers, which treats the cases as fixed, is
+recorded beside it. The grid is 20, 30 and 40 readers by 20, 24, 32 and 40 primary cases: nominal
+sizes of both analyses at each null setting, the calibrated critical values, and the power of
+noninferiority with both aids at 95% and of superiority at 90% against 95%. The strata give one
+10-case stratum's two-sided comparison at 20, 30 and 40 readers, at 5% and at 1.25%, the level
+Holm's correction across four strata gives the first stratum it tests. `--power-reps` and
+`--size-reps` shorten a trial run.
+
+`tests/test_whitepaper.py` recomputes the nine-body second-opinion counts to the bit, by place as
+well as overall; checks the power model's draws against the accuracy its quadrature calibrates to,
+its allocation and its analysis on a study worked by hand; holds the power record monotone where
+more readers or cases can only help; and holds `checks.json` to the exact study and the supplement
+wherever they overlap.

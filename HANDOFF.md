@@ -504,6 +504,79 @@ covers each element:
   correction for a table from a small sample (spreads times the root of 1 + 1/n, and an assumed
   error); and anomalous phenotypes as places of their own, which neither deck now says.
 
+### Step 11 — the white paper: the exact rule beside LevelCheck, and a randomized study
+
+**Written on 2026-10-26** (the owner's ask of 21:18 UTC: a succinct white paper on how the
+method would fare against LevelCheck, based in provable mathematical statistics, with the spec
+for a demo of an IRB study randomizing surgeon-assisted level identification in a simulated
+browser environment to either aid). The owner supplied two LevelCheck papers as full text (De
+Silva et al. 2016, Spine; Manbachi et al. 2018, Ann Biomed Eng) with De Silva's supplement
+tables, and set the sentence the paper hinges on (21:28 UTC): no function of the same
+measurements, formula or neural network, names fields correctly more often than this rule,
+because it is the Bayes rule for these fields and this prior over places, up to the 0.5 mm floor
+and the quadrature, so its error is the floor for any network. The paper is a Claude Doc
+(https://claude.ai/artifact/4VwMe9CKMX87s4jiEJBpRE), to be copied here as
+`docs/SCHWINGCHECK_LEVELCHECK.md`; the PDFs are the publishers' and are not committed. A review
+by several skeptics found 72 problems, and two further checks of the fixes and of the reframed
+paper found more. On 2026-10-27 from about 00:50 UTC the owner rewrote the Doc live, framing
+SchwingCheck inside the LevelCheck ecosystem with three configurations (LevelCheck alone,
+SchwingCheck with LevelCheck, SchwingCheck alone), so the checked fixes are folded in around that
+rewrite once it settles, and the copy here follows the Doc as it then stands.
+
+What it concludes. On the owner's comments in the Doc (2026-10-26 23:38 and 2026-10-27 00:11
+UTC) the paper is framed against the upstream labeller, not the registration: LevelCheck has no
+classifier of its own, it carries the CT's labels to the radiograph, and those labels come from a
+clinician's click in the published workflow, a neuroradiologist's review as the published truth,
+or, in proposals only, an automatic labeller. No LevelCheck study measures that labeller against an
+independent count, and its authors write that a wrong CT label is faithfully reproduced, so its
+error is about the labeller's plus the registration's, and the published counts bound only the
+second. Statement 1 bounds every rule on the seven measures, not a reader who counts a full CT from
+C2. Against the registration itself the rule does not compete: on typical spines with a correctly
+labelled CT and four or more levels in view, zero failures in De Silva's 178 patients would have
+had probability 0.0009 if LevelCheck erred as often as the exact rule's forced choice from nine
+bodies. What the rule adds is a calibrated probability from the bodies' own shape, fused with each
+overlaid label by Bayes' rule (one multiplication per level, about 14 ms for a three-body field),
+flagging 84% of off-by-one labels from nine bodies at posterior 0.01 while questioning 1 correct
+answer in 1,000, though only 71% to 78% for fields centred T6 to T10. It also runs with no CT, on
+C-arm views alone: from nine bodies it names 96% of fields with an AP and a lateral view, 89% with
+the AP view alone and 84% with the lateral alone (`exact.json`, the three regimes); oblique views
+are not modelled and nothing yet reads the measures off radiographs. The two fail together on a
+transitional spine: scored by the count from C2, the rule's names at 0.99 from nine bodies are
+right 90.6% on thirteen-rib columns and 92.9% on six-lumbar columns (`checks.json`). Every number
+for the rule is synthetic.
+
+The study. 30 readers by 60 cases, every reader the same cases, each randomized within reader
+and stratum to a registration aid or the exact rule: 20 standard and 20 narrow-field cases make
+the primary comparison, where the registration has a correctly labelled CT of a typical spine,
+and 10 transitional and 10 no-CT cases are compared on their own, never pooled into the test.
+Readers and cases are both random, by the law of total variance, with critical values
+calibrated by simulation (2.33 for noninferiority within 5 points, 2.03 for superiority), since
+a t interval over readers treats the shared cases as fixed and lets up to 9% of null studies
+through when the aid's effect varies by case. Power at moderate variation is 89% and 81%. Aid B
+takes its measures by hand from the same radiographs the readers see; Aid A's settings are
+frozen and reviewed outside the team before any of the rule's outputs on the cases exist. The
+owner's rewrite randomizes each case to one of three configurations instead; the power above is
+for two arms, and `study_power.py` has to simulate the three-arm design before the plan is final.
+
+New code: `second_opinion.py`, `whitepaper_checks.py` and `study_power.py`, with their records
+in `records/whitepaper-2026-10-26/` and `tests/test_whitepaper.py`.
+
+For the TTO to read before the paper leaves the lab, and before any reader sees the study:
+
+- the paper states the method in full (the seven measures, the size-scaled Gaussian likelihood,
+  the quadrature, the selective guarantee and the reject rule, region and border claims, the
+  widened-spread correction, and Bayes' rule combining the exact rule with a registration's
+  answer), so it is as sensitive as the NeurIPS deck;
+- the combination with a registration and the study's Aid A touch LevelCheck's patents (US
+  11,284,846 of Siemens and Johns Hopkins, listed active until 2034, and US 9,165,362, US
+  10,368,956, US 10,262,424 and US 11,657,518 of Johns Hopkins); a product that combined the
+  two, an open registration built for the study, or a study that used LevelCheck itself, needs
+  the TTO's review first, and Hopkins' licence or a freedom-to-operate opinion where it would
+  practise them;
+- the inventors' interest in one arm is disclosed to the IRB and the conflict of interest office;
+- the study, its pilot and demo, and its OSF registration wait until the provisional is filed
+  and the TTO has reviewed it, because readers see the rule's output.
+
 ## What one evaluation costs, and where enumeration stops being free
 
 Measured on a Windows workstation, 2026-10-26. One evaluation of `A(S, r)` -- train the junction
