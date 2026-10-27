@@ -60,9 +60,10 @@ prose.csv holds every number the four papers state in their abstracts, results, 
 to the cells the sentence speaks of, under the rule the sentence states (one cell's value, the mean of right and
 left, the end of a run, a ratio, a percentage, a count of rows) and a tolerance set for the sentence's own
 rounding. The summary of the twelve spines that the cervical, lumbar and facets papers each print in their
-Methods is held to the thoracic paper's Table 1, which each of them names as its specimens' record, so the one
-number of it that does not hold, printed alike in all three, contradicts the first paper rather than its own
-tables. Those that do not hold:
+Methods is held to the thoracic paper's Table 1, since the cervical paper names that study for its specimens'
+details and the lumbar and facets papers refer to it for their methods and print the same summary to the
+decimal, so the one number of it that does not hold, printed alike in all three, contradicts the first paper
+rather than its own tables. Those that do not hold:
 
 | paper, page | the sentence | says | the table gives | difference | what happened | cells |
 |---|---|---|---|---|---|---|

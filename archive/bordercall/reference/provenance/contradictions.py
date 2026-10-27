@@ -78,7 +78,8 @@ PROSE_KINDS = {
     ("facets", "1307", "Ts", "C2-C7", "50"): RANGE_END,
     ("facets", "1307", "Ts", "L5", "80"): ROUND,
     # the summary of the twelve spines the three later papers print in their Methods, against the
-    # thoracic paper's Table 1, which each names as its specimens' record
+    # thoracic paper's Table 1: the cervical paper names that study for its specimens' details, and
+    # the lumbar and facets papers refer to it for their methods and print the same summary
     ("cervical", "861", "weight", "", "85"): RANGE_END,
     ("lumbar", "299", "weight", "", "85"): RANGE_END,
     ("facets", "1299", "weight", "", "85"): RANGE_END,
@@ -328,9 +329,10 @@ def report() -> str:
     w("to the cells the sentence speaks of, under the rule the sentence states (one cell's value, the mean of right and")
     w("left, the end of a run, a ratio, a percentage, a count of rows) and a tolerance set for the sentence's own")
     w("rounding. The summary of the twelve spines that the cervical, lumbar and facets papers each print in their")
-    w("Methods is held to the thoracic paper's Table 1, which each of them names as its specimens' record, so the one")
-    w("number of it that does not hold, printed alike in all three, contradicts the first paper rather than its own")
-    w("tables. Those that do not hold:\n")
+    w("Methods is held to the thoracic paper's Table 1, since the cervical paper names that study for its specimens'")
+    w("details and the lumbar and facets papers refer to it for their methods and print the same summary to the")
+    w("decimal, so the one number of it that does not hold, printed alike in all three, contradicts the first paper")
+    w("rather than its own tables. Those that do not hold:\n")
     w("| paper, page | the sentence | says | the table gives | difference | what happened | cells |")
     w("|---|---|---|---|---|---|---|")
     for p in prose:

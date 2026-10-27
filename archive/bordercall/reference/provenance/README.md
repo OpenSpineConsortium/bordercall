@@ -58,8 +58,10 @@ recorded reading:
    abstracts, results, discussions and figure labels was read the same way, by two further
    passes over quadrant crops of every page, one reading the pages forward and one backward.
    What the papers print about their specimens was read on 27 October 2026 by two more passes:
-   the number of vertebrae each abstract says the study rests on, and the summary of the twelve
-   spines that the cervical, lumbar and facets papers each print in their Methods. The readers
+   the number of vertebrae each abstract says the study rests on (4 numbers), the summary of the
+   twelve spines that the cervical, lumbar and facets papers each print in their Methods (12
+   numbers in each, 36), and three more from the facets paper's Methods, its 12 spines, 276
+   vertebrae and 12 vertebrae at each level. The readers
    were Claude agents that saw nothing but the twenty quadrant crops of the five pages that hold
    them (`python render.py quadrants cervical-01 thoracic-01 lumbar-01 facets-01 facets-02`
    cuts them, each quadrant reaching 60 pixels past the page's middle), one reading forward and
@@ -185,7 +187,9 @@ paper rounds, with "about" or "approximately", to a multiple of five is held wit
 rounds to a whole unit within 1. Among them is the summary of the twelve spines that the cervical,
 lumbar and facets papers each print in their Methods, the same 12 numbers in each paper (12
 spines, 8 men and 4 women, and the mean, least and greatest age, weight and height), held to the
-thoracic paper's Table 1, which each of the three names as its specimens' record. The other 56,
+thoracic paper's Table 1, since the cervical paper names that study for its specimens' details
+and the lumbar and facets papers refer to it for their methods and print the same summary to the
+decimal. The other 56,
 the counts of vertebrae (twelve spines times the levels a paper covers: 72, 144, 60 and 276),
 areas approximated by a formula, rates per level, bounds and round statements, other studies'
 values and quantities no table prints, are recorded alone. 175 agree with their cells. Eighteen

@@ -60,8 +60,9 @@ def entry(paper, page, printed_page, where, key, measure, level, statistic, prin
 
 # All four papers measured the same twelve spines, C2 to L5, one row each in the thoracic paper's
 # Table 1 (printed page 889). The cervical, lumbar and facets papers each print one summary of them
-# in their Methods, 12 numbers in each, and name the thoracic paper as their specimens' record, so
-# each number is held to Table 1: a count of its rows, or of the rows whose sex is M or F, and the
+# in their Methods, 12 numbers in each; the cervical paper names the thoracic study for its
+# specimens' details, and the lumbar and facets papers refer to it for their methods and print the
+# same summary to the decimal, so each number is held to Table 1: a count of its rows, or of the rows whose sex is M or F, and the
 # mean, least and greatest of a column. The level "*" names every row of a column (resolve below).
 TABLE_1 = "thoracic-t1"
 ROWS = cell(TABLE_1, "Specimen No.", "*", "label")
@@ -586,9 +587,6 @@ def match(records: list[dict], e: dict) -> str:
         if int(r["page"]) != e["pdf_page"]:
             continue
         if e["key"].lower() in ascii_quote(r["quote"]).lower() and r["value"] == e["printed"]:
-            return r["value"]
-    for r in records:                       # the key phrase in another crop's version of the sentence
-        if int(r["page"]) == e["pdf_page"] and r["value"] == e["printed"] and e["measure"].split(" ")[0] in r["measure"]:
             return r["value"]
     return ""
 
