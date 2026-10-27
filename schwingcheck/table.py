@@ -1,27 +1,31 @@
-"""The checked table of the four Panjabi papers: one long CSV, loaded as an xarray Dataset.
+"""The checked table of the four Panjabi papers: one long CSV, loaded as an xarray Dataset, and
+the twelve specimens they were measured on.
 
-    python -m schwingcheck table write     # schwingcheck/data/panjabi_long.csv from provenance.csv
-    python -m schwingcheck table check     # the committed CSV is what write would write
+    python -m schwingcheck table write     # data/panjabi_long.csv and data/panjabi_specimens.csv
+    python -m schwingcheck table check     # the committed CSVs are what write would write
 
 One row per value: the measure (mnemonics.py), its side, the level, the paper's mnemonic,
 mean or sem, the value and its units, the kind (length, area or angle), the planes that can
 read it, the number of specimens, the paper, the table and the provenance cell the value was
 read from. Every row comes from the provenance record of item P step b, which holds what two
 independent readers saw in the image of each cell, so one source feeds this table, the
-archive's panjabi_full_spine.csv and every rule built here.
-
-The thoracic body table (Table 3, printed page 892) is not in the scan. Its EPDl, EPWl and
-VBHp means are taken from the thoracic paper's Table 8, whose Present Study column prints them
-(36 cells, read twice like every other); its EPWu and EPDu means and all its standard errors
-come from the archive's earlier transcription of that page, listed with that basis in
-provenance/absent.csv, and the row says so in its `basis` column. Where the two differ, the
-lower end-plate depth at T3 (23.2 in Table 8, 23.3 in the transcription), this table takes the
-cell at hand, Table 8's, as step b recorded.
+archive's panjabi_full_spine.csv and every rule built here. The thoracic body table (Table 3,
+printed page 892), which the first scan lacked, is read like every other table since 27
+October 2026, from the one page of the owner's second scan (provenance/README.md).
 
 The Dataset has dimensions (level, measure, side): `mean`, `sem`, `sd` (sem times the square
-root of n, the population SD the generator and the rule use) and `n`, NaN where the papers
-print nothing, with the kind, the units, the planes and the definition as coordinates along
-`measure` and the mnemonic along (measure, side).
+root of n, the population SD the generator and the rule use), `n` and `cell`, NaN where the
+papers print nothing, with the kind, the units, the planes and the definition as coordinates
+along `measure` and the mnemonic along (measure, side).
+
+The specimens are the thoracic paper's Table 1: twelve fresh autopsy spines from C2 to L5, each
+with its age, sex, weight, height and cause of death. The cervical, lumbar and facets papers
+measured the same twelve spines and print only their summary (SPECIMEN_SUMMARIES below). No
+paper prints a measurement of one specimen, only each level's mean and standard error over the
+twelve, so these covariates describe the population the table comes from and estimate no
+coefficient: the PyMC model of step d conditions the size prior on height and leaves the effects
+of weight and age, and any pooling of populations, to data with a measurement per patient
+(TODO.md, item 5).
 """
 from __future__ import annotations
 
@@ -40,16 +44,36 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
 PROVENANCE_DIR = os.path.join(ROOT, "archive", "bordercall", "reference", "provenance")
 PROVENANCE_CSV = os.path.join(PROVENANCE_DIR, "provenance.csv")
-ABSENT_CSV = os.path.join(PROVENANCE_DIR, "absent.csv")
 LONG_CSV = os.path.join(HERE, "data", "panjabi_long.csv")
+SPECIMENS_CSV = os.path.join(HERE, "data", "panjabi_specimens.csv")
 
 FIELDS = ["measure", "side", "level", "mnemonic", "statistic", "value", "units", "kind", "planes",
-          "n", "paper", "table", "cell", "basis"]
-ABSENT_TABLE = "thoracic-t3"            # the body table printed on page 892
-ABSENT_MNEMONICS = ("EPWu", "EPDu", "EPWl", "EPDl", "VBHp")
-# the archive's measure names for the absent table's rows, as absent.csv spells them
-ARCHIVE_NAMES = {"endplate": "EPWu", "endplate_depth": "EPDu", "endplate_lower": "EPWl",
-                 "endplate_lower_depth": "EPDl", "h_post": "VBHp"}
+          "n", "paper", "table", "cell"]
+
+# the thoracic paper's Table 1, one row per specimen: its column label in the paper, the name
+# here, and how the printed string is read
+SPECIMEN_TABLE = "thoracic-t1"
+SPECIMEN_COLUMNS = [("Specimen No.", "specimen", str), ("Age", "age_years", int), ("Sex", "sex", str),
+                    ("Weight (kg)", "weight_kg", int), ("Height (cm)", "height_cm", int),
+                    ("Cause of death", "cause_of_death", str)]
+SPECIMEN_FIELDS = [name for _, name, _ in SPECIMEN_COLUMNS] + \
+    ["%s_cell" % name for _, name, _ in SPECIMEN_COLUMNS] + ["paper", "table"]
+# What the papers print about the same twelve spines outside Table 1, read from the page images
+# by eye, twice, at 100 and 200 dpi (the first three papers have no text layer, and the facets
+# paper's OCR layer is not read): (paper, printed page, statistic, covariate, value). The
+# cervical, lumbar and facets papers each give the weight's range as 54-85 kg, while Table 1's
+# heaviest specimen weighs 84 kg; tests/test_schwingcheck_table.py holds every other statement
+# to Table 1 and that one as the papers' own contradiction (SPECIMEN_CONTRADICTIONS).
+_SUMMARY = (("mean", "age_years", 46.3), ("min", "age_years", 19), ("max", "age_years", 59),
+            ("mean", "weight_kg", 67.8), ("min", "weight_kg", 54), ("max", "weight_kg", 85),
+            ("mean", "height_cm", 167.8), ("min", "height_cm", 157), ("max", "height_cm", 178),
+            ("count", "male", 8), ("count", "female", 4))
+SPECIMEN_SUMMARIES = [("cervical", 861, "count", "specimens", 12), ("lumbar", 299, "count", "specimens", 12),
+                      ("facets", 1298, "count", "specimens", 12)] + \
+    [(paper, page, stat, cov, value) for paper, page in (("cervical", 861), ("lumbar", 299), ("facets", 1299))
+     for stat, cov, value in _SUMMARY]
+SPECIMEN_CONTRADICTIONS = [(paper, page, "max", "weight_kg", 85) for paper, page in
+                           (("cervical", 861), ("lumbar", 299), ("facets", 1299))]
 
 
 def read_csv(path: str) -> list:
@@ -65,16 +89,16 @@ def sha256(path: str) -> str:
     return h.hexdigest()
 
 
-def _row(m, level, statistic, value, units, paper, table, cell, basis) -> dict:
+def _row(m, level, statistic, value, units, paper, table, cell) -> dict:
     return {"measure": m.measure, "side": m.side, "level": level, "mnemonic": m.mnemonic,
             "statistic": statistic, "value": value, "units": units, "kind": m.kind,
             "planes": " ".join(m.planes), "n": str(SPECIMENS), "paper": paper, "table": table,
-            "cell": cell, "basis": basis}
+            "cell": cell}
 
 
-def rows_from_provenance(prov: Sequence[dict], absent: Sequence[dict]) -> list:
+def rows_from_provenance(prov: Sequence[dict]) -> list:
     """The long table's rows: every present-study mean and standard error of the dimension
-    tables, then the absent thoracic body table from Table 8 and the transcription."""
+    tables, each from its cell."""
     out = []
     for r in prov:
         if r["table"] not in DIMENSION_TABLES or r["study"] != "present":
@@ -88,23 +112,9 @@ def rows_from_provenance(prov: Sequence[dict], absent: Sequence[dict]) -> list:
             raise ValueError("provenance row %s is at a level outside C2-L5: %r" % (r["id"], r["level"]))
         if r["kind"] != m.kind:
             raise ValueError("provenance calls %s a %s, mnemonics.py a %s" % (r["id"], r["kind"], m.kind))
-        out.append(_row(m, r["level"], r["statistic"], r["value"], r["units"], r["paper"], r["table"], r["id"], "cell"))
-    # the thoracic body table: means from Table 8 where it prints them, the rest transcribed
-    table8 = {(r["measure"], r["level"]): r for r in prov
-              if r["table"] == "thoracic-t8a" and r["study"] == "present" and r["statistic"] == "mean"
-              and r["measure"] in ABSENT_MNEMONICS and r["value"] != ""}
-    for a in absent:
-        if a["csv"] != "panjabi_full_spine.csv" or a["measure"] not in ARCHIVE_NAMES:
-            continue
-        mn = ARCHIVE_NAMES[a["measure"]]
-        m = BY_MNEMONIC[mn]
-        cell = table8.get((mn, a["level"]))
-        if a["statistic"] == "mean" and cell is not None:
-            out.append(_row(m, a["level"], "mean", cell["value"], cell["units"], "thoracic", "thoracic-t8a", cell["id"],
-                            "table 8 restates the absent Table 3"))
-        else:
-            out.append(_row(m, a["level"], a["statistic"], a["value"], "mm", "thoracic", ABSENT_TABLE, "",
-                            "transcription of the absent Table 3 (provenance/absent.csv)"))
+        if r["pass1"] != r["pass2"] or r["agree"] != "yes":
+            raise ValueError("the two readings of %s disagree: %r, %r" % (r["id"], r["pass1"], r["pass2"]))
+        out.append(_row(m, r["level"], r["statistic"], r["value"], r["units"], r["paper"], r["table"], r["id"]))
     order = {lv: i for i, lv in enumerate(LEVELS_C2)}
     out.sort(key=lambda r: (MEASURES.index(r["measure"]), SIDES.index(r["side"]), order[r["level"]], r["statistic"]))
     seen = set()
@@ -116,34 +126,63 @@ def rows_from_provenance(prov: Sequence[dict], absent: Sequence[dict]) -> list:
     return out
 
 
-def write_long_csv(path: str = LONG_CSV) -> int:
-    rows = rows_from_provenance(read_csv(PROVENANCE_CSV), read_csv(ABSENT_CSV))
+LONG_HEADER = ("# Panjabi's quantitative three-dimensional anatomy, cervical (1991), thoracic (1991),\n"
+               "# lumbar (1992) and articular facets (1993): every present-study mean and standard\n"
+               "# error of the dimension tables, written by `python -m schwingcheck table write` from\n"
+               "# archive/bordercall/reference/provenance/provenance.csv (two readings by eye of every\n"
+               "# cell). Do not edit by hand.\n")
+SPECIMENS_HEADER = ("# The twelve fresh autopsy spines, C2 to L5, of Panjabi's four papers: the thoracic\n"
+                    "# paper's Table 1 (printed page 889), written by `python -m schwingcheck table write`\n"
+                    "# from archive/bordercall/reference/provenance/provenance.csv (two readings by eye of\n"
+                    "# every cell). The papers print no measurement of one specimen. Do not edit by hand.\n")
+
+
+def specimens_from_provenance(prov: Sequence[dict]) -> list:
+    """One row per specimen of the thoracic paper's Table 1, in the paper's order, every value
+    with the cell it was read from."""
+    by_label = {label: (name, read) for label, name, read in SPECIMEN_COLUMNS}
+    rows: Dict[str, dict] = {}
+    for r in prov:
+        if r["table"] != SPECIMEN_TABLE:
+            continue
+        if r["col_label"] not in by_label:
+            raise KeyError("Table 1 has a column the package does not read: %r" % r["col_label"])
+        if r["pass1"] != r["pass2"] or r["agree"] != "yes":
+            raise ValueError("the two readings of %s disagree: %r, %r" % (r["id"], r["pass1"], r["pass2"]))
+        name, read = by_label[r["col_label"]]
+        row = rows.setdefault(r["row"], {"paper": r["paper"], "table": r["table"]})
+        if name in row:
+            raise ValueError("two cells for %s of row %s" % (name, r["row"]))
+        read(r["printed"])                       # a number that does not read as one fails here
+        row[name] = r["printed"]
+        row["%s_cell" % name] = r["id"]
+    out = [rows[k] for k in sorted(rows, key=int)]
+    for row in out:
+        missing = [f for f in SPECIMEN_FIELDS if f not in row]
+        if missing:
+            raise ValueError("specimen %s lacks %s" % (row.get("specimen"), ", ".join(missing)))
+    return out
+
+
+def _write(path: str, header: str, fields: Sequence[str], rows: Sequence[dict]) -> int:
     os.makedirs(os.path.dirname(path), exist_ok=True)
     with open(path, "w", newline="", encoding="utf-8") as fh:
-        fh.write("# Panjabi's quantitative three-dimensional anatomy, cervical (1991), thoracic (1991),\n"
-                 "# lumbar (1992) and articular facets (1993): every present-study mean and standard\n"
-                 "# error of the dimension tables, written by `python -m schwingcheck table write` from\n"
-                 "# archive/bordercall/reference/provenance/provenance.csv (two readings by eye of every\n"
-                 "# cell) and absent.csv (the thoracic body table, not in the scan). Do not edit by hand.\n")
-        w = csv.DictWriter(fh, fieldnames=FIELDS, lineterminator="\n")
+        fh.write(header)
+        w = csv.DictWriter(fh, fieldnames=list(fields), lineterminator="\n")
         w.writeheader()
         w.writerows(rows)
     return len(rows)
 
 
-def long_csv_text(rows: Sequence[dict]) -> str:
-    import io
-    buf = io.StringIO()
-    w = csv.DictWriter(buf, fieldnames=FIELDS, lineterminator="\n")
-    w.writeheader()
-    w.writerows(rows)
-    return buf.getvalue()
+def write_long_csv(path: str = LONG_CSV) -> int:
+    return _write(path, LONG_HEADER, FIELDS, rows_from_provenance(read_csv(PROVENANCE_CSV)))
 
 
-def check_long_csv(path: str = LONG_CSV) -> list:
-    """What differs between the committed CSV and what write would write now."""
-    want = rows_from_provenance(read_csv(PROVENANCE_CSV), read_csv(ABSENT_CSV))
-    have = read_long_csv(path)
+def write_specimens_csv(path: str = SPECIMENS_CSV) -> int:
+    return _write(path, SPECIMENS_HEADER, SPECIMEN_FIELDS, specimens_from_provenance(read_csv(PROVENANCE_CSV)))
+
+
+def _differences(have: Sequence[dict], want: Sequence[dict]) -> list:
     problems = []
     if len(want) != len(have):
         problems.append("%d rows committed, %d from the provenance" % (len(have), len(want)))
@@ -153,6 +192,16 @@ def check_long_csv(path: str = LONG_CSV) -> list:
             if len(problems) > 10:
                 break
     return problems
+
+
+def check_long_csv(path: str = LONG_CSV) -> list:
+    """What differs between the committed long CSV and what write would write now."""
+    return _differences(read_long_csv(path), rows_from_provenance(read_csv(PROVENANCE_CSV)))
+
+
+def check_specimens_csv(path: str = SPECIMENS_CSV) -> list:
+    """What differs between the committed specimens CSV and what write would write now."""
+    return _differences(read_long_csv(path), specimens_from_provenance(read_csv(PROVENANCE_CSV)))
 
 
 def read_long_csv(path: str = LONG_CSV) -> list:
@@ -170,7 +219,6 @@ def load(path: str = LONG_CSV):
     sem = np.full(shape, np.nan)
     n = np.full(shape, np.nan)
     cell = np.full(shape, "", dtype=object)
-    basis = np.full(shape, "", dtype=object)
     mnemonic = np.full((len(measures), len(SIDES)), "", dtype=object)
     for r in rows:
         i, j, k = LEVELS_C2.index(r["level"]), measures.index(r["measure"]), SIDES.index(r["side"])
@@ -180,15 +228,13 @@ def load(path: str = LONG_CSV):
         mnemonic[j, k] = r["mnemonic"]
         if r["statistic"] == "mean":
             cell[i, j, k] = r["cell"]
-            basis[i, j, k] = r["basis"]
     info = [MEASURE_INFO[m] for m in measures]
     ds = xr.Dataset(
         {"mean": (("level", "measure", "side"), mean),
          "sem": (("level", "measure", "side"), sem),
          "sd": (("level", "measure", "side"), sem * np.sqrt(n)),
          "n": (("level", "measure", "side"), n),
-         "cell": (("level", "measure", "side"), cell.astype(str)),
-         "basis": (("level", "measure", "side"), basis.astype(str))},
+         "cell": (("level", "measure", "side"), cell.astype(str))},
         coords={"level": LEVELS_C2, "measure": measures, "side": SIDES,
                 "kind": ("measure", [m.kind for m in info]),
                 "units": ("measure", [{"length": "mm", "area": "mm2", "angle": "deg"}[m.kind] for m in info]),
@@ -198,6 +244,37 @@ def load(path: str = LONG_CSV):
         attrs={"source": os.path.relpath(path, ROOT), "sha256": sha256(path), "specimens": SPECIMENS,
                "sd": "sem * sqrt(n), the population SD"})
     return ds
+
+
+def read_specimens_csv(path: str = SPECIMENS_CSV) -> list:
+    return read_long_csv(path)
+
+
+SPECIMENS_NOTE = ("Panjabi prints no measurement of one specimen, only each level's mean and standard error "
+                  "over the twelve, so no coefficient of height, weight, age or sex can be estimated from the "
+                  "papers alone. These covariates describe the population the table comes from: the size prior "
+                  "of step d is conditioned on height, the effects of weight (on the discs and the facets) and "
+                  "of age (on the facets) wait for data with a measurement per patient (TODO.md, item 5), and "
+                  "any pooling of populations from several studies adjusts for them.")
+
+
+def load_specimens(path: str = SPECIMENS_CSV):
+    """The twelve specimens as an xarray Dataset with dimension `specimen`: age_years, sex,
+    weight_kg, height_cm, cause_of_death and each value's provenance cell."""
+    import xarray as xr
+    rows = read_specimens_csv(path)
+    ids = [r["specimen"] for r in rows]
+    data = {}
+    for _, name, read in SPECIMEN_COLUMNS[1:]:
+        values = [read(r[name]) for r in rows]
+        data[name] = ("specimen", np.array(values, float) if read is int else np.array(values, dtype=str))
+        data["%s_cell" % name] = ("specimen", np.array([r["%s_cell" % name] for r in rows], dtype=str))
+    return xr.Dataset(data, coords={"specimen": ids},
+                      attrs={"source": os.path.relpath(path, ROOT), "sha256": sha256(path),
+                             "paper": "thoracic", "table": "Table 1. Spine Specimen Data, printed page 889",
+                             "also_measured_in": "the cervical (1991), lumbar (1992) and facets (1993) papers, "
+                                                 "whose methods describe the same twelve spines",
+                             "note": SPECIMENS_NOTE})
 
 
 def reference(ds, selections: Sequence[Tuple[str, str]], levels: Sequence[str]) -> Dict[str, Dict[str, tuple]]:

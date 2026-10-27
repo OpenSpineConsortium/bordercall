@@ -63,20 +63,14 @@ class SameGenerator(unittest.TestCase):
         self.assertTrue(np.array_equal(one.values[0], two.values[0]))
         self.assertFalse(np.array_equal(two.values[0], two.values[1]))
 
-    def test_the_checked_table_draws_the_same_columns_but_at_T3(self):
-        """The long table differs from the archive's in one mean, EPDl at T3, so the columns
-        differ in that one value and nowhere else."""
+    def test_the_checked_table_draws_the_archives_columns(self):
+        """Since page 892 was read the long table equals the archive's in every value of the
+        seven measures, so the same seed draws the same columns from either."""
         seven = MS.select(MS.SPINEPS_7)
         keys = [MS.archive_key(m) for m in seven]
-        checked = C.draw_columns(MS.reference(seven, table="checked"), ["typical"], 97, 20, keys)
-        archived = C.draw_columns(MS.reference(seven, table="archive"), ["typical"], 97, 20, keys)
-        diff = checked.values != archived.values
-        self.assertTrue(diff[:, :, keys.index("endplate_lower_depth")].any())
-        other = np.delete(diff, keys.index("endplate_lower_depth"), axis=2)
-        self.assertFalse(other.any())
-        t3 = C.LEVELS.index("T3") if hasattr(C, "LEVELS") else 7
-        self.assertTrue(diff[:, t3, keys.index("endplate_lower_depth")].all())
-        self.assertFalse(np.delete(diff[:, :, keys.index("endplate_lower_depth")], t3, axis=1).any())
+        checked = C.draw_columns(MS.reference(seven), ["typical"], 97, 20, keys)
+        archived = C.draw_columns(MS.archive_reference(keys), ["typical"], 97, 20, keys)
+        self.assertTrue(np.array_equal(checked.values, archived.values, equal_nan=True))
 
 
 class Fields(unittest.TestCase):

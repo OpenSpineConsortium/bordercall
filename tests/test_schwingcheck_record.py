@@ -2,9 +2,9 @@
 here reads back whole.
 
 The record test is the slow one, a few minutes: it draws the archive's scoring columns, scores
-every field of 1, 3 and 9 bodies under the three regimes on the archive's own table (the long
-table differs from it in one value, EPDl at T3, step b) and holds every rate of exact.json's
-`widths` for those widths, the claims included, to what this package computes. Set
+every field of 1, 3 and 9 bodies under the three regimes on the checked table (which equals the
+archive's in every value the record used, tests/test_schwingcheck_table.py) and holds every rate
+of exact.json's `widths` for those widths, the claims included, to what this package computes. Set
 SCHWINGCHECK_RECORD_WIDTHS to run fewer widths while developing, never in a pull request.
 """
 from __future__ import annotations
@@ -46,7 +46,7 @@ class Record(unittest.TestCase):
         self.assertEqual(rec["measures"], MS.SPINEPS_7)
         self.assertEqual(rec["synth"], R.SYNTH)
         widths = [int(w) for w in os.environ.get("SCHWINGCHECK_RECORD_WIDTHS", "1 3 9").split()]
-        got = M.rescore(widths, n_columns=rec["n_columns"], seed=rec["score_seed"], table="archive")
+        got = M.rescore(widths, n_columns=rec["n_columns"], seed=rec["score_seed"])
         for n in widths:
             want = rec["widths"][str(n)]
             self.assertEqual(want["places"], got[str(n)]["places"])

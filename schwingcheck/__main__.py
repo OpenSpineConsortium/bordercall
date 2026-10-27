@@ -1,9 +1,9 @@
 """The command line of the package.
 
-    python -m schwingcheck table write                 # the long CSV from the provenance record
-    python -m schwingcheck table check                 # the committed CSV is what write would write
+    python -m schwingcheck table write                 # the long CSV and the specimens from the provenance record
+    python -m schwingcheck table check                 # the committed CSVs are what write would write
     python -m schwingcheck name FIELD.csv [--measures endplate h_post ...] [--offsets 0 1 2]
-    python -m schwingcheck rescore --n 1 3 9 --outdir records/exact-rescore [--table archive]
+    python -m schwingcheck rescore --n 1 3 9 --outdir records/exact-rescore
 
 `name` reads one field: a CSV with a column `body` (0, 1, 2 ... in order down the column), one
 column per measure in millimetres (a blank where the value was not read) and, optionally, a
@@ -88,30 +88,35 @@ def cmd_name(args) -> int:
 
 
 def cmd_table(args) -> int:
-    if args.what == "write":
-        n = T.write_long_csv()
-        print("wrote %s (%d rows)" % (os.path.relpath(T.LONG_CSV, T.ROOT), n))
-        return 0
-    problems = T.check_long_csv()
-    for p in problems:
-        print("  " + p)
-    print("%s: %s" % (os.path.relpath(T.LONG_CSV, T.ROOT), "as written from the provenance" if not problems else "%d differences" % len(problems)))
-    return 1 if problems else 0
+    targets = [(T.LONG_CSV, T.write_long_csv, T.check_long_csv),
+               (T.SPECIMENS_CSV, T.write_specimens_csv, T.check_specimens_csv)]
+    failed = 0
+    for path, write, check in targets:
+        name = os.path.relpath(path, T.ROOT)
+        if args.what == "write":
+            print("wrote %s (%d rows)" % (name, write()))
+            continue
+        problems = check()
+        for p in problems:
+            print("  " + p)
+        print("%s: %s" % (name, "as written from the provenance" if not problems else "%d differences" % len(problems)))
+        failed += bool(problems)
+    return 1 if failed else 0
 
 
 def rescore(widths, n_columns: int = N_SCORE, seed: int = SCORE_SEED, outdir=None, command: str = "",
-            regimes=None, chunk_columns: int = 100, table: str = "checked") -> dict:
+            regimes=None, chunk_columns: int = 100) -> dict:
     """The archive's scoring run on this package: every field of every width under each regime,
-    on the checked table or, to reproduce the record of 2026-10-26 to the bit, the archive's."""
+    on the checked table, which since page 892 was read equals the archive's in every value the
+    record used, so it reproduces the record of 2026-10-26 to the bit."""
     regimes = MS.REGIMES if regimes is None else regimes
     seven = MS.select(MS.SPINEPS_7)
-    ref = MS.reference(seven, table=table)
-    mu, sd = MS.arrays(seven, table=table)
+    ref = MS.reference(seven)
+    mu, sd = MS.arrays(seven)
     cols = C.draw_columns(ref, ["typical"], seed, n_columns, [MS.archive_key(m) for m in seven])
     sizes, logw = R.quadrature(R.SYNTH["scale_sd"])
     keep = {name: sorted(MS.SPINEPS_7.index(k) for k in ks) for name, ks in regimes.items()}
-    digests = {"panjabi_long.csv": T.sha256(T.LONG_CSV), "provenance.csv": T.sha256(T.PROVENANCE_CSV),
-               "panjabi_full_spine.csv": T.sha256(MS.ARCHIVE_CSV)}
+    digests = {"panjabi_long.csv": T.sha256(T.LONG_CSV), "provenance.csv": T.sha256(T.PROVENANCE_CSV)}
     out = {}
     for n in widths:
         t0 = time.time()
@@ -139,7 +144,7 @@ def rescore(widths, n_columns: int = N_SCORE, seed: int = SCORE_SEED, outdir=Non
             if outdir:
                 rec = REC.build(post, truth, group, X[:, idx, :], offsets, rates["measures"], LEVELS, rates,
                                 command=command, seeds={"score": seed}, synth=R.SYNTH, mu=mu[idx], sd=sd[idx],
-                                digests=digests, extra_attrs={"regime": name, "n_columns": n_columns, "width": n, "table": table})
+                                digests=digests, extra_attrs={"regime": name, "n_columns": n_columns, "width": n})
                 REC.write(rec, os.path.join(outdir, "width-%02d-%s.nc" % (n, name)))
         out[str(n)]["seconds"] = round(time.time() - t0, 1)
         print("rescore: n=%d done in %.0f s (both planes %.4f)" % (n, out[str(n)]["seconds"], out[str(n)]["regimes"]["both"]["exact"]), flush=True)
@@ -148,7 +153,7 @@ def rescore(widths, n_columns: int = N_SCORE, seed: int = SCORE_SEED, outdir=Non
 
 def cmd_rescore(args) -> int:
     command = "python -m schwingcheck " + " ".join(sys.argv[1:])
-    out = rescore(args.n, args.columns, args.seed, args.outdir, command, table=args.table)
+    out = rescore(args.n, args.columns, args.seed, args.outdir, command)
     if args.outdir:
         with open(os.path.join(args.outdir, "rates.json"), "w") as fh:
             json.dump(out, fh, indent=1, sort_keys=True)
@@ -163,7 +168,7 @@ def main(argv=None) -> int:
     a.add_argument("--measures", nargs="*", help="the measures to use, default the archive's seven")
     a.add_argument("--offsets", nargs="*", type=int, help="the bodies' offsets, default from the CSV or consecutive")
     a.set_defaults(fn=cmd_name)
-    b = sub.add_parser("table", help="write or check the long CSV")
+    b = sub.add_parser("table", help="write or check the long CSV and the specimens CSV")
     b.add_argument("what", choices=["write", "check"])
     b.set_defaults(fn=cmd_table)
     c = sub.add_parser("rescore", help="rescore the archive's columns and write InferenceData records")
@@ -171,8 +176,6 @@ def main(argv=None) -> int:
     c.add_argument("--columns", type=int, default=N_SCORE)
     c.add_argument("--seed", type=int, default=SCORE_SEED)
     c.add_argument("--outdir", default=None)
-    c.add_argument("--table", choices=["checked", "archive"], default="checked",
-                   help="the checked long table, or the archive's own table to reproduce its record to the bit")
     c.set_defaults(fn=cmd_rescore)
     args = p.parse_args(argv)
     return args.fn(args)

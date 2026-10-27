@@ -262,6 +262,7 @@ The first candidates are already in the table: the pedicle widths and heights. T
 
 - `README.md`: this page.
 - `TODO.md`: the future work.
+- `schwingcheck/`: the exact rule lifted out of the archive as a package on data shaped for PyMC (TODO.md item P step c): the checked table of the four papers as one long CSV written from the provenance record, the twelve specimens of the thoracic paper's Table 1, the rule vectorised with gaps and missing values, the generator, the scores and every result as ArviZ InferenceData; its own [README](schwingcheck/README.md), tests under `tests/` and the pinned environment `requirements-schwingcheck.txt`.
 - `archive/`: everything from before 27 October 2026, moved as it was:
   - `bordercall/`: the package, `exact.py` among it;
   - `records/`: every run's record;

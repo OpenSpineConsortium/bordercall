@@ -92,7 +92,8 @@ class Table(unittest.TestCase):
     def test_table_check_passes_on_the_committed_csv(self):
         code, out = run(["table", "check"])
         self.assertEqual(code, 0, out)
-        self.assertIn("as written from the provenance", out)
+        self.assertIn("panjabi_long.csv: as written from the provenance", out)
+        self.assertIn("panjabi_specimens.csv: as written from the provenance", out)
 
     def test_the_module_runs_as_a_program(self):
         p = subprocess.run([sys.executable, "-m", "schwingcheck", "table", "check"], cwd=ROOT, capture_output=True, text=True)

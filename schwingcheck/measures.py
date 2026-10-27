@@ -124,21 +124,10 @@ def select(keys: Sequence[str], levels: Sequence[str] = LEVELS, reg: Optional[Di
     return out
 
 
-def reference(measures: Sequence[Measure], levels: Sequence[str] = LEVELS, ds=None,
-              table: str = "checked") -> Dict[str, Dict[str, tuple]]:
+def reference(measures: Sequence[Measure], levels: Sequence[str] = LEVELS, ds=None) -> Dict[str, Dict[str, tuple]]:
     """{key: {level: (mean, population SD)}} in the archive's shape, keyed as the archive keys
     its seven measures (endplate ... canal_ap) and the mean of a pair as `name` without a side
-    where the archive has one (pedicle, pedicle_h), else `name:side`.
-
-    `table` is `checked`, the long table written from the provenance (the default), or
-    `archive`, the archive's panjabi_full_spine.csv as its records were computed from. The two
-    differ in one value, the lower end-plate depth at T3 (23.2 checked, 23.3 archived, step b),
-    so a run that must reproduce the archive's record to the bit reads the archive's table and
-    says so in its record."""
-    if table == "archive":
-        return archive_reference([archive_key(m) for m in measures], levels)
-    if table != "checked":
-        raise ValueError("table is checked or archive, not %r" % table)
+    where the archive has one (pedicle, pedicle_h), else `name:side`."""
     ds = dataset() if ds is None else ds
     ref = T.reference(ds, [m.selection for m in measures], levels)
     return {archive_key(m): ref[m.key] for m in measures}
@@ -148,7 +137,8 @@ ARCHIVE_CSV = os.path.join(T.ROOT, "archive", "bordercall", "reference", "panjab
 
 
 def archive_reference(keys: Sequence[str], levels: Sequence[str] = LEVELS, path: str = ARCHIVE_CSV) -> Dict[str, Dict[str, tuple]]:
-    """The archive's table as its loader reads it: {name: {level: (mean, sem * sqrt(n))}}."""
+    """The archive's table as its loader reads it: {name: {level: (mean, sem * sqrt(n))}}. Kept
+    so a test can hold the checked table to it value for value."""
     import csv
     import math
     out: Dict[str, Dict[str, tuple]] = {k: {} for k in keys}
@@ -173,10 +163,9 @@ def archive_key(m: Measure) -> str:
     return m.key
 
 
-def arrays(measures: Sequence[Measure], levels: Sequence[str] = LEVELS, ds=None,
-           table: str = "checked") -> Tuple[np.ndarray, np.ndarray]:
+def arrays(measures: Sequence[Measure], levels: Sequence[str] = LEVELS, ds=None) -> Tuple[np.ndarray, np.ndarray]:
     """The means and population SDs as (measures, levels) arrays, in the order given."""
-    ref = reference(measures, levels, ds, table)
+    ref = reference(measures, levels, ds)
     return T.arrays(ref, [archive_key(m) for m in measures], levels)
 
 
