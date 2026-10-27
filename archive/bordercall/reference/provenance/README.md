@@ -16,8 +16,10 @@ recorded reading:
    `pdftoppm -r 300 -png -singlefile` (poppler 24.02.0), turning the thoracic paper's pages 6
    and 7, which print their tables sideways, by a quarter turn. [pages.json](pages.json) records
    each PDF's sha256, each rendered page's size and sha256, the dpi and the pdftoppm version, so
-   a box in provenance.csv names a place on an image anyone can make again.
-2. **Lay out.** [tables.py](tables.py) says where each of the 27 numeric tables sits on its page
+   a box in provenance.csv names a place on an image anyone can make again. `python render.py
+   thoracic-p892` renders one key alone and merges it into the record, which is how the page
+   that came later (below) was rendered without rendering the rest again.
+2. **Lay out.** [tables.py](tables.py) says where each of the 28 numeric tables sits on its page
    (the region, the heading line, the body, the row labels' right edge) and what its rows and
    columns mean, in print order, with nothing numeric in it. [layout.py](layout.py) reads the
    pixels inside each region: it finds the rule lines and masks them, the lines of print, the
@@ -38,7 +40,15 @@ recorded reading:
    labels' edge of that table moved from 300 to 400 pixels, the one change to the layout) and
    read again by one fresh reader of each kind, who both read 132.0, as the first pass had.
    [reads/pass1.csv](reads/pass1.csv) and [reads/pass2.csv](reads/pass2.csv) keep every read as
-   it was made, round by round.
+   it was made, round by round, with who read it. The thoracic body table (Table 3, printed page
+   892) was read on 27 October 2026 from the owner's second scan, the one page cut out as a file
+   of its own ([../papers/README.md](../papers/README.md)), by the thread's own session in the
+   same two presentations, the strips first and the numbered crops after, since no agent could
+   be started that hour; the two readings agree on all 252 cells, the 120 values the archive's
+   CSV carries from that table match to the digit, and Table 8's 36 restatements of it hold but
+   one (below), three comparisons made independently of each other. Its digits at T7 and T12 of
+   the ratio rows are printed pale, so its boxes were cut at a lighter ink threshold than the
+   other tables' (`ink` in tables.py).
 4. **Compile.** `python compile.py` sets the two reads beside each cell, parses the string into
    its values (a `mean +/- SEM` or `mean (SEM)` cell is two rows), gives each its units from
    Panjabi's mnemonic, and writes provenance.csv, the table pages and pages.json. A cell the
@@ -52,25 +62,30 @@ recorded reading:
    value, the mean of several, the lowest or highest of a run, the mean of a left and a right, a
    difference, a ratio, a percentage). `python prose_rows.py` writes [prose.csv](prose.csv) with
    what each pass read, and [reads/prose.csv](reads/prose.csv) keeps every prose read.
+7. **Report the contradictions.** `python contradictions.py` writes
+   [CONTRADICTIONS.md](CONTRADICTIONS.md) from the three records above and the arithmetic inside
+   the tables (every printed ratio and sum against its own table's means, allowing for rounding):
+   every place a paper disagrees with itself, counted by paper and by what happened, for the
+   owner's ask of 27 October 2026 that the papers' own consistency be measured.
 6. **Hold the CSVs to it.** `python check_csv.py` sets every value of
    [../panjabi_full_spine.csv](../panjabi_full_spine.csv) and [../panjabi_1992.csv](../panjabi_1992.csv)
    beside the cell it should have come from and writes [changes.csv](changes.csv), the list of
-   every existing value that differs. A value whose page the scan does not carry is listed in
-   [absent.csv](absent.csv) with what it rests on.
+   every existing value that differs.
 
 The tests are [../../../tests/test_provenance.py](../../../tests/test_provenance.py): the two
 passes agree on every cell; every cell was read by both; every value a paper also states in
 prose agrees with its cells, or the record says, cell by cell, that the paper contradicts itself,
 and a contradiction that stops holding fails the test too; every value the CSVs carry was read
-from a cell or is listed absent; each paper's comparison table restates its own dimension tables
+from a cell; each paper's comparison table restates its own dimension tables
 as [crosstable.csv](crosstable.csv) records, which `python check_tables.py` writes (a single-sided
 dimension to the digit, a paired one as the mean of right and left); the papers are the exact
 bytes the record names; every image is there and every box lies on its page; every table page
-shows every cell.
+shows every cell; the body table of page 892 was read from that one page alone; and the
+contradictions report is what its code writes from the record.
 
 ## What is in provenance.csv
 
-One row per printed value: 4,216 rows from 3,534 cells of 27 tables, of which
+One row per printed value: 4,468 rows from 3,786 cells of 28 tables, of which
 685 are printed dashes (a dash is a printed symbol with no value, kept so a reader knows the
 absence was read, not missed). The columns:
 
@@ -102,7 +117,7 @@ radiograph, a lateral radiograph, or only a CT. "Derived" is a ratio of two othe
 
 | mnemonic | what it measures | levels | tables | mask | AP | lateral | CT only |
 |---|---|---|---|---|---|---|---|
-| EPWu, EPWl | upper and lower end-plate width | C3-L5 (EPWl from C2) | cervical 2, thoracic 3 (absent), lumbar 2 | yes, in use | yes | no | |
+| EPWu, EPWl | upper and lower end-plate width | C3-L5 (EPWl from C2) | cervical 2, thoracic 3, lumbar 2 | yes, in use | yes | no | |
 | EPDu, EPDl | upper and lower end-plate depth (anteroposterior) | C3-L5 (EPDl from C2) | the same | yes, in use | no | yes | |
 | VBHp | posterior vertebral body height | C3-L5 | the same | yes, in use | no | yes | |
 | EPWu/EPDu, EPWl/EPDl | end-plate width to depth | C3-L5 (lower from C2) | the same | derived | | | |
@@ -151,19 +166,20 @@ them to the model by kind.
 
 [prose.csv](prose.csv) holds 206 numbers the four papers state outside their tables, in the
 abstracts, the results, the discussions and the labels of Figure 8, each read by both prose
-passes and agreeing between them. 144 of them speak of cells the tables hold and are held to them
+passes and agreeing between them. 155 of them speak of cells the tables hold and are held to them
 by test under the rule the sentence states: a cell's value, the mean of the right and left, the
 end of a run, a difference, a ratio; a number the paper rounds, with "about" or "approximately",
-to a multiple of five is held within 5, and one it rounds to a whole unit within 1. The other 62,
+to a multiple of five is held within 5, and one it rounds to a whole unit within 1. The other 51,
 the specimens' ages, the counts, the percentages, other authors' values and quantities no table
-prints, are recorded alone. 131 agree with their cells. Thirteen do not, and prose.csv records
+prints, are recorded alone. 140 agree with their cells. Fifteen do not, and prose.csv records
 each as the paper's own contradiction, with the cells:
 
 | paper, page | the sentence says | the table prints |
 |---|---|---|
 | lumbar, 301 | the pedicle width at L5 was 18.9 mm | Table 4: 18.0 right, 19.2 left, mean 18.6 |
 | lumbar, 302 | the pars area at L5 was 81 mm2 | Table 5: 92.9 right, 71.7 left, mean 82.3 |
-| thoracic, 890 | the posterior body height at T1 is 14.3 mm | Table 8's Present Study column: 14.1 (Table 3 is not in the scan) |
+| thoracic, 890 | the end-plate dimensions grow from T1 to T12 by 55% for the lower width and 73% for the upper depth | Table 3: the lower width grows 51.4% and the upper 59.2%, the upper depth 77.3% and the lower 69.5%; 55.3 and 73.4 are the means of the two widths' and the two depths' increases |
+| thoracic, 890 | the posterior body height at T1 is 14.3 mm | Table 3: 14.1, and Table 8's Present Study column restates 14.1 |
 | thoracic, 891 | the narrowest canal, at T3, is 189 mm2 | Table 4: 180.0 at T3, the least of its row |
 | thoracic, 893 | the pars area at T3 was about 90 mm2 | Table 7: 118 right, 73 left, mean 95.5 |
 | thoracic, 893 | the pars area at T12 decreased to 98 mm2 | Table 7: 86 right, 98 left; the text quotes the left side |
@@ -178,45 +194,48 @@ each as the paper's own contradiction, with the cells:
 The tables decide. Where a sentence quotes one side, the table prints both; where the abstract
 states a range, its ends are the tables' ends in every case but the three minima above.
 
-[crosstable.csv](crosstable.csv) sets the 178 Present Study values of the comparison tables
+[crosstable.csv](crosstable.csv) sets the 214 Present Study values of the comparison tables
 (cervical Table 7, thoracic Table 8, lumbar Table 6, facets Tables 9 and 10) beside the
-dimension tables they restate: 170 agree, a single-sided dimension to the digit, a paired one as
+dimension tables they restate: 205 agree, a single-sided dimension to the digit, a paired one as
 the mean of right and left to the comparison table's rounding, the facets' sagittal angles as
 the mean of the right and left magnitudes within a degree; one, Table 10's S1 row, has no cell
-to be held to; and seven do not agree and are recorded as such. The lumbar paper's Table 6
+to be held to; and eight do not agree and are recorded as such. The thoracic paper's Table 8
+restates the lower end-plate depth at T3 as 23.2 where its Table 3 prints 23.3 (the one value
+the archive's transcription was once thought to have wrong, below); the lumbar paper's Table 6
 restates the pedicle's sagittal inclination at L4 as 16.0 where its Table 4 prints 18.4 and
 14.7, mean 16.6; the facets paper's Table 9 gives the superior facet heights at C4 to C7 as
 12.0, 11.3, 10.8 and 11.0 and the widths at C4 and C7 as 11.3 and 13.4, where its Table 2's
 right and left average to 12.2, 11.6, 11.0, 11.4, 11.5 and 12.6, and the paper does not say how
-it formed them.
+it formed them. [CONTRADICTIONS.md](CONTRADICTIONS.md) gathers these, the prose contradictions
+and the arithmetic inside the tables (288 printed ratios and sums, 6 of which their own means
+do not give even allowing for rounding) into one report with counts by paper and by kind.
 
 ## What the reference CSVs rest on, and what changes
 
 `python check_csv.py` sets each of the 651 values of [../panjabi_full_spine.csv](../panjabi_full_spine.csv)
 (296 rows of a mean and a standard error, the derived left-right means among them) and
-[../panjabi_1992.csv](../panjabi_1992.csv) (30 rows) beside its cell. 530 were read from a cell
-and agree with it to the digit. 121 are the thoracic body table's and the one running-text
-value, listed in [absent.csv](absent.csv) (below). **No existing value changes in this pull
-request.** One is contradicted by the scan: the lower end-plate depth at T3, 23.3 in the earlier
-transcription of the absent Table 3, is printed as 23.2 by Table 8's Present Study column
-([cells/thoracic-t8a/r03_c01.png](cells/thoracic-t8a/r03_c01.png), read so by both passes). The
-archive's records (exact.json, the slides, the second opinion) were computed with 23.3 and their
-tests hold them to the bit, so the archive keeps 23.3, absent.csv says why, a test holds that
-one exception, and the checked table of item P's step c, written from provenance.csv, takes
-Table 8's 23.2; a scan of page 892 decides it for good. [changes.csv](changes.csv) is the list
-of CSV values that differ from the provenance as the files stand, and is empty.
+[../panjabi_1992.csv](../panjabi_1992.csv) (30 rows) beside its cell. All 651 were read from a
+cell and agree with it to the digit, the 120 of the thoracic body table since page 892 was read.
+**No existing value changed in either pull request.** [changes.csv](changes.csv) is the list of
+CSV values that differ from the provenance as the files stand, and is empty.
 
-## The thoracic body table is not in the scan
+## The thoracic body table came from a second scan
 
 Printed page 892 of the thoracic paper, Table 3 (vertebral body dimensions), is not in
 [../papers/Panjabi_1991_Thoracic_Spine_16-8_888-901.pdf](../papers/Panjabi_1991_Thoracic_Spine_16-8_888-901.pdf):
-the PDF's page 4 is printed page 891 and its page 5 is 893. The 120 values panjabi_full_spine.csv
-carries from it (EPWu, EPDu, EPWl, EPDl, VBHp at T1 to T12, means and standard errors) and the
-one panjabi_1992.csv carries (VBHp at T12) are listed in absent.csv: 35 of the 36 means of EPDl,
-EPWl and VBHp are read from Table 8's Present Study column, which prints them, and held to it by
-test; the 36th, EPDl at T3, is the one Table 8 contradicts (above) and is held as the exception;
-the 24 means of EPWu and EPDu and the 60 standard errors rest on the earlier transcription alone
-until a scan of page 892 is committed, which the thread asked the owner for.
+the PDF's page 4 is printed page 891 and its page 5 is 893. When the provenance was first made
+the 120 values the CSV carries from it rested on an earlier transcription and on Table 8's
+restatement of 36 of them, and that restatement contradicted one, the lower end-plate depth at
+T3, 23.3 in the transcription and 23.2 in Table 8. On 27 October 2026 the owner supplied a second
+scan of the paper and asked that only the missing page be read; it is
+[../papers/Panjabi_1991_Thoracic_Spine_16-8_888-901_p892.pdf](../papers/Panjabi_1991_Thoracic_Spine_16-8_888-901_p892.pdf),
+one page, rendered, laid out and read twice like every other table (step 3 above), its cells
+under [cells/thoracic-t3/](cells/thoracic-t3/) and its page [tables/thoracic-t3.md](tables/thoracic-t3.md).
+Table 3 prints 23.3 ([cells/thoracic-t3/r07_c02.png](cells/thoracic-t3/r07_c02.png)), so the
+archive's value stands, Table 8's 23.2 is the paper's own contradiction and is recorded as such
+in crosstable.csv, and every one of the 120 values matches its cell; the file absent.csv, which
+listed what those values rested on, is gone. The page's own text, page 890's account of the body
+dimensions, is held to the table now too, and contradicts it three times (above).
 
 ## Files
 
@@ -230,8 +249,10 @@ until a scan of page 892 is committed, which the thread asked the owner for.
 | check_csv.py | holds the reference CSVs to the provenance; writes changes.csv |
 | check_prose.py | holds the prose record to the cells |
 | check_tables.py | holds each comparison table's Present Study column to the dimension tables it restates; writes crosstable.csv |
+| contradictions.py | the report of every contradiction, between tables, between the text and the tables and inside the tables' arithmetic; writes CONTRADICTIONS.md |
 | cells.csv, cells/ | every cell's box and crop |
 | provenance.csv | the record, one row per printed value |
 | tables/*.md | one page per table, every value beside its image |
-| prose.csv, absent.csv, changes.csv, crosstable.csv, pages.json | the prose record, the values whose page is absent, the CSV values that differ, the comparison tables' restatements, the page record |
+| prose.csv, changes.csv, crosstable.csv, pages.json | the prose record, the CSV values that differ, the comparison tables' restatements, the page record |
+| CONTRADICTIONS.md | the contradictions report |
 | reads/ | every read of both table passes and both prose passes, as made |

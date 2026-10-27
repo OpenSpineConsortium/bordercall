@@ -129,6 +129,9 @@ def strips_index(which: str) -> dict[str, dict]:
         return {s["file"]: s for s in json.load(fh)}
 
 
+SOURCES: dict[str, str] = {}      # "table/cell" -> who read it, where a pass file says ("source")
+
+
 def collect_pass1(cells: list[dict]) -> tuple[dict[str, str], list[str]]:
     """Pass 1 reads keyed by table and cell name; and what it read where no box was found."""
     index = strips_index("pass1")
@@ -150,6 +153,8 @@ def collect_pass1(cells: list[dict]) -> tuple[dict[str, str], list[str]]:
                     key = (meta["table"], int(row["row"]), col)
                     if key in boxes:
                         reads[meta["table"] + "/" + cell_name(key[1], key[2])] = s
+                        if data.get("source"):
+                            SOURCES["pass1:" + meta["table"] + "/" + cell_name(key[1], key[2])] = data["source"]
                     elif normal(s) not in ("",):
                         stray.append("%s row %d col %d (%s): pass 1 read %r where no box was cut"
                                      % (meta["table"], key[1], col, col_labels[col] if col < len(col_labels) else "?", s))
@@ -168,6 +173,8 @@ def collect_pass2() -> dict[str, str]:
             got = sheet.get("cells", [])
             for name, s in zip(names, got):
                 reads[meta["table"] + "/" + name] = s
+                if data.get("source"):
+                    SOURCES["pass2:" + meta["table"] + "/" + name] = data["source"]
             if len(got) != len(names):
                 print("pass 2 sheet %s: %d cells expected, %d read" % (sheet["file"], len(names), len(got)))
     return reads
@@ -198,7 +205,8 @@ def write_reads(which: str, first: dict[str, str], later: dict[str, list[tuple[i
         w.writeheader()
         for key in sorted(first):
             table, name = key.split("/")
-            w.writerow({"table": table, "cell": name, "round": 1, "read": first[key], "source": which + " agents"})
+            w.writerow({"table": table, "cell": name, "round": 1, "read": first[key],
+                        "source": SOURCES.get(which + ":" + key, which + " agents")})
             standing[key] = first[key]
             for n, s, src in sorted(later.get(key, [])):
                 w.writerow({"table": table, "cell": name, "round": n, "read": s, "source": src})
@@ -220,7 +228,7 @@ def provenance_rows(cells: list[dict], pass1: dict[str, str], pass2: dict[str, s
     for c in cells:
         key = c["table"] + "/" + cell_name(int(c["row"]), int(c["col"]))
         table = by_table[c["table"]]
-        paper = pages["papers"][table.paper]
+        paper = pages["papers"][table.source or table.paper]
         p1, p2 = pass1.get(key, ""), pass2.get(key, "")
         agree = normal(p1) == normal(p2)
         printed = normal(p1) if agree else ""
@@ -267,7 +275,7 @@ def write_table_pages(rows: list[dict], pages: dict) -> None:
         grouped.setdefault(r["table"], []).append(r)
     for key, table in by_table.items():
         rs = grouped.get(key, [])
-        paper = pages["papers"][table.paper]
+        paper = pages["papers"][table.source or table.paper]
         lines = ["# %s" % table.title, "",
                  "%s, PDF page %d, printed page %d; %s (sha256 %s), rendered at %d dpi by render.py."
                  % (table.paper.capitalize(), table.page, table.printed, paper["file"], paper["sha256"], pages["dpi"]),

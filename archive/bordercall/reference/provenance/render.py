@@ -1,6 +1,7 @@
 """Render every page of the four Panjabi papers at 300 dpi, the images every cell box refers to.
 
     python3 render.py            # writes archive/out/provenance/pages/<paper>-<NN>.png and pages.json
+    python3 render.py thoracic-p892   # one key only, merged into the pages.json already there
 
 The boxes in cells.csv and provenance.csv are pixel coordinates on these images, so the
 command that makes them is fixed here: poppler's pdftoppm at 300 dots per inch, one page per
@@ -29,6 +30,9 @@ PAPERS = {
     "thoracic": ("Panjabi_1991_Thoracic_Spine_16-8_888-901.pdf", 13, (6, 7)),
     "lumbar": ("Panjabi_1992_Lumbar_Spine_17-3_299-306.pdf", 8, ()),
     "facets": ("Panjabi_1993_Facets_Spine_18-10_1298-1310.pdf", 13, ()),
+    # printed page 892 of the thoracic paper, which the scan above lacks: one landscape page from
+    # the owner's second scan of 27 October 2026, whose table already reads upright
+    "thoracic-p892": ("Panjabi_1991_Thoracic_Spine_16-8_888-901_p892.pdf", 1, ()),
 }
 
 
@@ -59,9 +63,15 @@ def render_page(pdf: str, page: int, dest: str, turn: bool) -> None:
             im.rotate(-90, expand=True).save(dest)
 
 
-def render_all(papers=PAPERS) -> dict:
+def render_all(papers=PAPERS, keys=None) -> dict:
+    """Render every paper, or only the keys given, which are merged into the record already
+    there, so one added page (thoracic-p892) is rendered without rendering the rest again."""
     os.makedirs(PAGES_DIR, exist_ok=True)
     record = {"dpi": DPI, "pdftoppm": poppler_version(), "papers": {}}
+    if keys:
+        with open(os.path.join(OUT, "pages.json"), encoding="utf-8") as f:
+            record = json.load(f)
+        papers = {k: v for k, v in papers.items() if k in keys}
     from PIL import Image
     for key, (name, pages, turned) in papers.items():
         pdf = os.path.join(PAPERS_DIR, name)
@@ -80,4 +90,4 @@ def render_all(papers=PAPERS) -> dict:
 
 
 if __name__ == "__main__":
-    render_all()
+    render_all(keys=sys.argv[1:] or None)

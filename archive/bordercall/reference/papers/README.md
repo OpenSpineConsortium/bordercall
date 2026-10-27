@@ -13,6 +13,7 @@ in the CSV yet.
 | `Panjabi_1991_Thoracic_Spine_16-8_888-901.pdf` | thoracic | Panjabi MM, Takata K, Goel V, Federico D, Oxland T, Duranceau J, Krag M. *Thoracic human vertebrae. Quantitative three-dimensional anatomy.* Spine 1991;16(8):888-901 | T1-T12 |
 | `Panjabi_1992_Lumbar_Spine_17-3_299-306.pdf` | lumbar | Panjabi MM, Goel V, Oxland T, Takata K, Duranceau J, Krag M, Price M. *Human lumbar vertebrae. Quantitative three-dimensional anatomy.* Spine 1992;17(3):299-306 | L1-L5 |
 | `Panjabi_1993_Facets_Spine_18-10_1298-1310.pdf` | facets, whole column | Panjabi MM, Oxland T, Takata K, Goel V, Duranceau J, Krag M. *Articular facets of the human spine. Quantitative three-dimensional anatomy.* Spine 1993;18(10):1298-1310 | C2-L5 |
+| `Panjabi_1991_Thoracic_Spine_16-8_888-901_p892.pdf` | thoracic, printed page 892 only | the thoracic paper's page 892 (Table 3, vertebral body dimensions), which the scan above lacks: one landscape page from the owner's second scan of the paper, 27 October 2026 | T1-T12 |
 
 The cervical and thoracic papers are the **same journal issue**, Spine volume 16 number 8,
 27 pages apart. The lumbar paper says so itself: *"this report is the third in a series of
@@ -29,10 +30,19 @@ The sha256 of each file, so a value's provenance can name the exact bytes it was
 | `Panjabi_1991_Thoracic_Spine_16-8_888-901.pdf` | f4078fa2cd2cf2c140fcee7f018917e055d2ca825c42e9b01d84cf1f4b7c1e2c |
 | `Panjabi_1992_Lumbar_Spine_17-3_299-306.pdf` | 842736d7102c0327c690af3605c5248ca4516253ac330157875bfb783d6b5eac |
 | `Panjabi_1993_Facets_Spine_18-10_1298-1310.pdf` | 2b22fe5e6c14d2289a4366f3c94879db1da0f79ae54e05a7f8e54a07e1c0279f |
+| `Panjabi_1991_Thoracic_Spine_16-8_888-901_p892.pdf` | a1a43be91d80a5d5735bcd61fa0f07fee5b5bf73f8aeb6f3652e6dae00541a6a |
 
 An earlier note here named a second copy of the thoracic paper from document delivery, with a
 partial text layer. It is not in this folder and never was in this repository; the thoracic
 scan above is the one every value was read from.
+
+The thoracic scan skips printed page 892, the page of Table 3 (its PDF page 4 is printed page
+891 and its page 5 is 893). On 27 October 2026 the owner attached a second scan of the whole
+paper that carries it, and asked that only the missing page be read, not the paper again; the
+one-page file above is page 7 of that scan (sha256 of the whole second scan:
+b1a7c0105f6acf7c2927b2bdee22c3f3e56937105d3d656d2e2bb378c8826a0b), cut out with pypdf, and it
+reads upright. Every value of Table 3 was read from it, and nothing else was read again
+([../provenance/README.md](../provenance/README.md)).
 
 ## Which table each value in the CSV came from
 
@@ -49,8 +59,8 @@ pages the paper prints, as build_panjabi.py already had them; the end-plate dept
 end-plate rows and the pedicle heights come from the same tables as their widths. The map of
 every table of all four papers, with every value's cell, is [../provenance/](../provenance/README.md)
 (step b of TODO.md's item P): one row per printed value in provenance.csv, one page per table
-under tables/ with the image of every cell, and the thoracic body table's page 892, which this
-scan does not carry, listed in absent.csv.
+under tables/ with the image of every cell, the thoracic body table's page 892 among them since
+27 October 2026, read from the one-page file above.
 
 ## The facets paper's tables
 
