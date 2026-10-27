@@ -1,0 +1,208 @@
+"""The exact Bayes rule over places, vectorised: fields, places, measures and nodes at once.
+
+The model is the archive's (archive/bordercall/exact.py, its docstring): a field of bodies at
+known offsets o_1 < ... < o_B from its first body sits at one of K = L - o_B places in a column
+of L levels, and given the place and the patient's size s each length measure's values are
+jointly normal with mean s mu and covariance Delta + u u' (Delta diagonal, u = s rho sd), so
+the log density has the Sherman-Morrison closed form; the size is integrated out by
+Gauss-Hermite quadrature over log s ~ N(0, scale_sd^2), the measures multiply, and a uniform
+prior over places gives the posterior. Two things are new here and leave the contiguous,
+complete case unchanged to the last digit:
+
+- gaps: the bodies' offsets index the table, (0, 1, 2) for three consecutive bodies, (0, 2, 4)
+  for every other body, so the places are the starts at which the last offset still fits;
+- missing values: a value that is NaN drops out of its measure's sums with weight zero. On any
+  subset of bodies the covariance keeps the form Delta + u u' on that subset, so the weighted
+  sums are the exact marginal likelihood; a measure missing on every body contributes a
+  constant and a field with nothing gets the prior back.
+
+Every sum over bodies is one batched matrix product, (measures, fields, bodies) by (measures,
+bodies, nodes x places), so no Python loop runs per field, per place or per body. Fields are
+scored in chunks only to bound memory (loglik keeps (fields, nodes, measures, places) doubles).
+"""
+from __future__ import annotations
+
+import math
+from typing import Dict, Optional, Sequence, Tuple
+
+import numpy as np
+
+GH_NODES = 161
+LOG2PI = math.log(2.0 * math.pi)
+SYNTH = {"rho": 0.5, "noise_mm": 1.0, "scale_sd": 0.07}      # the archive's generator settings
+
+
+def quadrature(scale_sd: float, n_nodes: int = GH_NODES) -> Tuple[np.ndarray, np.ndarray]:
+    """Sizes and log weights for integrating over log s ~ N(0, scale_sd^2); one node when there
+    is no size spread, since then s is 1. The archive's, unchanged."""
+    if scale_sd <= 0:
+        return np.ones(1), np.zeros(1)
+    x, w = np.polynomial.hermite.hermgauss(n_nodes)
+    return np.exp(math.sqrt(2.0) * scale_sd * x), np.log(w / math.sqrt(math.pi))
+
+
+def places_of(n_levels: int, offsets: Sequence[int]) -> int:
+    """How many starts a field with these offsets has in a column of n_levels."""
+    offsets = np.asarray(offsets, int)
+    if offsets.ndim != 1 or len(offsets) == 0:
+        raise ValueError("a field needs at least one body")
+    if offsets[0] != 0 or np.any(np.diff(offsets) <= 0):
+        raise ValueError("offsets start at 0 and increase: %r" % (list(offsets),))
+    k = n_levels - int(offsets[-1])
+    if k <= 0:
+        raise ValueError("a field spanning %d bodies does not fit a column of %d" % (int(offsets[-1]) + 1, n_levels))
+    return k
+
+
+def table_blocks(offsets: Sequence[int], mu: np.ndarray, sd: np.ndarray, synth: dict, sizes: np.ndarray) -> np.ndarray:
+    """Everything the likelihood needs from the table, the sizes and the offsets, as one matrix
+    per measure that the fields' sums multiply: (measures, 3 bodies, 4, places, nodes). The three
+    row blocks are what each field supplies per body, x^2, x and the weight w (1 where the value
+    is read, 0 where it is NaN); the four column blocks are the sums the closed form takes:
+
+        q1 = sum w (x - s mu)^2 d        from x^2 d, -2 x s mu d, w s^2 mu^2 d
+        q2 = sum w (x - s mu) u d        from x u d, -w s mu u d
+        a  = sum w u^2 d                 from w u^2 d
+        ld = sum w log Delta             from w log Delta
+
+    with d = 1/Delta, Delta = s^2 (1 - rho^2) sd^2 + noise^2 and u = s rho sd at the body's
+    level under each place."""
+    offsets = np.asarray(offsets, int)
+    M, L = mu.shape
+    K = places_of(L, offsets)
+    B = len(offsets)
+    J = len(sizes)
+    rho, noise = float(synth["rho"]), float(synth["noise_mm"])
+    idx = np.arange(K)[:, None] + offsets[None, :]                     # (K, B)
+    muk, sdk = mu[:, idx], sd[:, idx]                                   # (M, K, B)
+    s = np.asarray(sizes, float)[None, :, None, None]                   # (1, J, 1, 1)
+    muk, sdk = muk[:, None], sdk[:, None]                               # (M, 1, K, B)
+    delta = s * s * (1.0 - rho * rho) * sdk * sdk + noise * noise       # (M, J, K, B)
+    d = 1.0 / delta
+    u = s * rho * sdk
+    sm = s * muk
+    blocks = np.zeros((M, 3, B, 4, J, K))
+    put = lambda row, col, v: blocks.__setitem__((slice(None), row, slice(None), col), np.transpose(v, (0, 3, 1, 2)))
+    put(0, 0, d)                                # x^2 -> q1
+    put(1, 0, -2.0 * sm * d)                    # x   -> q1
+    put(2, 0, sm * sm * d)                      # w   -> q1
+    put(1, 1, u * d)                            # x   -> q2
+    put(2, 1, -sm * u * d)                      # w   -> q2
+    put(2, 2, u * u * d)                        # w   -> a
+    put(2, 3, np.log(delta))                    # w   -> ld
+    return blocks.reshape(M, 3 * B, 4 * J * K)
+
+
+BLOCK = 32          # fields per matrix product: the sums of 32 fields fit the cache, 2,000 do not
+
+
+def loglik(X: np.ndarray, offsets: Sequence[int], mu: np.ndarray, sd: np.ndarray, synth: dict = SYNTH,
+           n_nodes: int = GH_NODES, sizes: Optional[np.ndarray] = None,
+           blocks: Optional[np.ndarray] = None, block: int = BLOCK) -> np.ndarray:
+    """Per-measure log likelihood of every field at every place and quadrature size:
+    (fields, places, measures, nodes). X is (fields, measures, bodies) with NaN for a value not
+    read; mu and sd are the table's means and population SDs, (measures, levels). One batched
+    matrix product does every sum over bodies for every field, place, measure and node; the
+    fields go through it `block` at a time only because the product's four sums for 2,000
+    fields are 700 MB, which is slower to write than to compute (the block is a cache size,
+    not a loop over fields: the same product with the same result at any block)."""
+    X = np.asarray(X, float)
+    if X.ndim != 3:
+        raise ValueError("X is (fields, measures, bodies), got shape %r" % (X.shape,))
+    F, M, B = X.shape
+    offsets = np.asarray(offsets, int)
+    if len(offsets) != B:
+        raise ValueError("%d offsets for %d bodies" % (len(offsets), B))
+    if mu.shape != sd.shape or mu.shape[0] != M:
+        raise ValueError("the table is (measures, levels): mu %r, sd %r, X has %d measures" % (mu.shape, sd.shape, M))
+    K = places_of(mu.shape[1], offsets)
+    if sizes is None:
+        sizes, _ = quadrature(synth["scale_sd"], n_nodes)
+    J = len(sizes)
+    if blocks is None:
+        blocks = table_blocks(offsets, mu, sd, synth, sizes)
+    present = np.isfinite(X)
+    w = present.astype(float)
+    x = np.where(present, X, 0.0)
+    left = np.ascontiguousarray(np.transpose(np.concatenate([x * x, x, w], axis=2), (1, 0, 2)))   # (M, F, 3B)
+    n_eff = w.sum(2).T                                                   # (M, F)
+    out = np.empty((F, K, M, J))
+    for f0 in range(0, F, max(1, block)):
+        f1 = min(F, f0 + block)
+        sums = np.matmul(left[:, f0:f1], blocks).reshape(M, f1 - f0, 4, J, K)
+        q1, q2, a, ld = sums[:, :, 0], sums[:, :, 1], sums[:, :, 2], sums[:, :, 3]
+        ll = -0.5 * (q1 - q2 * q2 / (1.0 + a) + ld + np.log1p(a) + n_eff[:, f0:f1, None, None] * LOG2PI)
+        out[f0:f1] = np.transpose(ll, (1, 3, 0, 2))                      # (f, K, M, J)
+    return out
+
+
+def logsumexp(a: np.ndarray, axis: int) -> np.ndarray:
+    top = np.max(a, axis=axis, keepdims=True)
+    return np.squeeze(top, axis) + np.log(np.exp(a - top).sum(axis))
+
+
+def log_evidence(LL: np.ndarray, logw: np.ndarray, measures: Optional[Sequence[int]] = None) -> np.ndarray:
+    """log p(field | place) over the measures named (all by default), the size integrated out:
+    (fields, places)."""
+    part = LL if measures is None else LL[:, :, list(measures), :]
+    return logsumexp(part.sum(2) + logw, axis=2)
+
+
+def posterior(logev: np.ndarray, log_prior: Optional[np.ndarray] = None) -> np.ndarray:
+    """The posterior over places, uniform beforehand unless a prior is given."""
+    a = logev if log_prior is None else logev + log_prior
+    p = np.exp(a - a.max(1, keepdims=True))
+    return p / p.sum(1, keepdims=True)
+
+
+def name(X: np.ndarray, offsets: Sequence[int], mu: np.ndarray, sd: np.ndarray, synth: dict = SYNTH,
+         n_nodes: int = GH_NODES, log_prior: Optional[np.ndarray] = None,
+         subsets: Optional[Dict[str, Sequence[int]]] = None, chunk: int = 2000) -> Dict[str, np.ndarray]:
+    """The posterior over places for every field, (fields, places), under every named subset of
+    the measures (all of them under the key `all` when none is named), chunk by chunk."""
+    X = np.asarray(X, float)
+    sizes, logw = quadrature(synth["scale_sd"], n_nodes)
+    keys = {"all": list(range(X.shape[1]))} if subsets is None else {k: list(v) for k, v in subsets.items()}
+    parts: Dict[str, list] = {k: [] for k in keys}
+    for c0 in range(0, X.shape[0], chunk):
+        LL = loglik(X[c0:c0 + chunk], offsets, mu, sd, synth, sizes=sizes)
+        for k, idx in keys.items():
+            parts[k].append(posterior(log_evidence(LL, logw, idx), log_prior))
+    return {k: np.concatenate(v) if v else np.zeros((0, places_of(mu.shape[1], offsets))) for k, v in parts.items()}
+
+
+def dense_loglik(X: np.ndarray, offsets: Sequence[int], mu: np.ndarray, sd: np.ndarray, synth: dict,
+                 sizes: np.ndarray) -> np.ndarray:
+    """The same density by a dense multivariate normal on the bodies present, measure by measure
+    and field by field: slow, independent of the closed form, kept for the tests."""
+    from scipy.stats import multivariate_normal
+    X = np.asarray(X, float)
+    F, M, B = X.shape
+    offsets = np.asarray(offsets, int)
+    K = places_of(mu.shape[1], offsets)
+    rho, noise = synth["rho"], synth["noise_mm"]
+    out = np.zeros((F, K, M, len(sizes)))
+    for f in range(F):
+        for k in range(K):
+            for m in range(M):
+                keep = np.isfinite(X[f, m])
+                if not keep.any():
+                    continue
+                lv = k + offsets[keep]
+                for j, s in enumerate(sizes):
+                    sdv = s * sd[m, lv]
+                    cov = rho * rho * np.outer(sdv, sdv) + np.diag((1.0 - rho * rho) * sdv * sdv + noise * noise)
+                    out[f, k, m, j] = multivariate_normal(mean=s * mu[m, lv], cov=cov).logpdf(X[f, m, keep])
+    return out
+
+
+def credible_sets(post: np.ndarray, level: float = 0.99) -> Tuple[np.ndarray, np.ndarray]:
+    """The smallest set of places holding `level` of the posterior: its size, and each place's
+    membership (fields, places). The archive's."""
+    order = np.argsort(-post, axis=1)
+    sp = np.take_along_axis(post, order, axis=1)
+    before = np.cumsum(sp, axis=1) - sp
+    keep_sorted = before < level
+    member = np.zeros_like(post, bool)
+    np.put_along_axis(member, order, keep_sorted, axis=1)
+    return keep_sorted.sum(1), member
