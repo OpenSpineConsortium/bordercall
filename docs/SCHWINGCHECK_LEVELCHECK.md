@@ -130,7 +130,7 @@ msLevelCheck repeats steps 4 and 5 on regions masked around 5, 3 and then 1 labe
 3. Name or check with SchwingCheck. From FlexRay's instances alone it names the run; given FlexRay's semantic labels, it checks them. If a panorama reaches C2 or the sacrum, the run can also be counted, and SchwingCheck checks the count.
 4. Show a name where the posterior reaches 0.99, and otherwise the two or three likeliest levels or "cannot say".
 
-Stitching adds a failure the other pathways lack: a body duplicated or dropped at a seam shifts every label below it. A duplicated body breaks the expected change in shape from one level to the next, which SchwingCheck may detect; that is untested, as is the reader that takes the measures off radiographs.
+Stitching is where a panorama could fail, since a body duplicated or dropped at a seam would shift every label below it, and the preliminary data say it does not. At two bodies of overlap SchwingNet's panoramas were 100% accurate: complete on 120 of 120 generated pans up the spine, and counted exactly on 618 of 618 walks over 79 CT renders, 95 of 95 on 16 lumbar films and 110 of 110 on 24 films from C2; over all 801 renders at two bodies, 99.66% of walks were exact (SchwingNet textbook, chapter 34). Those pans were cut from renders and films, so they carry no parallax or patient motion between exposures, and they were scored with the annotation's boxes (the 16 films also with the film detector's). Were a body ever duplicated, it would break the expected change in shape from one level to the next, which SchwingCheck may detect; that is untested, as is the reader that takes the measures off radiographs.
 
 **Which pathways, and why.**
 

@@ -524,8 +524,11 @@ three pathways: LevelCheck as prior art, SchwingCheck3D where a preoperative CT 
 the CT, check its labels, carry them by a pose fitted to matched centroids) and SchwingCheck2D
 with no CT, the recommended default. The rewrite stood still at Doc revision 138 from about 03:31
 UTC, and at about 04:00 UTC the checked fixes that still applied were folded into it as 49 narrow
-find-and-replace edits, with 14 references the text cited and the list lacked (revision 188); the
-copy here is revision 188, the owner's text with those edits and nothing else.
+find-and-replace edits, with 14 references the text cited and the list lacked (revision 188). At
+04:25 UTC the owner said their preliminary data show 100% accuracy when making panoramas with
+SchwingNet, so the paragraph on stitching in SchwingCheck2D now gives that result with the sets it
+holds on, as SchwingNet's textbook chapter 34 records them (revision 189); the copy here is
+revision 189, the owner's text with those edits and nothing else.
 
 What it concludes. On the owner's comments in the Doc (2026-10-26 23:38 and 2026-10-27 00:11
 UTC) the paper is framed against the upstream labeller, not the registration: LevelCheck has no
