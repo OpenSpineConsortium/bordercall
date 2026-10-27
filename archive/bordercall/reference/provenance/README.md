@@ -57,11 +57,23 @@ recorded reading:
 5. **Read the prose, twice, independently.** Every number the four papers state in their
    abstracts, results, discussions and figure labels was read the same way, by two further
    passes over quadrant crops of every page, one reading the pages forward and one backward.
-   [prose_rows.py](prose_rows.py) is the record of each such number: where it is, the digits as
-   printed, the cells it speaks of and the rule that turns them into the number (one cell's
-   value, the mean of several, the lowest or highest of a run, the mean of a left and a right, a
-   difference, a ratio, a percentage). `python prose_rows.py` writes [prose.csv](prose.csv) with
-   what each pass read, and [reads/prose.csv](reads/prose.csv) keeps every prose read.
+   What the papers print about their specimens was read on 27 October 2026 by two more passes:
+   the number of vertebrae each abstract says the study rests on (4 numbers), the summary of the
+   twelve spines that the cervical, lumbar and facets papers each print in their Methods (12
+   numbers in each, 36), and three more from the facets paper's Methods, its 12 spines, 276
+   vertebrae and 12 vertebrae at each level. The readers
+   were Claude agents that saw nothing but the twenty quadrant crops of the five pages that hold
+   them (`python render.py quadrants cervical-01 thoracic-01 lumbar-01 facets-01 facets-02`
+   cuts them, each quadrant reaching 60 pixels past the page's middle), one reading forward and
+   one backward, and they agreed on all 43 numbers. [prose_rows.py](prose_rows.py) is the record
+   of each such number: where it is, the digits as printed, the cells it speaks of and the rule
+   that turns them into the number (one cell's value, the mean of several, the lowest or highest
+   of a run, the mean of a left and a right, a difference, a ratio, a percentage, a count of
+   rows). `python prose_rows.py` writes [prose.csv](prose.csv) with what each pass read, and
+   [reads/prose.csv](reads/prose.csv) keeps every prose read. The first passes' own files were
+   never committed, so the script reads their reads back from that record, adds those of any
+   later pass's files under archive/out/provenance/reads/, and makes prose.csv from the
+   repository alone.
 7. **Report the contradictions.** `python contradictions.py` writes
    [CONTRADICTIONS.md](CONTRADICTIONS.md) from the three records above and the arithmetic inside
    the tables (every printed ratio and sum against its own table's means, allowing for rounding):
@@ -75,7 +87,9 @@ recorded reading:
 The tests are [../../../tests/test_provenance.py](../../../tests/test_provenance.py): the two
 passes agree on every cell; every cell was read by both; every value a paper also states in
 prose agrees with its cells, or the record says, cell by cell, that the paper contradicts itself,
-and a contradiction that stops holding fails the test too; every value the CSVs carry was read
+and a contradiction that stops holding fails the test too; prose.csv is what prose_rows.py makes
+from the reads it keeps, and the specimens' summary in each of the three later papers is held to
+Table 1 of the first; every value the CSVs carry was read
 from a cell; each paper's comparison table restates its own dimension tables
 as [crosstable.csv](crosstable.csv) records, which `python check_tables.py` writes (a single-sided
 dimension to the digit, a paired one as the mean of right and left); the papers are the exact
@@ -164,18 +178,27 @@ them to the model by kind.
 
 ## What the papers say in prose, held to the tables
 
-[prose.csv](prose.csv) holds 206 numbers the four papers state outside their tables, in the
-abstracts, the results, the discussions and the labels of Figure 8, each read by both prose
-passes and agreeing between them. 155 of them speak of cells the tables hold and are held to them
-by test under the rule the sentence states: a cell's value, the mean of the right and left, the
-end of a run, a difference, a ratio; a number the paper rounds, with "about" or "approximately",
-to a multiple of five is held within 5, and one it rounds to a whole unit within 1. The other 51,
-the specimens' ages, the counts, the percentages, other authors' values and quantities no table
-prints, are recorded alone. 140 agree with their cells. Fifteen do not, and prose.csv records
-each as the paper's own contradiction, with the cells:
+[prose.csv](prose.csv) holds 249 numbers the four papers state outside their tables, in the
+abstracts, the results, the discussions, the labels of Figure 8 and, about the specimens, the
+Methods, each read by both prose passes and agreeing between them. 193 of them speak of cells the
+tables hold and are held to them by test under the rule the sentence states: a cell's value, the
+mean of the right and left, the end of a run, a difference, a ratio, a count of rows; a number the
+paper rounds, with "about" or "approximately", to a multiple of five is held within 5, and one it
+rounds to a whole unit within 1. Among them is the summary of the twelve spines that the cervical,
+lumbar and facets papers each print in their Methods, the same 12 numbers in each paper (12
+spines, 8 men and 4 women, and the mean, least and greatest age, weight and height), held to the
+thoracic paper's Table 1, since the cervical paper names that study for its specimens' details
+and the lumbar and facets papers refer to it for their methods and print the same summary to the
+decimal. The other 56,
+the counts of vertebrae (twelve spines times the levels a paper covers: 72, 144, 60 and 276),
+areas approximated by a formula, rates per level, bounds and round statements, other studies'
+values and quantities no table prints, are recorded alone. 175 agree with their cells. Eighteen
+do not, three of them the one weight the three later papers print alike, and prose.csv records
+each as a contradiction, with the cells:
 
 | paper, page | the sentence says | the table prints |
 |---|---|---|
+| cervical, 861; lumbar, 299; facets, 1299 (Methods) | the twelve spines weighed 54 to 85 kg | the thoracic paper's Table 1: 54 to 84 kg, the heaviest S15 at 84 |
 | lumbar, 301 | the pedicle width at L5 was 18.9 mm | Table 4: 18.0 right, 19.2 left, mean 18.6 |
 | lumbar, 302 | the pars area at L5 was 81 mm2 | Table 5: 92.9 right, 71.7 left, mean 82.3 |
 | thoracic, 890 | the end-plate dimensions grow from T1 to T12 by 55% for the lower width and 73% for the upper depth | Table 3: the lower width grows 51.4% and the upper 59.2%, the upper depth 77.3% and the lower 69.5%; 55.3 and 73.4 are the means of the two widths' and the two depths' increases |
@@ -192,7 +215,9 @@ each as the paper's own contradiction, with the cells:
 | facets, 1307 | the transverse angle is 80 deg at L5 | Table 6: 86.0 right, 85.1 left, mean 85.6; the results say approximately 80 for the lumbar spine as a whole, which holds |
 
 The tables decide. Where a sentence quotes one side, the table prints both; where the abstract
-states a range, its ends are the tables' ends in every case but the three minima above.
+states a range, its ends are the tables' ends in every case but the three minima above; and the
+weight's range of the specimens, printed alike in the three later papers, ends one kilogram past
+the heaviest weight Table 1 prints, the papers' one slip about their specimens.
 
 [crosstable.csv](crosstable.csv) sets the 214 Present Study values of the comparison tables
 (cervical Table 7, thoracic Table 8, lumbar Table 6, facets Tables 9 and 10) beside the
@@ -241,11 +266,11 @@ dimensions, is held to the table now too, and contradicts it three times (above)
 
 | file | what it is |
 |---|---|
-| render.py | renders the pages (needs pdftoppm and Pillow); writes out/provenance/pages.json |
+| render.py | renders the pages (needs pdftoppm and Pillow), writing out/provenance/pages.json, and cuts the quadrant crops the prose passes read (`quadrants`) |
 | tables.py | where each table sits and what its rows and columns mean |
 | layout.py | finds the cells; writes cells.csv, cells/, the overlays and the reading strips (needs numpy and Pillow) |
 | compile.py | sets the reads beside the cells; writes provenance.csv, tables/, pages.json, reads/pass1.csv, reads/pass2.csv |
-| prose_rows.py | the prose record; writes prose.csv and reads/prose.csv |
+| prose_rows.py | the prose record; makes prose.csv from the reads reads/prose.csv keeps and any later pass's files, and writes both |
 | check_csv.py | holds the reference CSVs to the provenance; writes changes.csv |
 | check_prose.py | holds the prose record to the cells |
 | check_tables.py | holds each comparison table's Present Study column to the dimension tables it restates; writes crosstable.csv |

@@ -192,6 +192,30 @@ class Specimens(unittest.TestCase):
         self.assertEqual(len(T.SPECIMEN_SUMMARIES), 36)
         self.assertEqual(disagree, T.SPECIMEN_CONTRADICTIONS)
 
+    def test_the_summaries_are_what_both_prose_passes_read(self):
+        """Every number of SPECIMEN_SUMMARIES, read by eye for step c, is one row of the
+        provenance record's prose.csv that its two independent passes read alike, and the rows
+        that record calls contradictions are SPECIMEN_CONTRADICTIONS."""
+        names = {"specimens": "specimens", "males": "male", "females": "female", "age": "age_years",
+                 "weight": "weight_kg", "height": "height_cm"}
+        stats = {"count": "count", "mean": "mean", "range_low": "min", "range_high": "max"}
+        found = {}
+        with open(os.path.join(T.PROVENANCE_DIR, "prose.csv"), newline="", encoding="utf-8") as fh:
+            for r in csv.DictReader(fh):
+                if r["where"] == "methods" and r["measure"] in names:
+                    key = (r["paper"], int(r["printed_page"]), stats[r["statistic"]], names[r["measure"]])
+                    found.setdefault(key, []).append(r)
+        contradicted = []
+        for paper, page, stat, cov, value in T.SPECIMEN_SUMMARIES:
+            rows = found.get((paper, page, stat, cov), [])
+            self.assertEqual(len(rows), 1, (paper, page, stat, cov))
+            r = rows[0]
+            self.assertEqual((r["passA"], r["passB"]), (r["printed"], r["printed"]), r)
+            self.assertEqual(float(r["value"]), value, r)
+            if r["agrees"] == "no":
+                contradicted.append((paper, page, stat, cov, value))
+        self.assertEqual(contradicted, T.SPECIMEN_CONTRADICTIONS)
+
 
 class Dataset(unittest.TestCase):
     def test_dimensions_and_coordinates(self):

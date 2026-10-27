@@ -3,13 +3,14 @@
     python check_prose.py        # every prose value against the cells it speaks of
 
 prose.csv is one row per number the four papers state in their abstracts, results,
-discussions and captions, read by eye from the rendered pages by two passes as the tables
-were (README.md). Each row names the cells the number speaks of and the rule that turns
-those cells into the number: the value of one cell, the mean of several, the lowest or
-highest of a run, the mean of a left and a right, a difference. A paper that contradicts
-its own table is recorded as such, agrees=no with the note saying so, and the test holds
-that record to the cells too: a contradiction that goes away, or an agreement that stops
-holding, fails it either way.
+discussions and captions, and in their Methods about the specimens, read by eye from the
+rendered pages by two passes as the tables were (README.md). Each row names the cells the
+number speaks of and the rule that turns those cells into the number: the value of one cell,
+the mean of several, the lowest or highest of a run, the mean of a left and a right, a
+difference, or a count of cells. A paper that contradicts the table its sentence speaks of
+is recorded as such, agrees=no with the note saying so, and the test holds that record to
+the cells too: a contradiction that goes away, or an agreement that stops holding, fails it
+either way.
 """
 from __future__ import annotations
 
@@ -28,7 +29,12 @@ def read_csv(path: str) -> list[dict]:
         return list(csv.DictReader(fh))
 
 
-def cell_values(prov: dict[str, dict], ids: str) -> list[float]:
+def counts(rule: str) -> bool:
+    """A rule that counts cells, which may be words, and so takes the printed strings."""
+    return rule == "count" or rule.startswith("count:")
+
+
+def cell_values(prov: dict[str, dict], ids: str, rule: str = "") -> list:
     out = []
     for cid in ids.split(";"):
         cid = cid.strip()
@@ -37,11 +43,15 @@ def cell_values(prov: dict[str, dict], ids: str) -> list[float]:
         v = prov[cid]["value"]
         if v == "":
             raise ValueError("prose.csv names a cell with no value: %s" % cid)
-        out.append(float(v))
+        out.append(v if counts(rule) else float(v))
     return out
 
 
-def evaluate(rule: str, values: list[float]) -> float:
+def evaluate(rule: str, values: list) -> float:
+    if rule == "count":                    # how many cells: twelve specimens are twelve rows
+        return float(len(values))
+    if rule.startswith("count:"):          # how many of the cells print the word after the colon
+        return float(sum(1 for v in values if v == rule[len("count:"):]))
     if rule == "equal":
         (v,) = values
         return v
@@ -85,7 +95,7 @@ def check(prov_rows: list[dict], prose: list[dict]) -> list[str]:
         if p["cells"] == "":
             continue                       # a value the tables do not carry: recorded, not tested
         try:
-            got = evaluate(p["rule"], cell_values(prov, p["cells"]))
+            got = evaluate(p["rule"], cell_values(prov, p["cells"], p["rule"]))
         except (KeyError, ValueError) as e:
             problems.append("%s p.%s %r: %s" % (p["paper"], p["printed_page"], p["quote"], e))
             continue

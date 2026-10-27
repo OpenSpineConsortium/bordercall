@@ -5,7 +5,9 @@
 reference/provenance/README.md says how the values were read. These tests hold the record
 to the rules the owner set on 2026-10-27: the two reading passes agree on every cell, every
 value a paper also states in prose agrees with its cells (or the record says, cell by cell,
-that the paper contradicts itself), every value the reference CSVs carry was read from a
+that the paper contradicts itself), the prose record is made from the reads it keeps, the
+summary of the twelve specimens the three later papers print is held to the thoracic paper's
+Table 1, every value the reference CSVs carry was read from a
 cell, the papers are the exact bytes the record names, every cell's image and box are there
 to be looked at, the thoracic body table of printed page 892, which came later from a second
 scan, was read from that one page alone, and the contradictions report is what its code
@@ -30,6 +32,7 @@ import check_prose  # noqa: E402
 import check_tables  # noqa: E402
 import compile as compile_provenance  # noqa: E402
 import contradictions  # noqa: E402
+import prose_rows  # noqa: E402
 import tables  # noqa: E402
 
 P892 = "Panjabi_1991_Thoracic_Spine_16-8_888-901_p892.pdf"
@@ -167,6 +170,37 @@ class Prose(unittest.TestCase):
         for p in rows_of("prose.csv"):
             self.assertEqual(p["passA"], p["passB"], "%s p.%s %r" % (p["paper"], p["printed_page"], p["quote"]))
             self.assertEqual(p["passA"], p["printed"], p["quote"])
+
+    def test_prose_csv_is_what_prose_rows_makes_from_the_reads_it_keeps(self):
+        """The first prose passes' own files were never committed: reads/prose.csv keeps every
+        read, and prose.csv is made from it and the entries of prose_rows.py alone."""
+        self.assertEqual(prose_rows.build(prose_rows.ENTRIES, prose_rows.load_reads(new=False)), rows_of("prose.csv"))
+
+    def test_the_specimens_summary_of_each_later_paper_is_held_to_table_1(self):
+        """The cervical, lumbar and facets papers each print in their Methods one summary of the
+        twelve spines the thoracic paper's Table 1 lists, the same 12 numbers in each, and every
+        number is held to Table 1; the one that does not hold is the weight's maximum, 85 kg in
+        all three where Table 1's heaviest specimen weighs 84. Each abstract's count of vertebrae
+        is Table 1's twelve spines times the levels its paper covers."""
+        summary = [("specimens", "count", "12"), ("age", "mean", "46.3"), ("age", "range_low", "19"),
+                   ("age", "range_high", "59"), ("weight", "mean", "67.8"), ("weight", "range_low", "54"),
+                   ("weight", "range_high", "85"), ("height", "mean", "167.8"), ("height", "range_low", "157"),
+                   ("height", "range_high", "178"), ("males", "count", "8"), ("females", "count", "4")]
+        prose = rows_of("prose.csv")
+        methods = [p for p in prose if p["where"] == "methods"]
+        for paper in ("cervical", "lumbar", "facets"):
+            held = [p for p in methods if p["paper"] == paper and p["cells"]]
+            self.assertEqual([(p["measure"], p["statistic"], p["printed"]) for p in held[:12]], summary, paper)
+            for p in held:
+                self.assertTrue(all(c.startswith("thoracic-t1/") for c in p["cells"].split(";")), p["cells"])
+                self.assertEqual(len(p["cells"].split(";")), 12, p["cells"])
+        self.assertEqual([(p["paper"], p["measure"], p["statistic"]) for p in methods if p["agrees"] == "no"],
+                         [("cervical", "weight", "range_high"), ("lumbar", "weight", "range_high"),
+                          ("facets", "weight", "range_high")])
+        spines = len([r for r in rows_of("provenance.csv") if r["table"] == "thoracic-t1" and r["statistic"] == "label"])
+        levels = {"cervical": 6, "lumbar": 5, "thoracic": 12, "facets": 23}
+        counts = [(p["paper"], int(p["printed"])) for p in prose if p["where"] == "abstract" and p["measure"] == "vertebrae"]
+        self.assertEqual(counts, [(paper, spines * levels[paper]) for paper in ("cervical", "lumbar", "thoracic", "facets")])
 
     def test_the_body_text_of_the_thoracic_paper_is_held_to_table_3(self):
         """Page 890 speaks of Table 3 fourteen times; three of its numbers contradict the table

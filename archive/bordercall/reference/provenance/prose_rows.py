@@ -24,10 +24,14 @@ import sys
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
 
+import check_prose  # noqa: E402
 from check_prose import FIELDS  # noqa: E402
 from render import OUT  # noqa: E402
 
 READS_IN = os.path.join(OUT, "reads")
+READS_KEPT = os.path.join(HERE, "reads", "prose.csv")
+READ_FIELDS = ["paper", "pass", "page", "crop", "where", "quote", "measure", "levels", "value", "units",
+               "statistic", "study", "note"]
 C3_C7 = ["C3", "C4", "C5", "C6", "C7"]
 C2_C7 = ["C2"] + C3_C7
 T1_T12 = ["T%d" % i for i in range(1, 13)]
@@ -54,8 +58,62 @@ def entry(paper, page, printed_page, where, key, measure, level, statistic, prin
             "rule": rule, "tolerance": tolerance, "note": note}
 
 
+# All four papers measured the same twelve spines, C2 to L5, one row each in the thoracic paper's
+# Table 1 (printed page 889). The cervical, lumbar and facets papers each print one summary of them
+# in their Methods, 12 numbers in each; the cervical paper names the thoracic study for its
+# specimens' details, and the lumbar and facets papers refer to it for their methods and print the
+# same summary to the decimal, so each number is held to Table 1: a count of its rows, or of the rows whose sex is M or F, and the
+# mean, least and greatest of a column. The level "*" names every row of a column (resolve below).
+TABLE_1 = "thoracic-t1"
+ROWS = cell(TABLE_1, "Specimen No.", "*", "label")
+SEX = cell(TABLE_1, "Sex", "*", "text")
+# what Table 1's twelve rows give for each column the summaries describe
+TABLE_1_GIVES = {"age": "the twelve ages of Table 1 average 46.33",
+                 "weight": "the twelve weights of Table 1 average 67.83",
+                 "height": "the twelve heights of Table 1 average 167.75"}
+HEAVIEST = "Table 1's heaviest specimen, S15, weighs 84 kg, and no specimen weighs 85"
+
+
+def column(name: str) -> tuple:
+    return cell(TABLE_1, name, "*", "value")
+
+
+def twelve(paper: str, page: int, printed_page: int) -> dict:
+    return entry(paper, page, printed_page, "methods", "Twelve fresh autopsy", "specimens", "", "count", "12", "count",
+                 [ROWS], "count", 0.0, note="printed as the word Twelve; the rows of Table 1, S3 to S24")
+
+
+def summary(paper: str, page: int, printed_page: int, keys: tuple, ratio: str) -> list[dict]:
+    """The age, weight, height and sex of the twelve spines as one later paper prints them, in its
+    order: each column's mean and range, then the men and the women."""
+    out = []
+    for (measure, name, units, mean, low, high), key in zip(
+            (("age", "Age", "years", "46.3", "19", "59"), ("weight", "Weight (kg)", "kg", "67.8", "54", "85"),
+             ("height", "Height (cm)", "cm", "167.8", "157", "178")), keys):
+        out += [entry(paper, page, printed_page, "methods", key, measure, "", "mean", mean, units, [column(name)], "mean",
+                      0.05, note=TABLE_1_GIVES[measure]),
+                entry(paper, page, printed_page, "methods", key, measure, "", "range_low", low, units, [column(name)], "low",
+                      0.05),
+                entry(paper, page, printed_page, "methods", key, measure, "", "range_high", high, units, [column(name)],
+                      "high", 0.05, note=HEAVIEST if measure == "weight" else "")]
+    for measure, printed, sex in (("males", "8", "M"), ("females", "4", "F")):
+        out.append(entry(paper, page, printed_page, "methods", keys[3], measure, "", "count", printed, "count", [SEX],
+                         "count:" + sex, 0.0, note="printed as the ratio %s" % ratio))
+    return out
+
+
+def vertebrae(paper: str, page: int, printed_page: int, key: str, printed: str, level: str, levels: str) -> dict:
+    """A count of the vertebrae measured, which no table prints: the twelve spines times the levels."""
+    return entry(paper, page, printed_page, "abstract", key, "vertebrae", level, "count", printed, "count",
+                 note="twelve spines of %s; no table counts vertebrae" % levels)
+
+
 ENTRIES = [
     # ---- cervical, Spine 1991;16(8):861-869 ------------------------------------------
+    vertebrae("cervical", 1, 861, "72 human cervical vertebrae", "72", "C2-C7", "six levels, C2 to C7"),
+    twelve("cervical", 1, 861),
+    *summary("cervical", 1, 861, ("average age of 46.3", "weight of 67.8", "height of 167.8", "ratio of 8 to 4"),
+             "of 8 to 4"),
     entry("cervical", 4, 864, "results", "elliptical approximation overestimated", "EPA by ellipse", "all levels",
           "percent_change", "10", "percent", note="an approximation of the area by a formula, not a cell"),
     entry("cervical", 4, 864, "results", "triangular approximation was", "EPA by triangle", "all levels",
@@ -104,6 +162,9 @@ ENTRIES = [
     entry("cervical", 8, 868, "discussion", "underestimate by approximately", "EPA by triangle", "", "percent_change", "40", "percent",
           note="restates page 864"),
     # ---- lumbar, Spine 1992;17(3):299-306 --------------------------------------------
+    vertebrae("lumbar", 1, 299, "study of 60 vertebrae", "60", "L1-L5", "five levels, L1 to L5"),
+    twelve("lumbar", 1, 299),
+    *summary("lumbar", 1, 299, ("average age of 46.3", "weight of 67.8", "height of 167.8", "ratio was 8/4"), "8/4"),
     entry("lumbar", 3, 301, "results", "end-plate widths of approximately", "EPWl L5 over L1", "L1-L5", "percent_change", "14", "percent",
           [cell("lumbar-t2", "EPWl", "L5"), cell("lumbar-t2", "EPWl", "L1")], "percent", 1.5,
           note="the sentence names no end-plate; the lower gives 14.1 percent and the upper 14.8"),
@@ -170,6 +231,9 @@ ENTRIES = [
     entry("lumbar", 7, 305, "discussion", "triangular approximation underestimated the actual area by", "SCA by triangle", "", "range_high", "30", "percent",
           note="an approximation by a formula"),
     # ---- thoracic, Spine 1991;16(8):888-901 ------------------------------------------
+    # its Methods name the specimens' age, sex, weight, height and cause of death and give them
+    # in Table 1, with no summary
+    vertebrae("thoracic", 1, 888, "study of 144 vertebrae", "144", "T1-T12", "twelve levels, T1 to T12"),
     # The body table (Table 3, printed page 892) came from the owner's second scan on 27 October
     # 2026, read on its own (README.md), so the text's body values are held to its cells. Two of
     # the text's percentages and one height contradict it, and the contradictions are recorded
@@ -299,6 +363,7 @@ ENTRIES = [
     entry("thoracic", 12, 900, "discussion", "40% underestimate at T12", "EPA by triangle", "T12", "percent_change", "40", "percent",
           note="an approximation by a formula"),
     # ---- facets, Spine 1993;18(10):1298-1310 -----------------------------------------
+    vertebrae("facets", 1, 1298, "study of 276 vertebrae", "276", "C2-L5", "23 levels, C2 to L5"),
     # The abstract's extremes run over every facet from C3 to L5, superior and inferior, right
     # and left: the lowest and highest of the level means of Tables 2 to 8.
     entry("facets", 1, 1298, "abstract", "width = 9.6", "FCW", "C3-L5", "range_low", "9.6", "mm",
@@ -354,6 +419,16 @@ ENTRIES = [
     entry("facets", 1, 1298, "abstract", "Y-card angle = 5.8", "CAY", "C3-L5", "range_high", "66.1", "deg",
           [c for m in ("CAYsr", "CAYsl", "CAYir", "CAYil") for c in levels("facets-t8", m, C3_C7 + T1_T12 + L1_L5)], "abs_high",
           note="the abstract prints the range without sign"),
+    # the Methods' sentence on the specimens begins on printed page 1298 and goes on to 1299
+    twelve("facets", 1, 1298),
+    *summary("facets", 2, 1299, ("average age of the subjects was 46.3", "weight was 67.8", "height was 167.8",
+                                 "ratio was 8:4"), "8:4"),
+    entry("facets", 2, 1299, "methods", "disarticulating the 12 spines", "specimens", "", "count", "12", "count",
+          [ROWS], "count", 0.0, note="the 12 spines taken apart into 276 vertebrae"),
+    entry("facets", 2, 1299, "methods", "into 276 vertebrae", "vertebrae", "C2-L5", "count", "276", "count",
+          note="twelve spines of 23 levels, C2 to L5; no table counts vertebrae"),
+    entry("facets", 2, 1299, "methods", "pooled from the 12 vertebrae", "vertebrae per level", "", "count", "12", "count",
+          [ROWS], "count", 0.0, note="one vertebra of each spine at each level"),
     entry("facets", 7, 1304, "results", "increased above 1.0", "IFWs/IFWi", "middle to lower cervical", "bound", "1.0", "ratio",
           note="a threshold"),
     entry("facets", 7, 1304, "results", "between 1.5 and 3", "IFW/IFH", "C2-C7", "range_low", "1.5", "ratio",
@@ -468,17 +543,41 @@ ENTRIES = [
 
 
 def ascii_quote(s: str) -> str:
-    return (s.replace("–", "-").replace("—", "-").replace("°", " deg").replace("²", "2")
-            .replace("’", "'").replace("‘", "'").replace("“", '"').replace("”", '"'))
+    return (s.replace("\u2013", "-").replace("\u2014", "-").replace("\u00b0", " deg").replace("\u00b2", "2")
+            .replace("\u2019", "'").replace("\u2018", "'").replace("\u201c", '"').replace("\u201d", '"'))
 
 
-def load_reads() -> dict[tuple[str, str], list[dict]]:
-    """Every record of every prose pass, by (paper, pass)."""
+def kept(r: dict) -> dict:
+    """A pass's record as reads/prose.csv keeps it, its words in ASCII."""
+    return {"page": str(r["page"]), "crop": r["crop"], "where": r["where"], "quote": ascii_quote(r["quote"]),
+            "measure": ascii_quote(r["measure"]), "levels": ascii_quote(r["levels"]), "value": r["value"],
+            "units": r["units"], "statistic": r["statistic"], "study": r["study"], "note": ascii_quote(r["note"])}
+
+
+def load_reads(new: bool = True) -> dict[tuple[str, str], list[dict]]:
+    """Every record of every prose pass, by (paper, pass): those reads/prose.csv keeps, then, with
+    `new`, those of a later pass's files under out/provenance/reads/ (prose-*.json) that it does not
+    keep yet. The first passes' own files were never committed, so the kept record is where their
+    reads live, and prose.csv can be made again from the repository alone."""
     out: dict[tuple[str, str], list[dict]] = {}
-    for path in sorted(glob.glob(os.path.join(READS_IN, "prose-*.json"))):
+    seen = set()
+
+    def add(paper: str, which: str, record: dict) -> None:
+        r = kept(record)
+        key = (paper, which) + tuple(r[f] for f in READ_FIELDS[2:])
+        if key not in seen:
+            seen.add(key)
+            out.setdefault((paper, which), []).append(r)
+
+    if os.path.exists(READS_KEPT):
+        with open(READS_KEPT, newline="", encoding="utf-8") as fh:
+            for r in csv.DictReader(fh):
+                add(r["paper"], r["pass"], r)
+    for path in sorted(glob.glob(os.path.join(READS_IN, "prose-*.json"))) if new else []:
         with open(path, encoding="utf-8") as fh:
             data = json.load(fh)
-        out[(data["paper"], data["pass"])] = data["values"]
+        for r in data["values"]:
+            add(data["paper"], data["pass"], r)
     return out
 
 
@@ -488,9 +587,6 @@ def match(records: list[dict], e: dict) -> str:
         if int(r["page"]) != e["pdf_page"]:
             continue
         if e["key"].lower() in ascii_quote(r["quote"]).lower() and r["value"] == e["printed"]:
-            return r["value"]
-    for r in records:                       # the key phrase in another crop's version of the sentence
-        if int(r["page"]) == e["pdf_page"] and r["value"] == e["printed"] and e["measure"].split(" ")[0] in r["measure"]:
             return r["value"]
     return ""
 
@@ -502,58 +598,72 @@ def quote_of(records: list[dict], e: dict) -> str:
     return ""
 
 
-def resolve(cells: list[dict], spec: tuple) -> str:
+def resolve(cells: list[dict], spec: tuple) -> list[str]:
+    """The cell ids a spec names: one cell, or, with the level "*", every row of the column in
+    the table's order. A table whose rows are specimens, not levels (the thoracic paper's Table 1),
+    names a row by its label."""
     table, measure, level, statistic, study = spec
+    out = []
     for c in cells:
-        if c["table"] != table or c["measure"] != measure or c["level"] != level:
+        if c["table"] != table or c["measure"] != measure:
+            continue
+        if level != "*" and (c["level"] or c["row_label"]) != level:
             continue
         if study is not None and c["col_label"] != study:
             continue
         if c["statistic"] == statistic or (c["statistic"] == "mean+sem" and statistic in ("mean", "sem")):
-            return "%s/r%02d_c%02d/%s" % (table, int(c["row"]), int(c["col"]), statistic)
-    raise SystemExit("no cell for %r" % (spec,))
+            out.append("%s/r%02d_c%02d/%s" % (table, int(c["row"]), int(c["col"]), statistic))
+            if level != "*":
+                break
+    if not out:
+        raise SystemExit("no cell for %r" % (spec,))
+    return out
 
 
-def write(entries: list[dict]) -> None:
-    import check_prose
+def build(entries: list[dict], reads: dict[tuple[str, str], list[dict]]) -> list[dict]:
+    """The rows of prose.csv: each entry with the cells it names, whether they give its number,
+    and what each pass read."""
     with open(os.path.join(HERE, "cells.csv"), newline="", encoding="utf-8") as fh:
         cells = list(csv.DictReader(fh))
     prov = {r["id"]: r for r in check_prose.read_csv(os.path.join(HERE, "provenance.csv"))}
-    reads = load_reads()
     rows = []
     for e in entries:
         a, b = reads.get((e["paper"], "A"), []), reads.get((e["paper"], "B"), [])
-        ids = [resolve(cells, s) for s in e["cells"]]
+        ids = [i for s in e["cells"] for i in resolve(cells, s)]
         agrees = ""
         if ids:
-            got = check_prose.evaluate(e["rule"], check_prose.cell_values(prov, ";".join(ids)))
+            got = check_prose.evaluate(e["rule"], check_prose.cell_values(prov, ";".join(ids), e["rule"]))
             agrees = "yes" if abs(got - float(e["value"])) <= e["tolerance"] + 1e-9 else "no"
-            if agrees == "no":
-                print("contradiction: %s p.%s %s %s printed %s, the cells give %.3f" %
-                      (e["paper"], e["printed_page"], e["measure"], e["level"], e["printed"], got))
-        rows.append({"paper": e["paper"], "pdf_page": e["pdf_page"], "printed_page": e["printed_page"],
+        rows.append({"paper": e["paper"], "pdf_page": str(e["pdf_page"]), "printed_page": str(e["printed_page"]),
                      "where": e["where"], "quote": quote_of(a, e) or quote_of(b, e), "measure": e["measure"],
-                     "level": e["level"], "statistic": e["statistic"], "printed": e["printed"], "value": e["value"],
+                     "level": e["level"], "statistic": e["statistic"], "printed": e["printed"], "value": str(e["value"]),
                      "units": e["units"], "cells": ";".join(ids), "rule": e["rule"] if ids else "",
-                     "tolerance": e["tolerance"] if ids else "", "agrees": agrees, "note": e["note"],
+                     "tolerance": str(e["tolerance"]) if ids else "", "agrees": agrees, "note": e["note"],
                      "passA": match(a, e), "passB": match(b, e)})
-        if not rows[-1]["passA"] or not rows[-1]["passB"]:
-            print("unmatched: %s p.%s %r %s -> A %r B %r" % (e["paper"], e["printed_page"], e["key"], e["printed"],
-                                                           rows[-1]["passA"], rows[-1]["passB"]))
+    return rows
+
+
+def write(entries: list[dict]) -> None:
+    reads = load_reads()
+    rows = build(entries, reads)
+    for r in rows:
+        if r["agrees"] == "no":
+            print("contradiction: %s p.%s %s %s printed %s" % (r["paper"], r["printed_page"], r["measure"], r["level"],
+                                                               r["printed"]))
+        if not r["passA"] or not r["passB"]:
+            print("unmatched: %s p.%s %s %s -> A %r B %r" % (r["paper"], r["printed_page"], r["measure"], r["printed"],
+                                                             r["passA"], r["passB"]))
     with open(os.path.join(HERE, "prose.csv"), "w", newline="", encoding="utf-8") as fh:
         w = csv.DictWriter(fh, fieldnames=FIELDS, lineterminator="\n")
         w.writeheader()
         w.writerows(rows)
-    os.makedirs(os.path.join(HERE, "reads"), exist_ok=True)
-    with open(os.path.join(HERE, "reads", "prose.csv"), "w", newline="", encoding="utf-8") as fh:
+    os.makedirs(os.path.dirname(READS_KEPT), exist_ok=True)
+    with open(READS_KEPT, "w", newline="", encoding="utf-8") as fh:
         w = csv.writer(fh, lineterminator="\n")
-        w.writerow(["paper", "pass", "page", "crop", "where", "quote", "measure", "levels", "value", "units",
-                    "statistic", "study", "note"])
+        w.writerow(READ_FIELDS)
         for (paper, which), records in sorted(reads.items()):
             for r in records:
-                w.writerow([paper, which, r["page"], r["crop"], r["where"], ascii_quote(r["quote"]),
-                            ascii_quote(r["measure"]), ascii_quote(r["levels"]), r["value"], r["units"],
-                            r["statistic"], r["study"], ascii_quote(r["note"])])
+                w.writerow([paper, which] + [r[f] for f in READ_FIELDS[2:]])
     print("prose.csv: %d entries, %d held to cells" % (len(rows), sum(1 for r in rows if r["cells"])))
 
 
