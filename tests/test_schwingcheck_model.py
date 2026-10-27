@@ -1,5 +1,10 @@
 """The PyMC rewrite of step d against the NumPy reference, each claim checked against code it
-does not share: rule.py, the compiled rule, ArviZ, or a closed form on a grid.
+does not share (rule.py, the compiled rule, ArviZ, or a closed form on a grid), but for the
+generator, which shares columns.profiles and columns.exchangeable with the NumPy generator it is
+checked against. Both sides of each comparison take their settings from rule.SYNTH or
+columns.SYNTH, the archive's, which these tests take as given: test_schwingcheck_record.py holds
+rule.SYNTH to exact.json's, and test_schwingcheck_columns.py holds columns.SYNTH to the archive's
+columns.
 
 - The compiled rule (compiled.py) equals rule.py to 1e-10 on contiguous, gapped and incomplete
   fields, under every regime and with each measure's own error, and its generalisations (several
@@ -12,11 +17,16 @@ does not share: rule.py, the compiled rule, ArviZ, or a closed form on a grid.
   one at every place above 0.05 and within five plus 1e-3 everywhere, with no discrete variable
   sampled, and at the places above 0.05 its errors are within 0.6 to 1.6 of ArviZ's own for the
   same draws and as large as their distances from the exact posterior, a mean square z between 0.4
-  and 2.5, bounds a correct sampler crosses in fewer than one run in a thousand.
+  and 2.5, bounds by which a correct sampler fails the places above 0.05, R-hat or the errors in
+  fewer than one run in a thousand, and which 96 other seeds held at every place by a wide margin.
 - The covariates leave the archive's answers where nothing is known, and a known height or a
   non-zero hook moves the model exactly as it moves the compiled rule.
 - The fixed-level baseline's NUTS posterior of log s is the closed form's, integrated on a grid.
-- The PyMC generator's columns match the NumPy generator's in distribution.
+- The PyMC generator's columns match the NumPy generator's in distribution. The two build each
+  phenotype's means and SDs with the same columns.profiles, and the correlation of the patient's
+  offsets with the same columns.exchangeable, which these tests cannot see into;
+  test_schwingcheck_columns.py holds both to the archive's columns, the offsets at a correlation
+  of 0.4.
 - The committed graphs are the models' graphs, and the README draws each of them.
 """
 from __future__ import annotations
@@ -211,11 +221,13 @@ class NamingModel(unittest.TestCase):
         self.assertLess(np.abs(density(other, 0.0) - density(logp, 0.0)).max(), 1e-12)
 
     def test_nuts_gives_the_exact_posterior_within_monte_carlo_error(self):
-        # The bounds are set so that a correct sampler crosses them in fewer than one run in a
-        # thousand, by what 24 other seeds of the sampler measured (schwingcheck/README.md, The
-        # naming model): the errors are right there, but the largest of 130 distances is the tail
-        # of the tail, and four errors failed one of those runs; with R-hat below 1.01 and the
-        # gapped fields' mean square z taken alone, the old bounds failed about one run in fifteen
+        # The bounds are set so that a correct sampler crosses those at the places above 0.05, of
+        # R-hat and of the errors in fewer than one run in a thousand, by what 96 other seeds of the
+        # sampler measured (schwingcheck/README.md, The naming model, which says what that leaves
+        # to the record): the errors are right there, but the largest of 130 distances is the tail
+        # of the tail, and four errors alone at the places above 0.05 failed two of those runs.
+        # The first version held every place to four errors plus 1e-3, which is tighter than five
+        # wherever an error is above 1e-3, and had no check of the errors themselves (below)
         import arviz as az
         z = []
         for offsets, n_fields, missing in (([0], 24, 0.0), ([0, 2, 4], 12, 0.2)):
@@ -227,7 +239,7 @@ class NamingModel(unittest.TestCase):
             want = K.ExactRule(mu, sd).evaluate(X, hyp)["all"]["post"]
             lead = want > 0.05
             # every place above 0.05 within five of its own errors; the far tail, carried by the
-            # few draws that reach the sizes it needs, runs low and is held to 1e-3 besides
+            # few draws that reach the sizes it needs, tends to run low and is held to 1e-3 besides
             self.assertTrue(np.all(np.abs(post - want)[lead] <= 5.0 * se[lead]), np.abs(post - want)[lead].max())
             self.assertTrue(np.all(np.abs(post - want) <= 5.0 * se + 1e-3), np.abs(post - want).max())
             self.assertLess(float(r_hat(idata).max()), 1.02)
@@ -238,7 +250,9 @@ class NamingModel(unittest.TestCase):
             self.assertTrue(np.all((ratio > 0.6) & (ratio < 1.6)), (ratio.min(), ratio.max()))
             z.append((post - want)[lead] / se[lead])
         # and as large as the distances from the exact posterior: a mean square z of 1 over both
-        # kinds of field, some 40 independent terms, which an error doubled or halved cannot give
+        # kinds of field, which an error doubled or halved cannot give; the mean over a run's 130
+        # places varied over 96 seeds of the sampler as a mean of about 50 independent terms would
+        # (2 over its variance)
         z2 = float(np.mean(np.concatenate(z) ** 2))
         self.assertTrue(0.4 < z2 < 2.5, z2)
 

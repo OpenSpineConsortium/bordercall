@@ -14,13 +14,15 @@ bodies are consecutive without it, whatever their numbers), and prints the ranke
 their posteriors, the 99 per cent set and whether the top place reaches 0.99. --offsets gives
 the offsets on the command line instead, one per body, counted from the first as the column's
 are. With no body there is nothing to name and it says so; with no measure the posterior is the
-prior and it says that too; a measure not registered, or one that is an area or an angle (until
-step e), offsets for some bodies and not others, a number of them other than the bodies',
-offsets that do not rise down the column, and a NUTS run of fewer than 20 draws a chain, too few
-for its Monte Carlo error, are refused before anything is computed. The engine is numpy
-(rule.py, the reference), pytensor (compiled.py, the same rule as one compiled function) or nuts
-(model.py's naming model: the place summed out, the size sampled by NUTS, the posterior averaged
-over the draws), which also prints each place's Monte Carlo error.
+prior and it says that too; a file that is not UTF-8 text (a byte-order mark before `body`, and
+blank lines, are read past) or has no column `body`, a row with no body number or one that is not
+a whole number (3.0 and 3e0 are read as 3), a measure not registered, or one that is an area or
+an angle (until step e), offsets for some bodies and not others, a number of them other than the
+bodies', offsets that do not rise down the column, and a NUTS run of fewer than 20 draws a chain,
+too few for its Monte Carlo error, are refused before anything is computed, each by what is
+wrong. The engine is numpy (rule.py, the reference), pytensor (compiled.py, the same rule as one
+compiled function) or nuts (model.py's naming model: the place summed out, the size sampled by
+NUTS, the posterior averaged over the draws), which also prints each place's Monte Carlo error.
 
 `rescore` draws the archive's 2,000 scoring columns from seed 97, scores every field of the
 widths given under the three regimes (both planes, AP, lateral) and writes one InferenceData
@@ -59,11 +61,24 @@ N_SCORE = 2000
 def read_field(path: str, measures):
     """X (1, measures, bodies) and the offsets from a field CSV: the column `offset` where every
     body has one, 0, 1, 2 ... where none has, refused where some have and some do not."""
-    with open(path, newline="", encoding="utf-8") as fh:
-        rows = [r for r in csv.DictReader(line for line in fh if not line.startswith("#"))]
+    try:
+        # utf-8-sig reads past the byte-order mark a spreadsheet may write before `body`, and a
+        # blank line is passed over before the header as csv passes over one after it
+        with open(path, newline="", encoding="utf-8-sig") as fh:
+            reader = csv.DictReader(line for line in fh if line.strip() and not line.startswith("#"))
+            rows = list(reader)
+    except UnicodeDecodeError as err:
+        raise ValueError("%s is not UTF-8 text (%s)" % (path, err)) from None
+    if reader.fieldnames and "body" not in reader.fieldnames:
+        raise ValueError("the field has no column `body`: its columns are %s" % ", ".join(reader.fieldnames))
     if not rows:
         return np.zeros((1, len(measures), 0)), np.zeros(0, int)
-    rows.sort(key=lambda r: int(r["body"]))
+    for i, r in enumerate(rows, 1):
+        body = (r["body"] or "").strip()
+        if not body:
+            raise ValueError("row %d of the field has no body number" % i)
+        r["body"] = whole_number(body, i)
+    rows.sort(key=lambda r: r["body"])
     given = [r.get("offset") not in (None, "") for r in rows]
     if all(given):
         offsets = np.array([int(r["offset"]) for r in rows])
@@ -80,6 +95,22 @@ def read_field(path: str, measures):
     return X, offsets
 
 
+def whole_number(body: str, row: int) -> int:
+    """A body number however it is written, 3, 3.0 or 3e0 alike, as a spreadsheet or numpy may
+    write a whole number; anything else is refused by its row."""
+    try:
+        return int(body)
+    except ValueError:
+        pass
+    try:
+        value = float(body)
+    except ValueError:
+        value = float("nan")
+    if not value.is_integer():          # nan and inf are not
+        raise ValueError("row %d of the field has the body %r, which is not a whole number" % (row, body))
+    return int(value)
+
+
 def counted_from_first(offsets, n_bodies: int) -> np.ndarray:
     """One offset per body, rising down the column, counted from the first body."""
     offsets = np.asarray(offsets, int)
@@ -92,16 +123,22 @@ def counted_from_first(offsets, n_bodies: int) -> np.ndarray:
 
 def cmd_name(args) -> int:
     keys = list(args.measures) if args.measures else list(MS.SPINEPS_7)
+    # the registry is built from the committed table before the refusals, so a fault in the table
+    # shows as the fault it is and only an unregistered measure is refused
+    reg = MS.registry()
     try:
-        ms = MS.select(keys)
+        try:
+            ms = MS.select(keys, reg=reg)
+        except KeyError as err:     # an unregistered measure, whose message str() would quote
+            raise ValueError(err.args[0] if err.args else str(err)) from None
         if args.engine == "nuts":
             check_sampling(args)
         X, offsets = read_field(args.field, keys)
         if X.shape[2] and args.offsets:
             offsets = args.offsets
         offsets = counted_from_first(offsets, X.shape[2])
-    except (ValueError, KeyError) as err:
-        print("refused: %s" % (err.args[0] if err.args else err))
+    except ValueError as err:
+        print("refused: %s" % err)
         return 2
     if X.shape[2] == 0:
         print("nothing to name: the field has no body")
@@ -124,8 +161,8 @@ def cmd_name(args) -> int:
     print("99%% set: {%s} (%d places)" % (", ".join(inset), int(size[0])))
     print("the top place reaches 0.99: %s" % ("yes" if post[order[0]] >= 0.99 else "no"))
     if se is not None:
-        print("the errors are Monte Carlo errors by batch means; below 0.001 a place's estimate runs low "
-              "and its error is too small (schwingcheck/README.md, The naming model)")
+        print("the errors are Monte Carlo errors by batch means; below 0.001 a place's estimate tends to "
+              "run low and its error can be too small (schwingcheck/README.md, The naming model)")
     return 0
 
 

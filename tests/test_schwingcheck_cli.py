@@ -115,11 +115,19 @@ class Name(unittest.TestCase):
             self.assertIn("an offset for 2 of its 3 bodies", out)
 
     def test_every_engine_names_the_field(self):
+        from schwingcheck import model as MD
         keys, values = self._column()
+        library, returned = MD.hypothesis_posterior, []
+
+        def recorded(*args, **kwargs):
+            post, se = library(*args, **kwargs)
+            returned.append((post.copy(), se.copy()))       # as returned, whatever is done to them after
+            return post, se
         with tempfile.TemporaryDirectory() as d:
             path = self._write(d, keys, values, [4, 6, 8], offsets=[0, 2, 4], drop={(1, "canal_w")})
             exact = {e: run(["name", path, "--engine", e]) for e in ("numpy", "pytensor")}
-            code, out = run(["name", path, "--engine", "nuts", "--draws", "500", "--chains", "2", "--seed", "3"])
+            with mock.patch.object(MD, "hypothesis_posterior", side_effect=recorded):
+                code, out = run(["name", path, "--engine", "nuts", "--draws", "500", "--chains", "2", "--seed", "3"])
         self.assertEqual(exact["numpy"][0], 0)
         self.assertEqual(exact["numpy"], exact["pytensor"])
         self.assertEqual(code, 0)
@@ -128,15 +136,45 @@ class Name(unittest.TestCase):
         self.assertGreater(len(got), 1)
         self.assertEqual(named(out), named(exact["numpy"][1]))
         # every place, a place an engine does not print (below 1e-6) counting as 0, within a bound
-        # that does not come from the output under test, and then within its printed errors
+        # that does not come from the output under test
         for place in LEVELS:
             self.assertLess(abs(got.get(place, (0.0, None))[0] - want.get(place, (0.0, None))[0]), 0.01, place)
-        for place, (p, se) in got.items():
-            self.assertIsNotNone(se, place)
-            self.assertLess(se, 0.01, place)
-            self.assertLess(abs(p - want.get(place, (0.0, None))[0]), 4.0 * se + 0.01, place)
-        self.assertIn("below 0.001 a place's estimate runs low", out)
+        # and what it prints is what the model returned, every place at 1e-6 or more with its
+        # posterior and its Monte Carlo error to the six places printed; the model's own tests hold
+        # those errors to the sampler's spread (test_schwingcheck_model.py)
+        (post, se), = returned
+        shown = printed(out)
+        self.assertEqual(set(shown), {LEVELS[k] for k in range(post.shape[1]) if post[0, k] >= 1e-6})
+        for place, text in shown.items():
+            k = LEVELS.index(place)
+            self.assertEqual(text, ("%.6f" % post[0, k], "%.6f" % se[0, k]), place)
+        self.assertIn("below 0.001 a place's estimate tends to run low", out)
         self.assertNotIn("Monte Carlo", exact["numpy"][1])
+
+    def test_name_prints_each_place_at_1e6_or_more_as_the_engine_returned_it(self):
+        """The printing alone, on a posterior made to sit at its edges, so it does not hang on what
+        one run of the sampler draws: a place at exactly 1e-6 is printed and one just under it is
+        not, every place at 1e-6 or more is printed, seventeen of the twenty, so a table cut
+        short fails, the places in order of their posterior, each posterior and error to six
+        decimals as the engine returned it, whatever is done to the arrays after."""
+        keys, values = self._column()
+        post = np.zeros(20)
+        post[[4, 0, 7, 12, 17, 3, 19, 8, 15, 10, 14, 1, 9, 16, 18, 2, 11, 13]] = [
+            0.52, 0.2, 0.1, 0.05, 0.03, 0.02, 0.01, 0.005, 0.002, 0.001, 4e-4, 1.5e-4, 6.04e-5, 2.2e-5, 3.3e-6,
+            1e-6, 9.99e-7, 3e-7]
+        post[5] = 1.0 - post.sum()
+        se = 1e-4 * np.arange(1, 21) + 3.21e-7
+        with tempfile.TemporaryDirectory() as d:
+            path = self._write(d, keys, values, [3, 4, 5])
+            with mock.patch.object(M, "name_with", return_value=(post.copy(), se.copy())):
+                code, out = run(["name", path, "--engine", "nuts", "--draws", "500", "--chains", "2"])
+        self.assertEqual(code, 0, out)
+        shown = printed(out)
+        self.assertEqual(list(shown), [LEVELS[k] for k in (4, 0, 7, 5, 12, 17, 3, 19, 8, 15, 10, 14, 1, 9, 16, 18, 2)], out)
+        for place, text in shown.items():
+            k = LEVELS.index(place)
+            self.assertEqual(text, ("%.6f" % post[k], "%.6f" % se[k]), place)
+        self.assertEqual(named(out), LEVELS[4])
 
     def test_an_area_or_an_unknown_measure_is_refused(self):
         keys, values = self._column()
@@ -147,6 +185,40 @@ class Name(unittest.TestCase):
                 code, out = run(["name", path, "--measures"] + measures)
                 self.assertEqual(code, 2, out)
                 self.assertIn("refused: " + why, out)
+
+    def test_a_file_not_utf8_or_without_body_is_refused_by_what_is_wrong(self):
+        keys, values = self._column()
+        with tempfile.TemporaryDirectory() as d:
+            path = self._write(d, keys, values, [3, 4])
+            with open(path, encoding="utf-8") as fh:
+                text = fh.read()
+            with open(path, "w", encoding="utf-8-sig") as fh:      # the mark a spreadsheet may write
+                fh.write(text)
+            code, out = run(["name", path])
+            self.assertEqual(code, 0, out)
+            self.assertIn("field of 2 bodies", out)
+            with open(path, "w", encoding="utf-8") as fh:            # a blank line before the header
+                fh.write("# read on 27 October 2026\n\n" + text)
+            code, out = run(["name", path])
+            self.assertEqual(code, 0, out)
+            self.assertIn("field of 2 bodies", out)
+            with open(path, "w", encoding="utf-8") as fh:            # whole numbers as numpy writes them
+                fh.write("body,endplate\n1.000000000000000000e+00,10.4\n0.0,10.1\n")
+            code, out = run(["name", path])
+            self.assertEqual(code, 0, out)
+            self.assertIn("field of 2 bodies at offsets [0, 1], measures endplate", out)
+            for encoding, written, why in (
+                    ("latin-1", "# read by Ren\xe9\n" + text, "is not UTF-8 text ('utf-8' codec can't decode byte 0xe9"),
+                    ("utf-8", text.replace("body,", "vertebra,", 1), "the field has no column `body`: its columns are vertebra,"),
+                    ("utf-8", "endplate,body\n10.1,0\n10.4\n", "row 2 of the field has no body number"),
+                    ("utf-8", "body,endplate\n0,10.1\nfirst,10.4\n", "row 2 of the field has the body 'first', which is not a whole number"),
+                    ("utf-8", "body,endplate\n0,10.1\n1.5,10.4\n", "row 2 of the field has the body '1.5', which is not a whole number")):
+                with open(path, "w", encoding=encoding) as fh:
+                    fh.write(written)
+                code, out = run(["name", path])
+                self.assertEqual(code, 2, out)
+                self.assertIn("refused: ", out)
+                self.assertIn(why, out)
 
     def test_nuts_is_refused_before_it_samples_when_it_cannot_give_its_error(self):
         keys, values = self._column()
@@ -167,14 +239,20 @@ def named(out):
     return next(line.split()[0] for line in out.splitlines() if line.endswith("<- named"))
 
 
-def posteriors(out):
-    """{place: (posterior, its Monte Carlo error or None)} from the lines `name` prints."""
+def printed(out):
+    """{place: (its posterior, its Monte Carlo error or None)} as `name` prints them, the text
+    itself, in the order printed."""
     got = {}
     for line in out.splitlines():
         parts = line.split()
         if len(parts) >= 2 and parts[0] in LEVELS:
-            got[parts[0]] = (float(parts[1]), float(parts[3]) if len(parts) > 3 and parts[2] == "+-" else None)
+            got[parts[0]] = (parts[1], parts[3] if len(parts) > 3 and parts[2] == "+-" else None)
     return got
+
+
+def posteriors(out):
+    """{place: (posterior, its Monte Carlo error or None)} from the lines `name` prints."""
+    return {place: (float(p), None if e is None else float(e)) for place, (p, e) in printed(out).items()}
 
 
 class Rescore(unittest.TestCase):
