@@ -176,11 +176,12 @@ class Name(unittest.TestCase):
             self.assertEqual(text, ("%.6f" % post[k], "%.6f" % se[k]), place)
         self.assertEqual(named(out), LEVELS[4])
 
-    def test_an_area_or_an_unknown_measure_is_refused(self):
+    def test_a_measure_with_no_row_at_a_level_or_an_unknown_measure_is_refused(self):
         keys, values = self._column()
         with tempfile.TemporaryDirectory() as d:
             path = self._write(d, keys, values, [3, 4])
-            for measures, why in ((["endplate", "canal_area"], "canal_area is an area"),
+            for measures, why in ((["endplate", "pars_area:mean"],
+                                   "pars_area:mean has no table row at C3, C4, C5, C6, C7, T1, T2"),
                                   (["endplate", "nonesuch"], "no measure 'nonesuch' is registered")):
                 code, out = run(["name", path, "--measures"] + measures)
                 self.assertEqual(code, 2, out)

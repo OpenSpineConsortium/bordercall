@@ -6,10 +6,11 @@
 
 The arithmetic is rule.py's, written as a PyTensor graph and compiled once per process by
 PyTensor's default backend (Numba): given a hypothesis (the level of every body in the field)
-and the patient's size s, each length measure's values are jointly normal with mean s mu and
-covariance Delta + u u', Delta carrying the measure's own error, whose log density has the
-Sherman-Morrison closed form; the size is integrated by Gauss-Hermite quadrature over log s; the
-measures multiply; the hypotheses are normalised by a logsumexp. Nothing is
+and the patient's size s, each measure's values are jointly normal with mean s^p mu and
+covariance Delta + u u', Delta carrying the measure's own error and p the measure's power of the
+size (1 for a length, 2 for an area, 0 for an angle), whose log density has the Sherman-Morrison
+closed form; the size is integrated by quadrature over log s, rule.py's Gauss-Hermite nodes or
+its trapezoid grid; the measures multiply; the hypotheses are normalised by a logsumexp. Nothing is
 sampled, so the level k is never a random variable a sampler has to move through (the owner's
 word of 27 October 2026, 09:46 UTC, on avoiding Metropolis bottlenecks): it is enumerated and
 summed out exactly, and NUTS in model.py only ever sees the continuous size.
@@ -44,7 +45,7 @@ from typing import Dict, List, Optional, Sequence, Tuple
 
 import numpy as np
 
-from .rule import GH_NODES, SYNTH, quadrature
+from .rule import GH_NODES, SYNTH, quadrature, size_factors
 
 LOG2PI = math.log(2.0 * math.pi)
 CHUNK = 256             # fields per call: the product's output is (measures, fields, 4 x nodes x hypotheses)
@@ -109,7 +110,7 @@ def _graph():
     mu = pt.matrix("mu")                # (M, L)
     sd = pt.matrix("sd")                # (M, L)
     idx = pt.lmatrix("idx")             # (H, B)
-    sizes = pt.vector("sizes")          # (J,)
+    sizes = pt.matrix("sizes")          # (M, J): each measure's power of each node's size
     logw = pt.matrix("logw")            # (F, J)
     log_prior = pt.vector("log_prior")  # (H,)
     masks = pt.matrix("masks")          # (R, M): which measures each answer uses
@@ -118,7 +119,7 @@ def _graph():
 
     muk = mu[:, idx][:, None]                                   # (M, 1, H, B)
     sdk = sd[:, idx][:, None]
-    s = sizes[None, :, None, None]                              # (1, J, 1, 1)
+    s = sizes[:, :, None, None]                                 # (M, J, 1, 1)
     delta = s * s * (1.0 - rho * rho) * sdk * sdk + (noise * noise)[:, None, None, None]   # (M, J, H, B)
     d = 1.0 / delta
     u = s * rho * sdk
@@ -138,7 +139,7 @@ def _graph():
     blocks = pt.concatenate([block(col_x2), block(col_x), block(col_w)], axis=1)   # (M, 3B, 4JH)
     left = pt.concatenate([x * x, x, w], axis=2).dimshuffle(1, 0, 2)               # (M, F, 3B)
     sums = pt.matmul(left, blocks)                                                  # (M, F, 4JH)
-    J, H = sizes.shape[0], idx.shape[0]
+    J, H = sizes.shape[1], idx.shape[0]
     sums = sums.reshape((sums.shape[0], sums.shape[1], 4, J, H))
     q1, q2, a, ld = sums[:, :, 0], sums[:, :, 1], sums[:, :, 2], sums[:, :, 3]
     n_eff = w.sum(axis=2).T[:, :, None, None]                                       # (M, F, 1, 1)
@@ -168,7 +169,8 @@ class ExactRule:
     returns the log evidence and the posterior for every subset of measures asked."""
 
     def __init__(self, mu: np.ndarray, sd: np.ndarray, synth: dict = SYNTH, n_nodes: int = GH_NODES,
-                 noise: Optional[np.ndarray] = None):
+                 noise: Optional[np.ndarray] = None, power: Optional[np.ndarray] = None,
+                 nodes: Optional[Tuple[np.ndarray, np.ndarray]] = None):
         self.mu = np.ascontiguousarray(mu, float)
         self.sd = np.ascontiguousarray(sd, float)
         if self.mu.shape != self.sd.shape or self.mu.ndim != 2:
@@ -179,7 +181,12 @@ class ExactRule:
         if self.noise.shape != (M,):
             raise ValueError("one error per measure: %d measures, noise %r" % (M, self.noise.shape))
         self.synth = dict(synth)
-        self.sizes, self.logw = quadrature(float(synth["scale_sd"]), n_nodes)
+        # rule.py's nodes, Gauss-Hermite by default or the ones given (rule.trapezoid), and each
+        # measure's power of each node's size, the size itself for a length
+        self.sizes, self.logw = quadrature(float(synth["scale_sd"]), n_nodes) if nodes is None else \
+            (np.asarray(nodes[0], float), np.asarray(nodes[1], float))
+        self.power = np.ones(M) if power is None else np.asarray(power, float)
+        self.scaled = np.ascontiguousarray(size_factors(self.sizes, self.power, M))
         self.f = function()
 
     @property
@@ -230,7 +237,7 @@ class ExactRule:
             for c0 in range(0, len(fields), max(1, chunk)):
                 f = fields[c0:c0 + chunk]
                 le, po = self.f(np.ascontiguousarray(x0[f]), np.ascontiguousarray(w[f]), mu, self.sd, idx,
-                                self.sizes, np.ascontiguousarray(lw[f]), lp, masks,
+                                self.scaled, np.ascontiguousarray(lw[f]), lp, masks,
                                 float(self.synth["rho"]), self.noise)
                 logev[:, f] = le
                 post[:, f] = po

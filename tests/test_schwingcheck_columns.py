@@ -6,6 +6,9 @@ order (the size, the offsets, the level draws, the noise draws), at r_between 0 
 anomalous phenotypes keep their levels, their transitional position and their blend; every
 column is padded to the widest phenotype listed, however few are drawn; and the fields cut with
 consecutive offsets are exact.fields' in the same order, with the truth and the column of each.
+Each kind is drawn with its own power of the size, an area with the square, an angle with none
+and no floor, in the same stream; and columns drawn for sizes an earlier call drew take no size
+from the stream, which starts at the offsets.
 """
 from __future__ import annotations
 
@@ -82,6 +85,74 @@ class SameGenerator(unittest.TestCase):
         checked = C.draw_columns(MS.reference(seven), ["typical"], 97, 20, keys)
         archived = C.draw_columns(MS.archive_reference(keys), ["typical"], 97, 20, keys)
         self.assertTrue(np.array_equal(checked.values, archived.values, equal_nan=True))
+
+
+class KindsAndGivenSizes(unittest.TestCase):
+    """Each kind with its own power of the size, and further measures drawn for patients whose
+    sizes an earlier call drew (step e)."""
+
+    KEYS = ["endplate", "canal_area", "endplate_incl", "facet_sag_sup:mean"]
+
+    def _drawn(self, seed, n, scale=None):
+        ms = MS.select(self.KEYS)
+        cols = C.draw_columns(MS.reference(ms), ["typical"], seed, n, [MS.archive_key(m) for m in ms],
+                              noise_mm=MS.errors(ms), power=MS.powers(ms), scale=scale)
+        return ms, cols
+
+    def test_each_kind_is_drawn_with_its_own_power_and_floor_in_the_archives_stream(self):
+        ms, cols = self._drawn(61, 30)
+        mu, sd = MS.arrays(ms)
+        noise, power = MS.errors(ms), MS.powers(ms)
+        rng = np.random.default_rng(61)
+        index = [C.DRAW_LEVELS.index(lv) for lv in cols.levels[0]]
+        for c in range(30):
+            s = float(np.exp(rng.normal(0.0, C.SYNTH["scale_sd"])))
+            z = rng.normal(size=len(ms))
+            e = rng.normal(size=(len(ms), len(C.DRAW_LEVELS)))
+            nz = rng.normal(size=(len(ms), len(C.DRAW_LEVELS)))
+            for m in range(len(ms)):
+                g = s ** power[m]
+                v = g * (mu[m] + sd[m] * (0.5 * z[m] + np.sqrt(0.75) * e[m, index])) + noise[m] * nz[m, index]
+                if power[m] > 0:
+                    v = np.maximum(v, C.FLOOR)
+                self.assertLess(np.abs(cols.values[c, :, m] - v).max(), 1e-9, (c, ms[m].key))
+            self.assertEqual(cols.scale[c], s)
+        # an angle, which may be negative, is never floored; a length and an area are
+        self.assertLess(np.nanmin(cols.values[:, :, 2]), 0.0)
+        self.assertGreaterEqual(np.nanmin(cols.values[:, :, [0, 1]]), C.FLOOR)
+        self.assertEqual(cols.meta["power"], [1.0, 2.0, 0.0, 0.0])
+
+    def test_given_sizes_draw_no_size_and_leave_the_stream_to_the_offsets(self):
+        _, first = self._drawn(62, 12)
+        _, again = self._drawn(63, 12, scale=first.scale)
+        self.assertTrue(np.array_equal(again.scale, first.scale))
+        self.assertTrue(again.meta["scale_given"])
+        self.assertFalse(first.meta["scale_given"])
+        # the stream of a call given the sizes starts at the offsets: the same draws a call that
+        # draws its own sizes makes after each size
+        ms = MS.select(self.KEYS)
+        mu, sd = MS.arrays(ms)
+        rng = np.random.default_rng(63)
+        index = [C.DRAW_LEVELS.index(lv) for lv in again.levels[0]]
+        for c in range(12):
+            z = rng.normal(size=len(ms))
+            e = rng.normal(size=(len(ms), len(C.DRAW_LEVELS)))
+            nz = rng.normal(size=(len(ms), len(C.DRAW_LEVELS)))
+            g = first.scale[c] ** MS.powers(ms)
+            v = g[:, None] * (mu + sd * (0.5 * z[:, None] + np.sqrt(0.75) * e[:, index])) + MS.errors(ms)[:, None] * nz[:, index]
+            v = np.where(MS.powers(ms)[:, None] > 0, np.maximum(v, C.FLOOR), v)
+            self.assertLess(np.abs(again.values[c].T - v).max(), 1e-9, c)
+        with self.assertRaises(ValueError):
+            self._drawn(63, 12, scale=first.scale[:5])
+        with self.assertRaises(ValueError):
+            C.draw_columns(MS.reference(ms), ["typical"], 63, 2, self.KEYS, power=[1.0, 2.0])
+
+    def test_every_power_one_and_no_sizes_given_is_the_archives_generator(self):
+        ref = P.load_reference(measures=MEASURES)
+        a = C.draw_columns(ref, ["typical"], 97, 20, MEASURES)
+        b = C.draw_columns(ref, ["typical"], 97, 20, MEASURES, power=np.ones(len(MEASURES)))
+        self.assertTrue(np.array_equal(a.values, b.values, equal_nan=True))
+        self.assertTrue(np.array_equal(a.scale, b.scale))
 
 
 class Fields(unittest.TestCase):

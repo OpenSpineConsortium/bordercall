@@ -147,7 +147,7 @@ graph TD
     n_beta(["beta_height ~ N(1, 0.5^2)"])
     n_hooks[("hooks: sex_effect, weight_effect, age_effect")]
     n_table[("table: mean and SD by measure and level")]
-    n_error[("measure_error by measure")]
+    n_error[("measure_error and size_power p by measure")]
     n_prior[("log_prior over the hypotheses")]
     subgraph p_patient ["patient"]
         n_cov[("covariates: height, weight, age, sex")]
@@ -157,7 +157,7 @@ graph TD
             n_z(["z ~ N(0, 1), the patient's offset in m"])
             subgraph p_body ["body b"]
                 n_e(["e ~ N(0, 1), the level's draw"])
-                n_x(["x ~ N(s (f mu + sd (rho z + sqrt(1 - rho^2) e)), error^2)"])
+                n_x(["x ~ N(s^p (f mu + sd (rho z + sqrt(1 - rho^2) e)), error^2)"])
             end
         end
     end
@@ -177,7 +177,7 @@ graph TD
     style n_x fill:#d9d9d9,color:#000000
 ```
 
-Read from the top. The patient's size s is log-normal about the size their height predicts: isometric scaling, every length in proportion to stature, with beta_height ~ N(1, 0.5^2) as a starting belief and not a measurement, 167.75 cm the mean height of Panjabi's twelve specimens, and 0.07 the archive's SD of log s when nothing is known, kept as the SD left once height is known, which overstates it ([covariates.py](covariates.py)). The hypothesis h says which level each body of the field is, a pattern of offsets and the place of the first body. In each measure the patient has an offset z of their own, shared by every body, which with rho = 0.5 makes a patient's values run large or small together down the column, and each body has its own level draw e. Each value read is then normal about the patient's scaled table value, mu and sd being the table's at measure m and the level h gives body b, with the measure's own error. f is the weight and age hooks' factor, exp(gamma_weight w + gamma_age a), w and a the patient's weight and age standardised on the twelve specimens, which is 1 while the hooks are zero. The generator also floors a value at 0.5 mm, as the archive's does; the likelihood has no floor. The rule takes a patient's offsets in different measures as independent, as the archive's does; the generator can also draw them correlated (`r_between`), to try the rule on columns it does not assume. The table, each measure's error and the weight and age hooks are indexed by measure too, but belong to no patient: a plate diagram's plates may overlap where Mermaid's boxes cannot, so they stand outside the patient's box.
+Read from the top. The patient's size s is log-normal about the size their height predicts: isometric scaling, every length in proportion to stature, with beta_height ~ N(1, 0.5^2) as a starting belief and not a measurement, 167.75 cm the mean height of Panjabi's twelve specimens, and 0.07 the archive's SD of log s when nothing is known, kept as the SD left once height is known, which overstates it ([covariates.py](covariates.py)). The hypothesis h says which level each body of the field is, a pattern of offsets and the place of the first body. In each measure the patient has an offset z of their own, shared by every body, which with rho = 0.5 makes a patient's values run large or small together down the column, and each body has its own level draw e. Each value read is then normal about the patient's scaled table value, mu and sd being the table's at measure m and the level h gives body b, with the measure's own error, the scale being s^p, p the power of the size the measure's kind scales with: 1 for a length, 2 for an area and 0 for an angle, which a patient's size does not change. f is the weight and age hooks' factor, exp(gamma_weight w + gamma_age a), w and a the patient's weight and age standardised on the twelve specimens, which is 1 while the hooks are zero. The generator also floors a length at 0.5 mm, as the archive's does, and an area at 0.5 mm2, and leaves an angle unfloored, since an angle may be negative; the likelihood has no floor. The rule takes a patient's offsets in different measures as independent, as the archive's does; the generator can also draw them correlated (`r_between`), to try the rule on columns it does not assume. The table, each measure's error and the weight and age hooks are indexed by measure too, but belong to no patient: a plate diagram's plates may overlap where Mermaid's boxes cannot, so they stand outside the patient's box.
 
 What each model does with each node:
 
@@ -257,6 +257,7 @@ graph TD
     measure_error[("measure_error ~ Data")]
     read[("read ~ Data")]
     sex_effect[("sex_effect ~ Data")]
+    size_power[("size_power ~ Data")]
     table_mean[("table_mean ~ Data")]
     table_sd[("table_sd ~ Data")]
     weight_effect[("weight_effect ~ Data")]
@@ -273,6 +274,7 @@ graph TD
     log_s --> x
     measure_error --> x
     read --> x
+    size_power --> x
     table_mean --> x
     table_sd --> x
     weight_effect --> x
@@ -296,6 +298,7 @@ graph TD
     subgraph plate6 ["measure"]
         age_effect
         measure_error
+        size_power
         weight_effect
     end
     subgraph plate7 ["measure x level"]
@@ -317,6 +320,7 @@ graph TD
     measure_error[("measure_error ~ Data")]
     offset(["offset ~ Normal"])
     sex_effect[("sex_effect ~ Data")]
+    size_power[("size_power ~ Data")]
     table_mean[("table_mean ~ Data")]
     table_sd[("table_sd ~ Data")]
     weight_effect[("weight_effect ~ Data")]
@@ -333,6 +337,7 @@ graph TD
     log_s --> x
     measure_error --> x
     offset --> x
+    size_power --> x
     table_mean --> x
     table_sd --> x
     weight_effect --> x
@@ -352,6 +357,7 @@ graph TD
     subgraph plate5 ["measure"]
         age_effect
         measure_error
+        size_power
         weight_effect
     end
     subgraph plate6 ["measure x level"]
@@ -380,6 +386,7 @@ graph TD
     offset(["offset ~ Normal"])
     raw(["raw ~ Normal"])
     sex_effect[("sex_effect ~ Data")]
+    size_power[("size_power ~ Data")]
     value["value ~ Deterministic"]
     weight_effect[("weight_effect ~ Data")]
     beta_height --> log_s
@@ -395,9 +402,11 @@ graph TD
     log_s --> raw
     measure_error --> raw
     offset --> raw
+    size_power --> raw
     weight_effect --> raw
     body_present --> value
     raw --> value
+    size_power --> value
     subgraph plate1 ["column"]
         log_s
     end
@@ -421,6 +430,7 @@ graph TD
     subgraph plate6 ["measure"]
         age_effect
         measure_error
+        size_power
         weight_effect
     end
 ```

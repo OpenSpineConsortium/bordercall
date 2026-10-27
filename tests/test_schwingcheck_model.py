@@ -27,6 +27,11 @@ columns.
   offsets with the same columns.exchangeable, which these tests cannot see into;
   test_schwingcheck_columns.py holds both to the archive's columns, the offsets at a correlation
   of 0.4.
+- Every kind with its own power of the size (step e), a length, an area and an angle in one
+  field: the compiled rule equals rule.py to 1e-10 on the Gauss-Hermite nodes and on the
+  trapezoid's, the naming model integrated on either equals the compiled rule to 1e-6, the
+  fixed-level baseline reads each value with its own power given the size and the offsets, and
+  the PyMC generator matches the NumPy one in distribution, an angle unfloored in both.
 - The committed graphs are the models' graphs, and the README draws each of them.
 """
 from __future__ import annotations
@@ -80,6 +85,27 @@ def fields(offsets, n_columns, seed, n_fields=None, missing=0.0):
         X = np.where(rng.random(X.shape) < missing, np.nan, X)
     return X, truth, keys, mu, sd
 
+
+# a length, two areas, two angles and a mirrored pair's mean, each with its own error and power of the size
+MIXED = ["endplate", "canal_area", "endplate_incl", "pedicle_area:mean", "facet_sag_sup:mean", "canal_ap"]
+
+
+def mixed(offsets, n_columns, seed, n_fields=None, missing=0.0):
+    """fields() of the measures of every kind: the fields, the truth, the keys, the table, and
+    each measure's error and power of the size."""
+    ms = MS.select(MIXED)
+    mu, sd = MS.arrays(ms)
+    keys = [MS.archive_key(m) for m in ms]
+    noise, power = MS.errors(ms), MS.powers(ms)
+    cols = C.draw_columns(MS.reference(ms), ["typical"], seed, n_columns, keys, noise_mm=noise, power=power)
+    X, truth, _ = C.fields(cols.values, offsets)
+    rng = np.random.default_rng(seed + 1)
+    if n_fields is not None:
+        pick = rng.choice(len(X), n_fields, replace=False)
+        X, truth = X[pick], truth[pick]
+    if missing:
+        X = np.where(rng.random(X.shape) < missing, np.nan, X)
+    return X, truth, keys, mu, sd, noise, power
 
 def softmax(a):
     a = np.exp(a - a.max(axis=1, keepdims=True))
@@ -173,6 +199,22 @@ class CompiledRule(unittest.TestCase):
         self.assertLess(np.abs(got[1::2] - plain[1::2]).max(), 1e-12)
 
 
+    def test_each_kind_with_its_own_power_is_rule_pys_on_either_nodes(self):
+        for offsets, missing in (([0], 0.0), ([0, 1, 2], 0.0), ([0, 2, 4], 0.2), (list(range(9)), 0.0)):
+            X, _, keys, mu, sd, noise, power = mixed(offsets, 6, 37, missing=missing)
+            hyp = K.hypotheses(len(LEVELS), [offsets])
+            for nodes in (None, R.trapezoid(R.SYNTH["scale_sd"])):
+                got = K.ExactRule(mu, sd, noise=noise, power=power, nodes=nodes).evaluate(X, hyp)["all"]
+                sizes, logw = R.quadrature(R.SYNTH["scale_sd"]) if nodes is None else nodes
+                logev = R.log_evidence(R.loglik(X, offsets, mu, sd, R.SYNTH, sizes=sizes, noise=noise, power=power), logw)
+                self.assertLess(np.abs(got["logev"] - logev).max(), 1e-10, offsets)
+                self.assertLess(np.abs(got["post"] - R.posterior(logev)).max(), 1e-10, offsets)
+        # the powers change the answer: the same fields read as if every measure were a length
+        lengths = K.ExactRule(mu, sd, noise=noise).evaluate(X, hyp)["all"]["logev"]
+        self.assertGreater(np.abs(lengths - logev).max(), 1.0)
+        with self.assertRaises(ValueError):
+            K.ExactRule(mu, sd, noise=noise, power=power[:3])
+
 class NamingModel(unittest.TestCase):
     def test_integrated_on_the_nodes_it_is_the_exact_rule(self):
         for offsets, missing, noise in (([0], 0.0, None), ([0, 1, 2], 0.0, None), ([0, 2, 4], 0.2, None),
@@ -184,6 +226,18 @@ class NamingModel(unittest.TestCase):
             want = K.ExactRule(mu, sd, noise=noise).evaluate(X, hyp)["all"]
             self.assertLess(np.abs(got - want["logev"]).max(), 1e-6, offsets)
             self.assertLess(np.abs(softmax(got) - want["post"]).max(), 1e-6, offsets)
+
+    def test_each_kind_integrated_on_either_nodes_is_the_exact_rule(self):
+        for offsets, missing in (([0], 0.0), ([0, 2, 4], 0.2), (list(range(9)), 0.0)):
+            X, _, keys, mu, sd, noise, power = mixed(offsets, 4, 49, n_fields=20, missing=missing)
+            hyp = K.hypotheses(len(LEVELS), [offsets])
+            m = MD.naming(X, hyp, mu, sd, keys, noise=noise, power=power)
+            for nodes in (None, R.trapezoid(R.SYNTH["scale_sd"])):
+                got = MD.quadrature_evidence(m, nodes=nodes)
+                want = K.ExactRule(mu, sd, noise=noise, power=power, nodes=nodes).evaluate(X, hyp)["all"]
+                self.assertLess(np.abs(got - want["logev"]).max(), 1e-6, offsets)
+                self.assertLess(np.abs(softmax(got) - want["post"]).max(), 1e-6, offsets)
+        self.assertTrue(np.array_equal(m["size_power"].get_value(), power))
 
     def test_the_observed_density_is_the_sum_over_hypotheses(self):
         X, _, keys, mu, sd = fields([0, 2], 4, 42, n_fields=10, missing=0.1)
@@ -366,6 +420,24 @@ class FixedLevel(unittest.TestCase):
         self.assertLess(float(np.asarray(s["r_hat"], float).max()), 1.01)
 
 
+    def test_each_kind_is_read_with_its_own_power_given_the_size_and_the_offsets(self):
+        from scipy.stats import norm
+        offsets = [0, 2, 3]
+        X, truth, keys, mu, sd, noise, power = mixed(offsets, 3, 63, n_fields=6, missing=0.1)
+        lv = truth[:, None] + np.array(offsets)[None, :]
+        m = MD.fixed_level(X, lv, mu, sd, keys, noise=noise, power=power)
+        logp = m.compile_logp(vars=[m["x"]], sum=False)
+        rng = np.random.default_rng(64)
+        t, z = rng.normal(0.0, 0.07, len(X)), rng.normal(size=(len(X), len(keys)))
+        got = np.asarray(logp({"log_s": t, "offset": z, "beta_height": 1.0})[0])
+        want = []
+        for f, mm, b in zip(*np.nonzero(np.isfinite(X))):
+            g = math.exp(t[f]) ** power[mm]
+            v = sd[mm, lv[f, b]]
+            loc = g * (mu[mm, lv[f, b]] + 0.5 * v * z[f, mm])
+            want.append(norm.logpdf(X[f, mm, b], loc, math.sqrt(g * g * 0.75 * v * v + noise[mm] ** 2)))
+        self.assertLess(np.abs(got - np.array(want)).max(), 1e-9)
+
 class Generator(unittest.TestCase):
     N = 6 * 1000
 
@@ -420,6 +492,21 @@ class Generator(unittest.TestCase):
         self.assertLess(np.abs(z).max(), 4.8)
         self.assertLess(abs(float(np.mean(z * z)) - 1.0), 0.15)
 
+
+    def test_each_kind_matches_too(self):
+        ms = MS.select(MIXED)
+        ref, keys = MS.reference(ms), [MS.archive_key(m) for m in ms]
+        noise, power = MS.errors(ms), MS.powers(ms)
+        a = MD.draw(MD.generator(ref, keys, C.PHENOTYPES, self.N, noise=noise, power=power), seed=75)
+        b = C.draw_columns(ref, C.PHENOTYPES, 76, self.N, keys, noise_mm=noise, power=power)
+        self.assertTrue(np.array_equal(np.isfinite(a.values), np.isfinite(b.values)))
+        z = self._z_scores(a, b)
+        self.assertLess(np.abs(z).max(), 4.8)
+        self.assertLess(abs(float(np.mean(z * z)) - 1.0), 0.15)
+        # an angle is never floored, in either generator
+        angle = keys.index("endplate_incl")
+        self.assertLess(np.nanmin(a.values[:, :, angle]), 0.0)
+        self.assertLess(np.nanmin(b.values[:, :, angle]), 0.0)
 
 class Graphs(unittest.TestCase):
     def test_the_committed_graphs_are_the_models_graphs(self):

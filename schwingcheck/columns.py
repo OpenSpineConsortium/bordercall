@@ -4,17 +4,24 @@ cut from them with integer offsets.
 The generator is the archive's (archive/bordercall/panjabi.py, synthesize, and neighbour.py,
 draw_columns) drawn here from the long table: for every measure m and level i,
 
-    value = s * (mu[m][i] + sd[m][i] * (rho * z[m] + sqrt(1 - rho^2) * e[m][i])) + noise[m] * n[m][i]
+    value = s^p * (mu[m][i] + sd[m][i] * (rho * z[m] + sqrt(1 - rho^2) * e[m][i])) + noise[m] * n[m][i]
 
-with s the patient's size, z the patient's offset in that measure, e the level's draw and n the
-measurement error's draw, scaled by the measure's own error (1 mm for every one in the archive),
-floored at 0.5 mm, and the six phenotypes (typical, four_lumbar, six_lumbar,
+with s the patient's size, p the measure's power of it (1 for a length, the archive's only kind,
+2 for an area, 0 for an angle; step e), z the patient's offset in that measure, e the level's
+draw and n the measurement error's draw, scaled by the measure's own error (1 mm for every one in
+the archive), floored at 0.5 where the measure scales with the size (an angle, which may be
+negative, has no floor), and the six phenotypes (typical, four_lumbar, six_lumbar,
 t13, lumbar_rib, no_rib_t12) edited into the column as the archive edits them. It consumes the
 random stream in the archive's order, the size, then one offset per measure, then 24 level
 draws per measure in turn, then 24 noise draws per measure in turn, so the same seed gives the
 same columns to the last bit (tests/test_schwingcheck_columns.py). The draws of one column are
 made at once as arrays; the one loop is over columns, since each column's draws must follow
 the one before it in the stream.
+
+Given the patients' sizes (`scale`), no size is drawn and the stream starts at the offsets, so
+further measures can be drawn for the same patients from a stream of their own, leaving the first
+measures' columns as they were (the build-up study of step e draws the record's seven so and adds
+the rest).
 """
 from __future__ import annotations
 
@@ -138,15 +145,24 @@ def profiles(ref: Dict[str, Dict[str, tuple]], measures: Sequence[str], phenotyp
 def draw_columns(ref: Dict[str, Dict[str, tuple]], phenotypes: Sequence[str], seed: int, n: int,
                  measures: Sequence[str], r_between: float = 0.0, rho: float = SYNTH["rho"],
                  noise_mm=SYNTH["noise_mm"], scale_sd: float = SYNTH["scale_sd"],
-                 blend: float = SYNTH["blend"]) -> Columns:
+                 blend: float = SYNTH["blend"], power=None, scale: Optional[np.ndarray] = None) -> Columns:
     """n columns, the phenotypes cycled in turn, from one seeded stream in the archive's order.
     noise_mm is one error for every measure, as the archive's, or each measure's own; the stream
     is the same either way, and the same error for every measure gives the archive's columns.
-    Every column is padded with NaN to the widest phenotype listed, drawn or not, so the layout
-    depends on the phenotypes and not on how many columns are drawn."""
+    power is each measure's power of the size, 1 for every one, a length's, when not given; scale,
+    when given, is each column's size, drawn by an earlier call, and no size is drawn from the
+    stream. Every column is padded with NaN to the widest phenotype listed, drawn or not, so the
+    layout depends on the phenotypes and not on how many columns are drawn."""
     measures = list(measures)
     M = len(measures)
     noise = np.broadcast_to(np.asarray(noise_mm, float), (M,))
+    powers = np.ones(M) if power is None else np.asarray(power, float)
+    if powers.shape != (M,):
+        raise ValueError("power is one power of the size per measure, %d of them; got %r" % (M, powers))
+    floored = powers > 0
+    given = None if scale is None else np.asarray(scale, float)
+    if given is not None and given.shape != (n,):
+        raise ValueError("scale is one size per column, %d of them; got %r" % (n, given.shape))
     rng = np.random.default_rng(seed)
     factor = offset_factor(M, r_between)
     draw_index = {l: i for i, l in enumerate(DRAW_LEVELS)}
@@ -157,15 +173,16 @@ def draw_columns(ref: Dict[str, Dict[str, tuple]], phenotypes: Sequence[str], se
     for c in range(n):
         p = phenotypes[c % len(phenotypes)]
         lv, transitional_at, mu, sd = prof[p]
-        s = float(np.exp(rng.normal(0.0, scale_sd)))
+        s = float(np.exp(rng.normal(0.0, scale_sd))) if given is None else float(given[c])
+        g = np.where(powers == 1.0, s, np.where(powers == 2.0, s * s, np.where(powers == 0.0, 1.0, s ** powers)))
         z = rng.normal(size=M)
         if abs(r_between) >= 1e-12:
             z = factor @ z
         e = rng.normal(size=(M, len(DRAW_LEVELS)))
         nz = rng.normal(size=(M, len(DRAW_LEVELS)))
         at = np.array([draw_index[l] for l in lv])
-        v = s * (mu + sd * (rho * z[:, None] + math.sqrt(1 - rho * rho) * e[:, at])) + noise[:, None] * nz[:, at]
-        values[c, :len(lv), :] = np.maximum(v, FLOOR).T
+        v = g[:, None] * (mu + sd * (rho * z[:, None] + math.sqrt(1 - rho * rho) * e[:, at])) + noise[:, None] * nz[:, at]
+        values[c, :len(lv), :] = np.where(floored[:, None], np.maximum(v, FLOOR), v).T
         levels.append(list(lv))
         phen.append(p)
         scale[c] = s
@@ -173,7 +190,7 @@ def draw_columns(ref: Dict[str, Dict[str, tuple]], phenotypes: Sequence[str], se
     return Columns(values=values, levels=levels, measures=measures, phenotype=phen, scale=scale,
                    transitional_at=trans, blend=blend, seed=seed,
                    meta=dict(r_between=r_between, rho=rho, noise_mm=noise_mm if np.ndim(noise_mm) == 0 else noise.tolist(),
-                             scale_sd=scale_sd, n=n))
+                             scale_sd=scale_sd, n=n, power=powers.tolist(), scale_given=given is not None))
 
 
 def fields(values: np.ndarray, offsets: Sequence[int]) -> Tuple[np.ndarray, np.ndarray, np.ndarray]:

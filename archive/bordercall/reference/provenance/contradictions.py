@@ -10,9 +10,10 @@ against the dimension tables it restates; prose.csv, every number the running te
 against the cells it speaks of; and the arithmetic inside the tables themselves, computed here
 from provenance.csv, the printed ratio columns against the ratio of the printed means and the
 printed sums (the thoracic wedge angle, the rib articulation totals) against the sum of their
-parts. A printed ratio or sum is consistent when some unrounded means inside the rounding of
-the printed ones give a value that rounds to it; the report lists those that are not, with the
-size of the difference. Each contradiction of the first two records carries a kind, assigned by
+parts, and one relation between two tables of the facets paper, its X-card angle against the
+negative of its transverse-plane angle. A printed ratio, sum or relation is consistent when some
+unrounded means inside the rounding of the printed ones give a value that rounds to it; the
+report lists those that are not, with the size of the difference. Each contradiction of the first two records carries a kind, assigned by
 hand in KINDS below from what the cells show, so the summary can count them by what happened.
 Nothing here speaks of the measurements' accuracy, which no record of a paper can test.
 """
@@ -52,6 +53,14 @@ SUM_PARTS: Dict[Tuple[str, str], List[List[str]]] = {
 SUM_WORDS = {("thoracic-t3", "EPIt"): "EPItu + EPItl",
              ("thoracic-t6", "CVA"): "mean(CVAur, CVAul) + mean(CVAlr, CVAll)",
              ("thoracic-t6", "CVA + CTA"): "CVA + mean(CTAr, CTAl)"}
+# a column of one table that the printed values of another table of the same paper give: the
+# facets paper's X-card angle CAX (its Table 8) is, cell for cell, the negative of its
+# transverse-plane angle T (Tables 6 and 7) on the same side of the same facet, which is why the
+# rule scores T and never CAX (TODO.md, item P step e); the check says where the cells break it
+RELATION_PARTS: Dict[Tuple[str, str], Tuple[str, str, float]] = {
+    ("facets-t8", "CAXsr"): ("facets-t6", "Tsr", -1.0), ("facets-t8", "CAXsl"): ("facets-t6", "Tsl", -1.0),
+    ("facets-t8", "CAXir"): ("facets-t7", "Tir", -1.0), ("facets-t8", "CAXil"): ("facets-t7", "Til", -1.0),
+}
 
 ONE_SIDE = "one side of a right-left pair quoted as the value"
 NO_SUCH = "a figure no table prints"
@@ -201,6 +210,16 @@ def derived(prov: List[dict]) -> List[dict]:
                 words.append(" and ".join("%s %s" % (c["measure"], c["value"]) for c in cs))
             parts = " + ".join(words)
             kind = "sum"
+        elif (r["table"], r["measure"]) in RELATION_PARTS and r["statistic"] == "mean":
+            table, measure, factor = RELATION_PARTS[(r["table"], r["measure"])]
+            cs = cells_at(index, table, [measure], r["level"])
+            if not cs:
+                continue
+            v, i = mean_of(cs)
+            computed = factor * v
+            iv = Interval(min(factor * i.lo, factor * i.hi), max(factor * i.lo, factor * i.hi))
+            parts = "%s %s of %s" % (measure, cs[0]["value"], table_name(table))
+            kind = "relation"
         else:
             continue
         printed = float(r["value"])
@@ -209,6 +228,14 @@ def derived(prov: List[dict]) -> List[dict]:
                     "difference": printed - computed, "parts": parts,
                     "agrees": "yes" if iv.meets(Interval(printed - half_unit(r), printed + half_unit(r))) else "no"})
     return out
+
+
+def relation_words(table: str, measure: str) -> str:
+    """How the report names a relation's other column, or nothing for a column that is not one."""
+    if (table, measure) not in RELATION_PARTS:
+        return ""
+    other_table, other, factor = RELATION_PARTS[(table, measure)]
+    return "%s%s of %s" % ("minus " if factor < 0 else "", other, table_name(other_table))
 
 
 def consistent(c: dict) -> bool:
@@ -251,15 +278,16 @@ def report() -> str:
     w("held by test to the images of the cells: [crosstable.csv](crosstable.csv), the Present Study column of every")
     w("comparison table against the dimension tables it restates; [prose.csv](prose.csv), every number the running")
     w("text states against the cells it speaks of; and the arithmetic inside the tables, computed here, the printed")
-    w("ratio columns against the ratio of the printed means and the printed sums against their parts. A ratio or a")
-    w("sum is consistent when some unrounded means inside the rounding of the printed ones give a value that rounds to")
-    w("the printed one, so a difference that rounding alone explains is not a contradiction. Nothing here speaks of")
+    w("ratio columns against the ratio of the printed means, the printed sums against their parts and the facets")
+    w("paper's X-card angle against its transverse-plane angle. A ratio, a sum or a relation is consistent when some")
+    w("unrounded means inside the rounding of the printed ones give a value that rounds to the printed one, so a")
+    w("difference that rounding alone explains is not a contradiction. Nothing here speaks of")
     w("the measurements' accuracy, which no record of a paper can test; it speaks of the papers' internal")
     w("consistency, which is what a reader has.\n")
 
     # summary
     w("## Summary\n")
-    w("| paper | cells read | text values | held to cells | contradict | within a stated tolerance only | restated by a comparison table | disagree | ratios and sums checked | inconsistent |")
+    w("| paper | cells read | text values | held to cells | contradict | within a stated tolerance only | restated by a comparison table | disagree | ratios, sums and relations checked | inconsistent |")
     w("|---|---|---|---|---|---|---|---|---|---|")
     totals = [0] * 9
     loose: List[Tuple[dict, float]] = []
@@ -356,12 +384,14 @@ def report() -> str:
     w("")
 
     # inside the tables
-    w("## Inside the tables: the printed ratios and sums against their parts\n")
+    w("## Inside the tables: the printed ratios, sums and relations against their parts\n")
     w("Every ratio column (end-plate width to depth, canal width to depth, pedicle height to width, facet width to height,")
     w("the interfacet ratios) and every printed sum (the thoracic wedge angle EPIt = EPItu + EPItl, Table 6's")
     w("costovertebral area per rib as the mean of the two upper facets plus the mean of the two lower, and its total")
-    w("with the costotransverse area) is computed from the printed means of its own table. Consistent means that")
-    w("unrounded means inside the printed ones' rounding can give the printed value.\n")
+    w("with the costotransverse area) is computed from the printed means of its own table. One column is held to")
+    w("another table of its paper: the facets paper's X-card angle CAX (Table 8) is, cell for cell, the negative of its")
+    w("transverse-plane angle T (Tables 6 and 7) on the same side of the same facet, which is why the rule scores T and")
+    w("never CAX. Consistent means that unrounded means inside the printed ones' rounding can give the printed value.\n")
     w("| table | column | computed from | checked | consistent | not | largest difference |")
     w("|---|---|---|---|---|---|---|")
     groups: Dict[Tuple[str, str], List[dict]] = {}
@@ -370,7 +400,8 @@ def report() -> str:
     for (table, measure), cs in groups.items():
         bad = [c for c in cs if c["agrees"] == "no"]
         largest = max(cs, key=lambda c: abs(c["difference"]))
-        words = SUM_WORDS.get((table, measure)) or "mean(%s) / mean(%s)" % tuple(", ".join(s) for s in RATIO_PARTS[measure])
+        words = SUM_WORDS.get((table, measure)) or relation_words(table, measure) or \
+            "mean(%s) / mean(%s)" % tuple(", ".join(s) for s in RATIO_PARTS[measure])
         w("| %s | %s | %s | %d | %d | %d | %s at %s |" % (table_name(table), measure, words.replace("mean(", "").replace(")", "") if "," not in words else words,
                                                          len(cs), len(cs) - len(bad), len(bad), fmt(largest["difference"], 3), largest["level"]))
     w("")
@@ -387,14 +418,23 @@ def report() -> str:
     # what the counts say
     n_held, n_contra, n_cross, n_dis, n_checked, n_inc = totals[2], totals[3], totals[5], totals[6], totals[7], totals[8]
     w("## What the counts say\n")
-    worst = max(bad, key=lambda c: abs(c["difference"])) if bad else None
-    w("- The dimension tables are arithmetically whole but for %d entries: of the %d ratios and sums they print, %d" % (n_inc, n_checked, n_checked - n_inc))
+    arith = [c for c in bad if c["kind"] != "relation"]
+    worst = max(arith, key=lambda c: abs(c["difference"])) if arith else None
+    n_arith = sum(1 for c in checks if c["kind"] != "relation")
+    w("- The dimension tables are arithmetically whole but for %d entries: of the %d ratios and sums they print, %d" % (len(arith), n_arith, n_arith - len(arith)))
     w("  are what their own printed means give once rounding is allowed for, which is what columns computed from the")
     w("  unrounded means look like, since a ratio of two means printed to one decimal cannot be read back exactly.")
     if worst:
         w("  The %d that are not differ by %s to %s, the largest %s at %s, printed %s where %s gives %s." % (
-            n_inc, fmt(min(abs(c["difference"]) for c in bad), 3), fmt(abs(worst["difference"]), 3), worst["measure"],
+            len(arith), fmt(min(abs(c["difference"]) for c in arith), 3), fmt(abs(worst["difference"]), 3), worst["measure"],
             table_name(worst["table"]) + " " + worst["level"], fmt(worst["printed"], 3), worst["parts"], fmt(worst["computed"], 3)))
+    rel = [c for c in checks if c["kind"] == "relation"]
+    rel_bad = [c for c in rel if c["agrees"] == "no"]
+    w("- The facets paper's X-card angle is the negative of its transverse-plane angle at %d of the %d cells where both" % (len(rel) - len(rel_bad), len(rel)))
+    w("  are printed, to the printed digit or within the two cells' rounding.%s" % ("" if not rel_bad else " Where it is not:"))
+    for c in rel_bad:
+        w("  %s %s at %s, printed %s where %s gives %s, %s degrees apart, the paper's own contradiction." % (
+            table_name(c["table"]), c["measure"], c["level"], fmt(c["printed"], 1), c["parts"], fmt(c["computed"], 1), fmt(abs(c["difference"]), 1)))
     w("- The comparison tables restate %d values and get %d wrong (%.1f%%): one digit in the thoracic Table 8, and" % (n_cross, n_dis, 100.0 * n_dis / n_cross))
     w("  %d right-and-left means the lumbar Table 6 and the facets Table 9 print that are not the mean of the" % (n_dis - 1))
     w("  sides their own tables print, with no word on how they were formed; the largest is %s mm." % (
@@ -418,7 +458,7 @@ def main() -> int:
     with open(os.path.join(HERE, "CONTRADICTIONS.md"), "w", encoding="utf-8") as fh:
         fh.write(text)
     checks = derived(read_csv("provenance.csv"))
-    print("CONTRADICTIONS.md: %d ratios and sums checked, %d inconsistent" % (len(checks), sum(1 for c in checks if c["agrees"] == "no")))
+    print("CONTRADICTIONS.md: %d ratios, sums and relations checked, %d inconsistent" % (len(checks), sum(1 for c in checks if c["agrees"] == "no")))
     return 0
 
 

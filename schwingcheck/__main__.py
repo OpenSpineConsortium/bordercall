@@ -8,7 +8,8 @@
     python -m schwingcheck graph check                 # the committed graphs are what write would write
 
 `name` reads one field: a CSV with a column `body` (0, 1, 2 ... in order down the column), one
-column per measure in millimetres (a blank where the value was not read) and, optionally, a
+column per measure in its own units, millimetres for a length, square millimetres for an area
+and degrees for an angle (a blank where the value was not read) and, optionally, a
 column `offset` giving each body's offset from the first (0, 2, 4 for every other body; the
 bodies are consecutive without it, whatever their numbers), and prints the ranked places with
 their posteriors, the 99 per cent set and whether the top place reaches 0.99. --offsets gives
@@ -16,8 +17,8 @@ the offsets on the command line instead, one per body, counted from the first as
 are. With no body there is nothing to name and it says so; with no measure the posterior is the
 prior and it says that too; a file that is not UTF-8 text (a byte-order mark before `body`, and
 blank lines, are read past) or has no column `body`, a row with no body number or one that is not
-a whole number (3.0 and 3e0 are read as 3), a measure not registered, or one that is an area or
-an angle (until step e), offsets for some bodies and not others, a number of them other than the
+a whole number (3.0 and 3e0 are read as 3), a measure not registered, or one with no table row
+at a level of the rule's, offsets for some bodies and not others, a number of them other than the
 bodies', offsets that do not rise down the column, and a NUTS run of fewer than 20 draws a chain,
 too few for its Monte Carlo error, are refused before anything is computed, each by what is
 wrong. The engine is numpy (rule.py, the reference), pytensor (compiled.py, the same rule as one
@@ -183,11 +184,11 @@ def name_with(args, X, offsets, ms):
         return MS.name(X, offsets, ms)["all"][0], None
     from . import compiled as K
     mu, sd = MS.arrays(ms)
-    noise = MS.errors(ms)
+    noise, power = MS.errors(ms), MS.powers(ms)
     if args.engine == "pytensor":
-        return K.ExactRule(mu, sd, noise=noise).name(X, offsets)["all"][0], None
+        return K.ExactRule(mu, sd, noise=noise, power=power).name(X, offsets)["all"][0], None
     from . import model as MD
-    m = MD.naming(X, K.hypotheses(len(LEVELS), [offsets]), mu, sd, [x.key for x in ms], noise=noise)
+    m = MD.naming(X, K.hypotheses(len(LEVELS), [offsets]), mu, sd, [x.key for x in ms], noise=noise, power=power)
     idata = MD.sample(m, draws=args.draws, chains=args.chains, seed=args.seed)
     post, se = MD.hypothesis_posterior(m, idata)
     return post[0], se[0]

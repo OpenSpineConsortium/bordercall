@@ -1,8 +1,10 @@
 """The long table is written from the provenance record and nothing else, loads with named
 dimensions, agrees with the archive's CSV in every value, and every registered measure can be
-selected for the rule or is refused for a reason; each measure carries its table rows with their
-cells, its mnemonics, its measurers and its error, which the rule reads, and a pair or a measure
-named twice is refused; the specimens table is the thoracic paper's Table 1, cell for cell, and
+selected for the rule, a length, an area or an angle each with its own error and power of the
+size, or has no rows to select; the pool is every measure with a row and a spread at every level,
+and the measures left out each say why; a mirrored pair's mean negates its right side; each
+measure carries its table rows with their cells, its mnemonics, its measurers and its error,
+which the rule reads, and a pair or a measure named twice is refused; the specimens table is the thoracic paper's Table 1, cell for cell, and
 agrees with what the other three papers print about the same twelve spines but for the one
 contradiction they share.
 """
@@ -248,31 +250,57 @@ class Dataset(unittest.TestCase):
         with self.assertRaises(ValueError):
             T.reference(ds, [("facet_w_sup", "whole")], LEVELS)
 
+    def test_a_mirrored_pair_has_opposite_signs_and_every_other_pair_one(self):
+        # the facets paper prints the sagittal angle and the card angle about y of a right facet
+        # with the opposite sign to the left's, at every level both are printed, so their mean
+        # negates the right first; every other pair has one sign on both sides at every level
+        ds = T.load()
+        pairs = 0
+        for measure in ds["measure"].values:
+            r = ds["mean"].sel(measure=measure, side="right").values
+            l_ = ds["mean"].sel(measure=measure, side="left").values
+            both = ~np.isnan(r) & ~np.isnan(l_)
+            if not both.any():
+                continue
+            pairs += 1
+            product = np.sign(r[both]) * np.sign(l_[both])
+            if measure in MN.MIRRORED:
+                self.assertTrue(np.all(product < 0), measure)
+                self.assertEqual(T.mirror(measure), -1.0)
+            else:
+                self.assertTrue(np.all(product > 0), measure)
+                self.assertEqual(T.mirror(measure), 1.0)
+        self.assertEqual(pairs, 26)
+        ref = T.reference(ds, [("facet_sag_sup", "mean"), ("facet_trans_sup", "mean")], LEVELS)
+        for lv in LEVELS:
+            r = ds["mean"].sel(level=lv, measure="facet_sag_sup", side="right").item()
+            l_ = ds["mean"].sel(level=lv, measure="facet_sag_sup", side="left").item()
+            self.assertEqual(ref["facet_sag_sup:mean"][lv][0], (l_ - r) / 2.0)
+            self.assertGreater(ref["facet_sag_sup:mean"][lv][0], min(abs(r), abs(l_)) - 1e-9)
+            r = ds["mean"].sel(level=lv, measure="facet_trans_sup", side="right").item()
+            l_ = ds["mean"].sel(level=lv, measure="facet_trans_sup", side="left").item()
+            self.assertEqual(ref["facet_trans_sup:mean"][lv][0], (r + l_) / 2.0)
+
 
 class Registry(unittest.TestCase):
-    def test_every_registered_measure_is_scored_or_refused_for_a_reason(self):
+    def test_every_registered_measure_is_scored_or_has_no_rows(self):
         reg = MS.registry()
         self.assertGreater(len(reg), 60)
-        scored, refused, no_rows = [], [], []
+        scored, no_rows = [], []
         for key, m in reg.items():
             try:
                 MS.select([key], levels=m.levels or LEVELS)
                 scored.append(key)
-                self.assertEqual(m.kind, "length")
-                self.assertGreater(m.error_mm, 0)
+                self.assertIn(m.kind, ("length", "area", "angle"))
+                self.assertGreater(m.error, 0)
                 self.assertTrue(m.levels)
             except ValueError as e:
-                if not m.levels:
-                    no_rows.append(key)
-                    self.assertTrue("no table row" in str(e) or "step e" in str(e), str(e))
-                else:
-                    refused.append(key)
-                    self.assertIn(m.kind, ("area", "angle"))
-                    self.assertIn("step e", str(e))
-        self.assertTrue(all(reg[k].kind == "length" for k in scored))
-        self.assertEqual(len(scored) + len(refused) + len(no_rows), len(reg))
+                self.assertFalse(m.levels, key)
+                no_rows.append(key)
+                self.assertIn("no table row", str(e))
+        self.assertEqual(len(scored) + len(no_rows), len(reg))
         self.assertIn("pedicle_w:mean", scored)
-        self.assertIn("facet_area_sup:right", refused)
+        self.assertIn("facet_area_sup:right", scored)
         # the papers print these means with no spread (thoracic Table 3's wedge angle, Table 6's
         # totals per rib, facets Table 8's card angles), so no rule can take them until a spread
         # is found for them
@@ -284,18 +312,65 @@ class Registry(unittest.TestCase):
             MS.select(["spinous_length"], levels=["C2", "C3"] if "C2" not in reg["spinous_length"].levels else ["L6"])
         self.assertIn("no table row", str(cm.exception))
 
+    def test_each_kind_has_its_own_error_and_power(self):
+        reg = MS.registry()
+        for key, m in reg.items():
+            if not m.levels:
+                self.assertIsNone(m.error, key)
+                continue
+            self.assertEqual(m.size_power, {"length": 1, "area": 2, "angle": 0}[m.kind], key)
+            self.assertEqual(m.units, {"length": "mm", "area": "mm2", "angle": "deg"}[m.kind], key)
+            if m.kind == "length":
+                self.assertEqual(m.error, 1.0, key)
+            elif m.kind == "angle":
+                self.assertEqual(m.error, 3.0, key)
+            else:
+                # the error of a circle's area whose diameter is read 1 mm off on each of two axes
+                mean_area = float(np.mean([r.mean for r in m.rows]))
+                self.assertAlmostEqual(m.error, math.sqrt(math.pi * mean_area / 2.0), places=12)
+        self.assertAlmostEqual(reg["canal_area"].error, 19.6, delta=0.05)
+        self.assertAlmostEqual(reg["endplate_area"].error, 31.1, delta=0.05)
+
+    def test_the_pool_is_every_measure_with_a_row_and_a_spread_at_every_level(self):
+        pool = MS.pool()
+        kinds = [m.kind for m in pool]
+        self.assertEqual(len(pool), 32)
+        self.assertEqual((kinds.count("length"), kinds.count("area"), kinds.count("angle")), (18, 6, 8))
+        # each measure once, in the papers' order, a left-right pair as its mean
+        names = [m.name for m in pool]
+        self.assertEqual(len(set(names)), 32)
+        self.assertEqual(names, [n for n in MN.MEASURES if n in names])
+        for m in pool:
+            self.assertEqual(m.side, "mean" if "%s:right" % m.name in MS.registry() else "whole", m.key)
+            self.assertTrue(set(LEVELS) <= set(m.levels), m.key)
+        self.assertEqual([MS.archive_key(m) for m in pool[:5]],
+                         ["endplate", "endplate_depth", "endplate_lower", "endplate_lower_depth", "h_post"])
+        self.assertTrue(set(MS.SPINEPS_7) <= {MS.archive_key(m) for m in pool})
+        # every other measure of the papers is left out, and says why
+        out = MS.left_out()
+        self.assertEqual(set(out) | set(names), set(MN.MEASURES))
+        self.assertEqual(set(out) & set(names), set())
+        spreadless = sorted(k for k, why in out.items() if "no spread" in why)
+        regional = sorted(k for k, why in out.items() if "levels" in why)
+        self.assertEqual(spreadless, sorted(["endplate_wedge", "costovertebral_area", "rib_articulation_area",
+                                             "facet_card_x_sup", "facet_card_x_inf", "facet_card_y_sup",
+                                             "facet_card_y_inf"]))
+        self.assertEqual(len(regional), 10)
+        self.assertEqual(len(out), 17)
+        self.assertIn("printed at 15 of the 22 levels C3 to L5 (T3 to L5)", out["pars_area"])
+
     def test_the_seven_in_the_archives_order_and_names(self):
         seven = MS.select(MS.SPINEPS_7)
         self.assertEqual([MS.archive_key(m) for m in seven], MS.SPINEPS_7)
         for m in seven:
-            self.assertEqual(m.error_mm, 1.0)
+            self.assertEqual(m.error, 1.0)
             self.assertTrue(set(LEVELS) <= set(m.levels))
         self.assertEqual(MS.resolve("pedicle"), ("pedicle_w", "mean"))
         self.assertEqual(MS.resolve("pedicle_h:left"), ("pedicle_h", "left"))
         with self.assertRaises(KeyError):
             MS.select(["no_such_measure"])
         with self.assertRaises(ValueError):
-            MS.select(["canal_area"])
+            MS.select(["pars_area:mean"])                  # printed from T3 down only
         with self.assertRaises(ValueError):
             MS.select(["endplate"], levels=LEVELS_C2)       # C2 has no upper end-plate
 
@@ -349,7 +424,7 @@ class Registry(unittest.TestCase):
         X, _, _ = C.fields(cols.values, [0, 1, 2])
         plain = R.name(X, [0, 1, 2], mu, sd, R.SYNTH)["all"]
         self.assertTrue(np.array_equal(MS.name(X, [0, 1, 2], seven)["all"], plain))
-        noisy = [dataclasses.replace(m, error_mm=5.0) if m.name == "h_post" else m for m in seven]
+        noisy = [dataclasses.replace(m, error=5.0) if m.name == "h_post" else m for m in seven]
         got = MS.name(X, [0, 1, 2], noisy)["all"]
         self.assertGreater(np.abs(got - plain).max(), 1e-3)
         want = R.name(X, [0, 1, 2], mu, sd, R.SYNTH, noise=MS.errors(noisy))["all"]

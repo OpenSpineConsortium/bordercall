@@ -8,6 +8,7 @@ graph TD
     measure_error[("measure_error ~ Data")]
     offset(["offset ~ Normal"])
     sex_effect[("sex_effect ~ Data")]
+    size_power[("size_power ~ Data")]
     table_mean[("table_mean ~ Data")]
     table_sd[("table_sd ~ Data")]
     weight_effect[("weight_effect ~ Data")]
@@ -24,6 +25,7 @@ graph TD
     log_s --> x
     measure_error --> x
     offset --> x
+    size_power --> x
     table_mean --> x
     table_sd --> x
     weight_effect --> x
@@ -43,6 +45,7 @@ graph TD
     subgraph plate5 ["measure"]
         age_effect
         measure_error
+        size_power
         weight_effect
     end
     subgraph plate6 ["measure x level"]

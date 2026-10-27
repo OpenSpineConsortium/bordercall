@@ -255,7 +255,7 @@ class Contradictions(unittest.TestCase):
     def test_the_arithmetic_checks_cover_every_derived_column_and_hold_their_verdicts(self):
         prov = rows_of("provenance.csv")
         checks = contradictions.derived(prov)
-        self.assertEqual({c["kind"] for c in checks}, {"ratio", "sum"})
+        self.assertEqual({c["kind"] for c in checks}, {"ratio", "sum", "relation"})
         ratio_measures = {(r["table"], r["measure"]) for r in prov if r["statistic"] == "ratio" and r["value"] != ""}
         self.assertEqual({(c["table"], c["measure"]) for c in checks if c["kind"] == "ratio"}, ratio_measures)
         self.assertEqual({(c["table"], c["measure"]) for c in checks if c["kind"] == "sum"},
@@ -263,6 +263,15 @@ class Contradictions(unittest.TestCase):
         for c in checks:
             self.assertIn(c["agrees"], ("yes", "no"))
             self.assertEqual(c["agrees"] == "yes", contradictions.consistent(c), c)
+
+    def test_the_x_card_angle_is_minus_the_transverse_angle_but_at_one_cell(self):
+        """CAX = -T on both facets, both sides, C2 to L5, which is why the rule scores T and never
+        CAX; the one cell that breaks it is the superior left facet at T1 (57.7 against -47.7)."""
+        rel = [c for c in contradictions.derived(rows_of("provenance.csv")) if c["kind"] == "relation"]
+        self.assertEqual({c["measure"] for c in rel}, {"CAXsr", "CAXsl", "CAXir", "CAXil"})
+        self.assertEqual(len(rel), 4 * 23)
+        self.assertEqual([(c["measure"], c["level"]) for c in rel if c["agrees"] == "no"], [("CAXsl", "T1")])
+        self.assertTrue(all(abs(c["difference"]) <= 0.1 + 1e-9 for c in rel if c["agrees"] == "yes"))
 
 
 if __name__ == "__main__":
