@@ -5,10 +5,14 @@ The record test is the slow one, a few minutes: it draws the archive's scoring c
 every field of 1, 3 and 9 bodies under the three regimes on the checked table (which equals the
 archive's in every value the record used, tests/test_schwingcheck_table.py) and holds every rate
 exact.json records for the three regimes at those widths (`widths[n].regimes`), the claims
-included, to what this package computes, the share named to the digit and the rest to 1e-9. The
-127 subsets of the seven measures that exact.json also records at each width (`widths[n].subsets`)
-are not rescored here. Set SCHWINGCHECK_RECORD_WIDTHS to run fewer widths while developing, never
-in a pull request.
+included, to what this package computes, the share named to the digit and the rest to 1e-9. It
+does so with both engines of the exact rule, rule.py's NumPy and compiled.py's PyTensor function.
+The 127 subsets of the seven measures that exact.json also records at each width
+(`widths[n].subsets`) are not rescored here. Set SCHWINGCHECK_RECORD_WIDTHS to run fewer widths,
+or SCHWINGCHECK_RECORD_ENGINES fewer engines, while developing, never in a pull request. Setting
+SCHWINGCHECK_RECORD_ENGINES to "numpy pytensor pymc" also rescores from the PyMC naming model's
+own graph, integrated on the same nodes, about eight minutes more, which the default leaves out
+for time; test_schwingcheck_cli.py holds the three engines to one another on four columns.
 """
 from __future__ import annotations
 
@@ -49,16 +53,18 @@ class Record(unittest.TestCase):
         self.assertEqual(rec["measures"], MS.SPINEPS_7)
         self.assertEqual(rec["synth"], R.SYNTH)
         widths = [int(w) for w in os.environ.get("SCHWINGCHECK_RECORD_WIDTHS", "1 3 9").split()]
-        got = M.rescore(widths, n_columns=rec["n_columns"], seed=rec["score_seed"])
-        for n in widths:
-            want = rec["widths"][str(n)]
-            self.assertEqual(want["places"], got[str(n)]["places"])
-            for regime in ("both", "ap", "lateral"):
-                a = {k: want["regimes"][regime][k] for k in RECORD_KEYS if k in want["regimes"][regime]}
-                b = {k: got[str(n)]["regimes"][regime][k] for k in a}
-                diffs = S.compare(a, b, tol=1e-9)
-                self.assertEqual(diffs, [], "n=%d %s: %s" % (n, regime, diffs[:10]))
-                self.assertEqual(want["regimes"][regime]["exact"], got[str(n)]["regimes"][regime]["exact"])
+        for engine in os.environ.get("SCHWINGCHECK_RECORD_ENGINES", "numpy pytensor").split():
+            with self.subTest(engine=engine):
+                got = M.rescore(widths, n_columns=rec["n_columns"], seed=rec["score_seed"], engine=engine)
+                for n in widths:
+                    want = rec["widths"][str(n)]
+                    self.assertEqual(want["places"], got[str(n)]["places"])
+                    for regime in ("both", "ap", "lateral"):
+                        a = {k: want["regimes"][regime][k] for k in RECORD_KEYS if k in want["regimes"][regime]}
+                        b = {k: got[str(n)]["regimes"][regime][k] for k in a}
+                        diffs = S.compare(a, b, tol=1e-9)
+                        self.assertEqual(diffs, [], "%s n=%d %s: %s" % (engine, n, regime, diffs[:10]))
+                        self.assertEqual(want["regimes"][regime]["exact"], got[str(n)]["regimes"][regime]["exact"])
 
 
 class InferenceData(unittest.TestCase):

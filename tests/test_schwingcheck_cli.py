@@ -1,5 +1,7 @@
-"""`python -m schwingcheck name` names a field from a CSV, says so when there is nothing to name,
-and `table check` holds the committed long CSV to the provenance.
+"""`python -m schwingcheck name` names a field from a CSV with any of its three engines, says so
+when there is nothing to name, `rescore` gives the same rates with each of its three, `table
+check` holds the committed long CSV to the provenance and `graph check` the committed graphs to the
+models.
 """
 from __future__ import annotations
 
@@ -21,6 +23,7 @@ from schwingcheck import LEVELS                  # noqa: E402
 from schwingcheck import __main__ as M           # noqa: E402
 from schwingcheck import columns as C            # noqa: E402
 from schwingcheck import measures as MS          # noqa: E402
+from schwingcheck import score as S              # noqa: E402
 
 
 def run(argv):
@@ -110,12 +113,60 @@ class Name(unittest.TestCase):
             self.assertEqual(code, 2)
             self.assertIn("an offset for 2 of its 3 bodies", out)
 
+    def test_every_engine_names_the_field(self):
+        keys, values = self._column()
+        with tempfile.TemporaryDirectory() as d:
+            path = self._write(d, keys, values, [4, 6, 8], offsets=[0, 2, 4], drop={(1, "canal_w")})
+            exact = {e: run(["name", path, "--engine", e]) for e in ("numpy", "pytensor")}
+            code, out = run(["name", path, "--engine", "nuts", "--draws", "500", "--chains", "2", "--seed", "3"])
+        self.assertEqual(exact["numpy"][0], 0)
+        self.assertEqual(exact["numpy"], exact["pytensor"])
+        self.assertEqual(code, 0)
+        want = posteriors(exact["numpy"][1])
+        got = posteriors(out)
+        self.assertGreater(len(got), 1)
+        for place, (p, se) in got.items():
+            self.assertIsNotNone(se, place)
+            if place in want:
+                self.assertLess(abs(p - want[place][0]), 4.0 * se + 0.01, place)
+
     def test_an_area_is_refused_until_step_e(self):
         keys, values = self._column()
         with tempfile.TemporaryDirectory() as d:
             path = self._write(d, keys, values, [3, 4])
             with self.assertRaises(ValueError):
                 run(["name", path, "--measures", "endplate", "canal_area"])
+
+
+def posteriors(out):
+    """{place: (posterior, its Monte Carlo error or None)} from the lines `name` prints."""
+    got = {}
+    for line in out.splitlines():
+        parts = line.split()
+        if len(parts) >= 2 and parts[0] in LEVELS:
+            got[parts[0]] = (float(parts[1]), float(parts[3]) if len(parts) > 3 and parts[2] == "+-" else None)
+    return got
+
+
+class Rescore(unittest.TestCase):
+    def test_the_three_engines_give_the_same_rates(self):
+        rates = {e: M.rescore([3], n_columns=4, seed=97, engine=e) for e in ("numpy", "pytensor", "pymc")}
+        for e in ("pytensor", "pymc"):
+            for regime in ("both", "ap", "lateral"):
+                a, b = rates["numpy"]["3"]["regimes"][regime], rates[e]["3"]["regimes"][regime]
+                self.assertEqual(S.compare(a, b, tol=1e-9), [], (e, regime))
+                self.assertEqual(a["exact"], b["exact"], (e, regime))
+
+    def test_an_unknown_engine_is_refused(self):
+        with self.assertRaises(ValueError):
+            M.rescore([1], n_columns=1, engine="stan")
+
+
+class Graph(unittest.TestCase):
+    def test_graph_check_passes_on_the_committed_graphs(self):
+        code, out = run(["graph", "check"])
+        self.assertEqual(code, 0, out)
+        self.assertIn("graphs: as the models draw them", out)
 
 
 class Table(unittest.TestCase):

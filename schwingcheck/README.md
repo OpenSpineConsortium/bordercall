@@ -1,6 +1,6 @@
-# schwingcheck: the exact rule as a package, on data shaped for PyMC
+# schwingcheck: the exact rule as a package and as PyMC models
 
-Step c of item P ([TODO.md](../TODO.md)), 27 October 2026. The archive's exact Bayes rule ([archive/bordercall/exact.py](../archive/bordercall/exact.py)), its column generator ([panjabi.py](../archive/bordercall/panjabi.py), [neighbour.py](../archive/bordercall/neighbour.py)) and its scores, lifted into one package whose data is shaped for the PyMC rewrite of step d: the checked table as one long CSV loaded into an xarray Dataset with named dimensions; columns and fields as arrays with NaN for a missing value and integer offsets for gaps; every result as ArviZ InferenceData in NetCDF with the command, the seeds and the digests in its attributes; the code vectorised, with no loop per body or per field. It is the same rule: the tests hold the log likelihoods and the posterior to the archive's within 1e-10 on contiguous complete fields of six widths, from one body to the whole column of 22, the generator to the archive's bit for bit, and the rescoring of seed 97's 2,000 columns to every rate [exact.json](../archive/records/exact-2026-10-26/exact.json) records for the three regimes at 1, 3 and 9 bodies. Items 1 and 2 of TODO.md are done by it. It also carries the twelve specimens Panjabi measured (the thoracic paper's Table 1: age, sex, weight, height), for the covariates the owner asked for on 27 October 2026. Nothing here runs PyMC yet; it is pinned now so that step d runs in the same environment.
+Steps c and d of item P ([TODO.md](../TODO.md)), 27 October 2026. Step c lifted the archive's exact Bayes rule ([archive/bordercall/exact.py](../archive/bordercall/exact.py)), its column generator ([panjabi.py](../archive/bordercall/panjabi.py), [neighbour.py](../archive/bordercall/neighbour.py)) and its scores into one package whose data is shaped for the PyMC rewrite of step d: the checked table as one long CSV loaded into an xarray Dataset with named dimensions; columns and fields as arrays with NaN for a missing value and integer offsets for gaps; every result as ArviZ InferenceData in NetCDF with the command, the seeds and the digests in its attributes; the code vectorised, with no loop per body or per field. It is the same rule: the tests hold the log likelihoods and the posterior to the archive's within 1e-10 on contiguous complete fields of six widths, from one body to the whole column of 22, the generator to the archive's bit for bit, and the rescoring of seed 97's 2,000 columns to every rate [exact.json](../archive/records/exact-2026-10-26/exact.json) records for the three regimes at 1, 3 and 9 bodies. Items 1 and 2 of TODO.md are done by it. It also carries the twelve specimens Panjabi measured (the thoracic paper's Table 1: age, sex, weight, height), for the covariates the owner asked for on 27 October 2026. Step d rewrote the rule and the generator in PyMC beside the NumPy code, which stays the reference ([The PyMC models](#the-pymc-models)): the level of every body is summed out exactly and only the patient's size is sampled, so no sampler ever moves a discrete level; the rule is also one compiled PyTensor function, which rescores the record as the NumPy code does; the generator is a forward model whose columns match the NumPy generator's in distribution; height enters the size prior and weight, age and sex enter through hooks at zero; and each model's graph is drawn from PyMC's own analysis of it, beside a plate diagram.
 
 ## Install
 
@@ -20,8 +20,10 @@ Run every command from the repository's root.
 ```
 python -m schwingcheck table check                 # the committed CSVs are what write would write
 python -m schwingcheck table write                 # rewrite them from the provenance record
-python -m schwingcheck name FIELD.csv [--measures endplate h_post ...] [--offsets 0 1 2]
-python -m schwingcheck rescore --n 1 3 9 --outdir records/exact-rescore
+python -m schwingcheck name FIELD.csv [--measures endplate h_post ...] [--offsets 0 1 2] [--engine numpy|pytensor|nuts]
+python -m schwingcheck rescore --n 1 3 9 --outdir records/exact-rescore [--engine numpy|pytensor|pymc]
+python -m schwingcheck graph check                 # the committed graphs are the PyMC models' graphs
+python -m schwingcheck graph write                 # redraw them from the models
 ```
 
 `name` names one field. The CSV has a column `body` (0, 1, 2, ... down the column), one column per measure in millimetres, blank where the value was not read, and optionally a column `offset`, each body's offset from the first (0, 2, 4 for every other body; without it the bodies are consecutive, whatever their numbers); `--offsets` gives the offsets on the command line instead, one per body. [examples/t11-t12-l1.csv](examples/t11-t12-l1.csv) is Panjabi's means at T11, T12 and L1 for the seven measures, the README's example:
@@ -39,9 +41,11 @@ place (level of the first body)  posterior
 the top place reaches 0.99: no
 ```
 
-The archive's example in [README.md](../README.md) prints the same three leading posteriors. With no body the command says there is nothing to name and exits 1; with no measure read on any body it says the posterior is the prior and exits 1; a measure that is an area or an angle is refused by name until step e; offsets for some bodies and not others, a count of them other than the bodies', or offsets that do not rise down the column are refused, and it exits 2.
+The archive's example in [README.md](../README.md) prints the same three leading posteriors. `--engine` chooses how the posterior is computed: `numpy`, the default, is rule.py, the reference; `pytensor` is the same rule as one compiled function (compiled.py), which prints the same numbers; `nuts` is the PyMC naming model sampled by NUTS (`--draws`, `--chains`, `--seed`; below, [The naming model](#the-naming-model)), which prints each posterior with its Monte Carlo error. With no body the command says there is nothing to name and exits 1; with no measure read on any body it says the posterior is the prior and exits 1; a measure that is an area or an angle is refused by name until step e; offsets for some bodies and not others, a count of them other than the bodies', or offsets that do not rise down the column are refused, and it exits 2.
 
-`rescore` draws the archive's scoring columns (seed 97, 2,000 columns, the typical phenotype) and scores every field of the widths given under the three regimes, both planes, AP and lateral, writing one InferenceData file per width and regime and `rates.json` beside them, 12 to 19 MB a file (12.0 MB for one body under the AP regime, 19.1 MB for nine bodies under both planes). It reproduces every rate exact.json records for the three regimes, the share named identically and the rest within 1e-12, since the checked table equals the archive's in every value the record used (below).
+`rescore` draws the archive's scoring columns (seed 97, 2,000 columns, the typical phenotype) and scores every field of the widths given under the three regimes, both planes, AP and lateral, writing one InferenceData file per width and regime and `rates.json` beside them, 12 to 19 MB a file (12.0 MB for one body under the AP regime, 19.1 MB for nine bodies under both planes). It reproduces every rate exact.json records for the three regimes, the share named identically and the rest within 1e-12, since the checked table equals the archive's in every value the record used (below). `--engine pytensor` rescores with the compiled rule and `--engine pymc` with the PyMC naming model integrated over the size from its own graph, and both reproduce the record the same way ([The PyMC models](#the-pymc-models)).
+
+`graph check` fails when a graph committed under [graphs/](graphs/) differs from the one PyMC finds in its model, and `graph write` redraws them ([The graphs](#the-graphs)).
 
 ## Layout
 
@@ -55,9 +59,13 @@ The archive's example in [README.md](../README.md) prints the same three leading
 - [`columns.py`](columns.py): the generator, every phenotype, and the cutting of fields from columns.
 - [`score.py`](score.py): the archive's rates, computed the same way.
 - [`records.py`](records.py): a result as InferenceData, written and read as NetCDF.
+- [`compiled.py`](compiled.py): the exact rule as one compiled PyTensor function, step d's engine for scoring at scale.
+- [`model.py`](model.py): the three PyMC models, the naming rule, the fixed-level baseline and the generator, and the Mermaid writer of their graphs.
+- [`covariates.py`](covariates.py): a patient's height, weight, age and sex, and where each enters the models.
+- [`graphs/`](graphs/): the three models' graphs, generated; do not edit them by hand.
 - [`__main__.py`](__main__.py): the commands above.
 - [`examples/`](examples/): the field above.
-- Tests in [tests/](../tests/): `test_schwingcheck_table.py`, `test_schwingcheck_rule.py`, `test_schwingcheck_columns.py`, `test_schwingcheck_record.py`, `test_schwingcheck_cli.py`.
+- Tests in [tests/](../tests/): `test_schwingcheck_table.py`, `test_schwingcheck_rule.py`, `test_schwingcheck_columns.py`, `test_schwingcheck_record.py`, `test_schwingcheck_cli.py`, `test_schwingcheck_model.py`.
 
 ## The table
 
@@ -121,16 +129,307 @@ The whole likelihood is one matrix product per block of fields: the sums the She
 
 **The record of 2026-10-26 reproduced.** `rescore --n 1 3 9` reproduces every rate exact.json records for the three regimes (`widths[n].regimes`) at 1, 3 and 9 bodies, the share named identically and the rest within 1e-12, over every key (`n_fields`, `places`, `exact`, `se_cluster`, `within_one`, `errors`, `bayes_error_predicted`, `bayes_error_counted`, `log_loss`, `selective`, `selective_099_by_called_region`, `credible`, `mapq`, `calibration`, `by_start`, `by_centre`, `landmarks`, `confusion_offsets`, `measures`, `claims`); `tests/test_schwingcheck_record.py` holds the share named to the digit and the rest to 1e-9. The 127 subsets of the seven measures that exact.json also records at each width (`widths[n].subsets`) are not rescored. The run takes about two minutes on 4 CPUs (59, 48 and 18 seconds for 1, 3 and 9 bodies, nearly all of it the rule).
 
+## The PyMC models
+
+Step d of item P: the rule and the generator rewritten in PyMC (6.3.2, on PyTensor 3.3.4 with its default Numba backend, and ArviZ 1.3.0), beside the NumPy code of step c, which stays the reference every test holds them to. Four pieces:
+
+- [`compiled.py`](compiled.py): the exact rule as one compiled PyTensor function, `ExactRule(mu, sd, noise=...)`, the engine that scores at scale.
+- [`model.py`](model.py): three PyMC models over the same table and the same covariates: `naming`, the rule; `fixed_level`, the development baseline, every level known; `generator`, columns.py's generator as a forward model.
+- [`covariates.py`](covariates.py): a patient's height, weight, age and sex, and where each enters.
+- [`graphs/`](graphs/): the three models' graphs as PyMC finds them, drawn below.
+
+### The model as a plate diagram
+
+One patient, whose field is named or whose column is drawn, is one plate; inside it is one plate per measure, and inside that one per body. This diagram is drawn by hand from the code, to show the model as one would write it down; the three graphs further on are drawn by PyMC from each model's own variables. Shaded nodes are observed, cylinders are data, the hexagon is the discrete hypothesis and the rounded nodes are continuous random variables.
+
+```mermaid
+graph TD
+    n_beta(["beta_height ~ N(1, 0.5^2)"])
+    n_hooks[("hooks: sex_effect, weight_effect, age_effect")]
+    n_table[("table: mean and SD by measure and level")]
+    n_error[("measure_error by measure")]
+    n_prior[("log_prior over the hypotheses")]
+    subgraph p_patient ["patient"]
+        n_cov[("covariates: height, weight, age, sex")]
+        n_logs(["log s ~ N(beta_height log(height / 167.75) + sex hook, 0.07^2)"])
+        n_h{{"h: every body's level, a pattern and a place"}}
+        subgraph p_measure ["measure m"]
+            n_z(["z ~ N(0, 1), the patient's offset in m"])
+            subgraph p_body ["body b"]
+                n_e(["e ~ N(0, 1), the level's draw"])
+                n_x(["x ~ N(s (f mu + sd (rho z + sqrt(1 - rho^2) e)), error^2)"])
+            end
+        end
+    end
+    n_beta --> n_logs
+    n_hooks --> n_logs
+    n_cov --> n_logs
+    n_prior --> n_h
+    n_logs --> n_x
+    n_h --> n_x
+    n_z --> n_x
+    n_e --> n_x
+    n_cov --> n_x
+    n_hooks --> n_x
+    n_table --> n_x
+    n_error --> n_x
+    style n_cov fill:#d9d9d9,color:#000000
+    style n_x fill:#d9d9d9,color:#000000
+```
+
+Read from the top. The patient's size s is log-normal about the size their height predicts: isometric scaling, every length in proportion to stature, with beta_height ~ N(1, 0.5^2) as a starting belief and not a measurement, 167.75 cm the mean height of Panjabi's twelve specimens and 0.07 the archive's residual SD. The hypothesis h says which level each body of the field is, a pattern of offsets and the place of the first body. In each measure the patient has an offset z of their own, shared by every body, which with rho = 0.5 makes a patient's values run large or small together down the column, and each body has its own level draw e. Each value read is then normal about the patient's scaled table value, mu and sd being the table's at measure m and the level h gives body b, with the measure's own error. f is the weight and age hooks' factor, exp(gamma_weight z_weight + gamma_age z_age), which is 1 while the hooks are zero. The generator also floors a value at 0.5 mm, as the archive's does; the likelihood has no floor.
+
+What each model does with each node:
+
+| node | `naming`, the rule | `fixed_level`, the baseline | `generator` |
+|---|---|---|---|
+| h, the levels | summed out exactly, by a logsumexp over every hypothesis inside the observed density | known, given as data | the column's own levels, from its phenotype |
+| log s | sampled by NUTS, or integrated on the rule's 161 nodes (`quadrature_evidence`) | sampled by NUTS | drawn |
+| z and e | integrated in closed form, the covariance Delta + u u' inverted by Sherman-Morrison | z sampled by NUTS, e integrated in closed form | drawn |
+| beta_height | integrated in closed form into each patient's size prior | sampled by NUTS, one shared by every patient | drawn |
+| x | observed, as `MixtureOverLevels` | observed, one normal per value read | drawn |
+
+**No discrete variable is ever sampled.** A sampler that has to move the level, as PyMC's CategoricalGibbsMetropolis would, mixes slowly between places far apart and turns every answer into a count of visits. Here the level is enumerated and summed out in the density itself, so NUTS sees only the continuous size, and the posterior over places is the Rao-Blackwellised average of p(h | x, s) over the draws of s, which has a smaller error than a count of visits would (the owner's word of 27 October 2026, 09:46 UTC, on Metropolis bottlenecks). A field whose gap pattern is not known (TODO.md 4c) is scored the same way over every (pattern, place) pair in one call (`compiled.hypotheses`, `compiled.marginal`).
+
+### The compiled rule
+
+`compiled.ExactRule` is rule.py's arithmetic as one PyTensor graph, compiled once per process: the same four Sherman-Morrison sums as one matrix product per chunk of fields, the same 161 Gauss-Hermite nodes, each measure's own error. It generalises rule.py in three ways that leave rule.py's answers unchanged: a hypothesis is any row of level indices, so several gap patterns are scored at once; the size prior may differ by field, as a known height makes it, each field carrying its own weights on the same nodes; and a measure's mean may be scaled field by field, as the weight and age hooks will scale it once they are not zero. It equals rule.py within 1e-10 at 1, 3 and 9 bodies under every regime, on gapped fields with values missing and with each measure's own error. Rescoring seed 97's 2,000 columns with it (`rescore --engine pytensor`) reproduces exact.json as the NumPy engine does, every rate of the three regimes at 1, 3 and 9 bodies within 8.1e-13 and the share named identical, in 45, 43 and 20 seconds where NumPy took 59, 48 and 18 on the container's 4 CPUs. It is the engine step e scores with.
+
+### The naming model
+
+`model.naming(X, hyp, mu, sd, keys)` is the rule as one PyMC model over every field at once. Its observed x is a `pm.CustomDist` named `MixtureOverLevels`, whose log density is the log of the sum over hypotheses of the prior times the closed-form likelihood given the size, so the one free variable is log s, one per field, each on its patient's size prior. `model.sample` runs NUTS on it, keeping log s alone, and `model.hypothesis_posterior` returns p(h | x) for every field with its Monte Carlo standard error, by batch means within each chain. `model.quadrature_evidence` integrates the same model's own graph over log s on rule.py's nodes instead of sampling it, which is the exact rule computed from the PyMC model: it equals the compiled rule within 1e-6 in the tests, and within 5e-13 over every field of seed 97's columns at 1, 3 and 9 bodies. Rescoring seed 97's 2,000 columns from it (`rescore --engine pymc`, one model per width and regime) reproduces exact.json too, every rate of the three regimes at 1, 3 and 9 bodies within 8.1e-13 and the share named identical, in 174, 184 and 140 seconds.
+
+On the example field, four chains of 2,000 draws after 1,000 tuning steps take 10 seconds in all, 3 to 4 of them sampling, once PyTensor's cache on disk is warm, and 27 the first time:
+
+```
+$ python -m schwingcheck name schwingcheck/examples/t11-t12-l1.csv --engine nuts
+field of 3 bodies at offsets [0, 1, 2], measures endplate, endplate_depth, endplate_lower, endplate_lower_depth, h_post, canal_w, canal_ap
+place (level of the first body)  posterior
+  T11   0.612115 +- 0.0062  <- named
+  T10   0.284649 +- 0.0072
+  T12   0.074515 +- 0.0021
+  L1    0.014074 +- 0.0007
+  ...
+```
+
+The exact rule gives 0.607628, 0.285740, 0.075913 and 0.015071, and every one of the six leading places is within 1.5 of its standard errors of it. Further into the tail the estimate runs low: T8 is 0.000377 against the exact 0.000619, 2.6 of its standard errors, and T6 2.4. A place that far out is likely only at sizes in the tail of the size's posterior, so its average is carried by the few draws that reach there, converges slowly and has a batch-means error that is too small. The tests hold NUTS's posterior within four standard errors plus 1e-3 of the exact one, on 24 one-body fields and on 12 every-other-body fields with a fifth of their values missing, with R-hat below 1.01. The exact rule is what names; NUTS shows the model samples, which models that cannot be integrated on nodes will need.
+
+### The fixed-level baseline
+
+`model.fixed_level(X, field_levels, mu, sd, keys)` knows every body's level and makes every continuous variable of the generator explicit, the patient's size, the patient's offset in each measure and the beta_height every patient shares, each value read normal given them as columns.py draws it. NUTS on it gives the closed form's posterior of log s, integrated on a grid, within four Monte Carlo standard errors in its mean and its SD, with R-hat below 1.01, and its draws are ordinary continuous variables that ArviZ reads directly. It is the baseline the owner's queued review of the fixed-k NUTS workflow reads, and, once item 5 brings spines of known level with their covariates, the model that estimates the coefficients the naming model takes as given.
+
+### The generator
+
+`model.generator(ref, keys, phenotypes, n)` is columns.py's generator as a PyMC forward model, and `model.draw(model, seed)` returns its columns as a `Columns` object. The random streams differ, so its columns match the NumPy generator's in distribution and not draw for draw. Over 6,000 columns of each, 1,000 of every phenotype, more than 5,000 two-sample z scores, of every body's mean and SD, of every correlation between neighbouring bodies and between measures, and of the size's mean and SD, are all within 4.8 (Bonferroni at 1 per cent) and their mean square is within 0.15 of 1, with independent offsets and again with correlated ones (r = 0.3) and each measure's own error.
+
+### The covariates
+
+The owner asked on 27 October 2026, 11:06 UTC, for age, sex, weight and height as variables of the model. Panjabi prints no measurement of one specimen, so no coefficient can be estimated from the papers ([The specimens](#the-specimens)). What the models carry is the place where each enters, with a prior where anatomy gives one and a hook at zero where it does not, so that item 5's patients can estimate them without changing the models' shape:
+
+- Height scales the size: log s = beta_height log(height / 167.75) + e, with e ~ N(0, 0.07^2) and beta_height ~ N(1, 0.5^2), isometric scaling as a starting belief. The naming model integrates beta_height out patient by patient, log s ~ N(log(h / 167.75), 0.07^2 + 0.5^2 log(h / 167.75)^2); the fixed-level model and the generator keep one beta_height shared by every patient.
+- Sex shifts log s by a hook, `sex_size`, and weight and age scale each measure's mean by exp(gamma z), z standardised on the twelve specimens and gamma one per measure (`weight_effects`, `age_effects`). Every hook is zero today. The owner expects weight to act on the disc spaces and the facets and age on the facets, measures that enter in step e; no disc space is in Panjabi's tables.
+- A patient of whom nothing is known has the archive's size prior and table exactly, so every record is reproduced, and a known height, or a hook set off zero, moves the naming model exactly as it moves the compiled rule (tests, to 1e-6).
+
+Pooling populations from several studies, the owner's future direction, then adjusts each study's table for its specimens' covariates through these terms, so that a difference in stature between two series is not read as a difference in anatomy.
+
+### The graphs
+
+`python -m schwingcheck graph write` writes each model's graph to [graphs/](graphs/) from PyMC's own analysis of the model, its `ModelGraph` (every variable, its parents and the dimensions it spans), on the archive's seven measures: a field of three consecutive bodies named over the twenty places it fits, the same field at a known place, and the generator over the six phenotypes. `graph check` and a test fail when a committed graph differs from its model's, and another test fails when this README does not draw each of them exactly as committed. A cylinder is data, a rounded node a random variable, a rectangle a deterministic function and the shaded node the observed one; each box is a plate, named by the dimensions its nodes span.
+
+The naming model, [graphs/naming.mmd](graphs/naming.mmd), where `x ~ MixtureOverLevels` is the density summed over the hypotheses and `read` marks the values read:
+
+```mermaid
+graph TD
+    age_effect[("age_effect ~ Data")]
+    covariate_known[("covariate_known ~ Data")]
+    covariates[("covariates ~ Data")]
+    hypothesis_levels[("hypothesis_levels ~ Data")]
+    log_prior[("log_prior ~ Data")]
+    log_s(["log_s ~ Normal"])
+    measure_error[("measure_error ~ Data")]
+    read[("read ~ Data")]
+    sex_effect[("sex_effect ~ Data")]
+    table_mean[("table_mean ~ Data")]
+    table_sd[("table_sd ~ Data")]
+    weight_effect[("weight_effect ~ Data")]
+    x(["x ~ MixtureOverLevels"])
+    style x fill:#d9d9d9,color:#000000
+    covariate_known --> log_s
+    covariates --> log_s
+    sex_effect --> log_s
+    age_effect --> x
+    covariate_known --> x
+    covariates --> x
+    hypothesis_levels --> x
+    log_prior --> x
+    log_s --> x
+    measure_error --> x
+    read --> x
+    table_mean --> x
+    table_sd --> x
+    weight_effect --> x
+    subgraph plate1 ["field"]
+        log_s
+    end
+    subgraph plate2 ["field x covariate"]
+        covariate_known
+        covariates
+    end
+    subgraph plate3 ["field x measure x body"]
+        read
+        x
+    end
+    subgraph plate4 ["hypothesis"]
+        log_prior
+    end
+    subgraph plate5 ["hypothesis x body"]
+        hypothesis_levels
+    end
+    subgraph plate6 ["measure"]
+        age_effect
+        measure_error
+        weight_effect
+    end
+    subgraph plate7 ["measure x level"]
+        table_mean
+        table_sd
+    end
+```
+
+The fixed-level baseline, [graphs/fixed_level.mmd](graphs/fixed_level.mmd), where `offset` is z and `x` has one entry per value read:
+
+```mermaid
+graph TD
+    age_effect[("age_effect ~ Data")]
+    beta_height(["beta_height ~ Normal"])
+    covariate_known[("covariate_known ~ Data")]
+    covariates[("covariates ~ Data")]
+    field_levels[("field_levels ~ Data")]
+    log_s(["log_s ~ Normal"])
+    measure_error[("measure_error ~ Data")]
+    offset(["offset ~ Normal"])
+    sex_effect[("sex_effect ~ Data")]
+    table_mean[("table_mean ~ Data")]
+    table_sd[("table_sd ~ Data")]
+    weight_effect[("weight_effect ~ Data")]
+    x(["x ~ Normal"])
+    style x fill:#d9d9d9,color:#000000
+    beta_height --> log_s
+    covariate_known --> log_s
+    covariates --> log_s
+    sex_effect --> log_s
+    age_effect --> x
+    covariate_known --> x
+    covariates --> x
+    field_levels --> x
+    log_s --> x
+    measure_error --> x
+    offset --> x
+    table_mean --> x
+    table_sd --> x
+    weight_effect --> x
+    subgraph plate1 ["field"]
+        log_s
+    end
+    subgraph plate2 ["field x body"]
+        field_levels
+    end
+    subgraph plate3 ["field x covariate"]
+        covariate_known
+        covariates
+    end
+    subgraph plate4 ["field x measure"]
+        offset
+    end
+    subgraph plate5 ["measure"]
+        age_effect
+        measure_error
+        weight_effect
+    end
+    subgraph plate6 ["measure x level"]
+        table_mean
+        table_sd
+    end
+    subgraph plate7 ["reading"]
+        x
+    end
+```
+
+The generator, [graphs/generator.mmd](graphs/generator.mmd), where `level_draw` is e, `raw` the value before the floor and `value` the column, NaN past its end:
+
+```mermaid
+graph TD
+    age_effect[("age_effect ~ Data")]
+    beta_height(["beta_height ~ Normal"])
+    body_present[("body_present ~ Data")]
+    column_mean[("column_mean ~ Data")]
+    column_sd[("column_sd ~ Data")]
+    covariate_known[("covariate_known ~ Data")]
+    covariates[("covariates ~ Data")]
+    level_draw(["level_draw ~ Normal"])
+    log_s(["log_s ~ Normal"])
+    measure_error[("measure_error ~ Data")]
+    offset(["offset ~ Normal"])
+    raw(["raw ~ Normal"])
+    sex_effect[("sex_effect ~ Data")]
+    value["value ~ Deterministic"]
+    weight_effect[("weight_effect ~ Data")]
+    beta_height --> log_s
+    covariate_known --> log_s
+    covariates --> log_s
+    sex_effect --> log_s
+    age_effect --> raw
+    column_mean --> raw
+    column_sd --> raw
+    covariate_known --> raw
+    covariates --> raw
+    level_draw --> raw
+    log_s --> raw
+    measure_error --> raw
+    offset --> raw
+    weight_effect --> raw
+    body_present --> value
+    raw --> value
+    subgraph plate1 ["column"]
+        log_s
+    end
+    subgraph plate2 ["column x body"]
+        body_present
+    end
+    subgraph plate3 ["column x covariate"]
+        covariate_known
+        covariates
+    end
+    subgraph plate4 ["column x measure"]
+        offset
+    end
+    subgraph plate5 ["column x measure x body"]
+        column_mean
+        column_sd
+        level_draw
+        raw
+        value
+    end
+    subgraph plate6 ["measure"]
+        age_effect
+        measure_error
+        weight_effect
+    end
+```
+
+They are Mermaid because GitHub draws Mermaid in Markdown, while PyMC's other drawing, `pm.model_to_graphviz`, needs the graphviz package and its binaries, which are not among the pinned dependencies. PyMC's own `pm.model_to_mermaid` is not used either: it orders the plates by a hash that changes from one process to the next, so a committed graph would never stay checked, and it writes node shapes in the `@{ shape: ... }` syntax that only recent versions of Mermaid draw. `model.mermaid` writes the same ModelGraph in a fixed order with Mermaid's classic shapes.
+
 ## Tests
 
-41 tests, about three minutes in the pinned environment, nearly all of it the record test:
+65 tests, about seven minutes in the pinned environment, most of it the record test, which rescores the record twice, and the NUTS runs:
 
 - `test_schwingcheck_table.py` (17): the long CSV is what `write` writes, to the byte, and the check catches a header line, the columns' order, one value, CRLF and the last newline; every row is a cell read twice, Table 3's from page 892; the archive's CSV agrees in all 592 values, none of them missing; the Dataset's dimensions and coordinates; the archive's shape of the reference; every registered measure scored or refused for a reason; the seven in the archive's order; the checked and the archive's table are one; each measure carries its table rows with their cells, its mnemonics, its measurers and its correlations; the rule reads each measure's own error; a measure enters once and a pair as one side or its mean; the specimens CSV is Table 1 cell for cell, its Dataset, and the other papers' summaries agree but for the heaviest weight.
 - `test_schwingcheck_rule.py` (9): the archive's log likelihoods and posteriors to 1e-10 at widths 1, 2, 3, 5, 9 and 22 under every regime; whatever the chunk and the block; the archive's quadrature; gapped and missing-value fields equal to a dense normal from scipy to 1e-9; a measure missing on every body adds a constant; a field with nothing gets the prior back; a missing last body is the shorter field's marginal; offsets are checked; names given at 0.99 are right at least 99 per cent of the time on fresh columns.
 - `test_schwingcheck_columns.py` (6): the archive's columns bit for bit for seed 97, every phenotype, a correlated offset and other settings; the stream order; the checked table draws the archive's columns; the fields are exact.fields' and gapped fields skip short columns.
-- `test_schwingcheck_record.py` (2): seed 97 reproduces the three regimes' rates of exact.json at 1, 3 and 9 bodies, the share named to the digit and the rest to 1e-9; a record reads back whole.
-- `test_schwingcheck_cli.py` (7): `name` on a field of three, on gaps and missing values, with no body and with no measure; offsets as the docstring says, and refused when they do not fit; an area refused until step e; `table check` in process and as a program.
+- `test_schwingcheck_record.py` (2): seed 97 reproduces the three regimes' rates of exact.json at 1, 3 and 9 bodies, the share named to the digit and the rest to 1e-9, with the NumPy engine and with the compiled one (`SCHWINGCHECK_RECORD_ENGINES="numpy pytensor pymc"` adds the naming model's own quadrature, about eight minutes more); a record reads back whole.
+- `test_schwingcheck_cli.py` (11): `name` on a field of three, on gaps and missing values, with no body and with no measure; offsets as the docstring says, and refused when they do not fit; the numpy and pytensor engines print the same, and nuts prints each posterior with its error, within four of them of the exact one; an area refused until step e; `rescore`'s three engines give the same rates on four columns, and an unknown engine is refused; `graph check` passes; `table check` in process and as a program.
+- `test_schwingcheck_model.py` (20): the compiled rule equals rule.py to 1e-10 at 1, 3 and 9 bodies under every regime, with each measure's own error and on gapped fields with values missing, and its generalisations (several gap patterns at once, a size prior of each field's own, scaled means) equal what rule.py computes case by case; the naming model integrated on the nodes equals the compiled rule to 1e-6 on five kinds of field, its observed density is the sum over the hypotheses, NUTS's posterior is within four Monte Carlo errors of the exact one with R-hat below 1.01, and its prior draws have the fields' shape; the covariates' reference is the twelve specimens, nothing known leaves the archive's size prior and table, and a known height or a hook off zero moves the model as it moves the compiled rule; the fixed-level baseline's NUTS posterior of log s is the closed form's; the generator lays the columns out as the NumPy generator does and matches its columns in distribution, with correlated offsets and each measure's own error too; the committed graphs are the models' and this README draws each.
 
-## What step d and step e take from here
+## What step e takes from here
 
-Step d rewrites the rule and the generator in PyMC on these shapes: the Dataset is the table, `X` with its offsets is the observed data, `Columns.values` is what the generator must match in distribution, `records.build` is the InferenceData every result goes into, and `score.compare` with `tests/test_schwingcheck_record.py` is how the rewrite proves it reproduces the record. Step e adds the areas and the angles as kinds of their own in that model, takes the 15 spread-less means up only if a spread is found, and scores every family as TODO.md's step 5 says.
+Step e adds the areas and the angles as kinds of their own, an area scaling with s^2 and an angle not with s at all, in the compiled rule, which scores, and in the naming model and the generator, which the tests hold to it; it takes the 15 spread-less means up only if a spread is found for them; and it scores the families as TODO.md's step 5 says, at 1, 3 and 9 bodies and per phenotype, into InferenceData through `records.build`.
