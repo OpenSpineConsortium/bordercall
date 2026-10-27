@@ -80,6 +80,36 @@ class Name(unittest.TestCase):
             self.assertEqual(code, 1)
             self.assertIn("the posterior is the prior", out)
 
+    def test_offsets_follow_the_docstring(self):
+        keys, values = self._column()
+        with tempfile.TemporaryDirectory() as d:
+            path = os.path.join(d, "numbered.csv")
+            with open(path, "w") as fh:
+                # bodies numbered 4, 6, 8 with no offset column are consecutive bodies all the same
+                fh.write("body," + ",".join(keys) + "\n")
+                for b in (4, 6, 8):
+                    fh.write("%d," % b + ",".join("%.3f" % values[10 + (b - 4) // 2, j] for j in range(len(keys))) + "\n")
+            code, out = run(["name", path])
+            self.assertEqual(code, 0)
+            self.assertIn("offsets [0, 1, 2]", out)
+            code, out = run(["name", path, "--offsets", "3", "5", "7"])
+            self.assertEqual(code, 0)
+            self.assertIn("offsets [0, 2, 4]", out)
+            for bad, why in ((["3", "5"], "2 offsets for a field of 3 bodies"),
+                             (["0", "2", "2"], "do not rise down the column")):
+                code, out = run(["name", path, "--offsets"] + bad)
+                self.assertEqual(code, 2)
+                self.assertIn(why, out)
+            path = self._write(d, keys, values, [4, 5, 6], offsets=[0, 1, 2])
+            with open(path) as fh:
+                lines = fh.read().splitlines()
+            lines[2] = lines[2].replace("1,1,", "1,,", 1)
+            with open(path, "w") as fh:
+                fh.write("\n".join(lines) + "\n")
+            code, out = run(["name", path])
+            self.assertEqual(code, 2)
+            self.assertIn("an offset for 2 of its 3 bodies", out)
+
     def test_an_area_is_refused_until_step_e(self):
         keys, values = self._column()
         with tempfile.TemporaryDirectory() as d:

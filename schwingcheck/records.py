@@ -63,7 +63,8 @@ def _jsonable(o):
 def build(post: np.ndarray, truth: np.ndarray, group: np.ndarray, X: np.ndarray, offsets: Sequence[int],
           measures: Sequence[str], levels: Sequence[str], rates: dict, command: str, seeds: Dict[str, int],
           synth: dict, mu: Optional[np.ndarray] = None, sd: Optional[np.ndarray] = None,
-          digests: Optional[Dict[str, str]] = None, log_prior: Optional[np.ndarray] = None, extra_attrs: Optional[dict] = None):
+          digests: Optional[Dict[str, str]] = None, log_prior: Optional[np.ndarray] = None, extra_attrs: Optional[dict] = None,
+          noise: Optional[np.ndarray] = None):
     import arviz as az
     import xarray as xr
     from .rule import credible_sets
@@ -89,6 +90,9 @@ def build(post: np.ndarray, truth: np.ndarray, group: np.ndarray, X: np.ndarray,
         const["sd"] = (("measure", "level"), np.asarray(sd, float))
         coords["measure"] = list(measures)
         coords["level"] = list(levels)
+    if noise is not None:                    # each measure's own error, which the rule read
+        const["noise"] = ("measure", np.asarray(noise, float))
+        coords["measure"] = list(measures)
     constant = xr.Dataset(const, coords=coords)
     flat = {}
     for k, v in rates.items():

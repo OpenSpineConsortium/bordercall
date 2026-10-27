@@ -1,15 +1,19 @@
 """The long table is written from the provenance record and nothing else, loads with named
 dimensions, agrees with the archive's CSV in every value, and every registered measure can be
-selected for the rule or is refused for a reason; the specimens table is the thoracic paper's
-Table 1, cell for cell, and agrees with what the other three papers print about the same
-twelve spines but for the one contradiction they share.
+selected for the rule or is refused for a reason; each measure carries its table rows with their
+cells, its mnemonics, its measurers and its error, which the rule reads, and a pair or a measure
+named twice is refused; the specimens table is the thoracic paper's Table 1, cell for cell, and
+agrees with what the other three papers print about the same twelve spines but for the one
+contradiction they share.
 """
 from __future__ import annotations
 
 import csv
+import dataclasses
 import math
 import os
 import sys
+import tempfile
 import unittest
 
 import numpy as np
@@ -19,7 +23,9 @@ ROOT = os.path.dirname(HERE)
 sys.path.insert(0, ROOT)
 
 from schwingcheck import LEVELS, LEVELS_C2, SIDES   # noqa: E402
+from schwingcheck import columns as C              # noqa: E402
 from schwingcheck import measures as MS            # noqa: E402
+from schwingcheck import rule as R                 # noqa: E402
 from schwingcheck import mnemonics as MN           # noqa: E402
 from schwingcheck import table as T                # noqa: E402
 
@@ -34,6 +40,37 @@ CANON = {"endplate": ("endplate", "whole"), "endplate_depth": ("endplate_depth",
 class LongCSV(unittest.TestCase):
     def test_the_committed_csv_is_what_write_would_write(self):
         self.assertEqual(T.check_long_csv(), [])
+
+    def test_the_check_compares_the_text_to_the_byte(self):
+        with open(T.LONG_CSV, newline="", encoding="utf-8") as fh:
+            text = fh.read()
+        lines = text.split("\n")
+        column_line = next(i for i, line in enumerate(lines) if not line.startswith("#"))
+        cols = lines[column_line].split(",")
+        cols[0], cols[1] = cols[1], cols[0]
+        swapped = list(lines)
+        swapped[column_line] = ",".join(cols)
+        changed = list(lines)
+        changed[column_line + 5] = changed[column_line + 5].replace(",mean,", ",sem,", 1)
+        variants = {"a header line": "# an edit by hand\n" + text, "the columns' order": "\n".join(swapped),
+                    "one value's row": "\n".join(changed), "CRLF": text.replace("\n", "\r\n"),
+                    "the last newline": text[:-1]}
+        with tempfile.TemporaryDirectory() as tmp:
+            path = os.path.join(tmp, "long.csv")
+            for what, variant in variants.items():
+                with open(path, "w", newline="", encoding="utf-8") as fh:
+                    fh.write(variant)
+                problems = T.check_long_csv(path)
+                self.assertTrue(problems, what)
+                self.assertRegex(problems[0], r"^\d+ committed lines differ", what)
+            many = "\n".join(lines[:column_line + 1] + [line.replace(",mean,", ",sem,") for line in lines[column_line + 1:]])
+            with open(path, "w", newline="", encoding="utf-8") as fh:
+                fh.write(many)
+            problems = T.check_long_csv(path)
+            n = sum(",mean," in line for line in lines[column_line + 1:])
+            self.assertEqual(problems[0], "%d committed lines differ from what write would write: %d to remove, %d to add" % (n, n, n))
+            self.assertEqual(problems[-1], "and %d more lines" % (2 * n - 10))
+            self.assertIn("does not exist", T.check_long_csv(os.path.join(tmp, "absent.csv"))[0])
 
     def test_every_row_comes_from_a_cell_read_twice(self):
         rows = T.read_long_csv()
@@ -85,7 +122,9 @@ class LongCSV(unittest.TestCase):
                 for stat in ("mean", "sem"):
                     v = ds[stat].sel(level=a["level"], measure=m, side=s).item()
                     compared += 1
-                    if abs(v - float(a[stat])) > 1e-9:
+                    # a NaN compares false with everything, so a value the table lacks is
+                    # caught by its finiteness and not by the difference
+                    if not math.isfinite(v) or abs(v - float(a[stat])) > 1e-9:
                         diffs.append((a["measure"], a["level"], stat, a[stat], v))
             elif a["measure"] in ("pedicle", "pedicle_h"):
                 m = {"pedicle": "pedicle_w", "pedicle_h": "pedicle_h"}[a["measure"]]
@@ -94,7 +133,8 @@ class LongCSV(unittest.TestCase):
                 sr = ds["sem"].sel(level=a["level"], measure=m, side="right").item()
                 sl = ds["sem"].sel(level=a["level"], measure=m, side="left").item()
                 compared += 2
-                if abs((r + l_) / 2 - float(a["mean"])) > 1e-6 or abs((sr + sl) / 2 - float(a["sem"])) > 1e-6:
+                if not all(map(math.isfinite, (r, l_, sr, sl))) or \
+                        abs((r + l_) / 2 - float(a["mean"])) > 1e-6 or abs((sr + sl) / 2 - float(a["sem"])) > 1e-6:
                     diffs.append((a["measure"], a["level"], a["mean"], (r + l_) / 2))
         self.assertEqual(compared, 592)
         self.assertEqual(diffs, [])
@@ -243,6 +283,67 @@ class Registry(unittest.TestCase):
         diffs = [(k, lv) for k in a for lv in LEVELS if a[k][lv] != b[k][lv]]
         self.assertEqual(diffs, [])
         self.assertEqual(b["endplate_lower_depth"]["T3"][0], 23.3)
+
+    def test_each_measure_carries_its_table_rows_mnemonics_measurers_and_correlations(self):
+        ds = T.load()
+        prov = {r["id"]: r for r in T.read_csv(T.PROVENANCE_CSV)}
+        reg = MS.registry()
+        for key, m in reg.items():
+            self.assertEqual([r.level for r in m.rows], list(m.levels), key)
+            self.assertEqual(m.correlations, (), key)
+            self.assertEqual(len(m.mnemonics), 2 if m.side == "mean" else 1, key)
+            for r in m.rows:
+                self.assertEqual(r.n, 12, key)
+                self.assertEqual(len(r.cells), len(m.mnemonics), key)
+                for cell in r.cells:
+                    self.assertIn(cell, prov, key)
+                if m.side != "mean":
+                    self.assertEqual(r.mean, ds["mean"].sel(level=r.level, measure=m.name, side=m.side).item())
+                    self.assertEqual(r.sd, ds["sd"].sel(level=r.level, measure=m.name, side=m.side).item())
+        pedicle = reg["pedicle_w:mean"]
+        self.assertEqual(pedicle.mnemonics, ("PDWr", "PDWl"))
+        t12 = pedicle.row("T12")
+        right, left = reg["pedicle_w:right"].row("T12"), reg["pedicle_w:left"].row("T12")
+        self.assertEqual(t12.mean, (right.mean + left.mean) / 2.0)
+        self.assertEqual(t12.cells, right.cells + left.cells)
+        # every pair's mean is table.reference's to the bit, its mean and its SD at every level
+        for key, m in reg.items():
+            if m.side == "mean":
+                want = T.reference(ds, [m.selection], list(m.levels))[m.key]
+                self.assertEqual({r.level: (r.mean, r.sd) for r in m.rows}, want, key)
+        # the archive's SPINEPS measurer reads the seven and refuses the pedicle
+        self.assertEqual({k for k, m in reg.items() if m.measurers}, set(MS.SPINEPS_7))
+        self.assertEqual(reg["endplate"].measurers, ("archive/bordercall/spineps_map.py",))
+        self.assertTrue(os.path.exists(os.path.join(ROOT, reg["endplate"].measurers[0])))
+        self.assertEqual(reg["endplate"].mnemonics, ("EPWu",))
+
+    def test_the_rule_reads_each_measures_own_error(self):
+        seven = MS.select(MS.SPINEPS_7)
+        mu, sd = MS.arrays(seven)
+        keys = [MS.archive_key(m) for m in seven]
+        cols = C.draw_columns(MS.reference(seven), ["typical"], 9, 3, keys)
+        X, _, _ = C.fields(cols.values, [0, 1, 2])
+        plain = R.name(X, [0, 1, 2], mu, sd, R.SYNTH)["all"]
+        self.assertTrue(np.array_equal(MS.name(X, [0, 1, 2], seven)["all"], plain))
+        noisy = [dataclasses.replace(m, error_mm=5.0) if m.name == "h_post" else m for m in seven]
+        got = MS.name(X, [0, 1, 2], noisy)["all"]
+        self.assertGreater(np.abs(got - plain).max(), 1e-3)
+        want = R.name(X, [0, 1, 2], mu, sd, R.SYNTH, noise=MS.errors(noisy))["all"]
+        self.assertTrue(np.array_equal(got, want))
+        sizes, _ = R.quadrature(R.SYNTH["scale_sd"])
+        dense = R.dense_loglik(X[:4], [0, 1, 2], mu, sd, R.SYNTH, sizes[::40], noise=MS.errors(noisy))
+        closed = R.loglik(X[:4], [0, 1, 2], mu, sd, R.SYNTH, sizes=sizes[::40], noise=MS.errors(noisy))
+        self.assertLess(np.abs(dense - closed).max(), 1e-9)
+
+    def test_a_measure_enters_once_and_a_pair_as_one_side_or_its_mean(self):
+        for keys in (["pedicle_w:right", "pedicle_w:left"], ["pedicle", "pedicle_w:right"], ["endplate", "endplate"],
+                     ["pedicle", "pedicle_w:mean"], ["facet_w_sup:left", "facet_w_sup:mean"]):
+            with self.assertRaises(ValueError) as cm:
+                MS.select(keys)
+            self.assertIn("selected twice", str(cm.exception))
+        self.assertEqual([m.key for m in MS.select(["pedicle", "pedicle_h:left", "endplate"])],
+                         ["pedicle_w:mean", "pedicle_h:left", "endplate"])
+
 
 if __name__ == "__main__":
     unittest.main()

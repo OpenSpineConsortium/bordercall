@@ -20,7 +20,8 @@ along `measure` and the mnemonic along (measure, side).
 
 The specimens are the thoracic paper's Table 1: twelve fresh autopsy spines from C2 to L5, each
 with its age, sex, weight, height and cause of death. The cervical, lumbar and facets papers
-measured the same twelve spines and print only their summary (SPECIMEN_SUMMARIES below). No
+measured the same twelve spines, as the cervical paper says and the other two imply, and print
+only their summary (SPECIMEN_SUMMARIES below). No
 paper prints a measurement of one specimen, only each level's mean and standard error over the
 twelve, so these covariates describe the population the table comes from and estimate no
 coefficient: the PyMC model of step d conditions the size prior on height and leaves the effects
@@ -30,7 +31,9 @@ of weight and age, and any pooling of populations, to data with a measurement pe
 from __future__ import annotations
 
 import csv
+import difflib
 import hashlib
+import io
 import math
 import os
 from typing import Dict, Sequence, Tuple
@@ -58,12 +61,16 @@ SPECIMEN_COLUMNS = [("Specimen No.", "specimen", str), ("Age", "age_years", int)
                     ("Cause of death", "cause_of_death", str)]
 SPECIMEN_FIELDS = [name for _, name, _ in SPECIMEN_COLUMNS] + \
     ["%s_cell" % name for _, name, _ in SPECIMEN_COLUMNS] + ["paper", "table"]
-# What the papers print about the same twelve spines outside Table 1, read from the page images
-# by eye, twice, at 100 and 200 dpi (the first three papers have no text layer, and the facets
-# paper's OCR layer is not read): (paper, printed page, statistic, covariate, value). The
-# cervical, lumbar and facets papers each give the weight's range as 54-85 kg, while Table 1's
-# heaviest specimen weighs 84 kg; tests/test_schwingcheck_table.py holds every other statement
-# to Table 1 and that one as the papers' own contradiction (SPECIMEN_CONTRADICTIONS).
+# What the other three papers print about the twelve spines in their Methods (cervical page 861,
+# lumbar 299, facets 1298 and 1299): (paper, printed page, statistic, covariate, value). The
+# cervical paper gives its specimens' details as the initial study's; the lumbar and facets papers
+# refer to that study for the methods and print the same summary to the decimal, so they describe
+# the same twelve by inference. The 36 numbers were read from the page images by eye, twice, at
+# 100 and 200 dpi (the first three papers have no text layer, and the facets paper's OCR layer is
+# not read), but the prose passes of step b did not read the Methods, so no pass record holds them
+# yet (TODO.md, item P, step b). Each of the three gives the weight's range as 54-85 kg, while
+# Table 1's heaviest specimen weighs 84 kg; tests/test_schwingcheck_table.py holds every other
+# statement to Table 1 and that one as the papers' own contradiction (SPECIMEN_CONTRADICTIONS).
 _SUMMARY = (("mean", "age_years", 46.3), ("min", "age_years", 19), ("max", "age_years", 59),
             ("mean", "weight_kg", 67.8), ("min", "weight_kg", 54), ("max", "weight_kg", 85),
             ("mean", "height_cm", 167.8), ("min", "height_cm", 157), ("max", "height_cm", 178),
@@ -164,44 +171,75 @@ def specimens_from_provenance(prov: Sequence[dict]) -> list:
     return out
 
 
-def _write(path: str, header: str, fields: Sequence[str], rows: Sequence[dict]) -> int:
+def _text(header: str, fields: Sequence[str], rows: Sequence[dict]) -> str:
+    """The exact text of a written CSV: the comment header, the column line and the rows, LF."""
+    buf = io.StringIO()
+    buf.write(header)
+    w = csv.DictWriter(buf, fieldnames=list(fields), lineterminator="\n")
+    w.writeheader()
+    w.writerows(rows)
+    return buf.getvalue()
+
+
+def _long_text() -> Tuple[str, int]:
+    rows = rows_from_provenance(read_csv(PROVENANCE_CSV))
+    return _text(LONG_HEADER, FIELDS, rows), len(rows)
+
+
+def _specimens_text() -> Tuple[str, int]:
+    rows = specimens_from_provenance(read_csv(PROVENANCE_CSV))
+    return _text(SPECIMENS_HEADER, SPECIMEN_FIELDS, rows), len(rows)
+
+
+def _write(path: str, text: str) -> None:
     os.makedirs(os.path.dirname(path), exist_ok=True)
     with open(path, "w", newline="", encoding="utf-8") as fh:
-        fh.write(header)
-        w = csv.DictWriter(fh, fieldnames=list(fields), lineterminator="\n")
-        w.writeheader()
-        w.writerows(rows)
-    return len(rows)
+        fh.write(text)
 
 
 def write_long_csv(path: str = LONG_CSV) -> int:
-    return _write(path, LONG_HEADER, FIELDS, rows_from_provenance(read_csv(PROVENANCE_CSV)))
+    text, n = _long_text()
+    _write(path, text)
+    return n
 
 
 def write_specimens_csv(path: str = SPECIMENS_CSV) -> int:
-    return _write(path, SPECIMENS_HEADER, SPECIMEN_FIELDS, specimens_from_provenance(read_csv(PROVENANCE_CSV)))
+    text, n = _specimens_text()
+    _write(path, text)
+    return n
 
 
-def _differences(have: Sequence[dict], want: Sequence[dict]) -> list:
-    problems = []
-    if len(want) != len(have):
-        problems.append("%d rows committed, %d from the provenance" % (len(have), len(want)))
-    for a, b in zip(have, want):
-        if a != b:
-            problems.append("committed %s, provenance gives %s" % (a, b))
-            if len(problems) > 10:
-                break
+def _differences(path: str, want: str, shown: int = 10) -> list:
+    """Every line by which the committed file differs from the text write would write, the
+    comment header, the column line and its order, the line endings and the last newline
+    included: none when the two are the same to the byte. The first problem counts the lines
+    removed and added; the first `shown` of them are quoted and the rest only counted."""
+    try:
+        with open(path, newline="", encoding="utf-8") as fh:
+            have = fh.read()
+    except FileNotFoundError:
+        return ["%s does not exist; write would write %d lines" % (os.path.relpath(path, ROOT), want.count("\n"))]
+    if have == want:
+        return []
+    diff = [d for d in difflib.unified_diff(have.splitlines(keepends=True), want.splitlines(keepends=True), n=0)
+            if d[:1] in "-+" and not d.startswith(("---", "+++"))]
+    removed = sum(d.startswith("-") for d in diff)
+    problems = ["%d committed lines differ from what write would write: %d to remove, %d to add"
+                % (removed, removed, len(diff) - removed)]
+    problems += ["%s %r" % ("committed" if d.startswith("-") else "write gives", d[1:]) for d in diff[:shown]]
+    if len(diff) > shown:
+        problems.append("and %d more lines" % (len(diff) - shown))
     return problems
 
 
 def check_long_csv(path: str = LONG_CSV) -> list:
-    """What differs between the committed long CSV and what write would write now."""
-    return _differences(read_long_csv(path), rows_from_provenance(read_csv(PROVENANCE_CSV)))
+    """How the committed long CSV differs from what write would write now, to the byte."""
+    return _differences(path, _long_text()[0])
 
 
 def check_specimens_csv(path: str = SPECIMENS_CSV) -> list:
-    """What differs between the committed specimens CSV and what write would write now."""
-    return _differences(read_long_csv(path), specimens_from_provenance(read_csv(PROVENANCE_CSV)))
+    """How the committed specimens CSV differs from what write would write now, to the byte."""
+    return _differences(path, _specimens_text()[0])
 
 
 def read_long_csv(path: str = LONG_CSV) -> list:

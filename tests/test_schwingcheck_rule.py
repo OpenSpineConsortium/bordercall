@@ -3,8 +3,8 @@ outside the package.
 
     python -m unittest discover -s tests -v          # from the repository's root, in the PyMC venv
 
-On contiguous, complete fields the per-measure log likelihoods and the posteriors equal
-exact.py's to 1e-10; on gapped fields and fields with missing values the closed form equals a
+On contiguous, complete fields of widths 1, 2, 3, 5, 9 and 22 the per-measure log likelihoods
+and the posteriors equal exact.py's to 1e-10, absolutely; on gapped fields and fields with missing values the closed form equals a
 dense multivariate normal computed by scipy on the bodies present; a measure missing on every
 body changes no posterior; a field with no measure gets the prior back; the chunking of the
 matrix product changes nothing; and the selective guarantee holds on fresh draws.
@@ -46,7 +46,7 @@ def archive_columns(n, seed=97):
 
 
 class SameRule(unittest.TestCase):
-    def test_contiguous_complete_fields_equal_the_archive_to_1e_10(self):
+    def test_contiguous_complete_fields_of_six_widths_equal_the_archive_to_1e_10(self):
         V, mu, sd = archive_columns(30)
         sizes, logw = R.quadrature(SYNTH["scale_sd"])
         for n in (1, 2, 3, 5, 9, 22):
@@ -54,7 +54,7 @@ class SameRule(unittest.TestCase):
             LLa = E.field_loglik(X, mu, sd, SYNTH)
             LLb = R.loglik(X, np.arange(n), mu, sd, SYNTH)
             self.assertEqual(LLa.shape, LLb.shape)
-            self.assertLess(np.abs(LLa - LLb).max(), 1e-10 * max(1.0, np.abs(LLa).max()))
+            self.assertLess(np.abs(LLa - LLb).max(), 1e-10)          # absolute: the log likelihoods run to 6,000
             pa = E.posterior(E.log_evidence(LLa, logw))
             pb = R.posterior(R.log_evidence(LLb, logw))
             self.assertLess(np.abs(pa - pb).max(), 1e-10)
@@ -156,7 +156,8 @@ class Guarantee(unittest.TestCase):
             top, call = post.max(1), post.argmax(1)
             sure = top >= 0.99
             self.assertGreater(sure.sum(), 100)
-            self.assertGreaterEqual((call[sure] == truth[sure]).mean(), 0.985)
+            # the draws are seed 5's, so the share is fixed: 0.997 and 1.0 for the two patterns
+            self.assertGreaterEqual((call[sure] == truth[sure]).mean(), 0.99)
             self.assertGreater((call == truth).mean(), 0.5)
 
 

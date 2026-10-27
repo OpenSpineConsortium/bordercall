@@ -7,7 +7,8 @@ jointly normal with mean s mu and covariance Delta + u u' (Delta diagonal, u = s
 the log density has the Sherman-Morrison closed form; the size is integrated out by
 Gauss-Hermite quadrature over log s ~ N(0, scale_sd^2), the measures multiply, and a uniform
 prior over places gives the posterior. Two things are new here and leave the contiguous,
-complete case unchanged to the last digit:
+complete case unchanged but for rounding (the log likelihoods agree with exact.py's to about
+1e-11, the posteriors to 1e-13):
 
 - gaps: the bodies' offsets index the table, (0, 1, 2) for three consecutive bodies, (0, 2, 4)
   for every other body, so the places are the starts at which the last offset still fits;
@@ -15,6 +16,11 @@ complete case unchanged to the last digit:
   subset of bodies the covariance keeps the form Delta + u u' on that subset, so the weighted
   sums are the exact marginal likelihood; a measure missing on every body contributes a
   constant and a field with nothing gets the prior back.
+
+Each measure has its own measurement error, `noise` (one value per measure, in millimetres,
+measures.errors gives the selected measures'), and synth's noise_mm, the archive's 1 mm, stands
+in for every measure when none is given; with 1 mm for every measure the two are the same to the
+bit.
 
 Every sum over bodies is one batched matrix product, (measures, fields, bodies) by (measures,
 bodies, nodes x places), so no Python loop runs per field, per place or per body. Fields are
@@ -54,7 +60,18 @@ def places_of(n_levels: int, offsets: Sequence[int]) -> int:
     return k
 
 
-def table_blocks(offsets: Sequence[int], mu: np.ndarray, sd: np.ndarray, synth: dict, sizes: np.ndarray) -> np.ndarray:
+def errors_of(synth: dict, n_measures: int, noise: Optional[np.ndarray] = None) -> np.ndarray:
+    """Each measure's measurement error: the one given, else synth's noise_mm for every measure."""
+    if noise is None:
+        return np.full(n_measures, float(synth["noise_mm"]))
+    noise = np.asarray(noise, float)
+    if noise.shape != (n_measures,) or not np.all(noise > 0):
+        raise ValueError("noise is one positive error per measure, %d of them; got %r" % (n_measures, noise))
+    return noise
+
+
+def table_blocks(offsets: Sequence[int], mu: np.ndarray, sd: np.ndarray, synth: dict, sizes: np.ndarray,
+                 noise: Optional[np.ndarray] = None) -> np.ndarray:
     """Everything the likelihood needs from the table, the sizes and the offsets, as one matrix
     per measure that the fields' sums multiply: (measures, 3 bodies, 4, places, nodes). The three
     row blocks are what each field supplies per body, x^2, x and the weight w (1 where the value
@@ -66,13 +83,14 @@ def table_blocks(offsets: Sequence[int], mu: np.ndarray, sd: np.ndarray, synth: 
         ld = sum w log Delta             from w log Delta
 
     with d = 1/Delta, Delta = s^2 (1 - rho^2) sd^2 + noise^2 and u = s rho sd at the body's
-    level under each place."""
+    level under each place, noise the measure's own error."""
     offsets = np.asarray(offsets, int)
     M, L = mu.shape
     K = places_of(L, offsets)
     B = len(offsets)
     J = len(sizes)
-    rho, noise = float(synth["rho"]), float(synth["noise_mm"])
+    rho = float(synth["rho"])
+    noise = errors_of(synth, M, noise)[:, None, None, None]            # (M, 1, 1, 1)
     idx = np.arange(K)[:, None] + offsets[None, :]                     # (K, B)
     muk, sdk = mu[:, idx], sd[:, idx]                                   # (M, K, B)
     s = np.asarray(sizes, float)[None, :, None, None]                   # (1, J, 1, 1)
@@ -98,10 +116,11 @@ BLOCK = 32          # fields per matrix product: the sums of 32 fields fit the c
 
 def loglik(X: np.ndarray, offsets: Sequence[int], mu: np.ndarray, sd: np.ndarray, synth: dict = SYNTH,
            n_nodes: int = GH_NODES, sizes: Optional[np.ndarray] = None,
-           blocks: Optional[np.ndarray] = None, block: int = BLOCK) -> np.ndarray:
+           blocks: Optional[np.ndarray] = None, block: int = BLOCK, noise: Optional[np.ndarray] = None) -> np.ndarray:
     """Per-measure log likelihood of every field at every place and quadrature size:
     (fields, places, measures, nodes). X is (fields, measures, bodies) with NaN for a value not
-    read; mu and sd are the table's means and population SDs, (measures, levels). One batched
+    read; mu and sd are the table's means and population SDs, (measures, levels); noise is each
+    measure's error (synth's noise_mm for every one when it is not given). One batched
     matrix product does every sum over bodies for every field, place, measure and node; the
     fields go through it `block` at a time only because the product's four sums for 2,000
     fields are 700 MB, which is slower to write than to compute (the block is a cache size,
@@ -120,7 +139,7 @@ def loglik(X: np.ndarray, offsets: Sequence[int], mu: np.ndarray, sd: np.ndarray
         sizes, _ = quadrature(synth["scale_sd"], n_nodes)
     J = len(sizes)
     if blocks is None:
-        blocks = table_blocks(offsets, mu, sd, synth, sizes)
+        blocks = table_blocks(offsets, mu, sd, synth, sizes, noise)
     present = np.isfinite(X)
     w = present.astype(float)
     x = np.where(present, X, 0.0)
@@ -157,22 +176,24 @@ def posterior(logev: np.ndarray, log_prior: Optional[np.ndarray] = None) -> np.n
 
 def name(X: np.ndarray, offsets: Sequence[int], mu: np.ndarray, sd: np.ndarray, synth: dict = SYNTH,
          n_nodes: int = GH_NODES, log_prior: Optional[np.ndarray] = None,
-         subsets: Optional[Dict[str, Sequence[int]]] = None, chunk: int = 2000) -> Dict[str, np.ndarray]:
+         subsets: Optional[Dict[str, Sequence[int]]] = None, chunk: int = 2000,
+         noise: Optional[np.ndarray] = None) -> Dict[str, np.ndarray]:
     """The posterior over places for every field, (fields, places), under every named subset of
-    the measures (all of them under the key `all` when none is named), chunk by chunk."""
+    the measures (all of them under the key `all` when none is named), chunk by chunk; noise is
+    each measure's error, synth's noise_mm for every one by default."""
     X = np.asarray(X, float)
     sizes, logw = quadrature(synth["scale_sd"], n_nodes)
     keys = {"all": list(range(X.shape[1]))} if subsets is None else {k: list(v) for k, v in subsets.items()}
     parts: Dict[str, list] = {k: [] for k in keys}
     for c0 in range(0, X.shape[0], chunk):
-        LL = loglik(X[c0:c0 + chunk], offsets, mu, sd, synth, sizes=sizes)
+        LL = loglik(X[c0:c0 + chunk], offsets, mu, sd, synth, sizes=sizes, noise=noise)
         for k, idx in keys.items():
             parts[k].append(posterior(log_evidence(LL, logw, idx), log_prior))
     return {k: np.concatenate(v) if v else np.zeros((0, places_of(mu.shape[1], offsets))) for k, v in parts.items()}
 
 
 def dense_loglik(X: np.ndarray, offsets: Sequence[int], mu: np.ndarray, sd: np.ndarray, synth: dict,
-                 sizes: np.ndarray) -> np.ndarray:
+                 sizes: np.ndarray, noise: Optional[np.ndarray] = None) -> np.ndarray:
     """The same density by a dense multivariate normal on the bodies present, measure by measure
     and field by field: slow, independent of the closed form, kept for the tests."""
     from scipy.stats import multivariate_normal
@@ -180,7 +201,7 @@ def dense_loglik(X: np.ndarray, offsets: Sequence[int], mu: np.ndarray, sd: np.n
     F, M, B = X.shape
     offsets = np.asarray(offsets, int)
     K = places_of(mu.shape[1], offsets)
-    rho, noise = synth["rho"], synth["noise_mm"]
+    rho, errors = synth["rho"], errors_of(synth, M, noise)
     out = np.zeros((F, K, M, len(sizes)))
     for f in range(F):
         for k in range(K):
@@ -191,7 +212,7 @@ def dense_loglik(X: np.ndarray, offsets: Sequence[int], mu: np.ndarray, sd: np.n
                 lv = k + offsets[keep]
                 for j, s in enumerate(sizes):
                     sdv = s * sd[m, lv]
-                    cov = rho * rho * np.outer(sdv, sdv) + np.diag((1.0 - rho * rho) * sdv * sdv + noise * noise)
+                    cov = rho * rho * np.outer(sdv, sdv) + np.diag((1.0 - rho * rho) * sdv * sdv + errors[m] ** 2)
                     out[f, k, m, j] = multivariate_normal(mean=s * mu[m, lv], cov=cov).logpdf(X[f, m, keep])
     return out
 

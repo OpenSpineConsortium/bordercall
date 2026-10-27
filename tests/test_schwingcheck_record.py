@@ -4,8 +4,11 @@ here reads back whole.
 The record test is the slow one, a few minutes: it draws the archive's scoring columns, scores
 every field of 1, 3 and 9 bodies under the three regimes on the checked table (which equals the
 archive's in every value the record used, tests/test_schwingcheck_table.py) and holds every rate
-of exact.json's `widths` for those widths, the claims included, to what this package computes. Set
-SCHWINGCHECK_RECORD_WIDTHS to run fewer widths while developing, never in a pull request.
+exact.json records for the three regimes at those widths (`widths[n].regimes`), the claims
+included, to what this package computes, the share named to the digit and the rest to 1e-9. The
+127 subsets of the seven measures that exact.json also records at each width (`widths[n].subsets`)
+are not rescored here. Set SCHWINGCHECK_RECORD_WIDTHS to run fewer widths while developing, never
+in a pull request.
 """
 from __future__ import annotations
 
@@ -70,7 +73,7 @@ class InferenceData(unittest.TestCase):
         post = R.name(X, offsets, mu, sd, R.SYNTH)["all"]
         rates = S.summary(post, truth, grp, 3)
         rec = REC.build(post, truth, grp, X, offsets, keys, LEVELS, rates, command="python -m schwingcheck test",
-                        seeds={"score": 5}, synth=R.SYNTH, mu=mu, sd=sd, digests={"x": "y"})
+                        seeds={"score": 5}, synth=R.SYNTH, mu=mu, sd=sd, digests={"x": "y"}, noise=MS.errors(seven))
         with tempfile.TemporaryDirectory() as d:
             path = REC.write(rec, os.path.join(d, "r.nc"))
             back = REC.read(path)
@@ -82,6 +85,7 @@ class InferenceData(unittest.TestCase):
             self.assertTrue(np.array_equal(np.isnan(x), np.isnan(X)) and np.array_equal(x[~np.isnan(x)], X[~np.isnan(X)]))
             self.assertEqual(list(back["constant_data"].ds["offsets"].values), offsets)
             self.assertTrue(np.array_equal(back["constant_data"].ds["mu"].values, mu))
+            self.assertEqual(back["constant_data"].ds["noise"].values.tolist(), [1.0] * len(keys))
             attrs = REC.attrs_of(back)
             self.assertEqual(attrs["command"], "python -m schwingcheck test")
             self.assertEqual(attrs["seeds"], {"score": 5})

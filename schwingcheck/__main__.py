@@ -8,9 +8,12 @@
 `name` reads one field: a CSV with a column `body` (0, 1, 2 ... in order down the column), one
 column per measure in millimetres (a blank where the value was not read) and, optionally, a
 column `offset` giving each body's offset from the first (0, 2, 4 for every other body; the
-bodies are consecutive without it), and prints the ranked places with their posteriors, the
-99 per cent set and whether the top place reaches 0.99. With no body there is nothing to name
-and it says so; with no measure the posterior is the prior and it says that too.
+bodies are consecutive without it, whatever their numbers), and prints the ranked places with
+their posteriors, the 99 per cent set and whether the top place reaches 0.99. --offsets gives
+the offsets on the command line instead, one per body, counted from the first as the column's
+are. With no body there is nothing to name and it says so; with no measure the posterior is the
+prior and it says that too; offsets for some bodies and not others, a number of them other than
+the bodies', or offsets that do not rise down the column are refused.
 
 `rescore` draws the archive's 2,000 scoring columns from seed 97, scores every field of the
 widths given under the three regimes (both planes, AP, lateral) and writes one InferenceData
@@ -23,6 +26,7 @@ import argparse
 import csv
 import json
 import os
+import shlex
 import sys
 import time
 
@@ -41,14 +45,20 @@ N_SCORE = 2000
 
 
 def read_field(path: str, measures):
-    """X (1, measures, bodies) and the offsets from a field CSV."""
+    """X (1, measures, bodies) and the offsets from a field CSV: the column `offset` where every
+    body has one, 0, 1, 2 ... where none has, refused where some have and some do not."""
     with open(path, newline="", encoding="utf-8") as fh:
         rows = [r for r in csv.DictReader(line for line in fh if not line.startswith("#"))]
     if not rows:
         return np.zeros((1, len(measures), 0)), np.zeros(0, int)
     rows.sort(key=lambda r: int(r["body"]))
-    offsets = np.array([int(r["offset"]) if r.get("offset") not in (None, "") else int(r["body"]) for r in rows])
-    offsets = offsets - offsets[0]
+    given = [r.get("offset") not in (None, "") for r in rows]
+    if all(given):
+        offsets = np.array([int(r["offset"]) for r in rows])
+    elif not any(given):
+        offsets = np.arange(len(rows))
+    else:
+        raise ValueError("the field gives an offset for %d of its %d bodies" % (sum(given), len(rows)))
     X = np.full((1, len(measures), len(rows)), np.nan)
     for b, r in enumerate(rows):
         for i, m in enumerate(measures):
@@ -58,21 +68,35 @@ def read_field(path: str, measures):
     return X, offsets
 
 
+def counted_from_first(offsets, n_bodies: int) -> np.ndarray:
+    """One offset per body, rising down the column, counted from the first body."""
+    offsets = np.asarray(offsets, int)
+    if len(offsets) != n_bodies:
+        raise ValueError("%d offsets for a field of %d bodies" % (len(offsets), n_bodies))
+    if np.any(np.diff(offsets) <= 0):
+        raise ValueError("the offsets %s do not rise down the column" % list(map(int, offsets)))
+    return offsets - offsets[0] if len(offsets) else offsets
+
+
 def cmd_name(args) -> int:
     keys = list(args.measures) if args.measures else list(MS.SPINEPS_7)
-    X, offsets = read_field(args.field, keys)
+    try:
+        X, offsets = read_field(args.field, keys)
+        if X.shape[2] and args.offsets:
+            offsets = args.offsets
+        offsets = counted_from_first(offsets, X.shape[2])
+    except ValueError as err:
+        print("refused: %s" % err)
+        return 2
     if X.shape[2] == 0:
         print("nothing to name: the field has no body")
         return 1
-    if args.offsets:
-        offsets = np.array(args.offsets, int)
     present = [k for i, k in enumerate(keys) if np.isfinite(X[0, i]).any()]
     if not present:
         print("no measure was read on any body: the posterior is the prior, 1/%d at every place" % R.places_of(len(LEVELS), offsets))
         return 1
     ms = MS.select(keys)
-    mu, sd = MS.arrays(ms)
-    post = R.name(X, offsets, mu, sd, R.SYNTH)["all"][0]
+    post = MS.name(X, offsets, ms)["all"][0]
     order = np.argsort(-post)
     size, member = R.credible_sets(post[None, :], 0.99)
     print("field of %d bodies at offsets %s, measures %s" % (X.shape[2], list(map(int, offsets)), ", ".join(present)))
@@ -99,7 +123,7 @@ def cmd_table(args) -> int:
         problems = check()
         for p in problems:
             print("  " + p)
-        print("%s: %s" % (name, "as written from the provenance" if not problems else "%d differences" % len(problems)))
+        print("%s: %s" % (name, "as written from the provenance" if not problems else "differs, as above"))
         failed += bool(problems)
     return 1 if failed else 0
 
@@ -108,11 +132,14 @@ def rescore(widths, n_columns: int = N_SCORE, seed: int = SCORE_SEED, outdir=Non
             regimes=None, chunk_columns: int = 100) -> dict:
     """The archive's scoring run on this package: every field of every width under each regime,
     on the checked table, which since page 892 was read equals the archive's in every value the
-    record used, so it reproduces the record of 2026-10-26 to the bit."""
+    record used, so it reproduces the record of 2026-10-26: every rate to within 1e-12 (rounding
+    in a different order of sums) and the share named exactly identically. Each measure's error is
+    its own, 1 mm for all seven as in the archive."""
     regimes = MS.REGIMES if regimes is None else regimes
     seven = MS.select(MS.SPINEPS_7)
     ref = MS.reference(seven)
     mu, sd = MS.arrays(seven)
+    noise = MS.errors(seven)
     cols = C.draw_columns(ref, ["typical"], seed, n_columns, [MS.archive_key(m) for m in seven])
     sizes, logw = R.quadrature(R.SYNTH["scale_sd"])
     keep = {name: sorted(MS.SPINEPS_7.index(k) for k in ks) for name, ks in regimes.items()}
@@ -121,7 +148,7 @@ def rescore(widths, n_columns: int = N_SCORE, seed: int = SCORE_SEED, outdir=Non
     for n in widths:
         t0 = time.time()
         offsets = np.arange(n)
-        blocks = R.table_blocks(offsets, mu, sd, R.SYNTH, sizes)
+        blocks = R.table_blocks(offsets, mu, sd, R.SYNTH, sizes, noise)
         posts = {name: [] for name in keep}
         truths, groups, xs = [], [], []
         for c0 in range(0, n_columns, chunk_columns):
@@ -144,7 +171,8 @@ def rescore(widths, n_columns: int = N_SCORE, seed: int = SCORE_SEED, outdir=Non
             if outdir:
                 rec = REC.build(post, truth, group, X[:, idx, :], offsets, rates["measures"], LEVELS, rates,
                                 command=command, seeds={"score": seed}, synth=R.SYNTH, mu=mu[idx], sd=sd[idx],
-                                digests=digests, extra_attrs={"regime": name, "n_columns": n_columns, "width": n})
+                                noise=noise[idx], digests=digests,
+                                extra_attrs={"regime": name, "n_columns": n_columns, "width": n})
                 REC.write(rec, os.path.join(outdir, "width-%02d-%s.nc" % (n, name)))
         out[str(n)]["seconds"] = round(time.time() - t0, 1)
         print("rescore: n=%d done in %.0f s (both planes %.4f)" % (n, out[str(n)]["seconds"], out[str(n)]["regimes"]["both"]["exact"]), flush=True)
@@ -152,7 +180,7 @@ def rescore(widths, n_columns: int = N_SCORE, seed: int = SCORE_SEED, outdir=Non
 
 
 def cmd_rescore(args) -> int:
-    command = "python -m schwingcheck " + " ".join(sys.argv[1:])
+    command = "python -m schwingcheck " + shlex.join(args.argv)
     out = rescore(args.n, args.columns, args.seed, args.outdir, command)
     if args.outdir:
         with open(os.path.join(args.outdir, "rates.json"), "w") as fh:
@@ -177,7 +205,11 @@ def main(argv=None) -> int:
     c.add_argument("--seed", type=int, default=SCORE_SEED)
     c.add_argument("--outdir", default=None)
     c.set_defaults(fn=cmd_rescore)
+    # the arguments parsed, which the records carry as their command, whether they came from
+    # the shell or from a caller of main
+    argv = sys.argv[1:] if argv is None else [str(a) for a in argv]
     args = p.parse_args(argv)
+    args.argv = argv
     return args.fn(args)
 
 
