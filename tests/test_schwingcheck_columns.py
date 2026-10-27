@@ -3,9 +3,9 @@
 For the same seed, phenotypes, measures and settings, draw_columns gives every column the
 archive's neighbour.draw_columns gives, value for value, with the stream consumed in the same
 order (the size, the offsets, the level draws, the noise draws), at r_between 0 and 0.4; the
-anomalous phenotypes keep their levels, their transitional position and their blend; and the
-fields cut with consecutive offsets are exact.fields' in the same order, with the truth and the
-column of each.
+anomalous phenotypes keep their levels, their transitional position and their blend; every
+column is padded to the widest phenotype listed, however few are drawn; and the fields cut with
+consecutive offsets are exact.fields' in the same order, with the truth and the column of each.
 """
 from __future__ import annotations
 
@@ -62,6 +62,17 @@ class SameGenerator(unittest.TestCase):
         two = C.draw_columns(ref, ["typical"], 3, 2, MEASURES)
         self.assertTrue(np.array_equal(one.values[0], two.values[0]))
         self.assertFalse(np.array_equal(two.values[0], two.values[1]))
+
+    def test_columns_are_padded_to_the_widest_phenotype_listed(self):
+        """However few columns are drawn: one typical column drawn with six_lumbar listed but not
+        drawn is six_lumbar's 23 bodies wide, its own 22 bodies those of a typical draw alone."""
+        ref = P.load_reference(measures=MEASURES)
+        one = C.draw_columns(ref, ["typical", "six_lumbar"], 3, 1, MEASURES)
+        alone = C.draw_columns(ref, ["typical"], 3, 1, MEASURES)
+        self.assertEqual(one.values.shape, (1, 23, len(MEASURES)))
+        self.assertEqual(alone.values.shape, (1, 22, len(MEASURES)))
+        self.assertTrue(np.array_equal(one.values[:, :22], alone.values))
+        self.assertTrue(np.isnan(one.values[:, 22]).all())
 
     def test_the_checked_table_draws_the_archives_columns(self):
         """Since page 892 was read the long table equals the archive's in every value of the

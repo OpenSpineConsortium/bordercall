@@ -4,10 +4,11 @@ cut from them with integer offsets.
 The generator is the archive's (archive/bordercall/panjabi.py, synthesize, and neighbour.py,
 draw_columns) drawn here from the long table: for every measure m and level i,
 
-    value = s * (mu[m][i] + sd[m][i] * (rho * z[m] + sqrt(1 - rho^2) * e[m][i])) + noise * n[m][i]
+    value = s * (mu[m][i] + sd[m][i] * (rho * z[m] + sqrt(1 - rho^2) * e[m][i])) + noise[m] * n[m][i]
 
 with s the patient's size, z the patient's offset in that measure, e the level's draw and n the
-measurement error, floored at 0.5 mm, and the six phenotypes (typical, four_lumbar, six_lumbar,
+measurement error's draw, scaled by the measure's own error (1 mm for every one in the archive),
+floored at 0.5 mm, and the six phenotypes (typical, four_lumbar, six_lumbar,
 t13, lumbar_rib, no_rib_t12) edited into the column as the archive edits them. It consumes the
 random stream in the archive's order, the size, then one offset per measure, then 24 level
 draws per measure in turn, then 24 noise draws per measure in turn, so the same seed gives the
@@ -136,11 +137,16 @@ def profiles(ref: Dict[str, Dict[str, tuple]], measures: Sequence[str], phenotyp
 
 def draw_columns(ref: Dict[str, Dict[str, tuple]], phenotypes: Sequence[str], seed: int, n: int,
                  measures: Sequence[str], r_between: float = 0.0, rho: float = SYNTH["rho"],
-                 noise_mm: float = SYNTH["noise_mm"], scale_sd: float = SYNTH["scale_sd"],
+                 noise_mm=SYNTH["noise_mm"], scale_sd: float = SYNTH["scale_sd"],
                  blend: float = SYNTH["blend"]) -> Columns:
-    """n columns, the phenotypes cycled in turn, from one seeded stream in the archive's order."""
+    """n columns, the phenotypes cycled in turn, from one seeded stream in the archive's order.
+    noise_mm is one error for every measure, as the archive's, or each measure's own; the stream
+    is the same either way, and the same error for every measure gives the archive's columns.
+    Every column is padded with NaN to the widest phenotype listed, drawn or not, so the layout
+    depends on the phenotypes and not on how many columns are drawn."""
     measures = list(measures)
     M = len(measures)
+    noise = np.broadcast_to(np.asarray(noise_mm, float), (M,))
     rng = np.random.default_rng(seed)
     factor = offset_factor(M, r_between)
     draw_index = {l: i for i, l in enumerate(DRAW_LEVELS)}
@@ -158,7 +164,7 @@ def draw_columns(ref: Dict[str, Dict[str, tuple]], phenotypes: Sequence[str], se
         e = rng.normal(size=(M, len(DRAW_LEVELS)))
         nz = rng.normal(size=(M, len(DRAW_LEVELS)))
         at = np.array([draw_index[l] for l in lv])
-        v = s * (mu + sd * (rho * z[:, None] + math.sqrt(1 - rho * rho) * e[:, at])) + noise_mm * nz[:, at]
+        v = s * (mu + sd * (rho * z[:, None] + math.sqrt(1 - rho * rho) * e[:, at])) + noise[:, None] * nz[:, at]
         values[c, :len(lv), :] = np.maximum(v, FLOOR).T
         levels.append(list(lv))
         phen.append(p)
@@ -166,7 +172,8 @@ def draw_columns(ref: Dict[str, Dict[str, tuple]], phenotypes: Sequence[str], se
         trans.append(transitional_at)
     return Columns(values=values, levels=levels, measures=measures, phenotype=phen, scale=scale,
                    transitional_at=trans, blend=blend, seed=seed,
-                   meta=dict(r_between=r_between, rho=rho, noise_mm=noise_mm, scale_sd=scale_sd, n=n))
+                   meta=dict(r_between=r_between, rho=rho, noise_mm=noise_mm if np.ndim(noise_mm) == 0 else noise.tolist(),
+                             scale_sd=scale_sd, n=n))
 
 
 def fields(values: np.ndarray, offsets: Sequence[int]) -> Tuple[np.ndarray, np.ndarray, np.ndarray]:
