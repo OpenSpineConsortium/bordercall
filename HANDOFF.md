@@ -530,6 +530,13 @@ SchwingNet, so the paragraph on stitching in SchwingCheck2D now gives that resul
 holds on, as SchwingNet's textbook chapter 34 records them (revision 189); the copy here is
 revision 189, the owner's text with those edits and nothing else.
 
+Checkpoint, 2026-10-27 about 04:55 UTC, on the owner's word of 04:47 UTC. The paper is also
+textbook chapter 36 in OpenSpineConsortium/SchwingNet, pull request #416 (draft, branch
+claude/project-thread-7qoboa), with five figures drawn for it. That pull request's adversarial review
+confirmed about twenty defects in the chapter's own framing, figures and records, none in the paper;
+they and the steps to finish are in SchwingNet's docs/checkpoints/2026-10-27-cns-junction/ (README.md
+and review-findings.md). The grid pilot is still unsent.
+
 What it concludes. On the owner's comments in the Doc (2026-10-26 23:38 and 2026-10-27 00:11
 UTC) the paper is framed against the upstream labeller, not the registration: LevelCheck has no
 classifier of its own, it carries the CT's labels to the radiograph, and those labels come from a
