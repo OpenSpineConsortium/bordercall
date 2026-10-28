@@ -6,6 +6,9 @@
     python -m schwingcheck rescore --n 1 3 9 --outdir records/exact-rescore [--engine pytensor|pymc]
     python -m schwingcheck graph write                 # the three PyMC models' graphs, graphs/*.mmd
     python -m schwingcheck graph check                 # the committed graphs are what write would write
+    python -m schwingcheck curve run --outdir records/curve [--skip-speed]   # step e's build-up study, curve.nc
+    python -m schwingcheck curve speed --record records/curve/curve.nc       # the times, taken apart
+    python -m schwingcheck curve table|figures|check --record records/curve/curve.nc
 
 `name` reads one field: a CSV with a column `body` (0, 1, 2 ... in order down the column), one
 column per measure in its own units, millimetres for a length, square millimetres for an area
@@ -34,6 +37,11 @@ built from the model's own variables, integrated over the size on the same nodes
 
 `graph` writes or checks graphs/*.mmd, the three PyMC models' graphs as Mermaid text, which the
 README draws.
+
+`curve` is step e's build-up study (curve.py): `run` scores every prefix of a greedy order of the
+32 measures and the named subsets under every arm and writes curve.nc, `speed` measures the time
+to name a field into that record, `table` prints the README's tables from it, `figures` draws its
+figures and `check` says whether the README's tables are the record's.
 """
 from __future__ import annotations
 
@@ -308,6 +316,30 @@ def cmd_graph(args) -> int:
     return 1 if stale else 0
 
 
+def cmd_curve(args) -> int:
+    from . import curve as CV
+    command = "python -m schwingcheck " + shlex.join(args.argv)
+    if args.what == "run":
+        CV.run(args.outdir, command, quick=args.quick, processes=args.processes, with_speed=not args.skip_speed)
+        return 0
+    if args.what == "speed":
+        CV.add_speed(args.record, command, quick=args.quick)
+        return 0
+    tree = REC.read(args.record)
+    if args.what == "table":
+        print(CV.tables(tree))
+        return 0
+    if args.what == "figures":
+        for path in CV.draw_figures(tree, args.outdir or os.path.dirname(os.path.abspath(args.record))):
+            print("wrote %s" % os.path.relpath(path, T.ROOT))
+        return 0
+    stale = CV.check_readme(tree)
+    for line in stale:
+        print("  " + line)
+    print("curve: %s" % ("the README's tables are the record's" if not stale else "the README's tables differ from the record's"))
+    return 1 if stale else 0
+
+
 def main(argv=None) -> int:
     p = argparse.ArgumentParser(prog="python -m schwingcheck", description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     sub = p.add_subparsers(dest="cmd", required=True)
@@ -333,6 +365,14 @@ def main(argv=None) -> int:
     g = sub.add_parser("graph", help="write or check the PyMC models' graphs")
     g.add_argument("what", choices=["write", "check"])
     g.set_defaults(fn=cmd_graph)
+    v = sub.add_parser("curve", help="step e's build-up study: run it, time it, print or check its tables, draw its figures")
+    v.add_argument("what", choices=["run", "speed", "table", "figures", "check"])
+    v.add_argument("--outdir", default=None, help="where run writes curve.nc and figures writes the figures")
+    v.add_argument("--record", default=None, help="the curve.nc that speed, table, figures and check read")
+    v.add_argument("--processes", type=int, default=4)
+    v.add_argument("--quick", action="store_true", help="every count shrunk, for the tests")
+    v.add_argument("--skip-speed", action="store_true", help="run without the times, which speed adds later")
+    v.set_defaults(fn=cmd_curve)
     # the arguments parsed, which the records carry as their command, whether they came from
     # the shell or from a caller of main
     argv = sys.argv[1:] if argv is None else [str(a) for a in argv]
