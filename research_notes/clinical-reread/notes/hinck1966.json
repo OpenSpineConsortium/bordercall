@@ -1,0 +1,185 @@
+{
+  "id": "hinck1966",
+  "citation": "Vincent C. Hinck, William M. Clark Jr., Carl E. Hopkins. Normal interpediculate distances (minimum and maximum) in children and adults. Vol. 97, No. 1, May 1966, pp. 141-153 (the journal title is not printed on the article pages; American Journal of Roentgenology, Radium Therapy and Nuclear Medicine by inference from volume, year, pagination and refs. 3 and 7). Source: thread \"Reread every paper for clinical detail\", project symphony_4, 2026-10-28. Copy read: greg's upload of 2026-10-28 01:02 UTC (upload id 436d54c9-898b-42e7-bb47-4eab21fd218b; a second upload is the same paper), sha256 begins 2c4dc4ab2b91585b.",
+  "population": "USA, Portland, Oregon: white living hospital patients found by a systematic search of the University of Oregon Medical School's radiograph files, films taken for other purposes; 474 AP spine roentgenograms: 353 of children under 19 yr in seven groups (3-5 yr 35, 6-8 yr 52, 9-10 yr 30, 11-12 yr 46, 13-14 yr 59, 15-16 yr 63, 17-18 yr 68; mean ages 4.1 to 17.5 yr) and 121 of adults (>18 yr, upper age not stated). Counts by sex never given (Inference from the means: male share about 0.36-0.67 by group, 0.44 in adults). Films screened for readability and an attempt made to exclude significant anomalies and growth-affecting problems. Per-level N 8 (child cervical) to 68; adults 36 (C3) to 60 (C7). Substudy: 10 randomly selected normal patients aged 10-15 yr with AP thoracic spine and PA chest films, 89 paired measurements of a possible 120 (p. 141-142, 145, 148; PDF 1-2, 5, 8).",
+  "modality": "AP spine roentgenograms at a 40 in (101.6 cm) target-film distance, magnification neither stated nor corrected (film values); calipers read to 0.1 mm by one author; patient position for the main series not stated (substudy AP thoracic film recumbent). Substudy adds erect PA chest films at 72 in (p. 141, 148; PDF 1, 8).",
+  "levels_covered": "C3 to L5, 22 vertebrae; C1 and C2 excluded as unmeasurable, sacrum omitted for an inadequate sample (p. 142, PDF 2). How levels were identified and numbered, rib counts and transitional segments are not described.",
+  "anomalies": [
+    {
+      "variant": "Lumbosacral transitional vertebra, sacralisation, lumbarisation, L6, T13, 11 or 13 rib pairs, cervical ribs",
+      "finding": "Not mentioned anywhere; no prevalence of any numerical or transitional variant is reported.",
+      "page": "p. 141-153 (PDF 1-13)"
+    },
+    {
+      "variant": "Significant anomalies (undefined) as an exclusion",
+      "finding": "An attempt was made to eliminate subjects with significant anomalies and other problems likely to influence growth; no count of exclusions and no definition.",
+      "how_identified": "Screening of the AP films",
+      "population": "Source pool of the 474 films",
+      "page": "p. 141 (PDF 1)"
+    },
+    {
+      "variant": "Hemivertebra at T2 and ventral hemivertebra at T10, with basilar invagination and partial atlanto-occipital assimilation (osteochondrodystrophy)",
+      "finding": "Single illustrative case (Case IV, boy 3 6/12 yr): gross IPD decrease in the lower thoracic spine (graph, approximate: T9 11, T10 8.8, T11 10.5 mm, below the 3-5 yr floor of 12-13; spike at T8 about 16.4; L4 16.0 and L5 15.4 below the 18 and 21 floors) with a marked increase of the midsagittal diameter at the same level; asymptomatic; the caption notes variable vertebral body size.",
+      "how_identified": "Roentgenograms; Fig. 8A is an AP thoracic view; which films showed each anomaly is not said",
+      "population": "1 child, Portland",
+      "page": "p. 152-153 (PDF 12-13); Fig. 8"
+    },
+    {
+      "variant": "Achondroplasia",
+      "finding": "Single case (Case II, boy 5 1/2 yr, referred for mental retardation, no signs of stenosis): IPDs below T10 at or beyond the lower 90 per cent limit, stenosis greatest at lower lumbar and sacral levels; graph (approximate) L1 17.0, L2-L3 16.4, L4 17.4, L5 15.5 mm against 3-5 yr limits 17-24 to 21-28; sagittal diameters diminished.",
+      "how_identified": "AP lumbar spine films; lateral for sagittal diameter",
+      "population": "1 child, Portland",
+      "page": "p. 150, 152-153 (PDF 10, 12-13); Fig. 6"
+    },
+    {
+      "variant": "Osteopetrosis",
+      "finding": "Single case (Case III, girl about 4 yr): massive vertebral bone, especially pedicles, narrowing every IPD shown (graph, approximate, T7 8.8 to L5 15.9 mm, 3-5 mm below the 3-5 yr band) while keeping the normal shape; lumbar sagittal diameters diminished; no clinical findings.",
+      "how_identified": "Roentgenograms (Fig. 7A AP view labelled L1)",
+      "population": "1 child, Portland",
+      "page": "p. 151, 153 (PDF 11, 13); Fig. 7"
+    },
+    {
+      "variant": "Developmental transverse canal stenosis from decreased IPD (the authors call it an anomaly)",
+      "finding": "Exists, may or may not accompany a decreased sagittal diameter, may be symptomatic; its frequency is unknown. Case I, a 60-year-old man, thoracic stenosis especially T5-T10 with T7 and T8 at the adult lower limit, symptomatic with cord signs.",
+      "how_identified": "AP spine films measured against the norms; myelography",
+      "population": "1 adult and the 3 children above",
+      "page": "p. 149, 151-153 (PDF 9, 11-13)"
+    }
+  ],
+  "measures": [
+    {
+      "name": "Interpediculate distance (IPD)",
+      "definition": "Shortest distance between the medial surfaces of the two pedicles of a vertebra, read with calipers to 0.1 mm on the AP film (p. 141, PDF 1). Inference: the medial cortical margins of the end-on pedicle shadows.",
+      "projection": "AP radiograph, 40 in target-film distance, uncorrected for magnification; PA chest usable below T3 with moderate accuracy; not obtainable from a lateral",
+      "levels": "C3-L5",
+      "level_pattern": "Adult means (Table IA): C3 28.0, C4 28.8, C5 29.4, C6 29.3, C7 28.0; T1 24.0, T2 20.5, T3 18.8, T4 18.1, T5 17.6, T6 17.3, T7 17.4, T8 17.7, T9 18.2, T10 18.7, T11 20.2, T12 23.2; L1 25.0, L2 25.5, L3 26.0, L4 26.9, L5 29.7 mm. Cervical plateau peaking at C5-C6; drop C7 to T1 -4.0 and T1 to T2 -3.5 (about 2 SDs each); flat thoracic minimum T4-T10, lowest T6; rise T11 to T12 +3.0 (1.6 SD); T12 to L1 +1.8 and L4 to L5 +2.8 (under 1 SD); L1-L3 nearly flat. At every age: C7/T1 -2.4 to -4.5, T1/T2 -3.2 to -3.7, T11/T12 +2.0 to +3.0, L4/L5 +2.8 to +3.8 mm; T12/L1 only +0.6 at 3-5, 6-8 and 13-14 yr. Thoracic minimum at T5-T7 at every age; cervical maximum at C5 or C6 (computed from Table IA).",
+      "covariates": "Sex: males larger by about 1 mm (text); adult male-female 0.4 (T11) to 2.2 (C7) mm, mean 1.25 (computed); girls exceed boys at several cervical and lumbar levels at 11-12 and 13-14 yr. Age: growth from 3-5 yr to adult 3.6-4.1 mm cervical, 1.4-3.3 thoracic, 4.5-5.2 lumbar (computed; text says 3 to 5 mm); thoracic and lumbar growth mostly before 9-10 yr, cervical continuing to 13-14 yr. Size: individuals differ more in the overall level of the profile than at single vertebrae (p. 146). Population: white Oregon patients only. SD by level (adult): 1.5-2.0 cervical and thoracic, 2.2 (L1) to 3.7 (L5); 11-12 yr group most variable (boys' SDs 3 mm or more).",
+      "ct_mask_recipe": "Inference: in the vertebra's local frame, isolate the pedicles (SPINEPS arch subregion voxels between the posterior body wall and the front of the articular processes, where the ring is closed); project them along the AP axis onto the coronal plane; per craniocaudal row take the gap between the most medial points of the two pedicles; IPD is the smallest gap over rows crossing both pedicles. The true axial alternative is the minimum left-right gap between the medial pedicle walls in any axial slice. Exclude laminae, lateral recess and mid-body canal width. Multiply true size by film magnification (about 1.07-1.17 at 40 in, Inference) before comparing with Hinck.",
+      "radiograph_recipe": "AP film or AP fluoroscopy: caliper the narrowest gap between the medial cortices of the left and right pedicle shadows at each level C3-L5; values are on the film scale (Hinck's at 40 in, uncorrected); M = SID/(SID - OFD) (Inference); axial rotation foreshortens it (Inference). PA chest films read about 1.1 mm smaller at T1-T3 and about 0.4 mm smaller at T4-T12 than AP spine films (10 patients aged 10-15 yr).",
+      "error": "Intra-observer duplicates (89 pairs in 9 cases): median absolute difference 0.26 mm, mean 0.40, range 0 to 3.6; 10 per cent zero, 50 per cent under 0.26, 75 per cent under 0.50, 90 per cent under 1.0 mm (Inference: per-reading SD about 0.27 mm with a heavy tail). No inter-observer study. Resolution 0.1 mm.",
+      "page": "p. 141-147 (PDF 1-7); Tables IA, IB, IC, II; Figs. 1-3"
+    },
+    {
+      "name": "90 per cent tolerance range of IPD (lower and upper normal limits)",
+      "definition": "For each vertebra and age group, limits within which the central 90 per cent of normals should fall (5 per cent below, 5 per cent above), sexes combined, in whole mm: mean +/- k SD with SDs and Ns averaged over similar vertebrae and k = 2.8, 2.5, 2.3, 2.1 for N = 10, 15, 20, 30 from Dixon and Massey (Inference: two-sided normal tolerance factors at 95 per cent confidence).",
+      "projection": "AP radiograph at 40 in",
+      "levels": "C3-L5, eight age groups",
+      "level_pattern": "Adult (Table III): C3 25-31, C4 26-32, C5 26-33, C6 26-33, C7 24-32; T1 20-28, T2 17-24, T3 16-22, T4 15-21, T5 14-21, T6 14-20, T7 14-20, T8 15-21, T9 15-21, T10 16-22, T11 17-24, T12 19-27; L1 21-29, L2 21-30, L3 21-31, L4 21-33, L5 23-37. 3-5 yr: C5 20-31, C7 19-30, T1 17-26, T4-T10 floor 12, T12 16-24, L1-L3 17-24, L4 18-25, L5 21-28. Widest at L4-L5 (13-14 yr 19-33 and 22-36).",
+      "covariates": "One set per age group, sexes pooled because the sex effect is an order of magnitude below age (p. 144).",
+      "ct_mask_recipe": "Inference: put a CT-derived IPD on the film scale (magnification) before comparing.",
+      "radiograph_recipe": "Compare each measured AP IPD with its age group's limits and also compare the shape of the whole profile with the normal curve (p. 146).",
+      "error": "Carries the sampling error of small groups (as few as 8 films per level in children).",
+      "page": "p. 145-147 (PDF 5-7); Table III; Fig. 3 A-H"
+    },
+    {
+      "name": "Interperson SD of IPD",
+      "definition": "SD of IPD by level and age group, sexes combined, with N (Table II).",
+      "projection": "AP radiograph at 40 in",
+      "levels": "C3-L5",
+      "level_pattern": "Cervical about equal (text 1.4-2.8, table 1.2-2.8); thoracic least at T3-T10, T1, T2, T11, T12 slightly more; lumbar rising with age, L4 and L5 uniformly more variable than L1-L3 because in a few normals they are smaller; adult CV about 5-6 per cent C3-C6, 7.5-9.7 thoracic, 12.5 at L5 (computed).",
+      "covariates": "Most variable at 11-12 yr (boys, growth-spurt timing); slight rise with age, attributed to harder visualisation and size differences; slight thoracic rise at 13-14 yr.",
+      "error": "Includes reading error (about 0.27 mm SD, Inference).",
+      "page": "p. 144-145 (PDF 4-5); Table II"
+    },
+    {
+      "name": "AP spine minus PA chest IPD (projection effect)",
+      "definition": "Per thoracic vertebra, IPD on the AP recumbent thoracic spine film (40 in) minus IPD on the erect PA chest film (72 in), same patient.",
+      "projection": "AP and PA radiographs",
+      "levels": "T1-T12",
+      "level_pattern": "Table IV: T1 1.46 (N 8), T2 1.06 (8), T3 0.79 (8), T4 0.58 (9), T5 0.38 (10), T6 0.08 (9), T7 0.31 (8), T8 0.64 (7), T9 0.22 (5), T10 0.20 (8), T11 0.58 (6), T12 0.43 (3) mm; mean T1-T3 1.10, T4-T12 0.38, general 0.57. Largest at T1, smallest at T6, explained by kyphosis and shoulder posture changing object-film distance.",
+      "covariates": "10 normal patients aged 10-15 yr only.",
+      "ct_mask_recipe": "Inference: a magnification-geometry effect; models how a projected IPD shifts with position and object-film distance along a curved column.",
+      "radiograph_recipe": "Chest films not recommended but usable with moderate accuracy below T3.",
+      "error": "No SD or test reported.",
+      "page": "p. 148-149 (PDF 8-9); Table IV; Fig. 4"
+    },
+    {
+      "name": "Sagittal (midsagittal) diameter of the canal",
+      "definition": "Named only, not measured or defined here; referenced to cervical and lumbar stenosis work (refs. 3, 4, 5, 10).",
+      "projection": "Lateral radiograph (Inference from Case I, where a minimally rotated lateral hid it)",
+      "level_pattern": "Diminished in Cases II and III; markedly increased at the level of the narrowed IPD in Case IV; no values.",
+      "page": "p. 149, 153 (PDF 9, 13)"
+    }
+  ],
+  "level_details": [
+    {"level": "C1-C2", "detail": "Not measurable on AP films; excluded.", "page": "p. 142 (PDF 2)"},
+    {"level": "C3-C7", "detail": "Plateau peaking at C5-C6 (adult 29.4, 29.3; 3-5 yr 25.3, 25.3); least represented region; cervical growth continues to 13-14 yr; girls aged 3-5 show an irregular curve rising to C7, put down to small subgroup samples.", "page": "p. 142-144 (PDF 2-4); Tables IA-IC"},
+    {"level": "C7/T1 and T1/T2", "detail": "Largest drop of the profile: adult 28.0 to 24.0 to 20.5 mm (about 2 SDs each), present at every age; sex difference largest at C7 (2.2) and T1 (2.0 mm, computed).", "page": "p. 142 (PDF 2); Tables IA-IC, III"},
+    {"level": "T1-T3", "detail": "AP-PA chest discrepancy largest (1.10 mm mean); chest films least reliable there.", "page": "p. 148-149 (PDF 8-9); Table IV"},
+    {"level": "T3-T10", "detail": "Narrowest and least variable canal by IPD; minimum T6 (adult 17.3, 3-5 yr 15.8); adult lower limit 14 mm at T5-T7, 12 mm at T4-T10 at 3-5 yr; Case I stenosis especially T5-T10.", "page": "p. 145-146, 151 (PDF 5-6, 11); Tables IA, III"},
+    {"level": "T11/T12 and T12/L1", "detail": "Adult T10 18.7, T11 20.2, T12 23.2, L1 25.0; T11/T12 rise +2.0 to +3.0 at every age, T12/L1 only +0.6 at 3-5, 6-8 and 13-14 yr (computed). Case I had a persistent left extradural defect at T12-L1 at myelography.", "page": "p. 142, 151 (PDF 2, 11); Table IA"},
+    {"level": "L1-L3", "detail": "Nearly flat (adult 25.0, 25.5, 26.0); at 3-5 yr L2 20.4 slightly below L1 20.5.", "page": "p. 142 (PDF 2); Table IA"},
+    {"level": "L4/L5", "detail": "Largest lumbar step (adult 26.9 to 29.7); L4 and L5 the most variable levels (adult SD 3.0, 3.7) and occasionally smaller than L1-L3 in normals; widest tolerance ranges (adult 21-33, 23-37; 13-14 yr 19-33, 22-36).", "page": "p. 145-146 (PDF 5-6); Tables II, III"},
+    {"level": "Sacrum", "detail": "No norms (sample inadequate); achondroplastic stenosis greatest at lower lumbar and sacral levels in Case II.", "page": "p. 142, 150, 153 (PDF 2, 10, 13)"}
+  ],
+  "errors": [
+    {"what": "Intra-observer duplicate measurements", "value": "89 duplicates in 9 cases, made independently at different times by the one measuring author", "page": "p. 142 (PDF 2)"},
+    {"what": "Median absolute duplicate difference", "value": "0.26 mm (Inference: per-reading SD about 0.27 mm)", "page": "p. 142 (PDF 2)"},
+    {"what": "Mean duplicate difference", "value": "0.40 mm, raised by a few extremes", "page": "p. 142 (PDF 2)"},
+    {"what": "Range and distribution of duplicate differences", "value": "0 to 3.6 mm; 10 per cent zero, 50 per cent under 0.26, 75 per cent under 0.50, 90 per cent under 1.0 mm", "page": "p. 142 (PDF 2)"},
+    {"what": "Instrument resolution", "value": "Calipers read to 0.1 mm", "page": "p. 141 (PDF 1)"},
+    {"what": "Projection effect AP spine (40 in) vs PA chest (72 in)", "value": "Mean 0.57 mm larger on AP; 1.10 at T1-T3, 0.38 at T4-T12; 1.46 at T1, 0.08 at T6", "page": "p. 148 (PDF 8); Table IV; Fig. 4"},
+    {"what": "Magnification", "value": "Not stated or corrected; norms are film values at 40 in (Inference: about 1.07-1.17)", "page": "p. 141 (PDF 1)"},
+    {"what": "Inter-observer error", "value": "Not studied", "page": "p. 141-142 (PDF 1-2)"}
+  ],
+  "pearls_pitfalls": [
+    {"text": "Maximum norms serve the diagnosis of intraspinal tumour; minimum norms the recognition of canal stenosis; any carefully measured IPD outside the limits raises suspicion of pathology or anomaly.", "page": "p. 141, 146, 153 (PDF 1, 6, 13)"},
+    {"text": "The limits are an index of suspicion only: they will not catch every anomaly, and a value inside them does not guarantee normality.", "page": "p. 146 (PDF 6)"},
+    {"text": "Normal spines share one IPD profile; a vertebra or adjacent pair distinctly out of line is suspicious even inside the limits, so compare the shape of the patient's curve with the normal.", "page": "p. 146 (PDF 6)"},
+    {"text": "Transverse stenosis from a small IPD exists, may or may not accompany a small sagittal diameter, and may be symptomatic; it was virtually unexplored, its frequency unknown.", "page": "p. 149, 153 (PDF 9, 13)"},
+    {"text": "Case I (60-yr man): abdominal wall weakness first taken for a right flank hernia, lancinating pains, gait and leg weakness, absent ankle jerks, CSF protein 84 mg per cent; IPDs narrow T5-T10 with T7 and T8 at the lower limit; myelography with slow hesitant thoracic transit and a T12-L1 extradural defect. Smallest IPDs at, not below, the limits do not argue against stenosis; the stenotic distribution overlaps the normal.", "page": "p. 149-152 (PDF 9-12); Fig. 5"},
+    {"text": "Children with more striking stenosis (achondroplasia, osteopetrosis, osteochondrodystrophy) were asymptomatic, attributed to the immature nervous system's capacity to compensate during growth.", "page": "p. 152 (PDF 12)"},
+    {"text": "Enlarged pedicles (osteopetrosis) narrow the IPD; achondroplasia narrows it below T10, most at lower lumbar and sacral levels; a hemivertebra region showed focal IPD collapse with a widened sagittal diameter.", "page": "p. 152-153 (PDF 12-13); Figs. 6-8"},
+    {"text": "Pitfall: C1-C2 unmeasurable on AP films; no sacral norms.", "page": "p. 142 (PDF 2)"},
+    {"text": "Pitfall: films taken for other purposes often omit part of the spine; chest films obscure some vertebrae (89 of 120 pairs usable).", "page": "p. 142, 148 (PDF 2, 8)"},
+    {"text": "Pitfall: chest PA and spine AP IPDs are not interchangeable at T1-T3; acceptable with moderate accuracy below T3.", "page": "p. 148-149 (PDF 8-9)"},
+    {"text": "Pitfall: a minimally rotated lateral film hid the sagittal diameter in Case I.", "page": "p. 149 (PDF 9)"},
+    {"text": "Pitfall: in normals L4 and L5 are occasionally smaller than L1-L3, so a lumbar reversal alone is weak evidence.", "page": "p. 145 (PDF 5)"},
+    {"text": "Pitfall: children vary most at 11-12 yr (growth-spurt timing); use the age group's limits.", "page": "p. 144-145 (PDF 4-5)"},
+    {"text": "Pitfall: norms are for white patients at 40 in; another distance and position shift them (AP-PA study); other populations untested (Inference).", "page": "p. 141, 148 (PDF 1, 8)"},
+    {"text": "Limitation admitted: clinical experience of transverse stenosis still limited; minimum standards are a preliminary to studying its frequency and significance.", "page": "p. 149 (PDF 9)"}
+  ],
+  "instructions": [
+    {"text": "On an AP radiograph or AP fluoroscopy frame, for each vertebra C3-L5 with visible pedicles, measure the shortest distance between the medial cortices of the left and right pedicles, in mm on the film scale.", "page": "p. 141 (PDF 1)"},
+    {"text": "Do not attempt IPD at C1 or C2, and do not compare sacral IPD with these norms.", "page": "p. 142 (PDF 2)"},
+    {"text": "Never derive IPD from a lateral view; the lateral gives the sagittal diameter, a separate quantity.", "page": "p. 149 (PDF 9)"},
+    {"text": "Put measurements on Hinck's scale before comparing: his are uncorrected film values at 40 in; multiply a true CT width by an assumed magnification (Inference: about 1.07-1.17) or compare adjacent-level ratios, which largely cancel magnification except along the curved thoracic column.", "page": "p. 141, 148-149 (PDF 1, 8-9)"},
+    {"text": "From a CT instance mask, project the pedicle voxels along the vertebra's AP axis and take the narrowest left-right gap between the medial pedicle edges over the rows crossing both pedicles; exclude laminae and body (Inference).", "page": "p. 141 (PDF 1)"},
+    {"text": "Use the profile as a level cue: cervical plateau peaking at C5-C6, drops of about 4 mm C7 to T1 and 3.5 mm T1 to T2, flat minimum T4-T10 lowest at T6, rises of about 1.5, 3.0 and 1.8 mm at T10/T11, T11/T12 and T12/L1, flat L1-L3, jump of about 2.8 mm at L4/L5 (adult).", "page": "p. 142 (PDF 2); Table IA"},
+    {"text": "Do not expect IPD to separate neighbours within T4-T10 or within L1-L3; the differences are under one SD.", "page": "p. 142, 145 (PDF 2, 5); Tables IA, II"},
+    {"text": "In a child, do not rely on a T12/L1 step (only 0.6 mm at 3-5, 6-8 and 13-14 yr); use T11/T12 (+2.0 to +3.0), C7/T1 (-2.4 to -4.5), T1/T2 (-3.2 to -3.7) and L4/L5 (+2.8 to +3.8), which hold at every age (Inference: arithmetic).", "page": "p. 142 (PDF 2); Table IA"},
+    {"text": "Choose limits by age group from Table III, sexes combined; expect males about 1 mm larger.", "page": "p. 143-146 (PDF 3-6)"},
+    {"text": "Flag an IPD below the lower limit as possible stenosis and above the upper limit as possible intraspinal mass or anomaly; flag a vertebra or adjacent pair out of line with the curve even inside the limits.", "page": "p. 146 (PDF 6)"},
+    {"text": "Do not clear a spine because all IPDs are inside the limits; Case I was symptomatic at the lower limit.", "page": "p. 146, 152 (PDF 6, 12)"},
+    {"text": "When lumbar IPD fails to widen caudally, L5 is below L4 and values below T10 sit at or under the floor, suspect achondroplasia-type stenosis and check the sagittal diameter on the lateral; the pattern also appeared in Case IV (Inference from Fig. 8B).", "page": "p. 152-153 (PDF 12-13); Figs. 6, 8"},
+    {"text": "When pedicles look massive and dense and IPDs are uniformly narrow, consider osteopetrosis.", "page": "p. 153 (PDF 13); Fig. 7"},
+    {"text": "Where hemivertebrae or irregular body sizes appear, expect focal IPD collapse and possibly a widened sagittal diameter at that level; count levels with care.", "page": "p. 152-153 (PDF 12-13); Fig. 8"},
+    {"text": "If only a PA chest film is available, read IPD below T3 with moderate accuracy; at T1-T3 expect it about 1.1 mm below the AP spine value, about 0.4 mm below at T4-T12 (10 patients aged 10-15 yr).", "page": "p. 148-149 (PDF 8-9); Table IV"},
+    {"text": "Treat one IPD reading as carrying about 0.3 mm error (Inference) with occasional misreads of 1 to 3.6 mm; re-measure a value that sits alone off the curve.", "page": "p. 142 (PDF 2)"},
+    {"text": "Read a profile, not a value: normal spines share one shape and differ mainly in overall level.", "page": "p. 146 (PDF 6)"},
+    {"text": "In children, use the age group's own limits and expect the widest scatter at 11-12 yr and at L4-L5 at 13-14 yr.", "page": "p. 144-146 (PDF 4-6); Table III"},
+    {"text": "Check axial rotation on AP views, which foreshortens the projected IPD (Inference); the paper warns of rotation only on the lateral.", "page": "p. 149 (PDF 9)"}
+  ],
+  "bordercall": [
+    "(a) Anomaly priors: none. No prevalence of any transitional, numerical or segmentation anomaly; significant anomalies were screened out (p. 141, PDF 1); Case IV's hemivertebrae are one case.",
+    "(b) Hinck's IPD is the minimum medial-pedicle distance as projected on an AP film at 40 in, magnified and uncorrected. A mask width taken at mid-body, at the lateral recess or as the canal's maximum width runs larger; one at the laminae runs smaller (Inference).",
+    "(b) Versus Panjabi's cadaveric SCW (widest canal width, true size; from the panjabi notes of this set, Inference): Hinck/Panjabi about 1.10 at T1, 1.00 at T6-T8, 1.05 at T12, 1.05 at L1, 1.10 at L5; versus Eisenstein's dry-bone greatest interpedicular distance (Caucasoid men) 1.13 at L1, 1.18 at L5, near his AP magnification 1.14. A level-dependent factor is needed before pooling film and bone values.",
+    "(b) Candidate additions: a film-equivalent projected IPD per level C3-L5 for radiographs and fluoroscopy; adjacent-level IPD ratios carrying the C7/T1, T1/T2, T11/T12 and L4/L5 junction signals; full thoracic profile T1-T12; paediatric age-group means from 3 yr (Table IA) with SDs (Table II).",
+    "(b) Emission: adult per-level mean and SD give a Gaussian IPD emission; discrimination concentrated at C7/T1 and T1/T2 (about 2 SDs), T11/T12 (1.6 SD); other steps under one SD (computed).",
+    "(c) Measurement error: reading SD about 0.27 mm (Inference from median duplicate difference 0.26 mm), heavy tail to 3.6 mm; AP-PA projection shift 0.6 mm mean, 1.1 at T1-T3; magnification unreported; Table II SDs include reading error.",
+    "(d) Sex: male about 1 mm larger (adult 0.4-2.2 by level, mean 1.25, computed); girls larger at several cervical and lumbar levels at 11-12 and 13-14 yr. Age: growth 3.6-4.1 cervical, 1.4-3.3 thoracic, 4.5-5.2 lumbar from 3-5 yr to adult, so a single size factor will not model growth (Inference). Size: shared overall profile level supports a patient size factor (p. 146). Population: white Oregon patients only."
+  ],
+  "gaps": [
+    "Not given: counts by sex; adult upper age and age distribution; how levels were identified and numbered; transitional handling; object-film distance, magnification, patient position for the main series; inter-observer error; confidence level of the tolerance intervals; body size data.",
+    "Table II's Age row (.05 to .09) under an SD-in-mm heading has no clear meaning (Inference).",
+    "Text gives cervical SDs 1.4-2.8 mm but Table II has 1.2 (13-14 yr C3) and 1.3 (9-10 yr C4).",
+    "Text gives growth of about 3 to 5 mm from 3-5 yr to adult, but thoracic levels grow 1.4-3.3 mm by Table IA (computed).",
+    "At 11-12 yr the combined mean lies outside the male-female interval at C4 (27.0 vs 27.8, 27.4) and L4 (24.9 vs 23.6, 24.2); male T6 at 9-10 yr (18.8) is out of line (T5 17.4, T7 16.5; combined 16.5), likely a misprint (Inference).",
+    "Text says males are consistently larger, but girls exceed boys at C3, C5, C6, L4 (11-12 yr) and C3-C6, L2-L5 (13-14 yr; L5 30.4 vs 28.0).",
+    "Wide L4-L5 limits at 13-14 yr are attributed partly to small samples, yet N is 34 there, more than at 9-10 or 3-5 yr.",
+    "13-14 yr thoracic means exceed the 15-16 and 17-18 yr means (T7 18.2 vs 16.9, 17.5): a non-monotone age curve, not discussed (Inference: sampling).",
+    "Fig. 5B (Case I) shows no tolerance band in this copy; from the graph T2 is about 25.3 mm, above the adult upper limit 24, not mentioned by the authors (Inference). Fig. 8B's band is faint.",
+    "Inference: sex mix implied by where combined means fall: male share about 0.65 (3-5 yr), 0.54, 0.67, 0.58, 0.50, 0.36, 0.38, 0.44 (adult).",
+    "Against Panjabi and Eisenstein (sibling notes, Inference): no single magnification reconciles film and bone values (ratio 1.00 mid-thoracic to 1.18 at L5), and definitions differ (shortest vs greatest vs widest canal)."
+  ]
+}

@@ -1,0 +1,153 @@
+{
+  "id": "krag1988",
+  "citation": "Krag MH, Weaver DL, Beynnon BD, Haugh LD. Morphometry of the Thoracic and Lumbar Spine Related to Transpedicular Screw Placement for Surgical Spinal Fixation. Spine 1988;13(1):27-32. Copy read: greg's upload of 2026-10-28 01:02 UTC (upload id 8ddb2b2d-ac9f-4c00-9a8f-5c1e72746d21), sha256 begins 2be5b58e56ec7d42; a 6-page scan with no text layer, journal pp. 27-32 = PDF pp. 1-6.",
+  "population": "USA (Medical Center Hospital of Vermont), living patients: 91 vertebrae T9-L5 from 41 patients (14 women, 27 men), aged 18-75 years (mean 36, median 28), ethnicity not reported; 182 pedicles (T9 14, T10 18, T11 22, T12 24, L1 22, L2 14, L3 24, L4 24, L5 20; Inference: both pedicles of 7, 9, 11, 12, 11, 7, 12, 12, 10 vertebrae). Diagnoses: 10 fractured vertebrae, 7 herniated discs, 5 bulging discs, 3 unspecified cord lesions, 2 bony degenerative changes, 14 normal studies. Fractured vertebrae and those next to internal fixation excluded. Validation: 8 cadaver vertebrae (1 T12, 3 L2, 3 L3, 1 L4), donor age and sex not given. p. 27-28 (PDF 1-2), Tables 1-2 pp. 29-30 (PDF 3-4).",
+  "modality": "Retrospective axial CT, Siemens Somatom 2 third-generation scanner, 4-mm cuts, 5-s scan; one 'midpedicle cut' per vertebra (the transverse section where both pedicles look largest) printed at 80% life size; hand-drawn construction lines with 0.5-mm pencil and 1 x 1 mm grid; dividers and 0.5-mm ruled scale read to 0.33 mm then x1.25; protractor to 0.5 deg. Cadaver check: CT then band-saw section through the midpedicle parallel to the end plates, caliper vs CT. pp. 27-28 (PDF 1-2).",
+  "levels_covered": "T9 to L5 only; level identification and numbering method not described; no transitional segments mentioned.",
+  "anomalies": [
+    {
+      "variant": "Lumbosacral transitional vertebra, sacralisation, lumbarisation, L6, T13, 11 or 13 rib pairs, cervical ribs, block vertebrae",
+      "finding": "Not mentioned anywhere; no prevalence of any numerical or transitional variant is reported and the numbering method is not described. Only fractured vertebrae and those next to hardware were excluded.",
+      "page": "pp. 27-32 (PDF 1-6); exclusions p. 27 (PDF 1)",
+      "population": "41 living patients, Vermont, USA",
+      "how_identified": "not applicable"
+    }
+  ],
+  "measures": [
+    {
+      "name": "Chord length (screw-path length) CL0, CL5, CL10, CL15",
+      "definition": "On the midpedicle axial slice: from line B (parallel to line A, along the flattest part of the posterior lamina cortex, used instead of the posterior cortex to avoid variable facet anatomy) along a straight path through the intersection of the pedicle axis with the perpendicular at the pedicle's narrowest width, at 0, 5, 10 or 15 deg to the AP midline (aimed anteromedially), to the anterior cortex of the body. Line A is perpendicular to the AP midline axis and tangent to the most anterior point of the canal; the AP midline axis bisects body and canal with the transverse line along both transverse processes. Only 0 and 15 deg reported per level.",
+      "projection": "Axial CT (midpedicle cut); not directly measurable on radiographs, predicted from lateral-film mid-body AP depth x factor (1.32 at 0 deg, 1.44 at 5, 1.53 at 10, 1.60 at 15 deg)",
+      "page": "p. 28 (PDF 2) Fig. 1C; Fig. 2 p. 28 (PDF 2); Table 1 and text p. 29 (PDF 3); p. 31 (PDF 5); p. 32 (PDF 6)",
+      "levels": "T9-L5",
+      "level_pattern": "Approx. Fig. 2: CL0 T9 45.0, T10 44.2, T11 41.6, T12 40.9, L1 42.8, L2 44.4, L3 40.7, L4 39.8, L5 36.0 mm (SD 4.1, 5.7, 5.2, 9.2, 5.0, 2.6, 4.5, 4.6, 6.6); CL15 T9 53.9, T10 51.8, T11 50.4, T12 50.9, L1 50.9, L2 51.8, L3 49.5, L4 47.4, L5 44.9 mm (SD 4.6, 6.0, 5.3, 6.5, 2.7, 2.6, 4.3, 4.8, 6.1). Means over levels 42 mm (0 deg) and 50 mm (15 deg); fairly constant, shortest at L5; no adjacent step reaches the SD of both levels; largest steps L4-L5 and L2-L3 at 0 deg (about 3.7-3.8 mm). 15 deg is 8-10 mm (about 1 cm) longer than 0 deg. Table 1: 78.6% of 0 deg chords in 35.1-50 mm, 68.4% of 15 deg in 45.1-55 mm, 84.1% of both in 35.1-55 mm.",
+      "covariates": "Sex, age, size and population not analysed.",
+      "ct_mask_recipe": "Inference: reslice the instance perpendicular to its own cranio-caudal axis at the height of largest pedicle cross-sections; AP axis = mirror-symmetry axis of the instance; line A = perpendicular at the canal's anterior-most point; line B = line perpendicular to the AP axis fitted to the posterior lamina surface (excluding spinous process and facets); ray through the pedicle isthmus centre at theta from the AP axis, anteromedially; length from line B to exit through the anterior body surface. Needs body and posterior elements joined.",
+      "radiograph_recipe": "Not directly; lateral radiograph mid-body AP depth x 1.32 (0 deg) to 1.60 (15 deg), factor SD 0.09-0.12 (about +/-3 to 4 mm at a 32-mm body); magnification not addressed by the paper.",
+      "error": "CT vs caliper on 8 cadaver vertebrae pooled with widths and body length: sectioned = 1.01 x CT + 0.7 mm, points close to y = x (Fig. 7); reading resolution about 0.4 mm life size; no repeatability."
+    },
+    {
+      "name": "Pedicle length (pedicle root length, facet corrected)",
+      "definition": "Fig. 3 caption: along a 0 deg line between lines A and B (canal-front tangent to posterior lamina line). Methods text: measured along all four axes from the posterior cortex to line A, only 5 deg shown as the others were similar. Fig. 1A: line A to posterior cortex, or to line B when facet corrected. Inference: A-B distance = midline canal depth plus lamina thickness at that slice, not the bony pedicle alone.",
+      "projection": "Axial CT (midpedicle cut); not tested on radiographs",
+      "page": "p. 28 (PDF 2) Fig. 1A and methods; p. 29 (PDF 3) text and Fig. 3; p. 31 (PDF 5)",
+      "levels": "T9-L5",
+      "level_pattern": "Text: T9 20.18, T12 18.06, L5 15.00 mm; nearly constant T9-T12 then decreasing to L5; range about 15-25 mm. Approx. Fig. 3: T9 20.2, T10 17.8, T11 18.3, T12 18.3, L1 19.3, L2 18.7, L3 18.2, L4 17.3, L5 15.3 mm (SD 3.1, 2.7, 2.35, 2.1, 1.45, 1.35, 1.55, 1.85, 2.4). Steps: T9-T10 about -2.4 mm and L4-L5 about -2 mm. As share of CL0: 46% (T12) to 40% (T10). Authors link the caudal decrease to the shrinking cauda equina.",
+      "covariates": "Not analysed.",
+      "ct_mask_recipe": "Inference: AP distance along the symmetry axis from the canal's anterior-most point (line A) to the fitted posterior lamina line (line B); along a path at theta multiply by 1/cos(theta) (1.004 at 5 deg, 1.035 at 15 deg).",
+      "radiograph_recipe": "Not tested. Inference: lateral film, posterior body wall to posterior laminar surface, but laminae overlap facets on a lateral; correct magnification.",
+      "error": "As for all lengths; no repeatability."
+    },
+    {
+      "name": "Pedicle diameter (transverse pedicle width), perpendicular to pedicle axis, at 0 deg and at 15 deg",
+      "definition": "Axis method: width along one perpendicular to the visually fitted pedicle axis at the pedicle's narrowest point (Fig. 1B). 0 and 15 deg methods: distance between two lines parallel to the 0 or 15 deg path, tangent to the medial and lateral pedicle cortices, tangency points not on one perpendicular, meant as the largest screw passing without cortical breach (Fig. 1D). Inner vs outer cortex not stated. Transverse width only; pedicle height not measured.",
+      "projection": "Axial CT (midpedicle cut); frontal (AP) radiograph widths not measured and said to bear perhaps little relation to CT 0 deg widths",
+      "page": "p. 28 (PDF 2) Figs. 1B and 1D; p. 29 (PDF 3); Fig. 5 and Table 2 p. 30 (PDF 4); p. 31 (PDF 5); p. 32 (PDF 6)",
+      "levels": "T9-L5",
+      "level_pattern": "Text: about 7 mm and fairly constant T9-L1, rising to about 13 mm at L5; methods agree except L4 and L5; L5 at 0 deg 12.6 mm. Approx. Fig. 5 (axis / 0 deg / 15 deg): T9 7.0/6.65/6.9; T10 7.15/7.2/7.5; T11 7.4/8.0/7.85; T12 6.8/7.3/7.7; L1 7.2/6.8/7.1; L2 8.6/8.2/8.7; L3 9.3/8.15/9.3; L4 11.0/9.5/11.05; L5 13.85/12.6/15.2 mm; SD 0.65 (L2) to 2.2 mm. On-axis steps L1-L2 +1.4, L2-L3 +0.7, L3-L4 +1.7, L4-L5 +2.85 mm. Table 2 (on-axis): under 5 mm 3/14 at T9, 2/18 at T10, 2/22 at L1, none elsewhere (7/182 overall); under 6 mm 23/182, all T9-L1; >= 9 mm 23/24 at L4 and 20/20 at L5.",
+      "covariates": "Not analysed.",
+      "ct_mask_recipe": "Inference: in the midpedicle plane, each pedicle = posterior-element mask between lines A and B on one side of the canal; fit centreline by principal axis; on-axis width = minimum chord perpendicular to the centreline; corridor width at theta = range of lateral offsets for which a full line at theta from A to B stays inside the mask.",
+      "radiograph_recipe": "Not measured; AP radiograph widths not validated against CT by this paper.",
+      "error": "Authors expect CT to read small: convex medial and lateral cortices in the frontal plane plus 4-mm slice averaging (p. 31). Inference from pooled Fig. 7 fit: bias under about 1 mm, single-pedicle scatter up to about 1.5 mm."
+    },
+    {
+      "name": "Pedicle axis angle (transverse pedicle angle)",
+      "definition": "Angle between the visually fitted pedicle longitudinal axis and the sagittal plane (AP midline axis) on the midpedicle slice; anteromedial positive, anterolateral negative; protractor to 0.5 deg. Authors call it the least explicitly defined measure.",
+      "projection": "Axial CT; no radiographic method given",
+      "page": "p. 28 (PDF 2) Fig. 1B; p. 30 (PDF 4); Fig. 6 and text p. 31 (PDF 5); conclusion 5 p. 32 (PDF 6)",
+      "levels": "T9-L5",
+      "level_pattern": "Approx. Fig. 6: T9 6.6, T10 5.85, T11 0.3, T12 -0.3, L1 11.7, L2 13.35, L3 18.0, L4 19.5, L5 27.8 deg (SD 3.35, 5.3, 4.0, 4.6, 3.6, 3.5, 2.8, 5.1, 9.0). Text: about 0-10 deg T9-L1, 10-20 deg L1-L4, 20-30 deg L4-L5. Inference: sharpest step T12 to L1 (about 12 deg, about 3 SD); second step L4-L5 about 8 deg. Saillant (approx.) T9 4, T10 4, T11 -0.5, T12 -4, L1 -0.7, L2 2.4, L3 4.4, L4 10.5, L5 29.6 deg.",
+      "covariates": "Not analysed.",
+      "ct_mask_recipe": "Inference: angle in the midpedicle plane between the fitted pedicle centreline (between lines A and B) and the instance symmetry axis, positive when the anterior end points toward the midline; keep left and right.",
+      "radiograph_recipe": "Not possible on a lateral; Inference: not given directly by an AP film.",
+      "error": "Protractor 0.5 deg; axis fitted by eye; no repeatability."
+    },
+    {
+      "name": "Vertebral body length (mid-body AP depth)",
+      "definition": "From line A (tangent to the most anterior point of the canal) to the anterior body cortex along the AP midline axis, on the midpedicle slice; also called body depth, AP diameter, AP length of the body.",
+      "projection": "Axial CT; said to be readily measurable on lateral radiographs (not validated there)",
+      "page": "p. 28 (PDF 2) Fig. 1A; Fig. 4 and text p. 29 (PDF 3); p. 32 (PDF 6)",
+      "levels": "T9-L5",
+      "level_pattern": "Approx. Fig. 4: T9 32.85, T10 32.3, T11 30.2, T12 32.2, L1 31.5, L2 32.7, L3 31.2, L4 32.2, L5 33.35 mm (SD 2.55, 3.3, 3.9, 3.2, 2.9, 2.3, 3.3, 2.5, 3.2); overall mean 32 mm, almost constant; separates no levels. Chord factors (mean +/- SD): 0 deg 1.32 +/- 0.12, 5 deg 1.44 +/- 0.09, 10 deg 1.53 +/- 0.09, 15 deg 1.60 +/- 0.09, overall 1.50.",
+      "covariates": "Not analysed.",
+      "ct_mask_recipe": "Inference: AP extent of the body mask along the symmetry axis in the midpedicle plane, from the canal's anterior-most point to the anterior body surface; a mid-height depth, not an end-plate depth.",
+      "radiograph_recipe": "Lateral radiograph at pedicle height, posterior body wall to anterior body surface (Inference for landmarks); magnification not addressed.",
+      "error": "Fig. 7: one outlier (CT about 29.5 vs section about 35 mm); others within about 1-2 mm of the line."
+    }
+  ],
+  "level_details": [
+    {"level": "T9", "detail": "Longest chords (CL0 about 45, CL15 about 54 mm); longest pedicle length 20.18 mm; 3/14 pedicles under 5 mm wide, 2 under 4 mm; angle about 6.6 deg.", "page": "pp. 28-31 (PDF 2-5), Figs. 2-6, Table 2"},
+    {"level": "T10", "detail": "Lowest pedicle-length share of CL0 (40%); pedicle length about 2.4 mm below T9; 2/18 pedicles under 4 mm; angle SD about 5.3 deg.", "page": "p. 29 (PDF 3); Table 2 p. 30 (PDF 4); Fig. 6 p. 31 (PDF 5)"},
+    {"level": "T11", "detail": "Pedicle angle falls to about 0 deg; body length lowest (about 30.2 mm) with widest SD (about 3.9 mm).", "page": "Fig. 4 p. 29 (PDF 3); Fig. 6 p. 31 (PDF 5)"},
+    {"level": "T12", "detail": "Angle about 0 or slightly negative (SD 4.6); widest CL0 spread (12% at 20-25 mm, SD about 9 mm); highest pedicle-length share of CL0 (46%); narrowest on-axis width (about 6.8 mm); Table 1 T12 rows sum to 91% and 108%.", "page": "Fig. 2 p. 28 (PDF 2); Table 1 p. 29 (PDF 3); Fig. 5 p. 30 (PDF 4); Fig. 6 p. 31 (PDF 5)"},
+    {"level": "T12/L1", "detail": "Inference from Fig. 6: transverse pedicle angle jumps from about 0 to about 12 deg; text groups L1 with 0-10 deg; width stays about 7 mm; L1 still has 2/22 pedicles under 4 mm.", "page": "p. 30 (PDF 4); Fig. 6 p. 31 (PDF 5); Table 2 p. 30 (PDF 4)"},
+    {"level": "L1-L4", "detail": "Angle 10-20 deg; on-axis width rises from about 7 to 11 mm; L2 has the tightest width SD (about 0.65 mm) and chord SDs (about 2.6 mm).", "page": "p. 30 (PDF 4); Figs. 2, 5"},
+    {"level": "L4", "detail": "23/24 pedicles >= 9 mm; width methods diverge (0 deg about 9.5 vs about 11 mm on axis and at 15 deg).", "page": "Table 2 and Fig. 5 p. 30 (PDF 4)"},
+    {"level": "L5", "detail": "Shortest chords (CL0 about 36, CL15 about 45 mm; 50% of CL0 in 30-35 mm, 15% in 25-30 mm); shortest pedicle length 15.00 mm; widest pedicles (all 20 >= 9 mm; 0 deg 12.6, axis about 13.85, 15 deg about 15.2 mm); largest angle about 28 deg with widest SD about 9 deg.", "page": "pp. 28-31 (PDF 2-5), Figs. 2-6, Tables 1-2"},
+    {"level": "C2/C3, C7/T1, L5/S1", "detail": "Not covered; study limited to T9-L5.", "page": "p. 27 (PDF 1)"}
+  ],
+  "errors": [
+    {"what": "Linear reading resolution", "value": "0.33 mm on 80% film, x1.25 (Inference: about 0.4 mm life size)", "page": "pp. 27-28 (PDF 1-2)"},
+    {"what": "Angle reading resolution", "value": "0.5 deg, hand-held protractor", "page": "p. 28 (PDF 2)"},
+    {"what": "Slice thickness", "value": "4 mm", "page": "p. 27 (PDF 1)"},
+    {"what": "CT vs caliper, 8 cadaver vertebrae, CL0 + on-axis width + body length pooled", "value": "sectioned = 1.01 x CT + 0.7 mm; points very close to y = x; no r, SE or limits of agreement; one body-length outlier (CT about 29.5 vs 35 mm)", "page": "Fig. 7 p. 31 (PDF 5); p. 30 (PDF 4)"},
+    {"what": "Expected CT bias for pedicle width", "value": "reads a little small (convex cortices, 4-mm partial volume)", "page": "p. 31 (PDF 5)"},
+    {"what": "Body-to-chord factor SD", "value": "0.12 (0 deg), 0.09 (5, 10, 15 deg)", "page": "p. 29 (PDF 3)"},
+    {"what": "Observer repeatability", "value": "not reported; number of observers not stated", "page": "pp. 27-32 (PDF 1-6)"}
+  ],
+  "pearls_pitfalls": [
+    {"text": "Indication: short-segment fixation for one- or few-segment fracture, degeneration, spondylolisthesis or tumour, replacing constructs spanning five to seven vertebrae (Harrington hooks, Harrington or Luque wiring, Roy-Camille plates with toggling screws, Magerl external fixator, Dunn anterior device near the aorta).", "page": "p. 27 (PDF 1)"},
+    {"text": "Pedicle diameter and chord length set the upper limits of screw diameter and length; diameter limits screw strength, both set screw-bone interface strength.", "page": "p. 30 (PDF 4)"},
+    {"text": "A 5-mm screw fits all but the smallest pedicles T9-L5, 6-7 mm or more fits most lower lumbar pedicles; but Table 2 shows 21% of T9, 11% of T10 and 9% of L1 pedicles under 5 mm.", "page": "p. 30 (PDF 4); conclusion 3 p. 32 (PDF 6)"},
+    {"text": "Measurement angle hardly changes the width that fits, except at L4 and L5 where the 0 deg corridor is narrower than the axis width.", "page": "pp. 30-31 (PDF 4-5); Fig. 5"},
+    {"text": "15 deg anteromedial adds only 8-10 mm of chord; fixation is not very depth sensitive, so err slightly anteromedially; an anterolateral error risks anterior cortex penetration; too much medial angle makes left and right tips collide; others' 0 deg recommendation lacked a stated basis.", "page": "p. 31 (PDF 5); conclusion 6 p. 32 (PDF 6)"},
+    {"text": "Chord length is nearly constant between individuals and levels, so only a few screw lengths are needed.", "page": "p. 31 (PDF 5); conclusion 4 p. 32 (PDF 6)"},
+    {"text": "Lumbar pedicle obliquity allows convergent toenailing screws, said to substantially resist posterior pull-out and lateral translation; widths are slightly larger along the pedicle axis in the lumbar spine.", "page": "p. 31 (PDF 5); conclusion 7 p. 32 (PDF 6)"},
+    {"text": "The pedicle appears to be a stronger hold than the body (stronger, thicker trabeculae; thick cortex engaged by threads); pedicle length is 40-46% of CL0, so a screw should be at least 46% of the chord.", "page": "p. 31 (PDF 5)"},
+    {"text": "Screw length can be measured on CT or predicted from lateral-film body AP depth x 1.32-1.60.", "page": "p. 29 (PDF 3); p. 32 (PDF 6)"},
+    {"text": "Pitfalls: CT reads pedicle width small; CT 0 deg widths may not match frontal radiograph widths; facet anatomy on CT is variable (hence line B); metal artefact near hardware; pedicle angle least well defined, explaining disagreement with Saillant.", "page": "pp. 27-32 (PDF 1-6)"}
+  ],
+  "instructions": [
+    {"text": "On axial CT pick the slice where both pedicles look largest and measure everything on it; Inference: on a 3D mask reslice perpendicular to the vertebra's own axis first (gantry tilt not stated in the paper).", "page": "p. 27 (PDF 1); p. 28 (PDF 2)"},
+    {"text": "Set the AP axis to bisect body and canal with the transverse line along both transverse processes; on a mask use the mirror-symmetry axis.", "page": "pp. 27-28 (PDF 1-2), Fig. 1A"},
+    {"text": "Draw line A at the canal's anterior-most point and line B along the flattest posterior lamina cortex, both perpendicular to the AP axis.", "page": "p. 28 (PDF 2)"},
+    {"text": "Fit each pedicle centreline, find the narrowest width and its midpoint; measure on-axis width and transverse angle (anteromedial positive).", "page": "p. 28 (PDF 2), Fig. 1B"},
+    {"text": "Inference: across the ordered instances T9-L5, use the transverse angle sequence (about 6, 6, 0, 0, then about 12 at L1 rising to 28 at L5); a rise of about 10 deg after two near-zero levels suggests the thoracolumbar junction; confirm with ribs.", "page": "Fig. 6 p. 31 (PDF 5)"},
+    {"text": "Inference: use on-axis width to separate L3, L4 and L5 (about 9.3, 11, 14 mm); not T9-L1 (all about 7 mm), and L2/L3 overlap.", "page": "Fig. 5 p. 30 (PDF 4)"},
+    {"text": "Inference: use the A-to-B depth as a weak caudal cue (about 20 mm T9, 18-19 T10-L3, 17 L4, 15 L5).", "page": "Fig. 3 p. 29 (PDF 3)"},
+    {"text": "Do not use mid-body AP depth to tell T9-L5 apart (flat about 32 mm); Inference: use it as a size scale.", "page": "Fig. 4 p. 29 (PDF 3)"},
+    {"text": "Expect CT widths slightly below bone; Inference from Fig. 7: under about 1 mm bias, single-pedicle scatter up to about 1.5 mm.", "page": "p. 31 (PDF 5), Fig. 7"},
+    {"text": "On a lateral radiograph estimate CL0 = 1.32 x mid-body AP depth (1.60 x for 15 deg) after your own magnification correction, allowing about +/-3-4 mm.", "page": "p. 29 (PDF 3)"},
+    {"text": "Do not treat AP-radiograph pedicle width as the CT width.", "page": "p. 32 (PDF 6)"},
+    {"text": "Flag pedicles under 5 mm, expected in about 1 in 5 at T9 and 1 in 10 at T10 and L1, none elsewhere in this sample.", "page": "Table 2 p. 30 (PDF 4)"},
+    {"text": "Check sign and definition before comparing pedicle angles across series; Krag exceeds Saillant by about 11-14 deg at L1-L3 and about 9 deg at L4.", "page": "Fig. 6 p. 31 (PDF 5)"},
+    {"text": "Treat Table 1's T12 rows as faulty (91% and 108%); read the T12 chord from Fig. 2.", "page": "pp. 28-29 (PDF 2-3)"}
+  ],
+  "bordercall": [
+    "(a) Anomaly priors: none; no transitional anomalies, rib counts or numbering method reported (pp. 27-32, PDF 1-6).",
+    "(b) Pedicle transverse width on axis approximates Panjabi's transverse pedicle width (Inference from memory: Panjabi measured cadaveric bone directly; Krag's CT may read up to about 1 mm lower). The 0 and 15 deg corridor widths have no Panjabi counterpart and must not be pooled (0 deg about 1.3-1.5 mm below axis at L4-L5; 15 deg equal at L4, about 1.4 mm above at L5).",
+    "(b) Transverse pedicle angle (anteromedial positive) gives the strongest level step in the paper, T12 about 0 to L1 about 12 deg; check Panjabi's sign and reference plane before use (Inference from memory).",
+    "(b) Mid-body AP depth from line A is not an end-plate depth; a mask-derived mid-height depth from the canal tangent runs smaller than Panjabi's end-plate depths (Inference).",
+    "(b) Krag's pedicle length (line A to line B) is canal depth plus lamina thickness (Inference); computable from a mask as a separate feature. Chord length CL0/CL15 computable by ray casting; nearly flat, a size check.",
+    "(b) Not measured: pedicle height, canal width, end-plate widths and depths, body heights, facets, anything outside T9-L5.",
+    "(c) Error: about 0.4 mm reading resolution, 0.5 deg angles, 4-mm slices, pooled CT vs caliper sectioned = 1.01 x CT + 0.7 mm on 8 vertebrae, no repeatability. Between-subject SDs per level: chord 2.6-9.2 mm, pedicle length 1.35-3.1 mm, width 0.65-2.2 mm, angle 2.8-9 deg, body depth 2.3-3.9 mm; factor SD 0.09-0.12.",
+    "(d) Covariates: none analysed; 41 Vermont patients, 14 women and 27 men, 18-75 years (median 28); ethnicity, stature and bone density not reported."
+  ],
+  "gaps": [
+    "Pedicle length definition conflicts: methods say posterior cortex to line A at 5 deg (p. 28, PDF 2); Fig. 3 caption says 0 deg between lines A and B, facet corrected (p. 29, PDF 3).",
+    "Chord start: line B in the methods (p. 28, PDF 2); posterior cortex in the Fig. 1C caption and conclusion 4 (pp. 28, 32, PDF 2, 6).",
+    "Discussion cites Fig. 6 for the width methods (they are in Fig. 5) and '0 deg pedicle diameters in Figure 7' though Fig. 7 used on-axis widths (pp. 28, 30, 32, PDF 2, 4, 6).",
+    "Results say width methods diverge at L4-L5; discussion says no significant difference at any level; no statistical test described anywhere, yet significant differences from Saillant claimed (p. 30, PDF 4).",
+    "Corridor widths (0 and 15 deg) should not exceed the narrowest on-axis width as defined, yet exceed it at T10-T12 and L5 in Fig. 5; cortex (inner or outer) not stated.",
+    "Text groups L1 with 0-10 deg (p. 30, PDF 4) but Fig. 6 shows L1 about 12 deg.",
+    "Table 1 row sums: T12 0 deg 91%, T12 15 deg 108%, L1 0 deg 98%, T10 15 deg 99%, L3 0 deg 102%, L3 15 deg 101%, L4 0 deg 101% (p. 29, PDF 3); Inference: the 8 under 65-70 mm in the T12 15 deg row (2 pedicles) probably belongs to the T12 0 deg row.",
+    "Table 2's printed unweighted mean for 6.00-6.99 mm is 15 but recomputes to 13.9; printed means sum to 100.8 (p. 30, PDF 4).",
+    "'5-mm screw fits all but the few very smallest' understates Table 2 (21% of T9 under 5 mm) (p. 30, PDF 4).",
+    "46% pedicle-length share at T12 does not follow from plotted means (about 44%; ratio of means peaks at L1 about 45%); Inference: a mean of per-vertebra ratios (p. 29, PDF 3).",
+    "Pedicle length 'about 15 to 25 mm' vs level means 15-20 mm (p. 29, PDF 3).",
+    "Saillant's chord means called in close agreement, yet differ by 4-7 mm at T9-T11 and L5 (Fig. 2, p. 28, PDF 2).",
+    "Missing: level identification, rib counts, transitional anomalies, observers, repeatability, gantry angle, sex or age breakdown, pedicle height, levels outside T9-L5; non-independence of pedicles and vertebrae from one patient not addressed.",
+    "Ref. 10 printed as Spine 2:160-166, 1987; Inference: volume 12, number 2.",
+    "Inference from memory: Zindrick 1987 and Panjabi's papers agree on narrowest widths at the lower thoracic and upper lumbar spine, a rise to L5, and a transverse angle near 0 at T11-T12 rising through the lumbar spine; Krag's flat mid-body depth differs from end-plate depths that rise into the lumbar spine."
+  ]
+}

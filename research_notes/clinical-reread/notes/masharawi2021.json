@@ -1,0 +1,281 @@
+{
+  "id": "masharawi2021",
+  "citation": "Saher Abu-Leil, Asaf Weisman, Yizhar Floman, Fabio Galbusera and Youssef Masharawi. A morphological characterization of the lumbar neural arch in females and males with degenerative spondylolisthesis. BMC Musculoskeletal Disorders (2021) 22:1026, 13 pages (no issue printed; article number 1026). https://doi.org/10.1186/s12891-021-04901-6. Received 20 August 2021, accepted 23 November 2021, published online 8 December 2021. Copy read: PMC open-access Cloud Service (pmc-oa-opendata), PMC8656081.1, fetched 2026-10-28 by thread \"Reread every paper for clinical detail\", project symphony_4; sha256 begins 9f367eb374ec38f0. Printed page equals PDF page.",
+  "population": "Israel (Table 6 labels the sample Israeli; no ethnicity given), living hospital patients aged 50-80, one lumbar CT each: 100 CTs randomly chosen from a hospital database of 500 CTs (of DS by the methods, of spondylolisthesis by the abstract). DS group 50 (25 men, 25 women) with low back pain, lower-limb symptoms and single-level degenerative spondylolisthesis grade 1-2 at L4-L5, diagnosed by two senior spine surgeons on supine CT and standing radiographs; control group 50 (25 men, 25 women) with no back pain and no radiological findings, said to be matched for sex and age. Table 1 means (SD): control men 64.7 (7.8) y, 78.8 kg, 174 cm, BMI 26.1; control women 61.2 (7) y, 67.6 kg, 162.9 cm, BMI 25.5; DS men 65.6 (9.9) y, 82.2 kg, 174 cm, BMI 27; DS women 68.6 (9.3) y, 69.2 kg, 159.3 cm, BMI 27.2; DS women significantly older and shorter than control women (p < 0.05). Excluded: slips other than L4-L5, previous surgery, fractures, spondyloarthropathies, scoliosis, osteoporosis, transitional vertebra, isthmic spondylolisthesis (p. 2, PDF 2). Table 3's percentages imply sex splits of 24/26 (controls) and 20/30 (DS) for the arthrosis grading (Inference).",
+  "modality": "Supine lumbar CT (scanner, slice thickness, kernel and reformats not reported), measured on 2D axial and parasagittal slices in K-Pacs Workstation 1.0.1 by one examiner (first author, 6 years' experience); facet arthrosis graded 6 months later on Pathria's 0-3 scale by two blinded examiners by agreement (p. 3, PDF 3). Retrospective cross-sectional; 9,500 measurements (19 per level x 5 levels x 100 CTs) (p. 4, PDF 4).",
+  "levels_covered": "L1-L5 for canal depth and width, pedicle height, length and width, the undefined 'Transverse Pedicle' row, facet widths, inter-facet widths and facet angles; intervertebral foramen height for the foramina L1-L2 to L5-S1 (Table 4 columns L1-L5 as plotted in Fig. 5); facet arthrosis at the joints T12-L1 to L5-S1. No S1 morphometry although the methods promise L1-S1; no thoracic or cervical levels. Level counting and identification are not described.",
+  "anomalies": [
+    {
+      "variant": "Transitional vertebra (lumbosacral or other)",
+      "finding": "Exclusion criterion only; no prevalence, no definition, no count of scans excluded for it. Nothing on L6, T13, rib counts, sacralisation or lumbarisation.",
+      "page": "p. 2 (PDF 2)",
+      "population": "Israeli hospital CTs, ages 50-80",
+      "how_identified": "Not stated"
+    },
+    {
+      "variant": "Degenerative spondylolisthesis, prevalence by sex (cited)",
+      "finding": "8.4% of women against 2.7% of men (ref 6, Copenhagen osteoarthritis study); rises sharply with age and is rare below 50 (refs 4, 7); in women associated with higher BMI and lower estrogen (refs 6, 8). Cited figures, not this paper's counts.",
+      "page": "p. 1-2 (PDF 1-2)",
+      "population": "Danish population study (ref 6) and others, as cited",
+      "how_identified": "Not stated in this paper"
+    },
+    {
+      "variant": "Degenerative spondylolisthesis, level and multiplicity (cited)",
+      "finding": "Most often at L4-L5, then L3-L4 and L5-S1 (ref 4); a double-level slip in about 66% of cases (ref 5). Cited figures; no denominators given here.",
+      "page": "p. 1 (PDF 1)",
+      "population": "As cited (refs 4, 5)",
+      "how_identified": "Not stated in this paper"
+    },
+    {
+      "variant": "Degenerative spondylolisthesis in this sample",
+      "finding": "By selection, 50 of 100 scans (25 men, 25 women): single-level, grade 1-2, at L4-L5. Effect on the arch: intervertebral foramen height lower at every lumbar level by 1.85-3.94 mm (most at L4-L5, about 3.9 mm); lower-lumbar pedicles taller and longer by 1-1.9 mm, right L4 pedicle wider in men by 2.14 mm; superior inter-facet width larger at L3 and L4 in both sexes (to 20.2-20.5 mm at L4); in women wider lower facets (right L4, L5) and more sagittal facets at L2 and L4; more grade-3 facet arthrosis.",
+      "page": "p. 1-2, 4-7 (PDF 1-2, 4-7); Tables 2-5 (p. 6, 9, 11)",
+      "population": "Israeli, ages 50-80",
+      "how_identified": "Two senior spine surgeons, separately, on supine CT and standing radiographs (p. 2, PDF 2)"
+    },
+    {
+      "variant": "Facet arthrosis, Pathria grade 3 (degenerative, per joint side)",
+      "finding": "Controls 16.7-66.7% at L1-S1 (men L5-S1 66.7/62.5% right/left, women 57.7/57.7%); DS 33.3-90% (men L5-S1 85/80%, women 83.3/90%, women L4-L5 90/86.7%). Highest at L5-S1 in every group. Implied denominators 24 control men, 26 control women, 20 DS men, 30 DS women (Inference from the percentages). T12-L1 rows sum to only 42-65%.",
+      "page": "Table 3, p. 8 (PDF 8); Fig. 4, p. 7 (PDF 7); p. 5 (PDF 5)",
+      "population": "Israeli, ages 50-80, 50 controls and 50 DS",
+      "how_identified": "Pathria's 0-3 scale on CT, two blinded examiners by agreement (p. 3, PDF 3)"
+    }
+  ],
+  "measures": [
+    {
+      "name": "VCL, superior vertebral canal length (anteroposterior canal depth)",
+      "definition": "Fig. 1 II, A to B: in the midline, from the posterior wall of the vertebral body to the inner surface of the arch at the base of the spinous process (landmarks read from the panel; caption gives only the letters); example 1.57 cm. What 'superior' means is not stated (Inference: upper part of the vertebra).",
+      "projection": "Axial CT slice through the pedicles; K-Pacs software",
+      "levels": "L1-L5",
+      "level_pattern": "Control means (SD): men 16.42 (2.91), 14.81 (2.44), 13.49 (1.61), 13.62 (1.75), 14.39 (2.22); women 16.33 (1.80), 15.14 (1.64), 14.50 (1.50), 14.21 (2.12), 14.84 (3.09). Largest at L1, smallest at L3-L4, slight rise to L5; adjacent steps 0.1-1.6 mm, below one SD.",
+      "covariates": "Women deeper than men at L3 (14.50 vs 13.49, p < 0.05). Age, height, weight, BMI no effect (0.53 < p < 0.994). DS deeper at L3 (men 15.17, women 15.84) and in women at L4 (15.46).",
+      "ct_mask_recipe": "Inference: in the vertebra's transverse plane at the pedicles, the closed bony vertebral foramen; its anteroposterior extent in the midsagittal plane from the posterior body cortex to the inner laminar cortex at the spinous base. Not the dural sac and not SPINEPS's spinal-canal label.",
+      "radiograph_recipe": "Inference: lateral radiograph, posterior body line to spinolaminar line at pedicle level, divided by magnification. Not from an AP.",
+      "error": "Intra-tester ICC(3,1) 0.85-1 for all measures (10 CTs, 1 week); inter-tester 0.85-0.92; no SEM. Control SD 1.5-3.1 mm; DS men L5 SD 6.79.",
+      "page": "p. 3 (PDF 3) Fig. 1; p. 5 (PDF 5); Table 4, p. 9 (PDF 9); Fig. 5, p. 8 (PDF 8)"
+    },
+    {
+      "name": "VCW, superior vertebral canal width (interpedicular width)",
+      "definition": "Fig. 1 II, C to D: transverse width of the canal on the same axial slice, between the medial walls of the two pedicles (landmarks read from the panel).",
+      "projection": "Axial CT slice through the pedicles",
+      "levels": "L1-L5",
+      "level_pattern": "Control means (SD): men 22.68 (2.67), 22.59 (2.35), 22.47 (2.73), 22.59 (2.66), 25.23 (3.69); women 20.89 (1.61), 21.65 (2.28), 21.97 (2.49), 22.29 (3.52), 23.80 (3.45). Flat L1-L4 (men) or slowly rising (women); L4 to L5 step +2.6 mm men, +1.5 mm women, still below one SD.",
+      "covariates": "Men wider at L1 (22.68 vs 20.89, p < 0.05). DS women wider at L1 (22.15) and L5 (26.31).",
+      "ct_mask_recipe": "Inference: same section as VCL; left-right extent of the vertebral foramen between the medial pedicle cortices.",
+      "radiograph_recipe": "Inference: AP radiograph interpedicular distance, divided by magnification; the film gives the narrowest distance over the pedicles' height, the CT line one slice, so not interchangeable without correction.",
+      "error": "As VCL; control SD 1.6-3.7 mm.",
+      "page": "p. 3 (PDF 3) Fig. 1; p. 5 (PDF 5); Table 4, p. 9 (PDF 9)"
+    },
+    {
+      "name": "VFH, (inter)vertebral foramen height",
+      "definition": "Fig. 1 V, A to B: on a parasagittal slice, vertical distance from the inferior margin of the upper pedicle to the superior margin of the lower pedicle (read from the panel and from p. 10, which calls the pedicles the foramen's upper and lower bony borders); example 1.38 cm. Table 4 calls it 'Vertebral foramen height'. Side not stated; one value per level.",
+      "projection": "Parasagittal CT slice through the pedicles",
+      "levels": "Foramina L1-L2 to L5-S1 (Table 4 columns L1-L5, plotted at those foramina in Fig. 5)",
+      "level_pattern": "Control means (SD): men 16.66 (2.05), 17.10 (2.72), 17.07 (2.73), 15.78 (3.20), 13.64 (3.00); women 15.14 (1.80), 16.71 (2.23), 16.49 (2.38), 15.30 (2.06), 13.50 (2.23). Peak at L2-L3/L3-L4, lowest at L5-S1; L4-L5 to L5-S1 drop of about 1.8-2.1 mm is the largest step.",
+      "covariates": "Men taller at L1-L2 and L3-L4 (p < 0.05). DS lower at every foramen by 1.85-3.94 mm: DS men 14.15, 14.83, 15.08, 11.84, 10.99; DS women 13.29, 13.61, 13.24, 11.46, 10.97 (the L4-L5 difference unmarked in Table 4 though largest).",
+      "ct_mask_recipe": "Inference: pairwise between adjacent instances; in the parasagittal plane through the pedicle, craniocaudal gap between the lowest voxel of the upper instance's pedicle and the highest voxel of the lower instance's pedicle (SPINEPS has no pedicle label; take the arch voxels between body and articular processes). The L5-S1 value needs the S1 pedicle.",
+      "radiograph_recipe": "Inference: lateral radiograph, pedicle to pedicle across the foramen, both sides superimposed, divided by magnification.",
+      "error": "As VCL; SD 1.8-3.2 mm in controls, to 3.41 in DS.",
+      "page": "p. 3 (PDF 3) Fig. 1; p. 5 (PDF 5); Fig. 5, p. 8 (PDF 8); Table 4, p. 9 (PDF 9); p. 10 (PDF 10)"
+    },
+    {
+      "name": "PH, pedicle height (left and right)",
+      "definition": "Fig. 1 V, C to D: on the parasagittal slice, craniocaudal extent of the pedicle between the foramen above and the foramen below (read from the panel); example 9.88 mm. Narrowest section or fixed point not stated.",
+      "projection": "Parasagittal CT",
+      "levels": "L1-L5, left and right",
+      "level_pattern": "Control means (SD), left: men 12.68 (3.40), 12.07 (3.29), 11.85 (2.50), 10.91 (3.15), 9.50 (3.11); women 11.98 (2.93), 11.57 (2.72), 12.20 (3.47), 10.51 (2.70), 8.88 (2.41). Right: men 13.56 (2.83), 12.13 (2.62), 12.16 (2.41), 11.23 (3.20), 9.88 (3.22); women 12.72 (2.27), 11.86 (2.73), 11.93 (1.97), 11.02 (2.48), 9.41 (2.59). Falls L1 to L5 by 3.1-3.7 mm (text says about 3 mm left, about 2 mm right); every series in Table 6 also falls.",
+      "covariates": "Men taller at left L1 and right L3 (p < 0.05). DS taller at left L4 (men +1.87, women +1.75), left L5 women (+1.89), right L5 women (11.16 vs 9.41). This study's control PH (12.4, 12.06, 12.03, 10.9, 9.4) is about 1.6-5.8 mm below every other series in Table 6 (Abbas, Israeli, 180; Marasini, Nepalese, 246; Kadioglu, Eastern Anatolian, 29; Mitra, Indian, 20; Olsewski, American, 42).",
+      "ct_mask_recipe": "Inference: along the pedicle axis, the section of least area between body and articular processes; its extent along the vertebra's craniocaudal axis.",
+      "radiograph_recipe": "Inference: lateral radiograph, pedicle's vertical dimension (sides superimposed); AP, height of the pedicle oval; divide by magnification.",
+      "error": "Control SD 2.3-3.5 mm; Table 6's L1 and L2 PH (12.4, 12.06) do not equal the mean of Table 5's control rows (12.7, 11.9) (Inference).",
+      "page": "p. 3 (PDF 3) Fig. 1; p. 5, 7 (PDF 5, 7); Fig. 6, p. 10 (PDF 10); Table 5, p. 11 (PDF 11); Table 6, p. 12 (PDF 12)"
+    },
+    {
+      "name": "PL, pedicle length (short anteroposterior pedicle neck)",
+      "definition": "Fig. 1 IV, A to B: on an axial slice, a short anteroposterior segment within the pedicle from the posterolateral corner of the body to where the transverse process and lamina begin (read from the panel, Inference). Values 2.6-7.6 mm; not a screw path or chord.",
+      "projection": "Axial CT",
+      "levels": "L1-L5, left and right",
+      "level_pattern": "Control means (SD), with Table 5's mislabelled rows read as first row control: left men 6.74 (1.22), 5.59 (1.23), 3.88 (1.25), 3.37 (0.8), 2.72 (0.98); women 6.87 (1.38), 6.24 (1.48), 4.85 (1.14), 3.28 (1.13), 2.60 (1.00). Right men 6.99 (1.41), 5.51 (1.39), 3.81 (1.30), 3.18 (0.79), 2.63 (0.91); women 7.08 (1.33), 6.37 (1.41), 4.91 (1.39), 3.90 (2.68), 2.88 (1.20). Falls about 4 mm L1 to L5; largest step L2 to L3 in men (1.7 mm), L2 to L3 and left L3 to L4 about equal in women (1.4-1.6 mm).",
+      "covariates": "Women longer at L3 (p < 0.05). DS longer: men left L4 +1.07, right L3 +0.95, right L4 +1.37; women left L4 +1.47, left L5 +1.26.",
+      "ct_mask_recipe": "Inference: on the axial section at mid-pedicle height, anteroposterior extent of the pedicle neck between the posterior body cortex and the transverse process root; very sensitive to boundary placement.",
+      "radiograph_recipe": "Inference: not reliably; lateral film superimposes transverse processes and both pedicles.",
+      "error": "Control SD 0.8-1.5 mm (one 2.68); DS to 1.77.",
+      "page": "p. 3 (PDF 3) Fig. 1; p. 5, 7 (PDF 5, 7); Fig. 6, p. 10 (PDF 10); Table 5, p. 11 (PDF 11)"
+    },
+    {
+      "name": "PW, pedicle width (left and right)",
+      "definition": "Fig. 1 IV, C to D: on an axial slice, a transverse line across the pedicle from its medial (canal) cortex to its lateral cortex (read from the panel). Isthmus or not, not stated.",
+      "projection": "Axial CT",
+      "levels": "L1-L5, left and right",
+      "level_pattern": "Control means (SD), left: men 7.63 (2.91), 8.83 (2.48), 10.50 (2.66), 10.78 (3.96), 15.51 (4.56); women 7.36 (1.34), 7.21 (1.29), 8.65 (2.04), 10.25 (2.59), 12.74 (3.84). Right: men 7.35 (2.20), 8.43 (2.20), 9.46 (2.97), 10.65 (3.48), 15.38 (4.46); women 6.95 (1.30), 7.23 (1.58), 8.66 (1.97), 10.02 (3.09), 12.90 (3.87). Rises along the lumbar spine, 4.1-5.9 mm from L3 to L5 (text 'about 6 mm'); L4 to L5 is the largest step (men +4.7, women +2.5-2.9). Table 6 pooled controls 7.3, 7.9, 9.3, 10.4, 14.1.",
+      "covariates": "Men wider at L1, L2, L3 and L5 on both sides (p < 0.05), by up to 2.8 mm at L5. DS women narrower at left L1 (6.06 vs 7.36) and L2 (6.42 vs 7.21); DS men wider at right L4 (12.79 vs 10.65). Within the range of Indian, Nepalese, Israeli, Eastern Anatolian, Chinese and American series (Table 6: L1 5.3-9, L5 11.3-16.6).",
+      "ct_mask_recipe": "Inference: narrowest section along the pedicle axis; its left-right extent, outer cortex to outer cortex.",
+      "radiograph_recipe": "Inference: AP radiograph, width of the pedicle oval, divided by magnification, foreshortened by convergence (worst at L5).",
+      "error": "Control SD 1.3-4.6 mm.",
+      "page": "p. 3 (PDF 3) Fig. 1; p. 5, 7 (PDF 5, 7); Fig. 6, p. 10 (PDF 10); Table 5, p. 11 (PDF 11); Table 6, p. 12 (PDF 12)"
+    },
+    {
+      "name": "Transverse Pedicle (undefined row of Table 5)",
+      "definition": "Never defined in the methods or Fig. 1; headed in mm. Inference: perhaps a transverse pedicle angle in degrees, but it does not rise toward L5 as Panjabi's pedicle inclination (PDIs, 14.5 to 24.5 deg, panjabi1992 note) does.",
+      "projection": "Unknown (presumably axial CT)",
+      "levels": "L1-L5",
+      "level_pattern": "Control means (SD): men 10.25 (3.91), 10.38 (4.79), 10.67 (4.41), 10.58 (3.93), 13.83 (5.28); women 11.46 (3.55), 11.12 (4.11), 12.35 (3.78), 13.80 (4.58), 12.81 (6.94).",
+      "covariates": "Sex difference marked at L4 (men 10.58, women 13.80). Women's L4 DS 12.70 marked p < 0.01 against 13.80, which the SDs cannot give (Inference: t about 0.8).",
+      "ct_mask_recipe": "Not usable: undefined.",
+      "radiograph_recipe": "Not usable: undefined.",
+      "error": "SD 3.5-6.9.",
+      "page": "Table 5, p. 11 (PDF 11)"
+    },
+    {
+      "name": "FW, facet width (left and right)",
+      "definition": "Fig. 1 III, A to C (and B to D): on an axial slice through the facet joint, length of the joint line from its anteromedial to its posterolateral end (read from the panel); examples 2.08 and 2.04 cm. Methods speak of 'superior and inferior facet widths', tables give left and right. Which joint a vertebra's value belongs to is not stated.",
+      "projection": "Axial CT through the joint",
+      "levels": "L1-L5",
+      "level_pattern": "Control means (SD), left: men 16.72 (2.21), 16.93 (1.62), 18.45 (1.89), 18.16 (2.32), 19.45 (2.69); women 15.03 (1.86), 15.50 (2.40), 16.02 (1.55), 16.73 (1.81), 17.71 (3.23). Right: men 16.88 (2.62), 16.58 (2.24), 18.16 (1.96), 17.85 (2.08), 19.09 (2.30); women 14.98 (2.26), 15.41 (2.27), 16.17 (2.11), 16.03 (1.59), 17.52 (3.14). Rises 2.2-2.7 mm L1 to L5 by the table (text says 4 mm); adjacent steps below one SD.",
+      "covariates": "Men wider at left L1-L3 and right L1 and L3 (p < 0.05), by about 1.4-2.4 mm. DS women wider at right L4 (+1.73) and L5 (left +2.21, right +2.85); DS men narrower at left L3 (16.62 vs 18.45).",
+      "ct_mask_recipe": "Inference: interface between the upper instance's inferior articular process and the lower instance's superior articular process on one side; in an axial section, the chord of that interface from anteromedial to posterolateral end.",
+      "radiograph_recipe": "Not possible on AP or lateral (axial dimension; Inference).",
+      "error": "Control SD 1.6-3.2 mm; overall 1.2-4.9.",
+      "page": "p. 3 (PDF 3) Fig. 1; p. 4-5 (PDF 4-5); Fig. 2, p. 4 (PDF 4); Table 2, p. 6 (PDF 6)"
+    },
+    {
+      "name": "SIFW, 'superior' inter-facet width",
+      "definition": "Fig. 1 III, A to B: on the axial slice, distance between the anteromedial ends of the left and right facet joint lines (read from the panel); example 1.97 cm. Inference: 'superior' and 'inferior' mean the anterior and posterior ends in the axial image, not cranial and caudal, and not Panjabi's centroid widths.",
+      "projection": "Axial CT through the joints",
+      "levels": "L1-L5",
+      "level_pattern": "Control means (SD): men 16.12 (1.78), 16.58 (2.12), 15.56 (2.31), 17.13 (2.45), 22.74 (4.76); women 13.83 (2.40), 14.09 (2.98), 14.76 (1.61), 16.01 (2.85), 20.80 (5.54). Nearly flat L1-L3 (text says +1 mm L1 to L2; table 0.3-0.5), rises about 7 mm to L5; L4 to L5 step +5.6 men, +4.8 women (about 1.1-1.5 pooled SD, Inference).",
+      "covariates": "Men wider at L1, L2 and L5 (p < 0.05), by about 2-2.5 mm. DS wider at L3 (men 17.26, women 16.14, p < 0.05) and L4 (men 20.47, women 20.22, p < 0.01), not mentioned in text or abstract.",
+      "ct_mask_recipe": "Inference: distance between the anteromedial endpoints of the two facet interface curves in one axial section.",
+      "radiograph_recipe": "Not possible (Inference).",
+      "error": "SD 1.6-6.0 mm.",
+      "page": "p. 3 (PDF 3) Fig. 1; p. 4 (PDF 4); Table 2, p. 6 (PDF 6)"
+    },
+    {
+      "name": "IIFW, 'inferior' inter-facet width",
+      "definition": "Fig. 1 III, C to D: distance between the posterolateral ends of the two facet joint lines on the axial slice (read from the panel); example 4.42 cm.",
+      "projection": "Axial CT through the joints",
+      "levels": "L1-L5",
+      "level_pattern": "Control means (SD): men 31.92 (3.79), 31.08 (4.68), 33.51 (4.74), 37.19 (6.21), 48.56 (7.71); women 29.75 (3.65), 29.10 (3.28), 31.32 (3.50), 36.01 (4.93), 46.05 (8.73). Flat L1-L2, rises about 16 mm to L5; L4 to L5 +10-11 mm (about 1.4-1.6 pooled SD; Inference: the strongest L4/L5 step in the paper).",
+      "covariates": "Men wider at L1 and L2 (p < 0.05). No DS difference marked at any level.",
+      "ct_mask_recipe": "Inference: distance between the posterolateral endpoints of the two facet interface curves in one axial section.",
+      "radiograph_recipe": "Inference: not as defined; an AP film shows the lateral margins of the articular pillars, a related but different width.",
+      "error": "Control SD 3.3-8.7 mm; 12.7 in DS men at L5.",
+      "page": "p. 3 (PDF 3) Fig. 1; p. 4 (PDF 4); Table 2, p. 6 (PDF 6)"
+    },
+    {
+      "name": "TFA, transverse facet angle (left and right)",
+      "definition": "Fig. 1 I: lines on an axial slice from an apex in the body's midline: one to the spinous tip, one along each facet joint; caption: angle between line A and line C, though no line C is labelled; the panel shows 20.5 and 14.9 deg between each facet line and the midline. Inference: angle of one facet joint line to the midsagittal line; smaller is more sagittal, as the results confirm by calling the DS women's smaller L4 values more sagittal (p. 5).",
+      "projection": "Axial CT through the joint",
+      "levels": "L1-L5",
+      "level_pattern": "Control means (SD), deg, left: men 33.10 (7.95), 29.13 (7.94), 31.58 (10.45), 37.70 (9.39), 46.58 (9.10); women 34.05 (6.91), 33.56 (8.94), 34.64 (9.32), 41.25 (9.10), 45.68 (11.15). Right: men 31.38 (8.36), 29.71 (7.24), 33.08 (8.30), 36.22 (11.48), 44.17 (13.17); women 33.24 (7.97), 30.52 (8.56), 35.50 (6.89), 39.84 (9.22), 43.25 (12.50). Most sagittal at L2, rising 12-17 deg to L5 (most coronal).",
+      "covariates": "No sex difference marked. DS women more sagittal at left L4 (33.25 vs 41.25, p < 0.01), right L1 (28.57 vs 33.24) and right L4 (34.00 vs 39.84) (p < 0.05). No DS difference in men.",
+      "ct_mask_recipe": "Inference: fit a line (principal axis) to the facet interface between the two instances on one side in an axial section; angle to the vertebra's midsagittal plane.",
+      "radiograph_recipe": "Not possible on AP or lateral (Inference).",
+      "error": "Control SD 6.9-13.2 deg; no separate angular reliability.",
+      "page": "p. 3 (PDF 3) Fig. 1; p. 4-5 (PDF 4-5); Fig. 3, p. 5 (PDF 5); Table 2, p. 6 (PDF 6)"
+    },
+    {
+      "name": "TIFA, transverse inter-facet angle",
+      "definition": "Fig. 1 I: angle between the two facet lines A and B on the axial slice.",
+      "projection": "Axial CT through the joints",
+      "levels": "L1-L5",
+      "level_pattern": "Control means (SD), deg: men 62.70 (15.80), 57.63 (13.45), 61.42 (15.48), 70.48 (15.47), 71.00 (11.23); women 68.90 (13.22), 63.44 (16.10), 68.64 (13.35), 75.58 (10.86), 74.72 (10.94). Lowest at L2, highest at L4-L5. Inference: equals left plus right TFA within about 0.6-5.5 deg at L1-L4 but is 14-20 deg less at L5.",
+      "covariates": "DS women smaller at L2 (54.64 vs 63.44, p < 0.01) and L4 (65.57 vs 75.58, p < 0.05).",
+      "ct_mask_recipe": "Inference: angle between the two fitted facet interface lines in the same axial section.",
+      "radiograph_recipe": "Not possible (Inference).",
+      "error": "Control SD 10.9-16.1 deg.",
+      "page": "p. 3 (PDF 3) Fig. 1; p. 5 (PDF 5); Table 2, p. 6 (PDF 6)"
+    },
+    {
+      "name": "Facet arthrosis grade (Pathria 0-3)",
+      "definition": "0 normal, 1 narrowing, 2 narrowing plus sclerosis or hypertrophy, 3 severe osteoarthritis with narrowing, sclerosis and osteophytes; built for radiographs (ref 23 on oblique radiographs), used on CT and MRI with good reliability in refs 24-26.",
+      "projection": "CT here; originally radiographs",
+      "levels": "Joints T12-L1 to L5-S1, each side",
+      "level_pattern": "Grade 3 in controls: men 33.3/33.3, 16.7/29.2, 33.3/20.8, 58.3/50, 66.7/62.5 (right/left, L1-L2 to L5-S1); women 50/42.3, 50/30.8, 42.3/23.1, 50/38.5, 57.7/57.7. DS: men 55/55, 50/60, 60/60, 45/65, 85/80; women 33.3/50, 46.7/40, 66.7/46.7, 90/86.7, 83.3/90. T12-L1: controls 20.8-33.3, DS 43.3-55. Highest at L5-S1 in every group.",
+      "covariates": "DS men degenerate along L1-S1, DS women mainly L4-S1 (p. 5, 9).",
+      "ct_mask_recipe": "Inference: not a mask measure; would need joint-space width, sclerosis and osteophyte detection on the CT intensities.",
+      "radiograph_recipe": "Pathria's scale is a radiographic grading (p. 3; ref 23).",
+      "error": "Grading by agreement of two blinded examiners; no kappa.",
+      "page": "p. 3 (PDF 3); p. 5 (PDF 5); Fig. 4, p. 7 (PDF 7); Table 3, p. 8 (PDF 8); ref 23, p. 13 (PDF 13)"
+    }
+  ],
+  "level_details": [
+    {"level": "T12-L1", "detail": "Only facet arthrosis graded; rows sum to 42-65%, so the joint was in the field of about half the scans (Inference); grade 3 in 20.8-33.3% of controls, 43.3-55% of DS.", "page": "Table 3, p. 8 (PDF 8)"},
+    {"level": "L1", "detail": "Deepest canal (VCL about 16.4 mm), longest pedicle neck (about 7 mm), tallest pedicles in most rows (12.0-13.6 mm), narrowest pedicles (6.95-7.63 mm; women's left as narrow at L2); canal width differs most between sexes (men 22.68, women 20.89).", "page": "Tables 4, 5, p. 9, 11 (PDF 9, 11)"},
+    {"level": "L2", "detail": "Most sagittal facets (TFA 29-34 deg, TIFA 57.6-63.4 deg); DS women's TIFA 8.8 deg smaller.", "page": "Table 2, p. 6 (PDF 6); p. 4-5 (PDF 4-5)"},
+    {"level": "L3", "detail": "Shallowest canal with L4 (VCL 13.5-14.5 mm); L3-L4 foramen near its peak; pedicle neck shortens most between L2 and L3 in men. DS: canal deeper in both sexes, SIFW wider.", "page": "Tables 2, 4, 5"},
+    {"level": "L4 / L4-L5", "detail": "Slip level by selection. VFH reduced most in DS (about 3.9 mm; 15.78 to 11.84 men, 15.30 to 11.46 women), unmarked in Table 4. DS pedicles taller and longer; DS women's facets more sagittal and wider; DS raises SIFW at L4 to 20.2-20.5 mm, near control L5; grade-3 arthrosis 86.7-90% in DS women against 38.5-50% in control women.", "page": "Tables 2-5, p. 6-11 (PDF 6-11)"},
+    {"level": "L5 / L5-S1", "detail": "Most coronal facets (TFA 43-47 deg), widest facets (17.5-19.5 mm), largest inter-facet widths (IIFW 46-49, SIFW 20.8-22.7 mm), widest canal (VCW 23.8-25.2 mm), widest pedicles (12.7-15.5 mm), shortest pedicle height (8.9-9.9 mm) and neck (2.6-2.9 mm), lowest foramen (L5-S1, 13.5-13.6 mm), commonest grade-3 arthrosis (57.7-66.7% controls, 80-90% DS). Inference: L5 is set apart from L4 by several measures at once; L1-L3 differ by less than one SD in almost every measure.", "page": "Tables 2-5"},
+    {"level": "S1", "detail": "Only as the lower border (S1 pedicle) of the L5-S1 foramen; no S1 measure reported though the methods promise L1-S1.", "page": "p. 3 (PDF 3); Table 4, p. 9; Fig. 5, p. 8"},
+    {"level": "C2/C3, C7/T1", "detail": "Not covered.", "page": "whole paper"}
+  ],
+  "errors": [
+    {"what": "Intra-tester reliability", "value": "ICC(3,1) 0.85-1 for all measurements; first author repeated all measures on 10 CTs one week apart", "page": "p. 3-4 (PDF 3-4)"},
+    {"what": "Inter-tester reliability", "value": "ICC(3,1) 0.85-0.92; which measures and how many scans the second tester repeated is not said, and all morphometry was by one examiner", "page": "p. 3-4 (PDF 3-4)"},
+    {"what": "ICC thresholds", "value": "> 0.75 good, < 0.75 poor", "page": "p. 4 (PDF 4)"},
+    {"what": "Arthrosis grading", "value": "Two blinded examiners by agreement, 6 months after the morphometry; no kappa", "page": "p. 3 (PDF 3)"},
+    {"what": "Absolute error", "value": "None: no SEM, no limits of agreement, no per-measure ICC; no CT resolution or slice thickness", "page": "p. 3-4 (PDF 3-4)"},
+    {"what": "Between-subject SD in controls (biology plus error)", "value": "Canal 1.5-3.7 mm; foramen 1.8-3.2 mm; pedicle height 2.3-3.5 mm; pedicle width 1.3-4.6 mm; pedicle neck 0.8-1.5 mm (one 2.68); facet width 1.6-3.2 mm; inter-facet widths 1.6-8.7 mm; facet angles 6.9-13.2 deg; TIFA 10.9-16.1 deg", "page": "Tables 2, 4, 5 (p. 6, 9, 11)"},
+    {"what": "Normality", "value": "Kolmogorov-Smirnov, all p > 0.05 (0.11 to 0.999)", "page": "p. 4 (PDF 4)"}
+  ],
+  "pearls_pitfalls": [
+    {"text": "DS is an anterior slip of one vertebra over the one below in a degenerated segment; radiculopathy with neurogenic claudication goes with DS in the aged but also with stenosis, degenerative scoliosis and segmental instability.", "page": "p. 1-2 (PDF 1-2)"},
+    {"text": "Sagittal L4-L5 facets are linked with DS in earlier work (ref 38: 25-fold risk); Hosoe and Ohmori found no clear link; Love et al. held the sagittal orientation in DS comes from arthritic remodelling rather than directly from the slip. Here only DS women had more sagittal facets (L2, L4) and wider lower facets, read by the authors as load adaptation and as one reason DS is commoner in women.", "page": "p. 9 (PDF 9)"},
+    {"text": "In DS men degenerate facets run L1-S1; in DS women they concentrate at L4-S1.", "page": "p. 1, 5, 9 (PDF 1, 5, 9)"},
+    {"text": "Pedicles are the foramen's upper and lower bony borders, so taller pedicles shorten the foramen: the authors' explanation for foraminal stenosis in DS, all lumbar foramina being shorter in DS.", "page": "p. 10 (PDF 10)"},
+    {"text": "Only in DS women did greater lordotic L4 body wedging and posterior L4-5 disc height go with larger L4 and L5 pedicles (0.41 < r < 0.5). The same subjects (ref 13) had osteophytes along L1-S1, thinner discs, kyphotic L1-L3 discs, less lordotic L4-L5 discs in women and more lordotic L5 bodies in men; the authors propose kyphotic upper discs plus degenerate sagittal L4-L5 facets let L4 slip.", "page": "p. 7, 9 (PDF 7, 9)"},
+    {"text": "Background: wider pedicles are reported in several lumbar degenerative diseases (refs 3, 18-21); Goyal (MRI) found DS bony anatomy differs from isthmic spondylolisthesis.", "page": "p. 2 (PDF 2)"},
+    {"text": "Pitfall: all CTs supine (non weight-bearing), no spinopelvic or posture parameters, so the 'adaptive' reading must be cautious.", "page": "p. 10 (PDF 10)"},
+    {"text": "Limitation: symptoms and disability were outside the scope; shorter foramina are only presumed to contribute to radiculopathy and claudication.", "page": "p. 10, 12 (PDF 10, 12)"},
+    {"text": "Pitfall: Pathria's scale was made for (oblique) radiographs and is used here on CT.", "page": "p. 3 (PDF 3); p. 13 (PDF 13)"},
+    {"text": "Pitfall (names): 'canal length' is the AP depth; 'vertebral foramen height' is the intervertebral foramen; 'pedicle length' is a 2.6-7.6 mm neck, not a screw length; 'superior/inferior inter-facet width' are the anterior and posterior ends of the joint pair on one axial slice (Inference for the last).", "page": "p. 3 (PDF 3); Tables 2, 4, 5"},
+    {"text": "Pitfall: this study's pedicle height is about 1.6-5.8 mm below every other series in Table 6, undiscussed; landmark choice probably differs (Inference). No screw-sizing advice.", "page": "p. 12 (PDF 12)"},
+    {"text": "The authors claim agreement with series from several populations, healthy and diseased, sharing pedicle width rising and pedicle height falling from L1 to L5.", "page": "p. 7 (PDF 7); Table 6, p. 12 (PDF 12)"},
+    {"text": "Pitfall: Table 5's group labels are wrong in five row pairs (pedicle lengths, male left pedicle width); read the first row of each sex as control.", "page": "p. 7, 10, 11, 12 (PDF 7, 10, 11, 12)"}
+  ],
+  "instructions": [
+    {"text": "Settle the lumbosacral count and check for a slip before applying these values: they come from scans without transitional vertebrae, scoliosis, fractures or surgery.", "page": "p. 2 (PDF 2)"},
+    {"text": "Measure canal depth (VCL) on the axial slice through the pedicles, midline, posterior body wall to inner arch at the spinous base; expect about 16.4 mm at L1, 13.5-14.5 mm at L3-L4, slightly more at L5. Inference: use the L3-L4 minimum only as a multi-level pattern; adjacent steps are below one SD.", "page": "p. 3 (PDF 3); Table 4, p. 9 (PDF 9)"},
+    {"text": "Measure canal width (VCW) on the same slice between the medial pedicle walls; expect 21-23 mm flat from L1 to L4 and 23.8-25.2 mm at L5; women about 1.8 mm narrower at L1.", "page": "p. 3 (PDF 3); Table 4, p. 9 (PDF 9)"},
+    {"text": "Measure each foramen's height on a parasagittal CT slice from the lower edge of the upper pedicle to the upper edge of the lower pedicle (Inference: a lateral radiograph should also serve); expect 16.5-17 mm peak at L2-L3/L3-L4 and about 13.5 mm at L5-S1. Inference: a foramen 3-4 mm lower than expected at L4-L5, with lower foramina above it, suggests DS, not a level shift.", "page": "p. 3, 10 (PDF 3, 10); Table 4, p. 9 (PDF 9)"},
+    {"text": "Measure pedicle width on the axial slice across the pedicle; expect about 7.0-7.6 mm at L1 rising to 12.7-15.5 mm at L5, largest jump L4 to L5; men 2.5-2.8 mm wider at L5.", "page": "p. 3 (PDF 3); Table 5, p. 11 (PDF 11)"},
+    {"text": "Expect pedicle height on the parasagittal slice to fall from 12-13.6 mm at L1 to 8.9-9.9 mm at L5, as in every Table 6 series; Panjabi's rises at L5, so fix the definition before using PH to name L5 (Inference).", "page": "Table 5, p. 11 (PDF 11); Table 6, p. 12 (PDF 12)"},
+    {"text": "Measure the facet joint line on the axial slice through each joint and its angle to the midsagittal line; expect the most sagittal joints at L2 (29-34 deg) and most coronal at L5 (43-47 deg); treat it as weak evidence (SD 7-13 deg against a 12-17 deg rise).", "page": "p. 3 (PDF 3); Table 2, p. 6 (PDF 6)"},
+    {"text": "Measure IIFW between the posterolateral ends of the two joint lines; expect 29-34 mm at L1-L3, 36-37 mm at L4, 46-49 mm at L5. Inference: the 10-11 mm L4 to L5 jump (1.4-1.6 pooled SD) is the strongest L4/L5 step here.", "page": "p. 3 (PDF 3); Table 2, p. 6 (PDF 6)"},
+    {"text": "In a woman over 50, more sagittal L4 facets (left TFA about 33 rather than 41 deg) and wider lower facets go with DS at L4-L5; men in this sample showed no facet-orientation difference with DS.", "page": "p. 5 (PDF 5); Table 2, p. 6 (PDF 6)"},
+    {"text": "Expect severe facet arthrosis in anyone 50-80 (38.5-58.3% of controls at L4-L5, 57.7-66.7% at L5-S1, 80-90% of DS at L5-S1). Inference: widen landmark tolerance at the lowest two joints for osteophytes.", "page": "Table 3, p. 8 (PDF 8)"},
+    {"text": "Do not use this paper's 'pedicle length' as a screw path or chord; it is a 2.6-7.6 mm neck on an axial slice.", "page": "p. 3 (PDF 3); Table 5, p. 11 (PDF 11)"},
+    {"text": "Read Table 5 with the first row of each sex as control and the second as DS for pedicle length and male left pedicle width.", "page": "p. 7, 10, 11, 12 (PDF 7, 10, 11, 12)"},
+    {"text": "Read Table 4's foramen columns L1 to L5 as the foramina L1-L2 to L5-S1, as Fig. 5 plots them, and assign each value to the pair of instances around it.", "page": "p. 8-9 (PDF 8-9)"},
+    {"text": "In a slipped spine do not use SIFW to find L5: DS raises L4 SIFW to 20.2-20.5 mm, near control L5 (20.8-22.7). Inference: weigh IIFW, which DS changed at no level.", "page": "Table 2, p. 6 (PDF 6)"},
+    {"text": "Take facet and inter-facet values on one axial slice through the joint from the joint lines' ends, and record the joint by its two instances, since the paper does not say which joint a vertebra's value belongs to.", "page": "p. 3 (PDF 3); Table 2, p. 6 (PDF 6)"}
+  ],
+  "bordercall": [
+    "(a) Anomaly priors: none from this paper. Transitional vertebrae excluded with no count (p. 2, PDF 2). Cited DS figures (8.4% of women, 2.7% of men; mostly L4-L5, then L3-L4 and L5-S1; about 66% double-level) are priors for a slip state, not a numbering transition, from other studies (p. 1, PDF 1).",
+    "(b) VCW is the interpedicular canal width at pedicle level; about 1-3.3 mm below Panjabi's cadaveric SCW (23.7-27.1) level for level (panjabi1992 note; Inference that the planes match).",
+    "(b) VCL uses Panjabi's SCD landmarks and shows the same L3 minimum but is about 2.6-5.3 mm smaller (13.5-16.4 against 17.5-19.7). Inference: older degenerate living subjects, slice choice or window; state slice and landmark for a mask value; a Panjabi prior runs deeper than this sample.",
+    "(b) Pedicle height falls L1 to L5 here and in every Table 6 series, about 1.6-5.8 mm below them; Panjabi's PDH rises to 19.6 at L5 (panjabi1992 note), the outlier (Inference). Use the narrowest section along the pedicle axis on the mask, document it, and do not pool with this paper's PH.",
+    "(b) Pedicle width matches other series (Table 6) and Panjabi's rise toward L5, but is smaller at L5 (14.1 against 18.6, panjabi1992 note).",
+    "(b) TFA (joint line to midsagittal line on one axial slice) has the shape of Panjabi's lumbar facet angle to the sagittal plane (L1 43, L2 42, L3 48, L4 58, L5 61 deg, panjabi1993f note) but runs about 8-22 deg below it; do not pool (Inference: whole-facet best-fit plane on dry bone against an axial joint line in living older subjects).",
+    "(b) SIFW and IIFW are ends of the joint pair on one axial slice, not Panjabi's centroid inter-facet widths; Inference: their mean at L5 (men 35.7, women 33.4 mm) lies near Panjabi's L5 IFWs (35.0). Add, if at all, as new variables; IIFW gives the strongest L4/L5 step here.",
+    "(b) VFH is pairwise (between instances) and fits the decoder's transition terms; it is depressed by a degenerative slip at every level, most at L4-L5. Pedicle 'length' maps onto no Panjabi measure. 'Transverse Pedicle' is undefined and unusable.",
+    "(c) Error: only ICC(3,1) 0.85-1 intra and 0.85-0.92 inter; no mm or deg error. Use the control between-subject SDs (canal 1.5-3.7, foramen 1.8-3.2, PH 2.3-3.5, PW 1.3-4.6, FW 1.6-3.2 mm; TFA 6.9-13.2 deg) as combined variance; pure measurement error is not given.",
+    "(d) Covariates: men larger in widths at several levels (facets L1-L3, inter-facet widths L1-L2 and L5, canal L1, pedicles L1-L3 and L5, foramina L1-L2 and L3-L4, pedicle height left L1 and right L3); women deeper canal and longer pedicle neck at L3. Age (50-80), height, weight and BMI had no effect (0.53 < p < 0.994), 25 per cell. Body size (Table 1): men about 174 cm, 79-82 kg; women 159-163 cm, 68-69 kg. Israeli, living, supine CT, degenerate older spines (Inference: not a centre for younger adults)."
+  ],
+  "gaps": [
+    "Table 5 group labels wrong in five row pairs (pedicle lengths both sexes, male left pedicle width); text differences, Fig. 6 and Table 6 fit only 'first row control' (Inference, supported three ways).",
+    "Fig. 4's lower-right panel repeats the lower-left (both 'Left Facet Arthrosis Prevalence of Males'); male right side only in Table 3 (p. 7, PDF 7).",
+    "Text cites wrong table and figure numbers (Fig. 3 for arthrosis, Table 3 for canals, Table 4 for pedicles, Table 5 for correlations) and gives the correlation p as '< 0.5' (p. 4-7, PDF 4-7).",
+    "Arthrosis denominators implied 24, 26, 20, 30 rather than 25 per sex, each group summing to 50 (Inference from Table 3).",
+    "Abstract's DS grade-3 range 40-90% misses 33.3% (DS women right L1-L2); 'at least 50% at every level in DS men' misses 45% at right L4-L5 (Table 3).",
+    "Table 4 leaves the largest DS foramen difference (L4-L5, about 3.9 mm, t about 4.9) unmarked; Table 5 marks a 1.1 difference with SD about 4.7 as p < 0.01 (Inference).",
+    "TIFA should equal left plus right TFA; it does within about 0.6-5.5 deg at L1-L4 but is 14-20 deg less at L5 (Inference from Table 2).",
+    "'Transverse Pedicle' undefined; methods' 'superior and inferior facet widths' reported as left and right; no line C in Fig. 1 I; methods promise L1-S1 but no S1 values; which joint a facet value belongs to is unstated.",
+    "Table 6's L1 and L2 pedicle heights (12.4, 12.06) do not follow from Table 5's control rows (12.7, 11.9) (Inference).",
+    "Controls described as drawn from a database of DS CTs; two different hospitals named for ethics (p. 2 and p. 12); DS women older and shorter than control women though matching is claimed (Table 1).",
+    "Inter-tester ICC reported though one examiner took all morphometry; retrospective design said to be prospectively registered (p. 2).",
+    "Text against table: facet width L1-L5 '4 mm' vs 2.2-2.7 mm; SIFW L1-L2 '1 mm' vs 0.3-0.5; right PH fall '~2 mm' vs 3.3-3.7; left PH L1-L2 '1mm' vs 0.4-0.6; DS women's left L4 facet angle '10' deg vs 8.0 (p. 4-5, PDF 4-5).",
+    "Not given: CT parameters, slice selection rules, level counting, how transitional vertebrae were recognised, per-measure error in mm or deg, S1 values, thoracic or cervical levels.",
+    "Conflicts (Inference, from panjabi1992 and panjabi1993f notes): Panjabi's pedicle height rises at L5 where this paper's and all Table 6 series fall; Panjabi's canal depth 2.6-5.3 mm larger with the same landmarks and L3 minimum; Panjabi's L5 pedicle width 18.6 vs 14.1; Panjabi's lumbar facet angles to the sagittal plane 8-22 deg above TFA with the same shape."
+  ]
+}
