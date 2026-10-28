@@ -22,7 +22,9 @@ Given the patients' sizes (`scale`), no size is drawn and the stream starts at t
 further measures can be drawn for the same patients from a stream of their own, leaving the first
 measures' columns as they were (the build-up study of step e draws the record's seven so and adds
 the rest). That holds at r_between 0, the default: at any other, the further measures' offsets are
-drawn apart from the first measures' and do not correlate with them as one call's would.
+drawn apart from the first measures' and do not correlate with them as one call's would. With
+`floor` False no value is floored, as the build-up study's specimens are drawn
+(curve.estimated_table), the stream unchanged.
 """
 from __future__ import annotations
 
@@ -146,21 +148,24 @@ def profiles(ref: Dict[str, Dict[str, tuple]], measures: Sequence[str], phenotyp
 def draw_columns(ref: Dict[str, Dict[str, tuple]], phenotypes: Sequence[str], seed: int, n: int,
                  measures: Sequence[str], r_between: float = 0.0, rho: float = SYNTH["rho"],
                  noise_mm=SYNTH["noise_mm"], scale_sd: float = SYNTH["scale_sd"],
-                 blend: float = SYNTH["blend"], power=None, scale: Optional[np.ndarray] = None) -> Columns:
+                 blend: float = SYNTH["blend"], power=None, scale: Optional[np.ndarray] = None,
+                 floor: bool = True) -> Columns:
     """n columns, the phenotypes cycled in turn, from one seeded stream in the archive's order.
     noise_mm is one error for every measure, as the archive's, or each measure's own; the stream
     is the same either way, and the same error for every measure gives the archive's columns.
     power is each measure's power of the size, 1 for every one, a length's, when not given; scale,
     when given, is each column's size, drawn by an earlier call, and no size is drawn from the
     stream. Every column is padded with NaN to the widest phenotype listed, drawn or not, so the
-    layout depends on the phenotypes and not on how many columns are drawn."""
+    layout depends on the phenotypes and not on how many columns are drawn. floor False leaves
+    out the floor at 0.5, as for the build-up study's specimens, which carry no error and estimate
+    the table itself; the stream is the same either way."""
     measures = list(measures)
     M = len(measures)
     noise = np.broadcast_to(np.asarray(noise_mm, float), (M,))
     powers = np.ones(M) if power is None else np.asarray(power, float)
     if powers.shape != (M,):
         raise ValueError("power is one power of the size per measure, %d of them; got %r" % (M, powers))
-    floored = powers > 0
+    floored = (powers > 0) & bool(floor)
     given = None if scale is None else np.asarray(scale, float)
     if given is not None and given.shape != (n,):
         raise ValueError("scale is one size per column, %d of them; got %r" % (n, given.shape))
@@ -191,15 +196,17 @@ def draw_columns(ref: Dict[str, Dict[str, tuple]], phenotypes: Sequence[str], se
     return Columns(values=values, levels=levels, measures=measures, phenotype=phen, scale=scale,
                    transitional_at=trans, blend=blend, seed=seed,
                    meta=dict(r_between=r_between, rho=rho, noise_mm=noise_mm if np.ndim(noise_mm) == 0 else noise.tolist(),
-                             scale_sd=scale_sd, n=n, power=powers.tolist(), scale_given=given is not None))
+                             scale_sd=scale_sd, n=n, power=powers.tolist(), scale_given=given is not None,
+                             floor=bool(floor)))
 
 
 def floor_hits(cols: Columns) -> dict:
     """The values the floor touched, as the archive's exact.floor_hits counts them: how many of
     the values of the measures that scale with the size sit at the floor, of how many, in how many
     columns, and at which measure and level, with the count at each. The likelihood has no floor,
-    so these are the values at which the rule is not the generator's posterior."""
-    floored = np.asarray(cols.meta["power"], float) > 0
+    so these are the values at which the rule is not the generator's posterior; columns drawn with
+    no floor have none."""
+    floored = (np.asarray(cols.meta["power"], float) > 0) & bool(cols.meta.get("floor", True))
     at = (cols.values == FLOOR) & floored[None, None, :]
     where: Dict[str, int] = {}
     for c, b, m in np.argwhere(at):

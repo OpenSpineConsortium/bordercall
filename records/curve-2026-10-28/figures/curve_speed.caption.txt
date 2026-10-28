@@ -1,0 +1,1 @@
+Time to name one field, one thread, as measures are added: A, rule.py on the trapezoid's nodes, one field alone (median of 30 calls), by bodies in view; B, three bodies, each engine with its table built once, alone (lines) and per field in a batch of 128 (points, median of 5 calls).

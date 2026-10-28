@@ -3,6 +3,8 @@
     rule = compiled.ExactRule(mu, sd, noise=errors, power=powers)   # the table, (measures, levels), each measure's error and power
     hyp = compiled.hypotheses(len(LEVELS), [[0, 1, 2]])      # every place of one pattern
     out = rule.evaluate(X, hyp)                              # log evidence and posterior
+    prepared = rule.prepare(hyp)                             # the table's side alone, built once
+    out = rule.evaluate(X, hyp, prepared=prepared)           # the same answer from the fields' side alone
 
 The arithmetic is rule.py's, written as a PyTensor graph and compiled once per process by
 PyTensor's default backend (Numba): given a hypothesis (the level of every body in the field)
@@ -38,6 +40,16 @@ row of factors is one more call, so with a weight or age hook on it is one call 
 whose weight or age is known, one per field where each field is a patient of its own, slower
 though the same answer; a graph taking the factors on the fields' side of the product would
 make it one call again.
+
+The product has two sides: the table's, the (measures, 3 x bodies, 4 x nodes x hypotheses)
+blocks that depend on the table, the nodes and the hypotheses alone, and the fields'. `evaluate`
+builds both on every call. A service that names many fields under one set of hypotheses builds
+the table's side once (`prepare`, as rule.py's callers build rule.table_blocks once) and hands it
+to `evaluate`, which then computes the fields' side alone, with the same answer to the bit. The
+build-up study times the compiled rule so (curve.py), as it times rule.py with its blocks built
+once: the blocks grow with every measure, body, node and hypothesis, (32, 27, 15,736) doubles or
+109 MB at 32 measures and 9 bodies on the trapezoid's 281 nodes, and a one-field call that built
+them would time the table with the field.
 """
 from __future__ import annotations
 
@@ -108,21 +120,10 @@ def size_log_weights(nodes_log_s: np.ndarray, logw: np.ndarray, base_sd: float,
     return out
 
 
-def _graph():
-    """The symbolic rule: inputs and the two outputs, log evidence (R, F, H) and the posterior."""
+def _table_part(mu, sd, idx, sizes, rho, noise):
+    """The table's side of the closed form, (M, 3B, 4JH): what each field's sums multiply, a
+    function of the table, the sizes and the hypotheses alone, as rule.table_blocks is."""
     import pytensor.tensor as pt
-    x = pt.tensor3("x")                 # (F, M, B), zero where not read
-    w = pt.tensor3("w")                 # (F, M, B), 1 where read, 0 where not
-    mu = pt.matrix("mu")                # (M, L)
-    sd = pt.matrix("sd")                # (M, L)
-    idx = pt.lmatrix("idx")             # (H, B)
-    sizes = pt.matrix("sizes")          # (M, J): each measure's power of each node's size
-    logw = pt.matrix("logw")            # (F, J)
-    log_prior = pt.vector("log_prior")  # (H,)
-    masks = pt.matrix("masks")          # (R, M): which measures each answer uses
-    rho = pt.scalar("rho")
-    noise = pt.vector("noise")          # (M,), each measure's own error
-
     muk = mu[:, idx][:, None]                                   # (M, 1, H, B)
     sdk = sd[:, idx][:, None]
     s = sizes[:, :, None, None]                                 # (M, J, 1, 1)
@@ -142,10 +143,15 @@ def _graph():
         st = pt.stack(cols, axis=1)
         return st.transpose(0, 4, 1, 2, 3).reshape((st.shape[0], st.shape[4], -1))
 
-    blocks = pt.concatenate([block(col_x2), block(col_x), block(col_w)], axis=1)   # (M, 3B, 4JH)
+    return pt.concatenate([block(col_x2), block(col_x), block(col_w)], axis=1)     # (M, 3B, 4JH)
+
+
+def _field_part(x, w, blocks, J, H, logw, log_prior, masks):
+    """The fields' side: their sums against the table's blocks, the closed form, the size
+    integrated out and the hypotheses normalised; log evidence (R, F, H) and the posterior."""
+    import pytensor.tensor as pt
     left = pt.concatenate([x * x, x, w], axis=2).dimshuffle(1, 0, 2)               # (M, F, 3B)
     sums = pt.matmul(left, blocks)                                                  # (M, F, 4JH)
-    J, H = sizes.shape[1], idx.shape[0]
     sums = sums.reshape((sums.shape[0], sums.shape[1], 4, J, H))
     q1, q2, a, ld = sums[:, :, 0], sums[:, :, 1], sums[:, :, 2], sums[:, :, 3]
     n_eff = w.sum(axis=2).T[:, :, None, None]                                       # (M, F, 1, 1)
@@ -154,10 +160,40 @@ def _graph():
     logev = pt.logsumexp(per + logw[None, :, :, None], axis=2)                      # (R, F, H)
     a_post = logev + log_prior[None, None, :]
     post = pt.exp(a_post - pt.logsumexp(a_post, axis=2, keepdims=True))
-    return [x, w, mu, sd, idx, sizes, logw, log_prior, masks, rho, noise], [logev, post]
+    return [logev, post]
+
+
+def _table_inputs():
+    import pytensor.tensor as pt
+    return [pt.matrix("mu"),            # (M, L)
+            pt.matrix("sd"),            # (M, L)
+            pt.lmatrix("idx"),          # (H, B)
+            pt.matrix("sizes"),         # (M, J): each measure's power of each node's size
+            pt.scalar("rho"),
+            pt.vector("noise")]         # (M,), each measure's own error
+
+
+def _field_inputs():
+    import pytensor.tensor as pt
+    return [pt.tensor3("x"),            # (F, M, B), zero where not read
+            pt.tensor3("w"),            # (F, M, B), 1 where read, 0 where not
+            pt.matrix("logw"),          # (F, J)
+            pt.vector("log_prior"),     # (H,)
+            pt.matrix("masks")]         # (R, M): which measures each answer uses
+
+
+def _graph():
+    """The symbolic rule: inputs and the two outputs, log evidence (R, F, H) and the posterior."""
+    mu, sd, idx, sizes, rho, noise = _table_inputs()
+    x, w, logw, log_prior, masks = _field_inputs()
+    blocks = _table_part(mu, sd, idx, sizes, rho, noise)
+    out = _field_part(x, w, blocks, sizes.shape[1], idx.shape[0], logw, log_prior, masks)
+    return [x, w, mu, sd, idx, sizes, logw, log_prior, masks, rho, noise], out
 
 
 _FUNCTION = None
+_TABLE = None
+_FIELDS = None
 
 
 def function():
@@ -168,6 +204,31 @@ def function():
         inputs, outputs = _graph()
         _FUNCTION = pytensor.function(inputs, outputs, on_unused_input="ignore")
     return _FUNCTION
+
+
+def table_function():
+    """The table's side alone, compiled once per process: (mu, sd, idx, sizes, rho, noise) to the
+    blocks (M, 3B, 4JH), which ExactRule.prepare builds once for a service's hypotheses."""
+    global _TABLE
+    if _TABLE is None:
+        import pytensor
+        inputs = _table_inputs()
+        _TABLE = pytensor.function(inputs, _table_part(*inputs))
+    return _TABLE
+
+
+def fields_function():
+    """The fields' side alone, compiled once per process: (x, w, blocks, J, H, logw, log_prior,
+    masks) to the log evidence and the posterior, given blocks prepared beforehand."""
+    global _FIELDS
+    if _FIELDS is None:
+        import pytensor
+        import pytensor.tensor as pt
+        x, w, logw, log_prior, masks = _field_inputs()
+        blocks, J, H = pt.tensor3("blocks"), pt.lscalar("J"), pt.lscalar("H")
+        _FIELDS = pytensor.function([x, w, blocks, J, H, logw, log_prior, masks],
+                                    _field_part(x, w, blocks, J, H, logw, log_prior, masks))
+    return _FIELDS
 
 
 class ExactRule:
@@ -199,13 +260,24 @@ class ExactRule:
     def n_levels(self) -> int:
         return self.mu.shape[1]
 
+    def prepare(self, hyp: Hypotheses) -> np.ndarray:
+        """The table's blocks under these hypotheses, (measures, 3 x bodies, 4 x nodes x
+        hypotheses), built once, as a service builds rule.table_blocks once for a pattern of
+        offsets; evaluate given them computes only the fields' side."""
+        if hyp.n_levels != self.n_levels:
+            raise ValueError("the hypotheses are for %d levels, the table has %d" % (hyp.n_levels, self.n_levels))
+        idx = np.ascontiguousarray(hyp.levels, np.int64)
+        return table_function()(self.mu, self.sd, idx, self.scaled, float(self.synth["rho"]), self.noise)
+
     def evaluate(self, X: np.ndarray, hyp: Hypotheses, subsets: Optional[Dict[str, Sequence[int]]] = None,
                  log_prior: Optional[np.ndarray] = None, logw: Optional[np.ndarray] = None,
-                 factors: Optional[np.ndarray] = None, chunk: int = CHUNK) -> Dict[str, Dict[str, np.ndarray]]:
+                 factors: Optional[np.ndarray] = None, chunk: int = CHUNK,
+                 prepared: Optional[np.ndarray] = None) -> Dict[str, Dict[str, np.ndarray]]:
         """{subset: {"logev": (F, H), "post": (F, H)}} for X (fields, measures, bodies) with NaN
         where a value was not read. `logw` (F, J) overrides the size prior field by field
         (size_log_weights); `log_prior` (H,) the uniform prior over hypotheses; `factors` (F, M)
-        scales each field's table means (CovariateModel.mean_factors), ones by default."""
+        scales each field's table means (CovariateModel.mean_factors), ones by default;
+        `prepared`, the blocks prepare(hyp) gave, skips building them, with no factors."""
         X = np.asarray(X, float)
         if X.ndim != 3:
             raise ValueError("X is (fields, measures, bodies), got shape %r" % (X.shape,))
@@ -236,6 +308,20 @@ class ExactRule:
         idx = np.ascontiguousarray(hyp.levels, np.int64)
         logev = np.empty((len(names), F, H))
         post = np.empty((len(names), F, H))
+        if prepared is not None:
+            if factors is not None:
+                raise ValueError("prepared blocks hold the table's means unscaled: give no factors with them")
+            J = len(self.logw)
+            if prepared.shape != (M, 3 * B, 4 * J * H):
+                raise ValueError("prepared blocks are (%d, %d, %d), got %r" % (M, 3 * B, 4 * J * H, prepared.shape))
+            ff = fields_function()
+            for c0 in range(0, F, max(1, chunk)):
+                f = slice(c0, c0 + chunk)
+                le, po = ff(np.ascontiguousarray(x0[f]), np.ascontiguousarray(w[f]), prepared, J, H,
+                            np.ascontiguousarray(lw[f]), lp, masks)
+                logev[:, f] = le
+                post[:, f] = po
+            return {name: {"logev": logev[r], "post": post[r]} for r, name in enumerate(names)}
         rows, group = np.unique(fac, axis=0, return_inverse=True)
         for g, row in enumerate(rows):
             mu = np.ascontiguousarray(self.mu * row[:, None])

@@ -1,0 +1,289 @@
+panel,engine,bodies,measures,how,ms
+A,numpy-trapezoid,1,1,alone,0.180895
+A,numpy-trapezoid,1,2,alone,0.317648
+A,numpy-trapezoid,1,3,alone,0.393035
+A,numpy-trapezoid,1,4,alone,0.483773
+A,numpy-trapezoid,1,5,alone,0.616624
+A,numpy-trapezoid,1,6,alone,0.758641
+A,numpy-trapezoid,1,7,alone,1.01982
+A,numpy-trapezoid,1,8,alone,1.24707
+A,numpy-trapezoid,1,9,alone,1.46542
+A,numpy-trapezoid,1,10,alone,1.30804
+A,numpy-trapezoid,1,11,alone,2.11243
+A,numpy-trapezoid,1,12,alone,1.74259
+A,numpy-trapezoid,1,13,alone,2.77701
+A,numpy-trapezoid,1,14,alone,2.94237
+A,numpy-trapezoid,1,15,alone,2.4764
+A,numpy-trapezoid,1,16,alone,2.16856
+A,numpy-trapezoid,1,17,alone,3.15601
+A,numpy-trapezoid,1,18,alone,3.51079
+A,numpy-trapezoid,1,19,alone,2.87296
+A,numpy-trapezoid,1,20,alone,3.12908
+A,numpy-trapezoid,1,21,alone,3.86641
+A,numpy-trapezoid,1,22,alone,3.34537
+A,numpy-trapezoid,1,23,alone,4.20046
+A,numpy-trapezoid,1,24,alone,4.36984
+A,numpy-trapezoid,1,25,alone,4.31684
+A,numpy-trapezoid,1,26,alone,5.64898
+A,numpy-trapezoid,1,27,alone,5.98281
+A,numpy-trapezoid,1,28,alone,4.83706
+A,numpy-trapezoid,1,29,alone,5.4626
+A,numpy-trapezoid,1,30,alone,5.57604
+A,numpy-trapezoid,1,31,alone,5.8644
+A,numpy-trapezoid,1,32,alone,6.75118
+A,numpy-trapezoid,3,1,alone,0.305757
+A,numpy-trapezoid,3,2,alone,0.511084
+A,numpy-trapezoid,3,3,alone,0.691595
+A,numpy-trapezoid,3,4,alone,0.644777
+A,numpy-trapezoid,3,5,alone,0.902968
+A,numpy-trapezoid,3,6,alone,1.08706
+A,numpy-trapezoid,3,7,alone,1.12308
+A,numpy-trapezoid,3,8,alone,1.84412
+A,numpy-trapezoid,3,9,alone,1.54349
+A,numpy-trapezoid,3,10,alone,2.71008
+A,numpy-trapezoid,3,11,alone,2.21797
+A,numpy-trapezoid,3,12,alone,3.28646
+A,numpy-trapezoid,3,13,alone,2.82869
+A,numpy-trapezoid,3,14,alone,3.16971
+A,numpy-trapezoid,3,15,alone,3.73623
+A,numpy-trapezoid,3,16,alone,4.02458
+A,numpy-trapezoid,3,17,alone,4.81303
+A,numpy-trapezoid,3,18,alone,5.02024
+A,numpy-trapezoid,3,19,alone,5.00157
+A,numpy-trapezoid,3,20,alone,5.43166
+A,numpy-trapezoid,3,21,alone,6.1341
+A,numpy-trapezoid,3,22,alone,5.69933
+A,numpy-trapezoid,3,23,alone,4.98002
+A,numpy-trapezoid,3,24,alone,7.37481
+A,numpy-trapezoid,3,25,alone,6.44482
+A,numpy-trapezoid,3,26,alone,7.08993
+A,numpy-trapezoid,3,27,alone,6.27878
+A,numpy-trapezoid,3,28,alone,7.10193
+A,numpy-trapezoid,3,29,alone,7.68717
+A,numpy-trapezoid,3,30,alone,7.2798
+A,numpy-trapezoid,3,31,alone,7.7571
+A,numpy-trapezoid,3,32,alone,9.6758
+A,numpy-trapezoid,9,1,alone,0.274299
+A,numpy-trapezoid,9,2,alone,0.522523
+A,numpy-trapezoid,9,3,alone,0.785234
+A,numpy-trapezoid,9,4,alone,1.01485
+A,numpy-trapezoid,9,5,alone,1.16843
+A,numpy-trapezoid,9,6,alone,1.55316
+A,numpy-trapezoid,9,7,alone,1.73139
+A,numpy-trapezoid,9,8,alone,2.63536
+A,numpy-trapezoid,9,9,alone,2.69471
+A,numpy-trapezoid,9,10,alone,3.24087
+A,numpy-trapezoid,9,11,alone,4.41594
+A,numpy-trapezoid,9,12,alone,4.14179
+A,numpy-trapezoid,9,13,alone,4.44004
+A,numpy-trapezoid,9,14,alone,5.98566
+A,numpy-trapezoid,9,15,alone,6.22783
+A,numpy-trapezoid,9,16,alone,6.97285
+A,numpy-trapezoid,9,17,alone,7.60394
+A,numpy-trapezoid,9,18,alone,7.08853
+A,numpy-trapezoid,9,19,alone,6.72732
+A,numpy-trapezoid,9,20,alone,8.14955
+A,numpy-trapezoid,9,21,alone,8.11078
+A,numpy-trapezoid,9,22,alone,8.752
+A,numpy-trapezoid,9,23,alone,9.30806
+A,numpy-trapezoid,9,24,alone,10.5373
+A,numpy-trapezoid,9,25,alone,9.54885
+A,numpy-trapezoid,9,26,alone,10.8047
+A,numpy-trapezoid,9,27,alone,11.5535
+A,numpy-trapezoid,9,28,alone,12.6651
+A,numpy-trapezoid,9,29,alone,10.654
+A,numpy-trapezoid,9,30,alone,13.2253
+A,numpy-trapezoid,9,31,alone,12.4872
+A,numpy-trapezoid,9,32,alone,11.6343
+B,numpy-trapezoid,3,1,alone,0.305757
+B,numpy-trapezoid,3,2,alone,0.511084
+B,numpy-trapezoid,3,3,alone,0.691595
+B,numpy-trapezoid,3,4,alone,0.644777
+B,numpy-trapezoid,3,5,alone,0.902968
+B,numpy-trapezoid,3,6,alone,1.08706
+B,numpy-trapezoid,3,7,alone,1.12308
+B,numpy-trapezoid,3,8,alone,1.84412
+B,numpy-trapezoid,3,9,alone,1.54349
+B,numpy-trapezoid,3,10,alone,2.71008
+B,numpy-trapezoid,3,11,alone,2.21797
+B,numpy-trapezoid,3,12,alone,3.28646
+B,numpy-trapezoid,3,13,alone,2.82869
+B,numpy-trapezoid,3,14,alone,3.16971
+B,numpy-trapezoid,3,15,alone,3.73623
+B,numpy-trapezoid,3,16,alone,4.02458
+B,numpy-trapezoid,3,17,alone,4.81303
+B,numpy-trapezoid,3,18,alone,5.02024
+B,numpy-trapezoid,3,19,alone,5.00157
+B,numpy-trapezoid,3,20,alone,5.43166
+B,numpy-trapezoid,3,21,alone,6.1341
+B,numpy-trapezoid,3,22,alone,5.69933
+B,numpy-trapezoid,3,23,alone,4.98002
+B,numpy-trapezoid,3,24,alone,7.37481
+B,numpy-trapezoid,3,25,alone,6.44482
+B,numpy-trapezoid,3,26,alone,7.08993
+B,numpy-trapezoid,3,27,alone,6.27878
+B,numpy-trapezoid,3,28,alone,7.10193
+B,numpy-trapezoid,3,29,alone,7.68717
+B,numpy-trapezoid,3,30,alone,7.2798
+B,numpy-trapezoid,3,31,alone,7.7571
+B,numpy-trapezoid,3,32,alone,9.6758
+B,numpy-trapezoid,3,1,in a batch,0.199308
+B,numpy-trapezoid,3,2,in a batch,0.426523
+B,numpy-trapezoid,3,3,in a batch,0.687019
+B,numpy-trapezoid,3,4,in a batch,0.856541
+B,numpy-trapezoid,3,5,in a batch,1.0862
+B,numpy-trapezoid,3,6,in a batch,1.29701
+B,numpy-trapezoid,3,7,in a batch,1.58
+B,numpy-trapezoid,3,8,in a batch,1.63569
+B,numpy-trapezoid,3,9,in a batch,2.11649
+B,numpy-trapezoid,3,10,in a batch,2.33187
+B,numpy-trapezoid,3,11,in a batch,2.54454
+B,numpy-trapezoid,3,12,in a batch,2.8184
+B,numpy-trapezoid,3,13,in a batch,2.66396
+B,numpy-trapezoid,3,14,in a batch,2.84986
+B,numpy-trapezoid,3,15,in a batch,3.5353
+B,numpy-trapezoid,3,16,in a batch,3.97515
+B,numpy-trapezoid,3,17,in a batch,3.69192
+B,numpy-trapezoid,3,18,in a batch,4.1299
+B,numpy-trapezoid,3,19,in a batch,4.22461
+B,numpy-trapezoid,3,20,in a batch,4.04158
+B,numpy-trapezoid,3,21,in a batch,4.53707
+B,numpy-trapezoid,3,22,in a batch,4.70123
+B,numpy-trapezoid,3,23,in a batch,5.09479
+B,numpy-trapezoid,3,24,in a batch,6.42213
+B,numpy-trapezoid,3,25,in a batch,6.52505
+B,numpy-trapezoid,3,26,in a batch,6.63974
+B,numpy-trapezoid,3,27,in a batch,10.2866
+B,numpy-trapezoid,3,28,in a batch,10.7745
+B,numpy-trapezoid,3,29,in a batch,10.5948
+B,numpy-trapezoid,3,30,in a batch,7.90245
+B,numpy-trapezoid,3,31,in a batch,14.1006
+B,numpy-trapezoid,3,32,in a batch,15.2708
+B,numpy-gauss-hermite,3,1,alone,0.164374
+B,numpy-gauss-hermite,3,2,alone,0.280005
+B,numpy-gauss-hermite,3,3,alone,0.543675
+B,numpy-gauss-hermite,3,4,alone,0.475491
+B,numpy-gauss-hermite,3,5,alone,0.559125
+B,numpy-gauss-hermite,3,6,alone,0.644225
+B,numpy-gauss-hermite,3,7,alone,0.732905
+B,numpy-gauss-hermite,3,8,alone,0.929045
+B,numpy-gauss-hermite,3,9,alone,1.10416
+B,numpy-gauss-hermite,3,10,alone,0.999513
+B,numpy-gauss-hermite,3,11,alone,1.21362
+B,numpy-gauss-hermite,3,12,alone,1.36649
+B,numpy-gauss-hermite,3,13,alone,1.33017
+B,numpy-gauss-hermite,3,14,alone,1.6706
+B,numpy-gauss-hermite,3,15,alone,1.74158
+B,numpy-gauss-hermite,3,16,alone,2.52608
+B,numpy-gauss-hermite,3,17,alone,2.54129
+B,numpy-gauss-hermite,3,18,alone,2.68864
+B,numpy-gauss-hermite,3,19,alone,2.83493
+B,numpy-gauss-hermite,3,20,alone,2.49032
+B,numpy-gauss-hermite,3,21,alone,3.10122
+B,numpy-gauss-hermite,3,22,alone,2.74293
+B,numpy-gauss-hermite,3,23,alone,3.49337
+B,numpy-gauss-hermite,3,24,alone,3.35989
+B,numpy-gauss-hermite,3,25,alone,3.64438
+B,numpy-gauss-hermite,3,26,alone,3.65277
+B,numpy-gauss-hermite,3,27,alone,3.74296
+B,numpy-gauss-hermite,3,28,alone,4.14275
+B,numpy-gauss-hermite,3,29,alone,4.05837
+B,numpy-gauss-hermite,3,30,alone,5.00088
+B,numpy-gauss-hermite,3,31,alone,4.49059
+B,numpy-gauss-hermite,3,32,alone,5.25446
+B,numpy-gauss-hermite,3,1,in a batch,0.116142
+B,numpy-gauss-hermite,3,2,in a batch,0.210844
+B,numpy-gauss-hermite,3,3,in a batch,0.318861
+B,numpy-gauss-hermite,3,4,in a batch,0.400278
+B,numpy-gauss-hermite,3,5,in a batch,0.531892
+B,numpy-gauss-hermite,3,6,in a batch,0.778519
+B,numpy-gauss-hermite,3,7,in a batch,0.882157
+B,numpy-gauss-hermite,3,8,in a batch,1.02552
+B,numpy-gauss-hermite,3,9,in a batch,1.00086
+B,numpy-gauss-hermite,3,10,in a batch,1.15241
+B,numpy-gauss-hermite,3,11,in a batch,1.51165
+B,numpy-gauss-hermite,3,12,in a batch,1.49554
+B,numpy-gauss-hermite,3,13,in a batch,1.66773
+B,numpy-gauss-hermite,3,14,in a batch,1.75255
+B,numpy-gauss-hermite,3,15,in a batch,2.07432
+B,numpy-gauss-hermite,3,16,in a batch,2.18521
+B,numpy-gauss-hermite,3,17,in a batch,2.12716
+B,numpy-gauss-hermite,3,18,in a batch,2.42222
+B,numpy-gauss-hermite,3,19,in a batch,2.27832
+B,numpy-gauss-hermite,3,20,in a batch,2.49832
+B,numpy-gauss-hermite,3,21,in a batch,2.7062
+B,numpy-gauss-hermite,3,22,in a batch,2.82482
+B,numpy-gauss-hermite,3,23,in a batch,3.01901
+B,numpy-gauss-hermite,3,24,in a batch,3.17157
+B,numpy-gauss-hermite,3,25,in a batch,3.31612
+B,numpy-gauss-hermite,3,26,in a batch,3.60474
+B,numpy-gauss-hermite,3,27,in a batch,3.6017
+B,numpy-gauss-hermite,3,28,in a batch,3.90965
+B,numpy-gauss-hermite,3,29,in a batch,3.81212
+B,numpy-gauss-hermite,3,30,in a batch,3.97802
+B,numpy-gauss-hermite,3,31,in a batch,4.43698
+B,numpy-gauss-hermite,3,32,in a batch,4.21938
+B,pytensor-trapezoid,3,1,alone,0.532504
+B,pytensor-trapezoid,3,2,alone,0.821072
+B,pytensor-trapezoid,3,3,alone,0.73229
+B,pytensor-trapezoid,3,4,alone,0.984572
+B,pytensor-trapezoid,3,5,alone,1.9395
+B,pytensor-trapezoid,3,6,alone,1.61002
+B,pytensor-trapezoid,3,7,alone,2.12496
+B,pytensor-trapezoid,3,8,alone,2.2592
+B,pytensor-trapezoid,3,9,alone,3.22001
+B,pytensor-trapezoid,3,10,alone,2.8021
+B,pytensor-trapezoid,3,11,alone,4.0029
+B,pytensor-trapezoid,3,12,alone,3.52986
+B,pytensor-trapezoid,3,13,alone,3.79187
+B,pytensor-trapezoid,3,14,alone,4.9902
+B,pytensor-trapezoid,3,15,alone,4.29015
+B,pytensor-trapezoid,3,16,alone,6.11484
+B,pytensor-trapezoid,3,17,alone,6.30343
+B,pytensor-trapezoid,3,18,alone,5.7304
+B,pytensor-trapezoid,3,19,alone,6.14435
+B,pytensor-trapezoid,3,20,alone,6.04122
+B,pytensor-trapezoid,3,21,alone,6.2888
+B,pytensor-trapezoid,3,22,alone,6.64645
+B,pytensor-trapezoid,3,23,alone,7.08161
+B,pytensor-trapezoid,3,24,alone,8.13878
+B,pytensor-trapezoid,3,25,alone,7.18746
+B,pytensor-trapezoid,3,26,alone,7.586
+B,pytensor-trapezoid,3,27,alone,8.19023
+B,pytensor-trapezoid,3,28,alone,8.10685
+B,pytensor-trapezoid,3,29,alone,7.73144
+B,pytensor-trapezoid,3,30,alone,8.23068
+B,pytensor-trapezoid,3,31,alone,9.40339
+B,pytensor-trapezoid,3,32,alone,9.34512
+B,pytensor-trapezoid,3,1,in a batch,0.272607
+B,pytensor-trapezoid,3,2,in a batch,0.523734
+B,pytensor-trapezoid,3,3,in a batch,1.01078
+B,pytensor-trapezoid,3,4,in a batch,1.03486
+B,pytensor-trapezoid,3,5,in a batch,1.27549
+B,pytensor-trapezoid,3,6,in a batch,1.78185
+B,pytensor-trapezoid,3,7,in a batch,1.9053
+B,pytensor-trapezoid,3,8,in a batch,2.67507
+B,pytensor-trapezoid,3,9,in a batch,2.61365
+B,pytensor-trapezoid,3,10,in a batch,2.91699
+B,pytensor-trapezoid,3,11,in a batch,3.13484
+B,pytensor-trapezoid,3,12,in a batch,3.53018
+B,pytensor-trapezoid,3,13,in a batch,4.16769
+B,pytensor-trapezoid,3,14,in a batch,4.39851
+B,pytensor-trapezoid,3,15,in a batch,4.20376
+B,pytensor-trapezoid,3,16,in a batch,3.92567
+B,pytensor-trapezoid,3,17,in a batch,5.49429
+B,pytensor-trapezoid,3,18,in a batch,6.60373
+B,pytensor-trapezoid,3,19,in a batch,5.34886
+B,pytensor-trapezoid,3,20,in a batch,6.15204
+B,pytensor-trapezoid,3,21,in a batch,6.53897
+B,pytensor-trapezoid,3,22,in a batch,6.64501
+B,pytensor-trapezoid,3,23,in a batch,7.57078
+B,pytensor-trapezoid,3,24,in a batch,6.91887
+B,pytensor-trapezoid,3,25,in a batch,7.27677
+B,pytensor-trapezoid,3,26,in a batch,7.55422
+B,pytensor-trapezoid,3,27,in a batch,13.4221
+B,pytensor-trapezoid,3,28,in a batch,12.1602
+B,pytensor-trapezoid,3,29,in a batch,14.4778
+B,pytensor-trapezoid,3,30,in a batch,13.5451
+B,pytensor-trapezoid,3,31,in a batch,9.62774
+B,pytensor-trapezoid,3,32,in a batch,8.96849
