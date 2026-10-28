@@ -8,7 +8,8 @@ of positive probability, summing to one; with one step and the typical type alon
 step d's, every place that fits equally likely, and its posterior is rule.name's within 1e-12;
 with uniform steps every fitting (pattern, place) pair is equally likely, counted by brute force;
 the forward-backward algorithm equals enumeration; the extended table is the generator's to the
-bit. Model (b)'s log density is a dense normal computed by scipy, summed over the chain's paths,
+bit; and the exact sum read along the paths' shared beginnings (prepare, logev) is path_logev's
+within 1e-9, on fields with values not read and on whole ones, every type and two subsets at once. Model (b)'s log density is a dense normal computed by scipy, summed over the chain's paths,
 within 1e-10, and model (a)'s is the enumeration of its emissions given the offsets, with a
 finite gradient; recover() through (b) draws each body's level as often as (b)'s posterior says.
 """
@@ -106,6 +107,23 @@ class TheChain(unittest.TestCase):
         for f, t in itertools.product(range(2), range(4)):
             np.add.at(want[f, t], sp[:, t], pp[f])
         np.testing.assert_allclose(marg, want, atol=1e-10)
+
+    def test_the_shared_beginnings_are_path_logev(self):
+        _, _, _, mu_e, sd_e, noise, power = seven()
+        nodes = R.trapezoid(R.SYNTH["scale_sd"])
+        subsets = {"three": [0, 2, 5], "all": list(range(7))}
+        for B in (1, 3, 5):
+            ch = CH.build(CH.TYPES, None, CH.step_law(), B)
+            pa = CH.paths_of(ch)
+            rule = CH.prepare(pa, mu_e, sd_e, subsets, noise, power, nodes)
+            X = fields(B, 1, seed=B)[0][:12].copy()
+            X[::3, 1, 0] = np.nan                     # a third of the fields with values not read
+            X[1::3, :, -1] = np.nan
+            want = CH.path_logev(X, pa, ch, mu_e, sd_e, subsets, noise, power, nodes)
+            got = CH.logev(rule, X)
+            for k in subsets:
+                np.testing.assert_allclose(got[k], want[k], rtol=0, atol=1e-9, err_msg="%d bodies, %s" % (B, k))
+            self.assertEqual(int(CH.shared_beginnings(rule.names)[0]), 0)
 
     def test_extended_table_is_the_generators(self):
         ms, _, _, mu_e, sd_e, _, _ = seven()

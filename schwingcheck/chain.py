@@ -34,7 +34,9 @@ s^p and the covariance of the patient's offset, shared by every body of the meas
 body's own draw and the error. The offset is shared, so the likelihood does not factor along the
 chain, and the forward algorithm alone cannot sum the path out; the exact answer here enumerates
 the chain's support paths instead and integrates the size on rule.py's nodes, as step d's
-enumerated patterns do. An L6 and a T13 take table columns made by the generator's own
+enumerated patterns do: path_logev with rule.py's own blocks, and prepare and logev, the same sum
+read along the paths' shared beginnings, in a tenth to a twentieth of its time (the section that
+introduces them). An L6 and a T13 take table columns made by the generator's own
 construction (columns.profiles): L6 = L5 + 0.5 (L5 - L4) with L5's SD, T13 half-way (blend 0.5)
 between T12 and L1 in mean and SD. That is the generator's, stated, and the exact rule's anomalous
 places, item 6, which the owner's other account works on, replace it when they land.
@@ -295,6 +297,249 @@ def known_pattern_posterior(X: np.ndarray, offsets: np.ndarray, mu: np.ndarray, 
         for k, p in post.items():
             out[k][f[:, None], (np.arange(p.shape[1]) + pat[t])[None, :]] = p
     return out
+
+
+# ---- the same exact sum, read along the paths' shared beginnings ---------------------------
+
+# path_logev builds rule.py's blocks for every (type, offsets) the paths hold and multiplies each
+# field through every one of them, so the work grows with the paths times the bodies times the
+# places of each pattern, and at 9 bodies on all 32 measures it took about 2.6 s a field. The same
+# closed form is four sums over the bodies, q1, q2, a and ld (rule.table_blocks), and each body's
+# term depends on its name alone, so a path's sums are the sums of its bodies' terms, and paths
+# that begin with the same names share those sums up to where they part. Only q2 and a enter
+# non-linearly, and only within a measure (-0.5 (q1 - q2^2 / (1 + a) + ld + log1p(a))), so q1 and ld
+# are summed over the subset's measures before the paths are walked; a depends on the values only
+# through which are read, so for a field with every value read it is the table's alone and is
+# taken once per path. The paths are walked in NumPy's sorted order, each from where it parts from
+# the one before, which visits every distinct beginning once.
+
+@dataclass(frozen=True)
+class PathRule:
+    """The chain's exact answer for one table, its errors and powers, the subsets of measures and
+    the nodes of the size, built once as a service would hold it (prepare), for logev to name
+    fields with: the distinct name paths (H, B) and their prior, how many leading names each path
+    shares with the one before it, a mask of the subsets' measures (S, M), the table's side of the
+    closed form at every name, measure and node (NAMES, M, J), and for a field with every value
+    read, 1 / (1 + a) of every path, measure and node (H, M, J) and -0.5 sum log1p(a) over each
+    subset's measures (H, S, J)."""
+    names: np.ndarray
+    log_prior: np.ndarray
+    shared: np.ndarray
+    keys: Tuple[str, ...]
+    mask: np.ndarray
+    logw: np.ndarray
+    scaled_mu: np.ndarray
+    inv_delta: np.ndarray
+    u_inv_delta: np.ndarray
+    log_delta: np.ndarray
+    u2_inv_delta: np.ndarray
+    gain: np.ndarray
+    log_term: np.ndarray
+
+    @property
+    def n_paths(self) -> int:
+        return len(self.log_prior)
+
+
+def shared_beginnings(names: np.ndarray) -> np.ndarray:
+    """How many leading names each row shares with the row before it (0 for the first)."""
+    names = np.asarray(names)
+    out = np.zeros(len(names), np.int64)
+    if len(names) > 1:
+        same = np.cumprod(names[1:] == names[:-1], axis=1)
+        out[1:] = same.sum(1)
+    return out
+
+
+def prepare(paths: Paths, mu_ext: np.ndarray, sd_ext: np.ndarray, subsets: Dict[str, Sequence[int]],
+            noise: np.ndarray, power: np.ndarray, nodes: Tuple[np.ndarray, np.ndarray],
+            rho: float = R.SYNTH["rho"]) -> PathRule:
+    """Everything logev needs that does not depend on the fields: rule.table_blocks' terms at
+    every name of the extended table, and each path's a for a field with every value read."""
+    sizes, logw = nodes
+    mu_ext, sd_ext = np.asarray(mu_ext, float), np.asarray(sd_ext, float)
+    M = mu_ext.shape[0]
+    noise = R.errors_of(R.SYNTH, M, noise)
+    g = R.size_factors(sizes, power, M)[None]                           # (1, M, J)
+    mu, sd = mu_ext.T[:, :, None], sd_ext.T[:, :, None]                 # (NAMES, M, 1)
+    delta = g * g * (1.0 - rho * rho) * sd * sd + (noise * noise)[None, :, None]
+    inv = 1.0 / delta
+    u = g * rho * sd
+    keys = tuple(subsets)
+    mask = np.zeros((len(keys), M))
+    for i, k in enumerate(keys):
+        mask[i, list(subsets[k])] = 1.0
+    names = np.ascontiguousarray(paths.names, np.int64)
+    shared = shared_beginnings(names)
+    u2 = np.ascontiguousarray(u * u * inv)
+    gain = np.empty((len(names), M, len(sizes)))
+    log_term = np.empty((len(names), len(keys), len(sizes)))
+    _kernels()[1](u2, names, shared, mask, gain, log_term)
+    return PathRule(names=names, log_prior=np.asarray(paths.log_prior, float), shared=shared, keys=keys, mask=mask,
+                    logw=np.asarray(logw, float), scaled_mu=np.ascontiguousarray(g * mu), inv_delta=np.ascontiguousarray(inv),
+                    u_inv_delta=np.ascontiguousarray(u * inv), log_delta=np.ascontiguousarray(np.log(delta)),
+                    u2_inv_delta=u2, gain=gain, log_term=log_term)
+
+
+def logev(rule: PathRule, X: np.ndarray) -> Dict[str, np.ndarray]:
+    """log p(field | path), the size integrated on the rule's nodes, (fields, paths) under each
+    subset: path_logev's answer, field by field. A value not read (NaN) drops out of its measure's
+    sums, as in rule.py."""
+    X = np.asarray(X, float)
+    F, M, B = X.shape
+    if B != rule.names.shape[1] or M != rule.mask.shape[1]:
+        raise ValueError("fields of %d bodies and %d measures for a rule of %d and %d"
+                         % (B, M, rule.names.shape[1], rule.mask.shape[1]))
+    walk, _, terms_of = _kernels()
+    out = np.empty((len(rule.keys), F, rule.n_paths))
+    S, N, J = len(rule.keys), rule.scaled_mu.shape[0], len(rule.logw)
+    c, q2, a = np.empty((B, N, S, J)), np.empty((B, N, M, J)), np.empty((B, N, M, J))
+    for f in range(F):
+        read = np.isfinite(X[f])
+        x = np.ascontiguousarray(np.where(read, X[f], 0.0).T)            # (B, M)
+        w = np.ascontiguousarray(read.T.astype(float))
+        complete = bool(read.all())
+        terms_of(x, w, rule.scaled_mu, rule.inv_delta, rule.u_inv_delta, rule.log_delta, rule.u2_inv_delta,
+                 rule.mask, complete, c, q2, a)
+        walk(c, q2, a, rule.names, rule.shared, rule.gain, rule.log_term, rule.logw, rule.mask, complete, out[:, f])
+    return {k: out[i] for i, k in enumerate(rule.keys)}
+
+
+_KERNELS = None
+
+
+def _kernels():
+    """The loops over the paths and over a field's bodies, compiled by Numba (which PyMC's
+    PyTensor already brings) on first use, so that the module imports without it."""
+    global _KERNELS
+    if _KERNELS is None:
+        import numba
+        LOG2PI = R.LOG2PI
+
+        @numba.njit(cache=False)
+        def add_along(stack, terms, t, n):
+            """stack[t] = stack[t - 1] + terms[t, n], stack[0] = terms[0, n]: one body more on a path."""
+            R_, J = stack.shape[1], stack.shape[2]
+            if t == 0:
+                for i in range(R_):
+                    for j in range(J):
+                        stack[0, i, j] = terms[0, n, i, j]
+            else:
+                for i in range(R_):
+                    for j in range(J):
+                        stack[t, i, j] = stack[t - 1, i, j] + terms[t, n, i, j]
+
+        @numba.njit(cache=False)
+        def walk(c, q2, a, names, shared, gain, log_term, logw, mask, complete, out):
+            H, B = names.shape
+            S, M = mask.shape
+            J = logw.shape[0]
+            cs = np.empty((B, S, J))
+            qs = np.empty((B, M, J))
+            sa = np.empty((B, M, J))
+            terms = np.empty((S, J))
+            v = np.empty(J)
+            last = B - 1
+            for h in range(H):
+                for t in range(shared[h], B):
+                    n = names[h, t]
+                    add_along(cs, c, t, n)
+                    add_along(qs, q2, t, n)
+                    if not complete:
+                        add_along(sa, a, t, n)
+                for s in range(S):
+                    for j in range(J):
+                        terms[s, j] = cs[last, s, j]
+                if complete:
+                    for s in range(S):
+                        for j in range(J):
+                            terms[s, j] += log_term[h, s, j]
+                for m in range(M):
+                    if complete:
+                        for j in range(J):
+                            q = qs[last, m, j]
+                            v[j] = 0.5 * q * q * gain[h, m, j]
+                    else:
+                        for j in range(J):
+                            q = qs[last, m, j]
+                            A = sa[last, m, j]
+                            v[j] = 0.5 * q * q / (1.0 + A) - 0.5 * np.log1p(A)
+                    for s in range(S):
+                        if mask[s, m] != 0.0:
+                            for j in range(J):
+                                terms[s, j] += v[j]
+                for s in range(S):
+                    top = -np.inf
+                    for j in range(J):
+                        x = terms[s, j] + logw[j]
+                        terms[s, j] = x
+                        if x > top:
+                            top = x
+                    acc = 0.0
+                    for j in range(J):
+                        acc += np.exp(terms[s, j] - top)
+                    out[s, h] = top + np.log(acc)
+
+        @numba.njit(cache=False)
+        def path_a(u2, names, shared, mask, gain, log_term):
+            H, B = names.shape
+            S, M = mask.shape
+            J = u2.shape[2]
+            sa = np.empty((B, M, J))
+            last = B - 1
+            for h in range(H):
+                for t in range(shared[h], B):
+                    n = names[h, t]
+                    if t == 0:
+                        for m in range(M):
+                            for j in range(J):
+                                sa[0, m, j] = u2[n, m, j]
+                    else:
+                        for m in range(M):
+                            for j in range(J):
+                                sa[t, m, j] = sa[t - 1, m, j] + u2[n, m, j]
+                for s in range(S):
+                    for j in range(J):
+                        log_term[h, s, j] = 0.0
+                for m in range(M):
+                    for j in range(J):
+                        A = sa[last, m, j]
+                        gain[h, m, j] = 1.0 / (1.0 + A)
+                    for s in range(S):
+                        if mask[s, m] != 0.0:
+                            for j in range(J):
+                                log_term[h, s, j] -= 0.5 * np.log1p(sa[last, m, j])
+
+        @numba.njit(cache=False)
+        def terms_of(x, w, scaled_mu, inv_delta, u_inv_delta, log_delta, u2_inv_delta, mask, complete, c, q2, a):
+            """Each body's terms at every name: c, -0.5 (q1 + ld + log 2 pi) summed over each subset's
+            measures (B, NAMES, S, J); q2 (B, NAMES, M, J); and a where some value is not read."""
+            B, M = x.shape
+            N, _, J = scaled_mu.shape
+            S = mask.shape[0]
+            e = np.empty(J)
+            for t in range(B):
+                for n in range(N):
+                    for s in range(S):
+                        for j in range(J):
+                            c[t, n, s, j] = 0.0
+                    for m in range(M):
+                        wt = w[t, m]
+                        xt = x[t, m]
+                        for j in range(J):
+                            r = xt - scaled_mu[n, m, j]
+                            q2[t, n, m, j] = wt * r * u_inv_delta[n, m, j]
+                            e[j] = -0.5 * wt * (r * r * inv_delta[n, m, j] + log_delta[n, m, j] + LOG2PI)
+                        if not complete:
+                            for j in range(J):
+                                a[t, n, m, j] = wt * u2_inv_delta[n, m, j]
+                        for s in range(S):
+                            if mask[s, m] != 0.0:
+                                for j in range(J):
+                                    c[t, n, s, j] += e[j]
+
+        _KERNELS = (walk, path_a, terms_of)
+    return _KERNELS
 
 
 # ---- fields drawn by the chain's own law ----------------------------------------------------
