@@ -123,6 +123,18 @@ class Compare(unittest.TestCase):
         self.assertEqual(result["disagree_by_field"], {"rib_contacts": ["0001"], "rib_contacts_unexplained": ["0001"]})
         self.assertFalse(fb.holds(result))
 
+    def test_a_limit_voxel_both_readings_name_is_one_count(self):
+        audit = {"equidistant_voxels": 0, "at_limit_voxels": 9, "within_1e-4_mm_of_limit": 9, "offsets_agree": True}
+        self.assertEqual(fb.limit_voxels(audit), 9)
+        self.assertEqual(fb.limit_voxels(dict(audit, offsets_agree=False)), 18)
+        self.assertEqual(fb.limit_voxels({"at_limit_voxels": 2}), 2)
+        other = json.loads(json.dumps(self.ROW))
+        other["ribs"]["12"]["contacts"] = {"19": 2}
+        other["b_audit"] = {"ribs": {"12": dict(audit, at_limit_voxels=1, **{"within_1e-4_mm_of_limit": 1})}}
+        result = self.compared([self.ROW], [other])
+        self.assertEqual(result["contacts_moved"], {"0001": {"12": [2, 1]}})
+        self.assertFalse(fb.holds(result))
+
     def test_the_command_exits_by_whether_the_comparison_holds(self):
         folder = tempfile.mkdtemp()
         other = json.loads(json.dumps(self.ROW))

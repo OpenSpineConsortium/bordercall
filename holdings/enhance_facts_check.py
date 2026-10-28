@@ -495,6 +495,17 @@ def distances_agree(first, second):
     return set(first) == set(second) and all(abs(first[k] - second[k]) <= DISTANCE_STEP_MM + 1e-9 for k in first)
 
 
+def limit_voxels(audit):
+    """How many of a rib's voxels lie at the contact limit, each counted once. at_limit_voxels counts
+    the offset reading's distance at exactly CONTACT_MM, within_1e-4_mm_of_limit the distance
+    transform's within LIMIT_EPS_MM of it; where the two readings agree on every contact voxel the
+    first are among the second, so the larger is their union, and otherwise the union is at most
+    their sum."""
+    at_limit = audit.get("at_limit_voxels", 0)
+    within = audit.get("within_1e-4_mm_of_limit", 0)
+    return max(at_limit, within) if audit.get("offsets_agree") else at_limit + within
+
+
 def contacts_moved(a, b):
     """For each rib whose two tallies differ, [counts moved, counts the second reading's audit lets
     move]: a voxel equally near two labels moves one count from one label to the other, two in all,
@@ -507,8 +518,7 @@ def contacts_moved(a, b):
         if first == second:
             continue
         audit = audits.get(rib, {})
-        allowed = 2 * audit.get("equidistant_voxels", 0) + audit.get("at_limit_voxels", 0) \
-            + audit.get("within_1e-4_mm_of_limit", 0)
+        allowed = 2 * audit.get("equidistant_voxels", 0) + limit_voxels(audit)
         moved[rib] = [sum(abs(first.get(k, 0) - second.get(k, 0)) for k in set(first) | set(second)), allowed]
     return moved
 
