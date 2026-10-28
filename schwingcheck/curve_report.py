@@ -1,7 +1,7 @@
 """Step e's build-up study as tables and figures, from its record alone (curve.py writes it).
 
     python -m schwingcheck curve table --record records/curve-2026-10-28/curve.nc
-    python -m schwingcheck curve figures --record records/curve-2026-10-28/curve.nc
+    python -m schwingcheck curve figures --record records/curve-2026-10-28/curve.nc --outdir records/curve-2026-10-28/figures
     python -m schwingcheck curve check --record records/curve-2026-10-28/curve.nc
 
 `table` prints the README's tables, each between the markers <!-- curve:NAME --> and
@@ -15,14 +15,15 @@ and the code by sha256. Every number is about synthetic columns drawn from Panja
 a patient.
 
 A precision with no answered field wrong, whose standard error is 0 however few were answered, is
-printed with its exact 95 per cent lower bound (curve.precision_lower; on the data axis on the
-count of the table that answered fewest, since its tables answer the same fields). The data axis is
-read against the table as printed on the axis's own columns (curve's people-printed arm), never
-against the nominal arm on all of its columns, and its rates carry both standard errors, the one
-clustered by column and the one that counts the tables too. How the times were taken, the calls,
-the batch, the threads and the machine, is read from the record's attributes, not assumed, and what
-they do not give is named as not recorded, never printed in a count's place; whether a NUTS run's
-setup holds a compile is read from the files the run added to PyTensor's Numba cache.
+printed with its exact 95 per cent lower bound, rounded down (curve.precision_lower; on the data
+axis on the count of the table that answered fewest, since its tables answer the same fields).
+The data axis is read against the table as printed on the axis's own columns (curve's
+people-printed arm), never against the nominal arm on all of its columns, and its rates carry
+both standard errors, the one clustered by column and the one that counts the tables too. How the
+times were taken, the calls, the batch, the threads and the machine, is read from the record's
+attributes, not assumed, and what they do not give is named as not recorded, never printed in a
+count's place; whether a NUTS run's setup holds a compile is read from the files the run added to
+PyTensor's Numba cache.
 """
 from __future__ import annotations
 
@@ -37,6 +38,7 @@ from typing import Dict, List, Optional, Sequence
 
 import numpy as np
 
+from . import columns as C
 from . import table as T
 
 README = os.path.join(T.ROOT, "schwingcheck", "README.md")
@@ -69,8 +71,9 @@ SPEED_MEASURES = (1, 7, 16, 32)
 CAPTIONS = {
     "curve_accuracy":
         "Naming a field as measures are added in the greedy order, typical synthetic columns: A, share "
-        "named exactly; B, share named at posterior 0.99; C, share of those right, dotted at 99 per "
-        "cent. Crosses, the seven SPINEPS measures. By the bodies in view; %d columns.",
+        "named exactly; B, share named at posterior 0.99; C, share of those right, where %s or more "
+        "were named, dotted at 99 per cent. Crosses, the seven SPINEPS measures. By the bodies in view; "
+        "%s columns.",
     "curve_speed":
         "Time to name one field%s, as measures are added: A, rule.py on the trapezoid's nodes, one "
         "field alone (median of %s), by bodies in view; B, three bodies, each engine with its table "
@@ -116,14 +119,33 @@ def attr_json(tree, name: str) -> dict:
 
 # ---- formatting -----------------------------------------------------------------------------
 
+PCT_MOST_PLACES = 6
+
+
 def pct(x: float, places: int = 1) -> str:
-    """A share as a percentage, one place, or two where it rounds to 100.0 short of all."""
+    """A share as a percentage to the places given, with as many more as it takes, up to
+    PCT_MOST_PLACES, for a share short of all not to read 100 nor one above none to read 0, so that
+    100.0% and 100.00% both mean every field and 0.0% none."""
     if not np.isfinite(x):
         return "-"
-    s = "%.*f%%" % (places, 100.0 * x)
-    if s.startswith("100.0") and x < 1.0:
-        s = "%.2f%%" % (100.0 * x)
-    return s
+    while True:
+        s = "%.*f%%" % (places, 100.0 * x)
+        if not 0.0 < x < 1.0 or float(s[:-1]) not in (0.0, 100.0) or places >= PCT_MOST_PLACES:
+            return s
+        places += 1
+
+
+def pct_down(x: float, places: int = 2) -> str:
+    """A lower bound as a percentage rounded down to the places given, so that it never reads above
+    the bound: none wrong of 27,970 answered gives 99.9868%, at least 99.98%, not 99.99%."""
+    if not np.isfinite(x):
+        return "-"
+    return "%.*f%%" % (places, math.floor(100.0 * x * 10 ** places) / 10 ** places)
+
+
+def count(x: float) -> str:
+    """A count with its thousands marked, as every table prints its counts."""
+    return "{:,}".format(int(x)) if np.isfinite(x) else "-"
 
 
 def ms(x: float) -> str:
@@ -150,13 +172,13 @@ def se_points(x: float) -> str:
 
 
 def precision_cell(ds, arm: str, phenotype: str, subset: str, width: int, ses: bool = False) -> str:
-    """The precision at 0.99, with its exact 95 per cent lower bound beside it where no answered
-    field is wrong, in place of a standard error of 0; with ses, its two standard errors in points
-    otherwise, clustered by column and with the tables (the data axis)."""
+    """The precision at 0.99, with its exact 95 per cent lower bound beside it, rounded down, where
+    no answered field is wrong, in place of a standard error of 0; with ses, its two standard errors
+    in points otherwise, clustered by column and with the tables (the data axis)."""
     p = value(ds, "precision", arm, phenotype, subset, width)
     lower = value(ds, "precision_lower", arm, phenotype, subset, width)
     if np.isfinite(lower):
-        return "%s (at least %s)" % (pct(p, 2), pct(lower, 2))
+        return "%s (at least %s)" % (pct(p, 2), pct_down(lower, 2))
     if ses and np.isfinite(p):
         return "%s (%s / %s)" % (pct(p, 2), se_points(value(ds, "precision_se", arm, phenotype, subset, width)),
                                  se_points(value(ds, "precision_se_tables", arm, phenotype, subset, width)))
@@ -164,8 +186,8 @@ def precision_cell(ds, arm: str, phenotype: str, subset: str, width: int, ses: b
 
 
 BOUND_NOTE = ("Where no field named at 0.99 was wrong, the precision is followed by its exact two-sided 95 per cent "
-              "lower bound (Clopper-Pearson, the answered fields counted as independent trials), in place of a "
-              "standard error of 0.")
+              "lower bound (Clopper-Pearson, the answered fields counted as independent trials), rounded down, in "
+              "place of a standard error of 0.")
 DATA_BOUND_NOTE = (BOUND_NOTE + " Every table answers the same fields, so a row of several tables counts the "
                    "fields of the one that answered fewest, not each field once for every table that answered it.")
 
@@ -207,8 +229,8 @@ def table_curve(tree) -> List[str]:
     n = value(ds, "n_columns", "nominal", "typical", "prefix-01", 1)
     erred = ("where a field named at 0.99 was wrong, %s points" % se_range(precision_ses) if precision_ses
              else "no row had a field named at 0.99 wrong")
-    out += ["", "%d typical columns; the standard errors of the shares named exactly, clustered by column, are %s points, "
-            "and of the precision at 0.99, %s. %s" % (n, se_range(ses), erred, BOUND_NOTE)]
+    out += ["", "%s typical columns; the standard errors of the shares named exactly, clustered by column, are %s points, "
+            "and of the precision at 0.99, %s. %s" % (count(n), se_range(ses), erred, BOUND_NOTE)]
     return out
 
 
@@ -346,7 +368,7 @@ def table_data(tree) -> List[str]:
     against = ("and so is the table as printed, the first row, against which every other row is read; a difference "
                "is paired on the same fields, and its own standard error is not recorded" if printed else
                "and the table as printed is not scored on them in this record, so no row has a difference beside it")
-    out += ["", "Each table is scored on the same %d typical columns, the first of the nominal arm's, %s." % (n, against),
+    out += ["", "Each table is scored on the same %s typical columns, the first of the nominal arm's, %s." % (count(n), against),
             "In brackets, standard errors in points: clustered by column, the tables drawn held fixed / counting the "
             "variation between tables too (columns and tables crossed, the two-way estimate), on one degree of freedom "
             "fewer than the tables: %s; the table as printed is one fixed table, with no such term."
@@ -371,14 +393,60 @@ def table_anomalous(tree) -> List[str]:
         rows.append(cells)
     out = rows_md(["Spine", "Seven, 3 bodies: exact / within one", "Seven, 5 bodies", "Seven, 9 bodies",
                    "All 32, 3 bodies", "All 32, 5 bodies", "All 32, 9 bodies"], ["---"] + ["---:"] * 6, rows)
-    out += ["", "A field is judged by its own column's names, so a T13 or an L6 is never named right. On a "
-            "spine with a thirteenth rib-bearing body those names are the rib reading, which calls the "
-            "thirteenth rib-bearing body T13 where the count from C2 calls it L1; with a rib on L1 or no rib on "
-            "T12 they are the count from C2, under which the rib-bearing L1 stays L1 and the ribless T12 stays "
-            "T12 where the rib reading calls them T13 and L1; on four- and six-lumbar spines the two agree. "
-            "Within one level is read on a half-step scale on which a T13 sits half-way between T12 and L1 and an "
-            "L6 one below L5, so on a T13 spine a T12 called L1, or an L1 called T12, counts as within one level "
-            "though the two are two bodies apart."]
+    return out + ["", ANOMALOUS_NOTE] + [""] + table_anomalous_precision(ds)
+
+
+ANOMALOUS_NOTE = (
+    "A field is judged by its own column's names, so a T13 or an L6 is never named right. On a "
+    "spine with a thirteenth rib-bearing body those names are the rib reading, which calls the "
+    "thirteenth rib-bearing body T13 where the count from C2 calls it L1; with a rib on L1 or no rib on "
+    "T12 they are the count from C2, under which the rib-bearing L1 stays L1 and the ribless T12 stays "
+    "T12 where the rib reading calls them T13 and L1; on four- and six-lumbar spines the two agree. "
+    "Within one level is read on a half-step scale on which a T13 sits half-way between T12 and L1 and an "
+    "L6 one below L5, so on a T13 spine a T12 called L1, or an L1 called T12, counts as within one level "
+    "though the two are two bodies apart.")
+
+
+def columns_scored(ds) -> str:
+    """The columns the anomalous tables score, the typical ones and each anomalous spine's, with
+    any spine the record did not score named, its cells a dash."""
+    def count(ph):
+        return value(ds, "n_columns", "nominal", ph, "seven", HEADLINE)
+    scored = [ph for ph in ANOMALOUS if np.isfinite(count(ph))]
+    each = sorted({int(count(ph)) for ph in scored})
+    typical = count("typical")
+    text = "{:,} typical columns".format(int(typical)) if np.isfinite(typical) else "no typical columns"
+    if each:
+        text += " and %s columns of each anomalous spine%s" % (joined(["{:,}".format(c) for c in each]),
+                                                               "" if len(scored) == len(ANOMALOUS) else " scored")
+    missing = [PHENOTYPE_NAME[ph] for ph in ANOMALOUS if ph not in scored]
+    if missing:
+        text += " (not scored, a dash in every cell: %s)" % joined(missing)
+    return text
+
+
+def table_anomalous_precision(ds) -> List[str]:
+    """Whether the answers at 0.99 stay right on each anomalous spine: the share of fields named at
+    0.99 and the share of those right, judged by the column's own names as the table above is."""
+    rows, shown, ses = [], [], []
+    for ph in ("typical",) + ANOMALOUS:
+        cells = [PHENOTYPE_NAME[ph]]
+        for sub in ("seven", "prefix-32"):
+            for n in ANOMALOUS_WIDTHS:
+                cells.append("%s / %s" % (pct(value(ds, "answered", "nominal", ph, sub, n)),
+                                          precision_cell(ds, "nominal", ph, sub, n)))
+                shown.append(("nominal", ph, sub, n))
+                if value(ds, "errors", "nominal", ph, sub, n) > 0:
+                    ses.append(value(ds, "precision_se", "nominal", ph, sub, n))
+        rows.append(cells)
+    out = rows_md(["Spine", "Seven, 3 bodies: named at 0.99 / right of those", "Seven, 5 bodies", "Seven, 9 bodies",
+                   "All 32, 3 bodies", "All 32, 5 bodies", "All 32, 9 bodies"], ["---"] + ["---:"] * 6, rows)
+    out += ["", "The share of the fields named at a posterior of 0.99, and the share of those that are right, on %s; "
+            "%s." % (columns_scored(ds), "the standard errors of the share right, clustered by column, where a field "
+                     "named at 0.99 was wrong, are %s points" % se_range(ses) if ses else
+                     "no cell had a field named at 0.99 wrong")]
+    if bounded(ds, shown):
+        out += ["", BOUND_NOTE]
     return out
 
 
@@ -572,19 +640,44 @@ def table_nuts(tree) -> List[str]:
     return out
 
 
+FLOOR_ARMS = ("nominal", "errors-0.5", "errors-2", "correlated")
+FLOOR_NOTE = ("A value at the floor is one the generator drew below %g, in its measure's own units, and set to %g "
+              "(columns.FLOOR). The rule's likelihood has no floor, so at such a value the rule is not the "
+              "generator's posterior. The values counted are those of the measures that scale with the size, at every "
+              "level of every column of the arm and spine; Columns touched counts the columns that hold at least one such "
+              "value, and Most at gives the three measures and levels that hold the most, by count, the first by name "
+              "among equal counts.")
+
+
+def floor_rows(keys: Sequence[str]) -> List[str]:
+    """The floor's rows in the order the other tables give them: the typical columns of each arm in
+    the arms' table's order, then the nominal arm's anomalous spines in the anomalous table's, and
+    any other after them by name."""
+    rank = {"%s/typical" % arm: i for i, arm in enumerate(FLOOR_ARMS)}
+    rank.update({"nominal/%s" % ph: len(FLOOR_ARMS) + i for i, ph in enumerate(ANOMALOUS)})
+    return sorted(keys, key=lambda k: (rank.get(k, len(rank)), k))
+
+
+def most_at(where: Dict[str, int], n: int = 3) -> str:
+    """The n measures and levels that hold the most values at the floor, the most first and by name
+    among equals, as columns.floor_hits orders them; the record keeps them as JSON sorted by name,
+    so the order is taken again here."""
+    top = sorted(where.items(), key=lambda kv: (-kv[1], kv[0]))[:n]
+    return ", ".join("`%s` %d" % kv for kv in top) or "none"
+
+
 def table_floor(tree) -> List[str]:
     if "floor" not in tree.attrs:
         return ["The floor's counts are not in this record, which is older than they are."]
     fl = json.loads(tree.attrs["floor"])
     rows = []
-    for key in sorted(fl, key=lambda k: (k.split("/")[1] != "typical", k)):
+    for key in floor_rows(list(fl)):
         arm, ph = key.split("/")
         f = fl[key]
-        most = ", ".join("`%s` %d" % kv for kv in list(f["where"].items())[:3]) or "none"
         rows.append([ARM_NAME.get(arm, arm), PHENOTYPE_NAME[ph], "{:,}".format(f["values"]), "{:,}".format(f["of"]),
-                     "{:,}".format(f["columns"]), most])
+                     "{:,}".format(f["columns"]), most_at(f["where"])])
     return rows_md(["Columns", "Spine", "Values at the floor", "Of", "Columns touched", "Most at"],
-                   ["---", "---", "---:", "---:", "---:", "---"], rows)
+                   ["---", "---", "---:", "---:", "---:", "---"], rows) + ["", FLOOR_NOTE % (C.FLOOR, C.FLOOR)]
 
 
 MAKERS = {"curve": table_curve, "subsets": table_subsets, "arms": table_arms, "data": table_data,
@@ -682,6 +775,21 @@ def write_csv(outdir: str, name: str, rows: List[dict]) -> str:
     return path
 
 
+PRECISION_DRAWN = 1000      # the fields named at 0.99 that a share right must rest on to be drawn
+
+
+def accuracy_point(ds, stat: str, sub: str, n: int) -> dict:
+    """One point of the accuracy figure, the nominal arm's typical columns: the record's share in
+    per cent, the fields it rests on (those named at 0.99 for the share right, every field
+    otherwise) and whether it is drawn. A share right resting on fewer than PRECISION_DRAWN fields
+    is not drawn: on an axis from 99 to 100 per cent its 100 per cent from a handful of fields,
+    one field at two measures and one body, would read as a result."""
+    fields = value(ds, "n_answered" if stat == "precision" else "n_fields", "nominal", "typical", sub, n)
+    drawn = stat != "precision" or fields >= PRECISION_DRAWN
+    return {"percent": 100 * value(ds, stat, "nominal", "typical", sub, n),
+            "fields": int(fields) if np.isfinite(fields) else "", "drawn": "yes" if drawn else "no"}
+
+
 def fig_accuracy(tree, outdir: str) -> List[str]:
     plt = style()
     ds = rates_of(tree)
@@ -691,13 +799,14 @@ def fig_accuracy(tree, outdir: str) -> List[str]:
     for ax, stat, title in zip(axes, ("exact", "answered", "precision"),
                                ("Named exactly", "Named at 0.99", "Right of those named")):
         for n in WIDTHS:
-            ys = [100 * value(ds, stat, "nominal", "typical", "prefix-%02d" % k, n) for k in ks]
+            points = [dict(accuracy_point(ds, stat, "prefix-%02d" % k, n), panel=title, bodies=n, measures=k,
+                           subset="prefix-%02d" % k) for k in ks]
+            seven = dict(accuracy_point(ds, stat, "seven", n), panel=title, bodies=n, measures=7, subset="seven")
+            ys = [p["percent"] if p["drawn"] == "yes" else float("nan") for p in points]
             ax.plot(ks, ys, color=INK, label=body_label(n), markersize=2.6, **WIDTH_STYLE[n])
-            seven = 100 * value(ds, stat, "nominal", "typical", "seven", n)
-            ax.plot([7], [seven], linestyle="none", marker="x", color=INK, markersize=5)
-            for k, y in zip(ks, ys):
-                rows.append({"panel": title, "bodies": n, "measures": k, "subset": "prefix-%02d" % k, "percent": y})
-            rows.append({"panel": title, "bodies": n, "measures": 7, "subset": "seven", "percent": seven})
+            if seven["drawn"] == "yes":
+                ax.plot([7], [seven["percent"]], linestyle="none", marker="x", color=INK, markersize=5)
+            rows += points + [seven]
         ax.set_xlabel("Measures")
         ax.set_xlim(0, ks[-1] + 1)
         letter(ax, "ABC"["exact answered precision".split().index(stat)], title)
@@ -709,12 +818,15 @@ def fig_accuracy(tree, outdir: str) -> List[str]:
     axes[0].plot([], [], linestyle="none", marker="x", color=INK, markersize=5, label="the seven")
     axes[0].legend(loc="lower right")
     name = "curve_accuracy"
-    caption = CAPTIONS[name] % int(value(ds, "n_columns", "nominal", "typical", "prefix-01", 1))
-    return save(fig, outdir, name, caption) + [write_csv(outdir, name, rows)]
+    caption = CAPTIONS[name] % ("{:,}".format(PRECISION_DRAWN),
+                                "{:,}".format(int(value(ds, "n_columns", "nominal", "typical", "prefix-01", 1))))
+    order = ("panel", "bodies", "measures", "subset", "percent", "fields", "drawn")
+    return save(fig, outdir, name, caption) + [write_csv(outdir, name, [{k: r[k] for k in order} for r in rows])]
 
 
 def fig_speed(tree, outdir: str) -> List[str]:
     plt = style()
+    from matplotlib.ticker import FuncFormatter
     sp = tree["speed"].to_dataset()
     ks = sp["measures"].values.tolist()
     fig, (a, b) = plt.subplots(1, 2, figsize=(6.4, 2.6), constrained_layout=True)
@@ -734,6 +846,7 @@ def fig_speed(tree, outdir: str) -> List[str]:
         rows += [{"panel": "B", "engine": e, "bodies": HEADLINE, "measures": k, "how": "in a batch", "ms": z} for k, z in zip(ks, zs)]
     for ax in (a, b):
         ax.set_yscale("log")
+        ax.yaxis.set_major_formatter(FuncFormatter(lambda v, _: "%g" % v))      # 0.1, 1, 10, not powers of ten
         ax.set_xlabel("Measures")
         ax.set_ylabel("Milliseconds a field")
     letter(a, "A", "rule.py, one field at a time")

@@ -4,12 +4,13 @@ Rung 0 is the record's: the seven's values in the study's columns are the values
 from seed 97, whatever the other 25 measures, so the seven's rates can be held to exact.json. The
 subsets are what their names say: each prefix of the order holds as many measures as its number,
 the ladder's first rung is the seven and the pedicles and its last all 32, and the families with
-the seven make up the pool. The SD a predictive rule takes for a new person about twelve is
-exact.py's. A field is floored only by a value at the floor in a measure that scales with the
-size. One small study, seven arms of a few columns, is scored on one process; the share it names
-exactly is the share rule.py's posterior names, counted here by hand; its record prints every
-table, check_readme holds a README that carries them and finds one that is stale, missing or
-doubled, and its figures, drawn twice, are the same files.
+the seven make up the pool. The five anomalous phenotypes' columns are the same patients, the same
+at every body they share by name but the rib-bearing L1 and the ribless T12. The SD a predictive
+rule takes for a new person about twelve is exact.py's. A field is floored only by a value at the
+floor in a measure that scales with the size. One small study, seven arms of a few columns, is
+scored on one process; the share it names exactly is the share rule.py's posterior names, counted
+here by hand; its record prints every table, check_readme holds a README that carries them and
+finds one that is stale, missing or doubled, and its figures, drawn twice, are the same files.
 
 Each fix of the review of 28 October 2026 is held by a test that fails without it: the data
 axis's standard errors that count its tables (crossed_se against an analysis of variance written
@@ -33,11 +34,26 @@ mean, and what its warm-up keeps; each NUTS field's gap from its own exact poste
 posterior call's compile in the setup and not in posterior_s, and the files each run added to
 the Numba cache; the speed caption's counts read from the record; and captions and notes that
 name what the record does not give, never a fixed one thread or a count's place filled with it.
+
+The full run's record of 28 October 2026 is held as committed: the package's README carries its
+tables; its figures' numbers and captions are what the code as it stands draws from it, and
+FIGURES.md names that code; and the run changed no code it names. So is what the report gained
+after that run: 100.0% and 100.00% mean every field and 0.0% none, a share short of all or above
+none taking more places, up to six; counts with their thousands marked; the anomalous table's
+answers at 0.99 and how often they are right, read against the record itself, with the standard
+errors where a field was wrong; the floor table's measures and levels by count, in the other
+tables' order, each row with its own counts; panel C drawing no share right on fewer than 1,000
+fields, and its CSV giving the fields each share rests on; the speed figure's axes labelled 0.1, 1
+and 10; and, as the README reads the anomalous table, with all 32 measures at nine bodies on the
+first 30 columns of each spine, every field named wrong at 0.99 reaches a body no place names: on
+six-lumbar spines exactly the fields that reach the L6, on T13 spines fields with the T11, T12 or
+T13 in the middle.
 """
 from __future__ import annotations
 
 import contextlib
 import csv
+import hashlib
 import inspect
 import io
 import json
@@ -253,6 +269,26 @@ class Arms(unittest.TestCase):
         self.assertIn("on a lumbar_rib or no_rib_t12 column the count from C2", doc)
         self.assertIn("with a rib on L1 or no rib on T12 they are the count from C2", report)
 
+    def test_the_five_anomalous_phenotypes_are_drawn_for_the_same_patients(self):
+        """The study's anomalous columns of every phenotype are the same patients as the typical
+        columns of their seeds, as the README and TODO.md say: the same sizes, and the same values
+        at every body they share by name but the rib-bearing L1 and the ribless T12, which the
+        generator draws half-way between T12 and L1, so the five rows are paired, not independent
+        samples."""
+        pool = MS.pool()
+        n = CV.study_counts(False)["anomalous"]
+        typical = CV.draw_pool(pool, "typical", CV.ANOMALOUS_SEED, CV.ANOMALOUS_EXTRA_SEED, n)
+        odd = {"lumbar_rib": "L1", "no_rib_t12": "T12"}
+        for ph in CV.ANOMALOUS:
+            cols = CV.draw_pool(pool, ph, CV.ANOMALOUS_SEED, CV.ANOMALOUS_EXTRA_SEED, n)
+            np.testing.assert_array_equal(cols.scale, typical.scale)
+            for k in range(n):
+                names = list(typical.levels[k])
+                for i, name in enumerate(cols.levels[k]):
+                    if name in names:
+                        same = np.array_equal(cols.values[k, i], typical.values[k, names.index(name)], equal_nan=True)
+                        self.assertEqual(same, name != odd.get(ph), (ph, k, name))
+
     def test_the_narrowest_fields_go_first(self):
         widths = [j[1] for j in CV.jobs_of(small_study()["arms"])]
         self.assertEqual(widths, sorted(widths))
@@ -277,6 +313,37 @@ class Truth(unittest.TestCase):
         for doc in (CV.__doc__, CV.field_stats.__doc__):
             self.assertIn("two bodies apart", flat(doc))
         self.assertIn("two bodies apart", flat("\n".join(CR.table_anomalous(small_record()))))
+
+    def test_the_fields_wrong_at_099_are_the_ones_no_place_names(self):
+        """With all 32 measures at nine bodies, on the first 30 of the study's columns of each spine
+        (seeds 99 and 314), every six-lumbar field is named at 0.99 and the wrong ones are exactly
+        the fields that reach the L6, one a column, since the rule has no place below L5; on a T13
+        spine every field whose middle body is the T13 is wrong, named or not, and every field
+        wrong at 0.99 has the T13 or one of the two bodies above it in the middle. The README
+        reads the anomalous table by this."""
+        pool = MS.pool()
+        mu, sd = MS.arrays(pool)
+        noise, power = MS.errors(pool), MS.powers(pool)
+        offsets, nodes = np.arange(9), R.trapezoid(R.SYNTH["scale_sd"])
+        for ph in ("six_lumbar", "t13"):
+            c = CV.draw_pool(pool, ph, CV.ANOMALOUS_SEED, CV.ANOMALOUS_EXTRA_SEED, 30)
+            X, start, col = C.fields(c.values, offsets)
+            LL = R.loglik(X, offsets, mu, sd, R.SYNTH, sizes=nodes[0], noise=noise, power=power)
+            post = R.posterior(R.logsumexp(LL.sum(2) + nodes[1], 2))
+            st = CV.field_stats(post, start, CV.true_positions(start, col, c.levels, 9), 9, False)
+            named = st["top"] >= CV.CLAIM
+            middle = np.array([c.levels[k][s + 4] for s, k in zip(start, col)])
+            bottom = np.array([c.levels[k][s + 8] for s, k in zip(start, col)])
+            wrong = named & ~st["hit"]
+            with self.subTest(ph):
+                if ph == "six_lumbar":
+                    self.assertTrue(named.all())
+                    self.assertEqual(wrong.tolist(), (bottom == "L6").tolist())
+                    self.assertEqual(int(wrong.sum()), 30)
+                else:
+                    self.assertFalse(st["hit"][middle == "T13"].any())
+                    self.assertTrue(wrong.any())
+                    self.assertTrue(set(middle[wrong]) <= {"T11", "T12", "T13"}, set(middle[wrong]))
 
 
 class DataAxis(unittest.TestCase):
@@ -442,10 +509,25 @@ class Precision(unittest.TestCase):
         lower = CR.value(ds, "precision_lower", "nominal", "typical", "prefix-32", 9)
         self.assertTrue(np.isfinite(lower))
         cell = CR.precision_cell(ds, "nominal", "typical", "prefix-32", 9)
-        self.assertEqual(cell, "100.00%% (at least %s)" % CR.pct(lower, 2))
+        self.assertEqual(cell, "100.00%% (at least %s)" % CR.pct_down(lower, 2))
+        self.assertLessEqual(float(CR.pct_down(lower, 2)[:-1]), 100.0 * lower)
         text = "\n".join(CR.table_curve(tree))
         self.assertIn(cell, text)
         self.assertIn(CR.BOUND_NOTE, text)
+        self.assertIn("rounded down", CR.BOUND_NOTE)
+
+    def test_the_lower_bound_is_rounded_down(self):
+        """The bound beside a precision with no field wrong never reads above the bound: with none
+        wrong of 27,970 answered it is 99.9868%, printed at least 99.98%, where rounding to the
+        nearest would print 99.99%."""
+        for n, printed in ((27970, "99.98%"), (515, "99.28%"), (18, "81.46%"), (1000, "99.63%")):
+            self.assertEqual(CR.pct_down(0.025 ** (1.0 / n)), printed, n)
+        self.assertEqual(CR.pct_down(float("nan")), "-")
+        ds = CR.rates_of(small_record())
+        cell = dict(arm="nominal", phenotype="typical", subset="prefix-32", width=9)
+        ds["precision"].loc[cell] = 1.0
+        ds["precision_lower"].loc[cell] = 0.025 ** (1.0 / 27970)
+        self.assertEqual(CR.precision_cell(ds, "nominal", "typical", "prefix-32", 9), "100.00% (at least 99.98%)")
 
 
 _SMALL = {}
@@ -958,6 +1040,19 @@ class Report(unittest.TestCase):
         self.assertIn("table arms: written more than once", problems)
         self.assertEqual(len(problems), 3)
 
+    def test_a_share_reads_100_only_when_all_and_0_only_when_none(self):
+        """A share short of all reads short of 100, and one above none above 0, with as many places
+        as that takes, up to six, so that 100.0% and 100.00% mean every field and 0.0% none; within
+        5e-9 of all or of none, closer than six places show, it still reads 100 or 0. A count
+        carries its thousands marks."""
+        self.assertEqual([CR.pct(1.0), CR.pct(1.0, 2), CR.pct(0.0), CR.pct(float("nan"))],
+                         ["100.0%", "100.00%", "0.0%", "-"])
+        self.assertEqual([CR.pct(0.9996), CR.pct(27999 / 28000), CR.pct(27999 / 28000, 2), CR.pct(0.731)],
+                         ["99.96%", "99.996%", "99.996%", "73.1%"])
+        self.assertEqual([CR.pct(1 / 28000), CR.pct(0.0004), CR.pct(0.0004, 2)], ["0.004%", "0.04%", "0.04%"])
+        self.assertEqual(CR.pct(1 - 1e-12), "%.*f%%" % (CR.PCT_MOST_PLACES, 100.0))
+        self.assertEqual([CR.count(2000), CR.count(200.0), CR.count(float("nan"))], ["2,000", "200", "-"])
+
     def test_a_record_without_times_says_so(self):
         tree = small_record()
         self.assertEqual(CR.table_speed(tree), CR.NOT_TIMED)
@@ -988,6 +1083,115 @@ class Report(unittest.TestCase):
         ds = CR.rates_of(tree)
         self.assertIn("%s / %s" % (CR.pct(CR.value(ds, "exact", "nominal", "typical", "seven", 5)),
                                    CR.pct(CR.value(ds, "within_one", "nominal", "typical", "seven", 5))), typical)
+
+    def test_the_anomalous_table_says_whether_the_answers_at_099_stay_right(self):
+        """Beside each spine's shares named exactly and within one level, the anomalous table gives
+        the share named at 0.99 and the share of those right, for the seven and all 32, judged by
+        the column's own names, and says on how many columns and, where a field named at 0.99 was
+        wrong, the standard error of the share right; a spine the record did not score is named as
+        such."""
+        tree = small_record()
+        lines = CR.table_anomalous(tree)
+        at = next(i for i, line in enumerate(lines) if "named at 0.99 / right of those" in line)
+        self.assertGreater(at, 2)
+        ds = CR.rates_of(tree)
+        six = next(line for line in lines[at:] if line.startswith("| Six lumbar |")).strip("| ").split(" | ")
+        for cell, sub in ((1, "seven"), (4, "prefix-32")):
+            answered = float(ds["answered"].sel(arm="nominal", phenotype="six_lumbar", subset=sub, width=3))
+            self.assertEqual(six[cell], "%s / %s" % (CR.pct(answered),
+                                                     CR.precision_cell(ds, "nominal", "six_lumbar", sub, 3)))
+        self.assertEqual(six[2], "- / -")                  # six lumbar is scored at three bodies alone here
+        typical = next(line for line in lines[at:] if line.startswith("| Typical |")).strip("| ").split(" | ")
+        for j, sub in enumerate(("seven", "prefix-32")):
+            for w, n in enumerate(CR.ANOMALOUS_WIDTHS):
+                answered = float(ds["answered"].sel(arm="nominal", phenotype="typical", subset=sub, width=n))
+                self.assertEqual(typical[1 + 3 * j + w], "%s / %s" % (CR.pct(answered), CR.precision_cell(
+                    ds, "nominal", "typical", sub, n)), (sub, n))
+        self.assertGreater(CR.value(ds, "errors", "nominal", "six_lumbar", "prefix-32", 3), 0)
+        se = CR.value(ds, "precision_se", "nominal", "six_lumbar", "prefix-32", 3)
+        text = flat("\n".join(lines[at:]))
+        self.assertIn("where a field named at 0.99 was wrong, are %s points" % CR.se_range([se]), text)
+        self.assertIn("on 3 typical columns and 2 columns of each anomalous spine scored", text)
+        self.assertIn("not scored, a dash in every cell: Four lumbar, Thirteenth rib-bearing body, Rib on L1 and "
+                      "No rib on T12", text)
+
+    def test_a_share_right_on_few_fields_is_not_drawn(self):
+        """The accuracy figure draws a share right only where PRECISION_DRAWN fields or more were
+        named at 0.99, its CSV keeping every share with the fields it rests on and whether it is
+        drawn, and its caption says so; the small study's every share right rests on fewer, so
+        panel C draws none of them; with no such floor it draws each one the record has, and with a
+        floor of 20, among its counts named and below its fewest fields, the ones resting on 20 or
+        more, each count read at its own width."""
+        tree = small_record()
+        ds = CR.rates_of(tree)
+        real = CR.save
+
+        def panel_c(floor):
+            plotted = []
+
+            def keep(fig, outdir, name, caption):
+                for line in fig.axes[2].get_lines():
+                    if list(line.get_xdata()) != [0, 1]:            # the dotted line at 99 per cent spans the axes
+                        plotted.extend(y for y in line.get_ydata() if np.isfinite(y))
+                return real(fig, outdir, name, caption)
+            with mock.patch.object(CR, "save", keep), mock.patch.object(CR, "PRECISION_DRAWN", floor):
+                CR.fig_accuracy(tree, self.tmp)
+            return plotted
+        self.assertEqual(panel_c(CR.PRECISION_DRAWN), [])
+        everything = [100 * CR.value(ds, "precision", "nominal", "typical", s, n) for n in CR.WIDTHS
+                      for s in ["prefix-%02d" % k for k in range(1, 33)] + ["seven"]]
+        self.assertEqual(sorted(panel_c(0)), sorted(y for y in everything if np.isfinite(y)))
+        # 20 is among the small study's counts named at 0.99, a share resting on it exactly, and below its
+        # fewest fields, so that the floor tells the count named from the count of fields, >= from > and one
+        # width's count from another's
+        cells = [(s, n) for n in CR.WIDTHS for s in ["prefix-%02d" % k for k in range(1, 33)] + ["seven"]]
+        answered = {c: CR.value(ds, "n_answered", "nominal", "typical", *c) for c in cells}
+        self.assertIn(20.0, answered.values())
+        self.assertLess(20, min(CR.value(ds, "n_fields", "nominal", "typical", *c) for c in cells))
+        some = [100 * CR.value(ds, "precision", "nominal", "typical", *c) for c in cells if answered[c] >= 20]
+        drawn = panel_c(20)
+        self.assertTrue(0 < len(drawn) < len([y for y in everything if np.isfinite(y)]), len(drawn))
+        self.assertEqual(sorted(drawn), sorted(some))
+        panel_c(CR.PRECISION_DRAWN)
+        with open(os.path.join(self.tmp, "curve_accuracy.csv"), encoding="ascii") as fh:
+            rows = list(csv.DictReader(fh))
+        stats = {"Named exactly": "exact", "Named at 0.99": "answered", "Right of those named": "precision"}
+        for r in rows:
+            stat = stats[r["panel"]]
+            fields = CR.value(ds, "n_answered" if stat == "precision" else "n_fields", "nominal", "typical", r["subset"],
+                              int(r["bodies"]))
+            self.assertEqual(r["fields"], str(int(fields)))
+            self.assertEqual(r["drawn"], "no" if stat == "precision" and fields < CR.PRECISION_DRAWN else "yes")
+        self.assertEqual({r["drawn"] for r in rows if stats[r["panel"]] == "precision"}, {"no"})
+        with open(os.path.join(self.tmp, "curve_accuracy.caption.txt"), encoding="ascii") as fh:
+            self.assertIn("share of those right, where 1,000 or more were named", fh.read())
+
+    def test_the_floor_table_gives_the_most_first_in_the_tables_order(self):
+        """Most at gives the measures and levels that hold the most values at the floor, the most
+        first and by name among equals, though the record keeps them as JSON sorted by name; and
+        the rows come in the order the arms' and the anomalous tables give them, not by name, each
+        with its own counts."""
+        tree = small_record()
+        where = {"canal_ap C3": 1, "canal_area C3": 40, "interfacet_h:mean C4": 174, "pedicle_area:mean C4": 85,
+                 "pedicle_area:mean C3": 85}
+        keys = ["%s/typical" % arm for arm in ("correlated", "errors-0.5", "errors-2", "nominal")]
+        keys += ["nominal/%s" % ph for ph in sorted(CR.ANOMALOUS)]
+        tree.attrs["floor"] = json.dumps({k: {"values": 400 + i, "of": 1000, "columns": 9, "where": where}
+                                          for i, k in enumerate(keys)}, sort_keys=True)
+        lines = CR.table_floor(tree)
+        rows = [line.strip("| ").split(" | ") for line in lines[2:] if line.startswith("| ")]
+        self.assertEqual([(r[0], r[1]) for r in rows],
+                         [(CR.ARM_NAME[arm], "Typical") for arm in ("nominal", "errors-0.5", "errors-2", "correlated")]
+                         + [(CR.ARM_NAME["nominal"], CR.PHENOTYPE_NAME[ph]) for ph in CR.ANOMALOUS])
+        for r in rows:
+            self.assertEqual(r[5], "`interfacet_h:mean C4` 174, `pedicle_area:mean C3` 85, `pedicle_area:mean C4` 85")
+        order = ["%s/typical" % arm for arm in ("nominal", "errors-0.5", "errors-2", "correlated")]
+        order += ["nominal/%s" % ph for ph in CR.ANOMALOUS]
+        for r, key in zip(rows, order):
+            self.assertEqual(r[2:5], ["{:,}".format(400 + keys.index(key)), "1,000", "9"], key)
+        self.assertEqual(lines[-1], CR.FLOOR_NOTE % (C.FLOOR, C.FLOOR))
+        self.assertIn("Columns touched counts the columns that hold at least one such value", flat(lines[-1]))
+        self.assertIn("by count, the first by name among equal counts", flat(lines[-1]))
 
     def test_the_curve_commands_run_on_a_record(self):
         tree = small_record(fake_times(small_study()["order"]), fake_nuts(), fake_how())
@@ -1048,6 +1252,19 @@ class Report(unittest.TestCase):
                       "in a field, the number of columns and the field sampled alone are not recorded.", note)
         self.assertNotIn("not recorded chains", note)
 
+    def test_the_speed_axes_read_0_1_1_and_10(self):
+        """The speed figure's two axes, on a log scale, label their ticks 0.1, 1 and 10, as the
+        README says, and not as powers of ten."""
+        tree = small_record(fake_times(small_study()["order"]), fake_nuts(), fake_how())
+        real, read = CR.save, []
+
+        def keep(fig, outdir, name, caption):
+            read.extend([ax.yaxis.get_major_formatter()(v, 0) for v in (0.1, 1.0, 10.0)] for ax in fig.axes[:2])
+            return real(fig, outdir, name, caption)
+        with mock.patch.object(CR, "save", keep):
+            CR.fig_speed(tree, self.tmp)
+        self.assertEqual(read, [["0.1", "1", "10"]] * 2)
+
     def test_the_figures_are_the_same_files_when_drawn_twice(self):
         how = fake_how()
         # neither the full run's counts (curve.SPEED_CALLS, SPEED_BATCH, SPEED_BATCHES: 30, 128, 5) nor
@@ -1081,6 +1298,58 @@ class Report(unittest.TestCase):
         self.assertEqual(sorted((r["panel"], r["subset"]) for r in printed),
                          [("A", "prefix-32"), ("A", "seven"), ("B", "prefix-32"), ("B", "seven")])
         tree.close()
+
+
+RECORD = os.path.join(ROOT, "records", "curve-2026-10-28", "curve.nc")
+FIGURES = os.path.join(ROOT, "records", "curve-2026-10-28", "figures")
+
+
+def sha256(path: str) -> str:
+    with open(path, "rb") as fh:
+        return hashlib.sha256(fh.read()).hexdigest()
+
+
+class CommittedRecord(unittest.TestCase):
+    """The full run's record of 28 October 2026 as committed: the package's README carries its
+    tables; FIGURES.md names it and the code as it stands, and the CSVs and captions beside it are
+    what `curve figures` draws from it with that code; and the run changed no code it names while it
+    scored or timed."""
+
+    @classmethod
+    def setUpClass(cls):
+        cls.tree = REC.read(RECORD)
+        cls.tree.load()
+
+    @classmethod
+    def tearDownClass(cls):
+        cls.tree.close()
+
+    def test_the_readme_carries_its_tables(self):
+        self.assertEqual(CR.check_readme(self.tree, PACKAGE_README), [])
+
+    def test_the_figures_are_drawn_from_it_by_the_code_as_it_stands(self):
+        with open(os.path.join(FIGURES, "FIGURES.md"), encoding="ascii") as fh:
+            said = fh.read()
+        self.assertIn("sha256 %s." % sha256(RECORD), said)
+        for name in ("curve_report.py", "curve.py"):
+            self.assertIn("`schwingcheck/%s`, sha256 %s." % (name, sha256(os.path.join(ROOT, "schwingcheck", name))), said)
+        with tempfile.TemporaryDirectory() as tmp:
+            drawn = sorted(os.path.basename(p) for p in CR.draw_figures(self.tree, tmp))
+            self.assertEqual(len(drawn), 12)              # three figures, four files each
+            for name in drawn:
+                self.assertIn("`%s`" % name, said)
+                self.assertTrue(os.path.exists(os.path.join(FIGURES, name)), name)
+                if name.endswith((".csv", ".caption.txt")):   # the numbers drawn and the words; a PNG's bytes follow the fonts
+                    with open(os.path.join(tmp, name), "rb") as fa, open(os.path.join(FIGURES, name), "rb") as fb:
+                        self.assertEqual(fa.read(), fb.read(), name)
+
+    def test_the_run_changed_no_code_it_names(self):
+        attrs = self.tree.attrs
+        for key in ("changed_during_run", "speed_changed_during_run"):
+            self.assertEqual(json.loads(attrs[key]), {}, key)
+        for key in ("git", "speed_git"):
+            self.assertFalse(json.loads(attrs[key])["package_changed"], key)
+        self.assertEqual(json.loads(attrs["git"])["commit"], json.loads(attrs["speed_git"])["commit"])
 
 
 if __name__ == "__main__":

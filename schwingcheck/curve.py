@@ -3,7 +3,7 @@ measures are added one at a time, from one measure to all 32 of the pool (TODO.m
 
     python -m schwingcheck curve run --outdir records/curve-2026-10-28     # the record, curve.nc
     python -m schwingcheck curve table --record records/curve-2026-10-28/curve.nc
-    python -m schwingcheck curve figures --record records/curve-2026-10-28/curve.nc
+    python -m schwingcheck curve figures --record records/curve-2026-10-28/curve.nc --outdir records/curve-2026-10-28/figures
     python -m schwingcheck curve check --record records/curve-2026-10-28/curve.nc
 
 The owner's words of 27 October 2026, 21:27 UTC: "ok now contineu the work but do measure the speed
@@ -373,12 +373,13 @@ def run_job(job: Tuple[int, int, int, int]) -> Tuple[int, int, int, dict]:
 
 def precision_lower(answered: int, errors: int) -> float:
     """The exact two-sided 95 per cent lower bound of a precision with no error among `answered`
-    fields (Clopper-Pearson: n right of n gives 0.025 ** (1 / n)); NaN where any answered field is
-    wrong, whose precision carries a clustered SE that is not 0, or where none was answered. It
-    counts the answered fields as independent trials; the fields of one column share its draws,
-    so a bound that counted the columns instead could be lower. On the data axis, whose tables
-    answer the same fields, pooled_rates gives it the count of the table that answered fewest,
-    since a field answered by every table is not as many independent trials."""
+    fields (Clopper-Pearson: n right of n gives 0.025 ** (1 / n)); NaN where none was answered or
+    any answered field is wrong, whose precision carries its clustered SE instead, 0 there too where
+    every column that answered has the same share wrong. It counts the answered fields as
+    independent trials; the fields of one column share its draws, so a bound that counted the
+    columns instead could be lower. On the data axis, whose tables answer the same fields,
+    pooled_rates gives it the count of the table that answered fewest, since a field answered by
+    every table is not as many independent trials."""
     if errors or answered < 1:
         return float("nan")
     return 0.025 ** (1.0 / answered)

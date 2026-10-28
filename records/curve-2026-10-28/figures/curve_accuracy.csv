@@ -1,0 +1,298 @@
+panel,bodies,measures,subset,percent,fields,drawn
+Named exactly,1,1,prefix-01,17.6045,44000,yes
+Named exactly,1,2,prefix-02,31.1818,44000,yes
+Named exactly,1,3,prefix-03,42.6864,44000,yes
+Named exactly,1,4,prefix-04,50.8205,44000,yes
+Named exactly,1,5,prefix-05,56.9386,44000,yes
+Named exactly,1,6,prefix-06,61.2727,44000,yes
+Named exactly,1,7,prefix-07,65.1182,44000,yes
+Named exactly,1,8,prefix-08,68.0182,44000,yes
+Named exactly,1,9,prefix-09,69.6955,44000,yes
+Named exactly,1,10,prefix-10,70.9977,44000,yes
+Named exactly,1,11,prefix-11,72.2091,44000,yes
+Named exactly,1,12,prefix-12,73.5045,44000,yes
+Named exactly,1,13,prefix-13,75.0045,44000,yes
+Named exactly,1,14,prefix-14,76.475,44000,yes
+Named exactly,1,15,prefix-15,77.5455,44000,yes
+Named exactly,1,16,prefix-16,78.5205,44000,yes
+Named exactly,1,17,prefix-17,79.4227,44000,yes
+Named exactly,1,18,prefix-18,80.3477,44000,yes
+Named exactly,1,19,prefix-19,81.1295,44000,yes
+Named exactly,1,20,prefix-20,81.7318,44000,yes
+Named exactly,1,21,prefix-21,82.6182,44000,yes
+Named exactly,1,22,prefix-22,83.2773,44000,yes
+Named exactly,1,23,prefix-23,84.1205,44000,yes
+Named exactly,1,24,prefix-24,84.4955,44000,yes
+Named exactly,1,25,prefix-25,84.8318,44000,yes
+Named exactly,1,26,prefix-26,85.2,44000,yes
+Named exactly,1,27,prefix-27,85.6364,44000,yes
+Named exactly,1,28,prefix-28,86.0955,44000,yes
+Named exactly,1,29,prefix-29,86.3045,44000,yes
+Named exactly,1,30,prefix-30,86.85,44000,yes
+Named exactly,1,31,prefix-31,86.9614,44000,yes
+Named exactly,1,32,prefix-32,87.2341,44000,yes
+Named exactly,1,7,seven,47.2727,44000,yes
+Named exactly,3,1,prefix-01,41.9925,40000,yes
+Named exactly,3,2,prefix-02,58.8675,40000,yes
+Named exactly,3,3,prefix-03,76.08,40000,yes
+Named exactly,3,4,prefix-04,80.3625,40000,yes
+Named exactly,3,5,prefix-05,85.22,40000,yes
+Named exactly,3,6,prefix-06,87.18,40000,yes
+Named exactly,3,7,prefix-07,89.18,40000,yes
+Named exactly,3,8,prefix-08,90.37,40000,yes
+Named exactly,3,9,prefix-09,91.8125,40000,yes
+Named exactly,3,10,prefix-10,92.4225,40000,yes
+Named exactly,3,11,prefix-11,93.4325,40000,yes
+Named exactly,3,12,prefix-12,93.865,40000,yes
+Named exactly,3,13,prefix-13,94.2375,40000,yes
+Named exactly,3,14,prefix-14,94.82,40000,yes
+Named exactly,3,15,prefix-15,95.215,40000,yes
+Named exactly,3,16,prefix-16,95.6725,40000,yes
+Named exactly,3,17,prefix-17,95.815,40000,yes
+Named exactly,3,18,prefix-18,96.175,40000,yes
+Named exactly,3,19,prefix-19,96.505,40000,yes
+Named exactly,3,20,prefix-20,96.715,40000,yes
+Named exactly,3,21,prefix-21,96.895,40000,yes
+Named exactly,3,22,prefix-22,97.1025,40000,yes
+Named exactly,3,23,prefix-23,97.4225,40000,yes
+Named exactly,3,24,prefix-24,97.47,40000,yes
+Named exactly,3,25,prefix-25,97.5775,40000,yes
+Named exactly,3,26,prefix-26,97.7625,40000,yes
+Named exactly,3,27,prefix-27,97.8725,40000,yes
+Named exactly,3,28,prefix-28,97.93,40000,yes
+Named exactly,3,29,prefix-29,97.98,40000,yes
+Named exactly,3,30,prefix-30,98.185,40000,yes
+Named exactly,3,31,prefix-31,98.245,40000,yes
+Named exactly,3,32,prefix-32,98.2875,40000,yes
+Named exactly,3,7,seven,73.0825,40000,yes
+Named exactly,9,1,prefix-01,82.4429,28000,yes
+Named exactly,9,2,prefix-02,89.1786,28000,yes
+Named exactly,9,3,prefix-03,98.1679,28000,yes
+Named exactly,9,4,prefix-04,99.1786,28000,yes
+Named exactly,9,5,prefix-05,99.4964,28000,yes
+Named exactly,9,6,prefix-06,99.7679,28000,yes
+Named exactly,9,7,prefix-07,99.85,28000,yes
+Named exactly,9,8,prefix-08,99.9214,28000,yes
+Named exactly,9,9,prefix-09,99.9464,28000,yes
+Named exactly,9,10,prefix-10,99.9536,28000,yes
+Named exactly,9,11,prefix-11,99.9893,28000,yes
+Named exactly,9,12,prefix-12,99.9893,28000,yes
+Named exactly,9,13,prefix-13,99.9929,28000,yes
+Named exactly,9,14,prefix-14,99.9929,28000,yes
+Named exactly,9,15,prefix-15,99.9964,28000,yes
+Named exactly,9,16,prefix-16,99.9964,28000,yes
+Named exactly,9,17,prefix-17,99.9964,28000,yes
+Named exactly,9,18,prefix-18,99.9964,28000,yes
+Named exactly,9,19,prefix-19,99.9964,28000,yes
+Named exactly,9,20,prefix-20,100,28000,yes
+Named exactly,9,21,prefix-21,99.9964,28000,yes
+Named exactly,9,22,prefix-22,99.9964,28000,yes
+Named exactly,9,23,prefix-23,99.9929,28000,yes
+Named exactly,9,24,prefix-24,99.9929,28000,yes
+Named exactly,9,25,prefix-25,100,28000,yes
+Named exactly,9,26,prefix-26,100,28000,yes
+Named exactly,9,27,prefix-27,100,28000,yes
+Named exactly,9,28,prefix-28,100,28000,yes
+Named exactly,9,29,prefix-29,100,28000,yes
+Named exactly,9,30,prefix-30,100,28000,yes
+Named exactly,9,31,prefix-31,100,28000,yes
+Named exactly,9,32,prefix-32,100,28000,yes
+Named exactly,9,7,seven,96.1143,28000,yes
+Named at 0.99,1,1,prefix-01,0,44000,yes
+Named at 0.99,1,2,prefix-02,0.00227273,44000,yes
+Named at 0.99,1,3,prefix-03,0.213636,44000,yes
+Named at 0.99,1,4,prefix-04,0.986364,44000,yes
+Named at 0.99,1,5,prefix-05,3.24091,44000,yes
+Named at 0.99,1,6,prefix-06,6.65227,44000,yes
+Named at 0.99,1,7,prefix-07,9.38182,44000,yes
+Named at 0.99,1,8,prefix-08,13.9205,44000,yes
+Named at 0.99,1,9,prefix-09,14.6432,44000,yes
+Named at 0.99,1,10,prefix-10,15.5318,44000,yes
+Named at 0.99,1,11,prefix-11,16.2818,44000,yes
+Named at 0.99,1,12,prefix-12,17.425,44000,yes
+Named at 0.99,1,13,prefix-13,19.1455,44000,yes
+Named at 0.99,1,14,prefix-14,21.3432,44000,yes
+Named at 0.99,1,15,prefix-15,22.8432,44000,yes
+Named at 0.99,1,16,prefix-16,24.0318,44000,yes
+Named at 0.99,1,17,prefix-17,27.6455,44000,yes
+Named at 0.99,1,18,prefix-18,29.8023,44000,yes
+Named at 0.99,1,19,prefix-19,31.3341,44000,yes
+Named at 0.99,1,20,prefix-20,32.3523,44000,yes
+Named at 0.99,1,21,prefix-21,35.5614,44000,yes
+Named at 0.99,1,22,prefix-22,36.5614,44000,yes
+Named at 0.99,1,23,prefix-23,37.9091,44000,yes
+Named at 0.99,1,24,prefix-24,39.3545,44000,yes
+Named at 0.99,1,25,prefix-25,39.95,44000,yes
+Named at 0.99,1,26,prefix-26,40.8795,44000,yes
+Named at 0.99,1,27,prefix-27,42.3023,44000,yes
+Named at 0.99,1,28,prefix-28,43.3318,44000,yes
+Named at 0.99,1,29,prefix-29,44.0136,44000,yes
+Named at 0.99,1,30,prefix-30,44.9136,44000,yes
+Named at 0.99,1,31,prefix-31,45.5114,44000,yes
+Named at 0.99,1,32,prefix-32,46.0432,44000,yes
+Named at 0.99,1,7,seven,0.679545,44000,yes
+Named at 0.99,3,1,prefix-01,2.51,40000,yes
+Named at 0.99,3,2,prefix-02,5.49,40000,yes
+Named at 0.99,3,3,prefix-03,22.4025,40000,yes
+Named at 0.99,3,4,prefix-04,31.46,40000,yes
+Named at 0.99,3,5,prefix-05,42.005,40000,yes
+Named at 0.99,3,6,prefix-06,48.99,40000,yes
+Named at 0.99,3,7,prefix-07,54.915,40000,yes
+Named at 0.99,3,8,prefix-08,60.2925,40000,yes
+Named at 0.99,3,9,prefix-09,62.1875,40000,yes
+Named at 0.99,3,10,prefix-10,64.0225,40000,yes
+Named at 0.99,3,11,prefix-11,66.165,40000,yes
+Named at 0.99,3,12,prefix-12,67.805,40000,yes
+Named at 0.99,3,13,prefix-13,69.2925,40000,yes
+Named at 0.99,3,14,prefix-14,71.5225,40000,yes
+Named at 0.99,3,15,prefix-15,72.9575,40000,yes
+Named at 0.99,3,16,prefix-16,74.5625,40000,yes
+Named at 0.99,3,17,prefix-17,75.8,40000,yes
+Named at 0.99,3,18,prefix-18,76.9675,40000,yes
+Named at 0.99,3,19,prefix-19,78.2225,40000,yes
+Named at 0.99,3,20,prefix-20,79.1475,40000,yes
+Named at 0.99,3,21,prefix-21,80.07,40000,yes
+Named at 0.99,3,22,prefix-22,80.945,40000,yes
+Named at 0.99,3,23,prefix-23,82.43,40000,yes
+Named at 0.99,3,24,prefix-24,82.99,40000,yes
+Named at 0.99,3,25,prefix-25,83.46,40000,yes
+Named at 0.99,3,26,prefix-26,84.2225,40000,yes
+Named at 0.99,3,27,prefix-27,84.7625,40000,yes
+Named at 0.99,3,28,prefix-28,85.36,40000,yes
+Named at 0.99,3,29,prefix-29,85.9075,40000,yes
+Named at 0.99,3,30,prefix-30,86.5925,40000,yes
+Named at 0.99,3,31,prefix-31,86.7875,40000,yes
+Named at 0.99,3,32,prefix-32,87.0425,40000,yes
+Named at 0.99,3,7,seven,17.12,40000,yes
+Named at 0.99,9,1,prefix-01,37.7107,28000,yes
+Named at 0.99,9,2,prefix-02,48.4393,28000,yes
+Named at 0.99,9,3,prefix-03,86.2607,28000,yes
+Named at 0.99,9,4,prefix-04,92.5714,28000,yes
+Named at 0.99,9,5,prefix-05,95.6964,28000,yes
+Named at 0.99,9,6,prefix-06,97.7429,28000,yes
+Named at 0.99,9,7,prefix-07,98.4714,28000,yes
+Named at 0.99,9,8,prefix-08,99.3286,28000,yes
+Named at 0.99,9,9,prefix-09,99.5393,28000,yes
+Named at 0.99,9,10,prefix-10,99.6036,28000,yes
+Named at 0.99,9,11,prefix-11,99.7857,28000,yes
+Named at 0.99,9,12,prefix-12,99.8107,28000,yes
+Named at 0.99,9,13,prefix-13,99.8286,28000,yes
+Named at 0.99,9,14,prefix-14,99.8929,28000,yes
+Named at 0.99,9,15,prefix-15,99.9429,28000,yes
+Named at 0.99,9,16,prefix-16,99.975,28000,yes
+Named at 0.99,9,17,prefix-17,99.9786,28000,yes
+Named at 0.99,9,18,prefix-18,99.9821,28000,yes
+Named at 0.99,9,19,prefix-19,99.9786,28000,yes
+Named at 0.99,9,20,prefix-20,99.9786,28000,yes
+Named at 0.99,9,21,prefix-21,99.9893,28000,yes
+Named at 0.99,9,22,prefix-22,99.9893,28000,yes
+Named at 0.99,9,23,prefix-23,99.9893,28000,yes
+Named at 0.99,9,24,prefix-24,99.9893,28000,yes
+Named at 0.99,9,25,prefix-25,99.9929,28000,yes
+Named at 0.99,9,26,prefix-26,99.9929,28000,yes
+Named at 0.99,9,27,prefix-27,99.9929,28000,yes
+Named at 0.99,9,28,prefix-28,99.9964,28000,yes
+Named at 0.99,9,29,prefix-29,100,28000,yes
+Named at 0.99,9,30,prefix-30,100,28000,yes
+Named at 0.99,9,31,prefix-31,100,28000,yes
+Named at 0.99,9,32,prefix-32,100,28000,yes
+Named at 0.99,9,7,seven,71.8286,28000,yes
+Right of those named,1,1,prefix-01,nan,0,no
+Right of those named,1,2,prefix-02,100,1,no
+Right of those named,1,3,prefix-03,100,94,no
+Right of those named,1,4,prefix-04,99.7696,434,no
+Right of those named,1,5,prefix-05,99.9299,1426,yes
+Right of those named,1,6,prefix-06,99.795,2927,yes
+Right of those named,1,7,prefix-07,99.8062,4128,yes
+Right of those named,1,8,prefix-08,99.7224,6125,yes
+Right of those named,1,9,prefix-09,99.7982,6443,yes
+Right of those named,1,10,prefix-10,99.7512,6834,yes
+Right of those named,1,11,prefix-11,99.7906,7164,yes
+Right of those named,1,12,prefix-12,99.7652,7667,yes
+Right of those named,1,13,prefix-13,99.7626,8424,yes
+Right of those named,1,14,prefix-14,99.7764,9391,yes
+Right of those named,1,15,prefix-15,99.8707,10051,yes
+Right of those named,1,16,prefix-16,99.8298,10574,yes
+Right of those named,1,17,prefix-17,99.8685,12164,yes
+Right of those named,1,18,prefix-18,99.8856,13113,yes
+Right of those named,1,19,prefix-19,99.8839,13787,yes
+Right of those named,1,20,prefix-20,99.8595,14235,yes
+Right of those named,1,21,prefix-21,99.8786,15647,yes
+Right of those named,1,22,prefix-22,99.8757,16087,yes
+Right of those named,1,23,prefix-23,99.8861,16680,yes
+Right of those named,1,24,prefix-24,99.8903,17316,yes
+Right of those named,1,25,prefix-25,99.8862,17578,yes
+Right of those named,1,26,prefix-26,99.8888,17987,yes
+Right of those named,1,27,prefix-27,99.8711,18613,yes
+Right of those named,1,28,prefix-28,99.8636,19066,yes
+Right of those named,1,29,prefix-29,99.8657,19366,yes
+Right of those named,1,30,prefix-30,99.8684,19762,yes
+Right of those named,1,31,prefix-31,99.8752,20025,yes
+Right of those named,1,32,prefix-32,99.8914,20259,yes
+Right of those named,1,7,seven,100,299,no
+Right of those named,3,1,prefix-01,99.6016,1004,yes
+Right of those named,3,2,prefix-02,99.5902,2196,yes
+Right of those named,3,3,prefix-03,99.6652,8961,yes
+Right of those named,3,4,prefix-04,99.857,12584,yes
+Right of those named,3,5,prefix-05,99.8988,16802,yes
+Right of those named,3,6,prefix-06,99.9235,19596,yes
+Right of those named,3,7,prefix-07,99.9499,21966,yes
+Right of those named,3,8,prefix-08,99.9461,24117,yes
+Right of those named,3,9,prefix-09,99.9518,24875,yes
+Right of those named,3,10,prefix-10,99.961,25609,yes
+Right of those named,3,11,prefix-11,99.966,26466,yes
+Right of those named,3,12,prefix-12,99.9558,27122,yes
+Right of those named,3,13,prefix-13,99.9603,27717,yes
+Right of those named,3,14,prefix-14,99.9685,28609,yes
+Right of those named,3,15,prefix-15,99.9692,29183,yes
+Right of those named,3,16,prefix-16,99.9598,29825,yes
+Right of those named,3,17,prefix-17,99.9604,30320,yes
+Right of those named,3,18,prefix-18,99.9578,30787,yes
+Right of those named,3,19,prefix-19,99.9648,31289,yes
+Right of those named,3,20,prefix-20,99.9716,31659,yes
+Right of those named,3,21,prefix-21,99.9688,32028,yes
+Right of those named,3,22,prefix-22,99.9691,32378,yes
+Right of those named,3,23,prefix-23,99.9757,32972,yes
+Right of those named,3,24,prefix-24,99.9759,33196,yes
+Right of those named,3,25,prefix-25,99.973,33384,yes
+Right of those named,3,26,prefix-26,99.9614,33689,yes
+Right of those named,3,27,prefix-27,99.9705,33905,yes
+Right of those named,3,28,prefix-28,99.9766,34144,yes
+Right of those named,3,29,prefix-29,99.9709,34363,yes
+Right of those named,3,30,prefix-30,99.9711,34637,yes
+Right of those named,3,31,prefix-31,99.9654,34715,yes
+Right of those named,3,32,prefix-32,99.9627,34817,yes
+Right of those named,3,7,seven,99.781,6848,yes
+Right of those named,9,1,prefix-01,99.8769,10559,yes
+Right of those named,9,2,prefix-02,99.882,13563,yes
+Right of those named,9,3,prefix-03,99.9545,24153,yes
+Right of those named,9,4,prefix-04,99.9614,25920,yes
+Right of those named,9,5,prefix-05,99.9701,26795,yes
+Right of those named,9,6,prefix-06,99.989,27368,yes
+Right of those named,9,7,prefix-07,99.9927,27572,yes
+Right of those named,9,8,prefix-08,99.9928,27812,yes
+Right of those named,9,9,prefix-09,99.9928,27871,yes
+Right of those named,9,10,prefix-10,99.9964,27889,yes
+Right of those named,9,11,prefix-11,99.9964,27940,yes
+Right of those named,9,12,prefix-12,99.9928,27947,yes
+Right of those named,9,13,prefix-13,99.9964,27952,yes
+Right of those named,9,14,prefix-14,100,27970,yes
+Right of those named,9,15,prefix-15,100,27984,yes
+Right of those named,9,16,prefix-16,100,27993,yes
+Right of those named,9,17,prefix-17,100,27994,yes
+Right of those named,9,18,prefix-18,100,27995,yes
+Right of those named,9,19,prefix-19,100,27994,yes
+Right of those named,9,20,prefix-20,100,27994,yes
+Right of those named,9,21,prefix-21,100,27997,yes
+Right of those named,9,22,prefix-22,100,27997,yes
+Right of those named,9,23,prefix-23,100,27997,yes
+Right of those named,9,24,prefix-24,100,27997,yes
+Right of those named,9,25,prefix-25,100,27998,yes
+Right of those named,9,26,prefix-26,100,27998,yes
+Right of those named,9,27,prefix-27,100,27998,yes
+Right of those named,9,28,prefix-28,100,27999,yes
+Right of those named,9,29,prefix-29,100,28000,yes
+Right of those named,9,30,prefix-30,100,28000,yes
+Right of those named,9,31,prefix-31,100,28000,yes
+Right of those named,9,32,prefix-32,100,28000,yes
+Right of those named,9,7,seven,99.9254,20112,yes
