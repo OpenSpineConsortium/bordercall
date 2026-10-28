@@ -367,6 +367,16 @@ class Rows(unittest.TestCase):
         with open(out) as handle:
             self.assertEqual([json.loads(line) for line in handle], [self.rows["0001"]])
 
+    def test_the_committed_copy_of_the_table_reads_as_the_workbook(self):
+        copy = os.path.join(self.tmp.name, "ct-details.json")
+        with open(copy, "w") as handle:
+            json.dump({"rows": C.sheet_rows(self.xlsx)}, handle)
+        self.assertEqual(F.study_table(copy), F.study_table(self.xlsx))
+
+    def test_an_empty_repair_record_reads_no_repaired_mask(self):
+        with open(self.run_facts("no-record.jsonl", record="")) as handle:
+            self.assertEqual([json.loads(line)["id"] for line in handle], ["0001", "0002", "1134"])
+
     def test_a_repaired_mask_not_the_one_its_hash_names_is_refused(self):
         bad = T.make_record(os.path.join(self.tmp.name, "bad-record"), {"1134": T.REPAIRED_MASKS["1134"]},
                             bad_hash={"1134"})
