@@ -183,6 +183,33 @@ class CompiledRule(unittest.TestCase):
             want = R.log_evidence(LL, np.log(w / math.sqrt(math.pi)))
             self.assertLess(np.abs(got[f] - want[0]).max(), 1e-8)
 
+    def test_nodes_that_cut_off_a_fields_size_prior_are_refused(self):
+        mean, spread = CV.CovariateModel().size_prior([CV.Covariates(height_cm=h) for h in (170.0, 210.0)])
+        base = R.SYNTH["scale_sd"]
+        sizes, logw = R.trapezoid(base)                               # log s from -0.56 to 0.56
+        with self.assertRaisesRegex(ValueError, r"hold 0\.9946\d* of field 1's size prior N\(0\.2246, 0\.1323\^2\)"):
+            K.size_log_weights(np.log(sizes), logw, base, mean, spread)
+        for sizes, logw in (R.quadrature(base), R.trapezoid(base, reach=30.0)):
+            held = R.logsumexp(K.size_log_weights(np.log(sizes), logw, base, mean, spread), 1)
+            self.assertLess(np.abs(held).max(), R.PRIOR_HELD)
+
+    def test_a_tall_patients_evidence_on_a_wide_trapezoid_is_gauss_hermites(self):
+        ref, keys, mu, sd = seven()
+        cols = C.draw_columns(ref, ["typical"], 36, 4, keys, scale=np.exp([0.30, 0.42, 0.50, 0.55]))
+        mean, spread = CV.CovariateModel().size_prior([CV.Covariates(height_cm=h) for h in (200.0, 200.0, 210.0, 210.0)])
+        base = R.SYNTH["scale_sd"]
+        for offsets in ([0], [0, 1, 2]):
+            X, truth, group = C.fields(cols.values, offsets)
+            hyp = K.hypotheses(len(LEVELS), [offsets])
+            got = []
+            for nodes in (None, R.trapezoid(base, reach=30.0)):
+                rule = K.ExactRule(mu, sd, nodes=nodes)
+                logw = K.size_log_weights(np.log(rule.sizes), rule.logw, base, mean[group], spread[group])
+                got.append(rule.evaluate(X, hyp, logw=logw)["all"])
+            at = (np.arange(len(X)), truth)
+            self.assertLess(np.abs(got[0]["logev"][at] - got[1]["logev"][at]).max(), 1e-10, offsets)
+            self.assertLess(np.abs(got[0]["post"] - got[1]["post"]).max(), 1e-10, offsets)
+
     def test_scaled_means_are_the_table_with_its_means_scaled(self):
         X, _, keys, mu, sd = fields([0, 1, 2], 4, 35, n_fields=12)
         rule = K.ExactRule(mu, sd)
@@ -382,6 +409,21 @@ class Covariates(unittest.TestCase):
         self.assertGreater(np.abs(want["logev"] - plain).max(), 1e-3)
         self.assertEqual((mean[4], spread[4]), (0.0, 0.07))
         self.assertLess(np.abs(got[4] - plain[4]).max(), 1e-6)
+
+    def test_the_model_refuses_nodes_that_cut_off_a_tall_patients_size_prior(self):
+        X, truth, keys, mu, sd = fields([0], 4, 53, n_fields=4)
+        hyp = K.hypotheses(len(LEVELS), [[0]])
+        covs = [CV.Covariates(height_cm=h) for h in (170.0, 185.0, 200.0, 210.0)]
+        m = MD.naming(X, hyp, mu, sd, keys, covs=covs)
+        mean, spread = MD.size_prior(m)
+        want = CV.CovariateModel().size_prior(covs)
+        self.assertLess(max(np.abs(mean - want[0]).max(), np.abs(spread - want[1]).max()), 1e-12)
+        base = R.SYNTH["scale_sd"]
+        with self.assertRaisesRegex(ValueError, r"of field 3's size prior N\(0\.2246, 0\.1323\^2\)"):
+            MD.quadrature_evidence(m, nodes=R.trapezoid(base))
+        wide, gh = MD.quadrature_evidence(m, nodes=R.trapezoid(base, reach=30.0)), MD.quadrature_evidence(m)
+        self.assertLess(np.abs(wide[np.arange(len(X)), truth] - gh[np.arange(len(X)), truth]).max(), 1e-6)
+        self.assertLess(np.abs(softmax(wide) - softmax(gh)).max(), 1e-6)
 
     def test_a_weight_or_age_hook_moves_the_model_as_it_moves_the_compiled_rule(self):
         X, _, keys, mu, sd = fields([0, 1, 2], 4, 52, n_fields=8)

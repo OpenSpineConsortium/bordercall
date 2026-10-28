@@ -21,7 +21,8 @@ the one before it in the stream.
 Given the patients' sizes (`scale`), no size is drawn and the stream starts at the offsets, so
 further measures can be drawn for the same patients from a stream of their own, leaving the first
 measures' columns as they were (the build-up study of step e draws the record's seven so and adds
-the rest).
+the rest). That holds at r_between 0, the default: at any other, the further measures' offsets are
+drawn apart from the first measures' and do not correlate with them as one call's would.
 """
 from __future__ import annotations
 
@@ -191,6 +192,22 @@ def draw_columns(ref: Dict[str, Dict[str, tuple]], phenotypes: Sequence[str], se
                    transitional_at=trans, blend=blend, seed=seed,
                    meta=dict(r_between=r_between, rho=rho, noise_mm=noise_mm if np.ndim(noise_mm) == 0 else noise.tolist(),
                              scale_sd=scale_sd, n=n, power=powers.tolist(), scale_given=given is not None))
+
+
+def floor_hits(cols: Columns) -> dict:
+    """The values the floor touched, as the archive's exact.floor_hits counts them: how many of
+    the values of the measures that scale with the size sit at the floor, of how many, in how many
+    columns, and at which measure and level, with the count at each. The likelihood has no floor,
+    so these are the values at which the rule is not the generator's posterior."""
+    floored = np.asarray(cols.meta["power"], float) > 0
+    at = (cols.values == FLOOR) & floored[None, None, :]
+    where: Dict[str, int] = {}
+    for c, b, m in np.argwhere(at):
+        key = "%s %s" % (cols.measures[m], cols.levels[c][b])
+        where[key] = where.get(key, 0) + 1
+    return {"values": int(at.sum()), "of": int(np.isfinite(cols.values[:, :, floored]).sum()),
+            "columns": int(at.any(axis=(1, 2)).sum()),
+            "where": dict(sorted(where.items(), key=lambda kv: (-kv[1], kv[0])))}
 
 
 def fields(values: np.ndarray, offsets: Sequence[int]) -> Tuple[np.ndarray, np.ndarray, np.ndarray]:

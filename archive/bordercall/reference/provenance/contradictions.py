@@ -181,7 +181,9 @@ def cells_at(index: Dict[tuple, dict], table: str, measures: List[str], level: s
 
 
 def derived(prov: List[dict]) -> List[dict]:
-    """Every printed ratio and sum beside what its own table's means give."""
+    """Every printed ratio and sum beside what its own table's means give, and every X-card angle
+    of the facets paper's Table 8 beside the negative of the transverse-plane angle that its
+    Tables 6 and 7 print for the same facet, level and side."""
     index = {(r["table"], r["measure"], r["level"], r["statistic"]): r for r in prov if r["study"] == "present"}
     out = []
     for r in prov:

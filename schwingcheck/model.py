@@ -1,6 +1,6 @@
 """The naming rule and the column generator as PyMC models: step d of TODO.md item P.
 
-    m = model.naming(X, hyp, mu, sd, keys)              # the rule: the level summed out, log s free
+    m = model.naming(X, hyp, mu, sd, keys, noise=errors, power=powers)   # the rule: the level summed out, log s free
     idata = model.sample(m)                             # NUTS on the size alone
     post, se = model.hypothesis_posterior(m, idata)     # p(level | x), Rao-Blackwellised, and its error
     logev = model.quadrature_evidence(m)                # its likelihoods integrated on rule.py's nodes
@@ -57,7 +57,7 @@ from . import LEVELS
 from . import columns as C
 from . import covariates as CV
 from .compiled import Hypotheses, hypotheses
-from .rule import GH_NODES, SYNTH, quadrature
+from .rule import GH_NODES, SYNTH, check_prior_held, quadrature
 
 LOG2PI = math.log(2.0 * math.pi)
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -270,7 +270,8 @@ def naming(X: np.ndarray, hyp: Hypotheses, mu: np.ndarray, sd: np.ndarray, measu
     # p(h | x, s) is a function of log s alone: kept beside the model, not registered in it, so
     # that sampling never stores it and the graph shows the generative structure only
     model.schwingcheck = {"hypothesis_loglik": hypothesis_loglik(x, read, factor, table_mean, table_sd, hl, log_s, rho, error,
-                                                                 size_power)}
+                                                                 size_power),
+                          "size_prior": (loc, scale)}
     return model
 
 
@@ -315,24 +316,35 @@ def hypothesis_posterior(model, idata, n_batches: int = N_BATCHES) -> Tuple[np.n
     return batches.mean(axis=0), batches.std(axis=0, ddof=1) / math.sqrt(batches.shape[0])
 
 
+def size_prior(model) -> Tuple[np.ndarray, np.ndarray]:
+    """Each field's size prior in the naming model, the mean and SD of log s, from the model's own
+    graph, so that a height set later with pm.set_data is the one it gives."""
+    F = len(model.coords["field"])
+    loc, scale = model.compile_fn(list(model.schwingcheck["size_prior"]), inputs=[], point_fn=False)()
+    return np.broadcast_to(np.asarray(loc, float), (F,)), np.broadcast_to(np.asarray(scale, float), (F,))
+
+
 def quadrature_evidence(model, scale_sd: float = SYNTH["scale_sd"], n_nodes: int = GH_NODES,
                         nodes: Optional[Tuple[np.ndarray, np.ndarray]] = None) -> np.ndarray:
     """log p(field | hypothesis), (fields, hypotheses), integrating the model's own
     hypothesis_loglik over log s on the Gauss-Hermite nodes of N(0, scale_sd^2), rule.py's, or on
     the nodes given (rule.trapezoid), each field weighted by the model's own size prior for it,
     the nodes' weights times the ratio of that prior to theirs: the exact rule computed from the
-    PyMC graph instead of sampled."""
+    PyMC graph instead of sampled. Nodes on which a field's prior is not whole are refused
+    (rule.check_prior_held), as the trapezoid's of the default reach are for a known height
+    outside 161 to 175 cm."""
     sizes, logw = quadrature(scale_sd, n_nodes) if nodes is None else nodes
     F = len(model.coords["field"])
     ll_fn = _of_log_s(model, model.schwingcheck["hypothesis_loglik"])
     prior_fn = model.compile_logp(vars=[model["log_s"]], sum=False, jacobian=False)
-    terms = []
-    for tj, lwj in zip(np.log(sizes), logw):
-        t = np.full(F, tj)
-        prior = np.asarray(prior_fn({"log_s": t})[0], float)        # (F,)
+    t_nodes = np.log(sizes)
+    weights = np.empty((len(t_nodes), F))                           # (J, F): each field's weight on each node
+    for j, (tj, lwj) in enumerate(zip(t_nodes, logw)):
+        prior = np.asarray(prior_fn({"log_s": np.full(F, tj)})[0], float)
         base = -0.5 * (tj / scale_sd) ** 2 - math.log(scale_sd) - 0.5 * LOG2PI
-        terms.append(ll_fn(t) + (lwj + prior - base)[:, None])
-    terms = np.stack(terms)                                          # (J, F, H)
+        weights[j] = lwj + prior - base
+    check_prior_held(weights.T, t_nodes, lambda: size_prior(model))
+    terms = np.stack([ll_fn(np.full(F, tj)) + weights[j][:, None] for j, tj in enumerate(t_nodes)])   # (J, F, H)
     top = terms.max(axis=0)
     return top + np.log(np.exp(terms - top).sum(axis=0))
 

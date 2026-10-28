@@ -8,7 +8,8 @@ and the posteriors equal exact.py's to 1e-10, absolutely; on gapped fields and f
 dense multivariate normal computed by scipy on the bodies present; a measure missing on every
 body changes no posterior; a field with no measure gets the prior back; the chunking of the
 matrix product changes nothing; lengths, areas and angles, each with its own power of the size,
-equal a dense normal too, and every power 1 is the archive's rule to the bit; the trapezoid rule
+equal a dense normal too, every power given as 1 is no power given to the bit, and the archive's
+rule to 1e-10; the trapezoid rule
 is the integral where every measure of the pool knows the size closely; and the selective
 guarantee holds on fresh draws.
 """
@@ -182,11 +183,16 @@ class Kinds(unittest.TestCase):
             else:
                 self.assertGreater(spread, 1.0, ms[m].key)
 
-    def test_every_power_one_is_the_archives_rule_to_the_bit(self):
+    def test_every_power_given_as_one_is_no_power_given_to_the_bit_and_the_archives_rule(self):
+        # the closed form sums its terms in another order than exact.py's, so the archive's rule is
+        # matched to about 1e-11, not to the bit; what is to the bit is that a power of 1 changes
+        # nothing of the arithmetic of no power at all
         V, mu, sd = archive_columns(8)
         X, _, _ = E.fields(V, 3)
         plain = R.loglik(X, [0, 1, 2], mu, sd, SYNTH)
-        self.assertTrue(np.array_equal(plain, R.loglik(X, [0, 1, 2], mu, sd, SYNTH, power=np.ones(7))))
+        ones = R.loglik(X, [0, 1, 2], mu, sd, SYNTH, power=np.ones(7))
+        self.assertTrue(np.array_equal(plain, ones))
+        self.assertLess(np.abs(ones - E.field_loglik(X, mu, sd, SYNTH)).max(), 1e-10)
         self.assertTrue(np.array_equal(R.name(X, [0, 1, 2], mu, sd, SYNTH)["all"],
                                        R.name(X, [0, 1, 2], mu, sd, SYNTH, power=MS.powers(MS.select(MS.SPINEPS_7)))["all"]))
         sizes, _ = R.quadrature(SYNTH["scale_sd"])

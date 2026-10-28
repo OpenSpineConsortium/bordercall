@@ -25,28 +25,35 @@ bit.
 Each measure scales with its own power of the size, `power` (measures.powers: 1 for a length, 2
 for an area, 0 for an angle; TODO.md, item P step 4): wherever the archive's closed form has s,
 a measure's has s^p, so its mean is s^p mu, its spread s^p sd and its error unscaled. With every
-power 1, the default, the factor is the size itself and the answers are the archive's to the bit.
+power 1, the default, the factor is the size itself and the answers are those of the rule before
+step e to the bit, and so the archive's within the 1e-11 above.
 
 The size is integrated over log s ~ N(0, scale_sd^2) by the archive's 161-node Gauss-Hermite rule
 by default (`quadrature`), or by the trapezoid rule on an even grid of log s (`trapezoid`), which
-`name` and `loglik` take as `nodes`. The more measures a field has, the narrower the posterior of
-its size, and once that is about as narrow as the Gauss-Hermite nodes are apart near the middle
-(0.017 in log s) their sum drifts from the integral. With all 32 measures of the pool on 40
-typical columns (examples/quadrature_check.py, seed 1234), the posterior SD of log s at the true
-place was 0.018 to 0.027 at one body, 0.014 to 0.018 at three and 0.011 to 0.013 at nine; the
-Gauss-Hermite log evidence at the true place was off by at most 3.4e-10, 1.1e-5 and 6.9e-4, and
-the posterior over places by at most 6e-11, 1e-7 and 1e-12, since the error is nearly the same at
-every place that matters. The trapezoid rule on an even grid of a smooth bump converges faster
-than any power of its step, so a step of 0.004 in log s, about a third of the narrowest SD
-measured, agreed with a grid four times as fine to 3.4e-13 in the log evidence at the true place
-and 1.4e-14 in the posterior over places (the tests hold it to a grid twice as fine). At places
-far from the truth the values ask for a size far out in the prior's tail, past the trapezoid's
-grid, where the node at the grid's edge takes the whole sum: there the two trapezoid grids differ
-by about log 4, the ratio of their steps, and Gauss-Hermite, whose nodes lie far apart out there,
-by up to hundreds, at places whose posterior is too small for it to matter (the posterior errors
-above are over every place). The build-up study of step e is to integrate on the
-trapezoid throughout, since a table estimated from a few people can narrow the posterior
-further.
+`name` takes as `nodes` and `loglik` as its `sizes`. The trapezoid's grid holds N(0, scale_sd^2)
+whole, but not a field's own prior once a known height moves and widens it, and the compiled rule
+and the naming model refuse nodes that cut a field's prior off (check_prior_held). The more
+measures a field has, the narrower the posterior of its size, and once that is about as narrow as
+the Gauss-Hermite nodes are apart near the middle (0.017 in log s) their sum drifts from the
+integral. With all 32 measures of the pool on 40 typical columns (examples/quadrature_check.py,
+seed 1234), the posterior SD of log s at the true place was 0.018 to 0.027 at one body, 0.014 to
+0.018 at three and 0.011 to 0.013 at nine; the Gauss-Hermite log evidence at the true place was
+off by at most 3.4e-10, 1.1e-5 and 6.9e-4, and the posterior over places by at most 6e-11, 1e-7
+and 1e-12, since the error is nearly the same at every place that matters. The trapezoid rule on
+an even grid of a smooth bump converges faster than any power of its step, so a step of 0.004 in
+log s, about a third of the narrowest SD measured, agreed with a grid four times as fine to
+3.4e-13 in the log evidence at the true place and 1.4e-14 in the posterior over places (the tests
+hold it to a grid twice as fine). At places far from the truth the values ask for a size far out
+in the prior's tail, past the trapezoid's grid of 8 prior SDs, where the node at the grid's edge
+takes the whole sum, so that every trapezoid grid of that reach, the finer one included, falls
+short of the log evidence by up to hundreds there, while the Gauss-Hermite rule, whose outermost
+node lies at 24 prior SDs, reaches the size asked for: against the closed form summed on a grid of
+step 0.0005 out to 40 prior SDs, at the three places of each width where the two rules part most,
+Gauss-Hermite was off by at most 2.7e-3 and the trapezoid by up to 694
+(examples/quadrature_check.py). Those places hold too little of the posterior for either to
+matter, which is why the errors of the posterior above are over every place and those of the log
+evidence at the true place. The build-up study of step e is to integrate on the trapezoid
+throughout, since a table estimated from a few people can narrow the posterior further.
 
 Every sum over bodies is one batched matrix product, (measures, fields, bodies) by (measures,
 bodies, nodes x places), so no Python loop runs per field, per place or per body. Fields are
@@ -55,13 +62,14 @@ scored in chunks only to bound memory (loglik keeps (fields, nodes, measures, pl
 from __future__ import annotations
 
 import math
-from typing import Dict, Optional, Sequence, Tuple
+from typing import Callable, Dict, Optional, Sequence, Tuple
 
 import numpy as np
 
 GH_NODES = 161
 TRAPEZOID_STEP = 0.004      # in log s: about a third of the narrowest posterior SD of log s 32 measures gave
-TRAPEZOID_REACH = 8.0       # the grid's half-width in prior SDs; the prior beyond it holds 1e-15 of the mass
+TRAPEZOID_REACH = 8.0       # the grid's half-width in SDs of N(0, scale_sd^2), whose mass beyond it is 1e-15
+PRIOR_HELD = 1e-12          # in log mass: how far from the whole of a field's own size prior its nodes may hold
 LOG2PI = math.log(2.0 * math.pi)
 SYNTH = {"rho": 0.5, "noise_mm": 1.0, "scale_sd": 0.07}      # the archive's generator settings
 
@@ -89,6 +97,31 @@ def trapezoid(scale_sd: float, step: float = TRAPEZOID_STEP, reach: float = TRAP
     logw = -0.5 * (t / scale_sd) ** 2
     logw -= logsumexp(logw[None, :], 1)[0]
     return np.exp(t), logw
+
+
+def check_prior_held(log_weights: np.ndarray, nodes_log_s: np.ndarray,
+                     priors: Callable[[], Tuple[np.ndarray, np.ndarray]]) -> None:
+    """Refuse, with ValueError, nodes on which a field's own size prior does not sum to one within
+    PRIOR_HELD in log mass, log_weights (fields, nodes) being each field's weights on them. The
+    nodes are built for N(0, scale_sd^2), and a field's own prior, as a known height makes it, is
+    moved and widened, so that the trapezoid's grid, which ends TRAPEZOID_REACH of the nodes' SDs
+    out, cuts it off where a tall or a short patient's size lies, and the integral over the size is
+    wrong there, while the Gauss-Hermite nodes, whose outermost lie 24 SDs out, still hold it. With
+    covariates.py's settings the trapezoid of the default reach holds the prior of a height from 161
+    to 175 cm only, one of reach 30 from 108 to 262 cm and the Gauss-Hermite nodes from 117 to
+    242 cm. `priors` gives every field's prior, the mean and SD of log s, and is called only to word
+    the refusal."""
+    held = logsumexp(np.asarray(log_weights, float), 1)
+    off = np.flatnonzero(~(np.abs(held) <= PRIOR_HELD))
+    if off.size == 0:
+        return
+    f = int(off[np.argmax(np.nan_to_num(np.abs(held[off]), nan=np.inf))])
+    mean, sd = priors()
+    t = np.asarray(nodes_log_s, float)
+    raise ValueError("the nodes of the size, from log s %.3f to %.3f, hold %.6g of field %d's size prior N(%.4f, %.4f^2), "
+                     "and %d of %d fields' priors are more than %g from whole on them in log mass: widen the grid "
+                     "(rule.trapezoid's reach) or integrate on the Gauss-Hermite nodes"
+                     % (t.min(), t.max(), float(np.exp(held[f])), f, mean[f], sd[f], off.size, held.size, PRIOR_HELD))
 
 
 def size_factors(sizes: np.ndarray, power: Optional[np.ndarray], n_measures: int) -> np.ndarray:

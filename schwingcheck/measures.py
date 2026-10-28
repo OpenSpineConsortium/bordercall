@@ -22,8 +22,13 @@ of the size it scales with from its kind.
 Each kind has its own term since step e (TODO.md, item P step 4): a length scales with the
 patient's size s, an area with s squared and an angle not at all (SIZE_POWER), in the rule, the
 compiled rule, the PyMC models and the generator alike. The errors are a stated assumption, the
-same in the generator and in the rule, so the rule stays exact in the synthetic world whatever
-they are; the build-up study of step e is to run them halved and doubled:
+same in the generator and in the rule, so they never part the two; what does is the generator's
+floor at 0.5 for a measure that scales with the size, which the likelihood leaves out. It touched
+3 of 308,000 values of the seven in 2,000 typical columns of seed 1234, and 1,647 of 1,056,000 of
+the pool's, mostly areas and the interfacet height, in 1,054 of the columns, where scoring a
+floored value by its mass at the floor moves a one-body posterior by up to 0.22
+(examples/floor_check.py; columns.floor_hits counts them). The build-up study of step e is to run
+the errors halved and doubled:
 
 - a length, 1 mm, the archive's noise_mm;
 - an area, sqrt(pi A / 2) times that 1 mm, A the measure's mean over the levels it is printed

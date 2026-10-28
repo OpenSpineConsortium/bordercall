@@ -8,7 +8,9 @@ column is padded to the widest phenotype listed, however few are drawn; and the 
 consecutive offsets are exact.fields' in the same order, with the truth and the column of each.
 Each kind is drawn with its own power of the size, an area with the square, an angle with none
 and no floor, in the same stream; and columns drawn for sizes an earlier call drew take no size
-from the stream, which starts at the offsets.
+from the stream, which starts at the offsets. The floor is the archive's, 0.5 for a length, held
+on the archive's own fifth length, the pedicle, which reaches it, and floor_hits counts the
+values it touched in the measures that scale with the size and nowhere else.
 """
 from __future__ import annotations
 
@@ -77,6 +79,24 @@ class SameGenerator(unittest.TestCase):
         self.assertTrue(np.array_equal(one.values[:, :22], alone.values))
         self.assertTrue(np.isnan(one.values[:, 22]).all())
 
+    def test_a_length_at_the_floor_is_the_archives_floor(self):
+        """The seven never reach the floor in these columns; the pedicle, the archive's fifth
+        length, does, three times in seed 97's 50, and the same values come out bit for bit."""
+        measures = MEASURES + ["pedicle"]
+        ref = P.load_reference(measures=measures)
+        a = NB.draw_columns(ref, ["typical"], 97, 50, measures)
+        b = C.draw_columns(ref, ["typical"], 97, 50, measures)
+        for i, col in enumerate(a):
+            va = np.array([col.values[m] for m in measures]).T
+            self.assertTrue(np.array_equal(va, b.values[i, :len(col.levels)]))
+        self.assertEqual(int((b.values == 0.5).sum()), 3)
+        self.assertEqual(int((b.values[:, :, :-1] == 0.5).sum()), 0)
+        hits = C.floor_hits(b)
+        self.assertEqual((hits["values"], hits["of"]), (3, 50 * 22 * 8))
+        self.assertEqual(sum(hits["where"].values()), 3)
+        self.assertTrue(all(k.startswith("pedicle ") for k in hits["where"]))
+        self.assertLessEqual(hits["columns"], 3)
+
     def test_the_checked_table_draws_the_archives_columns(self):
         """Since page 892 was read the long table equals the archive's in every value of the
         seven measures, so the same seed draws the same columns from either."""
@@ -114,7 +134,7 @@ class KindsAndGivenSizes(unittest.TestCase):
                 g = s ** power[m]
                 v = g * (mu[m] + sd[m] * (0.5 * z[m] + np.sqrt(0.75) * e[m, index])) + noise[m] * nz[m, index]
                 if power[m] > 0:
-                    v = np.maximum(v, C.FLOOR)
+                    v = np.maximum(v, 0.5)
                 self.assertLess(np.abs(cols.values[c, :, m] - v).max(), 1e-9, (c, ms[m].key))
             self.assertEqual(cols.scale[c], s)
         # an angle, which may be negative, is never floored; a length and an area are
@@ -144,8 +164,23 @@ class KindsAndGivenSizes(unittest.TestCase):
             self.assertLess(np.abs(again.values[c].T - v).max(), 1e-9, c)
         with self.assertRaises(ValueError):
             self._drawn(63, 12, scale=first.scale[:5])
-        with self.assertRaises(ValueError):
-            C.draw_columns(MS.reference(ms), ["typical"], 63, 2, self.KEYS, power=[1.0, 2.0])
+        for wrong in ([1.0, 2.0], [2.0]):
+            with self.assertRaisesRegex(ValueError, "one power of the size per measure"):
+                C.draw_columns(MS.reference(ms), ["typical"], 63, 2, self.KEYS, power=wrong)
+
+    def test_floor_hits_counts_only_the_measures_that_scale_with_the_size(self):
+        ms, cols = self._drawn(61, 30)
+        hits = C.floor_hits(cols)
+        floored = (cols.values == 0.5) & (MS.powers(ms) > 0)[None, None, :]
+        self.assertEqual(hits["values"], int(floored.sum()))
+        self.assertEqual(hits["of"], 30 * 22 * 2)
+        # an angle's value at 0.5 is a value, not the floor
+        cols.values[0, 0, 2] = 0.5
+        self.assertEqual(C.floor_hits(cols)["values"], hits["values"])
+        cols.values[0, 0, 0] = 0.5
+        again = C.floor_hits(cols)
+        self.assertEqual(again["values"], hits["values"] + 1)
+        self.assertEqual(again["where"]["endplate C3"], hits["where"].get("endplate C3", 0) + 1)
 
     def test_every_power_one_and_no_sizes_given_is_the_archives_generator(self):
         ref = P.load_reference(measures=MEASURES)

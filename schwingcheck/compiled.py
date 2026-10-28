@@ -1,6 +1,6 @@
 """The exact rule as one compiled PyTensor function: step d's reference for the PyMC model.
 
-    rule = compiled.ExactRule(mu, sd, noise=errors)          # the table, (measures, levels), and each measure's error
+    rule = compiled.ExactRule(mu, sd, noise=errors, power=powers)   # the table, (measures, levels), each measure's error and power
     hyp = compiled.hypotheses(len(LEVELS), [[0, 1, 2]])      # every place of one pattern
     out = rule.evaluate(X, hyp)                              # log evidence and posterior
 
@@ -23,7 +23,9 @@ Three things generalise rule.py without changing its contiguous, complete answer
 - The size prior may differ by field, as it does once a patient's height shifts it
   (covariates.py): the quadrature keeps one set of nodes in log s and each field carries its own
   log weights, the Gauss-Hermite weights times the ratio of its prior to the nodes' own. With the
-  archive's prior the ratio is one and the weights are the archive's to the last bit.
+  archive's prior the ratio is one and the weights are the archive's to the last bit. Nodes on
+  which a field's prior is not whole are refused, as the trapezoid's of the default reach are for
+  a height outside 161 to 175 cm (rule.check_prior_held).
 - A measure's mean may be scaled field by field, as the weight and age hooks of covariates.py
   scale it once they are not zero: fields that share one row of factors go through one call with
   the table's means scaled, so while the hooks are zero every field goes through the archive's
@@ -45,7 +47,7 @@ from typing import Dict, List, Optional, Sequence, Tuple
 
 import numpy as np
 
-from .rule import GH_NODES, SYNTH, quadrature, size_factors
+from .rule import GH_NODES, SYNTH, check_prior_held, quadrature, size_factors
 
 LOG2PI = math.log(2.0 * math.pi)
 CHUNK = 256             # fields per call: the product's output is (measures, fields, 4 x nodes x hypotheses)
@@ -93,13 +95,17 @@ def size_log_weights(nodes_log_s: np.ndarray, logw: np.ndarray, base_sd: float,
                      mean: np.ndarray, sd: np.ndarray) -> np.ndarray:
     """Per-field log weights for integrating over log s ~ N(mean_f, sd_f^2) on the nodes of the
     rule for N(0, base_sd^2): the nodes' weights times the ratio of the two densities at each
-    node. Where mean_f is 0 and sd_f is base_sd the ratio is exactly one."""
+    node. Where mean_f is 0 and sd_f is base_sd the ratio is exactly one. Nodes on which a field's
+    prior is not whole are refused (rule.check_prior_held): the trapezoid of the default reach
+    holds a known height's prior only from 161 to 175 cm."""
+    mean, sd = np.asarray(mean, float), np.asarray(sd, float)
     t = np.asarray(nodes_log_s, float)[None, :]
-    mean = np.asarray(mean, float)[:, None]
-    sd = np.asarray(sd, float)[:, None]
-    same = (mean == 0.0) & (sd == base_sd)
-    ratio = (-0.5 * ((t - mean) / sd) ** 2 - np.log(sd)) - (-0.5 * (t / base_sd) ** 2 - math.log(base_sd))
-    return np.asarray(logw, float)[None, :] + np.where(same, 0.0, ratio)
+    m, s = mean[:, None], sd[:, None]
+    same = (m == 0.0) & (s == base_sd)
+    ratio = (-0.5 * ((t - m) / s) ** 2 - np.log(s)) - (-0.5 * (t / base_sd) ** 2 - math.log(base_sd))
+    out = np.asarray(logw, float)[None, :] + np.where(same, 0.0, ratio)
+    check_prior_held(out, t[0], lambda: (mean, sd))
+    return out
 
 
 def _graph():

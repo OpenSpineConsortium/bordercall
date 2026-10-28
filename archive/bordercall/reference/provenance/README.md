@@ -76,7 +76,9 @@ recorded reading:
    repository alone.
 7. **Report the contradictions.** `python contradictions.py` writes
    [CONTRADICTIONS.md](CONTRADICTIONS.md) from the three records above and the arithmetic inside
-   the tables (every printed ratio and sum against its own table's means, allowing for rounding):
+   the tables (every printed ratio and sum against its own table's means, and every X-card angle
+   of the facets paper's Table 8 against the negative of the transverse-plane angle its Tables 6
+   and 7 print for the same facet, level and side, each allowing for rounding):
    every place a paper disagrees with itself, counted by paper and by what happened, for the
    owner's ask of 27 October 2026 that the papers' own consistency be measured.
 6. **Hold the CSVs to it.** `python check_csv.py` sets every value of
