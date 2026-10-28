@@ -19,8 +19,13 @@ the order and are never scored, are 100 typical columns drawn the same way from 
 Each of the five anomalous phenotypes has 150 columns from seed 99, the seed of the archive's
 supplement, which drew six_lumbar, four_lumbar and t13 (archive/bordercall/exact_supplement.py,
 ANOMALOUS); lumbar_rib and no_rib_t12 are new here, and every phenotype takes the other measures
-from seed 314. A field there is judged by its column's own names (the rib reading: a thirteenth
-rib-bearing body is T13), as the supplement judged it, so a T13 or an L6 is never named right.
+from seed 314. A field there is judged by its column's own names, as the supplement judged its
+three, so a T13 or an L6 is never named right. Those names are not one convention: on a t13
+column they are the rib reading, which calls the thirteenth rib-bearing body T13 where the
+count from C2 calls it L1, and on a lumbar_rib or no_rib_t12 column the count from C2, under
+which the rib-bearing L1 stays L1 and the ribless T12 stays T12 where the rib reading calls
+them T13 and L1 (archive/bordercall/neighbour.py, rib_ordinals); on six_lumbar and four_lumbar
+columns the two agree.
 
 The order. Forward selection from no measure on the selection columns: at each step the measure
 whose addition gives the smallest log loss of the true place, the mean over fields summed over 1,
@@ -72,27 +77,33 @@ which a T13 sits half-way between T12 and L1 and an L6 one below L5, so on a T13
 called L1, or an L1 called T12, counts as within one level though the two are two bodies apart.
 Beside the precision are the count answered, and, where no answered field is wrong, which gives a
 clustered standard error of 0 however few were answered, the precision's exact two-sided 95 per
-cent lower bound (Clopper-Pearson, 0.025 to the power 1 over the count). On the data axis, whose
-tables share the columns, the clustered SEs hold the tables drawn fixed, and *_se_tables, beside
-every share and the precision, counts the variation between tables too (pooled_rates), on one
-degree of freedom fewer than the tables: 7, 3, 1 and 1 at P = 12, 50, 200 and 2,000.
+cent lower bound (Clopper-Pearson, 0.025 to the power 1 over the count; on the data axis, whose
+count answered counts a field once for every table that answered it, over the count of the table
+that answered fewest). On the data axis, whose tables share the columns, the clustered SEs hold
+the tables drawn fixed, and *_se_tables, beside every share and the precision, counts the
+variation between tables too (pooled_rates), on one degree of freedom fewer than the tables: 7,
+3, 1 and 1 at P = 12, 50, 200 and 2,000.
 
-The time to name one field, single-threaded, is measured at every prefix of the order and every
-width on the first 20 scoring columns, with the rule built beforehand as a service would build it
-once, rule.py's table blocks and the compiled rule's alike (compiled.ExactRule.prepare): the
-median and the largest over 30 single fields, and per field in a batch of 128, the median and the
-largest of five such calls after one that warms them, for rule.py on the trapezoid's nodes and on
-the Gauss-Hermite ones and for the compiled rule (compiled.py) on the trapezoid's. The compiled
+The time to name one field, single-threaded, is measured at every prefix of the order and at 1, 3
+and 9 bodies on the first 20 scoring columns, with the rule built beforehand as a service would
+build it once, rule.py's table blocks and the compiled rule's alike (compiled.ExactRule.prepare):
+the median and the largest over 30 single fields, and per field in a batch of 128, the median and
+the largest of five such calls after one that warms them, for rule.py on the trapezoid's nodes and
+on the Gauss-Hermite ones and for the compiled rule (compiled.py) on the trapezoid's. The compiled
 rule's functions are compiled before the thread limit is set, since compiling loads scipy's own
 BLAS, which Numba's BLAS calls use, and threadpool_limits holds only the libraries loaded when it
-is entered; every pool's threads are recorded inside the limit. NUTS on the naming model
-(model.py) runs at 7, 16 and 32 measures of the order, on one field at each place, sampled
-together in one model and the middle one of them alone, with the seconds a call to build the
-model and to set the sampler up (compiling its log density and gradient, which every new set of
-fields pays again, since the observed values are constants of the compiled graph, and which a
-compiled graph already on disk shortens), the seconds a field of NUTS's own loop and of averaging
-the posterior (a second call, the first having compiled it), and each field's distance from the
-exact posterior, its Monte Carlo error and R-hat, and the divergences.
+is entered; every pool's threads are recorded inside the limit. NUTS on the naming model (model.py)
+runs at 7, 16 and 32 measures of the order, on one field at each place, sampled together in one
+model and the middle one of them alone, with the seconds a call to build the model and to set the
+sampler up (compiling its log density and gradient, which every new set of fields pays again, since
+the observed values are constants of the compiled graph, and which a compiled graph already on disk
+shortens), the seconds a field of NUTS's own loop and of averaging the posterior (a second call,
+the first having compiled it), and each field's distance from the exact posterior, its Monte Carlo
+error and R-hat, and the divergences. Beside each run are the files it added to PyTensor's Numba
+cache, base_compiledir/numba, which PyTensor's compiledir flag does not move: a run that compiled
+some of its graph adds files there, and one whose graph was compiled already, by an earlier run or
+an earlier process, adds none and sets up far faster, so the record says which setups hold a
+compile; a cold setup is timed with base_compiledir, not compiledir, pointed at an empty folder.
 
 The record is written once the scoring is done, before any time is taken, so that a failure in
 the timing loses no scoring, and again with the times, each time through records.write, which
@@ -100,9 +111,9 @@ gives the file its name only once it is whole. The digests of the package and of
 the git state are taken when the run begins (code_state), so that the record names the code that
 ran, and what changed by the time the record is built is recorded beside them
 (changed_during_run), since compiled.py and model.py are imported only when the times reach them.
-How the times were taken, the counts, the fields' places, the pools' threads, the machine and the
-versions, is in the attributes speed and nuts; `curve speed` takes them again into a record, with
-its own digests.
+How the times were taken, the counts, the fields' places, the pools' threads, the machine, the
+versions and the files in PyTensor's Numba cache when NUTS began, is in the attributes speed and
+nuts; `curve speed` takes them again into a record, with its own digests.
 """
 from __future__ import annotations
 
@@ -290,8 +301,8 @@ class Arm:
 
 
 def true_positions(start: np.ndarray, col: np.ndarray, levels: Sequence[Sequence[str]], n: int) -> np.ndarray:
-    """Where the middle body of each field sits on the half-step scale of POSITION, by the name
-    its own column's count gives it."""
+    """Where the middle body of each field sits on the half-step scale of POSITION, by its own
+    column's name for it (the module's docstring says which convention that is)."""
     t = S.target_offset(n)
     return np.array([POSITION[levels[c][s + t]] for s, c in zip(start, col)])
 
@@ -365,7 +376,9 @@ def precision_lower(answered: int, errors: int) -> float:
     fields (Clopper-Pearson: n right of n gives 0.025 ** (1 / n)); NaN where any answered field is
     wrong, whose precision carries a clustered SE that is not 0, or where none was answered. It
     counts the answered fields as independent trials; the fields of one column share its draws,
-    so a bound that counted the columns instead could be lower."""
+    so a bound that counted the columns instead could be lower. On the data axis, whose tables
+    answer the same fields, pooled_rates gives it the count of the table that answered fewest,
+    since a field answered by every table is not as many independent trials."""
     if errors or answered < 1:
         return float("nan")
     return 0.025 ** (1.0 / answered)
@@ -582,7 +595,10 @@ def pooled_rates(parts: Dict[str, List], sub: str) -> dict:
     precision_se_tables count the variation between tables too, by the two-way estimate
     (crossed_se), on T - 1 degrees of freedom for T tables: 7, 3, 1 and 1 at P = 12, 50, 200 and
     2,000 (WORLDS); NaN with one table, as for every arm off the axis and the table as printed.
-    The spread of the rates between tables (*_table_sd, ddof 1) is given beside them."""
+    The spread of the rates between tables (*_table_sd, ddof 1) is given beside them. Where no
+    table's answered field is wrong, the precision's lower bound takes the count answered of the
+    table that answered fewest, not n_answered, which counts a field once for every table that
+    answered it (precision_lower); like the clustered SEs, it holds the tables drawn fixed."""
     def joined(which):
         stats = {k: np.concatenate([p[sub][k] for p, keep in zip(parts["stats"], which) if keep])
                  for k in parts["stats"][0][sub]}
@@ -600,6 +616,12 @@ def pooled_rates(parts: Dict[str, List], sub: str) -> dict:
             out[s + "_table_sd"] = float(np.std([e[s] for e in each], ddof=1))
         world = np.concatenate([np.full(len(c), w) for c, w in zip(parts["col"], parts["world"])])
         out.update(tables_se(stats, col, world))
+        # the tables answer the same fields, so a field answered by several is not as many
+        # independent trials; the bound on the fewest a table answered is at most the bound of the
+        # table whose precision is lowest, and the pooled precision, the tables' weighted by the
+        # fields each answered, is no lower than that table's
+        counts = [e["n_answered"] for e in each if e["n_answered"] > 0]
+        out["precision_lower"] = precision_lower(min(counts), out["errors"]) if counts else float("nan")
     return out
 
 
@@ -665,6 +687,19 @@ def pools() -> List[dict]:
              "threads": int(d.get("num_threads", 0))} for d in threadpool_info()]
 
 
+def numba_cache_files() -> Optional[int]:
+    """How many files PyTensor's Numba cache holds now, or None where it cannot be read. The cache
+    is base_compiledir/numba, which PyTensor's compiledir flag does not move: a run that compiles a
+    graph adds files to it, and a later process running the same graph loads them from disk, with
+    a far shorter setup; another process writing to the same cache meanwhile adds files too."""
+    try:
+        from pytensor.link.numba.cache import NUMBA_CACHE_PATH
+        with os.scandir(NUMBA_CACHE_PATH) as entries:
+            return sum(1 for e in entries if e.is_file())
+    except (ImportError, OSError):
+        return None
+
+
 def machine() -> dict:
     """The machine the times were taken on, and its load then."""
     out = {"platform": platform.platform(), "machine": platform.machine(), "cpu_count": os.cpu_count(),
@@ -692,7 +727,10 @@ def time_engine(namer, X: np.ndarray, calls: int = SPEED_CALLS, batch: int = SPE
                 batches: int = SPEED_BATCHES) -> dict:
     """The time to name one field, called one field at a time (median and largest over `calls`)
     and in a batch (median and largest over `batches` calls of the mean per field), each after one
-    call of its own size, which warms the caches and the memory the batch's arrays take."""
+    call of its own size, which keeps that size's first call out of the times. The warm-up keeps
+    almost none of the memory the batch's arrays take, since each large array is given back to the
+    system when it is freed: every timed batch call takes that memory afresh, and its time includes
+    that page work."""
     namer(X[:1])
     single = []
     for i in range(calls):
@@ -769,10 +807,14 @@ def nuts_run(X: np.ndarray, hyp, mu: np.ndarray, sd: np.ndarray, keys: Sequence[
     hypothesis_posterior call's less the second's, which compiles nothing), the seconds a field of
     NUTS's own loop (sample_s) and of averaging the posterior (posterior_s, the second call); each
     field's distance from the exact posterior (gap, the largest over places), Monte Carlo error and
-    R-hat, and the divergences and leapfrog steps of the kept draws."""
+    R-hat, the divergences and leapfrog steps of the kept draws, and the files the run added to
+    PyTensor's Numba cache (cache_files, numba_cache_files), some where it compiled some of its
+    graph and none where its graph was compiled already, by an earlier run or process, NaN where
+    the cache could not be read."""
     import arviz as az
     from . import model as MD
     F = len(X)
+    cached = numba_cache_files()
     t0 = time.perf_counter()
     m = MD.naming(X, hyp, mu, sd, list(keys), noise=noise, power=power)
     t1 = time.perf_counter()
@@ -783,6 +825,7 @@ def nuts_run(X: np.ndarray, hyp, mu: np.ndarray, sd: np.ndarray, keys: Sequence[
     t3 = time.perf_counter()
     post, mcse = MD.hypothesis_posterior(m, idata)
     t4 = time.perf_counter()
+    now_cached = numba_cache_files()
     gap = np.abs(post - exact).max(1)
     rhat = np.asarray(az.rhat(idata, var_names=["log_s"])["log_s"].values, float).reshape(F)
     stats = idata.sample_stats
@@ -791,7 +834,8 @@ def nuts_run(X: np.ndarray, hyp, mu: np.ndarray, sd: np.ndarray, keys: Sequence[
             "gap": gap.tolist(), "mcse": mcse.max(1).tolist(), "rhat": rhat.tolist(),
             "max_gap": float(gap.max()), "max_mcse": float(mcse.max()), "max_rhat": float(rhat.max()),
             "divergences": int(np.asarray(stats["diverging"].values).sum()),
-            "n_steps": int(np.asarray(stats["n_steps"].values).sum())}
+            "n_steps": int(np.asarray(stats["n_steps"].values).sum()),
+            "cache_files": float("nan") if cached is None or now_cached is None else now_cached - cached}
 
 
 def nuts_speed(pool: Sequence[MS.Measure], order: Sequence[int], values: np.ndarray, ks: Sequence[int] = NUTS_MEASURES,
@@ -801,7 +845,7 @@ def nuts_speed(pool: Sequence[MS.Measure], order: Sequence[int], values: np.ndar
     each place of the columns `values` (nuts_fields) sampled together in one model, and on the
     middle one of them alone, single-threaded as speed() is: {measures: {"together": run,
     "alone": run}}, each run with its fields' places, columns and positions among the together
-    run's (at), and how it ran."""
+    run's (at), and how it ran, with the files PyTensor's Numba cache held when it began."""
     from threadpoolctl import threadpool_limits
     from . import compiled as K
     mu, sd = MS.arrays(pool)
@@ -811,6 +855,7 @@ def nuts_speed(pool: Sequence[MS.Measure], order: Sequence[int], values: np.ndar
     pick = nuts_fields(start)
     runs = (("together", list(range(len(pick)))), ("alone", [len(pick) // 2]))
     hyp = K.hypotheses(len(LEVELS), [offsets])
+    cache_files = numba_cache_files()
     load_compiled()
     out = {}
     with threadpool_limits(1):
@@ -834,7 +879,7 @@ def nuts_speed(pool: Sequence[MS.Measure], order: Sequence[int], values: np.ndar
     how = {"width": int(n), "draws": int(draws), "tune": int(tune), "chains": NUTS_CHAINS, "seed": NUTS_SEED,
            "measures": [int(k) for k in ks], "columns": int(len(values)), "places": [LEVELS[s] for s in start[pick]],
            "field_columns": col[pick].tolist(), "alone": LEVELS[start[pick[runs[1][1][0]]]], "threads": threads,
-           "machine": machine(), "versions": versions()}
+           "cache_files": cache_files, "machine": machine(), "versions": versions()}
     return out, how
 
 
@@ -964,7 +1009,7 @@ def speed_dataset(times: Dict[tuple, dict]):
 
 NUTS_HOW = ("together", "alone")
 NUTS_STATS = ("fields", "build_s", "setup_s", "sample_s", "posterior_s", "max_gap", "max_mcse", "max_rhat",
-              "divergences", "n_steps")
+              "divergences", "n_steps", "cache_files")
 NUTS_FIELD_STATS = ("gap", "mcse", "rhat")
 
 

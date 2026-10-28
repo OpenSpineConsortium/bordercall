@@ -23,11 +23,22 @@ record; the compiled rule's table built once; every thread pool at one thread in
 in a fresh interpreter; the batch timed after a warm-up at its own size; NUTS on every place and
 on one field alone, its setup apart from its loop; the record's digests taken when the run began;
 how the times were taken; and writes that leave the record whole.
+
+Each fix of the second review, the same day, is held the same way: the anomalous columns judged
+by their own names, the rib reading on t13 and the count from C2 on lumbar_rib and no_rib_t12; the
+widths the arms are scored at and the times taken at, as the docstrings and the README say; the
+data axis's lower bound on the fewest fields one table answered; the prepared blocks' shape;
+nuts_speed()'s thread pools in a fresh interpreter of its own; the batch's median told from its
+mean, and what its warm-up keeps; each NUTS field's gap from its own exact posterior, the first
+posterior call's compile in the setup and not in posterior_s, and the files each run added to
+the Numba cache; the speed caption's counts read from the record; and captions and notes that
+name what the record does not give, never a fixed one thread or a count's place filled with it.
 """
 from __future__ import annotations
 
 import contextlib
 import csv
+import inspect
 import io
 import json
 import math
@@ -49,6 +60,8 @@ sys.path.insert(0, os.path.join(ROOT, "archive", "bordercall"))
 
 import exact as E                              # noqa: E402
 import exact_supplement as ES                  # noqa: E402
+import neighbour as NB                         # noqa: E402
+import panjabi as P                            # noqa: E402
 from schwingcheck import LEVELS                # noqa: E402
 from schwingcheck import __main__ as MAIN      # noqa: E402
 from schwingcheck import columns as C          # noqa: E402
@@ -62,6 +75,7 @@ from schwingcheck import rule as R             # noqa: E402
 from schwingcheck import score as S            # noqa: E402
 
 TODO = os.path.join(ROOT, "TODO.md")
+PACKAGE_README = os.path.join(ROOT, "schwingcheck", "README.md")
 
 
 def quiet(*args):
@@ -180,6 +194,13 @@ class Arms(unittest.TestCase):
         self.assertIn(5, CV.NOMINAL_WIDTHS)
         row = small_study()["rows"][("nominal", "typical", "seven", 5)]
         self.assertEqual(row["n_fields"], 3 * (len(LEVELS) - 4))
+        # and the README says so: the nominal arm at 1, 3, 5 and 9 bodies, every other arm at 1, 3 and 9
+        self.assertEqual({a.widths for a in quick_arms() if a.name != "nominal"}, {CV.WIDTHS})
+        self.assertEqual((CV.NOMINAL_WIDTHS, CV.WIDTHS), ((1, 3, 5, 9), (1, 3, 9)))
+        with open(PACKAGE_README, encoding="ascii") as fh:
+            readme = flat(fh.read())
+        self.assertIn("The nominal arm scores every subset at 1, 3, 5 and 9 bodies, the others the prefixes and the "
+                      "seven at 1, 3 and 9.", readme)
 
     def test_the_correlated_arm_is_the_misspecified_world_and_measures_no_cost(self):
         """r 0.4 with every other setting as assumed is exact.py's misspecified world, not its
@@ -206,7 +227,31 @@ class Arms(unittest.TestCase):
         doc = flat(CV.__doc__)
         self.assertIn("which drew six_lumbar, four_lumbar and t13", doc)
         self.assertIn("lumbar_rib and no_rib_t12 are new here", doc)
-        self.assertIn("(the rib reading: a thirteenth rib-bearing body is T13)", doc)
+        # each column is judged by its own names: by the archive's two conventions, the rib reading
+        # on t13 and the count from C2 on lumbar_rib and no_rib_t12, the two agreeing elsewhere
+        for ph in CV.ANOMALOUS:
+            levels, t, _, _ = C.phenotype_levels(ph)
+            column = P.Column(levels=list(levels), values={}, phenotype=ph, transitional_at=t)
+            ribs = ["T13" if o is None else NB.COUNT_NAMES[o] for o in NB.rib_ordinals(column)]
+            self.assertEqual(levels == ribs, ph in ("t13", "six_lumbar", "four_lumbar"), ph)
+            self.assertEqual(levels == NB.COUNT_NAMES[:len(levels)], ph != "t13", ph)
+        for ph, name in (("t13", "T13"), ("lumbar_rib", "L1"), ("no_rib_t12", "T12")):
+            levels, t, _, _ = C.phenotype_levels(ph)
+            self.assertEqual(CV.true_positions(np.array([t]), np.array([0]), [levels], 1)[0], CV.POSITION[name], ph)
+        self.assertIn("by its own column's name for it", flat(CV.true_positions.__doc__))
+        self.assertNotIn("count", CV.true_positions.__doc__)          # the count from C2 is one convention of two
+        report = flat("\n".join(CR.table_anomalous(small_record())))
+        on_t13 = ("the rib reading, which calls the thirteenth rib-bearing body T13 where the count from C2 "
+                  "calls it L1")
+        on_the_new = ("the count from C2, under which the rib-bearing L1 stays L1 and the ribless T12 stays T12 "
+                      "where the rib reading calls them T13 and L1")
+        for text in (doc, report):
+            self.assertNotIn("(the rib reading: a thirteenth rib-bearing body is T13)", text)
+            self.assertIn(on_t13, text)
+            self.assertIn(on_the_new, text)
+            self.assertIn("the two agree", text)
+        self.assertIn("on a lumbar_rib or no_rib_t12 column the count from C2", doc)
+        self.assertIn("with a rib on L1 or no rib on T12 they are the count from C2", report)
 
     def test_the_narrowest_fields_go_first(self):
         widths = [j[1] for j in CV.jobs_of(small_study()["arms"])]
@@ -360,6 +405,31 @@ class Precision(unittest.TestCase):
         self.assertGreater(row["precision_se"], 0.0)
         self.assertTrue(math.isnan(CV.rates(self.stats(answered=0), group)["precision_lower"]))
 
+    def test_the_data_axis_bounds_the_precision_on_the_fewest_one_table_answered(self):
+        """The data axis's tables answer the same fields: a table pooled with itself has the one
+        table's bound, 0.025 ** (1 / 18), not 0.025 ** (1 / 36), and pooled with a table that
+        answered 10 of the same fields, that table's; a table that answered none adds nothing,
+        and an error in either table leaves no bound."""
+        group = np.arange(40) % 10
+        one = self.stats()
+        parts = {"col": [group, group], "world": [0, 1], "stats": [{"s": one}, {"s": one}]}
+        row = CV.pooled_rates(parts, "s")
+        self.assertEqual((row["n_answered"], row["errors"], row["precision"]), (36, 0, 1.0))
+        self.assertEqual(row["precision_lower"], CV.rates(one, group)["precision_lower"])
+        self.assertAlmostEqual(row["precision_lower"], 0.025 ** (1.0 / 18), places=15)
+        parts["stats"][1] = {"s": self.stats(answered=10)}
+        row = CV.pooled_rates(parts, "s")
+        self.assertEqual(row["n_answered"], 28)
+        self.assertAlmostEqual(row["precision_lower"], 0.025 ** (1.0 / 10), places=15)
+        parts["stats"][1] = {"s": self.stats(answered=0)}
+        self.assertAlmostEqual(CV.pooled_rates(parts, "s")["precision_lower"], 0.025 ** (1.0 / 18), places=15)
+        wrong = self.stats()
+        wrong["hit"][0] = False
+        parts["stats"][1] = {"s": wrong}
+        self.assertTrue(math.isnan(CV.pooled_rates(parts, "s")["precision_lower"]))
+        self.assertIn("over the count of the table that answered fewest", flat(CV.__doc__))
+        self.assertIn("the one that answered fewest", CR.DATA_BOUND_NOTE)
+
     def test_every_cell_records_its_count_answered(self):
         ds = small_record()["rates"].to_dataset()
         scored = np.isfinite(ds["exact"].values)
@@ -433,16 +503,18 @@ def fake_times(order):
 
 
 def fake_nuts():
-    """NUTS's numbers shaped as nuts_speed() gives them: twenty fields together, one alone."""
+    """NUTS's numbers shaped as nuts_speed() gives them: twenty fields together, one alone, the
+    first run alone adding files to the Numba cache, as a run that compiled its graph does."""
     places = list(LEVELS[:len(LEVELS) - CV.NUTS_WIDTH + 1])
 
-    def run(k, at):
+    def run(k, at, cache_files):
         return {"fields": len(at), "build_s": 0.05 * k, "setup_s": 5.0 + 0.1 * k, "sample_s": 0.1 * k,
                 "posterior_s": 0.01 * k, "gap": [1e-6 * (i + 1) for i in at], "mcse": [2e-6] * len(at),
                 "rhat": [1.0 + 0.001 * i for i in at], "max_gap": 1e-6 * (max(at) + 1), "max_mcse": 2e-6,
                 "max_rhat": 1.0 + 0.001 * max(at), "divergences": 0, "n_steps": 3000 + k, "at": list(at),
-                "places": [places[i] for i in at], "columns": list(at)}
-    return {k: {"together": run(k, list(range(len(places)))), "alone": run(k, [len(places) // 2])} for k in (7, 16, 32)}
+                "places": [places[i] for i in at], "columns": list(at), "cache_files": cache_files}
+    return {k: {"together": run(k, list(range(len(places))), 3 if k == 7 else 0), "alone": run(k, [len(places) // 2], 0)}
+            for k in (7, 16, 32)}
 
 
 def fake_how():
@@ -541,7 +613,11 @@ class Speed(unittest.TestCase):
         hyp = K.hypotheses(rule.n_levels, [offsets])
         subsets = {"all": [0, 1, 2, 3], "two": [1, 3]}
         a = rule.evaluate(X, hyp, subsets, chunk=7)
-        b = rule.evaluate(X, hyp, subsets, chunk=7, prepared=rule.prepare(hyp))
+        prepared = rule.prepare(hyp)
+        b = rule.evaluate(X, hyp, subsets, chunk=7, prepared=prepared)
+        # (measures, 3 x bodies, 4 x nodes x hypotheses), as prepare's docstring says
+        self.assertEqual(prepared.shape, (4, 3 * 3, 4 * rule.scaled.shape[1] * len(hyp)))
+        self.assertIn("(measures, 3 x bodies, 4 x nodes x hypotheses)", flat(K.ExactRule.prepare.__doc__))
         for name in subsets:
             np.testing.assert_array_equal(a[name]["logev"], b[name]["logev"])
             np.testing.assert_array_equal(a[name]["post"], b[name]["post"])
@@ -549,44 +625,61 @@ class Speed(unittest.TestCase):
     def test_every_thread_pool_is_at_one_thread_inside_the_limit(self):
         """In a fresh interpreter, where nothing has loaded scipy yet, speed() with the compiled
         rule finds every pool at one thread inside the limit, scipy's own BLAS among them, which
-        compiling loads; the limit entered first would leave it at every CPU's thread."""
-        script = "\n".join([
-            "import json, sys",
-            "sys.path.insert(0, %r)" % ROOT,
-            "from schwingcheck import curve as CV, measures as MS",
-            "pool = MS.pool()",
-            "values = CV.draw_pool(pool, 'typical', CV.SCORE_SEED, CV.EXTRA_SEED, 2).values",
-            "times, how = CV.speed(pool, list(range(len(pool))), values, widths=(1,), ks=[2],",
-            "                      engines=('pytensor-trapezoid',), calls=1, batch=2, batches=1, log=lambda *a: None)",
-            "print(json.dumps(how['threads']))"])
+        compiling loads; the limit entered first would leave it at every CPU's thread. So does
+        nuts_speed(), in a fresh interpreter of its own: in this one the tests before it have
+        loaded scipy, and the NUTS test's own check of the pools passes whatever it compiles
+        before its limit."""
+        calls = {"speed": ["times, how = CV.speed(pool, list(range(len(pool))), values, widths=(1,), ks=[2],",
+                           "                      engines=('pytensor-trapezoid',), calls=1, batch=2, batches=1,",
+                           "                      log=lambda *a: None)"],
+                 "nuts_speed": ["out, how = CV.nuts_speed(pool, list(range(len(pool))), values, ks=(2,), draws=40,",
+                                "                         tune=40, log=lambda *a: None)"]}
         env = {k: v for k, v in os.environ.items() if not k.endswith("_NUM_THREADS")}
-        done = subprocess.run([sys.executable, "-c", script], capture_output=True, text=True, timeout=1200, env=env)
-        self.assertEqual(done.returncode, 0, done.stderr[-3000:])
-        found = json.loads(done.stdout.strip().splitlines()[-1])
-        self.assertTrue(found)
-        self.assertEqual([p for p in found if p["threads"] != 1], [], found)
+        for name, call in calls.items():
+            script = "\n".join([
+                "import json, sys",
+                "sys.path.insert(0, %r)" % ROOT,
+                "from schwingcheck import curve as CV, measures as MS",
+                "pool = MS.pool()",
+                "values = CV.draw_pool(pool, 'typical', CV.SCORE_SEED, CV.EXTRA_SEED, 2).values"]
+                + call + ["print(json.dumps(how['threads']))"])
+            with self.subTest(name):
+                done = subprocess.run([sys.executable, "-c", script], capture_output=True, text=True, timeout=1200,
+                                      env=env)
+                self.assertEqual(done.returncode, 0, done.stderr[-3000:])
+                found = json.loads(done.stdout.strip().splitlines()[-1])
+                self.assertTrue(found)
+                self.assertEqual([p for p in found if p["threads"] != 1], [], found)
 
     def test_the_batch_is_timed_after_a_warm_up_at_its_own_size(self):
-        """A namer slow at the first call of each size: the batch's time is the warmed one, the
-        median and the largest of its calls, not the cold call's."""
+        """A namer slow at the first call of each size, and at the third of the batch's five warmed
+        calls: the batch's time is the median of the warmed calls, which that one slow call leaves
+        at the fast calls' time where a mean would not, and its largest is that slow call, not the
+        cold call's. The docstring says what the warm-up keeps out of the times, and that it keeps
+        almost none of the batch's memory."""
         seen = {}
 
         def namer(X):
-            first = len(X) not in seen
             seen[len(X)] = seen.get(len(X), 0) + 1
-            time.sleep(0.2 if first else 0.002)
-        t = CV.time_engine(namer, np.zeros((20, 1, 1)), calls=3, batch=8, batches=3)
-        self.assertEqual(seen, {1: 4, 8: 4})
-        self.assertLess(t["batch_max_ms"], 0.5 * 200.0 / 8)      # the cold call alone gives 25 ms a field
-        self.assertLessEqual(t["batch_ms"], t["batch_max_ms"])
+            first, third = seen[len(X)] == 1, len(X) == 8 and seen[8] == 4
+            time.sleep(0.2 if first else 0.05 if third else 0.002)
+        t = CV.time_engine(namer, np.zeros((20, 1, 1)), calls=3, batch=8, batches=5)
+        self.assertEqual(seen, {1: 4, 8: 6})
+        self.assertLess(t["batch_ms"], 1e3 * 0.05 / 8 / 5)          # a mean of the five is at least 1.25 ms a field
+        self.assertGreaterEqual(t["batch_max_ms"], 1e3 * 0.05 / 8)  # the slow warmed call, 6.25 ms a field
+        self.assertLess(t["batch_max_ms"], 0.5 * 200.0 / 8)         # the cold call alone gives 25 ms a field
         self.assertLess(t["max_ms"], 0.5 * 200.0)
+        doc = flat(CV.time_engine.__doc__)
+        self.assertIn("keeps that size's first call out of the times", doc)
+        self.assertIn("every timed batch call takes that memory afresh", doc)
+        self.assertNotIn("warms the caches and the memory", doc)
 
     def test_the_record_says_how_its_times_were_taken(self):
         s = small_study()
         values = self.values[:2]
         times, how = CV.speed(s["pool"], s["order"], values, widths=(1, 3), ks=[1, 7], engines=("numpy-trapezoid",),
-                              calls=2, batch=4, batches=2, log=quiet)
-        self.assertEqual((how["calls"], how["batch"], how["batches"], how["columns"]), (2, 4, 2, 2))
+                              calls=2, batch=4, batches=3, log=quiet)
+        self.assertEqual((how["calls"], how["batch"], how["batches"], how["columns"]), (2, 4, 3, 2))
         self.assertEqual(how["fields"]["3"]["single"], {"places": ["C3", "C3"], "columns": [0, 1]})
         self.assertEqual(how["fields"]["3"]["batch"], {"places": ["C3", "C3", "C4", "C4"], "columns": [0, 1, 0, 1]})
         for name in ("python", "numpy", "scipy", "pytensor", "pymc", "numba"):
@@ -595,31 +688,74 @@ class Speed(unittest.TestCase):
         self.assertEqual([p for p in how["threads"] if p["threads"] != 1], [])
         self.assertEqual(set(times[("numpy-trapezoid", 7, 3)]), {"median_ms", "max_ms", "batch_ms", "batch_max_ms"})
         tree = small_record(times, {}, {"speed": how}, n_select=8)
-        self.assertEqual(json.loads(tree.attrs["speed"])["batches"], 2)
+        self.assertEqual(json.loads(tree.attrs["speed"])["batches"], 3)
         note = CR.table_speed(tree)[-1]
-        self.assertIn("the median of 2 calls / per field in a batch of 4, the median of 2 such calls", note)
+        self.assertIn("the median of 2 calls / per field in a batch of 4, the median of 3 such calls", note)
         self.assertIn("Every thread pool was at one thread inside the limit", note)
         self.assertEqual(json.loads(tree.attrs["counts"]),
                          {"score": 3, "select": 8, "anomalous": 2, "world_columns": 2, "worlds": {"12": 2}, "quick": True})
         for name in ("python", "scipy", "pytensor", "pymc", "numba"):
             self.assertIn(name, tree.attrs)
+        # the study's times are taken at speed()'s own widths, 1, 3 and 9 bodies, as the docstring says
+        self.assertEqual(inspect.signature(CV.speed).parameters["widths"].default, (1, 3, 9))
+        asked = []
+        with mock.patch.object(CV, "speed", lambda *a, **kw: asked.append((a, kw)) or ({}, {})), \
+                mock.patch.object(CV, "nuts_speed", lambda *a, **kw: ({}, {})):
+            CV.timings(s["pool"], s["order"], values, quick=True, log=quiet)
+        self.assertEqual((len(asked), len(asked[0][0])), (1, 3))
+        self.assertNotIn("widths", asked[0][1])
+        doc = flat(CV.__doc__)
+        self.assertIn("is measured at every prefix of the order and at 1, 3 and 9 bodies", doc)
+        self.assertNotIn("every prefix of the order and every width", doc)
 
     def test_nuts_runs_on_every_place_and_on_one_field_alone(self):
         """One field at each place, the i-th from the i-th column, sampled together, and the middle
-        one alone; each run's setup apart from its loop, each field's gap and R-hat, and every pool
-        at one thread; the record's NUTS table names both runs and every place. A second of setup
-        added before the sampler's own loop goes to setup_s and none of it to the loop's sample_s,
-        which a field alone, 40 draws and 40 tuning steps of two chains, takes far less than."""
+        one alone; each run's setup apart from its loop, each field's gap from its own exact
+        posterior, its R-hat, the files the run added to PyTensor's Numba cache, and every pool at
+        one thread; the record's NUTS table names both runs and every place, and which run compiled
+        its graph. A second of setup added before the sampler's own loop goes to setup_s and none
+        of it to the loop's sample_s, which a field alone, 40 draws and 40 tuning steps of two
+        chains, takes far less than. A second added to each model's first hypothesis_posterior
+        call, the one that compiles p(h | x, s), goes to setup_s too and none of it to posterior_s,
+        the second call's time a field. The second call returns the first's answer at once here: a
+        real one does the work again, and on a busy machine can take as long as the first with its
+        added second, when no bound on the times tells which call posterior_s was taken from. The
+        exact posterior is asked of the trapezoid's nodes, the rule's throughout, since no gap at two
+        measures tells it from the Gauss-Hermite rule's, which differs from it there by under 1e-14."""
         values = CV.draw_pool(self.pool, "typical", CV.SCORE_SEED, CV.EXTRA_SEED, CV.SPEED_COLUMNS).values
-        delay, real = 1.0, MD.sample
+        delay, real, posterior = 1.0, MD.sample, MD.hypothesis_posterior
+        own, answered, returned = [], [], []      # pm.sample's time less its loop; each model with its answer
+        cache = iter([5, 5, 9, None, 9])          # the cache's files: when NUTS begins, then before and after each run
 
         def slow_setup(*a, **kw):
             time.sleep(delay)
-            return real(*a, **kw)
-        with mock.patch.object(MD, "sample", slow_setup):
+            t = time.perf_counter()
+            idata = real(*a, **kw)
+            own.append(time.perf_counter() - t - idata.posterior.attrs["sampling_time"])
+            return idata
+
+        def slow_first_posterior(model, *a, **kw):
+            # by the model itself, not its id, which a later object may reuse
+            got = next((got for m, got in answered if m is model), None)
+            if got is None:
+                time.sleep(delay)                  # in its first call, the one that compiles p(h | x, s)
+                got = posterior(model, *a, **kw)
+                answered.append((model, got))
+            returned.append(got[0])
+            return got
+        kinds, nodes = [], CV._nodes
+
+        def asked_nodes(kind):
+            kinds.append(kind)
+            return nodes(kind)
+        with mock.patch.object(MD, "sample", slow_setup), \
+                mock.patch.object(MD, "hypothesis_posterior", slow_first_posterior), \
+                mock.patch.object(CV, "numba_cache_files", lambda: next(cache)), \
+                mock.patch.object(CV, "_nodes", asked_nodes):
             out, how = CV.nuts_speed(self.pool, list(range(len(self.pool))), values, ks=(2,), draws=40, tune=40,
                                      log=quiet)
         together, alone = out[2]["together"], out[2]["alone"]
+        self.assertEqual(kinds, ["trapezoid"])                          # once for the one count of measures
         places = list(LEVELS[:len(LEVELS) - CV.NUTS_WIDTH + 1])
         self.assertEqual((together["places"], together["columns"]), (places, list(range(len(places)))))
         self.assertEqual(how["places"], places)
@@ -627,18 +763,68 @@ class Speed(unittest.TestCase):
         self.assertTrue(np.all(np.isfinite(together["gap"])))
         self.assertEqual(together["max_gap"], max(together["gap"]))
         self.assertEqual((alone["fields"], alone["places"], how["alone"]), (1, [places[10]], places[10]))
-        for run in (together, alone):
+        # Each field's gap is from that field's own exact posterior, so a field compared with
+        # another's, or the gap taken over the fields, fails: the i-th place's field of the i-th
+        # column, picked by its place and column, named by rule.py on the trapezoid at the order's
+        # first two measures, against the answer of the second hypothesis_posterior call.
+        offsets, idx = np.arange(CV.NUTS_WIDTH), [0, 1]
+        X, start, col = C.fields(values, offsets)
+        rows = [int(np.flatnonzero((start == i) & (col == i))[0]) for i in range(len(places))]
+        sizes, logw = R.trapezoid(R.SYNTH["scale_sd"])
+        LL = R.loglik(X[rows][:, idx, :], offsets, self.mu[idx], self.sd[idx], R.SYNTH, sizes=sizes,
+                      noise=self.noise[idx], power=self.power[idx])
+        exact = R.posterior(R.log_evidence(LL, logw))
+        self.assertEqual((len(answered), len(returned)), (2, 4))
+        for run, post in ((together, returned[1]), (alone, returned[3])):
+            np.testing.assert_allclose(run["gap"], np.abs(post - exact[run["at"]]).max(1), rtol=0, atol=1e-12)
+        for run, setup in zip((together, alone), own):
             for key in ("build_s", "setup_s", "sample_s", "posterior_s", "max_rhat", "divergences", "n_steps"):
                 self.assertTrue(np.isfinite(run[key]), key)
-            self.assertGreater(run["setup_s"], delay)
+            self.assertGreater(run["setup_s"] - setup, 1.5 * delay)          # both added seconds, not one
+            self.assertLess(run["posterior_s"] * run["fields"], delay / 4)     # and neither in posterior_s
         self.assertLess(alone["sample_s"], delay)
         self.assertEqual([p for p in how["threads"] if p["threads"] != 1], [])
+        # the cache held 5 files when NUTS began; the together run added 4, and the alone run's
+        # count could not be read before it began, so it is not recorded
+        self.assertEqual((how["cache_files"], together["cache_files"]), (5, 4))
+        self.assertTrue(math.isnan(alone["cache_files"]))
         tree = small_record(nuts=out, how={"nuts": how})
         lines = CR.table_nuts(tree)
-        self.assertTrue(any(line.startswith("| 2 | together | 20 |") for line in lines))
-        self.assertTrue(any(line.startswith("| 2 | alone, at T6 | 1 |") for line in lines))
+        self.assertTrue(any(line.startswith("| 2 | together | 20 |") and line.endswith(" | 4 |") for line in lines))
+        self.assertTrue(any(line.startswith("| 2 | alone, at T6 | 1 |") and line.endswith(" | - |") for line in lines))
+        self.assertIn("Files added to the Numba cache", lines[0])
         for place in places:
             self.assertTrue(any(line.startswith("| %s | " % place) for line in lines), place)
+        self.assertIn("Compiled: 2 measures together; compiled already: none. The cache's files are not recorded "
+                      "for 2 measures alone.", lines[-1])
+
+    def test_the_numba_cache_is_counted_where_pytensor_keeps_it(self):
+        """numba_cache_files counts the files of PyTensor's Numba cache, base_compiledir/numba,
+        and gives None where the folder cannot be read; the docstring says which flag moves it, and
+        a record whose runs do not say whether they compiled says so."""
+        from pytensor.link.numba import cache
+        folder = os.path.join(tempfile.mkdtemp(prefix="curve-test-"), "numba")
+        try:
+            os.makedirs(os.path.join(folder, "a folder"))
+            for i in range(3):
+                with open(os.path.join(folder, "f%d.nbc" % i), "w", encoding="ascii") as fh:
+                    fh.write("x")
+            with mock.patch.object(cache, "NUMBA_CACHE_PATH", folder):
+                self.assertEqual(CV.numba_cache_files(), 3)
+            with mock.patch.object(cache, "NUMBA_CACHE_PATH", os.path.join(folder, "missing")):
+                self.assertIsNone(CV.numba_cache_files())
+        finally:
+            shutil.rmtree(os.path.dirname(folder), ignore_errors=True)
+        from pytensor import config
+        self.assertEqual(str(cache.NUMBA_CACHE_PATH), os.path.join(str(config.base_compiledir), "numba"))
+        self.assertIn("base_compiledir, not compiledir", flat(CV.__doc__))
+        nuts = fake_nuts()
+        for k in nuts:
+            for run in nuts[k].values():
+                del run["cache_files"]
+        lines = CR.table_nuts(small_record(fake_times(small_study()["order"]), nuts, fake_how()))
+        self.assertTrue(lines[2].endswith(" | - |"), lines[2])
+        self.assertIn("Whether each run compiled its graph or found it compiled already is not recorded.", lines[-1])
 
 
 class Record(unittest.TestCase):
@@ -791,6 +977,7 @@ class Report(unittest.TestCase):
         text = flat("\n".join(lines))
         self.assertIn("against which every other row is read", text)
         self.assertIn("1 at 12 people", text)
+        self.assertEqual(lines[-1], CR.DATA_BOUND_NOTE)          # its tables answer the same fields
 
     def test_the_arms_and_anomalous_tables_say_what_they_hold(self):
         tree = small_record()
@@ -827,8 +1014,46 @@ class Report(unittest.TestCase):
             self.assertEqual(MAIN.main(["curve", "check", "--record", record]), 1)
         self.assertIn("table curve: not in the README", said.getvalue())
 
+    def test_the_speed_caption_and_notes_name_what_the_record_lacks(self):
+        """The speed figure's caption and the tables' notes read the counts and the threads from
+        the record: a record with a pool off one thread is never captioned single-threaded, a count
+        the record lacks is named as not recorded and never printed in a count's place, and the
+        caption stays within sixty words whatever the record lacks."""
+        full = fake_how()["speed"]
+        off = dict(full, threads=[{"library": "libblas-test.so", "api": "openblas", "threads": 4}])
+        lacking = {k: v for k, v in full.items() if k != "batches"}
+        for name, how in (("full", full), ("off", off), ("lacking", lacking), ("empty", {})):
+            with self.subTest(name):
+                caption, note = CR.speed_caption(how), CR.speed_note(how)
+                self.assertLessEqual(len(caption.split()), 60)
+                for text in (caption, note):
+                    self.assertNotIn("not recorded calls", text)
+                    self.assertNotIn("of not recorded", text)
+                self.assertEqual("one thread" in caption, name in ("full", "lacking"))
+                self.assertEqual("Every thread pool was at one thread" in note, name in ("full", "lacking"))
+                self.assertEqual(note.count("one thread"), 1 if name != "empty" else 0)
+        self.assertIn("one field alone (median of 30 calls)", CR.speed_caption(full))
+        self.assertNotIn("Not recorded", CR.speed_caption(full))
+        self.assertIn("Time to name one field, not single-threaded, as measures", CR.speed_caption(off))
+        self.assertIn("Not at one thread inside the limit: libblas-test.so at 4.", CR.speed_note(off))
+        self.assertIn("(points, median of its calls). Not recorded: batch calls.", CR.speed_caption(lacking))
+        self.assertIn("The number of batch calls is not recorded.", CR.speed_note(lacking))
+        self.assertIn("Not recorded: the threads, single calls, batch size and batch calls.", CR.speed_caption({}))
+        self.assertIn("The number of single calls, the batch's size, the number of batch calls and the number of "
+                      "columns are not recorded.", CR.speed_note({}))
+        note = CR.table_nuts(small_record(fake_times(small_study()["order"]), fake_nuts(), {"speed": full}))[-1]
+        self.assertIn("NUTS on the naming model, chains of draws after tuning steps, on one field at each place",
+                      note)
+        self.assertIn("The number of chains, the number of draws, the number of tuning steps, the seed, the bodies "
+                      "in a field, the number of columns and the field sampled alone are not recorded.", note)
+        self.assertNotIn("not recorded chains", note)
+
     def test_the_figures_are_the_same_files_when_drawn_twice(self):
-        tree = small_record(fake_times(small_study()["order"]), fake_nuts(), fake_how())
+        how = fake_how()
+        # neither the full run's counts (curve.SPEED_CALLS, SPEED_BATCH, SPEED_BATCHES: 30, 128, 5) nor
+        # --quick's (curve.QUICK_COUNTS: 3, 8, 2), which a caption could print without reading the record
+        how["speed"].update(calls=7, batch=16, batches=3)
+        tree = small_record(fake_times(small_study()["order"]), fake_nuts(), how)
         record = os.path.join(self.tmp, "curve.nc")
         REC.write(tree, record)
         tree = REC.read(record)
@@ -849,8 +1074,8 @@ class Report(unittest.TestCase):
                 self.assertLessEqual(len(fh.read().split()), 60, stem)
         with open(os.path.join(self.tmp, "a", "curve_speed.caption.txt"), encoding="ascii") as fh:
             caption = fh.read()
-        self.assertIn("median of 30 calls", caption)
-        self.assertIn("a batch of 128 (points, median of 5 calls)", caption)
+        self.assertIn("one field alone (median of 7 calls)", caption)
+        self.assertIn("a batch of 16 (points, median of 3 calls)", caption)
         with open(os.path.join(self.tmp, "a", "curve_data.csv"), encoding="ascii") as fh:
             printed = [r for r in csv.DictReader(fh) if r["rule"] == "printed"]
         self.assertEqual(sorted((r["panel"], r["subset"]) for r in printed),

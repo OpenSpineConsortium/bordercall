@@ -14,12 +14,15 @@ the CSV of every number drawn and its caption, under sixty words, and FIGURES.md
 and the code by sha256. Every number is about synthetic columns drawn from Panjabi's tables, never
 a patient.
 
-A precision with no answered field wrong, whose standard error is 0 however few were answered,
-is printed with its exact 95 per cent lower bound (curve.precision_lower). The data axis is read
-against the table as printed on the axis's own columns (curve's people-printed arm), never
+A precision with no answered field wrong, whose standard error is 0 however few were answered, is
+printed with its exact 95 per cent lower bound (curve.precision_lower; on the data axis on the
+count of the table that answered fewest, since its tables answer the same fields). The data axis is
+read against the table as printed on the axis's own columns (curve's people-printed arm), never
 against the nominal arm on all of its columns, and its rates carry both standard errors, the one
 clustered by column and the one that counts the tables too. How the times were taken, the calls,
-the batch, the threads and the machine, is read from the record's attributes, not assumed.
+the batch, the threads and the machine, is read from the record's attributes, not assumed, and what
+they do not give is named as not recorded, never printed in a count's place; whether a NUTS run's
+setup holds a compile is read from the files the run added to PyTensor's Numba cache.
 """
 from __future__ import annotations
 
@@ -69,10 +72,9 @@ CAPTIONS = {
         "named exactly; B, share named at posterior 0.99; C, share of those right, dotted at 99 per "
         "cent. Crosses, the seven SPINEPS measures. By the bodies in view; %d columns.",
     "curve_speed":
-        "Time to name one field, one thread, as measures are added: A, rule.py on the trapezoid's "
-        "nodes, one field alone (median of %s calls), by bodies in view; B, three bodies, each engine "
-        "with its table built once, alone (lines) and per field in a batch of %s (points, median of "
-        "%s calls).",
+        "Time to name one field%s, as measures are added: A, rule.py on the trapezoid's nodes, one "
+        "field alone (median of %s), by bodies in view; B, three bodies, each engine with its table "
+        "built once, alone (lines) and per field in a batch%s (points, median of %s).%s",
     "curve_data":
         "The rule's table re-estimated from P people, three bodies, on the same typical columns: A, "
         "share named exactly; B, share right of those named at 0.99, dotted at 99 per cent; the seven "
@@ -164,6 +166,8 @@ def precision_cell(ds, arm: str, phenotype: str, subset: str, width: int, ses: b
 BOUND_NOTE = ("Where no field named at 0.99 was wrong, the precision is followed by its exact two-sided 95 per cent "
               "lower bound (Clopper-Pearson, the answered fields counted as independent trials), in place of a "
               "standard error of 0.")
+DATA_BOUND_NOTE = (BOUND_NOTE + " Every table answers the same fields, so a row of several tables counts the "
+                   "fields of the one that answered fewest, not each field once for every table that answered it.")
 
 
 def bounded(ds, cells: Sequence[tuple]) -> bool:
@@ -348,7 +352,7 @@ def table_data(tree) -> List[str]:
             "fewer than the tables: %s; the table as printed is one fixed table, with no such term."
             % degrees_of_freedom(tree, people)]
     if bounded(ds, shown):
-        out += ["", BOUND_NOTE]
+        out += ["", DATA_BOUND_NOTE]
     return out
 
 
@@ -367,10 +371,14 @@ def table_anomalous(tree) -> List[str]:
         rows.append(cells)
     out = rows_md(["Spine", "Seven, 3 bodies: exact / within one", "Seven, 5 bodies", "Seven, 9 bodies",
                    "All 32, 3 bodies", "All 32, 5 bodies", "All 32, 9 bodies"], ["---"] + ["---:"] * 6, rows)
-    out += ["", "A field is judged by its own column's names (the rib reading: a thirteenth rib-bearing body is T13), "
-            "so a T13 or an L6 is never named right. Within one level is read on a half-step scale on which a T13 "
-            "sits half-way between T12 and L1 and an L6 one below L5, so on a T13 spine a T12 called L1, or an L1 "
-            "called T12, counts as within one level though the two are two bodies apart."]
+    out += ["", "A field is judged by its own column's names, so a T13 or an L6 is never named right. On a "
+            "spine with a thirteenth rib-bearing body those names are the rib reading, which calls the "
+            "thirteenth rib-bearing body T13 where the count from C2 calls it L1; with a rib on L1 or no rib on "
+            "T12 they are the count from C2, under which the rib-bearing L1 stays L1 and the ribless T12 stays "
+            "T12 where the rib reading calls them T13 and L1; on four- and six-lumbar spines the two agree. "
+            "Within one level is read on a half-step scale on which a T13 sits half-way between T12 and L1 and an "
+            "L6 one below L5, so on a T13 spine a T12 called L1, or an L1 called T12, counts as within one level "
+            "though the two are two bodies apart."]
     return out
 
 
@@ -381,9 +389,31 @@ def timed(ds) -> bool:
     return bool(np.isfinite(np.asarray(ds[list(ds.data_vars)[0]].values, float)).any())
 
 
-def counted(how: dict, key: str) -> str:
+def filled(how: dict, key: str, given: str, otherwise: str) -> str:
+    """`given` with the record's value of `key` in it, a count with its thousands marked, or
+    `otherwise` where the record gives none, so that a count the record lacks is never printed in
+    a count's place: unrecorded says so in a sentence of its own."""
     v = how.get(key)
-    return "{:,}".format(v) if isinstance(v, int) else "not recorded"
+    if isinstance(v, bool) or not isinstance(v, (int, str)) or v == "":
+        return otherwise
+    return given % ("{:,}".format(v) if isinstance(v, int) else v)
+
+
+def unrecorded(how: dict, names: Sequence[tuple]) -> str:
+    """A sentence naming each of `names`, (key, name), that the record does not give, or nothing
+    where it gives them all."""
+    missing = [name for key, name in names if not filled(how, key, "%s", "")]
+    if not missing:
+        return ""
+    text = joined(missing)
+    return "%s%s %s not recorded." % (text[0].upper(), text[1:], "is" if len(missing) == 1 else "are")
+
+
+def one_thread(how: dict) -> Optional[bool]:
+    """Whether the record finds every thread pool at one thread inside the limit; None where it
+    records no pool."""
+    found = how.get("threads")
+    return all(p["threads"] == 1 for p in found) if found else None
 
 
 def threads_note(how: dict) -> str:
@@ -408,6 +438,34 @@ def machine_note(how: dict) -> str:
                v.get("python"), v.get("numpy"), v.get("scipy"), v.get("pytensor"), v.get("pymc"), v.get("numba")))
 
 
+SPEED_COUNTS = (("calls", "the number of single calls"), ("batch", "the batch's size"),
+                ("batches", "the number of batch calls"), ("columns", "the number of columns"))
+
+
+def speed_note(how: dict) -> str:
+    """The speed table's note: how the times were taken, from the record's speed attribute."""
+    first = ("Milliseconds to name one field, each engine's table built beforehand: alone, the median of %s / per "
+             "field in a batch%s, the median of %s after one that warms them, on the fields of %s."
+             % (filled(how, "calls", "%s calls", "its calls"), filled(how, "batch", " of %s", ""),
+                filled(how, "batches", "%s such calls", "such calls"),
+                filled(how, "columns", "%s scoring columns", "the first scoring columns")))
+    return " ".join(s for s in (first, unrecorded(how, SPEED_COUNTS), threads_note(how), machine_note(how)) if s)
+
+
+def speed_caption(how: dict) -> str:
+    """The speed figure's caption, its counts and its threads read from the record's speed
+    attribute as the table's note reads them, and what the record does not give named in a
+    sentence of its own, in sixty words at most."""
+    threads = one_thread(how)
+    missing = ["the threads"] if threads is None else []
+    missing += [name for key, name in (("calls", "single calls"), ("batch", "batch size"), ("batches", "batch calls"))
+                if not filled(how, key, "%s", "")]
+    return CAPTIONS["curve_speed"] % ({True: ", one thread", False: ", not single-threaded", None: ""}[threads],
+                                      filled(how, "calls", "%s calls", "its calls"), filled(how, "batch", " of %s", ""),
+                                      filled(how, "batches", "%s calls", "its calls"),
+                                      " Not recorded: %s." % joined(missing) if missing else "")
+
+
 def table_speed(tree) -> List[str]:
     sp = tree["speed"].to_dataset()
     if not timed(sp):
@@ -424,11 +482,42 @@ def table_speed(tree) -> List[str]:
                 cells.append("%s / %s" % (ms(a), ms(b)))
             rows.append(cells)
     return rows_md(["Engine", "Bodies"] + ["%d measure%s" % (k, "" if k == 1 else "s") for k in ks],
-                   ["---", "---:"] + ["---:"] * len(ks), rows) + [
-        "", "Milliseconds to name one field, one thread, each engine's table built beforehand: alone, the median of %s "
-            "calls / per field in a batch of %s, the median of %s such calls after one that warms them, on the fields "
-            "of %s scoring columns. %s %s" % (counted(how, "calls"), counted(how, "batch"), counted(how, "batches"),
-                                             counted(how, "columns"), threads_note(how), machine_note(how))]
+                   ["---", "---:"] + ["---:"] * len(ks), rows) + ["", speed_note(how)]
+
+
+NUTS_COUNTS = (("chains", "the number of chains"), ("draws", "the number of draws"),
+               ("tune", "the number of tuning steps"), ("seed", "the seed"), ("width", "the bodies in a field"),
+               ("columns", "the number of columns"), ("alone", "the field sampled alone"))
+
+
+def cache_cell(r) -> str:
+    """The files one NUTS run added to PyTensor's Numba cache, "-" where the record has none."""
+    v = float(r["cache_files"]) if "cache_files" in r else float("nan")
+    return "%d" % int(v) if np.isfinite(v) else "-"
+
+
+def compiled_note(nu) -> str:
+    """Which NUTS runs compiled some of their graph and which found it compiled already, by the
+    files each added to PyTensor's Numba cache (curve.nuts_run's cache_files), as the record gives
+    them, or, for a record older than that count, that the record does not say."""
+    found = {"compiled": [], "already": [], "not recorded": []}
+    for k in nu["measures"].values.tolist():
+        for h in nu["how"].values.tolist():
+            r = nu.sel(measures=k, how=h)
+            if np.isfinite(float(r["fields"])):
+                cell = cache_cell(r)
+                found["not recorded" if cell == "-" else "compiled" if int(cell) > 0 else "already"].append(
+                    "%d measures %s" % (k, h))
+    if not found["compiled"] and not found["already"]:
+        return "Whether each run compiled its graph or found it compiled already is not recorded."
+    out = ("A run that added files to PyTensor's Numba cache (base_compiledir/numba) compiled some of its graph, "
+           "and its setup holds that compile; one that added none found its graph compiled already, by an earlier "
+           "run or process, and its setup is the shorter for it. Compiled: %s; compiled already: %s."
+           % (joined(found["compiled"]) if found["compiled"] else "none",
+              joined(found["already"]) if found["already"] else "none"))
+    if found["not recorded"]:
+        out += " The cache's files are not recorded for %s." % joined(found["not recorded"])
+    return out
 
 
 def table_nuts(tree) -> List[str]:
@@ -452,10 +541,11 @@ def table_nuts(tree) -> List[str]:
             rows.append([str(k), h if h == "together" else "%s, at %s" % (h, worst), "%d" % int(r["fields"]),
                          "%.2f" % float(r["build_s"]), "%.1f" % float(r["setup_s"]), "%.2f" % float(r["sample_s"]),
                          "%.2f" % float(r["posterior_s"]), "%.1e at %s" % (float(r["max_gap"]), worst),
-                         "%.2f" % float(r["max_rhat"]), "%d" % int(r["divergences"])])
+                         "%.2f" % float(r["max_rhat"]), "%d" % int(r["divergences"]), cache_cell(r)])
     out = rows_md(["Measures", "Sampled", "Fields", "Build, s a call", "Setup, s a call", "NUTS's loop, s a field",
-                   "Posterior, s a field", "Largest gap from the exact posterior", "Largest R-hat", "Divergences"],
-                  ["---:", "---", "---:", "---:", "---:", "---:", "---:", "---:", "---:", "---:"], rows)
+                   "Posterior, s a field", "Largest gap from the exact posterior", "Largest R-hat", "Divergences",
+                   "Files added to the Numba cache"],
+                  ["---:", "---", "---:", "---:", "---:", "---:", "---:", "---:", "---:", "---:", "---:"], rows)
     together = nu.sel(how="together")
     per = []
     for f, place in enumerate(places):
@@ -465,16 +555,20 @@ def table_nuts(tree) -> List[str]:
             cells.append("-" if not np.isfinite(g) else "%.1e (%.2f)" % (g, r))
         per.append(cells)
     out += [""] + rows_md(["Place"] + ["%d measures: gap (R-hat)" % k for k in ks], ["---"] + ["---:"] * len(ks), per)
-    out += ["", "NUTS on the naming model, %s chains of %s draws after %s tuning steps, seed %s, on one field of %s bodies "
-            "at each place, the i-th place's from the i-th of %s scoring columns, sampled together in one model, and on "
-            "the field at %s alone. The setup is a call's, whatever its fields: compiling the model's log density and "
-            "gradient, which every new set of fields pays again, since the observed values are constants of the "
-            "compiled graph, and which a compiled graph already on disk shortens. The loop is NUTS's own, tuning and "
-            "draws; the posterior is the second call of the average over the draws, the first having compiled it. The "
-            "gap is the largest difference over places between NUTS's posterior and the exact rule's, below for each "
-            "field sampled together. %s" % (counted(how, "chains"), counted(how, "draws"), counted(how, "tune"),
-                                           counted(how, "seed"), counted(how, "width"), counted(how, "columns"),
-                                           how.get("alone", "not recorded"), threads_note(how))]
+    first = ("NUTS on the naming model, %s of %s after %s, %son one field%s at each place, the i-th place's from the "
+             "i-th %s, sampled together in one model, and on %s alone."
+             % (filled(how, "chains", "%s chains", "chains"), filled(how, "draws", "%s draws", "draws"),
+                filled(how, "tune", "%s tuning steps", "tuning steps"), filled(how, "seed", "seed %s, ", ""),
+                filled(how, "width", " of %s bodies", ""), filled(how, "columns", "of %s scoring columns", "scoring column"),
+                filled(how, "alone", "the field at %s", "one of them")))
+    rest = ("The setup is a call's, whatever its fields: compiling the model's log density and gradient, which every "
+            "new set of fields pays again, since the observed values are constants of the compiled graph, and which a "
+            "compiled graph already on disk shortens. The loop is NUTS's own, tuning and draws; the posterior is the "
+            "second call of the average over the draws, the first having compiled it. The gap is the largest "
+            "difference over places between NUTS's posterior and the exact rule's, below for each field sampled "
+            "together.")
+    out += ["", " ".join(s for s in (first, unrecorded(how, NUTS_COUNTS), rest, compiled_note(nu), threads_note(how))
+                         if s)]
     return out
 
 
@@ -647,9 +741,7 @@ def fig_speed(tree, outdir: str) -> List[str]:
     a.legend(loc="upper left")
     b.legend(loc="lower right")
     name = "curve_speed"
-    how = attr_json(tree, "speed")
-    caption = CAPTIONS[name] % (counted(how, "calls"), counted(how, "batch"), counted(how, "batches"))
-    return save(fig, outdir, name, caption) + [write_csv(outdir, name, rows)]
+    return save(fig, outdir, name, speed_caption(attr_json(tree, "speed"))) + [write_csv(outdir, name, rows)]
 
 
 def fig_data(tree, outdir: str) -> List[str]:

@@ -261,9 +261,9 @@ class ExactRule:
         return self.mu.shape[1]
 
     def prepare(self, hyp: Hypotheses) -> np.ndarray:
-        """The table's blocks under these hypotheses, (measures, 3 bodies, 4 x nodes x hypotheses),
-        built once, as a service builds rule.table_blocks once for a pattern of offsets; evaluate
-        given them computes only the fields' side."""
+        """The table's blocks under these hypotheses, (measures, 3 x bodies, 4 x nodes x
+        hypotheses), built once, as a service builds rule.table_blocks once for a pattern of
+        offsets; evaluate given them computes only the fields' side."""
         if hyp.n_levels != self.n_levels:
             raise ValueError("the hypotheses are for %d levels, the table has %d" % (hyp.n_levels, self.n_levels))
         idx = np.ascontiguousarray(hyp.levels, np.int64)
