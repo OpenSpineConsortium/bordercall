@@ -18,7 +18,8 @@ Everything the count already defines is taken from holdings/count_enhance_pet.py
 again, so that the facts and the count cannot drift: the label schemes, the head-foot axis and
 its slice-centre convention, the slab reader, the contact tally with its reach and its box, the
 rule that a tie goes to the head-most label, the study table reader, and the repair record with
-its hash check. The three repaired masks are read as extra rows keyed 1134r, 1283r and 1347r:
+its hash check. The slice centres alone are taken before the count's rounding (slice_centres
+says why). The three repaired masks are read as extra rows keyed 1134r, 1283r and 1347r:
 the repaired vertebrae beside the published ribs.
 
 A mask is read from its file once, a slab at a time, and held as its labelled voxels alone
@@ -48,7 +49,8 @@ null, null and false where the two masks lie on different grids, which ribs_mask
 
 A run writes each row as it finishes to OUT.jsonl.partial and the sorted rows to OUT.jsonl at the
 end, so a run cut short carries on from the rows it wrote, each reused only where its masks'
-hashes and its study table and listing cells are still the same.
+hashes and its study table and listing cells are still the same, and only by the same code: the
+partial file's first line names the code that wrote it (code_digest).
 """
 from __future__ import annotations
 
@@ -64,12 +66,12 @@ import numpy as np
 from scipy import ndimage
 from scipy.spatial import cKDTree
 
+from holdings import count_enhance_pet
 from holdings.count_enhance_pet import (
     L1, L6, MASK_ENDINGS, MAX_WORKERS, REPAIR_RECORD, REPAIRED, RIBS_PER_SIDE, RIGHT_RIB_BASE,
     SACRUM, TOP_RIB_LABEL, TOP_VERTEBRA_LABEL, UNKNOWN_SITE, RepairRecordError, file_sha256,
-    head_foot_axis, label_extents, mask_files, mask_path, meeting, read_ids, read_sha256sums,
-    repaired_mask, rib_contacts, same_grid, sheet_rows, short_site, slice_counts, storage_slabs,
-    study_id)
+    head_foot_axis, mask_files, mask_path, meeting, read_ids, read_sha256sums, repaired_mask,
+    rib_contacts, same_grid, sheet_rows, short_site, slice_counts, storage_slabs, study_id)
 
 # Rows carry mm to a tenth, below any voxel of the release; the grid to six decimals, enough to
 # tell two grids apart at count_enhance_pet's GRID_TOLERANCE_MM; shares to four.
@@ -107,11 +109,13 @@ DISTANCE_PAIRS = NEIGHBOUR_PAIRS + SACRUM_PAIRS
 SCANNER_COLUMNS = (("manufacturer", "Manufacturer"), ("model", "Model"), ("kvp", "kVp"),
                    ("kernel", "Convolutional Kernel"), ("pixel_spacing", "Pixel Spacing"),
                    ("slice_thickness", "Slice Thickness"))
-STUDY_COLUMN = "A"
+STUDY_COLUMN, SITE_COLUMN = "A", "B"
 
 # A repaired mask's row is its study's id with this ending, so it sorts beside the published row.
 REPAIRED_ENDING = "r"
 PARTIAL_ENDING = ".partial"
+# The key of the partial file's first line, which names the code that wrote the file's rows.
+CODE_KEY = "code"
 
 
 # ---------------------------------------------------------------- numbers
@@ -237,17 +241,34 @@ def world_centroid(points: np.ndarray, affine: np.ndarray) -> list:
     return rounded_list(affine[:3, :3] @ centre + affine[:3, 3], MM_DECIMALS)
 
 
+def slice_centres(present: np.ndarray, origin: float, step: float) -> dict:
+    """Each label's foot-most and head-most slice centre in head-foot mm, as
+    count_enhance_pet.label_extents places them, but not rounded.
+
+    label_extents rounds the centres to 0.001 mm for the count's own output. Rounded again to
+    0.1 mm, a centre within 0.0005 mm of a twentieth can go the wrong way: -118.0505 reads -118.050
+    and then -118.0, where it is -118.1. 38 of the release's 86,100 extents did so, all in
+    Careggi studies on 2.81 mm slices, whose single-precision grids put centres a few
+    ten-thousandths of a millimetre off a twentieth, so a row rounds each centre once."""
+    out = {}
+    for label in range(1, present.shape[1]):
+        rows = np.flatnonzero(present[:, label])
+        if len(rows):
+            out[label] = sorted([float(origin + step * rows[0]), float(origin + step * rows[-1])])
+    return out
+
+
 def label_facts(voxels: LabelledVoxels, counts: np.ndarray, affine: np.ndarray, axis: int) -> dict:
     """Every vertebra label with a voxel: its voxels, its head-most and foot-most slice centres in
     head-foot mm (count_enhance_pet's extents), its centroid, and its pieces."""
     totals = counts.sum(axis=0)
-    extents = label_extents(counts > 0, float(affine[2, 3]), float(affine[2, axis]))
+    centres = slice_centres(counts > 0, float(affine[2, 3]), float(affine[2, axis]))
     out = {}
     for label in range(1, TOP_VERTEBRA_LABEL + 1):
         if not totals[label]:
             continue
         points = voxels.label_points(label)
-        bottom, top, _ = extents[str(label)]
+        bottom, top = centres[label]
         pieces, largest = pieces_of(points)
         out[str(label)] = {"voxels": int(totals[label]), "top_mm": rounded(top, MM_DECIMALS),
                            "bottom_mm": rounded(bottom, MM_DECIMALS),
@@ -356,7 +377,7 @@ def table_rows(path: str) -> list:
 
 def study_sites(rows: list) -> dict:
     """The short site of every study, as count_enhance_pet.sites_step reads column B."""
-    return {(cells.get(STUDY_COLUMN) or "").strip(): short_site((cells.get("B") or "").strip())
+    return {(cells.get(STUDY_COLUMN) or "").strip(): short_site((cells.get(SITE_COLUMN) or "").strip())
             for cells in rows[1:] if (cells.get(STUDY_COLUMN) or "").strip()}
 
 
@@ -455,6 +476,32 @@ def fits(row: dict, job) -> bool:
             and ribs_mask.get("sha256") == file_sha256(rib_path))
 
 
+def code_digest() -> str:
+    """The hashes of this module and of the count, the code every row is computed by.
+
+    fits sees a row's files and cells, never the code that read them, so a run resumed after a
+    fix would keep rows the fixed code no longer writes; the partial file's first line names the
+    code, and a partial file other code wrote is not read (partial_code)."""
+    return file_sha256(os.path.abspath(__file__)) + file_sha256(os.path.abspath(count_enhance_pet.__file__))
+
+
+def parsed_line(line: str):
+    """A line of the partial file as JSON, or None for a line a run cut short."""
+    try:
+        return json.loads(line)
+    except ValueError:
+        return None
+
+
+def partial_code(partial: str):
+    """The code digest the partial file's first line names, or None where it names none."""
+    if not os.path.exists(partial):
+        return None
+    with open(partial) as handle:
+        first = parsed_line(handle.readline())
+    return first.get(CODE_KEY) if isinstance(first, dict) else None
+
+
 def resumed_rows(partial: str, jobs: list) -> dict:
     """The rows an earlier run of the same jobs wrote that still stand; a line cut short is skipped."""
     if not os.path.exists(partial):
@@ -463,14 +510,27 @@ def resumed_rows(partial: str, jobs: list) -> dict:
     rows = {}
     with open(partial) as handle:
         for line in handle:
-            try:
-                row = json.loads(line)
-            except ValueError:
-                continue
-            job = by_id.get(row.get("id"))
+            row = parsed_line(line)
+            job = by_id.get(row.get("id")) if isinstance(row, dict) else None
             if job is not None and fits(row, job):
                 rows[row["id"]] = row
     return rows
+
+
+def open_partial(partial: str, code: str, resumed: bool):
+    """The partial file to append rows to: the one an earlier run of the same code left, its line
+    cut short ended first so the next row starts a line of its own, or a new one naming the code."""
+    if resumed:
+        with open(partial, "rb") as handle:
+            handle.seek(-1, os.SEEK_END)
+            ended = handle.read(1) == b"\n"
+        handle = open(partial, "a", newline="\n")
+        if not ended:
+            handle.write("\n")
+        return handle
+    handle = open(partial, "w", newline="\n")
+    handle.write(json.dumps({CODE_KEY: code}) + "\n")
+    return handle
 
 
 def run_unordered(function, jobs: list, workers: int):
@@ -501,12 +561,13 @@ def write_rows(rows: dict, out: str) -> None:
 def facts_step(maskdir: str, ribdir: str, xlsx: str, out: str, listing=None, record: str = REPAIR_RECORD,
                workers: int = FACTS_WORKERS, ids_file=None) -> dict:
     jobs = study_jobs(maskdir, ribdir, xlsx, listing, record, ids_file)
-    partial = out + PARTIAL_ENDING
-    rows = resumed_rows(partial, jobs)
+    partial, code = out + PARTIAL_ENDING, code_digest()
+    resumed = partial_code(partial) == code
+    rows = resumed_rows(partial, jobs) if resumed else {}
     todo = largest_first([job for job in jobs if job[0] not in rows])
     os.makedirs(os.path.dirname(os.path.abspath(out)), exist_ok=True)
     started = time.time()
-    with open(partial, "a", newline="\n") as handle:
+    with open_partial(partial, code, resumed) as handle:
         for done, (row_id, row) in enumerate(run_unordered(study_facts, todo, workers), 1):
             handle.write(row_line(row))
             handle.flush()

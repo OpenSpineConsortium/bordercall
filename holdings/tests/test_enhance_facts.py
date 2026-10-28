@@ -130,11 +130,57 @@ class Labels(Folder):
         mask = np.zeros((16, 16, 16), np.uint8)
         mask[2:6, 2:6, 2:6] = L4             # 64 voxels
         mask[10:12, 10:12, 2:6] = L4         # 16 more, apart
+        mask[14, 14, 14] = L4                # and one more, apart: the share is 64 / 81
         mask[2:4, 10:12, 10:12] = L5         # two cubes of 8 meeting only at a corner: one piece
         mask[4:6, 12:14, 12:14] = L5
         labels = self.facts(mask)["labels"]
-        self.assertEqual((labels[str(L4)]["components"], labels[str(L4)]["largest_share"]), (2, 0.8))
+        self.assertEqual((labels[str(L4)]["components"], labels[str(L4)]["largest_share"]), (3, 0.7901))
         self.assertEqual((labels[str(L5)]["components"], labels[str(L5)]["largest_share"]), (1, 1.0))
+
+    def test_a_slice_centre_is_rounded_once(self):
+        mask = np.zeros((6, 6, 4), np.uint8)
+        mask[1:4, 1:4, 0] = L4
+        affine = T.affine_for()
+        affine[2, 3] = -118.0505             # the file keeps it as -118.05049896...
+        fact = self.facts(mask, affine=affine)["labels"][str(L4)]
+        # Rounded to 0.001 mm first, as the count writes it, the centre would read -118.0.
+        self.assertEqual((fact["bottom_mm"], fact["top_mm"]), (-118.1, -118.1))
+
+    def test_the_centroid_is_in_the_world_of_a_turned_grid(self):
+        mask = T.column(T.STRICT)
+        turned = np.array([[0.0, -0.9, 0.0, 40.02], [0.7, 0.0, 0.0, -20.03],
+                           [0.0, 0.0, T.SLICE_MM, T.ORIGIN_MM], [0.0, 0.0, 0.0, 1.0]])
+        row = self.facts(mask, affine=turned)
+        written = nib.load(os.path.join(self.tmp.name, "masks", "0001.nii.gz")).affine   # in single precision
+        self.assertEqual(row["mask"]["axcodes"], "ALS")
+        for label in (T.C2, L4, SACRUM):
+            centre = nib.affines.apply_affine(written, np.argwhere(mask == label)).mean(0)
+            self.assertEqual(row["labels"][str(label)]["centroid_mm"], [round(float(x), 1) for x in centre])
+
+    def test_a_grid_whose_head_foot_axis_is_stored_first_reads_the_same_spine(self):
+        mask, ribs = column_and_ribs()
+        upright = self.facts(mask, ribs)
+        stored = np.zeros((4, 4))
+        stored[2, 0], stored[1, 1], stored[0, 2] = T.SLICE_MM, 0.8, 0.8   # the same world as upright
+        stored[2, 3], stored[3, 3] = T.ORIGIN_MM, 1.0
+        first = self.facts(np.ascontiguousarray(mask.transpose(2, 1, 0)), np.ascontiguousarray(ribs.transpose(2, 1, 0)),
+                           affine=stored, sid="0002")
+        self.assertEqual(first["mask"]["head_foot_axis"], 0)
+        for key in ("labels", "ribs", "distances_mm", "sternum_voxels", "outside_scheme_voxels"):
+            self.assertEqual(first[key], upright[key], key)
+
+    def test_voxels_outside_either_scheme(self):
+        vert = np.zeros((8, 8, 8), np.int16)
+        vert[1:3, 1:3, 1:3] = L4
+        vert[5, 5, 5:7] = 29                 # past the sacrum, the vertebra scheme's top label
+        vert[6, 6, 6] = -1
+        vert[0, 7, 0:2] = 26                 # a hip, in the scheme
+        rib = np.zeros((8, 8, 8), np.uint8)
+        rib[7, 0, 0:2] = C.TOP_RIB_LABEL     # the sternum, in the scheme
+        rib[7, 7, 7] = C.TOP_RIB_LABEL + 1
+        row = self.facts(vert, rib, affine=np.eye(4))
+        self.assertEqual(row["outside_scheme_voxels"], {"vertebrae": 3, "ribs": 1})
+        self.assertEqual(row["sternum_voxels"], 2)
 
 
 class Distances(Folder):
@@ -181,6 +227,15 @@ class RibLadder(Folder):
             self.assertEqual(rib["components"], 1)
         self.assertEqual(row["sternum_voxels"], 0)
         self.assertTrue(row["ribs_mask"]["same_grid"])
+
+    def test_a_thirteenth_rib_on_each_side_leads_on_the_label_l1(self):
+        def plan(mask):
+            return {**T.own_plan(mask), ("left", 13): T.L1, ("right", 13): T.L1}
+        mask, ribs = column_and_ribs(plan)
+        row = self.facts(mask, ribs)
+        for label in (C.RIBS_PER_SIDE, F.TOP_RIB):          # left rib 13 and right rib 13
+            self.assertEqual(row["ribs"][str(label)]["lead"], T.L1)
+            self.assertEqual(row["ribs"][str(label)]["voxels"], int((ribs == label).sum()))
 
     def test_a_ladder_one_level_up_leads_one_label_up(self):
         def plan(mask):
@@ -345,19 +400,42 @@ class Rows(unittest.TestCase):
         with open(self.out, "rb") as first, open(again, "rb") as second:
             self.assertEqual(first.read(), second.read())
 
+    def resumed(self, name, partial_text):
+        """The rows of a run that finds `partial_text` left by an earlier one."""
+        out = os.path.join(self.tmp.name, "out", name)
+        os.makedirs(os.path.dirname(out), exist_ok=True)
+        with open(out + F.PARTIAL_ENDING, "w") as handle:
+            handle.write(partial_text)
+        self.run_facts(name)
+        with open(out) as handle:
+            return {row["id"]: row for row in map(json.loads, handle)}
+
     def test_a_run_cut_short_carries_on_from_the_rows_that_still_stand(self):
-        out = os.path.join(self.tmp.name, "out", "resumed.jsonl")
         kept = dict(self.rows["0001"], sternum_voxels=-1)                       # marked, to be seen reused
         stale = dict(self.rows["0002"], sternum_voxels=-1,
                      mask=dict(self.rows["0002"]["mask"], sha256="0" * 64))  # another mask's row
-        with open(out + F.PARTIAL_ENDING, "w") as handle:
-            handle.write(F.row_line(kept) + F.row_line(stale) + '{"id": "1134", "cut')
-        self.run_facts("resumed.jsonl")
-        with open(out) as handle:
-            rows = {row["id"]: row for row in map(json.loads, handle)}
+        moved = dict(self.rows["1134"], sternum_voxels=-1, site="Careggi")      # the table has changed
+        header = json.dumps({F.CODE_KEY: F.code_digest()}) + "\n"
+        rows = self.resumed("resumed.jsonl", header + F.row_line(kept) + F.row_line(stale) + F.row_line(moved)
+                            + '{"id": "1134r", "cut')
         self.assertEqual(rows["0001"]["sternum_voxels"], -1)
-        self.assertEqual(rows["0002"], self.rows["0002"])
-        self.assertEqual(rows["1134"], self.rows["1134"])
+        for sid in ("0002", "1134", "1134r"):
+            self.assertEqual(rows[sid], self.rows[sid])
+
+    def test_rows_other_code_wrote_are_computed_again(self):
+        kept = F.row_line(dict(self.rows["0001"], sternum_voxels=-1))
+        for header in (json.dumps({F.CODE_KEY: "another version"}) + "\n", ""):
+            rows = self.resumed("other-code.jsonl", header + kept)
+            self.assertEqual(rows, self.rows)
+
+    def test_a_line_cut_short_is_ended_before_the_next_row(self):
+        partial = os.path.join(self.tmp.name, "cut.partial")
+        with open(partial, "w") as handle:
+            handle.write(json.dumps({F.CODE_KEY: "x"}) + '\n{"id": "0001", "cut')
+        with F.open_partial(partial, "x", resumed=True) as handle:
+            handle.write(F.row_line(self.rows["0002"]))
+        with open(partial) as handle:
+            self.assertEqual(handle.read().splitlines(keepends=True)[-1], F.row_line(self.rows["0002"]))
 
     def test_ids_limit_the_run_and_a_record_is_read_only_when_needed(self):
         ids = os.path.join(self.tmp.name, "ids.json")
