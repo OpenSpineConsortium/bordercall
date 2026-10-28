@@ -422,20 +422,47 @@ def peak_rss_mb():
     return -1
 
 
-def done_ids(partial):
+def partial_lines(partial):
+    """Each study's last whole row in a partial file, as written. A run cut short may leave its last
+    line unfinished; such a line does not parse and is skipped, as the first reading skips it."""
+    lines = {}
     if not os.path.exists(partial):
-        return set()
+        return lines
     with open(partial) as handle:
-        return {json.loads(line)["id"] for line in handle if line.strip()}
+        for line in handle:
+            try:
+                row = json.loads(line)
+            except ValueError:
+                continue
+            if isinstance(row, dict) and "id" in row:
+                lines[row["id"]] = (row, line.strip())
+    return lines
+
+
+def done_ids(partial):
+    """The studies an earlier run read whole; a study whose row records an error is read again."""
+    return {sid for sid, (row, _) in partial_lines(partial).items() if "error" not in row}
+
+
+def end_last_line(partial):
+    """Close a line a cut-short run left unfinished, so the next row starts a line of its own."""
+    if not os.path.exists(partial) or not os.path.getsize(partial):
+        return
+    with open(partial, "rb") as handle:
+        handle.seek(-1, os.SEEK_END)
+        ended = handle.read(1) == b"\n"
+    if not ended:
+        with open(partial, "a") as handle:
+            handle.write("\n")
 
 
 def finish(partial, output):
-    with open(partial) as handle:
-        rows = {json.loads(line)["id"]: line.strip() for line in handle if line.strip()}
+    """Write each study's last row, sorted by id; return the rows and how many record an error."""
+    lines = partial_lines(partial)
     with open(output, "w") as handle:
-        for study_id in sorted(rows):
-            handle.write(rows[study_id] + "\n")
-    return len(rows)
+        for study_id in sorted(lines):
+            handle.write(lines[study_id][1] + "\n")
+    return len(lines), sum(1 for row, _ in lines.values() if "error" in row)
 
 
 # ---------------------------------------------------------------- the comparison
@@ -468,11 +495,31 @@ def distances_agree(first, second):
     return set(first) == set(second) and all(abs(first[k] - second[k]) <= DISTANCE_STEP_MM + 1e-9 for k in first)
 
 
+def contacts_moved(a, b):
+    """For each rib whose two tallies differ, [counts moved, counts the second reading's audit lets
+    move]: a voxel equally near two labels moves one count from one label to the other, two in all,
+    and a voxel at the contact limit may fall on either side of it, one."""
+    audits = b.get("b_audit", {}).get("ribs", {})
+    moved = {}
+    for rib in sorted(set(a.get("ribs", {})) | set(b.get("ribs", {}))):
+        first = a.get("ribs", {}).get(rib, {}).get("contacts") or {}
+        second = b.get("ribs", {}).get(rib, {}).get("contacts") or {}
+        if first == second:
+            continue
+        audit = audits.get(rib, {})
+        allowed = 2 * audit.get("equidistant_voxels", 0) + audit.get("at_limit_voxels", 0) \
+            + audit.get("within_1e-4_mm_of_limit", 0)
+        moved[rib] = [sum(abs(first.get(k, 0) - second.get(k, 0)) for k in set(first) | set(second)), allowed]
+    return moved
+
+
 def compare_row(a, b):
     """The fields on which two readings of one study differ."""
+    moved = contacts_moved(a, b)
     checks = (("label_voxels", label_voxels(a) == label_voxels(b)),
               ("rib_voxels", rib_field(a, "voxels") == rib_field(b, "voxels")),
-              ("rib_contacts", rib_field(a, "contacts") == rib_field(b, "contacts")),
+              ("rib_contacts", not moved),
+              ("rib_contacts_unexplained", all(n <= allowed for n, allowed in moved.values())),
               ("rib_leads", leads(a) == leads(b)),
               ("sternum_voxels", a.get("sternum_voxels") == b.get("sternum_voxels")),
               ("distances_mm", distances_agree(a.get("distances_mm", {}), b.get("distances_mm", {}))))
@@ -485,21 +532,25 @@ def compare(path_a, path_b):
     lead is a voxel two spine labels lie at exactly the same distance from. Both readings give such
     a voxel the label scipy's distance transform names, each over its own box, and scipy's choice
     among equally near voxels can differ between boxes; this reading takes the head-most label only
-    where its box passes EDT_VOXEL_CAP (b_audit's method offsets_only)."""
+    where its box passes EDT_VOXEL_CAP (b_audit's method offsets_only). A tally may differ only by as
+    many counts as this reading's audit lets move (contacts_moved, kept in the result for every study
+    whose tallies differ); a larger move is rib_contacts_unexplained, a fault."""
     rows_a, rows_b = read_rows(path_a), read_rows(path_b)
     common = sorted(set(rows_a) & set(rows_b))
     differ = {sid: compare_row(rows_a[sid], rows_b[sid]) for sid in common}
     fields = sorted({field for names in differ.values() for field in names})
+    moved = {sid: contacts_moved(rows_a[sid], rows_b[sid]) for sid in common if "rib_contacts" in differ[sid]}
     return {"a": os.path.basename(path_a), "b": os.path.basename(path_b),
             "only_a": sorted(set(rows_a) - set(rows_b)), "only_b": sorted(set(rows_b) - set(rows_a)),
             "studies": len(common), "agree": sum(1 for names in differ.values() if not names),
-            "disagree_by_field": {f: sorted(s for s, names in differ.items() if f in names) for f in fields}}
+            "disagree_by_field": {f: sorted(s for s, names in differ.items() if f in names) for f in fields},
+            "contacts_moved": moved}
 
 
 def holds(result):
     """Whether the two readings agree as the dataset needs: every study in both, but the first
     reading's repaired rows (id ending in r), which this reading never makes, and no field but a
-    contact count differing (compare says why a count may)."""
+    contact count differing, and that only as far as the audit allows (compare says why a count may)."""
     return (not result["only_b"] and all(sid.endswith("r") for sid in result["only_a"])
             and set(result["disagree_by_field"]) <= set(ALLOWED_TO_DIFFER))
 
@@ -533,6 +584,7 @@ def main():
     if args.only:
         ids = [i for i in ids if i in set(args.only)]
     partial = args.out + ".partial"
+    end_last_line(partial)
     todo = [i for i in ids if i not in done_ids(partial)]
     print(f"{len(ids)} studies, {len(todo)} to do, {args.workers} workers", flush=True)
     started = time.time()
@@ -544,7 +596,12 @@ def main():
                 record(pool.imap_unordered(safe_study, jobs), sink, started)
         else:
             record(map(safe_study, jobs), sink, started)
-    print(f"rows {finish(partial, args.out)} in {time.time() - started:.0f} s", flush=True)
+    rows, errors = finish(partial, args.out)
+    print(f"rows {rows} in {time.time() - started:.0f} s", flush=True)
+    if errors:
+        print(f"{errors} studies could not be read; a rerun reads them again", flush=True)
+        return 1
+    return 0
 
 
 def record(results, sink, started):

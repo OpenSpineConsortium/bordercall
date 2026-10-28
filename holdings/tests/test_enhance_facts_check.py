@@ -98,17 +98,30 @@ class Compare(unittest.TestCase):
         other["ribs"]["12"].update(contacts={"18": 4}, lead=18)
         lone = dict(self.ROW, id="0002")
         result = self.compared([self.ROW, lone], [other])
-        self.assertEqual(result["disagree_by_field"], {"rib_contacts": ["0001"], "rib_leads": ["0001"]})
+        self.assertEqual(result["disagree_by_field"], {"rib_contacts": ["0001"], "rib_contacts_unexplained": ["0001"],
+                                                       "rib_leads": ["0001"]})
         self.assertEqual(result["only_a"], ["0002"])
         self.assertFalse(fb.holds(result))
 
-    def test_a_contact_count_alone_and_a_repaired_row_still_hold(self):
+    def test_a_contact_count_the_audit_explains_and_a_repaired_row_still_hold(self):
         other = json.loads(json.dumps(self.ROW))
         other["ribs"]["12"]["contacts"] = {"19": 3}
+        other["b_audit"] = {"ribs": {"12": {"equidistant_voxels": 0, "at_limit_voxels": 1}}}
         repaired = dict(self.ROW, id="0001r")
         result = self.compared([self.ROW, repaired], [other])
         self.assertEqual(result["disagree_by_field"], {"rib_contacts": ["0001"]})
+        self.assertEqual(result["contacts_moved"], {"0001": {"12": [1, 1]}})
         self.assertTrue(fb.holds(result))
+
+    def test_a_tie_voxel_moves_two_counts_and_a_larger_move_is_a_fault(self):
+        other = json.loads(json.dumps(self.ROW))
+        other["ribs"]["12"]["contacts"] = {"19": 3, "20": 1}
+        other["b_audit"] = {"ribs": {"12": {"equidistant_voxels": 1, "at_limit_voxels": 0}}}
+        self.assertTrue(fb.holds(self.compared([self.ROW], [other])))
+        other["ribs"]["12"]["contacts"] = {"19": 2, "20": 2}
+        result = self.compared([self.ROW], [other])
+        self.assertEqual(result["disagree_by_field"], {"rib_contacts": ["0001"], "rib_contacts_unexplained": ["0001"]})
+        self.assertFalse(fb.holds(result))
 
     def test_the_command_exits_by_whether_the_comparison_holds(self):
         folder = tempfile.mkdtemp()
@@ -124,6 +137,43 @@ class Compare(unittest.TestCase):
         self.assertEqual(fb.compare_main([paths["a"], paths["other"], out]), 1)
         with open(out) as handle:
             self.assertFalse(json.load(handle)["holds"])
+
+
+class Resume(unittest.TestCase):
+    """A requeued run reads the partial rows an earlier run left, whatever the cut left of them."""
+
+    def partial(self, text):
+        path = os.path.join(tempfile.mkdtemp(), "b.jsonl.partial")
+        with open(path, "w") as handle:
+            handle.write(text)
+        return path
+
+    def test_a_line_cut_short_is_skipped_and_closed_before_the_next_row(self):
+        path = self.partial('{"id": "0001", "labels": {}}\n{"id": "0002", "lab')
+        self.assertEqual(fb.done_ids(path), {"0001"})
+        fb.end_last_line(path)
+        with open(path, "a") as handle:
+            handle.write('{"id": "0002", "labels": {}}\n')
+        self.assertEqual(fb.done_ids(path), {"0001", "0002"})
+        out = path[:-len(".partial")]
+        self.assertEqual(fb.finish(path, out), (2, 0))
+        with open(out) as handle:
+            self.assertEqual([json.loads(line)["id"] for line in handle], ["0001", "0002"])
+
+    def test_a_study_that_failed_is_read_again_and_its_last_row_stands(self):
+        path = self.partial('{"id": "0001", "error": "MemoryError: "}\n')
+        self.assertEqual(fb.done_ids(path), set())
+        self.assertEqual(fb.finish(path, path + ".out"), (1, 1))
+        with open(path, "a") as handle:
+            handle.write('{"id": "0001", "labels": {}}\n')
+        self.assertEqual(fb.done_ids(path), {"0001"})
+        self.assertEqual(fb.finish(path, path + ".out"), (1, 0))
+
+    def test_closing_a_whole_file_adds_nothing(self):
+        path = self.partial('{"id": "0001"}\n')
+        fb.end_last_line(path)
+        with open(path) as handle:
+            self.assertEqual(handle.read(), '{"id": "0001"}\n')
 
 
 if __name__ == "__main__":
