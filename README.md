@@ -263,6 +263,7 @@ The first candidates are already in the table: the pedicle widths and heights. T
 - `README.md`: this page.
 - `TODO.md`: the future work.
 - `schwingcheck/`: the exact rule lifted out of the archive as a package on data shaped for PyMC (TODO.md item P step c): the checked table of the four papers as one long CSV written from the provenance record, the twelve specimens of the thoracic paper's Table 1, the rule vectorised with gaps and missing values, the generator, the scores and every result as ArviZ InferenceData; and the rule and the generator rewritten in PyMC (step d): the naming model, which sums the level out exactly and samples only the patient's size, the rule as one compiled PyTensor function, the fixed-level baseline, the generator as a forward model, the covariates and the models' graphs; each kind of measure with its own power of the size, and the pool of all 32 measures with a spread at C3 to L5 (step e's first rung); its own [README](schwingcheck/README.md), tests under `tests/` and the pinned environment `requirements-schwingcheck.txt`.
+- `holdings/`: what is held of each evidence tier. `gold-tier-3.md` gives the gold 3 count and ENHANCE.PET 1.6k's share of it; `count_enhance_pet.py` recounts ENHANCE.PET's whole spines, variants and rib readings from the published masks, with tests under `holdings/tests/`.
 - `archive/`: everything from before 27 October 2026, moved as it was:
   - `bordercall/`: the package, `exact.py` among it;
   - `records/`: every run's record;
