@@ -23,8 +23,8 @@ RIB_MIN_VOXELS = 50  # the count's RIB_MIN_VOXELS: a rib label under it is a spe
 RIBS_PER_SIDE = 13
 SIDES = (("left", 0), ("right", RIBS_PER_SIDE))
 STERNUM = "27"
-# The count keeps slice centres to 0.001 mm and the facts to 0.1 mm, each rounded from the same
-# float, so the two agree to half a tenth and a little more for the double rounding.
+# The count keeps slice centres to 0.001 mm and the facts to 0.1 mm, each rounded once from the
+# same float, so the two agree to half a tenth and the count's own half of a thousandth.
 EXTENT_TOLERANCE_MM = 0.051
 # touch.json writes each distance to 0.1 mm, as the facts do.
 DISTANCE_KEYS = (("L4_sacrum", "23-28"), ("L5_sacrum", "24-28"), ("L4_L5", "23-24"))
