@@ -10,8 +10,8 @@ trapezoid rule four times as fine, the largest error of the posterior over place
 posterior SD of log s at the true place, which is what the nodes must resolve. Far from the
 truth a place asks for a size past the trapezoid's reach of 8 prior SDs, where every trapezoid
 grid of that reach falls short alike, so the fine grid is no reference there: at the three places
-of each width where Gauss-Hermite and the fine grid part most, both are set against the closed
-form summed on a grid of step 0.0005 out to 40 prior SDs.
+of each width where Gauss-Hermite and the fine grid part most, the three rules are set against
+the closed form summed on a grid of step 0.0005 out to 40 prior SDs.
 """
 from __future__ import annotations
 
@@ -72,16 +72,18 @@ def main() -> int:
             print("%d bodies, %s: log evidence at the true place off by at most %.1e; posterior over places by %.1e"
                   % (n, name, d[np.arange(len(truth)), truth].max(), np.abs(out[name][1] - fine_post).max()))
         gap = np.abs(out["gauss-hermite"][0] - fine_ev)
-        gh_off, fine_off = [], []
+        gh_off, trap_off, fine_off = [], [], []
         for flat in np.argsort(-gap.ravel())[:3]:
             f, k = np.unravel_index(flat, gap.shape)
             wide = wide_evidence(X[f], k, offsets, mu, sd, noise, power)
             gh_off.append(abs(out["gauss-hermite"][0][f, k] - wide))
+            trap_off.append(abs(out["trapezoid"][0][f, k] - wide))
             fine_off.append(abs(fine_ev[f, k] - wide))
         print("%d bodies, the three places where the two rules part most (by %s): against a grid of step %g out to %g "
-              "prior SDs, Gauss-Hermite off by %s and the fine trapezoid by %s"
+              "prior SDs, Gauss-Hermite off by %s, the trapezoid by %s and the fine trapezoid by %s"
               % (n, ", ".join("%.3g" % g for g in np.sort(gap.ravel())[::-1][:3]), WIDE_STEP, WIDE_REACH,
-                 ", ".join("%.1e" % v for v in gh_off), ", ".join("%.3g" % v for v in fine_off)))
+                 ", ".join("%.1e" % v for v in gh_off), ", ".join("%.3g" % v for v in trap_off),
+                 ", ".join("%.3g" % v for v in fine_off)))
         s = size_sd_at_truth(out["fine"][2], out["fine"][3], out["fine"][4], truth)
         print("%d bodies: posterior SD of log s at the true place %.3f to %.3f" % (n, s.min(), s.max()))
     return 0

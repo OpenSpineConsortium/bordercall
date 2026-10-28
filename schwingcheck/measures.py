@@ -25,7 +25,8 @@ compiled rule, the PyMC models and the generator alike. The errors are a stated 
 same in the generator and in the rule, so they never part the two; what does is the generator's
 floor at 0.5 for a measure that scales with the size, which the likelihood leaves out. It touched
 3 of 308,000 values of the seven in 2,000 typical columns of seed 1234, and 1,647 of 1,056,000 of
-the pool's, mostly areas and the interfacet height, in 1,054 of the columns, where scoring a
+the pool's, 1,268 of them areas, 191 the pedicles' width and 180 the interfacet height at C4, in
+1,054 of the columns, where scoring a
 floored value by its mass at the floor moves a one-body posterior by up to 0.22
 (examples/floor_check.py; columns.floor_hits counts them). The build-up study of step e is to run
 the errors halved and doubled:

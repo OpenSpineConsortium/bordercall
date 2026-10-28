@@ -182,6 +182,25 @@ class KindsAndGivenSizes(unittest.TestCase):
         self.assertEqual(again["values"], hits["values"] + 1)
         self.assertEqual(again["where"]["endplate C3"], hits["where"].get("endplate C3", 0) + 1)
 
+    def test_floor_hits_counts_columns_levels_and_only_the_bodies_a_column_has(self):
+        ms = MS.select(self.KEYS)
+        mixed = C.draw_columns(MS.reference(ms), ["typical", "four_lumbar"], 61, 30,
+                               [MS.archive_key(m) for m in ms], noise_mm=MS.errors(ms), power=MS.powers(ms))
+        self.assertEqual(C.floor_hits(mixed)["of"], 2 * (15 * 22 + 15 * 21))   # 1290, not the 1320 cells
+        _, cols = self._drawn(61, 30)
+        before = C.floor_hits(cols)
+        held = ((cols.values == 0.5) & (MS.powers(ms) > 0)[None, None, :]).any(axis=(1, 2))
+        self.assertEqual(before["columns"], int(held.sum()))
+        free = int(np.flatnonzero(~held)[0])
+        cols.values[free, 5, 0] = 0.5                       # endplate at T1, in a column with none
+        one = C.floor_hits(cols)
+        self.assertEqual(one["columns"], before["columns"] + 1)
+        self.assertEqual(one["where"].get("endplate T1", 0), before["where"].get("endplate T1", 0) + 1)
+        cols.values[free, 6, 0] = 0.5                       # endplate at T2, the same column
+        two = C.floor_hits(cols)
+        self.assertEqual(two["columns"], one["columns"])
+        self.assertEqual(two["where"].get("endplate T2", 0), one["where"].get("endplate T2", 0) + 1)
+
     def test_every_power_one_and_no_sizes_given_is_the_archives_generator(self):
         ref = P.load_reference(measures=MEASURES)
         a = C.draw_columns(ref, ["typical"], 97, 20, MEASURES)

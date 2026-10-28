@@ -199,6 +199,15 @@ class Name(unittest.TestCase):
                 self.assertEqual(set(shown), {LEVELS[k] for k in range(len(want)) if want[k] >= 1e-6}, engine)
                 for place, (text, _) in shown.items():
                     self.assertEqual(text, "%.6f" % want[LEVELS.index(place)], (engine, place))
+            # NUTS within its Monte Carlo error: with every power 1 it is off by 0.039 to 0.049 at some
+            # place over seeds 0 to 8, with the powers by at most 0.011; T2 and C6 are 0.005 apart, so
+            # every place is held, not the named one
+            code, out = run(["name", path, "--measures"] + keys + ["--engine", "nuts", "--draws", "500",
+                                                              "--chains", "2", "--seed", "3"])
+            self.assertEqual(code, 0, out)
+            got = posteriors(out)
+            for k in range(len(want)):          # want has the rule's 20 places, LEVELS 22 levels
+                self.assertLess(abs(got.get(LEVELS[k], (0.0, None))[0] - want[k]), 0.02, LEVELS[k])
 
     def test_a_measure_with_no_row_at_a_level_or_an_unknown_measure_is_refused(self):
         keys, values = self._column()

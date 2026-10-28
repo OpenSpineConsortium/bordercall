@@ -235,7 +235,10 @@ restates the pedicle's sagittal inclination at L4 as 16.0 where its Table 4 prin
 right and left average to 12.2, 11.6, 11.0, 11.4, 11.5 and 12.6, and the paper does not say how
 it formed them. [CONTRADICTIONS.md](CONTRADICTIONS.md) gathers these, the prose contradictions
 and the arithmetic inside the tables (288 printed ratios and sums, 6 of which their own means
-do not give even allowing for rounding) into one report with counts by paper and by kind.
+do not give even allowing for rounding, and 92 X-card angles of the facets paper's Table 8 held
+to the negative of the transverse-plane angle its Tables 6 and 7 print, one of which, CAXsl at
+T1, printed -47.7 where Tsl is 57.7, does not hold: 380 checks and 7 inconsistent in all) into
+one report with counts by paper and by kind.
 
 ## What the reference CSVs rest on, and what changes
 

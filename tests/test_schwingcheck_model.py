@@ -187,11 +187,21 @@ class CompiledRule(unittest.TestCase):
         mean, spread = CV.CovariateModel().size_prior([CV.Covariates(height_cm=h) for h in (170.0, 210.0)])
         base = R.SYNTH["scale_sd"]
         sizes, logw = R.trapezoid(base)                               # log s from -0.56 to 0.56
-        with self.assertRaisesRegex(ValueError, r"hold 0\.9946\d* of field 1's size prior N\(0\.2246, 0\.1323\^2\)"):
+        with self.assertRaisesRegex(ValueError, r"hold a log mass of -0\.00541 of field 1's size prior N\(0\.2246, 0\.1323\^2\)"):
             K.size_log_weights(np.log(sizes), logw, base, mean, spread)
         for sizes, logw in (R.quadrature(base), R.trapezoid(base, reach=30.0)):
             held = R.logsumexp(K.size_log_weights(np.log(sizes), logw, base, mean, spread), 1)
             self.assertLess(np.abs(held).max(), R.PRIOR_HELD)
+        # both sides of the tolerance: on the default trapezoid 176 and 160 cm lose 1.87e-12 and 1.62e-12
+        # in log mass and are refused, 175 and 161 cm lose 5.9e-13 and 4.6e-13 and are held
+        sizes, logw = R.trapezoid(base)
+        for h, cut in ((176.0, True), (160.0, True), (175.0, False), (161.0, False)):
+            mean, spread = CV.CovariateModel().size_prior([CV.Covariates(height_cm=v) for v in (170.0, h)])
+            if cut:
+                with self.assertRaisesRegex(ValueError, r"of field 1's size prior"):
+                    K.size_log_weights(np.log(sizes), logw, base, mean, spread)
+            else:
+                K.size_log_weights(np.log(sizes), logw, base, mean, spread)
 
     def test_a_tall_patients_evidence_on_a_wide_trapezoid_is_gauss_hermites(self):
         ref, keys, mu, sd = seven()
@@ -424,6 +434,37 @@ class Covariates(unittest.TestCase):
         wide, gh = MD.quadrature_evidence(m, nodes=R.trapezoid(base, reach=30.0)), MD.quadrature_evidence(m)
         self.assertLess(np.abs(wide[np.arange(len(X)), truth] - gh[np.arange(len(X)), truth]).max(), 1e-6)
         self.assertLess(np.abs(softmax(wide) - softmax(gh)).max(), 1e-6)
+        # both sides of the tolerance, as in the compiled rule: 176 cm is refused and 175 cm held
+        for h, cut in ((176.0, True), (175.0, False)):
+            pair = MD.naming(X[:2], hyp, mu, sd, keys, covs=[CV.Covariates(height_cm=170.0), CV.Covariates(height_cm=h)])
+            if cut:
+                with self.assertRaisesRegex(ValueError, r"of field 1's size prior"):
+                    MD.quadrature_evidence(pair, nodes=R.trapezoid(base))
+            else:
+                MD.quadrature_evidence(pair, nodes=R.trapezoid(base))
+
+    def test_the_models_size_prior_follows_heights_set_after_it_is_built(self):
+        import pymc as pm
+        X, _, keys, mu, sd = fields([0], 4, 53, n_fields=2)
+        hyp = K.hypotheses(len(LEVELS), [[0]])
+        start = [CV.Covariates(height_cm=h) for h in (170.0, 175.0)]
+        m = MD.naming(X, hyp, mu, sd, keys, covs=start)
+        before = MD.quadrature_evidence(m, nodes=R.trapezoid(R.SYNTH["scale_sd"]))
+        for heights in ((170.0, 230.0), (170.0, 175.0)):
+            covs = [CV.Covariates(height_cm=h) for h in heights]
+            with m:
+                pm.set_data({"covariates": [[h, 0.0, 0.0, 0.0] for h in heights],
+                             "covariate_known": [[1.0, 0.0, 0.0, 0.0]] * len(heights)})
+            mean, spread = MD.size_prior(m)
+            want = CV.CovariateModel().size_prior(covs)
+            self.assertLess(max(np.abs(mean - want[0]).max(), np.abs(spread - want[1]).max()), 1e-12, heights)
+            # set to 230 cm the nodes are refused with that height's prior, and set back they are held as before
+            if heights[1] > 175.0:
+                with self.assertRaisesRegex(ValueError, r"of field 1's size prior N\(0\.3156, 0\.1726\^2\)"):
+                    MD.quadrature_evidence(m, nodes=R.trapezoid(R.SYNTH["scale_sd"]))
+            else:
+                again = MD.quadrature_evidence(m, nodes=R.trapezoid(R.SYNTH["scale_sd"]))
+                self.assertTrue(np.array_equal(again, before))
 
     def test_a_weight_or_age_hook_moves_the_model_as_it_moves_the_compiled_rule(self):
         X, _, keys, mu, sd = fields([0, 1, 2], 4, 52, n_fields=8)

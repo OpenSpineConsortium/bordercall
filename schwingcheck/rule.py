@@ -49,11 +49,11 @@ takes the whole sum, so that every trapezoid grid of that reach, the finer one i
 short of the log evidence by up to hundreds there, while the Gauss-Hermite rule, whose outermost
 node lies at 24 prior SDs, reaches the size asked for: against the closed form summed on a grid of
 step 0.0005 out to 40 prior SDs, at the three places of each width where the two rules part most,
-Gauss-Hermite was off by at most 2.7e-3 and the trapezoid by up to 694
-(examples/quadrature_check.py). Those places hold too little of the posterior for either to
-matter, which is why the errors of the posterior above are over every place and those of the log
-evidence at the true place. The build-up study of step e is to integrate on the trapezoid
-throughout, since a table estimated from a few people can narrow the posterior further.
+Gauss-Hermite was off by at most 2.7e-3, the trapezoid by up to 693 and the grid four times as
+fine by up to 694 (examples/quadrature_check.py). Those places hold too little of the posterior
+for either to matter, which is why the errors of the posterior above are over every place and
+those of the log evidence at the true place. The build-up study of step e is to integrate on the
+trapezoid throughout, since a table estimated from a few people can narrow the posterior further.
 
 Every sum over bodies is one batched matrix product, (measures, fields, bodies) by (measures,
 bodies, nodes x places), so no Python loop runs per field, per place or per body. Fields are
@@ -118,10 +118,10 @@ def check_prior_held(log_weights: np.ndarray, nodes_log_s: np.ndarray,
     f = int(off[np.argmax(np.nan_to_num(np.abs(held[off]), nan=np.inf))])
     mean, sd = priors()
     t = np.asarray(nodes_log_s, float)
-    raise ValueError("the nodes of the size, from log s %.3f to %.3f, hold %.6g of field %d's size prior N(%.4f, %.4f^2), "
-                     "and %d of %d fields' priors are more than %g from whole on them in log mass: widen the grid "
-                     "(rule.trapezoid's reach) or integrate on the Gauss-Hermite nodes"
-                     % (t.min(), t.max(), float(np.exp(held[f])), f, mean[f], sd[f], off.size, held.size, PRIOR_HELD))
+    raise ValueError("the nodes of the size, from log s %.3f to %.3f, hold a log mass of %.3g of field %d's size prior "
+                     "N(%.4f, %.4f^2), and %d of %d fields' priors are more than %g from whole on them in log mass: "
+                     "widen the grid (rule.trapezoid's reach) or integrate on the Gauss-Hermite nodes"
+                     % (t.min(), t.max(), float(held[f]), f, mean[f], sd[f], off.size, held.size, PRIOR_HELD))
 
 
 def size_factors(sizes: np.ndarray, power: Optional[np.ndarray], n_measures: int) -> np.ndarray:
