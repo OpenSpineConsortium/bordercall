@@ -100,6 +100,30 @@ class Compare(unittest.TestCase):
         result = self.compared([self.ROW, lone], [other])
         self.assertEqual(result["disagree_by_field"], {"rib_contacts": ["0001"], "rib_leads": ["0001"]})
         self.assertEqual(result["only_a"], ["0002"])
+        self.assertFalse(fb.holds(result))
+
+    def test_a_contact_count_alone_and_a_repaired_row_still_hold(self):
+        other = json.loads(json.dumps(self.ROW))
+        other["ribs"]["12"]["contacts"] = {"19": 3}
+        repaired = dict(self.ROW, id="0001r")
+        result = self.compared([self.ROW, repaired], [other])
+        self.assertEqual(result["disagree_by_field"], {"rib_contacts": ["0001"]})
+        self.assertTrue(fb.holds(result))
+
+    def test_the_command_exits_by_whether_the_comparison_holds(self):
+        folder = tempfile.mkdtemp()
+        other = json.loads(json.dumps(self.ROW))
+        other["sternum_voxels"] = 4
+        paths = {}
+        for name, rows in (("a", [self.ROW]), ("same", [self.ROW]), ("other", [other])):
+            paths[name] = os.path.join(folder, name + ".jsonl")
+            with open(paths[name], "w") as handle:
+                handle.writelines(json.dumps(row) + "\n" for row in rows)
+        out = os.path.join(folder, "out.json")
+        self.assertEqual(fb.compare_main([paths["a"], paths["same"], out]), 0)
+        self.assertEqual(fb.compare_main([paths["a"], paths["other"], out]), 1)
+        with open(out) as handle:
+            self.assertFalse(json.load(handle)["holds"])
 
 
 if __name__ == "__main__":

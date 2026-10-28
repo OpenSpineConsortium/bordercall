@@ -443,6 +443,8 @@ def finish(partial, output):
 # Both readings round a distance to 0.1 mm; a true distance on a rounding edge may round either way
 # in two programs, so distances agree within one step of the rounding.
 DISTANCE_STEP_MM = 0.1
+# The one field two sound readings may differ on; any other is a fault in one of them.
+ALLOWED_TO_DIFFER = ("rib_contacts",)
 
 
 def read_rows(path):
@@ -480,8 +482,10 @@ def compare_row(a, b):
 def compare(path_a, path_b):
     """Study by study, the fields two readings disagree on. The calls read only the leads, so a
     study whose leads differ fails the dataset's Q14; a contact count that differs with the same
-    lead is a voxel two spine labels lie at exactly the same distance from, which each reading
-    gives by its own tie rule."""
+    lead is a voxel two spine labels lie at exactly the same distance from. Both readings give such
+    a voxel the label scipy's distance transform names, each over its own box, and scipy's choice
+    among equally near voxels can differ between boxes; this reading takes the head-most label only
+    where its box passes EDT_VOXEL_CAP (b_audit's method offsets_only)."""
     rows_a, rows_b = read_rows(path_a), read_rows(path_b)
     common = sorted(set(rows_a) & set(rows_b))
     differ = {sid: compare_row(rows_a[sid], rows_b[sid]) for sid in common}
@@ -492,15 +496,27 @@ def compare(path_a, path_b):
             "disagree_by_field": {f: sorted(s for s, names in differ.items() if f in names) for f in fields}}
 
 
+def holds(result):
+    """Whether the two readings agree as the dataset needs: every study in both, but the first
+    reading's repaired rows (id ending in r), which this reading never makes, and no field but a
+    contact count differing (compare says why a count may)."""
+    return (not result["only_b"] and all(sid.endswith("r") for sid in result["only_a"])
+            and set(result["disagree_by_field"]) <= set(ALLOWED_TO_DIFFER))
+
+
 def compare_main(argv):
+    """Write the comparison, and exit 1 when it does not hold, so a job can stop on it."""
     path_a, path_b, out = argv
     result = compare(path_a, path_b)
+    result["holds"] = holds(result)
     with open(out, "w") as handle:
         json.dump(result, handle, indent=1, sort_keys=True)
         handle.write("\n")
-    print("%d studies, %d agree; only in A %d, only in B %d" % (result["studies"], result["agree"],
-          len(result["only_a"]), len(result["only_b"])), flush=True)
-    return 0
+    print("%d studies, %d agree; only in A %d, only in B %d; %s" % (
+        result["studies"], result["agree"], len(result["only_a"]), len(result["only_b"]),
+        "holds" if result["holds"] else "does not hold: " + ", ".join(sorted(result["disagree_by_field"]))),
+        flush=True)
+    return 0 if result["holds"] else 1
 
 
 def main():
