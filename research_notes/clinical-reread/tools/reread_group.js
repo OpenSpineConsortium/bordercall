@@ -178,9 +178,11 @@ tool as pretty JSON, and return it with your list of corrections.
 ${NOTE_TEMPLATE}`
 }
 
+// A paper marked drafted already has its note from a first reader, so only the check runs on it; the script cannot
+// see the notes folder, so the caller says which notes exist.
 const results = await pipeline(
   args.group,
-  p => agent(readPrompt(p), { label: `read:${p.id}`, phase: 'Read', schema: RECORD_SCHEMA }),
+  p => p.drafted ? { drafted: true } : agent(readPrompt(p), { label: `read:${p.id}`, phase: 'Read', schema: RECORD_SCHEMA }),
   (rec, p) => agent(checkPrompt(p), { label: `check:${p.id}`, phase: 'Check', schema: CHECK_SCHEMA })
     .then(c => c ? { id: p.id, corrections: c.corrections.length, kinds: c.corrections.map(x => x.kind), verdict: c.verdict, pages_read: c.pages_read } : { id: p.id, failed: true }),
 )
