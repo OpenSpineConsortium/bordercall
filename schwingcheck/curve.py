@@ -103,7 +103,7 @@ FAMILIES = ("pedicles", "processes", "facets", "interfacet", "body")
 FAMILY_NAMES = {"pedicles": "the pedicles", "processes": "the processes", "facets": "the facets",
                 "interfacet": "the interfacet distances", "body": "the rest of the body and the canal"}
 STATS = ("n_fields", "n_columns", "exact", "exact_se", "within_one", "within_one_se", "answered", "answered_se",
-         "precision", "precision_se", "errors", "log_loss", "predicted_error", "set_size",
+         "precision", "precision_se", "errors", "log_loss", "predicted_error", "set_size", "floored",
          "exact_table_sd", "answered_table_sd", "precision_table_sd")
 # the half-step scale on which "within one level" is read: C3 0 ... T12 16, T13 16.5, L1 17 ... L5 21, L6 22
 POSITION = dict({lv: float(i) for i, lv in enumerate(LEVELS)}, T13=LEVELS.index("T12") + 0.5, L6=float(len(LEVELS)))
@@ -244,6 +244,13 @@ def field_stats(post: np.ndarray, start: np.ndarray, truth_at: np.ndarray, n: in
             "logp": logp, "size": size.astype(np.int16)}
 
 
+def floored_in(X: np.ndarray, idx: Sequence[int], power: np.ndarray) -> np.ndarray:
+    """Whether each field holds a value at the generator's floor among the measures idx that scale
+    with the size, where the rule, which has no floor, is not the generator's posterior."""
+    scaled = np.asarray(power, float)[list(idx)] > 0
+    return ((X[:, list(idx), :] == C.FLOOR) & scaled[None, :, None]).any((1, 2))
+
+
 def score_fields(X: np.ndarray, offsets: np.ndarray, arm: Arm, names: Sequence[str], index: Dict[str, List[int]],
                  nodes) -> Dict[str, np.ndarray]:
     """The posterior over places of each field under every subset named, as one log likelihood
@@ -280,7 +287,9 @@ def run_job(job: Tuple[int, int, int, int]) -> Tuple[int, int, int, dict]:
             f1 = min(len(X), f0 + FIELD_BLOCK)
             posts = score_fields(X[f0:f1], offsets, arm, arm.subsets, _INDEX, nodes)
             for name, post in posts.items():
-                parts[name].append(field_stats(post, start[f0:f1], truth_at[f0:f1], n, arm.phenotype == "typical"))
+                st = field_stats(post, start[f0:f1], truth_at[f0:f1], n, arm.phenotype == "typical")
+                st["floored"] = floored_in(X[f0:f1], _INDEX[name], arm.power)
+                parts[name].append(st)
     stats = {name: {k: np.concatenate([p[k] for p in ps]) for k in ps[0]} for name, ps in parts.items() if ps}
     return a, n, c0, {"col": col, "world": arm.world, "stats": stats}
 
@@ -300,7 +309,7 @@ def rates(stats: Dict[str, np.ndarray], group: np.ndarray) -> dict:
            "precision_se": S.ratio_se(wrong, answered), "errors": int(wrong.sum()),
            "log_loss": float(-np.mean(stats["logp"])) if np.all(np.isfinite(stats["logp"])) else float("nan"),
            "predicted_error": float((1.0 - top).mean()) if np.all(np.isfinite(stats["logp"])) else float("nan"),
-           "set_size": float(stats["size"].mean())}
+           "set_size": float(stats["size"].mean()), "floored": float(stats["floored"].mean())}
     return out
 
 
@@ -386,6 +395,20 @@ def make_arms(pool: Sequence[MS.Measure], names: Sequence[str], quick: bool = Fa
                                 emu, esd * fac, noise, power, WIDTHS, robust, world=w,
                                 settings={"people": people, "rule": rule, "sd_factor": fac, "tables": n_tables}))
     return arms
+
+
+def floor_counts(arms: Sequence[Arm], keys: Sequence[str]) -> Dict[str, dict]:
+    """The values the generator's floor touched in each arm's columns (columns.floor_hits), by arm
+    and phenotype; the data axis scores the first of the nominal columns, so it is not counted."""
+    out = {}
+    for arm in arms:
+        if "people" in arm.settings:
+            continue
+        n = len(arm.values)
+        cols = C.Columns(values=arm.values, levels=arm.levels, measures=list(keys), phenotype=[arm.phenotype] * n,
+                         scale=np.full(n, np.nan), transitional_at=[None] * n, meta={"power": list(map(float, arm.power))})
+        out["%s/%s" % (arm.name, arm.phenotype)] = C.floor_hits(cols)
+    return out
 
 
 def jobs_of(arms: Sequence[Arm]) -> List[Tuple[int, int, int, int]]:
@@ -609,6 +632,7 @@ def build_record(rate_rows: Dict[tuple, dict], pool: Sequence[MS.Measure], order
         "pool": json.dumps([{"key": m.key, "kind": m.kind, "error": m.error, "power": m.size_power,
                              "family": family_of(m), "planes": list(m.planes)} for m in pool]),
         "nuts": json.dumps({str(k): v for k, v in nuts.items()}, sort_keys=True),
+        "floor": json.dumps(floor_counts(arms, keys), sort_keys=True),
         "digests": json.dumps({"panjabi_long.csv": T.sha256(T.LONG_CSV), "schwingcheck": code_digest()}, sort_keys=True),
         "git": json.dumps(git_state(), sort_keys=True),
         "schwingcheck": __version__, "numpy": np.__version__, "xarray": xr.__version__, "arviz": az.__version__,

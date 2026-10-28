@@ -318,6 +318,7 @@ def cmd_graph(args) -> int:
 
 def cmd_curve(args) -> int:
     from . import curve as CV
+    from . import curve_report as CR
     command = "python -m schwingcheck " + shlex.join(args.argv)
     if args.what == "run":
         CV.run(args.outdir, command, quick=args.quick, processes=args.processes, with_speed=not args.skip_speed)
@@ -327,13 +328,13 @@ def cmd_curve(args) -> int:
         return 0
     tree = REC.read(args.record)
     if args.what == "table":
-        print(CV.tables(tree))
+        print(CR.tables(tree))
         return 0
     if args.what == "figures":
-        for path in CV.draw_figures(tree, args.outdir or os.path.dirname(os.path.abspath(args.record))):
+        for path in CR.draw_figures(tree, args.outdir or os.path.dirname(os.path.abspath(args.record)), args.record):
             print("wrote %s" % os.path.relpath(path, T.ROOT))
         return 0
-    stale = CV.check_readme(tree)
+    stale = CR.check_readme(tree)
     for line in stale:
         print("  " + line)
     print("curve: %s" % ("the README's tables are the record's" if not stale else "the README's tables differ from the record's"))
