@@ -238,6 +238,7 @@ The weak point is the table, not the mathematics. Panjabi measured twelve cadave
   - how often each anomaly occurs.
 - **How to test it.** Hold out whole patients. Score the rule built on the CT table on the held-out columns. Report the same tables as the README, and set the CT table beside Panjabi's level by level.
 - **A truth that does not depend on SPINEPS.** Readers count from C2 on a sample of columns, so the table's names are not only SPINEPS's.
+- **Cadavers against CTs.** [research_notes/cadaver-power/](research_notes/cadaver-power/README.md), the owner's ask of 27 October 2026 at 23:55 UTC, works out how many cadavers a meta-analysis of the published series would need to match 2,000 CT scans: none matches them, however many it pools, if the CTs come from the population the rule will name, and the note says why and what is not known. Its part C is synthetic, the rule's own generator standing in for the cadavers and the scans.
 
 ## 6. Anomalous places and a real prior
 

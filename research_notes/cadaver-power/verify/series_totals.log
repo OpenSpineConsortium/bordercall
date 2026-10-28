@@ -1,0 +1,17 @@
+distinct series 39 cadaveric 15
+   Panjabi 1992 ('cadaveric dry bone', '3-D digitiser', '12')
+   Tan 2004 ('cadaveric dry bone, Chinese Singaporean', 'contact digitiser', '10')
+   Busscher 2010 ('fresh-frozen cadaver, male', 'CT 1.0 mm', '6')
+   Kunkel 2011 ('cadaveric, German', 'lateral radiograph', '30')
+   Eisenstein 1977 ('Caucasoid and Zulu', 'dry bone', '-')
+   Amonoo-Kuofi 1985 ('cadaveric dry bone, Nigerian', 'vernier', '122')
+   Twomey 1985 ('post-mortem, Australian', 'mid-sagittal section', '204')
+   Zindrick 1987 ('cadaveric', 'caliper', '26-56 per level')
+   Yu 2015 ('cadaveric', 'digital caliper', '503')
+   Olsewski 1990 ('cadaveric + patients', 'direct', '100')
+   Lien 2007 ('cadaveric Taiwanese', 'caliper', '')
+   Hou 1993 ('cadaveric Chinese', 'direct', '40')
+   Krag 1988 ('CT vs cut cadaver', 'CT', '')
+   Mitra 2002 ('cadaveric Indian', 'direct', '20')
+   Otsuki 2021 ('cadaveric micro-CT', 'micro-CT perpendicular to axis', '60 pedicles')
+recorded cadaveric n, each series once: 1163 blank: ['Eisenstein 1977', 'Lien 2007', 'Krag 1988']

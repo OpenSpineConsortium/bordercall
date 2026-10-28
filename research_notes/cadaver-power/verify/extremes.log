@@ -1,0 +1,8 @@
+endplate_incl              angle  T10  sd 0.485 e 3.00 -> cadavers 50.9
+endplate_lower_incl        angle  T10  sd 0.935 e 3.00 -> cadavers 177.2
+endplate_lower_incl        angle  T12  sd 1.109 e 3.00 -> cadavers 240.3
+transverse_width           length L5   sd 12.748 e 1.00 -> cadavers 1987.8
+transverse_width           length T4   sd 13.060 e 1.00 -> cadavers 1988.3
+transverse_width           length L4   sd 13.094 e 1.00 -> cadavers 1988.4
+cells by kind: {'length': 396, 'area': 132, 'angle': 176}
+errors x3: median 784 (min 5.8, max 1900)

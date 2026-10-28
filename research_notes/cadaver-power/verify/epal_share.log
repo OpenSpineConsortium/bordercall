@@ -1,0 +1,15 @@
+cells 86 EPAl cells 6
+df total 229.0 EPAl df 12.0 share 0.0524
+df-weighted sum of f_obs^2: 136.2405; EPAl's 52.1733, share 0.3830
+part above 1/12: total 117.1572, EPAl 51.1733, share 0.4368
+pooled weighted 0.7153, without EPAl 0.5514
+json without EPAl 0.5514282728393264
+factor over 704 cells {'min': 1.0058322368728012, 'median': 1.172388304770577, 'max': 39.265306122448976}
+factor over the seven's 154 cells {'min': 1.0419160672669048, 'median': 1.1653111155194076, 'max': 2.232741617357002}
+f 0.7153: worth {'min': 1.97, 'median': 2.29, 'max': 76.75} (all), {'min': 2.04, 'median': 2.28, 'max': 4.36} (seven)
+f 0.5514: worth {'min': 3.31, 'median': 3.86, 'max': 129.13} (all), {'min': 3.43, 'median': 3.83, 'max': 7.34} (seven)
+f 0.5500: worth {'min': 3.33, 'median': 3.88, 'max': 129.8} (all), {'min': 3.44, 'median': 3.85, 'max': 7.38} (seven)
+f 0.4800: worth {'min': 4.37, 'median': 5.09, 'max': 170.42} (all), {'min': 4.52, 'median': 5.06, 'max': 9.69} (seven)
+f 0.4790: worth {'min': 4.38, 'median': 5.11, 'max': 171.13} (all), {'min': 4.54, 'median': 5.08, 'max': 9.73} (seven)
+f 0.5300: worth {'min': 3.58, 'median': 4.17, 'max': 139.78} (all), {'min': 3.71, 'median': 4.15, 'max': 7.95} (seven)
+f 0.5290: worth {'min': 3.59, 'median': 4.19, 'max': 140.31} (all), {'min': 3.72, 'median': 4.16, 'max': 7.98} (seven)

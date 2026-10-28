@@ -1,0 +1,374 @@
+{
+ "columns": 300,
+ "measures": [
+  "endplate",
+  "endplate_depth",
+  "endplate_lower",
+  "endplate_lower_depth",
+  "h_post",
+  "canal_w",
+  "canal_ap"
+ ],
+ "widths": [
+  1,
+  3,
+  9
+ ],
+ "arms": {
+  "true/nominal": {
+   "1": {
+    "exact": 0.4857575757575758,
+    "answered": 0.007272727272727273,
+    "precision": 0.9791666666666666,
+    "exact_table_sd": 0.0,
+    "precision_table_sd": 0.0,
+    "precision_worst": 0.9791666666666666,
+    "exact_se_columns": 0.006556929646758143,
+    "minus_true": 0.0,
+    "minus_2000": -0.00015151515151515152,
+    "tables": 1,
+    "settings": {}
+   },
+   "3": {
+    "exact": 0.7356666666666667,
+    "answered": 0.167,
+    "precision": 0.998003992015968,
+    "exact_table_sd": 0.0,
+    "precision_table_sd": 0.0,
+    "precision_worst": 0.998003992015968,
+    "exact_se_columns": 0.00724885464882603,
+    "minus_true": 0.0,
+    "minus_2000": -0.0006666666666666666,
+    "tables": 1,
+    "settings": {}
+   },
+   "9": {
+    "exact": 0.9642857142857143,
+    "answered": 0.7178571428571429,
+    "precision": 0.9976782752902156,
+    "exact_table_sd": 0.0,
+    "precision_table_sd": 0.0,
+    "precision_worst": 0.9976782752902156,
+    "exact_se_columns": 0.005208767017186348,
+    "minus_true": 0.0,
+    "minus_2000": -0.0014285714285714286,
+    "tables": 1,
+    "settings": {}
+   }
+  },
+  "people-2000/nominal": {
+   "1": {
+    "exact": 0.48484848484848486,
+    "answered": 0.007727272727272728,
+    "precision": 0.9803921568627451,
+    "exact_table_sd": 0.0014999234752442012,
+    "precision_table_sd": 0.0,
+    "precision_worst": 0.9803921568627451,
+    "exact_se_columns": 0.006507406099789566,
+    "minus_true": -0.0009090909090909091,
+    "minus_2000": -0.0010606060606060607,
+    "tables": 2,
+    "settings": {
+     "people": 2000,
+     "sd_factor": 1.0
+    }
+   },
+   "3": {
+    "exact": 0.7359166666666667,
+    "answered": 0.16783333333333333,
+    "precision": 0.9980207100591716,
+    "exact_table_sd": 0.0005892556509887247,
+    "precision_table_sd": 0.0013849251158150825,
+    "precision_worst": 0.9970414201183432,
+    "exact_se_columns": 0.0073105231661461404,
+    "minus_true": 0.00025,
+    "minus_2000": -0.0004166666666666667,
+    "tables": 2,
+    "settings": {
+     "people": 2000,
+     "sd_factor": 1.0
+    }
+   },
+   "9": {
+    "exact": 0.964404761904762,
+    "answered": 0.7191666666666667,
+    "precision": 0.997848637464914,
+    "exact_table_sd": 0.0018519463316790622,
+    "precision_table_sd": 0.00022251885162308127,
+    "precision_worst": 0.9976912928759895,
+    "exact_se_columns": 0.00523521401246397,
+    "minus_true": 0.000119047619047619,
+    "minus_2000": -0.0013095238095238095,
+    "tables": 2,
+    "settings": {
+     "people": 2000,
+     "sd_factor": 1.0
+    }
+   }
+  },
+  "people-2000/predictive": {
+   "1": {
+    "exact": 0.485,
+    "answered": 0.007651515151515152,
+    "precision": 0.9801960784313726,
+    "exact_table_sd": 0.0014999234752442012,
+    "precision_table_sd": 0.00027729677693588434,
+    "precision_worst": 0.98,
+    "exact_se_columns": 0.006508588180239157,
+    "minus_true": -0.0007575757575757576,
+    "minus_2000": -0.0009090909090909091,
+    "tables": 2,
+    "settings": {
+     "people": 2000,
+     "sd_factor": 1.0007507197122103
+    }
+   },
+   "3": {
+    "exact": 0.7355833333333333,
+    "answered": 0.16775,
+    "precision": 0.9980202095586711,
+    "exact_table_sd": 0.0008249579113842931,
+    "precision_table_sd": 0.0013842173012193167,
+    "precision_worst": 0.9970414201183432,
+    "exact_se_columns": 0.007319828458504135,
+    "minus_true": -8.333333333333332e-05,
+    "minus_2000": -0.00075,
+    "tables": 2,
+    "settings": {
+     "people": 2000,
+     "sd_factor": 1.0007507197122103
+    }
+   },
+   "9": {
+    "exact": 0.964404761904762,
+    "answered": 0.7188095238095238,
+    "precision": 0.9978476424459788,
+    "exact_table_sd": 0.0018519463316790622,
+    "precision_table_sd": 0.0002211116823500385,
+    "precision_worst": 0.9976912928759895,
+    "exact_se_columns": 0.00523521401246397,
+    "minus_true": 0.000119047619047619,
+    "minus_2000": -0.0013095238095238095,
+    "tables": 2,
+    "settings": {
+     "people": 2000,
+     "sd_factor": 1.0007507197122103
+    }
+   }
+  },
+  "observed-0.28/nominal": {
+   "1": {
+    "exact": 0.3985984848484848,
+    "answered": 0.011856060606060608,
+    "precision": 0.9595817183462532,
+    "exact_table_sd": 0.012050535742973599,
+    "precision_table_sd": 0.029543796772679647,
+    "precision_worst": 0.9186046511627907,
+    "exact_se_columns": 0.005622747729669558,
+    "minus_true": -0.08715909090909091,
+    "minus_2000": -0.08731060606060606,
+    "tables": 4,
+    "settings": {
+     "shift": 0.56,
+     "level_by_level": 0.28,
+     "sd_factor": 1.0
+    }
+   },
+   "3": {
+    "exact": 0.5957916666666667,
+    "answered": 0.1824166666666667,
+    "precision": 0.9668382308215847,
+    "exact_table_sd": 0.024930412410607304,
+    "precision_table_sd": 0.009791502822901832,
+    "precision_worst": 0.9538171536286523,
+    "exact_se_columns": 0.007982567141008978,
+    "minus_true": -0.139875,
+    "minus_2000": -0.14054166666666668,
+    "tables": 4,
+    "settings": {
+     "shift": 0.56,
+     "level_by_level": 0.28,
+     "sd_factor": 1.0
+    }
+   },
+   "9": {
+    "exact": 0.8786904761904761,
+    "answered": 0.6587500000000001,
+    "precision": 0.9783949697430703,
+    "exact_table_sd": 0.01999007690338318,
+    "precision_table_sd": 0.005890247899389764,
+    "precision_worst": 0.9702933531377645,
+    "exact_se_columns": 0.009344007691678842,
+    "minus_true": -0.0855952380952381,
+    "minus_2000": -0.08702380952380953,
+    "tables": 4,
+    "settings": {
+     "shift": 0.56,
+     "level_by_level": 0.28,
+     "sd_factor": 1.0
+    }
+   }
+  },
+  "observed-0.28/predictive": {
+   "1": {
+    "exact": 0.4024242424242424,
+    "answered": 0.004772727272727272,
+    "precision": 0.9828088578088578,
+    "exact_table_sd": 0.00878526606928743,
+    "precision_table_sd": 0.020128107271760527,
+    "precision_worst": 0.9615384615384616,
+    "exact_se_columns": 0.005802327850793442,
+    "minus_true": -0.08333333333333333,
+    "minus_2000": -0.0834848484848485,
+    "tables": 4,
+    "settings": {
+     "shift": 0.56,
+     "level_by_level": 0.28,
+     "sd_factor": 1.1798304963002102
+    }
+   },
+   "3": {
+    "exact": 0.6037916666666667,
+    "answered": 0.12825,
+    "precision": 0.9875140369960976,
+    "exact_table_sd": 0.026082978343342212,
+    "precision_table_sd": 0.007997051841165075,
+    "precision_worst": 0.9757738896366084,
+    "exact_se_columns": 0.00801511650877278,
+    "minus_true": -0.131875,
+    "minus_2000": -0.13254166666666667,
+    "tables": 4,
+    "settings": {
+     "shift": 0.56,
+     "level_by_level": 0.28,
+     "sd_factor": 1.1798304963002102
+    }
+   },
+   "9": {
+    "exact": 0.8838095238095238,
+    "answered": 0.5766071428571429,
+    "precision": 0.9903204287656393,
+    "exact_table_sd": 0.01909814726681474,
+    "precision_table_sd": 0.0025140001998241093,
+    "precision_worst": 0.987717069038543,
+    "exact_se_columns": 0.009149500496950236,
+    "minus_true": -0.08047619047619048,
+    "minus_2000": -0.08190476190476191,
+    "tables": 4,
+    "settings": {
+     "shift": 0.56,
+     "level_by_level": 0.28,
+     "sd_factor": 1.1798304963002102
+    }
+   }
+  },
+  "observed-0.4/nominal": {
+   "1": {
+    "exact": 0.3802651515151515,
+    "answered": 0.010606060606060605,
+    "precision": 0.9233844467647223,
+    "exact_table_sd": 0.016152479266997012,
+    "precision_table_sd": 0.031008070419003986,
+    "precision_worst": 0.8852459016393442,
+    "exact_se_columns": 0.005832397660218555,
+    "minus_true": -0.10549242424242425,
+    "minus_2000": -0.10564393939393939,
+    "tables": 4,
+    "settings": {
+     "shift": 0.56,
+     "level_by_level": 0.4,
+     "sd_factor": 1.0
+    }
+   },
+   "3": {
+    "exact": 0.569375,
+    "answered": 0.17845833333333333,
+    "precision": 0.9451586681806788,
+    "exact_table_sd": 0.03217497733746933,
+    "precision_table_sd": 0.01766694481637411,
+    "precision_worst": 0.9210526315789473,
+    "exact_se_columns": 0.007850354166873182,
+    "minus_true": -0.16629166666666667,
+    "minus_2000": -0.16695833333333332,
+    "tables": 4,
+    "settings": {
+     "shift": 0.56,
+     "level_by_level": 0.4,
+     "sd_factor": 1.0
+    }
+   },
+   "9": {
+    "exact": 0.8354166666666667,
+    "answered": 0.6464880952380951,
+    "precision": 0.951374007213028,
+    "exact_table_sd": 0.0368231945496383,
+    "precision_table_sd": 0.01894775681717713,
+    "precision_worst": 0.9374105865522174,
+    "exact_se_columns": 0.010501361109158749,
+    "minus_true": -0.1288690476190476,
+    "minus_2000": -0.13029761904761905,
+    "tables": 4,
+    "settings": {
+     "shift": 0.56,
+     "level_by_level": 0.4,
+     "sd_factor": 1.0
+    }
+   }
+  },
+  "observed-0.4/predictive": {
+   "1": {
+    "exact": 0.3867045454545454,
+    "answered": 0.002765151515151515,
+    "precision": 0.9833333333333334,
+    "exact_table_sd": 0.016414238538951194,
+    "precision_table_sd": 0.033333333333333326,
+    "precision_worst": 0.9333333333333333,
+    "exact_se_columns": 0.005960933570711818,
+    "minus_true": -0.09905303030303028,
+    "minus_2000": -0.09920454545454545,
+    "tables": 4,
+    "settings": {
+     "shift": 0.56,
+     "level_by_level": 0.4,
+     "sd_factor": 1.2139192724394816
+    }
+   },
+   "3": {
+    "exact": 0.5807083333333334,
+    "answered": 0.11408333333333334,
+    "precision": 0.9855203163645987,
+    "exact_table_sd": 0.027630959219820925,
+    "precision_table_sd": 0.004566202275923871,
+    "precision_worst": 0.979050279329609,
+    "exact_se_columns": 0.008003676539713657,
+    "minus_true": -0.1549583333333333,
+    "minus_2000": -0.155625,
+    "tables": 4,
+    "settings": {
+     "shift": 0.56,
+     "level_by_level": 0.4,
+     "sd_factor": 1.2139192724394816
+    }
+   },
+   "9": {
+    "exact": 0.8448214285714285,
+    "answered": 0.5540476190476191,
+    "precision": 0.9762865159306058,
+    "exact_table_sd": 0.03422634575534132,
+    "precision_table_sd": 0.010003711454793021,
+    "precision_worst": 0.9664209664209664,
+    "exact_se_columns": 0.010261738958041,
+    "minus_true": -0.11946428571428572,
+    "minus_2000": -0.12089285714285714,
+    "tables": 4,
+    "settings": {
+     "shift": 0.56,
+     "level_by_level": 0.4,
+     "sd_factor": 1.2139192724394816
+    }
+   }
+  }
+ },
+ "seconds": 145.39857745170593,
+ "command": "cadaver_power.py --bordercall /home/claude/bordercall --out seven --columns 300 --arms observed-0.28 observed-0.4"
+}

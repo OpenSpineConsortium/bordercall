@@ -1,0 +1,7 @@
+groups 11, studies per group 4 to 6
+true shift 0.753, lbl 0.279: mean median-of-SDs 0.7015, mean pooled 0.7746, median/pooled mean 0.905, P(median<pooled) 0.851
+  observed median/pooled = 0.784; share of simulated ratios at or below it: 0.105
+
+real	0m7.423s
+user	0m6.456s
+sys	0m0.038s

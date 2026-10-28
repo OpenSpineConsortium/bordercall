@@ -1,0 +1,26 @@
+ten, each level's own SD           level-by-level 0.284 to 0.405  median shift 0.562  T-L 0.615
+ten, one SD per group              level-by-level 0.181 to 0.340  median shift 0.558  T-L 0.655
+   EPAl C   own 0.768  pooled 0.324
+   EPDl C   own 0.272  pooled 0.292
+   EPDl L   own 0.314  pooled 0.339
+   EPDl T   own 0.267  pooled 0.289
+   EPWl L   own 0.503  pooled 0.379
+   EPWl T   own 0.157  pooled 0.200
+   PDH L    own 0.498  pooled 0.584
+   PDH T    own 0.164  pooled 0.181
+   PDIs L   own 0.318  pooled 0.288
+   PDIs T   own 0.467  pooled 0.232
+   PDW L    own 0.659  pooled 0.650
+   PDW T    own 0.255  pooled 0.236
+   SCD L    own 0.217  pooled 0.154
+   SCD T    own 0.356  pooled 0.356
+   SCW L    own 0.097  pooled 0.051
+   SCW T    own 0.158  pooled 0.164
+   Ss L     own 0.360  pooled 0.262
+   VBHp L   own 0.210  pooled 0.191
+   VBHp T   own 0.213  pooled 0.114
+five, each level's own SD          level-by-level 0.000 to 0.279  median shift 0.590  T-L 0.703
+five, one SD per group             level-by-level 0.000 to 0.272  median shift 0.603  T-L 0.712
+EPAl Liu - present, mm2: [132.4, 119.0, 130.3, 114.90000000000003, 131.8, 160.2] SD 15.9
+in each level's SD units: [3.96, 5.98, 5.17, 2.75, 2.3, 3.37] SD 1.42
+Panjabi's EPAl SEM by level: [9.64, 5.74, 7.27, 12.07, 16.54, 13.71]

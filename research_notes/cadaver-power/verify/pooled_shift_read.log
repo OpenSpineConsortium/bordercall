@@ -1,0 +1,97 @@
+fresh_w1.npz  width 1  pooled 0.7355  fields 6600
+  true          tables 1  exact 48.58%  vs2000 -0.02 (table sd 0.00)  prec@.99 97.92%  worst 97.92%  answered 0.7%  wrong/answered [(1, 48)]
+  p2000         tables 1  exact 48.59%  vs2000 +0.00 (table sd 0.00)  prec@.99 98.04%  worst 98.04%  answered 0.8%  wrong/answered [(1, 51)]
+  note-median   tables 4  exact 45.09%  vs2000 -3.50 (table sd 2.56)  prec@.99 99.66%  worst 98.63%  answered 0.7%  wrong/answered [(0, 34), (0, 35), (1, 73), (0, 45)]
+    w1:note-median 0 exact 0.4448 ans 0.0052 prec 1.0000
+    w1:note-median 1 exact 0.4641 ans 0.0053 prec 1.0000
+    w1:note-median 2 exact 0.4179 ans 0.0111 prec 0.9863
+    w1:note-median 3 exact 0.4768 ans 0.0068 prec 1.0000
+  note-pooled   tables 4  exact 43.19%  vs2000 -5.40 (table sd 3.72)  prec@.99 99.00%  worst 96.00%  answered 0.7%  wrong/answered [(0, 27), (0, 33), (3, 75), (0, 45)]
+    w1:note-pooled 0 exact 0.4247 ans 0.0041 prec 1.0000
+    w1:note-pooled 1 exact 0.4506 ans 0.0050 prec 1.0000
+    w1:note-pooled 2 exact 0.3832 ans 0.0114 prec 0.9600
+    w1:note-pooled 3 exact 0.4691 ans 0.0068 prec 1.0000
+  fresh-median  tables 4  exact 45.47%  vs2000 -3.12 (table sd 0.58)  prec@.99 99.47%  worst 97.87%  answered 0.8%  wrong/answered [(0, 57), (1, 47), (0, 50), (0, 60)]
+    w1:fresh-median 0 exact 0.4609 ans 0.0086 prec 1.0000
+    w1:fresh-median 1 exact 0.4500 ans 0.0071 prec 0.9787
+    w1:fresh-median 2 exact 0.4494 ans 0.0076 prec 1.0000
+    w1:fresh-median 3 exact 0.4583 ans 0.0091 prec 1.0000
+  fresh-pooled  tables 4  exact 43.98%  vs2000 -4.61 (table sd 0.92)  prec@.99 96.73%  worst 93.33%  answered 0.8%  wrong/answered [(2, 62), (3, 45), (0, 52), (2, 63)]
+    w1:fresh-pooled 0 exact 0.4509 ans 0.0094 prec 0.9677
+    w1:fresh-pooled 1 exact 0.4297 ans 0.0068 prec 0.9333
+    w1:fresh-pooled 2 exact 0.4355 ans 0.0079 prec 1.0000
+    w1:fresh-pooled 3 exact 0.4430 ans 0.0095 prec 0.9683
+  note: pooled minus median, per table ['-2.02', '-1.35', '-3.47', '-0.77'] points (column-clustered SE ['0.26', '0.25', '0.31', '0.21']); mean -1.90, across-table SE 0.58
+  note: errors among 0.99 answers, all tables together: median 1/187 = 99.47% right, pooled 3/180 = 98.33% right
+  fresh: pooled minus median, per table ['-1.00', '-2.03', '-1.39', '-1.53'] points (column-clustered SE ['0.25', '0.25', '0.21', '0.24']); mean -1.49, across-table SE 0.21
+  fresh: errors among 0.99 answers, all tables together: median 1/214 = 99.53% right, pooled 7/222 = 96.85% right
+fresh_w3.npz  width 3  pooled 0.7355  fields 6000
+  true          tables 1  exact 73.57%  vs2000 -0.07 (table sd 0.00)  prec@.99 99.80%  worst 99.80%  answered 16.7%  wrong/answered [(2, 1002)]
+  p2000         tables 1  exact 73.63%  vs2000 +0.00 (table sd 0.00)  prec@.99 99.70%  worst 99.70%  answered 16.9%  wrong/answered [(3, 1014)]
+  note-median   tables 4  exact 70.34%  vs2000 -3.30 (table sd 3.32)  prec@.99 99.39%  worst 99.03%  answered 15.8%  wrong/answered [(7, 843), (3, 922), (10, 1030), (3, 1009)]
+    w3:note-median 0 exact 0.7073 ans 0.1405 prec 0.9917
+    w3:note-median 1 exact 0.7170 ans 0.1537 prec 0.9967
+    w3:note-median 2 exact 0.6562 ans 0.1717 prec 0.9903
+    w3:note-median 3 exact 0.7330 ans 0.1682 prec 0.9970
+  note-pooled   tables 4  exact 67.82%  vs2000 -5.81 (table sd 5.16)  prec@.99 98.80%  worst 97.82%  answered 15.5%  wrong/answered [(17, 780), (5, 892), (18, 1031), (3, 1008)]
+    w3:note-pooled 0 exact 0.6758 ans 0.1300 prec 0.9782
+    w3:note-pooled 1 exact 0.7047 ans 0.1487 prec 0.9944
+    w3:note-pooled 2 exact 0.6070 ans 0.1718 prec 0.9825
+    w3:note-pooled 3 exact 0.7253 ans 0.1680 prec 0.9970
+  fresh-median  tables 8  exact 69.60%  vs2000 -4.03 (table sd 2.75)  prec@.99 99.41%  worst 98.88%  answered 17.0%  wrong/answered [(3, 1043), (6, 903), (6, 1037), (6, 949), (6, 1054), (3, 1062), (12, 1075), (6, 1038)]
+    w3:fresh-median 0 exact 0.7195 ans 0.1738 prec 0.9971
+    w3:fresh-median 1 exact 0.7007 ans 0.1505 prec 0.9934
+    w3:fresh-median 2 exact 0.6838 ans 0.1728 prec 0.9942
+    w3:fresh-median 3 exact 0.7027 ans 0.1582 prec 0.9937
+    w3:fresh-median 4 exact 0.7132 ans 0.1757 prec 0.9943
+    w3:fresh-median 5 exact 0.7067 ans 0.1770 prec 0.9972
+    w3:fresh-median 6 exact 0.6330 ans 0.1792 prec 0.9888
+    w3:fresh-median 7 exact 0.7088 ans 0.1730 prec 0.9942
+  fresh-pooled  tables 8  exact 67.28%  vs2000 -6.35 (table sd 4.25)  prec@.99 98.70%  worst 96.32%  answered 16.9%  wrong/answered [(5, 1049), (11, 855), (14, 1035), (13, 922), (9, 1055), (7, 1075), (40, 1087), (7, 1034)]
+    w3:fresh-pooled 0 exact 0.7112 ans 0.1748 prec 0.9952
+    w3:fresh-pooled 1 exact 0.6725 ans 0.1425 prec 0.9871
+    w3:fresh-pooled 2 exact 0.6615 ans 0.1725 prec 0.9865
+    w3:fresh-pooled 3 exact 0.6803 ans 0.1537 prec 0.9859
+    w3:fresh-pooled 4 exact 0.7033 ans 0.1758 prec 0.9915
+    w3:fresh-pooled 5 exact 0.6887 ans 0.1792 prec 0.9935
+    w3:fresh-pooled 6 exact 0.5752 ans 0.1812 prec 0.9632
+    w3:fresh-pooled 7 exact 0.6898 ans 0.1723 prec 0.9932
+  note: pooled minus median, per table ['-3.15', '-1.23', '-4.92', '-0.77'] points (column-clustered SE ['0.30', '0.22', '0.32', '0.17']); mean -2.52, across-table SE 0.95
+  note: errors among 0.99 answers, all tables together: median 23/3804 = 99.40% right, pooled 43/3711 = 98.84% right
+  fresh: pooled minus median, per table ['-0.83', '-2.82', '-2.23', '-2.23', '-0.98', '-1.80', '-5.78', '-1.90'] points (column-clustered SE ['0.19', '0.28', '0.25', '0.25', '0.21', '0.25', '0.37', '0.25']); mean -2.32, across-table SE 0.55
+  fresh: errors among 0.99 answers, all tables together: median 48/8161 = 99.41% right, pooled 106/8112 = 98.69% right
+fresh_w9.npz  width 9  pooled 0.7355  fields 4200
+  true          tables 1  exact 96.43%  vs2000 -0.14 (table sd 0.00)  prec@.99 99.77%  worst 99.77%  answered 71.8%  wrong/answered [(7, 3015)]
+  p2000         tables 1  exact 96.57%  vs2000 +0.00 (table sd 0.00)  prec@.99 99.77%  worst 99.77%  answered 72.2%  wrong/answered [(7, 3032)]
+  note-median   tables 4  exact 95.46%  vs2000 -1.11 (table sd 0.64)  prec@.99 99.81%  worst 99.72%  answered 69.5%  wrong/answered [(8, 2851), (3, 2941), (4, 2872), (7, 3013)]
+    w9:note-median 0 exact 0.9526 ans 0.6788 prec 0.9972
+    w9:note-median 1 exact 0.9560 ans 0.7002 prec 0.9990
+    w9:note-median 2 exact 0.9474 ans 0.6838 prec 0.9986
+    w9:note-median 3 exact 0.9626 ans 0.7174 prec 0.9977
+  note-pooled   tables 4  exact 94.68%  vs2000 -1.89 (table sd 1.06)  prec@.99 99.76%  worst 99.60%  answered 68.2%  wrong/answered [(11, 2737), (3, 2902), (6, 2816), (7, 3001)]
+    w9:note-pooled 0 exact 0.9393 ans 0.6517 prec 0.9960
+    w9:note-pooled 1 exact 0.9512 ans 0.6910 prec 0.9990
+    w9:note-pooled 2 exact 0.9371 ans 0.6705 prec 0.9979
+    w9:note-pooled 3 exact 0.9598 ans 0.7145 prec 0.9977
+  fresh-median  tables 8  exact 95.32%  vs2000 -1.26 (table sd 0.80)  prec@.99 99.64%  worst 99.41%  answered 69.9%  wrong/answered [(9, 3016), (17, 2880), (16, 2887), (11, 2899), (8, 2982), (6, 3007), (7, 2921), (11, 2907)]
+    w9:fresh-median 0 exact 0.9631 ans 0.7181 prec 0.9970
+    w9:fresh-median 1 exact 0.9536 ans 0.6857 prec 0.9941
+    w9:fresh-median 2 exact 0.9400 ans 0.6874 prec 0.9945
+    w9:fresh-median 3 exact 0.9502 ans 0.6902 prec 0.9962
+    w9:fresh-median 4 exact 0.9638 ans 0.7100 prec 0.9973
+    w9:fresh-median 5 exact 0.9562 ans 0.7160 prec 0.9980
+    w9:fresh-median 6 exact 0.9519 ans 0.6955 prec 0.9976
+    w9:fresh-median 7 exact 0.9464 ans 0.6921 prec 0.9962
+  fresh-pooled  tables 8  exact 94.27%  vs2000 -2.30 (table sd 1.60)  prec@.99 99.49%  worst 99.04%  answered 68.5%  wrong/answered [(10, 3001), (17, 2798), (27, 2806), (18, 2797), (8, 2958), (4, 2975), (13, 2859), (18, 2836)]
+    w9:fresh-pooled 0 exact 0.9612 ans 0.7145 prec 0.9967
+    w9:fresh-pooled 1 exact 0.9410 ans 0.6662 prec 0.9939
+    w9:fresh-pooled 2 exact 0.9133 ans 0.6681 prec 0.9904
+    w9:fresh-pooled 3 exact 0.9393 ans 0.6660 prec 0.9936
+    w9:fresh-pooled 4 exact 0.9617 ans 0.7043 prec 0.9973
+    w9:fresh-pooled 5 exact 0.9521 ans 0.7083 prec 0.9987
+    w9:fresh-pooled 6 exact 0.9412 ans 0.6807 prec 0.9955
+    w9:fresh-pooled 7 exact 0.9321 ans 0.6752 prec 0.9937
+  note: pooled minus median, per table ['-1.33', '-0.48', '-1.02', '-0.29'] points (column-clustered SE ['0.22', '0.13', '0.17', '0.12']); mean -0.78, across-table SE 0.24
+  note: errors among 0.99 answers, all tables together: median 22/11677 = 99.81% right, pooled 27/11456 = 99.76% right
+  fresh: pooled minus median, per table ['-0.19', '-1.26', '-2.67', '-1.10', '-0.21', '-0.40', '-1.07', '-1.43'] points (column-clustered SE ['0.13', '0.22', '0.34', '0.19', '0.10', '0.15', '0.19', '0.24']); mean -1.04, across-table SE 0.29
+  fresh: errors among 0.99 answers, all tables together: median 85/23499 = 99.64% right, pooled 115/23030 = 99.50% right

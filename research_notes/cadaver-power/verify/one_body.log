@@ -1,0 +1,72 @@
+== part_b_seven.json
+true/nominal             tables 1  answered/table 48.00  precision 97.92%  table SD 0.00  wrong/table 1.00  P(>=1 wrong of 48 | 1%) 0.383
+people-12/nominal        tables 8  answered/table 72.00  precision 93.71%  table SD 3.12  wrong/table 4.53  SE 1.10  (99% - mean)/SE 4.80  one-sided t p 0.000979  P(>=4 wrong of 72 | 1%) 0.006
+people-12/predictive     tables 8  answered/table 36.63  precision 95.16%  table SD 3.55  wrong/table 1.77  SE 1.26  (99% - mean)/SE 3.06  one-sided t p 0.00922  P(>=1 wrong of 37 | 1%) 0.311
+people-25/nominal        tables 6  answered/table 48.17  precision 98.03%  table SD 1.93  wrong/table 0.95  SE 0.79  (99% - mean)/SE 1.23  one-sided t p 0.136
+people-25/predictive     tables 6  answered/table 33.33  precision 99.38%  table SD 1.51  wrong/table 0.21  SE 0.62  (99% - mean)/SE -0.62  one-sided t p 0.719
+people-50/nominal        tables 6  answered/table 53.67  precision 98.49%  table SD 0.77  wrong/table 0.81  SE 0.31  (99% - mean)/SE 1.61  one-sided t p 0.0836
+people-50/predictive     tables 6  answered/table 45.50  precision 98.23%  table SD 0.92  wrong/table 0.80  SE 0.38  (99% - mean)/SE 2.04  one-sided t p 0.0481
+people-100/nominal       tables 4  answered/table 47.25  precision 97.88%  table SD 0.08  wrong/table 1.00  SE 0.04  (99% - mean)/SE 27.23  one-sided t p 5.44e-05  P(>=1 wrong of 47 | 1%) 0.376
+people-100/predictive    tables 4  answered/table 44.00  precision 97.72%  table SD 0.15  wrong/table 1.00  SE 0.07  (99% - mean)/SE 17.25  one-sided t p 0.000212  P(>=1 wrong of 44 | 1%) 0.357
+people-200/nominal       tables 3  answered/table 50.00  precision 98.00%  table SD 0.11  wrong/table 1.00  SE 0.06  (99% - mean)/SE 15.97  one-sided t p 0.00195  P(>=1 wrong of 50 | 1%) 0.395
+people-200/predictive    tables 3  answered/table 48.33  precision 97.93%  table SD 0.13  wrong/table 1.00  SE 0.08  (99% - mean)/SE 13.95  one-sided t p 0.00255  P(>=1 wrong of 48 | 1%) 0.383
+people-500/nominal       tables 2  answered/table 53.00  precision 98.10%  table SD 0.20  wrong/table 1.01  SE 0.14  (99% - mean)/SE 6.27  one-sided t p 0.0504  P(>=1 wrong of 53 | 1%) 0.413
+people-500/predictive    tables 2  answered/table 52.50  precision 98.08%  table SD 0.23  wrong/table 1.01  SE 0.16  (99% - mean)/SE 5.59  one-sided t p 0.0564  P(>=1 wrong of 52 | 1%) 0.407
+people-2000/nominal      tables 2  answered/table 51.00  precision 98.04%  table SD 0.00  wrong/table 1.00  P(>=1 wrong of 51 | 1%) 0.401
+people-2000/predictive   tables 2  answered/table 50.50  precision 98.02%  table SD 0.03  wrong/table 1.00  SE 0.02  (99% - mean)/SE 50.00  one-sided t p 0.00637  P(>=1 wrong of 51 | 1%) 0.401
+profile-0.05/nominal     tables 4  answered/table 47.25  precision 97.88%  table SD 0.14  wrong/table 1.00  SE 0.07  (99% - mean)/SE 15.57  one-sided t p 0.000288  P(>=1 wrong of 47 | 1%) 0.376
+profile-0.05/predictive  tables 4  answered/table 46.75  precision 97.86%  table SD 0.13  wrong/table 1.00  SE 0.06  (99% - mean)/SE 18.27  one-sided t p 0.000179  P(>=1 wrong of 47 | 1%) 0.376
+profile-0.1/nominal      tables 4  answered/table 45.50  precision 97.80%  table SD 0.09  wrong/table 1.00  SE 0.04  (99% - mean)/SE 27.80  one-sided t p 5.11e-05  P(>=1 wrong of 46 | 1%) 0.37
+profile-0.1/predictive   tables 4  answered/table 44.25  precision 97.74%  table SD 0.09  wrong/table 1.00  SE 0.04  (99% - mean)/SE 28.46  one-sided t p 4.76e-05  P(>=1 wrong of 44 | 1%) 0.357
+profile-0.2/nominal      tables 4  answered/table 52.50  precision 98.45%  table SD 1.04  wrong/table 0.81  SE 0.52  (99% - mean)/SE 1.05  one-sided t p 0.185
+profile-0.2/predictive   tables 4  answered/table 46.50  precision 98.27%  table SD 1.17  wrong/table 0.80  SE 0.59  (99% - mean)/SE 1.25  one-sided t p 0.15
+profile-0.3/nominal      tables 4  answered/table 54.25  precision 97.81%  table SD 2.11  wrong/table 1.19  SE 1.06  (99% - mean)/SE 1.13  one-sided t p 0.17  P(>=1 wrong of 54 | 1%) 0.419
+profile-0.3/predictive   tables 4  answered/table 45.75  precision 98.38%  table SD 1.18  wrong/table 0.74  SE 0.59  (99% - mean)/SE 1.06  one-sided t p 0.184
+profile-0.5/nominal      tables 4  answered/table 76.00  precision 93.17%  table SD 3.55  wrong/table 5.19  SE 1.78  (99% - mean)/SE 3.28  one-sided t p 0.0232  P(>=5 wrong of 76 | 1%) 0.00103
+profile-0.5/predictive   tables 4  answered/table 39.25  precision 94.92%  table SD 1.98  wrong/table 1.99  SE 0.99  (99% - mean)/SE 4.12  one-sided t p 0.013  P(>=1 wrong of 39 | 1%) 0.324
+shift-0.05/nominal       tables 4  answered/table 47.25  precision 97.88%  table SD 0.11  wrong/table 1.00  SE 0.05  (99% - mean)/SE 20.48  one-sided t p 0.000127  P(>=1 wrong of 47 | 1%) 0.376
+shift-0.05/predictive    tables 4  answered/table 46.75  precision 97.86%  table SD 0.09  wrong/table 1.00  SE 0.04  (99% - mean)/SE 25.44  one-sided t p 6.66e-05  P(>=1 wrong of 47 | 1%) 0.376
+shift-0.1/nominal        tables 4  answered/table 45.50  precision 98.39%  table SD 1.08  wrong/table 0.73  SE 0.54  (99% - mean)/SE 1.13  one-sided t p 0.17
+shift-0.1/predictive     tables 4  answered/table 44.75  precision 98.35%  table SD 1.10  wrong/table 0.74  SE 0.55  (99% - mean)/SE 1.17  one-sided t p 0.163
+shift-0.2/nominal        tables 4  answered/table 42.25  precision 100.00%  table SD 0.00  wrong/table 0.00
+shift-0.2/predictive     tables 4  answered/table 37.25  precision 100.00%  table SD 0.00  wrong/table 0.00
+shift-0.3/nominal        tables 4  answered/table 43.75  precision 98.27%  table SD 1.15  wrong/table 0.76  SE 0.58  (99% - mean)/SE 1.27  one-sided t p 0.147
+shift-0.3/predictive     tables 4  answered/table 33.00  precision 97.63%  table SD 1.58  wrong/table 0.78  SE 0.79  (99% - mean)/SE 1.73  one-sided t p 0.0909
+shift-0.5/nominal        tables 4  answered/table 43.25  precision 98.28%  table SD 1.19  wrong/table 0.74  SE 0.60  (99% - mean)/SE 1.20  one-sided t p 0.158
+shift-0.5/predictive     tables 4  answered/table 22.75  precision 98.91%  table SD 2.17  wrong/table 0.25  SE 1.09  (99% - mean)/SE 0.08  one-sided t p 0.471
+== part_b_seven_kind-0.28.json
+true/nominal             tables 1  answered/table 48.00  precision 97.92%  table SD 0.00  wrong/table 1.00  P(>=1 wrong of 48 | 1%) 0.383
+people-2000/nominal      tables 2  answered/table 51.00  precision 98.04%  table SD 0.00  wrong/table 1.00  P(>=1 wrong of 51 | 1%) 0.401
+people-2000/predictive   tables 2  answered/table 50.50  precision 98.02%  table SD 0.03  wrong/table 1.00  SE 0.02  (99% - mean)/SE 50.00  one-sided t p 0.00637  P(>=1 wrong of 51 | 1%) 0.401
+kind-0.28/nominal        tables 4  answered/table 59.25  precision 96.49%  table SD 1.35  wrong/table 2.08  SE 0.67  (99% - mean)/SE 3.72  one-sided t p 0.0169  P(>=2 wrong of 59 | 1%) 0.118
+kind-0.28/predictive     tables 4  answered/table 31.00  precision 97.42%  table SD 2.20  wrong/table 0.80  SE 1.10  (99% - mean)/SE 1.43  one-sided t p 0.124
+== part_b_seven_kind-0.28_seven-seen_seven-kind.json
+true/nominal             tables 1  answered/table 48.00  precision 97.92%  table SD 0.00  wrong/table 1.00  P(>=1 wrong of 48 | 1%) 0.383
+people-2000/nominal      tables 2  answered/table 51.00  precision 98.04%  table SD 0.00  wrong/table 1.00  P(>=1 wrong of 51 | 1%) 0.401
+people-2000/predictive   tables 2  answered/table 50.50  precision 98.02%  table SD 0.03  wrong/table 1.00  SE 0.02  (99% - mean)/SE 50.00  one-sided t p 0.00637  P(>=1 wrong of 51 | 1%) 0.401
+kind-0.28/nominal        tables 4  answered/table 59.25  precision 96.49%  table SD 1.35  wrong/table 2.08  SE 0.67  (99% - mean)/SE 3.72  one-sided t p 0.0169  P(>=2 wrong of 59 | 1%) 0.118
+kind-0.28/predictive     tables 4  answered/table 31.00  precision 97.42%  table SD 2.20  wrong/table 0.80  SE 1.10  (99% - mean)/SE 1.43  one-sided t p 0.124
+seven-seen/nominal       tables 4  answered/table 68.50  precision 90.37%  table SD 9.79  wrong/table 6.60  SE 4.90  (99% - mean)/SE 1.76  one-sided t p 0.0881  P(>=6 wrong of 68 | 1%) 6.44e-05
+seven-seen/predictive    tables 4  answered/table 24.25  precision 96.56%  table SD 3.51  wrong/table 0.83  SE 1.75  (99% - mean)/SE 1.39  one-sided t p 0.129
+seven-kind/nominal       tables 4  answered/table 42.50  precision 97.13%  table SD 0.61  wrong/table 1.22  SE 0.31  (99% - mean)/SE 6.11  one-sided t p 0.0044  P(>=1 wrong of 42 | 1%) 0.344
+seven-kind/predictive    tables 4  answered/table 25.00  precision 98.17%  table SD 2.13  wrong/table 0.46  SE 1.07  (99% - mean)/SE 0.78  one-sided t p 0.246
+== part_b_seven_observed-0.28_observed-0.4.json
+true/nominal             tables 1  answered/table 48.00  precision 97.92%  table SD 0.00  wrong/table 1.00  P(>=1 wrong of 48 | 1%) 0.383
+people-2000/nominal      tables 2  answered/table 51.00  precision 98.04%  table SD 0.00  wrong/table 1.00  P(>=1 wrong of 51 | 1%) 0.401
+people-2000/predictive   tables 2  answered/table 50.50  precision 98.02%  table SD 0.03  wrong/table 1.00  SE 0.02  (99% - mean)/SE 50.00  one-sided t p 0.00637  P(>=1 wrong of 51 | 1%) 0.401
+observed-0.28/nominal    tables 4  answered/table 78.25  precision 95.96%  table SD 2.95  wrong/table 3.16  SE 1.48  (99% - mean)/SE 2.06  one-sided t p 0.0658  P(>=3 wrong of 78 | 1%) 0.0437
+observed-0.28/predictive tables 4  answered/table 31.50  precision 98.28%  table SD 2.01  wrong/table 0.54  SE 1.01  (99% - mean)/SE 0.71  one-sided t p 0.263
+observed-0.4/nominal     tables 4  answered/table 70.00  precision 92.34%  table SD 3.10  wrong/table 5.36  SE 1.55  (99% - mean)/SE 4.30  one-sided t p 0.0116  P(>=5 wrong of 70 | 1%) 0.000706
+observed-0.4/predictive  tables 4  answered/table 18.25  precision 98.33%  table SD 3.33  wrong/table 0.30  SE 1.67  (99% - mean)/SE 0.40  one-sided t p 0.358
+== part_b_seven_seven-r0_seven-r0.5_seven-r0.8_seven-r1.json
+true/nominal             tables 1  answered/table 48.00  precision 97.92%  table SD 0.00  wrong/table 1.00  P(>=1 wrong of 48 | 1%) 0.383
+people-2000/nominal      tables 2  answered/table 51.00  precision 98.04%  table SD 0.00  wrong/table 1.00  P(>=1 wrong of 51 | 1%) 0.401
+people-2000/predictive   tables 2  answered/table 50.50  precision 98.02%  table SD 0.03  wrong/table 1.00  SE 0.02  (99% - mean)/SE 50.00  one-sided t p 0.00637  P(>=1 wrong of 51 | 1%) 0.401
+seven-r0/nominal         tables 4  answered/table 46.75  precision 99.66%  table SD 0.68  wrong/table 0.16  SE 0.34  (99% - mean)/SE -1.92  one-sided t p 0.925
+seven-r0/predictive      tables 4  answered/table 20.75  precision 99.22%  table SD 1.56  wrong/table 0.16  SE 0.78  (99% - mean)/SE -0.28  one-sided t p 0.601
+seven-r0.5/nominal       tables 4  answered/table 59.50  precision 96.92%  table SD 1.20  wrong/table 1.83  SE 0.60  (99% - mean)/SE 3.47  one-sided t p 0.0202  P(>=1 wrong of 59 | 1%) 0.447
+seven-r0.5/predictive    tables 4  answered/table 33.25  precision 97.72%  table SD 1.77  wrong/table 0.76  SE 0.89  (99% - mean)/SE 1.44  one-sided t p 0.122
+seven-r0.8/nominal       tables 4  answered/table 65.75  precision 94.86%  table SD 2.53  wrong/table 3.38  SE 1.27  (99% - mean)/SE 3.26  one-sided t p 0.0235  P(>=3 wrong of 66 | 1%) 0.0287
+seven-r0.8/predictive    tables 4  answered/table 30.75  precision 98.15%  table SD 2.38  wrong/table 0.57  SE 1.19  (99% - mean)/SE 0.71  one-sided t p 0.265
+seven-r1/nominal         tables 4  answered/table 67.75  precision 95.16%  table SD 4.65  wrong/table 3.28  SE 2.33  (99% - mean)/SE 1.65  one-sided t p 0.099  P(>=3 wrong of 68 | 1%) 0.031
+seven-r1/predictive      tables 4  answered/table 26.00  precision 97.56%  table SD 3.37  wrong/table 0.64  SE 1.68  (99% - mean)/SE 0.86  one-sided t p 0.227

@@ -1,0 +1,1826 @@
+{
+ "summary": {
+  "cells": 86,
+  "measures": 10,
+  "f_obs": {
+   "median": 0.48689110712757966,
+   "quartiles": [
+    0.2705934553470073,
+    0.48689110712757966,
+    0.7857286805617737
+   ]
+  },
+  "f_low": {
+   "median": 0.3920001422745337,
+   "quartiles": [
+    0.0,
+    0.3920001422745337,
+    0.7307755446108698
+   ]
+  },
+  "cells_at_zero": 25,
+  "share_f_low_above_0.1": 0.7093023255813954,
+  "share_f_low_above_0.3": 0.5581395348837209,
+  "pooled": {
+   "weighted_by_df": 0.7152646168852234,
+   "weighted_by_df_sampling_error_kept": 0.7713214670299918,
+   "unweighted": 0.7576353619383497,
+   "unweighted_sampling_error_kept": 0.8107679538516477
+  },
+  "left_out": {
+   "PDIt": "Berry's transverse pedicle angles, which the thoracic paper (p900) says 'appeared to be grossly incorrect (eg, at T2, Berry: 137.0, Zindrick: 17.5, present study: 17.9)'",
+   "VBH": "the earlier body heights, which the cervical paper (p868) says were 'the posterior wall height as observed from the lateral direction', 2 to 2.5 mm above Panjabi's posterior height in the midsagittal plane"
+  },
+  "groups": {
+   "five": {
+    "cells": 36,
+    "measures": 5,
+    "f_obs": {
+     "median": 0.5767923138454158,
+     "quartiles": [
+      0.40839540800491597,
+      0.5767923138454158,
+      0.7798863393104105
+     ]
+    },
+    "f_low": {
+     "median": 0.4993250859783561,
+     "quartiles": [
+      0.28887620684894827,
+      0.4993250859783561,
+      0.7244891663014849
+     ]
+    },
+    "cells_at_zero": 4,
+    "share_f_low_above_0.1": 0.8888888888888888,
+    "share_f_low_above_0.3": 0.7222222222222222,
+    "pooled": {
+     "weighted_by_df": 0.6210852868249214,
+     "weighted_by_df_sampling_error_kept": 0.6848943472125669,
+     "unweighted": 0.6235425074790423,
+     "unweighted_sampling_error_kept": 0.6871234182929474
+    }
+   },
+   "pedicles": {
+    "cells": 40,
+    "measures": 3,
+    "f_obs": {
+     "median": 0.2812521677934873,
+     "quartiles": [
+      0.21283563127761856,
+      0.2812521677934873,
+      0.5310076868427633
+     ]
+    },
+    "f_low": {
+     "median": 0.0,
+     "quartiles": [
+      0.0,
+      0.0,
+      0.44568409132505876
+     ]
+    },
+    "cells_at_zero": 21,
+    "share_f_low_above_0.1": 0.475,
+    "share_f_low_above_0.3": 0.325,
+    "pooled": {
+     "weighted_by_df": 0.4791724713112984,
+     "weighted_by_df_sampling_error_kept": 0.5594100379827934,
+     "unweighted": 0.4604258067411749,
+     "unweighted_sampling_error_kept": 0.5434383652693239
+    }
+   }
+  },
+  "definitions_left_out": [
+   {
+    "cells": 80,
+    "measures": 9,
+    "f_obs": {
+     "median": 0.4504056500154964,
+     "quartiles": [
+      0.2531362616876822,
+      0.4504056500154964,
+      0.7208819888712326
+     ]
+    },
+    "f_low": {
+     "median": 0.34565878359691005,
+     "quartiles": [
+      0.0,
+      0.34565878359691005,
+      0.660558478490676
+     ]
+    },
+    "cells_at_zero": 25,
+    "share_f_low_above_0.1": 0.6875,
+    "share_f_low_above_0.3": 0.525,
+    "pooled": {
+     "weighted_by_df": 0.5514282728393264,
+     "weighted_by_df_sampling_error_kept": 0.6224198530091211,
+     "unweighted": 0.5451870495398009,
+     "unweighted_sampling_error_kept": 0.6168972785798675
+    },
+    "rules": [
+     "EPAl"
+    ],
+    "groups": {
+     "five": {
+      "cells": 36,
+      "measures": 5,
+      "f_obs": {
+       "median": 0.5767923138454158,
+       "quartiles": [
+        0.40839540800491597,
+        0.5767923138454158,
+        0.7798863393104105
+       ]
+      },
+      "f_low": {
+       "median": 0.4993250859783561,
+       "quartiles": [
+        0.28887620684894827,
+        0.4993250859783561,
+        0.7244891663014849
+       ]
+      },
+      "cells_at_zero": 4,
+      "share_f_low_above_0.1": 0.8888888888888888,
+      "share_f_low_above_0.3": 0.7222222222222222,
+      "pooled": {
+       "weighted_by_df": 0.6210852868249214,
+       "weighted_by_df_sampling_error_kept": 0.6848943472125669,
+       "unweighted": 0.6235425074790423,
+       "unweighted_sampling_error_kept": 0.6871234182929474
+      }
+     },
+     "pedicles": {
+      "cells": 40,
+      "measures": 3,
+      "f_obs": {
+       "median": 0.2812521677934873,
+       "quartiles": [
+        0.21283563127761856,
+        0.2812521677934873,
+        0.5310076868427633
+       ]
+      },
+      "f_low": {
+       "median": 0.0,
+       "quartiles": [
+        0.0,
+        0.0,
+        0.44568409132505876
+       ]
+      },
+      "cells_at_zero": 21,
+      "share_f_low_above_0.1": 0.475,
+      "share_f_low_above_0.3": 0.325,
+      "pooled": {
+       "weighted_by_df": 0.4791724713112984,
+       "weighted_by_df_sampling_error_kept": 0.5594100379827934,
+       "unweighted": 0.4604258067411749,
+       "unweighted_sampling_error_kept": 0.5434383652693239
+      }
+     }
+    }
+   },
+   {
+    "cells": 80,
+    "measures": 9,
+    "f_obs": {
+     "median": 0.4069698326967631,
+     "quartiles": [
+      0.24784025403253468,
+      0.4069698326967631,
+      0.6620019715774685
+     ]
+    },
+    "f_low": {
+     "median": 0.28686415263117127,
+     "quartiles": [
+      0.0,
+      0.28686415263117127,
+      0.5957184595233785
+     ]
+    },
+    "cells_at_zero": 27,
+    "share_f_low_above_0.1": 0.6625,
+    "share_f_low_above_0.3": 0.475,
+    "pooled": {
+     "weighted_by_df": 0.5271319233159832,
+     "weighted_by_df_sampling_error_kept": 0.6010003310416234,
+     "unweighted": 0.5184455152760788,
+     "unweighted_sampling_error_kept": 0.5933962298862474
+    },
+    "rules": [
+     "EPAl",
+     "Liu's depths"
+    ],
+    "groups": {
+     "five": {
+      "cells": 36,
+      "measures": 5,
+      "f_obs": {
+       "median": 0.4862121242446146,
+       "quartiles": [
+        0.3828799303735794,
+        0.4862121242446146,
+        0.7448852718620582
+       ]
+      },
+      "f_low": {
+       "median": 0.3910260809409599,
+       "quartiles": [
+        0.2515036198436567,
+        0.3910260809409599,
+        0.6866577252850488
+       ]
+      },
+      "cells_at_zero": 6,
+      "share_f_low_above_0.1": 0.8333333333333334,
+      "share_f_low_above_0.3": 0.6111111111111112,
+      "pooled": {
+       "weighted_by_df": 0.5753177171202627,
+       "weighted_by_df_sampling_error_kept": 0.6436798963505105,
+       "unweighted": 0.5706121463616044,
+       "unweighted_sampling_error_kept": 0.6394775640385911
+      }
+     },
+     "pedicles": {
+      "cells": 40,
+      "measures": 3,
+      "f_obs": {
+       "median": 0.2812521677934873,
+       "quartiles": [
+        0.21283563127761856,
+        0.2812521677934873,
+        0.5310076868427633
+       ]
+      },
+      "f_low": {
+       "median": 0.0,
+       "quartiles": [
+        0.0,
+        0.0,
+        0.44568409132505876
+       ]
+      },
+      "cells_at_zero": 21,
+      "share_f_low_above_0.1": 0.475,
+      "share_f_low_above_0.3": 0.325,
+      "pooled": {
+       "weighted_by_df": 0.4791724713112984,
+       "weighted_by_df_sampling_error_kept": 0.5594100379827934,
+       "unweighted": 0.4604258067411749,
+       "unweighted_sampling_error_kept": 0.5434383652693239
+      }
+     }
+    }
+   },
+   {
+    "cells": 78,
+    "measures": 9,
+    "f_obs": {
+     "median": 0.40456029222761625,
+     "quartiles": [
+      0.2455472867677443,
+      0.40456029222761625,
+      0.5978954498116242
+     ]
+    },
+    "f_low": {
+     "median": 0.28342708157242946,
+     "quartiles": [
+      0.0,
+      0.28342708157242946,
+      0.5234783141351305
+     ]
+    },
+    "cells_at_zero": 27,
+    "share_f_low_above_0.1": 0.6538461538461539,
+    "share_f_low_above_0.3": 0.44871794871794873,
+    "pooled": {
+     "weighted_by_df": 0.5057160422587725,
+     "weighted_by_df_sampling_error_kept": 0.582307520757898,
+     "unweighted": 0.4947867781754723,
+     "unweighted_sampling_error_kept": 0.5728414171396804
+    },
+    "rules": [
+     "EPAl",
+     "Liu's depths",
+     "midheight depths"
+    ],
+    "groups": {
+     "five": {
+      "cells": 34,
+      "measures": 5,
+      "f_obs": {
+       "median": 0.4504056500154964,
+       "quartiles": [
+        0.36931112730909355,
+        0.4504056500154964,
+        0.6837421835545812
+       ]
+      },
+      "f_low": {
+       "median": 0.34565878359691005,
+       "quartiles": [
+        0.22850429308929698,
+        0.34565878359691005,
+        0.6198140596416304
+       ]
+      },
+      "cells_at_zero": 6,
+      "share_f_low_above_0.1": 0.8235294117647058,
+      "share_f_low_above_0.3": 0.5588235294117647,
+      "pooled": {
+       "weighted_by_df": 0.5318205267020794,
+       "weighted_by_df_sampling_error_kept": 0.6051168531407883,
+       "unweighted": 0.5233985195417985,
+       "unweighted_sampling_error_kept": 0.5977284865153072
+      }
+     },
+     "pedicles": {
+      "cells": 40,
+      "measures": 3,
+      "f_obs": {
+       "median": 0.2812521677934873,
+       "quartiles": [
+        0.21283563127761856,
+        0.2812521677934873,
+        0.5310076868427633
+       ]
+      },
+      "f_low": {
+       "median": 0.0,
+       "quartiles": [
+        0.0,
+        0.0,
+        0.44568409132505876
+       ]
+      },
+      "cells_at_zero": 21,
+      "share_f_low_above_0.1": 0.475,
+      "share_f_low_above_0.3": 0.325,
+      "pooled": {
+       "weighted_by_df": 0.4791724713112984,
+       "weighted_by_df_sampling_error_kept": 0.5594100379827934,
+       "unweighted": 0.4604258067411749,
+       "unweighted_sampling_error_kept": 0.5434383652693239
+      }
+     }
+    }
+   },
+   {
+    "cells": 74,
+    "measures": 8,
+    "f_obs": {
+     "median": 0.39635048212726365,
+     "quartiles": [
+      0.23859585657665805,
+      0.39635048212726365,
+      0.5722817998256131
+     ]
+    },
+    "f_low": {
+     "median": 0.271521856941278,
+     "quartiles": [
+      0.0,
+      0.271521856941278,
+      0.49411649177401307
+     ]
+    },
+    "cells_at_zero": 27,
+    "share_f_low_above_0.1": 0.6351351351351351,
+    "share_f_low_above_0.3": 0.43243243243243246,
+    "pooled": {
+     "weighted_by_df": 0.5033713367904206,
+     "weighted_by_df_sampling_error_kept": 0.5802723809001324,
+     "unweighted": 0.49036447130736815,
+     "unweighted_sampling_error_kept": 0.5690260521750196
+    },
+    "rules": [
+     "EPAl",
+     "Liu's depths",
+     "midheight depths",
+     "Ss"
+    ],
+    "groups": {
+     "five": {
+      "cells": 34,
+      "measures": 5,
+      "f_obs": {
+       "median": 0.4504056500154964,
+       "quartiles": [
+        0.36931112730909355,
+        0.4504056500154964,
+        0.6837421835545812
+       ]
+      },
+      "f_low": {
+       "median": 0.34565878359691005,
+       "quartiles": [
+        0.22850429308929698,
+        0.34565878359691005,
+        0.6198140596416304
+       ]
+      },
+      "cells_at_zero": 6,
+      "share_f_low_above_0.1": 0.8235294117647058,
+      "share_f_low_above_0.3": 0.5588235294117647,
+      "pooled": {
+       "weighted_by_df": 0.5318205267020794,
+       "weighted_by_df_sampling_error_kept": 0.6051168531407883,
+       "unweighted": 0.5233985195417985,
+       "unweighted_sampling_error_kept": 0.5977284865153072
+      }
+     },
+     "pedicles": {
+      "cells": 40,
+      "measures": 3,
+      "f_obs": {
+       "median": 0.2812521677934873,
+       "quartiles": [
+        0.21283563127761856,
+        0.2812521677934873,
+        0.5310076868427633
+       ]
+      },
+      "f_low": {
+       "median": 0.0,
+       "quartiles": [
+        0.0,
+        0.0,
+        0.44568409132505876
+       ]
+      },
+      "cells_at_zero": 21,
+      "share_f_low_above_0.1": 0.475,
+      "share_f_low_above_0.3": 0.325,
+      "pooled": {
+       "weighted_by_df": 0.4791724713112984,
+       "weighted_by_df_sampling_error_kept": 0.5594100379827934,
+       "unweighted": 0.4604258067411749,
+       "unweighted_sampling_error_kept": 0.5434383652693239
+      }
+     }
+    }
+   }
+  ],
+  "definitions": {
+   "EPAl": "cervical p868: Liu's areas 'probably' include the uncovertebral area; Francis's equal the ellipse of his own depth and width, and p868 finds the ellipse overestimates the area by 10%",
+   "Liu's depths": "cervical p868: 'probably measured at the centrum midheight instead of the lower end-plate'",
+   "midheight depths": "thoracic p898: the depth 'may be at the body mid-height'",
+   "Ss": "facets p1309: earlier angles are taken on the transverse plane, which 'could account for the differences in the angle comparisons of Table 10'"
+  }
+ },
+ "cells": [
+  {
+   "measure": "EPAl",
+   "level": "C2",
+   "studies": 3,
+   "sd": 33.39393956992795,
+   "s_b": 66.69162866007497,
+   "range": 132.4,
+   "f_obs": 1.9971177261197535,
+   "f_low": 1.9761441948016851,
+   "means": {
+    "present": 194.4,
+    "Liu (1986)": 326.8,
+    "Francis (1952)": 246.6
+   }
+  },
+  {
+   "measure": "EPAl",
+   "level": "C3",
+   "studies": 3,
+   "sd": 19.88394327089071,
+   "s_b": 60.03107528605497,
+   "range": 119.0,
+   "f_obs": 3.019072950883844,
+   "f_low": 3.0052401151031423,
+   "means": {
+    "present": 190.7,
+    "Liu (1986)": 309.7,
+    "Francis (1952)": 264.0
+   }
+  },
+  {
+   "measure": "EPAl",
+   "level": "C4",
+   "studies": 3,
+   "sd": 25.184018742051475,
+   "s_b": 65.66741962343275,
+   "range": 130.3,
+   "f_obs": 2.6075036036160255,
+   "f_low": 2.5914748136027153,
+   "means": {
+    "present": 199.2,
+    "Liu (1986)": 329.5,
+    "Francis (1952)": 278.6
+   }
+  },
+  {
+   "measure": "EPAl",
+   "level": "C5",
+   "studies": 3,
+   "sd": 41.811706494712695,
+   "s_b": 57.58202844638249,
+   "range": 114.90000000000003,
+   "f_obs": 1.377174798011749,
+   "f_low": 1.3465797751880013,
+   "means": {
+    "present": 246.2,
+    "Liu (1986)": 361.1,
+    "Francis (1952)": 296.9
+   }
+  },
+  {
+   "measure": "EPAl",
+   "level": "C6",
+   "studies": 3,
+   "sd": 57.296240714378456,
+   "s_b": 66.78789810537036,
+   "range": 131.8,
+   "f_obs": 1.165659339472336,
+   "f_low": 1.1293486451781618,
+   "means": {
+    "present": 289.9,
+    "Liu (1986)": 421.7,
+    "Francis (1952)": 337.0
+   }
+  },
+  {
+   "measure": "EPAl",
+   "level": "C7",
+   "studies": 3,
+   "sd": 47.49283314353862,
+   "s_b": 81.27984580037867,
+   "range": 160.2,
+   "f_obs": 1.7114128684369034,
+   "f_low": 1.686890830171916,
+   "means": {
+    "present": 280.3,
+    "Liu (1986)": 440.5,
+    "Francis (1952)": 384.3
+   }
+  },
+  {
+   "measure": "EPDl",
+   "level": "C2",
+   "studies": 3,
+   "sd": 2.0091789367798976,
+   "s_b": 0.4041451884327385,
+   "range": 0.8000000000000007,
+   "f_obs": 0.20114942528735658,
+   "f_low": 0.0,
+   "means": {
+    "present": 15.6,
+    "Nissan (1984)": 15.3,
+    "Francis (1952)": 16.1
+   }
+  },
+  {
+   "measure": "EPDl",
+   "level": "C3",
+   "studies": 4,
+   "sd": 1.3856406460551018,
+   "s_b": 0.8246211251235314,
+   "range": 1.9999999999999982,
+   "f_obs": 0.5951190357119036,
+   "f_low": 0.5204164998665325,
+   "means": {
+    "present": 15.6,
+    "Liu (1986)": 14.4,
+    "Nissan (1984)": 15.6,
+    "Francis (1952)": 16.4
+   }
+  },
+  {
+   "measure": "EPDl",
+   "level": "C4",
+   "studies": 4,
+   "sd": 1.3163586137523466,
+   "s_b": 1.0307764064044154,
+   "range": 2.4000000000000004,
+   "f_obs": 0.7830513627788215,
+   "f_low": 0.7278984155886288,
+   "means": {
+    "present": 15.9,
+    "Liu (1986)": 14.1,
+    "Nissan (1984)": 15.8,
+    "Francis (1952)": 16.5
+   }
+  },
+  {
+   "measure": "EPDl",
+   "level": "C5",
+   "studies": 4,
+   "sd": 1.8013328398716324,
+   "s_b": 1.298717315918543,
+   "range": 3.099999999999998,
+   "f_obs": 0.7209757614873068,
+   "f_low": 0.6606608171511827,
+   "means": {
+    "present": 17.9,
+    "Liu (1986)": 14.8,
+    "Nissan (1984)": 16.1,
+    "Francis (1952)": 16.8
+   }
+  },
+  {
+   "measure": "EPDl",
+   "level": "C6",
+   "studies": 4,
+   "sd": 2.39023011444505,
+   "s_b": 1.7224014243685084,
+   "range": 4.1,
+   "f_obs": 0.7206006710230097,
+   "f_low": 0.6602514625091553,
+   "means": {
+    "present": 18.5,
+    "Liu (1986)": 14.4,
+    "Nissan (1984)": 16.6,
+    "Francis (1952)": 17.3
+   }
+  },
+  {
+   "measure": "EPDl",
+   "level": "C7",
+   "studies": 4,
+   "sd": 1.1085125168440815,
+   "s_b": 1.0719919153924002,
+   "range": 2.3000000000000007,
+   "f_obs": 0.9670544076889137,
+   "f_low": 0.9229631054908004,
+   "means": {
+    "present": 16.8,
+    "Liu (1986)": 14.5,
+    "Nissan (1984)": 16.3,
+    "Francis (1952)": 16.7
+   }
+  },
+  {
+   "measure": "EPDl",
+   "level": "L1",
+   "studies": 5,
+   "sd": 4.399409051224948,
+   "s_b": 2.3276597689524983,
+   "range": 5.799999999999997,
+   "f_obs": 0.5290846433805461,
+   "f_low": 0.44339285800268174,
+   "means": {
+    "present": 35.3,
+    "Berry (1987)": 32.3,
+    "Scoles (1988)": 29.5,
+    "Krag (1986, 1988)": 31.0,
+    "Gilad (1986)": 34.1
+   }
+  },
+  {
+   "measure": "EPDl",
+   "level": "L2",
+   "studies": 4,
+   "sd": 2.5634351952019383,
+   "s_b": 1.1324751652906129,
+   "range": 2.3999999999999986,
+   "f_obs": 0.4417802983318252,
+   "f_low": 0.33441964454981277,
+   "means": {
+    "present": 34.9,
+    "Berry (1987)": 33.4,
+    "Krag (1986, 1988)": 32.5,
+    "Gilad (1986)": 34.7
+   }
+  },
+  {
+   "measure": "EPDl",
+   "level": "L3",
+   "studies": 6,
+   "sd": 4.295486002770815,
+   "s_b": 1.6378848148348728,
+   "range": 4.299999999999997,
+   "f_obs": 0.3813037253010138,
+   "f_low": 0.24911683523017406,
+   "means": {
+    "present": 34.8,
+    "Berry (1987)": 34.2,
+    "Scoles (1988)": 32.6,
+    "Krag (1986, 1988)": 30.5,
+    "Cotterill (1986)": 32.7,
+    "Gilad (1986)": 34.6
+   }
+  },
+  {
+   "measure": "EPDl",
+   "level": "L4",
+   "studies": 4,
+   "sd": 2.9444863728670914,
+   "s_b": 1.5641824275533425,
+   "range": 3.6000000000000014,
+   "f_obs": 0.5312242032997674,
+   "f_low": 0.44594374178604557,
+   "means": {
+    "present": 33.9,
+    "Berry (1987)": 35.6,
+    "Krag (1986, 1988)": 32.0,
+    "Gilad (1986)": 34.9
+   }
+  },
+  {
+   "measure": "EPDl",
+   "level": "L5",
+   "studies": 5,
+   "sd": 3.186973485926734,
+   "s_b": 0.704982269280582,
+   "range": 1.5,
+   "f_obs": 0.22120744725166158,
+   "f_low": 0.0,
+   "means": {
+    "present": 33.2,
+    "Berry (1987)": 34.5,
+    "Scoles (1988)": 34.5,
+    "Krag (1986, 1988)": 33.0,
+    "Gilad (1986)": 33.9
+   }
+  },
+  {
+   "measure": "EPDl",
+   "level": "T12",
+   "studies": 5,
+   "sd": 2.7019992598074487,
+   "s_b": 2.398332754227402,
+   "range": 5.899999999999999,
+   "f_obs": 0.8876141418330046,
+   "f_low": 0.8393601917226049,
+   "means": {
+    "present": 33.4,
+    "Berry (1987)": 31.2,
+    "Scoles (1988)": 28.8,
+    "Krag (1986, 1988)": 32.0,
+    "Cotterill (1986)": 27.5
+   }
+  },
+  {
+   "measure": "EPDl",
+   "level": "T6",
+   "studies": 3,
+   "sd": 2.3209480821422956,
+   "s_b": 2.57746645629644,
+   "range": 5.099999999999998,
+   "f_obs": 1.1105230987835675,
+   "f_low": 1.0723470611693418,
+   "means": {
+    "present": 26.9,
+    "Scoles (1988)": 23.7,
+    "Cotterill (1986)": 21.8
+   }
+  },
+  {
+   "measure": "EPDl",
+   "level": "T9",
+   "studies": 3,
+   "sd": 3.0830504374726013,
+   "s_b": 2.621068484416232,
+   "range": 5.100000000000001,
+   "f_obs": 0.8501542668776159,
+   "f_low": 0.799643010447089,
+   "means": {
+    "present": 31.0,
+    "Scoles (1988)": 27.4,
+    "Krag (1986, 1988)": 32.5
+   }
+  },
+  {
+   "measure": "EPWl",
+   "level": "L1",
+   "studies": 3,
+   "sd": 2.7019992598074487,
+   "s_b": 3.1005375877955985,
+   "range": 5.800000000000004,
+   "f_obs": 1.1474975711194497,
+   "f_low": 1.1105932389456112,
+   "means": {
+    "present": 43.3,
+    "Berry (1987)": 49.1,
+    "Scoles (1988)": 44.3
+   }
+  },
+  {
+   "measure": "EPWl",
+   "level": "L3",
+   "studies": 4,
+   "sd": 4.295486002770815,
+   "s_b": 3.9126930197329135,
+   "range": 9.5,
+   "f_obs": 0.9108848258867611,
+   "f_low": 0.8639316134379051,
+   "means": {
+    "present": 48.0,
+    "Berry (1987)": 53.8,
+    "Scoles (1988)": 48.4,
+    "Cotterill (1986)": 44.3
+   }
+  },
+  {
+   "measure": "EPWl",
+   "level": "L5",
+   "studies": 3,
+   "sd": 4.8843832773442335,
+   "s_b": 1.9655363983740768,
+   "range": 3.5,
+   "f_obs": 0.40241240024939035,
+   "f_low": 0.28036120726866304,
+   "means": {
+    "present": 49.4,
+    "Berry (1987)": 52.7,
+    "Scoles (1988)": 52.9
+   }
+  },
+  {
+   "measure": "EPWl",
+   "level": "T12",
+   "studies": 4,
+   "sd": 3.1523324697753567,
+   "s_b": 3.882761045098363,
+   "range": 9.5,
+   "f_obs": 1.2317105135090838,
+   "f_low": 1.1974044662333099,
+   "means": {
+    "present": 42.1,
+    "Berry (1987)": 46.8,
+    "Scoles (1988)": 41.7,
+    "Cotterill (1986)": 37.3
+   }
+  },
+  {
+   "measure": "EPWl",
+   "level": "T6",
+   "studies": 3,
+   "sd": 2.8405633244129582,
+   "s_b": 1.9502136635080087,
+   "range": 3.599999999999998,
+   "f_obs": 0.6865587704900216,
+   "f_low": 0.6229202292456368,
+   "means": {
+    "present": 28.2,
+    "Scoles (1988)": 28.7,
+    "Cotterill (1986)": 25.1
+   }
+  },
+  {
+   "measure": "PDH",
+   "level": "L1",
+   "studies": 4,
+   "sd": 2.68467875173176,
+   "s_b": 0.2645751311064589,
+   "range": 0.5999999999999996,
+   "f_obs": 0.09855001494528683,
+   "f_low": 0.0,
+   "means": {
+    "present": 15.9,
+    "Berry (1987)": 15.6,
+    "Zindrick (1987)": 15.4,
+    "Scoles (1988)": 15.3
+   }
+  },
+  {
+   "measure": "PDH",
+   "level": "L2",
+   "studies": 3,
+   "sd": 1.8359738560230099,
+   "s_b": 0.20816659994661352,
+   "range": 0.40000000000000036,
+   "f_obs": 0.11338211558062873,
+   "f_low": 0.0,
+   "means": {
+    "present": 14.9,
+    "Berry (1987)": 15.3,
+    "Zindrick (1987)": 15.0
+   }
+  },
+  {
+   "measure": "PDH",
+   "level": "L3",
+   "studies": 4,
+   "sd": 2.1477430013854075,
+   "s_b": 0.33040379335998377,
+   "range": 0.8000000000000007,
+   "f_obs": 0.1538376766432743,
+   "f_low": 0.0,
+   "means": {
+    "present": 14.4,
+    "Berry (1987)": 14.5,
+    "Zindrick (1987)": 14.9,
+    "Scoles (1988)": 14.1
+   }
+  },
+  {
+   "measure": "PDH",
+   "level": "L4",
+   "studies": 3,
+   "sd": 1.7840123317959433,
+   "s_b": 1.1930353445448858,
+   "range": 2.3000000000000007,
+   "f_obs": 0.668737162452163,
+   "f_low": 0.603221401403529,
+   "means": {
+    "present": 15.4,
+    "Berry (1987)": 13.1,
+    "Zindrick (1987)": 14.8
+   }
+  },
+  {
+   "measure": "PDH",
+   "level": "L5",
+   "studies": 4,
+   "sd": 2.9964478970941575,
+   "s_b": 2.721978447134854,
+   "range": 5.900000000000002,
+   "f_obs": 0.908401727850675,
+   "f_low": 0.8613131636221278,
+   "means": {
+    "present": 19.6,
+    "Berry (1987)": 13.7,
+    "Zindrick (1987)": 14.0,
+    "Scoles (1988)": 16.2
+   }
+  },
+  {
+   "measure": "PDH",
+   "level": "T1",
+   "studies": 3,
+   "sd": 1.6281277591147445,
+   "s_b": 0.35118845842842517,
+   "range": 0.7000000000000011,
+   "f_obs": 0.21570079894674574,
+   "f_low": 0.0,
+   "means": {
+    "present": 9.6,
+    "Zindrick (1987)": 9.9,
+    "Scoles (1988)": 9.2
+   }
+  },
+  {
+   "measure": "PDH",
+   "level": "T12",
+   "studies": 4,
+   "sd": 2.857883832488647,
+   "s_b": 0.6055300708194985,
+   "range": 1.3000000000000007,
+   "f_obs": 0.2118805753879095,
+   "f_low": 0.0,
+   "means": {
+    "present": 16.7,
+    "Berry (1987)": 17.1,
+    "Zindrick (1987)": 15.8,
+    "Scoles (1988)": 16.0
+   }
+  },
+  {
+   "measure": "PDH",
+   "level": "T2",
+   "studies": 3,
+   "sd": 1.2817175976009691,
+   "s_b": 0.3055050463303892,
+   "range": 0.5999999999999996,
+   "f_obs": 0.23835597396978286,
+   "f_low": 0.0,
+   "means": {
+    "present": 11.4,
+    "Berry (1987)": 11.8,
+    "Zindrick (1987)": 12.0
+   }
+  },
+  {
+   "measure": "PDH",
+   "level": "T3",
+   "studies": 3,
+   "sd": 0.9526279441628824,
+   "s_b": 0.3214550253664317,
+   "range": 0.5999999999999996,
+   "f_obs": 0.33744026441394065,
+   "f_low": 0.1747357968889513,
+   "means": {
+    "present": 11.9,
+    "Zindrick (1987)": 12.4,
+    "Scoles (1988)": 11.8
+   }
+  },
+  {
+   "measure": "PDH",
+   "level": "T6",
+   "studies": 3,
+   "sd": 1.5761662348876784,
+   "s_b": 0.3511884584284242,
+   "range": 0.6999999999999993,
+   "f_obs": 0.22281181429663782,
+   "f_low": 0.0,
+   "means": {
+    "present": 11.8,
+    "Zindrick (1987)": 12.2,
+    "Scoles (1988)": 11.5
+   }
+  },
+  {
+   "measure": "PDH",
+   "level": "T7",
+   "studies": 3,
+   "sd": 0.98726896031426,
+   "s_b": 0.05773502691896237,
+   "range": 0.09999999999999964,
+   "f_obs": 0.058479532163742486,
+   "f_low": 0.0,
+   "means": {
+    "present": 12.0,
+    "Berry (1987)": 12.0,
+    "Zindrick (1987)": 12.1
+   }
+  },
+  {
+   "measure": "PDH",
+   "level": "T9",
+   "studies": 3,
+   "sd": 2.3209480821422956,
+   "s_b": 0.5507570547286103,
+   "range": 1.0,
+   "f_obs": 0.2372983088101855,
+   "f_low": 0.0,
+   "means": {
+    "present": 13.9,
+    "Zindrick (1987)": 13.8,
+    "Scoles (1988)": 12.9
+   }
+  },
+  {
+   "measure": "PDIs",
+   "level": "L1",
+   "studies": 5,
+   "sd": 11.933830064149564,
+   "s_b": 2.49098374141623,
+   "range": 7.0,
+   "f_obs": 0.20873296569719038,
+   "f_low": 0.0,
+   "means": {
+    "present": 14.5,
+    "Berry (1987)": 7.5,
+    "Zindrick (1987)": 10.9,
+    "Scoles (1988)": 11.6,
+    "Krag (1986, 1988)": 11.0
+   }
+  },
+  {
+   "measure": "PDIs",
+   "level": "L2",
+   "studies": 4,
+   "sd": 9.993933159672421,
+   "s_b": 1.1575836902790224,
+   "range": 2.5999999999999996,
+   "f_obs": 0.11582864041457781,
+   "f_low": 0.0,
+   "means": {
+    "present": 14.1,
+    "Berry (1987)": 11.5,
+    "Zindrick (1987)": 12.0,
+    "Krag (1986, 1988)": 12.0
+   }
+  },
+  {
+   "measure": "PDIs",
+   "level": "L3",
+   "studies": 5,
+   "sd": 6.737677641442932,
+   "s_b": 1.826745740380965,
+   "range": 4.5,
+   "f_obs": 0.2711239447172114,
+   "f_low": 0.0,
+   "means": {
+    "present": 18.5,
+    "Berry (1987)": 14.0,
+    "Zindrick (1987)": 14.4,
+    "Scoles (1988)": 14.7,
+    "Krag (1986, 1988)": 16.0
+   }
+  },
+  {
+   "measure": "PDIs",
+   "level": "L4",
+   "studies": 4,
+   "sd": 6.616434084913111,
+   "s_b": 1.6398678808570728,
+   "range": 4.0,
+   "f_obs": 0.24784768650477804,
+   "f_low": 0.0,
+   "means": {
+    "present": 16.0,
+    "Berry (1987)": 20.0,
+    "Zindrick (1987)": 17.7,
+    "Krag (1986, 1988)": 18.0
+   }
+  },
+  {
+   "measure": "PDIs",
+   "level": "L5",
+   "studies": 5,
+   "sd": 7.3438954240920395,
+   "s_b": 3.494996423460258,
+   "range": 8.399999999999999,
+   "f_obs": 0.47590498252395264,
+   "f_low": 0.378354620769709,
+   "means": {
+    "present": 24.6,
+    "Berry (1987)": 31.5,
+    "Zindrick (1987)": 29.8,
+    "Scoles (1988)": 23.1,
+    "Krag (1986, 1988)": 27.0
+   }
+  },
+  {
+   "measure": "PDIs",
+   "level": "T1",
+   "studies": 3,
+   "sd": 7.3438954240920395,
+   "s_b": 1.7214335111567138,
+   "range": 3.1999999999999993,
+   "f_obs": 0.234403325721314,
+   "f_low": 0.0,
+   "means": {
+    "present": 27.1,
+    "Zindrick (1987)": 26.6,
+    "Scoles (1988)": 29.8
+   }
+  },
+  {
+   "measure": "PDIs",
+   "level": "T10",
+   "studies": 3,
+   "sd": 7.326574916016351,
+   "s_b": 4.158525379666852,
+   "range": 7.800000000000001,
+   "f_obs": 0.5675947393339356,
+   "f_low": 0.4887028287070016,
+   "means": {
+    "present": 12.4,
+    "Zindrick (1987)": 4.6,
+    "Krag (1986, 1988)": 6.0
+   }
+  },
+  {
+   "measure": "PDIs",
+   "level": "T11",
+   "studies": 3,
+   "sd": 5.78504969728005,
+   "s_b": 7.241776945842321,
+   "range": 13.1,
+   "f_obs": 1.2518089428423025,
+   "f_low": 1.2180690850877998,
+   "means": {
+    "present": 13.1,
+    "Zindrick (1987)": 1.2,
+    "Krag (1986, 1988)": 0.0
+   }
+  },
+  {
+   "measure": "PDIs",
+   "level": "T12",
+   "studies": 5,
+   "sd": 6.581793068761734,
+   "s_b": 6.775839431391509,
+   "range": 14.0,
+   "f_obs": 1.029482294657781,
+   "f_low": 0.9881803791214017,
+   "means": {
+    "present": 9.8,
+    "Berry (1987)": -3.0,
+    "Zindrick (1987)": -4.2,
+    "Scoles (1988)": 9.5,
+    "Krag (1986, 1988)": 0.0
+   }
+  },
+  {
+   "measure": "PDIs",
+   "level": "T2",
+   "studies": 3,
+   "sd": 25.547749411640936,
+   "s_b": 4.775283586692348,
+   "range": 9.5,
+   "f_obs": 0.18691601791414436,
+   "f_low": 0.0,
+   "means": {
+    "present": 28.6,
+    "Berry (1987)": 23.0,
+    "Zindrick (1987)": 19.1
+   }
+  },
+  {
+   "measure": "PDIs",
+   "level": "T3",
+   "studies": 3,
+   "sd": 9.387715377023314,
+   "s_b": 2.592939130279253,
+   "range": 4.799999999999999,
+   "f_obs": 0.2762055544020371,
+   "f_low": 0.0,
+   "means": {
+    "present": 19.4,
+    "Zindrick (1987)": 14.6,
+    "Scoles (1988)": 15.3
+   }
+  },
+  {
+   "measure": "PDIs",
+   "level": "T6",
+   "studies": 3,
+   "sd": 11.327612281500457,
+   "s_b": 3.764748774265466,
+   "range": 6.799999999999999,
+   "f_obs": 0.3323514859714802,
+   "f_low": 0.16469419204731434,
+   "means": {
+    "present": 16.4,
+    "Zindrick (1987)": 9.6,
+    "Scoles (1988)": 10.2
+   }
+  },
+  {
+   "measure": "PDIs",
+   "level": "T7",
+   "studies": 3,
+   "sd": 13.717842395945508,
+   "s_b": 7.299315036357863,
+   "range": 13.2,
+   "f_obs": 0.5321037248915524,
+   "f_low": 0.4469910969025352,
+   "means": {
+    "present": 20.7,
+    "Berry (1987)": 7.5,
+    "Zindrick (1987)": 8.7
+   }
+  },
+  {
+   "measure": "PDIs",
+   "level": "T9",
+   "studies": 4,
+   "sd": 12.107035144906451,
+   "s_b": 3.829708431025353,
+   "range": 8.8,
+   "f_obs": 0.3163209146738579,
+   "f_low": 0.1293274438267949,
+   "means": {
+    "present": 14.8,
+    "Zindrick (1987)": 7.6,
+    "Scoles (1988)": 9.2,
+    "Krag (1986, 1988)": 6.0
+   }
+  },
+  {
+   "measure": "PDW",
+   "level": "L1",
+   "studies": 5,
+   "sd": 3.1696529778510456,
+   "s_b": 0.8526429498916881,
+   "range": 1.6999999999999993,
+   "f_obs": 0.2690019872363949,
+   "f_low": 0.0,
+   "means": {
+    "present": 8.6,
+    "Berry (1987)": 7.0,
+    "Zindrick (1987)": 8.7,
+    "Scoles (1988)": 8.3,
+    "Krag (1986, 1988)": 7.0
+   }
+  },
+  {
+   "measure": "PDW",
+   "level": "L2",
+   "studies": 4,
+   "sd": 2.338268590217984,
+   "s_b": 0.5795112883571238,
+   "range": 1.4000000000000004,
+   "f_obs": 0.2478377765417869,
+   "f_low": 0.0,
+   "means": {
+    "present": 8.3,
+    "Berry (1987)": 7.5,
+    "Zindrick (1987)": 8.9,
+    "Krag (1986, 1988)": 8.4
+   }
+  },
+  {
+   "measure": "PDW",
+   "level": "L3",
+   "studies": 6,
+   "sd": 2.078460969082653,
+   "s_b": 0.7305249254246338,
+   "range": 1.9000000000000004,
+   "f_obs": 0.3514739686197029,
+   "f_low": 0.20050091591798427,
+   "means": {
+    "present": 10.2,
+    "Berry (1987)": 9.2,
+    "Zindrick (1987)": 10.3,
+    "Scoles (1988)": 9.1,
+    "Krag (1986, 1988)": 9.1,
+    "Cotterill (1986)": 8.4
+   }
+  },
+  {
+   "measure": "PDW",
+   "level": "L4",
+   "studies": 4,
+   "sd": 1.1085125168440815,
+   "s_b": 1.7521415467935229,
+   "range": 3.6999999999999993,
+   "f_obs": 1.5806240526555746,
+   "f_low": 1.5540395948945445,
+   "means": {
+    "present": 14.1,
+    "Berry (1987)": 10.4,
+    "Zindrick (1987)": 12.9,
+    "Krag (1986, 1988)": 10.8
+   }
+  },
+  {
+   "measure": "PDW",
+   "level": "L5",
+   "studies": 5,
+   "sd": 3.568024663591887,
+   "s_b": 4.075904807524338,
+   "range": 8.900000000000002,
+   "f_obs": 1.1423421057356633,
+   "f_low": 1.1052656482507974,
+   "means": {
+    "present": 18.6,
+    "Berry (1987)": 10.7,
+    "Zindrick (1987)": 18.0,
+    "Scoles (1988)": 9.7,
+    "Krag (1986, 1988)": 13.8
+   }
+  },
+  {
+   "measure": "PDW",
+   "level": "T1",
+   "studies": 3,
+   "sd": 1.680089283341811,
+   "s_b": 0.6000000000000001,
+   "range": 1.2000000000000002,
+   "f_obs": 0.3571238778492531,
+   "f_low": 0.21024778428500718,
+   "means": {
+    "present": 8.5,
+    "Zindrick (1987)": 7.9,
+    "Scoles (1988)": 7.3
+   }
+  },
+  {
+   "measure": "PDW",
+   "level": "T10",
+   "studies": 3,
+   "sd": 2.5634351952019383,
+   "s_b": 1.3527749258468684,
+   "range": 2.7,
+   "f_obs": 0.5277195726963957,
+   "f_low": 0.4417630745926295,
+   "means": {
+    "present": 9.0,
+    "Zindrick (1987)": 6.3,
+    "Krag (1986, 1988)": 7.5
+   }
+  },
+  {
+   "measure": "PDW",
+   "level": "T11",
+   "studies": 3,
+   "sd": 2.199704525612474,
+   "s_b": 1.1547005383792521,
+   "range": 2.000000000000001,
+   "f_obs": 0.5249343832021001,
+   "f_low": 0.438432176436032,
+   "means": {
+    "present": 9.8,
+    "Zindrick (1987)": 7.8,
+    "Krag (1986, 1988)": 7.8
+   }
+  },
+  {
+   "measure": "PDW",
+   "level": "T12",
+   "studies": 6,
+   "sd": 2.580755703277627,
+   "s_b": 0.5403702434442517,
+   "range": 1.5999999999999996,
+   "f_obs": 0.20938450034537068,
+   "f_low": 0.0,
+   "means": {
+    "present": 8.7,
+    "Berry (1987)": 7.7,
+    "Zindrick (1987)": 7.1,
+    "Scoles (1988)": 7.4,
+    "Krag (1986, 1988)": 7.6,
+    "Cotterill (1986)": 7.7
+   }
+  },
+  {
+   "measure": "PDW",
+   "level": "T2",
+   "studies": 3,
+   "sd": 3.516063139364821,
+   "s_b": 1.0066445913694329,
+   "range": 1.9999999999999991,
+   "f_obs": 0.2862987811849374,
+   "f_low": 0.0,
+   "means": {
+    "present": 8.2,
+    "Berry (1987)": 6.2,
+    "Zindrick (1987)": 7.0
+   }
+  },
+  {
+   "measure": "PDW",
+   "level": "T3",
+   "studies": 3,
+   "sd": 2.303627574066607,
+   "s_b": 1.4571661996262928,
+   "range": 2.9,
+   "f_obs": 0.6325528553445595,
+   "f_low": 0.562840813615379,
+   "means": {
+    "present": 6.8,
+    "Zindrick (1987)": 5.6,
+    "Scoles (1988)": 3.9
+   }
+  },
+  {
+   "measure": "PDW",
+   "level": "T6",
+   "studies": 4,
+   "sd": 2.8578838324886475,
+   "s_b": 1.116542281629615,
+   "range": 2.5,
+   "f_obs": 0.3906884768851256,
+   "f_low": 0.263256818786306,
+   "means": {
+    "present": 6.0,
+    "Zindrick (1987)": 5.2,
+    "Scoles (1988)": 3.5,
+    "Cotterill (1986)": 4.1
+   }
+  },
+  {
+   "measure": "PDW",
+   "level": "T7",
+   "studies": 3,
+   "sd": 2.1650635094610964,
+   "s_b": 0.4582575694955842,
+   "range": 0.9000000000000004,
+   "f_obs": 0.21166010488516737,
+   "f_low": 0.0,
+   "means": {
+    "present": 5.9,
+    "Berry (1987)": 5.0,
+    "Zindrick (1987)": 5.3
+   }
+  },
+  {
+   "measure": "PDW",
+   "level": "T9",
+   "studies": 4,
+   "sd": 2.061140461006964,
+   "s_b": 1.636052158907737,
+   "range": 3.8000000000000003,
+   "f_obs": 0.7937606339106305,
+   "f_low": 0.739406931677593,
+   "means": {
+    "present": 7.7,
+    "Zindrick (1987)": 6.1,
+    "Scoles (1988)": 3.9,
+    "Krag (1986, 1988)": 6.9
+   }
+  },
+  {
+   "measure": "SCD",
+   "level": "L1",
+   "studies": 3,
+   "sd": 2.3209480821422956,
+   "s_b": 0.9451631252505217,
+   "range": 1.8000000000000007,
+   "f_obs": 0.4072314811876841,
+   "f_low": 0.2872353493861467,
+   "means": {
+    "present": 19.0,
+    "Berry (1987)": 17.2,
+    "Scoles (1988)": 17.6
+   }
+  },
+  {
+   "measure": "SCD",
+   "level": "L3",
+   "studies": 4,
+   "sd": 1.8359738560230099,
+   "s_b": 2.3302360395462087,
+   "range": 5.4,
+   "f_obs": 1.269209815761671,
+   "f_low": 1.2359450728460555,
+   "means": {
+    "present": 17.5,
+    "Berry (1987)": 16.2,
+    "Scoles (1988)": 16.0,
+    "Cotterill (1986)": 12.1
+   }
+  },
+  {
+   "measure": "SCD",
+   "level": "L5",
+   "studies": 3,
+   "sd": 1.6974097914174997,
+   "s_b": 1.307669683062201,
+   "range": 2.3999999999999986,
+   "f_obs": 0.770391268905178,
+   "f_low": 0.7142614184400533,
+   "means": {
+    "present": 19.7,
+    "Berry (1987)": 17.3,
+    "Scoles (1988)": 17.6
+   }
+  },
+  {
+   "measure": "SCD",
+   "level": "T12",
+   "studies": 4,
+   "sd": 2.1477430013854075,
+   "s_b": 1.6134848413707932,
+   "range": 3.5000000000000018,
+   "f_obs": 0.751246699595813,
+   "f_low": 0.6935692253266926,
+   "means": {
+    "present": 18.1,
+    "Berry (1987)": 17.2,
+    "Scoles (1988)": 17.9,
+    "Cotterill (1986)": 14.6
+   }
+  },
+  {
+   "measure": "SCD",
+   "level": "T6",
+   "studies": 3,
+   "sd": 2.1477430013854075,
+   "s_b": 1.0066445913694333,
+   "range": 2.0,
+   "f_obs": 0.46869881113340583,
+   "f_low": 0.3692495663159738,
+   "means": {
+    "present": 16.5,
+    "Scoles (1988)": 15.7,
+    "Cotterill (1986)": 14.5
+   }
+  },
+  {
+   "measure": "SCW",
+   "level": "L1",
+   "studies": 3,
+   "sd": 3.186973485926734,
+   "s_b": 0.8962886439832495,
+   "range": 1.5999999999999979,
+   "f_obs": 0.2812350488452901,
+   "f_low": 0.0,
+   "means": {
+    "present": 23.7,
+    "Berry (1987)": 22.1,
+    "Scoles (1988)": 22.2
+   }
+  },
+  {
+   "measure": "SCW",
+   "level": "L3",
+   "studies": 4,
+   "sd": 2.217025033688163,
+   "s_b": 1.147097787171318,
+   "range": 2.8000000000000007,
+   "f_obs": 0.5174040751642066,
+   "f_low": 0.42938752155039933,
+   "means": {
+    "present": 24.3,
+    "Berry (1987)": 22.7,
+    "Scoles (1988)": 22.8,
+    "Cotterill (1986)": 21.5
+   }
+  },
+  {
+   "measure": "SCW",
+   "level": "L5",
+   "studies": 3,
+   "sd": 3.048409421321224,
+   "s_b": 0.6658328118479406,
+   "range": 1.2000000000000028,
+   "f_obs": 0.21841974611118975,
+   "f_low": 0.0,
+   "means": {
+    "present": 27.1,
+    "Berry (1987)": 26.0,
+    "Scoles (1988)": 25.9
+   }
+  },
+  {
+   "measure": "SCW",
+   "level": "T12",
+   "studies": 4,
+   "sd": 3.879793808954285,
+   "s_b": 1.2013880860626733,
+   "range": 2.6999999999999993,
+   "f_obs": 0.309652560218524,
+   "f_low": 0.11203291800427806,
+   "means": {
+    "present": 22.2,
+    "Berry (1987)": 20.2,
+    "Scoles (1988)": 19.9,
+    "Cotterill (1986)": 19.5
+   }
+  },
+  {
+   "measure": "SCW",
+   "level": "T6",
+   "studies": 3,
+   "sd": 2.5634351952019383,
+   "s_b": 1.1135528725660049,
+   "range": 2.200000000000001,
+   "f_obs": 0.4343986829276108,
+   "f_low": 0.32460573376930607,
+   "means": {
+    "present": 17.3,
+    "Scoles (1988)": 16.5,
+    "Cotterill (1986)": 15.1
+   }
+  },
+  {
+   "measure": "Ss",
+   "level": "L1",
+   "studies": 3,
+   "sd": 29.618068809427797,
+   "s_b": 19.008769905844336,
+   "range": 38.0,
+   "f_obs": 0.6417963989533851,
+   "f_low": 0.5732096338829272,
+   "means": {
+    "present": 137.0,
+    "Malmivaara (1987)": 117.0,
+    "Horwitz & Smith (1940)": 155.0
+   }
+  },
+  {
+   "measure": "Ss",
+   "level": "L3",
+   "studies": 3,
+   "sd": 25.11473670974872,
+   "s_b": 10.214368964029708,
+   "range": 19.0,
+   "f_obs": 0.40670818420584215,
+   "f_low": 0.28649295587619583,
+   "means": {
+    "present": 132.0,
+    "Ahmed (1990)": 151.0,
+    "Horwitz & Smith (1940)": 135.0
+   }
+  },
+  {
+   "measure": "Ss",
+   "level": "L4",
+   "studies": 3,
+   "sd": 11.777945491468365,
+   "s_b": 10.598742063723098,
+   "range": 21.0,
+   "f_obs": 0.8998803799355795,
+   "f_low": 0.8523211629777061,
+   "means": {
+    "present": 122.0,
+    "Van Schaik (1985)": 143.0,
+    "Horwitz & Smith (1940)": 135.0
+   }
+  },
+  {
+   "measure": "Ss",
+   "level": "L5",
+   "studies": 4,
+   "sd": 14.895636945092342,
+   "s_b": 7.416198487095663,
+   "range": 17.0,
+   "f_obs": 0.4978772317312066,
+   "f_low": 0.4056456637793584,
+   "means": {
+    "present": 118.0,
+    "Ahmed (1990)": 129.0,
+    "Van Schaik (1985)": 132.0,
+    "Horwitz & Smith (1940)": 135.0
+   }
+  },
+  {
+   "measure": "VBHp",
+   "level": "L1",
+   "studies": 4,
+   "sd": 3.568024663591887,
+   "s_b": 1.6378339354159195,
+   "range": 3.599999999999998,
+   "f_obs": 0.4590310016991676,
+   "f_low": 0.3568979226440074,
+   "means": {
+    "present": 23.8,
+    "Berry (1987)": 25.8,
+    "Scoles (1988)": 27.4,
+    "Gilad (1986)": 27.1
+   }
+  },
+  {
+   "measure": "VBHp",
+   "level": "L2",
+   "studies": 3,
+   "sd": 3.2908965343808667,
+   "s_b": 1.9295940851208404,
+   "range": 3.6999999999999993,
+   "f_obs": 0.5863429813006458,
+   "f_low": 0.5103574809750476,
+   "means": {
+    "present": 24.3,
+    "Berry (1987)": 25.2,
+    "Gilad (1986)": 28.0
+   }
+  },
+  {
+   "measure": "VBHp",
+   "level": "L3",
+   "studies": 5,
+   "sd": 3.81051177665153,
+   "s_b": 2.1614809737770067,
+   "range": 4.899999999999999,
+   "f_obs": 0.567241646390186,
+   "f_low": 0.48829269098166467,
+   "means": {
+    "present": 23.8,
+    "Berry (1987)": 26.0,
+    "Scoles (1988)": 27.4,
+    "Cotterill (1986)": 23.0,
+    "Gilad (1986)": 27.9
+   }
+  },
+  {
+   "measure": "VBHp",
+   "level": "L4",
+   "studies": 3,
+   "sd": 3.81051177665153,
+   "s_b": 1.5695009822658066,
+   "range": 3.0,
+   "f_obs": 0.4118871884566116,
+   "f_low": 0.29379877923735304,
+   "means": {
+    "present": 24.1,
+    "Berry (1987)": 26.4,
+    "Gilad (1986)": 27.1
+   }
+  },
+  {
+   "measure": "VBHp",
+   "level": "L5",
+   "studies": 4,
+   "sd": 3.2908965343808667,
+   "s_b": 2.2470350835415696,
+   "range": 4.700000000000003,
+   "f_obs": 0.6828033212427677,
+   "f_low": 0.6187786697736282,
+   "means": {
+    "present": 22.9,
+    "Berry (1987)": 23.1,
+    "Scoles (1988)": 27.6,
+    "Gilad (1986)": 25.7
+   }
+  },
+  {
+   "measure": "VBHp",
+   "level": "T12",
+   "studies": 4,
+   "sd": 3.602665679743265,
+   "s_b": 1.3964240043768936,
+   "range": 3.1999999999999993,
+   "f_obs": 0.3876085455912763,
+   "f_low": 0.25866397368410465,
+   "means": {
+    "present": 22.7,
+    "Berry (1987)": 24.8,
+    "Scoles (1988)": 25.9,
+    "Cotterill (1986)": 23.6
+   }
+  },
+  {
+   "measure": "VBHp",
+   "level": "T6",
+   "studies": 3,
+   "sd": 1.8706148721743876,
+   "s_b": 1.3576941236277542,
+   "range": 2.400000000000002,
+   "f_obs": 0.7258009886607935,
+   "f_low": 0.665923225160117,
+   "means": {
+    "present": 17.4,
+    "Scoles (1988)": 19.8,
+    "Cotterill (1986)": 17.5
+   }
+  }
+ ]
+}
