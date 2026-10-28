@@ -27,7 +27,7 @@ instances into named levels, a semantic segmentation. The same names are wanted 
   course across levels, its covariates, its error); level by level and at the junctions; measurement error; clinical
   pearls, indications and pitfalls; numbered instructions for the autonomous anatomist; what it means for bordercall's
   generator and classifier; gaps and conflicts. Every detail cites the printed page and the PDF page.
-- notes/<id>.json beside 39 of the notes: the same content as a structured record (anomalies, measures, level details,
+- notes/<id>.json beside every note: the same content as a structured record (anomalies, measures, level details,
   errors, pearls and pitfalls, instructions), for code and for the synthesis to read.
 - [HANDOFF.md](HANDOFF.md): where the work stopped and what comes next.
 - [tools/](tools/): the checks and the workflow scripts that made and will finish the notes.
