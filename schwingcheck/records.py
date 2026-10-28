@@ -114,8 +114,18 @@ def build(post: np.ndarray, truth: np.ndarray, group: np.ndarray, X: np.ndarray,
 
 
 def write(tree, path: str) -> str:
-    os.makedirs(os.path.dirname(os.path.abspath(path)), exist_ok=True)
-    tree.to_netcdf(path, engine=ENGINE)
+    """Write the record through a temporary file beside it, which takes the record's name only
+    once it is whole (os.replace), so that a write that fails part way leaves the record that was
+    there before, or none, and never a half-written one."""
+    folder = os.path.dirname(os.path.abspath(path))
+    os.makedirs(folder, exist_ok=True)
+    part = os.path.join(folder, ".%s.%d.part" % (os.path.basename(path), os.getpid()))
+    try:
+        tree.to_netcdf(part, engine=ENGINE)
+        os.replace(part, path)
+    finally:
+        if os.path.exists(part):
+            os.remove(part)
     return path
 
 

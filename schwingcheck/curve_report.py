@@ -1,8 +1,8 @@
 """Step e's build-up study as tables and figures, from its record alone (curve.py writes it).
 
-    python -m schwingcheck curve table --record schwingcheck/records/curve-2026-10-28/curve.nc
-    python -m schwingcheck curve figures --record schwingcheck/records/curve-2026-10-28/curve.nc
-    python -m schwingcheck curve check --record schwingcheck/records/curve-2026-10-28/curve.nc
+    python -m schwingcheck curve table --record records/curve-2026-10-28/curve.nc
+    python -m schwingcheck curve figures --record records/curve-2026-10-28/curve.nc
+    python -m schwingcheck curve check --record records/curve-2026-10-28/curve.nc
 
 `table` prints the README's tables, each between the markers <!-- curve:NAME --> and
 <!-- /curve:NAME -->, and `check` says whether the README holds each as `table` prints it, so that
@@ -13,6 +13,13 @@ identify_figures.py sets them; each figure is written as PDF with no date inside
 the CSV of every number drawn and its caption, under sixty words, and FIGURES.md names the record
 and the code by sha256. Every number is about synthetic columns drawn from Panjabi's tables, never
 a patient.
+
+A precision with no answered field wrong, whose standard error is 0 however few were answered,
+is printed with its exact 95 per cent lower bound (curve.precision_lower). The data axis is read
+against the table as printed on the axis's own columns (curve's people-printed arm), never
+against the nominal arm on all of its columns, and its rates carry both standard errors, the one
+clustered by column and the one that counts the tables too. How the times were taken, the calls,
+the batch, the threads and the machine, is read from the record's attributes, not assumed.
 """
 from __future__ import annotations
 
@@ -62,13 +69,15 @@ CAPTIONS = {
         "named exactly; B, share named at posterior 0.99; C, share of those right, dotted at 99 per "
         "cent. Crosses, the seven SPINEPS measures. By the bodies in view; %d columns.",
     "curve_speed":
-        "Time to name one field, single-threaded, as measures are added: A, rule.py on the trapezoid's "
-        "nodes, one field at a time (median of 30), by the bodies in view; B, three bodies, each "
-        "engine, one field at a time (lines) and per field in a batch of 128 (points).",
+        "Time to name one field, one thread, as measures are added: A, rule.py on the trapezoid's "
+        "nodes, one field alone (median of %s calls), by bodies in view; B, three bodies, each engine "
+        "with its table built once, alone (lines) and per field in a batch of %s (points, median of "
+        "%s calls).",
     "curve_data":
-        "The rule's table re-estimated from P people of the population named, three bodies: A, share "
-        "named exactly; B, share right of those named at 0.99, dotted at 99 per cent; the seven and "
-        "all 32, the table taken as printed (nominal) or widened for a new person (predictive).",
+        "The rule's table re-estimated from P people, three bodies, on the same typical columns: A, "
+        "share named exactly; B, share right of those named at 0.99, dotted at 99 per cent; the seven "
+        "and all 32, the estimate as it is (nominal) or widened for a new person (predictive); thin "
+        "lines, the table as printed on those columns.",
 }
 
 
@@ -97,6 +106,12 @@ def counts_of(tree) -> dict:
     return json.loads(tree.attrs["counts"])
 
 
+def attr_json(tree, name: str) -> dict:
+    """A JSON attribute of the record, empty where the record has none."""
+    text = tree.attrs.get(name, "")
+    return json.loads(text) if text else {}
+
+
 # ---- formatting -----------------------------------------------------------------------------
 
 def pct(x: float, places: int = 1) -> str:
@@ -123,6 +138,39 @@ def se_range(xs: Sequence[float]) -> str:
     return "%.2f" % hi if abs(hi - lo) < 0.005 else "%.2f to %.2f" % (lo, hi)
 
 
+def points(x: float) -> str:
+    """A difference of two shares in points, signed."""
+    return "-" if not np.isfinite(x) else "%+.1f" % (100.0 * x)
+
+
+def se_points(x: float) -> str:
+    return "-" if not np.isfinite(x) else "%.2f" % (100.0 * x)
+
+
+def precision_cell(ds, arm: str, phenotype: str, subset: str, width: int, ses: bool = False) -> str:
+    """The precision at 0.99, with its exact 95 per cent lower bound beside it where no answered
+    field is wrong, in place of a standard error of 0; with ses, its two standard errors in points
+    otherwise, clustered by column and with the tables (the data axis)."""
+    p = value(ds, "precision", arm, phenotype, subset, width)
+    lower = value(ds, "precision_lower", arm, phenotype, subset, width)
+    if np.isfinite(lower):
+        return "%s (at least %s)" % (pct(p, 2), pct(lower, 2))
+    if ses and np.isfinite(p):
+        return "%s (%s / %s)" % (pct(p, 2), se_points(value(ds, "precision_se", arm, phenotype, subset, width)),
+                                 se_points(value(ds, "precision_se_tables", arm, phenotype, subset, width)))
+    return pct(p, 2)
+
+
+BOUND_NOTE = ("Where no field named at 0.99 was wrong, the precision is followed by its exact two-sided 95 per cent "
+              "lower bound (Clopper-Pearson, the answered fields counted as independent trials), in place of a "
+              "standard error of 0.")
+
+
+def bounded(ds, cells: Sequence[tuple]) -> bool:
+    """Whether any of the cells (arm, phenotype, subset, width) prints a lower bound."""
+    return any(np.isfinite(value(ds, "precision_lower", *c)) for c in cells)
+
+
 def rows_md(header: Sequence[str], align: Sequence[str], rows: Sequence[Sequence[str]]) -> List[str]:
     out = ["| " + " | ".join(header) + " |", "|" + "|".join(align) + "|"]
     out += ["| " + " | ".join(r) + " |" for r in rows]
@@ -135,14 +183,16 @@ def table_curve(tree) -> List[str]:
     ds = rates_of(tree)
     kinds = {m["key"]: m["kind"] for m in pool_of(tree)}
     order = order_of(tree)
-    rows, ses = [], []
+    rows, ses, precision_ses = [], [], []
     for k, key in enumerate(order, 1):
         sub = "prefix-%02d" % k
         cells = [str(k), "`%s`" % key, kinds[key]]
         cells += [pct(value(ds, "exact", "nominal", "typical", sub, n)) for n in WIDTHS]
         for n in (3, 9):
             cells += [pct(value(ds, "answered", "nominal", "typical", sub, n)),
-                      pct(value(ds, "precision", "nominal", "typical", sub, n), 2)]
+                      precision_cell(ds, "nominal", "typical", sub, n)]
+            if value(ds, "errors", "nominal", "typical", sub, n) > 0:
+                precision_ses.append(value(ds, "precision_se", "nominal", "typical", sub, n))
         cells.append(pct(value(ds, "floored", "nominal", "typical", sub, 9)))
         rows.append(cells)
         ses += [value(ds, "exact_se", "nominal", "typical", sub, n) for n in WIDTHS]
@@ -151,8 +201,10 @@ def table_curve(tree) -> List[str]:
                    "Fields with a value at the floor, 9 bodies"],
                   ["---:", "---", "---", "---:", "---:", "---:", "---:", "---:", "---:", "---:", "---:"], rows)
     n = value(ds, "n_columns", "nominal", "typical", "prefix-01", 1)
-    out += ["", "%d typical columns; the standard errors of the shares named exactly, clustered by column, are %s points."
-            % (n, se_range(ses))]
+    erred = ("where a field named at 0.99 was wrong, %s points" % se_range(precision_ses) if precision_ses
+             else "no row had a field named at 0.99 wrong")
+    out += ["", "%d typical columns; the standard errors of the shares named exactly, clustered by column, are %s points, "
+            "and of the precision at 0.99, %s. %s" % (n, se_range(ses), erred, BOUND_NOTE)]
     return out
 
 
@@ -193,11 +245,14 @@ def table_subsets(tree) -> List[str]:
         cells = [subset_name(sub), str(int(members["member"].sel(subset=sub).sum()))]
         cells += [pct(value(ds, "exact", "nominal", "typical", sub, n)) for n in WIDTHS]
         cells += [pct(value(ds, "answered", "nominal", "typical", sub, HEADLINE)),
-                  pct(value(ds, "precision", "nominal", "typical", sub, HEADLINE), 2)]
+                  precision_cell(ds, "nominal", "typical", sub, HEADLINE)]
         rows.append(cells)
-    return rows_md(["Measures scored", "Count", "Named exactly, 1 body", "3 bodies", "9 bodies",
-                    "Named at 0.99, 3 bodies", "Right of those"],
-                   ["---", "---:", "---:", "---:", "---:", "---:", "---:"], rows)
+    out = rows_md(["Measures scored", "Count", "Named exactly, 1 body", "3 bodies", "9 bodies",
+                   "Named at 0.99, 3 bodies", "Right of those"],
+                  ["---", "---:", "---:", "---:", "---:", "---:", "---:"], rows)
+    if bounded(ds, [("nominal", "typical", sub, HEADLINE) for sub in subset_order(tree)]):
+        out += ["", BOUND_NOTE]
+    return out
 
 
 def arm_names(ds) -> List[str]:
@@ -211,46 +266,93 @@ ARM_NAME = {"nominal": "As assumed", "errors-0.5": "Every error halved, in the c
 
 def table_arms(tree) -> List[str]:
     ds = rates_of(tree)
-    rows = []
+    rows, shown = [], []
     for arm in ("nominal", "errors-0.5", "errors-2", "correlated"):
         if arm not in arm_names(ds):
             continue
         cells = [ARM_NAME[arm]]
         for sub in ("seven", "prefix-32"):
             for n in (3, 9):
-                cells += [pct(value(ds, "exact", arm, "typical", sub, n)),
-                          pct(value(ds, "precision", arm, "typical", sub, n), 2)]
+                cells += [pct(value(ds, "exact", arm, "typical", sub, n)), precision_cell(ds, arm, "typical", sub, n)]
+                shown.append((arm, "typical", sub, n))
         rows.append(cells)
-    return rows_md(["Columns and rule", "Seven, named exactly, 3 bodies", "Right of those named at 0.99",
-                    "Seven, 9 bodies", "Right at 0.99", "All 32, 3 bodies", "Right at 0.99", "All 32, 9 bodies",
-                    "Right at 0.99"], ["---"] + ["---:"] * 8, rows)
+    out = rows_md(["Columns and rule", "Seven, named exactly, 3 bodies", "Right of those named at 0.99",
+                   "Seven, 9 bodies", "Right at 0.99", "All 32, 3 bodies", "Right at 0.99", "All 32, 9 bodies",
+                   "Right at 0.99"], ["---"] + ["---:"] * 8, rows)
+    out += ["", "Each row is scored on columns of its own: the errors' rows on the first row's patients with every "
+            "error scaled, the correlated row on columns drawn in one stream from seed 331. Its rule, which takes "
+            "the measures as independent, does not know the correlation, so the row shows how that rule fares on "
+            "correlated columns and whether its answers at 0.99 stay right; its difference from the first row is "
+            "not what treating the measures as independent costs, which needs a rule that knows the correlation "
+            "scored on the same columns, not built here."]
+    if bounded(ds, shown):
+        out += ["", BOUND_NOTE]
+    return out
+
+
+PRINTED = "people-printed"
+
+
+def degrees_of_freedom(tree, people: Sequence[int]) -> str:
+    """The table term's degrees of freedom at each number of people, from the record's settings."""
+    settings = json.loads(tree.attrs["settings"])
+    parts = []
+    for i, p in enumerate(people):
+        t = settings.get("people-%d-nominal" % p, {}).get("tables")
+        if t is not None:
+            parts.append("%d at %s%s" % (int(t) - 1, "{:,}".format(p), " people" if i == 0 else ""))
+    return joined(parts) if parts else "not recorded"
 
 
 def table_data(tree) -> List[str]:
     ds = rates_of(tree)
-    if not any(a.startswith("people-") for a in arm_names(ds)):
+    arms = arm_names(ds)
+    if not any(a.startswith("people-") for a in arms):
         return ["The data axis is not in this record."]
-    rows = []
-    for people in PEOPLE:
+    settings = json.loads(tree.attrs["settings"])
+    printed = PRINTED if PRINTED in arms else None
+
+    def cells_of(arm: str) -> List[str]:
+        out = []
+        for sub in ("seven", "prefix-32"):
+            x = value(ds, "exact", arm, "typical", sub, HEADLINE)
+            ref = value(ds, "exact", printed, "typical", sub, HEADLINE) if printed else float("nan")
+            out += ["%s (%s / %s)" % (pct(x), se_points(value(ds, "exact_se", arm, "typical", sub, HEADLINE)),
+                                      se_points(value(ds, "exact_se_tables", arm, "typical", sub, HEADLINE))),
+                    "-" if arm == printed else points(x - ref),
+                    precision_cell(ds, arm, "typical", sub, HEADLINE, ses=True)]
+        return out
+    rows, shown = [], []
+    if printed:
+        rows.append(["as printed", "-", "1"] + cells_of(printed))
+        shown += [(printed, "typical", sub, HEADLINE) for sub in ("seven", "prefix-32")]
+    people = [p for p in PEOPLE if "people-%d-nominal" % p in arms]
+    for p in people:
         for rule in ("nominal", "predictive"):
-            arm = "people-%d-%s" % (people, rule)
-            if arm not in arm_names(ds):
+            arm = "people-%d-%s" % (p, rule)
+            if arm not in arms:
                 continue
-            settings = json.loads(tree.attrs["settings"]).get(arm, {})
-            cells = ["{:,}".format(people), rule, str(settings.get("tables", ""))]
-            for sub in ("seven", "prefix-32"):
-                cells += [pct(value(ds, "exact", arm, "typical", sub, HEADLINE)),
-                          pct(value(ds, "precision", arm, "typical", sub, HEADLINE), 2)]
-            sd = value(ds, "exact_table_sd", arm, "typical", "prefix-32", HEADLINE)
-            cells.append("-" if not np.isfinite(sd) else "%.1f" % (100.0 * sd))
-            rows.append(cells)
-    first = next(a for a in arm_names(ds) if a.startswith("people-"))
+            rows.append(["{:,}".format(p), rule, str(settings.get(arm, {}).get("tables", ""))] + cells_of(arm))
+            shown += [(arm, "typical", sub, HEADLINE) for sub in ("seven", "prefix-32")]
+    first = printed or next(a for a in arms if a.startswith("people-"))
     n = int(value(ds, "n_columns", first, "typical", "seven", HEADLINE))
-    out = rows_md(["People", "Rule", "Tables", "Seven, named exactly, 3 bodies", "Right of those named at 0.99",
-                   "All 32, 3 bodies", "Right at 0.99", "Spread of all 32's share between tables, points"],
-                  ["---:", "---", "---:", "---:", "---:", "---:", "---:", "---:"], rows)
-    out += ["", "Each table is scored on the same %d typical columns, the first of the nominal arm's." % n]
+    out = rows_md(["People", "Rule", "Tables", "Seven, named exactly, 3 bodies", "Against the table as printed, points",
+                   "Right of those named at 0.99", "All 32, 3 bodies", "Against the table as printed, points",
+                   "Right at 0.99"], ["---:", "---", "---:", "---:", "---:", "---:", "---:", "---:", "---:"], rows)
+    against = ("and so is the table as printed, the first row, against which every other row is read; a difference "
+               "is paired on the same fields, and its own standard error is not recorded" if printed else
+               "and the table as printed is not scored on them in this record, so no row has a difference beside it")
+    out += ["", "Each table is scored on the same %d typical columns, the first of the nominal arm's, %s." % (n, against),
+            "In brackets, standard errors in points: clustered by column, the tables drawn held fixed / counting the "
+            "variation between tables too (columns and tables crossed, the two-way estimate), on one degree of freedom "
+            "fewer than the tables: %s; the table as printed is one fixed table, with no such term."
+            % degrees_of_freedom(tree, people)]
+    if bounded(ds, shown):
+        out += ["", BOUND_NOTE]
     return out
+
+
+ANOMALOUS_WIDTHS = (3, 5, 9)
 
 
 def table_anomalous(tree) -> List[str]:
@@ -259,12 +361,17 @@ def table_anomalous(tree) -> List[str]:
     for ph in ("typical",) + ANOMALOUS:
         cells = [PHENOTYPE_NAME[ph]]
         for sub in ("seven", "prefix-32"):
-            for n in (3, 9):
+            for n in ANOMALOUS_WIDTHS:
                 cells.append("%s / %s" % (pct(value(ds, "exact", "nominal", ph, sub, n)),
                                           pct(value(ds, "within_one", "nominal", ph, sub, n))))
         rows.append(cells)
-    return rows_md(["Spine", "Seven, 3 bodies: exact / within one", "Seven, 9 bodies", "All 32, 3 bodies",
-                    "All 32, 9 bodies"], ["---", "---:", "---:", "---:", "---:"], rows)
+    out = rows_md(["Spine", "Seven, 3 bodies: exact / within one", "Seven, 5 bodies", "Seven, 9 bodies",
+                   "All 32, 3 bodies", "All 32, 5 bodies", "All 32, 9 bodies"], ["---"] + ["---:"] * 6, rows)
+    out += ["", "A field is judged by its own column's names (the rib reading: a thirteenth rib-bearing body is T13), "
+            "so a T13 or an L6 is never named right. Within one level is read on a half-step scale on which a T13 "
+            "sits half-way between T12 and L1 and an L6 one below L5, so on a T13 spine a T12 called L1, or an L1 "
+            "called T12, counts as within one level though the two are two bodies apart."]
+    return out
 
 
 NOT_TIMED = ["The times are not in this record yet: `python -m schwingcheck curve speed --record` writes them."]
@@ -274,10 +381,38 @@ def timed(ds) -> bool:
     return bool(np.isfinite(np.asarray(ds[list(ds.data_vars)[0]].values, float)).any())
 
 
+def counted(how: dict, key: str) -> str:
+    v = how.get(key)
+    return "{:,}".format(v) if isinstance(v, int) else "not recorded"
+
+
+def threads_note(how: dict) -> str:
+    """What the record says of the threads inside the limit the times were taken in."""
+    found = how.get("threads")
+    if not found:
+        return "The threads the times were taken on are not recorded."
+    off = [p for p in found if p["threads"] != 1]
+    if not off:
+        return "Every thread pool was at one thread inside the limit (%s)." % ", ".join(p["library"] for p in found)
+    return "Not at one thread inside the limit: %s." % ", ".join("%s at %d" % (p["library"], p["threads"]) for p in off)
+
+
+def machine_note(how: dict) -> str:
+    m, v = how.get("machine"), how.get("versions")
+    if not m or not v:
+        return "The machine and the versions that timed are not recorded."
+    load = m.get("load_average")
+    return ("Timed on %s with %s CPUs%s; Python %s, numpy %s, scipy %s, PyTensor %s, PyMC %s, Numba %s."
+            % (m.get("platform", "not recorded"), m.get("cpu_count", "not recorded"),
+               ", load average %s at the end" % " / ".join("%.2f" % x for x in load) if load else "",
+               v.get("python"), v.get("numpy"), v.get("scipy"), v.get("pytensor"), v.get("pymc"), v.get("numba")))
+
+
 def table_speed(tree) -> List[str]:
     sp = tree["speed"].to_dataset()
     if not timed(sp):
         return NOT_TIMED
+    how = attr_json(tree, "speed")
     ks = [k for k in SPEED_MEASURES if k in sp["measures"].values.tolist()]
     rows = []
     for e in sp["engine"].values.tolist():
@@ -290,26 +425,56 @@ def table_speed(tree) -> List[str]:
             rows.append(cells)
     return rows_md(["Engine", "Bodies"] + ["%d measure%s" % (k, "" if k == 1 else "s") for k in ks],
                    ["---", "---:"] + ["---:"] * len(ks), rows) + [
-        "", "Milliseconds to name one field, single-threaded: alone, the median of 30 calls / per field in a batch of 128."]
+        "", "Milliseconds to name one field, one thread, each engine's table built beforehand: alone, the median of %s "
+            "calls / per field in a batch of %s, the median of %s such calls after one that warms them, on the fields "
+            "of %s scoring columns. %s %s" % (counted(how, "calls"), counted(how, "batch"), counted(how, "batches"),
+                                             counted(how, "columns"), threads_note(how), machine_note(how))]
 
 
 def table_nuts(tree) -> List[str]:
     nu = tree["nuts"].to_dataset()
     if not timed(nu):
         return NOT_TIMED
-    attrs = json.loads(tree.attrs.get("nuts", "{}"))
+    if "how" not in nu.dims:
+        return ["The NUTS numbers of this record are in an older layout: "
+                "`python -m schwingcheck curve speed --record` takes them again."]
+    how = attr_json(tree, "nuts")
+    ks = nu["measures"].values.tolist()
+    places = nu["place"].values.tolist()
     rows = []
-    for k in nu["measures"].values.tolist():
-        rows.append([str(k), "%.2f" % float(nu["build_s"].sel(measures=k)), "%.1f" % float(nu["sample_s"].sel(measures=k)),
-                     "%.2f" % float(nu["posterior_s"].sel(measures=k)), "%.1e" % float(nu["max_abs_diff"].sel(measures=k)),
-                     "%.1e" % float(nu["max_mcse"].sel(measures=k))])
-    out = rows_md(["Measures", "Build, s a field", "Sample, s a field", "Posterior, s a field",
-                   "Largest gap from the exact posterior", "Largest Monte Carlo error"],
-                  ["---:"] * 6, rows)
-    if attrs:
-        a = attrs[next(iter(attrs))]
-        out += ["", "NUTS on the naming model, %d fields of %d bodies, %d chains of %d draws after %d tuning steps."
-                % (a["fields"], a["width"], a["chains"], a["draws"], a["tune"])]
+    for k in ks:
+        for h in nu["how"].values.tolist():
+            r = nu.sel(measures=k, how=h)
+            if not np.isfinite(float(r["fields"])):
+                continue
+            gap = np.asarray(r["gap"].values, float)
+            worst = places[int(np.nanargmax(gap))] if np.isfinite(gap).any() else "-"
+            rows.append([str(k), h if h == "together" else "%s, at %s" % (h, worst), "%d" % int(r["fields"]),
+                         "%.2f" % float(r["build_s"]), "%.1f" % float(r["setup_s"]), "%.2f" % float(r["sample_s"]),
+                         "%.2f" % float(r["posterior_s"]), "%.1e at %s" % (float(r["max_gap"]), worst),
+                         "%.2f" % float(r["max_rhat"]), "%d" % int(r["divergences"])])
+    out = rows_md(["Measures", "Sampled", "Fields", "Build, s a call", "Setup, s a call", "NUTS's loop, s a field",
+                   "Posterior, s a field", "Largest gap from the exact posterior", "Largest R-hat", "Divergences"],
+                  ["---:", "---", "---:", "---:", "---:", "---:", "---:", "---:", "---:", "---:"], rows)
+    together = nu.sel(how="together")
+    per = []
+    for f, place in enumerate(places):
+        cells = [place]
+        for k in ks:
+            g, r = float(together["gap"].sel(measures=k)[f]), float(together["rhat"].sel(measures=k)[f])
+            cells.append("-" if not np.isfinite(g) else "%.1e (%.2f)" % (g, r))
+        per.append(cells)
+    out += [""] + rows_md(["Place"] + ["%d measures: gap (R-hat)" % k for k in ks], ["---"] + ["---:"] * len(ks), per)
+    out += ["", "NUTS on the naming model, %s chains of %s draws after %s tuning steps, seed %s, on one field of %s bodies "
+            "at each place, the i-th place's from the i-th of %s scoring columns, sampled together in one model, and on "
+            "the field at %s alone. The setup is a call's, whatever its fields: compiling the model's log density and "
+            "gradient, which every new set of fields pays again, since the observed values are constants of the "
+            "compiled graph, and which a compiled graph already on disk shortens. The loop is NUTS's own, tuning and "
+            "draws; the posterior is the second call of the average over the draws, the first having compiled it. The "
+            "gap is the largest difference over places between NUTS's posterior and the exact rule's, below for each "
+            "field sampled together. %s" % (counted(how, "chains"), counted(how, "draws"), counted(how, "tune"),
+                                           counted(how, "seed"), counted(how, "width"), counted(how, "columns"),
+                                           how.get("alone", "not recorded"), threads_note(how))]
     return out
 
 
@@ -347,10 +512,10 @@ def readme_blocks(text: str) -> Dict[str, str]:
     return out
 
 
-def check_readme(tree, readme: str = README) -> List[str]:
+def check_readme(tree, readme: Optional[str] = None) -> List[str]:
     """What differs between the README's tables and the record's: one line per table missing,
-    stale or written twice."""
-    with open(readme, encoding="ascii") as fh:
+    stale or written twice; the package's README unless another is named."""
+    with open(readme or README, encoding="ascii") as fh:
         text = fh.read()
     have = readme_blocks(text)
     stale = []
@@ -482,7 +647,9 @@ def fig_speed(tree, outdir: str) -> List[str]:
     a.legend(loc="upper left")
     b.legend(loc="lower right")
     name = "curve_speed"
-    return save(fig, outdir, name, CAPTIONS[name]) + [write_csv(outdir, name, rows)]
+    how = attr_json(tree, "speed")
+    caption = CAPTIONS[name] % (counted(how, "calls"), counted(how, "batch"), counted(how, "batches"))
+    return save(fig, outdir, name, caption) + [write_csv(outdir, name, rows)]
 
 
 def fig_data(tree, outdir: str) -> List[str]:
@@ -495,6 +662,14 @@ def fig_data(tree, outdir: str) -> List[str]:
               ("prefix-32", "nominal"): dict(linestyle="-", marker="o", markerfacecolor=INK),
               ("prefix-32", "predictive"): dict(linestyle="-.", marker="D", markerfacecolor=INK, markersize=3)}
     people = [p for p in PEOPLE if "people-%d-nominal" % p in arm_names(ds)]
+    if PRINTED in arm_names(ds):
+        for sub, st in (("seven", dict(linestyle=(0, (6, 2)), linewidth=0.6)), ("prefix-32", dict(linestyle="-", linewidth=0.6))):
+            label = "%s, as printed" % ("Seven" if sub == "seven" else "All 32")
+            for ax, stat in ((a, "exact"), (b, "precision")):
+                y = 100 * value(ds, stat, PRINTED, "typical", sub, HEADLINE)
+                ax.axhline(y, color=INK, label=label, **st)
+                rows.append({"panel": "A" if stat == "exact" else "B", "subset": sub, "rule": "printed", "people": "",
+                             "percent": y})
     for (sub, rule), st in styles.items():
         label = "%s, %s" % ("Seven" if sub == "seven" else "All 32", rule)
         for ax, stat in ((a, "exact"), (b, "precision")):
