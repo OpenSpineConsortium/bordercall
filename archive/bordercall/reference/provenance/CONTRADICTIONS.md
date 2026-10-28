@@ -6,21 +6,22 @@ the numbers were carried from the measurement tables into the rest of each paper
 held by test to the images of the cells: [crosstable.csv](crosstable.csv), the Present Study column of every
 comparison table against the dimension tables it restates; [prose.csv](prose.csv), every number the running
 text states against the cells it speaks of; and the arithmetic inside the tables, computed here, the printed
-ratio columns against the ratio of the printed means and the printed sums against their parts. A ratio or a
-sum is consistent when some unrounded means inside the rounding of the printed ones give a value that rounds to
-the printed one, so a difference that rounding alone explains is not a contradiction. Nothing here speaks of
+ratio columns against the ratio of the printed means, the printed sums against their parts and the facets
+paper's X-card angle against its transverse-plane angle. A ratio, a sum or a relation is consistent when some
+unrounded means inside the rounding of the printed ones give a value that rounds to the printed one, so a
+difference that rounding alone explains is not a contradiction. Nothing here speaks of
 the measurements' accuracy, which no record of a paper can test; it speaks of the papers' internal
 consistency, which is what a reader has.
 
 ## Summary
 
-| paper | cells read | text values | held to cells | contradict | within a stated tolerance only | restated by a comparison table | disagree | ratios and sums checked | inconsistent |
+| paper | cells read | text values | held to cells | contradict | within a stated tolerance only | restated by a comparison table | disagree | ratios, sums and relations checked | inconsistent |
 |---|---|---|---|---|---|---|---|---|---|
 | Cervical, Spine 1991;16(8):861-869 | 589 | 35 | 26 | 1 | 2 | 35 | 0 | 29 | 0 |
 | Thoracic, Spine 1991;16(8):888-901 | 1688 | 70 | 50 | 6 | 6 | 108 | 1 | 96 | 3 |
 | Lumbar, Spine 1992;17(3):299-306 | 515 | 51 | 40 | 3 | 1 | 45 | 1 | 25 | 0 |
-| Articular facets, Spine 1993;18(10):1298-1310 | 994 | 93 | 77 | 8 | 14 | 25 | 6 | 138 | 3 |
-| all four | 3786 | 249 | 193 | 18 | 23 | 213 | 8 | 288 | 6 |
+| Articular facets, Spine 1993;18(10):1298-1310 | 994 | 93 | 77 | 8 | 14 | 25 | 6 | 230 | 4 |
+| all four | 3786 | 249 | 193 | 18 | 23 | 213 | 8 | 380 | 7 |
 
 The 26 contradictions of the text and the comparison tables, by what the cells show:
 
@@ -115,13 +116,15 @@ the digits printed (23):
 | facets, 1307 | The most significant difference between the individual thoracic vertebrae was the interfacet superior to inferior width ratio which decreased from 1.15 at T1 to 0.95 at T9. | IFWs/IFWi T1 1.15 | 1.18 (equal) | -0.03 |
 | facets, 1307 | The most significant difference between the individual thoracic vertebrae was the interfacet superior to inferior width ratio which decreased from 1.15 at T1 to 0.95 at T9. | IFWs/IFWi T9 0.95 | 0.93 (equal) | 0.02 |
 
-## Inside the tables: the printed ratios and sums against their parts
+## Inside the tables: the printed ratios, sums and relations against their parts
 
 Every ratio column (end-plate width to depth, canal width to depth, pedicle height to width, facet width to height,
 the interfacet ratios) and every printed sum (the thoracic wedge angle EPIt = EPItu + EPItl, Table 6's
 costovertebral area per rib as the mean of the two upper facets plus the mean of the two lower, and its total
-with the costotransverse area) is computed from the printed means of its own table. Consistent means that
-unrounded means inside the printed ones' rounding can give the printed value.
+with the costotransverse area) is computed from the printed means of its own table. One column is held to
+another table of its paper: the facets paper's X-card angle CAX (Table 8) is, cell for cell, the negative of its
+transverse-plane angle T (Tables 6 and 7) on the same side of the same facet, which is why the rule scores T and
+never CAX. Consistent means that unrounded means inside the printed ones' rounding can give the printed value.
 
 | table | column | computed from | checked | consistent | not | largest difference |
 |---|---|---|---|---|---|---|
@@ -149,8 +152,12 @@ unrounded means inside the printed ones' rounding can give the printed value.
 | facets Table 3 | FCW/FCHil | FCWil / FCHil | 23 | 23 | 0 | 0.005 at C4 |
 | facets Table 5 | IFWs/IFWi | IFWs / IFWi | 23 | 23 | 0 | -0.007 at T6 |
 | facets Table 5 | IFW/IFH | mean(IFWs, IFWi) / mean(IFHr, IFHl) | 23 | 22 | 1 | -0.014 at T4 |
+| facets Table 8 | CAXsr | minus Tsr of facets Table 6 | 23 | 23 | 0 | 0 at C2 |
+| facets Table 8 | CAXsl | minus Tsl of facets Table 6 | 23 | 22 | 1 | 10 at T1 |
+| facets Table 8 | CAXir | minus Tir of facets Table 7 | 23 | 23 | 0 | 0.1 at L1 |
+| facets Table 8 | CAXil | minus Til of facets Table 7 | 23 | 23 | 0 | 0.1 at L1 |
 
-The 6 that rounding does not explain:
+The 7 that rounding does not explain:
 
 | table | column | level | prints | its parts give | difference | from | cell |
 |---|---|---|---|---|---|---|---|
@@ -160,6 +167,7 @@ The 6 that rounding does not explain:
 | facets Table 2 | FCW/FCHsr | C4 | 0.96 | 0.976 | -0.016 (1.6%) | FCWsr 12.0 / FCHsr 12.3 | [r02_c04](cells/facets-t2/r02_c04.png) |
 | facets Table 2 | FCW/FCHsr | C5 | 1.04 | 1.025 | 0.015 (1.5%) | FCWsr 12.3 / FCHsr 12.0 | [r03_c04](cells/facets-t2/r03_c04.png) |
 | facets Table 5 | IFW/IFH | T4 | 1.04 | 1.054 | -0.014 (1.3%) | IFWs 22.1 and IFWi 21.1 / IFHr 20.9 and IFHl 20.1 | [r09_c05](cells/facets-t5/r09_c05.png) |
+| facets Table 8 | CAXsl | T1 | -47.7 | -57.7 | 10 (17.3%) | Tsl 57.7 of facets Table 6 | [r06_c02](cells/facets-t8/r06_c02.png) |
 
 ## What the counts say
 
@@ -167,6 +175,9 @@ The 6 that rounding does not explain:
   are what their own printed means give once rounding is allowed for, which is what columns computed from the
   unrounded means look like, since a ratio of two means printed to one decimal cannot be read back exactly.
   The 6 that are not differ by 0.014 to 0.446, the largest PDH/PDWl at thoracic Table 5 T3, printed 1.4 where PDHl 12.0 / PDWl 6.5 gives 1.846.
+- The facets paper's X-card angle is the negative of its transverse-plane angle at 91 of the 92 cells where both
+  are printed, to the printed digit or within the two cells' rounding. Where it is not:
+  facets Table 8 CAXsl at T1, printed -47.7 where Tsl 57.7 of facets Table 6 gives -57.7, 10 degrees apart, the paper's own contradiction.
 - The comparison tables restate 213 values and get 8 wrong (3.8%): one digit in the thoracic Table 8, and
   7 right-and-left means the lumbar Table 6 and the facets Table 9 print that are not the mean of the
   sides their own tables print, with no word on how they were formed; the largest is 0.85 mm.

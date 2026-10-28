@@ -12,6 +12,7 @@ graph TD
     offset(["offset ~ Normal"])
     raw(["raw ~ Normal"])
     sex_effect[("sex_effect ~ Data")]
+    size_power[("size_power ~ Data")]
     value["value ~ Deterministic"]
     weight_effect[("weight_effect ~ Data")]
     beta_height --> log_s
@@ -27,9 +28,11 @@ graph TD
     log_s --> raw
     measure_error --> raw
     offset --> raw
+    size_power --> raw
     weight_effect --> raw
     body_present --> value
     raw --> value
+    size_power --> value
     subgraph plate1 ["column"]
         log_s
     end
@@ -53,5 +56,6 @@ graph TD
     subgraph plate6 ["measure"]
         age_effect
         measure_error
+        size_power
         weight_effect
     end

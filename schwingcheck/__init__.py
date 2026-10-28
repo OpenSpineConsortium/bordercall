@@ -22,4 +22,8 @@ LEVELS_C2 = ["C%d" % i for i in range(2, 8)] + ["T%d" % i for i in range(1, 13)]
 LEVELS = LEVELS_C2[1:]              # the rule's levels: C3 to L5, twenty-two, as the archive's
 SIDES = ["whole", "right", "left"]
 KINDS = ["length", "area", "angle"]
+# how each kind scales with the patient's size s: a length as s, an area as s squared, an angle
+# not at all (TODO.md, item P step 4)
+SIZE_POWER = {"length": 1, "area": 2, "angle": 0}
+UNITS = {"length": "mm", "area": "mm2", "angle": "deg"}
 PLANES = ["mask", "ap", "lateral", "ct"]

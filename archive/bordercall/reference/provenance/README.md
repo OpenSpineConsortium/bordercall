@@ -76,7 +76,9 @@ recorded reading:
    repository alone.
 7. **Report the contradictions.** `python contradictions.py` writes
    [CONTRADICTIONS.md](CONTRADICTIONS.md) from the three records above and the arithmetic inside
-   the tables (every printed ratio and sum against its own table's means, allowing for rounding):
+   the tables (every printed ratio and sum against its own table's means, and every X-card angle
+   of the facets paper's Table 8 against the negative of the transverse-plane angle its Tables 6
+   and 7 print for the same facet, level and side, each allowing for rounding):
    every place a paper disagrees with itself, counted by paper and by what happened, for the
    owner's ask of 27 October 2026 that the papers' own consistency be measured.
 6. **Hold the CSVs to it.** `python check_csv.py` sets every value of
@@ -233,7 +235,10 @@ restates the pedicle's sagittal inclination at L4 as 16.0 where its Table 4 prin
 right and left average to 12.2, 11.6, 11.0, 11.4, 11.5 and 12.6, and the paper does not say how
 it formed them. [CONTRADICTIONS.md](CONTRADICTIONS.md) gathers these, the prose contradictions
 and the arithmetic inside the tables (288 printed ratios and sums, 6 of which their own means
-do not give even allowing for rounding) into one report with counts by paper and by kind.
+do not give even allowing for rounding, and 92 X-card angles of the facets paper's Table 8 held
+to the negative of the transverse-plane angle its Tables 6 and 7 print, one of which, CAXsl at
+T1, printed -47.7 where Tsl is 57.7, does not hold: 380 checks and 7 inconsistent in all) into
+one report with counts by paper and by kind.
 
 ## What the reference CSVs rest on, and what changes
 

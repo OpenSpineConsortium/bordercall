@@ -1,15 +1,16 @@
 """The exact rule as one compiled PyTensor function: step d's reference for the PyMC model.
 
-    rule = compiled.ExactRule(mu, sd, noise=errors)          # the table, (measures, levels), and each measure's error
+    rule = compiled.ExactRule(mu, sd, noise=errors, power=powers)   # the table, (measures, levels), each measure's error and power
     hyp = compiled.hypotheses(len(LEVELS), [[0, 1, 2]])      # every place of one pattern
     out = rule.evaluate(X, hyp)                              # log evidence and posterior
 
 The arithmetic is rule.py's, written as a PyTensor graph and compiled once per process by
 PyTensor's default backend (Numba): given a hypothesis (the level of every body in the field)
-and the patient's size s, each length measure's values are jointly normal with mean s mu and
-covariance Delta + u u', Delta carrying the measure's own error, whose log density has the
-Sherman-Morrison closed form; the size is integrated by Gauss-Hermite quadrature over log s; the
-measures multiply; the hypotheses are normalised by a logsumexp. Nothing is
+and the patient's size s, each measure's values are jointly normal with mean s^p mu and
+covariance Delta + u u', Delta carrying the measure's own error and p the measure's power of the
+size (1 for a length, 2 for an area, 0 for an angle), whose log density has the Sherman-Morrison
+closed form; the size is integrated by quadrature over log s, rule.py's Gauss-Hermite nodes or
+its trapezoid grid; the measures multiply; the hypotheses are normalised by a logsumexp. Nothing is
 sampled, so the level k is never a random variable a sampler has to move through (the owner's
 word of 27 October 2026, 09:46 UTC, on avoiding Metropolis bottlenecks): it is enumerated and
 summed out exactly, and NUTS in model.py only ever sees the continuous size.
@@ -22,7 +23,9 @@ Three things generalise rule.py without changing its contiguous, complete answer
 - The size prior may differ by field, as it does once a patient's height shifts it
   (covariates.py): the quadrature keeps one set of nodes in log s and each field carries its own
   log weights, the Gauss-Hermite weights times the ratio of its prior to the nodes' own. With the
-  archive's prior the ratio is one and the weights are the archive's to the last bit.
+  archive's prior the ratio is one and the weights are the archive's to the last bit. Nodes on
+  which a field's prior is not whole are refused, as the trapezoid's of the default reach are for
+  a height outside 161 to 175 cm (rule.check_prior_held).
 - A measure's mean may be scaled field by field, as the weight and age hooks of covariates.py
   scale it once they are not zero: fields that share one row of factors go through one call with
   the table's means scaled, so while the hooks are zero every field goes through the archive's
@@ -44,7 +47,7 @@ from typing import Dict, List, Optional, Sequence, Tuple
 
 import numpy as np
 
-from .rule import GH_NODES, SYNTH, quadrature
+from .rule import GH_NODES, SYNTH, check_prior_held, quadrature, size_factors
 
 LOG2PI = math.log(2.0 * math.pi)
 CHUNK = 256             # fields per call: the product's output is (measures, fields, 4 x nodes x hypotheses)
@@ -92,13 +95,17 @@ def size_log_weights(nodes_log_s: np.ndarray, logw: np.ndarray, base_sd: float,
                      mean: np.ndarray, sd: np.ndarray) -> np.ndarray:
     """Per-field log weights for integrating over log s ~ N(mean_f, sd_f^2) on the nodes of the
     rule for N(0, base_sd^2): the nodes' weights times the ratio of the two densities at each
-    node. Where mean_f is 0 and sd_f is base_sd the ratio is exactly one."""
+    node. Where mean_f is 0 and sd_f is base_sd the ratio is exactly one. Nodes on which a field's
+    prior is not whole are refused (rule.check_prior_held): the trapezoid of the default reach
+    holds a known height's prior only from 161 to 175 cm."""
+    mean, sd = np.asarray(mean, float), np.asarray(sd, float)
     t = np.asarray(nodes_log_s, float)[None, :]
-    mean = np.asarray(mean, float)[:, None]
-    sd = np.asarray(sd, float)[:, None]
-    same = (mean == 0.0) & (sd == base_sd)
-    ratio = (-0.5 * ((t - mean) / sd) ** 2 - np.log(sd)) - (-0.5 * (t / base_sd) ** 2 - math.log(base_sd))
-    return np.asarray(logw, float)[None, :] + np.where(same, 0.0, ratio)
+    m, s = mean[:, None], sd[:, None]
+    same = (m == 0.0) & (s == base_sd)
+    ratio = (-0.5 * ((t - m) / s) ** 2 - np.log(s)) - (-0.5 * (t / base_sd) ** 2 - math.log(base_sd))
+    out = np.asarray(logw, float)[None, :] + np.where(same, 0.0, ratio)
+    check_prior_held(out, t[0], lambda: (mean, sd))
+    return out
 
 
 def _graph():
@@ -109,7 +116,7 @@ def _graph():
     mu = pt.matrix("mu")                # (M, L)
     sd = pt.matrix("sd")                # (M, L)
     idx = pt.lmatrix("idx")             # (H, B)
-    sizes = pt.vector("sizes")          # (J,)
+    sizes = pt.matrix("sizes")          # (M, J): each measure's power of each node's size
     logw = pt.matrix("logw")            # (F, J)
     log_prior = pt.vector("log_prior")  # (H,)
     masks = pt.matrix("masks")          # (R, M): which measures each answer uses
@@ -118,7 +125,7 @@ def _graph():
 
     muk = mu[:, idx][:, None]                                   # (M, 1, H, B)
     sdk = sd[:, idx][:, None]
-    s = sizes[None, :, None, None]                              # (1, J, 1, 1)
+    s = sizes[:, :, None, None]                                 # (M, J, 1, 1)
     delta = s * s * (1.0 - rho * rho) * sdk * sdk + (noise * noise)[:, None, None, None]   # (M, J, H, B)
     d = 1.0 / delta
     u = s * rho * sdk
@@ -138,7 +145,7 @@ def _graph():
     blocks = pt.concatenate([block(col_x2), block(col_x), block(col_w)], axis=1)   # (M, 3B, 4JH)
     left = pt.concatenate([x * x, x, w], axis=2).dimshuffle(1, 0, 2)               # (M, F, 3B)
     sums = pt.matmul(left, blocks)                                                  # (M, F, 4JH)
-    J, H = sizes.shape[0], idx.shape[0]
+    J, H = sizes.shape[1], idx.shape[0]
     sums = sums.reshape((sums.shape[0], sums.shape[1], 4, J, H))
     q1, q2, a, ld = sums[:, :, 0], sums[:, :, 1], sums[:, :, 2], sums[:, :, 3]
     n_eff = w.sum(axis=2).T[:, :, None, None]                                       # (M, F, 1, 1)
@@ -168,7 +175,8 @@ class ExactRule:
     returns the log evidence and the posterior for every subset of measures asked."""
 
     def __init__(self, mu: np.ndarray, sd: np.ndarray, synth: dict = SYNTH, n_nodes: int = GH_NODES,
-                 noise: Optional[np.ndarray] = None):
+                 noise: Optional[np.ndarray] = None, power: Optional[np.ndarray] = None,
+                 nodes: Optional[Tuple[np.ndarray, np.ndarray]] = None):
         self.mu = np.ascontiguousarray(mu, float)
         self.sd = np.ascontiguousarray(sd, float)
         if self.mu.shape != self.sd.shape or self.mu.ndim != 2:
@@ -179,7 +187,12 @@ class ExactRule:
         if self.noise.shape != (M,):
             raise ValueError("one error per measure: %d measures, noise %r" % (M, self.noise.shape))
         self.synth = dict(synth)
-        self.sizes, self.logw = quadrature(float(synth["scale_sd"]), n_nodes)
+        # rule.py's nodes, Gauss-Hermite by default or the ones given (rule.trapezoid), and each
+        # measure's power of each node's size, the size itself for a length
+        self.sizes, self.logw = quadrature(float(synth["scale_sd"]), n_nodes) if nodes is None else \
+            (np.asarray(nodes[0], float), np.asarray(nodes[1], float))
+        self.power = np.ones(M) if power is None else np.asarray(power, float)
+        self.scaled = np.ascontiguousarray(size_factors(self.sizes, self.power, M))
         self.f = function()
 
     @property
@@ -230,7 +243,7 @@ class ExactRule:
             for c0 in range(0, len(fields), max(1, chunk)):
                 f = fields[c0:c0 + chunk]
                 le, po = self.f(np.ascontiguousarray(x0[f]), np.ascontiguousarray(w[f]), mu, self.sd, idx,
-                                self.sizes, np.ascontiguousarray(lw[f]), lp, masks,
+                                self.scaled, np.ascontiguousarray(lw[f]), lp, masks,
                                 float(self.synth["rho"]), self.noise)
                 logev[:, f] = le
                 post[:, f] = po

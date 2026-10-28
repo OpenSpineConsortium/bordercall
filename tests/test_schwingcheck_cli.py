@@ -24,6 +24,7 @@ from schwingcheck import LEVELS                  # noqa: E402
 from schwingcheck import __main__ as M           # noqa: E402
 from schwingcheck import columns as C            # noqa: E402
 from schwingcheck import measures as MS          # noqa: E402
+from schwingcheck import rule as R                # noqa: E402
 from schwingcheck import score as S              # noqa: E402
 
 
@@ -176,11 +177,44 @@ class Name(unittest.TestCase):
             self.assertEqual(text, ("%.6f" % post[k], "%.6f" % se[k]), place)
         self.assertEqual(named(out), LEVELS[4])
 
-    def test_an_area_or_an_unknown_measure_is_refused(self):
+    def test_an_area_and_an_angle_are_named_with_their_own_powers(self):
+        keys = ["endplate", "canal_area", "endplate_incl"]                  # a length, an area and an angle
+        ms = MS.select(keys)
+        noise, power = MS.errors(ms), MS.powers(ms)
+        cols = C.draw_columns(MS.reference(ms), ["typical"], 9, 1, [MS.archive_key(m) for m in ms],
+                              noise_mm=noise, power=power)
+        bodies = [3, 4, 5]
+        X = np.array([[[float("%.3f" % cols.values[0, b, j]) for b in bodies] for j in range(len(ms))]])
+        want = MS.name(X, [0, 1, 2], ms)["all"][0]
+        mu, sd = MS.arrays(ms)
+        lengths = R.name(X, [0, 1, 2], mu, sd, R.SYNTH, noise=noise)["all"][0]   # every power 1
+        self.assertNotEqual(int(np.argmax(want)), int(np.argmax(lengths)))
+        with tempfile.TemporaryDirectory() as d:
+            path = self._write(d, keys, cols.values[0], bodies)
+            for engine in ("numpy", "pytensor"):
+                code, out = run(["name", path, "--measures"] + keys + ["--engine", engine])
+                self.assertEqual(code, 0, out)
+                self.assertEqual(named(out), LEVELS[int(np.argmax(want))], engine)
+                shown = printed(out)
+                self.assertEqual(set(shown), {LEVELS[k] for k in range(len(want)) if want[k] >= 1e-6}, engine)
+                for place, (text, _) in shown.items():
+                    self.assertEqual(text, "%.6f" % want[LEVELS.index(place)], (engine, place))
+            # NUTS within its Monte Carlo error: with every power 1 it is off by 0.039 to 0.049 at some
+            # place over seeds 0 to 8, with the powers by at most 0.011; T2 and C6 are 0.005 apart, so
+            # every place is held, not the named one
+            code, out = run(["name", path, "--measures"] + keys + ["--engine", "nuts", "--draws", "500",
+                                                              "--chains", "2", "--seed", "3"])
+            self.assertEqual(code, 0, out)
+            got = posteriors(out)
+            for k in range(len(want)):          # want has the rule's 20 places, LEVELS 22 levels
+                self.assertLess(abs(got.get(LEVELS[k], (0.0, None))[0] - want[k]), 0.02, LEVELS[k])
+
+    def test_a_measure_with_no_row_at_a_level_or_an_unknown_measure_is_refused(self):
         keys, values = self._column()
         with tempfile.TemporaryDirectory() as d:
             path = self._write(d, keys, values, [3, 4])
-            for measures, why in ((["endplate", "canal_area"], "canal_area is an area"),
+            for measures, why in ((["endplate", "pars_area:mean"],
+                                   "pars_area:mean has no table row at C3, C4, C5, C6, C7, T1, T2"),
                                   (["endplate", "nonesuch"], "no measure 'nonesuch' is registered")):
                 code, out = run(["name", path, "--measures"] + measures)
                 self.assertEqual(code, 2, out)

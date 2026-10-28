@@ -8,32 +8,55 @@
 A measure here is one quantity of one vertebra, with the side it is read on when the papers
 print a right and a left: `pedicle_w` on the right, on the left, or as the mean of the two
 (the archive's `pedicle`), never the right and the left as two independent measures (TODO.md,
-item P step 4), which `select` refuses, as it refuses one measure named twice. The registry
-holds every measure of the long table (TODO.md, item 2): its kind, the planes that can read it,
-its definition and the papers' mnemonic for it; its table rows, the mean, the population SD,
-the number of specimens and the provenance cell of every level; its own measurement error in
-millimetres (1.0 for every length today, the archive's noise_mm; an angle's or an area's is set
-when step e gives those kinds their own likelihood terms); the code that measures it, where
-there is any; and its correlations with the other measures, empty until a CT table estimates
-them. `name` scores fields from the selected objects and nothing else: the table from their
-rows, the error of each from its own `error_mm`.
+item P step 4), which `select` refuses, as it refuses one measure named twice. The mean of a
+mirrored pair, whose right side the facets paper prints with the opposite sign to the left
+(mnemonics.MIRRORED), negates the right first. The registry holds every measure of the long
+table (TODO.md, item 2): its kind, the planes that can read it, its definition and the papers'
+mnemonic for it; its table rows, the mean, the population SD, the number of specimens and the
+provenance cell of every level; its own measurement error in its own units (`error`, below);
+the code that measures it, where there is any; and its correlations with the other measures,
+empty until a CT table estimates them. `name` scores fields from the selected objects and
+nothing else: the table from their rows, the error of each from its own `error`, and the power
+of the size it scales with from its kind.
 
-The rule of step c takes lengths only, as the archive does; `select` refuses an area or an
-angle with a message that names step e, so nothing is scored under a wrong term by accident.
+Each kind has its own term since step e (TODO.md, item P step 4): a length scales with the
+patient's size s, an area with s squared and an angle not at all (SIZE_POWER), in the rule, the
+compiled rule, the PyMC models and the generator alike. The errors are a stated assumption, the
+same in the generator and in the rule, so they never part the two; what does is the generator's
+floor at 0.5 for a measure that scales with the size, which the likelihood leaves out. It touched
+3 of 308,000 values of the seven in 2,000 typical columns of seed 1234, and 1,647 of 1,056,000 of
+the pool's, 1,268 of them areas, 191 the pedicles' width and 180 the interfacet height at C4, in
+1,054 of the columns, where scoring a
+floored value by its mass at the floor moves a one-body posterior by up to 0.22
+(examples/floor_check.py; columns.floor_hits counts them). The build-up study of step e is to run
+the errors halved and doubled:
+
+- a length, 1 mm, the archive's noise_mm;
+- an area, sqrt(pi A / 2) times that 1 mm, A the measure's mean over the levels it is printed
+  at: the error of the area of a circle whose diameter is read with 1 mm of error on each of two
+  axes (A = pi a b / 4, so var A = (pi / 4)^2 (a^2 + b^2) 1 mm^2, which is pi A / 2 mm^2 where
+  a = b);
+- an angle, 3 degrees, the error of the direction of a line about 27 mm long whose two ends are
+  each read 1 mm off (sqrt(2) / 27 radians), a stated round figure rather than a measured one.
+
+`pool` is every measure the rule can take over the levels asked, each once, a left-right pair as
+its mean, and `left_out` says why each other measure of the papers is not in it.
 """
 from __future__ import annotations
 
+import math
 import os
 from dataclasses import dataclass
 from typing import Dict, List, Optional, Sequence, Tuple
 
 import numpy as np
 
-from . import LEVELS, LEVELS_C2, SIDES
+from . import LEVELS, LEVELS_C2, SIDES, SIZE_POWER, UNITS
 from .mnemonics import MEASURE_INFO, MEASURES
 from . import table as T
 
-ERROR_MM = {"length": 1.0}              # the archive's noise_mm for every length; the other kinds wait for step e
+LENGTH_ERROR_MM = 1.0                   # the archive's noise_mm, for every length
+ANGLE_ERROR_DEG = 3.0                   # an angle's, a stated round figure (above)
 SPINEPS_7 = ["endplate", "endplate_depth", "endplate_lower", "endplate_lower_depth", "h_post", "canal_w", "canal_ap"]
 # The archive's three regimes as its record used them (archive/bordercall/neighbour.py), which
 # rescore reproduces. Its AP regime keeps the posterior body height, taking a body's height as
@@ -74,7 +97,7 @@ class Measure:
     kind: str
     planes: Tuple[str, ...]
     definition: str
-    error_mm: Optional[float]       # its own measurement error; None until its kind has a term
+    error: Optional[float]          # its own measurement error in its own units; None where it has no rows
     levels: Tuple[str, ...]         # the levels its table rows cover
     mnemonics: Tuple[str, ...] = ()                     # the papers' own, the right's and the left's for a pair's mean
     rows: Tuple[Row, ...] = ()                          # the table, one row per level in `levels`
@@ -88,6 +111,16 @@ class Measure:
     @property
     def selection(self) -> Tuple[str, str]:
         return (self.name, self.side)
+
+    @property
+    def units(self) -> str:
+        """mm, mm2 or deg, as the table prints its values and as its error is stated."""
+        return UNITS[self.kind]
+
+    @property
+    def size_power(self) -> int:
+        """The power of the patient's size its values scale with: 1, 2 or 0."""
+        return SIZE_POWER[self.kind]
 
     def row(self, level: str) -> Row:
         for r in self.rows:
@@ -117,12 +150,12 @@ def _levels_with(ds, name: str, side: str) -> Tuple[str, ...]:
 
 def _rows(ds, name: str, side: str, levels: Sequence[str]) -> Tuple[Row, ...]:
     """The table rows at the levels given, from the Dataset, the mean of a pair as table.reference
-    takes it (the mean of the means and of the standard errors, the latter times sqrt(n)), so the
-    numbers are table.reference's to the bit."""
+    takes it (the mean of the means, the right's negated for a mirrored pair, and of the standard
+    errors, the latter times sqrt(n)), so the numbers are table.reference's to the bit."""
     at = [LEVELS_C2.index(lv) for lv in levels]
     col = lambda var, sd: ds[var].sel(measure=name, side=sd).values[at]
     if side == "mean":
-        mean = (col("mean", "right") + col("mean", "left")) / 2.0
+        mean = (T.mirror(name) * col("mean", "right") + col("mean", "left")) / 2.0
         n = col("n", "right")
         spread = (col("sem", "right") + col("sem", "left")) / 2.0 * np.sqrt(n)
         cells = list(zip(col("cell", "right"), col("cell", "left")))
@@ -164,11 +197,28 @@ def _build_registry(ds) -> Dict[str, Measure]:
         for side in sides:
             levels = _levels_with(ds, name, side)
             key = T.selection_name(name, side)
+            rows = _rows(ds, name, side, levels)
             m = Measure(name=name, side=side, kind=info.kind, planes=tuple(info.planes), definition=info.definition,
-                        error_mm=ERROR_MM.get(info.kind), levels=levels, mnemonics=_mnemonics(ds, name, side),
-                        rows=_rows(ds, name, side, levels), measurers=MEASURERS.get(_archive_name(name, side), ()))
+                        error=error_of(info.kind, rows), levels=levels, mnemonics=_mnemonics(ds, name, side),
+                        rows=rows, measurers=MEASURERS.get(_archive_name(name, side), ()))
             out[m.key] = m
     return out
+
+
+def error_of(kind: str, rows: Sequence[Row]) -> Optional[float]:
+    """A measure's own error by its kind (the module's docstring): 1 mm for a length, sqrt(pi A /
+    2) mm^2 for an area whose mean over its rows is A, 3 degrees for an angle; None for a measure
+    with no rows, which no rule can take."""
+    if not rows:
+        return None
+    if kind == "length":
+        return LENGTH_ERROR_MM
+    if kind == "area":
+        mean_area = float(np.mean([r.mean for r in rows]))
+        return math.sqrt(math.pi * mean_area / 2.0) * LENGTH_ERROR_MM
+    if kind == "angle":
+        return ANGLE_ERROR_DEG
+    raise ValueError("no error for a measure of kind %r" % (kind,))
 
 
 def _archive_name(name: str, side: str) -> str:
@@ -190,10 +240,11 @@ def resolve(key: str) -> Tuple[str, str]:
 
 
 def select(keys: Sequence[str], levels: Sequence[str] = LEVELS, reg: Optional[Dict[str, Measure]] = None) -> List[Measure]:
-    """The measures named, each checked: registered, a length (until step e), with its own error
-    and table rows at every level the rule runs over, and none of them named twice, on one side
-    or on two: the right and the left of a pair are one measurement of one vertebra, and the rule
-    multiplies its measures as independent, so a pair enters as one side or as its mean."""
+    """The measures named, each checked: registered, with its own error and table rows at every
+    level the rule runs over, and none of them named twice, on one side or on two: the right and
+    the left of a pair are one measurement of one vertebra, and the rule multiplies its measures
+    as independent, so a pair enters as one side or as its mean. Every kind is taken, each with
+    its own term (step e)."""
     reg = registry() if reg is None else reg
     out = []
     taken: Dict[str, str] = {}
@@ -207,15 +258,55 @@ def select(keys: Sequence[str], levels: Sequence[str] = LEVELS, reg: Optional[Di
                              "as the mean of the two, never as independent measures" % (name, taken[name], key))
         taken[name] = key
         m = reg[k]
-        if m.kind != "length":
-            raise ValueError("%s is an %s: the rule of step c takes lengths only; step e gives %ss their term" % (k, m.kind, m.kind))
-        if m.error_mm is None or not m.error_mm > 0:
-            raise ValueError("%s has no measurement error of its own" % k)
         missing = [lv for lv in levels if lv not in m.levels]
         if missing:
             raise ValueError("%s has no table row at %s" % (k, ", ".join(missing)))
+        if m.error is None or not m.error > 0:
+            raise ValueError("%s has no measurement error of its own" % k)
         out.append(m)
     return out
+
+
+def pool(levels: Sequence[str] = LEVELS, reg: Optional[Dict[str, Measure]] = None) -> List[Measure]:
+    """Every measure the rule can take over these levels, each once, in the papers' order
+    (mnemonics.MEASURES): a whole-body measure, or a left-right pair as its mean, with a mean and
+    a spread printed at every level asked. Over C3 to L5 that is 32, 18 lengths, 6 areas and 8
+    angles; left_out says why each other measure of the papers is not among them."""
+    reg = registry() if reg is None else reg
+    keys = [_pool_key(name, reg) for name in MEASURES]
+    return select([k for k in keys if k is not None and not _missing(reg[k], levels)], levels, reg)
+
+
+def left_out(levels: Sequence[str] = LEVELS, reg: Optional[Dict[str, Measure]] = None) -> Dict[str, str]:
+    """{measure: why it is not in the pool} for every measure of the papers that is not."""
+    reg = registry() if reg is None else reg
+    out = {}
+    for name in MEASURES:
+        key = _pool_key(name, reg)
+        if key is None:
+            out[name] = "not in the long table"
+            continue
+        m = reg[key]
+        if not m.levels:
+            out[name] = "printed as a mean with no spread, so no rule can take it"
+        elif _missing(m, levels):
+            out[name] = "printed at %d of the %d levels %s to %s (%s to %s)" % (
+                len(levels) - len(_missing(m, levels)), len(levels), levels[0], levels[-1],
+                m.levels[0], m.levels[-1])
+    return out
+
+
+def _pool_key(name: str, reg: Dict[str, Measure]) -> Optional[str]:
+    """The one key a measure enters the pool under: itself when it is printed whole, its mean
+    when it is a pair, None when the registry has neither."""
+    for key in (name, T.selection_name(name, "mean")):
+        if key in reg:
+            return key
+    return None
+
+
+def _missing(m: Measure, levels: Sequence[str]) -> List[str]:
+    return [lv for lv in levels if lv not in m.levels]
 
 
 def reference(measures: Sequence[Measure], levels: Sequence[str] = LEVELS) -> Dict[str, Dict[str, tuple]]:
@@ -263,14 +354,21 @@ def arrays(measures: Sequence[Measure], levels: Sequence[str] = LEVELS) -> Tuple
 
 
 def errors(measures: Sequence[Measure]) -> np.ndarray:
-    """Each measure's own measurement error in millimetres, the rule's noise, in the order given."""
-    return np.array([m.error_mm for m in measures], float)
+    """Each measure's own measurement error in its own units, the rule's noise, in the order given."""
+    return np.array([m.error for m in measures], float)
+
+
+def powers(measures: Sequence[Measure]) -> np.ndarray:
+    """The power of the size each measure scales with, in the order given: 1, 2 or 0."""
+    return np.array([m.size_power for m in measures], float)
 
 
 def name(X: np.ndarray, offsets: Sequence[int], measures: Sequence[Measure], synth: Optional[dict] = None,
          levels: Sequence[str] = LEVELS, **kwargs) -> Dict[str, np.ndarray]:
     """rule.name on the measures given and nothing else: the table from their rows, each one's
-    error from its own error_mm; X is (fields, measures, bodies) in their order."""
+    error from its own error and its power of the size from its kind; X is (fields, measures,
+    bodies) in their order, each in its own units."""
     from . import rule as R
     mu, sd = arrays(measures, levels)
-    return R.name(X, offsets, mu, sd, R.SYNTH if synth is None else synth, noise=errors(measures), **kwargs)
+    return R.name(X, offsets, mu, sd, R.SYNTH if synth is None else synth, noise=errors(measures),
+                  power=powers(measures), **kwargs)

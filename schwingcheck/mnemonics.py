@@ -98,6 +98,12 @@ MNEMONICS += _family("CAXi", "facet_card_x_inf", "angle", MASK, "card angle of t
 MNEMONICS += _family("CAYs", "facet_card_y_sup", "angle", MASK, "card angle of the superior facet normal about the Y axis", RL)
 MNEMONICS += _family("CAYi", "facet_card_y_inf", "angle", MASK, "card angle of the inferior facet normal about the Y axis", RL)
 
+# The pairs the facets paper prints with the right side's sign opposite the left's at every level,
+# its sagittal-plane angle S and its Y-card angle CAY of both facets: their mean is taken with the
+# right side negated, as (left - right) / 2, or the two sides cancel and the mean carries nothing
+# (TODO.md, item P step e). Every other pair has one sign on both sides, and a test holds both.
+MIRRORED = ("facet_sag_sup", "facet_sag_inf", "facet_card_y_sup", "facet_card_y_inf")
+
 BY_MNEMONIC = {m.mnemonic: m for m in MNEMONICS}
 MEASURES = []
 for _m in MNEMONICS:

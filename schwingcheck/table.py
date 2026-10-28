@@ -40,8 +40,8 @@ from typing import Dict, Sequence, Tuple
 
 import numpy as np
 
-from . import LEVELS_C2, SIDES
-from .mnemonics import BY_MNEMONIC, DIMENSION_TABLES, MEASURE_INFO, MEASURES, SPECIMENS
+from . import LEVELS_C2, SIDES, UNITS
+from .mnemonics import BY_MNEMONIC, DIMENSION_TABLES, MEASURE_INFO, MEASURES, MIRRORED, SPECIMENS
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
@@ -277,7 +277,7 @@ def load(path: str = LONG_CSV):
          "cell": (("level", "measure", "side"), cell.astype(str))},
         coords={"level": LEVELS_C2, "measure": measures, "side": SIDES,
                 "kind": ("measure", [m.kind for m in info]),
-                "units": ("measure", [{"length": "mm", "area": "mm2", "angle": "deg"}[m.kind] for m in info]),
+                "units": ("measure", [UNITS[m.kind] for m in info]),
                 "planes": ("measure", [" ".join(m.planes) for m in info]),
                 "definition": ("measure", [m.definition for m in info]),
                 "mnemonic": (("measure", "side"), mnemonic.astype(str))},
@@ -320,7 +320,8 @@ def load_specimens(path: str = SPECIMENS_CSV):
 def reference(ds, selections: Sequence[Tuple[str, str]], levels: Sequence[str]) -> Dict[str, Dict[str, tuple]]:
     """{name: {level: (mean, population SD)}} for the rule and the generator, in the archive's
     shape. A selection is (measure, side); the side `mean` is the mean of right and left, of the
-    means and of the standard errors alike, as the archive's pedicle and pedicle_h were built."""
+    means and of the standard errors alike, as the archive's pedicle and pedicle_h were built, the
+    right's mean negated first for a mirrored pair (mnemonics.MIRRORED)."""
     out = {}
     for measure, side in selections:
         name = selection_name(measure, side)
@@ -332,7 +333,7 @@ def reference(ds, selections: Sequence[Tuple[str, str]], levels: Sequence[str]) 
                 sr, sl = ds["sem"].sel(level=lv, measure=measure, side="right").item(), \
                     ds["sem"].sel(level=lv, measure=measure, side="left").item()
                 nn = ds["n"].sel(level=lv, measure=measure, side="right").item()
-                mu, sd = (r + l_) / 2.0, (sr + sl) / 2.0 * math.sqrt(nn)
+                mu, sd = (mirror(measure) * r + l_) / 2.0, (sr + sl) / 2.0 * math.sqrt(nn)
             else:
                 mu = ds["mean"].sel(level=lv, measure=measure, side=side).item()
                 sd = ds["sd"].sel(level=lv, measure=measure, side=side).item()
@@ -340,6 +341,12 @@ def reference(ds, selections: Sequence[Tuple[str, str]], levels: Sequence[str]) 
                 raise ValueError("the table has no %s (%s) at %s" % (measure, side, lv))
             out[name][lv] = (float(mu), float(sd))
     return out
+
+
+def mirror(measure: str) -> float:
+    """-1 for a pair whose right side is printed with the opposite sign to the left, 1 for any
+    other: the factor on the right's mean in the mean of the two."""
+    return -1.0 if measure in MIRRORED else 1.0
 
 
 def selection_name(measure: str, side: str) -> str:
