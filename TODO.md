@@ -104,7 +104,7 @@ Still synthetic: this item says how much more Panjabi's tables could name, not w
 ## 0. Start here
 
 - **The rule.** It is [archive/bordercall/exact.py](archive/bordercall/exact.py). Its records are [archive/records/exact-2026-10-26/](archive/records/exact-2026-10-26/): exact.json and supplement.json.
-- **The tests.** Run them from the archive: `cd archive && python3 -m unittest discover -s tests`. There were 222 at the move, which passed before and after it, and there are 242 since item P's step b.
+- **The tests.** Run them from the archive: `cd archive && python3 -m unittest discover -s tests`. There were 222 at the move, which passed before and after it, 242 since item P's step b and 243 since step e's first rung, which checks the facets paper's X-card angle.
 - **SchwingNet's copy of bordercall.**
   - SchwingNet keeps a pinned copy under grid/bordercall/, taken at bordercall 6938a2e, so the move breaks nothing there today.
   - Its `tools/bordercall_vendor.py copy <clone>` looks for `bordercall/run.py` at the root of the clone it is given. After this move, give it the archive folder instead: `python3 tools/bordercall_vendor.py copy <clone>/archive`. The tool reads the commit and the clean state from git, which works from a subfolder.
