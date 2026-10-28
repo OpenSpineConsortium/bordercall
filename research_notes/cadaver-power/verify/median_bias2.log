@@ -1,0 +1,7 @@
+others at n=12: true 0.39 -> 0.308; true 0.45 -> 0.363; true 0.50 -> 0.409; true 0.55 -> 0.454; true 0.60 -> 0.501
+others at n=50: true 0.39 -> 0.243; true 0.45 -> 0.313; true 0.50 -> 0.365; true 0.55 -> 0.415; true 0.60 -> 0.465
+others at n=200: true 0.39 -> 0.222; true 0.45 -> 0.298; true 0.50 -> 0.352; true 0.55 -> 0.405; true 0.60 -> 0.456
+
+real	0m46.559s
+user	0m39.546s
+sys	0m0.114s

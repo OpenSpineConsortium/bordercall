@@ -1,0 +1,5 @@
+reference people-2000/nominal/0 (seed 4102): exact 0.73633  answered 0.1690  precision 0.99704
+seven-r0 seed 4102 draw 0: exact 0.7073  loss -2.90  answered 0.1405  n_ans 843  wrong 7  precision 0.9917  (16 s)
+seven-r0 seed 4102 draw 1: exact 0.7170  loss -1.93  answered 0.1537  n_ans 922  wrong 3  precision 0.9967  (26 s)
+seven-r0 seed 4102 draw 2: exact 0.6562  loss -8.02  answered 0.1717  n_ans 1030  wrong 10  precision 0.9903  (35 s)
+seven-r0 seed 4102 draw 3: exact 0.7330  loss -0.33  answered 0.1682  n_ans 1009  wrong 3  precision 0.9970  (42 s)

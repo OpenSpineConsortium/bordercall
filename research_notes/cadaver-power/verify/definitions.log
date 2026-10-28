@@ -1,0 +1,9 @@
+as published                                               cells 86  median f_low 0.392  quartiles [0.0, 0.39, 0.73]  above 0.3 0.56  pooled 0.758
+without the areas                                          cells 80  median f_low 0.346  quartiles [0.0, 0.35, 0.66]  above 0.3 0.53  pooled 0.545
+without the areas and Liu's depths                         cells 80  median f_low 0.287  quartiles [0.0, 0.29, 0.6]  above 0.3 0.47  pooled 0.518
+... and Scoles's and Cotterill's thoracic depths           cells 78  median f_low 0.283  quartiles [0.0, 0.28, 0.52]  above 0.3 0.45  pooled 0.495
+split, all ten, as published                               groups 19  median shift 0.562 (sampling out 0.483)  level-by-level 0.284 to 0.405  T-L corr 0.615 over 28
+split, without the areas                                   groups 18  median shift 0.527 (sampling out 0.441)  level-by-level 0.229 to 0.369  T-L corr 0.615 over 28
+split, all three attributions                              groups 17  median shift 0.491 (sampling out 0.397)  level-by-level 0.236 to 0.373  T-L corr 0.754 over 24
+split, the five, as published                              groups 11  median shift 0.590 (sampling out 0.514)  level-by-level 0.000 to 0.279  T-L corr 0.703 over 16
+split, the five, without the midheight depths              groups 10  median shift 0.526 (sampling out 0.440)  level-by-level 0.000 to 0.279  T-L corr 0.883 over 12

@@ -1,0 +1,10 @@
+measures ['endplate', 'endplate_depth', 'endplate_lower', 'endplate_lower_depth', 'h_post', 'canal_w', 'canal_ap']
+seed 4102 table 0: shift RMS 0.508 (arm 0.57), SD 0.494; |C-T step| RMS 0.598, |T-L step| RMS 0.412; T-L corr 0.34; resid SD 0.000
+    C shifts [-0.07 -1.71 -0.17  0.49 -0.09  0.44  0.48]  T [-0.1  -0.63 -0.11 -0.4  -0.42 -0.19  0.27]  L [ 0.29 -0.72 -0.41  0.35  0.11  0.02  0.06]
+seed 4102 table 1: shift RMS 0.373 (arm 0.57), SD 0.371; |C-T step| RMS 0.337, |T-L step| RMS 0.282; T-L corr 0.80; resid SD 0.000
+    C shifts [ 0.03 -0.1  -0.61  0.24  0.27  0.5   0.2 ]  T [-0.36  0.06 -0.21  0.12 -0.39  0.55  0.14]  L [-0.9   0.48 -0.02  0.11 -0.18  0.59  0.05]
+seed 4102 table 2: shift RMS 0.597 (arm 0.57), SD 0.564; |C-T step| RMS 0.762, |T-L step| RMS 0.334; T-L corr 0.88; resid SD 0.000
+    C shifts [-0.24 -0.12 -0.82 -0.61 -0.01 -0.5  -0.56]  T [-0.52 -0.51 -0.74  0.91 -0.29 -0.4   0.63]  L [-0.86 -0.48 -0.46  0.59 -0.22 -0.14  1.28]
+seed 4102 table 3: shift RMS 0.326 (arm 0.57), SD 0.320; |C-T step| RMS 0.331, |T-L step| RMS 0.272; T-L corr 0.50; resid SD 0.000
+    C shifts [ 0.67  0.14 -0.6  -0.01 -0.37 -0.31  0.11]  T [ 0.67 -0.06 -0.29  0.06  0.17  0.22  0.33]  L [ 0.34  0.21 -0.35  0.35  0.08  0.   -0.09]
+all tables: shift RMS mean 0.451, pooled RMS 0.463 over 4 tables

@@ -1,0 +1,92 @@
+seven/part_b_seven.json
+
+| table | tables | 1 bodies: exact (vs 2,000), table SD | 0.99 right, mean (table SD, worst) | 3 bodies: exact (vs 2,000), table SD | 0.99 right, mean (table SD, worst) | 9 bodies: exact (vs 2,000), table SD | 0.99 right, mean (table SD, worst) |
+|---|---|---|---|---|---|---|---|
+| the generator's own table, nominal | 1 | 48.6% (-0.0), 0.0 | 97.92% (0.00, 97.92%) | 73.6% (-0.1), 0.0 | 99.80% (0.00, 99.80%) | 96.4% (-0.1), 0.0 | 99.77% (0.00, 99.77%) |
+| 12 people of the population named, nominal | 8 | 40.9% (-7.7), 0.7 | 93.71% (3.12, 86.79%) | 60.0% (-13.7), 1.4 | 94.86% (1.53, 92.39%) | 85.2% (-11.3), 2.8 | 95.32% (1.86, 92.53%) |
+| 12 people of the population named, predictive | 8 | 41.1% (-7.5), 0.6 | 95.16% (3.55, 90.91%) | 60.1% (-13.5), 1.6 | 97.28% (1.08, 95.28%) | 85.2% (-11.4), 2.9 | 96.67% (1.47, 94.45%) |
+| 25 people of the population named, nominal | 6 | 44.2% (-4.4), 0.4 | 98.03% (1.93, 94.87%) | 65.3% (-8.3), 0.8 | 98.62% (0.52, 98.01%) | 91.7% (-4.9), 0.9 | 98.78% (0.26, 98.44%) |
+| 25 people of the population named, predictive | 6 | 44.3% (-4.3), 0.6 | 99.38% (1.51, 96.30%) | 65.5% (-8.2), 0.9 | 98.92% (0.37, 98.30%) | 91.7% (-4.9), 0.7 | 98.98% (0.19, 98.72%) |
+| 50 people of the population named, nominal | 6 | 46.1% (-2.5), 0.3 | 98.49% (0.77, 98.00%) | 69.6% (-4.0), 0.4 | 99.58% (0.17, 99.35%) | 94.4% (-2.1), 0.5 | 99.63% (0.16, 99.38%) |
+| 50 people of the population named, predictive | 6 | 46.1% (-2.5), 0.3 | 98.23% (0.92, 97.44%) | 69.6% (-4.0), 0.4 | 99.66% (0.15, 99.48%) | 94.4% (-2.2), 0.5 | 99.68% (0.16, 99.44%) |
+| 100 people of the population named, nominal | 4 | 47.0% (-1.6), 0.2 | 97.88% (0.08, 97.83%) | 71.6% (-2.0), 0.7 | 99.60% (0.08, 99.51%) | 95.5% (-1.0), 0.3 | 99.66% (0.12, 99.49%) |
+| 100 people of the population named, predictive | 4 | 47.0% (-1.6), 0.3 | 97.72% (0.15, 97.56%) | 71.7% (-1.9), 0.7 | 99.67% (0.05, 99.59%) | 95.5% (-1.0), 0.3 | 99.68% (0.14, 99.48%) |
+| 200 people of the population named, nominal | 3 | 48.0% (-0.6), 0.5 | 98.00% (0.11, 97.87%) | 72.4% (-1.2), 0.4 | 99.70% (0.16, 99.51%) | 95.9% (-0.7), 0.1 | 99.77% (0.04, 99.73%) |
+| 200 people of the population named, predictive | 3 | 48.0% (-0.6), 0.5 | 97.93% (0.13, 97.83%) | 72.4% (-1.2), 0.4 | 99.73% (0.11, 99.60%) | 95.9% (-0.7), 0.1 | 99.78% (0.05, 99.73%) |
+| 500 people of the population named, nominal | 2 | 48.2% (-0.4), 0.2 | 98.10% (0.20, 97.96%) | 73.2% (-0.5), 0.3 | 99.76% (0.06, 99.71%) | 96.1% (-0.5), 0.2 | 99.77% (0.00, 99.77%) |
+| 500 people of the population named, predictive | 2 | 48.2% (-0.4), 0.2 | 98.08% (0.23, 97.92%) | 73.2% (-0.5), 0.2 | 99.75% (0.06, 99.71%) | 96.1% (-0.4), 0.2 | 99.77% (0.00, 99.76%) |
+| 2000 people of the population named, nominal | 2 | 48.5% (-0.1), 0.1 | 98.04% (0.00, 98.04%) | 73.6% (-0.0), 0.1 | 99.80% (0.14, 99.70%) | 96.4% (-0.1), 0.2 | 99.78% (0.02, 99.77%) |
+| 2000 people of the population named, predictive | 2 | 48.5% (-0.1), 0.1 | 98.02% (0.03, 98.00%) | 73.6% (-0.1), 0.1 | 99.80% (0.14, 99.70%) | 96.4% (-0.1), 0.2 | 99.78% (0.02, 99.77%) |
+| another population, 0.05 SD level by level, nominal | 4 | 48.3% (-0.3), 0.3 | 97.88% (0.14, 97.73%) | 73.2% (-0.4), 0.1 | 99.80% (0.08, 99.70%) | 96.3% (-0.3), 0.1 | 99.80% (0.05, 99.77%) |
+| another population, 0.05 SD level by level, predictive | 4 | 48.3% (-0.3), 0.3 | 97.86% (0.13, 97.73%) | 73.2% (-0.4), 0.1 | 99.80% (0.08, 99.70%) | 96.3% (-0.3), 0.1 | 99.80% (0.05, 99.77%) |
+| another population, 0.1 SD level by level, nominal | 4 | 47.6% (-1.0), 0.2 | 97.80% (0.09, 97.67%) | 72.1% (-1.5), 0.3 | 99.75% (0.09, 99.62%) | 95.7% (-0.8), 0.2 | 99.81% (0.06, 99.76%) |
+| another population, 0.1 SD level by level, predictive | 4 | 47.6% (-1.0), 0.2 | 97.74% (0.09, 97.62%) | 72.1% (-1.5), 0.2 | 99.77% (0.04, 99.71%) | 95.7% (-0.8), 0.2 | 99.82% (0.07, 99.76%) |
+| another population, 0.2 SD level by level, nominal | 4 | 45.2% (-3.4), 0.8 | 98.45% (1.04, 97.78%) | 68.1% (-5.5), 1.2 | 99.42% (0.10, 99.31%) | 93.6% (-3.0), 0.8 | 99.31% (0.17, 99.06%) |
+| another population, 0.2 SD level by level, predictive | 4 | 45.3% (-3.3), 0.7 | 98.27% (1.17, 97.44%) | 68.2% (-5.4), 1.2 | 99.46% (0.13, 99.29%) | 93.6% (-3.0), 0.8 | 99.37% (0.22, 99.05%) |
+| another population, 0.3 SD level by level, nominal | 4 | 43.2% (-5.4), 0.3 | 97.81% (2.11, 95.00%) | 64.6% (-9.0), 0.9 | 98.45% (0.21, 98.22%) | 90.3% (-6.3), 1.0 | 98.62% (0.39, 98.13%) |
+| another population, 0.3 SD level by level, predictive | 4 | 43.4% (-5.2), 0.2 | 98.38% (1.18, 97.30%) | 64.8% (-8.9), 0.7 | 98.81% (0.24, 98.48%) | 90.4% (-6.1), 1.0 | 98.88% (0.38, 98.36%) |
+| another population, 0.5 SD level by level, nominal | 4 | 38.1% (-10.5), 0.6 | 93.17% (3.55, 88.73%) | 55.8% (-17.9), 1.4 | 92.18% (1.75, 90.02%) | 81.4% (-15.1), 2.8 | 93.99% (0.97, 93.18%) |
+| another population, 0.5 SD level by level, predictive | 4 | 38.4% (-10.2), 0.6 | 94.92% (1.98, 92.31%) | 56.2% (-17.4), 1.2 | 95.64% (1.15, 93.97%) | 82.1% (-14.5), 2.8 | 95.76% (0.70, 95.07%) |
+| another population, one shift of 0.05 SD per measure, nominal | 4 | 48.5% (-0.1), 0.2 | 97.88% (0.11, 97.73%) | 73.5% (-0.2), 0.3 | 99.78% (0.05, 99.70%) | 96.4% (-0.1), 0.1 | 99.78% (0.02, 99.77%) |
+| another population, one shift of 0.05 SD per measure, predictive | 4 | 48.5% (-0.1), 0.2 | 97.86% (0.09, 97.73%) | 73.5% (-0.2), 0.3 | 99.78% (0.05, 99.70%) | 96.4% (-0.1), 0.1 | 99.79% (0.02, 99.77%) |
+| another population, one shift of 0.1 SD per measure, nominal | 4 | 48.3% (-0.3), 0.3 | 98.39% (1.08, 97.73%) | 73.6% (-0.1), 0.3 | 99.80% (0.08, 99.70%) | 96.5% (-0.1), 0.0 | 99.78% (0.02, 99.77%) |
+| another population, one shift of 0.1 SD per measure, predictive | 4 | 48.3% (-0.3), 0.3 | 98.35% (1.10, 97.67%) | 73.6% (-0.1), 0.2 | 99.80% (0.08, 99.70%) | 96.5% (-0.1), 0.0 | 99.78% (0.02, 99.77%) |
+| another population, one shift of 0.2 SD per measure, nominal | 4 | 47.8% (-0.8), 0.7 | 100.00% (0.00, 100.00%) | 73.2% (-0.4), 0.7 | 99.77% (0.06, 99.69%) | 96.3% (-0.3), 0.2 | 99.81% (0.07, 99.74%) |
+| another population, one shift of 0.2 SD per measure, predictive | 4 | 47.8% (-0.8), 0.5 | 100.00% (0.00, 100.00%) | 73.3% (-0.3), 0.6 | 99.81% (0.05, 99.78%) | 96.3% (-0.3), 0.1 | 99.82% (0.05, 99.77%) |
+| another population, one shift of 0.3 SD per measure, nominal | 4 | 47.3% (-1.3), 1.0 | 98.27% (1.15, 97.67%) | 73.1% (-0.6), 1.0 | 99.82% (0.09, 99.71%) | 96.3% (-0.2), 0.2 | 99.85% (0.02, 99.83%) |
+| another population, one shift of 0.3 SD per measure, predictive | 4 | 47.5% (-1.1), 1.0 | 97.63% (1.58, 96.77%) | 73.1% (-0.5), 1.0 | 99.86% (0.16, 99.69%) | 96.3% (-0.2), 0.3 | 99.86% (0.00, 99.86%) |
+| another population, one shift of 0.5 SD per measure, nominal | 4 | 46.5% (-2.1), 1.1 | 98.28% (1.19, 97.30%) | 71.5% (-2.1), 1.1 | 99.65% (0.19, 99.45%) | 96.1% (-0.5), 0.4 | 99.82% (0.03, 99.80%) |
+| another population, one shift of 0.5 SD per measure, predictive | 4 | 46.5% (-2.1), 1.2 | 98.91% (2.17, 95.65%) | 71.5% (-2.1), 0.8 | 99.94% (0.08, 99.86%) | 96.1% (-0.5), 0.5 | 99.86% (0.05, 99.81%) |
+
+seven/part_b_seven_kind-0.28.json
+
+| table | tables | 1 bodies: exact (vs 2,000), table SD | 0.99 right, mean (table SD, worst) | 3 bodies: exact (vs 2,000), table SD | 0.99 right, mean (table SD, worst) | 9 bodies: exact (vs 2,000), table SD | 0.99 right, mean (table SD, worst) |
+|---|---|---|---|---|---|---|---|
+| the generator's own table, nominal | 1 | 48.6% (-0.0), 0.0 | 97.92% (0.00, 97.92%) | 73.6% (-0.1), 0.0 | 99.80% (0.00, 99.80%) | 96.4% (-0.1), 0.0 | 99.77% (0.00, 99.77%) |
+| 2000 people of the population named, nominal | 2 | 48.5% (-0.1), 0.1 | 98.04% (0.00, 98.04%) | 73.6% (-0.0), 0.1 | 99.80% (0.14, 99.70%) | 96.4% (-0.1), 0.2 | 99.78% (0.02, 99.77%) |
+| 2000 people of the population named, predictive | 2 | 48.5% (-0.1), 0.1 | 98.02% (0.03, 98.00%) | 73.6% (-0.1), 0.1 | 99.80% (0.14, 99.70%) | 96.4% (-0.1), 0.2 | 99.78% (0.02, 99.77%) |
+| the published series, ten measures, sampling error taken out twice (kept, not quoted) (shift 0.48, level by level 0.28, thoracic and lumbar shifts correlated 0.6), nominal | 4 | 40.6% (-8.0), 0.6 | 96.49% (1.35, 94.59%) | 62.0% (-11.6), 1.4 | 97.25% (0.71, 96.25%) | 89.3% (-7.3), 0.5 | 98.36% (0.21, 98.12%) |
+| the published series, ten measures, sampling error taken out twice (kept, not quoted) (shift 0.48, level by level 0.28, thoracic and lumbar shifts correlated 0.6), predictive | 4 | 40.8% (-7.8), 0.6 | 97.42% (2.20, 94.74%) | 62.7% (-11.0), 1.2 | 98.55% (0.49, 98.01%) | 89.7% (-6.9), 0.6 | 99.10% (0.15, 98.97%) |
+
+seven/part_b_seven_kind-0.28_seven-seen_seven-kind.json
+
+| table | tables | 1 bodies: exact (vs 2,000), table SD | 0.99 right, mean (table SD, worst) | 3 bodies: exact (vs 2,000), table SD | 0.99 right, mean (table SD, worst) | 9 bodies: exact (vs 2,000), table SD | 0.99 right, mean (table SD, worst) |
+|---|---|---|---|---|---|---|---|
+| the generator's own table, nominal | 1 | 48.6% (-0.0), 0.0 | 97.92% (0.00, 97.92%) | 73.6% (-0.1), 0.0 | 99.80% (0.00, 99.80%) | 96.4% (-0.1), 0.0 | 99.77% (0.00, 99.77%) |
+| 2000 people of the population named, nominal | 2 | 48.5% (-0.1), 0.1 | 98.04% (0.00, 98.04%) | 73.6% (-0.0), 0.1 | 99.80% (0.14, 99.70%) | 96.4% (-0.1), 0.2 | 99.78% (0.02, 99.77%) |
+| 2000 people of the population named, predictive | 2 | 48.5% (-0.1), 0.1 | 98.02% (0.03, 98.00%) | 73.6% (-0.1), 0.1 | 99.80% (0.14, 99.70%) | 96.4% (-0.1), 0.2 | 99.78% (0.02, 99.77%) |
+| the published series, ten measures, sampling error taken out twice (kept, not quoted) (shift 0.48, level by level 0.28, thoracic and lumbar shifts correlated 0.6), nominal | 4 | 40.6% (-8.0), 0.6 | 96.49% (1.35, 94.59%) | 62.0% (-11.6), 1.4 | 97.25% (0.71, 96.25%) | 89.3% (-7.3), 0.5 | 98.36% (0.21, 98.12%) |
+| the published series, ten measures, sampling error taken out twice (kept, not quoted) (shift 0.48, level by level 0.28, thoracic and lumbar shifts correlated 0.6), predictive | 4 | 40.8% (-7.8), 0.6 | 97.42% (2.20, 94.74%) | 62.7% (-11.0), 1.2 | 98.55% (0.49, 98.01%) | 89.7% (-6.9), 0.6 | 99.10% (0.15, 98.97%) |
+| the published series, read harshly (shift 0.59, level by level 0.28, regions drawn apart), nominal | 4 | 37.6% (-11.0), 1.7 | 90.37% (9.79, 75.93%) | 56.6% (-17.1), 3.9 | 95.44% (2.76, 92.31%) | 85.5% (-11.1), 3.3 | 96.66% (1.96, 93.96%) |
+| the published series, read harshly (shift 0.59, level by level 0.28, regions drawn apart), predictive | 4 | 38.5% (-10.0), 1.6 | 96.56% (3.51, 91.67%) | 57.8% (-15.8), 3.8 | 98.32% (1.41, 96.87%) | 86.4% (-10.2), 2.7 | 98.39% (0.92, 97.29%) |
+| the published series, sampling error out of the shift, level by level 0 (shift 0.51, level by level 0.00, thoracic and lumbar shifts correlated 0.7), nominal | 4 | 44.5% (-4.1), 1.4 | 97.13% (0.61, 96.23%) | 69.4% (-4.2), 2.0 | 99.72% (0.17, 99.51%) | 95.4% (-1.1), 0.8 | 99.87% (0.14, 99.67%) |
+| the published series, sampling error out of the shift, level by level 0 (shift 0.51, level by level 0.00, thoracic and lumbar shifts correlated 0.7), predictive | 4 | 44.5% (-4.1), 1.4 | 98.17% (2.13, 96.00%) | 69.5% (-4.2), 1.8 | 99.87% (0.15, 99.73%) | 95.4% (-1.2), 0.7 | 99.95% (0.04, 99.92%) |
+
+seven/part_b_seven_observed-0.28_observed-0.4.json
+
+| table | tables | 1 bodies: exact (vs 2,000), table SD | 0.99 right, mean (table SD, worst) | 3 bodies: exact (vs 2,000), table SD | 0.99 right, mean (table SD, worst) | 9 bodies: exact (vs 2,000), table SD | 0.99 right, mean (table SD, worst) |
+|---|---|---|---|---|---|---|---|
+| the generator's own table, nominal | 1 | 48.6% (-0.0), 0.0 | 97.92% (0.00, 97.92%) | 73.6% (-0.1), 0.0 | 99.80% (0.00, 99.80%) | 96.4% (-0.1), 0.0 | 99.77% (0.00, 99.77%) |
+| 2000 people of the population named, nominal | 2 | 48.5% (-0.1), 0.1 | 98.04% (0.00, 98.04%) | 73.6% (-0.0), 0.1 | 99.80% (0.14, 99.70%) | 96.4% (-0.1), 0.2 | 99.78% (0.02, 99.77%) |
+| 2000 people of the population named, predictive | 2 | 48.5% (-0.1), 0.1 | 98.02% (0.03, 98.00%) | 73.6% (-0.1), 0.1 | 99.80% (0.14, 99.70%) | 96.4% (-0.1), 0.2 | 99.78% (0.02, 99.77%) |
+| the published series, ten measures, as seen (shift 0.56, level by level 0.28, regions drawn apart), nominal | 4 | 39.9% (-8.7), 1.2 | 95.96% (2.95, 91.86%) | 59.6% (-14.1), 2.5 | 96.68% (0.98, 95.38%) | 87.9% (-8.7), 2.0 | 97.84% (0.59, 97.03%) |
+| the published series, ten measures, as seen (shift 0.56, level by level 0.28, regions drawn apart), predictive | 4 | 40.2% (-8.3), 0.9 | 98.28% (2.01, 96.15%) | 60.4% (-13.3), 2.6 | 98.75% (0.80, 97.58%) | 88.4% (-8.2), 1.9 | 99.03% (0.25, 98.77%) |
+| the published series, ten measures, as seen (shift 0.56, level by level 0.40, regions drawn apart), nominal | 4 | 38.0% (-10.6), 1.6 | 92.34% (3.10, 88.52%) | 56.9% (-16.7), 3.2 | 94.52% (1.77, 92.11%) | 83.5% (-13.0), 3.7 | 95.14% (1.89, 93.74%) |
+| the published series, ten measures, as seen (shift 0.56, level by level 0.40, regions drawn apart), predictive | 4 | 38.7% (-9.9), 1.6 | 98.33% (3.33, 93.33%) | 58.1% (-15.6), 2.8 | 98.55% (0.46, 97.91%) | 84.5% (-12.1), 3.4 | 97.63% (1.00, 96.64%) |
+
+seven/part_b_seven_seven-r0_seven-r0.5_seven-r0.8_seven-r1.json
+
+| table | tables | 1 bodies: exact (vs 2,000), table SD | 0.99 right, mean (table SD, worst) | 3 bodies: exact (vs 2,000), table SD | 0.99 right, mean (table SD, worst) | 9 bodies: exact (vs 2,000), table SD | 0.99 right, mean (table SD, worst) |
+|---|---|---|---|---|---|---|---|
+| the generator's own table, nominal | 1 | 48.6% (-0.0), 0.0 | 97.92% (0.00, 97.92%) | 73.6% (-0.1), 0.0 | 99.80% (0.00, 99.80%) | 96.4% (-0.1), 0.0 | 99.77% (0.00, 99.77%) |
+| 2000 people of the population named, nominal | 2 | 48.5% (-0.1), 0.1 | 98.04% (0.00, 98.04%) | 73.6% (-0.0), 0.1 | 99.80% (0.14, 99.70%) | 96.4% (-0.1), 0.2 | 99.78% (0.02, 99.77%) |
+| 2000 people of the population named, predictive | 2 | 48.5% (-0.1), 0.1 | 98.02% (0.03, 98.00%) | 73.6% (-0.1), 0.1 | 99.80% (0.14, 99.70%) | 96.4% (-0.1), 0.2 | 99.78% (0.02, 99.77%) |
+| the published series as they disagree, r = 0 (shift 0.57, level by level 0.00, thoracic and lumbar shifts correlated 0.7), nominal | 4 | 45.1% (-3.5), 2.6 | 99.66% (0.68, 98.63%) | 70.3% (-3.3), 3.3 | 99.39% (0.35, 99.03%) | 95.5% (-1.1), 0.6 | 99.81% (0.08, 99.72%) |
+| the published series as they disagree, r = 0 (shift 0.57, level by level 0.00, thoracic and lumbar shifts correlated 0.7), predictive | 4 | 44.9% (-3.7), 2.4 | 99.22% (1.56, 96.88%) | 70.1% (-3.6), 3.3 | 99.81% (0.23, 99.51%) | 95.4% (-1.2), 0.6 | 99.91% (0.07, 99.81%) |
+| the published series as they disagree, r = 0.5 (shift 0.54, level by level 0.19, thoracic and lumbar shifts correlated 0.7), nominal | 4 | 43.0% (-5.6), 0.4 | 96.92% (1.20, 95.29%) | 65.9% (-7.7), 1.0 | 98.40% (0.48, 97.87%) | 92.0% (-4.6), 1.4 | 99.22% (0.42, 98.60%) |
+| the published series as they disagree, r = 0.5 (shift 0.54, level by level 0.19, thoracic and lumbar shifts correlated 0.7), predictive | 4 | 43.3% (-5.3), 0.4 | 97.72% (1.77, 95.83%) | 66.5% (-7.2), 1.1 | 99.42% (0.54, 98.62%) | 92.3% (-4.2), 1.6 | 99.63% (0.21, 99.32%) |
+| the published series as they disagree, r = 0.8 (shift 0.53, level by level 0.25, thoracic and lumbar shifts correlated 0.7), nominal | 4 | 39.5% (-9.1), 1.8 | 94.86% (2.53, 91.75%) | 61.9% (-11.7), 2.1 | 97.78% (0.38, 97.37%) | 90.2% (-6.4), 1.8 | 98.53% (0.52, 98.07%) |
+| the published series as they disagree, r = 0.8 (shift 0.53, level by level 0.25, thoracic and lumbar shifts correlated 0.7), predictive | 4 | 40.0% (-8.6), 1.7 | 98.15% (2.38, 95.00%) | 62.6% (-11.1), 2.0 | 99.26% (0.22, 99.00%) | 90.6% (-6.0), 1.9 | 99.19% (0.27, 98.88%) |
+| the published series as they disagree, r = 1 (shift 0.51, level by level 0.28, thoracic and lumbar shifts correlated 0.7), nominal | 4 | 39.9% (-8.7), 2.5 | 95.16% (4.65, 89.89%) | 60.3% (-13.4), 2.2 | 96.82% (1.45, 95.02%) | 88.1% (-8.4), 0.9 | 97.84% (0.27, 97.50%) |
+| the published series as they disagree, r = 1 (shift 0.51, level by level 0.28, thoracic and lumbar shifts correlated 0.7), predictive | 4 | 40.2% (-8.4), 2.3 | 97.56% (3.37, 92.86%) | 61.1% (-12.6), 2.3 | 98.87% (0.85, 97.87%) | 88.5% (-8.1), 1.0 | 98.64% (0.25, 98.43%) |
+

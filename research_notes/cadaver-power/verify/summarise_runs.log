@@ -1,0 +1,83 @@
+reference (people-2000, nominal, draw 0): 1 bodies 0.48591, 3 bodies 0.73633, 9 bodies 0.96571
+
+== The note's own tables, replayed (run_jobs.py, r_arms_w3.log), 3 bodies
+seven-r0                                     tables  4  loss  -3.30 (table SD 3.32, SE 1.66, range -8.0 to -0.3)  answered 15.85%  0.99 right 99.39% (table SD 0.34, worst 99.03, below 99%: 0)
+seven-r0.5                                   tables  4  loss  -7.74 (table SD 1.02, SE 0.51, range -9.1 to -7.0)  answered 16.95%  0.99 right 98.41% (table SD 0.48, worst 97.87, below 99%: 4)
+seven-r0.8                                   tables  4  loss -11.72 (table SD 2.08, SE 1.04, range -14.4 to -9.5)  answered 18.73%  0.99 right 97.78% (table SD 0.38, worst 97.37, below 99%: 4)
+seven-r1                                     tables  4  loss -13.38 (table SD 2.24, SE 1.12, range -16.5 to -11.2)  answered 17.40%  0.99 right 96.82% (table SD 1.45, worst 95.02, below 99%: 4)
+observed-0.28                                tables  4  loss -14.05 (table SD 2.49, SE 1.25, range -16.4 to -10.6)  answered 18.24%  0.99 right 96.68% (table SD 0.98, worst 95.38, below 99%: 4)
+
+== Common random numbers, 8 fresh tables per arm, seed 99001 (crn.py, crn2.py)
+3 bodies, r = 0, median shift 0.57, level by level 0 tables  8  loss  -4.46 (table SD 0.76, SE 0.27, range -5.7 to -3.2)  answered 16.34%  0.99 right 98.90% (table SD 0.80, worst 97.14, below 99%: 3)
+3 bodies, r = 0.5, shift 0.54, level by level 0.19 tables  8  loss  -8.65 (table SD 1.45, SE 0.51, range -12.1 to -7.5)  answered 16.93%  0.99 right 98.18% (table SD 0.64, worst 97.36, below 99%: 8)
+3 bodies, r = 0, pooled shift 0.736, level by level 0 tables  8  loss  -7.11 (table SD 1.05, SE 0.37, range -8.5 to -5.1)  answered 16.20%  0.99 right 97.58% (table SD 1.74, worst 93.90, below 99%: 7)
+3 bodies, one shift of 0.5 for every region  tables  8  loss  -1.81 (table SD 0.80, SE 0.28, range -2.5 to -0.5)  answered 16.79%  0.99 right 99.56% (table SD 0.25, worst 99.03, below 99%: 0)
+9 bodies, r = 0, median shift 0.57, level by level 0 tables  8  loss  -1.79 (table SD 1.01, SE 0.36, range -3.2 to -0.1)  answered 69.13%  0.99 right 99.55% (table SD 0.22, worst 99.21, below 99%: 0)
+9 bodies, r = 0.5, shift 0.54, level by level 0.19 tables  8  loss  -4.49 (table SD 1.20, SE 0.43, range -6.9 to -2.6)  answered 66.96%  0.99 right 99.25% (table SD 0.17, worst 98.97, below 99%: 1)
+9 bodies, r = 0, pooled shift 0.736, level by level 0 tables  8  loss  -3.36 (table SD 1.87, SE 0.66, range -6.1 to -0.9)  answered 67.34%  0.99 right 99.06% (table SD 0.65, worst 98.14, below 99%: 4)
+3 bodies, r = 0.5 minus r = 0                tables  8  difference -4.18 (SE from tables 0.40)
+3 bodies, pooled shift minus median shift    tables  8  difference -2.64 (SE from tables 0.18)
+9 bodies, r = 0.5 minus r = 0                tables  8  difference -2.70 (SE from tables 0.27)
+9 bodies, pooled shift minus median shift    tables  8  difference -1.57 (SE from tables 0.32)
+
+== seven-r0 at other TABLE_SEEDs, 4 tables each (run.py; the note's four are seed 4102)
+1 body, 16 fresh tables (seeds 7001-7004)    tables 16  loss  -4.91 (table SD 1.85, SE 0.46, range -9.2 to -2.2)  answered  0.84%  0.99 right 95.54% (table SD 5.59, worst 77.78, below 99%: 12)
+3 bodies, the note's 4 (seed 4102)           tables  4  loss  -3.30 (table SD 3.32, SE 1.66, range -8.0 to -0.3)  answered 15.85%  0.99 right 99.39% (table SD 0.34, worst 99.03, below 99%: 0)
+3 bodies, 16 fresh tables (seeds 7001-7004)  tables 16  loss  -5.51 (table SD 3.46, SE 0.86, range -14.7 to -1.8)  answered 15.31%  0.99 right 98.88% (table SD 0.74, worst 96.89, below 99%: 7)
+3 bodies, 24 fresh (16 and the 8 above)      tables 24  loss  -5.16 (table SD 2.87, SE 0.59, range -14.7 to -1.8)  answered 15.65%  0.99 right 98.89% (table SD 0.74, worst 96.89, below 99%: 10)
+3 bodies, all 28                             tables 28  loss  -4.89 (table SD 2.95, SE 0.56, range -14.7 to -0.3)  answered 15.68%  0.99 right 98.96% (table SD 0.72, worst 96.89, below 99%: 10)
+9 bodies, 16 fresh tables (seeds 7001-7004)  tables 16  loss  -1.88 (table SD 1.19, SE 0.30, range -4.5 to -0.5)  answered 67.64%  0.99 right 99.60% (table SD 0.21, worst 99.18, below 99%: 0)
+9 bodies, 24 fresh (16 and the 8 above)      tables 24  loss  -1.85 (table SD 1.11, SE 0.23, range -4.5 to -0.1)  answered 68.14%  0.99 right 99.58% (table SD 0.21, worst 99.18, below 99%: 0)
+3 bodies, the same 16, predictive (run_rule.py) tables 16  loss  -5.09 (table SD 3.14, SE 0.78, range -12.6 to -2.0)  answered 11.50%  0.99 right 99.46% (table SD 0.54, worst 98.08, below 99%: 3)
+chance that four tables of the arm come out as mild as the note's four: 0.0156
+
+== The shift pooled, a second reviewer's (pooled_shift.py, read by pooled_shift_read.py): the note's 4 r = 0
+   tables and fresh ones (seed 9090; 4 at 1 body, 8 at 3 and 9), each at the median shift 0.57 and scaled to
+   the pooled shift 0.7355, on the same draws
+1 body, median shift, the note's 4 + fresh   tables  8  loss  -3.31 (table SD 1.73, SE 0.61, range -6.8 to -0.9)  answered  0.76%  0.99 right 99.56% (table SD 0.84, worst 97.87, below 99%: 2)
+1 body, median shift, the fresh alone        tables  4  loss  -3.13 (table SD 0.58, SE 0.29, range -3.7 to -2.5)  answered  0.81%  0.99 right 99.47% (table SD 1.06, worst 97.87, below 99%: 1)
+1 body, pooled shift, the note's 4 + fresh   tables  8  loss  -5.01 (table SD 2.55, SE 0.90, range -10.3 to -1.7)  answered  0.76%  0.99 right 97.87% (table SD 2.52, worst 93.33, below 99%: 4)
+1 body, pooled shift minus median shift      tables  8  difference -1.69 (SE from tables 0.30)
+3 bodies, median shift, the note's 4 + fresh tables 12  loss  -3.78 (table SD 2.82, SE 0.81, range -10.3 to -0.3)  answered 16.62%  0.99 right 99.41% (table SD 0.27, worst 98.88, below 99%: 1)
+3 bodies, median shift, the fresh alone      tables  8  loss  -4.03 (table SD 2.75, SE 0.97, range -10.3 to -1.7)  answered 17.00%  0.99 right 99.41% (table SD 0.26, worst 98.88, below 99%: 1)
+3 bodies, pooled shift, the note's 4 + fresh tables 12  loss  -6.17 (table SD 4.34, SE 1.25, range -16.1 to -1.1)  answered 16.42%  0.99 right 98.73% (table SD 0.95, worst 96.32, below 99%: 6)
+3 bodies, pooled shift minus median shift    tables 12  difference -2.39 (SE from tables 0.46)
+9 bodies, median shift, the note's 4 + fresh tables 12  loss  -1.21 (table SD 0.73, SE 0.21, range -2.6 to -0.2)  answered 69.79%  0.99 right 99.70% (table SD 0.15, worst 99.41, below 99%: 0)
+9 bodies, median shift, the fresh alone      tables  8  loss  -1.26 (table SD 0.80, SE 0.28, range -2.6 to -0.2)  answered 69.94%  0.99 right 99.64% (table SD 0.14, worst 99.41, below 99%: 0)
+9 bodies, pooled shift, the note's 4 + fresh tables 12  loss  -2.16 (table SD 1.40, SE 0.41, range -5.2 to -0.4)  answered 68.42%  0.99 right 99.59% (table SD 0.26, worst 99.04, below 99%: 0)
+9 bodies, pooled shift minus median shift    tables 12  difference -0.95 (SE from tables 0.21)
+
+== Every r = 0 table: at the median shift the note's 4, crn.py's 8 (not run at 1 body), run.py's 16
+   and pooled_shift.py's 8 (4 at 1 body); at the pooled shift crn2.py's 8 (not run at 1 body) and
+   pooled_shift.py's 12 (8 at 1 body)
+1 body, median shift, all 24 tables          tables 24  loss  -4.38 (table SD 1.93, SE 0.39, range -9.2 to -0.9)  answered  0.81%  0.99 right 96.88% (table SD 4.94, worst 77.78, below 99%: 14)
+3 bodies, median shift, all 36 tables        tables 36  loss  -4.70 (table SD 2.89, SE 0.48, range -14.7 to -0.3)  answered 15.98%  0.99 right 99.06% (table SD 0.67, worst 96.89, below 99%: 11)
+9 bodies, median shift, all 36 tables        tables 36  loss  -1.64 (table SD 1.03, SE 0.17, range -4.5 to -0.1)  answered 68.69%  0.99 right 99.62% (table SD 0.20, worst 99.18, below 99%: 0)
+3 bodies, pooled shift, all 20 tables        tables 20  loss  -6.55 (table SD 3.40, SE 0.76, range -16.1 to -1.1)  answered 16.33%  0.99 right 98.28% (table SD 1.40, worst 93.90, below 99%: 13)
+9 bodies, pooled shift, all 20 tables        tables 20  loss  -2.64 (table SD 1.67, SE 0.37, range -6.1 to -0.4)  answered 67.99%  0.99 right 99.38% (table SD 0.51, worst 98.14, below 99%: 4)
+
+== Tables from CTs (ct_people.py, 6 tables each, 3 bodies; error taken out of each level's SD)
+58 CTs, no size spread                       tables  6  loss  -4.21 (table SD 0.69, SE 0.28, range -5.0 to -3.3)  answered 17.56%  0.99 right 99.41% (table SD 0.38, worst 99.03, below 99%: 0)
+58 CTs, the generator's size spread 0.07     tables  6  loss  -6.08 (table SD 0.90, SE 0.37, range -7.3 to -5.2)  answered  8.66%  0.99 right 99.94% (table SD 0.15, worst 99.64, below 99%: 0)
+
+== Tables from CTs, a second reviewer's (ct_tables.py; err: error out, no size spread; errsize: size
+   spread left in; plain: nothing taken out; oracle: each person's own size divided out)
+1 bodies, err-58                             tables  3  loss  -3.02 (table SD 0.48, SE 0.28, range -3.5 to -2.5)  answered  0.79%  0.99 right 98.84% (table SD 1.06, worst 97.92, below 99%: 2)
+1 bodies, errsize-58                         tables  3  loss  -4.20 (table SD 0.18, SE 0.10, range -4.4 to -4.0)  answered  0.24%  0.99 right 97.92% (table SD 3.61, worst 93.75, below 99%: 1)
+1 bodies, plain-50                           tables  3  loss  -4.79 (table SD 0.54, SE 0.31, range -5.2 to -4.2)  answered  0.11%  0.99 right 100.00% (table SD 0.00, worst 100.00, below 99%: 0)
+1 bodies, oracle-58                          tables  3  loss  -3.19 (table SD 0.15, SE 0.08, range -3.3 to -3.0)  answered  0.84%  0.99 right 98.78% (table SD 1.06, worst 98.15, below 99%: 2)
+3 bodies, err-58                             tables  6  loss  -4.49 (table SD 0.40, SE 0.16, range -5.0 to -4.0)  answered 17.25%  0.99 right 99.28% (table SD 0.26, worst 98.92, below 99%: 1)
+3 bodies, errsize-58                         tables  6  loss  -6.19 (table SD 0.63, SE 0.26, range -6.8 to -5.1)  answered  8.43%  0.99 right 99.97% (table SD 0.08, worst 99.80, below 99%: 0)
+3 bodies, plain-50                           tables  4  loss  -7.19 (table SD 0.54, SE 0.27, range -7.9 to -6.7)  answered  7.31%  0.99 right 99.73% (table SD 0.41, worst 99.14, below 99%: 0)
+3 bodies, errsize-50                         tables  4  loss  -7.12 (table SD 1.07, SE 0.53, range -8.1 to -6.0)  answered  8.95%  0.99 right 99.96% (table SD 0.09, worst 99.83, below 99%: 0)
+3 bodies, oracle-58                          tables  6  loss  -4.22 (table SD 0.79, SE 0.32, range -5.6 to -3.3)  answered 16.84%  0.99 right 99.33% (table SD 0.27, worst 99.02, below 99%: 0)
+9 bodies, err-58                             tables  3  loss  -2.53 (table SD 0.54, SE 0.31, range -3.1 to -2.0)  answered 71.07%  0.99 right 99.57% (table SD 0.09, worst 99.49, below 99%: 0)
+9 bodies, errsize-58                         tables  3  loss  -4.60 (table SD 0.53, SE 0.31, range -5.2 to -4.2)  answered 44.20%  0.99 right 99.95% (table SD 0.05, worst 99.90, below 99%: 0)
+9 bodies, plain-50                           tables  3  loss  -5.50 (table SD 1.08, SE 0.62, range -6.2 to -4.3)  answered 40.11%  0.99 right 99.88% (table SD 0.10, worst 99.77, below 99%: 0)
+9 bodies, oracle-58                          tables  3  loss  -2.99 (table SD 0.54, SE 0.31, range -3.5 to -2.4)  answered 69.58%  0.99 right 99.36% (table SD 0.18, worst 99.17, below 99%: 0)
+
+== seven-r0's own draws with the level-by-level part larger earlier series leave at r = 0 (r0_large.py)
+seven-r0   1 bodies: loss  -3.5 vs the generator's table,  -3.5 vs 2,000, 0.99 right 99.66% (worst 98.63); 3 bodies: loss  -3.2 vs the generator's table,  -3.3 vs 2,000, 0.99 right 99.39% (worst 99.03); 9 bodies: loss  -1.0 vs the generator's table,  -1.1 vs 2,000, 0.99 right 99.81% (worst 99.72)
+lbl0.233   1 bodies: loss  -7.1 vs the generator's table,  -7.1 vs 2,000, 0.99 right 97.41% (worst 96.83); 3 bodies: loss -10.5 vs the generator's table, -10.5 vs 2,000, 0.99 right 98.69% (worst 98.16); 9 bodies: loss  -6.4 vs the generator's table,  -6.6 vs 2,000, 0.99 right 98.82% (worst 98.12)
+lbl0.174   1 bodies: loss  -5.9 vs the generator's table,  -5.9 vs 2,000, 0.99 right 97.36% (worst 96.61); 3 bodies: loss  -7.9 vs the generator's table,  -8.0 vs 2,000, 0.99 right 99.18% (worst 98.88); 9 bodies: loss  -4.2 vs the generator's table,  -4.3 vs 2,000, 0.99 right 99.35% (worst 98.91)
+lbl0.135   1 bodies: loss  -5.1 vs the generator's table,  -5.1 vs 2,000, 0.99 right 97.26% (worst 96.61); 3 bodies: loss  -6.5 vs the generator's table,  -6.6 vs 2,000, 0.99 right 99.28% (worst 98.96); 9 bodies: loss  -2.9 vs the generator's table,  -3.0 vs 2,000, 0.99 right 99.59% (worst 99.28)

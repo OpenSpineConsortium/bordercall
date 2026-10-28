@@ -1,0 +1,274 @@
+{
+ "columns": 300,
+ "measures": [
+  "endplate",
+  "endplate_depth",
+  "endplate_lower",
+  "endplate_lower_depth",
+  "h_post",
+  "canal_w",
+  "canal_ap"
+ ],
+ "widths": [
+  1,
+  3,
+  9
+ ],
+ "arms": {
+  "true/nominal": {
+   "1": {
+    "exact": 0.4857575757575758,
+    "answered": 0.007272727272727273,
+    "precision": 0.9791666666666666,
+    "exact_table_sd": 0.0,
+    "precision_table_sd": 0.0,
+    "precision_worst": 0.9791666666666666,
+    "exact_se_columns": 0.006556929646758143,
+    "minus_true": 0.0,
+    "minus_2000": -0.00015151515151515152,
+    "tables": 1,
+    "settings": {}
+   },
+   "3": {
+    "exact": 0.7356666666666667,
+    "answered": 0.167,
+    "precision": 0.998003992015968,
+    "exact_table_sd": 0.0,
+    "precision_table_sd": 0.0,
+    "precision_worst": 0.998003992015968,
+    "exact_se_columns": 0.00724885464882603,
+    "minus_true": 0.0,
+    "minus_2000": -0.0006666666666666666,
+    "tables": 1,
+    "settings": {}
+   },
+   "9": {
+    "exact": 0.9642857142857143,
+    "answered": 0.7178571428571429,
+    "precision": 0.9976782752902156,
+    "exact_table_sd": 0.0,
+    "precision_table_sd": 0.0,
+    "precision_worst": 0.9976782752902156,
+    "exact_se_columns": 0.005208767017186348,
+    "minus_true": 0.0,
+    "minus_2000": -0.0014285714285714286,
+    "tables": 1,
+    "settings": {}
+   }
+  },
+  "people-2000/nominal": {
+   "1": {
+    "exact": 0.48484848484848486,
+    "answered": 0.007727272727272728,
+    "precision": 0.9803921568627451,
+    "exact_table_sd": 0.0014999234752442012,
+    "precision_table_sd": 0.0,
+    "precision_worst": 0.9803921568627451,
+    "exact_se_columns": 0.006507406099789566,
+    "minus_true": -0.0009090909090909091,
+    "minus_2000": -0.0010606060606060607,
+    "tables": 2,
+    "settings": {
+     "people": 2000,
+     "sd_factor": 1.0
+    }
+   },
+   "3": {
+    "exact": 0.7359166666666667,
+    "answered": 0.16783333333333333,
+    "precision": 0.9980207100591716,
+    "exact_table_sd": 0.0005892556509887247,
+    "precision_table_sd": 0.0013849251158150825,
+    "precision_worst": 0.9970414201183432,
+    "exact_se_columns": 0.0073105231661461404,
+    "minus_true": 0.00025,
+    "minus_2000": -0.0004166666666666667,
+    "tables": 2,
+    "settings": {
+     "people": 2000,
+     "sd_factor": 1.0
+    }
+   },
+   "9": {
+    "exact": 0.964404761904762,
+    "answered": 0.7191666666666667,
+    "precision": 0.997848637464914,
+    "exact_table_sd": 0.0018519463316790622,
+    "precision_table_sd": 0.00022251885162308127,
+    "precision_worst": 0.9976912928759895,
+    "exact_se_columns": 0.00523521401246397,
+    "minus_true": 0.000119047619047619,
+    "minus_2000": -0.0013095238095238095,
+    "tables": 2,
+    "settings": {
+     "people": 2000,
+     "sd_factor": 1.0
+    }
+   }
+  },
+  "people-2000/predictive": {
+   "1": {
+    "exact": 0.485,
+    "answered": 0.007651515151515152,
+    "precision": 0.9801960784313726,
+    "exact_table_sd": 0.0014999234752442012,
+    "precision_table_sd": 0.00027729677693588434,
+    "precision_worst": 0.98,
+    "exact_se_columns": 0.006508588180239157,
+    "minus_true": -0.0007575757575757576,
+    "minus_2000": -0.0009090909090909091,
+    "tables": 2,
+    "settings": {
+     "people": 2000,
+     "sd_factor": 1.0007507197122103
+    }
+   },
+   "3": {
+    "exact": 0.7355833333333333,
+    "answered": 0.16775,
+    "precision": 0.9980202095586711,
+    "exact_table_sd": 0.0008249579113842931,
+    "precision_table_sd": 0.0013842173012193167,
+    "precision_worst": 0.9970414201183432,
+    "exact_se_columns": 0.007319828458504135,
+    "minus_true": -8.333333333333332e-05,
+    "minus_2000": -0.00075,
+    "tables": 2,
+    "settings": {
+     "people": 2000,
+     "sd_factor": 1.0007507197122103
+    }
+   },
+   "9": {
+    "exact": 0.964404761904762,
+    "answered": 0.7188095238095238,
+    "precision": 0.9978476424459788,
+    "exact_table_sd": 0.0018519463316790622,
+    "precision_table_sd": 0.0002211116823500385,
+    "precision_worst": 0.9976912928759895,
+    "exact_se_columns": 0.00523521401246397,
+    "minus_true": 0.000119047619047619,
+    "minus_2000": -0.0013095238095238095,
+    "tables": 2,
+    "settings": {
+     "people": 2000,
+     "sd_factor": 1.0007507197122103
+    }
+   }
+  },
+  "kind-0.28/nominal": {
+   "1": {
+    "exact": 0.405719696969697,
+    "answered": 0.008977272727272728,
+    "precision": 0.9649289998554704,
+    "exact_table_sd": 0.005978452022287848,
+    "precision_table_sd": 0.013487172504604503,
+    "precision_worst": 0.9459459459459459,
+    "exact_se_columns": 0.005914382439608688,
+    "minus_true": -0.0800378787878788,
+    "minus_2000": -0.08018939393939394,
+    "tables": 4,
+    "settings": {
+     "shift": 0.48,
+     "thoracic_lumbar": 0.6,
+     "level_by_level": 0.28,
+     "sd_factor": 1.0
+    }
+   },
+   "3": {
+    "exact": 0.6202916666666667,
+    "answered": 0.17033333333333334,
+    "precision": 0.9724978264368808,
+    "exact_table_sd": 0.013639115182553552,
+    "precision_table_sd": 0.007100987903371405,
+    "precision_worst": 0.962474645030426,
+    "exact_se_columns": 0.007899370719012595,
+    "minus_true": -0.115375,
+    "minus_2000": -0.11604166666666667,
+    "tables": 4,
+    "settings": {
+     "shift": 0.48,
+     "thoracic_lumbar": 0.6,
+     "level_by_level": 0.28,
+     "sd_factor": 1.0
+    }
+   },
+   "9": {
+    "exact": 0.8929761904761905,
+    "answered": 0.6583333333333332,
+    "precision": 0.9836342895476788,
+    "exact_table_sd": 0.005493416660530846,
+    "precision_table_sd": 0.0021347711801196077,
+    "precision_worst": 0.9811656005685856,
+    "exact_se_columns": 0.008713419195105142,
+    "minus_true": -0.07130952380952381,
+    "minus_2000": -0.07273809523809524,
+    "tables": 4,
+    "settings": {
+     "shift": 0.48,
+     "thoracic_lumbar": 0.6,
+     "level_by_level": 0.28,
+     "sd_factor": 1.0
+    }
+   }
+  },
+  "kind-0.28/predictive": {
+   "1": {
+    "exact": 0.40840909090909094,
+    "answered": 0.004696969696969697,
+    "precision": 0.9742219129554656,
+    "exact_table_sd": 0.00578740280448009,
+    "precision_table_sd": 0.022048650759912768,
+    "precision_worst": 0.9473684210526315,
+    "exact_se_columns": 0.006027928727456349,
+    "minus_true": -0.07734848484848485,
+    "minus_2000": -0.07750000000000001,
+    "tables": 4,
+    "settings": {
+     "shift": 0.48,
+     "thoracic_lumbar": 0.6,
+     "level_by_level": 0.28,
+     "sd_factor": 1.1440279716860073
+    }
+   },
+   "3": {
+    "exact": 0.6267916666666667,
+    "answered": 0.12904166666666667,
+    "precision": 0.9854586349308966,
+    "exact_table_sd": 0.012340369614489782,
+    "precision_table_sd": 0.004917213429026336,
+    "precision_worst": 0.98005698005698,
+    "exact_se_columns": 0.007953933963708186,
+    "minus_true": -0.108875,
+    "minus_2000": -0.10954166666666666,
+    "tables": 4,
+    "settings": {
+     "shift": 0.48,
+     "thoracic_lumbar": 0.6,
+     "level_by_level": 0.28,
+     "sd_factor": 1.1440279716860073
+    }
+   },
+   "9": {
+    "exact": 0.8967261904761905,
+    "answered": 0.5907738095238095,
+    "precision": 0.9910317179153427,
+    "exact_table_sd": 0.006080758471010538,
+    "precision_table_sd": 0.0015345204951172605,
+    "precision_worst": 0.9897111199050257,
+    "exact_se_columns": 0.008629355301420644,
+    "minus_true": -0.0675595238095238,
+    "minus_2000": -0.06898809523809524,
+    "tables": 4,
+    "settings": {
+     "shift": 0.48,
+     "thoracic_lumbar": 0.6,
+     "level_by_level": 0.28,
+     "sd_factor": 1.1440279716860073
+    }
+   }
+  }
+ },
+ "seconds": 70.13987326622009,
+ "command": "cadaver_power.py --bordercall /home/claude/bordercall --out seven --columns 300 --arms kind-0.28"
+}
