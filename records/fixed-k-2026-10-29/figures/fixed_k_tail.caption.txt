@@ -1,0 +1,1 @@
+The naming model's estimate of each place over its exact posterior, on synthetic three-body fields with the seven measures: the median over runs and the interquartile range, on NUTS's draws, on independent draws from the exact posterior of the size, and on NUTS ten times as long.
