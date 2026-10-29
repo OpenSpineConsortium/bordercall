@@ -1,0 +1,16 @@
+s1593 exit 0 08:47 pass 1
+verse018 exit 0 09:03 pass 1
+s1411 exit 0 09:18 pass 1
+verse558 exit 0 09:37 pass 1
+verse559 exit 0 09:59 pass 1
+verse561 exit 137 12:20 pass 1
+verse255 exit 0 12:52 pass 1
+verse108 exit 137 12:59 pass 1
+verse649 exit 137 13:06 pass 1
+verse588 exit 143 13:06 pass 1
+verse766 exit 137 13:39 pass 1
+verse236 exit 143 13:40 pass 1
+verse593 exit 0 14:14 pass 1
+verse531 exit 0 14:49 pass 1
+verse547 exit 0 15:35 pass 1
+verse631 exit 1 17:13 pass 1

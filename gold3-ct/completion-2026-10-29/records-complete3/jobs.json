@@ -1,0 +1,361 @@
+{
+ "segmenter": {
+  "name": "SPINEPS",
+  "version": "2.1.2",
+  "models": {
+   "semantic": {
+    "name": "ct",
+    "folder": "CT_semantic_v2.0.0",
+    "weights_sha256": {
+     "fold_all/checkpoint_final.pth": "3e4fb736dc4063f8e9a7a0f25e889bc687507ac4500dcf12709a6bf8c6e69407"
+    }
+   },
+   "instance": {
+    "name": "ct_instance",
+    "folder": "CT_instance_v2.0.0",
+    "weights_sha256": {
+     "checkpoints/epoch=150-step=75500-val_diceFG=0.9936_valdiceFG-weights.ckpt": "a1e9141531777961f13f4c4d1e7832edf46c7aa1e91cc0ef39c7222918b848f7"
+    }
+   },
+   "labeling": {
+    "name": "ct_labeling",
+    "folder": "CT_labeling_v1.4.0",
+    "weights_sha256": {
+     "checkpoints/epoch=57-step=109794-val_f1=0.9879_valf1-weights.ckpt": "1d26f77914f01ec4f4bedbf782c4b9caf539910e4e0c58f67081e0152e2f007e"
+    }
+   },
+   "crop": {
+    "name": "TPTBox VIBESeg-100 (Dataset100, nnUNetTrainerNoMirroring__nnUNetPlannerResEncL__3d_fullres, folds 0 to 2)",
+    "weights_sha256": {
+     "fold_0": "9c1db7eb8eb38e86724508541fef3c6732c261f13af1bc7056a6aa70d923cb47",
+     "fold_1": "cda0b1c546f2349c0de18c67b6fe76565aef64148e4796ecb95e8ba2d016c6f8",
+     "fold_2": "424c6d1883244ea4472f63819ff96883fa0aa08d53a4cd7b227be34f7d1aadef"
+    }
+   }
+  },
+  "weights_from": "fetched by SPINEPS 2.1.2's own spineps.get_models (its GitHub releases) and TPTBox's install",
+  "packages": {
+   "spineps": "2.1.2",
+   "TPTBox": "1.1.0",
+   "torch": "2.6.0+cpu",
+   "nnunetv2": "2.8.1",
+   "numpy": "2.3.5",
+   "nibabel": "5.4.2",
+   "monai": "1.5.2",
+   "scipy": "1.15.3",
+   "python": "3.12"
+  },
+  "run": "SpinepsPipeline('ct', 'ct_instance', 'ct_labeling', use_cpu=True), segment(..., instance=InstanceConfig(batch_size=1)), 4 torch threads",
+  "input": "the CT as published where SPINEPS takes its grid (TPTBox get_plane 'iso'); else the CT resampled to 1 mm isotropic with cubic interpolation, and SPINEPS's masks resampled back to the CT's grid nearest-neighbour",
+  "where": "the cloud container of the thread 'Read the rest of VerSe's masks' of the project symphony_4, CPU only; nothing went to the grid",
+  "date": "2026-10-29",
+  "asked": "the owner, 2026-10-29 03:32 UTC: \"I want you to fucking segment the c2 and sacrums which are on ct volumes they just lack the masks and convert them all to gold tier 3 data\"; and his choice at 04:23 UTC of 'Run SPINEPS here now' over waiting for the grid's census masks"
+ },
+ "facts": {
+  "verse": "/home/user/SchwingNet/data/gold3-ct/verse/facts.jsonl",
+  "totalsegmentator": "/home/user/SchwingNet/data/gold3-ct/totalsegmentator/facts.jsonl"
+ },
+ "studies": [
+  {
+   "id": "verse018",
+   "member": "verse",
+   "release": "/tmp/claude-0/-home-user/cce9be24-c0db-5397-a20f-4a142d2b8513/scratchpad/work/MASKS/verse20/verse018_CT-sag_seg.nii.gz",
+   "machine": "/tmp/claude-0/-home-user/cce9be24-c0db-5397-a20f-4a142d2b8513/scratchpad/seg/out/verse018/ctgrid/vert.nii.gz",
+   "spine": "/tmp/claude-0/-home-user/cce9be24-c0db-5397-a20f-4a142d2b8513/scratchpad/seg/out/verse018/ctgrid/spine.nii.gz",
+   "input": "/tmp/claude-0/-home-user/cce9be24-c0db-5397-a20f-4a142d2b8513/scratchpad/seg/out/verse018/ctgrid/input.json",
+   "targets": [
+    "C2",
+    "C3",
+    "C4",
+    "C5",
+    "C6",
+    "C7",
+    "sacrum"
+   ],
+   "verdict": "look",
+   "head": "border",
+   "foot": "in_view"
+  },
+  {
+   "id": "verse033",
+   "member": "verse",
+   "release": "/tmp/claude-0/-home-user/cce9be24-c0db-5397-a20f-4a142d2b8513/scratchpad/work/MASKS/verse20/verse033_seg.nii.gz",
+   "machine": "/tmp/claude-0/-home-user/cce9be24-c0db-5397-a20f-4a142d2b8513/scratchpad/seg/out/verse033/ctgrid/vert.nii.gz",
+   "spine": "/tmp/claude-0/-home-user/cce9be24-c0db-5397-a20f-4a142d2b8513/scratchpad/seg/out/verse033/ctgrid/spine.nii.gz",
+   "input": "/tmp/claude-0/-home-user/cce9be24-c0db-5397-a20f-4a142d2b8513/scratchpad/seg/out/verse033/ctgrid/input.json",
+   "targets": [
+    "C2",
+    "C3",
+    "C4",
+    "C5",
+    "C6",
+    "sacrum"
+   ],
+   "verdict": "look",
+   "head": "border",
+   "foot": "in_view"
+  },
+  {
+   "id": "verse255",
+   "member": "verse",
+   "release": "/tmp/claude-0/-home-user/cce9be24-c0db-5397-a20f-4a142d2b8513/scratchpad/work/MASKS/verse20/verse403_verse255_CT-sag_seg.nii.gz",
+   "machine": "/tmp/claude-0/-home-user/cce9be24-c0db-5397-a20f-4a142d2b8513/scratchpad/seg/out/verse255/ctgrid/vert.nii.gz",
+   "spine": "/tmp/claude-0/-home-user/cce9be24-c0db-5397-a20f-4a142d2b8513/scratchpad/seg/out/verse255/ctgrid/spine.nii.gz",
+   "input": "/tmp/claude-0/-home-user/cce9be24-c0db-5397-a20f-4a142d2b8513/scratchpad/seg/out/verse255/ctgrid/input.json",
+   "targets": [
+    "C2",
+    "C3",
+    "C4",
+    "C5",
+    "C6",
+    "sacrum"
+   ],
+   "verdict": "look",
+   "head": "border",
+   "foot": "in_view"
+  },
+  {
+   "id": "verse531",
+   "member": "verse",
+   "release": "/tmp/claude-0/-home-user/cce9be24-c0db-5397-a20f-4a142d2b8513/scratchpad/work/MASKS/verse20/verse531_CT-sag_seg.nii.gz",
+   "machine": "/tmp/claude-0/-home-user/cce9be24-c0db-5397-a20f-4a142d2b8513/scratchpad/seg/out/verse531/ctgrid/vert.nii.gz",
+   "spine": "/tmp/claude-0/-home-user/cce9be24-c0db-5397-a20f-4a142d2b8513/scratchpad/seg/out/verse531/ctgrid/spine.nii.gz",
+   "input": "/tmp/claude-0/-home-user/cce9be24-c0db-5397-a20f-4a142d2b8513/scratchpad/seg/out/verse531/ctgrid/input.json",
+   "targets": [
+    "C2",
+    "C3",
+    "sacrum"
+   ],
+   "verdict": "look",
+   "head": "border",
+   "foot": "in_view"
+  },
+  {
+   "id": "verse558",
+   "member": "verse",
+   "release": "/tmp/claude-0/-home-user/cce9be24-c0db-5397-a20f-4a142d2b8513/scratchpad/work/MASKS/verse20/verse558_CT-sag_seg.nii.gz",
+   "machine": "/tmp/claude-0/-home-user/cce9be24-c0db-5397-a20f-4a142d2b8513/scratchpad/seg/out/verse558/ctgrid/vert.nii.gz",
+   "spine": "/tmp/claude-0/-home-user/cce9be24-c0db-5397-a20f-4a142d2b8513/scratchpad/seg/out/verse558/ctgrid/spine.nii.gz",
+   "input": "/tmp/claude-0/-home-user/cce9be24-c0db-5397-a20f-4a142d2b8513/scratchpad/seg/out/verse558/ctgrid/input.json",
+   "targets": [
+    "C2",
+    "C3",
+    "C4",
+    "C5",
+    "sacrum"
+   ],
+   "verdict": "look",
+   "head": "border",
+   "foot": "in_view"
+  },
+  {
+   "id": "verse559",
+   "member": "verse",
+   "release": "/tmp/claude-0/-home-user/cce9be24-c0db-5397-a20f-4a142d2b8513/scratchpad/work/MASKS/verse20/verse559_CT-sag_seg.nii.gz",
+   "machine": "/tmp/claude-0/-home-user/cce9be24-c0db-5397-a20f-4a142d2b8513/scratchpad/seg/out/verse559/ctgrid/vert.nii.gz",
+   "spine": "/tmp/claude-0/-home-user/cce9be24-c0db-5397-a20f-4a142d2b8513/scratchpad/seg/out/verse559/ctgrid/spine.nii.gz",
+   "input": "/tmp/claude-0/-home-user/cce9be24-c0db-5397-a20f-4a142d2b8513/scratchpad/seg/out/verse559/ctgrid/input.json",
+   "targets": [
+    "C2",
+    "sacrum"
+   ],
+   "verdict": "admitted",
+   "head": "in_view",
+   "foot": "in_view"
+  },
+  {
+   "id": "verse593",
+   "member": "verse",
+   "release": "/tmp/claude-0/-home-user/cce9be24-c0db-5397-a20f-4a142d2b8513/scratchpad/work/MASKS/verse20/verse593_CT-sag_seg.nii.gz",
+   "machine": "/tmp/claude-0/-home-user/cce9be24-c0db-5397-a20f-4a142d2b8513/scratchpad/seg/out/verse593/ctgrid/vert.nii.gz",
+   "spine": "/tmp/claude-0/-home-user/cce9be24-c0db-5397-a20f-4a142d2b8513/scratchpad/seg/out/verse593/ctgrid/spine.nii.gz",
+   "input": "/tmp/claude-0/-home-user/cce9be24-c0db-5397-a20f-4a142d2b8513/scratchpad/seg/out/verse593/ctgrid/input.json",
+   "targets": [
+    "C2",
+    "C3",
+    "C4",
+    "sacrum"
+   ],
+   "verdict": "look",
+   "head": "border",
+   "foot": "in_view"
+  },
+  {
+   "id": "s1411",
+   "member": "totalsegmentator",
+   "release": "/tmp/claude-0/-home-user/cce9be24-c0db-5397-a20f-4a142d2b8513/scratchpad/ts/subjects/s1411",
+   "machine": "/tmp/claude-0/-home-user/cce9be24-c0db-5397-a20f-4a142d2b8513/scratchpad/seg/out/s1411/ctgrid/vert.nii.gz",
+   "spine": "/tmp/claude-0/-home-user/cce9be24-c0db-5397-a20f-4a142d2b8513/scratchpad/seg/out/s1411/ctgrid/spine.nii.gz",
+   "input": "/tmp/claude-0/-home-user/cce9be24-c0db-5397-a20f-4a142d2b8513/scratchpad/seg/out/s1411/ctgrid/input.json",
+   "targets": [
+    "T12"
+   ],
+   "verdict": "admitted",
+   "head": "drawn",
+   "foot": "drawn"
+  },
+  {
+   "id": "s1532",
+   "member": "totalsegmentator",
+   "release": "/tmp/claude-0/-home-user/cce9be24-c0db-5397-a20f-4a142d2b8513/scratchpad/ts/subjects/s1532",
+   "machine": "/tmp/claude-0/-home-user/cce9be24-c0db-5397-a20f-4a142d2b8513/scratchpad/seg/out/s1532/ctgrid/vert.nii.gz",
+   "spine": "/tmp/claude-0/-home-user/cce9be24-c0db-5397-a20f-4a142d2b8513/scratchpad/seg/out/s1532/ctgrid/spine.nii.gz",
+   "input": "/tmp/claude-0/-home-user/cce9be24-c0db-5397-a20f-4a142d2b8513/scratchpad/seg/out/s1532/ctgrid/input.json",
+   "targets": [
+    "T6",
+    "T7",
+    "T8",
+    "T9"
+   ],
+   "verdict": "admitted",
+   "head": "drawn",
+   "foot": "drawn"
+  },
+  {
+   "id": "s1593",
+   "member": "totalsegmentator",
+   "release": "/tmp/claude-0/-home-user/cce9be24-c0db-5397-a20f-4a142d2b8513/scratchpad/ts/subjects/s1593",
+   "machine": "/tmp/claude-0/-home-user/cce9be24-c0db-5397-a20f-4a142d2b8513/scratchpad/seg/out/s1593/ctgrid/vert.nii.gz",
+   "spine": "/tmp/claude-0/-home-user/cce9be24-c0db-5397-a20f-4a142d2b8513/scratchpad/seg/out/s1593/ctgrid/spine.nii.gz",
+   "input": "/tmp/claude-0/-home-user/cce9be24-c0db-5397-a20f-4a142d2b8513/scratchpad/seg/out/s1593/ctgrid/input.json",
+   "targets": [
+    "T8",
+    "T10",
+    "T11",
+    "T12",
+    "L1",
+    "L4",
+    "L5",
+    "sacrum"
+   ],
+   "verdict": "admitted",
+   "head": "drawn",
+   "foot": "in_view"
+  },
+  {
+   "id": "s1606",
+   "member": "totalsegmentator",
+   "release": "/tmp/claude-0/-home-user/cce9be24-c0db-5397-a20f-4a142d2b8513/scratchpad/ts/subjects/s1606",
+   "machine": "/tmp/claude-0/-home-user/cce9be24-c0db-5397-a20f-4a142d2b8513/scratchpad/seg/out/s1606/ctgrid/vert.nii.gz",
+   "spine": "/tmp/claude-0/-home-user/cce9be24-c0db-5397-a20f-4a142d2b8513/scratchpad/seg/out/s1606/ctgrid/spine.nii.gz",
+   "input": "/tmp/claude-0/-home-user/cce9be24-c0db-5397-a20f-4a142d2b8513/scratchpad/seg/out/s1606/ctgrid/input.json",
+   "targets": [
+    "T4",
+    "T5",
+    "T6",
+    "L4",
+    "L5",
+    "sacrum"
+   ],
+   "verdict": "admitted",
+   "head": "drawn",
+   "foot": "in_view"
+  },
+  {
+   "id": "s2065",
+   "member": "totalsegmentator",
+   "release": "/tmp/claude-0/-home-user/cce9be24-c0db-5397-a20f-4a142d2b8513/scratchpad/ts/subjects/s2065",
+   "machine": "/tmp/claude-0/-home-user/cce9be24-c0db-5397-a20f-4a142d2b8513/scratchpad/seg/out/s2065/ctgrid/vert.nii.gz",
+   "spine": "/tmp/claude-0/-home-user/cce9be24-c0db-5397-a20f-4a142d2b8513/scratchpad/seg/out/s2065/ctgrid/spine.nii.gz",
+   "input": "/tmp/claude-0/-home-user/cce9be24-c0db-5397-a20f-4a142d2b8513/scratchpad/seg/out/s2065/ctgrid/input.json",
+   "targets": [
+    "T11",
+    "L4",
+    "L5"
+   ],
+   "verdict": "admitted",
+   "head": "drawn",
+   "foot": "drawn"
+  }
+ ],
+ "skipped": [
+  {
+   "id": "verse108",
+   "why": "not segmented yet"
+  },
+  {
+   "id": "verse236",
+   "why": "not segmented yet"
+  },
+  {
+   "id": "verse547",
+   "why": "not segmented yet"
+  },
+  {
+   "id": "verse549",
+   "why": "not segmented yet"
+  },
+  {
+   "id": "verse561",
+   "why": "not segmented yet"
+  },
+  {
+   "id": "verse563",
+   "why": "not segmented yet"
+  },
+  {
+   "id": "verse573",
+   "why": "not segmented yet"
+  },
+  {
+   "id": "verse581",
+   "why": "not segmented yet"
+  },
+  {
+   "id": "verse585",
+   "why": "not segmented yet"
+  },
+  {
+   "id": "verse588",
+   "why": "not segmented yet"
+  },
+  {
+   "id": "verse602",
+   "why": "not segmented yet"
+  },
+  {
+   "id": "verse607",
+   "why": "not segmented yet"
+  },
+  {
+   "id": "verse631",
+   "why": "not segmented yet"
+  },
+  {
+   "id": "verse644",
+   "why": "not segmented yet"
+  },
+  {
+   "id": "verse649",
+   "why": "not segmented yet"
+  },
+  {
+   "id": "verse758",
+   "why": "not segmented yet"
+  },
+  {
+   "id": "verse759",
+   "why": "not segmented yet"
+  },
+  {
+   "id": "verse766",
+   "why": "not segmented yet"
+  },
+  {
+   "id": "verse809",
+   "why": "not segmented yet"
+  },
+  {
+   "id": "verse823",
+   "why": "not segmented yet"
+  },
+  {
+   "id": "s1597",
+   "why": "not segmented yet"
+  },
+  {
+   "id": "s1890",
+   "why": "not segmented yet"
+  }
+ ]
+}

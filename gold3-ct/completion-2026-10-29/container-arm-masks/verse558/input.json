@@ -1,0 +1,1 @@
+{"input": "resampled_1mm_iso_cubic", "iso_mm": 1.0, "cut": {"start": [0, 0, 0], "stop": [512, 2003, 88], "shape": [512, 2003, 88], "margin_mm": 60.0, "head_foot_margin_mm": 200.0}}

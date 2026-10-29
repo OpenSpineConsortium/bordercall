@@ -1,0 +1,1 @@
+{"input": "resampled_1mm_iso_cubic", "iso_mm": 1.0, "cut": {"start": [123, 40, 66], "stop": [512, 1338, 147], "shape": [512, 1338, 164], "margin_mm": 60.0, "head_foot_margin_mm": 200.0}, "fold_patch": "VIBESeg run alone first by tools/vibeseg_alone.py with tools/fold_patch.py: its folds summed from disk, one in memory at a time; SPINEPS reused its mask"}

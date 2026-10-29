@@ -1,0 +1,217 @@
+<title>DRR Gap Run</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;600&family=Instrument+Serif&display=swap">
+<style>
+/* Layout: a run sheet read top to bottom, the state first, then the pipeline as one strip, the
+   readings and the tasks side by side, the units-done trace, and the raw progress lines last. */
+:root {
+  --bg: #f6f7f9; --panel: #ffffff; --ink: #18202c; --muted: #5c6878; --line: #dde2e9;
+  --accent: #2f4fb8; --done: #1d8a63; --run: #c27a12; --fail: #c2362b; --wait: #a3acb8;
+  --done-soft: #d9efe6; --run-soft: #f6e8cf; --fail-soft: #f6d9d6; --wait-soft: #e8ebf0;
+  --display: "Instrument Serif", Georgia, "Times New Roman", serif;
+  --ui: "Instrument Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #11151c; --panel: #181e27; --ink: #e6eaf0; --muted: #96a1b0; --line: #2a3340;
+  --accent: #8ea5ff; --done: #4cc391; --run: #e8a640; --fail: #f07267; --wait: #6b7686;
+  --done-soft: #183a2e; --run-soft: #3a2e17; --fail-soft: #3d1f1d; --wait-soft: #232a35; color-scheme: dark } }
+:root[data-theme="dark"] {
+  --bg: #11151c; --panel: #181e27; --ink: #e6eaf0; --muted: #96a1b0; --line: #2a3340;
+  --accent: #8ea5ff; --done: #4cc391; --run: #e8a640; --fail: #f07267; --wait: #6b7686;
+  --done-soft: #183a2e; --run-soft: #3a2e17; --fail-soft: #3d1f1d; --wait-soft: #232a35; color-scheme: dark }
+body { background: var(--bg); color: var(--ink); font: 15px/1.5 var(--ui); }
+.wrap { max-width: 1080px; margin: 0 auto; padding-block: 28px 48px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px));
+  display: grid; gap: 22px; }
+header { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px 20px; }
+h1 { font: 400 2.3rem/1.1 var(--display); margin: 0; text-wrap: balance; }
+h2 { font: 600 0.78rem/1 var(--ui); letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin: 0 0 12px; }
+.meta { color: var(--muted); font-size: 0.86rem; }
+.meta b { color: var(--ink); font-weight: 600; }
+.pill { justify-self: start; display: inline-flex; align-items: center; gap: 6px; padding: 3px 10px; border-radius: 999px; font: 600 0.8rem/1.4 var(--ui); }
+.pill::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: currentColor; }
+.s-done { color: var(--done); background: var(--done-soft); }
+.s-running, .s-queued, .s-watching { color: var(--run); background: var(--run-soft); }
+.s-failed, .s-stopped { color: var(--fail); background: var(--fail-soft); }
+.s-waiting, .s-none, .s-finished { color: var(--muted); background: var(--wait-soft); }
+.s-finished { color: var(--done); background: var(--done-soft); }
+.note { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 14px 16px; }
+.note p { margin: 0; max-width: 72ch; }
+.figures { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 12px; }
+.figure { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 14px 16px; min-width: 0; }
+.figure .n { font: 600 1.9rem/1.1 var(--mono); font-variant-numeric: tabular-nums; }
+.figure .l { color: var(--muted); font-size: 0.84rem; }
+.strip { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 12px; }
+.group { border: 1px solid var(--line); border-radius: 8px; padding: 12px; display: grid; gap: 8px; align-content: start; min-width: 0; }
+.group.state-done { border-color: var(--done); box-shadow: inset 0 3px 0 var(--done); }
+.group.state-running, .group.state-queued { border-color: var(--run); box-shadow: inset 0 3px 0 var(--run); }
+.group.state-failed { border-color: var(--fail); box-shadow: inset 0 3px 0 var(--fail); }
+.group .top { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
+.group .k { font: 600 0.72rem/1.2 var(--ui); letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
+.group .t { font-weight: 600; }
+.item { display: grid; grid-template-columns: 12px 1fr; gap: 2px 8px; align-items: baseline; font-size: 0.88rem; }
+.item .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--wait); align-self: center; }
+.item .dot.done, .item .dot.finished { background: var(--done); }
+.item .dot.running, .item .dot.watching, .item .dot.queued { background: var(--run); }
+.item .dot.failed, .item .dot.stopped { background: var(--fail); }
+.item .d { grid-column: 2; font: 0.74rem/1.35 var(--mono); color: var(--muted); overflow-wrap: anywhere; }
+.cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 22px; }
+.panel { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 16px; min-width: 0; }
+.reading { display: grid; gap: 6px; padding-block: 8px; border-top: 1px solid var(--line); }
+.reading:first-of-type { border-top: 0; padding-top: 0; }
+.row { display: flex; justify-content: space-between; gap: 10px; font-size: 0.9rem; }
+.row .v { font: 0.84rem var(--mono); font-variant-numeric: tabular-nums; color: var(--muted); }
+.bar { height: 10px; border-radius: 5px; background: var(--wait-soft); overflow: hidden; display: flex; }
+.bar span { display: block; height: 100%; }
+.bar .b-done { background: var(--done); }
+.bar .b-run { background: var(--run); }
+.bar .b-fail { background: var(--fail); }
+.kinds { font: 0.74rem/1.5 var(--mono); color: var(--muted); overflow-wrap: anywhere; }
+.task { display: grid; grid-template-columns: auto 1fr auto; gap: 4px 12px; align-items: center; padding-block: 9px; border-top: 1px solid var(--line); }
+.task:first-of-type { border-top: 0; padding-top: 0; }
+.task .id { font: 600 0.9rem var(--mono); }
+.task .sub { grid-column: 2 / 4; font: 0.76rem var(--mono); color: var(--muted); overflow-wrap: anywhere; }
+.empty { color: var(--muted); font-size: 0.9rem; margin: 0; }
+svg text { fill: var(--muted); font: 11px var(--mono); }
+.chart { width: 100%; height: auto; display: block; }
+pre { margin: 0; font: 0.76rem/1.5 var(--mono); color: var(--muted); white-space: pre-wrap; overflow-wrap: anywhere; }
+.scroll { overflow-x: auto; }
+footer { color: var(--muted); font-size: 0.8rem; max-width: 80ch; }
+@media (prefers-reduced-motion: no-preference) { .bar span { transition: width 0.4s ease; } }
+  .logrow { display: flex; gap: 12px; padding: 4px 0; border-bottom: 1px solid var(--line); font-size: 13px; }
+  .logrow .at { font-variant-numeric: tabular-nums; color: var(--muted); flex: none; }
+  .logrow.bad span:last-child { color: var(--fail); }
+</style>
+
+<div class="wrap">
+  <header>
+    <div>
+      <h1>DRR gap run</h1>
+      <div class="meta" id="sub"></div>
+    </div>
+    <div class="meta" id="read"></div>
+  </header>
+  <div class="note" id="note"></div>
+  <section class="figures" id="figures" aria-label="Where the run stands"></section>
+  <section class="panel">
+    <h2>Pipeline</h2>
+    <div class="strip" id="strip"></div>
+  </section>
+  <div class="cols">
+    <section class="panel"><h2>Units by reading</h2><div id="readings"></div></section>
+    <section class="panel"><h2>Array tasks</h2><div id="tasks"></div></section>
+  </div>
+  <section class="panel">
+    <h2>Units done over time</h2>
+    <div class="scroll" id="chart"></div>
+  </section>
+  <section class="panel">
+    <h2>Run log, newest last (UTC)</h2>
+    <div id="log"></div>
+  </section>
+  <section class="panel">
+    <h2>Last progress read from the grid</h2>
+    <pre id="lines"></pre>
+  </section>
+  <footer id="foot"></footer>
+</div>
+
+<script id="state" type="application/json">{"subtitle": "FleXray and FluXray DRRs against real fluoroscopy and film: prepare, an array of 16 shard tasks and a merge, each on any GPU of the grid", "progress_at": "2026-10-28 03:26 UTC", "phase": "done", "phase_label": "Finished: 18 jobs, all exit 0", "updated": "2026-10-28 04:08 UTC", "note": "Sent once at 03:08 UTC on the owner's tap. Prepare ran on a V100 (voh6) from 03:09 to 03:17; the 16 shard tasks ran from 03:17 to 03:24 on 6 L40S and 10 V100 cards; the merge wrote the report at 03:26. 716 of 716 units done, 0 failed. The report was read once at 04:02 UTC; the send queued nothing.", "jobs": {"prepare": "40828920", "array": "40828921", "merge": "40828923"}, "figures": [{"value": "716 / 716", "label": "units done of the list prepare wrote"}, {"value": "0", "label": "array tasks beating now"}, {"value": "none", "label": "time left: the run has finished"}, {"value": "0", "label": "units failed (three in a row stop a task)"}], "pipeline": [{"job": "prepare 40828920", "name": "Prepare: render to heads", "state": "done", "items": [{"name": "render", "state": "done", "detail": "408 s"}, {"name": "plan", "state": "done", "detail": "0 s"}, {"name": "images", "state": "done", "detail": "0 s"}, {"name": "features", "state": "done", "detail": "0 s"}, {"name": "heads", "state": "done", "detail": "4 s"}]}, {"job": "array 40828921", "name": "Shard tasks: 716 of 716 units", "state": "done", "items": [{"name": "task 0 on voh6", "state": "finished", "detail": "16 done, 0 running, 0 failed; beat 03:24:35 UTC"}, {"name": "task 1 on voh7", "state": "finished", "detail": "25 done, 0 running, 0 failed; beat 03:24:49 UTC"}, {"name": "task 2 on voh7", "state": "finished", "detail": "16 done, 0 running, 0 failed; beat 03:24:12 UTC"}, {"name": "task 3 on voh4", "state": "finished", "detail": "16 done, 0 running, 0 failed; beat 03:23:51 UTC"}, {"name": "task 4 on voh5", "state": "finished", "detail": "17 done, 0 running, 0 failed; beat 03:24:36 UTC"}, {"name": "task 5 on alh5", "state": "finished", "detail": "16 done, 0 running, 0 failed; beat 03:24:39 UTC"}, {"name": "task 6 on alh5", "state": "finished", "detail": "47 done, 0 running, 0 failed; beat 03:24:15 UTC"}, {"name": "task 7 on alh4", "state": "finished", "detail": "141 done, 0 running, 0 failed; beat 03:24:12 UTC"}, {"name": "task 8 on alh4", "state": "finished", "detail": "147 done, 0 running, 0 failed; beat 03:24:12 UTC"}, {"name": "task 9 on alh4", "state": "finished", "detail": "136 done, 0 running, 0 failed; beat 03:24:12 UTC"}, {"name": "task 10 on alh4", "state": "finished", "detail": "139 done, 0 running, 0 failed; beat 03:24:12 UTC"}, {"name": "task 11 on voh1", "state": "finished", "detail": "0 done, 0 running, 0 failed; beat 03:24:46 UTC"}, {"name": "task 12 on voh4", "state": "finished", "detail": "0 done, 0 running, 0 failed; beat 03:24:11 UTC"}, {"name": "task 13 on voh4", "state": "finished", "detail": "0 done, 0 running, 0 failed; beat 03:24:17 UTC"}, {"name": "task 14 on voh7", "state": "finished", "detail": "0 done, 0 running, 0 failed; beat 03:24:27 UTC"}, {"name": "task 15 on voh4", "state": "finished", "detail": "0 done, 0 running, 0 failed; beat 03:24:37 UTC"}]}, {"job": "merge 40828923", "name": "Merge: results, figures, summary", "state": "done", "items": [{"name": "figures", "state": "done", "detail": "30 s"}, {"name": "summary", "state": "done", "detail": "0 s"}]}], "total_units": 716, "readings": [{"key": "flexray", "invalid": null, "done": 179, "total": 179, "kinds": [{"kind": "family", "done": 20, "total": 20}, {"kind": "group", "done": 90, "total": 90}, {"kind": "real", "done": 36, "total": 36}, {"kind": "fvf", "done": 1, "total": 1}, {"kind": "replication", "done": 6, "total": 6}, {"kind": "null", "done": 10, "total": 10}, {"kind": "structure", "done": 1, "total": 1}, {"kind": "nearest", "done": 10, "total": 10}, {"kind": "fd_all", "done": 1, "total": 1}, {"kind": "maps", "done": 4, "total": 4}]}, {"key": "flexray_as_stored", "invalid": null, "done": 179, "total": 179, "kinds": [{"kind": "family", "done": 20, "total": 20}, {"kind": "group", "done": 90, "total": 90}, {"kind": "real", "done": 36, "total": 36}, {"kind": "fvf", "done": 1, "total": 1}, {"kind": "replication", "done": 6, "total": 6}, {"kind": "null", "done": 10, "total": 10}, {"kind": "structure", "done": 1, "total": 1}, {"kind": "nearest", "done": 10, "total": 10}, {"kind": "fd_all", "done": 1, "total": 1}, {"kind": "maps", "done": 4, "total": 4}]}, {"key": "imagenet", "invalid": null, "done": 179, "total": 179, "kinds": [{"kind": "family", "done": 20, "total": 20}, {"kind": "group", "done": 90, "total": 90}, {"kind": "real", "done": 36, "total": 36}, {"kind": "fvf", "done": 1, "total": 1}, {"kind": "replication", "done": 6, "total": 6}, {"kind": "null", "done": 10, "total": 10}, {"kind": "structure", "done": 1, "total": 1}, {"kind": "nearest", "done": 10, "total": 10}, {"kind": "fd_all", "done": 1, "total": 1}, {"kind": "maps", "done": 4, "total": 4}]}, {"key": "physics", "invalid": null, "done": 179, "total": 179, "kinds": [{"kind": "family", "done": 20, "total": 20}, {"kind": "group", "done": 90, "total": 90}, {"kind": "real", "done": 36, "total": 36}, {"kind": "fvf", "done": 1, "total": 1}, {"kind": "replication", "done": 6, "total": 6}, {"kind": "null", "done": 10, "total": 10}, {"kind": "structure", "done": 1, "total": 1}, {"kind": "nearest", "done": 10, "total": 10}, {"kind": "fd_all", "done": 1, "total": 1}, {"kind": "maps", "done": 4, "total": 4}]}], "log": [{"at": "03:24:37", "text": "task 15: finished, nothing left to claim: 0 done and 0 failed here"}, {"at": "03:24:39", "text": "task 5: finished, nothing left to claim: 16 done and 0 failed here"}, {"at": "03:24:46", "text": "task 11: finished, nothing left to claim: 0 done and 0 failed here"}, {"at": "03:24:48", "text": "task 1: finished, nothing left to claim: 25 done and 0 failed here"}, {"at": "03:24:56", "text": "merge: started as job 40828923 on voh1"}, {"at": "03:24:57", "text": "merge: every one of the 716 units read back as done, from 16 tasks; the jobs ran on NVIDIA L40S x6, Tesla V100-SXM2-16GB x11, prepare's among them"}, {"at": "03:24:57", "text": "merge: stage analysis done after 392 s"}, {"at": "03:25:32", "text": "merge: stage figures done after 30 s"}, {"at": "03:26:40", "text": "merge: stage summary done"}, {"at": "03:26:40", "text": "merge: results.json, the figures and summary.txt written"}], "tasks": [{"task": "0", "job": "40828921_0", "host": "voh6", "gpu": "Tesla V100-SXM2-16GB", "state": "finished", "done": 16, "running": 0, "failed": 0, "beat": "03:24:35"}, {"task": "1", "job": "40828921_1", "host": "voh7", "gpu": "Tesla V100-SXM2-16GB", "state": "finished", "done": 25, "running": 0, "failed": 0, "beat": "03:24:49"}, {"task": "2", "job": "40828921_2", "host": "voh7", "gpu": "Tesla V100-SXM2-16GB", "state": "finished", "done": 16, "running": 0, "failed": 0, "beat": "03:24:12"}, {"task": "3", "job": "40828921_3", "host": "voh4", "gpu": "Tesla V100-SXM2-16GB", "state": "finished", "done": 16, "running": 0, "failed": 0, "beat": "03:23:51"}, {"task": "4", "job": "40828921_4", "host": "voh5", "gpu": "Tesla V100-SXM2-16GB", "state": "finished", "done": 17, "running": 0, "failed": 0, "beat": "03:24:36"}, {"task": "5", "job": "40828921_5", "host": "alh5", "gpu": "NVIDIA L40S", "state": "finished", "done": 16, "running": 0, "failed": 0, "beat": "03:24:39"}, {"task": "6", "job": "40828921_6", "host": "alh5", "gpu": "NVIDIA L40S", "state": "finished", "done": 47, "running": 0, "failed": 0, "beat": "03:24:15"}, {"task": "7", "job": "40828921_7", "host": "alh4", "gpu": "NVIDIA L40S", "state": "finished", "done": 141, "running": 0, "failed": 0, "beat": "03:24:12"}, {"task": "8", "job": "40828921_8", "host": "alh4", "gpu": "NVIDIA L40S", "state": "finished", "done": 147, "running": 0, "failed": 0, "beat": "03:24:12"}, {"task": "9", "job": "40828921_9", "host": "alh4", "gpu": "NVIDIA L40S", "state": "finished", "done": 136, "running": 0, "failed": 0, "beat": "03:24:12"}, {"task": "10", "job": "40828921_10", "host": "alh4", "gpu": "NVIDIA L40S", "state": "finished", "done": 139, "running": 0, "failed": 0, "beat": "03:24:12"}, {"task": "11", "job": "40828921_11", "host": "voh1", "gpu": "Tesla V100-SXM2-16GB", "state": "finished", "done": 0, "running": 0, "failed": 0, "beat": "03:24:46"}, {"task": "12", "job": "40828921_12", "host": "voh4", "gpu": "Tesla V100-SXM2-16GB", "state": "finished", "done": 0, "running": 0, "failed": 0, "beat": "03:24:11"}, {"task": "13", "job": "40828921_13", "host": "voh4", "gpu": "Tesla V100-SXM2-16GB", "state": "finished", "done": 0, "running": 0, "failed": 0, "beat": "03:24:17"}, {"task": "14", "job": "40828921_14", "host": "voh7", "gpu": "Tesla V100-SXM2-16GB", "state": "finished", "done": 0, "running": 0, "failed": 0, "beat": "03:24:27"}, {"task": "15", "job": "40828921_15", "host": "voh4", "gpu": "Tesla V100-SXM2-16GB", "state": "finished", "done": 0, "running": 0, "failed": 0, "beat": "03:24:37"}], "history": [{"minute": 0.0, "done": 716}], "first_at": "2026-10-28T03:26:00+00:00", "lines": ["drr-gap at 2026-10-28 03:26 UTC: stage summary; units 716 of 716 done, 0 running, 0 failed", "stage render: done in 408 s", "stage plan: done in 0 s", "stage images: done in 0 s", "stage features: done in 0 s", "stage heads: done in 4 s", "stage analysis: done in 392 s", "stage figures: done in 30 s", "stage summary: done in 0 s", "reading flexray: 179 of 179 (family 20 of 20, group 90 of 90, real 36 of 36, fvf 1 of 1, replication 6 of 6, null 10 of 10, structure 1 of 1, nearest 10 of 10, fd_all 1 of 1, maps 4 of 4)", "reading flexray_as_stored: 179 of 179 (family 20 of 20, group 90 of 90, real 36 of 36, fvf 1 of 1, replication 6 of 6, null 10 of 10, structure 1 of 1, nearest 10 of 10, fd_all 1 of 1, maps 4 of 4)", "reading imagenet: 179 of 179 (family 20 of 20, group 90 of 90, real 36 of 36, fvf 1 of 1, replication 6 of 6, null 10 of 10, structure 1 of 1, nearest 10 of 10, fd_all 1 of 1, maps 4 of 4)", "reading physics: 179 of 179 (family 20 of 20, group 90 of 90, real 36 of 36, fvf 1 of 1, replication 6 of 6, null 10 of 10, structure 1 of 1, nearest 10 of 10, fd_all 1 of 1, maps 4 of 4)", "task 0 (40828921_0, voh6, Tesla V100-SXM2-16GB): finished, 16 done, 0 running, 0 failed, beat 03:24:35 UTC", "task 1 (40828921_1, voh7, Tesla V100-SXM2-16GB): finished, 25 done, 0 running, 0 failed, beat 03:24:49 UTC", "task 2 (40828921_2, voh7, Tesla V100-SXM2-16GB): finished, 16 done, 0 running, 0 failed, beat 03:24:12 UTC", "task 3 (40828921_3, voh4, Tesla V100-SXM2-16GB): finished, 16 done, 0 running, 0 failed, beat 03:23:51 UTC", "task 4 (40828921_4, voh5, Tesla V100-SXM2-16GB): finished, 17 done, 0 running, 0 failed, beat 03:24:36 UTC", "task 5 (40828921_5, alh5, NVIDIA L40S): finished, 16 done, 0 running, 0 failed, beat 03:24:39 UTC", "task 6 (40828921_6, alh5, NVIDIA L40S): finished, 47 done, 0 running, 0 failed, beat 03:24:15 UTC", "task 7 (40828921_7, alh4, NVIDIA L40S): finished, 141 done, 0 running, 0 failed, beat 03:24:12 UTC", "task 8 (40828921_8, alh4, NVIDIA L40S): finished, 147 done, 0 running, 0 failed, beat 03:24:12 UTC", "task 9 (40828921_9, alh4, NVIDIA L40S): finished, 136 done, 0 running, 0 failed, beat 03:24:12 UTC", "task 10 (40828921_10, alh4, NVIDIA L40S): finished, 139 done, 0 running, 0 failed, beat 03:24:12 UTC", "task 11 (40828921_11, voh1, Tesla V100-SXM2-16GB): finished, 0 done, 0 running, 0 failed, beat 03:24:46 UTC", "task 12 (40828921_12, voh4, Tesla V100-SXM2-16GB): finished, 0 done, 0 running, 0 failed, beat 03:24:11 UTC", "task 13 (40828921_13, voh4, Tesla V100-SXM2-16GB): finished, 0 done, 0 running, 0 failed, beat 03:24:17 UTC", "task 14 (40828921_14, voh7, Tesla V100-SXM2-16GB): finished, 0 done, 0 running, 0 failed, beat 03:24:27 UTC", "task 15 (40828921_15, voh4, Tesla V100-SXM2-16GB): finished, 0 done, 0 running, 0 failed, beat 03:24:37 UTC", "rate: 71.6 units a minute over the last 10 minutes", "timeline of units done: 5 min 711", "log: 03:24:37 task 15: finished, nothing left to claim: 0 done and 0 failed here", "log: 03:24:39 task 5: finished, nothing left to claim: 16 done and 0 failed here", "log: 03:24:46 task 11: finished, nothing left to claim: 0 done and 0 failed here", "log: 03:24:48 task 1: finished, nothing left to claim: 25 done and 0 failed here", "log: 03:24:56 merge: started as job 40828923 on voh1", "log: 03:24:57 merge: every one of the 716 units read back as done, from 16 tasks; the jobs ran on NVIDIA L40S x6, Tesla V100-SXM2-16GB x11, prepare's among them", "log: 03:24:57 merge: stage analysis done after 392 s", "log: 03:25:32 merge: stage figures done after 30 s", "log: 03:26:40 merge: stage summary done", "log: 03:26:40 merge: results.json, the figures and summary.txt written"], "footer": "Read from the gate's status word, which prints the study's PROGRESS.txt through the grid's filter: counts and stage names only, no result of the study and no file name. The page shows the run as it stood at the last read; Claude reads it again during the run and republishes."}</script>
+<script>
+(function () {
+  var S = JSON.parse(document.getElementById("state").textContent);
+  function el(tag, cls, text) { var e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; }
+  function pill(state, label) { return el("span", "pill s-" + (state || "none"), label || state || "none"); }
+  function pct(n, t) { return t ? (100 * n / t) : 0; }
+
+  document.getElementById("sub").textContent = S.subtitle;
+  var read = document.getElementById("read");
+  read.appendChild(pill(S.phase, S.phase_label));
+  read.appendChild(document.createTextNode("  " + (S.progress_at ? "progress of " + S.progress_at + ", " : "") + "read " + S.updated));
+  var note = document.getElementById("note"); note.appendChild(el("p", null, S.note));
+
+  var figs = document.getElementById("figures");
+  (S.figures || []).forEach(function (f) {
+    var box = el("div", "figure"); box.appendChild(el("div", "n", f.value)); box.appendChild(el("div", "l", f.label)); figs.appendChild(box);
+  });
+
+  var strip = document.getElementById("strip");
+  (S.pipeline || []).forEach(function (g) {
+    var box = el("div", "group state-" + g.state);
+    var top = el("div", "top"); top.appendChild(el("span", "k", g.job)); top.appendChild(pill(g.state)); box.appendChild(top);
+    box.appendChild(el("span", "t", g.name));
+    (g.items || []).forEach(function (it) {
+      var row = el("div", "item"); row.appendChild(el("span", "dot " + it.state)); row.appendChild(el("span", null, it.name));
+      if (it.detail) row.appendChild(el("span", "d", it.detail));
+      box.appendChild(row);
+    });
+    strip.appendChild(box);
+  });
+
+  var readings = document.getElementById("readings");
+  if (!(S.readings || []).length) readings.appendChild(el("p", "empty", "The readings and their units appear once prepare has listed them."));
+  (S.readings || []).forEach(function (r) {
+    var box = el("div", "reading");
+    var row = el("div", "row"); row.appendChild(el("span", null, r.key));
+    row.appendChild(el("span", "v", r.invalid ? "not read" : r.done + " of " + r.total));
+    box.appendChild(row);
+    if (r.invalid) { box.appendChild(el("span", "kinds", r.invalid)); readings.appendChild(box); return; }
+    var bar = el("div", "bar");
+    var d = el("span", "b-done"); d.style.width = pct(r.done, r.total) + "%"; bar.appendChild(d);
+    box.appendChild(bar);
+    box.appendChild(el("span", "kinds", (r.kinds || []).map(function (k) { return k.kind + " " + k.done + "/" + k.total; }).join("  ·  ")));
+    readings.appendChild(box);
+  });
+
+  var tasks = document.getElementById("tasks");
+  if (!(S.tasks || []).length) tasks.appendChild(el("p", "empty", "Each of the array's tasks appears here with its card, its counts and its last heartbeat once it starts."));
+  (S.tasks || []).forEach(function (t) {
+    var box = el("div", "task");
+    box.appendChild(el("span", "id", "task " + t.task));
+    box.appendChild(el("span", "v", t.done + " done, " + t.running + " running, " + t.failed + " failed"));
+    box.appendChild(pill(t.state));
+    box.appendChild(el("span", "sub", t.job + " on " + t.host + ", " + t.gpu + ", heartbeat " + t.beat));
+    tasks.appendChild(box);
+  });
+
+  var chart = document.getElementById("chart"), H = S.history || [];
+  if (H.length < 2) {
+    chart.appendChild(el("p", "empty", "The trace starts with the second read of the run's progress: each read adds a point, units done against minutes since the first unit was done."));
+  } else {
+    var W = 1000, Ht = 240, L = 48, R = 16, T = 14, B = 30;
+    var total = S.total_units || Math.max.apply(null, H.map(function (p) { return p.done; }));
+    var maxX = Math.max(5, H[H.length - 1].minute);
+    function x(m) { return L + (W - L - R) * m / maxX; }
+    function y(n) { return T + (Ht - T - B) * (1 - n / total); }
+    var ns = "http://www.w3.org/2000/svg", svg = document.createElementNS(ns, "svg");
+    svg.setAttribute("viewBox", "0 0 " + W + " " + Ht); svg.setAttribute("class", "chart"); svg.setAttribute("role", "img");
+    svg.setAttribute("aria-label", "Units done over time");
+    function add(name, attrs, text) { var e = document.createElementNS(ns, name); for (var k in attrs) e.setAttribute(k, attrs[k]); if (text != null) e.textContent = text; svg.appendChild(e); return e; }
+    [0, 0.25, 0.5, 0.75, 1].forEach(function (f) {
+      var n = Math.round(total * f);
+      add("line", { x1: L, x2: W - R, y1: y(n), y2: y(n), stroke: "var(--line)", "stroke-width": 1 });
+      add("text", { x: L - 6, y: y(n) + 4, "text-anchor": "end" }, String(n));
+    });
+    var step = maxX > 240 ? 60 : maxX > 60 ? 30 : 10;
+    for (var m = 0; m <= maxX; m += step) add("text", { x: x(m), y: Ht - 10, "text-anchor": "middle" }, m + " min");
+    var pts = H.map(function (p) { return x(p.minute) + "," + y(p.done); }).join(" ");
+    add("polygon", { points: x(H[0].minute) + "," + y(0) + " " + pts + " " + x(H[H.length - 1].minute) + "," + y(0), fill: "var(--done-soft)" });
+    add("polyline", { points: pts, fill: "none", stroke: "var(--done)", "stroke-width": 2 });
+    var last = H[H.length - 1];
+    add("circle", { cx: x(last.minute), cy: y(last.done), r: 4, fill: "var(--done)" });
+    chart.appendChild(svg);
+  }
+
+  var log = document.getElementById("log");
+  if (!(S.log || []).length) log.appendChild(el("p", "empty", "Each step writes a line as it starts, finishes a stage, takes over a stale unit or fails; the newest ten show here once the run starts."));
+  (S.log || []).forEach(function (r) {
+    var row = el("div", "logrow" + (/FAILED|ended by Slurm|died/.test(r.text) ? " bad" : ""));
+    row.appendChild(el("span", "at", r.at)); row.appendChild(el("span", null, r.text)); log.appendChild(row);
+  });
+
+  document.getElementById("lines").textContent = (S.lines || []).join("\n") || "No progress has been read yet.";
+  document.getElementById("foot").textContent = S.footer;
+})();
+</script>

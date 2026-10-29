@@ -1,0 +1,410 @@
+[
+ {
+  "id": "s1606",
+  "ct": "/tmp/claude-0/-home-user/cce9be24-c0db-5397-a20f-4a142d2b8513/scratchpad/ts/subjects/s1606/ct.nii.gz",
+  "member": "totalsegmentator",
+  "mm": [
+   189,
+   189,
+   315
+  ],
+  "est_s": 391,
+  "release": "/tmp/claude-0/-home-user/cce9be24-c0db-5397-a20f-4a142d2b8513/scratchpad/ts/subjects/s1606"
+ },
+ {
+  "id": "s1532",
+  "ct": "/tmp/claude-0/-home-user/cce9be24-c0db-5397-a20f-4a142d2b8513/scratchpad/ts/subjects/s1532/ct.nii.gz",
+  "member": "totalsegmentator",
+  "mm": [
+   148,
+   148,
+   368
+  ],
+  "est_s": 456,
+  "release": "/tmp/claude-0/-home-user/cce9be24-c0db-5397-a20f-4a142d2b8513/scratchpad/ts/subjects/s1532"
+ },
+ {
+  "id": "s1593",
+  "ct": "/tmp/claude-0/-home-user/cce9be24-c0db-5397-a20f-4a142d2b8513/scratchpad/ts/subjects/s1593/ct.nii.gz",
+  "member": "totalsegmentator",
+  "mm": [
+   252,
+   252,
+   507
+  ],
+  "est_s": 629,
+  "release": "/tmp/claude-0/-home-user/cce9be24-c0db-5397-a20f-4a142d2b8513/scratchpad/ts/subjects/s1593"
+ },
+ {
+  "id": "verse018",
+  "ct": "/tmp/claude-0/-home-user/cce9be24-c0db-5397-a20f-4a142d2b8513/scratchpad/verse_ct/verse20/verse018_CT-sag.nii.gz",
+  "member": "verse",
+  "mm": [
+   401,
+   522,
+   300
+  ],
+  "est_s": 648,
+  "release": "/tmp/claude-0/-home-user/cce9be24-c0db-5397-a20f-4a142d2b8513/scratchpad/work/MASKS/verse20/verse018_CT-sag_seg.nii.gz"
+ },
+ {
+  "id": "s2065",
+  "ct": "/tmp/claude-0/-home-user/cce9be24-c0db-5397-a20f-4a142d2b8513/scratchpad/ts/subjects/s2065/ct.nii.gz",
+  "member": "totalsegmentator",
+  "mm": [
+   500,
+   500,
+   584
+  ],
+  "est_s": 724,
+  "release": "/tmp/claude-0/-home-user/cce9be24-c0db-5397-a20f-4a142d2b8513/scratchpad/ts/subjects/s2065"
+ },
+ {
+  "id": "verse033",
+  "ct": "/tmp/claude-0/-home-user/cce9be24-c0db-5397-a20f-4a142d2b8513/scratchpad/verse_ct/verse20/verse033.nii.gz",
+  "member": "verse",
+  "mm": [
+   275,
+   605,
+   162
+  ],
+  "est_s": 751,
+  "release": "/tmp/claude-0/-home-user/cce9be24-c0db-5397-a20f-4a142d2b8513/scratchpad/work/MASKS/verse20/verse033_seg.nii.gz"
+ },
+ {
+  "id": "s1411",
+  "ct": "/tmp/claude-0/-home-user/cce9be24-c0db-5397-a20f-4a142d2b8513/scratchpad/ts/subjects/s1411/ct.nii.gz",
+  "member": "totalsegmentator",
+  "mm": [
+   465,
+   465,
+   651
+  ],
+  "est_s": 808,
+  "release": "/tmp/claude-0/-home-user/cce9be24-c0db-5397-a20f-4a142d2b8513/scratchpad/ts/subjects/s1411"
+ },
+ {
+  "id": "verse558",
+  "ct": "/tmp/claude-0/-home-user/cce9be24-c0db-5397-a20f-4a142d2b8513/scratchpad/verse_ct/verse20/verse558_CT-sag.nii.gz",
+  "member": "verse",
+  "mm": [
+   170,
+   665,
+   176
+  ],
+  "est_s": 825,
+  "release": "/tmp/claude-0/-home-user/cce9be24-c0db-5397-a20f-4a142d2b8513/scratchpad/work/MASKS/verse20/verse558_CT-sag_seg.nii.gz"
+ },
+ {
+  "id": "verse559",
+  "ct": "/tmp/claude-0/-home-user/cce9be24-c0db-5397-a20f-4a142d2b8513/scratchpad/verse_ct/verse20/verse559_CT-sag.nii.gz",
+  "member": "verse",
+  "mm": [
+   252,
+   694,
+   330
+  ],
+  "est_s": 861,
+  "release": "/tmp/claude-0/-home-user/cce9be24-c0db-5397-a20f-4a142d2b8513/scratchpad/work/MASKS/verse20/verse559_CT-sag_seg.nii.gz"
+ },
+ {
+  "id": "verse561",
+  "ct": "/tmp/claude-0/-home-user/cce9be24-c0db-5397-a20f-4a142d2b8513/scratchpad/verse_ct/verse20/verse561_CT-sag.nii.gz",
+  "member": "verse",
+  "mm": [
+   245,
+   698,
+   268
+  ],
+  "est_s": 866,
+  "release": "/tmp/claude-0/-home-user/cce9be24-c0db-5397-a20f-4a142d2b8513/scratchpad/work/MASKS/verse20/verse561_CT-sag_seg.nii.gz"
+ },
+ {
+  "id": "verse255",
+  "ct": "/tmp/claude-0/-home-user/cce9be24-c0db-5397-a20f-4a142d2b8513/scratchpad/verse_ct/verse20/verse403_verse255_CT-sag.nii.gz",
+  "member": "verse",
+  "mm": [
+   346,
+   705,
+   348
+  ],
+  "est_s": 875,
+  "release": "/tmp/claude-0/-home-user/cce9be24-c0db-5397-a20f-4a142d2b8513/scratchpad/work/MASKS/verse20/verse403_verse255_CT-sag_seg.nii.gz"
+ },
+ {
+  "id": "verse108",
+  "ct": "/tmp/claude-0/-home-user/cce9be24-c0db-5397-a20f-4a142d2b8513/scratchpad/verse_ct/verse20/verse108_CT-iso.nii.gz",
+  "member": "verse",
+  "mm": [
+   459,
+   733,
+   494
+  ],
+  "est_s": 910,
+  "release": "/tmp/claude-0/-home-user/cce9be24-c0db-5397-a20f-4a142d2b8513/scratchpad/work/MASKS/verse20/verse108_CT-iso_seg.nii.gz"
+ },
+ {
+  "id": "verse649",
+  "ct": "/tmp/claude-0/-home-user/cce9be24-c0db-5397-a20f-4a142d2b8513/scratchpad/verse_ct/verse20/verse649_CT-sag.nii.gz",
+  "member": "verse",
+  "mm": [
+   286,
+   752,
+   324
+  ],
+  "est_s": 933,
+  "release": "/tmp/claude-0/-home-user/cce9be24-c0db-5397-a20f-4a142d2b8513/scratchpad/work/MASKS/verse20/verse649_CT-sag_seg.nii.gz"
+ },
+ {
+  "id": "verse588",
+  "ct": "/tmp/claude-0/-home-user/cce9be24-c0db-5397-a20f-4a142d2b8513/scratchpad/verse_ct/verse20/verse588_CT-sag.nii.gz",
+  "member": "verse",
+  "mm": [
+   291,
+   771,
+   346
+  ],
+  "est_s": 957,
+  "release": "/tmp/claude-0/-home-user/cce9be24-c0db-5397-a20f-4a142d2b8513/scratchpad/work/MASKS/verse20/verse588_CT-sag_seg.nii.gz"
+ },
+ {
+  "id": "verse766",
+  "ct": "/tmp/claude-0/-home-user/cce9be24-c0db-5397-a20f-4a142d2b8513/scratchpad/verse_ct/verse20/verse766_CT-ax.nii.gz",
+  "member": "verse",
+  "mm": [
+   360,
+   360,
+   780
+  ],
+  "est_s": 968,
+  "release": "/tmp/claude-0/-home-user/cce9be24-c0db-5397-a20f-4a142d2b8513/scratchpad/work/MASKS/verse20/verse766_CT-ax_seg.nii.gz"
+ },
+ {
+  "id": "verse236",
+  "ct": "/tmp/claude-0/-home-user/cce9be24-c0db-5397-a20f-4a142d2b8513/scratchpad/verse_ct/verse20/verse236_CT-iso.nii.gz",
+  "member": "verse",
+  "mm": [
+   369,
+   369,
+   787
+  ],
+  "est_s": 977,
+  "release": "/tmp/claude-0/-home-user/cce9be24-c0db-5397-a20f-4a142d2b8513/scratchpad/work/MASKS/verse20/verse236_CT-iso_seg.nii.gz"
+ },
+ {
+  "id": "verse593",
+  "ct": "/tmp/claude-0/-home-user/cce9be24-c0db-5397-a20f-4a142d2b8513/scratchpad/verse_ct/verse20/verse593_CT-sag.nii.gz",
+  "member": "verse",
+  "mm": [
+   305,
+   797,
+   492
+  ],
+  "est_s": 989,
+  "release": "/tmp/claude-0/-home-user/cce9be24-c0db-5397-a20f-4a142d2b8513/scratchpad/work/MASKS/verse20/verse593_CT-sag_seg.nii.gz"
+ },
+ {
+  "id": "verse531",
+  "ct": "/tmp/claude-0/-home-user/cce9be24-c0db-5397-a20f-4a142d2b8513/scratchpad/verse_ct/verse20/verse531_CT-sag.nii.gz",
+  "member": "verse",
+  "mm": [
+   268,
+   802,
+   396
+  ],
+  "est_s": 995,
+  "release": "/tmp/claude-0/-home-user/cce9be24-c0db-5397-a20f-4a142d2b8513/scratchpad/work/MASKS/verse20/verse531_CT-sag_seg.nii.gz"
+ },
+ {
+  "id": "verse547",
+  "ct": "/tmp/claude-0/-home-user/cce9be24-c0db-5397-a20f-4a142d2b8513/scratchpad/verse_ct/verse20/verse547_CT-iso.nii.gz",
+  "member": "verse",
+  "mm": [
+   473,
+   473,
+   810
+  ],
+  "est_s": 1005,
+  "release": "/tmp/claude-0/-home-user/cce9be24-c0db-5397-a20f-4a142d2b8513/scratchpad/work/MASKS/verse20/verse547_CT-iso_seg.nii.gz"
+ },
+ {
+  "id": "verse631",
+  "ct": "/tmp/claude-0/-home-user/cce9be24-c0db-5397-a20f-4a142d2b8513/scratchpad/verse_ct/verse20/verse631_CT-sag.nii.gz",
+  "member": "verse",
+  "mm": [
+   351,
+   816,
+   316
+  ],
+  "est_s": 1013,
+  "release": "/tmp/claude-0/-home-user/cce9be24-c0db-5397-a20f-4a142d2b8513/scratchpad/work/MASKS/verse20/verse631_CT-sag_seg.nii.gz"
+ },
+ {
+  "id": "verse644",
+  "ct": "/tmp/claude-0/-home-user/cce9be24-c0db-5397-a20f-4a142d2b8513/scratchpad/verse_ct/verse20/verse644_CT-sag.nii.gz",
+  "member": "verse",
+  "mm": [
+   206,
+   824,
+   228
+  ],
+  "est_s": 1022,
+  "release": "/tmp/claude-0/-home-user/cce9be24-c0db-5397-a20f-4a142d2b8513/scratchpad/work/MASKS/verse20/verse644_CT-sag_seg.nii.gz"
+ },
+ {
+  "id": "verse823",
+  "ct": "/tmp/claude-0/-home-user/cce9be24-c0db-5397-a20f-4a142d2b8513/scratchpad/verse_ct/verse20/verse823_CT-iso.nii.gz",
+  "member": "verse",
+  "mm": [
+   368,
+   368,
+   850
+  ],
+  "est_s": 1054,
+  "release": "/tmp/claude-0/-home-user/cce9be24-c0db-5397-a20f-4a142d2b8513/scratchpad/work/MASKS/verse20/verse823_CT-iso_seg.nii.gz"
+ },
+ {
+  "id": "verse759",
+  "ct": "/tmp/claude-0/-home-user/cce9be24-c0db-5397-a20f-4a142d2b8513/scratchpad/verse_ct/verse20/verse759_CT-sag.nii.gz",
+  "member": "verse",
+  "mm": [
+   858,
+   858,
+   420
+  ],
+  "est_s": 1064,
+  "release": "/tmp/claude-0/-home-user/cce9be24-c0db-5397-a20f-4a142d2b8513/scratchpad/work/MASKS/verse20/verse759_CT-sag_seg.nii.gz"
+ },
+ {
+  "id": "verse585",
+  "ct": "/tmp/claude-0/-home-user/cce9be24-c0db-5397-a20f-4a142d2b8513/scratchpad/verse_ct/verse20/verse585_CT-sag.nii.gz",
+  "member": "verse",
+  "mm": [
+   350,
+   860,
+   328
+  ],
+  "est_s": 1067,
+  "release": "/tmp/claude-0/-home-user/cce9be24-c0db-5397-a20f-4a142d2b8513/scratchpad/work/MASKS/verse20/verse585_CT-sag_seg.nii.gz"
+ },
+ {
+  "id": "verse607",
+  "ct": "/tmp/claude-0/-home-user/cce9be24-c0db-5397-a20f-4a142d2b8513/scratchpad/verse_ct/verse20/verse607_CT-sag.nii.gz",
+  "member": "verse",
+  "mm": [
+   292,
+   869,
+   314
+  ],
+  "est_s": 1078,
+  "release": "/tmp/claude-0/-home-user/cce9be24-c0db-5397-a20f-4a142d2b8513/scratchpad/work/MASKS/verse20/verse607_CT-sag_seg.nii.gz"
+ },
+ {
+  "id": "verse581",
+  "ct": "/tmp/claude-0/-home-user/cce9be24-c0db-5397-a20f-4a142d2b8513/scratchpad/verse_ct/verse20/verse581_CT-iso.nii.gz",
+  "member": "verse",
+  "mm": [
+   350,
+   350,
+   892
+  ],
+  "est_s": 1107,
+  "release": "/tmp/claude-0/-home-user/cce9be24-c0db-5397-a20f-4a142d2b8513/scratchpad/work/MASKS/verse20/verse581_CT-iso_seg.nii.gz"
+ },
+ {
+  "id": "verse549",
+  "ct": "/tmp/claude-0/-home-user/cce9be24-c0db-5397-a20f-4a142d2b8513/scratchpad/verse_ct/verse20/verse549_CT-iso.nii.gz",
+  "member": "verse",
+  "mm": [
+   500,
+   500,
+   921
+  ],
+  "est_s": 1143,
+  "release": "/tmp/claude-0/-home-user/cce9be24-c0db-5397-a20f-4a142d2b8513/scratchpad/work/MASKS/verse20/verse549_CT-iso_seg.nii.gz"
+ },
+ {
+  "id": "verse809",
+  "ct": "/tmp/claude-0/-home-user/cce9be24-c0db-5397-a20f-4a142d2b8513/scratchpad/verse_ct/verse20/verse809_CT-iso.nii.gz",
+  "member": "verse",
+  "mm": [
+   500,
+   500,
+   951
+  ],
+  "est_s": 1180,
+  "release": "/tmp/claude-0/-home-user/cce9be24-c0db-5397-a20f-4a142d2b8513/scratchpad/work/MASKS/verse20/verse809_CT-iso_seg.nii.gz"
+ },
+ {
+  "id": "verse758",
+  "ct": "/tmp/claude-0/-home-user/cce9be24-c0db-5397-a20f-4a142d2b8513/scratchpad/verse_ct/verse20/verse758_CT-sag.nii.gz",
+  "member": "verse",
+  "mm": [
+   700,
+   700,
+   975
+  ],
+  "est_s": 1210,
+  "release": "/tmp/claude-0/-home-user/cce9be24-c0db-5397-a20f-4a142d2b8513/scratchpad/work/MASKS/verse20/verse758_CT-sag_seg.nii.gz"
+ },
+ {
+  "id": "verse563",
+  "ct": "/tmp/claude-0/-home-user/cce9be24-c0db-5397-a20f-4a142d2b8513/scratchpad/verse_ct/verse20/verse563_CT-iso.nii.gz",
+  "member": "verse",
+  "mm": [
+   360,
+   316,
+   976
+  ],
+  "est_s": 1211,
+  "release": "/tmp/claude-0/-home-user/cce9be24-c0db-5397-a20f-4a142d2b8513/scratchpad/work/MASKS/verse20/verse563_CT-iso_seg.nii.gz"
+ },
+ {
+  "id": "verse573",
+  "ct": "/tmp/claude-0/-home-user/cce9be24-c0db-5397-a20f-4a142d2b8513/scratchpad/verse_ct/verse20/verse573_CT-iso.nii.gz",
+  "member": "verse",
+  "mm": [
+   500,
+   500,
+   1731
+  ],
+  "est_s": 2147,
+  "release": "/tmp/claude-0/-home-user/cce9be24-c0db-5397-a20f-4a142d2b8513/scratchpad/work/MASKS/verse20/verse573_CT-iso_seg.nii.gz"
+ },
+ {
+  "id": "verse602",
+  "ct": "/tmp/claude-0/-home-user/cce9be24-c0db-5397-a20f-4a142d2b8513/scratchpad/verse_ct/verse20/verse602_CT-iso.nii.gz",
+  "member": "verse",
+  "mm": [
+   500,
+   500,
+   1821
+  ],
+  "est_s": 2259,
+  "release": "/tmp/claude-0/-home-user/cce9be24-c0db-5397-a20f-4a142d2b8513/scratchpad/work/MASKS/verse20/verse602_CT-iso_seg.nii.gz"
+ },
+ {
+  "id": "s1890",
+  "ct": "/tmp/claude-0/-home-user/cce9be24-c0db-5397-a20f-4a142d2b8513/scratchpad/ts/subjects/s1890/ct.nii.gz",
+  "member": "totalsegmentator",
+  "mm": [
+   195,
+   146,
+   346
+  ],
+  "est_s": 430,
+  "release": "/tmp/claude-0/-home-user/cce9be24-c0db-5397-a20f-4a142d2b8513/scratchpad/ts/subjects/s1890"
+ },
+ {
+  "id": "s1597",
+  "ct": "/tmp/claude-0/-home-user/cce9be24-c0db-5397-a20f-4a142d2b8513/scratchpad/ts/subjects/s1597/ct.nii.gz",
+  "member": "totalsegmentator",
+  "mm": [
+   369,
+   369,
+   423
+  ],
+  "est_s": 2514,
+  "release": "/tmp/claude-0/-home-user/cce9be24-c0db-5397-a20f-4a142d2b8513/scratchpad/ts/subjects/s1597"
+ }
+]

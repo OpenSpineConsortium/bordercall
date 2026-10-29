@@ -1,0 +1,5144 @@
+[
+{
+"node": "4skx2",
+"path": "/03_test/rawdata/sub-gl108/sub-gl108_dir-ax_ct.nii.gz",
+"size": 51860073,
+"url": "https://osf.io/download/ms6n9/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/rawdata/sub-gl146/sub-gl146_dir-ax_ct.nii.gz",
+"size": 62393425,
+"url": "https://osf.io/download/guf98/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/rawdata/sub-gl195/sub-gl195_dir-ax_ct.nii.gz",
+"size": 57334237,
+"url": "https://osf.io/download/fegur/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/rawdata/sub-gl216/sub-gl216_dir-ax_ct.nii.gz",
+"size": 45704335,
+"url": "https://osf.io/download/57x3k/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/rawdata/sub-gl217/sub-gl217_dir-ax_ct.nii.gz",
+"size": 61501110,
+"url": "https://osf.io/download/yc32x/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/rawdata/sub-gl279/sub-gl279_dir-ax_ct.nii.gz",
+"size": 113382602,
+"url": "https://osf.io/download/tz5sj/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/rawdata/sub-gl348/sub-gl348_dir-ax_ct.nii.gz",
+"size": 50286184,
+"url": "https://osf.io/download/6njkm/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/rawdata/sub-gl419/sub-gl419_dir-ax_ct.nii.gz",
+"size": 51584414,
+"url": "https://osf.io/download/p84bt/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/rawdata/sub-gl428/sub-gl428_dir-ax_ct.nii.gz",
+"size": 56672940,
+"url": "https://osf.io/download/bz9uf/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/rawdata/sub-gl492/sub-gl492_dir-ax_ct.nii.gz",
+"size": 59393427,
+"url": "https://osf.io/download/48xwv/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/rawdata/sub-verse502/sub-verse502_dir-iso_ct.nii.gz",
+"size": 287514162,
+"url": "https://osf.io/download/4n7ek/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/rawdata/sub-verse509/sub-verse509_dir-iso_ct.nii.gz",
+"size": 230216978,
+"url": "https://osf.io/download/2gfwv/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/rawdata/sub-verse512/sub-verse512_dir-iso_ct.nii.gz",
+"size": 153942415,
+"url": "https://osf.io/download/pajq2/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/rawdata/sub-verse517/sub-verse517_dir-iso_ct.nii.gz",
+"size": 226910506,
+"url": "https://osf.io/download/u2fcq/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/rawdata/sub-verse524/sub-verse524_dir-iso_ct.nii.gz",
+"size": 474783702,
+"url": "https://osf.io/download/qwfue/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/rawdata/sub-verse526/sub-verse526_dir-iso_ct.nii.gz",
+"size": 284821595,
+"url": "https://osf.io/download/jcta5/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/rawdata/sub-verse540/sub-verse540_dir-iso_ct.nii.gz",
+"size": 186524375,
+"url": "https://osf.io/download/w9he6/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/rawdata/sub-verse546/sub-verse546_dir-ax_ct.nii.gz",
+"size": 137637053,
+"url": "https://osf.io/download/yc8rx/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/rawdata/sub-verse550/sub-verse550_dir-iso_ct.nii.gz",
+"size": 164556096,
+"url": "https://osf.io/download/j2pxw/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/rawdata/sub-verse551/sub-verse551_dir-iso_ct.nii.gz",
+"size": 206926289,
+"url": "https://osf.io/download/qe3rv/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/rawdata/sub-verse552/sub-verse552_dir-ax_ct.nii.gz",
+"size": 224700377,
+"url": "https://osf.io/download/smv7u/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/rawdata/sub-verse555/sub-verse555_dir-iso_ct.nii.gz",
+"size": 169647234,
+"url": "https://osf.io/download/pc6au/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/rawdata/sub-verse558/sub-verse558_dir-sag_ct.nii.gz",
+"size": 120807749,
+"url": "https://osf.io/download/jsfh2/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/rawdata/sub-verse560/sub-verse560_dir-iso_ct.nii.gz",
+"size": 140260297,
+"url": "https://osf.io/download/y4khr/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/rawdata/sub-verse563/sub-verse563_dir-iso_ct.nii.gz",
+"size": 1017059785,
+"url": "https://osf.io/download/6cfs2/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/rawdata/sub-verse570/sub-verse570_dir-iso_ct.nii.gz",
+"size": 200292040,
+"url": "https://osf.io/download/dn4fb/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/rawdata/sub-verse572/sub-verse572_dir-sag_ct.nii.gz",
+"size": 45869935,
+"url": "https://osf.io/download/vhc2r/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/rawdata/sub-verse578/sub-verse578_dir-iso_ct.nii.gz",
+"size": 138333045,
+"url": "https://osf.io/download/pe4sj/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/rawdata/sub-verse582/sub-verse582_dir-iso_ct.nii.gz",
+"size": 336386779,
+"url": "https://osf.io/download/xb5af/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/rawdata/sub-verse587/sub-verse587_dir-iso_ct.nii.gz",
+"size": 185371164,
+"url": "https://osf.io/download/f42u9/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/rawdata/sub-verse590/sub-verse590_dir-iso_ct.nii.gz",
+"size": 179176223,
+"url": "https://osf.io/download/nfw85/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/rawdata/sub-verse591/sub-verse591_dir-iso_ct.nii.gz",
+"size": 148704363,
+"url": "https://osf.io/download/p9cas/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/rawdata/sub-verse597/sub-verse597_dir-iso_ct.nii.gz",
+"size": 152004196,
+"url": "https://osf.io/download/vp7ng/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/rawdata/sub-verse599/sub-verse599_dir-iso_ct.nii.gz",
+"size": 368996478,
+"url": "https://osf.io/download/efhnd/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/rawdata/sub-verse602/sub-verse602_dir-iso_ct.nii.gz",
+"size": 733481980,
+"url": "https://osf.io/download/4zmts/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/rawdata/sub-verse604/sub-verse604_dir-iso_ct.nii.gz",
+"size": 171101580,
+"url": "https://osf.io/download/rqv68/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/rawdata/sub-verse607/sub-verse607_dir-sag_ct.nii.gz",
+"size": 248047460,
+"url": "https://osf.io/download/3mks2/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/rawdata/sub-verse613/sub-verse613_dir-iso_ct.nii.gz",
+"size": 336258803,
+"url": "https://osf.io/download/nf8bd/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/rawdata/sub-verse616/sub-verse616_dir-iso_ct.nii.gz",
+"size": 145866305,
+"url": "https://osf.io/download/9nhmt/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/rawdata/sub-verse617/sub-verse617_dir-iso_ct.nii.gz",
+"size": 157145344,
+"url": "https://osf.io/download/wfpc6/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/rawdata/sub-verse620/sub-verse620_dir-iso_ct.nii.gz",
+"size": 359687179,
+"url": "https://osf.io/download/yqk35/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/rawdata/sub-verse626/sub-verse626_dir-iso_ct.nii.gz",
+"size": 221180612,
+"url": "https://osf.io/download/nj8b9/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/rawdata/sub-verse647/sub-verse647_dir-sag_ct.nii.gz",
+"size": 45724406,
+"url": "https://osf.io/download/z3k7c/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/rawdata/sub-verse648/sub-verse648_dir-iso_ct.nii.gz",
+"size": 88622150,
+"url": "https://osf.io/download/kdvrm/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/rawdata/sub-verse649/sub-verse649_dir-sag_ct.nii.gz",
+"size": 226045240,
+"url": "https://osf.io/download/thpsk/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/rawdata/sub-verse650/sub-verse650_dir-iso_ct.nii.gz",
+"size": 232898056,
+"url": "https://osf.io/download/bavst/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/rawdata/sub-verse651/sub-verse651_dir-iso_ct.nii.gz",
+"size": 138334700,
+"url": "https://osf.io/download/y8csr/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/rawdata/sub-verse700/sub-verse700_dir-sag_ct.nii.gz",
+"size": 41297985,
+"url": "https://osf.io/download/54afv/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/rawdata/sub-verse702/sub-verse702_dir-sag_ct.nii.gz",
+"size": 40525220,
+"url": "https://osf.io/download/w29ca/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/rawdata/sub-verse704/sub-verse704_dir-iso_ct.nii.gz",
+"size": 408811815,
+"url": "https://osf.io/download/wh84e/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/rawdata/sub-verse706/sub-verse706_dir-sag_ct.nii.gz",
+"size": 54637259,
+"url": "https://osf.io/download/dk3gp/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/rawdata/sub-verse708/sub-verse708_dir-iso_ct.nii.gz",
+"size": 182291808,
+"url": "https://osf.io/download/eqgs8/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/rawdata/sub-verse710/sub-verse710_dir-iso_ct.nii.gz",
+"size": 206981573,
+"url": "https://osf.io/download/4efcm/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/rawdata/sub-verse712/sub-verse712_dir-iso_ct.nii.gz",
+"size": 126107599,
+"url": "https://osf.io/download/esk2v/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/rawdata/sub-verse714/sub-verse714_dir-iso_ct.nii.gz",
+"size": 148944175,
+"url": "https://osf.io/download/hn3db/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/rawdata/sub-verse716/sub-verse716_dir-iso_ct.nii.gz",
+"size": 162705889,
+"url": "https://osf.io/download/wfybt/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/rawdata/sub-verse718/sub-verse718_dir-iso_ct.nii.gz",
+"size": 118934996,
+"url": "https://osf.io/download/q3f5v/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/rawdata/sub-verse751/sub-verse751_dir-sag_ct.nii.gz",
+"size": 41822340,
+"url": "https://osf.io/download/f9utj/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/rawdata/sub-verse752/sub-verse752_dir-ax_ct.nii.gz",
+"size": 138635307,
+"url": "https://osf.io/download/7b6e2/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/rawdata/sub-verse754/sub-verse754_dir-sag_ct.nii.gz",
+"size": 39721684,
+"url": "https://osf.io/download/gxu2s/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/rawdata/sub-verse756/sub-verse756_dir-iso_ct.nii.gz",
+"size": 272236936,
+"url": "https://osf.io/download/4p3eq/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/rawdata/sub-verse758/sub-verse758_dir-sag_ct.nii.gz",
+"size": 255642000,
+"url": "https://osf.io/download/sfxu6/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/rawdata/sub-verse760/sub-verse760_dir-iso_ct.nii.gz",
+"size": 143927929,
+"url": "https://osf.io/download/bksgu/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/rawdata/sub-verse762/sub-verse762_dir-iso_ct.nii.gz",
+"size": 186857783,
+"url": "https://osf.io/download/ab6cs/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/rawdata/sub-verse764/sub-verse764_dir-iso_ct.nii.gz",
+"size": 118453683,
+"url": "https://osf.io/download/42nxp/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/rawdata/sub-verse766/sub-verse766_dir-ax_ct.nii.gz",
+"size": 257323659,
+"url": "https://osf.io/download/qpxaj/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/rawdata/sub-verse768/sub-verse768_dir-ax_ct.nii.gz",
+"size": 97968471,
+"url": "https://osf.io/download/vc4em/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/rawdata/sub-verse801/sub-verse801_dir-iso_ct.nii.gz",
+"size": 168382401,
+"url": "https://osf.io/download/8a69b/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/rawdata/sub-verse803/sub-verse803_dir-iso_ct.nii.gz",
+"size": 217802331,
+"url": "https://osf.io/download/ydfge/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/rawdata/sub-verse804/sub-verse804_dir-iso_ct.nii.gz",
+"size": 172037142,
+"url": "https://osf.io/download/wh5kj/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/rawdata/sub-verse809/sub-verse809_dir-iso_ct.nii.gz",
+"size": 593564258,
+"url": "https://osf.io/download/j5ehf/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/rawdata/sub-verse810/sub-verse810_dir-iso_ct.nii.gz",
+"size": 244655796,
+"url": "https://osf.io/download/udvp7/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/rawdata/sub-verse813/sub-verse813_dir-sag_ct.nii.gz",
+"size": 69682359,
+"url": "https://osf.io/download/gyqa4/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse813/sub-verse813_dir-sag_seg-subreg_ctd.json",
+"size": 487,
+"url": "https://osf.io/download/afw3b/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse813/sub-verse813_dir-sag_seg-vert_msk.nii.gz",
+"size": 2219256,
+"url": "https://osf.io/download/jd2fm/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse813/sub-verse813_dir-sag_seg-vert_snp.png",
+"size": 464155,
+"url": "https://osf.io/download/xh8jq/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse810/sub-verse810_dir-iso_seg-subreg_ctd.json",
+"size": 491,
+"url": "https://osf.io/download/mvp4q/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse810/sub-verse810_dir-iso_seg-vert_snp.png",
+"size": 1013800,
+"url": "https://osf.io/download/cgxk4/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse810/sub-verse810_dir-iso_seg-vert_msk.nii.gz",
+"size": 7818943,
+"url": "https://osf.io/download/4uwjc/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse809/sub-verse809_dir-iso_seg-subreg_ctd.json",
+"size": 1258,
+"url": "https://osf.io/download/87hfc/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse809/sub-verse809_dir-iso_seg-vert_snp.png",
+"size": 1665665,
+"url": "https://osf.io/download/8a5ct/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse809/sub-verse809_dir-iso_seg-vert_msk.nii.gz",
+"size": 13118920,
+"url": "https://osf.io/download/cghqa/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse804/sub-verse804_dir-iso_seg-subreg_ctd.json",
+"size": 542,
+"url": "https://osf.io/download/5hr2j/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse804/sub-verse804_dir-iso_seg-vert_snp.png",
+"size": 1127713,
+"url": "https://osf.io/download/s2e68/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse804/sub-verse804_dir-iso_seg-vert_msk.nii.gz",
+"size": 6164231,
+"url": "https://osf.io/download/9sw4b/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse803/sub-verse803_dir-iso_seg-subreg_ctd.json",
+"size": 845,
+"url": "https://osf.io/download/rqzps/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse803/sub-verse803_dir-iso_seg-vert_snp.png",
+"size": 914294,
+"url": "https://osf.io/download/8wk65/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse803/sub-verse803_dir-iso_seg-vert_msk.nii.gz",
+"size": 6687342,
+"url": "https://osf.io/download/zfkwa/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse801/sub-verse801_dir-iso_seg-subreg_ctd.json",
+"size": 389,
+"url": "https://osf.io/download/rkzp3/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse801/sub-verse801_dir-iso_seg-vert_snp.png",
+"size": 697063,
+"url": "https://osf.io/download/5ffc2b34e80d3702f0a5a05b/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse801/sub-verse801_dir-iso_seg-vert_msk.nii.gz",
+"size": 5377234,
+"url": "https://osf.io/download/num8k/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse768/sub-verse768_dir-ax_seg-subreg_ctd.json",
+"size": 593,
+"url": "https://osf.io/download/w9paj/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse768/sub-verse768_dir-ax_seg-vert_msk.nii.gz",
+"size": 3356060,
+"url": "https://osf.io/download/5uamc/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse768/sub-verse768_dir-ax_seg-vert_snp.png",
+"size": 1073582,
+"url": "https://osf.io/download/eh6t3/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse766/sub-verse766_dir-ax_seg-subreg_ctd.json",
+"size": 1247,
+"url": "https://osf.io/download/y3qxk/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse766/sub-verse766_dir-ax_seg-vert_snp.png",
+"size": 916444,
+"url": "https://osf.io/download/z9n48/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse766/sub-verse766_dir-ax_seg-vert_msk.nii.gz",
+"size": 6221514,
+"url": "https://osf.io/download/hd6qv/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse764/sub-verse764_dir-iso_seg-subreg_ctd.json",
+"size": 539,
+"url": "https://osf.io/download/zrmjs/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse764/sub-verse764_dir-iso_seg-vert_snp.png",
+"size": 577789,
+"url": "https://osf.io/download/5ffc2b4986541a02c914e32c/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse764/sub-verse764_dir-iso_seg-vert_msk.nii.gz",
+"size": 4098760,
+"url": "https://osf.io/download/u2pcz/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse762/sub-verse762_dir-iso_seg-subreg_ctd.json",
+"size": 491,
+"url": "https://osf.io/download/6csmf/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse762/sub-verse762_dir-iso_seg-vert_snp.png",
+"size": 899876,
+"url": "https://osf.io/download/qbxyw/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse762/sub-verse762_dir-iso_seg-vert_msk.nii.gz",
+"size": 6796102,
+"url": "https://osf.io/download/thm27/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse760/sub-verse760_dir-iso_seg-subreg_ctd.json",
+"size": 440,
+"url": "https://osf.io/download/sa5vz/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse760/sub-verse760_dir-iso_seg-vert_msk.nii.gz",
+"size": 4582060,
+"url": "https://osf.io/download/w86dn/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse760/sub-verse760_dir-iso_seg-vert_snp.png",
+"size": 833704,
+"url": "https://osf.io/download/mrxkd/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse758/sub-verse758_dir-sag_seg-subreg_ctd.json",
+"size": 1247,
+"url": "https://osf.io/download/r6kqu/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse758/sub-verse758_dir-sag_seg-vert_msk.nii.gz",
+"size": 7308639,
+"url": "https://osf.io/download/exdj8/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse758/sub-verse758_dir-sag_seg-vert_snp.png",
+"size": 1121347,
+"url": "https://osf.io/download/b3tr5/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse756/sub-verse756_dir-iso_seg-subreg_ctd.json",
+"size": 848,
+"url": "https://osf.io/download/4rxzf/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse756/sub-verse756_dir-iso_seg-vert_snp.png",
+"size": 1102148,
+"url": "https://osf.io/download/frqng/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse756/sub-verse756_dir-iso_seg-vert_msk.nii.gz",
+"size": 10269462,
+"url": "https://osf.io/download/h8mzn/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse754/sub-verse754_dir-sag_seg-subreg_ctd.json",
+"size": 382,
+"url": "https://osf.io/download/nbme5/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse754/sub-verse754_dir-sag_seg-vert_msk.nii.gz",
+"size": 1387544,
+"url": "https://osf.io/download/x9tky/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse754/sub-verse754_dir-sag_seg-vert_snp.png",
+"size": 459696,
+"url": "https://osf.io/download/2aq6g/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse752/sub-verse752_dir-ax_seg-subreg_ctd.json",
+"size": 847,
+"url": "https://osf.io/download/qrfx5/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse752/sub-verse752_dir-ax_seg-vert_msk.nii.gz",
+"size": 5049008,
+"url": "https://osf.io/download/5eqyb/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse752/sub-verse752_dir-ax_seg-vert_snp.png",
+"size": 1485549,
+"url": "https://osf.io/download/5ffc2b7586541a02c814c84a/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse751/sub-verse751_dir-sag_seg-subreg_ctd.json",
+"size": 632,
+"url": "https://osf.io/download/9kj4x/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse751/sub-verse751_dir-sag_seg-vert_snp.png",
+"size": 763447,
+"url": "https://osf.io/download/exuyg/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse751/sub-verse751_dir-sag_seg-vert_msk.nii.gz",
+"size": 2183858,
+"url": "https://osf.io/download/6nw83/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse718/sub-verse718_dir-iso_seg-subreg_ctd.json",
+"size": 389,
+"url": "https://osf.io/download/mxy32/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse718/sub-verse718_dir-iso_seg-vert_snp.png",
+"size": 585646,
+"url": "https://osf.io/download/zj7u6/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse718/sub-verse718_dir-iso_seg-vert_msk.nii.gz",
+"size": 4750818,
+"url": "https://osf.io/download/etuwv/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse716/sub-verse716_dir-iso_seg-subreg_ctd.json",
+"size": 440,
+"url": "https://osf.io/download/n5u4p/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse716/sub-verse716_dir-iso_seg-vert_snp.png",
+"size": 950011,
+"url": "https://osf.io/download/qjbwp/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse716/sub-verse716_dir-iso_seg-vert_msk.nii.gz",
+"size": 6155766,
+"url": "https://osf.io/download/5v4te/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse714/sub-verse714_dir-iso_seg-subreg_ctd.json",
+"size": 491,
+"url": "https://osf.io/download/3u25e/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse714/sub-verse714_dir-iso_seg-vert_snp.png",
+"size": 800881,
+"url": "https://osf.io/download/5ffc2b91e80d3702efa58c81/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse714/sub-verse714_dir-iso_seg-vert_msk.nii.gz",
+"size": 5444405,
+"url": "https://osf.io/download/53eas/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse712/sub-verse712_dir-iso_seg-subreg_ctd.json",
+"size": 491,
+"url": "https://osf.io/download/69szm/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse712/sub-verse712_dir-iso_seg-vert_msk.nii.gz",
+"size": 5044239,
+"url": "https://osf.io/download/2tkby/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse712/sub-verse712_dir-iso_seg-vert_snp.png",
+"size": 830130,
+"url": "https://osf.io/download/5ffc2b99ba010902da892519/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse710/sub-verse710_dir-iso_seg-subreg_ctd.json",
+"size": 591,
+"url": "https://osf.io/download/gf4hu/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse710/sub-verse710_dir-iso_seg-vert_snp.png",
+"size": 800824,
+"url": "https://osf.io/download/5ffc2ba0ba010902e6890d92/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse710/sub-verse710_dir-iso_seg-vert_msk.nii.gz",
+"size": 6436507,
+"url": "https://osf.io/download/28bc7/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse708/sub-verse708_dir-iso_seg-subreg_ctd.json",
+"size": 847,
+"url": "https://osf.io/download/hxm8n/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse708/sub-verse708_dir-iso_seg-vert_snp.png",
+"size": 1048910,
+"url": "https://osf.io/download/5ffc2ba7e80d3702f0a5a23c/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse708/sub-verse708_dir-iso_seg-vert_msk.nii.gz",
+"size": 7062254,
+"url": "https://osf.io/download/yu2cs/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse706/sub-verse706_dir-sag_seg-subreg_ctd.json",
+"size": 880,
+"url": "https://osf.io/download/4vg2z/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse706/sub-verse706_dir-sag_seg-vert_msk.nii.gz",
+"size": 3670017,
+"url": "https://osf.io/download/64whv/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse706/sub-verse706_dir-sag_seg-vert_snp.png",
+"size": 937030,
+"url": "https://osf.io/download/tvxc2/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse704/sub-verse704_dir-iso_seg-subreg_ctd.json",
+"size": 907,
+"url": "https://osf.io/download/3w7dx/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse704/sub-verse704_dir-iso_seg-vert_msk.nii.gz",
+"size": 15129143,
+"url": "https://osf.io/download/qzhg8/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse704/sub-verse704_dir-iso_seg-vert_snp.png",
+"size": 1298528,
+"url": "https://osf.io/download/ntyhp/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse620/sub-verse620_dir-iso_seg-subreg_ctd.json",
+"size": 998,
+"url": "https://osf.io/download/8ybrc/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse620/sub-verse620_dir-iso_seg-vert_msk.nii.gz",
+"size": 10417854,
+"url": "https://osf.io/download/ax97t/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse620/sub-verse620_dir-iso_seg-vert_snp.png",
+"size": 960744,
+"url": "https://osf.io/download/5j28e/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse617/sub-verse617_dir-iso_seg-subreg_ctd.json",
+"size": 389,
+"url": "https://osf.io/download/gkawv/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse617/sub-verse617_dir-iso_seg-vert_msk.nii.gz",
+"size": 5217324,
+"url": "https://osf.io/download/cthjy/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse617/sub-verse617_dir-iso_seg-vert_snp.png",
+"size": 941175,
+"url": "https://osf.io/download/e9c4m/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse702/sub-verse702_dir-sag_seg-vert_snp.png",
+"size": 757376,
+"url": "https://osf.io/download/5ffc2bcae80d3702e9a5ab9e/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse702/sub-verse702_dir-sag_seg-subreg_ctd.json",
+"size": 482,
+"url": "https://osf.io/download/ws6cr/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse702/sub-verse702_dir-sag_seg-vert_msk.nii.gz",
+"size": 1708146,
+"url": "https://osf.io/download/j4fhe/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse700/sub-verse700_dir-sag_seg-vert_snp.png",
+"size": 913553,
+"url": "https://osf.io/download/5ffc2bd186541a02ce14d839/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse700/sub-verse700_dir-sag_seg-vert_msk.nii.gz",
+"size": 1743311,
+"url": "https://osf.io/download/hgpty/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse700/sub-verse700_dir-sag_seg-subreg_ctd.json",
+"size": 582,
+"url": "https://osf.io/download/bgpj8/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse651/sub-verse651_dir-iso_seg-subreg_ctd.json",
+"size": 479,
+"url": "https://osf.io/download/tq95n/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse651/sub-verse651_dir-iso_seg-vert_snp.png",
+"size": 189548,
+"url": "https://osf.io/download/wjc3z/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse651/sub-verse651_dir-iso_seg-vert_msk.nii.gz",
+"size": 3313454,
+"url": "https://osf.io/download/n8bep/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse650/sub-verse650_dir-iso_seg-subreg_ctd.json",
+"size": 531,
+"url": "https://osf.io/download/6dk43/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse650/sub-verse650_dir-iso_seg-vert_snp.png",
+"size": 343123,
+"url": "https://osf.io/download/87u52/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse650/sub-verse650_dir-iso_seg-vert_msk.nii.gz",
+"size": 5109610,
+"url": "https://osf.io/download/yckjg/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse649/sub-verse649_dir-sag_seg-subreg_ctd.json",
+"size": 1232,
+"url": "https://osf.io/download/vsywa/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse649/sub-verse649_dir-sag_seg-vert_snp.png",
+"size": 870688,
+"url": "https://osf.io/download/83qd5/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse649/sub-verse649_dir-sag_seg-vert_msk.nii.gz",
+"size": 4294416,
+"url": "https://osf.io/download/mh3fy/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse648/sub-verse648_dir-iso_seg-vert_snp.png",
+"size": 258976,
+"url": "https://osf.io/download/64sgm/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse648/sub-verse648_dir-iso_seg-subreg_ctd.json",
+"size": 631,
+"url": "https://osf.io/download/3d9bx/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse648/sub-verse648_dir-iso_seg-vert_msk.nii.gz",
+"size": 2305989,
+"url": "https://osf.io/download/8bg9a/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse647/sub-verse647_dir-sag_seg-vert_msk.nii.gz",
+"size": 1544315,
+"url": "https://osf.io/download/79sgf/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse647/sub-verse647_dir-sag_seg-subreg_ctd.json",
+"size": 473,
+"url": "https://osf.io/download/zxjpy/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse647/sub-verse647_dir-sag_seg-vert_snp.png",
+"size": 229897,
+"url": "https://osf.io/download/5ffc2bf5e80d3702f0a5a377/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse626/sub-verse626_dir-iso_seg-subreg_ctd.json",
+"size": 896,
+"url": "https://osf.io/download/tx6wz/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse626/sub-verse626_dir-iso_seg-vert_snp.png",
+"size": 1300192,
+"url": "https://osf.io/download/3ke2z/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse626/sub-verse626_dir-iso_seg-vert_msk.nii.gz",
+"size": 6904367,
+"url": "https://osf.io/download/tw285/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse616/sub-verse616_dir-iso_seg-subreg_ctd.json",
+"size": 491,
+"url": "https://osf.io/download/6fg8j/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse616/sub-verse616_dir-iso_seg-vert_msk.nii.gz",
+"size": 4768241,
+"url": "https://osf.io/download/2ewvk/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse616/sub-verse616_dir-iso_seg-vert_snp.png",
+"size": 746104,
+"url": "https://osf.io/download/zgy75/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse613/sub-verse613_dir-iso_seg-subreg_ctd.json",
+"size": 948,
+"url": "https://osf.io/download/q74f6/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse613/sub-verse613_dir-iso_seg-vert_msk.nii.gz",
+"size": 10458493,
+"url": "https://osf.io/download/ysv8n/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse613/sub-verse613_dir-iso_seg-vert_snp.png",
+"size": 1075530,
+"url": "https://osf.io/download/w925r/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse607/sub-verse607_dir-sag_seg-subreg_ctd.json",
+"size": 1188,
+"url": "https://osf.io/download/x34z7/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse607/sub-verse607_dir-sag_seg-vert_msk.nii.gz",
+"size": 4641801,
+"url": "https://osf.io/download/e5s3z/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse607/sub-verse563_dir-iso_seg-vert_snp.png",
+"size": 926965,
+"url": "https://osf.io/download/6bp9e/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse604/sub-verse604_dir-iso_seg-subreg_ctd.json",
+"size": 491,
+"url": "https://osf.io/download/7hnxk/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse604/sub-verse604_dir-iso_seg-vert_msk.nii.gz",
+"size": 5302174,
+"url": "https://osf.io/download/dfmb5/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse604/sub-verse604_dir-iso_seg-vert_snp.png",
+"size": 946691,
+"url": "https://osf.io/download/e6v9s/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse602/sub-verse602_dir-iso_seg-subreg_ctd.json",
+"size": 1323,
+"url": "https://osf.io/download/gaer6/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse602/sub-verse563_dir-iso_seg-vert_snp.png",
+"size": 2246226,
+"url": "https://osf.io/download/qc34x/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse602/sub-verse602_dir-iso_seg-vert_msk.nii.gz",
+"size": 19023444,
+"url": "https://osf.io/download/8sfwn/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse599/sub-verse599_dir-iso_seg-subreg_ctd.json",
+"size": 1052,
+"url": "https://osf.io/download/nsz8a/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse599/sub-verse599_dir-iso_seg-vert_snp.png",
+"size": 1718648,
+"url": "https://osf.io/download/jfb35/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse599/sub-verse599_dir-iso_seg-vert_msk.nii.gz",
+"size": 11591208,
+"url": "https://osf.io/download/8edrz/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse597/sub-verse597_dir-iso_seg-subreg_ctd.json",
+"size": 440,
+"url": "https://osf.io/download/qrtms/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse597/sub-verse597_dir-iso_seg-vert_msk.nii.gz",
+"size": 4977620,
+"url": "https://osf.io/download/pjwd5/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse597/sub-verse597_dir-iso_seg-vert_snp.png",
+"size": 877149,
+"url": "https://osf.io/download/v8r3s/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse591/sub-verse591_dir-iso_seg-subreg_ctd.json",
+"size": 389,
+"url": "https://osf.io/download/znumh/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse591/sub-verse591_dir-iso_seg-vert_snp.png",
+"size": 876104,
+"url": "https://osf.io/download/g63nd/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse591/sub-verse591_dir-iso_seg-vert_msk.nii.gz",
+"size": 5008725,
+"url": "https://osf.io/download/v7jur/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse590/sub-verse590_dir-iso_seg-subreg_ctd.json",
+"size": 440,
+"url": "https://osf.io/download/6sbna/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse590/sub-verse590_dir-iso_seg-vert_msk.nii.gz",
+"size": 5497769,
+"url": "https://osf.io/download/2stpv/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse590/sub-verse590_dir-iso_seg-vert_snp.png",
+"size": 1023062,
+"url": "https://osf.io/download/m4twe/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse587/sub-verse587_dir-iso_seg-subreg_ctd.json",
+"size": 947,
+"url": "https://osf.io/download/2crfa/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse587/sub-verse587_dir-iso_seg-vert_snp.png",
+"size": 1095143,
+"url": "https://osf.io/download/5ffc2c45ba010902df8916e4/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse587/sub-verse587_dir-iso_seg-vert_msk.nii.gz",
+"size": 6740085,
+"url": "https://osf.io/download/3h8tf/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse582/sub-verse582_dir-iso_seg-subreg_ctd.json",
+"size": 1108,
+"url": "https://osf.io/download/juz9m/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse582/sub-verse582_dir-iso_seg-vert_snp.png",
+"size": 1802624,
+"url": "https://osf.io/download/vwmxd/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse582/sub-verse582_dir-iso_seg-vert_msk.nii.gz",
+"size": 12717791,
+"url": "https://osf.io/download/zduts/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse578/sub-verse578_dir-iso_seg-vert_msk.nii.gz",
+"size": 4403241,
+"url": "https://osf.io/download/8asfc/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse578/sub-verse578_dir-iso_seg-subreg_ctd.json",
+"size": 542,
+"url": "https://osf.io/download/2gfcu/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse578/sub-verse578_dir-iso_seg-vert_snp.png",
+"size": 847384,
+"url": "https://osf.io/download/5ffc2c5386541a02ce14da08/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse572/sub-verse572_dir-sag_seg-subreg_ctd.json",
+"size": 332,
+"url": "https://osf.io/download/jq2xf/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse572/sub-verse572_dir-sag_seg-vert_snp.png",
+"size": 496802,
+"url": "https://osf.io/download/y2nb7/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse572/sub-verse572_dir-sag_seg-vert_msk.nii.gz",
+"size": 1259344,
+"url": "https://osf.io/download/zyge9/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse570/sub-verse570_dir-iso_seg-subreg_ctd.json",
+"size": 948,
+"url": "https://osf.io/download/e9rg2/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse570/sub-verse570_dir-iso_seg-vert_snp.png",
+"size": 1406564,
+"url": "https://osf.io/download/bkgw4/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse570/sub-verse570_dir-iso_seg-vert_msk.nii.gz",
+"size": 7650962,
+"url": "https://osf.io/download/uvyj5/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse563/sub-verse563_dir-iso_seg-subreg_ctd.json",
+"size": 1208,
+"url": "https://osf.io/download/t82mc/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse563/sub-verse563_dir-iso_seg-vert_msk.nii.gz",
+"size": 17847052,
+"url": "https://osf.io/download/6m958/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse563/sub-verse563_dir-iso_seg-vert_snp.png",
+"size": 1587032,
+"url": "https://osf.io/download/5ffc2c69e80d3702e9a5ac7a/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse560/sub-verse560_dir-iso_seg-subreg_ctd.json",
+"size": 935,
+"url": "https://osf.io/download/xgzfp/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse560/sub-verse560_dir-iso_seg-vert_snp.png",
+"size": 1425730,
+"url": "https://osf.io/download/5ffc2c70ba010902e6890f6a/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse560/sub-verse560_dir-iso_seg-vert_msk.nii.gz",
+"size": 3914564,
+"url": "https://osf.io/download/fx4hr/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse558/sub-verse558_dir-sag_seg-vert_msk.nii.gz",
+"size": 795642,
+"url": "https://osf.io/download/p763h/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse558/sub-verse558_dir-sag_seg-subreg_ctd.json",
+"size": 992,
+"url": "https://osf.io/download/rwqfv/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse558/sub-verse558_dir-sag_seg-vert_snp.png",
+"size": 977117,
+"url": "https://osf.io/download/k3hcb/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse555/sub-verse555_dir-iso_seg-subreg_ctd.json",
+"size": 491,
+"url": "https://osf.io/download/4yf28/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse555/sub-verse555_dir-iso_seg-vert_snp.png",
+"size": 1117197,
+"url": "https://osf.io/download/a3vpt/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse555/sub-verse555_dir-iso_seg-vert_msk.nii.gz",
+"size": 6260415,
+"url": "https://osf.io/download/k748v/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse552/sub-verse552_dir-ax_seg-vert_msk.nii.gz",
+"size": 1184985,
+"url": "https://osf.io/download/2es6h/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse552/sub-verse552_dir-ax_seg-vert_snp.png",
+"size": 1278672,
+"url": "https://osf.io/download/qrufe/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse552/sub-verse552_dir-ax_seg-subreg_ctd.json",
+"size": 846,
+"url": "https://osf.io/download/m9rbh/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse551/sub-verse551_dir-iso_seg-subreg_ctd.json",
+"size": 898,
+"url": "https://osf.io/download/4narv/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse551/sub-verse551_dir-iso_seg-vert_snp.png",
+"size": 1419709,
+"url": "https://osf.io/download/5ffc2c8eba010902df891732/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse551/sub-verse551_dir-iso_seg-vert_msk.nii.gz",
+"size": 7050824,
+"url": "https://osf.io/download/x7sk2/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse550/sub-verse550_dir-iso_seg-subreg_ctd.json",
+"size": 389,
+"url": "https://osf.io/download/7u3zj/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse550/sub-verse550_dir-iso_seg-vert_snp.png",
+"size": 807287,
+"url": "https://osf.io/download/ed9kg/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse550/sub-verse550_dir-iso_seg-vert_msk.nii.gz",
+"size": 811171,
+"url": "https://osf.io/download/9evrx/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse546/sub-verse546_dir-ax_seg-subreg_ctd.json",
+"size": 389,
+"url": "https://osf.io/download/m67js/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse546/sub-verse546_dir-ax_seg-vert_msk.nii.gz",
+"size": 670450,
+"url": "https://osf.io/download/pb924/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse546/sub-verse546_dir-ax_seg-vert_snp.png",
+"size": 784388,
+"url": "https://osf.io/download/rbdca/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse540/sub-verse540_dir-iso_seg-subreg_ctd.json",
+"size": 948,
+"url": "https://osf.io/download/mh9an/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse540/sub-verse540_dir-iso_seg-vert_msk.nii.gz",
+"size": 7087759,
+"url": "https://osf.io/download/ks87z/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse540/sub-verse540_dir-iso_seg-vert_snp.png",
+"size": 1603287,
+"url": "https://osf.io/download/nhz42/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse526/sub-verse526_dir-iso_seg-subreg_ctd.json",
+"size": 897,
+"url": "https://osf.io/download/zmwqp/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse526/sub-verse526_dir-iso_seg-vert_msk.nii.gz",
+"size": 8529659,
+"url": "https://osf.io/download/x5fpr/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse526/sub-verse526_dir-iso_seg-vert_snp.png",
+"size": 1628227,
+"url": "https://osf.io/download/sg68c/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse524/sub-verse524_dir-iso_seg-subreg_ctd.json",
+"size": 960,
+"url": "https://osf.io/download/784rc/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse524/sub-verse524_dir-iso_seg-vert_snp.png",
+"size": 1892927,
+"url": "https://osf.io/download/2wbs8/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse524/sub-verse524_dir-iso_seg-vert_msk.nii.gz",
+"size": 15071583,
+"url": "https://osf.io/download/pmtge/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse517/sub-verse517_dir-iso_seg-subreg_ctd.json",
+"size": 898,
+"url": "https://osf.io/download/s4rwg/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse517/sub-verse517_dir-iso_seg-vert_snp.png",
+"size": 1158837,
+"url": "https://osf.io/download/e4j2x/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse517/sub-verse517_dir-iso_seg-vert_msk.nii.gz",
+"size": 7285495,
+"url": "https://osf.io/download/753pt/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse512/sub-verse512_dir-iso_seg-subreg_ctd.json",
+"size": 947,
+"url": "https://osf.io/download/m23k6/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse512/sub-verse512_dir-iso_seg-vert_snp.png",
+"size": 1278269,
+"url": "https://osf.io/download/5qnw8/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse512/sub-verse512_dir-iso_seg-vert_msk.nii.gz",
+"size": 6783169,
+"url": "https://osf.io/download/s57nj/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse509/sub-verse509_dir-iso_seg-subreg_ctd.json",
+"size": 998,
+"url": "https://osf.io/download/b3gvw/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse509/sub-verse509_dir-iso_seg-vert_snp.png",
+"size": 1403166,
+"url": "https://osf.io/download/48dze/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse509/sub-verse509_dir-iso_seg-vert_msk.nii.gz",
+"size": 7338567,
+"url": "https://osf.io/download/shfmc/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse502/sub-verse502_dir-iso_seg-subreg_ctd.json",
+"size": 901,
+"url": "https://osf.io/download/9xh58/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse502/sub-verse502_dir-iso_seg-vert_snp.png",
+"size": 2095393,
+"url": "https://osf.io/download/nt5xs/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-verse502/sub-verse502_dir-iso_seg-vert_msk.nii.gz",
+"size": 10601774,
+"url": "https://osf.io/download/rs2vk/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-gl492/sub-gl492_dir-ax_seg-vert_snp.png",
+"size": 272126,
+"url": "https://osf.io/download/mby9v/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-gl492/sub-gl492_dir-ax_seg-subreg_ctd.json",
+"size": 578,
+"url": "https://osf.io/download/zjue6/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-gl492/sub-gl492_dir-ax_seg-vert_msk.nii.gz",
+"size": 2136839,
+"url": "https://osf.io/download/9fm4z/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-gl428/sub-gl428_dir-ax_seg-subreg_ctd.json",
+"size": 674,
+"url": "https://osf.io/download/k9waj/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-gl428/sub-gl428_dir-ax_seg-vert_msk.nii.gz",
+"size": 2069266,
+"url": "https://osf.io/download/zuph3/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-gl428/sub-gl428_dir-ax_seg-vert_snp.png",
+"size": 314735,
+"url": "https://osf.io/download/8jvzd/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-gl419/sub-gl419_dir-ax_seg-vert_snp.png",
+"size": 275688,
+"url": "https://osf.io/download/qfte7/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-gl419/sub-gl419_dir-ax_seg-vert_msk.nii.gz",
+"size": 2068617,
+"url": "https://osf.io/download/5kebh/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-gl419/sub-gl419_dir-ax_seg-subreg_ctd.json",
+"size": 578,
+"url": "https://osf.io/download/phf8k/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-gl348/sub-gl348_dir-ax_seg-subreg_ctd.json",
+"size": 475,
+"url": "https://osf.io/download/ykw6g/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-gl348/sub-gl348_dir-ax_seg-vert_snp.png",
+"size": 257006,
+"url": "https://osf.io/download/gtvmd/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-gl348/sub-gl348_dir-ax_seg-vert_msk.nii.gz",
+"size": 1873373,
+"url": "https://osf.io/download/25pht/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-gl279/sub-gl279_dir-ax_seg-subreg_ctd.json",
+"size": 896,
+"url": "https://osf.io/download/vqmnf/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-gl279/sub-gl279_dir-ax_seg-vert_msk.nii.gz",
+"size": 370773,
+"url": "https://osf.io/download/hmxc6/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-gl279/sub-gl279_dir-ax_seg-vert_snp.png",
+"size": 742596,
+"url": "https://osf.io/download/zvgbq/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-gl217/sub-gl217_dir-ax_seg-subreg_ctd.json",
+"size": 528,
+"url": "https://osf.io/download/5zctk/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-gl217/sub-gl217_dir-ax_seg-vert_msk.nii.gz",
+"size": 2192702,
+"url": "https://osf.io/download/nxd5k/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-gl217/sub-gl217_dir-ax_seg-vert_snp.png",
+"size": 310658,
+"url": "https://osf.io/download/5ptwu/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-gl216/sub-gl216_dir-ax_seg-vert_snp.png",
+"size": 238746,
+"url": "https://osf.io/download/xsu8k/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-gl216/sub-gl216_dir-ax_seg-subreg_ctd.json",
+"size": 474,
+"url": "https://osf.io/download/qjb7x/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-gl216/sub-gl216_dir-ax_seg-vert_msk.nii.gz",
+"size": 1762255,
+"url": "https://osf.io/download/fbqhs/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-gl195/sub-gl195_dir-ax_seg-subreg_ctd.json",
+"size": 573,
+"url": "https://osf.io/download/njduf/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-gl195/sub-gl195_dir-ax_seg-vert_msk.nii.gz",
+"size": 2146826,
+"url": "https://osf.io/download/utr9h/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-gl195/sub-gl195_dir-ax_seg-vert_snp.png",
+"size": 302733,
+"url": "https://osf.io/download/6cg4w/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-gl146/sub-gl146_dir-ax_seg-subreg_ctd.json",
+"size": 628,
+"url": "https://osf.io/download/dsn8c/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-gl146/sub-gl146_dir-ax_seg-vert_snp.png",
+"size": 373242,
+"url": "https://osf.io/download/3zh5q/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-gl146/sub-gl146_dir-ax_seg-vert_msk.nii.gz",
+"size": 2162763,
+"url": "https://osf.io/download/h7ptj/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-gl108/sub-gl108_dir-ax_seg-subreg_ctd.json",
+"size": 526,
+"url": "https://osf.io/download/navsc/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-gl108/sub-gl108_dir-ax_seg-vert_msk.nii.gz",
+"size": 1885522,
+"url": "https://osf.io/download/ygjeb/"
+},
+{
+"node": "4skx2",
+"path": "/03_test/derivatives/sub-gl108/sub-gl108_dir-ax_seg-vert_snp.png",
+"size": 298712,
+"url": "https://osf.io/download/v3yjm/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/rawdata/sub-gl017/sub-gl017_ct.nii.gz",
+"size": 67728129,
+"url": "https://osf.io/download/f7r6w/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/rawdata/sub-gl045/sub-gl045_ct.nii.gz",
+"size": 66232859,
+"url": "https://osf.io/download/mqsrg/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/rawdata/sub-gl059/sub-gl059_ct.nii.gz",
+"size": 73207531,
+"url": "https://osf.io/download/9p4e7/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/rawdata/sub-gl068/sub-gl068_ct.nii.gz",
+"size": 61033507,
+"url": "https://osf.io/download/dxw93/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/rawdata/sub-gl099/sub-gl099_ct.nii.gz",
+"size": 66657610,
+"url": "https://osf.io/download/xcq8v/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/rawdata/sub-gl144/sub-gl144_ct.nii.gz",
+"size": 57822573,
+"url": "https://osf.io/download/h5mr9/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/rawdata/sub-gl153/sub-gl153_ct.nii.gz",
+"size": 60243389,
+"url": "https://osf.io/download/5saf4/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/rawdata/sub-gl352/sub-gl352_ct.nii.gz",
+"size": 61492968,
+"url": "https://osf.io/download/4ygxe/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/rawdata/sub-gl380/sub-gl380_ct.nii.gz",
+"size": 49762270,
+"url": "https://osf.io/download/74ckr/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/rawdata/sub-gl479/sub-gl479_ct.nii.gz",
+"size": 51323239,
+"url": "https://osf.io/download/adg6e/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/rawdata/sub-verse505/sub-verse505_ct.nii.gz",
+"size": 152683823,
+"url": "https://osf.io/download/gh93e/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/rawdata/sub-verse508/sub-verse508_dir-ax_ct.nii.gz",
+"size": 235047886,
+"url": "https://osf.io/download/rf8xk/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/rawdata/sub-verse511/sub-verse511_dir-ax_ct.nii.gz",
+"size": 238590678,
+"url": "https://osf.io/download/xz6vd/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/rawdata/sub-verse513/sub-verse513_ct.nii.gz",
+"size": 198228466,
+"url": "https://osf.io/download/78zm2/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/rawdata/sub-verse522/sub-verse522_ct.nii.gz",
+"size": 157437740,
+"url": "https://osf.io/download/f5rt9/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/rawdata/sub-verse529/sub-verse529_ct.nii.gz",
+"size": 190004764,
+"url": "https://osf.io/download/52je4/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/rawdata/sub-verse530/sub-verse530_ct.nii.gz",
+"size": 170928195,
+"url": "https://osf.io/download/zutcq/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/rawdata/sub-verse531/sub-verse531_ct.nii.gz",
+"size": 118226971,
+"url": "https://osf.io/download/ywfn8/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/rawdata/sub-verse545/sub-verse545_dir-ax_ct.nii.gz",
+"size": 258771636,
+"url": "https://osf.io/download/tycvn/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/rawdata/sub-verse547/sub-verse547_ct.nii.gz",
+"size": 377107667,
+"url": "https://osf.io/download/mdt4s/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/rawdata/sub-verse549/sub-verse549_ct.nii.gz",
+"size": 620119023,
+"url": "https://osf.io/download/xyheg/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/rawdata/sub-verse553/sub-verse553_ct.nii.gz",
+"size": 230878606,
+"url": "https://osf.io/download/w8fnx/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/rawdata/sub-verse554/sub-verse554_ct.nii.gz",
+"size": 217802708,
+"url": "https://osf.io/download/8r39t/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/rawdata/sub-verse556/sub-verse556_dir-ax_ct.nii.gz",
+"size": 285468422,
+"url": "https://osf.io/download/bp5n9/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/rawdata/sub-verse559/sub-verse559_ct.nii.gz",
+"size": 258320333,
+"url": "https://osf.io/download/9sc83/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/rawdata/sub-verse569/sub-verse569_ct.nii.gz",
+"size": 214485802,
+"url": "https://osf.io/download/dhvk2/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/rawdata/sub-verse571/sub-verse571_ct.nii.gz",
+"size": 219332963,
+"url": "https://osf.io/download/6f8s5/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/rawdata/sub-verse573/sub-verse573_ct.nii.gz",
+"size": 714554768,
+"url": "https://osf.io/download/j24sv/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/rawdata/sub-verse576/sub-verse576_ct.nii.gz",
+"size": 211348193,
+"url": "https://osf.io/download/d9ymt/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/rawdata/sub-verse580/sub-verse580_ct.nii.gz",
+"size": 170459217,
+"url": "https://osf.io/download/vrjpq/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/rawdata/sub-verse585/sub-verse585_ct.nii.gz",
+"size": 210532949,
+"url": "https://osf.io/download/wejtp/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/rawdata/sub-verse592/sub-verse592_dir-ax_ct.nii.gz",
+"size": 176259698,
+"url": "https://osf.io/download/h8dfr/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/rawdata/sub-verse598/sub-verse598_ct.nii.gz",
+"size": 282428730,
+"url": "https://osf.io/download/tr3cb/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/rawdata/sub-verse600/sub-verse600_dir-ax_ct.nii.gz",
+"size": 146884026,
+"url": "https://osf.io/download/5vtmz/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/rawdata/sub-verse601/sub-verse601_ct.nii.gz",
+"size": 195355808,
+"url": "https://osf.io/download/ysrk6/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/rawdata/sub-verse603/sub-verse603_ct.nii.gz",
+"size": 219036742,
+"url": "https://osf.io/download/vchsk/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/rawdata/sub-verse606/sub-verse606_ct.nii.gz",
+"size": 413979875,
+"url": "https://osf.io/download/5vkqj/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/rawdata/sub-verse609/sub-verse609_ct.nii.gz",
+"size": 163295570,
+"url": "https://osf.io/download/tj9rd/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/rawdata/sub-verse612/sub-verse612_ct.nii.gz",
+"size": 148248355,
+"url": "https://osf.io/download/d2nyj/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/rawdata/sub-verse614/sub-verse614_ct.nii.gz",
+"size": 169108931,
+"url": "https://osf.io/download/e8az5/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/rawdata/sub-verse615/sub-verse615_ct.nii.gz",
+"size": 226536390,
+"url": "https://osf.io/download/s8ex4/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/rawdata/sub-verse618/sub-verse618_ct.nii.gz",
+"size": 194492018,
+"url": "https://osf.io/download/ktwjn/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/rawdata/sub-verse621/sub-verse621_ct.nii.gz",
+"size": 173398881,
+"url": "https://osf.io/download/evj8u/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/rawdata/sub-verse623/sub-verse623_ct.nii.gz",
+"size": 95690381,
+"url": "https://osf.io/download/2gr6f/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/rawdata/sub-verse627/sub-verse627_ct.nii.gz",
+"size": 169109949,
+"url": "https://osf.io/download/cm9a5/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/rawdata/sub-verse635/sub-verse635_ct.nii.gz",
+"size": 134339342,
+"url": "https://osf.io/download/a4spm/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/rawdata/sub-verse636/sub-verse636_ct.nii.gz",
+"size": 207436375,
+"url": "https://osf.io/download/fm482/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/rawdata/sub-verse640/sub-verse640_ct.nii.gz",
+"size": 138556057,
+"url": "https://osf.io/download/2uq4m/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/rawdata/sub-verse643/sub-verse643_ct.nii.gz",
+"size": 70079437,
+"url": "https://osf.io/download/pbwhf/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/rawdata/sub-verse644/sub-verse644_ct.nii.gz",
+"size": 176854171,
+"url": "https://osf.io/download/v4bm7/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/rawdata/sub-verse645/sub-verse645_ct.nii.gz",
+"size": 112975641,
+"url": "https://osf.io/download/tuw6b/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/rawdata/sub-verse701/sub-verse701_ct.nii.gz",
+"size": 49413481,
+"url": "https://osf.io/download/68d5z/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/rawdata/sub-verse821/sub-verse821_ct.nii.gz",
+"size": 186906144,
+"url": "https://osf.io/download/2aygs/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/rawdata/sub-verse826/sub-verse826_ct.nii.gz",
+"size": 191477880,
+"url": "https://osf.io/download/59bft/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/rawdata/sub-verse817/sub-verse817_ct.nii.gz",
+"size": 284675177,
+"url": "https://osf.io/download/vs9cj/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/rawdata/sub-verse816/sub-verse816_ct.nii.gz",
+"size": 142807555,
+"url": "https://osf.io/download/5wq9c/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/rawdata/sub-verse815/sub-verse815_ct.nii.gz",
+"size": 167725496,
+"url": "https://osf.io/download/mt6ce/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/rawdata/sub-verse805/sub-verse805_ct.nii.gz",
+"size": 193536801,
+"url": "https://osf.io/download/x6m73/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/rawdata/sub-verse767/sub-verse767_ct.nii.gz",
+"size": 148647353,
+"url": "https://osf.io/download/su5qm/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/rawdata/sub-verse755/sub-verse755_ct.nii.gz",
+"size": 19828717,
+"url": "https://osf.io/download/ngehp/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/rawdata/sub-verse759/sub-verse759_ct.nii.gz",
+"size": 44800127,
+"url": "https://osf.io/download/zu6ra/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/rawdata/sub-verse802/sub-verse802_ct.nii.gz",
+"size": 310851112,
+"url": "https://osf.io/download/wtzj6/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/rawdata/sub-verse806/sub-verse806_ct.nii.gz",
+"size": 61714447,
+"url": "https://osf.io/download/qr5vt/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/rawdata/sub-verse757/sub-verse757_ct.nii.gz",
+"size": 34399507,
+"url": "https://osf.io/download/tqpzg/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/rawdata/sub-verse761/sub-verse761_ct.nii.gz",
+"size": 19731578,
+"url": "https://osf.io/download/ukfrz/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/rawdata/sub-verse707/sub-verse707_ct.nii.gz",
+"size": 154099239,
+"url": "https://osf.io/download/qh25f/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/rawdata/sub-verse750/sub-verse750_dir-ax_ct.nii.gz",
+"size": 295719467,
+"url": "https://osf.io/download/6uhdm/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/rawdata/sub-verse769/sub-verse769_ct.nii.gz",
+"size": 17270523,
+"url": "https://osf.io/download/bvyax/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/rawdata/sub-verse814/sub-verse814_ct.nii.gz",
+"size": 184926370,
+"url": "https://osf.io/download/exjfc/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/rawdata/sub-verse717/sub-verse717_ct.nii.gz",
+"size": 46413643,
+"url": "https://osf.io/download/8j7kv/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/rawdata/sub-verse719/sub-verse719_ct.nii.gz",
+"size": 35954241,
+"url": "https://osf.io/download/cb56y/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/rawdata/sub-verse763/sub-verse763_ct.nii.gz",
+"size": 21209214,
+"url": "https://osf.io/download/daes5/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/rawdata/sub-verse713/sub-verse713_ct.nii.gz",
+"size": 45546208,
+"url": "https://osf.io/download/2pmdc/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/rawdata/sub-verse765/sub-verse765_ct.nii.gz",
+"size": 133391081,
+"url": "https://osf.io/download/ykvb6/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/rawdata/sub-verse715/sub-verse715_ct.nii.gz",
+"size": 144073713,
+"url": "https://osf.io/download/jdhtc/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/rawdata/sub-verse705/sub-verse705_ct.nii.gz",
+"size": 188394933,
+"url": "https://osf.io/download/3tvqb/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/rawdata/sub-verse711/sub-verse711_ct.nii.gz",
+"size": 53659826,
+"url": "https://osf.io/download/3e2f9/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/rawdata/sub-verse703/sub-verse703_ct.nii.gz",
+"size": 154203820,
+"url": "https://osf.io/download/gam6r/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/rawdata/sub-verse753/sub-verse753_ct.nii.gz",
+"size": 33571533,
+"url": "https://osf.io/download/6r47d/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/rawdata/sub-verse709/sub-verse709_ct.nii.gz",
+"size": 43199764,
+"url": "https://osf.io/download/kq4ad/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse621/sub-verse621_seg-vert_msk.nii.gz",
+"size": 5607003,
+"url": "https://osf.io/download/bq2fy/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse621/sub-verse621_seg-subreg_ctd.json",
+"size": 440,
+"url": "https://osf.io/download/2wfhq/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse621/sub-verse621_seg-vert_snp.png",
+"size": 930416,
+"url": "https://osf.io/download/5ffc2573ba010902db8937e5/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse623/sub-verse623_seg-vert_msk.nii.gz",
+"size": 3043647,
+"url": "https://osf.io/download/7w8a3/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse623/sub-verse623_seg-subreg_ctd.json",
+"size": 1082,
+"url": "https://osf.io/download/kwqzp/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse623/sub-verse623_seg-vert_snp.png",
+"size": 1271010,
+"url": "https://osf.io/download/5ffc257bba010902e788ff39/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse627/sub-verse627_seg-subreg_ctd.json",
+"size": 440,
+"url": "https://osf.io/download/2npvy/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse627/sub-verse627_seg-vert_msk.nii.gz",
+"size": 5294909,
+"url": "https://osf.io/download/jvhtm/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse627/sub-verse627_seg-vert_snp.png",
+"size": 981042,
+"url": "https://osf.io/download/5ffc2583ba010902e688fe3d/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse635/sub-verse635_seg-vert_msk.nii.gz",
+"size": 4586550,
+"url": "https://osf.io/download/7ykhu/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse635/sub-verse635_seg-subreg_ctd.json",
+"size": 440,
+"url": "https://osf.io/download/re367/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse635/sub-verse635_seg-vert_snp.png",
+"size": 1050980,
+"url": "https://osf.io/download/5ffc258ce80d3702e4a58ed4/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse636/sub-verse636_seg-vert_msk.nii.gz",
+"size": 6840994,
+"url": "https://osf.io/download/7d5nk/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse636/sub-verse636_seg-subreg_ctd.json",
+"size": 896,
+"url": "https://osf.io/download/3sxdj/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse636/sub-verse636_seg-vert_snp.png",
+"size": 1119388,
+"url": "https://osf.io/download/5ffc2594e80d3702e9a5a39c/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse640/sub-verse640_seg-vert_msk.nii.gz",
+"size": 4434115,
+"url": "https://osf.io/download/w67vq/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse640/sub-verse640_seg-subreg_ctd.json",
+"size": 741,
+"url": "https://osf.io/download/kxcht/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse640/sub-verse640_seg-vert_snp.png",
+"size": 920134,
+"url": "https://osf.io/download/5ffc259d86541a02ce14c0c5/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse643/sub-verse643_seg-subreg_ctd.json",
+"size": 535,
+"url": "https://osf.io/download/xg5nw/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse643/sub-verse643_seg-vert_snp.png",
+"size": 555670,
+"url": "https://osf.io/download/5ffc25a4e80d3702e9a5a3be/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse643/sub-verse643_seg-vert_msk.nii.gz",
+"size": 2564384,
+"url": "https://osf.io/download/5bucq/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse644/sub-verse644_seg-vert_msk.nii.gz",
+"size": 3040150,
+"url": "https://osf.io/download/kz78d/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse644/sub-verse644_seg-subreg_ctd.json",
+"size": 1241,
+"url": "https://osf.io/download/652rq/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse644/sub-verse644_seg-vert_snp.png",
+"size": 1377926,
+"url": "https://osf.io/download/5ffc25ad86541a02c414b4b3/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse645/sub-verse645_seg-vert_msk.nii.gz",
+"size": 3310440,
+"url": "https://osf.io/download/nv6ay/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse645/sub-verse645_seg-subreg_ctd.json",
+"size": 639,
+"url": "https://osf.io/download/4r73h/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse645/sub-verse645_seg-vert_snp.png",
+"size": 668883,
+"url": "https://osf.io/download/5ffc25b6ba010902da89229f/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse701/sub-verse701_seg-vert_msk.nii.gz",
+"size": 1760703,
+"url": "https://osf.io/download/rj9fh/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse701/sub-verse701_seg-subreg_ctd.json",
+"size": 432,
+"url": "https://osf.io/download/eaxcq/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse701/sub-verse701_seg-vert_snp.png",
+"size": 1100986,
+"url": "https://osf.io/download/5ffc25bde80d3702efa57d58/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse703/sub-verse703_seg-vert_msk.nii.gz",
+"size": 5697108,
+"url": "https://osf.io/download/rkzjs/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse703/sub-verse703_seg-subreg_ctd.json",
+"size": 440,
+"url": "https://osf.io/download/be7da/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse703/sub-verse703_seg-vert_snp.png",
+"size": 738603,
+"url": "https://osf.io/download/5ffc25c586541a02ce14c159/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse705/sub-verse705_seg-vert_msk.nii.gz",
+"size": 7196763,
+"url": "https://osf.io/download/82krb/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse705/sub-verse705_seg-subreg_ctd.json",
+"size": 897,
+"url": "https://osf.io/download/6gjk9/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse705/sub-verse705_seg-vert_snp.png",
+"size": 1079269,
+"url": "https://osf.io/download/5ffc25cee80d3702e4a58efb/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse707/sub-verse707_seg-vert_msk.nii.gz",
+"size": 5720872,
+"url": "https://osf.io/download/pm5v3/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse707/sub-verse707_seg-vert_snp.png",
+"size": 829531,
+"url": "https://osf.io/download/5ffc25d5e80d3702efa57d9d/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse707/sub-verse707_seg-subreg_ctd.json",
+"size": 389,
+"url": "https://osf.io/download/x42ne/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse709/sub-verse709_seg-vert_msk.nii.gz",
+"size": 1515240,
+"url": "https://osf.io/download/7beq2/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse709/sub-verse709_seg-subreg_ctd.json",
+"size": 432,
+"url": "https://osf.io/download/t9qpv/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse709/sub-verse709_seg-vert_snp.png",
+"size": 911261,
+"url": "https://osf.io/download/9jcrx/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse711/sub-verse711_seg-vert_msk.nii.gz",
+"size": 1951090,
+"url": "https://osf.io/download/gswf5/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse711/sub-verse711_seg-vert_snp.png",
+"size": 785736,
+"url": "https://osf.io/download/5ffc25e6ba010902e688ff38/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse711/sub-verse711_seg-subreg_ctd.json",
+"size": 482,
+"url": "https://osf.io/download/un2ek/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse713/sub-verse713_seg-vert_msk.nii.gz",
+"size": 1551056,
+"url": "https://osf.io/download/fx8na/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse713/sub-verse713_seg-subreg_ctd.json",
+"size": 532,
+"url": "https://osf.io/download/cevhn/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse713/sub-verse713_seg-vert_snp.png",
+"size": 985040,
+"url": "https://osf.io/download/5ffc25ef86541a02ce14c256/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse715/sub-verse715_seg-vert_msk.nii.gz",
+"size": 5842065,
+"url": "https://osf.io/download/df8zb/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse715/sub-verse715_seg-subreg_ctd.json",
+"size": 542,
+"url": "https://osf.io/download/py3es/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse715/sub-verse715_seg-vert_snp.png",
+"size": 895868,
+"url": "https://osf.io/download/5ffc25f6ba010902e688ff59/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse717/sub-verse717_seg-vert_msk.nii.gz",
+"size": 2323851,
+"url": "https://osf.io/download/jz68h/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse717/sub-verse717_seg-subreg_ctd.json",
+"size": 732,
+"url": "https://osf.io/download/uez8r/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse717/sub-verse717_seg-vert_snp.png",
+"size": 912066,
+"url": "https://osf.io/download/5ffc25ff86541a02ce14c2aa/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse719/sub-verse719_seg-vert_msk.nii.gz",
+"size": 1611923,
+"url": "https://osf.io/download/mhpvs/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse719/sub-verse719_seg-subreg_ctd.json",
+"size": 382,
+"url": "https://osf.io/download/4tbrk/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse719/sub-verse719_seg-vert_snp.png",
+"size": 612068,
+"url": "https://osf.io/download/5ffc2607e80d3702efa57dfd/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse750/sub-verse750_dir-ax_seg-subreg_ctd.json",
+"size": 847,
+"url": "https://osf.io/download/gf3bw/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse750/sub-verse750_dir-ax_seg-vert_msk.nii.gz",
+"size": 1542308,
+"url": "https://osf.io/download/jpw49/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse750/sub-verse750_dir-ax_seg-vert_snp.png",
+"size": 1322323,
+"url": "https://osf.io/download/5ffc2610e80d3702f0a58c4b/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse765/sub-verse765_seg-subreg_ctd.json",
+"size": 897,
+"url": "https://osf.io/download/zeqkv/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse765/sub-verse765_seg-vert_msk.nii.gz",
+"size": 5127072,
+"url": "https://osf.io/download/amruf/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse765/sub-verse765_seg-vert_snp.png",
+"size": 1301093,
+"url": "https://osf.io/download/z843y/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse767/sub-verse767_seg-vert_msk.nii.gz",
+"size": 4880207,
+"url": "https://osf.io/download/u876g/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse767/sub-verse767_seg-subreg_ctd.json",
+"size": 641,
+"url": "https://osf.io/download/bqj7a/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse767/sub-verse767_seg-vert_snp.png",
+"size": 905127,
+"url": "https://osf.io/download/pvwsm/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse816/sub-verse816_seg-vert_msk.nii.gz",
+"size": 4218896,
+"url": "https://osf.io/download/6qg5h/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse816/sub-verse816_seg-subreg_ctd.json",
+"size": 491,
+"url": "https://osf.io/download/2utde/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse816/sub-verse816_seg-vert_snp.png",
+"size": 1062046,
+"url": "https://osf.io/download/u2dv4/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse753/sub-verse753_seg-subreg_ctd.json",
+"size": 432,
+"url": "https://osf.io/download/su5m3/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse753/sub-verse753_seg-vert_msk.nii.gz",
+"size": 98901,
+"url": "https://osf.io/download/vw7e9/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse753/sub-verse753_seg-vert_snp.png",
+"size": 597186,
+"url": "https://osf.io/download/vfzwu/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse755/sub-verse755_seg-vert_msk.nii.gz",
+"size": 1169809,
+"url": "https://osf.io/download/vnxjd/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse755/sub-verse755_seg-subreg_ctd.json",
+"size": 831,
+"url": "https://osf.io/download/b7nxv/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse755/sub-verse755_seg-vert_snp.png",
+"size": 1035338,
+"url": "https://osf.io/download/9d4u3/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse757/sub-verse757_seg-vert_msk.nii.gz",
+"size": 1217413,
+"url": "https://osf.io/download/ur5s2/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse757/sub-verse757_seg-subreg_ctd.json",
+"size": 678,
+"url": "https://osf.io/download/fp9tr/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse757/sub-verse757_seg-vert_snp.png",
+"size": 730984,
+"url": "https://osf.io/download/5ffc264286541a02cd14b588/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse759/sub-verse759_seg-vert_msk.nii.gz",
+"size": 1626707,
+"url": "https://osf.io/download/anxt5/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse759/sub-verse759_seg-subreg_ctd.json",
+"size": 1223,
+"url": "https://osf.io/download/v34db/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse759/sub-verse759_seg-vert_snp.png",
+"size": 1368461,
+"url": "https://osf.io/download/5ffc2649e80d3702e4a58f2f/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse761/sub-verse761_seg-vert_msk.nii.gz",
+"size": 1061815,
+"url": "https://osf.io/download/z28cr/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse761/sub-verse761_seg-subreg_ctd.json",
+"size": 831,
+"url": "https://osf.io/download/57vfb/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse761/sub-verse761_seg-vert_snp.png",
+"size": 1272137,
+"url": "https://osf.io/download/wchg3/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse763/sub-verse763_seg-vert_msk.nii.gz",
+"size": 979882,
+"url": "https://osf.io/download/fxepm/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse763/sub-verse763_seg-subreg_ctd.json",
+"size": 482,
+"url": "https://osf.io/download/ydu83/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse763/sub-verse763_seg-vert_snp.png",
+"size": 692109,
+"url": "https://osf.io/download/5ffc265886541a02c914dcb0/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse769/sub-verse769_seg-vert_msk.nii.gz",
+"size": 736912,
+"url": "https://osf.io/download/8n3sg/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse769/sub-verse769_seg-subreg_ctd.json",
+"size": 532,
+"url": "https://osf.io/download/phm8v/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse769/sub-verse769_seg-vert_snp.png",
+"size": 953227,
+"url": "https://osf.io/download/5ffc266186541a02c914dcbc/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse802/sub-verse802_seg-vert_msk.nii.gz",
+"size": 10055443,
+"url": "https://osf.io/download/y8u9a/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse802/sub-verse802_seg-subreg_ctd.json",
+"size": 593,
+"url": "https://osf.io/download/xahzs/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse802/sub-verse802_seg-vert_snp.png",
+"size": 943724,
+"url": "https://osf.io/download/5ffc266ae80d3702efa57f04/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse805/sub-verse805_seg-vert_msk.nii.gz",
+"size": 6445300,
+"url": "https://osf.io/download/qdgs6/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse805/sub-verse805_seg-subreg_ctd.json",
+"size": 491,
+"url": "https://osf.io/download/9snjg/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse805/sub-verse805_seg-vert_snp.png",
+"size": 801576,
+"url": "https://osf.io/download/gn3at/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse806/sub-verse806_seg-vert_msk.nii.gz",
+"size": 2004618,
+"url": "https://osf.io/download/9k4b2/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse806/sub-verse806_seg-subreg_ctd.json",
+"size": 432,
+"url": "https://osf.io/download/z5grn/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse806/sub-verse806_seg-vert_snp.png",
+"size": 765702,
+"url": "https://osf.io/download/ekbs4/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse814/sub-verse814_seg-subreg_ctd.json",
+"size": 894,
+"url": "https://osf.io/download/3gvuk/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse814/sub-verse814_seg-vert_msk.nii.gz",
+"size": 6339693,
+"url": "https://osf.io/download/5kg4p/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse814/sub-verse814_seg-vert_snp.png",
+"size": 907228,
+"url": "https://osf.io/download/qj6cp/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse815/sub-verse815_seg-vert_msk.nii.gz",
+"size": 5353900,
+"url": "https://osf.io/download/r5cd3/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse815/sub-verse815_seg-subreg_ctd.json",
+"size": 389,
+"url": "https://osf.io/download/hsm9u/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse815/sub-verse815_seg-vert_snp.png",
+"size": 773123,
+"url": "https://osf.io/download/wqpe3/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse817/sub-verse817_seg-vert_msk.nii.gz",
+"size": 8975932,
+"url": "https://osf.io/download/u47hj/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse817/sub-verse817_seg-subreg_ctd.json",
+"size": 491,
+"url": "https://osf.io/download/c3rwy/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse817/sub-verse817_seg-vert_snp.png",
+"size": 1065202,
+"url": "https://osf.io/download/r8mbe/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse821/sub-verse821_seg-vert_msk.nii.gz",
+"size": 6412348,
+"url": "https://osf.io/download/4qjgp/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse821/sub-verse821_seg-subreg_ctd.json",
+"size": 847,
+"url": "https://osf.io/download/rbdyu/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse821/sub-verse821_seg-vert_snp.png",
+"size": 1103154,
+"url": "https://osf.io/download/hs8u6/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse826/sub-verse826_seg-vert_msk.nii.gz",
+"size": 6178452,
+"url": "https://osf.io/download/ef8by/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse826/sub-verse826_seg-subreg_ctd.json",
+"size": 847,
+"url": "https://osf.io/download/2jqa5/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse826/sub-verse826_seg-vert_snp.png",
+"size": 1203761,
+"url": "https://osf.io/download/zhg4p/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-gl017/sub-gl017_seg-vert_snp.png",
+"size": 361816,
+"url": "https://osf.io/download/2f4z7/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-gl017/sub-gl017_seg-subreg_ctd.json",
+"size": 579,
+"url": "https://osf.io/download/ec2dt/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-gl017/sub-gl017_seg-vert_msk.nii.gz",
+"size": 2521313,
+"url": "https://osf.io/download/p4xfj/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-gl059/sub-gl059_seg-subreg_ctd.json",
+"size": 527,
+"url": "https://osf.io/download/jmgtz/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-gl059/sub-gl059_seg-vert_snp.png",
+"size": 281632,
+"url": "https://osf.io/download/2xvpt/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-gl059/sub-gl059_seg-vert_msk.nii.gz",
+"size": 2137824,
+"url": "https://osf.io/download/9tbfj/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-gl045/sub-gl045_seg-subreg_ctd.json",
+"size": 579,
+"url": "https://osf.io/download/vtgbh/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-gl045/sub-gl045_seg-vert_snp.png",
+"size": 344300,
+"url": "https://osf.io/download/36yzv/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-gl045/sub-gl045_seg-vert_msk.nii.gz",
+"size": 253324,
+"url": "https://osf.io/download/8ek6b/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-gl380/sub-gl380_seg-subreg_ctd.json",
+"size": 527,
+"url": "https://osf.io/download/754k6/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-gl380/sub-gl380_seg-vert_snp.png",
+"size": 313441,
+"url": "https://osf.io/download/25cjz/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-gl380/sub-gl380_seg-vert_msk.nii.gz",
+"size": 1946346,
+"url": "https://osf.io/download/zp59k/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-gl068/sub-gl068_seg-vert_msk.nii.gz",
+"size": 2206410,
+"url": "https://osf.io/download/9p785/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-gl068/sub-gl068_seg-subreg_ctd.json",
+"size": 628,
+"url": "https://osf.io/download/kbvt9/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-gl068/sub-gl068_seg-vert_snp.png",
+"size": 371786,
+"url": "https://osf.io/download/shgj2/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-gl352/sub-gl352_seg-subreg_ctd.json",
+"size": 629,
+"url": "https://osf.io/download/uwhqz/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-gl352/sub-gl352_seg-vert_msk.nii.gz",
+"size": 2326198,
+"url": "https://osf.io/download/h4e79/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-gl352/sub-gl352_seg-vert_snp.png",
+"size": 349309,
+"url": "https://osf.io/download/zvb3t/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-gl153/sub-gl153_seg-subreg_ctd.json",
+"size": 525,
+"url": "https://osf.io/download/r27xc/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-gl153/sub-gl153_seg-vert_msk.nii.gz",
+"size": 2195120,
+"url": "https://osf.io/download/35psm/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-gl153/sub-gl153_seg-vert_snp.png",
+"size": 317890,
+"url": "https://osf.io/download/st9h7/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse505/sub-verse505_seg-subreg_ctd.json",
+"size": 542,
+"url": "https://osf.io/download/jq4fm/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse505/sub-verse505_seg-vert_msk.nii.gz",
+"size": 5778576,
+"url": "https://osf.io/download/svkrn/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse505/sub-verse505_seg-vert_snp.png",
+"size": 1316938,
+"url": "https://osf.io/download/abek6/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse549/sub-verse549_seg-subreg_ctd.json",
+"size": 1210,
+"url": "https://osf.io/download/dfvxk/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse549/sub-verse549_seg-vert_snp.png",
+"size": 2104839,
+"url": "https://osf.io/download/bh9ax/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse549/sub-verse549_seg-vert_msk.nii.gz",
+"size": 14575022,
+"url": "https://osf.io/download/9uea6/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse569/sub-verse569_seg-subreg_ctd.json",
+"size": 998,
+"url": "https://osf.io/download/vjuyh/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse569/sub-verse569_seg-vert_snp.png",
+"size": 1179326,
+"url": "https://osf.io/download/whfyq/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse569/sub-verse569_seg-vert_msk.nii.gz",
+"size": 6980397,
+"url": "https://osf.io/download/mazg2/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse559/sub-verse559_seg-subreg_ctd.json",
+"size": 1087,
+"url": "https://osf.io/download/k5u6t/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse559/sub-verse559_seg-vert_snp.png",
+"size": 1380547,
+"url": "https://osf.io/download/g7ws8/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse559/sub-verse559_seg-vert_msk.nii.gz",
+"size": 4486826,
+"url": "https://osf.io/download/thu7x/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse511/sub-verse511_dir-ax_seg-subreg_ctd.json",
+"size": 847,
+"url": "https://osf.io/download/s2xvm/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse511/sub-verse511_dir-ax_seg-vert_msk.nii.gz",
+"size": 1278283,
+"url": "https://osf.io/download/gsfvm/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse511/sub-verse511_dir-ax_seg-vert_snp.png",
+"size": 1313590,
+"url": "https://osf.io/download/egdmt/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse522/sub-verse522_seg-subreg_ctd.json",
+"size": 542,
+"url": "https://osf.io/download/n7x5a/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse522/sub-verse522_seg-vert_snp.png",
+"size": 853805,
+"url": "https://osf.io/download/v53tu/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse522/sub-verse522_seg-vert_msk.nii.gz",
+"size": 5004857,
+"url": "https://osf.io/download/9qekv/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse598/sub-verse598_seg-subreg_ctd.json",
+"size": 951,
+"url": "https://osf.io/download/mzt3x/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse598/sub-verse598_seg-vert_snp.png",
+"size": 1494930,
+"url": "https://osf.io/download/5ffc2708ba010902e0891ff0/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse598/sub-verse598_seg-vert_msk.nii.gz",
+"size": 1600038,
+"url": "https://osf.io/download/pbjch/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse573/sub-verse573_seg-subreg_ctd.json",
+"size": 1219,
+"url": "https://osf.io/download/zej8p/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse573/sub-verse573_seg-vert_msk.nii.gz",
+"size": 17957338,
+"url": "https://osf.io/download/xqk46/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse573/sub-verse573_seg-vert_snp.png",
+"size": 2818484,
+"url": "https://osf.io/download/k7j2q/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse547/sub-verse547_seg-subreg_ctd.json",
+"size": 1298,
+"url": "https://osf.io/download/7a62z/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse547/sub-verse547_seg-vert_snp.png",
+"size": 1622082,
+"url": "https://osf.io/download/uq36e/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse547/sub-verse547_seg-vert_msk.nii.gz",
+"size": 8593563,
+"url": "https://osf.io/download/3yxkf/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse601/sub-verse601_seg-subreg_ctd.json",
+"size": 897,
+"url": "https://osf.io/download/kdcwx/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse601/sub-verse601_seg-vert_msk.nii.gz",
+"size": 7345904,
+"url": "https://osf.io/download/bq9cm/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse601/sub-verse601_seg-vert_snp.png",
+"size": 1339743,
+"url": "https://osf.io/download/5ffc271f86541a02ce14c74f/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse531/sub-verse531_seg-subreg_ctd.json",
+"size": 1089,
+"url": "https://osf.io/download/rhdxm/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse531/sub-verse531_seg-vert_snp.png",
+"size": 1271514,
+"url": "https://osf.io/download/zkytc/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse531/sub-verse531_seg-vert_msk.nii.gz",
+"size": 3861027,
+"url": "https://osf.io/download/w3x48/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse571/sub-verse571_seg-subreg_ctd.json",
+"size": 948,
+"url": "https://osf.io/download/ac9nf/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse571/sub-verse571_seg-vert_msk.nii.gz",
+"size": 6954761,
+"url": "https://osf.io/download/uv8ak/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse571/sub-verse571_seg-vert_snp.png",
+"size": 1134466,
+"url": "https://osf.io/download/wvhzu/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse585/sub-verse585_seg-subreg_ctd.json",
+"size": 1280,
+"url": "https://osf.io/download/zdbfq/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse585/sub-verse585_seg-vert_msk.nii.gz",
+"size": 4002175,
+"url": "https://osf.io/download/2svqr/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse585/sub-verse585_seg-vert_snp.png",
+"size": 1569212,
+"url": "https://osf.io/download/wxabu/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse603/sub-verse603_seg-subreg_ctd.json",
+"size": 846,
+"url": "https://osf.io/download/68uaw/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse603/sub-verse603_seg-vert_snp.png",
+"size": 1290414,
+"url": "https://osf.io/download/5ffc273a86541a02c914de17/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse603/sub-verse603_seg-vert_msk.nii.gz",
+"size": 7044283,
+"url": "https://osf.io/download/5bcke/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse600/sub-verse600_dir-ax_seg-vert_msk.nii.gz",
+"size": 781237,
+"url": "https://osf.io/download/h9skw/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse600/sub-verse600_dir-ax_seg-vert_snp.png",
+"size": 1051546,
+"url": "https://osf.io/download/5ffc2742ba010902e7890556/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse600/sub-verse600_dir-ax_seg-subreg_ctd.json",
+"size": 440,
+"url": "https://osf.io/download/9z4kt/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-gl479/sub-gl479_seg-subreg_ctd.json",
+"size": 577,
+"url": "https://osf.io/download/2vkgf/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-gl479/sub-gl479_seg-vert_snp.png",
+"size": 301971,
+"url": "https://osf.io/download/sahdc/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-gl479/sub-gl479_seg-vert_msk.nii.gz",
+"size": 1910483,
+"url": "https://osf.io/download/9eazg/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse618/sub-verse618_seg-subreg_ctd.json",
+"size": 1047,
+"url": "https://osf.io/download/qz5v2/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse618/sub-verse618_seg-vert_msk.nii.gz",
+"size": 8185633,
+"url": "https://osf.io/download/cua3f/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse618/sub-verse618_seg-vert_snp.png",
+"size": 1724176,
+"url": "https://osf.io/download/vux82/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse606/sub-verse606_seg-subreg_ctd.json",
+"size": 955,
+"url": "https://osf.io/download/ycxpe/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse606/sub-verse606_seg-vert_snp.png",
+"size": 1094576,
+"url": "https://osf.io/download/5ffc2758e80d3702efa58171/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse606/sub-verse606_seg-vert_msk.nii.gz",
+"size": 13192746,
+"url": "https://osf.io/download/rgan5/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse614/sub-verse614_seg-vert_snp.png",
+"size": 974351,
+"url": "https://osf.io/download/wk8q6/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse614/sub-verse614_seg-subreg_ctd.json",
+"size": 542,
+"url": "https://osf.io/download/ucx98/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse614/sub-verse614_seg-vert_msk.nii.gz",
+"size": 5519979,
+"url": "https://osf.io/download/6jvuz/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse553/sub-verse553_seg-subreg_ctd.json",
+"size": 898,
+"url": "https://osf.io/download/kqfsw/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse553/sub-verse553_seg-vert_msk.nii.gz",
+"size": 7265718,
+"url": "https://osf.io/download/gqbdu/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse553/sub-verse553_seg-vert_snp.png",
+"size": 1318563,
+"url": "https://osf.io/download/tbes6/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse615/sub-verse615_seg-subreg_ctd.json",
+"size": 897,
+"url": "https://osf.io/download/48yd7/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse615/sub-verse615_seg-vert_snp.png",
+"size": 1418410,
+"url": "https://osf.io/download/5ffc276c86541a02ce14c877/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse615/sub-verse615_seg-vert_msk.nii.gz",
+"size": 1193299,
+"url": "https://osf.io/download/q3bzw/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse580/sub-verse580_seg-subreg_ctd.json",
+"size": 491,
+"url": "https://osf.io/download/2mqbu/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse580/sub-verse580_seg-vert_snp.png",
+"size": 1082312,
+"url": "https://osf.io/download/5ffc2773e80d3702f0a59238/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse580/sub-verse580_seg-vert_msk.nii.gz",
+"size": 5331507,
+"url": "https://osf.io/download/7t8cr/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse508/sub-verse508_dir-ax_seg-subreg_ctd.json",
+"size": 897,
+"url": "https://osf.io/download/am7dk/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse508/sub-verse508_dir-ax_seg-vert_snp.png",
+"size": 1387640,
+"url": "https://osf.io/download/5ffc277a86541a02cd14b8f5/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse508/sub-verse508_dir-ax_seg-vert_msk.nii.gz",
+"size": 1454530,
+"url": "https://osf.io/download/9mwbk/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse556/sub-verse556_dir-ax_seg-vert_msk.nii.gz",
+"size": 1403987,
+"url": "https://osf.io/download/dtx47/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse556/sub-verse556_dir-ax_seg-subreg_ctd.json",
+"size": 543,
+"url": "https://osf.io/download/yq793/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse556/sub-verse556_dir-ax_seg-vert_snp.png",
+"size": 1570045,
+"url": "https://osf.io/download/285v6/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse609/sub-verse609_seg-subreg_ctd.json",
+"size": 338,
+"url": "https://osf.io/download/du25r/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse609/sub-verse609_seg-vert_snp.png",
+"size": 819583,
+"url": "https://osf.io/download/5ffc2788ba010902e689033f/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse609/sub-verse609_seg-vert_msk.nii.gz",
+"size": 5031283,
+"url": "https://osf.io/download/ryz57/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse529/sub-verse529_seg-subreg_ctd.json",
+"size": 695,
+"url": "https://osf.io/download/cu4bh/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse529/sub-verse529_seg-vert_snp.png",
+"size": 998170,
+"url": "https://osf.io/download/y28xq/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse529/sub-verse529_seg-vert_msk.nii.gz",
+"size": 5858983,
+"url": "https://osf.io/download/8dbys/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse513/sub-verse513_seg-subreg_ctd.json",
+"size": 897,
+"url": "https://osf.io/download/5gecv/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse513/sub-verse513_seg-vert_msk.nii.gz",
+"size": 7650855,
+"url": "https://osf.io/download/bjcku/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse513/sub-verse513_seg-vert_snp.png",
+"size": 1498022,
+"url": "https://osf.io/download/qk4hb/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse592/sub-verse592_dir-ax_seg-subreg_ctd.json",
+"size": 440,
+"url": "https://osf.io/download/wj4ax/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse592/sub-verse592_dir-ax_seg-vert_msk.nii.gz",
+"size": 913221,
+"url": "https://osf.io/download/ayk4j/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse592/sub-verse592_dir-ax_seg-vert_snp.png",
+"size": 940939,
+"url": "https://osf.io/download/j3ukq/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-gl144/sub-gl144_seg-subreg_ctd.json",
+"size": 573,
+"url": "https://osf.io/download/u9zqe/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-gl144/sub-gl144_seg-vert_msk.nii.gz",
+"size": 2188173,
+"url": "https://osf.io/download/gvw3j/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-gl144/sub-gl144_seg-vert_snp.png",
+"size": 267024,
+"url": "https://osf.io/download/2a9g8/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-gl099/sub-gl099_seg-subreg_ctd.json",
+"size": 731,
+"url": "https://osf.io/download/7c9g4/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-gl099/sub-gl099_seg-vert_snp.png",
+"size": 366206,
+"url": "https://osf.io/download/qz8ea/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-gl099/sub-gl099_seg-vert_msk.nii.gz",
+"size": 2336874,
+"url": "https://osf.io/download/esd54/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse554/sub-verse554_seg-subreg_ctd.json",
+"size": 847,
+"url": "https://osf.io/download/3gqk7/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse554/sub-verse554_seg-vert_msk.nii.gz",
+"size": 8212047,
+"url": "https://osf.io/download/hwnzy/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse554/sub-verse554_seg-vert_snp.png",
+"size": 1542752,
+"url": "https://osf.io/download/h3s29/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse545/sub-verse545_dir-ax_seg-subreg_ctd.json",
+"size": 389,
+"url": "https://osf.io/download/u2kyj/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse545/sub-verse545_dir-ax_seg-vert_snp.png",
+"size": 1214847,
+"url": "https://osf.io/download/kg2rj/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse545/sub-verse545_dir-ax_seg-vert_msk.nii.gz",
+"size": 1231907,
+"url": "https://osf.io/download/fgcu9/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse612/sub-verse612_seg-vert_snp.png",
+"size": 779368,
+"url": "https://osf.io/download/5ffc27c186541a02c914deb1/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse612/sub-verse612_seg-subreg_ctd.json",
+"size": 389,
+"url": "https://osf.io/download/dpnqj/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse612/sub-verse612_seg-vert_msk.nii.gz",
+"size": 4689382,
+"url": "https://osf.io/download/r95dc/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse576/sub-verse576_seg-subreg_ctd.json",
+"size": 948,
+"url": "https://osf.io/download/xuj3q/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse576/sub-verse576_seg-vert_snp.png",
+"size": 1225237,
+"url": "https://osf.io/download/5ffc27c886541a02cd14b9a3/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse576/sub-verse576_seg-vert_msk.nii.gz",
+"size": 6930688,
+"url": "https://osf.io/download/yc4a6/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse530/sub-verse530_seg-subreg_ctd.json",
+"size": 440,
+"url": "https://osf.io/download/gjf3w/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse530/sub-verse530_seg-vert_msk.nii.gz",
+"size": 6743489,
+"url": "https://osf.io/download/nf8ta/"
+},
+{
+"node": "4skx2",
+"path": "/02_validation/derivatives/sub-verse530/sub-verse530_seg-vert_snp.png",
+"size": 1024638,
+"url": "https://osf.io/download/25zye/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/rawdata/sub-gl003/sub-gl003_dir-ax_ct.nii.gz",
+"size": 63964162,
+"url": "https://osf.io/download/dt7gc/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/rawdata/sub-gl016/sub-gl016_dir-ax_ct.nii.gz",
+"size": 52955189,
+"url": "https://osf.io/download/3egdk/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/rawdata/sub-gl047/sub-gl047_dir-ax_ct.nii.gz",
+"size": 52660397,
+"url": "https://osf.io/download/fhdxj/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/rawdata/sub-gl090/sub-gl090_dir-ax_ct.nii.gz",
+"size": 50776228,
+"url": "https://osf.io/download/m8qbj/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/rawdata/sub-gl124/sub-gl124_dir-ax_ct.nii.gz",
+"size": 57962563,
+"url": "https://osf.io/download/zyjnd/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/rawdata/sub-gl240/sub-gl240_dir-ax_ct.nii.gz",
+"size": 51075495,
+"url": "https://osf.io/download/rq67e/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/rawdata/sub-gl247/sub-gl247_dir-ax_ct.nii.gz",
+"size": 68576229,
+"url": "https://osf.io/download/4geyq/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/rawdata/sub-gl295/sub-gl295_dir-ax_ct.nii.gz",
+"size": 64733549,
+"url": "https://osf.io/download/vcbtf/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/rawdata/sub-gl364/sub-gl364_dir-ax_ct.nii.gz",
+"size": 43835389,
+"url": "https://osf.io/download/v97bk/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/rawdata/sub-gl453/sub-gl453_dir-ax_ct.nii.gz",
+"size": 53344989,
+"url": "https://osf.io/download/kquha/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/rawdata/sub-verse500/sub-verse500_dir-ax_ct.nii.gz",
+"size": 170869530,
+"url": "https://osf.io/download/h6u3f/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/rawdata/sub-verse503/sub-verse503_dir-ax_ct.nii.gz",
+"size": 628841831,
+"url": "https://osf.io/download/2psfg/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/rawdata/sub-verse504/sub-verse504_dir-iso_ct.nii.gz",
+"size": 124286015,
+"url": "https://osf.io/download/ekbdm/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/rawdata/sub-verse506/sub-verse506_dir-iso_ct.nii.gz",
+"size": 223361701,
+"url": "https://osf.io/download/hzse5/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/rawdata/sub-verse507/sub-verse507_dir-ax_ct.nii.gz",
+"size": 583145213,
+"url": "https://osf.io/download/tsbc2/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/rawdata/sub-verse510/sub-verse510_dir-ax_ct.nii.gz",
+"size": 210649867,
+"url": "https://osf.io/download/mfseb/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/rawdata/sub-verse514/sub-verse514_dir-ax_ct.nii.gz",
+"size": 208874001,
+"url": "https://osf.io/download/n89mk/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/rawdata/sub-verse518/sub-verse518_dir-ax_ct.nii.gz",
+"size": 214167595,
+"url": "https://osf.io/download/pr9ja/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/rawdata/sub-verse519/sub-verse519_dir-iso_ct.nii.gz",
+"size": 214635660,
+"url": "https://osf.io/download/rdzkh/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/rawdata/sub-verse521/sub-verse521_dir-ax_ct.nii.gz",
+"size": 138662070,
+"url": "https://osf.io/download/b8hzx/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/rawdata/sub-verse525/sub-verse525_dir-sag_ct.nii.gz",
+"size": 104400606,
+"url": "https://osf.io/download/rsmb7/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/rawdata/sub-verse527/sub-verse527_dir-ax_ct.nii.gz",
+"size": 178991842,
+"url": "https://osf.io/download/gc6bh/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/rawdata/sub-verse532/sub-verse532_dir-ax_ct.nii.gz",
+"size": 261175340,
+"url": "https://osf.io/download/g54f2/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/rawdata/sub-verse533/sub-verse533_dir-ax_ct.nii.gz",
+"size": 361444872,
+"url": "https://osf.io/download/z2a8q/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/rawdata/sub-verse534/sub-verse534_dir-iso_ct.nii.gz",
+"size": 139837045,
+"url": "https://osf.io/download/5fu93/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/rawdata/sub-verse535/sub-verse535_dir-iso_ct.nii.gz",
+"size": 139938805,
+"url": "https://osf.io/download/98rde/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/rawdata/sub-verse536/sub-verse536_dir-ax_ct.nii.gz",
+"size": 191524168,
+"url": "https://osf.io/download/ea8py/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/rawdata/sub-verse537/sub-verse537_dir-iso_ct.nii.gz",
+"size": 139425217,
+"url": "https://osf.io/download/3759d/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/rawdata/sub-verse539/sub-verse539_dir-ax_ct.nii.gz",
+"size": 156862277,
+"url": "https://osf.io/download/5zqeb/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/rawdata/sub-verse541/sub-verse541_dir-ax_ct.nii.gz",
+"size": 160255533,
+"url": "https://osf.io/download/5nk6f/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/rawdata/sub-verse542/sub-verse542_dir-iso_ct.nii.gz",
+"size": 199495582,
+"url": "https://osf.io/download/ns34k/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/rawdata/sub-verse544/sub-verse544_dir-ax_ct.nii.gz",
+"size": 189193242,
+"url": "https://osf.io/download/vq9h8/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/rawdata/sub-verse557/sub-verse557_dir-ax_ct.nii.gz",
+"size": 212838290,
+"url": "https://osf.io/download/zakg4/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/rawdata/sub-verse561/sub-verse561_dir-sag_ct.nii.gz",
+"size": 132535649,
+"url": "https://osf.io/download/2up8t/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/rawdata/sub-verse564/sub-verse564_dir-iso_ct.nii.gz",
+"size": 131426407,
+"url": "https://osf.io/download/wbaek/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/rawdata/sub-verse565/sub-verse565_dir-ax_ct.nii.gz",
+"size": 190134422,
+"url": "https://osf.io/download/m73jq/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/rawdata/sub-verse577/sub-verse577_dir-ax_ct.nii.gz",
+"size": 468878689,
+"url": "https://osf.io/download/kfvum/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/rawdata/sub-verse584/sub-verse584_dir-ax_ct.nii.gz",
+"size": 128021039,
+"url": "https://osf.io/download/xcy8s/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/rawdata/sub-verse586/sub-verse586_dir-iso_ct.nii.gz",
+"size": 200699816,
+"url": "https://osf.io/download/2cz9w/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/rawdata/sub-verse593/sub-verse593_dir-sag_ct.nii.gz",
+"size": 141447059,
+"url": "https://osf.io/download/7r5w9/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/rawdata/sub-verse594/sub-verse594_dir-ax_ct.nii.gz",
+"size": 182937804,
+"url": "https://osf.io/download/sq57b/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/rawdata/sub-verse596/sub-verse596_dir-ax_ct.nii.gz",
+"size": 113556302,
+"url": "https://osf.io/download/xkcv5/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/rawdata/sub-verse605/sub-verse605_dir-sag_ct.nii.gz",
+"size": 74537710,
+"url": "https://osf.io/download/57nvd/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/rawdata/sub-verse619/sub-verse619_dir-ax_ct.nii.gz",
+"size": 219419225,
+"url": "https://osf.io/download/t2sdf/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/rawdata/sub-verse629/sub-verse629_dir-ax_ct.nii.gz",
+"size": 220212035,
+"url": "https://osf.io/download/29f7p/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/rawdata/sub-verse631/sub-verse631_ct.nii.gz",
+"size": 203169209,
+"url": "https://osf.io/download/ebh9v/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/rawdata/sub-verse642/sub-verse642_dir-sag_ct.nii.gz",
+"size": 136602823,
+"url": "https://osf.io/download/kt6qy/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/rawdata/sub-verse646/sub-verse646_dir-iso_ct.nii.gz",
+"size": 211552927,
+"url": "https://osf.io/download/y9eu8/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/rawdata/sub-verse807/sub-verse807_dir-ax_ct.nii.gz",
+"size": 206381098,
+"url": "https://osf.io/download/h2s3r/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/rawdata/sub-verse808/sub-verse808_dir-iso_ct.nii.gz",
+"size": 188065251,
+"url": "https://osf.io/download/d9xt2/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/rawdata/sub-verse811/sub-verse811_dir-ax_ct.nii.gz",
+"size": 101095622,
+"url": "https://osf.io/download/p48zv/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/rawdata/sub-verse818/sub-verse818_dir-ax_ct.nii.gz",
+"size": 140317913,
+"url": "https://osf.io/download/4wf2h/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/rawdata/sub-verse820/sub-verse820_dir-ax_ct.nii.gz",
+"size": 150224692,
+"url": "https://osf.io/download/4f2tn/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/rawdata/sub-verse824/sub-verse824_dir-ax_ct.nii.gz",
+"size": 141323158,
+"url": "https://osf.io/download/rz5cd/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/rawdata/sub-verse825/sub-verse825_dir-ax_ct.nii.gz",
+"size": 169473473,
+"url": "https://osf.io/download/vmzud/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/rawdata/sub-verse833/sub-verse833_dir-ax_ct.nii.gz",
+"size": 164596773,
+"url": "https://osf.io/download/mwxt3/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/rawdata/sub-verse835/sub-verse835_dir-iso_ct.nii.gz",
+"size": 160961138,
+"url": "https://osf.io/download/3h26m/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/rawdata/sub-verse823/sub-verse823_dir-iso_ct.nii.gz",
+"size": 681843743,
+"url": "https://osf.io/download/2a35c/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/rawdata/sub-verse641/sub-verse641_dir-ax_ct.nii.gz",
+"size": 198555340,
+"url": "https://osf.io/download/qhn2z/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/rawdata/sub-verse588/sub-verse588_ct.nii.gz",
+"size": 249785788,
+"url": "https://osf.io/download/gkp3t/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/rawdata/sub-verse581/sub-verse581_dir-ax_ct.nii.gz",
+"size": 451696080,
+"url": "https://osf.io/download/p92ut/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/derivatives/sub-gl090/sub-gl090_dir-ax_seg-subreg_ctd.json",
+"size": 527,
+"url": "https://osf.io/download/gz3eu/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/derivatives/sub-gl090/sub-gl090_dir-ax_seg-vert_snp.png",
+"size": 267592,
+"url": "https://osf.io/download/zygvw/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/derivatives/sub-gl090/sub-gl090_dir-ax_seg-vert_msk.nii.gz",
+"size": 422291,
+"url": "https://osf.io/download/sh9v2/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/derivatives/sub-gl124/sub-gl124_dir-ax_seg-vert_snp.png",
+"size": 330275,
+"url": "https://osf.io/download/dmgk6/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/derivatives/sub-gl124/sub-gl124_dir-ax_seg-subreg_ctd.json",
+"size": 528,
+"url": "https://osf.io/download/fq9v2/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/derivatives/sub-gl124/sub-gl124_dir-ax_seg-vert_msk.nii.gz",
+"size": 461545,
+"url": "https://osf.io/download/usb97/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/derivatives/sub-gl247/sub-gl247_dir-ax_seg-subreg_ctd.json",
+"size": 681,
+"url": "https://osf.io/download/ky7ur/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/derivatives/sub-gl247/sub-gl247_dir-ax_seg-vert_snp.png",
+"size": 373773,
+"url": "https://osf.io/download/y2vbk/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/derivatives/sub-gl247/sub-gl247_dir-ax_seg-vert_msk.nii.gz",
+"size": 617743,
+"url": "https://osf.io/download/8mtyq/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/derivatives/sub-verse506/sub-verse506_dir-iso_seg-subreg_ctd.json",
+"size": 998,
+"url": "https://osf.io/download/xzr7y/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/derivatives/sub-verse506/sub-verse506_dir-iso_seg-vert_msk.nii.gz",
+"size": 1327594,
+"url": "https://osf.io/download/pzg3c/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/derivatives/sub-verse506/sub-verse506_dir-iso_seg-vert_snp.png",
+"size": 1510482,
+"url": "https://osf.io/download/4dk8t/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/derivatives/sub-verse541/sub-verse541_dir-ax_seg-subreg_ctd.json",
+"size": 440,
+"url": "https://osf.io/download/abf2z/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/derivatives/sub-verse541/sub-verse541_dir-ax_seg-vert_msk.nii.gz",
+"size": 780113,
+"url": "https://osf.io/download/yg83w/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/derivatives/sub-verse541/sub-verse541_dir-ax_seg-vert_snp.png",
+"size": 827957,
+"url": "https://osf.io/download/wpceq/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/derivatives/sub-verse533/sub-verse533_dir-ax_seg-subreg_ctd.json",
+"size": 851,
+"url": "https://osf.io/download/u3b8r/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/derivatives/sub-verse533/sub-verse533_dir-ax_seg-vert_snp.png",
+"size": 1293025,
+"url": "https://osf.io/download/2afu7/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/derivatives/sub-verse533/sub-verse533_dir-ax_seg-vert_msk.nii.gz",
+"size": 1925727,
+"url": "https://osf.io/download/ckuxf/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/derivatives/sub-verse521/sub-verse521_dir-ax_seg-vert_snp.png",
+"size": 923674,
+"url": "https://osf.io/download/25g9e/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/derivatives/sub-verse521/sub-verse521_dir-ax_seg-vert_msk.nii.gz",
+"size": 870961,
+"url": "https://osf.io/download/wvtce/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/derivatives/sub-verse521/sub-verse521_dir-ax_seg-subreg_ctd.json",
+"size": 945,
+"url": "https://osf.io/download/qy6e9/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/derivatives/sub-verse504/sub-verse504_dir-iso_seg-vert_msk.nii.gz",
+"size": 658464,
+"url": "https://osf.io/download/m7v9c/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/derivatives/sub-verse504/sub-verse504_dir-iso_seg-subreg_ctd.json",
+"size": 389,
+"url": "https://osf.io/download/6e9c8/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/derivatives/sub-verse504/sub-verse504_dir-iso_seg-vert_snp.png",
+"size": 900979,
+"url": "https://osf.io/download/d5eqx/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/derivatives/sub-verse500/sub-verse500_dir-ax_seg-subreg_ctd.json",
+"size": 440,
+"url": "https://osf.io/download/a4he2/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/derivatives/sub-verse500/sub-verse500_dir-ax_seg-vert_snp.png",
+"size": 926241,
+"url": "https://osf.io/download/kuzs9/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/derivatives/sub-verse500/sub-verse500_dir-ax_seg-vert_msk.nii.gz",
+"size": 869086,
+"url": "https://osf.io/download/ea67m/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/derivatives/sub-verse593/sub-verse593_dir-sag_seg-subreg_ctd.json",
+"size": 1107,
+"url": "https://osf.io/download/rjyf2/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/derivatives/sub-verse593/sub-verse593_dir-sag_seg-vert_snp.png",
+"size": 1771902,
+"url": "https://osf.io/download/2fg7c/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/derivatives/sub-verse593/sub-verse593_dir-sag_seg-vert_msk.nii.gz",
+"size": 655913,
+"url": "https://osf.io/download/zwvgp/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/derivatives/sub-verse534/sub-verse534_dir-iso_seg-subreg_ctd.json",
+"size": 440,
+"url": "https://osf.io/download/jb3g4/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/derivatives/sub-verse534/sub-verse534_dir-iso_seg-vert_msk.nii.gz",
+"size": 753044,
+"url": "https://osf.io/download/vaqsm/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/derivatives/sub-verse534/sub-verse534_dir-iso_seg-vert_snp.png",
+"size": 945449,
+"url": "https://osf.io/download/9jkb7/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/derivatives/sub-verse561/sub-verse561_dir-sag_seg-vert_snp.png",
+"size": 1063949,
+"url": "https://osf.io/download/he54p/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/derivatives/sub-verse561/sub-verse561_dir-sag_seg-subreg_ctd.json",
+"size": 1136,
+"url": "https://osf.io/download/8fepu/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/derivatives/sub-verse561/sub-verse561_dir-sag_seg-vert_msk.nii.gz",
+"size": 679854,
+"url": "https://osf.io/download/vytpd/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/derivatives/sub-gl016/sub-gl016_dir-ax_seg-subreg_ctd.json",
+"size": 577,
+"url": "https://osf.io/download/gz9xv/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/derivatives/sub-gl016/sub-gl016_dir-ax_seg-vert_msk.nii.gz",
+"size": 454557,
+"url": "https://osf.io/download/k2q7b/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/derivatives/sub-gl016/sub-gl016_dir-ax_seg-vert_snp.png",
+"size": 313067,
+"url": "https://osf.io/download/pe8da/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/derivatives/sub-verse586/sub-verse586_dir-iso_seg-vert_msk.nii.gz",
+"size": 1255704,
+"url": "https://osf.io/download/mbxe8/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/derivatives/sub-verse586/sub-verse586_dir-iso_seg-subreg_ctd.json",
+"size": 948,
+"url": "https://osf.io/download/q6zjh/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/derivatives/sub-verse586/sub-verse586_dir-iso_seg-vert_snp.png",
+"size": 1438654,
+"url": "https://osf.io/download/gm62c/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/derivatives/sub-gl003/sub-gl003_dir-ax_seg-subreg_ctd.json",
+"size": 624,
+"url": "https://osf.io/download/x8z23/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/derivatives/sub-gl003/sub-gl003_dir-ax_seg-vert_msk.nii.gz",
+"size": 577081,
+"url": "https://osf.io/download/mdr2n/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/derivatives/sub-gl003/sub-gl003_dir-ax_seg-vert_snp.png",
+"size": 328747,
+"url": "https://osf.io/download/dbkwg/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/derivatives/sub-verse811/sub-verse811_dir-ax_seg-subreg_ctd.json",
+"size": 491,
+"url": "https://osf.io/download/ynpaq/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/derivatives/sub-verse811/sub-verse811_dir-ax_seg-vert_msk.nii.gz",
+"size": 515881,
+"url": "https://osf.io/download/ktu4v/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/derivatives/sub-verse811/sub-verse811_dir-ax_seg-vert_snp.png",
+"size": 1187028,
+"url": "https://osf.io/download/kpjtx/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/derivatives/sub-verse823/sub-verse823_dir-iso_seg-subreg_ctd.json",
+"size": 1255,
+"url": "https://osf.io/download/j7dtw/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/derivatives/sub-verse823/sub-verse823_dir-iso_seg-vert_msk.nii.gz",
+"size": 1974135,
+"url": "https://osf.io/download/9j5qz/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/derivatives/sub-verse823/sub-verse823_dir-iso_seg-vert_snp.png",
+"size": 661902,
+"url": "https://osf.io/download/ugwzp/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/derivatives/sub-verse818/sub-verse818_dir-ax_seg-subreg_ctd.json",
+"size": 491,
+"url": "https://osf.io/download/7xw4z/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/derivatives/sub-verse818/sub-verse818_dir-ax_seg-vert_msk.nii.gz",
+"size": 739354,
+"url": "https://osf.io/download/8ugj5/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/derivatives/sub-verse818/sub-verse818_dir-ax_seg-vert_snp.png",
+"size": 918115,
+"url": "https://osf.io/download/eqfhr/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/derivatives/sub-verse825/sub-verse825_dir-ax_seg-vert_msk.nii.gz",
+"size": 897795,
+"url": "https://osf.io/download/rzm82/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/derivatives/sub-verse825/sub-verse825_dir-ax_seg-vert_snp.png",
+"size": 1079150,
+"url": "https://osf.io/download/2xhd3/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/derivatives/sub-verse825/sub-verse825_dir-ax_seg-subreg_ctd.json",
+"size": 440,
+"url": "https://osf.io/download/ydzn5/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/derivatives/sub-verse518/sub-verse518_dir-ax_seg-subreg_ctd.json",
+"size": 897,
+"url": "https://osf.io/download/an2v8/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/derivatives/sub-verse518/sub-verse518_dir-ax_seg-vert_msk.nii.gz",
+"size": 1170912,
+"url": "https://osf.io/download/r543n/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/derivatives/sub-verse518/sub-verse518_dir-ax_seg-vert_snp.png",
+"size": 1445144,
+"url": "https://osf.io/download/hda94/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/derivatives/sub-verse808/sub-verse808_dir-iso_seg-subreg_ctd.json",
+"size": 440,
+"url": "https://osf.io/download/wf235/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/derivatives/sub-verse808/sub-verse808_dir-iso_seg-vert_snp.png",
+"size": 749715,
+"url": "https://osf.io/download/c27xh/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/derivatives/sub-verse808/sub-verse808_dir-iso_seg-vert_msk.nii.gz",
+"size": 957697,
+"url": "https://osf.io/download/ejg4v/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/derivatives/sub-verse833/sub-verse833_dir-ax_seg-vert_msk.nii.gz",
+"size": 857462,
+"url": "https://osf.io/download/svqp5/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/derivatives/sub-verse833/sub-verse833_dir-ax_seg-subreg_ctd.json",
+"size": 592,
+"url": "https://osf.io/download/g6z7a/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/derivatives/sub-verse833/sub-verse833_dir-ax_seg-vert_snp.png",
+"size": 1056927,
+"url": "https://osf.io/download/g6x89/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/derivatives/sub-verse536/sub-verse536_dir-ax_seg-subreg_ctd.json",
+"size": 593,
+"url": "https://osf.io/download/b9tym/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/derivatives/sub-verse536/sub-verse536_dir-ax_seg-vert_msk.nii.gz",
+"size": 934404,
+"url": "https://osf.io/download/4fr5j/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/derivatives/sub-verse536/sub-verse536_dir-ax_seg-vert_snp.png",
+"size": 1212658,
+"url": "https://osf.io/download/5u24e/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/derivatives/sub-verse594/sub-verse594_dir-ax_seg-subreg_ctd.json",
+"size": 491,
+"url": "https://osf.io/download/pw8tb/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/derivatives/sub-verse594/sub-verse594_dir-ax_seg-vert_snp.png",
+"size": 941238,
+"url": "https://osf.io/download/8jqyc/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/derivatives/sub-verse594/sub-verse594_dir-ax_seg-vert_msk.nii.gz",
+"size": 883126,
+"url": "https://osf.io/download/753wb/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/derivatives/sub-verse641/sub-verse641_dir-ax_seg-subreg_ctd.json",
+"size": 478,
+"url": "https://osf.io/download/243v6/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/derivatives/sub-verse641/sub-verse641_dir-ax_seg-vert_msk.nii.gz",
+"size": 578696,
+"url": "https://osf.io/download/j7kpq/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/derivatives/sub-verse641/sub-verse641_dir-ax_seg-vert_snp.png",
+"size": 354654,
+"url": "https://osf.io/download/4j6te/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/derivatives/sub-verse544/sub-verse544_dir-ax_seg-vert_msk.nii.gz",
+"size": 893392,
+"url": "https://osf.io/download/46y5e/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/derivatives/sub-verse544/sub-verse544_dir-ax_seg-subreg_ctd.json",
+"size": 642,
+"url": "https://osf.io/download/uf5xb/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/derivatives/sub-verse544/sub-verse544_dir-ax_seg-vert_snp.png",
+"size": 838116,
+"url": "https://osf.io/download/7fe9u/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/derivatives/sub-verse525/sub-verse525_dir-sag_seg-subreg_ctd.json",
+"size": 334,
+"url": "https://osf.io/download/yb43m/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/derivatives/sub-verse525/sub-verse525_dir-sag_seg-vert_msk.nii.gz",
+"size": 463945,
+"url": "https://osf.io/download/uprew/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/derivatives/sub-verse525/sub-verse525_dir-sag_seg-vert_snp.png",
+"size": 886534,
+"url": "https://osf.io/download/argqn/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/derivatives/sub-verse835/sub-verse835_dir-iso_seg-vert_msk.nii.gz",
+"size": 810879,
+"url": "https://osf.io/download/u2vt9/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/derivatives/sub-verse835/sub-verse835_dir-iso_seg-vert_snp.png",
+"size": 824060,
+"url": "https://osf.io/download/krhqv/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/derivatives/sub-verse835/sub-verse835_dir-iso_seg-subreg_ctd.json",
+"size": 389,
+"url": "https://osf.io/download/3dfc6/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/derivatives/sub-verse564/sub-verse564_dir-iso_seg-subreg_ctd.json",
+"size": 491,
+"url": "https://osf.io/download/mcn8b/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/derivatives/sub-verse564/sub-verse564_dir-iso_seg-vert_snp.png",
+"size": 936631,
+"url": "https://osf.io/download/yzj6c/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/derivatives/sub-verse564/sub-verse564_dir-iso_seg-vert_msk.nii.gz",
+"size": 696916,
+"url": "https://osf.io/download/ma7qs/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/derivatives/sub-verse510/sub-verse510_dir-ax_seg-subreg_ctd.json",
+"size": 897,
+"url": "https://osf.io/download/9jnbp/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/derivatives/sub-verse510/sub-verse510_dir-ax_seg-vert_msk.nii.gz",
+"size": 1089226,
+"url": "https://osf.io/download/uwfcx/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/derivatives/sub-verse510/sub-verse510_dir-ax_seg-vert_snp.png",
+"size": 1240089,
+"url": "https://osf.io/download/8t9hv/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/derivatives/sub-verse588/sub-verse588_seg-subreg_ctd.json",
+"size": 1186,
+"url": "https://osf.io/download/rw5fd/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/derivatives/sub-verse588/sub-verse588_seg-vert_msk.nii.gz",
+"size": 4585627,
+"url": "https://osf.io/download/r9nz7/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/derivatives/sub-verse588/sub-verse588_seg-vert_snp.png",
+"size": 954793,
+"url": "https://osf.io/download/76y9b/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/derivatives/sub-verse577/sub-verse577_dir-ax_seg-subreg_ctd.json",
+"size": 1005,
+"url": "https://osf.io/download/mhvx7/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/derivatives/sub-verse577/sub-verse577_dir-ax_seg-vert_msk.nii.gz",
+"size": 2157272,
+"url": "https://osf.io/download/sjmhu/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/derivatives/sub-verse577/sub-verse577_dir-ax_seg-vert_snp.png",
+"size": 2352969,
+"url": "https://osf.io/download/fsnpt/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/derivatives/sub-verse631/sub-verse631_seg-subreg_ctd.json",
+"size": 1278,
+"url": "https://osf.io/download/zxjep/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/derivatives/sub-verse631/sub-verse631_seg-vert_snp.png",
+"size": 1605135,
+"url": "https://osf.io/download/fpaxv/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/derivatives/sub-verse631/sub-verse631_seg-vert_msk.nii.gz",
+"size": 3731689,
+"url": "https://osf.io/download/xas7j/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/derivatives/sub-verse596/sub-verse596_dir-ax_seg-vert_msk.nii.gz",
+"size": 530007,
+"url": "https://osf.io/download/k9wd3/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/derivatives/sub-verse596/sub-verse596_dir-ax_seg-subreg_ctd.json",
+"size": 539,
+"url": "https://osf.io/download/yejks/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/derivatives/sub-verse596/sub-verse596_dir-ax_seg-vert_snp.png",
+"size": 879814,
+"url": "https://osf.io/download/6xhfs/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/derivatives/sub-verse565/sub-verse565_dir-ax_seg-vert_snp.png",
+"size": 1178742,
+"url": "https://osf.io/download/mky8w/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/derivatives/sub-verse565/sub-verse565_dir-ax_seg-vert_msk.nii.gz",
+"size": 971972,
+"url": "https://osf.io/download/zb5au/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/derivatives/sub-verse565/sub-verse565_dir-ax_seg-subreg_ctd.json",
+"size": 542,
+"url": "https://osf.io/download/u8yng/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/derivatives/sub-verse646/sub-verse646_dir-iso_seg-subreg_ctd.json",
+"size": 947,
+"url": "https://osf.io/download/yf6nd/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/derivatives/sub-verse646/sub-verse646_dir-iso_seg-vert_msk.nii.gz",
+"size": 1156312,
+"url": "https://osf.io/download/vbkj6/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/derivatives/sub-verse646/sub-verse646_dir-iso_seg-vert_snp.png",
+"size": 1458398,
+"url": "https://osf.io/download/9tejc/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/derivatives/sub-verse542/sub-verse542_dir-iso_seg-subreg_ctd.json",
+"size": 948,
+"url": "https://osf.io/download/e9sh2/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/derivatives/sub-verse542/sub-verse542_dir-iso_seg-vert_msk.nii.gz",
+"size": 1198612,
+"url": "https://osf.io/download/dw5z6/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/derivatives/sub-verse542/sub-verse542_dir-iso_seg-vert_snp.png",
+"size": 1623050,
+"url": "https://osf.io/download/en8s2/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/derivatives/sub-verse820/sub-verse820_dir-ax_seg-subreg_ctd.json",
+"size": 440,
+"url": "https://osf.io/download/du3jt/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/derivatives/sub-verse820/sub-verse820_dir-ax_seg-vert_msk.nii.gz",
+"size": 729672,
+"url": "https://osf.io/download/9gu8n/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/derivatives/sub-verse820/sub-verse820_dir-ax_seg-vert_snp.png",
+"size": 828904,
+"url": "https://osf.io/download/vhyxb/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/derivatives/sub-verse503/sub-verse503_dir-ax_seg-subreg_ctd.json",
+"size": 338,
+"url": "https://osf.io/download/jznve/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/derivatives/sub-verse503/sub-verse503_dir-ax_seg-vert_snp.png",
+"size": 720492,
+"url": "https://osf.io/download/u95s2/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/derivatives/sub-verse503/sub-verse503_dir-ax_seg-vert_msk.nii.gz",
+"size": 2850692,
+"url": "https://osf.io/download/fkme6/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/derivatives/sub-verse824/sub-verse824_dir-ax_seg-subreg_ctd.json",
+"size": 491,
+"url": "https://osf.io/download/3v7rc/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/derivatives/sub-verse824/sub-verse824_dir-ax_seg-vert_msk.nii.gz",
+"size": 697332,
+"url": "https://osf.io/download/6p78s/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/derivatives/sub-verse824/sub-verse824_dir-ax_seg-vert_snp.png",
+"size": 897046,
+"url": "https://osf.io/download/aqgne/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/derivatives/sub-verse537/sub-verse537_dir-iso_seg-vert_msk.nii.gz",
+"size": 717399,
+"url": "https://osf.io/download/w2cna/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/derivatives/sub-verse537/sub-verse537_dir-iso_seg-vert_snp.png",
+"size": 925188,
+"url": "https://osf.io/download/pxm52/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/derivatives/sub-verse537/sub-verse537_dir-iso_seg-subreg_ctd.json",
+"size": 440,
+"url": "https://osf.io/download/hpe9n/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/derivatives/sub-gl240/sub-gl240_dir-ax_seg-subreg_ctd.json",
+"size": 527,
+"url": "https://osf.io/download/mw4s8/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/derivatives/sub-gl240/sub-gl240_dir-ax_seg-vert_snp.png",
+"size": 273498,
+"url": "https://osf.io/download/qpjx8/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/derivatives/sub-gl240/sub-gl240_dir-ax_seg-vert_msk.nii.gz",
+"size": 413916,
+"url": "https://osf.io/download/uanbj/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/derivatives/sub-verse642/sub-verse642_dir-sag_seg-subreg_ctd.json",
+"size": 1041,
+"url": "https://osf.io/download/f57pn/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/derivatives/sub-verse642/sub-verse642_dir-sag_seg-vert_msk.nii.gz",
+"size": 735431,
+"url": "https://osf.io/download/bwjnd/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/derivatives/sub-verse642/sub-verse642_dir-sag_seg-vert_snp.png",
+"size": 1062012,
+"url": "https://osf.io/download/gy4ja/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/derivatives/sub-verse629/sub-verse629_dir-ax_seg-subreg_ctd.json",
+"size": 389,
+"url": "https://osf.io/download/65sn4/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/derivatives/sub-verse629/sub-verse629_dir-ax_seg-vert_snp.png",
+"size": 799689,
+"url": "https://osf.io/download/46vry/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/derivatives/sub-verse629/sub-verse629_dir-ax_seg-vert_msk.nii.gz",
+"size": 1046192,
+"url": "https://osf.io/download/dnhb5/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/derivatives/sub-verse619/sub-verse619_dir-ax_seg-subreg_ctd.json",
+"size": 948,
+"url": "https://osf.io/download/wes3a/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/derivatives/sub-verse619/sub-verse619_dir-ax_seg-vert_snp.png",
+"size": 1224880,
+"url": "https://osf.io/download/ufbe6/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/derivatives/sub-verse619/sub-verse619_dir-ax_seg-vert_msk.nii.gz",
+"size": 1173001,
+"url": "https://osf.io/download/c4ky6/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/derivatives/sub-verse584/sub-verse584_dir-ax_seg-subreg_ctd.json",
+"size": 440,
+"url": "https://osf.io/download/92yq7/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/derivatives/sub-verse584/sub-verse584_dir-ax_seg-vert_msk.nii.gz",
+"size": 762806,
+"url": "https://osf.io/download/r69hx/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/derivatives/sub-verse584/sub-verse584_dir-ax_seg-vert_snp.png",
+"size": 949125,
+"url": "https://osf.io/download/ajwf3/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/derivatives/sub-verse557/sub-verse557_dir-ax_seg-subreg_ctd.json",
+"size": 897,
+"url": "https://osf.io/download/ztqsf/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/derivatives/sub-verse557/sub-verse557_dir-ax_seg-vert_msk.nii.gz",
+"size": 1102896,
+"url": "https://osf.io/download/x8vaf/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/derivatives/sub-verse557/sub-verse557_dir-ax_seg-vert_snp.png",
+"size": 1169527,
+"url": "https://osf.io/download/wx2c9/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/derivatives/sub-verse581/sub-verse581_dir-ax_seg-vert_msk.nii.gz",
+"size": 1531483,
+"url": "https://osf.io/download/z42mc/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/derivatives/sub-verse581/sub-verse581_dir-ax_seg-vert_snp.png",
+"size": 949313,
+"url": "https://osf.io/download/gv2tx/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/derivatives/sub-verse581/sub-verse581_dir-ax_seg-subreg_ctd.json",
+"size": 1196,
+"url": "https://osf.io/download/mqf7x/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/derivatives/sub-gl047/sub-gl047_dir-ax_seg-subreg_ctd.json",
+"size": 573,
+"url": "https://osf.io/download/hyeg6/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/derivatives/sub-gl047/sub-gl047_dir-ax_seg-vert_msk.nii.gz",
+"size": 415601,
+"url": "https://osf.io/download/t6kzq/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/derivatives/sub-gl047/sub-gl047_dir-ax_seg-vert_snp.png",
+"size": 266701,
+"url": "https://osf.io/download/q4twg/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/derivatives/sub-verse514/sub-verse514_dir-ax_seg-subreg_ctd.json",
+"size": 897,
+"url": "https://osf.io/download/n3gdb/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/derivatives/sub-verse514/sub-verse514_dir-ax_seg-vert_msk.nii.gz",
+"size": 1074471,
+"url": "https://osf.io/download/7kcsu/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/derivatives/sub-verse514/sub-verse514_dir-ax_seg-vert_snp.png",
+"size": 1112757,
+"url": "https://osf.io/download/54ds2/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/derivatives/sub-gl453/sub-gl453_dir-ax_seg-subreg_ctd.json",
+"size": 527,
+"url": "https://osf.io/download/xaur9/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/derivatives/sub-gl453/sub-gl453_dir-ax_seg-vert_msk.nii.gz",
+"size": 464101,
+"url": "https://osf.io/download/u3k49/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/derivatives/sub-gl453/sub-gl453_dir-ax_seg-vert_snp.png",
+"size": 254051,
+"url": "https://osf.io/download/n6t9h/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/derivatives/sub-gl295/sub-gl295_dir-ax_seg-vert_msk.nii.gz",
+"size": 558587,
+"url": "https://osf.io/download/ejdcr/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/derivatives/sub-gl295/sub-gl295_dir-ax_seg-subreg_ctd.json",
+"size": 627,
+"url": "https://osf.io/download/sxrtn/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/derivatives/sub-gl295/sub-gl295_dir-ax_seg-vert_snp.png",
+"size": 310664,
+"url": "https://osf.io/download/a4bk7/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/derivatives/sub-verse605/sub-verse605_dir-sag_seg-vert_snp.png",
+"size": 1457803,
+"url": "https://osf.io/download/vhwxm/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/derivatives/sub-verse605/sub-verse605_dir-sag_seg-vert_msk.nii.gz",
+"size": 361153,
+"url": "https://osf.io/download/m8fzh/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/derivatives/sub-verse605/sub-verse605_dir-sag_seg-subreg_ctd.json",
+"size": 931,
+"url": "https://osf.io/download/ky9tg/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/derivatives/sub-verse539/sub-verse539_dir-ax_seg-vert_snp.png",
+"size": 1283630,
+"url": "https://osf.io/download/kua6t/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/derivatives/sub-verse539/sub-verse539_dir-ax_seg-subreg_ctd.json",
+"size": 695,
+"url": "https://osf.io/download/qb69g/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/derivatives/sub-verse539/sub-verse539_dir-ax_seg-vert_msk.nii.gz",
+"size": 997058,
+"url": "https://osf.io/download/2h56r/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/derivatives/sub-verse532/sub-verse532_dir-ax_seg-subreg_ctd.json",
+"size": 491,
+"url": "https://osf.io/download/fb2pe/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/derivatives/sub-verse532/sub-verse532_dir-ax_seg-vert_msk.nii.gz",
+"size": 1425249,
+"url": "https://osf.io/download/zu4ew/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/derivatives/sub-verse532/sub-verse532_dir-ax_seg-vert_snp.png",
+"size": 1217886,
+"url": "https://osf.io/download/4ujh9/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/derivatives/sub-verse527/sub-verse527_dir-ax_seg-subreg_ctd.json",
+"size": 542,
+"url": "https://osf.io/download/wdb9x/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/derivatives/sub-verse527/sub-verse527_dir-ax_seg-vert_msk.nii.gz",
+"size": 910823,
+"url": "https://osf.io/download/6eg8y/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/derivatives/sub-verse527/sub-verse527_dir-ax_seg-vert_snp.png",
+"size": 1097318,
+"url": "https://osf.io/download/b2dc9/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/derivatives/sub-verse507/sub-verse507_dir-ax_seg-subreg_ctd.json",
+"size": 490,
+"url": "https://osf.io/download/snbqc/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/derivatives/sub-verse507/sub-verse507_dir-ax_seg-vert_snp.png",
+"size": 774190,
+"url": "https://osf.io/download/ajxkw/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/derivatives/sub-verse507/sub-verse507_dir-ax_seg-vert_msk.nii.gz",
+"size": 2755498,
+"url": "https://osf.io/download/gr647/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/derivatives/sub-gl364/sub-gl364_dir-ax_seg-vert_snp.png",
+"size": 227613,
+"url": "https://osf.io/download/axfwg/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/derivatives/sub-gl364/sub-gl364_dir-ax_seg-subreg_ctd.json",
+"size": 425,
+"url": "https://osf.io/download/9ks43/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/derivatives/sub-gl364/sub-gl364_dir-ax_seg-vert_msk.nii.gz",
+"size": 358061,
+"url": "https://osf.io/download/jqn48/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/derivatives/sub-verse535/sub-verse535_dir-iso_seg-subreg_ctd.json",
+"size": 491,
+"url": "https://osf.io/download/95fb4/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/derivatives/sub-verse535/sub-verse535_dir-iso_seg-vert_snp.png",
+"size": 974047,
+"url": "https://osf.io/download/be56r/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/derivatives/sub-verse535/sub-verse535_dir-iso_seg-vert_msk.nii.gz",
+"size": 821390,
+"url": "https://osf.io/download/uxh49/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/derivatives/sub-verse807/sub-verse807_dir-ax_seg-subreg_ctd.json",
+"size": 440,
+"url": "https://osf.io/download/gt4q8/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/derivatives/sub-verse807/sub-verse807_dir-ax_seg-vert_msk.nii.gz",
+"size": 1079286,
+"url": "https://osf.io/download/zxdfp/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/derivatives/sub-verse807/sub-verse807_dir-ax_seg-vert_snp.png",
+"size": 1070421,
+"url": "https://osf.io/download/6v3ma/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/derivatives/sub-verse519/sub-verse519_dir-iso_seg-subreg_ctd.json",
+"size": 898,
+"url": "https://osf.io/download/hw3z6/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/derivatives/sub-verse519/sub-verse519_dir-iso_seg-vert_snp.png",
+"size": 1565648,
+"url": "https://osf.io/download/3pqn4/"
+},
+{
+"node": "4skx2",
+"path": "/01_training/derivatives/sub-verse519/sub-verse519_dir-iso_seg-vert_msk.nii.gz",
+"size": 1216546,
+"url": "https://osf.io/download/a7fd4/"
+},
+{
+"node": "4skx2",
+"path": "/fracture_data/Genant_Fractures_thoracolumbar_reference.csv",
+"size": 11823,
+"url": "https://osf.io/download/zy68u/"
+}
+]

@@ -1,0 +1,987 @@
+{
+ "bordercall naming layer (SchwingCheck exact rule, chain of levels, JAX naming layer) and its synthetic validation, including the 106-measure validation": {
+  "area": "bordercall naming layer (SchwingCheck exact rule, chain of levels, JAX naming layer) and its synthetic validation, including the 106-measure validation",
+  "summary": "The naming layer lives only in bordercall, and every result is on synthetic spines.\n\n**Exact rule.** schwingcheck/rule.py is the exact Bayes rule over Panjabi's tables. It names typical columns from C3 to L5.\n\n**Chain of levels.** schwingcheck/chain.py (PRs 20, 23, 31; records/chain-2026-10-28/) adds six-lumbar and T13 columns and missed bodies. With all 32 measures it names:\n\n| Column | 3 bodies | 5 bodies | 9 bodies |\n|---|---|---|---|\n| Typical | 96.0% | 98.0% | 99.0% |\n| Six-lumbar | 97.5% | 98.5% | 98.0% |\n| T13 | 94.5% | 98.0% | 97.5% |\n\nAt 0.99 it is right on at least 99.37% of answers. Medians are 2.39, 6.6 and 78.6 ms at 3, 5 and 9 bodies, on one CPU. There is no p95 and no ONNX parity.\n\n**Budget.** 97 ms is one frame of C-ArmLSpine's 10.3 fps sweeps, and the p95 must be under it (SchwingNet docs/memory/latency-and-the-recorded-sweep.md).\n\n**JAX layer.** autoanatomist/naming.py (PR 27) adds four_lumbar, anchors and a per-value error, and matches chain.py exactly.\n\n**One body.** A lone typical body is named 86.8% of the time. A lone L6 is named 12.6%, and every one of its 0.99 answers is wrong (PR 32).\n\n**Input it needs.** Per-body values for any of the 32 measures in mm, mm\u00b2 or degrees, ordered top to bottom, NaN where missing, each with its error.\n\n**No frame measurer.** The auto-anatomist's network named 5 of 12 bodies from its values, and 0 of 12 once its spreads were used (records/autoanatomist-2026-10-29/smoke.json).\n\n**The 106-measure validation.** This is the owner's ask of 15:18 UTC. The Validate-synthetic-data thread will open it as a new PR once PR 29 lands. It has 46 usable measures and has pushed nothing yet.\n\n**PR 29** (draft 38ddbdd) holds the 32 pool measures against the papers:\n- Panjabi's mean lies outside the pooled CI in 25 of 56 cells.\n- Synthetic SDs are 1.69 times the papers'.\n- 42% of vertebrae are geometrically impossible.\n- Anomalies are drawn at 4 to 9 times their prevalence.\n\n**PR 26** (draft e3bcb2c) holds the 106-measure vocabulary and series.csv (4,357 series). Its round-2 fixes and rerun are pending.\n\n**Before real fluoroscopy:**\n- a frame measurer\n- the CT-to-fluoroscopy transfer (decision 6)\n- real anomalous columns and a prior (TODO item 6)\n- a gold-CT table (item 5; the 2-job pilot is approved and unsent)\n- calibration, ONNX parity and a p95\n\n**Pinned copy.** SchwingNet's copy is grid/bordercall/VENDORED at 6938a2e, 132 commits behind, with no schwingcheck.",
+  "done": [
+   {
+    "ref": "bordercall PR 20 (merged 2026-10-29 02:41 UTC) and PR 23 (merged 02:41 UTC)",
+    "what": "The column as a chain of levels (schwingcheck/chain.py): typical, six_lumbar and t13 columns, skipped bodies, exact enumeration, scored at 1 to 9 bodies, the data axis and the speed (records/chain-2026-10-28/chain.json, axis.json, speed.json)"
+   },
+   {
+    "ref": "bordercall PR 31 (merged 12:06 UTC)",
+    "what": "The chain's four records from one commit (9d94314), the PyMC models (DiscreteMarkovChain and custom marginalisation) against the exact answer (pymc.json: 69 of 72 samplings pass), and the review's fixes"
+   },
+   {
+    "ref": "bordercall PR 32 (merged 14:12 UTC, commit 74dfa05)",
+    "what": "One-vertebra evaluation: a lone body named from its own measures, level by level, with coarse claims at 0.99 (records/one-body-2026-10-29/one_body.json)"
+   },
+   {
+    "ref": "bordercall PR 33 (merged 14:57 UTC)",
+    "what": "Fixed-k NUTS review: NUTS with the levels known equals the closed form; PyMC 6.3.2's proportional categorical proposal samples the wrong law; Liu's Metropolised Gibbs step in schwingcheck/categorical.py (records/fixed-k-2026-10-29/)"
+   },
+   {
+    "ref": "bordercall PR 34 (merged 17:05 UTC, main 86f4856)",
+    "what": "The PyMC proportional-proposal upstream issue drafted (schwingcheck/examples/pymc_proportional_report.md) with a standalone reproduction (pymc_proportional_repro.py); posting it upstream is the owner's"
+   },
+   {
+    "ref": "bordercall PR 27 (merged 14:07 UTC, d778a18)",
+    "what": "The auto-anatomist: oracle interface with the ChordOracle stand-in, soft gates, the JAX naming layer (autoanatomist/naming.py; four_lumbar type, top/bottom anchors, per-value error, soft-Viterbi; exact against chain.py within 1e-9 to 1e-13), dual encoder of 579,230 parameters, smoke run records/autoanatomist-2026-10-29/smoke.json, 35 tests"
+   },
+   {
+    "ref": "bordercall records/curve-2026-10-28/curve.nc (commit a7dcf15), schwingcheck/README.md",
+    "what": "Build-up study: measures added one at a time, typical and anomalous columns at 1 to 9 bodies, rule.py speed per measure count"
+   },
+   {
+    "ref": "bordercall README.md, archive/records/exact-2026-10-26/exact.json",
+    "what": "The seven-measure exact rule on typical columns: share named exactly at 1/3/5/9/15 bodies 47.3/73.1/85.7/96.1/99.7%, right at 0.99 99.70 to 99.98%"
+   }
+  ],
+  "in_flight": [
+   {
+    "ref": "bordercall PR 29 (draft, branch claude/project-thread-o3ng22, API head 38ddbdd)",
+    "what": "Hold the synthetic spines to the published populations: research_notes/synthetic-validation/ (synthval/*.py, run.py, tables, figures, records, tests) holding the 32 pool measures against the papers at reread snapshot 45130ac; report artifact https://claude.ai/artifact/H82v6B1drWmpjTJhrWrLxv",
+    "state": "Close to ready per the Validate-synthetic-data thread (17:07 UTC): the root suite's 6 errors came from pymc-extras missing in its environment, now installed and rerunning; two skeptics per finding are checking the readers' 11 wording findings",
+    "next_step": "Apply the fixes that hold, one more record run, redraw, republish the report, run all bordercall suites (no CI), mark ready, merge"
+   },
+   {
+    "ref": "not yet opened (thread cmsg_0155QZgnLnXyddb75umH2eJLWtUdDFjik95xpKF3ZAMma2)",
+    "what": "The synthetic-data validation over all 106 reread measures (the owner's ask of 2026-10-29 15:18 UTC, cmsg_0155QZgnLnXyddb75umH2eJLTzamgvxzKivQNdkWtQnXsK: 'i want all 102 unique measures from the clinical reread thread not just panjabi'); the vocabulary in PR 26 holds 106",
+    "state": "Not pushed. Thread checklist at 17:07 UTC: series of all 46 measures with usable rows selected; writing the papers' table and the second population. 57 (or 60) of the 106 have no usable mean/SD/count",
+    "next_step": "Pool the 46 measures' series, draw a second population from the papers, redo quality, state space, naming, power, figures, README and report, open as a new PR after PR 29 lands"
+   },
+   {
+    "ref": "bordercall PR 26 (draft, branch claude/project-thread-adplcz, head e3bcb2c; supersedes PRs 24 and 21)",
+    "what": "Finish the clinical reread: research_notes/clinical-reread/ (43 notes, synthesis, anomalies.md, measures.md, anomaly-priors.md, the 44 PDFs), research_notes/paper-tables/ (23,918 cells mapped to 106 measures in tools/vocabulary.csv; data/series.csv 4,357 series over 49 measures; data/cross_naming.json at 200 fields, seed 2026)",
+    "state": "Draft; HANDOFF next steps open; PR body stale against the HANDOFF on where the PDFs are",
+    "next_step": "Fix round-2 data findings (Griffith 2016 adjusted estimates as a second series; Frontphys 2026's n), rerun series.csv and cross_naming (about 15 min on 4 CPUs), tell the chain and auto-anatomist threads; the embalmed-specimen correction (archive/bordercall/SPINEPS_MAPPING.md:88, covariance.py:28) waits for the owner"
+   },
+   {
+    "ref": "bordercall PR 24 and PR 21 (open drafts)",
+    "what": "Earlier clinical-reread PRs",
+    "state": "Superseded by PR 26 but still open",
+    "next_step": "Close once PR 26 lands (the owner's or the thread's)"
+   },
+   {
+    "ref": "bordercall PR 28 (draft, branch claude/project-thread-1995zb, head 810fef2)",
+    "what": "holdings/fullspine_complete.py: a segmenter's levels added to a full-spine CT only where anchors agree; run on 33 studies of SchwingNet #451; TotalSegmentator child CTs refused",
+    "state": "Draft",
+    "next_step": "not recorded"
+   },
+   {
+    "ref": "bordercall PR 30 (draft, head cf2c3d0)",
+    "what": "morphometry/: 79 per-vertebra measures on gold tier 3 masks, maskedge/; 121 of 229 ENHANCE.PET studies measured; masks read end-plate widths about 9 mm wide",
+    "state": "Paused",
+    "next_step": "not recorded"
+   },
+   {
+    "ref": "SchwingNet PR 416 (open draft, branch claude/project-thread-7qoboa)",
+    "what": "Textbook chapter 36: the SchwingCheck white paper with five figures (tools/schwingcheck_figures.py, tools/schwingcheck_records.json)",
+    "state": "Open draft",
+    "next_step": "not recorded"
+   },
+   {
+    "ref": "SchwingNet issue #138 (todo, blocker)",
+    "what": "Record v1's latency, ONNX parity and sweep once grid jobs 40702515/6/7 run",
+    "state": "Jobs were PENDING with no node for about 15 hours as of the 2026-10-22 handoff; no later result recorded in the issue body",
+    "next_step": "Read the status word, record parity, p50/p95 and the sweep in docs/research/latency-and-sweep/README.md"
+   }
+  ],
+  "existing_issues": [
+   {
+    "repo": "OpenSpineConsortium/bordercall",
+    "number": 0,
+    "title": "(no open issues)",
+    "covers": "bordercall has no open issues; its open items are PRs 21, 24, 26, 28, 29, 30 (scratchpad inventory bordercall-open.jsonl at 15:29 UTC and the pulls API)",
+    "state_note": "A new naming-layer task in bordercall would be the first issue there"
+   },
+   {
+    "repo": "OpenSpineConsortium/SchwingNet",
+    "number": 138,
+    "title": "Task: Record v1's latency, ONNX parity and sweep once the grid jobs run",
+    "covers": "The ONNX-parity and p50/p95 rule for latency and the 97 ms budget for SchwingNet v1; a naming-layer latency task must reuse this rule and the run-directory layout (latency/<arm>.json)",
+    "state_note": "todo, blocker; jobs 40702515/6/7 pending as of 2026-10-22"
+   },
+   {
+    "repo": "OpenSpineConsortium/SchwingNet",
+    "number": 57,
+    "title": "A. Counting prior from CT at decode time",
+    "covers": "SchwingNet's own chain at decode (src/schwingnet/chain.py, tools/chain_stats.py, tools/chain_eval.py): naming a frame's bodies as one ordered column under a CT prior; overlaps the bordercall chain of levels conceptually",
+    "state_note": "todo; the prior grid job and chain_eval are unrun"
+   },
+   {
+    "repo": "OpenSpineConsortium/SchwingNet",
+    "number": 62,
+    "title": "F. Anomalies labelled on CT: readers' column calls as the prior",
+    "covers": "Column calls (T12L5, T12L6, T13L5) per CT as the anomaly prior; the real prior the naming layer's item 6 needs",
+    "state_note": "todo"
+   },
+   {
+    "repo": "OpenSpineConsortium/SchwingNet",
+    "number": 72,
+    "title": "Grid gate words for the counting prior, the covariate census and the chain evaluation",
+    "covers": "The gate words prior, census and chain_eval on grid/gate.sh",
+    "state_note": "todo"
+   },
+   {
+    "repo": "OpenSpineConsortium/SchwingNet",
+    "number": 135,
+    "title": "P: level naming from the lumbosacral gold to C2 by renders, physics noise, denoising and generative translation",
+    "covers": "Naming beyond the lumbar gold pairs; the sim-to-real gap the CT-to-fluoroscopy measure transfer must cross",
+    "state_note": "todo"
+   },
+   {
+    "repo": "OpenSpineConsortium/SchwingNet",
+    "number": 56,
+    "title": "From 3D to X-ray: priors, the anomaly screener and the X-ray format",
+    "covers": "The parent of workstreams A to N (#57, #62 and others); deliberately not labelled epic",
+    "state_note": "open"
+   },
+   {
+    "repo": "OpenSpineConsortium/SchwingNet",
+    "number": 263,
+    "title": "Research E02: Read the unread prior art on naming without registration",
+    "covers": "Prior art for naming levels without registration (Li 2016, Li 2017, ABLSpineLevelCheck 2024, Huang 2022); #266 is the owner's act to read them in full",
+    "state_note": "todo, research"
+   },
+   {
+    "repo": "OpenSpineConsortium/SchwingNet",
+    "number": 416,
+    "title": "Textbook chapter 36: the SchwingCheck white paper, with five diagrams",
+    "covers": "The SchwingCheck white paper and figures in the textbook, including a figure of the segmentation-free measuring device",
+    "state_note": "open draft pull request"
+   }
+  ],
+  "gaps": [
+   {
+    "gap": "No measurer turns a fluoroscopic frame into the per-body values the naming layer takes.",
+    "why_needed": "The goal is to name vertebrae from fluoroscopy without segmentation. Every naming result so far starts from measures read off masks or synthetic draws.",
+    "evidence": "bordercall TODO.md item 2 says the landmark measurer for C-arm frames does not exist yet. In the auto-anatomist smoke run the naming layer named 9/12 bodies from oracle values, 5/12 from network values and 0/12 with the network's spreads (records/autoanatomist-2026-10-29/smoke.json). Not done: a real extractor and real training (autoanatomist/README.md)."
+   },
+   {
+    "gap": "The network's per-value spread is not calibrated.",
+    "why_needed": "The JAX layer takes a per-value error. A 25 mm spread that is too wide turns every answer into an abstention or a wrong answer.",
+    "evidence": "autoanatomist/README.md and smoke.json: 0/12 bodies named with the network's spreads."
+   },
+   {
+    "gap": "No fitted transfer from CT measures to fluoroscopic measures.",
+    "why_needed": "The tables come from CT or cadaver measures. A frame shows a projection with magnification and obliquity.",
+    "evidence": "Decision 6 in bordercall TODO.md is still open: which C-ArmLSpine and COBRA people may be spent to fit the transfer."
+   },
+   {
+    "gap": "The anomalous columns are constructed and the prior is not real.",
+    "why_needed": "The owner wants accuracy per phenotype. Lone L6 bodies are named 12.6% of the time and lone T13 bodies 47.4%, and all their 0.99 answers are wrong. With all 32 measures, 5.1 to 7.2% of the 0.99 answers on L6/T13 spines are wrong.",
+    "evidence": "In chain.py, L6 = L5 + 0.5(L5 - L4) and T13 is halfway between T12 and L1, with weights 0.9/0.05/0.05. four_lumbar uses the typical column's values (autoanatomist/README.md). TODO.md item 6 is open. research_notes/clinical-reread/anomaly-priors.md is in PR 26, and the generator's equal sixths are 4 to 9 times prevalence (PR 29)."
+   },
+   {
+    "gap": "No per-frame latency by SchwingNet's rule: no ONNX parity, no p95, no device.",
+    "why_needed": "Real time means p95 strictly under 97 ms, measured on an ONNX file whose parity passed (SchwingNet docs/memory/latency-and-the-recorded-sweep.md). The chain's median at 9 bodies with all 32 measures is already 78.6 ms on one CPU, before any detector.",
+    "evidence": "schwingcheck/README.md (records/chain-2026-10-28/speed.json): one machine's medians, no p95, no port to a device. The JAX enumeration times are scratch: 19 ms per batch of 8 at 3 bodies and 52 ms at 5 (autoanatomist/README.md). Enumeration memory reaches 1.15 GB at 12 bodies in float32."
+   },
+   {
+    "gap": "The reference table rests on Panjabi's 12 cadaver spines, and no gold-CT table exists.",
+    "why_needed": "Tables from 12 people break the 0.99 promise (97.99% at 5 bodies for typical columns). From 50 people they hold it (at least 99.34%). PR 29 finds Panjabi's mean outside the pooled 95% CI in 25 of 56 cells.",
+    "evidence": "schwingcheck/README.md data axis (axis.json). TODO.md item 5 is open. The bordercall pilot (2 CPU jobs) is approved and unsent (TODO.md, decision 1 of 2026-10-28)."
+   },
+   {
+    "gap": "Naming has not been validated on real data. No accuracy has been measured on full spines countable from C2 to the pelvis.",
+    "why_needed": "The owner allows truth only from full spines counted from C2. Every result so far is synthetic.",
+    "evidence": "Every record listed is synthetic (schwingcheck/README.md, PR 29). The gold tier 3 masks are being measured in PR 30 (paused; 121 of 229 ENHANCE.PET studies)."
+   },
+   {
+    "gap": "57 to 60 of the 106 reread measures have no usable series, and no population has been drawn from the papers.",
+    "why_needed": "The owner asked for all of the clinical reread's unique measures, not just Panjabi's.",
+    "evidence": "The validate thread at 15:20 and 17:07 UTC: 49 of 106 have mean/SD/count and 46 are usable. data/series.csv covers 49 measures (PR 26 README)."
+   },
+   {
+    "gap": "The synthetic generator's spread and geometry do not match the papers.",
+    "why_needed": "Accuracy measured on draws 1.69 times too spread out, with 42% impossible vertebrae, does not say how the rule does on real spines.",
+    "evidence": "PR 29 findings: SDs are 1.69 times the papers' (1.81 times with error), 42% of vertebrae are geometrically impossible, and the nearest grid point (scale_sd 0.02) names one body 57% vs 47.5% of the time."
+   },
+   {
+    "gap": "The correlation between measures within a person is not measured. The statespace model waits for it.",
+    "why_needed": "The likelihood assumes a rank-one plus diagonal structure with rho 0.5. A wrong correlation makes the 0.99 claims too confident.",
+    "evidence": "bordercall TODO.md: the statespace model waits for a within-person correlation measured on gold masks, which is a grid job."
+   },
+   {
+    "gap": "The miss rate is not measured on real fields.",
+    "why_needed": "The chain assumes a body is missed with probability 1/6 and never two in a row (SKIP 0.2, MAX_STEP 2). Real fields may break both assumptions.",
+    "evidence": "schwingcheck/chain.py constants. No real-field measurement is recorded."
+   },
+   {
+    "gap": "SchwingNet's pinned bordercall copy is stale for naming.",
+    "why_needed": "The grid and SchwingNet can run only the vendored copy.",
+    "evidence": "grid/bordercall/VENDORED pins bordercall 6938a2e, 132 commits behind origin/main 86f4856. The copy holds bordercall/*.py only. No file under SchwingNet tools/, grid/ or src/ names schwingcheck. The copy tool is tools/bordercall_vendor.py copy <clone>/archive (bordercall TODO.md section 0)."
+   },
+   {
+    "gap": "No per-phenotype table of the whole series of solutions in one place.",
+    "why_needed": "The owner asks for a series of solutions, each with its accuracy per phenotype: normal, L6, T13, four lumbar and the transitional classes.",
+    "evidence": "The numbers are spread over curve.nc, chain.json and one_body.json. Four lumbar, rib on L1 and no rib on T12 appear only in the build-up study. The transitional classes beyond these are not recorded."
+   }
+  ],
+  "gates": [
+   {
+    "what": "Any grid job: the bordercall pilot and full run, gold-CT table measures, within-person correlation, PR 26's rerun if sent to the grid",
+    "gate": "The owner's word and the number of jobs for each job. The hold was lifted for every thread at 17:05 UTC, but word and count still apply. The pilot (2 CPU jobs) is approved and unsent.",
+    "source": "Project chat 17:05 UTC; bordercall TODO.md decisions of 2026-10-28 20:40 UTC; SchwingNet docs/memory/bordercall-on-the-grid.md"
+   },
+   {
+    "what": "Any deep-learning job, such as training a frame measurer or the auto-anatomist",
+    "gate": "It runs only as a flow started by flows/launch.py and listed in flows/registry.txt, under a frozen PREREG, with the CLAIM/REFORMS report and a progress page.",
+    "source": "SchwingNet docs/memory/every-deep-learning-job-runs-on-a-launched-flow.md"
+   },
+   {
+    "what": "Any latency number for the naming layer",
+    "gate": "It needs ONNX parity for the same file: labels equal, probabilities within 1e-5. Report p50/p95. Real time means p95 under 97 ms.",
+    "source": "SchwingNet docs/memory/latency-and-the-recorded-sweep.md; issue #138"
+   },
+   {
+    "what": "Merging a bordercall PR",
+    "gate": "bordercall has no CI, so every suite runs before a merge: schwingcheck has 268 tests (1,041 s) and autoanatomist has 35.",
+    "source": "Owner's standing rules (task); schwingcheck/README.md; autoanatomist/README.md"
+   },
+   {
+    "what": "A new package, such as an ONNX runtime or a JAX export toolchain",
+    "gate": "A new package is an issue first.",
+    "source": "Owner's standing rules (task); .claude/rules/writing.md"
+   },
+   {
+    "what": "Posting the PyMC proportional-proposal report upstream",
+    "gate": "The owner posts it.",
+    "source": "bordercall PR 34; schwingcheck/examples/pymc_proportional_report.md"
+   },
+   {
+    "what": "Correcting Panjabi's specimens from 'embalmed' in archive/bordercall/SPINEPS_MAPPING.md:88 and covariance.py:28",
+    "gate": "Waits for the owner.",
+    "source": "PR 26 HANDOFF"
+   },
+   {
+    "what": "Spending C-ArmLSpine or COBRA people to fit the CT-to-fluoroscopy measure transfer",
+    "gate": "The owner decides which people (decision 6).",
+    "source": "bordercall TODO.md decisions of 2026-10-28 20:40 UTC"
+   },
+   {
+    "what": "The demo video of naming on an mp4 sweep",
+    "gate": "Shown only after the provisional is filed (by 30 October). It shows results, not methods.",
+    "source": "SchwingNet docs/project.md Goal and Out of scope"
+   },
+   {
+    "what": "Masks other than SPINEPS for real-data validation",
+    "gate": "They feed a second arm and are never pooled. SPINEPS masks are reused, never re-run. TotalSegmentator is never run.",
+    "source": "bordercall TODO.md rules line; SchwingNet docs/memory/bordercall-on-the-grid.md"
+   },
+   {
+    "what": "Truth for any reported accuracy",
+    "gate": "It comes only from full spines countable from C2 to the pelvis. Nothing is reported on the 802 CTSpinoPelvic1K columns. Synthetic images and machine masks never raise an evidence tier.",
+    "source": "Owner's standing rules (task); SchwingNet docs/memory/bordercall-on-the-grid.md"
+   }
+  ],
+  "facts": [
+   {
+    "fact": "The exact rule is SchwingCheck: an exact Bayes rule over Panjabi's tables. It covers typical C3 to L5 (22 levels, 23 - n places) with a uniform prior. The likelihood per measure is rank-one plus diagonal (rho 0.5, sigma_err 1 mm). Size log s ~ N(0, 0.07^2) is integrated by 161-node Gauss-Hermite or a 281-node trapezoid. Gaps and missing values are handled.",
+    "source": "bordercall schwingcheck/README.md; schwingcheck/rule.py"
+   },
+   {
+    "fact": "The pool holds 32 measures: 18 lengths, 6 areas and 8 angles. Errors are 1 mm, sqrt(pi A/2) mm^2 and 3 degrees. The owner chose to keep all 32 as printed at 2026-10-29 09:01 UTC.",
+    "source": "bordercall schwingcheck/README.md; TODO.md"
+   },
+   {
+    "fact": "With the seven SPINEPS measures on typical columns, the exact rule names exactly 47.3/73.1/85.7/96.1/99.7% of fields at 1/3/5/9/15 bodies, and is right 99.70 to 99.98% of the time at 0.99.",
+    "source": "bordercall README.md; archive/records/exact-2026-10-26/exact.json"
+   },
+   {
+    "fact": "Build-up at 3 bodies, typical columns: 1 measure 42.0%, the seven 73.1%, the first seven chosen greedily 89.2%, all 32 98.3%.",
+    "source": "bordercall records/curve-2026-10-28/curve.nc (commit a7dcf15), schwingcheck/README.md"
+   },
+   {
+    "fact": "Anomalous columns at 3/5/9 bodies with all 32 measures: six lumbar 93.7/94.5/93.3%, T13 92.6/91.9/92.8%, four lumbar 98.2/99.8/100%, rib on L1 97.4/99.7/100%, no rib on T12 97.1/99.7/100%. With the seven: six lumbar 70.3/81.1/89.3%, T13 69.1/77.3/87.2%. With all 32, 5.1 to 7.2% of 0.99 answers on L6/T13 spines are wrong.",
+    "source": "bordercall records/curve-2026-10-28/curve.nc, schwingcheck/README.md"
+   },
+   {
+    "fact": "Chain of levels with all 32 measures, share named exactly at 1/3/5/9 bodies: typical 86.5/96.0/98.0/99.0% (the consecutive rule gives 88.5/88.0/72.5 at 3/5/9); six lumbar 85.0/97.5/98.5/98.0%; T13 84.0/94.5/98.0/97.5%. At 0.99 the chain is right on at least 99.37% of every type at 3 to 9 bodies, while the consecutive rule falls as low as 72.11%.",
+    "source": "bordercall records/chain-2026-10-28/chain.json (commit 9d94314), schwingcheck/README.md; PRs 20, 23, 31"
+   },
+   {
+    "fact": "Chain speed, built once, all 32 measures, one machine's medians: 1.28/2.39/6.6/21.3/78.6 ms at 1/3/5/7/9 bodies, over 24/92/339/1,166/3,896 paths. With the seven: 0.267 to 23.1 ms. path_logev takes 11.8 ms to 16.4 s. No p95, no device port.",
+    "source": "bordercall records/chain-2026-10-28/speed.json, schwingcheck/README.md"
+   },
+   {
+    "fact": "rule.py speed on the trapezoid, one thread, 3 bodies: 0.31 ms (1 measure), 1.12 ms (7), 4.02 ms (16), 9.68 ms (32). NUTS takes 166 to 712 times as long. At 16 measures NUTS was once 1.0 wrong at R-hat 1.00.",
+    "source": "bordercall schwingcheck/README.md (build-up study)"
+   },
+   {
+    "fact": "The 97 ms budget is one frame of C-ArmLSpine's 10.3 fps sweeps. Real time means p95 strictly under it, on a runtime whose ONNX parity passed for the same file.",
+    "source": "SchwingNet docs/memory/latency-and-the-recorded-sweep.md; docs/textbook/20-readiness-for-the-operating-room.md"
+   },
+   {
+    "fact": "Data axis: tables re-estimated from 12 people break the 0.99 promise (97.99% for typical columns at 5 bodies with all 32). From 50 people they hold at least 99.34%.",
+    "source": "bordercall records/chain-2026-10-28/axis.json, schwingcheck/README.md"
+   },
+   {
+    "fact": "One vertebra, all 32 measures: a lone typical body is named exactly 86.8% of the time and within one level 96.9%. It is answered at 0.99 42.1% of the time and right 99.85%. With the seven it is named 46.2%. A lone L6 is named 12.6% and a lone T13 47.4%, and every one of their 0.99 answers is wrong. T4 to T7 are named 63.4 to 67.2%. Below C7 is decided on 99.8% of bodies and below T12 on 99.3%.",
+    "source": "bordercall records/one-body-2026-10-29/one_body.json (commit 74dfa05), PR 32"
+   },
+   {
+    "fact": "The JAX naming layer adds a four_lumbar type (weight 0.05), top/bottom anchors and a per-value error, and uses soft-Viterbi. It is exact against chain.py within 1e-9 to 1e-13. Enumeration memory in float32 is 1.2 MB at 3 bodies, 7.6 MB at 5, 77 MB at 8 and 1.15 GB at 12.",
+    "source": "bordercall autoanatomist/README.md, autoanatomist/naming.py (PR 27)"
+   },
+   {
+    "fact": "The input the naming layer needs from a frame pipeline: an ordered top-to-bottom list of bodies, each with values for any subset of the 32 measures in their units (lengths in mm, areas in mm^2, angles in degrees), NaN where missing, a per-value error, optional gaps or offsets, and optional top/bottom anchors.",
+    "source": "bordercall autoanatomist/naming.py; schwingcheck/chain.py; schwingcheck/README.md"
+   },
+   {
+    "fact": "Auto-anatomist smoke run: the held-out CT-only path has a landmark error of 2.98 mm. Naming got 9/12 bodies from oracle values, 5/12 from network values and 0/12 with the network's spreads. The CT-only path takes 38 ms per crop in batches of 8 on CPU, with no ONNX parity and no p95.",
+    "source": "bordercall records/autoanatomist-2026-10-29/smoke.json; autoanatomist/README.md"
+   },
+   {
+    "fact": "The 106-measure validation is the owner's ask of 2026-10-29 15:18 UTC: 'i want all 102 unique measures from the clinical reread thread not just panjabi'. The reread vocabulary maps 39 papers to 106 measures. 46 of the 106 have series the validate thread can use. It has not been opened as a PR.",
+    "source": "Project chat cmsg_0155QZgnLnXyddb75umH2eJLTzamgvxzKivQNdkWtQnXsK; PR 26 research_notes/paper-tables/tools/vocabulary.csv; validate thread message of 17:07 UTC"
+   },
+   {
+    "fact": "PR 29 findings, synthetic against the papers on the 32 pool measures: Panjabi's mean lies outside the pooled 95% CI in 25 of 56 cells (23 above). Synthetic SDs are 1.69 times the papers' (1.81 times with error). 42% of vertebrae carry a geometric impossibility. Between-paper spread is 0.83 SD, so a pool of published series is worth about 1.8 scans. 159 gold persons detect a 0.22 SD shift. The generator's equal sixths of anomalies are 4 to 9 times the papers' prevalence.",
+    "source": "bordercall PR 29 research_notes/synthetic-validation/README.md (head 38ddbdd); report https://claude.ai/artifact/H82v6B1drWmpjTJhrWrLxv"
+   },
+   {
+    "fact": "PR 26's paper-tables: 23,918 cells mapped to 106 measures; data/series.csv has 4,357 series over 49 measures and 209 paper-measure pairs; cross_naming.json covers 200 fields at seed 2026. The repository memory says 4,477 series elsewhere, which disagrees.",
+    "source": "bordercall PR 26 research_notes/paper-tables/README.md and results/README.md"
+   },
+   {
+    "fact": "SchwingNet's pinned copy is grid/bordercall/ at bordercall 6938a2e. It holds bordercall/*.py, reference CSVs, HANDOFF.md, README.md and testdata, and no schwingcheck or autoanatomist. bordercall origin/main (86f4856) is 132 commits ahead.",
+    "source": "SchwingNet grid/bordercall/VENDORED; git -C /home/user/bordercall log 6938a2e..origin/main"
+   },
+   {
+    "fact": "The PyMC fixed-k review: NUTS with the levels known equals the closed form. PyMC 6.3.2's proportional categorical proposal samples the wrong law. Liu's Metropolised Gibbs is in schwingcheck/categorical.py. In pymc.json, 69 of 72 samplings pass, and one stuck chain had R-hat 1.54.",
+    "source": "bordercall records/fixed-k-2026-10-29/ (PR 33); records/chain-2026-10-28/pymc.json (PR 31)"
+   },
+   {
+    "fact": "schwingcheck's test suite has 268 tests and takes 1,041 s. autoanatomist has 35 tests.",
+    "source": "bordercall schwingcheck/README.md; autoanatomist/README.md"
+   }
+  ],
+  "proposed_tasks": [
+   {
+    "title": "Land PR 29: synthetic spines held to the published populations",
+    "goal": "Merge the population-validation note and its report so later work can cite its findings: Panjabi outside the CI in 25 of 56 cells, SDs 1.69 times, 42% impossible vertebrae, anomaly prevalence 4 to 9 times.",
+    "done_when": "Merged to bordercall main with the 11 wording findings settled, the records rerun from one commit, all bordercall suites passing, and the report republished.",
+    "depends_on": "none (in flight)",
+    "gate": "All bordercall suites before merge (no CI)",
+    "repo_of_work": "OpenSpineConsortium/bordercall"
+   },
+   {
+    "title": "Land PR 26's data fixes and rerun series.csv and cross_naming",
+    "goal": "Put the reread's 106-measure vocabulary and corrected series on main. Both the 106-measure validation and the anomaly prior read from them.",
+    "done_when": "Round-2 findings fixed (Griffith 2016 second series, Frontphys 2026 n). series.csv and cross_naming.json regenerated from one commit. PR 26 merged and PRs 21 and 24 closed as superseded. The chain and auto-anatomist threads told.",
+    "depends_on": "none",
+    "gate": "All bordercall suites before merge. A grid run needs the owner's word and count; the cloud run takes about 15 min on 4 CPUs. The embalmed correction waits for the owner.",
+    "repo_of_work": "OpenSpineConsortium/bordercall"
+   },
+   {
+    "title": "Validate the synthetic data and the naming layer over all 106 reread measures",
+    "goal": "The owner's ask of 15:18 UTC: pool the 46 measures with usable series, draw a second population from the papers, and redo quality, state space, naming per phenotype, power, figures, README and report on that set. List the 57 to 60 measures without a spread, each with its reason.",
+    "done_when": "A new bordercall PR merged with a record of naming accuracy per phenotype and field width on the paper-drawn population beside the Panjabi population, and a list of every measure left out with its reason.",
+    "depends_on": "Land PR 29; land PR 26's data fixes",
+    "gate": "All bordercall suites before merge; synthetic and cloud-only, no grid",
+    "repo_of_work": "OpenSpineConsortium/bordercall"
+   },
+   {
+    "title": "Real anomalous columns and a real prior for the naming layer (TODO item 6)",
+    "goal": "Replace the constructed L6, T13 and four-lumbar columns and the 0.9/0.05/0.05 weights with columns measured on anomalous gold spines, and with prevalences from research_notes/clinical-reread/anomaly-priors.md and SchwingNet #62's column calls.",
+    "done_when": "chain.py and naming.py read the anomalous columns and the prior from committed records. The per-phenotype record is rerun. Lone L6 and T13 0.99 answers are no longer all wrong, or the record says why.",
+    "depends_on": "Land PR 26 (anomaly-priors.md); SchwingNet #62 for the CT column calls; gold-CT measures (PR 30 or the pilot)",
+    "gate": "Grid measures need the owner's word and count. Non-SPINEPS masks only as a second arm.",
+    "repo_of_work": "OpenSpineConsortium/bordercall"
+   },
+   {
+    "title": "One per-phenotype table of the series of solutions",
+    "goal": "Put every naming solution beside the others in one committed table with its accuracy per phenotype and field width: the exact rule on the seven, greedy seven, all 32, the chain, the JAX layer with anchors, and one-body coarse claims. Phenotypes: normal, L6, T13, four lumbar, rib on L1, no rib on T12, and the transitional classes. Each row gives share named, right at 0.99, answered, and its record path.",
+    "done_when": "A committed table, and a Benzel-style figure drawn by committed code in schwingcheck/figures.py format, every cell traced to a record. Phenotypes not yet modelled are marked 'not recorded'.",
+    "depends_on": "Land PR 29; the 106-measure validation for its rows",
+    "gate": "All bordercall suites before merge",
+    "repo_of_work": "OpenSpineConsortium/bordercall"
+   },
+   {
+    "title": "Define the frame-to-naming input contract",
+    "goal": "Write the interface a frame pipeline must meet to feed the naming layer: ordered bodies, which of the 32 measures, units, NaN, per-value error, gaps, anchors, and the view (AP or lateral). Add a validator and a fixture.",
+    "done_when": "A schema, a validator and tests in autoanatomist. naming.py takes only validated input. The SchwingNet frame pipeline and the auto-anatomist network both cite it.",
+    "depends_on": "none",
+    "gate": "All bordercall suites before merge",
+    "repo_of_work": "OpenSpineConsortium/bordercall"
+   },
+   {
+    "title": "Calibrate the network's per-value spread for the naming layer",
+    "goal": "Make the auto-anatomist's per-value error calibrated, so naming with spreads beats naming without them. The smoke run gave 0/12 with spreads.",
+    "done_when": "A record showing spread calibration (coverage of nominal intervals) on held-out data and naming accuracy with spreads at least that without, per phenotype.",
+    "depends_on": "Frame-to-naming input contract; a trained frame measurer",
+    "gate": "Training only on the Metaflow pipeline under a frozen PREREG with the owner's word and count",
+    "repo_of_work": "OpenSpineConsortium/bordercall"
+   },
+   {
+    "title": "Fit the CT-to-fluoroscopy measure transfer (decision 6)",
+    "goal": "Fit how each pool measure read on CT differs from the same measure on a fluoroscopic frame, on the C-ArmLSpine or COBRA people the owner chooses to spend, so the tables apply to frames.",
+    "done_when": "A frozen PREREG, a fitted transfer per measure with intervals, and the people spent listed and excluded from any later test.",
+    "depends_on": "The owner's decision 6; a frame measurer; gold masks on the paired sets (SchwingNet #127)",
+    "gate": "The owner's decision on which people; grid jobs need his word and count",
+    "repo_of_work": "OpenSpineConsortium/bordercall"
+   },
+   {
+    "title": "Gold-CT reference table and the bordercall pilot",
+    "goal": "Replace Panjabi's 12 spines with a table from gold full spines counted from C2, using existing SPINEPS masks. Tables from 12 people break the 0.99 promise; 50 or more hold it.",
+    "done_when": "The pilot's two CPU jobs report, the gold table is committed as aggregates, and the chain and one-body records are rerun on it.",
+    "depends_on": "none (pilot approved)",
+    "gate": "Pilot of 2 CPU jobs approved and unsent; full run only after the pilot ends well; a third job needs a new count",
+    "repo_of_work": "OpenSpineConsortium/SchwingNet (grid word) and OpenSpineConsortium/bordercall"
+   },
+   {
+    "title": "Validate naming on real gold spines (C2-countable truth)",
+    "goal": "Report naming accuracy per phenotype and field width on real CT measures from gold tier 3 SPINEPS masks counted from C2. Masks other segmenters released form a second arm.",
+    "done_when": "A record per phenotype with intervals on persons not used to build the table. Nothing from the 802 CTSpinoPelvic1K columns. The second arm reported apart.",
+    "depends_on": "Gold-CT reference table; PR 30 morphometry or the pilot",
+    "gate": "Grid jobs need the owner's word and count; SPINEPS masks reused, never re-run",
+    "repo_of_work": "OpenSpineConsortium/bordercall"
+   },
+   {
+    "title": "Export the naming layer to ONNX and measure p50/p95 against 97 ms",
+    "goal": "Give the naming layer a latency number by SchwingNet's rule: an exported file, parity against chain.py and naming.py, and p50/p95 per field width on the demo machine, in the same layout as SchwingNet #138.",
+    "done_when": "A parity record (labels equal, probabilities within 1e-5) and a latency record at 1 to 9 bodies with p50 and p95. It states whether naming plus the frame path fits under 97 ms, and gives the memory at 8 to 12 bodies.",
+    "depends_on": "Frame-to-naming input contract; SchwingNet #138's latency layout",
+    "gate": "A new package (an ONNX exporter or runtime) is an issue first; a grid GPU measure needs the owner's word and count",
+    "repo_of_work": "OpenSpineConsortium/bordercall"
+   },
+   {
+    "title": "Re-vendor the naming layer into SchwingNet",
+    "goal": "Bring schwingcheck's chain and autoanatomist/naming.py into SchwingNet, so the grid and the demo can run them. The pin is 6938a2e, 132 commits behind, with no schwingcheck.",
+    "done_when": "grid/bordercall/VENDORED records the new commit, tools/bordercall_vendor.py check passes in scripts/check.sh, and the naming modules are listed in the copy.",
+    "depends_on": "Land PR 29 and PR 26 so the copy is current",
+    "gate": "A new kind of vendor (schwingcheck plus its numba/JAX packages) may count as new dependencies, an issue first; SchwingNet's check must pass",
+    "repo_of_work": "OpenSpineConsortium/SchwingNet"
+   },
+   {
+    "title": "Measure the within-person correlation and the real miss rate",
+    "goal": "Measure the correlation between measures within a person on gold masks, and the miss and skip rates on real fields, so the likelihood's rho of 0.5 and the chain's SKIP 0.2 and MAX_STEP 2 are measured rather than assumed.",
+    "done_when": "A committed record of both. The statespace model is unblocked. The naming records are rerun with the measured values.",
+    "depends_on": "Gold-CT reference table; frame measurer for the miss rate",
+    "gate": "Grid job needs the owner's word and count",
+    "repo_of_work": "OpenSpineConsortium/bordercall"
+   }
+  ]
+ },
+ "The real-time frame model, its latency, and the demo video on an MP4 of a fluoroscopic spine pan": {
+  "area": "The real-time frame model, its latency, and the demo video on an MP4 of a fluoroscopic spine pan",
+  "summary": "SchwingNet's version 1 is only a level stage. It is a ResNet-18 with a 27-way head (C1 to sacrum, T13 and L6 included) that reads 64 px crops cut from truth boxes. It needs no segmentation at inference, but it does need a box for every vertebra, and no detector has been built (docs/research/v1-demo/DEVIATIONS.md item 4).\n\nFor each box it gives a level and its probability. A causal IoU tracker smooths these and shows \"?\" below 0.5 (src/schwingnet/sweep.py).\n\nOn real frames it has run once: e4f7054848f5, grid job 40702198, 21 of 21 test crops from 4 persons. The PREREG frozen today in #464 treats that result as calibration only. The run is not recorded in the repository (#256), and the evaluation page shows only the two synthetic dry runs.\n\nThe reported stack in spine-program 01 also works without masks at inference: YOLO detectors, the encoder and a BiGRU head. On C-ArmLSpine it names 595 of 617 lateral bodies (96.4 %, 141 cases) and 276 of 631 AP bodies (43.7 %). Its truth comes from two machines counting from the sacrum. No human read it, and no C2 is in the field.\n\nLatency has been measured only in the synthetic dry run: ONNX Runtime on 4 CPU threads, p50 9.4 ms and p95 15.1 ms, with parity passed. The three v1 latency jobs, 40702515 to 40702517, pended for more than 60 hours. They dropped off the status page on 2026-10-25, and what became of them is not recorded (#138).\n\nThe 97 ms budget is 1000 / 10.3 fps (src/schwingnet/latency.py; the 10.3 fps comes from spine-program CINE_DEMO_RECON line 187).\n\ntools/sweep.py writes an overlay MP4 (or a GIF when ffmpeg is missing). It reads only PNG folders or .npy stacks, plus one line of boxes per frame. There is no MP4 reader, and the budget stays at 97 ms whatever the frame rate.\n\ncase134 and case39 are rotational CBCT spins, not pans. case134 has projected SPINEPS boxes but no level truth, and case39 has no export. The only real panning MP4s on the grid are the four Bern myelography clips (7.5 fps, CC BY, truth from the captions only).\n\nFour gate words still submit plain Slurm jobs: latency, experiment, bench and anomaly timing (flows/README.md). The LatencyFlow work in progress (5407bef) is not on origin.\n\nThe demo still lacks:\n- a detector\n- LatencyFlow\n- an MP4 reader with a budget set by each file's frame rate\n- naming that follows a pan across frames\n- a clip with truth\n- the V1Flow run\n- latency measured with ONNX parity on the H200\n- the owner's choices",
+  "in_flight": [
+   {
+    "ref": "SchwingNet #138",
+    "what": "Record v1's latency, ONNX parity and sweep: jobs 40702515 latency_gpu (gmsap H200), 40702516 latency_cpu (8 threads), 40702517_[0] latency_sweep (case134) for run e4f7054848f5, sent 2026-10-22 on the owner's word (3 jobs)",
+    "state": "open, blocker, todo, unclaimed (board STATE.md Blockers). The jobs were PENDING with no node at the status of 2026-10-25 11:13 UTC (symphony-template origin/grid commit fadb933~1, lines 264-266). They are absent from the 13:14 UTC status (fadb933) and from today's 17:03 UTC status, which lists only the gate's newest jobs. What became of them is not recorded (docs/research/project-status-2026-10-28.md line 33). The issue's follow-up, printing the pending reason, is done (#436).",
+    "next_step": "One status or sacct read of the three ids (cancel-<id> word only on the owner's word if any is still queued); then resend the latency word, but only once it starts through a launched flow (flows/README.md) and on the owner's word and count."
+   },
+   {
+    "ref": "LatencyFlow WIP 5407bef (branch wip/latency, /home/user/sn-latency)",
+    "what": "the local, unpushed start of moving the latency word onto a launched flow",
+    "state": "named in memory metaflow-required-for-grid-dl.md as built on #454's old head 45a145c. It is not on origin (no branch in ls-remote) and /home/user/sn-latency does not exist in this container, so it is treated as lost.",
+    "next_step": "Rewrite it on main fade5aa, reusing flows/flow_tool.py from #464."
+   },
+   {
+    "ref": "SchwingNet #256",
+    "what": "Record the real v1 run e4f7054848f5 and freeze its witness frames",
+    "state": "open, blocker, todo, unclaimed. No gate word runs `record` (grid/gate.sh WORDS). The PREREG frozen by #464 calls e4f7054848f5's 21/21 calibration, never a result.",
+    "next_step": "Re-scope it to record the first V1Flow run under the frozen PREREG, with `tools/flow.py record --freeze`, through a new gate word or the owner's paste."
+   },
+   {
+    "ref": "V1Flow (flows/v1.py, merged in #464 at fade5aa, 2026-10-29 15:47 UTC)",
+    "what": "version 1's training and evaluation as a launched flow under docs/research/v1-demo/PREREG.md (frozen, an estimate with no accuracy bar)",
+    "state": "Merged. No run has been sent. The gate words `start` and `v1` wait for the owner's word and count.",
+    "next_step": "Send `v1` once on the owner's word: one GPU job, up to 24 h (grid/v1-driver.sbatch). Do it after #257 and #258."
+   },
+   {
+    "ref": "SchwingNet #257, #258, #259",
+    "what": "The flow refuses a catalog with no passing leak join (#257, code only). Run the leak join over the real shards (#258, a grid job on the owner's word). Run the torch and Metaflow tests in CI, among them tests.test_latency_tools (#259).",
+    "state": "all open and unclaimed; #257 and #259 are blockers",
+    "next_step": "#257 and #259 are code only and can be done now. #258 waits for the owner's word and count."
+   },
+   {
+    "ref": "spine-program #186 (V01)",
+    "what": "Screen the four Bern dynamic myelography MP4s held at /rs/rs_grp_oschome/go2432/data/external/fluoro_video/: duration, fps, resolution and codec with ffprobe in an sbatch job; live fluoroscopy or held frames; view; levels",
+    "state": "open, todo, worker:aschehr",
+    "next_step": "One CPU job on the owner's word, if a Bern clip is to be the demo pan."
+   },
+   {
+    "ref": "spine-program #32 (S1), #148 (E4.6)",
+    "what": "Measure the reported stack's uncontended latency on one GPU (slurm/runtime_cost.sh, cine_latency.py with its parity gate)",
+    "state": "Both open. #32 is greg-first. #148 is worker:aschehr and its gate is under 1 s per frame (H3). Neither has run (STATUS.md section 10: cine_latency.py was written 2026-09-26 and has never run).",
+    "next_step": "None from SchwingNet. The owner set the old stack aside as a baseline (retraining-plan.md section 0)."
+   }
+  ],
+  "existing_issues": [
+   {
+    "repo": "OpenSpineConsortium/SchwingNet",
+    "number": 7,
+    "title": "A better SchwingNet by 2 November",
+    "covers": "The epic. Task 6 is real-time inference on the recorded sweep, on the H200 first and on a local computer where it fits. Its sub-issues are #8 to #13 (closed) and #138 (open).",
+    "state_note": "open, epic; a new demo epic should link to it, not replace it"
+   },
+   {
+    "repo": "OpenSpineConsortium/SchwingNet",
+    "number": 138,
+    "title": "Task: Record v1's latency, ONNX parity and sweep once the grid jobs run",
+    "covers": "Read the three latency jobs. Record the parity verdicts, p50/p95/p99 against 97 ms, the headline, the sweep's latency and accuracy, and where the video is, in docs/research/latency-and-sweep/README.md.",
+    "state_note": "Open blocker, unclaimed. Its follow-up (the pending reason) is done in #436. Its jobs are of unknown fate. A new latency-recording task should update or depend on it, not duplicate it."
+   },
+   {
+    "repo": "OpenSpineConsortium/SchwingNet",
+    "number": 256,
+    "title": "Record the real v1 run e4f7054848f5 and freeze its witness frames",
+    "covers": "`tools/flow.py record --freeze`, docs/research/v1-demo/runs/, data/witness/, a gate word for record",
+    "state_note": "Open blocker, unclaimed. The PREREG of #464 makes e4f7054848f5 calibration, so the run to freeze is the first V1Flow run."
+   },
+   {
+    "repo": "OpenSpineConsortium/SchwingNet",
+    "number": 257,
+    "title": "The flow refuses a catalog whose leak join has not passed",
+    "covers": "the leak-join verdict per catalog version, read by tools/flow.py and grid/v1-version.sh",
+    "state_note": "open blocker, code only"
+   },
+   {
+    "repo": "OpenSpineConsortium/SchwingNet",
+    "number": 258,
+    "title": "Run the leak join over the real shards",
+    "covers": "the gate word `leaks` (grid/run-leaks.sh) on the owner's word and count",
+    "state_note": "open, todo; must pass before any training run on the catalog"
+   },
+   {
+    "repo": "OpenSpineConsortium/SchwingNet",
+    "number": 259,
+    "title": "Run the torch and Metaflow tests in CI",
+    "covers": "a CI lane in train-cpu running tests.test_latency_tools, test_flows and the others, failing on a skip",
+    "state_note": "open blocker; today the latency and sweep tools are tested only by hand"
+   },
+   {
+    "repo": "OpenSpineConsortium/SchwingNet",
+    "number": 262,
+    "title": "Production readiness: what stands before the first production training run",
+    "covers": "the ordered list (#252, #256, #257, #258, #138, #259, #260, the Claude token, #254, #261); it states 'No detector stage yet: the demo runs on truth boxes, said so'",
+    "state_note": "open, a tracking issue, not an epic"
+   },
+   {
+    "repo": "OpenSpineConsortium/SchwingNet",
+    "number": 268,
+    "title": "Textbook: the smoke and trial results in the experiments panel, and the whole workflow as a chapter 35 figure",
+    "covers": "the experiments panel and the workflow figure, which read RUN.json files including latency headlines",
+    "state_note": "open, todo; not the demo"
+   },
+   {
+    "repo": "OpenSpineConsortium/SchwingNet",
+    "number": 321,
+    "title": "[P1] Obtain bern_myelography",
+    "covers": "the native DICOM of the Bern dynamic myelography runs (request 3 sent 2026-10-20 22:58 UTC, no answer by 2026-10-25); the published MP4s are already held",
+    "state_note": "open, todo"
+   },
+   {
+    "repo": "OpenSpineConsortium/SchwingNet",
+    "number": 342,
+    "title": "[P3] Classify the licence of fluoro_video_clips",
+    "covers": "the licence of the 262.8 GB of public clips on the grid (CC BY Bern and PMC; unlicensed YouTube re-encodes)",
+    "state_note": "open, todo; the record says these clips are for 'private tracker screening only, never training or a slide'"
+   },
+   {
+    "repo": "OpenSpineConsortium/SchwingNet",
+    "number": 59,
+    "title": "C. AP and oblique renders with projected anchors, and an anchor head",
+    "covers": "renders along the arc where naming collapses (AP), and an auxiliary anchor head fine-tuned from version 1",
+    "state_note": "open, todo; it names CTSpinoPelvic1K renders, which the owner's rule now keeps out of reported results"
+   },
+   {
+    "repo": "OpenSpineConsortium/SchwingNet",
+    "number": 135,
+    "title": "P: level naming from the lumbosacral gold to C2 by renders, physics noise, denoising and generative translation",
+    "covers": "extending naming beyond the lumbar spine by renders",
+    "state_note": "open, todo"
+   },
+   {
+    "repo": "OpenSpineConsortium/spine-program",
+    "number": 186,
+    "title": "V01: Screen the Bern dynamic myelography videos on the grid",
+    "covers": "ffprobe and content screening of the four Bern MP4s, the only real cranial-panning fluoroscopy clips held",
+    "state_note": "open, todo, worker:aschehr"
+   },
+   {
+    "repo": "OpenSpineConsortium/spine-program",
+    "number": 32,
+    "title": "Task: 01_carm_level_detection: S1, measure the latency of the reported stack",
+    "covers": "runtime_cost.sh, the uncontended latency of the old stack, and cine_latency.py on the case134 spin",
+    "state_note": "open, todo, greg-first; it concerns the reported stack, not SchwingNet v1"
+   },
+   {
+    "repo": "OpenSpineConsortium/spine-program",
+    "number": 31,
+    "title": "Task: 01_carm_level_detection: S0, register the reported stack",
+    "covers": "sha256 registry lines for the reported detectors, encoders and heads; committing cine_eval.py and cine_latency.py",
+    "state_note": "open, greg-first; needed only if the reported YOLO detector weights are reused"
+   },
+   {
+    "repo": "OpenSpineConsortium/spine-program",
+    "number": 145,
+    "title": "E4.3: Train the corner-learning C-arm detector, leave one device out",
+    "covers": "a C-arm detector with a sealed 97 percent recall gate at 0.74",
+    "state_note": "open, todo, worker:aschehr, waits on #144 and #126; a SchwingNet detector task must not duplicate it"
+   },
+   {
+    "repo": "OpenSpineConsortium/spine-program",
+    "number": 148,
+    "title": "E4.6: Measure the stack's latency on one GPU",
+    "covers": "median and p95 per frame of the reported stack on one GPU (H3: under 1 s)",
+    "state_note": "open, todo, worker:aschehr"
+   },
+   {
+    "repo": "OpenSpineConsortium/spine-program",
+    "number": 142,
+    "title": "E4: C-arm training: close the detection gap (Aim 3)",
+    "covers": "the detection gap: 80.5 % recall at 0.74 on the held-out C-arm against the 97 % target",
+    "state_note": "open epic"
+   }
+  ],
+  "gaps": [
+   {
+    "gap": "No detector in SchwingNet: version 1 needs a box for every vertebra, and the sweep tool reads only a truth-box file.",
+    "why_needed": "The owner wants vertebrae labelled from the fluoroscopic image alone, in real time, with no segmentation. On an arbitrary MP4 there are no truth boxes. case134's truth boxes are SPINEPS masks projected through the CBCT pose, so today's demo leans on a segmentation made offline.",
+    "evidence": "docs/research/v1-demo/DEVIATIONS.md item 4. latency-and-sweep/README.md: 'Version 1 has no detector stage, so a sweep's boxes are truth boxes'. tools/sweep.py run_sweep uses --box-source only for the caption. spine-program CINE_DEMO_BUILD_PLAN section 3: case134 truth is '4 SPINEPS body boxes per frame with level: null'."
+   },
+   {
+    "gap": "No MP4 (or any video file) reader. The budget is fixed at 97 ms whatever the frame rate.",
+    "why_needed": "The owner asked for a demo running on an MP4 of a fluoroscopic pan. A clip at 7.5, 15 or 30 fps has its own frame interval: 133, 67 or 33 ms.",
+    "evidence": "tools/sweep.py frame_sources accepts only a folder of PNG/TIF/JPG/BMP or a uint8 .npy stack. The summary and overlay use BUDGET_MS (97.0) and within_budget(p95) with the default budget; --fps is used only for the GIF duration and ffmpeg's framerate. pixi.toml holds no ffmpeg, PyAV or imageio."
+   },
+   {
+    "gap": "No panning clip with level truth exists.",
+    "why_needed": "The demo is to be a spine pan, and every accuracy claim needs C2-countable truth.",
+    "evidence": "case134 and case39 are rotational CBCT spins from +122 to -52 degrees, not cranio-caudal pans (docs/research/flexray-audit-companion.md line 59; workflow-brief-2026-10-25.md section 2). case134 is detection only, with no level truth (datasets-inventory.md line 64). case39 has no poses, no export, and 696 files not yet told apart (latency-and-sweep/README.md, probe table). The Bern myelography MP4s are the only real cranial pans held (data/sources/bern_myelography.json): 7.5 fps, re-encoded, timing lost, truth only from the captions (thoracic T7/8, T9/10, one clip at L5/S1)."
+   },
+   {
+    "gap": "Real-frame accuracy of version 1 is 21 crops of 4 persons, from a run made before the PREREG and not recorded here.",
+    "why_needed": "The demo's accuracy on screen and the per-phenotype tables need a recorded run under the frozen PREREG.",
+    "evidence": "docs/research/training-review.md section 2. PREREG.md: 'that number is calibration, never a result'. evaluation/README.md lists only a767a466f5c1 and cd37124c487d (synthetic)."
+   },
+   {
+    "gap": "C-ArmLSpine level truth fails the owner's C2-countable rule, and the phenotypes cannot be powered on real frames.",
+    "why_needed": "The owner trusts level names only from full C2-to-pelvis spines and wants accuracy per phenotype (normal, L6, T13, four lumbar).",
+    "evidence": "spine-program MODEL_CARD section 5.1: levels from TotalSegmentator and SPINEPS+VERIDAH agreeing, 'both name a level by counting from the sacrum', 'No level truth in this study was established by a human'. MODEL_CARD 2.3: lumbar only, T11 to sacrum. data/splits/test-persons.json: 3 real L6 persons. STATUS A1.8: no T13 crop in validation."
+   },
+   {
+    "gap": "No latency number exists for any SchwingNet model on real frames or on the H200.",
+    "why_needed": "No latency number may be shown without ONNX parity for the same file. The demo shows p50 and p95 against the budget.",
+    "evidence": "The only figures are the dry run on a synthetic model in a 4-core container (latency-and-sweep/README.md) and spine-program STATUS.md section 10 (older models on a V100; a contended CPU). Jobs 40702515 to 40702517: fate not recorded."
+   },
+   {
+    "gap": "Naming does not follow the count across frames of a pan.",
+    "why_needed": "During a pan bodies enter and leave the field, and a name must follow the count from an anchor rather than the IoU overlap of one track.",
+    "evidence": "src/schwingnet/sweep.py: greedy IoU at least 0.3, an EMA weight of 0.5, a track ending after 3 frames unseen. memory findings-flexray-flux-drr.md (#391): 'The linker (spine-program's sweep_map.py) must be ported into SchwingNet first'. The counting prior src/schwingnet/chain.py is 'code built, not run' (training-review.md)."
+   },
+   {
+    "gap": "The latency word is still a plain Slurm job, and the LatencyFlow work in progress is lost.",
+    "why_needed": "The owner's rule of 2026-10-29: every deep learning job on the grid runs on a launched flow with a frozen PREREG, the CLAIM and REFORMS report enforced, and a progress page. Until a word is moved it is not sent.",
+    "evidence": "flows/README.md (origin/main fade5aa) lists `latency` (grid/run-latency-sweep.sh) as not yet moved. registry.txt has no latency kind. The memory metaflow-required-for-grid-dl.md names 5407bef, which is neither on origin nor in this container."
+   },
+   {
+    "gap": "Whether ffmpeg is on the path inside the grid job is not recorded, so the overlay may come out as a GIF.",
+    "why_needed": "The owner wants an MP4.",
+    "evidence": "tools/sweep.py encode_video falls back to sweep.gif without ffmpeg. pixi.toml has no ffmpeg. The build plan names ffmpeg 8.1.2 only in the fluorogen conda environment."
+   },
+   {
+    "gap": "Which MP4 the owner means by 'fluoroscopic spine panning' is not recorded.",
+    "why_needed": "The clip decides the truth available, the frame budget, the licence and whether accuracy can be stated at all.",
+    "evidence": "Not recorded. The candidates: case134 (a test person, CC BY, a rotation), the Bern MP4s (CC BY, pans, caption truth), or a synthetic pan from a gold C2-to-sacrum CT (exact truth, never raises a tier). The record's earlier synthetic cine used CTSpinoPelvic1K 0533 (spine-program CINE_DEMO_BUILD_PLAN section 4), which the owner's rule now excludes."
+   },
+   {
+    "gap": "How 'without any segmentations' applies to training labels and to the Bayesian naming is not recorded.",
+    "why_needed": "The detector and level stage would train on boxes derived from SPINEPS masks. The owner's Bayesian measure-based naming (bordercall) reads measures from masks, which a fluoroscopy frame alone does not give.",
+    "evidence": "Not recorded. memory findings-buildup-and-chain.md: measures are read from masks ('no code measures most of them on a mask'). owner-science-rules.md: stay Bayesian, with fast inference."
+   },
+   {
+    "gap": "Whether the overlay's text counts as method is not decided.",
+    "why_needed": "Results may be shown, the method may not. The overlay prints the run id, the runtime and device, and 'boxes: truth|detector'.",
+    "evidence": "tools/sweep.py caption lines in run_sweep. docs/project.md: the talk shows what SchwingNet does, not how."
+   },
+   {
+    "gap": "No latency has been measured on a local computer.",
+    "why_needed": "Epic #7 task 6 asks for 'a local computer where it fits'. 'Real time' on an MP4 is read against the hardware it runs on.",
+    "evidence": "docs/project.md out of scope: 'no laptop latency exists'. spine-program MODEL_CARD 6.3: the CPU encoder took 3.35 s per frame, contended."
+   }
+  ],
+  "gates": [
+   {
+    "what": "Any grid job: the v1 run (1 GPU job, at most 24 h), the latency jobs (per run 1 GPU on gmsap, 1 CPU with 8 threads, and an array of 1 GPU task per sweep), detector training, MP4 screening or decoding, renders",
+    "gate": "The owner's word and the count of jobs, given for that job. Every fetch is sized exactly first.",
+    "source": "CLAUDE.md durable decisions; docs/research/latency-and-sweep/README.md (resource estimate); memory grid-words-and-counts.md"
+   },
+   {
+    "what": "Any deep learning job on the grid (training, ONNX export, latency, sweep inference, a detector)",
+    "gate": "It starts through flows/launch.py, from a flow listed in flows/registry.txt, under a frozen PREREG (exit 90 otherwise), with the CLAIM 2024 and REFORMS report checked in end and a progress page. Until the latency word is moved it is not sent.",
+    "source": "flows/README.md on origin/main fade5aa; memory metaflow-required-for-grid-dl.md; the owner's rule of 2026-10-29 02:39 UTC"
+   },
+   {
+    "what": "Any latency number",
+    "gate": "ONNX parity for the same file and device must pass first: labels equal, probabilities within 1e-5, on validation crops. Report the nearest-rank p50 and p95, and call it real-time only when p95 is strictly under the budget.",
+    "source": "src/schwingnet/latency.py; docs/memory/latency-and-the-recorded-sweep.md"
+   },
+   {
+    "what": "A video reader (ffmpeg or PyAV) or the reported YOLO detectors (ultralytics) in the pixi lock",
+    "gate": "A new dependency is an issue first",
+    "source": ".claude/rules/writing.md; pixi.toml (none present)"
+   },
+   {
+    "what": "Training on a catalog",
+    "gate": "The leak join must have passed for that catalog version (#257, #258). The split check must be disjoint. The tree must be clean.",
+    "source": "SchwingNet #257, #258; docs/memory/the-v1-flow.md"
+   },
+   {
+    "what": "Showing the demo video",
+    "gate": "The provisional is filed first (by 30 October). Results only, no method on any frame or slide. Run spine-program's disclosure audit (ssn:tools/disclosure_audit.py) before any talk or upload. No live run at the podium.",
+    "source": "docs/project.md (Goal; Out of scope); spine-program CLAUDE.md rule 8; docs/research/demo-plan.md section 8"
+   },
+   {
+    "what": "Reading case134 or case39 raw files",
+    "gate": "Never read or print a DICOM header (case134 carries a real PatientID). No header text or file name is drawn into a frame.",
+    "source": "docs/research/latency-and-sweep/README.md (probe); spine-program CINE_DEMO_BUILD_PLAN section 3"
+   },
+   {
+    "what": "Any accuracy number shown",
+    "gate": "Truth only from C2-countable full spines. Synthetic and machine-mask truth never raises a tier and is never pooled with real truth. Nothing is reported on the 802 CTSpinoPelvic1K columns. Each phenotype is reported apart with its Wilson interval.",
+    "source": "memory owner-science-rules.md"
+   },
+   {
+    "what": "Recording a run on the grid",
+    "gate": "No gate word runs `tools/flow.py record`. It needs a new gate word or the owner's paste, plus the owner's word for that one job.",
+    "source": "SchwingNet #256; grid/gate.sh WORDS line 240"
+   }
+  ],
+  "facts": [
+   {
+    "fact": "SchwingNet version 1 is the level stage alone: torchvision resnet18 with a 27-way head over 64 px crops cut from truth boxes with a 15 % pad, Adam at 1e-3, one seed. It has no detector.",
+    "source": "docs/research/v1-demo/README.md (The workflow, step 5); docs/research/training-review.md section 1; docs/research/v1-demo/DEVIATIONS.md item 4"
+   },
+   {
+    "fact": "At inference v1 reads only an 8-bit frame and boxes (crop, forward pass, softmax, tracker step). No mask is read. The prior=level-map block is a training-only head, and best.pt and every reader are unchanged.",
+    "source": "tools/latency.py docstring; docs/memory/training-blocks.md (prior=level-map)"
+   },
+   {
+    "fact": "Per frame v1 outputs each box's level and probability, smoothed by a causal tracker: greedy IoU at least 0.3, a moving average with weight 0.5 on the new frame, a track ending after 3 unseen frames, and '?' when the best level is under 0.5. sweep.jsonl records boxes, tracks, levels, probabilities and timing.",
+    "source": "src/schwingnet/sweep.py (MATCH_IOU, SMOOTHING, ABSTAIN_BELOW); tools/sweep.py run_sweep"
+   },
+   {
+    "fact": "The one v1 run on real frames is e4f7054848f5 (grid job 40702198, 5 min 16 s on one GPU, commit 8116aae, catalog 1 252ba19562cf): 21 of 21 test crops from 4 persons, a Wilson interval of about 0.85 to 1. It exists only on the grid.",
+    "source": "docs/research/training-review.md section 2; SchwingNet #256, #138"
+   },
+   {
+    "fact": "The frozen v1 PREREG treats e4f7054848f5's 21/21 as calibration, never a result. It pre-registers a new run on catalog sha256 94c79afd..., 20 epochs, seed 1, crops of 64 px, ImageNet resnet18-f37072fd.pth, as an estimate with no accuracy bar. The 97 ms bar is left to 'the latency word's, under a pre-registration of its own'.",
+    "source": "docs/research/v1-demo/PREREG.md sections 0, 2, 4 (origin/main fade5aa, #464)"
+   },
+   {
+    "fact": "The evaluation page holds only the two synthetic dry runs (a767a466f5c1, cd37124c487d), with latency 'not measured' for both.",
+    "source": "docs/research/evaluation/README.md; docs/research/v1-demo/LEDGER.md"
+   },
+   {
+    "fact": "The reported stack has no segmentation at inference: naming detector detector_v5z_final (YOLO11m-pose, 4 corner keypoints), sacrum and vertebra detector rx_lodo_carmlspine_1024 (YOLO11m), the allspine_v9 encoder (ResNet-18, two-channel stem of image plus target marker, 27 classes), a BiGRU head, the count from the sacrum and the alphabet coupling. Per vertebra it outputs a level, a probability, an entropy and an abstain flag.",
+    "source": "spine-program 01_carm_level_detection/README.md; docs/MODEL_CARD.md 1.1 and 2.2"
+   },
+   {
+    "fact": "The reported stack's accuracy on C-ArmLSpine, a C-arm it never saw: lateral 595/617 = 96.4 % [92.3, 98.4] over 141 cases; AP 276/631 = 43.7 %; fine-tuned five-fold lateral 97.4 %; detection recall at 0.74 231/287 = 80.5 %.",
+    "source": "spine-program 01_carm_level_detection/STATUS.md A2.1, A2.2, A3.1, A6.1"
+   },
+   {
+    "fact": "C-ArmLSpine level truth is TotalSegmentator and SPINEPS+VERIDAH agreeing on the CBCT, both counting from the sacrum: 814 of 910 vertebrae agree, and no level was set by a human. The test set is lumbar (T11 to sacrum), and no C2 anchor has been shown on a real intraoperative frame.",
+    "source": "spine-program 01_carm_level_detection/docs/MODEL_CARD.md 5.1 and 2.3"
+   },
+   {
+    "fact": "The 97 ms budget is one frame interval of C-ArmLSpine's sweeps, 1000 / 10.3 fps rounded down (BUDGET_MS = 97.0). The 10.3 fps comes from 301 frames over 29 s of acquisition time (case39 15:04:10 to 15:04:39, case134 15:12:31 to 15:13:00).",
+    "source": "src/schwingnet/latency.py lines 1-19; docs/research/demo-plan.md section 1; spine-program 01_carm_level_detection/docs/CINE_DEMO_RECON_2026-09-26.md line 187; docs/CINE_DEMO_BUILD_PLAN_2026-09-26.md section 1c line 145"
+   },
+   {
+    "fact": "The only SchwingNet latency measured is the dry run of 2026-10-21 on a synthetic-bank model (run 2553f50346d4) in a 4-core container. ONNX parity on the CPU passed (64 crops, max difference 1.9e-6). PyTorch at 4 threads: p50 20.5 ms, p95 31.3 ms. ONNX Runtime at 4 threads: p50 9.4 ms, p95 15.1 ms. A 12-frame synthetic sweep: p50 10.7 ms, p95 18.1 ms, with an MP4 written.",
+    "source": "docs/research/latency-and-sweep/README.md (The dry run); docs/research/latency-and-sweep/dry-run/*.json"
+   },
+   {
+    "fact": "The reported stack's only latencies: a V100 on 2026-09-13 with older models (detector 22.9 ms at 1024 px, level model 2.3 ms), and a contended Windows CPU on 2026-09-22 (encoder 3,350 ms for 4 crops with 2 TTA, detector not measured, synthetic exposures). The uncontended GPU job and cine_latency.py have never run.",
+    "source": "spine-program 01_carm_level_detection/STATUS.md section 10; docs/MODEL_CARD.md 6.3 and 6.6"
+   },
+   {
+    "fact": "The v1 latency jobs 40702515 (gpu on gmsap), 40702516 (cpu) and 40702517_[0] (sweep) were PENDING with no node in the status of 2026-10-25 11:13 UTC and absent from the next status at 13:14 UTC. What became of them is not recorded.",
+    "source": "symphony-template origin/grid logs/job-schwingnet-status.json at fadb933~1 (lines 264-266) and fadb933; SchwingNet docs/research/project-status-2026-10-28.md line 33"
+   },
+   {
+    "fact": "tools/sweep.py reads a sweep only as a folder of image files or an 8-bit .npy stack, plus a boxes.jsonl with one line per frame naming its frame. It refuses frames deeper than 8 bits. It writes overlay/*.png, sweep.jsonl, summary.json, contact.png, and sweep.mp4 through ffmpeg, or sweep.gif when ffmpeg is missing.",
+    "source": "tools/sweep.py frame_sources, decode, read_boxes, encode_video (origin/main)"
+   },
+   {
+    "fact": "The sweep summary and overlay always use the 97 ms budget. --fps (default 10.3) sets only the video's frame rate and the GIF frame duration.",
+    "source": "tools/sweep.py lines 229, 261, 281-282, 369"
+   },
+   {
+    "fact": "The overlay's corner text gives the frame counter, the gantry angle, this frame's compute time, the p95 so far against 97 ms, 'SchwingNet v1 <run id>', the runtime and device, and 'boxes: <source>'.",
+    "source": "tools/sweep.py run_sweep caption"
+   },
+   {
+    "fact": "case134 export: 301 frames at 1024 x 1024, 8-bit, every frame with its meta (angle, mode, boxes, pose, ...), at /rs/rs_grp_oschome/go2432/data/realxray/carmlspine_sweep, readable by tools/sweep.py from-bank. case39 has no export, and its CBCT folder holds 696 files not yet told apart.",
+    "source": "docs/research/latency-and-sweep/README.md (probe of job 40697708)"
+   },
+   {
+    "fact": "case134's truth is 4 SPINEPS body boxes per frame with level null, so it scores detection and tracking but not naming. Both sweeps are rotations from +122 to -52 degrees, not cranio-caudal pans. case134 and case39 are frozen test persons.",
+    "source": "spine-program CINE_DEMO_BUILD_PLAN_2026-09-26.md section 3; SchwingNet docs/research/datasets-inventory.md line 64; docs/research/flexray-audit-companion.md line 59; data/splits/test-persons.json"
+   },
+   {
+    "fact": "The four Bern dynamic myelography MP4s are on the grid under CC BY 4.0: pulsed 7.5 fps, the detector moving cranially, 'the only overlapping travelling frames found'. Level truth comes only from the captions (T7/8, T9/10, L5/S1).",
+    "source": "SchwingNet data/sources/bern_myelography.json; spine-program #186; docs/research/workflow-brief-2026-10-25.md section 2"
+   },
+   {
+    "fact": "The public fluoroscopy clips on the grid (262.8 GB) are 'never scored; private tracker screening only, never training or a slide'. The Neurosurgical Focus MP4 checked shows saved stills, not cine.",
+    "source": "SchwingNet data/sources/fluoro_video_clips.json; data/sources/neurosurgical_focus_video.json"
+   },
+   {
+    "fact": "spine-program holds an MP4 front end as a record copy: code/fluoro_video (PyAV sequential decoding with per-frame timestamps, panel detection, cadence and clock fits) and code/cine_eval.py (a causal tracker with CLEAR-MOT metrics, and video through ffmpeg libx264).",
+    "source": "spine-program 01_carm_level_detection/code/fluoro_video/README.md; code/cine_eval.py docstring"
+   },
+   {
+    "fact": "Gate words that still submit a plain job running a network: `latency` (grid/run-latency-sweep.sh, grid/latency-sweep.sbatch), `experiment <issue>` (grid/experiment-driver.sbatch), `bench <id>` (grid/bench.sbatch) and `anomaly timing` (grid/anomaly.sbatch). `start` and `v1` were moved to V1Flow by #464. The gate does not yet refuse an unlaunched GPU job.",
+    "source": "flows/README.md and flows/registry.txt on origin/main fade5aa"
+   },
+   {
+    "fact": "The `latency` word runs the latency jobs for the newest run with train/checkpoint.json, on the catalog its RUN.json names, with the case134 sweep. GPU jobs are narrowed to gmsap (the H200s).",
+    "source": "grid/README.md row `latency`; grid/run-latency-sweep.sh lines 48-53"
+   },
+   {
+    "fact": "The pixi train feature pins onnx, onnxruntime (cpu and cuda), torchvision, metaflow and wandb. It holds no ffmpeg, PyAV or ultralytics.",
+    "source": "pixi.toml (origin/main)"
+   },
+   {
+    "fact": "FleXray, a public 2D UNet segmentation model with no L6 or T13 channel, named 99.14 % of C-ArmLSpine's 1,627 truth boxes in a plain bench job (40781570). It segments at inference.",
+    "source": "memory findings-flexray-flux-drr.md; symphony-template origin/grid status job list"
+   },
+   {
+    "fact": "The block smoke's `sweep real` ran on 2026-10-25 (job 40781617, 27 rows: 10 ran, 12 refused), but no row is recorded under docs/research/block-smoke/. A smoke row trains 3 epochs, so its accuracy says only that the route works.",
+    "source": "symphony-template origin/grid logs/job-schwingnet-status.json (sweep real section); SchwingNet docs/research/block-smoke/README.md"
+   },
+   {
+    "fact": "The status word has printed what a pending job waits for since PR #436 (commit adc2ef4, merged 2026-10-28), which is #138's follow-up.",
+    "source": "grid/gate.sh lines 488-491; git log origin/main"
+   },
+   {
+    "fact": "The onnxruntime CUDA build in the lock is 1.31.0 for CUDA 12.9. If the H200 nodes' driver is older, the GPU ONNX Runtime arm fails and SWEEP_RUNTIME=torch is the fallback.",
+    "source": "docs/research/latency-and-sweep/README.md (The grid jobs)"
+   }
+  ],
+  "proposed_tasks": [
+   {
+    "title": "Choose the demo clip: the C-arm spin, a real pan, or a synthetic pan with exact truth",
+    "goal": "Record the owner's choice of the MP4 the demo runs on. The choices: C-ArmLSpine case134 (real, a test person, CC BY, a rotation with SPINEPS boxes and no level truth); one of the four Bern myelography MP4s (a real cranial pan at 7.5 fps, CC BY, truth from the captions only; screening is spine-program #186); or a synthetic pan rendered from a held-out gold tier 3 C2-to-sacrum CT (exact truth, never pooled, never raising a tier). Also record which accuracy, if any, may be shown for each.",
+    "done_when": "docs/research/latency-and-sweep/README.md states the chosen clip, its licence, its frame rate, the truth it carries and the budget it implies, in the owner's words with the date.",
+    "gate": "The owner's decision. Screening a Bern clip is one CPU job on his word and count (spine-program #186).",
+    "depends_on": "none (spine-program #186 if a Bern clip is chosen)",
+    "repo_of_work": "OpenSpineConsortium/SchwingNet"
+   },
+   {
+    "title": "Move the latency word onto LatencyFlow under a frozen latency PREREG",
+    "goal": "Add flows/latency.py (LatencyFlow) to flows/registry.txt, started by flows/launch.py from a grid driver in place of grid/run-latency-sweep.sh's plain jobs. Its steps: export, parity per arm (ONNX Runtime CPU and GPU, PyTorch GPU, against PyTorch on the CPU), measure (H200; CPU at 8 threads), and the sweep. Freeze docs/research/latency-and-sweep/PREREG.md: the 97 ms bar and its source, nearest-rank p50 and p95, the 1e-5 parity rule on validation crops, the arms, exclusions (acquisition, decode, display). Keep the CLAIM 2024 and REFORMS report in end and a progress page. Rewrite the lost WIP 5407bef on main using flows/flow_tool.py.",
+    "done_when": "`python3 flows/stage_registry.py check` and `frozen` pass. tests.test_latency_tools and the flow tests pass in train-cpu. The `latency` gate word starts the launcher (HPCW_DRY=1 prints the submissions). flows/README.md no longer lists latency as a plain job. Nothing is sent to the grid.",
+    "gate": "Code only. No grid job.",
+    "depends_on": "none (#464 merged); #259 for CI coverage",
+    "repo_of_work": "OpenSpineConsortium/SchwingNet"
+   },
+   {
+    "title": "Read a fluoroscopy video file and budget it by its own frame rate",
+    "goal": "tools/sweep.py run takes an MP4, AVI or MOV. It decodes frames in order to 8-bit grey with their timestamps, refuses a variable or unknown frame rate in words, and takes the budget from the file's frame interval (schwingnet.latency.frame_interval_ms), shown beside C-ArmLSpine's 97 ms. It always writes an MP4, never the GIF fallback, and burns no file name or header into a frame. ffmpeg or PyAV enters the pixi lock only after its dependency issue. spine-program code/fluoro_video's decoder is the reference for timestamps and panel cutting.",
+    "done_when": "The dependency issue is approved. Tests on a synthetic MP4 with known frames and frame rate pass. summary.json records the source file's frame rate, the budget used and within_budget against it.",
+    "gate": "A new dependency is an issue first. No grid job.",
+    "depends_on": "a dependency issue for ffmpeg or PyAV",
+    "repo_of_work": "OpenSpineConsortium/SchwingNet"
+   },
+   {
+    "title": "Detector stage: vertebral-body boxes per frame with no segmentation at inference (code, PREREG, smoke)",
+    "goal": "A detector block that boxes each vertebral body and the sacrum on a frame from the image alone. Use a torchvision detection model already in the lock, or the reported YOLO11m weights only after an ultralytics dependency issue. Train it on the catalog's truth boxes of train persons, with renders as a separate arm that is never pooled. Plug it into tools/latency.py's frame path and tools/sweep.py --box-source detector so no boxes file is needed. Export it to ONNX with a box-parity check. Add DetectorFlow to registry.txt with a frozen PREREG: recall per level at a stated threshold, with Wilson intervals on held-out persons.",
+    "done_when": "Code and tests are merged. The PREREG is frozen. A CPU smoke on tools/synthetic_bank.py trains, exports and passes parity. The sweep runs end to end with detector boxes on the synthetic sweep. Nothing is sent.",
+    "gate": "Code only. An ultralytics dependency issue if the reported weights are reused. Must not duplicate spine-program #145.",
+    "depends_on": "Move the latency word onto LatencyFlow (the shared frame path)",
+    "repo_of_work": "OpenSpineConsortium/SchwingNet"
+   },
+   {
+    "title": "Train the detector once on the grid under DetectorFlow",
+    "goal": "One launched detector run on the current catalog, recorded with its card and its CLAIM and REFORMS report. Recall per level with intervals on held-out persons. Detection and tracking on case134's projected boxes, as detection only.",
+    "done_when": "The run's small files and ledger row are recorded under docs/research/ by pull request with FINISHED.json and a current report. The evaluation page shows its detection row.",
+    "gate": "The owner's word and count of GPU jobs. A passing leak join on the catalog (#257, #258).",
+    "depends_on": "Detector stage (code, PREREG, smoke); #257; #258",
+    "repo_of_work": "OpenSpineConsortium/SchwingNet"
+   },
+   {
+    "title": "Run version 1 once under V1Flow and record it with its witness frames frozen (re-scopes #256)",
+    "goal": "Send `v1` once under the frozen docs/research/v1-demo/PREREG.md. Then run `tools/flow.py record --freeze` for that run, through a new gate word `record` or the owner's paste, and bring docs/research/v1-demo/runs/<id>/ and data/witness/witness.json in by pull request. #256 is updated to name this run, since its own run e4f7054848f5 is calibration.",
+    "done_when": "The run's folder is in docs/research/v1-demo/runs/ with FINISHED.json-backed numbers and a current report. data/witness/witness.json exists. The evaluation page shows the first real row, per level and the transitional stratum apart.",
+    "gate": "The owner's word and count: 1 GPU job (v1-driver.sbatch, at most 24 h) and the record job. The leak verdict first.",
+    "depends_on": "#257; #258; #259",
+    "repo_of_work": "OpenSpineConsortium/SchwingNet"
+   },
+   {
+    "title": "Pan-aware causal naming: names that follow the count as bodies enter and leave",
+    "goal": "Extend the frame path's tracker so that during a pan each body's name follows the count from an anchor across frames, reading no later frame. Port spine-program's sweep_map linker, as #391 requires, at the reduced resolution, or run src/schwingnet/chain.py's counting prior causally. Freeze its constants in the latency PREREG before any real pan frame is read. Report per-frame against tracked accuracy and name switches per 100 frames.",
+    "done_when": "Tests on a synthetic pan with exact truth pass. The step's p95 on the CPU is inside the chosen clip's frame budget in the dry run. sweep.jsonl and summary.json carry the tracked and the per-frame names.",
+    "gate": "Code only. A new package is an issue first.",
+    "depends_on": "Move the latency word onto LatencyFlow",
+    "repo_of_work": "OpenSpineConsortium/SchwingNet"
+   },
+   {
+    "title": "A synthetic pan with exact level truth from a held-out gold C2-to-sacrum CT",
+    "goal": "If the owner chooses it: render a cranio-caudal pan, lateral and AP, from one gold tier 3 CT held out of every training set (docs/research/gold3-ct/; never CTSpinoPelvic1K). Write per-frame boxes and level truth by projection, and encode it as an MP4 at a stated frame rate. Label it a synthetic arm, never pooled with real frames and never raising a tier.",
+    "done_when": "The MP4, its truth file and its record (the CT's id, poses, renderer and commit) are on the grid. The record's small files and a contact sheet are in docs/research/latency-and-sweep/.",
+    "gate": "The owner's word and count for the render job. A launched flow and PREREG if a network edits the frames (Flux realism).",
+    "depends_on": "Choose the demo clip",
+    "repo_of_work": "OpenSpineConsortium/SchwingNet"
+   },
+   {
+    "title": "Settle #138's three jobs and record latency and the sweep under LatencyFlow",
+    "goal": "Update #138 rather than open a new issue. Read what became of 40702515 to 40702517, and cancel any still queued on the owner's word. Then send the latency word under LatencyFlow for the V1Flow run, and for the detector once it exists. Record the parity verdicts, p50 and p95 per arm against the budget, evaluate/latency.json's headline, the sweep summary and where the video is.",
+    "done_when": "docs/research/latency-and-sweep/README.md and the evaluation page carry parity-gated p50 and p95 on the H200 and the 8-thread CPU for the recorded run, each with its run id, commit, ONNX sha256 and device.",
+    "gate": "The owner's word and count: per run 1 GPU, 1 CPU and 1 GPU per sweep task.",
+    "depends_on": "Move the latency word onto LatencyFlow; Run version 1 once under V1Flow; #138",
+    "repo_of_work": "OpenSpineConsortium/SchwingNet"
+   },
+   {
+    "title": "The demo video: detector, level stage and tracker run causally on the chosen MP4, with latency on screen",
+    "goal": "One causal run of the whole frame path (detector boxes, level stage, pan-aware tracker) on the chosen clip, through ONNX Runtime on the H200 with parity passed. The overlay shows each body's level and probability, '?' where the tracker abstains, and p50 and p95 against the clip's own frame budget. It shows results only: no method text, no file names, no header values. Accuracy per phenotype is shown only where the clip carries C2-countable or exact synthetic truth, otherwise 'not measured'.",
+    "done_when": "sweep.mp4, summary.json and the contact sheet are recorded. A person has looked at the contact sheet. The small files and the record are in docs/research/latency-and-sweep/ by pull request. The disclosure audit has passed. The video is shown only after the provisional is filed.",
+    "gate": "The owner's word and count: 1 sweep GPU job under LatencyFlow. The provisional filed. The disclosure audit (spine-program CLAUDE.md rule 8). The owner's call on what the overlay may say.",
+    "depends_on": "Choose the demo clip; Read a fluoroscopy video file; Train the detector once; Pan-aware causal naming; Settle #138's three jobs and record latency (and the synthetic pan, if chosen)",
+    "repo_of_work": "OpenSpineConsortium/SchwingNet"
+   },
+   {
+    "title": "Optional: time the frame path on the owner's own computer",
+    "goal": "Epic #7 task 6, 'a local computer where it fits': the same parity-gated measurement on the owner's machine, through a session on his device, as a recorded number, never a podium run.",
+    "done_when": "latency/<arm>.json for the local device, with parity passed, is recorded beside the H200 and CPU arms.",
+    "gate": "The owner's device and his word. No live run at the podium (docs/project.md).",
+    "depends_on": "Settle #138's three jobs and record latency under LatencyFlow",
+    "repo_of_work": "OpenSpineConsortium/SchwingNet"
+   }
+  ],
+  "done": [
+   {
+    "ref": "SchwingNet #13 (closed 2026-10-21)",
+    "what": "tools/latency.py (export, parity, measure), tools/sweep.py (run, from-bank, synthetic), src/schwingnet/latency.py and sweep.py under the gate's contracts, grid/run-latency-sweep.sh and grid/latency-sweep.sbatch, and the dry run in docs/research/latency-and-sweep/dry-run/"
+   },
+   {
+    "ref": "SchwingNet #12 (closed 2026-10-24)",
+    "what": "witness frames (schwingnet.witness, tools/witness.py), W&B logging and push, and the evaluation page docs/research/evaluation/README.md written by tools/eval_page.py"
+   },
+   {
+    "ref": "Probe job 40697708 (2026-10-21) and PR #97",
+    "what": "On disk: case134 has 301 export frames with metas. case39 has no export. The raw sweeps' counts, suffixes and sizes are recorded in docs/research/latency-and-sweep/README.md."
+   },
+   {
+    "ref": "PR #436 (merged 2026-10-28, commit adc2ef4)",
+    "what": "the status word prints what a pending job waits for (squeue %r), #138's follow-up"
+   },
+   {
+    "ref": "PR #464 (merged 2026-10-29 15:47 UTC, main fade5aa)",
+    "what": "V1Flow (flows/v1.py, flows/flow_tool.py), the kind v1 in registry.txt and tools/run_code.py, docs/research/v1-demo/PREREG.md frozen with PREREG.md.sha256, DEVIATIONS.md, and grid/v1-driver.sbatch starting flows/launch.py"
+   },
+   {
+    "ref": "Grid job 40702198 (run e4f7054848f5)",
+    "what": "the first v1 training on real C-ArmLSpine frames: 21 of 21 test crops of 4 persons, kept only as calibration (PREREG.md)"
+   }
+  ]
+ }
+}
