@@ -31,9 +31,9 @@ not just Panjabi's; at 15:09 UTC: the state space and population quality report 
    <branch or commit>` from the note's folder writes report/index.html and copies the figures
    beside it (both git-ignored); then a session publishes report/index.html with its Artifact tool
    to that url, so the link stays the same. The four tiles at the top of the page are typed in
-   build.py from the README's answer and change by hand with it. The published page is behind the
-   README by the two applied corrections; F3 and F4 below are applied in build.py but not yet
-   republished. Republish after the held corrections.
+   build.py from the README's answer and change by hand with it. The page was rebuilt from this
+   branch at 2777f1c and republished at 17:55 UTC on 2026-10-29, so it matches the README as pushed
+   (F3 and F4 below applied). Republish again after the held corrections.
 3. Second part, every measure of the reread: this branch, a draft pull request. The code is
    written and partly checked by hand (the tables, draw_table against draw); run_all.py has not
    been run, there are no tests, no records, no figures, no tables and no README text for it yet.
