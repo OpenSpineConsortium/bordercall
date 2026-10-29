@@ -1,71 +1,71 @@
 panel,measures,engine,rule,bodies,how,ms
-A,all,prepared,consecutive,1,alone,1.0585
-A,all,prepared,consecutive,3,alone,2.53222
-A,all,prepared,consecutive,5,alone,4.39733
-A,all,prepared,consecutive,7,alone,5.65062
-A,all,prepared,consecutive,9,alone,6.61865
-A,all,prepared,consecutive,1,in a batch,0.742422
-A,all,prepared,consecutive,3,in a batch,2.45079
-A,all,prepared,consecutive,5,in a batch,4.25563
-A,all,prepared,consecutive,7,in a batch,5.45046
-A,all,prepared,consecutive,9,in a batch,6.59064
-A,all,prepared,gaps,1,alone,1.20443
-A,all,prepared,gaps,3,alone,3.55278
-A,all,prepared,gaps,5,alone,8.60733
-A,all,prepared,gaps,7,alone,21.2595
-A,all,prepared,gaps,9,alone,57.7508
-A,all,prepared,gaps,1,in a batch,0.823507
-A,all,prepared,gaps,3,in a batch,3.74222
-A,all,prepared,gaps,5,in a batch,8.61221
-A,all,prepared,gaps,7,in a batch,21.3061
-A,all,prepared,gaps,9,in a batch,56.7483
-A,all,prepared,chain,1,alone,1.20834
-A,all,prepared,chain,3,alone,4.11912
-A,all,prepared,chain,5,alone,9.7375
-A,all,prepared,chain,7,alone,26.7831
-A,all,prepared,chain,9,alone,80.6373
-A,all,prepared,chain,1,in a batch,0.691064
-A,all,prepared,chain,3,in a batch,3.98291
-A,all,prepared,chain,5,in a batch,9.88253
-A,all,prepared,chain,7,in a batch,27.7478
-A,all,prepared,chain,9,in a batch,81.4099
-A,all,path_logev,chain,1,alone,19.392
-A,all,path_logev,chain,3,alone,193.539
-A,all,path_logev,chain,5,alone,1115.53
-A,all,path_logev,chain,7,alone,6309.39
-A,all,path_logev,chain,9,alone,23887.2
-B,seven,prepared,consecutive,1,alone,0.965315
-B,seven,prepared,consecutive,3,alone,2.73707
-B,seven,prepared,consecutive,5,alone,3.76069
-B,seven,prepared,consecutive,7,alone,5.23046
-B,seven,prepared,consecutive,9,alone,6.78185
-B,seven,prepared,consecutive,1,in a batch,0.731796
-B,seven,prepared,consecutive,3,in a batch,2.08908
-B,seven,prepared,consecutive,5,in a batch,3.84414
-B,seven,prepared,consecutive,7,in a batch,4.9068
-B,seven,prepared,consecutive,9,in a batch,6.46274
-B,seven,prepared,gaps,1,alone,0.784657
-B,seven,prepared,gaps,3,alone,3.46791
-B,seven,prepared,gaps,5,alone,8.04526
-B,seven,prepared,gaps,7,alone,20.4673
-B,seven,prepared,gaps,9,alone,51.3532
-B,seven,prepared,gaps,1,in a batch,0.718216
-B,seven,prepared,gaps,3,in a batch,3.39026
-B,seven,prepared,gaps,5,in a batch,8.11774
-B,seven,prepared,gaps,7,in a batch,20.0332
-B,seven,prepared,gaps,9,in a batch,54.2623
-B,seven,prepared,chain,1,alone,1.10764
-B,seven,prepared,chain,3,alone,3.77378
-B,seven,prepared,chain,5,alone,9.48682
-B,seven,prepared,chain,7,alone,26.631
-B,seven,prepared,chain,9,alone,77.8506
-B,seven,prepared,chain,1,in a batch,0.665928
-B,seven,prepared,chain,3,in a batch,3.82256
-B,seven,prepared,chain,5,in a batch,9.35529
-B,seven,prepared,chain,7,in a batch,26.0328
-B,seven,prepared,chain,9,in a batch,79.3108
-B,seven,path_logev,chain,1,alone,16.1824
-B,seven,path_logev,chain,3,alone,172.532
-B,seven,path_logev,chain,5,alone,1128.63
-B,seven,path_logev,chain,7,alone,6205.73
-B,seven,path_logev,chain,9,alone,24796.5
+A,all,prepared,consecutive,1,alone,0.688127
+A,all,prepared,consecutive,3,alone,1.7195
+A,all,prepared,consecutive,5,alone,2.18795
+A,all,prepared,consecutive,7,alone,3.51266
+A,all,prepared,consecutive,9,alone,4.85993
+A,all,prepared,consecutive,1,in a batch,0.759106
+A,all,prepared,consecutive,3,in a batch,1.76089
+A,all,prepared,consecutive,5,in a batch,2.62758
+A,all,prepared,consecutive,7,in a batch,3.32586
+A,all,prepared,consecutive,9,in a batch,4.24709
+A,all,prepared,gaps,1,alone,0.752981
+A,all,prepared,gaps,3,alone,2.34312
+A,all,prepared,gaps,5,alone,5.65598
+A,all,prepared,gaps,7,alone,15.4166
+A,all,prepared,gaps,9,alone,53.6138
+A,all,prepared,gaps,1,in a batch,0.813527
+A,all,prepared,gaps,3,in a batch,2.28806
+A,all,prepared,gaps,5,in a batch,5.17207
+A,all,prepared,gaps,7,in a batch,14.6927
+A,all,prepared,gaps,9,in a batch,53.7734
+A,all,prepared,chain,1,alone,1.27952
+A,all,prepared,chain,3,alone,2.38835
+A,all,prepared,chain,5,alone,6.60182
+A,all,prepared,chain,7,alone,21.3475
+A,all,prepared,chain,9,alone,78.5956
+A,all,prepared,chain,1,in a batch,0.775006
+A,all,prepared,chain,3,in a batch,2.3447
+A,all,prepared,chain,5,in a batch,6.28517
+A,all,prepared,chain,7,in a batch,21.939
+A,all,prepared,chain,9,in a batch,77.8285
+A,all,path_logev,chain,1,alone,11.8397
+A,all,path_logev,chain,3,alone,91.4132
+A,all,path_logev,chain,5,alone,713.162
+A,all,path_logev,chain,7,alone,3865.28
+A,all,path_logev,chain,9,alone,16363.3
+B,seven,prepared,consecutive,1,alone,0.211792
+B,seven,prepared,consecutive,3,alone,0.413762
+B,seven,prepared,consecutive,5,alone,0.68323
+B,seven,prepared,consecutive,7,alone,0.760337
+B,seven,prepared,consecutive,9,alone,1.08985
+B,seven,prepared,consecutive,1,in a batch,0.170447
+B,seven,prepared,consecutive,3,in a batch,0.393977
+B,seven,prepared,consecutive,5,in a batch,0.583476
+B,seven,prepared,consecutive,7,in a batch,0.706674
+B,seven,prepared,consecutive,9,in a batch,0.872952
+B,seven,prepared,gaps,1,alone,0.199412
+B,seven,prepared,gaps,3,alone,0.711979
+B,seven,prepared,gaps,5,alone,1.74724
+B,seven,prepared,gaps,7,alone,4.26978
+B,seven,prepared,gaps,9,alone,13.679
+B,seven,prepared,gaps,1,in a batch,0.231887
+B,seven,prepared,gaps,3,in a batch,0.71897
+B,seven,prepared,gaps,5,in a batch,1.65196
+B,seven,prepared,gaps,7,in a batch,4.52562
+B,seven,prepared,gaps,9,in a batch,13.2671
+B,seven,prepared,chain,1,alone,0.266635
+B,seven,prepared,chain,3,alone,1.1215
+B,seven,prepared,chain,5,alone,2.06366
+B,seven,prepared,chain,7,alone,5.86418
+B,seven,prepared,chain,9,alone,23.1429
+B,seven,prepared,chain,1,in a batch,0.141312
+B,seven,prepared,chain,3,in a batch,0.564702
+B,seven,prepared,chain,5,in a batch,1.91763
+B,seven,prepared,chain,7,in a batch,5.23998
+B,seven,prepared,chain,9,in a batch,18.5852
+B,seven,path_logev,chain,1,alone,2.02577
+B,seven,path_logev,chain,3,alone,25.0082
+B,seven,path_logev,chain,5,alone,113.71
+B,seven,path_logev,chain,7,alone,659.031
+B,seven,path_logev,chain,9,alone,2877.34
