@@ -58,7 +58,7 @@ stand; a later snapshot is cut with `python3 -I snapshot.py --write <commit>` an
    Griffith's 1,080 CTs, his two sexes taken together since the generator has none, give the canal a
    correlation of 0.24 to 0.48 with the body's area; the generator gives 0.56 to 0.59, since one size
    scales every length alike, but 0.50 for the canal's depth with its width, against Griffith's 0.58. Of
-   the three papers whose own rows hold both sexes with ten people or more each, Eisenstein's skeletons
+   the three papers whose own rows hold both sexes with ten people or more each in a group not selected, Eisenstein's skeletons
    put the canal's width at about a third of the body's sex difference, set against Chen's end-plates,
    and its depth at little or none (0 to -0.5; pairs in whole millimetres cannot resolve less), and
    Duman's CTs the pedicle's width at a third; Griffith's own means by sex, within one population, put
@@ -79,7 +79,7 @@ stand; a later snapshot is cut with `python3 -I snapshot.py --write <commit>` an
    0.9. There the vertebrae that fail an indicator fall from 42% to 7%, and the exact rule names one body
    in 57.1% of fields against 47.5% at the generator, three in 80.2% against 72.8%, nine in 99.0% against
    95.6% (tables grid and naming, figures fig4_state_space and fig5_naming); at nine bodies the gain is
-   mostly rho's. The papers pin the SDs' scale to 0.6 to 0.7 (0.55 reads 0.032, 0.8 reads 0.059); they
+   mostly rho's. The papers pin the SDs' scale to 0.6 to 0.7 (with the other axes held, 0.55 reads 0.032 and 0.8 reads 0.082; the best point at 0.8 reads 0.059); they
    leave the size's spread (0 to 0.035), rho (0.9 and above read alike) and r_between open, since all
    three set how much of a person's measures move together and Griffith's four correlations are one
    constraint on them.
@@ -189,7 +189,7 @@ the SD the generator draws with, so a shift reads as what it costs the rule.
 | cells with a published SD: pooled from two series or more / one series / none (Tan's alone) | 57 / 83 / 281 | 57 / 83 / 0 |
 | Panjabi's SD over the papers' SD, quartiles (140 cells; 140) | 1.13 / 1.51 / 2.23 | 1.13 / 1.51 / 2.23 |
 
-| synthetic population | values | cells | |d| of its mean, median (Panjabi's SDs) | |d| over 1 (%) | its SD over the papers', median (quartiles) | SD inside the papers' SD interval |
+| synthetic population | values | cells | absolute d of its mean, median (Panjabi's SDs) | absolute d over 1 (%) | its SD over the papers', median (quartiles) | SD inside the papers' SD interval |
 | --- | --- | ---: | ---: | ---: | ---: | ---: |
 | generator | measured | 421 | 0.92 | 47 | 1.86 (1.45 to 2.79) | 26 of 34 |
 | generator | true | 421 | 0.92 | 46 | 1.71 (1.35 to 2.38) | 27 of 34 |

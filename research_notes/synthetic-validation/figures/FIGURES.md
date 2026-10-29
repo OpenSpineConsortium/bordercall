@@ -1,13 +1,13 @@
 # Figures
 
 Drawn by `python3 -I figures.py --records records --out figures` from the records of
-`python3 -I run.py --out records` (bordercall 38ddbdd). Each figure's numbers are its CSV; its caption is its .caption.txt.
+`python3 -I run.py --out records` (bordercall 560bd00). Each figure's numbers are its CSV; its caption is its .caption.txt.
 The three renders are drawn by render.py from the generator itself, seed 2029, 4000 people.
 
-Drawn at bordercall 38ddbdd, from and by:
+Drawn at bordercall 560bd00, from and by:
 
-- records/RECORD.json, sha256 8d268a46dda1efd0092964dc649df77b874e1a269ec52e80141d77729642d828
-- figures.py, sha256 89575e7ff35e262f7dd333286bf065408696ec149c49ff2f1b2368c78afe79e6
+- records/RECORD.json, sha256 8229f63cad6bc1ddf0ecc53c9faa6602bb4d79b590165b4c4cd80f5d614c9df1
+- figures.py, sha256 c64c7a1a25dce76e112cd34c60000a64f8ec3a87763363680a9597a0119838ae
 - render.py, sha256 d4bc0d70416d843a6d019ffefe741cb0fe01013357027395c24448c01cc3a9d9
 - synthval/house.py, sha256 396822b88fcb46e9533162f8a46b8e2443c1d58ac15d1f40e2d0eb4f5653323a
 - schwingcheck/figures.py, sha256 3908d42cc8e93c839d8ddca5bf06591af281e1490d775483e20535a0908b0576

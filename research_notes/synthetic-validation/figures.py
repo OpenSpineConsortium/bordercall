@@ -2,8 +2,9 @@
 
     python3 -I figures.py --records records --out figures
 
-Line graphs in the house format (synthval/house.py, the build-up study's): lettered panels, black
-ink, serif type, a series told apart by line and marker. Each figure is written as PDF and PNG,
+Line graphs in the house format (schwingcheck/figures.py, the build-up study's, which
+synthval/house.py takes and adds to): lettered panels, black ink, serif type, a series told apart
+by line and marker. Each figure is written as PDF and PNG,
 with the CSV of every number drawn and its caption, and FIGURES.md lists them with the sha256 of
 each file and the records they were drawn from. Nothing here computes a result: every number is
 read from a record, so a figure and the README's tables cannot disagree. The three renders of
