@@ -1,1 +1,1 @@
-Log size of 8 synthetic three-body fields, every level known: NUTS's mean and 89 per cent interval, as az.plot_forest draws them, beside the closed form's; A the seven SPINEPS measures, B all 32.
+Log size of 8 synthetic three-body fields, every level known: NUTS's mean and 89 per cent interval, what az.plot_forest shows, drawn in the house format beside the closed form's; A the seven SPINEPS measures, B all 32.

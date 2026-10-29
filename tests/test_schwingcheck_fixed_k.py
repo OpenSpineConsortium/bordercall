@@ -67,6 +67,14 @@ def mvn_logpdf(x: np.ndarray, mean: np.ndarray, cov: np.ndarray) -> float:
     return float(-0.5 * (r @ np.linalg.solve(cov, r) + logdet + len(x) * math.log(2 * math.pi)))
 
 
+def near(x: float, printed: str) -> bool:
+    """Whether x rounds to the number as the README prints it, to its last digit, a tie read either
+    way; a percentage is passed as its hundredfold and a comma in a count is dropped."""
+    s = printed.replace(",", "")
+    decimals = len(s.split(".")[1]) if "." in s else 0
+    return abs(float(x) - float(s)) <= 0.5 * 10 ** -decimals + 1e-12
+
+
 class FreeLevel(unittest.TestCase):
     def test_its_density_is_place_loglik_with_the_priors(self):
         x, truth, mu, sd, noise, power = field()
@@ -440,6 +448,158 @@ class CommittedRecord(unittest.TestCase):
         for row in self.record["sharp"]:
             p = [x for x in row["runs"] if x["how"] == "proportional"][0]
             self.assertTrue(p.get("error", "").startswith(PROPORTIONAL_STOPS), (row["field"], p.get("error")))
+
+    def test_its_figures_are_what_the_code_draws_from_it(self):
+        """FIGURES.md names the record, the draws and the code by their hashes as they stand, and every
+        committed figure file, PNG and PDF included, is what the code draws from the record now."""
+        with open(os.path.join(FK.FIGURE_DIR, "FIGURES.md"), encoding="ascii") as fh:
+            said = fh.read()
+        for p in (FK.RECORD, FK.draws_path("seven")):
+            self.assertIn("sha256 %s." % sha256(p), said)
+        for name in ("figures.py", "fixed_k.py"):
+            self.assertIn("`schwingcheck/%s`, sha256 %s." % (name, sha256(os.path.join(ROOT, "schwingcheck", name))), said)
+        with tempfile.TemporaryDirectory() as tmp:
+            drawn = sorted(os.path.basename(p) for p in FK.draw_figures(tmp, figures_md=False))
+            self.assertEqual(len(drawn), 16, drawn)
+            for name in drawn:
+                self.assertIn("`%s`" % name, said)
+                with open(os.path.join(tmp, name), "rb") as fa, open(os.path.join(FK.FIGURE_DIR, name), "rb") as fb:
+                    self.assertEqual(fa.read(), fb.read(), name)
+
+    # The README's own numbers, held to the record at the README's precision (near), so that a record
+    # made again moves the prose with it or fails here.
+
+    def runs(self, section: str, how: str):
+        return [(row, [x for x in row["runs"] if x["how"] == how][0]) for row in self.record[section]]
+
+    def test_the_readmes_numbers_for_the_level_known_are_the_records(self):
+        """Every mean and SD within 1.9 Monte Carlo errors, R-hat 1.002 at most, a bulk ESS of 2,941 to
+        6,698, no divergence, 7.0 and 14.6 leapfrog steps a draw, beta_height back as its prior (0.999,
+        SD 0.51), and ArviZ's trace and forest drawn on every run, their panels counted."""
+        runs = self.record["known"]
+        rows = [row for run in runs for row in run["fields"]]
+        self.assertTrue(near(max(abs(r["z_mean"]) for r in rows), "1.9"))
+        self.assertTrue(near(max(abs(r["z_sd"]) for r in rows), "1.9"))
+        self.assertTrue(near(max(r["r_hat"] for r in rows), "1.002"))
+        self.assertTrue(near(min(r["ess_bulk"] for r in rows), "2,941"))
+        self.assertTrue(near(max(r["ess_bulk"] for r in rows), "6,698"))
+        self.assertEqual([run["set"] for run in runs], ["seven", "all"])
+        self.assertTrue(near(runs[0]["steps"], "7.0") and near(runs[1]["steps"], "14.6"), [r["steps"] for r in runs])
+        for run in runs:
+            self.assertEqual(run["divergences"], 0)
+            self.assertTrue(near(run["beta_height"]["mean"], "0.999") and near(run["beta_height"]["sd"], "0.51"))
+            self.assertGreaterEqual(run["arviz_plots"]["plot_trace_axes"], 2)
+            self.assertGreaterEqual(run["arviz_plots"]["plot_forest_axes"], 1)
+
+    def test_the_readmes_numbers_for_the_uniform_proposal_are_the_records(self):
+        """The place changes in 0.15% to 2.9% of draws; on the third field with the seven the chains put
+        0.72, 0.32, 0.82 and 1.00 of their draws at the top place, the share is 0.714 where the exact
+        posterior gives 0.519, R-hat 1.314 and log s's ESS 23; R-hat flags the five-body field (1.157)
+        and not the first (1.006), whose chains still differ by 0.12."""
+        runs = self.runs("free", "uniform")
+        self.assertEqual([row["field"] for row, _ in runs], [56, 47, 112, 358])
+        switch = [x["switch"] for _, x in runs]
+        self.assertTrue(near(100 * min(switch), "0.15") and near(100 * max(switch), "2.9"), switch)
+        row, x = runs[2]
+        top = int(np.argmax(row["exact"]))
+        self.assertTrue(all(near(c, s) for c, s in zip(x["chain_top"], ("0.72", "0.32", "0.82", "1.00"))), x["chain_top"])
+        self.assertTrue(near(x["counted"][top], "0.714") and near(row["exact"][top], "0.519"))
+        self.assertTrue(near(x["rhat_top"], "1.314") and near(x["log_s_ess"], "23"))
+        self.assertTrue(near(runs[3][1]["rhat_top"], "1.157") and near(runs[0][1]["rhat_top"], "1.006"))
+        first = runs[0][1]["chain_top"]
+        self.assertTrue(near(max(first) - min(first), "0.12"), first)
+
+    def test_the_readmes_numbers_for_the_proportional_proposal_are_the_records(self):
+        """It changes the place in 41% to 97% of draws with R-hat 1.001 at most, its share at the top
+        place 3 to 37 Monte Carlo errors off the exact posterior on every field, 0.593 where the exact
+        posterior gives 0.890 on the five-body field; on a bare Categorical of 0.6, 0.3 and 0.1 its
+        chains give 0.479, 0.411 and 0.110 and its kernel's law is 0.480, 0.408 and 0.112; on two
+        places it never moves at 0.5 and 0.5 and swaps at every draw at 0.89 and 0.11, each place half."""
+        runs = self.runs("free", "proportional")
+        switch = [x["switch"] for _, x in runs]
+        self.assertTrue(near(100 * min(switch), "41") and near(100 * max(switch), "97"), switch)
+        self.assertTrue(near(max(x["rhat_top"] for _, x in runs), "1.001"))
+        z = []
+        for row, x in runs:
+            top = int(np.argmax(row["exact"]))
+            z.append(abs(x["counted"][top] - row["exact"][top]) / x["counted_se"][top])
+        self.assertTrue(near(min(z), "3") and near(max(z), "37"), z)
+        row, x = runs[3]
+        top = int(np.argmax(row["exact"]))
+        self.assertTrue(near(x["counted"][top], "0.593") and near(row["exact"][top], "0.890"))
+        rows = {tuple(r["probs"]): r for r in self.record["categorical"] if r["how"] == "proportional"}
+        three = rows[(0.6, 0.3, 0.1)]
+        self.assertTrue(all(near(s, p) for s, p in zip(three["share"], ("0.479", "0.411", "0.110"))), three["share"])
+        self.assertTrue(all(near(s, p) for s, p in zip(three["kernel_stationary"], ("0.480", "0.408", "0.112"))))
+        half = rows[(0.5, 0.5)]
+        self.assertEqual(half["switch"], 0.0)
+        self.assertIsNone(half["kernel_stationary"])
+        skew = rows[(0.89, 0.11)]
+        self.assertEqual(skew["switch"], 1.0)
+        self.assertEqual(skew["share"], [0.5, 0.5])
+        self.assertTrue(all(near(s, "0.500") for s in skew["kernel_stationary"]))
+
+    def test_the_readmes_numbers_for_the_place_summed_out_are_the_records(self):
+        """Within 0.001 to 0.010 of the exact posterior on the three fields with the seven, R-hat 1.005
+        at most; on the five-body field with all 32 one chain of four took the bodies for L1 to L5,
+        exact 9e-53, so the share at the top place is 0.668 where it is 0.890, its error 0.062,
+        R-hat 1.825 at the place and 1.53 at log s."""
+        runs = self.runs("free", "marginal")
+        seven = [x for row, x in runs if row["set"] == "seven"]
+        self.assertEqual(len(seven), 3)
+        self.assertTrue(near(min(x["rb_gap"] for x in seven), "0.001") and near(max(x["rb_gap"] for x in seven), "0.010"))
+        self.assertTrue(near(max(x["rhat_top"] for x in seven), "1.005"))
+        row, x = runs[3]
+        self.assertEqual((row["set"], row["bodies"]), ("all", 5))
+        top = int(np.argmax(row["exact"]))
+        lumbar = [row["places"].index(p) for p in ("L1", "L2", "L3", "L4", "L5") if p in row["places"]]
+        self.assertTrue(8.5e-53 <= sum(row["exact"][i] for i in lumbar) <= 9.5e-53)
+        self.assertTrue(near(min(x["chain_top"]), "0.00"), x["chain_top"])
+        self.assertTrue(near(x["rb"][top], "0.668") and near(row["exact"][top], "0.890") and near(x["rb_se"][top], "0.062"))
+        self.assertTrue(near(x["rhat_top"], "1.825") and near(x["log_s_rhat"], "1.53"))
+
+    def test_the_readmes_numbers_for_the_sharp_fields_are_the_records(self):
+        """Four nine-body fields with all 32, the true place at 1.000000: the proportional proposal
+        stops with NaN on three and with probabilities that do not sum to one on the fourth, and the
+        uniform step never moves and is within 4e-22 of the exact posterior."""
+        rows = self.record["sharp"]
+        self.assertEqual(len(rows), 4)
+        self.assertTrue(all(row["exact_top"] > 1 - 1e-6 for row in rows))
+        errors = [x.get("error", "") for row, x in self.runs("sharp", "proportional")]
+        self.assertEqual(sum(e.startswith("Probabilities contain NaN") for e in errors), 3, errors)
+        self.assertEqual(sum(e.startswith("Probabilities do not sum to 1") for e in errors), 1, errors)
+        for row, x in self.runs("sharp", "uniform"):
+            self.assertEqual(x["switch"], 0.0, row["field"])
+            self.assertLess(x["counted_gap"], 4e-22, row["field"])
+
+    def test_the_readmes_numbers_for_the_far_tail_are_the_records(self):
+        """The median estimate over the exact one is 0.948 on NUTS's draws and 0.965 on independent
+        ones on the example field, 0.863 and 0.984 on the second, 0.406 and 0.850 on the third; the
+        median over the places of the runs' mean is 0.97 to 1.04 for both, single places' means
+        0.52 to 3.66; NUTS ten times as long brings the median to 0.987, 0.981 and 0.792; the example
+        field's T6, at 6.35e-6, has 90% of its mass on 0.013% of the size's posterior and takes
+        3,454,310 independent draws for 10 per cent."""
+        spec = self.record["tail_spec"]
+        rows = self.record["tail"]
+        self.assertEqual([row["field"] for row in rows], ["example", "column 32, T9", "column 8, T8"])
+        medians = {"nuts": ("0.948", "0.863", "0.406"), "independent": ("0.965", "0.984", "0.850"),
+                   "nuts_long": ("0.987", "0.981", "0.792")}
+        means, per_place = [], []
+        for row, i in zip(rows, range(3)):
+            for method, printed in medians.items():
+                t = FK.tail_stats(row, method, spec["low"], spec["high"])
+                self.assertTrue(near(t["median_ratio"], printed[i]), (row["field"], method, t["median_ratio"]))
+                if method != "nuts_long":
+                    means.append(t["mean_ratio"])
+                    ex = np.asarray(row["exact"])
+                    tail = (ex > spec["low"]) & (ex < spec["high"])
+                    est = np.array([r["post"] for r in row["runs"][method]])
+                    per_place += list(est[:, tail].mean(0) / ex[tail])
+        self.assertTrue(near(min(means), "0.97") and near(max(means), "1.04"), means)
+        self.assertTrue(near(min(per_place), "0.52") and near(max(per_place), "3.66"), (min(per_place), max(per_place)))
+        t6 = [s for s in rows[0]["spread"] if s["place"] == "T6"][0]
+        self.assertLess(abs(t6["posterior"] / 6.35e-6 - 1), 1e-3)
+        self.assertTrue(near(100 * t6["size_mass_carrying_90pc"], "0.013") and near(t6["draws_for_10pc"], "3,454,310"))
 
 
 if __name__ == "__main__":
