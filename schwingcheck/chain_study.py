@@ -60,9 +60,15 @@ blocks inside every call, is timed beside the chain at every width on fewer call
 (REFERENCE_COUNTS). Numba's first compile in a process loads scipy's own BLAS, so `speed` compiles
 the loops before it sets the thread limit (load_loops); a loop compiled again for another array
 layout inside the limit falls in time_engine's warm-up call, and every pool's threads are recorded
-inside the limit. `run`'s first prepare_seconds hold the compile. The seven are timed as a mask
-on the rule built for all 32, whose loops still run over every measure, so the seven's times are
-not those of a rule cut to seven measures.
+inside the limit. `run`'s first prepare_seconds hold the compile. Each measure set is timed as a
+rule cut to its measures (cut), the table, errors, powers and fields taken to those measures
+alone, as a service that reads only the seven would build it, so its loops run over seven
+measures and not over all 32 with the rest masked out.
+
+The README's tables are drawn from the records alone: their widths, the stated weights and the
+numbers of people come from the record, not from this module's constants, and `check` also holds
+the records to one another, `run`'s, `axis`'s and `speed`'s fields drawn from the same columns and
+seeds (consistent).
 """
 from __future__ import annotations
 
@@ -93,12 +99,17 @@ WEIGHT_SETS = {"papers, high": (0.952, 0.025, 0.023), "papers, low": (0.972, 0.0
 PROCESSES = 4
 SPEED_COUNTS = {"calls": 30, "batch": 128, "batches": 5}
 REFERENCE_COUNTS = {"calls": 3, "batch": 16, "batches": 2}
+PYMC_MODELS = ("enumerated", "sampled")
+PYMC = {"widths": (3,), "fields": 6, "draws": 1000, "tune": 1000, "chains": 4, "batches": 10, "seed": 701}
+PYMC_WITHIN = (5.0, 1e-3)      # a model's posterior is the exact one where every name is within five
+                               # Monte Carlo errors plus 0.001 of it, as the naming model's NUTS test holds it
 QUICK = {"columns": 3, "widths": (1, 3), "worlds": {12: 2, 2000: 2}, "speed_widths": (1, 3),
-         "speed": {"calls": 2, "batch": 4, "batches": 1}, "reference": {"calls": 1, "batch": 2, "batches": 1}}
+         "speed": {"calls": 2, "batch": 4, "batches": 1}, "reference": {"calls": 1, "batch": 2, "batches": 1},
+         "pymc": {"widths": (3,), "fields": 1, "draws": 100, "tune": 100, "chains": 2, "batches": 5, "seed": 701}}
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 RECORD_DIR = os.path.join(ROOT, "records", "chain-2026-10-28")
 RECORDS = {"main": os.path.join(RECORD_DIR, "chain.json"), "axis": os.path.join(RECORD_DIR, "axis.json"),
-           "speed": os.path.join(RECORD_DIR, "speed.json")}
+           "speed": os.path.join(RECORD_DIR, "speed.json"), "pymc": os.path.join(RECORD_DIR, "pymc.json")}
 README = os.path.join(ROOT, "schwingcheck", "README.md")
 NAME_POSITION = np.array([CV.POSITION[n] for n in CH.NAMES])
 
@@ -271,8 +282,20 @@ def axis(n_columns: int, widths=WIDTHS, worlds=None, processes: int = PROCESSES,
             results = list(_logged(p.imap_unordered(axis_job, jobs), len(jobs), t0, log))
     else:
         results = list(_logged(map(axis_job, jobs), len(jobs), t0, log))
+    rows = axis_rows(results, tables, worlds)
+    return {"command": "python -m schwingcheck.chain_study axis --columns %d" % n_columns, "columns_per_type": n_columns,
+            "fields_per_column": PER_COLUMN, "seeds": [SEED, EXTRA_SEED, FIELD_SEED], "world_seed": CV.WORLD_SEED,
+            "worlds": {str(k): v for k, v in worlds.items()}, "widths": list(widths), "rules": list(RULES),
+            "machine": CV.machine(), "versions": CV.versions(), **made(made_by), "rows": rows}
+
+
+def axis_rows(results, tables, worlds) -> List[dict]:
+    """The axis's rows from its jobs' results, which the pool of processes hands back in the order
+    they finish: sorted by table, rule and width first, so that the fields are pooled, and the log
+    loss and the predicted error summed over them, in one order whatever the order of finishing,
+    and the record is made again to the bit."""
     parts: Dict[tuple, dict] = {}
-    for i, rule, B, out in results:
+    for i, rule, B, out in sorted(results, key=lambda r: (r[0], r[1], r[2])):
         people, w = tables[i][0], tables[i][1]
         for r in out:
             g = parts.setdefault((people, rule, r["type"], B, r["arm"]), {"col": [], "world": [], "stats": []})
@@ -280,17 +303,14 @@ def axis(n_columns: int, widths=WIDTHS, worlds=None, processes: int = PROCESSES,
             g["world"].append(w)
             g["stats"].append({r["subset"]: r["stats"]})
     rows = []
-    for (people, rule, kind, B, arm), g in sorted(parts.items(), key=lambda kv: (kv[0][0], kv[0][1], kv[0][2], kv[0][3], kv[0][4])):
+    for (people, rule, kind, B, arm), g in sorted(parts.items()):
         for sub in SUBSETS:
             have = [k for k, st in enumerate(g["stats"]) if sub in st]
             sel = {"col": [g["col"][k] for k in have], "world": [g["world"][k] for k in have],
                    "stats": [g["stats"][k] for k in have]}
             rows.append({"people": people, "rule": rule, "tables": worlds[people], "type": kind, "bodies": B, "arm": arm,
                          "subset": sub, **CV.pooled_rates(sel, sub)})
-    return {"command": "python -m schwingcheck.chain_study axis --columns %d" % n_columns, "columns_per_type": n_columns,
-            "fields_per_column": PER_COLUMN, "seeds": [SEED, EXTRA_SEED, FIELD_SEED], "world_seed": CV.WORLD_SEED,
-            "worlds": {str(k): v for k, v in worlds.items()}, "widths": list(widths), "rules": list(RULES),
-            "machine": CV.machine(), "versions": CV.versions(), **made(made_by), "rows": rows}
+    return rows
 
 
 def _logged(results, n: int, t0: float, log):
@@ -327,37 +347,151 @@ def speed(n_columns: int = 100, widths=SPEED_WIDTHS, counts=None, reference=None
     rows = []
     with threadpool_limits(1):
         for B in widths:
-            X = drawn["typical", B][0]
             t = S.target_offset(B)
-            for arm, ch in chains(B).items():
-                pa = CH.paths_of(ch)
-                for sub in SUBSETS:
-                    one = {sub: subsets[sub]}
+            for sub in SUBSETS:
+                table, X = cut(sub, subsets[sub], mu_e, sd_e, noise, power), drawn["typical", B][0][:, subsets[sub], :]
+                for arm, ch in chains(B).items():
+                    pa = CH.paths_of(ch)
                     t0 = time.perf_counter()
-                    rule = CH.prepare(pa, mu_e, sd_e, one, noise, power, nodes)
+                    rule = CH.prepare(pa, *table, nodes)
                     setup = time.perf_counter() - t0
                     times = CV.time_engine(lambda x: name_middle(rule, x, t), X, counts["calls"], counts["batch"], counts["batches"])
-                    rows.append({"engine": "prepared", "arm": arm, "subset": sub, "bodies": B, "paths": len(pa),
-                                 "prepare_s": setup, **times})
+                    rows.append({"engine": "prepared", "arm": arm, "subset": sub, "measures": X.shape[1], "bodies": B,
+                                 "paths": len(pa), "prepare_s": setup, **times})
                     log("speed: %s, %s, %d bodies: %.2f ms a field alone, %.2f ms in a batch"
                         % (arm, sub, B, times["median_ms"], times["batch_ms"]))
-            ch = chains(B)["chain"]
-            pa = CH.paths_of(ch)
-            for sub in SUBSETS:
-                one = {sub: subsets[sub]}
+                ch = chains(B)["chain"]
+                pa = CH.paths_of(ch)
 
-                def ref(x, one=one):
-                    ev = CH.path_logev(x, pa, ch, mu_e, sd_e, one, noise, power, nodes)
+                def ref(x, table=table):
+                    ev = CH.path_logev(x, pa, ch, table[0], table[1], table[2], table[3], table[4], nodes)
                     return {k: CH.body_posterior(CH.posterior(v, pa.log_prior), pa.names, t) for k, v in ev.items()}
                 times = CV.time_engine(ref, X, reference["calls"], reference["batch"], reference["batches"])
-                rows.append({"engine": "path_logev", "arm": "chain", "subset": sub, "bodies": B, "paths": len(pa),
-                             "prepare_s": 0.0, **times})
+                rows.append({"engine": "path_logev", "arm": "chain", "subset": sub, "measures": X.shape[1], "bodies": B,
+                             "paths": len(pa), "prepare_s": 0.0, **times})
                 log("speed: path_logev, %s, %d bodies: %.0f ms a field alone, %.0f ms in a batch"
                     % (sub, B, times["median_ms"], times["batch_ms"]))
         threads = CV.pools()
     return {"command": "python -m schwingcheck.chain_study speed", "columns_per_type": n_columns,
+            "fields_per_column": PER_COLUMN, "seeds": [SEED, EXTRA_SEED, FIELD_SEED], "cut": True,
             "counts": counts, "reference_counts": reference, "widths": list(widths), "threads": threads,
             "machine": CV.machine(), "versions": CV.versions(), **made(made_by), "rows": rows}
+
+
+def cut(name: str, idx, mu_e: np.ndarray, sd_e: np.ndarray, noise: np.ndarray, power: np.ndarray):
+    """A rule's inputs cut to these measures: the extended table, one subset of this name holding
+    all of them, their errors and their powers, so that a rule built from them runs its loops over
+    these measures alone, as a service that reads only these would build it."""
+    idx = list(idx)
+    return (mu_e[idx], sd_e[idx], {name: list(range(len(idx)))}, np.asarray(noise, float)[idx],
+            np.asarray(power, float)[idx])
+
+
+# ---- the PyMC models against the exact answer -------------------------------------------------
+
+_PYMC: dict = {}
+
+
+def pymc_fields(drawn, kind: str, B: int, n: int):
+    """The fields the PyMC models are run on: the first field of each of the first n columns of
+    `run`'s fields of this type and width, so that their exact posteriors are `run`'s."""
+    X, names, _, col = drawn[kind, B]
+    pick = np.arange(n) * PER_COLUMN
+    return X[pick], names[pick], col[pick]
+
+
+def pymc_job(job: Tuple[str, int]) -> List[dict]:
+    """Both PyMC models on one type's fields at one width, each measure set cut to its measures:
+    each field's posterior of the middle body's name against the exact one."""
+    import warnings
+    from threadpoolctl import threadpool_limits
+    kind, B = job
+    a = _PYMC
+    with warnings.catch_warnings(), threadpool_limits(1):
+        warnings.simplefilter("ignore")
+        X, names, col = pymc_fields(a["drawn"], kind, B, a["sampling"]["fields"])
+        ch = chains(B)["chain"]
+        pa = CH.paths_of(ch)
+        t = S.target_offset(B)
+        out = []
+        for sub in SUBSETS:
+            table = cut(sub, a["subsets"][sub], a["mu_e"], a["sd_e"], a["noise"], a["power"])
+            Xs = X[:, a["subsets"][sub], :]
+            exact = name_middle(CH.prepare(pa, *table, a["nodes"]), Xs, t)[sub]
+            for model in PYMC_MODELS:
+                r = pymc_run(model, Xs, ch, pa, table, t, exact, a["sampling"])
+                out.append({"type": kind, "bodies": B, "subset": sub, "model": model, "columns": col.tolist(),
+                            "truth": [CH.NAMES[n] for n in names[:, t]], **r})
+    return out
+
+
+def pymc_run(model: str, X: np.ndarray, ch: CH.Chain, pa: CH.Paths, table, t: int, exact: np.ndarray,
+             sampling: dict) -> dict:
+    """One model sampled by NUTS on the fields X together: the seconds to build it and those of
+    NUTS's own loop a field, each field's largest gap from the exact posterior, its Monte Carlo
+    error there and its largest gap in Monte Carlo errors at names the exact posterior puts above
+    0.05, whether every name is within PYMC_WITHIN, whether the model's name is the exact one's,
+    the largest R-hat of the field's variables and the divergences."""
+    import arviz as az
+    import pymc as pm
+    from . import chain_pymc as CP
+    mu_s, sd_s, _, noise_s, power_s = table
+    t0 = time.perf_counter()
+    m = (CP.enumerated if model == "enumerated" else CP.sampled)(X, ch, mu_s, sd_s, noise_s, power_s)
+    t1 = time.perf_counter()
+    with m:
+        idata = pm.sample(draws=sampling["draws"], tune=sampling["tune"], chains=sampling["chains"], cores=1,
+                          random_seed=sampling["seed"], progressbar=False, compute_convergence_checks=False)
+    if model == "enumerated":
+        post, batches = CP.body_posterior_enumerated(idata, X, pa, mu_s, sd_s, noise_s, power_s, t,
+                                                     n_batches=sampling["batches"])
+    else:
+        post, batches = CP.body_posterior_sampled(idata, X, ch, mu_s, sd_s, noise_s, power_s, t,
+                                                  n_batches=sampling["batches"])
+    se = CP.mcse(batches)
+    gap = np.abs(post - exact)
+    k, tol = PYMC_WITHIN
+    big = exact > 0.05
+    in_errors = np.where(big, gap / np.maximum(se, 1e-12), 0.0).max(1)
+    worst = gap.argmax(1)
+    names = ["log_s"] + (["z"] if model == "sampled" else [])
+    rh = az.rhat(idata, var_names=names)
+    rhat = np.asarray(rh["log_s"].values, float)
+    if model == "sampled":
+        rhat = np.maximum(rhat, np.asarray(rh["z"].values, float).max(-1))
+    F = len(X)
+    return {"build_s": t1 - t0, "sample_s": float(idata.posterior.attrs.get("sampling_time", float("nan"))) / F,
+            "gap": gap.max(1).tolist(), "gap_mcse": se[np.arange(F), worst].tolist(), "gap_name": [CH.NAMES[w] for w in worst],
+            "gap_in_errors": in_errors.tolist(), "within": bool(np.all(gap <= k * se + tol)),
+            "fields_within": int(np.all(gap <= k * se + tol, axis=1).sum()),
+            "same_name": (post.argmax(1) == exact.argmax(1)).tolist(), "exact_top": exact.max(1).tolist(),
+            "model_top": post.max(1).tolist(), "rhat": rhat.tolist(),
+            "divergences": int(np.asarray(idata.sample_stats["diverging"].values).sum())}
+
+
+def pymc_compare(n_columns: int = 100, sampling=None, processes: int = 3, log=print) -> dict:
+    """Both PyMC models against chain.py's exact answer, type by type in a pool of processes (the
+    module's docstring), each process single-threaded."""
+    global _PYMC
+    made_by = CV.code_state()
+    sampling = dict(PYMC if sampling is None else sampling)
+    pool, subsets, mu, sd, noise, power, nodes = setting()
+    mu_e, sd_e = CH.extended_table(mu, sd)
+    _PYMC = {"drawn": draw_all(pool, n_columns, sampling["widths"]), "subsets": subsets, "mu_e": mu_e, "sd_e": sd_e,
+             "noise": noise, "power": power, "nodes": nodes, "sampling": sampling}
+    jobs = [(kind, B) for B in sampling["widths"] for kind in CH.TYPES]
+    t0 = time.time()
+    if processes > 1:
+        with multiprocessing.get_context("fork").Pool(min(processes, len(jobs))) as p:
+            results = p.map(pymc_job, jobs)
+    else:
+        results = list(map(pymc_job, jobs))
+    log("pymc: %d jobs in %.0f s" % (len(jobs), time.time() - t0))
+    rows = [r for out in results for r in out]
+    return {"command": "python -m schwingcheck.chain_study pymc", "columns_per_type": n_columns,
+            "fields_per_column": PER_COLUMN, "seeds": [SEED, EXTRA_SEED, FIELD_SEED],
+            "sampling": {k: list(v) if isinstance(v, tuple) else v for k, v in sampling.items()},
+            "within": list(PYMC_WITHIN), "machine": CV.machine(), "versions": CV.versions(), **made(made_by), "rows": rows}
 
 
 # ---- the tables -----------------------------------------------------------------------------
@@ -370,20 +504,21 @@ def main_table(record: dict) -> str:
     out = ["| Column | Bodies | Measures | " + " | ".join(ARMS) + " |", "|---|---:|---|" + "---:|" * len(ARMS)]
     key = {(r["type"], r["bodies"], r["subset"], r["arm"]): r for r in record["rows"]}
     for kind in CH.TYPES:
-        for B in record.get("widths", (1, 3, 5)):
+        for B in record["widths"]:
             for k in SUBSETS:
                 cells = ["%s (%s)" % (pct(key[kind, B, k, a]["exact"]), pct(key[kind, B, k, a]["exact_se"])) for a in ARMS]
                 out.append("| %s | %d | %s | %s |" % (kind.replace("_", "-"), B, k, " | ".join(cells)))
     return "\n".join(out) + "\n"
 
 
-def claims_table(record: dict, bodies=WIDTHS) -> str:
-    """The answers at 0.99: the share answered and right of those answered, each rule, all 32."""
+def claims_table(record: dict) -> str:
+    """The answers at 0.99: the share answered and right of those answered, each rule, all 32, at
+    every width of the record."""
     out = ["| Column | Bodies | " + " | ".join("%s: answered / right" % a for a in ARMS) + " |",
            "|---|---:|" + "---:|" * len(ARMS)]
     key = {(r["type"], r["bodies"], r["subset"], r["arm"]): r for r in record["rows"]}
     for kind in CH.TYPES:
-        for B in bodies:
+        for B in record["widths"]:
             cells = []
             for a in ARMS:
                 r = key[kind, B, "all", a]
@@ -396,14 +531,15 @@ def claims_table(record: dict, bodies=WIDTHS) -> str:
 def weights_table(record: dict, bodies=(1, 5, 9)) -> str:
     """The chain at its stated type weights and at the clinical reread's (WEIGHT_SETS): each type's
     share named exactly (SE) and the precision of the answers at 0.99, on the same fields; one body
-    among the widths, since a lone body is where the prior counts most."""
+    among the widths, since a lone body is where the prior counts most. The weights are the
+    record's, and the widths those of `bodies` the record holds."""
     stated = {(r["type"], r["bodies"], r["subset"]): r for r in record["rows"] if r["arm"] == "chain"}
     other = {(r["weights"], r["type"], r["bodies"], r["subset"]): r for r in record["weight_rows"]}
-    sets = [("stated", CH.WEIGHTS)] + list(record["weight_sets"].items())
+    sets = [("stated", record["weights"])] + list(record["weight_sets"].items())
     head = ["Bodies", "Measures", "Weights", "Six-lumbar, t13"] + \
            ["%s: exact / right at 0.99" % k.replace("_", "-") for k in CH.TYPES]
     out = ["| " + " | ".join(head) + " |", "|---:|---|---|---|" + "---:|" * len(CH.TYPES)]
-    for B in bodies:
+    for B in [b for b in bodies if b in record["widths"]]:
         for sub in SUBSETS[::-1]:
             for name, w in sets:
                 rs = [stated[k, B, sub] if name == "stated" else other[name, k, B, sub] for k in CH.TYPES]
@@ -433,7 +569,7 @@ def axis_table(record: dict, main: dict, bodies: int = 5, subset: str = "all") -
                cell(printed["typical", bodies, subset, "consecutive"], two=False) + " |")
     worlds = {int(k): v for k, v in record["worlds"].items()}
     for people in sorted(worlds):
-        for rule in RULES:
+        for rule in record["rules"]:
             c = [rows[people, rule, k, bodies, subset, "chain"] for k in CH.TYPES]
             cells = [cell(r, ref) for r, ref in zip(c, p)]
             prec = " / ".join(pct(r["precision"], 2) for r in c)
@@ -460,6 +596,25 @@ def speed_table(record: dict) -> str:
     return "\n".join(out) + "\n"
 
 
+def pymc_table(record: dict) -> str:
+    """Both PyMC models against the exact answer: for each type, measure set and model, the fields,
+    those within five Monte Carlo errors plus 0.001 at every name, those named as the exact rule
+    names them, the largest gap and its Monte Carlo error, the largest gap in Monte Carlo errors
+    where the exact posterior is above 0.05, the largest R-hat, the divergences and NUTS's seconds
+    a field."""
+    head = ["Column", "Bodies", "Measures", "Model", "Fields within", "Same name", "Largest gap (MC error)",
+            "Gap in MC errors, above 0.05", "Largest R-hat", "Divergences", "Seconds a field"]
+    out = ["| " + " | ".join(head) + " |", "|---|---:|---|---|" + "---:|" * (len(head) - 4)]
+    for r in record["rows"]:
+        F = len(r["gap"])
+        i = int(np.argmax(r["gap"]))
+        out.append("| %s | %d | %s | %s | %d of %d | %d of %d | %.4f (%.4f) | %.1f | %.3f | %d | %s |"
+                   % (r["type"].replace("_", "-"), r["bodies"], r["subset"], r["model"], r["fields_within"], F,
+                      sum(r["same_name"]), F, r["gap"][i], r["gap_mcse"][i], max(r["gap_in_errors"]), max(r["rhat"]),
+                      r["divergences"], _ms(r["sample_s"])))
+    return "\n".join(out) + "\n"
+
+
 def _ms(v: float) -> str:
     return "%.3g" % v if v < 100 else "{:,.0f}".format(v)
 
@@ -479,6 +634,8 @@ def tables() -> Dict[str, str]:
         out["chain:axis-5-seven"] = axis_table(ax, main, 5, "seven")
     if os.path.exists(RECORDS["speed"]):
         out["chain:speed"] = speed_table(load("speed"))
+    if os.path.exists(RECORDS["pymc"]):
+        out["chain:pymc"] = pymc_table(load("pymc"))
     return out
 
 
@@ -514,6 +671,25 @@ def check(readme: str = README) -> List[str]:
     for name in have:
         if name not in want:
             out.append("the README's %s has no record" % name)
+    return out + consistent({k: load(k) for k, path in RECORDS.items() if os.path.exists(path)})
+
+
+SHARED = ("columns_per_type", "fields_per_column", "seeds")
+
+
+def consistent(records: Dict[str, dict]) -> List[str]:
+    """What keeps the records from reading on the same fields: every record's columns, fields a
+    column and seeds must be `run`'s, and the axis's widths too, since the axis table reads each of
+    its rows against `run`'s on the same fields; an empty list when they agree."""
+    main, out = records.get("main"), []
+    if main is None:
+        return out
+    for which, record in records.items():
+        for key in SHARED:
+            if record.get(key) != main.get(key):
+                out.append("the %s record's %s are %r, the main record's %r" % (which, key, record.get(key), main.get(key)))
+    if "axis" in records and records["axis"].get("widths") != main.get("widths"):
+        out.append("the axis record's widths are %r, the main record's %r" % (records["axis"].get("widths"), main.get("widths")))
     return out
 
 
@@ -527,11 +703,11 @@ def write(record: dict, path: str) -> None:
 
 def main(argv=None) -> int:
     ap = argparse.ArgumentParser(prog="python -m schwingcheck.chain_study")
-    ap.add_argument("what", choices=("run", "axis", "speed", "table", "check"))
+    ap.add_argument("what", choices=("run", "axis", "speed", "pymc", "table", "check"))
     ap.add_argument("--columns", type=int, default=100)
     ap.add_argument("--processes", type=int, default=PROCESSES)
-    ap.add_argument("--out", default=None, help="where run, axis or speed writes its record")
-    ap.add_argument("--table", choices=("main", "claims", "weights", "axis", "speed"), default="main")
+    ap.add_argument("--out", default=None, help="where run, axis, speed or pymc writes its record")
+    ap.add_argument("--table", choices=("main", "claims", "weights", "axis", "speed", "pymc"), default="main")
     a = ap.parse_args(argv)
     if a.what == "run":
         write(run(a.columns), a.out or RECORDS["main"])
@@ -539,6 +715,8 @@ def main(argv=None) -> int:
         write(axis(a.columns, processes=a.processes), a.out or RECORDS["axis"])
     elif a.what == "speed":
         write(speed(a.columns), a.out or RECORDS["speed"])
+    elif a.what == "pymc":
+        write(pymc_compare(a.columns, processes=a.processes), a.out or RECORDS["pymc"])
     elif a.what == "table":
         main_rec = load("main")
         if a.table == "main":
@@ -549,6 +727,8 @@ def main(argv=None) -> int:
             print(weights_table(main_rec), end="")
         elif a.table == "axis":
             print(axis_table(load("axis"), main_rec), end="")
+        elif a.table == "pymc":
+            print(pymc_table(load("pymc")), end="")
         else:
             print(speed_table(load("speed")), end="")
     else:

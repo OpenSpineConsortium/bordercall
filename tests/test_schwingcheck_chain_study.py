@@ -187,10 +187,154 @@ class QuickStudy(unittest.TestCase):
         for pool in self.speed["threads"]:
             self.assertEqual(pool["threads"], 1, pool)
 
+    def test_each_measure_set_is_timed_as_a_rule_cut_to_it(self):
+        want = {"seven": len(MS.SPINEPS_7), "all": len(MS.pool())}
+        for r in self.speed["rows"]:
+            self.assertEqual(r["measures"], want[r["subset"]], (r["engine"], r["arm"], r["subset"], r["bodies"]))
+        self.assertTrue(self.speed["cut"])
+
+    def test_the_weights_rows_are_the_posterior_at_the_papers_weights(self):
+        """Each weights row is what the posterior at those weights gives, computed path by path
+        (chain.path_logev, not prepare and logev) on `run`'s fields."""
+        pool, subsets, mu, sd, noise, power, nodes = CS.setting()
+        mu_e, sd_e = CH.extended_table(mu, sd)
+        drawn = CS.draw_all(pool, Q["columns"], Q["widths"])
+        rows = {(r["weights"], r["type"], r["bodies"], r["subset"]): r for r in self.main["weight_rows"]}
+        self.assertEqual(len(rows), len(self.main["weight_rows"]))
+        for name, w in CS.WEIGHT_SETS.items():
+            for B in Q["widths"]:
+                ch = CH.build(CH.TYPES, w, CH.step_law(), B)
+                pa = CH.paths_of(ch)
+                t = CS.S.target_offset(B)
+                for kind in CH.TYPES:
+                    X, names, _, col = drawn[kind, B]
+                    ev = CH.path_logev(X, pa, ch, mu_e, sd_e, subsets, noise, power, nodes)
+                    for sub, v in ev.items():
+                        st = CS.name_stats(CH.body_posterior(CH.posterior(v, pa.log_prior), pa.names, t), names[:, t])
+                        st["floored"] = CV.floored_in(X, subsets[sub], power)
+                        want, got = CV.rates(st, col), rows[name, kind, B, sub]
+                        for key in ("exact", "within_one", "answered", "n_answered", "errors", "set_size"):
+                            same(self, got[key], want[key], 0.0, (name, kind, B, sub, key))
+                        same(self, got["log_loss"], want["log_loss"], 1e-9, (name, kind, B, sub))
+
+    def test_the_claims_tables_cells_are_the_rows(self):
+        key = {(r["type"], r["bodies"], r["subset"], r["arm"]): r for r in self.main["rows"]}
+        lines = CS.claims_table(self.main).splitlines()
+        self.assertEqual(len(lines), 2 + len(CH.TYPES) * len(self.main["widths"]))
+        for line in lines[2:]:
+            cells = [c.strip() for c in line.strip("|").split("|")]
+            kind, B = cells[0].replace("-", "_"), int(cells[1])
+            for arm, cell in zip(CS.ARMS, cells[2:]):
+                r = key[kind, B, "all", arm]
+                self.assertEqual(cell, "%s / %s (%d of %d)" % (CS.pct(r["answered"]), CS.pct(r["precision"], 2),
+                                                             r["n_answered"] - r["errors"], r["n_answered"]), (kind, B, arm))
+
+    def test_the_speed_tables_cells_are_the_rows(self):
+        key = {(r["engine"], r["arm"], r["subset"], r["bodies"]): r for r in self.speed["rows"]}
+        lines = CS.speed_table(self.speed).splitlines()
+        for B, line in zip(self.speed["widths"], lines[2:]):
+            cells = [c.strip() for c in line.strip("|").split("|")][2:]
+            want = [key["prepared", a, k, B] for a in CS.CHAIN_ARMS for k in ("all", "seven")] + \
+                   [key["path_logev", "chain", "all", B]]
+            self.assertEqual(len(cells), len(want))
+            for cell, r in zip(cells, want):
+                self.assertEqual(cell, "%s / %s; %s" % (CS._ms(r["median_ms"]), CS._ms(r["max_ms"]), CS._ms(r["batch_ms"])),
+                                 (B, r["engine"], r["arm"], r["subset"]))
+
+    def test_the_tables_take_their_labels_from_the_records(self):
+        moved = dict(self.main, weights={"typical": 0.8, "six_lumbar": 0.15, "t13": 0.05}, widths=[3])
+        lines = CS.weights_table(moved, Q["widths"]).splitlines()
+        self.assertTrue(all(line.startswith("| 3 |") for line in lines[2:]), lines)
+        self.assertIn("| 3 | all | stated | 0.15, 0.05 |", "\n".join(lines))
+        widths = {line.strip("|").split("|")[1].strip() for line in CS.main_table(moved).splitlines()[2:]}
+        self.assertEqual(widths, {"3"})
+        self.assertEqual(len(CS.claims_table(moved).splitlines()), 2 + len(CH.TYPES))
+        one_rule = dict(self.axis, rules=["nominal"])
+        lines = CS.axis_table(one_rule, self.main, 3, "all").splitlines()
+        self.assertEqual(len(lines), 3 + len(Q["worlds"]))
+
     def test_every_record_names_the_code_it_was_made_by(self):
         for record in (self.main, self.axis, self.speed):
             self.assertEqual(set(record["made_by"]), {"digests", "git"})
             self.assertEqual(record["changed_during_run"], {})
+
+
+class CutRule(unittest.TestCase):
+    def test_a_rule_cut_to_the_seven_names_as_the_mask_does(self):
+        pool, subsets, mu, sd, noise, power, nodes = CS.setting()
+        mu_e, sd_e = CH.extended_table(mu, sd)
+        drawn = CS.draw_all(pool, 2, (1, 3))
+        for B in (1, 3):
+            X = drawn["t13", B][0]
+            t = CS.S.target_offset(B)
+            for arm, ch in CS.chains(B).items():
+                pa = CH.paths_of(ch)
+                masked = CS.name_middle(CH.prepare(pa, mu_e, sd_e, subsets, noise, power, nodes), X, t)["seven"]
+                table = CS.cut("seven", subsets["seven"], mu_e, sd_e, noise, power)
+                self.assertEqual(table[0].shape[0], len(MS.SPINEPS_7))
+                cut = CS.name_middle(CH.prepare(pa, *table, nodes), X[:, subsets["seven"], :], t)["seven"]
+                np.testing.assert_allclose(cut, masked, rtol=0, atol=1e-12, err_msg="%s, %d bodies" % (arm, B))
+
+
+class AxisOrder(unittest.TestCase):
+    def test_the_rows_do_not_depend_on_the_order_the_jobs_finish(self):
+        """axis_rows sorts the jobs' results first, so that the log loss, a sum over the fields in
+        the order they are pooled, is the same to the bit whatever order the processes finish in."""
+        pool = MS.pool()
+        worlds = {12: 2}
+        tables = CS.axis_tables(pool, worlds)
+        CS._AXIS.clear()
+        _, subsets, _, _, noise, power, nodes = CS.setting()
+        CS._AXIS.update({"tables": tables, "drawn": CS.draw_all(pool, 2, (3,)), "subsets": subsets, "noise": noise,
+                         "power": power, "nodes": nodes})
+        jobs = [(i, rule, 3) for i in range(len(tables)) for rule in CS.RULES]
+        results = [CS.axis_job(j) for j in jobs]
+        forward = CS.axis_rows(results, tables, worlds)
+        backward = CS.axis_rows(results[::-1], tables, worlds)
+        self.assertEqual(len(forward), len(backward))
+        for a, b in zip(forward, backward):
+            self.assertEqual(set(a), set(b))
+            for k in a:
+                if isinstance(a[k], float) and np.isnan(a[k]):
+                    self.assertTrue(np.isnan(b[k]), k)
+                else:
+                    self.assertEqual(a[k], b[k], k)
+
+
+class LoadLoops(unittest.TestCase):
+    SCRIPT = """
+import json, sys
+sys.path.insert(0, %r)
+from threadpoolctl import threadpool_limits
+from schwingcheck import chain as CH, chain_study as CS, curve as CV
+pool, subsets, mu, sd, noise, power, nodes = CS.setting()
+mu_e, sd_e = CH.extended_table(mu, sd)
+X = CS.draw_all(pool, 2, (1,))["typical", 1][0]
+if sys.argv[1] == "first":
+    CS.load_loops(subsets, mu_e, sd_e, noise, power, nodes, X)
+with threadpool_limits(1):
+    if sys.argv[1] == "inside":
+        CS.load_loops(subsets, mu_e, sd_e, noise, power, nodes, X)
+    print(json.dumps(CV.pools()))
+"""
+
+    def pools(self, when):
+        import json
+        import subprocess
+        out = subprocess.run([sys.executable, "-c", self.SCRIPT % ROOT, when], capture_output=True, text=True, check=True)
+        return json.loads(out.stdout.strip().splitlines()[-1])
+
+    def test_compiled_first_every_pool_is_at_one_thread_in_a_fresh_process(self):
+        pools = self.pools("first")
+        self.assertTrue(pools)
+        for pool in pools:
+            self.assertEqual(pool["threads"], 1, pool)
+
+    @unittest.skipIf((os.cpu_count() or 1) < 2, "one CPU: every pool has one thread whenever it loads")
+    def test_compiled_inside_the_limit_a_pool_escapes_it(self):
+        """The reason load_loops runs first: compiled inside the limit, a pool loaded by the
+        compile is not held by it."""
+        self.assertTrue(any(pool["threads"] > 1 for pool in self.pools("inside")))
 
 
 class Check(unittest.TestCase):
@@ -224,6 +368,16 @@ class Check(unittest.TestCase):
         self.assertIn("the README's chain:gone has no record", problems)
         self.assertEqual(len(problems), 5, problems)
 
+    def test_the_records_must_read_the_same_fields(self):
+        main = {"columns_per_type": 100, "fields_per_column": 2, "seeds": [401, 501, 601], "widths": [1, 3, 5, 9]}
+        self.assertEqual(CS.consistent({"main": main, "axis": dict(main), "speed": dict(main, widths=[1, 3])}), [])
+        problems = CS.consistent({"main": main, "axis": dict(main, seeds=[401, 501, 602], widths=[1, 3]),
+                                  "speed": dict(main, columns_per_type=30), "pymc": dict(main, fields_per_column=1)})
+        self.assertEqual(len(problems), 4, problems)
+        for word in ("axis record's seeds", "axis record's widths", "speed record's columns_per_type",
+                     "pymc record's fields_per_column"):
+            self.assertTrue(any(word in p for p in problems), (word, problems))
+
 
 class CommittedRecords(unittest.TestCase):
     """The records of 28 October 2026 as committed in records/chain-2026-10-28/."""
@@ -250,6 +404,30 @@ class CommittedRecords(unittest.TestCase):
             self.assertFalse(record["made_by"]["git"]["package_changed"], which)
             commits.add(record["made_by"]["git"]["commit"])
         self.assertEqual(len(commits), 1, commits)
+
+    def test_they_read_the_same_fields(self):
+        self.assertEqual(CS.consistent(self.records), [])
+
+    def test_the_speed_ran_with_every_pool_at_one_thread_and_cut(self):
+        record = self.records["speed"]
+        self.assertTrue(record["cut"])
+        for pool in record["threads"]:
+            self.assertEqual(pool["threads"], 1, pool)
+
+    def test_the_pymc_records_exact_posteriors_are_runs(self):
+        """The exact posteriors the PyMC models were set against are chain.py's on `run`'s fields."""
+        record = self.records["pymc"]
+        pool, subsets, mu, sd, noise, power, nodes = CS.setting()
+        mu_e, sd_e = CH.extended_table(mu, sd)
+        drawn = CS.draw_all(pool, record["columns_per_type"], record["sampling"]["widths"])
+        for r in record["rows"]:
+            X, names, col = CS.pymc_fields(drawn, r["type"], r["bodies"], record["sampling"]["fields"])
+            t = CS.S.target_offset(r["bodies"])
+            self.assertEqual(col.tolist(), r["columns"])
+            self.assertEqual([CH.NAMES[n] for n in names[:, t]], r["truth"])
+            rule = CH.prepare(CH.paths_of(CS.chains(r["bodies"])["chain"]), mu_e, sd_e, subsets, noise, power, nodes)
+            exact = CS.name_middle(rule, X, t)[r["subset"]]
+            np.testing.assert_allclose(exact.max(1), r["exact_top"], rtol=0, atol=1e-12)
 
 
 if __name__ == "__main__":

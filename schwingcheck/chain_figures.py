@@ -62,7 +62,7 @@ CAPTIONS = {
         "printed on the same fields.",
     "chain_speed":
         "Time to name the middle body of one synthetic typical field, single-threaded, each rule built "
-        "beforehand: A, all 32 measures; B, the seven as a mask on that rule. Alone (lines, median of %d "
+        "beforehand: A, all 32 measures; B, the seven, %s. Alone (lines, median of %d "
         "calls) and per field in a batch of %d (points, median of %d calls); crosses, chain.path_logev, "
         "which builds its blocks in every call.",
 }
@@ -229,7 +229,8 @@ def fig_speed(speed: dict, outdir: str) -> List[str]:
     axes[0].legend(loc="upper left")
     name = "chain_speed"
     c = speed["counts"]
-    caption = CAPTIONS[name] % (c["calls"], c["batch"], c["batches"])
+    how = "a rule cut to them" if speed.get("cut") else "a mask on the rule for all 32"
+    caption = CAPTIONS[name] % (how, c["calls"], c["batch"], c["batches"])
     return save(fig, outdir, name, caption) + [write_csv(outdir, name, rows)]
 
 

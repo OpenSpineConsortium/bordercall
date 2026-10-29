@@ -303,46 +303,70 @@ def sampled(X: np.ndarray, chain: CH.Chain, mu_ext: np.ndarray, sd_ext: np.ndarr
 
 
 def body_posterior_sampled(idata, X: np.ndarray, chain: CH.Chain, mu_ext: np.ndarray, sd_ext: np.ndarray,
-                           noise: np.ndarray, power: np.ndarray, t: int, synth: dict = SYNTH, chunk: int = 50):
+                           noise: np.ndarray, power: np.ndarray, t: int, synth: dict = SYNTH, chunk: int = 50,
+                           n_batches: int = 1):
     """(a)'s posterior of body t's name, (fields, NAMES), Rao-Blackwellised: each draw's (size,
     offsets) gives the state marginals by the forward-backward algorithm (chain.forward_backward),
-    and the draws' marginals are averaged; with the per-chain means, for a Monte Carlo error."""
+    and the draws' marginals are averaged; with the means of each chain's draws cut into n_batches
+    batches of one size, the per-chain means at 1, for a Monte Carlo error (batch_means)."""
     post = idata.posterior
     log_s = np.asarray(post["log_s"].values, float)               # (chains, draws, F)
     z = np.asarray(post["z"].values, float)                       # (chains, draws, F, M)
-    C_, D = log_s.shape[:2]
-    means = []
-    for c in range(C_):
-        acc = np.zeros((X.shape[0], len(CH.NAMES)))
-        for d0 in range(0, D, chunk):
-            le = CH.state_loglik(X, chain, mu_ext, sd_ext, log_s[c, d0:d0 + chunk], z[c, d0:d0 + chunk],
-                                 float(synth["rho"]), noise, power)
+    size, used = _batches(log_s.shape[1], n_batches)
+    sums = np.zeros((log_s.shape[0], n_batches, X.shape[0], len(CH.NAMES)))
+    for c in range(log_s.shape[0]):
+        for d0 in range(0, used, chunk):
+            d1 = min(d0 + chunk, used)
+            le = CH.state_loglik(X, chain, mu_ext, sd_ext, log_s[c, d0:d1], z[c, d0:d1], float(synth["rho"]), noise, power)
             marg, _ = CH.forward_backward(le, chain.init, chain.P)
-            acc += CH.state_body_posterior(marg, chain, t).sum(0)
-        means.append(acc / D)
-    means = np.array(means)
-    return means.mean(0), means
+            np.add.at(sums[c], np.arange(d0, d1) // size, CH.state_body_posterior(marg, chain, t))
+    return batch_means(sums / size)
 
 
 def body_posterior_enumerated(idata, X: np.ndarray, paths: CH.Paths, mu_ext: np.ndarray, sd_ext: np.ndarray,
-                              noise: np.ndarray, power: np.ndarray, t: int, synth: dict = SYNTH, chunk: int = 25):
+                              noise: np.ndarray, power: np.ndarray, t: int, synth: dict = SYNTH, chunk: int = 25,
+                              n_batches: int = 1):
     """(b)'s posterior of body t's name, (fields, NAMES), Rao-Blackwellised: each draw's size gives
-    p(path | field, size) in closed form, averaged over the draws; with the per-chain means."""
+    p(path | field, size) in closed form, averaged over the draws; with the means of each chain's
+    draws cut into n_batches batches of one size, the per-chain means at 1 (batch_means)."""
     log_s = np.asarray(idata.posterior["log_s"].values, float)    # (chains, draws, F)
     C_, D, F = log_s.shape
-    means = []
+    size, used = _batches(D, n_batches)
+    sums = np.zeros((C_, n_batches, F, len(CH.NAMES)))
     for c in range(C_):
-        acc = np.zeros((F, len(CH.NAMES)))
-        for d0 in range(0, D, chunk):
-            ll = path_loglik_numpy(X, paths.names, mu_ext, sd_ext, log_s[c, d0:d0 + chunk], float(synth["rho"]),
+        for d0 in range(0, used, chunk):
+            d1 = min(d0 + chunk, used)
+            ll = path_loglik_numpy(X, paths.names, mu_ext, sd_ext, log_s[c, d0:d1], float(synth["rho"]),
                                    noise, power) + paths.log_prior
             p = np.exp(ll - ll.max(-1, keepdims=True))
             p /= p.sum(-1, keepdims=True)
             for d in range(p.shape[0]):
-                acc += CH.body_posterior(p[d], paths.names, t)
-        means.append(acc / D)
-    means = np.array(means)
-    return means.mean(0), means
+                sums[c, (d0 + d) // size] += CH.body_posterior(p[d], paths.names, t)
+    return batch_means(sums / size)
+
+
+def _batches(draws: int, n_batches: int):
+    """The draws in a batch, and the draws used: the last draws of a chain, fewer than n_batches,
+    that fill no batch are left out of the mean and the error alike, as model.hypothesis_posterior
+    leaves them, so the two describe the same draws."""
+    size = draws // n_batches
+    if n_batches < 1 or size < 1:
+        raise ValueError("%d draws make no %d batches" % (draws, n_batches))
+    return size, size * n_batches
+
+
+def batch_means(means: np.ndarray):
+    """The posterior and the batches' means, (chains * batches, fields, NAMES), from each chain's
+    batch means (chains, batches, fields, NAMES); the Monte Carlo error of the posterior is their
+    SD over the square root of their count (mcse)."""
+    batches = means.reshape((-1,) + means.shape[2:])
+    return batches.mean(0), batches
+
+
+def mcse(batches: np.ndarray) -> np.ndarray:
+    """The Monte Carlo standard error of the mean of the batches' means, (fields, NAMES): their SD
+    over the square root of their count, as model.hypothesis_posterior takes it."""
+    return batches.std(axis=0, ddof=1) / math.sqrt(batches.shape[0])
 
 
 def path_loglik_numpy(X: np.ndarray, names: np.ndarray, mu: np.ndarray, sd: np.ndarray, log_s: np.ndarray,

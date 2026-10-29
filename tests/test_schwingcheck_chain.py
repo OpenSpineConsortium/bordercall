@@ -214,11 +214,19 @@ class TheModels(unittest.TestCase):
         with model:
             idata = pm.sample(draws=500, tune=500, chains=2, cores=1, random_seed=11, progressbar=False,
                               compute_convergence_checks=False)
-        want, _ = self.CP.body_posterior_enumerated(idata, self.X, self.paths, self.mu_e, self.sd_e, self.noise, self.power, 1)
+        want, batches = self.CP.body_posterior_enumerated(idata, self.X, self.paths, self.mu_e, self.sd_e, self.noise,
+                                                          self.power, 1, n_batches=10)
         state = np.asarray(recover(idata, model=model, var_names=["state"], random_seed=5).posterior["state"].values)
         names = self.chain.state_name[state[..., 1]]
         got = np.stack([(names == k).mean((0, 1)) for k in range(len(CH.NAMES))], -1)
         self.assertLess(np.abs(got - want).max(), 5 * 0.5 / np.sqrt(names.shape[0] * names.shape[1]))
+        # and (b)'s posterior over the names is the exact one, chain.path_logev's, within five
+        # Monte Carlo errors plus 0.001, as the naming model's NUTS test holds it
+        exact = CH.path_logev(self.X, self.paths, self.chain, self.mu_e, self.sd_e, {"seven": list(range(7))},
+                              self.noise, self.power, R.trapezoid(R.SYNTH["scale_sd"]))["seven"]
+        exact = CH.body_posterior(CH.posterior(exact, self.paths.log_prior), self.paths.names, 1)
+        self.assertTrue(np.all(np.abs(want - exact) <= 5 * self.CP.mcse(batches) + 1e-3),
+                        np.abs(want - exact).max(1))
 
 
 if __name__ == "__main__":
