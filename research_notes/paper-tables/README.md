@@ -58,7 +58,6 @@ paper's mapping against its Methods.
   with the commands that remake it. A pool member with an SD of 0 (Tan 2004's SEM of 0.0 for the upper end-plate
   width at C6) is left out of the pools, and cross_naming.py refuses to write a record holding NaN or an infinity.
 
-No PDF, page image or run of a paper's text is kept on this branch; a reading holds only the printed cells and the
-short labels that name them. The 44 PDFs the readings cite are on branch claude/project-thread-ljtlt9 (draft pull
-request 24, research_notes/clinical-reread/papers/), each matching ../clinical-reread/tools/PAPERS.sha256; whether
-they go to main waits for the owner (../clinical-reread/HANDOFF.md).
+No page image or run of a paper's text is kept in git; a reading holds only the printed cells and the short labels
+that name them. The 44 PDFs the readings cite are in ../clinical-reread/papers/, each matching
+../clinical-reread/tools/PAPERS.sha256, on the owner's choice of 2026-10-29 03:30 UTC to keep them in main.
