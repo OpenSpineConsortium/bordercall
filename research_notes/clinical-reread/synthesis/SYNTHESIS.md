@@ -177,21 +177,24 @@ How to read it:
    upper bound until a single series spanning the junction confirms it (atlas.md, "How to read this part";
    measures.md 12).
 
-8. **Drop the two end-plate inclinations now.** Panjabi's lumbar Table 2 prints at L1 to L5 the same 20 numbers for
-   endplate_incl and endplate_lower_incl, means and SEMs, as his cervical Table 2 at C3 to C7. That one set was
+8. **The two end-plate inclinations reprint the cervical row; the owner keeps them as printed.** The owner chose on
+   2026-10-29 09:01 UTC to keep all 32 measures as printed, so nothing is rerun on 30 and every study states the
+   reprint (bordercall TODO.md step b, pull request 31); the paper-tables comparison scores them as printed too. The
+   case below for dropping them is what was weighed. Panjabi's lumbar Table 2 prints at L1 to L5 the same 20 numbers
+   for endplate_incl and endplate_lower_incl, means and SEMs, as his cervical Table 2 at C3 to C7. That one set was
    printed twice is near certain; that the cervical is the original is probable, not proven; three second readers
    told to refute the note did not refute its main conclusion ([the end-plate
    note](../../panjabi-endplate-inclination.md), status and section 1; panjabi1991c p. 863; panjabi1992 p. 301).
    Kept, the row makes a lower plate tilted like tan2004's L5 mean of 10.5 deg 2.0 nats more like L1 than L5; marked
    missing at L1 to L5, it favours every body placed there by at least 2 nats per measure, at the thoracolumbar
-   border (Inference in that note, section 3). What to do: one exclusion list that measures.pool, measures.left_out
-   and measures.select all read, with the tests and the README moved from 32 measures to 30 and the build-up study
-   rerun in the same pull request. The drop costs roughly a quarter to a half point named exactly at one body and
-   under a point at 0.99 at three, but about 1.5 points named exactly and 4 at 0.99 in the lateral view, whose 10
-   measures become 8 (Inference in that note, section 3, on 300 of the study's columns); after it the code reproduces
-   none of records/curve-2026-10-28's numbers outside the seven, and bordercall pull request 20, the chain of levels,
-   is built on the pool of 32 (that note, section 3). Later, a whole C3 to L5 series from tan2004, with Tan 2002 read
-   first, or a table from CTs read by the same measurer (that note, section 3; measures.md 3.5, 11.8).
+   border (Inference in that note, section 3). What was recommended: one exclusion list that measures.pool,
+   measures.left_out and measures.select all read, with the tests and the README moved from 32 measures to 30 and the
+   build-up study rerun in the same pull request. The drop costs roughly a quarter to a half point named exactly at
+   one body and under a point at 0.99 at three, but about 1.5 points named exactly and 4 at 0.99 in the lateral view,
+   whose 10 measures become 8 (Inference in that note, section 3, on 300 of the study's columns); after it the code
+   reproduces none of records/curve-2026-10-28's numbers outside the seven, and bordercall pull request 20, the chain
+   of levels, is built on the pool of 32 (that note, section 3). Later, a whole C3 to L5 series from tan2004, with
+   Tan 2002 read first, or a table from CTs read by the same measurer (that note, section 3; measures.md 3.5, 11.8).
 
 9. **Add the anterior body height: its ratio to the posterior is the strongest L5 body marker in the series means.**
    In every series only L5 is 10% or more taller in front, about 1.10 to 1.18, against 0.99 to 1.05 at L4 and 0.85 to

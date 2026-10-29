@@ -34,7 +34,8 @@ scanimport/schemes.py, and are named as code wherever they are used.
 - End-plate inclinations are never cues here. Panjabi's cervical Table 2 (C3 to C7) and lumbar Table 2 (L1 to L5)
   print the same 20 numbers for the upper and lower end-plate inclination (endplate_incl EPItu,
   endplate_lower_incl EPItl), one row printed twice, most probably the cervical one; the study of that row
-  recommends dropping both measures, and the thoracic wedge (endplate_wedge) is printed with no spread
+  recommended dropping both measures, which the owner declined on 2026-10-29 (all 32 kept as printed), and
+  the thoracic wedge (endplate_wedge) is printed with no spread
   (../../panjabi-endplate-inclination.md, section 1; schwingcheck README "The measures", code). Where this part
   quotes an inclination or a wedge it is data about a paper, not a level cue, and every step/SD ranking below
   leaves them out.

@@ -29,11 +29,22 @@ instances into named levels, a semantic segmentation. The same names are wanted 
   generator and classifier; gaps and conflicts. Every detail cites the printed page and the PDF page.
 - notes/<id>.json beside every note: the same content as a structured record (anomalies, measures, level details,
   errors, pearls and pitfalls, instructions), for code and for the synthesis to read.
+- [synthesis/](synthesis/README.md): what the 43 notes mean together, in four parts (anomalies and the junctions;
+  every measure as a recipe for a CT mask and a radiograph; measurement error and covariates; a level atlas with a
+  playbook for the autonomous anatomist) and a checked table of anomaly priors. Start at
+  [synthesis/SYNTHESIS.md](synthesis/SYNTHESIS.md), whose fifteen points say what the papers change in the generator,
+  the measurer and the decoder.
+- [papers/](papers/README.md): the 44 PDFs the notes cite, each matching tools/PAPERS.sha256, kept in git on the
+  owner's word of 2026-10-29 00:33 UTC and his choice of 03:30 UTC to keep them in main.
 - [HANDOFF.md](HANDOFF.md): where the work stopped and what comes next.
 - [tools/](tools/): the checks and the workflow scripts that made and will finish the notes.
   - check_notes.py holds every note to the rules below; `python3 -I tools/check_notes.py notes <folder of the PDFs>`.
   - reread_group.js is the Workflow script that read and checked the papers, one reader and one skeptic per paper.
-  - synthesis.js and prep_synth.py are the synthesis, written and not yet run (HANDOFF.md).
+  - synthesis.js and prep_synth.py drafted the synthesis's four parts; synthesis_critique.js,
+    synthesis_fix_parts.js and synthesis_integrate.js read them with critics, fixed and rechecked them and wrote
+    SYNTHESIS.md, and endplate_and_priors_check.js set second readers on the end-plate note and the anomaly priors.
+    split_findings.py routes the critics' findings to the parts, and copycheck.py is the copy rule run over any file
+    against every paper's text layer.
   - PAPERS.sha256 names the exact bytes of every PDF read.
 
 ## How the notes were made
@@ -48,14 +59,16 @@ between 13 and 37 changes per note; most were derived ratios or ranges stated to
 figure gives. Few were transcribed values: the readers' table values almost always matched the page images.
 
 The rules every note keeps, held by tools/check_notes.py: no passage of a paper is copied (no run of 13 or more words
-below the citation matches the paper's own text, so a quote is 12 words at most); no page image, no PDF and no
-publisher download stamp is in git; every count says what it is made of; ASCII only. The PDFs stay in the project's
-files (literature/synthetic_spine/ with its MANIFEST.md) and the owner's uploads.
+below the citation matches the paper's own text, so a quote is 12 words at most); no page image and no
+publisher download stamp is in a note; every count says what it is made of; ASCII only. The PDFs themselves are in
+papers/, by the owner's choice.
 
 ## What the reread found first
 
-These are the first things the notes hold for the naming model; the synthesis will gather the rest. Each is cited in
-its note.
+These are the first things the notes held for the naming model, written before the synthesis; the synthesis
+([synthesis/SYNTHESIS.md](synthesis/SYNTHESIS.md)) gathers the rest and supersedes this list where they differ, and its
+anomaly priors are checked against the pages in [synthesis/anomaly-priors.md](synthesis/anomaly-priors.md). Each is
+cited in its note.
 
 - Lumbosacral transitional anatomy in 36 of Eisenstein's 443 South African dry skeletons (8%): 9 lumbarised S1, 16 with
   persistent S1-S2 facet joints, 8 sacralised L5, 2 true sixth lumbar vertebrae (both in the 168 Sotho skeletons) and 1
@@ -120,7 +133,7 @@ its note.
 | [panjabi1993f](notes/panjabi1993f.md) | Panjabi 1993: Articular facets of the human spine, quantitative three-dimensional anatomy | 12 fresh autopsy spines, axis (C2) to the last lumbar vertebra, no sacrum, disarticulated into 276 vertebrae (12 spines x 23 levels, C2-C7, T1-T12, ... | Dry-bone three-dimensional morphometry: a purpose-built morphometer ... | yes |
 | [robertson2000](notes/robertson2000.md) | Robertson 2000: The radiologic anatomy of the lumbar and lumbosacral pedicles | 10 dry-bone lumbosacral spine specimens giving 100 lumbar pedicles (L1 to L5, left and right; Inference: 10 x 5 x 2) and 20 S1 pedicles (10 sacra x ... | Plain radiographs of dry bone. 0.4 mm tinned copper wire drawn tight ... | yes |
 | [shin2024](notes/shin2024.md) | Shin 2025 (online 10 Dec 2024): Lumbar disc space height and neural foraminal dimensions on CT, L1-S1 | USA, single institution (authors at Loma Linda University and Loma Linda University Health, with Duke and others; Inference: Loma Linda, Southern ... | CT (GE Discovery 750 HD, 64-slice), read in the IMPAX6 PACS (printed ... | yes |
-| [tan2004](notes/tan2004.md) | Tan 2004: Quantitative 3D anatomy of C3 to L5 vertebrae in Chinese Singaporeans |  |  | yes |
+| [tan2004](notes/tan2004.md) | Tan 2004: Quantitative 3D anatomy of C3 to L5 vertebrae in Chinese Singaporeans | Singapore, dry bone: 10 Chinese cadavers of Singaporean origin, mean age 65.7 (56 to 77), sex not reported; 220 vertebrae, C3 to L5 ... | Direct-contact 3D digitiser on cleaned, air-dried vertebrae, stated accuracy 0.01 mm ... | yes |
 | [tang2016](notes/tang2016.md) | Tang 2016: Lower lumbar disc and end-plate morphometry on MRI, compared with earlier studies | USA (Salt Lake City, University of Utah hospital archive), ethnicity not reported; living adults aged 20 to 40 with clinical lumbar MRI whose report ... | Siemens MAGNETOM Avanto 1.5 T MRI, T2-weighted sagittal and ... | yes |
 | [twomey1985](notes/twomey1985.md) | Twomey 1985: Age changes in lumbar intervertebral discs | 204 cadavers (post-mortem lumbar spines), block from the upper border of T12 to the lower border of S2 removed within 48 h, mostly within 24 h; ... | Dry dissection of fresh cadaveric lumbar blocks: dial vernier ... | yes |
 | [vanderhouwen2009](notes/vanderhouwen2009.md) | van der Houwen 2009: Geometry of the intervertebral volume and vertebral endplates (lumbar CT) | The Netherlands (Groningen), living hospital patients, retrospective: 77 patients (46 men, 31 women), aged 21 to 86 years (mean 49.8), selected from ... | 16-detector MDCT (Siemens), supine, 120 kV, 250 mAs, 0.75 s rotation, ... | yes |
