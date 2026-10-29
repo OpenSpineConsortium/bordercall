@@ -47,7 +47,8 @@ into a test set of the auto-anatomist. Step 2's parts a and b were done the same
 (../paper-tables/validation/README.md): the blind re-read of the 468 cells found 0 record faults (Wilson 0.0 to 0.8
 percent), and the 116 plausibility flags were each the paper's own printed number; part c, the mapping audit, read
 all 765 distinct mappings, fixed the 17 that held (Otsuki 2021's pedicle_h to differs, which reaches the comparison)
-and lists 41 judgements for the owner. Steps 3 and 4 remain.
+and lists 41 judgements for the owner. Step 3 began the same day: ../prior-art-measurement/README.md, three family
+notes written and six being read when the owner asked for what there was (23:05 UTC); step 4 is kept as series.csv changes.
 
 1. **Fix the second review's data findings and rerun.** (Done, above; kept as the record of what was asked.) Take each finding of
    ../paper-tables/review/round-2-findings.json that both refuters confirmed, or that is unverified, reproduce it,
