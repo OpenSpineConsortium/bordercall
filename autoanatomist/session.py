@@ -149,7 +149,7 @@ class Session:
         """A session at step 0 from its blocks: the network initialised from the seed, the optimizer
         fresh, the generator seeded, the anneal set where the blocks give its length."""
         cfg = Config(keys=tuple(keys), widths=tuple(b.widths), shape=tuple(int(n) for n in shape), spacing=float(spacing),
-                     groups=b.groups, normalise=b.normalise)
+                     groups=b.groups, normalise=b.normalise, architecture=b.architecture)
         model = Model(cfg, nnx.Rngs(b.seed))
         return cls(blocks=b, cfg=cfg, model=model, opt=optimiser(b, model), rng=np.random.default_rng(b.seed),
                    anneal=anneal_of(b))

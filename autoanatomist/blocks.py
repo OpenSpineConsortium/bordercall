@@ -33,7 +33,9 @@ What each block steers, in the order a session meets them (session.py):
   encoder reads; gain-offset-noise, Gaussian noise added), drawn on the host for the encoder's
   input only and never for the HU the ladder thresholds; normalise (clip, the smoke run's; clip-zscore,
   each crop standardised after the clip; model.Config's field);
-- the network: widths (the three scales' channels), groups (group norm's groups);
+- the network: architecture (which network the model spot takes, model.ARCHITECTURES: residual-unet,
+  the smoke run's; plain-unet; probe, the framework's test piece whose answer is known), widths (the
+  three scales' channels), groups (group norm's groups);
 - the ladder: blur_mm (the blur rung's largest sigma), threshold_hu and threshold_width_hu (the
   soft threshold of the CT the last rung ends on);
 - the calibration of the spread: calibrate (none; scale; quantile; calibrate.py), coverage (the
@@ -85,6 +87,8 @@ TABLE: Tuple[Key, ...] = (
     Key("anneal", "int", "the steps the spans are shares of; 0 takes the first training budget", low=0),
     Key("intensity", "choice", "a gain, an offset and noise on the encoder's input", choices=("off", "gain-offset", "gain-offset-noise")),
     Key("normalise", "choice", "how the encoder's CT channel is scaled", choices=("clip", "clip-zscore")),
+    Key("architecture", "choice", "the network the model spot takes (model.ARCHITECTURES)",
+        choices=("residual-unet", "plain-unet", "probe")),
     Key("widths", "triple", "the encoders' channels at the three scales"),
     Key("groups", "int", "group norm's groups", low=1),
     Key("blur_mm", "float", "the blur rung's largest sigma, mm", low=0.0),
@@ -122,6 +126,7 @@ class Blocks:
     anneal: int = 0
     intensity: str = "off"
     normalise: str = "clip"
+    architecture: str = "residual-unet"
     widths: Tuple[int, int, int] = (16, 32, 64)
     groups: int = 8
     blur_mm: float = 4.0
