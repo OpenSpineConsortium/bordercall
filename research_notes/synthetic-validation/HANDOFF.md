@@ -26,10 +26,14 @@ not just Panjabi's; at 15:09 UTC: the state space and population quality report 
    suites, the PR body's "## Adversarial review" section (a draft is in the PR body), mark ready,
    merge on the owner's standing permission.
 2. The report page, private: https://claude.ai/artifact/H82v6B1drWmpjTJhrWrLxv, built by
-   report/build.py (kept here, with report/style.css, since it lived only in the thread's scratch
-   folder) from the README; `python3 report/build.py <branch or commit>` writes report/index.html,
-   which is published to the same artifact URL. It is behind the README by the two applied
-   corrections and by F3 and F4 below. Republish after the held corrections.
+   report/build.py (kept here with report/style.css, since it lived only in the thread's scratch
+   folder) from the README and figures/. To rebuild and republish: `python3 report/build.py
+   <branch or commit>` from the note's folder writes report/index.html and copies the figures
+   beside it (both git-ignored); then a session publishes report/index.html with its Artifact tool
+   to that url, so the link stays the same. The four tiles at the top of the page are typed in
+   build.py from the README's answer and change by hand with it. The published page is behind the
+   README by the two applied corrections; F3 and F4 below are applied in build.py but not yet
+   republished. Republish after the held corrections.
 3. Second part, every measure of the reread: this branch, a draft pull request. The code is
    written and partly checked by hand (the tables, draw_table against draw); run_all.py has not
    been run, there are no tests, no records, no figures, no tables and no README text for it yet.

@@ -1,0 +1,3 @@
+# build.py writes the page and copies the note's figures here; both are rebuilt by one command.
+index.html
+figures/

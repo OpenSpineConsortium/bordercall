@@ -1,13 +1,20 @@
 """Build the private report page from the note's README (its tables already checked against the
-records by tables.py --check) and its committed figures. Nothing here computes a number."""
+records by tables.py --check) and its committed figures. Nothing here computes a number; the four
+tiles at the top repeat the README's answer and are changed by hand with it.
+
+    python3 report/build.py <branch or commit>     # from the note's folder, or anywhere
+
+writes report/index.html and copies the figures beside it (both ignored by git); the page is then
+published to the owner's private artifact, https://claude.ai/artifact/H82v6B1drWmpjTJhrWrLxv, by a
+session's Artifact tool with that url, so the link stays the same."""
 import html
 import os
 import re
 import shutil
 import sys
 
-NOTE = "/home/claude/bordercall/research_notes/synthetic-validation"
 OUT = os.path.dirname(os.path.abspath(__file__))
+NOTE = os.path.dirname(OUT)
 COMMIT = sys.argv[1] if len(sys.argv) > 1 else "uncommitted"
 
 readme = open(os.path.join(NOTE, "README.md")).read()
@@ -145,7 +152,7 @@ PAGE = [
     ("power", "Power, rerun", [S["Power, rerun"]], []),
     ("gold", "What gold persons can test", [S["What gold persons can test"]], [("fig6_power", "The spread between series, part C and the gold persons")]),
     ("assumptions", "The assumptions beside the papers", [S["The assumptions beside the papers"]], [("fig8_assumptions", "The generator's errors and prevalences beside the papers'")]),
-    ("renders", "Renders", [], [("render1_axial", "L3 from above"), ("render2_column", "The lumbar column from in front"), ("render3_solid", "The column as solids")]),
+    ("renders", "Renders", [S["Figures and renders"].split("\n- ")[0]], [("render1_axial", "L3 from above"), ("render2_column", "The lumbar column from in front"), ("render3_solid", "The column as solids")]),
     ("limits", "What this does not do", [S["What this note does not do"]], []),
     ("reproduce", "Reproduce", [S["Run it"]], []),
 ]
@@ -184,11 +191,11 @@ page = """<title>SchwingCheck Population Report</title>
 <p class="lede">schwingcheck's generator draws whole spines from Panjabi's twelve cadavers. This report holds that population to the 39 papers of the clinical reread, explores the generator's state space, scores every synthetic vertebra against quality indicators drawn from the measures' own geometry, and reruns the power calculations on the papers' own series. Everything is synthetic but the papers' numbers: no grid, no WSU data, no scan, and a synthetic result raises no evidence tier.</p>
 <div class="tiles">%s</div>
 <p class="meta">The papers are the reread's series at its commit 401aaee; What was compared says what that snapshot fixed.</p>
-<p class="meta">Every table below is the note's README at bordercall commit <code>%s</code>, which <code>tables.py --check</code> holds to the records one run writes; every figure is drawn by the note's committed code.</p>
+<p class="meta">Every table below is the note's README on bordercall's branch or commit <code>%s</code>, which <code>tables.py --check</code> holds to the records one run writes; every figure is drawn by the note's committed code, and the page by report/build.py.</p>
 </div></header>
 <nav class="toc"><div class="wrap">%s</div></nav>
 <main class="wrap">%s</main>
-<footer class="wrap"><p>Private to the owner. bordercall's research notes stay in bordercall; this page is a view of research_notes/synthetic-validation/README.md and figures/ at the commit above.</p></footer>
+<footer class="wrap"><p>Private to the owner. bordercall's research notes stay in bordercall; this page is a view of research_notes/synthetic-validation/README.md and figures/ on the branch or commit above.</p></footer>
 """ % (css, tile_html, COMMIT, nav, "\n".join(body))
 
 open(os.path.join(OUT, "index.html"), "w").write(page)
