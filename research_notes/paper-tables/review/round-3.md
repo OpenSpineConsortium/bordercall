@@ -23,7 +23,9 @@ Table 1 spans pp. 140 to 141; Olsewski 1990's Table III footnote is on p. 545.
    carries half of it (series.py halve_pedicles). Found by two readers.
 2. The halving split Olsewski's Part 3 CT cell at L2 into two sex series, one of one man, which cannot pool, and
    tools/cross_naming.py let both into the transport since it asked for an SD but no count; Duman 2026's six age
-   bands with no n entered the same way. The transport now asks for a count of two or more, as the pools do.
+   bands with no n entered the same way. The transport now asks for a count of two or more, as the pools do. (With
+   fix 1 that L2 cell pools again, to one series of four people, three women and the man, which passes the rule
+   and is in the transport, at L2 to L5; round 4 found this item said otherwise. The rule keeps out Duman's bands.)
 3. An n printed for a measure at one level stood for every level of that measure (Olsewski's caudad counts at L5
    for L1 to L3), and a count printed for a measure stood as its n (Krag 1988's bin counts, once the level
    joined the key). printed_counts now takes an n alone, at the cell's level or at none.

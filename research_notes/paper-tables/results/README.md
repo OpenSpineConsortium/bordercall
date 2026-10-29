@@ -137,49 +137,51 @@ but the series' own, widened by their spread. One series per paper; papers that 
 
 | Bodies | Fields from | Papers | Fields | Named exactly % | Within one level % | Named at 0.99 % | Right of those named % |
 | ---: | --- | ---: | ---: | ---: | ---: | ---: | ---: |
-| 1 | Panjabi's fields | 25 | 37,000 | 28.3 | 47.0 | 3.4 | 99.8 of 1,246 |
-| 1 | the papers' fields, rule as built | 25 | 37,000 | 17.2 | 39.5 | 0.9 | 86.0 of 336 |
-| 1 | the papers' fields, rule widened | 25 | 37,000 | 21.2 | 45.2 | 0.7 | 88.0 of 251 |
-| 3 | Panjabi's fields | 25 | 27,200 | 47.9 | 66.7 | 10.5 | 100.0 of 2,851 |
-| 3 | the papers' fields, rule as built | 25 | 27,200 | 23.9 | 49.2 | 2.7 | 89.1 of 726 |
-| 3 | the papers' fields, rule widened | 25 | 27,200 | 29.4 | 56.1 | 2.4 | 93.5 of 644 |
-| 5 | Panjabi's fields | 23 | 17,400 | 60.1 | 76.9 | 20.7 | 99.9 of 3,606 |
-| 5 | the papers' fields, rule as built | 23 | 17,400 | 31.2 | 57.7 | 5.9 | 87.0 of 1,020 |
-| 5 | the papers' fields, rule widened | 23 | 17,400 | 38.5 | 63.1 | 4.6 | 95.8 of 805 |
+| 1 | Panjabi's fields | 25 | 37,000 | 28.5 | 47.5 | 3.4 | 99.9 of 1,255 |
+| 1 | the papers' fields, rule as built | 25 | 37,000 | 17.7 | 40.1 | 1.0 | 88.7 of 371 |
+| 1 | the papers' fields, rule widened | 25 | 37,000 | 21.7 | 45.5 | 0.7 | 89.2 of 269 |
+| 3 | Panjabi's fields | 25 | 27,200 | 47.0 | 66.2 | 10.8 | 99.7 of 2,937 |
+| 3 | the papers' fields, rule as built | 25 | 27,200 | 24.2 | 49.1 | 2.6 | 86.5 of 697 |
+| 3 | the papers' fields, rule widened | 25 | 27,200 | 29.6 | 56.2 | 2.2 | 91.7 of 591 |
+| 5 | Panjabi's fields | 23 | 17,400 | 60.1 | 77.1 | 20.9 | 100.0 of 3,644 |
+| 5 | the papers' fields, rule as built | 23 | 17,400 | 30.8 | 58.0 | 5.9 | 89.0 of 1,024 |
+| 5 | the papers' fields, rule widened | 23 | 17,400 | 38.2 | 63.9 | 4.6 | 96.2 of 792 |
 
 <img src="transport.png" alt="Three panels against the bodies in view: share named exactly, within one level and at 0.99, for Panjabi's fields and the papers' with the rule as built and widened" width="720">
 
 Naming fields drawn from the papers' own tables with the rule built on Panjabi's, by bodies in view, one series per paper, 200 fields per place, papers that pool Panjabi's spines left out: A, share named exactly; B, within one level; C, share named at a posterior of 0.99. Solid, filled circles: fields drawn from Panjabi's table at the same places; dashed, open squares: the papers' fields; dotted, open triangles: the papers' fields named by the widened rule. Widths 1, 3, 5.
 
-By paper, three bodies:
+By paper, three bodies. A row is one series at 200 fields a place, so it carries sampling noise of several
+points: the same series redrawn under another seed moved by up to six points at three bodies (review/round-4.md),
+which is why one paper's row is read against the summary above, not against another paper's.
 
 | Paper | Series | Measures | Levels | Exact on Panjabi's fields % | Exact on the paper's % | Exact, widened % | Paper's, within one % |
 | --- | --- | ---: | --- | ---: | ---: | ---: | ---: |
-| Amonoo-Kuofi 1985 | ibadan_dry_bone | 1 | L1 to L5 | 26.0 | 4.5 | 26.3 | 7.2 |
-| Gilad 1985 | haifa_transport_men, male | 3 | L1 to L5 | 34.7 | 29.5 | 36.5 | 71.8 |
-| Zindrick 1987 | pooled_specimens_and_ct | 4 | T1 to L5 | 61.2 | 26.3 | 31.9 | 53.7 |
-| Olsewski 1990 | part1_cadavers, Part 1 cadavers, direct | 3 | L1 to L5 | 71.0 | 40.8 | 49.5 | 58.3 |
-| Hou 1993 | xian_dry_bone | 2 | T9 to L5 | 52.8 | 26.9 | 31.3 | 56.0 |
-| Robertson 2000 | auckland_drybone | 2 | L1 to L5 | 63.7 | 38.2 | 37.7 | 64.7 |
-| Tan 2004 | sg_chinese_cadavers10 | 19 | C7 to L2 | 94.2 | 54.0 | 54.5 | 92.7 |
-| Lien 2007 | dry_sets, dry vertebrae | 2 | T1 to L5 | 35.3 | 16.6 | 15.8 | 43.3 |
-| Busscher 2010 | human_cadaver, male, Human | 1 | C3 to L5 | 24.2 | 9.5 | 10.1 | 25.2 |
-| Kunkel 2011 | ulm_thoracic_segments, radiographic | 1 | C7 to T12 | 20.9 | 16.6 | 15.0 | 42.7 |
-| Yu 2015 | hamann_todd_503 | 2 | L1 to L5 | 68.2 | 54.3 | 44.7 | 78.3 |
-| Griffith 2016 | hk_ct_patients | 3 | L1 to L5 | 49.0 | 16.0 | 39.3 | 28.3 |
-| Tang 2016 | utah_mri | 3 | L3 to L5 | 65.5 | 49.5 | 54.0 | 74.0 |
-| Pierro 2017 | campobasso_604 | 1 | L1 to L5 | 19.7 | 13.3 | 20.8 | 29.5 |
-| Ahmed 2019 | telangana_mri | 1 | L1 to L5 | 25.8 | 0.5 | 8.2 | 0.7 |
-| Yadav 2020 | yadav-ct | 5 | T12 to L5 | 67.4 | 38.5 | 40.0 | 79.6 |
-| Abbas 2021 | control | 2 | L1 to L5 | 39.0 | 30.0 | 37.2 | 55.5 |
-| Abu-Leil 2021 | ds, DS | 4 | L1 to L5 | 75.3 | 24.5 | 35.5 | 46.0 |
-| Alonge 2021 | lagos_ct | 1 | L1 to L5 | 24.0 | 6.0 | 22.3 | 11.0 |
-| Irie 2021 | rush_cadaver_6 | 3 | L1 to L5 | 68.0 | 28.5 | 30.3 | 50.3 |
-| Cizmic 2023 | bih-sarajevo-ct | 2 | L1 to L5 | 34.0 | 23.2 | 49.8 | 41.2 |
-| Arockiaraj 2025 | saudi_ct | 2 | L1 to L5 | 64.8 | 17.8 | 56.3 | 42.8 |
-| Moncada-Habib 2025 | mexico_ct37 | 4 | L1 to L5 | 75.5 | 27.8 | 45.2 | 78.7 |
-| Duman 2026 | izmir-mdct-517 | 2 | T11 to L2 | 30.8 | 1.5 | 0.2 | 11.8 |
-| Li 2026 | zhengzhou_ct_100 | 3 | L1 to L5 | 47.2 | 24.8 | 51.2 | 83.3 |
+| Amonoo-Kuofi 1985 | ibadan_dry_bone | 1 | L1 to L5 | 23.8 | 3.7 | 24.2 | 8.0 |
+| Gilad 1985 | haifa_transport_men, male | 3 | L1 to L5 | 38.5 | 29.5 | 29.7 | 74.3 |
+| Zindrick 1987 | pooled_specimens_and_ct | 4 | T1 to L5 | 58.2 | 27.5 | 32.7 | 54.5 |
+| Olsewski 1990 | part1_cadavers, Part 1 cadavers, direct | 3 | L1 to L5 | 68.2 | 39.2 | 48.5 | 57.2 |
+| Hou 1993 | xian_dry_bone | 2 | T9 to L5 | 50.0 | 28.0 | 33.1 | 56.6 |
+| Robertson 2000 | auckland_drybone | 2 | L1 to L5 | 65.0 | 37.5 | 40.5 | 64.8 |
+| Tan 2004 | sg_chinese_cadavers10 | 19 | C7 to L2 | 93.0 | 52.8 | 54.8 | 92.8 |
+| Lien 2007 | dry_sets, dry vertebrae | 2 | T1 to L5 | 36.5 | 14.8 | 14.9 | 38.4 |
+| Busscher 2010 | human_cadaver, male, Human | 1 | C3 to L5 | 25.2 | 9.8 | 10.7 | 26.0 |
+| Kunkel 2011 | ulm_thoracic_segments, radiographic | 1 | C7 to T12 | 19.8 | 17.8 | 14.8 | 41.7 |
+| Yu 2015 | hamann_todd_503 | 2 | L1 to L5 | 67.2 | 53.5 | 47.0 | 78.0 |
+| Griffith 2016 | hk_ct_patients | 3 | L1 to L5 | 55.0 | 17.8 | 42.8 | 29.0 |
+| Tang 2016 | utah_mri | 3 | L3 to L5 | 61.5 | 48.0 | 49.5 | 77.0 |
+| Pierro 2017 | campobasso_604 | 1 | L1 to L5 | 23.5 | 21.3 | 23.5 | 37.3 |
+| Ahmed 2019 | telangana_mri | 1 | L1 to L5 | 20.3 | 0.0 | 6.0 | 0.2 |
+| Yadav 2020 | yadav-ct | 5 | T12 to L5 | 59.9 | 35.9 | 39.0 | 74.8 |
+| Abbas 2021 | control | 2 | L1 to L5 | 34.3 | 34.8 | 41.0 | 60.8 |
+| Abu-Leil 2021 | ds, DS | 4 | L1 to L5 | 73.7 | 24.3 | 37.7 | 48.8 |
+| Alonge 2021 | lagos_ct | 1 | L1 to L5 | 21.7 | 5.3 | 16.7 | 11.0 |
+| Irie 2021 | rush_cadaver_6 | 3 | L1 to L5 | 69.7 | 29.0 | 31.8 | 48.2 |
+| Cizmic 2023 | bih-sarajevo-ct | 2 | L1 to L5 | 32.7 | 27.5 | 52.3 | 42.2 |
+| Arockiaraj 2025 | saudi_ct | 2 | L1 to L5 | 62.5 | 16.8 | 53.8 | 42.3 |
+| Moncada-Habib 2025 | mexico_ct37 | 4 | L1 to L5 | 78.2 | 28.5 | 44.7 | 77.3 |
+| Duman 2026 | izmir-mdct-517 | 2 | T11 to L2 | 27.5 | 2.8 | 0.0 | 13.0 |
+| Li 2026 | zhengzhou_ct_100 | 3 | L1 to L5 | 42.5 | 28.5 | 55.8 | 88.8 |
 
 ## Files
 

@@ -191,7 +191,25 @@ REGROUPED = {
     # prints the same groups as White and Black (p. 4), so its counts reach the table's groups.
     ("shin2024", "Text: Results", "shin700", "Caucasian"): "White",
     ("shin2024", "Text: Results", "shin700", "African-American"): "Black",
+    # Twomey 1985 bounds its young adults three ways: Table 1 counts them as 18-35 (women) and 20-36
+    # (men), 24 each (PDF 1), Table 2 prints them as 20-35 for both sexes (PDF 2) and Table 3 as 18-35
+    # for the women; one group, so the counts reach the means.
+    ("twomey1985", "Table 1", "cadavers-204", "18-35"): "20-35",
+    ("twomey1985", "Table 1", "cadavers-204", "20-36"): "20-35",
+    ("twomey1985", "Table 3", "cadavers-204", "18-35"): "20-35",
 }
+# Bach 2019's Table 1 counts each decade and sex as "decade 10" to "decade 70" (p. e108, PDF 3)
+# where Tables 2 to 5 name the same people First to Seventh Decade (pp. e110 to e113, PDF 5 to 8);
+# one spelling, the tables', so the paper's printed counts reach its 252 decade cells.
+REGROUPED.update({
+    ("bach2019", "Table 1", "usf_ct240", "decade %d" % (10 * i)): "%s Decade" % name
+    for i, name in enumerate(("First", "Second", "Third", "Fourth", "Fifth", "Sixth", "Seventh"), 1)})
+# (paper, table) whose every value is a model's estimate and no group of people measured, where
+# the rows carry no group to list under NOT_POPULATIONS. Shin 2024's Tables 4 and 5 (p. 4, PDF 4)
+# print estimated marginal means of a two-way ANCOVA "accounting for weight, height, BMI" and
+# ethnicity or sex (Methods 2.2, p. 3): the Griffith 2016 class. Its sex pairs average to Table 2
+# because the groups are equal, which tells adjusted from raw not at all.
+NOT_POPULATION_TABLES = {("shin2024", "Table 4"), ("shin2024", "Table 5")}
 # (paper, cohort) whose text states, or whose counts over a range of levels give, how many were
 # measured at each level where no table prints an n for it:
 # the count for a measure, level and sex, and why. Kunkel 2011 tested 72 motion segments of 30 spines,
@@ -270,7 +288,7 @@ def left_out(row):
     cell = (row["paper"], row["key"], row["level"])
     if cell in MISPRINTS or cell + (row["side"],) in MISPRINTS or cell + (row["side"], row["sex"]) in MISPRINTS:
         return True
-    if (row["paper"], row["group"]) in NOT_POPULATIONS:
+    if (row["paper"], row["group"]) in NOT_POPULATIONS or (row["paper"], row["table"]) in NOT_POPULATION_TABLES:
         return True
     if row["source_of_values"] == "this paper" and (row["paper"], row["table"], row["group"]) in REPRINTS:
         return True
@@ -329,11 +347,15 @@ def printed_counts(rows):
     {(paper, cohort, table, level, sex, group): n} for an n a table prints for every measure of one
     level; "measure", {(paper, cohort, key, level, sex, group): n} where one n is printed for a
     measure and subgroup, at that level or at none, since an n printed at one level says nothing of
-    another (Olsewski 1990's caudad angles count 8 and 4 pedicles at L5 alone); "group", {(paper, cohort, sex, group): n} for a count printed for the subgroup as a
-    whole, where one n, else one n or count, is printed. A count printed for a range of levels is
-    none of these, since it counts each level's people again (Shin 2024's 3,500 interspaces of 700
-    patients, Chen 2011's 430 end-plates of 43 men)."""
-    by_level, by_measure, by_group, group_n = (collections.defaultdict(set) for _ in range(4))
+    another (Olsewski 1990's caudad angles count 8 and 4 pedicles at L5 alone); "level_any",
+    {(paper, cohort, level, sex, group): n} for a level's n that every table of the cohort prints
+    alike, for a mean the text gives (Krag 1988's Results means at T9, T12 and L5, whose Tables 1
+    and 2 both count each level); "group", {(paper, cohort, sex, group): n} for a count printed for
+    the subgroup as a whole, where one n, else one n or count, is printed; a count printed at one
+    level feeds that level alone, never the subgroup (Robertson 2000's 20 sides of S1). A count
+    printed for a range of levels is none of these, since it counts each level's people again (Shin
+    2024's 3,500 interspaces of 700 patients, Chen 2011's 430 end-plates of 43 men)."""
+    by_level, by_level_any, by_measure, by_group, group_n = (collections.defaultdict(set) for _ in range(5))
     for row in rows:
         value = number(row["canonical_value"]) if row["canonical_value"] else number(row["value"])
         if value is None or row["statistic"] not in ("n", "count"):
@@ -342,17 +364,21 @@ def printed_counts(rows):
             continue
         group = group_of(row)
         if row["key"] == "subject_count":
+            if VERTEBRA.match(row["level"]):
+                if row["statistic"] == "n":
+                    by_level[(row["paper"], row["cohort"], row["table"], row["level"], row["sex"], group)].add(value)
+                    by_level_any[(row["paper"], row["cohort"], row["level"], row["sex"], group)].add(value)
+                continue
             by_group[(row["paper"], row["cohort"], row["sex"], group)].add(value)
             if row["statistic"] == "n":
                 group_n[(row["paper"], row["cohort"], row["sex"], group)].add(value)
-                if VERTEBRA.match(row["level"]):
-                    by_level[(row["paper"], row["cohort"], row["table"], row["level"], row["sex"], group)].add(value)
         elif row["key"] not in NOT_MEASURES and row["statistic"] == "n":
             # An n alone: a count printed for a measure may count something else (Krag 1988's Table 2
             # counts the pedicles of each 1-mm bin of width).
             by_measure[(row["paper"], row["cohort"], row["key"], row["level"], row["sex"], group)].add(value)
     single = lambda d: {k: next(iter(v)) for k, v in d.items() if len(v) == 1}
-    return {"level": single(by_level), "measure": single(by_measure), "group": {**single(by_group), **single(group_n)}}
+    return {"level": single(by_level), "level_any": single(by_level_any), "measure": single(by_measure),
+            "group": {**single(by_group), **single(group_n)}}
 
 
 def first(values):
@@ -366,6 +392,7 @@ def count_of(k, stats, table, people, counts):
     candidates = ((first(stats.get("n", [])), "cell"),
                   (stated[0](key, level, sex) if stated else None, "stated"),
                   (counts["level"].get((paper, cohort, table, level, sex, group)), "level"),
+                  (counts["level_any"].get((paper, cohort, level, sex, group)), "level"),
                   (counts["measure"].get((paper, cohort, key, level, sex, group)), "measure"),
                   (counts["measure"].get((paper, cohort, key, "", sex, group)), "measure"),
                   (counts["group"].get((paper, cohort, sex, group)), "subgroup"),
@@ -427,10 +454,10 @@ def merge_sides(found, mirrored=False):
     return side, found[side]
 
 
-def halve_pedicles(s):
+def halve_pedicles(s, side):
     """A series whose count is the paper's count of pedicles, both sides of each person, written
-    with the people: half the pedicles, rounded up."""
-    if s.get("pedicles") and s["n"]:
+    with the people: half the pedicles, rounded up. A cell of one side counts people and is left."""
+    if s.get("pedicles") and s["n"] and side == "both":
         return dict(s, n=math.ceil(s["n"] / 2), n_from=s["n_from"] + ", pedicles halved")
     return s
 
@@ -481,7 +508,7 @@ def build(rows, people):
     for k, found in sexes.items():
         paper, cohort, technique, source, key, level, group = k
         for sex, (side, s) in pick_sexes(found):
-            s = halve_pedicles(s)
+            s = halve_pedicles(s, side)
             out.append({"paper": paper, "cohort": cohort, "technique": technique, "source_of_values": source,
                         "key": key, "level": level, "sex": sex, "group": group, "side": side,
                         "mean": s["mean"], "sd": s["sd"], "n": s["n"], "sd_from": s["sd_from"], "n_from": s["n_from"],
