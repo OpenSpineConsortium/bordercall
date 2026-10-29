@@ -16,7 +16,8 @@ cervical C3 to C7 row, most probably the cervical row printed twice (../../panja
 
 39 papers, 23,918 cells: the two blind readings agreed on 20,750, a third reader settled 2,271 on the page image, and 897
 were read by one reader and checked on the page. The last two columns count Panjabi's measures among the
-paper's own values (not values it quotes), by whether its definition is his or close to it, or differs.
+paper's own values read (not values it quotes, nor codes that hold no value), by whether its definition
+is his or close to it, or differs.
 
 | Paper | What it is | Read | Cells | Agreed | Resolved | Read once | Panjabi's, same or close | Differs |
 | --- | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: |
@@ -36,7 +37,7 @@ paper's own values (not values it quotes), by whether its definition is his or c
 | Tan 2004 | Quantitative 3D anatomy of C3 to L5 vertebrae in Chinese Singaporeans | 4 tables, text | 1,672 | 1,644 | 15 | 13 | 19 | 0 |
 | Lien 2007 | Pedicle morphometry and the peri-pedicle safe zone, T1 to L5 | 4 tables, text | 625 | 615 | 5 | 5 | 4 | 0 |
 | van der Houwen 2009 | Geometry of the intervertebral volume and vertebral endplates (lumbar CT) | 2 tables, 2 figures, text | 345 | 334 | 4 | 7 | 0 | 4 |
-| Busscher 2010 | Comparative anatomical dimensions of the complete human and porcine spine | 5 tables, text | 745 | 547 | 12 | 186 | 11 | 1 |
+| Busscher 2010 | Comparative anatomical dimensions of the complete human and porcine spine | 5 tables, text | 745 | 547 | 12 | 186 | 3 | 0 |
 | Chen 2011 | Geometry of thoracolumbar vertebral endplates (T10 inferior to L3 superior, CT) | 5 tables, 2 figures, text | 366 | 314 | 16 | 36 | 0 | 4 |
 | Kunkel 2011 | Thoracic disc heights and their relation to vertebral body heights | 4 tables, 7 figures, text | 533 | 490 | 39 | 4 | 1 | 0 |
 | Makino 2012 | Lumbar pedicle morphology in degenerative spines on MPR-CT, and a screw-diameter index | 1 table, 1 figure, text | 126 | 125 | 0 | 1 | 0 | 0 |
@@ -69,7 +70,7 @@ used. Between papers of the list the text states these:
 | --- | --- | --- |
 | bonczar2024 | data pooled | panjabi1992, robertson2000, tan2004 |
 | amonookuofi1985 | method | eisenstein1977 |
-| chaudhary2015 | method | hinck1966 |
+| chaudhary2015 | method | amonookuofi1982, eisenstein1977, hinck1966 |
 | chen2011 | method | panjabi1992 |
 | duman2026 | method | zindrick1987 |
 | hou1993 | method | olsewski1990 |
@@ -98,15 +99,15 @@ close to it.
 
 | Measure | Papers | Levels | Cells | Median distance, SDs | Median distance, levels | Cells over one level | Median tau, SDs (cells) |
 | --- | ---: | --- | ---: | ---: | ---: | ---: | ---: |
-| pedicle_w | 14 | C3 to L5 | 110 | 0.71 | 1.35 | 60% | 0.32 (17) |
-| pedicle_h | 13 | C3 to L5 | 109 | 0.82 | 1.28 | 61% | 1.03 (17) |
+| pedicle_w | 14 | C3 to L5 | 110 | 0.72 | 1.35 | 60% | 0.32 (17) |
+| pedicle_h | 13 | C3 to L5 | 109 | 0.82 | 1.26 | 61% | 1.03 (17) |
 | canal_ap | 11 | C3 to L5 | 73 | 1.48 | 3.81 | 84% | 0.95 (6) |
-| pedicle_incl_sag | 8 | C3 to L5 | 80 | 0.58 | 1.49 | 61% | 0.63 (17) |
+| pedicle_incl_sag | 8 | C3 to L5 | 80 | 0.54 | 1.40 | 61% | 0.59 (17) |
 | canal_w | 7 | C3 to L5 | 52 | 1.12 | 2.86 | 90% | 0.86 (5) |
-| h_post | 7 | C3 to L5 | 76 | 0.65 | 2.41 | 74% | 0.84 (22) |
-| endplate | 5 | C3 to L5 | 37 | 1.00 | 1.88 | 68% | 0.78 (6) |
+| h_post | 7 | C3 to L5 | 76 | 0.65 | 2.41 | 74% | 0.94 (22) |
+| endplate | 5 | C3 to L5 | 37 | 1.00 | 1.88 | 68% | 0.77 (6) |
 | endplate_depth | 5 | C3 to L5 | 42 | 1.25 | 3.71 | 83% | 0.57 (11) |
-| endplate_lower | 4 | C3 to L5 | 36 | 0.92 | 1.84 | 83% | 0.56 (6) |
+| endplate_lower | 4 | C3 to L5 | 36 | 0.92 | 1.84 | 83% | 0.63 (6) |
 | endplate_lower_depth | 4 | C3 to L5 | 41 | 1.17 | 2.89 | 80% | 0.66 (11) |
 | canal_area | 3 | C3 to L5 | 32 | 0.82 | 3.51 | 81% | 0.71 (5) |
 | pedicle_incl_trans | 3 | C3 to L5 | 56 | 0.93 | 2.62 | 82% | 0.97 (17) |
@@ -114,7 +115,7 @@ close to it.
 | endplate_lower_area | 2 | C3 to L5 | 24 | 0.61 | 1.23 | 67% | 0.67 (2) |
 | pedicle_area | 2 | C3 to L5 | 27 | 0.26 | 0.52 | 41% | 0.29 (5) |
 | endplate_incl | 1 | C3 to L5 | 22 | 0.44 | 1.57 | 73% |  |
-| endplate_lower_incl | 1 | C3 to L5 | 22 | 2.34 | 4.11 | 91% |  |
+| endplate_lower_incl | 1 | C3 to L5 | 22 | 0.49 | 1.46 | 64% |  |
 | facet_w_sup | 1 | L1 to L5 | 5 | 1.26 | 2.85 | 100% |  |
 | spinous_length | 1 | C3 to L5 | 22 | 0.60 | 1.29 | 59% |  |
 | transverse_width | 1 | C3 to L5 | 22 | 1.76 | 1.63 | 82% |  |
@@ -136,15 +137,15 @@ but the series' own, widened by their spread. One series per paper; papers that 
 
 | Bodies | Fields from | Papers | Fields | Named exactly % | Within one level % | Named at 0.99 % | Right of those named % |
 | ---: | --- | ---: | ---: | ---: | ---: | ---: | ---: |
-| 1 | Panjabi's fields | 25 | 37,000 | 28.2 | 47.1 | 3.4 | 99.9 of 1,274 |
-| 1 | the papers' fields, rule as built | 25 | 37,000 | 17.8 | 40.3 | 0.8 | 87.7 of 310 |
-| 1 | the papers' fields, rule widened | 25 | 37,000 | 21.3 | 45.2 | 0.7 | 89.5 of 257 |
-| 3 | Panjabi's fields | 25 | 27,200 | 47.2 | 65.9 | 10.5 | 100.0 of 2,851 |
-| 3 | the papers' fields, rule as built | 25 | 27,200 | 23.7 | 48.9 | 2.4 | 88.8 of 660 |
-| 3 | the papers' fields, rule widened | 25 | 27,200 | 28.9 | 55.7 | 2.2 | 92.0 of 591 |
-| 5 | Panjabi's fields | 23 | 17,400 | 59.8 | 76.8 | 20.6 | 100.0 of 3,587 |
-| 5 | the papers' fields, rule as built | 23 | 17,400 | 30.2 | 57.6 | 5.8 | 85.9 of 1,003 |
-| 5 | the papers' fields, rule widened | 23 | 17,400 | 38.1 | 63.6 | 4.5 | 94.4 of 782 |
+| 1 | Panjabi's fields | 25 | 37,000 | 28.4 | 47.3 | 3.5 | 99.8 of 1,288 |
+| 1 | the papers' fields, rule as built | 25 | 37,000 | 17.7 | 40.0 | 1.0 | 85.2 of 352 |
+| 1 | the papers' fields, rule widened | 25 | 37,000 | 21.2 | 44.8 | 0.8 | 85.9 of 284 |
+| 3 | Panjabi's fields | 25 | 27,200 | 47.6 | 66.9 | 10.7 | 100.0 of 2,898 |
+| 3 | the papers' fields, rule as built | 25 | 27,200 | 23.3 | 48.8 | 2.6 | 89.0 of 702 |
+| 3 | the papers' fields, rule widened | 25 | 27,200 | 29.3 | 55.8 | 2.3 | 92.7 of 617 |
+| 5 | Panjabi's fields | 23 | 17,400 | 60.1 | 76.9 | 20.9 | 99.9 of 3,634 |
+| 5 | the papers' fields, rule as built | 23 | 17,400 | 31.7 | 58.8 | 5.8 | 88.4 of 1,016 |
+| 5 | the papers' fields, rule widened | 23 | 17,400 | 39.3 | 64.4 | 4.9 | 96.4 of 852 |
 
 <img src="transport.png" alt="Three panels against the bodies in view: share named exactly, within one level and at 0.99, for Panjabi's fields and the papers' with the rule as built and widened" width="720">
 
@@ -155,30 +156,30 @@ By paper, three bodies:
 | Paper | Series | Measures | Levels | Exact on Panjabi's fields % | Exact on the paper's % | Exact, widened % | Paper's, within one % |
 | --- | --- | ---: | --- | ---: | ---: | ---: | ---: |
 | Amonoo-Kuofi 1985 | ibadan_dry_bone | 1 | L1 to L5 | 26.0 | 4.5 | 26.3 | 7.2 |
-| Gilad 1985 | haifa_transport_men, male | 3 | L1 to L5 | 40.7 | 27.8 | 32.0 | 76.2 |
-| Zindrick 1987 | pooled_specimens_and_ct | 4 | T1 to L5 | 60.1 | 28.6 | 33.2 | 55.9 |
-| Olsewski 1990 | part1_cadavers, Part 1 cadavers, direct | 3 | L1 to L5 | 72.5 | 36.2 | 48.2 | 52.8 |
-| Hou 1993 | xian_dry_bone | 2 | T9 to L5 | 50.0 | 27.0 | 30.1 | 54.8 |
-| Robertson 2000 | auckland_drybone | 2 | L1 to L5 | 62.8 | 40.2 | 41.2 | 66.0 |
-| Tan 2004 | sg_chinese_cadavers10 | 19 | C7 to L2 | 93.1 | 49.5 | 52.4 | 91.5 |
-| Lien 2007 | dry_sets, dry vertebrae | 2 | T1 to L5 | 33.5 | 16.3 | 15.3 | 42.0 |
-| Busscher 2010 | human_cadaver, male, Human | 1 | C3 to L5 | 24.2 | 9.5 | 9.8 | 25.2 |
-| Kunkel 2011 | ulm_thoracic_segments, radiographic | 1 | C7 to T12 | 19.8 | 15.6 | 13.2 | 40.0 |
-| Yu 2015 | hamann_todd_503 | 2 | L1 to L5 | 62.0 | 57.3 | 44.5 | 80.7 |
-| Griffith 2016 | hk_ct_patients, adjusted for height and weight | 3 | L1 to L5 | 49.5 | 11.0 | 31.5 | 20.0 |
-| Tang 2016 | utah_mri | 3 | L3 to L5 | 58.5 | 52.0 | 56.0 | 80.0 |
-| Pierro 2017 | campobasso_604 | 1 | L1 to L5 | 22.7 | 15.2 | 22.0 | 31.3 |
+| Gilad 1985 | haifa_transport_men, male | 3 | L1 to L5 | 40.7 | 27.8 | 32.2 | 76.2 |
+| Zindrick 1987 | pooled_specimens_and_ct | 4 | T1 to L5 | 61.6 | 26.6 | 31.7 | 54.6 |
+| Olsewski 1990 | part1_cadavers, Part 1 cadavers, direct | 3 | L1 to L5 | 66.3 | 37.3 | 47.3 | 56.3 |
+| Hou 1993 | xian_dry_bone | 2 | T9 to L5 | 51.2 | 23.8 | 29.3 | 53.4 |
+| Robertson 2000 | auckland_drybone | 2 | L1 to L5 | 64.2 | 37.5 | 42.0 | 67.2 |
+| Tan 2004 | sg_chinese_cadavers10 | 19 | C7 to L2 | 93.3 | 54.2 | 55.8 | 92.3 |
+| Lien 2007 | dry_sets, dry vertebrae | 2 | T1 to L5 | 33.8 | 14.8 | 15.9 | 41.2 |
+| Busscher 2010 | human_cadaver, male, Human | 1 | C3 to L5 | 24.2 | 9.5 | 10.1 | 25.2 |
+| Kunkel 2011 | ulm_thoracic_segments, radiographic | 1 | C7 to T12 | 22.3 | 16.4 | 15.0 | 40.9 |
+| Yu 2015 | hamann_todd_503 | 2 | L1 to L5 | 66.0 | 47.0 | 43.0 | 76.7 |
+| Griffith 2016 | hk_ct_patients | 3 | L1 to L5 | 50.8 | 18.8 | 39.3 | 30.8 |
+| Tang 2016 | utah_mri | 3 | L3 to L5 | 63.0 | 49.0 | 51.5 | 82.5 |
+| Pierro 2017 | campobasso_604 | 1 | L1 to L5 | 22.0 | 12.7 | 19.7 | 26.2 |
 | Ahmed 2019 | telangana_mri | 1 | L1 to L5 | 25.8 | 0.5 | 8.2 | 0.7 |
-| Yadav 2020 | yadav-ct | 5 | T12 to L5 | 65.4 | 38.9 | 40.9 | 78.5 |
+| Yadav 2020 | yadav-ct | 5 | T12 to L5 | 62.4 | 37.0 | 42.8 | 77.2 |
 | Abbas 2021 | control | 2 | L1 to L5 | 39.0 | 30.0 | 37.2 | 55.5 |
-| Abu-Leil 2021 | ds, DS | 4 | L1 to L5 | 75.3 | 28.7 | 40.8 | 53.2 |
+| Abu-Leil 2021 | ds, DS | 4 | L1 to L5 | 74.2 | 26.5 | 36.2 | 52.0 |
 | Alonge 2021 | lagos_ct | 1 | L1 to L5 | 24.0 | 6.0 | 22.3 | 11.0 |
-| Irie 2021 | rush_cadaver_6 | 3 | L1 to L5 | 69.8 | 29.0 | 27.5 | 48.3 |
+| Irie 2021 | rush_cadaver_6 | 3 | L1 to L5 | 71.7 | 28.2 | 31.7 | 46.2 |
 | Cizmic 2023 | bih-sarajevo-ct | 2 | L1 to L5 | 34.0 | 23.2 | 49.8 | 41.2 |
-| Arockiaraj 2025 | saudi_ct | 2 | L1 to L5 | 64.8 | 17.8 | 55.7 | 42.8 |
-| Moncada-Habib 2025 | mexico_ct37 | 4 | L1 to L5 | 74.8 | 31.7 | 48.5 | 78.0 |
+| Arockiaraj 2025 | saudi_ct | 2 | L1 to L5 | 64.8 | 17.8 | 56.3 | 42.8 |
+| Moncada-Habib 2025 | mexico_ct37 | 4 | L1 to L5 | 75.0 | 29.8 | 42.7 | 77.2 |
 | Duman 2026 | izmir-mdct-517 | 2 | T11 to L2 | 30.8 | 1.5 | 0.2 | 11.8 |
-| Li 2026 | zhengzhou_ct_100 | 3 | L1 to L5 | 45.2 | 23.5 | 49.3 | 84.3 |
+| Li 2026 | zhengzhou_ct_100 | 3 | L1 to L5 | 45.2 | 23.5 | 49.5 | 84.3 |
 
 ## Files
 

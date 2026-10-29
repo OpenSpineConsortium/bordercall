@@ -77,11 +77,11 @@ pedicle_w,L2,paper,moncadahabib2025,mexico_ct37,7,1.55,37
 pedicle_w,L3,paper,moncadahabib2025,mexico_ct37,7.85,1.9,37
 pedicle_w,L4,paper,moncadahabib2025,mexico_ct37,9.1,1.85,37
 pedicle_w,L5,paper,moncadahabib2025,mexico_ct37,12.1,2.75,37
-pedicle_w,L1,paper,olsewski1990,"part3_patients, Part 3 living patients, AP radiographs",7.512,2.052,98
-pedicle_w,L2,paper,olsewski1990,"part3_patients, Part 3 living patients, AP radiographs",8.388,2.166,100
-pedicle_w,L3,paper,olsewski1990,"part3_patients, Part 3 living patients, AP radiographs",9.856,2.474,100
-pedicle_w,L4,paper,olsewski1990,"part3_patients, Part 3 living patients, AP radiographs",11.702,2.608,100
-pedicle_w,L5,paper,olsewski1990,"part3_patients, Part 3 living patients, AP radiographs",14.905,2.62,82
+pedicle_w,L1,paper,olsewski1990,"part3_patients, Part 3 living patients, AP radiographs",7.512,2.05,49
+pedicle_w,L2,paper,olsewski1990,"part3_patients, Part 3 living patients, AP radiographs",8.388,2.163,50
+pedicle_w,L3,paper,olsewski1990,"part3_patients, Part 3 living patients, AP radiographs",9.856,2.474,50
+pedicle_w,L4,paper,olsewski1990,"part3_patients, Part 3 living patients, AP radiographs",11.702,2.608,50
+pedicle_w,L5,paper,olsewski1990,"part3_patients, Part 3 living patients, AP radiographs",14.905,2.616,41
 pedicle_w,L1,paper,otsuki2021,rush_cadaver_6,7.1,2.4,6
 pedicle_w,L2,paper,otsuki2021,rush_cadaver_6,7.3,2.4,6
 pedicle_w,L3,paper,otsuki2021,rush_cadaver_6,9.4,2,6
@@ -180,7 +180,7 @@ pedicle_h,L5,paper,hou1993,xian_dry_bone,19.8,3.7,40
 pedicle_h,T10,paper,hou1993,xian_dry_bone,14.3,1.4,40
 pedicle_h,T11,paper,hou1993,xian_dry_bone,16.2,1.6,40
 pedicle_h,T12,paper,hou1993,xian_dry_bone,16.6,1.4,40
-pedicle_h,T9,paper,hou1993,xian_dry_bone,12.9,1.2,40
+pedicle_h,T9,paper,hou1993,xian_dry_bone,12.387,1.231,40
 pedicle_h,L1,paper,lien2007,"dry_sets, dry vertebrae",13.65,1.45,15
 pedicle_h,L2,paper,lien2007,"dry_sets, dry vertebrae",14.05,1.75,15
 pedicle_h,L3,paper,lien2007,"dry_sets, dry vertebrae",13.9,1.65,15
@@ -213,11 +213,11 @@ pedicle_h,L2,paper,moncadahabib2025,mexico_ct37,12.4,1.7,37
 pedicle_h,L3,paper,moncadahabib2025,mexico_ct37,12.05,1.85,37
 pedicle_h,L4,paper,moncadahabib2025,mexico_ct37,11.1,1.55,37
 pedicle_h,L5,paper,moncadahabib2025,mexico_ct37,10.2,1.5,37
-pedicle_h,L1,paper,olsewski1990,"part3_patients, Part 3 living patients, AP radiographs",15.984,1.759,98
-pedicle_h,L2,paper,olsewski1990,"part3_patients, Part 3 living patients, AP radiographs",15.867,2.125,102
-pedicle_h,L3,paper,olsewski1990,"part3_patients, Part 3 living patients, AP radiographs",16.002,2.339,101
-pedicle_h,L4,paper,olsewski1990,"part3_patients, Part 3 living patients, AP radiographs",15.136,2.109,101
-pedicle_h,L5,paper,olsewski1990,"part3_patients, Part 3 living patients, AP radiographs",13.891,2.143,88
+pedicle_h,L1,paper,olsewski1990,"part3_patients, Part 3 living patients, AP radiographs",15.984,1.752,49
+pedicle_h,L2,paper,olsewski1990,"part3_patients, Part 3 living patients, AP radiographs",15.867,2.116,51
+pedicle_h,L3,paper,olsewski1990,"part3_patients, Part 3 living patients, AP radiographs",15.992,2.326,51
+pedicle_h,L4,paper,olsewski1990,"part3_patients, Part 3 living patients, AP radiographs",15.147,2.106,51
+pedicle_h,L5,paper,olsewski1990,"part3_patients, Part 3 living patients, AP radiographs",13.891,2.134,44
 pedicle_h,L1,paper,otsuki2021,rush_cadaver_6,17,2.7,6
 pedicle_h,L2,paper,otsuki2021,rush_cadaver_6,15.8,1.7,6
 pedicle_h,L3,paper,otsuki2021,rush_cadaver_6,15.8,1.7,6
@@ -335,11 +335,11 @@ pedicle_incl_sag,L2,paper,moncadahabib2025,mexico_ct37,16.45,2.15,37
 pedicle_incl_sag,L3,paper,moncadahabib2025,mexico_ct37,17,2.5,37
 pedicle_incl_sag,L4,paper,moncadahabib2025,mexico_ct37,18.6,1.9,37
 pedicle_incl_sag,L5,paper,moncadahabib2025,mexico_ct37,21.9,2.65,37
-pedicle_incl_sag,L1,paper,olsewski1990,"part1_cadavers, Part 1 cadavers, direct",6.121,2.222,66
-pedicle_incl_sag,L2,paper,olsewski1990,"part1_cadavers, Part 1 cadavers, direct",6.547,2.047,64
-pedicle_incl_sag,L3,paper,olsewski1990,"part1_cadavers, Part 1 cadavers, direct",7.56,2.048,75
-pedicle_incl_sag,L4,paper,olsewski1990,"part1_cadavers, Part 1 cadavers, direct",10.55,4.006,80
-pedicle_incl_sag,L5,paper,olsewski1990,"part1_cadavers, Part 1 cadavers, direct",17.451,7.437,82
+pedicle_incl_sag,L1,paper,olsewski1990,"part1_cadavers, Part 1 cadavers, direct",6.118,2.212,34
+pedicle_incl_sag,L2,paper,olsewski1990,"part1_cadavers, Part 1 cadavers, direct",6.545,2.032,33
+pedicle_incl_sag,L3,paper,olsewski1990,"part1_cadavers, Part 1 cadavers, direct",7.553,2.036,38
+pedicle_incl_sag,L4,paper,olsewski1990,"part1_cadavers, Part 1 cadavers, direct",10.55,3.98,40
+pedicle_incl_sag,L5,paper,olsewski1990,"part1_cadavers, Part 1 cadavers, direct",17.452,7.392,42
 pedicle_incl_sag,C3,paper,tan2004,sg_chinese_cadavers10,41.25,3.162,10
 pedicle_incl_sag,C4,paper,tan2004,sg_chinese_cadavers10,41.45,3.795,10
 pedicle_incl_sag,C5,paper,tan2004,sg_chinese_cadavers10,42.2,4.111,10
@@ -432,29 +432,29 @@ h_post,L1,paper,duman2026,izmir-mdct-517,24.84,2.243,517
 h_post,L2,paper,duman2026,izmir-mdct-517,25.987,2.38,517
 h_post,T11,paper,duman2026,izmir-mdct-517,22.026,2.118,517
 h_post,T12,paper,duman2026,izmir-mdct-517,23.605,2.369,517
-h_post,L1,paper,frontphys2026,zhengzhou_ct_100,27.2,1.3,20
-h_post,L2,paper,frontphys2026,zhengzhou_ct_100,28.1,2.6,20
-h_post,L3,paper,frontphys2026,zhengzhou_ct_100,27.3,2.2,20
-h_post,L4,paper,frontphys2026,zhengzhou_ct_100,26.3,2.1,20
-h_post,L5,paper,frontphys2026,zhengzhou_ct_100,24.6,2.5,20
+h_post,L1,paper,frontphys2026,zhengzhou_ct_100,27.2,1.3,100
+h_post,L2,paper,frontphys2026,zhengzhou_ct_100,28.1,2.6,100
+h_post,L3,paper,frontphys2026,zhengzhou_ct_100,27.3,2.2,100
+h_post,L4,paper,frontphys2026,zhengzhou_ct_100,26.3,2.1,100
+h_post,L5,paper,frontphys2026,zhengzhou_ct_100,24.6,2.5,100
 h_post,L1,paper,gilad1985,"haifa_transport_men, male",27.1,2.1,154
 h_post,L2,paper,gilad1985,"haifa_transport_men, male",27,2.1,157
 h_post,L3,paper,gilad1985,"haifa_transport_men, male",27.9,2.1,157
 h_post,L4,paper,gilad1985,"haifa_transport_men, male",27.1,2.3,157
 h_post,L5,paper,gilad1985,"haifa_transport_men, male",25.7,2.5,156
-h_post,C7,paper,kunkel2011,"ulm_thoracic_segments, radiographic",14.38,2.22,30
-h_post,T1,paper,kunkel2011,"ulm_thoracic_segments, radiographic",15.28,1.14,30
-h_post,T10,paper,kunkel2011,"ulm_thoracic_segments, radiographic",20.35,1.89,30
-h_post,T11,paper,kunkel2011,"ulm_thoracic_segments, radiographic",22.67,1.38,30
-h_post,T12,paper,kunkel2011,"ulm_thoracic_segments, radiographic",23.12,1.94,30
-h_post,T2,paper,kunkel2011,"ulm_thoracic_segments, radiographic",16.11,1.67,30
-h_post,T3,paper,kunkel2011,"ulm_thoracic_segments, radiographic",17.41,1.12,30
-h_post,T4,paper,kunkel2011,"ulm_thoracic_segments, radiographic",18.15,1.54,30
-h_post,T5,paper,kunkel2011,"ulm_thoracic_segments, radiographic",17.33,2.16,30
-h_post,T6,paper,kunkel2011,"ulm_thoracic_segments, radiographic",18.22,1.38,30
-h_post,T7,paper,kunkel2011,"ulm_thoracic_segments, radiographic",18.67,1.64,30
-h_post,T8,paper,kunkel2011,"ulm_thoracic_segments, radiographic",20.05,1.77,30
-h_post,T9,paper,kunkel2011,"ulm_thoracic_segments, radiographic",20.25,2.44,30
+h_post,C7,paper,kunkel2011,"ulm_thoracic_segments, radiographic",14.38,2.22,6
+h_post,T1,paper,kunkel2011,"ulm_thoracic_segments, radiographic",15.28,1.14,12
+h_post,T10,paper,kunkel2011,"ulm_thoracic_segments, radiographic",20.35,1.89,12
+h_post,T11,paper,kunkel2011,"ulm_thoracic_segments, radiographic",22.67,1.38,12
+h_post,T12,paper,kunkel2011,"ulm_thoracic_segments, radiographic",23.12,1.94,6
+h_post,T2,paper,kunkel2011,"ulm_thoracic_segments, radiographic",16.11,1.67,12
+h_post,T3,paper,kunkel2011,"ulm_thoracic_segments, radiographic",17.41,1.12,12
+h_post,T4,paper,kunkel2011,"ulm_thoracic_segments, radiographic",18.15,1.54,12
+h_post,T5,paper,kunkel2011,"ulm_thoracic_segments, radiographic",17.33,2.16,12
+h_post,T6,paper,kunkel2011,"ulm_thoracic_segments, radiographic",18.22,1.38,12
+h_post,T7,paper,kunkel2011,"ulm_thoracic_segments, radiographic",18.67,1.64,12
+h_post,T8,paper,kunkel2011,"ulm_thoracic_segments, radiographic",20.05,1.77,12
+h_post,T9,paper,kunkel2011,"ulm_thoracic_segments, radiographic",20.25,2.44,12
 h_post,L1,paper,moncadahabib2025,mexico_ct37,26.89,1.83,37
 h_post,L2,paper,moncadahabib2025,mexico_ct37,26.75,1.95,37
 h_post,L3,paper,moncadahabib2025,mexico_ct37,26.11,2.43,37
@@ -759,11 +759,11 @@ endplate,L4,pools_panjabi,bonczar2024,pool18,47.5,,1481
 endplate,L5,pools_panjabi,bonczar2024,pool18,48.81,,1481
 endplate,C3,paper,busscher2010,"human_cadaver, male, Human",27.7,,6
 endplate,L5,paper,busscher2010,"human_cadaver, male, Human",54,,6
-endplate,L1,paper,frontphys2026,zhengzhou_ct_100,41.8,1,20
-endplate,L2,paper,frontphys2026,zhengzhou_ct_100,43.4,0.7,20
-endplate,L3,paper,frontphys2026,zhengzhou_ct_100,45.2,0.6,20
-endplate,L4,paper,frontphys2026,zhengzhou_ct_100,47.7,0.8,20
-endplate,L5,paper,frontphys2026,zhengzhou_ct_100,50.7,2.4,20
+endplate,L1,paper,frontphys2026,zhengzhou_ct_100,41.8,1,100
+endplate,L2,paper,frontphys2026,zhengzhou_ct_100,43.4,0.7,100
+endplate,L3,paper,frontphys2026,zhengzhou_ct_100,45.2,0.6,100
+endplate,L4,paper,frontphys2026,zhengzhou_ct_100,47.7,0.8,100
+endplate,L5,paper,frontphys2026,zhengzhou_ct_100,50.7,2.4,100
 endplate,C3,paper,tan2004,sg_chinese_cadavers10,13.8,0.316,10
 endplate,C4,paper,tan2004,sg_chinese_cadavers10,14.7,0.316,10
 endplate,C5,paper,tan2004,sg_chinese_cadavers10,14.9,0.316,10

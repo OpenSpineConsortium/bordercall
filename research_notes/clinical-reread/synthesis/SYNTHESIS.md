@@ -122,11 +122,11 @@ How to read it:
    most of it down to definition, but no comparison in the set separates definition from population (error.md 1.7,
    4). tan2004's factors against Panjabi run from 0.60 to 1.16, so no single population scale fits (error.md 2.4,
    3.6). On fields drawn from 25 papers' own printed means and SDs (one series per paper, 200 fields per place), the
-   rule built on Panjabi's table named three bodies exactly in 23.7% of fields against 47.2% on fields drawn from his
-   own table, and was right on 88.8% of the 660 fields it named at 0.99 against 100.0% of 2,851; widened by the
-   papers' spread it was right on 92.0% of 591; at one body it was right on 87.7% of 310 as built and 89.5% of 257
+   rule built on Panjabi's table named three bodies exactly in 23.3% of fields against 47.6% on fields drawn from his
+   own table, and was right on 89.0% of the 702 fields it named at 0.99 against 100.0% of 2,898; widened by the
+   papers' spread it was right on 92.7% of 617; at one body it was right on 85.2% of 352 as built and 85.9% of 284
    widened ([paper-tables results](../../paper-tables/results/README.md), "Naming the papers' fields with Panjabi's
-   rule"). Inference: widening gains 3.2 points at three bodies (92.0 - 88.8) and 1.8 at one (89.5 - 87.7), so it
+   rule"). Inference: widening gains 3.7 points at three bodies (92.7 - 89.0) and 0.7 at one (85.9 - 85.2), so it
    does not restore the promise; until masks of real spines calibrate the rule, a posterior of 0.99 means about 0.9
    right, at one body or three, on another series' tables. Over 11 papers, canal depth sits a median 1.48 of
    Panjabi's SDs from his means (same page, "How far the papers sit from Panjabi"). These are draws from printed
@@ -134,7 +134,7 @@ How to read it:
    and definition offsets apart from them, by running one mask pipeline over each population's images; name the rest
    as a known gap, never folding it into sigma (error.md 3.1, 3.6). Inference, from the widened arm of the
    paper-tables results: widen the rule by the between-paper spread until masks of real spines can calibrate it,
-   knowing that it buys 2 to 3 points of the promise at one and three bodies (8.5 at five, 94.4 - 85.9).
+   knowing that it buys 1 to 4 points of the promise at one and three bodies (8.0 at five, 96.4 - 88.4).
 
 6. **Set each error term from its bracket, never below it, and give the canal heavy tails.** Of the 43 papers, 16
    measured their own error, 5 checked only an instrument and 22 nothing; none measured an automated mask
@@ -169,7 +169,7 @@ How to read it:
    (measures.md 9.2(c)); measure it by measures.md 9.2(b), the 3D distance between the tips in frame F, store the x
    extent of atlas.md 2A Step 9b beside it, and register it in measures.MEASURERS (schwingcheck/measures.py). On
    lumbar fields build pedicle size beside transverse_width: pedicle_w carries the two strongest lumbar steps (L3/L4
-   +2.45, L4/L5 +1.95; atlas.md 2A Step 9a), and its means sit a median 0.71 of his SDs from his means across 14
+   +2.45, L4/L5 +1.95; atlas.md 2A Step 9a), and its means sit a median 0.72 of his SDs from his means across 14
    papers (paper-tables results, same section); fix its section first, since an isthmus minimum reads nearer Hou
    than Panjabi, 12.9 against 18.6 mm at L5 (atlas.md 2A Step 9b). Since neither series reproduces the SPL step at
    T12/L1, widen spinous_length's spread at L1 in the table the rule reads, or check it on CT before trusting it, and

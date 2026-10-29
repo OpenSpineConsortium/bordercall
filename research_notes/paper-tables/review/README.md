@@ -19,5 +19,8 @@ reproduced, and each finding was then given to refuters told to show it wrong.
 Of round 2, these were fixed in pull request 26 by hand, each checked against the page or the file it names: page 2
 (Chen 2011's contrast is on p. 1819), page 3 (the two end-plate rows print the same numbers, the cervical most
 probably the original, rather than "reprints"), prose-numbers 2, 3 and 4 (measures.md 3.5, HANDOFF.md and the
-end-plate note's status line no longer say the angles are left out). The rest change data/series.csv or the
-record and come in the next pull request, with the comparison rerun.
+end-plate note's status line no longer say the angles are left out). The rest changed data/series.csv or the
+record and were fixed in pull request 39, each finding's `resolution` in round-2-findings.json saying where, the
+series remade (4,116) and the comparison rerun; the old series reproduced the old record byte for byte first, so
+every moved number is the fixes' own. One fix reached a paper no finding named: Chen 2011's counts of 830, 430
+and 400 are end-plates over ten levels, read now as 83 patients, 43 men and 40 women.
