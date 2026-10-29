@@ -156,6 +156,11 @@ def naming(out, d, nearest, columns) -> None:
     subsets["L1-L5"] += [("every complete measure of A", [j for j in lumbar_complete if both.keys[j] in a_keys]),
                          ("every complete measure of B", [j for j in lumbar_complete if both.keys[j] in b_keys]),
                          ("every complete measure of C", lumbar_complete)]
+    # The rule models an error for every measure it reads, and a ratio, a count or a percent has
+    # none (papers_table.Table.error), so such a measure is left out of each subset and named here.
+    scorable = [j for j in range(len(both.keys)) if both.error[j] > 0]
+    left_out = sorted(both.keys[j] for j in range(len(both.keys)) if both.error[j] <= 0)
+    subsets = {run: [(label, [j for j in idx if j in scorable]) for label, idx in these] for run, these in subsets.items()}
     rows = []
     for st in (PO.GENERATOR, nearest["both"]):
         pop = PO.draw_table(both, st, columns, SEED_NAMING)
@@ -164,6 +169,7 @@ def naming(out, d, nearest, columns) -> None:
                 for w in NAMING_WIDTHS[run]:
                     got = AM.score(pop, both, idx, w, levels, st)
                     rows.append(dict(got, setting=st.name, run=run, measures=label, n_measures=len(idx), width=w,
+                                     no_modelled_error=";".join(left_out),
                                      **{"setting " + k: v for k, v in st.as_dict().items() if k not in ("name", "loadings")}))
                 log("naming %s %s width %d: exact %.3f" % (run, label, w, got["exact"]))
     write_csv(out, "naming_all.csv", rows)
