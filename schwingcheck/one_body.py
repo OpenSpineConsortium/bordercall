@@ -708,7 +708,7 @@ def main(argv=None) -> int:
     ap.add_argument("--processes", type=int, default=PROCESSES)
     ap.add_argument("--out", default=RECORD, help="where run writes the record, and where the rest read it")
     ap.add_argument("--outdir", default=OUTDIR)
-    ap.add_argument("--table", choices=tuple(TABLES) + ("axis",), default="sets")
+    ap.add_argument("--table", choices=tuple(TABLES) + ("axis", "axis-seven"), default="sets")
     a = ap.parse_args(argv)
     if a.what == "run":
         CS.write(run(a.columns, a.processes), a.out)
