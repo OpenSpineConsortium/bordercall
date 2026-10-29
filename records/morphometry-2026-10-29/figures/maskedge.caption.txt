@@ -1,0 +1,1 @@
+The mask's surface against the bone's edge in the CT, along the surface's normal: the phantom's exact mask and the mask grown or shrunk by a voxel, and three ENHANCE.PET studies (median and quartiles over vertebrae).
