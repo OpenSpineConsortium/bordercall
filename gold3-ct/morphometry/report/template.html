@@ -1,0 +1,120 @@
+<title>Gold Tier 3 Morphometry</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,600&family=Source+Sans+3:wght@400;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: one reading column for the text, figures on white plates that run wider, a status ledger first. */
+:root {
+  --bg: #f6f7f6;
+  --surface: #ffffff;
+  --ink: #161a1d;
+  --muted: #59636a;
+  --rule: #d4dadd;
+  --accent: #1e5a75;
+  --ok: #2c7a4b;
+  --run: #9a6400;
+  --wait: #5d5f93;
+  --bad: #a03636;
+  --display: "Newsreader", "Iowan Old Style", Georgia, serif;
+  --body: "Source Sans 3", "Segoe UI", system-ui, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #111416; --surface: #1a1f22; --ink: #e5e9eb; --muted: #9aa5ab; --rule: #2c3438;
+    --accent: #79b6d1; --ok: #6cc08f; --run: #e0b04a; --wait: #a9acd9; --bad: #e27f7f; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #111416; --surface: #1a1f22; --ink: #e5e9eb; --muted: #9aa5ab; --rule: #2c3438;
+  --accent: #79b6d1; --ok: #6cc08f; --run: #e0b04a; --wait: #a9acd9; --bad: #e27f7f; color-scheme: dark;
+}
+body { background: var(--bg); color: var(--ink); font-family: var(--body); font-size: 16px; line-height: 1.55; }
+.page { max-width: 1120px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px)); padding-block: 40px 72px; display: grid; gap: 48px; }
+.prose { max-width: 68ch; display: grid; gap: 14px; }
+header { display: grid; gap: 10px; }
+.eyebrow { font-family: var(--mono); font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+h1 { font-family: var(--display); font-weight: 600; font-size: clamp(30px, 5vw, 44px); line-height: 1.1; margin: 0; text-wrap: balance; }
+h2 { font-family: var(--display); font-weight: 600; font-size: 26px; line-height: 1.2; margin: 0; text-wrap: balance; }
+h3 { font-family: var(--body); font-weight: 600; font-size: 17px; margin: 0; }
+p { margin: 0; }
+.lede { font-size: 18px; max-width: 68ch; }
+.note { color: var(--muted); font-size: 14px; }
+section { display: grid; gap: 20px; }
+a { color: var(--accent); }
+code, .num { font-family: var(--mono); font-size: 0.88em; }
+.ledger { width: 100%; border-collapse: collapse; font-size: 15px; }
+.ledger th { text-align: left; font-weight: 600; font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase;
+  color: var(--muted); border-bottom: 1px solid var(--ink); padding: 8px 10px 6px 0; }
+.ledger td { border-bottom: 1px solid var(--rule); padding: 10px 10px 10px 0; vertical-align: top; }
+.ledger td:first-child { width: 30%; font-weight: 600; }
+.ledger .result { font-variant-numeric: tabular-nums; }
+.wrap { overflow-x: auto; }
+.chip { display: inline-block; font-family: var(--mono); font-size: 11.5px; letter-spacing: 0.04em; padding: 1px 8px;
+  border-radius: 3px; border: 1px solid currentColor; white-space: nowrap; }
+.chip.ok { color: var(--ok); } .chip.run { color: var(--run); } .chip.wait { color: var(--wait); } .chip.bad { color: var(--bad); }
+figure { margin: 0; display: grid; gap: 10px; }
+.plate { background: #ffffff; border: 1px solid var(--rule); border-radius: 4px; padding: 12px; }
+.plate img { display: block; width: 100%; height: auto; }
+figcaption { font-size: 14px; color: var(--muted); max-width: 80ch; }
+figcaption b { color: var(--ink); font-weight: 600; }
+.renders { display: grid; gap: 36px; }
+.bench { display: grid; gap: 14px; padding-top: 6px; border-top: 1px solid var(--rule); }
+.bench .head { display: flex; flex-wrap: wrap; gap: 8px 14px; align-items: baseline; }
+.truth { font-family: var(--mono); font-size: 12.5px; color: var(--muted); }
+ul.findings { margin: 0; padding-left: 20px; display: grid; gap: 8px; }
+.cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px 32px; }
+.cols > * { min-width: 0; }
+footer { color: var(--muted); font-size: 13px; border-top: 1px solid var(--rule); padding-top: 16px; display: grid; gap: 6px; }
+</style>
+
+<div class="page">
+  <header>
+    <div class="eyebrow">bordercall, pull request 30 &middot; confidential &middot; status at 29 October 2026</div>
+    <h1>Gold Tier 3 Morphometry</h1>
+    <p class="lede">REPLACE_LEDE</p>
+  </header>
+
+  <section>
+    <h2>Where it stands</h2>
+    <div class="wrap">
+      <table class="ledger">
+        <thead><tr><th>Piece</th><th>State</th><th>Result</th></tr></thead>
+        <tbody>
+REPLACE_LEDGER
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <h2>The measures, drawn where they are taken</h2>
+    <div class="prose">
+      <p>Each render cuts one vertebra's own mask in four planes of its frame: sagittal through the body's middle, coronal through the body, coronal through each pedicle's isthmus, and axial through the pedicles. Every line is rebuilt from the measuring code itself and checked against the value the run wrote for that vertebra. A line that disagrees by more than the rows' rounding is left off and listed as withheld. On study 0004, all 77 lines at L3, T8 and C5 matched their rows. Calipers mark lengths. Dashed lines are the end-plates drawn rim to rim (the wedge), and the dotted line is Eisenstein's line from one articular apex to the other. A key entry marked (p) is a line projected onto a plane it does not lie in.</p>
+    </div>
+    <div class="renders">
+REPLACE_RENDERS
+    </div>
+  </section>
+
+  <section>
+    <h2>Tested against truth</h2>
+    <div class="prose">
+      <p>Each benchmark holds the measures to a truth of its own kind. The phantom's shapes are exact. The bone's own edge comes from the CT. Thinned slices are compared with the same patient's thin scan. Published means come from adults measured by people. VerSe has human fracture grades on masks we did not make. No open CT set gives per-case canal, pedicle or facet dimensions measured by people, so those are held to the phantom and to published means only.</p>
+    </div>
+REPLACE_BENCH
+  </section>
+
+  <section>
+    <h2>What comes next</h2>
+    <ul class="findings prose">
+REPLACE_NEXT
+    </ul>
+  </section>
+
+  <footer>
+REPLACE_FOOTER
+  </footer>
+</div>

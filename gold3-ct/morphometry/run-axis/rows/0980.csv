@@ -1,0 +1,6 @@
+study,level,key,value,note
+0980,study,flag:error,,ValueError: zero-size array to reduction operation maximum which has no identity
+0980,study,slice_mm,0.7000,
+0980,study,coarsest_mm,0.8633,
+0980,study,code,,81e732f142d3aa16
+0980,study,seconds,56.2137,

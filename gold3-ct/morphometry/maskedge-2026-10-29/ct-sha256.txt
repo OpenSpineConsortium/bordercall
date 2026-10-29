@@ -1,0 +1,3 @@
+835852992df8c739aa21c761be6eeb2bae2f683be437c4d74b2238ac60071490  /tmp/claude-0/-home-claude/69c1754c-25df-5683-a64e-185e1c42cc52/scratchpad/ct-edge-in/0004.nii.gz
+4138eec90bf996a62cc903903cfb4e4e53a7701df81052442c221223e63a5558  /tmp/claude-0/-home-claude/69c1754c-25df-5683-a64e-185e1c42cc52/scratchpad/ct-edge-in/0006.nii.gz
+9ecf7e53ffa31f2cc4de347a450bc56e64aca8e589d5b95e13ee67212576d28b  /tmp/claude-0/-home-claude/69c1754c-25df-5683-a64e-185e1c42cc52/scratchpad/ct-edge-in/0010.nii.gz

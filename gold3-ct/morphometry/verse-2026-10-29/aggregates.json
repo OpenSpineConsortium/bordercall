@@ -1,0 +1,341 @@
+{
+ "agreement": {
+  "exact": 0.9326,
+  "quadratic_weighted_kappa": 0.6139,
+  "rows_readers_grade_cols_implied_grade": [
+   [
+    3317,
+    96,
+    20,
+    0
+   ],
+   [
+    25,
+    11,
+    10,
+    0
+   ],
+   [
+    23,
+    22,
+    37,
+    4
+   ],
+   [
+    22,
+    4,
+    18,
+    13
+   ]
+  ]
+ },
+ "codes_not_a_grade": {
+  "5": 23,
+  "8": 1
+ },
+ "conflicting_duplicates": [],
+ "counts": {
+  "cells": 3720,
+  "cells_graded": 3696,
+  "cells_not_a_grade": 24,
+  "conflicting_duplicates": 0,
+  "duplicates_dropped": 22,
+  "vertebrae": 3674
+ },
+ "detection": [
+  {
+   "auc_grade1plus": 0.8362,
+   "auc_grade1plus_ci95": [
+    0.7799508171779305,
+    0.8870802843086988
+   ],
+   "auc_grade2plus": 0.843,
+   "auc_grade2plus_ci95": [
+    0.7804156889264525,
+    0.9017542212507946
+   ],
+   "grade0": 3433,
+   "grade0_below_0.80": 0.0338,
+   "grade0_below_0.80_count": 116,
+   "grade1plus": 189,
+   "grade2plus": 143,
+   "patients": 320,
+   "sens_grade1plus_at_0.80": 0.6296,
+   "sens_grade2plus_at_0.80": 0.6853,
+   "spec_at_0.80": 0.9662,
+   "stratum": "all",
+   "vertebrae": 3622
+  },
+  {
+   "auc_grade1plus": 0.9319,
+   "auc_grade2plus": 0.9186,
+   "grade0": 2104,
+   "grade0_below_0.80": 0.0466,
+   "grade0_below_0.80_count": 98,
+   "grade1plus": 74,
+   "grade2plus": 53,
+   "patients": 293,
+   "sens_grade1plus_at_0.80": 0.8378,
+   "sens_grade2plus_at_0.80": 0.8679,
+   "spec_at_0.80": 0.9534,
+   "stratum": "thoracic",
+   "vertebrae": 2178
+  },
+  {
+   "auc_grade1plus": 0.8024,
+   "auc_grade2plus": 0.818,
+   "grade0": 1329,
+   "grade0_below_0.80": 0.0135,
+   "grade0_below_0.80_count": 18,
+   "grade1plus": 115,
+   "grade2plus": 90,
+   "patients": 298,
+   "sens_grade1plus_at_0.80": 0.4957,
+   "sens_grade2plus_at_0.80": 0.5778,
+   "spec_at_0.80": 0.9865,
+   "stratum": "lumbar",
+   "vertebrae": 1444
+  },
+  {
+   "auc_grade1plus": 0.844,
+   "auc_grade2plus": 0.8469,
+   "grade0": 2717,
+   "grade0_below_0.80": 0.0364,
+   "grade0_below_0.80_count": 99,
+   "grade1plus": 176,
+   "grade2plus": 136,
+   "patients": 308,
+   "sens_grade1plus_at_0.80": 0.6648,
+   "sens_grade2plus_at_0.80": 0.7132,
+   "spec_at_0.80": 0.9636,
+   "stratum": "T4 to L4",
+   "vertebrae": 2893
+  },
+  {
+   "auc_grade1plus": 0.8599,
+   "auc_grade2plus": 0.8678,
+   "grade0": 2284,
+   "grade0_below_0.80": 0.0333,
+   "grade0_below_0.80_count": 76,
+   "grade1plus": 106,
+   "grade2plus": 78,
+   "patients": 208,
+   "sens_grade1plus_at_0.80": 0.6321,
+   "sens_grade2plus_at_0.80": 0.6923,
+   "spec_at_0.80": 0.9667,
+   "stratum": "coarsest at most 1.25 mm",
+   "vertebrae": 2390
+  },
+  {
+   "auc_grade1plus": 0.8062,
+   "auc_grade2plus": 0.8137,
+   "grade0": 1149,
+   "grade0_below_0.80": 0.0348,
+   "grade0_below_0.80_count": 40,
+   "grade1plus": 83,
+   "grade2plus": 65,
+   "patients": 112,
+   "sens_grade1plus_at_0.80": 0.6265,
+   "sens_grade2plus_at_0.80": 0.6769,
+   "spec_at_0.80": 0.9652,
+   "stratum": "coarsest over 1.25 mm",
+   "vertebrae": 1232
+  },
+  {
+   "auc_grade1plus": 0.8405,
+   "auc_grade2plus": 0.8489,
+   "grade0": 3430,
+   "grade0_below_0.80": 0.0338,
+   "grade0_below_0.80_count": 116,
+   "grade1plus": 188,
+   "grade2plus": 142,
+   "patients": 320,
+   "sens_grade1plus_at_0.80": 0.633,
+   "sens_grade2plus_at_0.80": 0.6901,
+   "spec_at_0.80": 0.9662,
+   "stratum": "both ratios read",
+   "vertebrae": 3618
+  }
+ ],
+ "no_reading": {
+  "by_grade": {
+   "0": 39,
+   "1": 1,
+   "2": 1,
+   "3": 11
+  },
+  "one_ratio_only": 4,
+  "reasons": {
+   "level not in the mask": 2,
+   "the body touches the edge of the volume": 16,
+   "the heights did not read and the code left no note": 34
+  },
+  "vertebrae": 52
+ },
+ "per_grade": {
+  "0": {
+   "body_index_ant_post": {
+    "median": 0.9701,
+    "n": 3431,
+    "q1": 0.9229,
+    "q3": 1.0224
+   },
+   "body_index_mid_post": {
+    "median": 0.8968,
+    "n": 3432,
+    "q1": 0.8669,
+    "q3": 0.9298
+   },
+   "h_ant": {
+    "median": 25.0544,
+    "n": 3431,
+    "q1": 20.6869,
+    "q3": 29.1343
+   },
+   "h_mid": {
+    "median": 23.2272,
+    "n": 3432,
+    "q1": 19.3639,
+    "q3": 26.5819
+   },
+   "h_post_inset": {
+    "median": 25.9182,
+    "n": 3433,
+    "q1": 21.9033,
+    "q3": 29.1022
+   },
+   "patients": 320,
+   "read": 3433,
+   "smaller_ratio": {
+    "median": 0.893,
+    "n": 3433,
+    "q1": 0.8627,
+    "q3": 0.9261
+   },
+   "vertebrae": 3472
+  },
+  "1": {
+   "body_index_ant_post": {
+    "median": 0.9242,
+    "n": 46,
+    "q1": 0.8458,
+    "q3": 1.0349
+   },
+   "body_index_mid_post": {
+    "median": 0.8188,
+    "n": 46,
+    "q1": 0.7727,
+    "q3": 0.8693
+   },
+   "h_ant": {
+    "median": 25.4696,
+    "n": 46,
+    "q1": 20.0049,
+    "q3": 28.4232
+   },
+   "h_mid": {
+    "median": 22.4355,
+    "n": 46,
+    "q1": 16.9331,
+    "q3": 25.1706
+   },
+   "h_post_inset": {
+    "median": 26.0681,
+    "n": 46,
+    "q1": 22.6934,
+    "q3": 29.2035
+   },
+   "patients": 34,
+   "read": 46,
+   "smaller_ratio": {
+    "median": 0.8092,
+    "n": 46,
+    "q1": 0.7638,
+    "q3": 0.8552
+   },
+   "vertebrae": 47
+  },
+  "2": {
+   "body_index_ant_post": {
+    "median": 0.9089,
+    "n": 86,
+    "q1": 0.8322,
+    "q3": 0.9992
+   },
+   "body_index_mid_post": {
+    "median": 0.7531,
+    "n": 85,
+    "q1": 0.7141,
+    "q3": 0.8023
+   },
+   "h_ant": {
+    "median": 23.0186,
+    "n": 86,
+    "q1": 19.4477,
+    "q3": 27.2654
+   },
+   "h_mid": {
+    "median": 19.1224,
+    "n": 85,
+    "q1": 16.6855,
+    "q3": 21.4129
+   },
+   "h_post_inset": {
+    "median": 25.463,
+    "n": 86,
+    "q1": 23.0197,
+    "q3": 28.1443
+   },
+   "patients": 53,
+   "read": 86,
+   "smaller_ratio": {
+    "median": 0.7522,
+    "n": 86,
+    "q1": 0.7087,
+    "q3": 0.8072
+   },
+   "vertebrae": 87
+  },
+  "3": {
+   "body_index_ant_post": {
+    "median": 0.9622,
+    "n": 57,
+    "q1": 0.8426,
+    "q3": 1.1566
+   },
+   "body_index_mid_post": {
+    "median": 0.737,
+    "n": 57,
+    "q1": 0.6252,
+    "q3": 0.9354
+   },
+   "h_ant": {
+    "median": 23.6532,
+    "n": 57,
+    "q1": 18.7523,
+    "q3": 27.7166
+   },
+   "h_mid": {
+    "median": 18.304,
+    "n": 57,
+    "q1": 13.8552,
+    "q3": 22.153
+   },
+   "h_post_inset": {
+    "median": 24.0837,
+    "n": 57,
+    "q1": 21.0737,
+    "q3": 27.8312
+   },
+   "patients": 48,
+   "read": 57,
+   "smaller_ratio": {
+    "median": 0.7258,
+    "n": 57,
+    "q1": 0.6252,
+    "q3": 0.9313
+   },
+   "vertebrae": 68
+  }
+ }
+}
