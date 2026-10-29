@@ -11,21 +11,23 @@ axis, speed and PyMC comparison give every row, the main and axis tables read th
 at one body the consecutive rule and the gaps rule are one rule, the weights' rows carry the papers'
 weights on the stated chain's fields and are the chain's posterior at those weights, computed again,
 the claims and speed tables' cells are their rows', every table takes its labels (widths, weights,
-rules) from its record, the speed is timed with every thread pool at one thread and each measure
-set as a rule cut to it, and every record names the code it was made by. A rule cut to the seven
-names as the rule for all 32 with the rest masked out, within 1e-12. The axis's rows are the same to
-the bit whatever order its jobs finish in. load_loops, run first in a fresh process, leaves every
-pool at one thread while the speed's own work runs inside the limit and compiles every layout of
-the loops the speed times, while without it that work loads a pool the limit does not hold. check finds a table that is stale, missing, written
+rules) from its record, each measure set is timed as a rule cut to it, and every record names the
+code it was made by. A rule cut to the seven names as the rule for all 32 with the rest masked out,
+within 1e-12. The axis's rows are the same to the bit whatever order its jobs finish in. load_loops,
+run first in a fresh process, leaves every pool at one thread while the speed's own work runs
+inside the limit and compiles every layout of the loops the speed times, while without it that
+work loads a pool the limit does not hold; and `run`, `axis` on two processes, `speed` and `pymc`,
+each run alone in a fresh process, where nothing the test runner did before has loaded a pool,
+record every pool at one thread. The PyMC table counts a field under the naming model's NUTS test
+only where it passes all three of that test's checks. check finds a table that is stale, missing, written
 twice, followed by rows of its own or by text with no blank line, or with no record, and records
 that do not read the same columns, fields a column and seeds. The committed records: the README
 carries their tables, they hold 9 bodies, each was made by committed code that did not change while
 it ran, one commit for the four, they read the same fields, the speed timed each measure set on
 its own measures with every pool at one thread, and the exact posteriors the PyMC models were set
-against are chain.py's on `run`'s fields, with every thread pool at one thread. The PyMC table reads a field's gap in Monte
-Carlo errors only where the model differs from the exact answer by 1e-6 or more. `pymc` at QUICK's
+against are chain.py's on `run`'s fields, with every thread pool at one thread. `pymc` at QUICK's
 sampling gives every row its table reads, holds each model to the cut rule's exact posterior on
-`run`'s fields, runs with every thread pool at one thread and names pymc-extras' version.
+`run`'s fields and names pymc-extras' version.
 """
 from __future__ import annotations
 
@@ -194,11 +196,6 @@ class QuickStudy(unittest.TestCase):
             paths = len(CH.paths_of(CS.chains(B)["chain"]))
             self.assertTrue(line.startswith("| %d | %s |" % (B, "{:,}".format(paths))), line)
 
-    def test_the_speed_ran_at_one_thread(self):
-        self.assertTrue(self.speed["threads"])
-        for pool in self.speed["threads"]:
-            self.assertEqual(pool["threads"], 1, pool)
-
     def test_each_measure_set_is_timed_as_a_rule_cut_to_it(self):
         want = {"seven": len(MS.SPINEPS_7), "all": len(MS.pool())}
         for r in self.speed["rows"]:
@@ -293,6 +290,9 @@ class QuickPyMC(unittest.TestCase):
             self.assertTrue(np.all(np.isfinite(r["gap"])) and np.all(np.isfinite(r["rhat"])))
             self.assertTrue(np.all(np.asarray(r["gap_mcse"]) >= 0))
             self.assertLessEqual(r["fields_within"], F)
+            self.assertEqual(len(r["within_each"]), F)
+            self.assertEqual(sum(r["within_each"]), r["fields_within"])
+            self.assertLessEqual(CS.naming_test(r), r["fields_within"])
 
     def test_the_exact_posteriors_are_the_cut_rules(self):
         pool, subsets, mu, sd, noise, power, nodes = CS.setting()
@@ -305,25 +305,35 @@ class QuickPyMC(unittest.TestCase):
             exact = CS.name_middle(rule, X, CS.S.target_offset(r["bodies"]))["seven"]
             np.testing.assert_allclose(exact.max(1), r["exact_top"], rtol=0, atol=1e-12)
 
-    def test_every_pool_was_at_one_thread_and_pymc_extras_is_named(self):
+    def test_every_job_lists_its_pools_and_pymc_extras_is_named(self):
         self.assertEqual(len(self.record["threads"]), len(CH.TYPES) * len(Q["pymc"]["widths"]))
         for job in self.record["threads"]:
             self.assertTrue(job["pools"], job)
-            for pool in job["pools"]:
-                self.assertEqual(pool["threads"], 1, (job["type"], pool))
         self.assertNotEqual(self.record["versions"]["pymc-extras"], "not installed")
 
 
-class PyMCTable(unittest.TestCase):
-    def test_the_gap_in_errors_is_read_only_where_the_model_differs(self):
-        row = {"type": "typical", "bodies": 3, "subset": "all", "model": "sampled", "fields_within": 2,
-               "same_name": [True, True], "gap": [1e-10, 0.01], "gap_mcse": [1e-11, 0.005],
-               "gap_in_errors": [9.0, 2.0], "rhat": [1.0, 1.01], "steps": [7.0, 7.0], "divergences": 0, "sample_s": 1.0}
-        cells = CS.pymc_table({"rows": [row]}).splitlines()[2].split(" | ")
-        self.assertEqual(cells[7], "2.0 (1)")
-        row["gap"] = [1e-10, 1e-9]
-        cells = CS.pymc_table({"rows": [row]}).splitlines()[2].split(" | ")
-        self.assertEqual(cells[7], "- (0)")
+class NamingTest(unittest.TestCase):
+    ROW = {"type": "typical", "bodies": 3, "subset": "all", "model": "sampled", "fields_within": 4,
+           "within_each": [True, True, True, True], "same_name": [True] * 4, "gap": [1e-10, 0.01, 1e-9, 0.002],
+           "gap_mcse": [1e-11, 0.005, 1e-10, 0.001], "gap_in_errors": [6.7, 2.0, 1.0, 1.0],
+           "rhat": [1.0, 1.01, 1.54, 1.019], "steps": [7.0] * 4, "divergences": 0, "sample_s": 1.0}
+
+    def test_a_field_passes_only_where_it_passes_all_three_checks(self):
+        """Over five errors at a name above 0.05, however small the gap, or an R-hat of 1.02 or
+        more, fails the naming model's test though every name is within five errors plus 0.001;
+        and the table prints the largest gap in errors as it is."""
+        self.assertEqual(CS.naming_test(self.ROW), 2)
+        row = dict(self.ROW, within_each=[True, False, True, True], fields_within=3)
+        self.assertEqual(CS.naming_test(row), 1)
+        cells = CS.pymc_table({"rows": [self.ROW]}).splitlines()[2].split(" | ")
+        self.assertEqual(cells[4:6], ["4 of 4", "2 of 4"])
+        self.assertEqual(cells[8], "6.7")
+
+    def test_a_record_with_no_fields_own_within_is_read_only_where_all_are_within(self):
+        row = {k: v for k, v in self.ROW.items() if k != "within_each"}
+        self.assertEqual(CS.naming_test(row), 2)
+        with self.assertRaises(ValueError):
+            CS.naming_test(dict(row, fields_within=3))
 
 
 class CutRule(unittest.TestCase):
@@ -349,7 +359,8 @@ class AxisOrder(unittest.TestCase):
         the order they are pooled, is the same to the bit whatever order the processes finish in.
         Three tables on three columns: at two tables on two columns, numpy's pairwise sum adds
         the same two halves last in either order, and the rows came out the same with no sort,
-        while here, without it, reversing the results changed the log loss in 32 cells."""
+        while here, without it, reversing the results changed the log loss in 24 of the 48 rows
+        and the predicted error in 8 more."""
         pool = MS.pool()
         worlds = {12: 3}
         tables = CS.axis_tables(pool, worlds)
@@ -432,6 +443,59 @@ with threadpool_limits(1):
         """The reason load_loops runs first: the same work with nothing compiled before the limit
         loads a pool the limit does not hold."""
         self.assertTrue(any(pool["threads"] > 1 for pool in self.pools("none")))
+
+
+class FreshRecords(unittest.TestCase):
+    """Each command's own work, run alone in a fresh process at a test's counts, records every
+    pool at one thread. In the test runner's own process a test run before it has compiled the
+    chain's loops and loaded scipy's BLAS outside any limit, so a limit entered later holds every
+    pool whether or not the command compiles first; a fresh process has loaded nothing, so a
+    command that entered its limit before compiling would record a pool at every thread (LoadLoops
+    shows such a pool escapes)."""
+    SCRIPT = """
+import json, sys
+sys.path.insert(0, %r)
+from schwingcheck import chain_study as CS
+quiet = lambda *a: None
+which = sys.argv[1]
+if which == "run":
+    print(json.dumps(CS.run(2, (1,))["threads"]))
+elif which == "axis":
+    print(json.dumps([p for job in CS.axis(2, (1,), {12: 1}, processes=2, log=quiet)["threads"] for p in job]))
+elif which == "speed":
+    counts = {"calls": 1, "batch": 2, "batches": 1}
+    print(json.dumps(CS.speed(2, (1,), counts, counts, log=quiet)["threads"]))
+elif which == "pymc":
+    sampling = {"widths": (3,), "fields": 1, "draws": 20, "tune": 20, "chains": 2, "batches": 2, "seed": 701}
+    print(json.dumps([p for job in CS.pymc_compare(2, sampling, processes=1, subsets=("seven",), log=quiet)["threads"]
+                      for p in job["pools"]]))
+"""
+
+    def pools(self, which):
+        import json
+        import subprocess
+        env = {k: v for k, v in os.environ.items() if k not in LoadLoops.THREADS}
+        out = subprocess.run([sys.executable, "-c", self.SCRIPT % ROOT, which], capture_output=True, text=True,
+                             check=True, env=env)
+        return json.loads(out.stdout.strip().splitlines()[-1])
+
+    def assert_one_thread(self, which):
+        pools = self.pools(which)
+        self.assertTrue(pools, which)
+        for pool in pools:
+            self.assertEqual(pool["threads"], 1, (which, pool))
+
+    def test_run(self):
+        self.assert_one_thread("run")
+
+    def test_axis_on_two_processes(self):
+        self.assert_one_thread("axis")
+
+    def test_speed(self):
+        self.assert_one_thread("speed")
+
+    def test_pymc(self):
+        self.assert_one_thread("pymc")
 
 
 class Check(unittest.TestCase):

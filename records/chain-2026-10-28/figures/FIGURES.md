@@ -7,7 +7,7 @@ Built with `python -m schwingcheck.chain_figures --outdir records/chain-2026-10-
 - Record: `records/chain-2026-10-28/speed.json`, sha256 d5651a8eaa3714da4439be526efa61ea5b40fa9687f64c19d251d4b31dc20f2e.
 - Code: `schwingcheck/figures.py`, sha256 3908d42cc8e93c839d8ddca5bf06591af281e1490d775483e20535a0908b0576.
 - Code: `schwingcheck/chain_figures.py`, sha256 97a8f7f6334b8f4325da486cecc98c9c71c4e14a687133221d44899d82a73568.
-- Code: `schwingcheck/chain_study.py`, sha256 959d9261884ede38f963f194cd900385111a94c7ec951f5b4b93b41d7a08f046.
+- Code: `schwingcheck/chain_study.py`, sha256 257ea2c4569f13c1834118c2a3b67c20402b7474f636039f6997a80d7fd80a05.
 - Python 3.12.3, numpy 2.5.4, matplotlib 3.11.2; serif type Liberation Serif, embedded in the PDF.
 - The PDFs carry no creation date, so a rebuild with the same versions gives the same files; the CSVs beside them hold every number drawn.
 

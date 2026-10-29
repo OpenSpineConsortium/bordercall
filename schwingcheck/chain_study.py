@@ -63,10 +63,12 @@ blocks inside every call, is timed beside the chain at every width on fewer call
 (REFERENCE_COUNTS). Numba's first compile in a process loads scipy's own BLAS, so `speed` compiles
 the loops before it sets the thread limit (load_loops); a loop compiled again for another array
 layout inside the limit falls in time_engine's warm-up call, and every pool's threads are recorded
-inside the limit. `run`'s first prepare_seconds hold the compile. Each measure set is timed as a
-rule cut to its measures (cut), the table, errors, powers and fields taken to those measures
-alone, as a service that reads only the seven would build it, so its loops run over seven
-measures and not over all 32 with the rest masked out.
+inside the limit. `run` and `axis` compile them the same way first, and record the pools too, so
+`run`'s prepare_seconds hold no compile (the records of commit 9d94314 were made before they did:
+chain.json says single_threaded, and its first prepare_seconds hold the compile; neither table reads
+them). Each measure set is timed as a rule cut to its measures (cut), the table, errors, powers
+and fields taken to those measures alone, as a service that reads only the seven would build it,
+so its loops run over seven measures and not over all 32 with the rest masked out.
 
 The two PyMC models of chain_pymc.py (`pymc`) are set against the exact answer on `run`'s own
 fields at three bodies, the first field of each of the first six columns of each type, so that the
@@ -74,14 +76,18 @@ exact posterior each is held to is `run`'s: model (a), the offsets sampled with 
 by pymc-extras' forward algorithm, and model (b), the chain and the offsets summed out exactly in the
 model's own marginalisation, each sampled by NUTS on a rule cut to the seven and to all 32, four
 chains of 500 draws after 500 tuning steps, on each field alone, as a service would name a field:
-six fields sampled together in one model took NUTS to trees of depth 8 on every draw, where one
-field alone takes trees of depth 3, and the build-up study found one field of twenty sampled
-together wrong with an R-hat of 1.00 (curve's NUTS table). Each field's posterior over the middle body's name
-is the draws' average of p(name | field, size), with a Monte Carlo error from ten batches of each
-chain's draws, and it is the exact one where every name is within five errors plus 0.001
-(PYMC_WITHIN), as the naming model's NUTS test holds it; beside it the largest R-hat, NUTS's
-leapfrog steps a draw, the divergences and NUTS's seconds a field. The three types run in a pool of processes, each holding
-its thread pools at one thread once load_models has loaded them, and the record lists the pools.
+in a trial before the record, the six typical fields sampled together in one model took model (a)
+with all 32 measures to trees of depth 8, 255 leapfrog steps a draw, where one field alone takes 2
+to 7, and the build-up study found one field of twenty sampled together wrong with an R-hat of 1.00
+(curve's NUTS table); model (b), and model (a) on the seven, took little more together than alone.
+Each field's posterior over the middle body's name is the draws' average of p(name | field, size),
+with a Monte Carlo error from ten batches of each chain's draws. A field is within where every name
+is within five errors plus 0.001 (PYMC_WITHIN), the bound the naming model's NUTS test puts on every
+place, and passes that test where, besides, every name the exact posterior puts above 0.05 is within
+five errors with no 0.001 beside them and the largest R-hat is below 1.02 (PYMC_RHAT), the test's
+other two checks; beside them the largest R-hat, NUTS's leapfrog steps a draw, the divergences and
+NUTS's seconds a field. The three types run in a pool of processes, each holding its thread pools
+at one thread once load_models has loaded them, and the record lists the pools.
 
 The README's tables are drawn from the records alone: their widths, the stated weights and the
 numbers of people come from the record, not from this module's constants, and `check` also holds
@@ -121,8 +127,9 @@ SPEED_COUNTS = {"calls": 30, "batch": 128, "batches": 5}
 REFERENCE_COUNTS = {"calls": 3, "batch": 16, "batches": 2}
 PYMC_MODELS = ("enumerated", "sampled")
 PYMC = {"widths": (3,), "fields": 6, "draws": 500, "tune": 500, "chains": 4, "batches": 10, "seed": 701}
-PYMC_WITHIN = (5.0, 1e-3)      # a model's posterior is the exact one where every name is within five
-                               # Monte Carlo errors plus 0.001 of it, as the naming model's NUTS test holds it
+PYMC_WITHIN = (5.0, 1e-3)      # every name within five Monte Carlo errors plus 0.001 of the exact posterior,
+                               # the bound the naming model's NUTS test puts on every place
+PYMC_RHAT = 1.02               # and the R-hat that test holds every variable below
 QUICK = {"columns": 3, "widths": (1, 3), "worlds": {12: 2, 2000: 2}, "speed_widths": (1, 3),
          "speed": {"calls": 2, "batch": 4, "batches": 1}, "reference": {"calls": 1, "batch": 2, "batches": 1},
          "pymc": {"widths": (3,), "fields": 2, "draws": 100, "tune": 100, "chains": 2, "batches": 5, "seed": 701}}
@@ -222,6 +229,7 @@ def run(n_columns: int, widths=WIDTHS) -> dict:
     pool, subsets, mu, sd, noise, power, nodes = setting()
     mu_e, sd_e = CH.extended_table(mu, sd)
     drawn = draw_all(pool, n_columns, widths)
+    load_loops(subsets, mu_e, sd_e, noise, power, nodes, drawn["typical", widths[0]][0])
     rows: List[dict] = []
     weight_rows: List[dict] = []
     setup = {}
@@ -239,11 +247,12 @@ def run(n_columns: int, widths=WIDTHS) -> dict:
                     for k, st in chain_stats(rule, drawn[kind, B], subsets, power).items():
                         weight_rows.append({"weights": name, "type": kind, "bodies": B, "subset": k,
                                             **CV.rates(st, drawn[kind, B][3])})
+        threads = CV.pools()
     return {"command": "python -m schwingcheck.chain_study run --columns %d" % n_columns, "columns_per_type": n_columns,
             "fields_per_column": PER_COLUMN, "seeds": [SEED, EXTRA_SEED, FIELD_SEED], "skip": CH.SKIP,
             "max_step": CH.MAX_STEP, "weights": CH.WEIGHTS, "widths": list(widths),
             "weight_sets": {k: dict(zip(CH.TYPES, v)) for k, v in WEIGHT_SETS.items()},
-            "prepare_seconds": setup, "single_threaded": True, "machine": CV.machine(), "versions": CV.versions(),
+            "prepare_seconds": setup, "threads": threads, "machine": CV.machine(), "versions": CV.versions(),
             **made(made_by), "rows": rows, "weight_rows": weight_rows}
 
 
@@ -270,8 +279,9 @@ def axis_tables(pool, worlds) -> List[Tuple[int, int, np.ndarray, np.ndarray]]:
 _AXIS: dict = {}
 
 
-def axis_job(job: Tuple[int, str, int]) -> Tuple[int, str, int, List[dict]]:
-    """One table, one rule and one width: the four rules on every type's fields."""
+def axis_job(job: Tuple[int, str, int]) -> Tuple[int, str, int, List[dict], List[dict]]:
+    """One table, one rule and one width: the four rules on every type's fields, and every thread
+    pool as it stood inside the limit once they had run."""
     from threadpoolctl import threadpool_limits
     i, rule, B = job
     a = _AXIS
@@ -284,7 +294,8 @@ def axis_job(job: Tuple[int, str, int]) -> Tuple[int, str, int, List[dict]]:
         for kind in CH.TYPES:
             for r in score_fields(rules, a["drawn"][kind, B], emu, esd, a["subsets"], a["noise"], a["power"], a["nodes"]):
                 out.append({"type": kind, "arm": r["arm"], "subset": r["subset"], "stats": r["stats"], "col": r["col"]})
-    return i, rule, B, out
+        threads = CV.pools()
+    return i, rule, B, out, threads
 
 
 def axis(n_columns: int, widths=WIDTHS, worlds=None, processes: int = PROCESSES, log=print) -> dict:
@@ -295,6 +306,8 @@ def axis(n_columns: int, widths=WIDTHS, worlds=None, processes: int = PROCESSES,
     tables = axis_tables(pool, worlds)
     _AXIS = {"tables": tables, "drawn": draw_all(pool, n_columns, widths), "subsets": subsets, "noise": noise,
              "power": power, "nodes": nodes}
+    mu_e, sd_e = CH.extended_table(mu, sd)
+    load_loops(subsets, mu_e, sd_e, noise, power, nodes, _AXIS["drawn"]["typical", widths[0]][0])
     jobs = sorted(((i, rule, B) for i in range(len(tables)) for rule in RULES for B in widths), key=lambda j: -j[2])
     t0 = time.time()
     if processes > 1:
@@ -303,10 +316,12 @@ def axis(n_columns: int, widths=WIDTHS, worlds=None, processes: int = PROCESSES,
     else:
         results = list(_logged(map(axis_job, jobs), len(jobs), t0, log))
     rows = axis_rows(results, tables, worlds)
-    return {"command": "python -m schwingcheck.chain_study axis --columns %d" % n_columns, "columns_per_type": n_columns,
+    threads = sorted({json.dumps(r[4], sort_keys=True) for r in results})
+    return {"command": "python -m schwingcheck.chain_study axis --columns %d --processes %d" % (n_columns, processes),
+            "columns_per_type": n_columns,
             "fields_per_column": PER_COLUMN, "seeds": [SEED, EXTRA_SEED, FIELD_SEED], "world_seed": CV.WORLD_SEED,
             "worlds": {str(k): v for k, v in worlds.items()}, "widths": list(widths), "rules": list(RULES),
-            "machine": CV.machine(), "versions": CV.versions(), **made(made_by), "rows": rows}
+            "threads": [json.loads(t) for t in threads], "machine": CV.machine(), "versions": CV.versions(), **made(made_by), "rows": rows}
 
 
 def axis_rows(results, tables, worlds) -> List[dict]:
@@ -315,7 +330,7 @@ def axis_rows(results, tables, worlds) -> List[dict]:
     loss and the predicted error summed over them, in one order whatever the order of finishing,
     and the record is made again to the bit."""
     parts: Dict[tuple, dict] = {}
-    for i, rule, B, out in sorted(results, key=lambda r: (r[0], r[1], r[2])):
+    for i, rule, B, out, _ in sorted(results, key=lambda r: (r[0], r[1], r[2])):
         people, w = tables[i][0], tables[i][1]
         for r in out:
             g = parts.setdefault((people, rule, r["type"], B, r["arm"]), {"col": [], "world": [], "stats": []})
@@ -501,7 +516,7 @@ def pymc_run(model: str, X: np.ndarray, ch: CH.Chain, pa: CH.Paths, table, t: in
             "sample_s": float(np.mean([f["sample_s"] for f in fields])),
             "gap": gap.max(1).tolist(), "gap_mcse": se[np.arange(len(X)), worst].tolist(),
             "gap_name": [CH.NAMES[w] for w in worst], "gap_in_errors": in_errors.tolist(),
-            "within": bool(within.all()), "fields_within": int(within.sum()),
+            "within": bool(within.all()), "fields_within": int(within.sum()), "within_each": within.tolist(),
             "same_name": (post.argmax(1) == exact.argmax(1)).tolist(), "exact_top": exact.max(1).tolist(),
             "model_top": post.max(1).tolist(), "rhat": [f["rhat"] for f in fields],
             "steps": [f["steps"] for f in fields], "divergences": int(sum(f["divergences"] for f in fields))}
@@ -556,10 +571,10 @@ def pymc_compare(n_columns: int = 100, sampling=None, processes: int = 3, subset
     log("pymc: %d jobs in %.0f s" % (len(jobs), time.time() - t0))
     rows = [r for out, _ in results for r in out]
     threads = [{"type": kind, "bodies": B, "pools": pools} for (kind, B), (_, pools) in zip(jobs, results)]
-    return {"command": "python -m schwingcheck.chain_study pymc", "columns_per_type": n_columns,
+    return {"command": "python -m schwingcheck.chain_study pymc --processes %d" % processes, "columns_per_type": n_columns,
             "fields_per_column": PER_COLUMN, "seeds": [SEED, EXTRA_SEED, FIELD_SEED], "subsets": list(subsets),
             "sampling": {k: list(v) if isinstance(v, tuple) else v for k, v in sampling.items()},
-            "within": list(PYMC_WITHIN), "threads": threads, "machine": CV.machine(), "versions": pymc_versions(),
+            "within": list(PYMC_WITHIN), "rhat_below": PYMC_RHAT, "threads": threads, "machine": CV.machine(), "versions": pymc_versions(),
             **made(made_by), "rows": rows}
 
 
@@ -676,30 +691,41 @@ def speed_table(record: dict) -> str:
     return "\n".join(out) + "\n"
 
 
-PYMC_DIFFER = 1e-6     # a field whose every name is within this of the exact posterior is the exact
-                       # answer to rounding, and its gap in Monte Carlo errors a ratio of two roundings
-
-
 def pymc_table(record: dict) -> str:
     """Both PyMC models against the exact answer: for each type, measure set and model, the fields,
-    those within five Monte Carlo errors plus 0.001 at every name, those named as the exact rule
-    names them, the largest gap and its Monte Carlo error, the largest gap in Monte Carlo errors
-    where the exact posterior is above 0.05 over the fields where the model differs from the exact
-    answer by PYMC_DIFFER or more somewhere (with how many those are), the largest R-hat, NUTS's
-    mean leapfrog steps a draw, the divergences and NUTS's seconds a field."""
-    head = ["Column", "Bodies", "Measures", "Model", "Fields within", "Same name", "Largest gap (MC error)",
-            "Gap in MC errors, above 0.05 (fields)", "Largest R-hat", "Steps a draw", "Divergences", "Seconds a field"]
+    those within five Monte Carlo errors plus 0.001 at every name, those that pass the naming
+    model's NUTS test (naming_test), those named as the exact rule names them, the largest gap and
+    its Monte Carlo error, the largest gap in Monte Carlo errors where the exact posterior is above
+    0.05, the largest R-hat, NUTS's mean leapfrog steps a draw, the divergences and NUTS's seconds a
+    field."""
+    head = ["Column", "Bodies", "Measures", "Model", "Fields within", "Naming test", "Same name",
+            "Largest gap (MC error)", "Gap in MC errors, above 0.05", "Largest R-hat", "Steps a draw", "Divergences",
+            "Seconds a field"]
     out = ["| " + " | ".join(head) + " |", "|---|---:|---|---|" + "---:|" * (len(head) - 4)]
     for r in record["rows"]:
         F = len(r["gap"])
         i = int(np.argmax(r["gap"]))
-        differ = [e for g, e in zip(r["gap"], r["gap_in_errors"]) if g >= PYMC_DIFFER]
-        in_errors = "%.1f (%d)" % (max(differ), len(differ)) if differ else "- (0)"
-        out.append("| %s | %d | %s | %s | %d of %d | %d of %d | %.4f (%.4f) | %s | %.3f | %.1f | %d | %s |"
+        out.append("| %s | %d | %s | %s | %d of %d | %d of %d | %d of %d | %.4f (%.4f) | %.1f | %.3f | %.1f | %d | %s |"
                    % (r["type"].replace("_", "-"), r["bodies"], r["subset"], r["model"], r["fields_within"], F,
-                      sum(r["same_name"]), F, r["gap"][i], r["gap_mcse"][i], in_errors, max(r["rhat"]),
+                      naming_test(r), F, sum(r["same_name"]), F, r["gap"][i], r["gap_mcse"][i],
+                      max(r["gap_in_errors"]), max(r["rhat"]),
                       float(np.mean(r["steps"])), r["divergences"], _ms(r["sample_s"])))
     return "\n".join(out) + "\n"
+
+
+def naming_test(row: dict) -> int:
+    """The fields of a row that pass all three checks of the naming model's NUTS test
+    (tests/test_schwingcheck_model.py): every name within PYMC_WITHIN, every name the exact
+    posterior puts above 0.05 within five Monte Carlo errors, and the largest R-hat below PYMC_RHAT.
+    A record made before pymc_run kept each field's within (commit 9d94314's) is read only where
+    every field is within, as every row of that record is."""
+    each = row.get("within_each")
+    if each is None:
+        if row["fields_within"] != len(row["gap"]):
+            raise ValueError("the row keeps no field's own within, and not every field is within")
+        each = [True] * len(row["gap"])
+    k = PYMC_WITHIN[0]
+    return sum(1 for w, e, h in zip(each, row["gap_in_errors"], row["rhat"]) if w and e <= k and h < PYMC_RHAT)
 
 
 def _ms(v: float) -> str:
