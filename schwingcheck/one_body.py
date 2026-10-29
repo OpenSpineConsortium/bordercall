@@ -31,8 +31,9 @@ archive's regimes, h_post in both), and every prefix of the build-up study's gre
 its record (CURVE_RECORD), whose seven first measures are not the seven.
 
 The size. A patient's size multiplies every length, and at one body nothing else in the field says
-what it is, so the size is what a lone body loses most against a field of several. Four rules take
-it four ways (SIZES), each on the same fields:
+what it is: the size is one of the two things a lone body loses against a field of several, beside
+the step down the column that says which name comes next. Four rules take it four ways (SIZES),
+each on the same fields:
 
 - unknown: log s ~ N(0, 0.07^2), the generator's spread, as every rule before;
 - height, model: the patient's height known and taken as covariates.CovariateModel takes it,
@@ -367,7 +368,8 @@ def run(n_columns: int = COLUMNS, processes: int = PROCESSES, log=print, order=N
     seconds = time.time() - t0
     scored = score(drawn, logev, sets, order_idx, power)
     d0 = drawn[0]
-    return {"command": "python -m schwingcheck.one_body run --columns %d" % n_columns, "columns_per_type": n_columns,
+    return {"command": "python -m schwingcheck.one_body run --columns %d --processes %d" % (n_columns, processes),
+            "columns_per_type": n_columns, "processes": processes,
             "fields_per_type": {d["kind"]: int(len(d["names"])) for d in drawn},
             "seeds": {"columns": SEED, "extra": EXTRA_SEED, "heights": HEIGHT_SEED}, "claim": CLAIM,
             "priors": {p: dict(zip(CH.NAMES, prior_over_names(p).tolist())) for p in PRIORS},
@@ -590,7 +592,7 @@ def fig_levels(record: dict, outdir: str) -> List[str]:
         ax.set_xlabel("True level")
         ax.set_ylabel(label)
         letter(ax, panel)
-    axes[0].legend(loc="lower left")
+    fig.legend(*axes[0].get_legend_handles_labels(), loc="outside lower center", ncol=4)
     name = "one_body_levels"
     return save(fig, outdir, name, CAPTIONS[name] % "{:,}".format(record["columns_per_type"])) + [write_csv(outdir, name, rows)]
 
@@ -662,7 +664,7 @@ def fig_size(record: dict, outdir: str) -> List[str]:
         ax.set_xlim(-0.4, len(sizes) - 0.6)
         ax.set_ylabel(label)
         letter(ax, panel)
-    axes[0].legend(loc="upper left")
+    fig.legend(*axes[0].get_legend_handles_labels(), loc="outside lower center", ncol=4)
     name = "one_body_size"
     return save(fig, outdir, name, CAPTIONS[name] % "{:,}".format(fields_of(record))) + [write_csv(outdir, name, rows)]
 
