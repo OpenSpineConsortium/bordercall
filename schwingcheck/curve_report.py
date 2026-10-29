@@ -6,8 +6,9 @@
 
 `table` prints the README's tables, each between the markers <!-- curve:NAME --> and
 <!-- /curve:NAME -->, and `check` says whether the README holds each as `table` prints it, so that
-every number the README gives for the study is the record's. `figures` draws as the archive's
-figures are drawn (archive/bordercall/junction_figures.py): black ink, serif type, an axis on two
+every number the README gives for the study is the record's. `figures` draws in the package's
+house format for line graphs (figures.py, the owner's default since 28 October 2026, taken from
+this study's figure of naming as the measures are added): black ink, serif type, an axis on two
 sides, no grid, no colour, the widths of the field told apart by line and marker as
 identify_figures.py sets them; each figure is written as PDF with no date inside, PNG at 300 dpi,
 the CSV of every number drawn and its caption, under sixty words, and FIGURES.md names the record
@@ -27,8 +28,6 @@ PyTensor's Numba cache.
 """
 from __future__ import annotations
 
-import csv
-import hashlib
 import json
 import math
 import os
@@ -40,18 +39,12 @@ import numpy as np
 
 from . import columns as C
 from . import table as T
+from .figures import INK, SERIF, WIDTH_STYLE, body_label, letter, save, sha256, style, write_csv
 
 README = os.path.join(T.ROOT, "schwingcheck", "README.md")
 TABLES = ("curve", "subsets", "arms", "data", "anomalous", "speed", "nuts", "floor")
 WIDTHS = (1, 3, 9)
 HEADLINE = 3                         # the width the one-width columns report, as the archive's figures do
-INK = "#000000"
-SERIF = ["Liberation Serif", "Times New Roman", "Nimbus Roman", "DejaVu Serif"]
-PNG_DPI = 300
-WIDTH_STYLE = {1: dict(linestyle=":", marker="^", markerfacecolor="white"),
-               3: dict(linestyle="--", marker="s", markerfacecolor="white"),
-               5: dict(linestyle="-", marker="o", markerfacecolor="white"),
-               9: dict(linestyle="-", marker="o", markerfacecolor=INK)}
 ENGINE_NAME = {"numpy-trapezoid": "rule.py, trapezoid", "numpy-gauss-hermite": "rule.py, Gauss-Hermite",
                "pytensor-trapezoid": "compiled rule, trapezoid"}
 ENGINE_STYLE = {"numpy-trapezoid": dict(linestyle="-", marker="o", markerfacecolor=INK),
@@ -719,62 +712,6 @@ def check_readme(tree, readme: Optional[str] = None) -> List[str]:
 
 # ---- the figures ----------------------------------------------------------------------------
 
-def style():
-    import matplotlib
-    matplotlib.use("Agg")
-    import matplotlib.pyplot as plt
-    plt.rcParams.update({
-        "pdf.fonttype": 42, "ps.fonttype": 42,
-        "font.family": "serif", "font.serif": SERIF, "font.size": 9.5, "mathtext.fontset": "dejavuserif",
-        "text.color": INK, "axes.edgecolor": INK, "axes.labelcolor": INK, "axes.linewidth": 0.8,
-        "axes.titlesize": 9.5, "axes.titleweight": "normal", "axes.labelsize": 9,
-        "xtick.color": INK, "ytick.color": INK, "xtick.direction": "out", "ytick.direction": "out",
-        "xtick.major.width": 0.8, "ytick.major.width": 0.8, "xtick.major.size": 3.5, "ytick.major.size": 3.5,
-        "xtick.labelsize": 8, "ytick.labelsize": 8,
-        "axes.spines.top": False, "axes.spines.right": False, "axes.grid": False,
-        "legend.frameon": True, "legend.edgecolor": INK, "legend.fancybox": False, "legend.framealpha": 1.0,
-        "legend.fontsize": 7.5, "legend.title_fontsize": 7.5,
-        "lines.linewidth": 1.1, "lines.markersize": 4.5, "lines.markeredgewidth": 0.9, "lines.color": INK,
-        "errorbar.capsize": 2.5, "figure.dpi": 100, "savefig.dpi": PNG_DPI,
-        "axes.prop_cycle": matplotlib.cycler(color=[INK]),
-    })
-    return plt
-
-
-def letter(ax, text: str, title: str = ""):
-    ax.annotate(text, xy=(0, 1), xycoords="axes fraction", xytext=(-6, 5), textcoords="offset points",
-                fontsize=12, fontweight="bold", ha="left", va="bottom")
-    if title:
-        ax.annotate(title, xy=(0, 1), xycoords="axes fraction", xytext=(10, 5), textcoords="offset points",
-                    fontsize=9, ha="left", va="bottom")
-
-
-def body_label(n: int) -> str:
-    return "%d bod%s" % (n, "y" if n == 1 else "ies")
-
-
-def save(fig, outdir: str, name: str, caption: str) -> List[str]:
-    import matplotlib.pyplot as plt
-    paths = [os.path.join(outdir, name + ".pdf"), os.path.join(outdir, name + ".png")]
-    fig.savefig(paths[0], bbox_inches="tight", facecolor="white", metadata={"CreationDate": None, "ModDate": None})
-    fig.savefig(paths[1], bbox_inches="tight", facecolor="white")
-    plt.close(fig)
-    p = os.path.join(outdir, name + ".caption.txt")
-    with open(p, "w", encoding="ascii", newline="\n") as fh:
-        fh.write(caption.strip() + "\n")
-    return paths + [p]
-
-
-def write_csv(outdir: str, name: str, rows: List[dict]) -> str:
-    path = os.path.join(outdir, name + ".csv")
-    with open(path, "w", encoding="ascii", newline="") as fh:
-        w = csv.DictWriter(fh, fieldnames=list(rows[0]), lineterminator="\n")
-        w.writeheader()
-        for r in rows:
-            w.writerow({k: format(v, ".6g") if isinstance(v, float) else v for k, v in r.items()})
-    return path
-
-
 PRECISION_DRAWN = 1000      # the fields named at 0.99 that a share right must rest on to be drawn
 
 
@@ -897,14 +834,6 @@ def fig_data(tree, outdir: str) -> List[str]:
     return save(fig, outdir, name, CAPTIONS[name]) + [write_csv(outdir, name, rows)]
 
 
-def sha256(path: str) -> str:
-    h = hashlib.sha256()
-    with open(path, "rb") as fh:
-        for chunk in iter(lambda: fh.read(1 << 16), b""):
-            h.update(chunk)
-    return h.hexdigest()
-
-
 def write_figures_md(outdir: str, record: str, written: List[str]) -> str:
     import matplotlib
     here = os.path.dirname(os.path.abspath(__file__))
@@ -912,7 +841,7 @@ def write_figures_md(outdir: str, record: str, written: List[str]) -> str:
              "Built with `python -m schwingcheck curve figures --record %s --outdir %s`."
              % (os.path.relpath(record, T.ROOT), os.path.relpath(outdir, T.ROOT)), "",
              "- Record: `%s`, sha256 %s." % (os.path.relpath(record, T.ROOT), sha256(record))]
-    for name in ("curve_report.py", "curve.py"):
+    for name in ("figures.py", "curve_report.py", "curve.py"):
         lines.append("- Code: `schwingcheck/%s`, sha256 %s." % (name, sha256(os.path.join(here, name))))
     lines += ["- Python %s, numpy %s, matplotlib %s; serif type %s, embedded in the PDF."
               % (platform.python_version(), np.__version__, matplotlib.__version__, SERIF[0]),

@@ -1,0 +1,97 @@
+panel,type,rule,bodies,stat,percent,fields,drawn
+A,typical,consecutive,1,named at 0.99,42,200,yes
+D,typical,consecutive,1,right of those,100,84,yes
+A,typical,consecutive,3,named at 0.99,80.5,200,yes
+D,typical,consecutive,3,right of those,94.4099,161,yes
+A,typical,consecutive,5,named at 0.99,92.5,200,yes
+D,typical,consecutive,5,right of those,88.6486,185,yes
+A,typical,consecutive,9,named at 0.99,94.5,200,yes
+D,typical,consecutive,9,right of those,75.1323,189,yes
+A,typical,gaps,1,named at 0.99,42,200,yes
+D,typical,gaps,1,right of those,100,84,yes
+A,typical,gaps,3,named at 0.99,75.5,200,yes
+D,typical,gaps,3,right of those,100,151,yes
+A,typical,gaps,5,named at 0.99,83.5,200,yes
+D,typical,gaps,5,right of those,100,167,yes
+A,typical,gaps,9,named at 0.99,88.5,200,yes
+D,typical,gaps,9,right of those,99.435,177,yes
+A,typical,chain,1,named at 0.99,38.5,200,yes
+D,typical,chain,1,right of those,100,77,yes
+A,typical,chain,3,named at 0.99,75,200,yes
+D,typical,chain,3,right of those,100,150,yes
+A,typical,chain,5,named at 0.99,83.5,200,yes
+D,typical,chain,5,right of those,100,167,yes
+A,typical,chain,9,named at 0.99,88.5,200,yes
+D,typical,chain,9,right of those,99.435,177,yes
+A,typical,known gaps,1,named at 0.99,42,200,yes
+D,typical,known gaps,1,right of those,100,84,yes
+A,typical,known gaps,3,named at 0.99,86.5,200,yes
+D,typical,known gaps,3,right of those,100,173,yes
+A,typical,known gaps,5,named at 0.99,99,200,yes
+D,typical,known gaps,5,right of those,100,198,yes
+A,typical,known gaps,9,named at 0.99,100,200,yes
+D,typical,known gaps,9,right of those,100,200,yes
+B,six_lumbar,consecutive,1,named at 0.99,56.5,200,yes
+E,six_lumbar,consecutive,1,right of those,92.9204,113,yes
+B,six_lumbar,consecutive,3,named at 0.99,82.5,200,yes
+E,six_lumbar,consecutive,3,right of those,90.303,165,yes
+B,six_lumbar,consecutive,5,named at 0.99,88,200,yes
+E,six_lumbar,consecutive,5,right of those,86.9318,176,yes
+B,six_lumbar,consecutive,9,named at 0.99,97.5,200,yes
+E,six_lumbar,consecutive,9,right of those,73.8462,195,yes
+B,six_lumbar,gaps,1,named at 0.99,56.5,200,yes
+E,six_lumbar,gaps,1,right of those,92.9204,113,yes
+B,six_lumbar,gaps,3,named at 0.99,79,200,yes
+E,six_lumbar,gaps,3,right of those,96.2025,158,yes
+B,six_lumbar,gaps,5,named at 0.99,83.5,200,yes
+E,six_lumbar,gaps,5,right of those,96.4072,167,yes
+B,six_lumbar,gaps,9,named at 0.99,85,200,yes
+E,six_lumbar,gaps,9,right of those,95.8824,170,yes
+B,six_lumbar,chain,1,named at 0.99,48.5,200,yes
+E,six_lumbar,chain,1,right of those,100,97,yes
+B,six_lumbar,chain,3,named at 0.99,79,200,yes
+E,six_lumbar,chain,3,right of those,99.3671,158,yes
+B,six_lumbar,chain,5,named at 0.99,83,200,yes
+E,six_lumbar,chain,5,right of those,100,166,yes
+B,six_lumbar,chain,9,named at 0.99,84,200,yes
+E,six_lumbar,chain,9,right of those,100,168,yes
+B,six_lumbar,known gaps,1,named at 0.99,56.5,200,yes
+E,six_lumbar,known gaps,1,right of those,92.9204,113,yes
+B,six_lumbar,known gaps,3,named at 0.99,88,200,yes
+E,six_lumbar,known gaps,3,right of those,96.5909,176,yes
+B,six_lumbar,known gaps,5,named at 0.99,99,200,yes
+E,six_lumbar,known gaps,5,right of those,95.9596,198,yes
+B,six_lumbar,known gaps,9,named at 0.99,100,200,yes
+E,six_lumbar,known gaps,9,right of those,91,200,yes
+C,t13,consecutive,1,named at 0.99,48,200,yes
+F,t13,consecutive,1,right of those,95.8333,96,yes
+C,t13,consecutive,3,named at 0.99,75,200,yes
+F,t13,consecutive,3,right of those,92,150,yes
+C,t13,consecutive,5,named at 0.99,92,200,yes
+F,t13,consecutive,5,right of those,78.8043,184,yes
+C,t13,consecutive,9,named at 0.99,95,200,yes
+F,t13,consecutive,9,right of those,72.1053,190,yes
+C,t13,gaps,1,named at 0.99,48,200,yes
+F,t13,gaps,1,right of those,95.8333,96,yes
+C,t13,gaps,3,named at 0.99,73,200,yes
+F,t13,gaps,3,right of those,94.5205,146,yes
+C,t13,gaps,5,named at 0.99,81,200,yes
+F,t13,gaps,5,right of those,90.1235,162,yes
+C,t13,gaps,9,named at 0.99,83,200,yes
+F,t13,gaps,9,right of those,90.9639,166,yes
+C,t13,chain,1,named at 0.99,43.5,200,yes
+F,t13,chain,1,right of those,100,87,yes
+C,t13,chain,3,named at 0.99,73,200,yes
+F,t13,chain,3,right of those,100,146,yes
+C,t13,chain,5,named at 0.99,79,200,yes
+F,t13,chain,5,right of those,99.3671,158,yes
+C,t13,chain,9,named at 0.99,84.5,200,yes
+F,t13,chain,9,right of those,100,169,yes
+C,t13,known gaps,1,named at 0.99,48,200,yes
+F,t13,known gaps,1,right of those,95.8333,96,yes
+C,t13,known gaps,3,named at 0.99,83.5,200,yes
+F,t13,known gaps,3,right of those,96.4072,167,yes
+C,t13,known gaps,5,named at 0.99,95.5,200,yes
+F,t13,known gaps,5,right of those,94.2408,191,yes
+C,t13,known gaps,9,named at 0.99,97.5,200,yes
+F,t13,known gaps,9,right of those,91.2821,195,yes

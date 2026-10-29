@@ -1331,7 +1331,7 @@ class CommittedRecord(unittest.TestCase):
         with open(os.path.join(FIGURES, "FIGURES.md"), encoding="ascii") as fh:
             said = fh.read()
         self.assertIn("sha256 %s." % sha256(RECORD), said)
-        for name in ("curve_report.py", "curve.py"):
+        for name in ("figures.py", "curve_report.py", "curve.py"):
             self.assertIn("`schwingcheck/%s`, sha256 %s." % (name, sha256(os.path.join(ROOT, "schwingcheck", name))), said)
         with tempfile.TemporaryDirectory() as tmp:
             drawn = sorted(os.path.basename(p) for p in CR.draw_figures(self.tree, tmp))
