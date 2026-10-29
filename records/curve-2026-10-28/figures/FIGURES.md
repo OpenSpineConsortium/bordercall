@@ -5,7 +5,7 @@ Built with `python -m schwingcheck curve figures --record records/curve-2026-10-
 - Record: `records/curve-2026-10-28/curve.nc`, sha256 c4d0cc979da8454609c19a2c7337c7eed1723d0a654c02cbe8536fd0f5167672.
 - Code: `schwingcheck/figures.py`, sha256 3908d42cc8e93c839d8ddca5bf06591af281e1490d775483e20535a0908b0576.
 - Code: `schwingcheck/curve_report.py`, sha256 f2200663f286e3a113a15c441e179a40d59a1a4384241ab63520c0d3f084cdd0.
-- Code: `schwingcheck/curve.py`, sha256 d2a36049dc5e5f4d3a1563e07e208d2b3d6e93fd302ea3f7868286c85d97b4e4.
+- Code: `schwingcheck/curve.py`, sha256 2c5c6e8373cab26bca14ff0aff3185971c2cde1a292b145d4b40da037965ab30.
 - Python 3.12.3, numpy 2.5.4, matplotlib 3.11.2; serif type Liberation Serif, embedded in the PDF.
 - The PDFs carry no creation date, so a rebuild with the same versions gives the same files; the CSVs beside them hold every number drawn.
 
