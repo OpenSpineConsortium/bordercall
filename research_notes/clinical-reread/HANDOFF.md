@@ -66,3 +66,51 @@ archive/bordercall/reference/papers/. A new project starts with empty files, so:
   makino2012, eisenstein1977, tan2004 and chen2011. Springer answers a script with a JavaScript challenge, which is
   never passed, and PMC's terms leave its non-open-access papers to a person.
 - Check every file against tools/PAPERS.sha256 before reading it; the notes cite pages of exactly those bytes.
+
+## Since: the checkpoint of 2026-10-29 00:40 UTC
+
+Source: thread "Finish the clinical reread", project symphony_4. The owner called a checkpoint at 00:38 UTC with his
+usage nearly gone; this is where the next account starts. Everything below is on branch claude/project-thread-ljtlt9,
+draft pull request 24, which supersedes 21.
+
+Done:
+
+- Step 1: the four drafted notes were checked by a second reader (commit 5edfd82); all 43 notes now have records.
+- The papers: all 44 PDFs are in [papers/](papers/README.md), each matching tools/PAPERS.sha256 (the owner's word of
+  00:33 UTC asked for them in git). Nothing needs fetching or uploading.
+- Step 5, the whole tables: every table of the 39 papers besides Panjabi's was read twice blind, reconciled on the page
+  image and mapped to schwingcheck's measures with a second reader, Tan 2004, Busscher 2010, Lien 2007 and Kunkel 2011
+  among them; Griffith 2016's and Busscher 2010's second-reader checks finished last and are in. The data are
+  ../paper-tables/data/ (readings, cohorts, series.csv; commit d22cbd1), and ../paper-tables/README.md says how they
+  were made.
+- The cadaver-power note's counts were redone on spine-program #241's corrected tables (../cadaver-power/README.md).
+
+Started, not finished, in the order to take them:
+
+1. **The comparison with Panjabi.** The full run was stopped part way; rerun it from the repository root in a Python
+   with schwingcheck's requirements:
+   `python research_notes/paper-tables/tools/cross_naming.py research_notes/paper-tables/data/series.csv research_notes/paper-tables/data/cross_naming.json --fields 200 --processes 4 --cohorts research_notes/paper-tables/data/cohorts --leave-out endplate_incl,endplate_lower_incl`
+   (a two-field smoke run took 4 s; 200 fields ran over 8 minutes on 4 processes without finishing). It prints a
+   RuntimeWarning at its line 181 where a pool has one zero-variance member; check the record for NaN before use.
+   Then `python research_notes/paper-tables/tools/results.py research_notes/paper-tables/data research_notes/paper-tables/data/cross_naming.json research_notes/clinical-reread/notes research_notes/paper-tables/results`
+   writes the evaluation as markdown with its figures and CSVs. It ran clean on the smoke record; two things to fix
+   first: in transport.png panel A is drawn far wider than B and C (the panel widths), and the sharing table repeats a
+   row where a paper states the same sharing twice (duman2026, mitra2002). Pig cohorts (Busscher, van der Houwen) are
+   already marked species pig in the cohorts files and left out.
+2. **Panjabi's end-plate inclinations.** The verdict is ../panjabi-endplate-inclination.md, a draft: one reader, checked
+   on the page images; its skeptic and revision were stopped. Its recommendation is to drop endplate_incl and
+   endplate_lower_incl from the pool for now (the comparison above already leaves them out) and later take Tan 2004's
+   whole C3 to L5 series. Give the note to a second reader told to refute it, then tell whoever holds bordercall pull
+   request 20 (the chain of levels). The page renders it cites are not kept (no page image goes in git); render them
+   again from papers/.
+3. **The synthesis.** Its four parts are drafted in [synthesis-draft/](synthesis-draft/README.md); the integration into
+   SYNTHESIS.md and both critics did not run. Run tools/synthesis.js from its integrate step with the four parts as
+   input, then the critics, then step 3 above (the anomaly priors to pull request 20's holder).
+4. **The evaluation Claude Doc** (claude.ai/artifact/RF7zs7UAEGwE4ZMaQWtn8F, the owner's): its later sections are still
+   placeholders. Fill them from paper-tables/results/README.md once step 1 has run; the markdown in git is the record,
+   the doc a view of it.
+5. Still waiting for the owner, unchanged: the "embalmed" correction in the archive (step 4 above).
+
+Elsewhere: the chain thread's speed record is bordercall records/chain-2026-10-28/speed.json on branch
+claude/project-thread-tkihxo (draft pull request 23, commit 30887cb); its re-timing on a quiet machine is left to the
+next account too.
