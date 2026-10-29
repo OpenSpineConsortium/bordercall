@@ -9,13 +9,17 @@ give a share and its error as a hand count does, and the Rao-Blackwellised poste
 the place's conditional. Draws of log s made independently from its exact posterior have its mean
 and SD, and the spread rows' posteriors are the exact posterior. A quick run gives every row its
 tables read, the proportional proposal stops on a place all but certain and says why, the summed-out
-model's averaged posterior is the exact one within its errors, each proposal on a bare place gives
-the law its transition matrix leaves stationary, check finds a stale or missing table, and the
-figures drawn twice are the same files. Liu's Metropolised Gibbs and the uniform proposal leave a
-place's law stationary, and PyMC's proportional proposal, as its code computes the acceptance,
-another law, or none on two places, where it never moves. The committed record: the README carries its
-tables, it was made by committed code that did not change while it ran, and every claim the README
-makes of it holds on its rows.
+model's averaged posterior is the exact one within its errors, outright where its chains agree and
+flagged by R-hat where one sat in a far mode, each proposal on a bare place gives the law its
+transition matrix leaves stationary, or never moves where it has none, check finds a stale or
+missing table, and the figures drawn twice are the same files. Liu's Metropolised Gibbs and the uniform proposal leave a
+place's law stationary, and PyMC's proportional proposal, as its code computes the acceptance with
+its own rounding, another law, or on two places none, at 0.5 and 0.5, where it never moves, or each
+place half, at 0.89 and 0.11, where it swaps at every step. The closed form's interval reads the
+distribution function at the nodes. The committed record: the README carries its tables, it was made
+by committed code that did not change while it ran, ArviZ's own trace and forest ran on its draws,
+and the claims the README makes of it that the tests below name hold on its rows at the README's own
+bounds.
 """
 from __future__ import annotations
 
@@ -80,19 +84,26 @@ class FreeLevel(unittest.TestCase):
             self.assertAlmostEqual(got, want, places=8, msg="place %d" % k)
 
     def test_with_the_offsets_integrated_out_it_is_the_rules_likelihood(self):
+        """place_loglik's density, which the first test ties to free_level's, integrated over each
+        measure's offset by Gauss-Hermite quadrature at a fixed size, is rule.loglik's log likelihood
+        of that measure at that place and size; a measure's offset reaches no other measure, so the
+        field is read one measure at a time."""
         x, truth, mu, sd, noise, power = field()
         hyp = K.hypotheses(len(LEVELS), [[0, 1, 2]])
-        rho = float(R.SYNTH["rho"])
         s = 1.04
         LL = R.loglik(x, [0, 1, 2], mu, sd, R.SYNTH, sizes=np.array([s]), noise=noise, power=power)[0, :, :, 0]
         self.assertEqual(LL.shape, (len(hyp), x.shape[1]))
+        nodes, weights = np.polynomial.hermite_e.hermegauss(60)
+        log_w = np.log(weights) - 0.5 * math.log(2 * math.pi)                     # the standard normal's weights
         for k in (0, truth, len(hyp) - 1):
             for mi in range(x.shape[1]):
-                sm = s ** power[mi]
-                v = sd[mi, hyp.levels[k]]
-                cov = (sm * rho) ** 2 * np.outer(v, v) + np.diag(sm * sm * (1 - rho * rho) * v * v + noise[mi] ** 2)
-                want = mvn_logpdf(x[0, mi], sm * mu[mi, hyp.levels[k]], cov)
-                self.assertAlmostEqual(LL[k, mi], want, places=8, msg="place %d, measure %d" % (k, mi))
+                one = np.full_like(x, np.nan)
+                one[0, mi] = x[0, mi]
+                z = np.zeros((len(nodes), x.shape[1]))
+                z[:, mi] = nodes
+                ll = FK.place_loglik(np.full(len(nodes), math.log(s)), z, one, hyp, mu, sd, noise, power)[:, k]
+                self.assertAlmostEqual(float(np.logaddexp.reduce(ll + log_w)), LL[k, mi], places=8,
+                                       msg="place %d, measure %d" % (k, mi))
 
 
 class Helpers(unittest.TestCase):
@@ -129,22 +140,73 @@ class Kernels(unittest.TestCase):
                 np.testing.assert_allclose(T.sum(1), 1.0, atol=1e-12)
                 np.testing.assert_allclose(FK.stationary(T), p, atol=1e-9)
 
-    def test_pymcs_proportional_proposal_leaves_another_law_or_none(self):
-        np.testing.assert_allclose(FK.proposal_kernel((0.89, 0.11), "proportional"), np.eye(2))
-        self.assertIsNone(FK.stationary(FK.proposal_kernel((0.89, 0.11), "proportional")))
+    def test_pymcs_proportional_proposal_leaves_another_law_or_on_two_places_none_or_half(self):
+        """With PyMC's own rounding: at 0.5 and 0.5 the ratio divides by zero and the chain never
+        moves, so no one law; at 0.89 and 0.11 the ratio is finite and large both ways, so the chain
+        swaps at every step and its law is each place half; on three places another law than p."""
+        np.testing.assert_allclose(FK.proposal_kernel((0.5, 0.5), "proportional"), np.eye(2))
+        self.assertIsNone(FK.stationary(FK.proposal_kernel((0.5, 0.5), "proportional")))
+        swap = FK.proposal_kernel((0.89, 0.11), "proportional")
+        np.testing.assert_allclose(swap, [[0.0, 1.0], [1.0, 0.0]], atol=1e-12)
+        np.testing.assert_allclose(FK.stationary(swap), [0.5, 0.5], atol=1e-12)
         pi = FK.stationary(FK.proposal_kernel((0.6, 0.3, 0.1), "proportional"))
         self.assertGreater(np.abs(pi - (0.6, 0.3, 0.1)).max(), 0.1)
         self.assertTrue(np.all(FK.proposal_kernel((0.889, 0.11, 0.001), "proportional") >= 0))
 
+    def test_the_bare_log_density_is_pymcs_and_its_softmax_rounds_as_pymc_does(self):
+        """bare_log_density is log p from PyMC's compiled Categorical, and the kernel from it is the
+        kernel from any log density that softmaxes to the same probabilities; p / p.sum() rounds
+        the other way at 0.89 and 0.11, where it gives the identity."""
+        p = (0.89, 0.11)
+        ld = FK.bare_log_density(p)
+        np.testing.assert_allclose(np.exp(ld), p, rtol=1e-12)
+        np.testing.assert_allclose(FK.proposal_kernel(p, "proportional", log_density=ld + 3.0),
+                                   FK.proposal_kernel(p, "proportional"), atol=0)
+        from scipy import special
+        soft = special.softmax(ld)
+        np.testing.assert_allclose(soft, p, rtol=1e-14)
+        q = np.asarray(p) / np.sum(p)
+        self.assertLess(soft[1] / (1.0 - soft[0]), 1.0)                 # PyMC's rounding: a finite ratio, the swap
+        self.assertGreater(q[1] / (1.0 - q[0]), 1.0)                    # the plain division's: a negative one, no move
+
+
+def example_field():
+    """The README's example field, T11 to L1 with the seven, whose places T11 and T10 share the
+    posterior, so that the size's posterior with the places summed out is not the top place's."""
+    from schwingcheck import measures as MS
+    from schwingcheck.__main__ import read_field
+    x, _ = read_field(FK.EXAMPLE, list(MS.SPINEPS_7))
+    mu, sd, noise, power, keys, idx = FK.cut("seven")
+    return x, mu, sd, noise, power
+
 
 class ExactDraws(unittest.TestCase):
     def test_they_have_the_exact_posteriors_mean_and_sd(self):
-        x, truth, mu, sd, noise, power = field()
+        """On the example field, where two places are likely: the draws' mean and SD are the
+        summed-out posterior's and not the top place's conditional's, which lies more than the
+        bounds away."""
+        x, mu, sd, noise, power = example_field()
         t, joint, _ = FK.size_posterior(x, 3, mu, sd, noise, power, step=FK.SAMPLER_STEP)
         g = FK.grid_summary(t, joint.sum(0))
+        top = FK.grid_summary(t, joint[int(np.argmax(joint.sum(1)))])
         d = FK.exact_draws(x, 3, mu, sd, noise, power, (4, 50000), np.random.default_rng(1))
         self.assertLess(abs(d.mean() - g["mean"]), 4 * g["sd"] / math.sqrt(d.size))
         self.assertLess(abs(d.std() / g["sd"] - 1), 0.02)
+        self.assertGreater(abs(top["mean"] - g["mean"]), 4 * g["sd"] / math.sqrt(d.size))
+        self.assertGreater(abs(top["sd"] / g["sd"] - 1), 0.02)
+
+    def test_the_grid_summarys_interval_is_the_distribution_functions_at_the_nodes(self):
+        """A normal density on a grid: the 89% interval is the normal's within a hundredth of a step
+        where the cumulative sum alone would put it half a step low."""
+        from scipy import stats
+        step = 0.004
+        t = np.arange(-0.4, 0.4 + step / 2, step)
+        p = stats.norm.pdf(t, 0.01, 0.07)
+        g = FK.grid_summary(t, p)
+        want = stats.norm.ppf([0.055, 0.945], 0.01, 0.07)
+        np.testing.assert_allclose(g["eti89"], want, atol=step / 20)
+        low = [np.interp(q, np.cumsum(p / p.sum()), t) for q in (0.055, 0.945)]
+        np.testing.assert_allclose(np.subtract(want, low), step / 2, atol=step / 20)
 
     def test_the_spread_rows_posteriors_are_the_exact_posterior(self):
         x, truth, mu, sd, noise, power = field()
@@ -197,11 +259,15 @@ class Quick(unittest.TestCase):
 
     def test_the_known_runs_closed_form_is_a_density_of_log_s(self):
         for run in self.record["known"]:
+            self.assertGreaterEqual(run["arviz_plots"]["plot_trace_axes"], 2)       # ArviZ's own plots ran on the draws
+            self.assertGreaterEqual(run["arviz_plots"]["plot_forest_axes"], 1)
             for row in run["fields"]:
                 d = row["exact"]["density"]
                 self.assertAlmostEqual(sum(d["mass"]), 1.0, delta=1e-6)
                 self.assertLess(row["exact"]["eti89"][0], row["exact"]["mean"])
                 self.assertLess(row["exact"]["mean"], row["exact"]["eti89"][1])
+                t, p = np.asarray(d["log_s"]), np.asarray(d["mass"])
+                np.testing.assert_allclose(row["exact"]["eti89"], FK.grid_summary(t, p)["eti89"], atol=1e-6)
 
     def test_the_proportional_proposal_stops_where_the_place_is_certain(self):
         for row in self.record["sharp"]:
@@ -223,14 +289,31 @@ class Quick(unittest.TestCase):
             if law is not None:
                 self.assertTrue(np.all(np.abs(share - law) <= 5 * se + 0.05), (r["probs"], r["how"], share))
             else:
-                self.assertIn(r["switch"], (0.0, 1.0), r["probs"])
+                self.assertEqual(r["switch"], 0.0, r["probs"])              # the kernel is the identity: the chain never moved
+                self.assertTrue(all(c in (0.0, 1.0) for c in r["chain_first"]), r["probs"])
+        swap = [r for r in rows if r["how"] == "proportional" and tuple(r["probs"]) == (0.89, 0.11)]
+        self.assertEqual(len(swap), 1)
+        self.assertEqual(swap[0]["switch"], 1.0)
+        np.testing.assert_allclose(swap[0]["kernel_stationary"], [0.5, 0.5], atol=1e-12)
 
-    def test_the_averaged_posterior_is_exact_within_its_errors(self):
+    def test_the_averaged_posterior_is_exact_within_its_errors_and_a_stuck_chain_is_flagged(self):
+        """On every quick free field the summed-out model's averaged posterior is the exact one
+        within five of its errors plus 0.001; where its chains agree at the top place (R-hat below
+        1.1) it is within 0.1 of the exact one outright, and at least one field is such; and where
+        it is off by more than 0.1, a chain sat in a far mode and R-hat at the top place says so."""
+        agreeing = 0
         for row in self.record["free"]:
             m = [x for x in row["runs"] if x["how"] == "marginal"][0]
             self.assertNotIn("error", m)
             self.assertAlmostEqual(sum(m["rb"]), 1.0, places=9)
-            self.assertAlmostEqual(sum(row["exact"]), 1.0, places=9)
+            self.assertTrue(m["rb_within"], (row["field"], m["rb_gap"], m["rb_se"]))
+            self.assertAlmostEqual(m["rb_gap"], float(np.abs(np.subtract(m["rb"], row["exact"])).max()), places=12)
+            if m["rhat_top"] < 1.1:
+                agreeing += 1
+                self.assertLess(m["rb_gap"], 0.1, (row["field"], m["rb_gap"]))
+            if m["rb_gap"] > 0.1:
+                self.assertGreater(m["rhat_top"], 1.1, (row["field"], m["rb_gap"]))
+        self.assertGreaterEqual(agreeing, 1)
 
     def test_the_tables_read_the_rows(self):
         self.assertEqual(sorted(self.tables),

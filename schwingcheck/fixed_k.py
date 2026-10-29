@@ -27,9 +27,9 @@ every measure of the pool for the same patients and cut to the seven SPINEPS mea
 
 The proposal on a bare place: the same two proposals on a Categorical alone, its probabilities
 fixed (run_categorical), sampled by PyMC and set beside the stationary law of each proposal's
-transition matrix written out (proposal_kernel): PyMC's proportional proposal leaves a law other
-than the place's own stationary, or none, and Liu's, accepted by the whole probabilities, leaves the
-place's own.
+transition matrix written out (proposal_kernel), with PyMC's own rounding: PyMC's proportional
+proposal leaves a law other than the place's own stationary, or, on two places, none or each place
+half, and Liu's, accepted by the whole probabilities, leaves the place's own.
 
 The far tail: the naming model's estimate of a place's posterior below 0.001 tends to run low
 (README, The naming model). The same estimator, model.hypothesis_posterior's average over the
@@ -226,10 +226,12 @@ def nuts_stats(idata) -> dict:
 
 def grid_summary(t: np.ndarray, p: np.ndarray) -> dict:
     """The mean, the SD and the 89% equal-tailed interval of a density p on the grid t, the
-    interval az.summary(kind="stats") gives."""
+    interval az.summary(kind="stats") gives. Each node's mass stands for the step around it, so the
+    distribution function at a node is the mass below it and half its own; the cumulative sum
+    alone, which counts the whole node, would put each quantile half a step low."""
     p = p / p.sum()
     mean = float((p * t).sum())
-    cdf = np.cumsum(p)
+    cdf = np.cumsum(p) - 0.5 * p
     return {"mean": mean, "sd": float(math.sqrt((p * (t - mean) ** 2).sum())),
             "eti89": [float(np.interp(0.055, cdf, t)), float(np.interp(0.945, cdf, t))]}
 
@@ -252,6 +254,7 @@ def run_known(n_columns: int, spec: dict, sampling: dict):
         stats = az.summary(idata, var_names=["log_s"], kind="stats", round_to="none")
         diag = az.summary(idata, var_names=["log_s"], kind="diagnostics", round_to="none")
         beta = az.summary(idata, var_names=["beta_height"], kind="all", round_to="none")
+        plots = arviz_plots(idata)
         rows = []
         for i, f in enumerate(pick):
             t, joint, _ = size_posterior(Xs[i:i + 1], spec["bodies"], mu, sd, noise, power)
@@ -270,9 +273,24 @@ def run_known(n_columns: int, spec: dict, sampling: dict):
         out.append({"set": which, "measures": len(idx), "bodies": spec["bodies"], "fields": rows,
                     "beta_height": {"mean": float(beta["mean"].iloc[0]), "sd": float(beta["sd"].iloc[0]),
                                     "r_hat": float(beta["r_hat"].iloc[0])},
-                    "summary_columns": [str(c) for c in stats.columns], **nuts_stats(idata)})
+                    "summary_columns": [str(c) for c in stats.columns], "arviz_plots": plots, **nuts_stats(idata)})
         draws[which] = known_draws(idata)
     return out, draws
+
+
+def arviz_plots(idata) -> Dict[str, int]:
+    """az.plot_trace and az.plot_forest run on the draws as they stand, the panels each drew counted
+    and the figures closed: the record's word that ArviZ's own plots read a fixed-level run."""
+    import arviz as az
+    from .figures import style
+    plt = style()
+    plt.close("all")
+    out = {}
+    for name, draw in (("plot_trace", az.plot_trace), ("plot_forest", az.plot_forest)):
+        draw(idata, var_names=["log_s"])
+        out[name + "_axes"] = int(sum(len(plt.figure(n).axes) for n in plt.get_fignums()))
+        plt.close("all")
+    return out
 
 
 def known_draws(idata):
@@ -424,20 +442,37 @@ def run_sharp(n_columns: int, spec: dict, sampling: dict) -> List[dict]:
 
 # ---- the proposal on a bare place --------------------------------------------------------------
 
-def proposal_kernel(p: Sequence[float], how: str) -> np.ndarray:
+def bare_log_density(p: Sequence[float]) -> np.ndarray:
+    """log p(place = c) for each value c as PyMC's compiled log density of a Categorical of
+    probabilities p gives it, the numbers metropolis_proportional takes the softmax of."""
+    import pymc as pm
+    with pm.Model() as m:
+        pm.Categorical("place", p=np.asarray(p, float))
+    logp = m.compile_logp()
+    return np.array([float(logp({"place": c})) for c in range(len(p))])
+
+
+def proposal_kernel(p: Sequence[float], how: str, log_density: Optional[np.ndarray] = None) -> np.ndarray:
     """The transition matrix of one step of CategoricalGibbsMetropolis on a place whose probabilities
     are p, held fixed. 'uniform', PyMC's default (astep_unif), proposes one of the other places
     uniformly and accepts it with min(1, p_j / p_i). 'proportional' proposes another place j with
     p_j / (1 - p_i) and accepts it with min(1, r), r = (1 - p_i) / (1 - p_j / (1 - p_i)), the ratio
     PyMC 6.3.2's metropolis_proportional computes from the renormalised probabilities, in floating
-    point as it does, so that the move is refused where r is not finite or not above 0. 'liu' is
-    Liu's Metropolised Gibbs (1996): the same proposal, accepted with min(1, (1 - p_i) / (1 - p_j)),
-    which leaves p stationary. With two places the proportional proposal offers the other place
-    with probability 1, and r divides by 1 less that, which is 0 or a rounding error of either sign,
-    so the chain never moves or moves at every step, as the rounding falls; this matrix takes the
-    rounding of its own arithmetic, which need not be PyMC's."""
+    point as it does: the probabilities are the softmax of the place's log density, PyMC's own
+    compiled log density of a bare Categorical of probabilities p unless `log_density` gives
+    another, so that the rounding is PyMC's, and the move is refused where r is not finite or not
+    above 0. 'liu' is Liu's Metropolised Gibbs (1996): the same proposal, accepted with
+    min(1, (1 - p_i) / (1 - p_j)), which leaves p stationary. With two places the proportional
+    proposal offers the other place with probability 1, and r divides by 1 less that, which is 0 or
+    a rounding error of either sign, so the chain never moves or moves at every step, as the
+    rounding falls: at 0.5 and 0.5 it never moves, and at 0.89 and 0.11 r is finite and large both
+    ways, so it moves at every step and its law is each place half."""
     p = np.asarray(p, float)
-    p = p / p.sum()                   # as PyMC's softmax of the places' log densities gives them
+    if how == "proportional":
+        from scipy import special
+        p = special.softmax(bare_log_density(p) if log_density is None else np.asarray(log_density, float))
+    else:
+        p = p / p.sum()
     k = len(p)
     T = np.zeros((k, k))
     for i in range(k):
@@ -855,8 +890,9 @@ def categorical_table(record: dict) -> str:
     out += ["", "A Categorical alone, its probabilities fixed, sampled by CategoricalGibbsMetropolis with each proposal: "
             "%d chains of %d draws after %d tuning steps, seed %d, errors by batch means, %d batches a chain. Beside it "
             "the stationary law of the proposal's transition matrix written out (proposal_kernel), PyMC's as its code "
-            "computes the acceptance and Liu's Metropolised Gibbs; not one where the chain cannot leave some places, as on "
-            "two places, where PyMC's chain never moves or moves at every draw, by the rounding of its ratio."
+            "computes the acceptance, with its own rounding, and Liu's Metropolised Gibbs; not one where the chain never "
+            "leaves its place, as at 0.5 and 0.5, where PyMC's ratio divides by zero, while at 0.89 and 0.11 its rounding "
+            "gives a ratio above one both ways, so the chain swaps places at every draw and its law is each place half."
             % (spec["chains"], spec["draws"], spec["tune"], spec["seed"], spec["batches"])]
     return "\n".join(out) + "\n"
 
@@ -921,8 +957,8 @@ def fig_trace(record: dict, draws, outdir: str) -> List[str]:
     letter(axes[1], "B", "Each chain against the closed form")
     fig.tight_layout()
     caption = ("Log size of one synthetic field of three bodies, the seven SPINEPS measures, every level known: %d chains "
-               "of NUTS, A by draw and B as histograms beside the posterior in closed form, the panels az.plot_trace "
-               "draws." % ls.shape[0])
+               "of NUTS, A by draw and B as histograms beside the posterior in closed form, what az.plot_trace shows, "
+               "drawn in the house format." % ls.shape[0])
     return save(fig, outdir, "fixed_k_trace", caption) + [write_csv(outdir, "fixed_k_trace", rows)]
 
 
@@ -950,8 +986,8 @@ def fig_forest(record: dict, outdir: str) -> List[str]:
     np.atleast_1d(axes)[0].plot([], [], color="black", marker="s", markerfacecolor="black", label="closed form")
     np.atleast_1d(axes)[0].legend(loc="lower left")
     fig.tight_layout()
-    caption = ("Log size of %d synthetic three-body fields, every level known: NUTS's mean and 89 per cent interval, as "
-               "az.plot_forest draws them, beside the closed form's; A the seven SPINEPS measures, B all %d."
+    caption = ("Log size of %d synthetic three-body fields, every level known: NUTS's mean and 89 per cent interval, what "
+               "az.plot_forest shows, drawn in the house format beside the closed form's; A the seven SPINEPS measures, B all %d."
                % (len(record["known"][0]["fields"]), record["known"][-1]["measures"]))
     return save(fig, outdir, "fixed_k_forest", caption) + [write_csv(outdir, "fixed_k_forest", rows)]
 
