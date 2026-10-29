@@ -1,0 +1,1 @@
+Log size of one synthetic field of three bodies, the seven SPINEPS measures, every level known: 4 chains of NUTS, A by draw and B as histograms beside the posterior in closed form, the panels az.plot_trace draws.

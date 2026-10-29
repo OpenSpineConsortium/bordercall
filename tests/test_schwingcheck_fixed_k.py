@@ -323,6 +323,36 @@ class CommittedRecord(unittest.TestCase):
                 self.assertTrue(np.all(np.abs(share - r["kernel_stationary"]) <= 5 * se + 0.01), (r["probs"], share))
                 self.assertGreater(np.abs(share - r["probs"]).max(), 0.1, r["probs"])
 
+    def test_the_proportional_proposal_mixes_and_is_off_on_every_free_field(self):
+        """Its chains agree, R-hat below 1.01 at the top place, and its share there is more than
+        2.9 of its errors from the exact posterior on every field."""
+        for row in self.record["free"]:
+            p = [x for x in row["runs"] if x["how"] == "proportional"][0]
+            top = int(np.argmax(row["exact"]))
+            self.assertLess(p["rhat_top"], 1.01, row["field"])
+            self.assertGreater(abs(p["counted"][top] - row["exact"][top]), 2.9 * p["counted_se"][top], row["field"])
+
+    def test_a_stuck_chain_passes_the_five_error_bound_and_not_r_hat(self):
+        """With the place summed out, one field's averaged posterior is within five errors plus
+        0.001 of the exact one only because a stuck chain inflated the error: its R-hat is above 1.5."""
+        stuck = [(row["field"], x["rb_gap"]) for row in self.record["free"] for x in row["runs"]
+                 if x["how"] == "marginal" and x["rb_within"] and x["rhat_top"] > 1.5]
+        self.assertEqual(len(stuck), 1, stuck)
+        self.assertGreater(stuck[0][1], 0.1, stuck)
+
+    def test_the_far_tail_runs_low_from_the_estimator_and_lower_on_nuts(self):
+        """On every tail field the median estimate over the exact one is below 1 on NUTS's draws and
+        on independent draws alike while the runs' mean is within 10 per cent of 1; NUTS's median is
+        below the independent draws', and NUTS ten times as long brings it up."""
+        spec = self.record["tail_spec"]
+        for row in self.record["tail"]:
+            t = {k: FK.tail_stats(row, k, spec["low"], spec["high"]) for k, _ in FK.METHODS}
+            for k in ("nuts", "independent"):
+                self.assertLess(t[k]["median_ratio"], 1.0, (row["field"], k))
+                self.assertTrue(0.9 < t[k]["mean_ratio"] < 1.1, (row["field"], k, t[k]["mean_ratio"]))
+            self.assertLess(t["nuts"]["median_ratio"], t["independent"]["median_ratio"], row["field"])
+            self.assertGreater(t["nuts_long"]["median_ratio"], t["nuts"]["median_ratio"], row["field"])
+
     def test_the_proportional_proposal_stopped_on_every_sharp_field(self):
         for row in self.record["sharp"]:
             p = [x for x in row["runs"] if x["how"] == "proportional"][0]
