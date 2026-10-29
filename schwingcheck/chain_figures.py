@@ -62,9 +62,9 @@ CAPTIONS = {
         "printed on the same fields.",
     "chain_speed":
         "Time to name the middle body of one synthetic typical field, single-threaded, each rule built "
-        "beforehand: A, all 32 measures; B, the seven. Alone (lines, median of %d calls) and per field in "
-        "a batch of %d (points, median of %d calls); crosses, chain.path_logev, which builds its blocks "
-        "in every call.",
+        "beforehand: A, all 32 measures; B, the seven as a mask on that rule. Alone (lines, median of %d "
+        "calls) and per field in a batch of %d (points, median of %d calls); crosses, chain.path_logev, "
+        "which builds its blocks in every call.",
 }
 
 

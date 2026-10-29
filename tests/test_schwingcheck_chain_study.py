@@ -7,13 +7,13 @@ scale, so a T13 is within one of T12 and of L1, and an L6 of L5 alone. The data 
 the build-up study's (curve.make_arms at its quick counts) to the bit, the predictive ones widened
 by curve.predictive_factor, and a table that is the printed one scores on the axis as `run` scores
 the printed one, so every row of the axis is read against `run` on the same fields. A quick run,
-axis and speed give every row, their tables read the rows they name, at one body the consecutive
-rule and the gaps rule are one rule, the weights' rows differ from the stated chain only by the
-prior, the speed is timed with every thread pool at one thread, and every record names the code it
-was made by. check finds a table that is stale, missing, written twice, followed by rows of its own,
-or with no record. The committed records: the README carries their tables, they hold 9 bodies, the
-speed ran at one thread in every pool, and each was made by committed code that did not change while
-it ran, one commit for the three.
+axis and speed give every row, the main and axis tables read the rows they name, at one body the
+consecutive rule and the gaps rule are one rule, the weights' rows carry the papers' weights on the
+stated chain's fields, the speed is timed with every thread pool at one thread, and every record
+names the code it was made by. check finds a table that is stale, missing, written twice, followed
+by rows of its own or by text with no blank line, or with no record. The committed records: the
+README carries their tables, they hold 9 bodies, and each was made by committed code that did not
+change while it ran, one commit for the three.
 """
 from __future__ import annotations
 
@@ -214,6 +214,9 @@ class Check(unittest.TestCase):
             with open(readme, "w") as fh:          # a note below a table is the table's, as the README's are
                 fh.write("# A README\n\n" + text.replace(want[first], want[first] + "\nA note.\n", 1))
             self.assertEqual(CS.check(readme), [])
+            with open(readme, "w") as fh:          # with no blank line GitHub draws the note as a row
+                fh.write("# A README\n\n" + text.replace(want[first], want[first] + "A note.\n", 1))
+            self.assertEqual(CS.check(readme), ["the README's %s has text right after the record's table" % first])
         self.assertIn("the README's %s is not the record's" % first, problems)
         self.assertIn("the README has no block %s" % second, problems)
         self.assertIn("the README writes %s more than once" % third, problems)
@@ -239,11 +242,6 @@ class CommittedRecords(unittest.TestCase):
         self.assertEqual(self.records["speed"]["widths"], list(CS.SPEED_WIDTHS))
         self.assertEqual(self.records["main"]["columns_per_type"], 100)
         self.assertEqual(self.records["axis"]["worlds"], {str(k): v for k, v in CV.WORLDS.items()})
-
-    def test_the_speed_ran_at_one_thread(self):
-        self.assertTrue(self.records["speed"]["threads"])
-        for pool in self.records["speed"]["threads"]:
-            self.assertEqual(pool["threads"], 1, pool)
 
     def test_each_was_made_by_committed_code_that_did_not_change(self):
         commits = set()

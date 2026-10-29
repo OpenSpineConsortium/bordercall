@@ -28,9 +28,11 @@ chain.path_logev's answer (the tests hold the two within 1e-9) in a small part o
 smaller the more bodies (`speed`). The chain's L6 and T13 columns are the generator's construction
 (chain.extended_table), so on those columns it is scored against the truth it was built from.
 
-A rule with no name for the true body, the three typical-column rules on an L6 or a T13, gives it
-a posterior of 0, which name_stats floors at 1e-300, so on those columns their log loss counts
-690.8 nats a field for each such body and says only how often it happens.
+A posterior of exactly 0 for the true body, from a rule with no name for it (the three
+typical-column rules on a lone L6 or T13) or from a placement so confident that the true one
+underflows (fields that hold an L6 or a T13 away from the middle), is floored at 1e-300 by
+name_stats, so each such field counts 690.8 nats of log loss and the log loss says mostly how
+often that happens.
 
 The chain's type weights, 0.9, 0.05 and 0.05, are a stated choice (chain.WEIGHTS). `run` also
 scores the chain at the weights the clinical reread found in the papers (WEIGHT_SETS, PR 21): six
@@ -55,10 +57,12 @@ is no rule a service could run, and is not timed) and each measure set alone: th
 largest over 30 single fields, and per field in a batch of 128, the median and the largest of five
 calls after one that warms them, as curve.time_engine takes them. chain.path_logev, which builds its
 blocks inside every call, is timed beside the chain at every width on fewer calls
-(REFERENCE_COUNTS). Numba compiles chain.prepare's and chain.logev's loops on their first call in a
-process: `speed` compiles them before it sets the thread limit (load_loops), and every pool's
-threads are recorded inside the limit, while `run`'s seconds a field for the first cell each of
-its processes scores hold the compile.
+(REFERENCE_COUNTS). Numba's first compile in a process loads scipy's own BLAS, so `speed` compiles
+the loops before it sets the thread limit (load_loops); a loop compiled again for another array
+layout inside the limit falls in time_engine's warm-up call, and every pool's threads are recorded
+inside the limit. `run`'s first prepare_seconds hold the compile. The seven are timed as a mask
+on the rule built for all 32, whose loops still run over every measure, so the seven's times are
+not those of a rule cut to seven measures.
 """
 from __future__ import annotations
 
@@ -489,8 +493,9 @@ def readme_blocks(text: str) -> Dict[str, List[str]]:
 
 def check(readme: str = README) -> List[str]:
     """What differs between the README's chain tables and the records': an empty list when none.
-    A block may carry notes below its table, after a blank line or prose; the table itself must be
-    the record's, with no row of its own after the record's last."""
+    A block may carry notes below its table after a blank line; the table itself must be the
+    record's, with no row of its own after the record's last and no text right after it, which
+    GitHub would draw as one more row."""
     with open(readme) as f:
         have = readme_blocks(f.read())
     want = tables()
@@ -504,6 +509,8 @@ def check(readme: str = README) -> List[str]:
             out.append("the README's %s is not the record's" % name)
         elif have[name][0][len(table):].startswith("|"):
             out.append("the README's %s has rows after the record's table" % name)
+        elif have[name][0][len(table):] and not have[name][0][len(table):].startswith("\n"):
+            out.append("the README's %s has text right after the record's table" % name)
     for name in have:
         if name not in want:
             out.append("the README's %s has no record" % name)
