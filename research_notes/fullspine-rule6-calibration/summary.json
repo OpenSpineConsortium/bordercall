@@ -1,0 +1,265 @@
+{
+ "verse": {
+  "studies": [
+   "verse018",
+   "verse033",
+   "verse255",
+   "verse531",
+   "verse558",
+   "verse559",
+   "verse593"
+  ],
+  "as_stands": {
+   "one_inner": {
+    "readings": 280,
+    "refused": 0,
+    "one_disc": 280,
+    "max_overreach_share": 0.000174,
+    "gap_mm": [
+     0.16,
+     2.94
+    ],
+    "reasons": []
+   },
+   "one_outer": {
+    "readings": 266,
+    "refused": 0,
+    "one_disc": 266,
+    "max_overreach_share": 0.000174,
+    "gap_mm": [
+     0.16,
+     2.94
+    ],
+    "reasons": []
+   }
+  },
+  "overreach": {
+   "0.05": "151 of 266",
+   "0.1": "222 of 266",
+   "0.2": "259 of 266",
+   "0.3": "266 of 266"
+  },
+  "split_dropped": {
+   "0.6": "256 of 266",
+   "0.7": "226 of 266",
+   "0.8": "140 of 266",
+   "0.9": "4 of 266"
+  },
+  "merged": {
+   "singles": 266,
+   "singles_over_both": 0,
+   "max_step_where_height_over": 1.0670118096374155,
+   "max_height_where_step_over": 1.1700315647916784,
+   "pairs": 252,
+   "pairs_over_both": 252,
+   "min_pair_height": 1.2919373381276587,
+   "min_pair_step": 1.1514761928030768
+  },
+  "sacrum": [
+   {
+    "id": "verse018",
+    "above": "L5",
+    "refused": false,
+    "reason": null,
+    "discs": [
+     [
+      -10.5,
+      12.0,
+      2038
+     ]
+    ]
+   },
+   {
+    "id": "verse033",
+    "above": "L5",
+    "refused": false,
+    "reason": null,
+    "discs": [
+     [
+      -5.2,
+      7.2,
+      2202
+     ]
+    ]
+   },
+   {
+    "id": "verse255",
+    "above": "L6",
+    "refused": false,
+    "reason": null,
+    "discs": [
+     [
+      -5.3,
+      16.0,
+      6875
+     ]
+    ]
+   },
+   {
+    "id": "verse531",
+    "above": "L5",
+    "refused": false,
+    "reason": null,
+    "discs": [
+     [
+      -6.7,
+      10.8,
+      10943
+     ]
+    ]
+   },
+   {
+    "id": "verse558",
+    "above": "L5",
+    "refused": false,
+    "reason": null,
+    "discs": [
+     [
+      -7.7,
+      9.3,
+      39426
+     ]
+    ]
+   },
+   {
+    "id": "verse559",
+    "above": "L5",
+    "refused": false,
+    "reason": null,
+    "discs": [
+     [
+      -8.8,
+      13.1,
+      26129
+     ],
+     [
+      31.4,
+      40.0,
+      5140
+     ]
+    ]
+   },
+   {
+    "id": "verse593",
+    "above": "L6",
+    "refused": false,
+    "reason": null,
+    "discs": [
+     [
+      4.2,
+      17.4,
+      7674
+     ]
+    ]
+   }
+  ]
+ },
+ "totalsegmentator": {
+  "studies": [
+   "s1411",
+   "s1532",
+   "s1593",
+   "s1606",
+   "s2065"
+  ],
+  "as_stands": {
+   "one_inner": {
+    "readings": 184,
+    "refused": 43,
+    "one_disc": 150,
+    "max_overreach_share": 0.157838,
+    "gap_mm": [
+     -8.35,
+     5.81
+    ],
+    "reasons": [
+     "0 discs lie between its body and its neighbour's",
+     "0.40% of its body lies over 1 mm past the disc",
+     "0.56% of its body lies over 1 mm past the disc",
+     "15.78% of its body lies over 1 mm past the disc",
+     "2 discs lie between its body and its neighbour's",
+     "3 discs lie between its body and its neighbour's",
+     "3.35% of its body lies over 1 mm past the disc",
+     "4.54% of its body lies over 1 mm past the disc",
+     "its body runs 1.2 mm into the disc",
+     "its body runs 1.9 mm into the disc",
+     "its body stops 4.1 mm short of the disc",
+     "its body stops 5.8 mm short of the disc"
+    ]
+   },
+   "one_outer": {
+    "readings": 174,
+    "refused": 41,
+    "one_disc": 142,
+    "max_overreach_share": 0.157838,
+    "gap_mm": [
+     -8.35,
+     5.81
+    ],
+    "reasons": [
+     "0 discs lie between its body and its neighbour's",
+     "0.40% of its body lies over 1 mm past the disc",
+     "0.56% of its body lies over 1 mm past the disc",
+     "15.78% of its body lies over 1 mm past the disc",
+     "2 discs lie between its body and its neighbour's",
+     "3 discs lie between its body and its neighbour's",
+     "3.35% of its body lies over 1 mm past the disc",
+     "4.54% of its body lies over 1 mm past the disc",
+     "its body runs 1.2 mm into the disc",
+     "its body runs 1.9 mm into the disc",
+     "its body stops 4.1 mm short of the disc",
+     "its body stops 5.8 mm short of the disc"
+    ]
+   }
+  },
+  "overreach": {
+   "0.05": "115 of 174",
+   "0.1": "141 of 174",
+   "0.2": "164 of 174",
+   "0.3": "169 of 174"
+  },
+  "split_dropped": {
+   "0.6": "162 of 174",
+   "0.7": "135 of 174",
+   "0.8": "72 of 174",
+   "0.9": "41 of 174"
+  },
+  "merged": {
+   "singles": 174,
+   "singles_over_both": 14,
+   "max_step_where_height_over": 1.59412804431043,
+   "max_height_where_step_over": 3.238023421509249,
+   "pairs": 164,
+   "pairs_over_both": 141,
+   "min_pair_height": 0.8974577317146163,
+   "min_pair_step": 0.9361611284234851
+  },
+  "sacrum": [
+   {
+    "id": "s1411",
+    "above": "L4",
+    "refused": true,
+    "reason": "0 discs begin within 10 mm of its head end, where one, the disc above it, should",
+    "discs": [
+     [
+      23.5,
+      29.3,
+      55
+     ],
+     [
+      38.8,
+      45.5,
+      113
+     ]
+    ]
+   },
+   {
+    "id": "s1532",
+    "above": "T12",
+    "refused": true,
+    "reason": "0 discs begin within 10 mm of its head end, where one, the disc above it, should",
+    "discs": []
+   }
+  ]
+ }
+}
