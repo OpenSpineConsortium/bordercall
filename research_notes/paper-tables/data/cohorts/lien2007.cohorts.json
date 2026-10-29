@@ -1,0 +1,223 @@
+{
+  "paper": "lien2007",
+  "cohorts": [
+    {
+      "cohort": "dry_sets",
+      "labels": [
+        "all / dry vertebrae",
+        "male / dry vertebrae",
+        "female / dry vertebrae",
+        "not stated / dry vertebrae"
+      ],
+      "tables": [
+        "Table 1",
+        "Table 2",
+        "Text: Abstract",
+        "Text: Materials and methods",
+        "Text: Results",
+        "Text: Discussion"
+      ],
+      "subjects": "Dry human vertebrae: 15 sets, each separated into individual vertebrae T1 to L5, obtained from the Department of Anatomy, National Defense Medical Center, Taipei, Taiwan; the Discussion calls them 15 whole dry vertebrae. No ethnicity, inclusion or exclusion criteria are printed for the dry sets (the Taiwanese and deformity statements are made of the cadavers). Results are pooled over sex; no sex-split values.",
+      "n_people": 15,
+      "n_units": "15 sets of T1 to L5 vertebrae; vertebrae per level not printed (Inference: up to 255 vertebrae, 30 pedicles per level, if every set was complete)",
+      "ages": "not stated",
+      "sexes": "8 male, 7 female sets",
+      "page": "p. 1216 (PDF 2); p. 1220 (PDF 6)"
+    },
+    {
+      "cohort": "cadavers",
+      "labels": [
+        "all / cadavers",
+        "male / cadavers",
+        "female / cadavers"
+      ],
+      "tables": [
+        "Table 3",
+        "Table 4",
+        "Text: Abstract",
+        "Text: Materials and methods",
+        "Text: Results",
+        "Text: Discussion"
+      ],
+      "subjects": "Six human cadavers from the Department of Anatomy, National Defense Medical Center, Taipei, Taiwan; all Taiwanese and of average body size for the population; cadavers with gross deformity such as scoliosis or kyphosis excluded. Placed prone, lower thoracic and lumbar spine dissected posteriorly, T11 to L5 measured on both sides. Results pooled over sex.",
+      "n_people": 6,
+      "n_units": "6 cadavers, T11 to L5, both sides (Inference: up to 42 levels and 84 sides; count per cell not printed)",
+      "ages": "not stated",
+      "sexes": "3 male, 3 female",
+      "page": "p. 1216 (PDF 2)"
+    },
+    {
+      "cohort": "ebraheim1997_thoracic_quoted",
+      "labels": [
+        "not stated / (no group), source_of_values Ebraheim et al. [7, 10], T10 to T12"
+      ],
+      "tables": [
+        "Text: Discussion"
+      ],
+      "subjects": "quoted from Ebraheim NA, Jabaly G, Xu R, Yeasting RA 1997, Spine 22:1553-1557 (reference 7, the thoracic pedicle study); not this paper's subjects and not described here. Inference: the T10 to T12 transverse root angle range is this study's, by its title; the paper cites references 7 and 10 together for both ranges.",
+      "n_people": null,
+      "n_units": "not stated",
+      "ages": "not stated",
+      "sexes": "not stated",
+      "page": "p. 1220 (PDF 6); reference list p. 1221 (PDF 7)"
+    },
+    {
+      "cohort": "ebraheim1997_lumbar_quoted",
+      "labels": [
+        "not stated / (no group), source_of_values Ebraheim et al. [7, 10], L1 to L5"
+      ],
+      "tables": [
+        "Text: Discussion"
+      ],
+      "subjects": "quoted from Ebraheim NA, Xu R, Darwich M, Yeasting RA 1997, Spine 22:2338-2341 (reference 10, the lumbar pedicle study); not this paper's subjects and not described here. Inference: the lumbar transverse root angle range is this study's, by its title; the paper cites references 7 and 10 together for both ranges. Whether its specimens are those of reference 7 is not stated, so they are taken as different.",
+      "n_people": null,
+      "n_units": "not stated",
+      "ages": "not stated",
+      "sexes": "not stated",
+      "page": "p. 1220 (PDF 6); reference list p. 1221 (PDF 7)"
+    },
+    {
+      "cohort": "roycamille_quoted",
+      "labels": [
+        "not stated / (no group), source_of_values Roy-Camille et al. [4, 13, 25]"
+      ],
+      "tables": [
+        "Text: Introduction"
+      ],
+      "subjects": "quoted from Roy-Camille et al. (the text says 1988; reference 25 is Roy-Camille, Saillant, Mazel 1986, Clin Orthop 203:7-17, cited with references 4 and 13): about 10% of pedicle screws placed incorrectly; patients or specimens not described here; no anatomy measured.",
+      "n_people": null,
+      "n_units": "not stated",
+      "ages": "not stated",
+      "sexes": "not stated",
+      "page": "p. 1216 (PDF 2)"
+    },
+    {
+      "cohort": "weinstein1988_quoted",
+      "labels": [
+        "not stated / (no group), source_of_values Weinstein et al. [4, 27]"
+      ],
+      "tables": [
+        "Text: Introduction"
+      ],
+      "subjects": "quoted from Weinstein JN, Spratt KF, Spengler D, Brick C, Reid S 1988, Spine 13:1012-1018 (reference 27, cited with reference 4): an overall failure rate of 21% from cadaveric studies; specimens not described here; no anatomy measured.",
+      "n_people": null,
+      "n_units": "not stated",
+      "ages": "not stated",
+      "sexes": "not stated",
+      "page": "p. 1216 (PDF 2)"
+    }
+  ],
+  "techniques": [
+    {
+      "technique": "dry_caliper",
+      "cohorts": [
+        "dry_sets"
+      ],
+      "modality": "dry bone caliper",
+      "instrument": "Vernier calipers, resolution 0.1 mm",
+      "how": "Pedicle width and height: the narrowest dimension of the pedicle isthmus in the transverse and in the sagittal plane (outer cortex to cortex). Safe zone width: in the top view, from the lateral cortex of the body to the medial cortex of the same-side pedicle. Safe zone height: in the side view, from the upper end plate of the body to the inferior cortex of the same-side pedicle. At T1 to T10 the measured safe zone was smaller than the pedicle, so the safe zone there is set equal to the pedicle width and height (Table 1 prints the same values). Each side measured.",
+      "magnification": "not applicable (direct measurement on bone)",
+      "observers": "not stated",
+      "page": "p. 1216 (PDF 2); Fig. 1 and 2, p. 1217 (PDF 3)"
+    },
+    {
+      "technique": "dry_goniometer",
+      "cohorts": [
+        "dry_sets"
+      ],
+      "modality": "other",
+      "instrument": "standard goniometer, accuracy 1 deg, on dry bone",
+      "how": "Transverse angle: between the pedicle axis and a line parallel to the vertebral midline, in the transverse plane. Sagittal angle: between the pedicle axis and the superior border of the vertebral body, in the sagittal plane. Each side measured; no sign convention printed.",
+      "magnification": "not applicable",
+      "observers": "not stated",
+      "page": "p. 1216 (PDF 2); Fig. 1, p. 1217 (PDF 3)"
+    },
+    {
+      "technique": "cadaver_dissection",
+      "cohorts": [
+        "cadavers"
+      ],
+      "modality": "other",
+      "instrument": "not named",
+      "how": "Direct measurement in prone cadavers after removal of soft tissue, spinous processes, laminae, facets and transverse processes to expose dura, roots and pedicles. Transverse root angle: between the midline of the dura and the axis of the spinal nerve root. Four linear distances from the pedicle cortex: superior, inferior and lateral to the nerve root, medial to the dural sac. Both sides, T11 to L5; the Discussion says the distances were measured in 2D, not as the shortest 3D distance, and the caption says no mobilisation of neural structures was evident.",
+      "magnification": "not applicable",
+      "observers": "not stated",
+      "page": "p. 1216 (PDF 2); Fig. 3, p. 1217 (PDF 3); p. 1221 (PDF 7)"
+    },
+    {
+      "technique": "ebraheim1997_thoracic_method",
+      "cohorts": [
+        "ebraheim1997_thoracic_quoted"
+      ],
+      "modality": "other",
+      "instrument": "not described in this paper",
+      "how": "Values cited from Ebraheim et al. 1997, reference 7 (thoracic); its method is not described here.",
+      "magnification": "not stated",
+      "observers": "not stated",
+      "page": "p. 1220 (PDF 6)"
+    },
+    {
+      "technique": "ebraheim1997_lumbar_method",
+      "cohorts": [
+        "ebraheim1997_lumbar_quoted"
+      ],
+      "modality": "other",
+      "instrument": "not described in this paper",
+      "how": "Values cited from Ebraheim et al. 1997, reference 10 (lumbar); its method is not described here.",
+      "magnification": "not stated",
+      "observers": "not stated",
+      "page": "p. 1220 (PDF 6)"
+    },
+    {
+      "technique": "roycamille_method",
+      "cohorts": [
+        "roycamille_quoted"
+      ],
+      "modality": "other",
+      "instrument": "not described in this paper",
+      "how": "Values cited from Roy-Camille et al. (references 4, 13, 25); its method is not described here.",
+      "magnification": "not stated",
+      "observers": "not stated",
+      "page": "p. 1216 (PDF 2)"
+    },
+    {
+      "technique": "weinstein1988_method",
+      "cohorts": [
+        "weinstein1988_quoted"
+      ],
+      "modality": "other",
+      "instrument": "not described in this paper",
+      "how": "Values cited from Weinstein et al. 1988 (references 4, 27); its method is not described here.",
+      "magnification": "not stated",
+      "observers": "not stated",
+      "page": "p. 1216 (PDF 2)"
+    }
+  ],
+  "shared": [
+    {
+      "with": "Ebraheim NA, Jabaly G, Xu R, Yeasting RA 1997, Spine 22:1553-1557 (reference 7; not in the list)",
+      "what": "values quoted",
+      "evidence": "Discussion quotes transverse root angles of 57.1 to 84.0 deg at T10 to T12 beside this paper's similar values, citing references 7 and 10 together (Inference: from reference 7, the thoracic study)",
+      "page": "p. 1220 (PDF 6)"
+    },
+    {
+      "with": "Ebraheim NA, Xu R, Darwich M, Yeasting RA 1997, Spine 22:2338-2341 (reference 10; not in the list)",
+      "what": "values quoted",
+      "evidence": "Discussion quotes lumbar transverse root angles of 33.7 to 39.2 deg beside this paper's similar values, citing references 7 and 10 together (Inference: from reference 10, the lumbar study)",
+      "page": "p. 1220 (PDF 6)"
+    },
+    {
+      "with": "Roy-Camille R et al. (references 4, 13, 25; not in the list)",
+      "what": "values quoted",
+      "evidence": "Introduction cites about 10% of pedicle screws placed incorrectly",
+      "page": "p. 1216 (PDF 2)"
+    },
+    {
+      "with": "Weinstein JN et al. 1988, Spine 13:1012-1018 (references 4, 27; not in the list)",
+      "what": "values quoted",
+      "evidence": "Introduction cites a 21% overall failure rate from cadaveric studies",
+      "page": "p. 1216 (PDF 2)"
+    }
+  ],
+  "within_paper": "The paper's two cohorts are separate sets of specimens: 15 dry vertebral sets measured T1 to L5 with caliper and goniometer, and 6 cadavers dissected and measured T11 to L5; both came from the same Department of Anatomy (p. 1216, PDF 2), and the paper does not say the dry sets came from the cadavers. Inference: no subject is shared, since the cadavers kept dura and roots while the dry sets were skeletal. Within the dry cohort, Table 1's T1 to T10 safe zone columns repeat the pedicle width and height values for the same specimens, by the rule of p. 1216 (PDF 2), so they are not independent measurements. The text values in Results and Discussion restate Tables 1 to 4 (side means or ranges). The Discussion compares pedicle dimensions with Panjabi et al. (panjabi1991t), Olsewski et al. (olsewski1990), Zindrick et al. (zindrick1987), Hou et al. (hou1993) and Berry et al. 1987, quoting no values and sharing no subjects (p. 1220, PDF 6); Krag et al. (krag1988) is only cited among earlier morphometric studies (p. 1220, PDF 6)."
+}

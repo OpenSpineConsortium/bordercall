@@ -1,0 +1,261 @@
+{
+  "paper": "hou1993",
+  "cohorts": [
+    {
+      "cohort": "xian_dry_bone",
+      "labels": [
+        "male",
+        "female",
+        "all",
+        "not stated",
+        "T (top of TP)",
+        "U (upper half of TP)",
+        "M (mid-transverse process)",
+        "B (lower half of TP)",
+        "facet zone: between lines 2 and 3",
+        "facet zone: between lines 3 and 4",
+        "facet zone: at line 3",
+        "facet zone: at line 4",
+        "facet zone: between lines 4 and 5",
+        "facet zone: at line 5",
+        "facet zone: lateral to line 5",
+        "starting point at midpoint of TP",
+        "lumbar spine"
+      ],
+      "tables": [
+        "Table 1",
+        "Table 2",
+        "Table 3",
+        "Figure 6",
+        "Text: Abstract",
+        "Text: Materials and Methods",
+        "Text: Results",
+        "Text: Discussion"
+      ],
+      "subjects": "Dry bone: disarticulated vertebrae from the Anatomy Department of the 4th Military Medical Institute, Xian City, China; 40 sets of normal spinal columns from T9 to L5; the population is called Chinese (title) and oriental (Introduction, Discussion); inclusion: vertebrae examined grossly with no bony disease or deformity; exclusions otherwise not stated; how sex was assigned, the specimens' origin beyond the department's collection, and the handling of transitional segments are not stated. Rows with sex 'not stated' and source 'this paper' (the L5 lateral offset of 4.9 mm, the screw size and length advice) are the authors' statements about this series, their specimens not named. Inference: the 40 columns are 40 skeletons.",
+      "n_people": 40,
+      "n_units": "40 spinal columns T9 to L5; 1,440 data points as printed. Inference: 360 vertebrae (40 x 9), one value per measure per vertebra (1,440 = 360 x 4 caliper measures)",
+      "ages": "not stated",
+      "sexes": "25 male, 15 female",
+      "page": "p. 1850 (PDF 1), p. 1851 (PDF 2); height and weight not available, p. 1852 (PDF 3)"
+    },
+    {
+      "cohort": "inclination_10",
+      "labels": [
+        "inclination specimens"
+      ],
+      "tables": [
+        "Text: Materials and Methods",
+        "Figure 7 (plot only, no printed values)"
+      ],
+      "subjects": "A further 10 specimens whose pedicle inclination to the sagittal plane of the vertebral body was measured; their origin, sex and whether they are among the 40 columns are not stated. Inference: from the same anatomy department collection, and 'further' suggests specimens beyond the 40.",
+      "n_people": 10,
+      "n_units": "10 specimens; levels plotted T9 to L5 in Figure 7",
+      "ages": "not stated",
+      "sexes": "not stated",
+      "page": "p. 1851 (PDF 2); Figure 7, p. 1854 (PDF 5)"
+    },
+    {
+      "cohort": "olsewski_comparator",
+      "labels": [
+        "male",
+        "female"
+      ],
+      "tables": [
+        "Table 1",
+        "Table 2"
+      ],
+      "subjects": "Values quoted from Olsewski et al [5] (white population, as this paper describes it); the subjects are not described here beyond sex and race. Inference from olsewski1990 in this set: the quoted means and SDs equal its Table I direct-caliper rows, its cohort part1_cadavers (embalmed cadavers of SUNY Buffalo, 24 men and 25 women aged 60 to 98), so they are that paper's subjects and count once when papers are pooled.",
+      "n_people": null,
+      "n_units": "not stated in this paper; values at L1 to L5 by sex",
+      "ages": "not stated in this paper",
+      "sexes": "male and female columns",
+      "page": "Tables 1 and 2, p. 1852 (PDF 3); p. 1854 (PDF 5)"
+    },
+    {
+      "cohort": "berry_comparator",
+      "labels": [
+        "not stated"
+      ],
+      "tables": [
+        "Table 1",
+        "Table 2"
+      ],
+      "subjects": "Values quoted from Berry et al [1] (a white population, as the abstract describes it); subjects not described here.",
+      "n_people": null,
+      "n_units": "not stated in this paper; values at T12 to L5, sexes pooled or not stated",
+      "ages": "not stated in this paper",
+      "sexes": "not stated",
+      "page": "Tables 1 and 2, p. 1852 (PDF 3); p. 1850 (PDF 1); p. 1854 (PDF 5)"
+    },
+    {
+      "cohort": "zindrick_comparator",
+      "labels": [
+        "not stated"
+      ],
+      "tables": [
+        "Table 1",
+        "Table 2",
+        "Table 3"
+      ],
+      "subjects": "Values quoted from Zindrick et al [10,11] (a white population, as the abstract describes it); subjects not described here. Inference from zindrick1987 in this set: the quoted values equal its Tables 1, 2 and 5 (midline axis), its cohort pooled_specimens_and_ct (specimen films and CT examinations pooled, persons not counted), so they count once when papers are pooled.",
+      "n_people": null,
+      "n_units": "not stated in this paper; values at T9 to L5, sexes not stated",
+      "ages": "not stated in this paper",
+      "sexes": "not stated",
+      "page": "Tables 1 to 3, pp. 1852-1853 (PDF 3-4); p. 1854 (PDF 5)"
+    },
+    {
+      "cohort": "weinstein_patients",
+      "labels": [
+        "upper lumbar spine"
+      ],
+      "tables": [
+        "Text: Discussion"
+      ],
+      "subjects": "Patients in whom Weinstein et al [9] inserted pedicle screws in the upper lumbar spine; quoted for a 40% failure rate with 7.0 mm screws, improved with 5.5 mm screws; no anatomical measure.",
+      "n_people": null,
+      "n_units": "not stated in this paper",
+      "ages": "not stated in this paper",
+      "sexes": "not stated",
+      "page": "p. 1852 (PDF 3)"
+    }
+  ],
+  "techniques": [
+    {
+      "technique": "vernier_caliper_dry_bone",
+      "cohorts": [
+        "xian_dry_bone"
+      ],
+      "modality": "dry bone caliper",
+      "instrument": "Vernier calipers, resolution 0.1 mm",
+      "how": "On each disarticulated vertebra T9 to L5: pedicle medial-lateral width (A) and cephalo-caudal height (B), each at the narrowest section at the mid-point of the pedicle; Length I (LI), posterior cortex to anterior vertebral cortex parallel to the sagittal diameter of the body; Length II (LII), posterior cortex to the mid-point of the anterior vertebral cortex along the pedicle. Figure 1 draws the four. Side not stated; Inference: one value per measure per vertebra (1,440 data points).",
+      "magnification": "none; direct measurement of dry bone",
+      "observers": "one (Y.S.), single measurement; no repeatability reported",
+      "page": "p. 1850 (PDF 1), p. 1851 (PDF 2), Figure 1"
+    },
+    {
+      "technique": "visual_starting_point",
+      "cohorts": [
+        "xian_dry_bone"
+      ],
+      "modality": "other",
+      "instrument": "visual inspection of dry bone, no instrument named",
+      "how": "The pedicle centre (the screw starting point) judged by eye on the posterior surface: viewed laterally for the centre of the narrowest cephalad-caudad diameter, coded as top (T), upper half (U), midpoint (M) or lower half (B) of the transverse process; viewed from cephalad along the canal for the medial-lateral centre, related to zones of the superior facet split into thirds by four vertical lines, with a fifth line one third of a facet width lateral to the facet. Counts per level are in Figure 6.",
+      "magnification": "not applicable (visual coding)",
+      "observers": "not stated for this step; Inference: the same single measurer (Y.S.)",
+      "page": "p. 1851 (PDF 2), Figure 2; Figure 6, p. 1854 (PDF 5)"
+    },
+    {
+      "technique": "facet_lateral_offset",
+      "cohorts": [
+        "xian_dry_bone"
+      ],
+      "modality": "other",
+      "instrument": "not stated",
+      "how": "Average distance of the L5 starting point lateral to the most lateral part of the facet joint (4.9 mm, SD 2); how and on how many specimens it was measured is not stated.",
+      "magnification": "not stated; Inference: direct on dry bone",
+      "observers": "not stated",
+      "page": "p. 1852 (PDF 3)"
+    },
+    {
+      "technique": "pedicle_inclination",
+      "cohorts": [
+        "inclination_10"
+      ],
+      "modality": "other",
+      "instrument": "not stated",
+      "how": "Inclination of the pedicle in relation to the sagittal plane of the vertebral body, plotted per level T9 to L5 in Figure 7 (angle in degrees, no printed values); method, side and sign convention not stated.",
+      "magnification": "not stated",
+      "observers": "not stated",
+      "page": "p. 1851 (PDF 2); p. 1853 (PDF 4); Figure 7, p. 1854 (PDF 5)"
+    },
+    {
+      "technique": "olsewski_direct",
+      "cohorts": [
+        "olsewski_comparator"
+      ],
+      "modality": "other",
+      "instrument": "not stated in this paper; olsewski1990 in this set: vernier caliper (0.1 mm) on the specimen under a dissecting microscope",
+      "how": "Described here only as a technique similar to this paper's own. olsewski1990 in this set (its technique direct_caliper_microscope): the narrowest transverse and sagittal pedicle diameters by caliper on embalmed gross specimens oriented on a gridded stage, both pedicles pooled; not dry bone, and whether soft tissue was removed is not stated there.",
+      "magnification": "none; direct caliper measurement (olsewski1990)",
+      "observers": "not stated in this paper",
+      "page": "pp. 1854-1855 (PDF 5-6)"
+    },
+    {
+      "technique": "berry_direct",
+      "cohorts": [
+        "berry_comparator"
+      ],
+      "modality": "other",
+      "instrument": "not stated in this paper",
+      "how": "This paper says its specimens were measured in a similar manner to Berry's; Inference: direct measurement of dry bone.",
+      "magnification": "not stated in this paper",
+      "observers": "not stated in this paper",
+      "page": "p. 1854 (PDF 5)"
+    },
+    {
+      "technique": "zindrick_radiographic",
+      "cohorts": [
+        "zindrick_comparator"
+      ],
+      "modality": "other",
+      "instrument": "a radiographic technique, as this paper describes it",
+      "how": "Described here only as radiographic, assessing similar points on the vertebrae; the authors suspect subtle differences in the points measured. zindrick1987 in this set (its technique pooled_film_and_ct): films of disarticulated vertebrae pooled with CT measures; the length quoted in Table 3 is its depth parallel to the midline from the most posterior point of the transverse process.",
+      "magnification": "Zindrick et al thought their technique added no magnification (as this paper reports it)",
+      "observers": "not stated in this paper",
+      "page": "p. 1854 (PDF 5)"
+    },
+    {
+      "technique": "weinstein_clinical_outcome",
+      "cohorts": [
+        "weinstein_patients"
+      ],
+      "modality": "other",
+      "instrument": "pedicle screws of 7.0 mm and 5.5 mm diameter",
+      "how": "Clinical rate of failed screw insertion, quoted; not an anatomical measurement.",
+      "magnification": "not applicable",
+      "observers": "not stated in this paper",
+      "page": "p. 1852 (PDF 3)"
+    }
+  ],
+  "shared": [
+    {
+      "with": "Olsewski et al [5], J Bone Joint Surg 1990;72A:541-9 (olsewski1990)",
+      "what": "values quoted",
+      "evidence": "Olsewski's male and female pedicle widths and heights at L1 to L5 are printed beside this paper's in Tables 1 and 2",
+      "page": "p. 1852 (PDF 3)"
+    },
+    {
+      "with": "Olsewski et al [5] (olsewski1990)",
+      "what": "method",
+      "evidence": "Olsewski used a technique similar to ours (paraphrase); subjects differ",
+      "page": "p. 1854 (PDF 5)"
+    },
+    {
+      "with": "Berry et al [1], Spine 1987;12:362-7 (not in the list)",
+      "what": "values quoted",
+      "evidence": "Berry's pedicle widths and heights at T12 to L5 are printed in Tables 1 and 2",
+      "page": "p. 1852 (PDF 3)"
+    },
+    {
+      "with": "Berry et al [1] (not in the list)",
+      "what": "method",
+      "evidence": "this population was measured in a similar manner to Berry's (paraphrase)",
+      "page": "p. 1854 (PDF 5)"
+    },
+    {
+      "with": "Zindrick et al [10,11]: [10] Spine 1987;12:160-6 (zindrick1987); [11] Clin Orthop 1986;203:99-112 (not in the list)",
+      "what": "values quoted",
+      "evidence": "Zindrick's widths, heights and length parallel to the midline at T9 to L5 are printed in Tables 1 to 3",
+      "page": "pp. 1852-1853 (PDF 3-4)"
+    },
+    {
+      "with": "Weinstein et al [9], Spine 1988;13:1012-18 (not in the list)",
+      "what": "values quoted",
+      "evidence": "a 40% failure rate with 7.0 mm screws in the upper lumbar spine, improved with 5.5 mm screws",
+      "page": "p. 1852 (PDF 3)"
+    }
+  ],
+  "within_paper": "The caliper measures (Tables 1 to 3) and the visual starting-point codes (Figure 6, each level counting 40) are taken on the same 40 columns, 25 male and 15 female, so they share subjects; the abstract's 37 of 40 at L5 is the same series. The inclination values come from 'a further 10 specimens', and whether these are among the 40 is not stated (Inference: 'further' suggests additional specimens). Which specimens gave the L5 lateral offset of 4.9 mm is not stated. pp. 1850-1852 (PDF 1-3), Figure 6 p. 1854 (PDF 5)."
+}

@@ -38,5 +38,17 @@ measured the same twelve spines.
 
 ## Where it stands
 
-The tools are here; the readings, the mapped tables, the series and the comparison's record land beside them as each
-step finishes. No PDF, page image or run of a paper's text is kept in git; the PDFs stay in the project's files.
+All 39 papers of the list other than Panjabi's four are read, reconciled and mapped (2026-10-29): 23,918 cells, of
+which the two blind readings agreed on 20,750, a third reader settled 2,271 from the page and 897 were read by one
+reader and checked on the page; every mapped file passes tools/check_mapped.py, and a second reader checked every
+paper's mapping against its Methods.
+
+- data/readings/<id>.csv: each paper's reconciled reading with its mapping (the columns of step 3).
+- data/cohorts/<id>.cohorts.json: its cohorts, techniques and every stated or inferred sharing, with the page. A
+  cohort that is not human carries "species" (Busscher 2010's and van der Houwen 2009's pig spines), and
+  tools/cross_naming.py leaves it out of everything.
+- data/series.csv: tools/series.py over all 39, 4,477 series.
+
+The comparison with Panjabi (tools/cross_naming.py, step 5) and the evaluation's tables and figures follow in
+results/. No PDF, page image or run of a paper's text is kept in git; the PDFs stay in the project's files, and a
+reading holds only the printed cells and the short labels that name them.

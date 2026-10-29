@@ -4,6 +4,7 @@ disagree, measure by measure and level by level.
 
 Usage (from the repository's root, in the environment schwingcheck runs in):
     python research_notes/paper-tables/tools/cross_naming.py <series.csv> <out.json> [--fields 100] [--seed 2026]
+        [--processes 4] [--cohorts <folder of the papers' cohorts files>] [--leave-out key,key]
 
 Every paper is taken to measure other people by another technique than every other paper, as the
 owner asked on 28 October 2026, unless its text says it shares subjects or a method; so each
@@ -12,7 +13,14 @@ series gives is a mean and a population SD per level, so the fields drawn from i
 generator's (columns.draw_columns' formula: the patient's size, the patient's offset in each
 measure, the level's own draw and the measurement error, with schwingcheck's settings) with the
 series' means and SDs in place of Panjabi's. That is an assumption, stated: a paper's table does
-not say how its measures correlate within a person.
+not say how its measures correlate within a person. Where a paper's text says its values pool
+another source's subjects, as a meta-analysis that took in Panjabi's spines does (--cohorts reads
+it from the cohorts files' shared entries), that paper is kept out of every pool that holds the
+source it took in, so no spine is counted twice, and its rows carry the sources it holds. A cohort
+whose cohorts entry names a species other than human (the pig spines two papers measured beside
+people's) is left out of everything, since Panjabi's rule names people's vertebrae. A measure named
+by --leave-out is left out of everything too: the end-plate inclinations, whose L1 to L5 row in
+Panjabi's lumbar paper reprints his cervical C3 to C7 row (research_notes/panjabi-endplate-inclination.md).
 
 Three things are measured.
 
@@ -39,6 +47,7 @@ import csv
 import json
 import math
 import os
+import re
 import sys
 from typing import Dict, List, Sequence, Tuple
 
@@ -174,10 +183,59 @@ def dersimonian_laird(means: np.ndarray, var: np.ndarray) -> Tuple[float, float,
     return pooled, math.sqrt(tau2), i2
 
 
-def one_per_paper(rows: Sequence[dict]) -> List[dict]:
+def stated(entry: dict) -> bool:
+    """Whether a shared entry rests on the paper's own words: the readers open an entry they
+    inferred, or one the paper does not state, with those words."""
+    opening = entry.get("evidence", "").strip().lower()
+    return not (opening.startswith("inference") or opening.startswith("not stated")
+                or "inference" in entry.get("what", "").lower())
+
+
+def read_contains(cohorts_dir: str) -> Dict[str, List[str]]:
+    """{paper: the other sources whose subjects its values hold}, from the papers' own words: a
+    cohorts file's shared entry that says the data were pooled or the subjects are the same, and
+    names a paper of the set or Panjabi. An entry the reader marked as inference does not count,
+    since the owner's rule takes papers as independent unless their text says otherwise."""
+    if not cohorts_dir:
+        return {}
+    papers = {name.split(".")[0] for name in os.listdir(cohorts_dir) if name.endswith(".cohorts.json")}
+    out: Dict[str, List[str]] = {}
+    for paper in sorted(papers):
+        record = json.load(open(os.path.join(cohorts_dir, paper + ".cohorts.json")))
+        for entry in record.get("shared", []):
+            if entry.get("what") not in ("data pooled", "subjects") or not stated(entry):
+                continue
+            named = set(re.findall(r"\b([a-z]+[0-9]{4}[a-z]?)\b", entry.get("with", "")))
+            if "panjabi" in entry.get("with", "").lower():
+                named.add(PANJABI)
+            named = {n if n in papers else PANJABI for n in named if n in papers or n.startswith(PANJABI)} - {paper}
+            if named:
+                out[paper] = sorted(set(out.get(paper, [])) | named)
+    return out
+
+
+def read_not_human(cohorts_dir: str) -> List[Tuple[str, str]]:
+    """(paper, cohort) for every cohort whose cohorts entry gives a species other than human."""
+    if not cohorts_dir:
+        return []
+    out = []
+    for name in sorted(os.listdir(cohorts_dir)):
+        if not name.endswith(".cohorts.json"):
+            continue
+        record = json.load(open(os.path.join(cohorts_dir, name)))
+        for c in record.get("cohorts", []):
+            if c.get("species", "human").strip().lower() != "human":
+                out.append((record.get("paper", name.split(".")[0]), c["cohort"]))
+    return out
+
+
+def one_per_paper(rows: Sequence[dict], contains: Dict[str, List[str]] = None) -> List[dict]:
     """One series per paper at a measure and level, its largest count, so that no subjects are
     counted twice in the pool; the papers are taken as independent of each other (the owner's
-    rule) and Panjabi's four as one source."""
+    rule) and Panjabi's four as one source, except where a paper's text says its values hold
+    another source's subjects (a meta-analysis that pooled Panjabi's spines): such a paper is
+    left out of every pool that holds Panjabi or the source it took in."""
+    contains = contains or {}
     best: Dict[str, dict] = {}
     for r in rows:
         if r["sd"] is None or not r["n"] or r["n"] < 2:
@@ -185,10 +243,11 @@ def one_per_paper(rows: Sequence[dict]) -> List[dict]:
         cur = best.get(r["paper"])
         if cur is None or r["n"] > cur["n"]:
             best[r["paper"]] = r
-    return list(best.values())
+    present = set(best) | {PANJABI}
+    return [r for p, r in best.items() if not (set(contains.get(p, [])) & (present - {p}))]
 
 
-def disagreement(series: Sequence[dict], base, mu, sd) -> List[dict]:
+def disagreement(series: Sequence[dict], base, mu, sd, contains: Dict[str, List[str]] = None) -> List[dict]:
     """Per measure and level: Panjabi's mean and SD, every source's difference from it in his SDs
     and in levels, and the random-effects pool of the sources with Panjabi among them."""
     out = []
@@ -205,8 +264,9 @@ def disagreement(series: Sequence[dict], base, mu, sd) -> List[dict]:
             d_lv = (r["mean"] - mu[m, li]) / step if step else None
             sources.append({"paper": r["paper"], "cohort": r["cohort"], "technique": r["technique"], "sex": r["sex"],
                             "group": r["group"], "mean": r["mean"], "sd": r["sd"], "n": r["n"], "vs_panjabi": r["vs_panjabi"],
-                            "d_panjabi_sd": d_sd, "d_levels": d_lv})
-        pooled = pool_with_panjabi(one_per_paper([r for r in rows if r["vs_panjabi"] in SAME]), mu[m, li], sd[m, li])
+                            "d_panjabi_sd": d_sd, "d_levels": d_lv,
+                            "holds_subjects_of": (contains or {}).get(r["paper"], [])})
+        pooled = pool_with_panjabi(one_per_paper([r for r in rows if r["vs_panjabi"] in SAME], contains), mu[m, li], sd[m, li])
         out.append({"key": key, "level": level, "panjabi_mean": float(mu[m, li]), "panjabi_sd": float(sd[m, li]),
                     "panjabi_step_per_level": step, "sources": sources, **pooled})
     return out
@@ -232,7 +292,8 @@ def pool_with_panjabi(rows: Sequence[dict], p_mean: float, p_sd: float) -> dict:
 
 # ---- the widened rule --------------------------------------------------------------------
 
-def widened_table(series: Sequence[dict], base, mu, sd, leave_out: str, kinds: Sequence[str]) -> Tuple[np.ndarray, np.ndarray, dict]:
+def widened_table(series: Sequence[dict], base, mu, sd, leave_out: str, kinds: Sequence[str],
+                  contains: Dict[str, List[str]] = None) -> Tuple[np.ndarray, np.ndarray, dict]:
     """Panjabi's table with each mean replaced by the random-effects pool of every paper but
     `leave_out` (Panjabi among them), and each SD widened by the between-source SD: where three
     or more sources hold a level, theirs; elsewhere the measure's median between-source spread
@@ -248,7 +309,7 @@ def widened_table(series: Sequence[dict], base, mu, sd, leave_out: str, kinds: S
     fit: Dict[Tuple[str, str], Tuple[float, float, int]] = {}
     for (key, level), rows in by.items():
         m, li = base.index(key), LEVELS.index(level)
-        p = pool_with_panjabi(one_per_paper(rows), mu[m, li], sd[m, li])
+        p = pool_with_panjabi(one_per_paper(rows, contains), mu[m, li], sd[m, li])
         fit[(key, level)] = (p["pool_mean"], p["pool_tau"], p["pool_k"])
         if p["pool_k"] >= 3:
             spread = p["pool_tau"] if kinds[m] == "angle" else p["pool_tau"] / abs(p["pool_mean"])
@@ -268,12 +329,12 @@ def widened_table(series: Sequence[dict], base, mu, sd, leave_out: str, kinds: S
 # ---- the transport -----------------------------------------------------------------------
 
 def transport(series, pool, base, mu, sd, noise, power, n_fields: int, seed: int, processes: int = 1,
-              log=print) -> List[dict]:
+              log=print, contains: Dict[str, List[str]] = None) -> List[dict]:
     """Every series' transport rows, the series spread over `processes` worker processes; the
     draws of each series come from a stream of its own (the seed, its place in the sorted list
     and the width), so the record does not depend on how many processes ran it."""
     tables = sorted(tables_of(series, base).items())
-    jobs = [(t_i, sid, table, series, n_fields, seed) for t_i, (sid, table) in enumerate(tables)]
+    jobs = [(t_i, sid, table, series, n_fields, seed, contains) for t_i, (sid, table) in enumerate(tables)]
     if processes > 1:
         import multiprocessing as mp
         with mp.get_context("fork").Pool(processes) as workers:
@@ -290,10 +351,10 @@ def transport(series, pool, base, mu, sd, noise, power, n_fields: int, seed: int
 
 
 def one_source(job) -> List[dict]:
-    t_i, sid, table, series, n_fields, seed = job
+    t_i, sid, table, series, n_fields, seed, contains = job
     pool, base, mu, sd, noise, power = panjabi_table()
     kinds = [m.kind for m in pool]
-    widened = widened_table(series, base, mu, sd, sid[0], kinds)
+    widened = widened_table(series, base, mu, sd, sid[0], kinds, contains)
     out = []
     for width in WIDTHS:
         keys, run = run_of(table, width)
@@ -317,6 +378,7 @@ def one_source(job) -> List[dict]:
         out.append({"paper": sid[0], "cohort": sid[1], "technique": sid[2], "sex": sid[3], "group": sid[4],
                     "width": width, "measures": keys, "levels": [LEVELS[i] for i in run],
                     "places": len(run) - width + 1, "fields_per_place": n_fields,
+                    "holds_subjects_of": (contains or {}).get(sid[0], []),
                     "widened_spread": {k: widened[2]["between_source_spread"].get(k) for k in keys}, **res})
     return out
 
@@ -328,16 +390,27 @@ def main(argv=None) -> int:
     ap.add_argument("--fields", type=int, default=100, help="fields drawn per place, per source and per width")
     ap.add_argument("--seed", type=int, default=2026)
     ap.add_argument("--processes", type=int, default=1)
+    ap.add_argument("--cohorts", default="", help="the folder of <paper>.cohorts.json files, for the subjects papers share")
+    ap.add_argument("--leave-out", default="", help="measures, comma-separated, that no series is compared or named on")
     a = ap.parse_args(argv)
-    series = read_series(a.series)
+    not_human = read_not_human(a.cohorts)
+    animals = set(not_human)
+    left_out = sorted(k for k in a.leave_out.split(",") if k)
+    series = [r for r in read_series(a.series) if (r["paper"], r["cohort"]) not in animals and r["key"] not in left_out]
+    contains = read_contains(a.cohorts)
     pool, base, mu, sd, noise, power = panjabi_table()
-    record = {"command": "python research_notes/paper-tables/tools/cross_naming.py %s %s --fields %d --seed %d"
-                         % (a.series, a.out, a.fields, a.seed),
+    record = {"command": "python research_notes/paper-tables/tools/cross_naming.py %s %s --fields %d --seed %d%s%s"
+                         % (a.series, a.out, a.fields, a.seed, " --cohorts %s" % a.cohorts if a.cohorts else "",
+                            " --leave-out %s" % ",".join(left_out) if left_out else ""),
               "settings": {"rho": RHO, "scale_sd": SCALE_SD, "claim": CLAIM, "widths": list(WIDTHS), "floor": FLOOR,
                            "definitions_named": list(SAME)},
               "panjabi_measures": base, "levels": LEVELS,
-              "disagreement": disagreement(series, base, mu, sd),
-              "transport": transport(series, pool, base, mu, sd, noise, power, a.fields, a.seed, a.processes)}
+              "holds_subjects_of": contains,
+              "left_out_not_human": [list(pc) for pc in not_human],
+              "left_out_measures": left_out,
+              "disagreement": disagreement(series, base, mu, sd, contains),
+              "transport": transport(series, pool, base, mu, sd, noise, power, a.fields, a.seed, a.processes,
+                                     contains=contains)}
     with open(a.out, "w") as f:
         json.dump(record, f, indent=1, sort_keys=True)
         f.write("\n")

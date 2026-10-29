@@ -1,0 +1,173 @@
+{
+  "paper": "bach2019",
+  "cohorts": [
+    {
+      "cohort": "usf_ct240",
+      "labels": [
+        "female",
+        "male",
+        "all",
+        "First Decade",
+        "Second Decade",
+        "Third Decade",
+        "Fourth Decade",
+        "Fifth Decade",
+        "Sixth Decade",
+        "Seventh Decade",
+        "decade 10",
+        "decade 20",
+        "decade 30",
+        "decade 40",
+        "decade 50",
+        "decade 60",
+        "decade 70",
+        "decade 80",
+        "eighth decade"
+      ],
+      "tables": [
+        "Table 1",
+        "Table 2",
+        "Table 3",
+        "Table 4",
+        "Table 5",
+        "Table 6",
+        "Table 7",
+        "Table 8",
+        "Figure 2",
+        "Figure 3",
+        "Figure 4",
+        "Figure 5",
+        "Figure 6",
+        "Figure 7",
+        "Figure 8",
+        "Text: Abstract",
+        "Text: Materials and Methods",
+        "Text: Results",
+        "Text: Discussion",
+        "Text: Conclusions"
+      ],
+      "subjects": "Living patients: 240 anonymized abdominal CT scans collected prospectively at the University of South Florida, Tampa, Florida, USA, January 2010 to August 2012, after institutional review board approval; people aged 10-80 years presenting with a non-spinal complaint in whom a thoracic and lumbar CT was obtained; each CT was reviewed for spinal pathology and people with incidental spinal pathologies were excluded (number excluded not stated). Ethnicity not reported.",
+      "n_people": 240,
+      "n_units": "240 CT scans of 240 people (131 women, 109 men); six discs each, T12/L1 to L5/S1, with Table 6 giving N = 109 men and N = 131 women at every level",
+      "ages": "Eligible 10-80 years (Methods). Abstract: women mean 45 (range 14-83), men mean 48 (range 14-89); Results: women 45 (14-79), men 47 (14-79), the two disagreeing as printed. Decade groups 10s to 70s, women/men 8/8, 25/19, 18/17, 23/8, 25/23, 17/22, 15/12 (Table 1), named First to Seventh Decade in Tables 2-5; Figures 2-7 plot eight points labelled 10 to 80.",
+      "sexes": "131 women, 109 men",
+      "page": "p. e107 (PDF 2); p. e108 (PDF 3); p. e106 (PDF 1)"
+    },
+    {
+      "cohort": "usf_ct240_hwbmi_subset",
+      "labels": [
+        "female",
+        "male",
+        "all"
+      ],
+      "tables": [
+        "Table 9",
+        "Table 10",
+        "Table 11",
+        "Table 12",
+        "Text: Results",
+        "Text: Discussion"
+      ],
+      "subjects": "Those of the 240 University of South Florida CT subjects for whom height, weight and BMI data were available: 81 women and 69 men; one row per person in Tables 9 (women) and 10 (men).",
+      "n_people": 150,
+      "n_units": "150 people (81 women, 69 men), one row of age, height, weight and BMI each",
+      "ages": "Women 46.5 +/- 17.8 years, men 48.5 +/- 19.3 years (Table 11); the rows of Tables 9 and 10 run from 18 to 77 years (women) and 18 to 80 years (men)",
+      "sexes": "81 women, 69 men",
+      "page": "p. e109 (PDF 4); pp. e115-e117 (PDF 10-12); p. e114 (PDF 9)"
+    },
+    {
+      "cohort": "wang2016_cages",
+      "labels": [
+        "not stated",
+        "lower end of the range",
+        "upper end of the range"
+      ],
+      "tables": [
+        "Text: Discussion"
+      ],
+      "subjects": "Not subjects of this paper: the average interbody cage heights used in transforaminal lumbar interbody fusion at another institution, quoted from Wang et al. (ref 20, BMC Musculoskelet Disord 2016); its patients are not described here.",
+      "n_people": null,
+      "n_units": "not stated",
+      "ages": "not stated",
+      "sexes": "not stated",
+      "page": "p. e113 (PDF 8)"
+    }
+  ],
+  "techniques": [
+    {
+      "technique": "ct3d_midsagittal_disc_height",
+      "cohorts": [
+        "usf_ct240"
+      ],
+      "modality": "CT 3D",
+      "instrument": "Mimics Innovation Suite 19.0 (Materialise, Leuven, Belgium); scanner, slice thickness and voxel size not reported",
+      "how": "Vertebrae modelled in 3D from the CT with a bone threshold of 226-3071 HU; hand segmentation tools separated each vertebral body from the adjacent one by cutting the superior and inferior articular processes (and the 12th rib from T12). Points placed at the anterior edge, centre and posterior edge of each vertebra in the midsagittal plane (Figure 1) gave the anterior, middle and posterior disc heights between the facing endplates, at T12/L1 to L5/S1; their mean is the average disc height, and the mean of anterior and posterior alone the AP average. Whether a height is a point-to-point distance or perpendicular to the disc is not stated. Inference from arithmetic: the Table 6 row printed as Average disc height equals the AP average of that table.",
+      "magnification": "not applicable (CT model); no calibration or phantom reported",
+      "observers": "One dedicated neuroradiologist, blinded to patient age and sex, reviewed every CT and made every measurement; no repeat measurement and no reliability figure reported",
+      "page": "p. e107 (PDF 2)"
+    },
+    {
+      "technique": "ct3d_midsagittal_disc_height_ap_average",
+      "cohorts": [
+        "usf_ct240"
+      ],
+      "modality": "CT 3D",
+      "instrument": "Mimics Innovation Suite 19.0 (Materialise, Leuven, Belgium), the same 3D models and points",
+      "how": "The anterior and posterior midsagittal disc heights of ct3d_midsagittal_disc_height averaged without the middle height: the AP average of Tables 2-3 (AP Avg), Tables 7-8 (Anterior-Posterior Average) and the Table 6 row printed as Average disc height, which equals (anterior + posterior)/2 of that table at every level and sex (Inference from arithmetic). The same points and observer as the three-point average; kept as a technique id of its own by the measure mapping only so that a series built per technique does not merge it with the three-point average, which shares its key (disc_h_mean), levels, sexes and groups.",
+      "magnification": "not applicable (CT model); no calibration or phantom reported",
+      "observers": "One dedicated neuroradiologist, blinded to patient age and sex; no reliability figure reported",
+      "page": "p. e107 (PDF 2); pp. e110-e111 (PDF 5-6); p. e113 (PDF 8); p. e114 (PDF 9)"
+    },
+    {
+      "technique": "ct3d_foraminal_height",
+      "cohorts": [
+        "usf_ct240"
+      ],
+      "modality": "CT 3D",
+      "instrument": "Mimics Innovation Suite 19.0 (Materialise, Leuven, Belgium), the same 3D models",
+      "how": "Left and right neuroforaminal height measured at the distances furthest apart along the superior and inferior pedicle borders, i.e. from the inferior border of the upper pedicle to the superior border of the lower pedicle on each side, T12/L1 to L5/S1; the left-right mean is the FH average. Plane not stated. Unit not printed anywhere for FH.",
+      "magnification": "not applicable (CT model)",
+      "observers": "The same single blinded neuroradiologist; no reliability figure",
+      "page": "p. e107 (PDF 2)"
+    },
+    {
+      "technique": "recorded_height_weight_bmi",
+      "cohorts": [
+        "usf_ct240_hwbmi_subset"
+      ],
+      "modality": "other",
+      "instrument": "not stated",
+      "how": "Height (cm), weight (kg) and BMI (kg/m2) collected when available; how they were obtained is not stated. Inference: most printed heights are whole inches converted to cm (157.5, 160, 162.6, 165.1, 167.6), so stature was probably recorded in inches rather than measured for the study; several printed BMIs do not follow from the printed weight and height.",
+      "magnification": "not applicable",
+      "observers": "not stated",
+      "page": "p. e108 (PDF 3); pp. e115-e116 (PDF 10-11)"
+    },
+    {
+      "technique": "quoted_cage_height",
+      "cohorts": [
+        "wang2016_cages"
+      ],
+      "modality": "other",
+      "instrument": "not stated (implant sizes reported by another study)",
+      "how": "Average cage heights used in surgery, quoted as a range of two means with SDs",
+      "magnification": "not applicable",
+      "observers": "not stated",
+      "page": "p. e113 (PDF 8)"
+    }
+  ],
+  "shared": [
+    {
+      "with": "Wang H, Chen W, Jiang J, Lu F, Ma X, Xia X. BMC Musculoskelet Disord 2016;17:9 (ref 20); not one of the listed ids",
+      "what": "values quoted",
+      "evidence": "The Discussion quotes the one study found on average cage heights used, 11.25 +/- 1.32 to 12.38 +/- 1.43 mm, against this paper's largest average disc height",
+      "page": "p. e113 (PDF 8)"
+    },
+    {
+      "with": "Evans JD. Straightforward Statistics for the Behavioral Sciences, 1996 (ref 15); not one of the listed ids",
+      "what": "method",
+      "evidence": "The strength grading of the Pearson correlations (R 0.1-0.39 weak, 0.4-0.59 moderate, above 0.6 strong) is taken from the cited literature",
+      "page": "p. e108 (PDF 3); footnotes of Tables 7-8, p. e114 (PDF 9)"
+    }
+  ],
+  "within_paper": "One cohort of 240 CTs underlies every disc and foraminal value: the decade tables (Tables 2-5) split the same 240 people by the Table 1 decades, Table 6 pools them by sex (N = 109 and 131 at every level), Tables 7-8 correlate the same measurements with age, and Figures 2-8 and the abstract, Results and Conclusions averages restate the same data (pp. e106-e114, PDF 1-9). The disc heights and the foraminal heights are two measurements of the same 3D models by the same neuroradiologist (p. e107, PDF 2). The 81 women and 69 men of Tables 9-12 are those of the 240 for whom height, weight and BMI were available (p. e109, PDF 4; p. e114, PDF 9). Inference: the Discussion's 9.87 +/- 0.7 mm for men in their eighth decade equals the men's 80 point of Figure 6 (L4/5), though Tables 1-5 have only seven decades. The paper cites twomey1985 (ref 16) and others only as earlier findings its elliptization pattern agrees with (p. e110, PDF 5), sharing no subjects, method or values with them."
+}

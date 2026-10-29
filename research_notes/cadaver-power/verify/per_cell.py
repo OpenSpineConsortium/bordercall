@@ -1,6 +1,9 @@
 # Copied for the cadaver-power note from the reviewers' verify-verify-arithmetic/per_cell.py, 2026-10-28.
 # Changed: the absolute paths became the command-line arguments below; worth_real.py imports it with the same arguments.
-#     python3 -I verify/per_cell.py SYNTHETIC_SPINE_DATA BORDERCALL
+# On 2026-10-29 'skeleton' joined the cadaveric words, for the corrected tables' "dry skeletons", and --sum-sexes
+# gives a series split by sex the sum of its sexes' counts in a cell, since spine-program #241 made each sex's row
+# carry its own count, where the copy's carried the whole sample in each (the copy's counts are unchanged by both).
+#     python3 -I verify/per_cell.py SYNTHETIC_SPINE_DATA BORDERCALL [--sum-sexes]
 """Per pool cell: the series synthetic_spine records, their n, cadaveric or living, and the spread of their means.
 
 Pool keys: endplate (EPWu), h_post, canal_w, canal_ap, pedicle (PDW, the mean of right and left).
@@ -16,7 +19,7 @@ import numpy as np
 from schwingcheck import LEVELS, measures as MS
 
 D = os.path.join(sys.argv[1], "")
-CADAVERIC = re.compile(r"cadaver|dry bone|post-mortem", re.I)
+CADAVERIC = re.compile(r"cadaver|dry bone|post-mortem|skeleton", re.I)
 
 
 def rows(name):
@@ -30,6 +33,20 @@ def count(n):
         return None
     v = [int(x) for x in m]
     return sum(v) / len(v)          # "26-56 per level" -> 41, "60 pedicles" -> 60
+
+
+SUM_SEXES = "--sum-sexes" in sys.argv
+
+
+def series_n(rr):
+    """A series' count in a cell: its first row's, or with --sum-sexes the sum over its sexes' rows."""
+    if not SUM_SEXES:
+        return count(rr[0]["n"])
+    by_sex = {}
+    for r in rr:
+        by_sex.setdefault(r["sex"], count(r["n"]))
+    known = [n for n in by_sex.values() if n is not None]
+    return sum(known) if known else None
 
 
 level = rows("level_references.csv")
@@ -65,8 +82,8 @@ for (m, lv), v in sorted(beyond.items(), key=lambda kv: (kv[0][0], LEVELS.index(
         by_series[r["series"]].append(r)
     k = len(by_series)
     cad = {s: rr for s, rr in by_series.items() if CADAVERIC.search(rr[0]["cohort"])}
-    n_cad = sum(count(rr[0]["n"]) or 0 for rr in cad.values())
-    n_all = sum(count(rr[0]["n"]) or 0 for rr in by_series.values())
+    n_cad = sum(series_n(rr) or 0 for rr in cad.values())
+    n_all = sum(series_n(rr) or 0 for rr in by_series.values())
     # a series' mean: the mean of its rows (both sexes when split)
     means = np.array([np.mean([r["mean"] for r in rr]) for rr in by_series.values()])
     psd = sd[keys.index(m), LEVELS.index(lv)]

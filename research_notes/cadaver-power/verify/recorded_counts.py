@@ -2,7 +2,10 @@
 # Changed: the absolute paths became the arguments below, and its last line, which called
 # the median of Panjabi's worth one over the 675 cells where his series is alone while taking it
 # over all 704, now gives both.
-#     python3 -I verify/recorded_counts.py SYNTHETIC_SPINE_DATA BORDERCALL
+# On 2026-10-29 'skeleton' joined the cadaveric words, for the corrected tables' "dry skeletons", and --sum-sexes
+# gives a series split by sex the sum of its sexes' counts in a cell, since spine-program #241 made each sex's row
+# carry its own count, where the copy's carried the whole sample in each (the copy's counts are unchanged by both).
+#     python3 -I verify/recorded_counts.py SYNTHETIC_SPINE_DATA BORDERCALL [--sum-sexes]
 """Recorded specimen counts per pool cell (synthetic_spine) and what they are worth at f = 0."""
 import csv, collections, os, re, sys
 sys.path.insert(0, sys.argv[2])
@@ -10,7 +13,7 @@ import numpy as np
 from schwingcheck import measures as MS, LEVELS
 
 SS = os.path.join(sys.argv[1], '')
-CAD = ('cadaver', 'dry bone', 'post-mortem')
+CAD = ('cadaver', 'dry bone', 'post-mortem', 'skeleton')
 MAP = {'endplate': 'endplate', 'h_post': 'h_post', 'canal_w': 'canal_w', 'canal_ap': 'canal_ap',
        'pedicle': 'pedicle', 'PDW': 'pedicle'}
 
@@ -23,10 +26,18 @@ def iscad(cohort, modality):
     text = (cohort + ' ' + modality).lower()
     return any(k in text for k in CAD)
 
+SUM_SEXES = '--sum-sexes' in sys.argv
+sexes = collections.defaultdict(dict)      # (archive key, level, series) -> {sex: n}
 cells = collections.defaultdict(dict)       # (archive key, level) -> {series: (cadaveric, n)}
 for r in csv.DictReader(open(SS + 'level_references.csv')):
     if r['measure'] in MAP:
-        cells[(MAP[r['measure']], r['level'])][r['series']] = (iscad(r['cohort'], r['modality']), count(r['n']))
+        key = (MAP[r['measure']], r['level'])
+        n = count(r['n'])
+        if SUM_SEXES:
+            sexes[key + (r['series'],)][r['sex']] = n
+            known = [m for m in sexes[key + (r['series'],)].values() if m is not None]
+            n = sum(known) if known else None
+        cells[key][r['series']] = (iscad(r['cohort'], r['modality']), n)
 rows = [l for l in open(SS + 'pedicle_width_references.csv') if not l.startswith('#')]
 for r in csv.DictReader(rows):
     s = r['series'] + ' ' + r['year']
