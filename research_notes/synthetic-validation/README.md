@@ -107,6 +107,17 @@ stand; a later snapshot is cut with `python3 -I snapshot.py --write <commit>` an
    9 times what the papers count, 6.7 times for six lumbar-type segments (tables gold and assumptions,
    figures fig6_power and fig8_assumptions).
 
+8. **Every measure of the reread, three tables.** Of the vocabulary's 95 measures of a vertebra, 68 are
+   drawn in some table: A, Panjabi's 42 (782 cells); B, the papers' 53 over 46 keys (694 cells, 292 of
+   them Tan 2004 alone); C, both, 75 measures (1,054 cells). Each table drawn from its own means and SDs
+   reads a true SD 1.11 to 1.25 times its own at the generator and 1.00 at its nearest point (sd_scale
+   1.0, scale_sd 0 to 0.01, rho 0.9, r_between 0.4), a self-consistency reading, not the papers'. On
+   table C 15.5% of vertebrae fail a relation no anatomy can fail, most where two papers' means are drawn
+   independently (the pedicle's cortex and core against its width, 19.5%). The rule on every complete
+   measure names one lumbar body in 97.6% of fields against 92.3% on the 32 and 49.1% on the seven.
+   The series of the 14 measures pooled from three or more differ by a median 1.07 of a person's SD
+   (tables all_inventory to all_spread, figures fig9_tables to fig13_spread_all).
+
 ## What was compared
 
 **The generator.** schwingcheck draws each value as s^p (mu + sd (rho z + sqrt(1 - rho^2) e)) + error n:
@@ -655,6 +666,294 @@ population its paper names: model.py draws each of its six phenotypes as one col
 levels at 0.05, and the papers count six lumbar-type segments in 2.48% of 443 skeletons and give no count
 at all for a thirteenth rib-bearing body.
 
+## Every measure of the reread
+
+The first part held the generator to the 32 measures it draws. The owner asked at 15:18 UTC on 2026-10-29
+for all the unique measures of the clinical reread, not just Panjabi's. This part reads the whole reread
+snapshot, data/series_all.csv (4,357 rows) and data/vocabulary.csv (106 keys), cut from bordercall main
+6409164 and held to data/SOURCE_ALL.json (papers_table.check_snapshot_all), and builds three tables a
+population can be drawn from: A, Panjabi's 42 measures at every level where he prints a spread, his own
+means and SDs; B, the papers' 53 measures, pooled as the first part pools them (literature.py's rules,
+pooling.py's REML means, the papers' SDs with Tan 2004's left out where another series prints one) and
+placed at a vertebra of C3 to L5; and C, both, Panjabi's measures with his errors and the papers' with
+their kind's (synthval/papers_table.py). The inventory, MEASURES.md, lists every key of the vocabulary
+with what became of it. Of the 95 measures of a vertebra, 49 are Panjabi's, 7 of them printed as a mean
+with no spread (the end-plates' wedge, two rib areas, the facets' four Cardan angles), which no table can
+hold; 46 have a usable series in the papers, 20 of them Panjabi's, all among the 32; 17 keys no paper of
+the 39 prints a series for (the lamina's thickness, height and width, the pars' width, the spinous
+height, the transverse process's length and height, the pedicle's outer width and height and its two
+angles, the body's wedge and index, the lateral height, the facets' sagittal angle, tropism and gap);
+and 3 have rows but no series with a mean, an SD and a count of two or more that passes the rules
+(spinous_angle, disc_index, endplate_concavity). Nine keys are split into variants where their papers
+measure different things under one name (papers_table.VARIANTS, with the reason in VARIANT_WHY: Bach's
+disc height from three points and Kunkel's from the two rims, Hou's pedicle chord parallel to the
+midline and the others' along the axis, Chen's body depth as the end-plates' mean and Moncada's on the
+slice through the pedicles, Alonge's Torg ratio of depths and Griffith's canal index of areas, among
+them); each variant is a measure of its own in table B, so the 53 measures of B are 46 keys' worth.
+
+<!-- table all_inventory -->
+| the vocabulary | keys |
+| --- | ---: |
+| keys in the vocabulary | 106 |
+|   not a measure of one vertebra (the subjects, a prevalence, a reliability, an alignment) | 11 |
+|   measures of a vertebra | 95 |
+|     Panjabi prints them | 49 |
+|       with a spread, so a table can hold them | 42 |
+|       the generator's 32 | 32 |
+|       as a mean with no spread | 7 |
+|     with a usable series in the papers | 46 |
+|       of them Panjabi's | 20 |
+|       of them the papers' own | 26 |
+|     no paper of the 39 prints a series | 17 |
+|     rows, but no series with a mean, an SD and a count | 3 |
+|     split into variants (papers_table.VARIANTS) | 9 |
+|     drawn in some table | 68 |
+
+| table | measures | count | cells (measure, level) | complete C3 to L5 | complete L1 to L5 | by kind |
+| --- | --- | ---: | ---: | ---: | ---: | --- |
+| A | Panjabi's, every measure | 42 | 782 | 32 | 33 | angle 12, area 12, length 18 |
+| B | the papers' | 53 | 694 | 21 | 50 | angle 7, area 6, length 39, ratio 1 |
+| C | Panjabi's and the papers' | 75 | 1054 | 35 | 63 | angle 15, area 14, length 45, ratio 1 |
+<!-- end all_inventory -->
+
+The papers' cells are not of a piece, and the table below says what each count is made of. Of the 694
+cells placed at a level, 292 rest on Tan 2004's ten Singaporean cadavers alone, whose SD is uncertain
+(his methods define the SE as SD / n, literature.DISPERSION_UNCERTAIN; the SD is read back as SE times
+sqrt(n)), 279 on one other series and 123 on a pooled SD; 665 pool bone and CT, 22 film and 7 MRI, each
+cell from the first class that has a series, so no mean mixes a magnified film with bone; 81 cells pool
+three series or more and carry a prediction interval. The upper end-plate lacks C6 in table B because
+Tan prints an SD of 0 there, so B holds 21 of its cells and C 22, Panjabi's filling the gap. A disc or a
+foramen printed between two levels is placed at the upper; one printed against a single vertebra with
+no word of which space (Busscher's and Yadav's discs, Yadav's foramina) is pooled under its own label
+and placed nowhere, 44 cells in all, 22 of them the mid-disc height. The reread's own n-faults are not
+fixed in this snapshot: bordercall pull request 39 (branch claude/project-thread-r19vr5, at 1119506 when
+this was written, marked ready for the owner) cuts series.csv from 4,357 to 3,760 rows, taking out
+Griffith's adjusted rows, which duplicate his 1,080, Bach's figure points, Chaudhary's and Mitra's
+reprints, Hou's T9 misprint and Shin 2024's covariate-adjusted tables, pooling Bach 2019's decades
+with their printed counts, and reading the counts of people for Frontphys 2026, Kunkel 2011, Olsewski
+1990, Shin 2024 and Chen, Tan's end-plate angles as magnitudes, and Otsuki 2021's pedicle heights, an
+isthmus axis, as differing from Panjabi's measure. When it merges, `papers_table.write_snapshot_all` cuts the snapshot again and
+run_all.py is run again; every number of this part moves with it, and the pooled cells' counts above
+first.
+
+<!-- table all_cells -->
+| the papers' cells | count |
+| --- | ---: |
+| rows of the whole snapshot | 4357 |
+| series formed | 1576 |
+| series with a mean, an SD and a count of two or more | 1386 |
+| papers behind them | 33 |
+| cells (measure, level as printed) pooled | 738 |
+| cells placed at a level of C3 to L5 | 694 |
+|   SD Tan 2004's alone, uncertain | 292 |
+|   SD one series | 279 |
+|   SD pooled | 123 |
+|   pooled from MRI | 7 |
+|   pooled from bone and CT | 665 |
+|   pooled from film | 22 |
+|   one series / two / three or more | 477 / 136 / 81 |
+| cells pooled but placed nowhere (a disc or foramen against one vertebra, a level past L5) | 44 |
+|   body_d_mid | 1 |
+|   canal_ap | 1 |
+|   disc_h_mean | 7 |
+|   disc_h_mid | 22 |
+|   endplate | 1 |
+|   endplate_area | 1 |
+|   endplate_depth | 1 |
+|   endplate_lower_depth | 1 |
+|   foramen_w | 7 |
+|   h_ant | 1 |
+|   lateral_recess | 1 |
+<!-- end all_cells -->
+
+## The state space on every table
+
+The first part's state space was searched against the papers' SDs on the 32 measures. Here each table is
+drawn from at the generator's point and the 20 single-axis points of synthval/sweep.py, and the grid of
+480 points is searched on each, scored as before by the squared log of the median SD ratio plus the
+squared distance of the four correlations from Griffith's. The SD ratio on a table is over the table's
+own SDs, since a table drawn from its own means and SDs has no other population to be held to, so the
+reading is one of self-consistency: how far the generator's size and its clip move the SD it is given,
+and how near a point of the grid brings it back to one. At the generator's point the true SD is 1.11
+to 1.25 times the table's own (1.23 to 1.57 measured, table B the widest, whose SDs, the papers', are smaller than
+Panjabi's, so the size's spread and the errors stand larger against them); every table's nearest
+point sits at sd_scale 1.0, scale_sd 0 or 0.01, rho 0.9 and r_between 0.4, where the true ratio reads
+1.00 or 1.01 and the neighbouring levels correlate at 0.81 (0.39 to 0.43 at the generator). Those
+nearest points agree with the first part's on rho and on the size's spread, and differ on sd_scale,
+which the papers' SDs set at 0.6 and the tables' own leave at 1.0, as they must. The median correlation
+of Griffith's four pairs falls from 0.53 to 0.57 at the generator to 0.39 at every nearest point,
+against Griffith's 0.24 to 0.58, since the size's spread is what ties measure to measure.
+
+<!-- table all_state_space -->
+| table | point | scale_sd / sd_scale / rho / r_between | SD ratio, true | measured | neighbour r | median Griffith-pair r | necessary (% vertebrae) | any but floor (% vertebrae) | any (% vertebrae) | any but floor (% people) | distance |
+| --- | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| A | generator | 0.070 / 1.00 / 0.50 / 0.00 | 1.11 | 1.23 | 0.40 | 0.57 | 6.0 | 43.4 | 46.0 | 100 | - |
+| A | nearest | 0.010 / 1.00 / 0.90 / 0.40 | 1.01 | 1.09 | 0.81 | 0.39 | 5.7 | 29.9 | 32.5 | 92 | 0.015 |
+| B | generator | 0.070 / 1.00 / 0.50 / 0.00 | 1.25 | 1.57 | 0.43 | 0.53 | 12.4 | 44.5 | 46.7 | 100 | - |
+| B | nearest | 0.010 / 1.00 / 0.90 / 0.40 | 1.00 | 1.26 | 0.81 | 0.39 | 10.9 | 39.2 | 41.9 | 100 | 0.020 |
+| C | generator | 0.070 / 1.00 / 0.50 / 0.00 | 1.12 | 1.25 | 0.39 | 0.56 | 15.4 | 55.0 | 59.4 | 100 | - |
+| C | nearest | 0.000 / 1.00 / 0.90 / 0.40 | 1.00 | 1.10 | 0.81 | 0.39 | 12.9 | 41.8 | 46.8 | 99 | 0.017 |
+<!-- end all_state_space -->
+
+<!-- table all_axes -->
+| point (table C) | SD ratio, true | measured | neighbour r | median Griffith-pair r | necessary (% vertebrae) | within | outside | any but floor (% vertebrae) | any but floor (% people) |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| generator | 1.12 | 1.25 | 0.39 | 0.56 | 15.4 | 5.2 | 4.4 | 55.0 | 100 |
+| scale_sd=0.0 | 1.00 | 1.10 | 0.25 | -0.00 | 15.4 | 5.1 | 4.5 | 55.1 | 100 |
+| scale_sd=0.035 | 1.03 | 1.14 | 0.29 | 0.23 | 15.4 | 5.2 | 4.4 | 55.0 | 100 |
+| scale_sd=0.05 | 1.06 | 1.18 | 0.33 | 0.39 | 15.4 | 5.2 | 4.4 | 55.0 | 100 |
+| scale_sd=0.1 | 1.24 | 1.38 | 0.49 | 0.72 | 15.4 | 5.2 | 4.4 | 55.0 | 100 |
+| rho=0.0 | 1.12 | 1.25 | 0.20 | 0.72 | 15.4 | 5.1 | 4.5 | 55.2 | 100 |
+| rho=0.25 | 1.12 | 1.25 | 0.25 | 0.67 | 15.5 | 5.2 | 4.5 | 55.1 | 100 |
+| rho=0.75 | 1.12 | 1.25 | 0.64 | 0.44 | 15.4 | 5.2 | 4.3 | 55.1 | 100 |
+| rho=0.9 | 1.12 | 1.25 | 0.84 | 0.37 | 15.3 | 5.2 | 4.2 | 55.2 | 100 |
+| phi=0.3 | 1.12 | 1.25 | 0.58 | 0.51 | 15.5 | 5.2 | 4.4 | 55.0 | 100 |
+| phi=0.6 | 1.12 | 1.25 | 0.76 | 0.44 | 15.6 | 5.3 | 4.4 | 55.1 | 100 |
+| phi=0.9 | 1.12 | 1.25 | 0.94 | 0.36 | 15.5 | 5.2 | 4.5 | 54.9 | 100 |
+| r_between=0.2 | 1.12 | 1.25 | 0.40 | 0.61 | 15.2 | 5.0 | 4.3 | 53.4 | 100 |
+| r_between=0.4 | 1.12 | 1.25 | 0.40 | 0.66 | 14.7 | 4.8 | 4.1 | 51.5 | 100 |
+| error_scale=0.5 | 1.12 | 1.17 | 0.39 | 0.56 | 15.4 | 5.2 | 4.4 | 55.0 | 100 |
+| error_scale=2.0 | 1.12 | 1.48 | 0.39 | 0.56 | 15.4 | 5.2 | 4.4 | 55.0 | 100 |
+| sd_scale=0.7 | 0.86 | 1.03 | 0.50 | 0.72 | 6.6 | 3.0 | 2.2 | 29.4 | 100 |
+| sd_scale=0.85 | 0.99 | 1.13 | 0.44 | 0.64 | 10.5 | 4.1 | 3.3 | 42.3 | 100 |
+| sd_mode=size_removed | 1.00 | 1.10 | 0.43 | 0.74 | 13.1 | 4.6 | 3.5 | 40.3 | 100 |
+<!-- end all_axes -->
+
+## Quality on every table
+
+qi.py's five indicators are read on every table's population, and nine relations between the papers'
+measures and Panjabi's with them (synthval/relations.py), each necessary whatever the population: an
+inner pedicle width or height inside the outer, the medial cortex and the core inside the width, the
+screw path along the pedicle's axis longer than the pedicle proper and than the distance to the
+posterior longitudinal ligament, the interpedicular distance and two pedicles inside the span of the
+transverse processes, Griffith's body section and Shin's foramen inside the rectangles of their own
+extents (with the end-plate's allowances for the body, none convex for the foramen), and a ratio of two
+areas above zero. "Necessary" unites the relations no anatomy can fail; "any but floor" adds the two
+bounds that hold under this note's allowances. On table C at the generator 15.5% of vertebrae and 96% of
+people fail a necessary relation (6.3% and 74% on sign or inside alone, the first part's reading), 55.1%
+and every person any but the floor, 59.4% any; at C's nearest point 12.4% and 78%, 41.3% and 99%, 46.2%
+and every person. The relations the papers bring fail most where two papers' means are set beside each
+other with independent draws: the medial cortex and the inner width against the pedicle's width 19.5%
+(Otsuki's cortex, Makino's core, Panjabi's pedicle), the inner width against the width 12.9%, the
+pedicles inside the transverse processes 4.6% of 88,000 tests, the inner height 4.1%; the two chords
+and the ratio fail none. Griffith's body section passes the rectangle of Moncada's width and depth in
+30.2% and falls under half of it in 0.9%, Shin's foramen passes his own rectangle in 37.7%: areas
+drawn independently of the extents that bound them, as the first part found of Panjabi's end-plates.
+A relation that joins two papers' populations asks whether the generator's independent draws from
+their pooled means make a vertebra that could exist, not whether the papers disagree. On table B alone,
+whose cells are the papers', sign or inside fails 0.4% of vertebrae and 9% of people, the necessary
+union 12.5% and 95%, and the box 40.2%. Curation is counted here as in the first part, never applied.
+
+<!-- table all_quality -->
+| table | setting (% of vertebrae / % of people) | measures | sign or inside | necessary (with within, past, outside, positive) | box | convex | any but floor | floor | any |
+| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| A | generator | 42 | 6.2 / 74 | 6.2 / 74 | 32.2 / 99 | 10.3 / 77 | 43.4 / 100 | 9.5 / 86 | 46.0 / 100 |
+| A | size_removed | 42 | 5.2 / 68 | 5.2 / 68 | 21.2 / 97 | 1.8 / 29 | 26.7 / 100 | 8.1 / 83 | 29.6 / 100 |
+| A | size_removed, scale_sd 0.035 | 42 | 5.9 / 72 | 5.9 / 72 | 29.2 / 99 | 7.8 / 69 | 38.9 / 100 | 9.0 / 85 | 41.5 / 100 |
+| A | nearest the papers (32 measures) | 42 | 0.6 / 11 | 0.6 / 11 | 5.7 / 43 | 0.6 / 7 | 6.9 / 52 | 1.9 / 30 | 8.2 / 63 |
+| A | nearest the papers (A) | 42 | 5.6 / 45 | 5.6 / 45 | 20.9 / 79 | 5.6 / 33 | 29.2 / 91 | 8.4 / 58 | 31.7 / 93 |
+| B | generator | 53 | 0.4 / 9 | 12.5 / 95 | 40.2 / 100 | 0.3 / 5 | 45.2 / 100 | 9.2 / 90 | 47.4 / 100 |
+| B | size_removed | 53 | 0.4 / 8 | 10.8 / 92 | 24.6 / 100 | 0.0 / 0 | 30.1 / 100 | 9.0 / 90 | 33.1 / 100 |
+| B | size_removed, scale_sd 0.035 | 53 | 0.4 / 9 | 11.9 / 94 | 33.3 / 100 | 0.1 / 2 | 38.4 / 100 | 9.1 / 90 | 40.8 / 100 |
+| B | nearest the papers (32 measures) | 53 | 0.022 / 0 | 7.6 / 67 | 25.2 / 99 | 0.0 / 0 | 29.6 / 100 | 7.8 / 87 | 33.0 / 100 |
+| B | nearest the papers (B) | 53 | 0.5 / 7 | 10.9 / 84 | 34.6 / 99 | 0.1 / 1 | 39.8 / 100 | 9.0 / 88 | 42.4 / 100 |
+| C | generator | 75 | 6.3 / 74 | 15.5 / 96 | 40.8 / 100 | 10.5 / 79 | 55.1 / 100 | 17.9 / 98 | 59.4 / 100 |
+| C | size_removed | 75 | 5.2 / 67 | 13.2 / 94 | 30.6 / 100 | 1.7 / 29 | 40.3 / 100 | 16.4 / 98 | 45.9 / 100 |
+| C | size_removed, scale_sd 0.035 | 75 | 5.9 / 72 | 14.9 / 95 | 38.1 / 100 | 7.9 / 71 | 51.3 / 100 | 17.4 / 98 | 55.9 / 100 |
+| C | nearest the papers (32 measures) | 75 | 0.6 / 11 | 3.9 / 46 | 14.8 / 83 | 0.6 / 7 | 18.3 / 91 | 9.5 / 91 | 23.7 / 99 |
+| C | nearest the papers (C) | 75 | 5.6 / 44 | 12.4 / 78 | 30.0 / 94 | 5.6 / 34 | 41.3 / 99 | 16.7 / 92 | 46.2 / 100 |
+<!-- end all_quality -->
+
+<!-- table all_relations -->
+| relation | indicator | measures | vertebrae tested | flagged at the generator (%) | at C's nearest point (%) | why it must hold |
+| --- | --- | --- | ---: | ---: | ---: | --- |
+| inner width within the pedicle | within | pedicle_w_inner, pedicle | 20000 | 12.9 | 9.6 | the cancellous core lies inside the cortex |
+| inner height within the pedicle | within | pedicle_h_inner, pedicle_h | 20000 | 4.1 | 2.1 | the cancellous core lies inside the cortex |
+| cortex and core within the pedicle | within | pedicle_cortex [medial], pedicle_w_inner, pedicle | 20000 | 19.5 | 15.9 | the width is the two walls and the core together, so the medial wall and the core are less than it |
+| the chord runs past the pedicle | past | pedicle_length [proper], pedicle_chord [along the axis] | 20000 | 0.0 | 0.0 | the screw path reaches the anterior cortex of the body, beyond the pedicle proper |
+| the chord runs past the ligament | past | pedicle_length [to the ligament], pedicle_chord [along the axis] | 20000 | 0.0 | 0.0 | the posterior longitudinal ligament lies on the body's back wall, before its anterior cortex |
+| the pedicles inside the transverse processes | outside | interpedicular, pedicle, pedicle, transverse_width | 88000 | 4.6 | 3.1 | the transverse processes arise lateral to the pedicles, which stand lateral to the canal |
+| body section inside its box (convex bound) | convex | body_area, body_w, body_d [through the pedicles] | 20000 | 0.9 | 0.3 | a plane region lies inside the rectangle of its extents; the body section is nearly symmetric and convex |
+| body section inside its box | box | body_area, body_w, body_d [through the pedicles] | 20000 | 30.2 | 25.7 | a plane region lies inside the rectangle of its extents; the body section is nearly symmetric and convex |
+| foramen inside its box | box | foramen_area, foramen_w [body to facet], foramen_h | 19999 | 37.7 | 34.6 | a plane region lies inside the rectangle of its extents; the foramen is not symmetric, so no convex bound |
+| a ratio above zero | positive | canal_index [areas] | 20000 | 0.0 | 0.0 | a ratio of two positive areas is positive |
+<!-- end all_relations -->
+
+## Naming with more measures
+
+The exact rule is built on table C and read on columns drawn from it, with each subset's own errors, on
+measures complete over the run it names: over C3 to L5 the seven SPINEPS measures, the generator's 32
+and every complete measure of C (35); over L1 to L5 the seven, the 32, and every complete measure of A
+(33), B (49) and C (62). canal_index [areas] is complete over the lumbar run but has no modelled error,
+a ratio having none, so it is left out of every subset (naming_all.csv, no_modelled_error). At the
+generator's point one body of the whole column is named exactly in 47.3% of fields on the seven, 87.2%
+on the 32 and 89.0% on all 35; three bodies in 72.8, 98.3 and 98.9%; nine in 96.2% on the seven and
+every field on the rest. Over the lumbar run one body reads 49.1% on the seven, 92.3% on the 32, 92.6%
+on A's 33, 95.4% on B's 49 and 97.6% on C's 62: the papers' own measures add three points over the 32
+and the whole table five, and three bodies are named in every field from 32 measures on. At C's
+nearest point, with the rule built for its SDs, size spread and rho and ignoring its r_between of 0.4
+as the first part's rule ignored its 0.2, the seven name one body in 50.9% and three in 81.3% (86.7% lumbar), while the
+larger subsets read a few points lower at one body (82.4% on the 32, 83.2% on the 35, 92.2% on the 62),
+since a draw with less size and more correlation between neighbours gives the rule less to tell one
+column from the next by when every measure is in; from 32 measures on, at three bodies and more the two
+points read alike.
+The answers at 0.99 are right 97 to 100% of the time throughout (table all_naming, figure
+fig12_naming_measures).
+
+<!-- table all_naming -->
+| run | measures | generator: n | 1 body | 3 bodies | 5 bodies | 9 bodies | nearest the papers (C): n | 1 body | 3 bodies | 5 bodies | 9 bodies |
+| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| C3-L5 | the seven | 7 | 47.3 (99) | 72.8 (100) | 96.2 (100) | 7 | 50.9 (97) | 81.3 (100) | 99.6 (100) |
+| C3-L5 | the generator's 32 | 32 | 87.2 (100) | 98.3 (100) | 100.0 (100) | 32 | 82.4 (99) | 98.8 (100) | 100.0 (100) |
+| C3-L5 | every complete measure of C | 35 | 89.0 (100) | 98.9 (100) | 100.0 (100) | 35 | 83.2 (99) | 99.2 (100) | 100.0 (100) |
+| L1-L5 | the seven | 7 | 49.1 (100) | 77.3 (100) | 100.0 (100) | 7 | 51.6 (98) | 86.7 (100) | 100.0 (100) |
+| L1-L5 | the generator's 32 | 32 | 92.3 (100) | 99.9 (100) | 100.0 (100) | 32 | 87.1 (98) | 100.0 (100) | 100.0 (100) |
+| L1-L5 | every complete measure of A | 33 | 92.6 (100) | 99.9 (100) | 100.0 (100) | 33 | 87.4 (98) | 100.0 (100) | 100.0 (100) |
+| L1-L5 | every complete measure of B | 49 | 95.4 (100) | 99.9 (100) | 100.0 (100) | 49 | 89.4 (99) | 100.0 (100) | 100.0 (100) |
+| L1-L5 | every complete measure of C | 62 | 97.6 (100) | 100.0 (100) | 100.0 (100) | 62 | 92.2 (98) | 100.0 (100) | 100.0 (100) |
+
+Each cell is the share of fields named exactly, and in parentheses the share of its answers at 0.99 that are right. The widths are 1, 3 and 9 bodies over C3 to L5 and 1, 3 and 5 over L1 to L5, so the last column of each setting reads 9 or 5 by the run. Left out of every subset, having no modelled error: canal_index [areas].
+<!-- end all_naming -->
+
+## The spread between series on every measure
+
+The first part's part B read the spread between published series on Panjabi's measures; here it is
+read on every cell of the whole snapshot that pools three series or more (power.py's REML tau over the
+cell's SD): 81 cells of 14 measures, a median 1.07 (quartiles 0.72 to 1.38), 81% of cells over 0.5, so
+the series differ among themselves by about a person's SD. Panjabi's measures read 1.15 over 57 cells,
+the first part's reading in the papers' own SD; the papers' own measures 0.76 over 24 cells of five
+measures, with the widest and the narrowest spreads both among them: the anterior body height 1.61
+(seven cells), against the interpedicular distance 0.32 and the mid body height 0.23 (two cells). Of
+Panjabi's, the pedicle's sagittal inclination reads 2.78, the end-plates' widths 1.53 and 1.28, the
+pedicle's height 1.24 and width 0.57. An infinite pool of published series is worth a median 0.1 scan
+of the population named for the sagittal inclination and 28 for the mid body height, by part A's rule;
+between half a scan and 1.2 for eight of the fourteen.
+
+<!-- table all_spread -->
+| spread between series, tau / the cell's SD | cells (3 series or more) | measures | median | quartiles | cells over 0.5 (%) |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| all | 81 | 14 | 1.07 | 0.72 to 1.38 | 81 |
+| panjabi's measures | 57 | 9 | 1.15 | 0.90 to 1.43 | 91 |
+| the papers' own | 24 | 5 | 0.76 | 0.34 to 1.16 | 58 |
+
+| measure | whose | cells | median tau / SD | worth of an infinite pool, scans (median) |
+| --- | --- | ---: | ---: | ---: |
+| pedicle_incl_sag | Panjabi's | 7 | 2.78 | 0.1 |
+| h_ant | the papers' own | 7 | 1.61 | 0.5 |
+| endplate | Panjabi's | 5 | 1.53 | 0.6 |
+| endplate_lower | Panjabi's | 5 | 1.28 | 0.7 |
+| pedicle_h | Panjabi's | 9 | 1.24 | 0.9 |
+| h_post | Panjabi's | 7 | 1.19 | 0.9 |
+| canal_area | Panjabi's | 5 | 1.11 | 1.0 |
+| canal_ap | Panjabi's | 5 | 1.06 | 1.2 |
+| pedicle_chord [along the axis] | the papers' own | 5 | 0.98 | 1.1 |
+| canal_w | Panjabi's | 5 | 0.95 | 1.2 |
+| pedicle_w | Panjabi's | 9 | 0.57 | 3.1 |
+| foramen_h | the papers' own | 5 | 0.44 | 6.2 |
+| interpedicular | the papers' own | 5 | 0.32 | 11.9 |
+| h_mid | the papers' own | 2 | 0.23 | 28.5 |
+<!-- end all_spread -->
+
 ## Figures and renders
 
 figures/FIGURES.md lists each with its caption, its CSV, the sha256 of every file and the abbreviations
@@ -671,6 +970,8 @@ mnemonics.py starts it at the canal's posterior wall.
 - fig6_power: the spread between series, part C rerun, what gold persons can test.
 - fig7_quality: the quality indicators by measure and level.
 - fig8_assumptions: the errors and prevalences the generator assumes, beside the papers'.
+- fig9_tables, fig10_relations, fig11_state_space_all, fig12_naming_measures, fig13_spread_all: the second
+  part, every measure of the reread (figures_all.py, drawn by figures.py with the rest).
 - render1_axial, render2_column, render3_solid: L3 from above, the lumbar column from in front, and the
   column as solids, Panjabi's means beside synthetic people.
 
@@ -680,25 +981,37 @@ From this folder, with the Python that holds bordercall's pinned packages (requi
 
 ```
 python3 -I run.py --out records                    # every record, about ten minutes on 4 CPUs
+python3 -I run_all.py --out records/all            # the second part, about half an hour; --quick smoke-tests it
 python3 -I figures.py --records records --out figures
-python3 -I tables.py --records records --write README.md
-python3 -I tables.py --records records --check README.md     # exit 1 when a table differs from the records
+python3 -I tables.py --records records --write README.md --write MEASURES.md
+python3 -I tables.py --records records --check README.md --check MEASURES.md   # exit 1 when a table differs
 cd ../.. && python3 -m unittest discover -s research_notes/synthetic-validation/tests
 ```
 
 records/RECORD.json gives the command, the seeds, the sizes, bordercall's commit, the snapshot's commit
 and digest, and the sha256 of every Python file of this note, run.py, tables.py, figures.py, render.py,
 snapshot.py, synthval/ and the tests, read before the run starts. The run is deterministic: two runs give
-the same bytes in every record but RECORD.json's seconds.
+the same bytes in every record but RECORD.json's seconds. records/all/RECORD_ALL.json records the second
+part's run the same way, with the whole snapshot's digests from data/SOURCE_ALL.json. The grid search
+of the second part also runs as a Slurm array on the grid, one task a point, with a merge that writes the
+same records (grid/README.md). As committed on 2026-10-29 the records are a container's, and the code
+digests in RECORD.json and RECORD_ALL.json predate the last changes to run.py, run_all.py and
+synthval/all_measures.py (the array's --point and merge, no number changed); the owner's word of 23:03 UTC
+sends the final rerun to the grid, which rewrites both records.
 
 ## Files
 
-- run.py writes records/; figures.py and render.py draw figures/; tables.py writes the tables above;
-  snapshot.py cuts and checks data/.
+- run.py writes records/, run_all.py records/all/; figures.py, figures_all.py and render.py draw
+  figures/; tables.py writes the tables above and MEASURES.md; snapshot.py cuts and checks data/.
 - synthval/: literature.py (the selection), pooling.py, population.py, validate.py, structure.py, qi.py,
-  sweep.py, naming.py, power.py, references.py (the papers' errors and prevalences), house.py.
-- data/: the snapshot of the reread's series and SOURCE.json.
-- tests/test_synthval.py: 31 tests of the code against what its docstrings say.
+  sweep.py, naming.py, power.py, references.py (the papers' errors and prevalences), house.py; for the
+  second part papers_table.py (the vocabulary, the variants, the three tables), relations.py and
+  all_measures.py.
+- data/: the snapshot of the reread's series and SOURCE.json; series_all.csv, vocabulary.csv and
+  SOURCE_ALL.json, the whole reread for the second part.
+- MEASURES.md: every key of the vocabulary with what became of it, written from records/all.
+- tests/test_synthval.py: 31 tests of the code against what its docstrings say; tests/test_all_measures.py:
+  25 of the second part's.
 
 ## What this note does not do
 
@@ -713,3 +1026,7 @@ the same bytes in every record but RECORD.json's seconds.
   read the same as a population.
 - The sex table rests on three papers, the prevalences on two, and the error part is read at 448006f;
   a later snapshot of the reread is cut and the note run again.
+- The second part reads the reread at main 6409164, before pull request 39 fixes its counts of people
+  and its duplicated rows; a table drawn from its own means and SDs can be read for self-consistency
+  and for what the relations between measures allow, never for a match to the papers, which the first
+  part made.

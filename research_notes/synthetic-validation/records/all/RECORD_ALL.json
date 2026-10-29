@@ -1,0 +1,63 @@
+{
+ "bordercall_commit": "1810af54af32740ee6844404af65a2e91778e73d",
+ "code": {
+  "figures.py": "df7e5d8794c0a291faf0b536769e7035a78817b03b24e7d397cda8e82db6281d",
+  "figures_all.py": "0037335555bf08deb7dc1329db87dfdf5fdfa8ef50eff8f233c09a7b612b7ba4",
+  "render.py": "d4bc0d70416d843a6d019ffefe741cb0fe01013357027395c24448c01cc3a9d9",
+  "report/build.py": "c2b78cdbc7eb4033480b7c5a22d31568cc4353ccb1fb4122dc1500a601d8fb18",
+  "run.py": "6a2b6d59baf7af2e0a486e8a3626a5f179a4ec5b62f22f38118697e1d5680cb3",
+  "run_all.py": "52586fd78ab389111e585004dc604f62ca1c811db53af03cea4e9bd9e3538019",
+  "snapshot.py": "c09b0eab7e839f02b0fc6b0fd35a6e5c55f231a1cc6073110e7994fb663f2f89",
+  "synthval/all_measures.py": "5ae4299a58b09e7c131b1fe251368a94c168e367d215bddd6dde8e23ca1ce308",
+  "synthval/house.py": "396822b88fcb46e9533162f8a46b8e2443c1d58ac15d1f40e2d0eb4f5653323a",
+  "synthval/literature.py": "bd3a6a6adf1d7242df3d7d08d2e29dda75a3a1f80589f9f3520d4b7bd0679821",
+  "synthval/naming.py": "b9416b1c743ea68011699dc268f6208f1ebedefb2a84716349e8e3a354430db9",
+  "synthval/papers_table.py": "dff787fd7a3a52929cd9e7560f0af4b551c01772fa74fd8b639c99854360cce7",
+  "synthval/pooling.py": "292c34f8de6eadb40681f68143d35943eaf6c61130df2f5b778a40e2e0763df0",
+  "synthval/population.py": "83a502cd421b2727e5d165bbab0578527a9b5d245f4ef09c1f2ac24daa040f17",
+  "synthval/power.py": "4deef25fec9f5cc2efd56634057b3f17f4df0d23a0f67d01a145c5ca3dec444e",
+  "synthval/qi.py": "4e5ad50dbd18264980ba522ab2f328b9bbefb45a8b3f868280b28225c7fd8c82",
+  "synthval/references.py": "9791c7b46af7d0be381e130e7743b8b47e283fc1c9e3d2411a188e982482aeec",
+  "synthval/relations.py": "7350f76d09bd75bab5078eeb38a3015ff49c7fc0b982ff6a3ebcbe0bf12cbeec",
+  "synthval/structure.py": "b04037b0ae7537454d9ac98d551ffa32a7149697328eacb1056c1a69c91e0cac",
+  "synthval/sweep.py": "77ee7e7a8ab6f251096a6a03ab69ea36c7ae47670843f610364266f112e46b87",
+  "synthval/validate.py": "480b4cc85debc474aa51422e7d97405663dc74995f1bab8d600ec04c8aac6877",
+  "tables.py": "ad781532529aba5d751bcd0a615d0d8c85a1de5d926dcd55eb87e0ef3e016eb2",
+  "tests/test_all_measures.py": "10c3a1fc9b856a7de821faf756a2d5df36b860ede5165698b67c8169bef595eb",
+  "tests/test_synthval.py": "499ce0c89803f50a2f88ccfad444d72e15201f2d1920dbfcc695a887c49832ca"
+ },
+ "command": "python3 -I run_all.py --out records/all",
+ "files": {
+  "cells.csv": "84771d8269228a32daf4c41ec1dd5a2d551601d011374a57ad1f0fbce566ea37",
+  "grid_all.csv": "3218b531489ca3f72053749c2bdbe2bf4d4078ce24241e2deac8affd69281012",
+  "inventory.csv": "3af2788fc6dfe87db7b8753f88918f3e8130e5f06ac1e822a189a28979ab4b4f",
+  "naming_all.csv": "9160084d9d0f4ab47b477955931b442c801ba2617e38c582a086baa53c7e745e",
+  "qi_all.json": "3389499d17d01a35d348d2f316af0af60ef56bbf79b35aeb98e4f64af12445db",
+  "selection_all.json": "aa256156b4e545cb32c4b4a5756d012b9b6083ea8e22fd5e7113b7aab532cc0f",
+  "spread_all.csv": "df72342d14cc0edb93d9102d6e73e1df2cb30c968bd7aa6f2c385a06a7806a60",
+  "spread_all.json": "fcb432480400f428d4c58253a11460a45c664cca1d1d93489476cd5527fc24ce",
+  "state_space_all.csv": "10cf99437cc378d8c56487d13e8177801127f2186d1a0e599d7a85be9633dc4e",
+  "table_both.csv": "edae7af4c96b25b51a7dd940be4bc77bb7ec826be80db13ee3996553eb272689",
+  "table_panjabi.csv": "b78138fc1c2f6d2df3925ea4e15b262f10619763b7bc2d2bc16f52164d8004f7",
+  "table_papers.csv": "ca4c71794fec4b0dc4a42af5f18cbd6ce64991ed8bb43684c3951a81c6941bc0"
+ },
+ "numpy": "2.5.4",
+ "python": "3.13.17",
+ "seconds": 3199,
+ "seeds": {
+  "naming_columns": 4101,
+  "population": 2026,
+  "sweep": 11
+ },
+ "sizes": {
+  "grid_points": 480,
+  "naming_columns": 2000,
+  "population": 4000
+ },
+ "snapshot": {
+  "branch": "main",
+  "commit": "6409164c62138a1fab30e638a1de38ad2f6c45a4",
+  "sha256": "24ce47909aaefdb64f7930ea03cdf6df14307c044748b9ba91aefbd390bd9f62",
+  "vocabulary_sha256": "ea06d37bd52619a8c6dd55423ca6c6e685501ec6fe64d2d4a79560f6286f65bd"
+ }
+}

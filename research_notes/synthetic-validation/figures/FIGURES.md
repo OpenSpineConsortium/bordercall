@@ -4,10 +4,11 @@ Drawn by `python3 -I figures.py --records records --out figures` from the record
 `python3 -I run.py --out records` (bordercall 560bd00). Each figure's numbers are its CSV; its caption is its .caption.txt.
 The three renders are drawn by render.py from the generator itself, seed 2029, 4000 people.
 
-Drawn at bordercall 83c70e5, from and by:
+Drawn at bordercall 1810af5, from and by:
 
 - records/RECORD.json, sha256 8229f63cad6bc1ddf0ecc53c9faa6602bb4d79b590165b4c4cd80f5d614c9df1
-- figures.py, sha256 9c056e857bd2742388109c62a23a2f41aea1cd5f683e1024fc449ddedae613ec
+- figures.py, sha256 df7e5d8794c0a291faf0b536769e7035a78817b03b24e7d397cda8e82db6281d
+- figures_all.py, sha256 0037335555bf08deb7dc1329db87dfdf5fdfa8ef50eff8f233c09a7b612b7ba4
 - render.py, sha256 d4bc0d70416d843a6d019ffefe741cb0fe01013357027395c24448c01cc3a9d9
 - synthval/house.py, sha256 396822b88fcb46e9533162f8a46b8e2443c1d58ac15d1f40e2d0eb4f5653323a
 - schwingcheck/figures.py, sha256 3908d42cc8e93c839d8ddca5bf06591af281e1490d775483e20535a0908b0576
@@ -85,6 +86,51 @@ Two things the generator assumes, set beside the papers. A, the error of one rea
 - fig8_assumptions.csv, sha256 cb381b8bbc51abf1fa05c1efc6f057185700c9bedeb4d7760bbfdef193da9cf1
 - fig8_assumptions.pdf, sha256 d6d477abcb5f5b5758a938088b88872f7efc0ae2ba55e83288c9c9b8091abbd0
 - fig8_assumptions.png, sha256 55384bdbb9a7a48cb74fd3e5db05dbf08f763acfc61cecb0b7550a53b7483162
+
+## fig9_tables
+
+Every measure of the reread. A, what became of each of the vocabulary's keys; B, the measures each table holds at each level of C3 to L5; C, the papers' placed cells by level and by where their SD comes from, Tan 2004's SDs being uncertain.
+
+- fig9_tables.caption.txt, sha256 34dd26e753da9cb3fec88a92cb3fe757ea21835358004eb6aebb344d24d7009b
+- fig9_tables.csv, sha256 c489732979a95f70f5ad586c3d193dd9bf2016f56e04dd223246ccc4b2d77bed
+- fig9_tables.pdf, sha256 09da33cad6c6b14da0e5a256dad54e777289ad6a4bb6eb6d5d6fcb4d7fe956aa
+- fig9_tables.png, sha256 5ec5bb474034f8498cf4d8f61bd09c65c5a086b2151572b3964acfc1f23dfc67
+
+## fig10_relations
+
+Quality indicators on every measure. A, each relation between the papers' measures and Panjabi's, the share of synthetic vertebrae of table C that fail it at the generator and at C's nearest point; B, the unions on each table at both points, necessary being the relations no anatomy can fail.
+
+- fig10_relations.caption.txt, sha256 2283e59ca0a196ffae12da6ec04f095ae89ebdc5453019c046237146745ef19b
+- fig10_relations.csv, sha256 0148152e15c6ef7019c940bd57f3355ad0eb71a72c1709dd56db0fbc53520dcb
+- fig10_relations.pdf, sha256 643b4afc77279a4438339bb43878cc6f65763ca9226015926b9f24e242a50e88
+- fig10_relations.png, sha256 7947b1c1b6ba3d3b721e107ec2447dddeea52973c8fa1846eff9716ac46ced61
+
+## fig11_state_space_all
+
+The state space read on the three tables, one axis moved alone from the generator's point, with each table's nearest grid point in grey. A, the spread over the table's own SDs; B, the relations no anatomy can fail; C, the correlation between neighbouring levels; D, every indicator but the floor.
+
+- fig11_state_space_all.caption.txt, sha256 d72fc1173a96ff79e062d0205d4650d2b13bb2e45db4b8e2d970a5b65befad38
+- fig11_state_space_all.csv, sha256 df4de0e13a830dfca5779a0aafcb614c2761fa0383d74a2443600c4074734c58
+- fig11_state_space_all.pdf, sha256 ecdec2e78ed1d56fd740953ed264d51bb5c91790b0f7c0ff2d6158091aaa1097
+- fig11_state_space_all.png, sha256 0bba34052a0519ea4a76790ea36b2572ef2d0fd67a12674a12d8ed437cc8c179
+
+## fig12_naming_measures
+
+Exact naming by the rule built on more and more measures of table C, on columns drawn from it at the generator's point (solid) and at C's nearest point (dotted): over the whole column, the seven, the 32 and every complete measure; over the lumbar run, those of A, B and C too.
+
+- fig12_naming_measures.caption.txt, sha256 268d0d583e953e81fef6e7f6abc3c2d4edbb6e54aaa2829c396059ed3e8ff1d5
+- fig12_naming_measures.csv, sha256 cd02c6e3776df3719dcc1146d4224bbbca5090e381063c4738cd7a3014f14b8d
+- fig12_naming_measures.pdf, sha256 d3e20aff87663d2200d606aafe2510a14283dd206495c53fe590376f80c26810
+- fig12_naming_measures.png, sha256 0bd0f3de58365662db664dbf5d1519c3bce2ab7bd3e5a6b059dd20b89794754f
+
+## fig13_spread_all
+
+The spread between published series on every measure the papers pool from three series or more: the REML tau over the cell's SD, one grey point a cell, the marker the measure's median. One means the series differ among themselves by a person's SD.
+
+- fig13_spread_all.caption.txt, sha256 501df4aa1ead7d1b2d7d03c1544a3cf57c0aa8df2e1a7f77bb0f9ac138e24ac6
+- fig13_spread_all.csv, sha256 d993e3f54c91f14825eebebbcfe232e2b235a18f1181a70dd34683b2fad1c507
+- fig13_spread_all.pdf, sha256 aa14bda6638988b57a97348dcfc911fadc66180415aaaf37abee6b2145fe8c1e
+- fig13_spread_all.png, sha256 608775526e079d7ff71d11d5ef290575abc4f6a5fae7006d724d2e0765da7450
 
 ## render1_axial
 

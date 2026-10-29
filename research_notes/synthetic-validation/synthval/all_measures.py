@@ -116,17 +116,26 @@ def read_point(table: Table, settings: Settings, n: int, seed: int) -> dict:
     return out
 
 
-def nearest(table: Table, n: int = 4000, seed: int = 11, grid: Dict[str, Sequence] = SW.GRID,
-            base: Settings = GENERATOR) -> List[dict]:
-    """Every grid point of sweep.GRID read on the table and scored by sweep.distance, nearest first."""
-    out = []
+def grid_points(grid: Dict[str, Sequence] = SW.GRID) -> List[dict]:
+    """The grid's points in one fixed order, the product of its axes as listed, so that a point has
+    a number a Slurm array task can take and a merge can put the points back in this order."""
     keys = list(grid)
-    for values in itertools.product(*(grid[k] for k in keys)):
-        kw = dict(zip(keys, values))
-        st = base.but(name="grid " + " ".join("%s=%s" % kv for kv in kw.items()), **kw)
-        p = read_point(table, st, n, seed)
-        p["distance"] = SW.distance(p)
-        out.append(p)
+    return [dict(zip(keys, values)) for values in itertools.product(*(grid[k] for k in keys))]
+
+
+def grid_point(table: Table, kw: dict, n: int = 4000, seed: int = 11, base: Settings = GENERATOR) -> dict:
+    """One grid point read on the table, with its distance."""
+    st = base.but(name="grid " + " ".join("%s=%s" % kv for kv in kw.items()), **kw)
+    p = read_point(table, st, n, seed)
+    p["distance"] = SW.distance(p)
+    return p
+
+
+def nearest(table: Table, n: int = 4000, seed: int = 11, grid: Dict[str, Sequence] = SW.GRID,
+            base: Settings = GENERATOR, points: Optional[List[dict]] = None) -> List[dict]:
+    """Every grid point of sweep.GRID read on the table and scored by sweep.distance, nearest first;
+    given `points`, the rows already read in grid_points order (a Slurm array's), sorted the same."""
+    out = points if points is not None else [grid_point(table, kw, n, seed, base) for kw in grid_points(grid)]
     return sorted(out, key=lambda p: p["distance"])
 
 

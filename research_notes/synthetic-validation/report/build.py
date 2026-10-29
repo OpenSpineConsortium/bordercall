@@ -1,12 +1,14 @@
 """Build the private report page from the note's README (its tables already checked against the
 records by tables.py --check) and its committed figures. Nothing here computes a number; the four
-tiles at the top repeat the README's answer and are changed by hand with it.
+tiles at the top repeat the README's answer, the first part's, and are changed by hand with it.
 
     python3 report/build.py <branch or commit>     # from the note's folder, or anywhere
 
 writes report/index.html and copies the figures beside it (both ignored by git); the page is then
-published to the owner's private artifact, https://claude.ai/artifact/H82v6B1drWmpjTJhrWrLxv, by a
-session's Artifact tool with that url, so the link stays the same."""
+published to the owner's private artifact by a session's Artifact tool with that url, so the link
+stays the same: https://claude.ai/artifact/NQSUQ6c1Edzra7bW6CWJx2 since the second part (2026-10-29),
+published from the thread's account; the first part's https://claude.ai/artifact/H82v6B1drWmpjTJhrWrLxv
+belongs to another account, which a session of this one cannot republish, and shows the page as it was."""
 import html
 import os
 import re
@@ -72,9 +74,12 @@ def blocks(body):
     lines = body.split("\n")
 
     def flush_para():
+        # The paragraph under a marked table is its note; the first paragraph after it ends the note.
         if para:
-            out.append("<p>%s</p>" % inline(" ".join(x.strip() for x in para)))
+            cls = " class='tnote'" if marked[0] else ""
+            out.append("<p%s>%s</p>" % (cls, inline(" ".join(x.strip() for x in para))))
             para.clear()
+            marked[0] = False
 
     def flush_list():
         if lst:
@@ -115,8 +120,6 @@ def blocks(body):
             flush_para(); lst.append(("ul", b.group(1))); continue
         if lst and l.startswith("  "):
             lst[-1] = (lst[-1][0], lst[-1][1] + " " + l.strip()); continue
-        if marked[0]:
-            out.append("<p class='tnote'>%s</p>" % inline(l.strip())); continue
         para.append(l)
     flush_para(); flush_list(); flush_tbl()
     return "\n".join(out)
@@ -152,6 +155,11 @@ PAGE = [
     ("power", "Power, rerun", [S["Power, rerun"]], []),
     ("gold", "What gold persons can test", [S["What gold persons can test"]], [("fig6_power", "The spread between series, part C and the gold persons")]),
     ("assumptions", "The assumptions beside the papers", [S["The assumptions beside the papers"]], [("fig8_assumptions", "The generator's errors and prevalences beside the papers'")]),
+    ("measures", "Every measure of the reread", [S["Every measure of the reread"]], [("fig9_tables", "Every measure of the reread and the three tables")]),
+    ("state-space-all", "The state space on every table", [S["The state space on every table"]], [("fig11_state_space_all", "The state space read on the three tables")]),
+    ("quality-all", "Quality on every table", [S["Quality on every table"]], [("fig10_relations", "Quality indicators on every measure")]),
+    ("naming-all", "Naming with more measures", [S["Naming with more measures"]], [("fig12_naming_measures", "Exact naming by the rule built on more measures")]),
+    ("spread-all", "The spread between series on every measure", [S["The spread between series on every measure"]], [("fig13_spread_all", "The spread between published series on every measure")]),
     ("renders", "Renders", [S["Figures and renders"].split("\n- ")[0]], [("render1_axial", "L3 from above"), ("render2_column", "The lumbar column from in front"), ("render3_solid", "The column as solids")]),
     ("limits", "What this does not do", [S["What this note does not do"]], []),
     ("reproduce", "Reproduce", [S["Run it"]], []),
@@ -186,11 +194,11 @@ page = """<title>SchwingCheck Population Report</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <style>%s</style>
 <header class="top"><div class="wrap">
-<p class="eyebrow">bordercall, research_notes/synthetic-validation &middot; draft pull request 29 &middot; confidential</p>
+<p class="eyebrow">bordercall, research_notes/synthetic-validation &middot; pull requests 29 and 38 &middot; confidential</p>
 <h1>The synthetic spines against the published populations</h1>
 <p class="lede">schwingcheck's generator draws whole spines from Panjabi's twelve cadavers. This report holds that population to the 39 papers of the clinical reread, explores the generator's state space, scores every synthetic vertebra against quality indicators drawn from the measures' own geometry, and reruns the power calculations on the papers' own series. Everything is synthetic but the papers' numbers: no grid, no WSU data, no scan, and a synthetic result raises no evidence tier.</p>
 <div class="tiles">%s</div>
-<p class="meta">The papers are the reread's series at its commit 401aaee; What was compared says what that snapshot fixed.</p>
+<p class="meta">The papers are the reread's series at its commit 401aaee; What was compared says what that snapshot fixed. The second part, Every measure of the reread, reads the whole reread at main 6409164.</p>
 <p class="meta">Every table below is the note's README on bordercall's branch or commit <code>%s</code>, which <code>tables.py --check</code> holds to the records one run writes; every figure is drawn by the note's committed code, and the page by report/build.py.</p>
 </div></header>
 <nav class="toc"><div class="wrap">%s</div></nav>

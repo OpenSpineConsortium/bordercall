@@ -1,0 +1,140 @@
+panel,fate,keys,table,level,measures,sd_from,cells
+A,the generator's 32,32,,,,,
+A,"Panjabi's others, with a spread",10,,,,,
+A,"Panjabi's, a mean with no spread",7,,,,,
+A,"the papers' own, drawn",26,,,,,
+A,no paper prints a series,17,,,,,
+A,"rows, but no usable series",3,,,,,
+A,not a measure of one vertebra,11,,,,,
+B,,,A,C3,38,,
+B,,,A,C4,38,,
+B,,,A,C5,38,,
+B,,,A,C6,38,,
+B,,,A,C7,38,,
+B,,,A,T1,35,,
+B,,,A,T2,35,,
+B,,,A,T3,36,,
+B,,,A,T4,36,,
+B,,,A,T5,36,,
+B,,,A,T6,36,,
+B,,,A,T7,36,,
+B,,,A,T8,36,,
+B,,,A,T9,36,,
+B,,,A,T10,36,,
+B,,,A,T11,35,,
+B,,,A,T12,34,,
+B,,,A,L1,33,,
+B,,,A,L2,33,,
+B,,,A,L3,33,,
+B,,,A,L4,33,,
+B,,,A,L5,33,,
+B,,,B,C3,22,,
+B,,,B,C4,22,,
+B,,,B,C5,22,,
+B,,,B,C6,21,,
+B,,,B,C7,25,,
+B,,,B,T1,26,,
+B,,,B,T2,26,,
+B,,,B,T3,26,,
+B,,,B,T4,26,,
+B,,,B,T5,26,,
+B,,,B,T6,26,,
+B,,,B,T7,26,,
+B,,,B,T8,26,,
+B,,,B,T9,27,,
+B,,,B,T10,28,,
+B,,,B,T11,28,,
+B,,,B,T12,32,,
+B,,,B,L1,51,,
+B,,,B,L2,51,,
+B,,,B,L3,53,,
+B,,,B,L4,52,,
+B,,,B,L5,52,,
+B,,,C,C3,41,,
+B,,,C,C4,41,,
+B,,,C,C5,41,,
+B,,,C,C6,41,,
+B,,,C,C7,44,,
+B,,,C,T1,42,,
+B,,,C,T2,42,,
+B,,,C,T3,43,,
+B,,,C,T4,43,,
+B,,,C,T5,43,,
+B,,,C,T6,43,,
+B,,,C,T7,43,,
+B,,,C,T8,43,,
+B,,,C,T9,44,,
+B,,,C,T10,45,,
+B,,,C,T11,44,,
+B,,,C,T12,47,,
+B,,,C,L1,64,,
+B,,,C,L2,64,,
+B,,,C,L3,66,,
+B,,,C,L4,65,,
+B,,,C,L5,65,,
+C,,,,C3,,pooled,1
+C,,,,C4,,pooled,1
+C,,,,C5,,pooled,1
+C,,,,C6,,pooled,1
+C,,,,C7,,pooled,1
+C,,,,T1,,pooled,1
+C,,,,T2,,pooled,1
+C,,,,T3,,pooled,1
+C,,,,T4,,pooled,1
+C,,,,T5,,pooled,1
+C,,,,T6,,pooled,1
+C,,,,T7,,pooled,1
+C,,,,T8,,pooled,1
+C,,,,T9,,pooled,3
+C,,,,T10,,pooled,3
+C,,,,T11,,pooled,7
+C,,,,T12,,pooled,7
+C,,,,L1,,pooled,18
+C,,,,L2,,pooled,18
+C,,,,L3,,pooled,18
+C,,,,L4,,pooled,18
+C,,,,L5,,pooled,18
+C,,,,C3,,one series,3
+C,,,,C4,,one series,3
+C,,,,C5,,one series,3
+C,,,,C6,,one series,3
+C,,,,C7,,one series,6
+C,,,,T1,,one series,10
+C,,,,T2,,one series,10
+C,,,,T3,,one series,10
+C,,,,T4,,one series,10
+C,,,,T5,,one series,10
+C,,,,T6,,one series,10
+C,,,,T7,,one series,10
+C,,,,T8,,one series,10
+C,,,,T9,,one series,9
+C,,,,T10,,one series,10
+C,,,,T11,,one series,7
+C,,,,T12,,one series,15
+C,,,,L1,,one series,27
+C,,,,L2,,one series,27
+C,,,,L3,,one series,30
+C,,,,L4,,one series,28
+C,,,,L5,,one series,28
+C,,,,C3,,"Tan 2004's alone, uncertain",18
+C,,,,C4,,"Tan 2004's alone, uncertain",18
+C,,,,C5,,"Tan 2004's alone, uncertain",18
+C,,,,C6,,"Tan 2004's alone, uncertain",17
+C,,,,C7,,"Tan 2004's alone, uncertain",18
+C,,,,T1,,"Tan 2004's alone, uncertain",15
+C,,,,T2,,"Tan 2004's alone, uncertain",15
+C,,,,T3,,"Tan 2004's alone, uncertain",15
+C,,,,T4,,"Tan 2004's alone, uncertain",15
+C,,,,T5,,"Tan 2004's alone, uncertain",15
+C,,,,T6,,"Tan 2004's alone, uncertain",15
+C,,,,T7,,"Tan 2004's alone, uncertain",15
+C,,,,T8,,"Tan 2004's alone, uncertain",15
+C,,,,T9,,"Tan 2004's alone, uncertain",15
+C,,,,T10,,"Tan 2004's alone, uncertain",15
+C,,,,T11,,"Tan 2004's alone, uncertain",14
+C,,,,T12,,"Tan 2004's alone, uncertain",10
+C,,,,L1,,"Tan 2004's alone, uncertain",6
+C,,,,L2,,"Tan 2004's alone, uncertain",6
+C,,,,L3,,"Tan 2004's alone, uncertain",5
+C,,,,L4,,"Tan 2004's alone, uncertain",6
+C,,,,L5,,"Tan 2004's alone, uncertain",6

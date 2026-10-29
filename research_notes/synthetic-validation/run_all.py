@@ -3,6 +3,10 @@ generator's 32.
 
     python3 -I run_all.py --out records/all            # every record, about forty minutes on 4 CPUs
     python3 -I run_all.py --out records/all --quick    # small populations and a small grid, to try the code
+    python3 -I run_all.py --out records/all --point 7  # grid point 7 alone, into records/all/points/ (a Slurm array task)
+
+Where records/all/points/ holds every grid point's file, the run reads the grid from them instead
+of searching it, and writes the same records to the bit (grid/README.md: the array on the grid).
 
 Run from this folder with the Python that holds bordercall's pinned packages, after run.py, whose
 records/grid.csv this part reads for the generator's nearest point. Every number in README.md's
@@ -20,6 +24,7 @@ import platform
 import subprocess
 import sys
 import time
+from typing import Dict, List, Optional
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 REPO = os.path.dirname(os.path.dirname(HERE))
@@ -108,13 +113,69 @@ def generator_nearest(records: str) -> PO.Settings:
     return PO.GENERATOR.but(name="nearest the papers (32 measures)", **{k: float(best[k]) for k in SW.GRID})
 
 
+POINTS = "points"  # under --out: one CSV per grid point, written by --point, read by the merge
+
+
+def point_file(out: str, i: int) -> str:
+    return os.path.join(out, POINTS, "point-%03d.csv" % i)
+
+
+def write_point(out, d, i, n, quick) -> None:
+    """Grid point i (AM.grid_points order) on every table, as one task of a Slurm array writes it:
+    the same rows the serial search reads, so the merge gives the serial run's records to the bit."""
+    grid = QUICK_GRID if quick else SW.GRID
+    kw = AM.grid_points(grid)[i]
+    rows = []
+    for name, t in d["tables"].items():
+        p = AM.grid_point(t, kw, n, SEED_SWEEP)
+        p["table_letter"] = TABLE_NAMES[name]
+        rows.append(p)
+    os.makedirs(os.path.join(out, POINTS), exist_ok=True)
+    write_csv(os.path.join(out, POINTS), os.path.basename(point_file(out, i)), rows)
+    log("point %d of %d: %s" % (i, len(AM.grid_points(grid)), " ".join("%s=%s" % kv for kv in kw.items())))
+
+
+def _value(text: str):
+    """A CSV field back to the number write_csv wrote, so a merged row is the serial row to the bit:
+    an int, a float (repr round-trips), else the text."""
+    try:
+        return int(text)
+    except ValueError:
+        pass
+    try:
+        return float(text)
+    except ValueError:
+        return text
+
+
+def read_points(out, grid) -> Optional[Dict[str, List[dict]]]:
+    """Every point file under out/points, by table letter in grid order, or None where the folder
+    is missing; a folder with some files but not all is an error, since a merge of part of a grid
+    would name a nearest point that is not."""
+    import csv
+    count = len(AM.grid_points(grid))
+    if not os.path.isdir(os.path.join(out, POINTS)):
+        return None
+    missing = [i for i in range(count) if not os.path.isfile(point_file(out, i))]
+    if missing:
+        raise SystemExit("%s holds %d of %d point files; missing: %s" % (
+            os.path.join(out, POINTS), count - len(missing), count, " ".join(str(i) for i in missing[:20])))
+    by: Dict[str, List[dict]] = {}
+    for i in range(count):
+        with open(point_file(out, i), encoding="utf-8", newline="") as fh:
+            for row in csv.DictReader(fh):
+                by.setdefault(row["table_letter"], []).append({k: _value(v) for k, v in row.items()})
+    return by
+
+
 def state_space(out, d, n, quick) -> dict:
     grid = QUICK_GRID if quick else SW.GRID
     nearest = {}
     rows, one = [], []
+    points = read_points(out, grid)
     for name, t in d["tables"].items():
-        log("grid on table %s (%s)" % (TABLE_NAMES[name], t.name))
-        near = AM.nearest(t, n=n, seed=SEED_SWEEP, grid=grid)
+        log("grid on table %s (%s)%s" % (TABLE_NAMES[name], t.name, ", from the point files" if points else ""))
+        near = AM.nearest(t, n=n, seed=SEED_SWEEP, grid=grid, points=points[TABLE_NAMES[name]] if points else None)
         for p in near:
             p["table_letter"] = TABLE_NAMES[name]
         rows += near
@@ -190,7 +251,7 @@ def record(out, args, started, code) -> None:
     commit = subprocess.run(["git", "-C", REPO, "rev-parse", "HEAD"], capture_output=True, text=True).stdout.strip()
     digests = {}
     for name in sorted(os.listdir(out)):
-        if name != "RECORD_ALL.json":
+        if name != "RECORD_ALL.json" and os.path.isfile(os.path.join(out, name)):
             with open(os.path.join(out, name), "rb") as fh:
                 digests[name] = hashlib.sha256(fh.read()).hexdigest()
     with open(PT.SOURCE_ALL, encoding="utf-8") as fh:
@@ -203,6 +264,8 @@ def record(out, args, started, code) -> None:
         "seeds": {"population": SEED_POPULATION, "sweep": SEED_SWEEP, "naming_columns": SEED_NAMING},
         "sizes": {"population": args.n, "naming_columns": args.columns,
                   "grid_points": math.prod(len(v) for v in (QUICK_GRID if args.quick else SW.GRID).values())},
+        "grid_from": ("the point files under %s/, one a grid point, written by run_all.py --point" % POINTS
+                      if os.path.isdir(os.path.join(out, POINTS)) else "this run"),
         "python": platform.python_version(), "numpy": np.__version__, "seconds": round(time.time() - started),
         "files": digests, "code": code})
 
@@ -212,6 +275,7 @@ def main(argv=None):
     ap.add_argument("--out", required=True)
     ap.add_argument("--records", default=os.path.join(HERE, "records"), help="the first part's records, for the generator's nearest point")
     ap.add_argument("--quick", action="store_true")
+    ap.add_argument("--point", type=int, help="write grid point POINT alone under OUT/points/ and stop (one task of a Slurm array; grid/ says how)")
     args = ap.parse_args(argv)
     args.n = 500 if args.quick else 4000
     args.columns = 100 if args.quick else 2000
@@ -223,6 +287,9 @@ def main(argv=None):
     if problems:
         raise SystemExit("; ".join(problems))
     d = tables_of()
+    if args.point is not None:
+        write_point(out, d, args.point, args.n, args.quick)
+        return
     log("selection and tables")
     selection(out, d)
     log("state space")
