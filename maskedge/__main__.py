@@ -1,4 +1,5 @@
-"""python -m maskedge measure | summary (the package's docstring says what each does)."""
+"""python -m maskedge measure | summary | disc | disc-summary (the package's docstring and disc.py's
+say what each does)."""
 from __future__ import annotations
 
 import argparse
@@ -7,18 +8,21 @@ import math
 import sys
 from typing import List
 
+from . import disc as D
 from . import edge as E
 
+DISC_COLUMNS = ["study", "disc", "region", "lines", "masks_lines", "read", "masks_gap", "ct_height", "difference",
+                "difference_q25", "difference_q75", "contrast"]
 COLUMNS = ["study", "level", "region", "points", "edges", "offset_median", "offset_q25", "offset_q75",
            "contrast_median", "note"]
 
 
-def write_rows(rows, path: str) -> None:
+def write_rows(rows, path: str, columns=COLUMNS) -> None:
     with open(path, "w", newline="") as fh:
-        w = csv.DictWriter(fh, fieldnames=COLUMNS, lineterminator="\n")
+        w = csv.DictWriter(fh, fieldnames=columns, lineterminator="\n")
         w.writeheader()
         for r in rows:
-            w.writerow({k: r.get(k, "") for k in COLUMNS})
+            w.writerow({k: round(r[k], 3) if isinstance(r.get(k), float) else r.get(k, "") for k in columns})
 
 
 def read_rows(paths: List[str]):
@@ -52,6 +56,21 @@ def cmd_summary(a) -> None:
           "width %s, depth %s" % (mm(imp["height"]), mm(imp["disc"]), mm(imp["width"]), mm(imp["depth"])))
 
 
+def cmd_disc(a) -> None:
+    rows = D.measure_study(a.ct, a.labels, a.scheme, a.study)
+    write_rows(rows, a.out, DISC_COLUMNS)
+    print("%d rows to %s" % (len(rows), a.out))
+
+
+def cmd_disc_summary(a) -> None:
+    got = D.summary(read_rows(a.rows))
+    print("| region | discs | masks' gap (mm) | CT's disc (mm) | difference (mm) | quartiles |")
+    print("| --- | ---: | ---: | ---: | ---: | --- |")
+    for region, g in got.items():
+        print("| %s | %d | %.2f | %.2f | %s | %s to %s |" % (region, g["discs"], g["masks_gap"], g["ct_height"],
+                                                           mm(g["difference"]), mm(g["q25"]), mm(g["q75"])))
+
+
 def main(argv=None) -> None:
     p = argparse.ArgumentParser(prog="python -m maskedge")
     sub = p.add_subparsers(dest="cmd", required=True)
@@ -63,8 +82,13 @@ def main(argv=None) -> None:
     m.add_argument("--out", required=True)
     s = sub.add_parser("summary", help="the offsets by region over rows files")
     s.add_argument("--rows", nargs="+", required=True)
+    d = sub.add_parser("disc", help="each disc's height in the CT against the gap the masks leave")
+    for name in ("--ct", "--labels", "--scheme", "--study", "--out"):
+        d.add_argument(name, required=True)
+    ds = sub.add_parser("disc-summary", help="the disc readings by region over rows files")
+    ds.add_argument("--rows", nargs="+", required=True)
     a = p.parse_args(argv)
-    {"measure": cmd_measure, "summary": cmd_summary}[a.cmd](a)
+    {"measure": cmd_measure, "summary": cmd_summary, "disc": cmd_disc, "disc-summary": cmd_disc_summary}[a.cmd](a)
 
 
 if __name__ == "__main__":

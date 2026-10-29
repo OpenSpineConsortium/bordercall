@@ -1,1 +1,1 @@
-The mask's surface against the bone's edge in the CT, along the surface's normal: the phantom's exact mask and the mask grown or shrunk by a voxel, and three ENHANCE.PET studies (median and quartiles over vertebrae).
+How far the bone's edge in the CT lies beyond the mask's surface, along its normal: the phantom's exact mask and the mask grown or shrunk by a voxel (median and quartiles over points), and three ENHANCE.PET studies (over vertebrae).
