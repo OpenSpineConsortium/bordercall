@@ -125,14 +125,21 @@ def table_read(read, called):
 def sharing(coh, papers):
     """Every stated sharing of subjects, pooled data or a method between two papers of the list."""
     on_list = set(papers) | {"panjabi1991c", "panjabi1991t", "panjabi1992", "panjabi1993f"}
-    out = []
+    found = {}
     for paper, record in coh.items():
         for e in record.get("shared", []):
             if e.get("what") not in ("subjects", "data pooled", "method") or not stated(e):
                 continue
             named = sorted(p for p in on_list if p != paper and p in e.get("with", ""))
             if named:
-                out.append(dict(paper=paper, what=e["what"], with_=", ".join(named), page=e.get("page", "")))
+                # One row a paper and kind of sharing: a paper that states a sharing in two places, or
+                # names a paper in two entries, would otherwise list it twice.
+                row = found.setdefault((paper, e["what"]), {"with": set(), "pages": []})
+                row["with"].update(named)
+                if e.get("page") and e["page"] not in row["pages"]:
+                    row["pages"].append(e["page"])
+    out = [dict(paper=p, what=w, with_=", ".join(sorted(r["with"])), page="; ".join(r["pages"]))
+           for (p, w), r in found.items()]
     return sorted(out, key=lambda r: (r["what"] != "data pooled", r["what"], r["paper"], r["with_"]))
 
 
@@ -238,7 +245,7 @@ def transport(record, called):
 
 def fig_transport(summary, out, caption):
     plt = style()
-    fig, axes = plt.subplots(1, 3, figsize=(7.2, 2.5), constrained_layout=True)
+    fig, axes = plt.subplots(1, 3, figsize=(7.2, 2.9), layout="constrained")
     for ax, stat, let, title in zip(axes, STATS, "ABC", ("Named exactly", "Within one level", "Named at 0.99")):
         for arm in ARMS:
             pts = [r for r in summary if r["arm"] == arm]
@@ -249,7 +256,9 @@ def fig_transport(summary, out, caption):
         ax.set_xlabel("Bodies in view")
         ax.set_ylabel("Per cent of fields")
         letter(ax, let, title)
-    axes[0].legend(loc="upper left", bbox_to_anchor=(0, -0.28), ncol=3, borderaxespad=0)
+    # One legend for the figure, below the panels: a legend hung from one panel made the layout
+    # widen that panel alone to hold it.
+    fig.legend(*axes[0].get_legend_handles_labels(), loc="outside lower center", ncol=3)
     rows = [{k: v for k, v in r.items()} for r in summary]
     return save(fig, out, "transport", caption) + [write_csv(out, "transport", rows)]
 
