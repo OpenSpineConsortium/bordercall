@@ -29,7 +29,8 @@ level of each set of subjects, so this file decides, in code that can be read, h
   whether pooling them is right depends on what they are.
 
 Values a table quotes from another study are series of that study's subjects, not of the paper's,
-and keep the study's name in source_of_values.
+and keep the study's name in source_of_values. A printed value that cannot be the measure, a
+misprint, stays in readings/ as printed and is left out here (MISPRINTS, each with its reason).
 """
 
 import collections
@@ -41,6 +42,13 @@ import re
 import sys
 
 POOLED_MEANS = {"meta_pool"}
+# Cells printed as the paper prints them in readings/ but kept out of every series, each with why:
+# a value the page prints that cannot be the measure (a misprint), never corrected by guess.
+MISPRINTS = {
+    ("tan2004", "endplate_lower_area", "L3"):
+        "Table 1 prints 172.0 +/- 20.6 mm2 (p. 141, PDF 5; both readers and the text layer agree) between "
+        "1,090.9 at L2 and 1,199.3 at L4: a sixth of its neighbours, probably 1172.0 with a digit lost",
+}
 # (paper, key) whose left side is printed with the opposite sign to the right and to Panjabi's
 # convention; the mapping note of each reading says to reverse the left (readings/tan2004.csv).
 MIRRORED_LEFT = {("tan2004", "pedicle_incl_sag")}
@@ -88,6 +96,8 @@ def gather(rows):
     meta = {}
     for row in rows:
         if row["key"] in NOT_MEASURES or not VERTEBRA.match(row["level"]):
+            continue
+        if (row["paper"], row["key"], row["level"]) in MISPRINTS:
             continue
         value = number(row["canonical_value"])
         if value is None:

@@ -11142,15 +11142,14 @@
    "panjabi_mean": 1290.0,
    "panjabi_sd": 222.91493893411447,
    "panjabi_step_per_level": 38.0,
-   "pool_i2": 0.9988807620740916,
-   "pool_k": 3,
-   "pool_mean": 948.3650950635981,
+   "pool_i2": 0.4937481994459835,
+   "pool_k": 2,
+   "pool_mean": 1357.0416973684212,
    "pool_papers": [
     "panjabi",
-    "tan2004",
     "tang2016"
    ],
-   "pool_tau": 814.4391862744721,
+   "pool_tau": 47.20210535558768,
    "sources": [
     {
      "cohort": "pool18",
@@ -11169,20 +11168,6 @@
      "sex": "all",
      "technique": "meta_pool",
      "vs_panjabi": "close"
-    },
-    {
-     "cohort": "sg_chinese_cadavers10",
-     "d_levels": -29.42105263157895,
-     "d_panjabi_sd": -5.015365974778568,
-     "group": "",
-     "holds_subjects_of": [],
-     "mean": 172.0,
-     "n": 10.0,
-     "paper": "tan2004",
-     "sd": 65.1429,
-     "sex": "not stated",
-     "technique": "direct_contact_3d_digitiser",
-     "vs_panjabi": "same"
     },
     {
      "cohort": "utah_mri",
@@ -36140,9 +36125,7 @@
     "T11",
     "T12",
     "L1",
-    "L2",
-    "L3",
-    "L4"
+    "L2"
    ],
    "measures": [
     "canal_ap",
@@ -36151,42 +36134,42 @@
     "endplate_area",
     "endplate_depth",
     "endplate_lower",
-    "endplate_lower_area",
     "endplate_lower_depth",
     "h_post",
     "pedicle_area",
     "spinous_length",
     "transverse_width",
     "endplate",
+    "endplate_lower_area",
     "pedicle_w",
     "pedicle_h",
     "pedicle_incl_trans",
     "pedicle_incl_sag"
    ],
    "panjabi": {
-    "exact": 1236,
-    "fields": 1600,
-    "named": 181,
-    "named_right": 180,
-    "within_one": 1522
+    "exact": 918,
+    "fields": 1200,
+    "named": 139,
+    "named_right": 137,
+    "within_one": 1148
    },
    "paper": "tan2004",
-   "places": 8,
+   "places": 6,
    "sex": "not stated",
    "source": {
-    "exact": 648,
-    "fields": 1600,
-    "named": 53,
-    "named_right": 46,
-    "within_one": 1259
+    "exact": 481,
+    "fields": 1200,
+    "named": 23,
+    "named_right": 17,
+    "within_one": 962
    },
    "technique": "direct_contact_3d_digitiser",
    "widened_source": {
-    "exact": 801,
-    "fields": 1600,
-    "named": 2,
-    "named_right": 1,
-    "within_one": 1263
+    "exact": 522,
+    "fields": 1200,
+    "named": 0,
+    "named_right": 0,
+    "within_one": 961
    },
    "widened_spread": {
     "canal_ap": 0.0996575938506102,
@@ -36220,9 +36203,7 @@
     "T11",
     "T12",
     "L1",
-    "L2",
-    "L3",
-    "L4"
+    "L2"
    ],
    "measures": [
     "canal_ap",
@@ -36231,42 +36212,42 @@
     "endplate_area",
     "endplate_depth",
     "endplate_lower",
-    "endplate_lower_area",
     "endplate_lower_depth",
     "h_post",
     "pedicle_area",
     "spinous_length",
     "transverse_width",
     "endplate",
+    "endplate_lower_area",
     "pedicle_w",
     "pedicle_h",
     "pedicle_incl_trans",
     "pedicle_incl_sag"
    ],
    "panjabi": {
-    "exact": 1185,
-    "fields": 1200,
-    "named": 1041,
-    "named_right": 1041,
-    "within_one": 1198
+    "exact": 795,
+    "fields": 800,
+    "named": 735,
+    "named_right": 735,
+    "within_one": 800
    },
    "paper": "tan2004",
-   "places": 6,
+   "places": 4,
    "sex": "not stated",
    "source": {
-    "exact": 923,
-    "fields": 1200,
-    "named": 474,
-    "named_right": 452,
-    "within_one": 1172
+    "exact": 572,
+    "fields": 800,
+    "named": 202,
+    "named_right": 185,
+    "within_one": 765
    },
    "technique": "direct_contact_3d_digitiser",
    "widened_source": {
-    "exact": 960,
-    "fields": 1200,
-    "named": 381,
-    "named_right": 349,
-    "within_one": 1174
+    "exact": 605,
+    "fields": 800,
+    "named": 163,
+    "named_right": 135,
+    "within_one": 793
    },
    "widened_spread": {
     "canal_ap": 0.0996575938506102,
@@ -36300,9 +36281,7 @@
     "T11",
     "T12",
     "L1",
-    "L2",
-    "L3",
-    "L4"
+    "L2"
    ],
    "measures": [
     "canal_ap",
@@ -36311,42 +36290,42 @@
     "endplate_area",
     "endplate_depth",
     "endplate_lower",
-    "endplate_lower_area",
     "endplate_lower_depth",
     "h_post",
     "pedicle_area",
     "spinous_length",
     "transverse_width",
     "endplate",
+    "endplate_lower_area",
     "pedicle_w",
     "pedicle_h",
     "pedicle_incl_trans",
     "pedicle_incl_sag"
    ],
    "panjabi": {
-    "exact": 800,
-    "fields": 800,
-    "named": 800,
-    "named_right": 800,
-    "within_one": 800
+    "exact": 400,
+    "fields": 400,
+    "named": 400,
+    "named_right": 400,
+    "within_one": 400
    },
    "paper": "tan2004",
-   "places": 4,
+   "places": 2,
    "sex": "not stated",
    "source": {
-    "exact": 693,
-    "fields": 800,
-    "named": 588,
-    "named_right": 566,
-    "within_one": 797
+    "exact": 299,
+    "fields": 400,
+    "named": 219,
+    "named_right": 187,
+    "within_one": 394
    },
    "technique": "direct_contact_3d_digitiser",
    "widened_source": {
-    "exact": 684,
-    "fields": 800,
-    "named": 542,
-    "named_right": 516,
-    "within_one": 797
+    "exact": 297,
+    "fields": 400,
+    "named": 199,
+    "named_right": 171,
+    "within_one": 399
    },
    "widened_spread": {
     "canal_ap": 0.0996575938506102,
@@ -36405,11 +36384,11 @@
    },
    "technique": "mri_t2_oblique_transverse",
    "widened_source": {
-    "exact": 172,
+    "exact": 174,
     "fields": 400,
     "named": 0,
     "named_right": 0,
-    "within_one": 329
+    "within_one": 345
    },
    "widened_spread": {
     "endplate": 0.05756294895899952,
@@ -36455,11 +36434,11 @@
    },
    "technique": "mri_t2_oblique_transverse",
    "widened_source": {
-    "exact": 29,
+    "exact": 96,
     "fields": 200,
-    "named": 2,
-    "named_right": 0,
-    "within_one": 83
+    "named": 1,
+    "named_right": 1,
+    "within_one": 157
    },
    "widened_spread": {
     "endplate_lower": 0.057474736195490386,

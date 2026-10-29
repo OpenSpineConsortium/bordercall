@@ -102,7 +102,7 @@ the papers (tau of a random-effects pool, three papers or more, in his SDs). Def
 | canal_area | 3 | C3 to L5 | 62 | 0.81 | 3.95 | 85% | 0.71 (5) |
 | pedicle_incl_trans | 3 | C3 to L5 | 56 | 0.89 | 3.42 | 88% | 1.28 (14) |
 | endplate_area | 2 | C3 to L5 | 24 | 0.51 | 1.17 | 62% | 1.20 (2) |
-| endplate_lower_area | 2 | C3 to L5 | 25 | 0.62 | 1.29 | 72% | 0.79 (3) |
+| endplate_lower_area | 2 | C3 to L5 | 24 | 0.61 | 1.27 | 71% | 0.67 (2) |
 | pedicle_area | 2 | C3 to L5 | 27 | 0.26 | 0.61 | 44% | 0.29 (5) |
 | facet_w_sup | 1 | L1 to L5 | 10 | 1.41 | 3.00 | 100% |  |
 | spinous_length | 1 | C3 to L5 | 22 | 0.60 | 2.61 | 68% |  |
@@ -122,15 +122,15 @@ left out.
 
 | Bodies | Fields from | Papers | Fields | Named exactly % | Within one level % | Named at 0.99 % | Right of those named % |
 | ---: | --- | ---: | ---: | ---: | ---: | ---: | ---: |
-| 1 | Panjabi's fields | 24 | 32,800 | 27.2 | 46.7 | 2.3 | 99.7 of 746 |
-| 1 | the papers' fields, rule as built | 24 | 32,800 | 17.9 | 39.8 | 1.0 | 82.4 of 335 |
-| 1 | the papers' fields, rule widened | 24 | 32,800 | 21.4 | 45.4 | 0.8 | 85.5 of 269 |
-| 3 | Panjabi's fields | 24 | 23,400 | 44.5 | 64.7 | 8.4 | 100.0 of 1,977 |
-| 3 | the papers' fields, rule as built | 24 | 23,400 | 24.3 | 48.4 | 3.5 | 92.4 of 826 |
-| 3 | the papers' fields, rule widened | 24 | 23,400 | 29.9 | 56.3 | 2.9 | 93.0 of 690 |
-| 5 | Panjabi's fields | 22 | 14,200 | 56.6 | 74.5 | 16.2 | 100.0 of 2,302 |
-| 5 | the papers' fields, rule as built | 22 | 14,200 | 30.0 | 55.4 | 7.3 | 94.2 of 1,037 |
-| 5 | the papers' fields, rule widened | 22 | 14,200 | 38.8 | 63.1 | 5.9 | 96.8 of 833 |
+| 1 | Panjabi's fields | 24 | 32,400 | 26.5 | 46.1 | 2.2 | 99.6 of 704 |
+| 1 | the papers' fields, rule as built | 24 | 32,400 | 17.6 | 39.4 | 0.9 | 81.0 of 305 |
+| 1 | the papers' fields, rule widened | 24 | 32,400 | 20.9 | 45.0 | 0.8 | 85.8 of 267 |
+| 3 | Panjabi's fields | 24 | 23,000 | 43.6 | 64.1 | 7.3 | 100.0 of 1,671 |
+| 3 | the papers' fields, rule as built | 24 | 23,000 | 23.2 | 47.4 | 2.4 | 89.5 of 554 |
+| 3 | the papers' fields, rule widened | 24 | 23,000 | 29.2 | 55.9 | 2.0 | 91.1 of 471 |
+| 5 | Panjabi's fields | 22 | 13,800 | 55.3 | 73.7 | 13.8 | 100.0 of 1,902 |
+| 5 | the papers' fields, rule as built | 22 | 13,800 | 28.0 | 54.0 | 4.8 | 89.5 of 668 |
+| 5 | the papers' fields, rule widened | 22 | 13,800 | 37.1 | 62.1 | 3.6 | 94.1 of 490 |
 
 <img src="transport.png" alt="Three panels against the bodies in view: share named exactly, within one level and at 0.99, for Panjabi's fields and the papers' with the rule as built and widened" width="720">
 
@@ -140,28 +140,28 @@ By paper, three bodies:
 
 | Paper | Series | Measures | Levels | Exact on Panjabi's fields % | Exact on the paper's % | Exact, widened % | Paper's, within one % |
 | --- | --- | ---: | --- | ---: | ---: | ---: | ---: |
-| Gilad 1985 | haifa_transport_men, male | 3 | L1 to L5 | 41.5 | 29.7 | 27.3 | 74.0 |
 | Amonoo-Kuofi 1985 | ibadan_dry_bone | 1 | L1 to L5 | 19.3 | 6.2 | 29.2 | 7.8 |
+| Gilad 1985 | haifa_transport_men, male | 3 | L1 to L5 | 41.5 | 29.7 | 27.3 | 74.0 |
 | Zindrick 1987 | pooled_specimens_and_ct | 4 | T1 to L5 | 59.2 | 26.7 | 33.9 | 54.6 |
 | Olsewski 1990 | part1_cadavers, Part 1 cadavers, direct | 3 | L1 to L5 | 69.3 | 42.3 | 49.7 | 60.0 |
 | Hou 1993 | xian_dry_bone | 2 | T9 to L5 | 54.9 | 27.1 | 30.1 | 55.2 |
 | Robertson 2000 | auckland_drybone | 2 | L1 to L5 | 62.7 | 37.7 | 43.8 | 55.8 |
-| Tan 2004 | sg_chinese_cadavers10 | 17 | T9 to L4 | 98.8 | 76.9 | 80.0 | 97.7 |
+| Tan 2004 | sg_chinese_cadavers10 | 17 | T9 to L2 | 99.4 | 71.5 | 75.6 | 95.6 |
 | Lien 2007 | dry_sets, dry vertebrae | 2 | T3 to T11 | 18.2 | 11.4 | 10.1 | 34.9 |
 | Busscher 2010 | human_cadaver, male, Human | 1 | C3 to L5 | 24.2 | 9.5 | 10.2 | 25.2 |
 | Kunkel 2011 | ulm_thoracic_segments, radiographic | 1 | C7 to T12 | 20.5 | 17.3 | 15.3 | 43.0 |
 | Yu 2015 | hamann_todd_503, Caucasian | 2 | L1 to L5 | 64.3 | 52.0 | 45.2 | 78.8 |
 | Griffith 2016 | hk_ct_patients, adjusted for height and weight | 3 | L1 to L5 | 44.2 | 12.3 | 35.3 | 21.3 |
-| Tang 2016 | utah_mri | 3 | L3 to L5 | 65.0 | 47.5 | 14.5 | 73.0 |
+| Tang 2016 | utah_mri | 3 | L3 to L5 | 65.0 | 47.5 | 48.0 | 73.0 |
 | Pierro 2017 | campobasso_604 | 1 | L1 to L5 | 22.8 | 13.7 | 23.0 | 31.3 |
 | Yadav 2020 | yadav-ct | 5 | T12 to L5 | 63.5 | 35.6 | 41.5 | 78.4 |
+| Abbas 2021 | control | 2 | L1 to L5 | 39.0 | 30.0 | 37.2 | 55.5 |
 | Irie 2021 | rush_cadaver_6 | 3 | L1 to L5 | 68.8 | 27.0 | 31.7 | 45.8 |
 | Alonge 2021 | lagos_ct | 1 | L1 to L5 | 25.8 | 4.2 | 21.2 | 8.2 |
 | Abu-Leil 2021 | ds, DS | 4 | L1 to L5 | 74.7 | 26.8 | 39.7 | 52.3 |
-| Abbas 2021 | control | 2 | L1 to L5 | 39.0 | 30.0 | 37.2 | 55.5 |
 | Cizmic 2023 | bih-sarajevo-ct | 1 | L1 to L5 | 28.5 | 28.2 | 34.8 | 54.2 |
-| Arockiaraj 2025 | saudi_ct, Current study | 2 | L1 to L5 | 62.2 | 18.8 | 55.0 | 46.7 |
 | Moncada-Habib 2025 | mexico_ct37 | 4 | L1 to L4 | 65.0 | 41.2 | 57.2 | 91.8 |
+| Arockiaraj 2025 | saudi_ct, Current study | 2 | L1 to L5 | 62.2 | 18.8 | 55.0 | 46.7 |
 | Li 2026 | zhengzhou_ct_100 | 3 | L1 to L5 | 44.8 | 23.5 | 44.0 | 86.5 |
 | Duman 2026 | izmir-mdct-517 | 1 | T11 to L2 | 25.8 | 2.8 | 7.8 | 20.5 |
 
