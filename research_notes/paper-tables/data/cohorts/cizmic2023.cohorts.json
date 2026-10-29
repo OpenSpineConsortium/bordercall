@@ -1,0 +1,365 @@
+{
+  "paper": "cizmic2023",
+  "cohorts": [
+    {
+      "cohort": "bih-sarajevo-ct",
+      "labels": [
+        "male",
+        "female",
+        "all",
+        "not stated"
+      ],
+      "tables": [
+        "Table 1",
+        "Table 2",
+        "Chart 1",
+        "Table 3",
+        "Table 4",
+        "Table 5",
+        "Table 6",
+        "Table 7",
+        "Table 8",
+        "Table 9",
+        "Table 10",
+        "Table 11",
+        "Text: Abstract",
+        "Text: Methods",
+        "Text: Results",
+        "Text: Discussion",
+        "Text: Conclusion"
+      ],
+      "subjects": "Rows whose source_of_values is 'this paper'. Living adult patients with multislice CT of the lumbosacral spine for pain in the lumbar spine, referred by specialists in various fields, at the Radiology Department of the General Hospital 'Prim. Dr. Abdulah Nakas', Sarajevo, Bosnia and Herzegovina, scanned 1 January 2013 to 31 December 2014; retrospective. Ethnicity printed only as the population of Bosnia and Herzegovina. Excluded: congenital and acquired spinal deformities, benign and malignant changes of the spine, traumatic, inflammatory and pronounced degenerative changes; how many were screened is not given. Every patient carries one of four disc diagnoses made at the CT reading (bulged disc, herniation, protrusion, extrusion; Table 2). The 'not stated' rows of this source are the P-values of Tables 6-11, which compare these patients with other studies.",
+      "n_people": 200,
+      "n_units": "1,000 lumbar levels (L1 to L5) of 200 patients, each level with one midsagittal and one interpedicular diameter; Table 5 prints n = 100 per sex, level and measure",
+      "ages": "men mean 43.84 (text 43.8), SD 10.99, range 20-60 years; women mean 43.78, SD 6.00, range 27-50 years (Table 1 and text)",
+      "sexes": "100 men, 100 women",
+      "page": "p. 201 (PDF 2): Methods, Results, Tables 1-2, Chart 1; abstract p. 200 (PDF 1)"
+    },
+    {
+      "cohort": "tobin-chicago",
+      "labels": [
+        "male",
+        "female",
+        "all",
+        "born 1940-1949",
+        "born 1970-1979"
+      ],
+      "tables": [
+        "Table 6",
+        "Text: Discussion"
+      ],
+      "subjects": "Rows whose source_of_values is 'Tobin et al. (12)'. An American sample of Chicago residents in two birth cohorts, as cited (ref. 12: Tobin MK et al., World Neurosurgery 2021, generational changes in lumbar canal dimensions). Table 6 quotes only the 1970-1979 birth cohort, chosen as closer in age to this paper's patients. Modality, inclusion and exclusion not given in this paper.",
+      "n_people": 918,
+      "n_units": "918 people: born 1940-1949 (546) and born 1970-1979 (372); Table 6 quotes the 1970-1979 group as 151 men and 221 women, means of L1 to L5",
+      "ages": "birth years 1940-1949 and 1970-1979; ages not printed",
+      "sexes": "Table 6: 151 men, 221 women (1970-1979 group); the 1940-1949 group's split not printed",
+      "page": "p. 203 (PDF 4)"
+    },
+    {
+      "cohort": "griffith-chinese-ct",
+      "labels": [
+        "male",
+        "female",
+        "all"
+      ],
+      "tables": [
+        "Table 7",
+        "Table 9",
+        "Text: Discussion"
+      ],
+      "subjects": "Rows whose source_of_values names Griffith (ref. 10: Griffith JF et al., Population reference range for developmental lumbar spinal canal size, Quant Imaging Med Surg 2016). Subjects studied with CT, called a Chinese population (p. 203, p. 204) and once, by a slip, Egyptian (p. 203). Inclusion and exclusion not given in this paper.",
+      "n_people": 1080,
+      "n_units": "1,080 subjects; Tables 7 and 9 quote means of L1 to L5 for 540 men and 540 women",
+      "ages": "not printed in this paper",
+      "sexes": "540 men, 540 women (Tables 7 and 9)",
+      "page": "p. 203 (PDF 4); p. 204 (PDF 5)"
+    },
+    {
+      "cohort": "yadav-indian-ct",
+      "labels": [
+        "male",
+        "female",
+        "all"
+      ],
+      "tables": [
+        "Table 8",
+        "Text: Discussion"
+      ],
+      "subjects": "Rows whose source_of_values names Yadav (ref. 9: Yadav U et al., Lumbar canal diameter evaluation by CT morphometry, study of Indian population, Int J Spine Surg 2020; the table spells it 'Uttam Yadu'). Indian patients who had CT of the abdominal and pelvic organs and no lumbar pain, as cited.",
+      "n_people": 302,
+      "n_units": "302 patients; Table 8 quotes midsagittal means of L1 to L5 for 174 men and 128 women",
+      "ages": "not printed in this paper",
+      "sexes": "174 men, 128 women (Table 8)",
+      "page": "p. 203 (PDF 4)"
+    },
+    {
+      "cohort": "alam-pakistan-ct",
+      "labels": [
+        "male",
+        "female",
+        "all"
+      ],
+      "tables": [
+        "Table 10",
+        "Text: Discussion"
+      ],
+      "subjects": "Rows whose source_of_values names Alam (Table 10 cites M.M. Alam et al., ref. 11; the text cites Alam M et al., ref. 18; both references are Lumbar morphometry: a study of lumbar vertebrae from a Pakistani population using CT, Asian Spine J 2014;8(4):421). Pakistani subjects examined with computerized tomography, as cited; inclusion and exclusion not given in this paper.",
+      "n_people": 49,
+      "n_units": "49 subjects; Table 10 quotes interpedicular means of L1 to L5 for 33 men and 16 women",
+      "ages": "not printed in this paper",
+      "sexes": "33 men, 16 women (Table 10)",
+      "page": "p. 204 (PDF 5)"
+    },
+    {
+      "cohort": "urrutia-mexico-ct",
+      "labels": [
+        "all",
+        "not stated"
+      ],
+      "tables": [
+        "Table 11",
+        "Text: Discussion"
+      ],
+      "subjects": "Rows whose source_of_values names Urrutia (ref. 13: Urrutia Vega E et al., Morphometry of pedicle and vertebral body in a Mexican population by CT and fluoroscopy, Int J Morphol 2009). 60 Mexican subjects whose lumbar pedicles and bodies were measured with CT, as cited; sex split, inclusion and exclusion not given in this paper. Table 11 sets its means beside this paper's both-sexes means.",
+      "n_people": 60,
+      "n_units": "60 subjects; Table 11 quotes interpedicular (transverse canal) means of L1 to L5",
+      "ages": "not printed in this paper",
+      "sexes": "not stated",
+      "page": "p. 204 (PDF 5)"
+    },
+    {
+      "cohort": "tacar-turkish",
+      "labels": [
+        "all"
+      ],
+      "tables": [
+        "Text: Discussion"
+      ],
+      "subjects": "Rows whose source_of_values is 'Tacar et al. (24)' (ref. 24: Tacar O et al., Morphology of the lumbar spinal canal in normal adult Turks, Yonsei Med J 2003). Healthy adult Turkish patients, as cited; modality, inclusion and exclusion not given in this paper. Only a sex difference range and the sample size are quoted.",
+      "n_people": 200,
+      "n_units": "200 patients; only the men-over-women interpedicular difference, 0.5 to 1.5 mm over L1 to L5, is quoted",
+      "ages": "adult; not otherwise printed",
+      "sexes": "men and women; split not printed",
+      "page": "p. 204 (PDF 5)"
+    },
+    {
+      "cohort": "stenosis-criteria",
+      "labels": [
+        "not stated"
+      ],
+      "tables": [
+        "Text: Background",
+        "Text: Conclusion"
+      ],
+      "subjects": "No subjects: the rows whose source_of_values is reference 7 (Muller-Gerbl M) or reference 25 (IMAIOS, Lumbar Spinal Stenosis) are diagnostic thresholds for a normal and a stenotic canal, quoted from the literature, not measurements of anyone. Listed so that every row of the reading has a cohort.",
+      "n_people": null,
+      "n_units": "none; thresholds only",
+      "ages": "not applicable",
+      "sexes": "not applicable",
+      "page": "p. 200-201 (PDF 1-2); p. 205 (PDF 6)"
+    }
+  ],
+  "techniques": [
+    {
+      "technique": "cizmic-ct-syngo",
+      "cohorts": [
+        "bih-sarajevo-ct"
+      ],
+      "modality": "CT axial",
+      "instrument": "40-slice CT, Siemens Somatom Definition AS; 120 kV, 266 mAs, acquisition 40 x 0.6 mm, 2 mm layers; axial scans with coronal and sagittal multiplanar reconstructions from T12 to S1; bone window 2300-2500 HU and soft-tissue window 300-500 HU; measured on screen with Siemens Syngo software in the bone window",
+      "how": "Both diameters in the axial plane, with the reconstructions linking axial, coronal and sagittal views. Midsagittal diameter (MSG, MSGD; MSAG in Figure 1): along the midline, from the back edge of the vertebral body to the front (inner) edge of the lamina where the spinous process separates from the arch; the same sentence also says it was measured in the midsagittal plane. Interpedicular diameter (IP, IPD; 'interpeduncular' in the abstract): at the canal's widest point, the transverse distance between the inner edges of the two pedicles. Figure 1 draws both lines on one axial slice through the pedicles; which slice per vertebra, and whether the plane was angled to the vertebra, is not stated. Levels L1 to L5; how the levels were counted is not stated. Ranges read to 0.1 mm.",
+      "magnification": "not applicable (CT, no projection); calibration not stated",
+      "observers": "not stated; no repeat readings or reliability figures",
+      "page": "p. 201 (PDF 2), Methods and Figure 1"
+    },
+    {
+      "technique": "cizmic-ct-diagnosis",
+      "cohorts": [
+        "bih-sarajevo-ct"
+      ],
+      "modality": "other",
+      "instrument": "the same CT scans, read for a disc diagnosis",
+      "how": "Each patient's disc diagnosis made at the CT reading: bulged disc, herniation, protrusion or extrusion (Table 2, Chart 1); criteria and reader not stated. The authors say the bone window kept these diagnoses from hindering the bony measurements.",
+      "magnification": "not applicable",
+      "observers": "not stated",
+      "page": "p. 201 (PDF 2); p. 202 (PDF 3)"
+    },
+    {
+      "technique": "tobin-unstated",
+      "cohorts": [
+        "tobin-chicago"
+      ],
+      "modality": "other",
+      "instrument": "not given in this paper",
+      "how": "Midsagittal canal diameter means by sex, L1 to L5, as quoted in Table 6; landmarks not given here",
+      "magnification": "not stated",
+      "observers": "not stated",
+      "page": "p. 203 (PDF 4)"
+    },
+    {
+      "technique": "griffith-ct",
+      "cohorts": [
+        "griffith-chinese-ct"
+      ],
+      "modality": "other",
+      "instrument": "computed tomography, as cited; plane and tool not given in this paper",
+      "how": "Midsagittal (Table 7) and interpedicular (Table 9) canal diameter means by sex, L1 to L5, as quoted; landmarks not given here",
+      "magnification": "not stated",
+      "observers": "not stated",
+      "page": "p. 203 (PDF 4); p. 204 (PDF 5)"
+    },
+    {
+      "technique": "yadav-ct",
+      "cohorts": [
+        "yadav-indian-ct"
+      ],
+      "modality": "other",
+      "instrument": "CT of the abdominal and pelvic organs, as cited; plane and tool not given in this paper",
+      "how": "Midsagittal canal diameter means by sex, L1 to L5, as quoted in Table 8; landmarks not given here",
+      "magnification": "not stated",
+      "observers": "not stated",
+      "page": "p. 203 (PDF 4)"
+    },
+    {
+      "technique": "alam-ct",
+      "cohorts": [
+        "alam-pakistan-ct"
+      ],
+      "modality": "other",
+      "instrument": "computerized tomography, as cited; plane and tool not given in this paper",
+      "how": "Interpedicular diameter means by sex, L1 to L5, as quoted in Table 10; landmarks not given here",
+      "magnification": "not stated",
+      "observers": "not stated",
+      "page": "p. 204 (PDF 5)"
+    },
+    {
+      "technique": "urrutia-ct",
+      "cohorts": [
+        "urrutia-mexico-ct"
+      ],
+      "modality": "other",
+      "instrument": "CT, as cited (the cited title names CT and fluoroscopy); plane and tool not given in this paper",
+      "how": "Transverse (interpedicular) canal diameter means, L1 to L5, as quoted in Table 11, with a +/- value at L1 and L5 in the text; landmarks not given here",
+      "magnification": "not stated",
+      "observers": "not stated",
+      "page": "p. 204 (PDF 5)"
+    },
+    {
+      "technique": "tacar-unstated",
+      "cohorts": [
+        "tacar-turkish"
+      ],
+      "modality": "other",
+      "instrument": "not given in this paper",
+      "how": "Interpedicular diameter by sex, quoted only as a men-over-women difference of 0.5 to 1.5 mm, L1 to L5",
+      "magnification": "not stated",
+      "observers": "not stated",
+      "page": "p. 204 (PDF 5)"
+    },
+    {
+      "technique": "mullergerbl-criteria",
+      "cohorts": [
+        "stenosis-criteria"
+      ],
+      "modality": "other",
+      "instrument": "not given in this paper",
+      "how": "Quoted only: stenosis criteria for the midsagittal diameter (normal above 13 mm, relative stenosis 10 to 13 mm, absolute below 10 mm) and the interpedicular diameter (normal 16 to 18 mm, stenotic below 15 mm), cited to reference 7; this paper gives no landmarks, plane or modality for them",
+      "magnification": "not given",
+      "observers": "not given",
+      "page": "p. 200-201 (PDF 1-2)"
+    },
+    {
+      "technique": "imaios-criteria",
+      "cohorts": [
+        "stenosis-criteria"
+      ],
+      "modality": "other",
+      "instrument": "not given in this paper",
+      "how": "Quoted only: the same stenosis criteria for the midsagittal and interpedicular diameters, cited to reference 25 (IMAIOS, Lumbar Spinal Stenosis, a web page); this paper gives no landmarks, plane or modality for them",
+      "magnification": "not given",
+      "observers": "not given",
+      "page": "p. 204-205 (PDF 5-6)"
+    }
+  ],
+  "shared": [
+    {
+      "with": "Griffith JF et al. 2016, Quant Imaging Med Surg (ref. 10): griffith2016",
+      "what": "values quoted",
+      "evidence": "Tables 7 and 9 quote its midsagittal and interpedicular means by sex (n = 540 each); the text calls it a CT study of 1,080 subjects, once mislabels the comparison as Egyptian and once cites it as ref. 9. Inference: the 20 quoted means equal griffith2016's Table 3 and Table 4 means in this set's reading.",
+      "page": "p. 203 (PDF 4); p. 204 (PDF 5)"
+    },
+    {
+      "with": "Yadav U et al. 2020, Int J Spine Surg (ref. 9; 'Uttam Yadu' in Table 8): yadav2020",
+      "what": "values quoted",
+      "evidence": "Table 8 quotes its midsagittal means by sex (174 men, 128 women); the text gives 302 patients with abdominal and pelvic CT and no lumbar pain. Inference: Table 8 copies Yadav's own Table 4 column, whose L1 row holds Yadav's T12 means (16.19, 16.33) and whose L3 women value is 13.60 against 13.66 in Yadav's Table 2, as this set's yadav2020 reading records.",
+      "page": "p. 203 (PDF 4)"
+    },
+    {
+      "with": "Eisenstein S 1977, J Bone Joint Surg Br (ref. 15): eisenstein1977",
+      "what": "values quoted",
+      "evidence": "a finding only, no number: South African women had a wider midsagittal diameter than men, and the largest midsagittal diameter is at L1, smallest at L3",
+      "page": "p. 202 (PDF 3); p. 203 (PDF 4)"
+    },
+    {
+      "with": "Amonoo-Kuofi HS 1985, J Anat (ref. 19): amonookuofi1985",
+      "what": "values quoted",
+      "evidence": "a finding only, no number: largest midsagittal diameter at L1, smallest at L3, rising to L5; also cited for the canal at the thoracolumbar transition having a protective role",
+      "page": "p. 203 (PDF 4)"
+    },
+    {
+      "with": "Tobin MK et al. 2021, World Neurosurgery (ref. 12); not in the list",
+      "what": "values quoted",
+      "evidence": "Table 6 quotes midsagittal means of its 1970-1979 birth cohort (151 men, 221 women) of 918 Chicago residents",
+      "page": "p. 203 (PDF 4)"
+    },
+    {
+      "with": "Alam MM et al. 2014, Asian Spine J (refs. 11 and 18, one article listed twice); not in the list",
+      "what": "values quoted",
+      "evidence": "Table 10 quotes interpedicular means (33 men, 16 women); the text gives 49 CT subjects and a larger IP in men at L3 and L5; p. 203 cites it for the MSG narrowing pattern and, as 'Alam M et al. (9)', for MSG larger in men without significance",
+      "page": "p. 203 (PDF 4); p. 204 (PDF 5)"
+    },
+    {
+      "with": "Urrutia Vega E et al. 2009, Int J Morphol (ref. 13); not in the list",
+      "what": "values quoted",
+      "evidence": "Table 11 quotes interpedicular means L1 to L5; the text gives 60 Mexican CT subjects and L1 and L5 means with +/- values, the sentence also citing ref. 21",
+      "page": "p. 204 (PDF 5)"
+    },
+    {
+      "with": "Tacar O et al. 2003, Yonsei Med J (ref. 24); not in the list",
+      "what": "values quoted",
+      "evidence": "200 healthy adult Turks; IP larger in men by 0.5 to 1.5 mm from L1 to L5",
+      "page": "p. 204 (PDF 5)"
+    },
+    {
+      "with": "Lee HM et al. 1995, Spine (ref. 16), Korean; not in the list",
+      "what": "values quoted",
+      "evidence": "a finding only, no number: largest midsagittal diameter at L1; interpedicular diameter rising caudally; Korean IP lower than here",
+      "page": "p. 203 (PDF 4); p. 204 (PDF 5)"
+    },
+    {
+      "with": "Malas MA et al. 1997 (ref. 17), Turkish MRI; not in the list",
+      "what": "values quoted",
+      "evidence": "a finding only, no number: Turkish women have a wider midsagittal diameter than men",
+      "page": "p. 203 (PDF 4)"
+    },
+    {
+      "with": "Rema D, Rajagopalan N 2003 (ref. 20) and Wang T, Shih 1992 (ref. 21); not in the list",
+      "what": "values quoted",
+      "evidence": "findings only, no numbers: the midsagittal diameter decreases from L1 to L5",
+      "page": "p. 203 (PDF 4)"
+    },
+    {
+      "with": "Zhou SH et al. 2000 (ref. 23) and Tarek A, Osama A 2013 (ref. 14, Egyptian); not in the list",
+      "what": "values quoted",
+      "evidence": "findings only, no numbers: IP rises caudally (Zhou); Egyptian IP lower than here (Tarek)",
+      "page": "p. 204 (PDF 5)"
+    },
+    {
+      "with": "Muller-Gerbl M (ref. 7) and IMAIOS, Lumbar Spinal Stenosis (ref. 25); not in the list",
+      "what": "values quoted",
+      "evidence": "stenosis thresholds: MSG normal above 13 mm, relative stenosis 10-13, absolute below 10; IP normal 16-18 mm, stenosis below 15",
+      "page": "p. 200-201 (PDF 1-2); p. 205 (PDF 6)"
+    }
+  ],
+  "within_paper": "One cohort of 200 patients. The midsagittal and interpedicular diameters were both measured on each patient's same CT, L1 to L5 (p. 201, PDF 2), so the two measures share every subject. Tables 3, 4 and 5 are the same measurements: Tables 3 and 4 print Table 5's four-decimal means cut to two decimals, with two disagreements, women's L3 midsagittal minimum (12.20 in Table 3, 13.50 in Table 5) and women's L4 midsagittal mean (17.38 in Table 3, 17.1420 in Table 5) (p. 202, PDF 3); Inference: the Table 3 figures are the misprints, since the both-sexes minimum 12.30 and mean 16.79 fit Table 5. The 'Our study' columns of Tables 6 to 11 repeat Tables 3 and 4 (pp. 203-204, PDF 4-5), and Table 2 and Chart 1 give the CT diagnoses of the same 200 (p. 201, PDF 2). The comparator cohorts are separate studies; the paper states no overlap between them and its own patients."
+}

@@ -1,0 +1,405 @@
+{
+  "paper": "griffith2016",
+  "cohorts": [
+    {
+      "cohort": "hk_ct_patients",
+      "labels": [
+        "male",
+        "female",
+        "all",
+        "males vs females",
+        "adjusted for height and weight",
+        "adjusted for height and weight; males vs females",
+        "21-40 years",
+        "41-60 years",
+        "61-80 years",
+        "21-40 years; males vs females",
+        "41-60 years; males vs females",
+        "61-80 years; males vs females",
+        "25% largest",
+        "25% smallest",
+        "25% smallest vs 25% largest",
+        "smallest vs largest quartile",
+        "largest vs smallest quartile",
+        "L3 vs L1",
+        "L3 vs L5",
+        "females vs males",
+        "each sex in each 10-year age group (20-29, 30-39 etc.)"
+      ],
+      "tables": [
+        "Table 1",
+        "Table 2",
+        "Table 3",
+        "Table 4",
+        "Table 5",
+        "Table 6",
+        "Table 7",
+        "Table S1",
+        "Table S2",
+        "Table S3",
+        "Table S4",
+        "Table S5",
+        "Table S6",
+        "Figure S1",
+        "Figure S2",
+        "Figure S3",
+        "Text: Abstract",
+        "Text: Methods: Patients",
+        "Text: Methods: CT examination",
+        "Text: Results: Gender and age",
+        "Text: Results: Spinal canal CSA",
+        "Text: Results: Spinal canal CSA/vertebral body CSA",
+        "Text: Results: Vertebral body CSA",
+        "Text: Results: Quartiles",
+        "Text: Discussion"
+      ],
+      "subjects": "Living ambulatory adult patients having abdominopelvic CT at the authors' institution (Prince of Wales Hospital, The Chinese University of Hong Kong, Hong Kong, China), measured prospectively between Feb 2014 and Jan 2015. Over 99% of the patient population was ethnically Chinese; patients with non-Chinese names were not included. Excluded: skeletal disorders such as dwarfism or scoliosis (printed 'skeletal orders'), prior lumbar surgery, a childhood chronic inflammatory condition, and a major lumbar morphological abnormality such as vertebral fracture or dysraphism. Recruited by quota, 90 of each sex in each 10-year age band (20-29, 30-39 etc.), each band closed at 90. Table S5 regroups them into 21-40, 41-60 and 61-80 years (180 per sex each); Table 7 compares the largest and smallest 25% at each level and sex, matched for height (group sizes not printed). Not healthy volunteers: the authors argue canal development ends by 17 years.",
+      "n_people": 1080,
+      "n_units": "5,400 lumbar levels (L1 to L5, mid-pedicle) of 1,080 patients",
+      "ages": "21 to 80 years; males mean 50.53 +/- 16.98, females 50.65 +/- 17.02 (abstract: 50.5 +/- 17)",
+      "sexes": "540 male, 540 female",
+      "page": "p. 671 (PDF 1), p. 672 (PDF 2), p. 673 (PDF 3), suppl. (PDF 14)"
+    },
+    {
+      "cohort": "reliability_subset",
+      "labels": [
+        "reliability subset"
+      ],
+      "tables": [
+        "Text: Methods: Reliability",
+        "Text: Results: Reliability"
+      ],
+      "subjects": "20 randomly selected subjects, five levels each (L1 to L5), measured twice by one reader with the computerized method 1 week apart, blinded to the first result, and once manually by a second reader. Inference: drawn from the 1,080 patients; the paper does not say from which pool, nor their sex or age.",
+      "n_people": 20,
+      "n_units": "100 axial levels (L1 to L5) of 20 subjects",
+      "ages": "not stated",
+      "sexes": "not stated",
+      "page": "p. 673 (PDF 3), p. 676 (PDF 6)"
+    },
+    {
+      "cohort": "background_statement",
+      "labels": [
+        "not stated"
+      ],
+      "tables": [
+        "Text: Abstract",
+        "Text: Introduction"
+      ],
+      "subjects": "quoted from the authors' own background statement, with no citation on the clause (Inference: it rests on Papp 1994 and Watts 2013, refs 3 and 4); no subjects of this paper",
+      "n_people": null,
+      "n_units": "not stated",
+      "ages": "not stated",
+      "sexes": "not stated",
+      "page": "p. 671 (PDF 1)"
+    },
+    {
+      "cohort": "papp1994_watts2013",
+      "labels": [
+        "not stated"
+      ],
+      "tables": [
+        "Text: Introduction"
+      ],
+      "subjects": "quoted from Papp T et al. 1994, Spine (ref 3) and Watts R 2013, Homo (ref 4), growth studies of the lumbar canal; their subjects are not described here",
+      "n_people": null,
+      "n_units": "not stated",
+      "ages": "not stated",
+      "sexes": "not stated",
+      "page": "p. 671 (PDF 1)"
+    },
+    {
+      "cohort": "katz2008",
+      "labels": [
+        "not stated"
+      ],
+      "tables": [
+        "Text: Introduction"
+      ],
+      "subjects": "quoted from Katz JN and Harris MB 2008, N Engl J Med (ref 1), a clinical review; no subjects described here",
+      "n_people": null,
+      "n_units": "not stated",
+      "ages": "not stated",
+      "sexes": "not stated",
+      "page": "p. 671 (PDF 1)"
+    },
+    {
+      "cohort": "berrington2009",
+      "labels": [
+        "not stated"
+      ],
+      "tables": [
+        "Text: Discussion"
+      ],
+      "subjects": "quoted from Berrington de Gonzalez A et al. 2009, Arch Intern Med (ref 15), a count of CT examinations; no subjects described here",
+      "n_people": null,
+      "n_units": "not stated",
+      "ages": "not stated",
+      "sexes": "not stated",
+      "page": "p. 676 (PDF 6)"
+    },
+    {
+      "cohort": "steurer_kalichman_mamisch",
+      "labels": [
+        "not stated"
+      ],
+      "tables": [
+        "Text: Discussion"
+      ],
+      "subjects": "quoted from Steurer 2011, Kalichman 2009 and Mamisch 2012 (refs 21-23), the range of AP cut-offs used for mid-vertebral stenosis; their subjects are not described here",
+      "n_people": null,
+      "n_units": "not stated",
+      "ages": "not stated",
+      "sexes": "not stated",
+      "page": "p. 676 (PDF 6), p. 678 (PDF 8)"
+    },
+    {
+      "cohort": "mamisch2012",
+      "labels": [
+        "not stated"
+      ],
+      "tables": [
+        "Text: Discussion"
+      ],
+      "subjects": "quoted from Mamisch N et al. 2012, Radiology (ref 23), a Delphi survey of radiologic stenosis criteria; no subjects measured",
+      "n_people": null,
+      "n_units": "not stated",
+      "ages": "not stated",
+      "sexes": "not stated",
+      "page": "p. 678 (PDF 8)"
+    },
+    {
+      "cohort": "ullrich_us",
+      "labels": [
+        "not stated"
+      ],
+      "tables": [
+        "Text: Discussion"
+      ],
+      "subjects": "quoted from a US-based study by Peter F. Ullrich Jr et al., cited by name with no reference number; its subjects are not described here",
+      "n_people": null,
+      "n_units": "not stated",
+      "ages": "not stated",
+      "sexes": "not stated",
+      "page": "p. 678 (PDF 8)"
+    },
+    {
+      "cohort": "schizas2014_lausanne",
+      "labels": [
+        "not stated"
+      ],
+      "tables": [
+        "Text: Discussion"
+      ],
+      "subjects": "quoted from Schizas C et al. 2014, Spine (ref 2), the Lausanne study of Swiss subjects; set against this paper's 1,080 patients",
+      "n_people": null,
+      "n_units": "not stated",
+      "ages": "not stated",
+      "sexes": "not stated",
+      "page": "p. 678 (PDF 8)"
+    }
+  ],
+  "techniques": [
+    {
+      "technique": "ct_midpedicle_semiauto",
+      "cohorts": [
+        "hk_ct_patients",
+        "reliability_subset"
+      ],
+      "modality": "CT MPR",
+      "instrument": "64-slice multidetector CT (LightSpeed VCT, GE Healthcare), reconstructive resolution 0.6 mm, bone window; semi-automated computerized segmentation software (not named; the vertebral body method cites Yushkevich 2006, ref 8); SPSS 22 for statistics",
+      "how": "For each of L1 to L5 the volume is reoriented to give a plane at right angles to the vertebral body and the mid-pedicle axial image is found automatically, orthogonal to the mid-sagittal plane. On that one image: osseous canal CSA by seed-growing segmentation after rigid co-registration, then manual correction of the canal boundary; canal depth from the posterior margin of the body to the cortex of the neural arch at the base of the spinous process; canal width between the inner margins of the two pedicles; vertebral body CSA by an attenuation threshold against the surrounding soft tissue, then manual correction with the pedicle bases demarcated; and the canal CSA / body CSA ratio. Smallest-25% cut-offs from per-sex histograms (Figures S1-S3).",
+      "magnification": "not applicable: measured on reformatted CT images; no calibration described",
+      "observers": "one operator for all analysis; the same reader repeated the reliability subset 1 week apart",
+      "page": "p. 672 (PDF 2), p. 673 (PDF 3), Figure 1 p. 672 (PDF 2)"
+    },
+    {
+      "technique": "ct_manual_check",
+      "cohorts": [
+        "reliability_subset"
+      ],
+      "modality": "CT MPR",
+      "instrument": "manual measurement; tool not named",
+      "how": "A second reader independently selected the image and manually measured canal CSA, depth and width at L1 to L5 on the same 20 subjects; compared with the second computerized reading by intraclass correlation, reported per level only. Inference: on the same CT data.",
+      "magnification": "not applicable: CT; none described",
+      "observers": "one second reader",
+      "page": "p. 673 (PDF 3), p. 676 (PDF 6)"
+    },
+    {
+      "technique": "height_weight_record",
+      "cohorts": [
+        "hk_ct_patients"
+      ],
+      "modality": "other",
+      "instrument": "not stated",
+      "how": "Height (cm) and weight (kg) of every patient recorded before the CT examination; BMI derived.",
+      "magnification": "not applicable",
+      "observers": "not stated",
+      "page": "p. 672 (PDF 2), p. 673 (PDF 3)"
+    },
+    {
+      "technique": "quoted_background_statement",
+      "cohorts": [
+        "background_statement"
+      ],
+      "modality": "other",
+      "instrument": "not stated (values quoted from another study)",
+      "how": "an age by which canal growth is said to end; how it was established is not given here",
+      "magnification": "not applicable",
+      "observers": "not stated",
+      "page": "p. 671 (PDF 1)"
+    },
+    {
+      "technique": "quoted_papp_watts",
+      "cohorts": [
+        "papp1994_watts2013"
+      ],
+      "modality": "other",
+      "instrument": "not stated (values quoted from another study)",
+      "how": "ages by which AP and transverse canal growth end, quoted; method not given here",
+      "magnification": "not applicable",
+      "observers": "not stated",
+      "page": "p. 671 (PDF 1)"
+    },
+    {
+      "technique": "quoted_katz",
+      "cohorts": [
+        "katz2008"
+      ],
+      "modality": "other",
+      "instrument": "not stated (values quoted from another study)",
+      "how": "an age threshold quoted from a review; nothing measured",
+      "magnification": "not applicable",
+      "observers": "not stated",
+      "page": "p. 671 (PDF 1)"
+    },
+    {
+      "technique": "quoted_berrington",
+      "cohorts": [
+        "berrington2009"
+      ],
+      "modality": "other",
+      "instrument": "not stated (values quoted from another study)",
+      "how": "a yearly count of abdominopelvic CT examinations, quoted; nothing measured",
+      "magnification": "not applicable",
+      "observers": "not stated",
+      "page": "p. 676 (PDF 6)"
+    },
+    {
+      "technique": "quoted_ap_stenosis_criteria",
+      "cohorts": [
+        "steurer_kalichman_mamisch"
+      ],
+      "modality": "other",
+      "instrument": "not stated (values quoted from another study)",
+      "how": "AP canal diameter cut-offs for stenosis, quoted; how the diameter is measured is not given here",
+      "magnification": "not applicable",
+      "observers": "not stated",
+      "page": "p. 676 (PDF 6), p. 678 (PDF 8)"
+    },
+    {
+      "technique": "quoted_mamisch",
+      "cohorts": [
+        "mamisch2012"
+      ],
+      "modality": "other",
+      "instrument": "not stated (values quoted from another study)",
+      "how": "the most widely accepted AP stenosis cut-off at L2 and L3, quoted; how the diameter is measured is not given here",
+      "magnification": "not applicable",
+      "observers": "not stated",
+      "page": "p. 678 (PDF 8)"
+    },
+    {
+      "technique": "quoted_ullrich",
+      "cohorts": [
+        "ullrich_us"
+      ],
+      "modality": "other",
+      "instrument": "not stated (values quoted from another study)",
+      "how": "a canal CSA cut-off for developmental stenosis, quoted; how the area is measured is not given here",
+      "magnification": "not applicable",
+      "observers": "not stated",
+      "page": "p. 678 (PDF 8)"
+    },
+    {
+      "technique": "quoted_schizas",
+      "cohorts": [
+        "schizas2014_lausanne"
+      ],
+      "modality": "other",
+      "instrument": "not stated (values quoted from another study)",
+      "how": "how much larger Swiss canal CSA is than this paper's, quoted as a percent range; the Lausanne method is not given here",
+      "magnification": "not applicable",
+      "observers": "not stated",
+      "page": "p. 678 (PDF 8)"
+    }
+  ],
+  "shared": [
+    {
+      "with": "Yushkevich PA et al. 2006, Neuroimage (ref 8); not in the list",
+      "what": "method",
+      "evidence": "vertebral body CSA thresholding with manual modification cites ref 8",
+      "page": "p. 673 (PDF 3)"
+    },
+    {
+      "with": "Schizas C et al. 2014, Spine (ref 2), the Lausanne study; not in the list",
+      "what": "values quoted",
+      "evidence": "canal CSA generally 8-16% larger in Swiss subjects than here",
+      "page": "p. 678 (PDF 8)"
+    },
+    {
+      "with": "Mamisch N et al. 2012, Radiology (ref 23); not in the list",
+      "what": "values quoted",
+      "evidence": "AP diameter below 11 mm at L2 and L3 the most widely accepted",
+      "page": "p. 678 (PDF 8)"
+    },
+    {
+      "with": "Steurer 2011, Kalichman 2009 and Mamisch 2012 (refs 21-23); not in the list",
+      "what": "values quoted",
+      "evidence": "AP stenosis cut-offs from below 10 to below 14 mm quoted",
+      "page": "p. 676 (PDF 6)"
+    },
+    {
+      "with": "Peter F. Ullrich Jr et al., a US-based study, no reference number; not in the list",
+      "what": "values quoted",
+      "evidence": "below 145 mm2 at L3 suggested as developmental stenosis",
+      "page": "p. 678 (PDF 8)"
+    },
+    {
+      "with": "Papp T et al. 1994, Spine (ref 3) and Watts R 2013, Homo (ref 4); not in the list",
+      "what": "values quoted",
+      "evidence": "AP growth complete by 5 years, transverse until 15-17 years",
+      "page": "p. 671 (PDF 1)"
+    },
+    {
+      "with": "Katz JN, Harris MB 2008, N Engl J Med (ref 1); not in the list",
+      "what": "values quoted",
+      "evidence": "stenosis the commonest indication for lumbar surgery above 65 years",
+      "page": "p. 671 (PDF 1)"
+    },
+    {
+      "with": "Berrington de Gonzalez A et al. 2009, Arch Intern Med (ref 15); not in the list",
+      "what": "values quoted",
+      "evidence": "over 100 million abdominopelvic CTs yearly, cited to ref 15",
+      "page": "p. 676 (PDF 6)"
+    },
+    {
+      "with": "Amonoo-Kuofi HS 1985, J Anat (ref 18): amonookuofi1985",
+      "what": "findings compared; no subjects, method or values shared",
+      "evidence": "cited, with refs 16, 17 and 19, for smaller canals in females",
+      "page": "p. 676 (PDF 6)"
+    },
+    {
+      "with": "Eisenstein S 1977, J Bone Joint Surg Br (ref 19): eisenstein1977",
+      "what": "findings compared; no subjects, method or values shared",
+      "evidence": "cited, with refs 16-18, for smaller canals in females",
+      "page": "p. 676 (PDF 6)"
+    },
+    {
+      "with": "Zhou SH et al. 2000, Eur Spine J (ref 16) and Lee HM et al. 1995, Spine (ref 17); not in the list",
+      "what": "findings compared; no subjects, method or values shared",
+      "evidence": "cited for nearly all canal dimensions smaller in females",
+      "page": "p. 676 (PDF 6)"
+    }
+  ],
+  "within_paper": "One set of subjects throughout: every table and figure (Tables 1-7, S1-S6, Figures S1-S3) is of the same 1,080 patients, N = 540 per sex, p. 672 (PDF 2) and suppl. (PDF 10-14). Table S5's age groups (180 per sex each) and Table 7's largest and smallest quartile groups are subsets of them, as are the adjusted means of Tables S1-S4 and S6, which re-express the same measurements. The reliability study measured the same 20 subjects (100 levels) twice by the computerized method and once manually by a second reader, p. 673 (PDF 3); Inference: those 20 are drawn from the 1,080."
+}

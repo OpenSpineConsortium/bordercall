@@ -1,0 +1,339 @@
+{
+  "id": "frontphys2026",
+  "citation": "Xiaoteng Li, Fengzi Lv, Xin Tang (corresponding), Peng Jia and Yang Gao. Morphological characteristics of lumbar vertebral bodies and regional distribution patterns of bone mineral density: a CT study. Frontiers in Physiology 2026; 17:1820186 (article number, 10 pages; no issue printed). doi: 10.3389/fphys.2026.1820186. Published 14 May 2026. Source: thread \"Reread every paper for clinical detail\", project symphony_4, 2026-10-28. Copy read: PMC open-access Cloud Service (pmc-oa-opendata), PMC13215853.1, fetched 2026-10-28; sha256 begins 4229fe5fd7c72d0a. Printed folio equals PDF page.",
+  "population": "100 living Chinese adults (text: 50 men and 50 women; Table 1 sums to 46 men and 54 women), aged 20 to 70, five decade groups of 20 each (mean ages 25.1, 35.6, 45.2, 55.7, 65.4 years), who had a non-contrast lumbar spine CT at the health examination department of an orthopaedic hospital in Zhengzhou, Henan, China, September 2023 to September 2025; retrospective, single centre, anonymised routine health-examination CT (p. 1, 2 to 5, 8 (PDF 1, 2 to 5, 8)). Excluded: fracture (semiquantitative), congenital vertebral deformity or acquired short vertebral body, implants, bone-metabolic drugs or disease, degenerative scoliosis, severe osteophytosis (p. 3 (PDF 3)). Denominator: 100 people x L1 to L5 = 500 vertebral bodies, n = 100 per level (Inference: no missing levels reported). No ethnicity beyond Chinese; no height, weight or BMI.",
+  "modality": "Multidetector CT: Siemens Somatom Definition 64 AS+, 120 kV, 3.0 mm acquisition, 128 x 0.6 mm collimation, pitch 0.8, no contrast; reconstructed at 1 mm slices and 1 mm interval, kernel B60s, bone window; MPR on a syngo workstation (VE36A); manual calipers by one blinded observer, each value the mean of three; HU from ROIs of about 1 cm^2 after Banse 2001 (p. 3 to 4 (PDF 3 to 4)). No radiographs.",
+  "levels_covered": "L1 to L5 vertebral bodies only; no posterior elements, no T12, no S1; how levels were identified or counted is not stated.",
+  "anomalies": [
+    {
+      "variant": "Lumbosacral transitional vertebra, sacralisation, lumbarisation, L6, T13, rib-count variants, cervical ribs, block vertebrae",
+      "finding": "Not mentioned anywhere in the paper; no prevalence, no denominator, no counting rule.",
+      "page": "whole paper (PDF 1 to 10)",
+      "population": "100 Chinese adults 20 to 70",
+      "how_identified": "Not applicable"
+    },
+    {
+      "variant": "Congenital vertebral deformity or acquired short vertebral body",
+      "finding": "Exclusion criterion only; no count of screened or excluded people and no definition. Inference: some transitional spines may have been excluded under it, but the paper does not say so; the reference values describe five-lumbar spines named by an unstated rule.",
+      "page": "p. 3 (PDF 3)",
+      "population": "Screened health-examination CT patients, Zhengzhou, China",
+      "how_identified": "On CT; method not stated"
+    }
+  ],
+  "measures": [
+    {
+      "name": "Anterior vertebral body height (VBHa)",
+      "definition": "Distance from the anterior edge of the superior endplate to the anterior edge of the inferior endplate, on the mid-sagittal image.",
+      "projection": "CT, mid-sagittal MPR (1 mm, B60s)",
+      "page": "p. 3 (PDF 3); values Table 2, p. 5 (PDF 5)",
+      "levels": "L1 to L5",
+      "level_pattern": "mm, n = 100 per level: L1 25.1 +/- 1.4; L2 26.5 +/- 1.3; L3 27.1 +/- 1.4; L4 27.6 +/- 0.7; L5 27.7 +/- 0.6. Rises L1 to L5, steeply L1 to L2 (+1.4) then flat (L3 to L5 +0.6 total); L4 vs L5 differ by 0.1 mm, so VBHa does not separate them (Inference from Table 2).",
+      "ct_mask_recipe": "Inference: in the vertebra's own frame (craniocaudal axis normal to the mean endplate plane, AP from body centroid to posterior-element centroid), on the body subregion's mid-sagittal plane, distance along the craniocaudal axis between superior and inferior surfaces at the anterior wall, stepped 1 to 2 mm inward from the anterior-most voxel column; remove osteophytes first.",
+      "radiograph_recipe": "Inference (paper uses CT only): lateral radiograph, anterior height of six-point morphometry; mm need magnification correction, the ratio VBHa/VBHp does not.",
+      "covariates": "None reported by sex, age or size; Chinese adults 20 to 70.",
+      "error": "Intra-observer ICC > 0.90 for all parameters (20 vertebrae, 2-week interval); no inter-observer; SDs of 0.6 to 0.7 mm at L4 to L5 look implausibly small (Inference)."
+    },
+    {
+      "name": "Middle vertebral body height (VBHm)",
+      "definition": "Distance from the midpoint of the superior endplate to the midpoint of the inferior endplate, mid-sagittal image.",
+      "projection": "CT, mid-sagittal MPR",
+      "page": "p. 3 (PDF 3); Table 2, p. 5 (PDF 5); p. 6 (PDF 6)",
+      "levels": "L1 to L5",
+      "level_pattern": "mm: L1 23.5 +/- 1.3; L2 24.3 +/- 1.4; L3 24.4 +/- 1.2; L4 23.7 +/- 1.2; L5 23.0 +/- 0.6. Smaller than both VBHa and VBHp at every level (the authors' concave central region, p. 6). Inference from Table 2: mean of anterior and posterior heights minus VBHm = 2.65, 3.00, 2.80, 3.25, 3.15 mm; VBHm/VBHa = 0.94, 0.92, 0.90, 0.86, 0.83, falling steadily caudally.",
+      "ct_mask_recipe": "Inference: on the mid-sagittal plane of the body, at the AP midpoint of the endplate, distance between superior and inferior surfaces along the craniocaudal axis; Schmorl nodes or endplate defects would shorten it.",
+      "radiograph_recipe": "Inference (paper uses CT only): lateral radiograph, middle height of six-point morphometry; the central endplate is blurred by projected rims under tilt.",
+      "covariates": "None reported.",
+      "error": "ICC > 0.90 intra-observer only."
+    },
+    {
+      "name": "Posterior vertebral body height (VBHp)",
+      "definition": "Distance from the posterior edge of the superior endplate to the posterior edge of the inferior endplate, mid-sagittal.",
+      "projection": "CT, mid-sagittal MPR",
+      "page": "p. 3 (PDF 3); Table 2, p. 5 (PDF 5); p. 5 to 7 (PDF 5 to 7)",
+      "levels": "L1 to L5",
+      "level_pattern": "mm: L1 27.2 +/- 1.3; L2 28.1 +/- 2.6; L3 27.3 +/- 2.2; L4 26.3 +/- 2.1; L5 24.6 +/- 2.5. Posterior > anterior at L1 and L2 (L1 by 2.1 mm), about equal at L3 (not significant, abstract p. 1), anterior > posterior at L4 and L5 (L5 by 3.1 mm); Discussion range -2.1 to +3.1 mm (p. 7). Inference from Table 2: VBHa/VBHp = 0.92, 0.94, 0.99, 1.05, 1.13 at L1 to L5; L4 to L5 drop (1.7 mm) is the largest step.",
+      "ct_mask_recipe": "Inference: at the posterior wall of the body on the mid-sagittal plane (through the canal, clear of pedicles), stepped 1 to 2 mm anterior of the posterior-most voxels; without a body/posterior-element split, the posterior wall is the anterior border of the canal on that plane.",
+      "radiograph_recipe": "Inference (paper uses CT only): lateral radiograph; use VBHa/VBHp, which cancels magnification.",
+      "covariates": "None reported.",
+      "error": "ICC > 0.90 intra-observer; between-person SD 2.1 to 2.6 mm at L2 to L5."
+    },
+    {
+      "name": "Superior endplate width (EPWu)",
+      "definition": "Horizontal distance between the outermost lateral edges of the superior endplate. Plane: the paper says all parameters were measured on mid-sagittal images, later on mid-sagittal and mid-coronal planes; Figure 1B draws it as an AP span on a sagittal slice (29.6 mm). Inference: the values only fit a mediolateral width on the coronal plane.",
+      "projection": "CT MPR, plane not assigned (Inference: mid-coronal)",
+      "page": "p. 3 (PDF 3), Figure 1B; Table 2, p. 5 (PDF 5); p. 5, 7 (PDF 5, 7)",
+      "levels": "L1 to L5",
+      "level_pattern": "mm: L1 41.8 +/- 1.0; L2 43.4 +/- 0.7; L3 45.2 +/- 0.6; L4 47.7 +/- 0.8; L5 50.7 +/- 2.4; +21.3% L1 to L5. Steps 1.6, 1.8, 2.5, 3.0 mm (Inference from Table 2), each larger than the printed SDs at L1 to L4.",
+      "ct_mask_recipe": "Inference: LR extent of the slab of body voxels within 1 to 2 mm of the superior surface, in the vertebra's frame (maximum LR Feret, or the extent on the coronal plane through the body centroid for the paper's mid-coronal reading); remove lateral osteophytes; partial volume adds about one voxel.",
+      "radiograph_recipe": "Inference (paper uses CT only): AP radiograph, lateral body margins at the superior endplate; magnification correction for mm, adjacent-level ratios are magnification-free; axial rotation and lateral bending shorten it.",
+      "covariates": "None reported; compared with Shrestha 2022 (Nepalese dried vertebrae by title, L5 width 42.59 mm), Liu 2018, Han 2023 and an MRI study at L4-L5 (p. 5).",
+      "error": "ICC > 0.90 intra-observer only. Inference: SDs 0.6 to 1.0 mm (2.4 at L5) are implausibly small for a mixed-sex sample 20 to 70; Panjabi's lumbar EPWu SEM 0.74 to 1.20 mm (n = 12) implies SD about 2.6 to 4.2 mm."
+    },
+    {
+      "name": "Inferior endplate width (EPWl)",
+      "definition": "Horizontal distance between the outermost lateral edges of the inferior endplate; plane as EPWu.",
+      "projection": "CT MPR, plane not assigned (Inference: mid-coronal)",
+      "page": "p. 3 (PDF 3); Table 2, p. 5 (PDF 5); p. 7 (PDF 7)",
+      "levels": "L1 to L5",
+      "level_pattern": "mm: L1 44.8 +/- 1.1; L2 45.7 +/- 0.8; L3 48.7 +/- 0.8; L4 51.3 +/- 1.7; L5 52.4 +/- 0.6; +17.0% L1 to L5. Inference from Table 2: EPWl > EPWu at every level (by 3.0, 2.3, 3.5, 3.6, 1.7 mm) and each inferior endplate is wider than the superior endplate below it; steps 0.9, 3.0, 2.6, 1.1 mm, so L1/L2 and L4/L5 separate poorly.",
+      "ct_mask_recipe": "Inference: as EPWu on the slab next to the inferior surface.",
+      "radiograph_recipe": "Inference: AP radiograph, lateral margins at the inferior endplate; as EPWu.",
+      "covariates": "None reported.",
+      "error": "As EPWu."
+    },
+    {
+      "name": "Anterior 1/3 cortical thickness of the superior endplate (EPTA)",
+      "definition": "Superior endplate divided into three equal AP parts; the vertical cortical bone thickness measured in the anterior third, mid-sagittal.",
+      "projection": "CT, mid-sagittal MPR",
+      "page": "p. 3 (PDF 3), Figure 1C; Table 2, p. 5 (PDF 5); p. 6 to 7 (PDF 6 to 7)",
+      "levels": "L1 to L5",
+      "level_pattern": "0.8 mm at every level (SD 0.1 at L1 to L2, 0.2 at L3 to L5); flat, no level information. Smaller than EPTP at all levels, p < 0.05, a 10 to 20% difference.",
+      "ct_mask_recipe": "Not possible from a binary mask. Inference: intensity profile along the craniocaudal axis through the anterior third of the superior endplate, width of the high-attenuation layer (for example FWHM); the paper gives no threshold.",
+      "radiograph_recipe": "Not possible.",
+      "covariates": "None reported.",
+      "error": "ICC > 0.90 intra-observer. Inference: at the resolution limit of 1 mm reconstructions; partial volume dominates."
+    },
+    {
+      "name": "Posterior 1/3 cortical thickness of the superior endplate (EPTP)",
+      "definition": "As EPTA, in the posterior third of the superior endplate.",
+      "projection": "CT, mid-sagittal MPR",
+      "page": "p. 3 (PDF 3); Table 2, p. 5 (PDF 5)",
+      "levels": "L1 to L5",
+      "level_pattern": "mm: L1 0.9 +/- 0.2; L2 1.0 +/- 0.2; L3 1.0 +/- 0.2; L4 0.9 +/- 0.2; L5 1.0 +/- 0.2 (Results text says 0.9 +/- 0.2 at all levels, p. 5).",
+      "ct_mask_recipe": "As EPTA.",
+      "radiograph_recipe": "Not possible.",
+      "covariates": "None reported.",
+      "error": "As EPTA."
+    },
+    {
+      "name": "CT attenuation (HU) in sagittal thirds",
+      "definition": "Body divided into upper, middle and lower thirds in the sagittal plane; one ROI of about 1 cm^2 (stated circular or elliptical; Figure 3A shows rectangles of 107.5 to 123.0 mm^2) per third, avoiding cortex, basivertebral foramen, osteophytes and calcifications; mean HU, three placements averaged; method of Banse 2001.",
+      "projection": "Non-contrast CT, 120 kV, B60s, sagittal MPR",
+      "page": "p. 4 (PDF 4), Figures 2, 3A; Table 3, p. 5 (PDF 5); Figure 4, p. 6 (PDF 6)",
+      "levels": "L1 to L5",
+      "level_pattern": "HU upper / middle / lower: L1 167.4 +/- 26.6 / 174.3 +/- 21.2 / 180.6 +/- 20.1; L2 162.9 +/- 30.4 / 165.1 +/- 29.2 / 172.3 +/- 13.3; L3 156.5 +/- 24.6 / 158.9 +/- 17.5 / 165.8 +/- 14.5; L4 153.9 +/- 21.2 / 157.2 +/- 13.2 / 164.3 +/- 10.9; L5 158.7 +/- 24.2 / 160.8 +/- 13.9 / 166.6 +/- 8.4. Upper < middle < lower at every level (lower > upper p < 0.05). Level order L1 > L2 > L5 > L3 > L4 in every third; L1 vs L4 upper 13.5 HU (8.1%), p < 0.05. Inference: adjacent-level gaps 1.5 to 9.2 HU, L1 to L4 gap 13.5 to 17.1 HU, between-person SD 8.4 to 30.4 HU.",
+      "ct_mask_recipe": "Inference: erode the body subregion 2 to 3 mm to drop cortex, split into thirds along the craniocaudal axis, take a central 1 cm^2 ROI per third on the mid-sagittal plane avoiding the posterior midline at mid-height (basivertebral foramen); a volume mean per third will differ from the paper's single ROI.",
+      "radiograph_recipe": "Not possible (no calibrated density).",
+      "covariates": "None reported; Liu 2005 (168 healthy men, BMD falling L1 to L4) cited as agreeing (p. 6).",
+      "error": "No HU-specific reliability (the ICC sentence sits in the morphology section, Inference); kernel, kV and contrast standardised, no phantom calibration; the Figure 3A example prints in-ROI SDs of 56.6 to 72.9 HU."
+    },
+    {
+      "name": "CT attenuation (HU) in axial quadrants of each third (12 regions)",
+      "definition": "In each third, an axial slice divided into four quadrants: Q1 left anterior, Q2 right anterior, Q3 left posterior, Q4 right posterior; one ROI each as above. Which slice within each third is not stated; Figure 3B to D ROIs are rectangles of about 85 to 211 mm^2 (low-resolution annotation); Q1 is drawn at image left.",
+      "projection": "Non-contrast CT, axial MPR",
+      "page": "p. 4 (PDF 4), Figures 2, 3B to D; Tables 4 to 6, p. 6 to 7 (PDF 6 to 7)",
+      "levels": "L1 to L5",
+      "level_pattern": "Lowest region at every level is an upper-third anterior quadrant (L1 Q2 157.5 +/- 30.9; L2 Q2 151.7 +/- 26.7; L3 Q2 149.3 +/- 23.9; L4 Q1 146.7 +/- 17.8, lowest of all; L5 Q1 152.0 +/- 27.7); highest a lower-third posterior quadrant (L1 Q4 185.5; L2 Q4 179.2; L3 Q3 172.9; L4 Q4 168.6; L5 Q3 174.0). Upper third L1: posterior 174.8, 175.3 vs anterior 158.1, 157.5, p < 0.01; L5: 164.0, 167.2 vs 152.0, 156.9, not significant. Inference: posterior-minus-anterior gap upper third 17.3, 16.5, 14.6, 14.2, 11.2 HU at L1 to L5; left-right gaps under 5 HU; level order holds in 11 of 12 regions (upper Q2: L5 above L2).",
+      "ct_mask_recipe": "Inference: axial plane of the vertebra's frame at the centre of each third, eroded body split by its mid-sagittal and mid-coronal lines, a 1 cm^2 ROI centred in each quadrant away from the basivertebral foramen; fix left as patient left.",
+      "radiograph_recipe": "Not possible.",
+      "covariates": "None reported.",
+      "error": "As sagittal thirds; quadrant SDs 8.5 (L4 upper Q4) to 37.6 (L3 upper Q3) HU."
+    }
+  ],
+  "level_details": [
+    {
+      "level": "L1 (thoracolumbar junction)",
+      "detail": "Posterior height exceeds anterior by 2.1 mm (27.2 vs 25.1); narrowest endplates (41.8 superior, 44.8 inferior); highest HU in every third, linked by the authors to relatively stable stress at the thoracolumbar junction (speculative); their example of a significant upper-third anterior-posterior HU gap (p < 0.01), the largest such gap (17.3 HU, Inference from Table 4).",
+      "page": "Table 2, p. 5 (PDF 5); p. 5 to 7 (PDF 5 to 7)"
+    },
+    {
+      "level": "L2",
+      "detail": "Largest VBHp (28.1 +/- 2.6); posterior > anterior by 1.6 mm (Inference); second-highest HU.",
+      "page": "Tables 2 and 3, p. 5 (PDF 5)"
+    },
+    {
+      "level": "L3",
+      "detail": "Anterior and posterior heights about equal (27.1 vs 27.3), not significant; largest VBHm (24.4); fourth of five by HU; largest quadrant SD (upper Q3 37.6 HU).",
+      "page": "p. 1, 5, 6 (PDF 1, 5, 6)"
+    },
+    {
+      "level": "L4",
+      "detail": "Anterior > posterior (27.6 vs 26.3); lowest HU in every third (153.9, 157.2, 164.3); anterosuperior quadrant 146.7 +/- 17.8 HU, the lowest region measured, above 100 HU in these healthy adults; L3 to L4 as the centre of lumbar motion said to take the greatest dynamic loads with faster turnover (speculative).",
+      "page": "p. 5 to 7 (PDF 5 to 7)"
+    },
+    {
+      "level": "L5 (lumbosacral junction)",
+      "detail": "Widest endplates (50.7, 52.4); most wedged (anterior exceeds posterior by 3.1 mm); smallest VBHp (24.6) and VBHm (23.0); largest EPWu SD (2.4). Called the keystone of the lumbosacral junction to explain its width (p. 5); its HU rebound above L3 and L4 explained by larger size and frequent reactive osteosclerosis (p. 6); upper-third anterior-posterior HU gap smaller and not significant.",
+      "page": "Table 2, p. 5 (PDF 5); p. 5 to 7 (PDF 5 to 7)"
+    },
+    {
+      "level": "C2/C3, C7/T1, T12/L1, L5/S1",
+      "detail": "No measurement; T12 and S1 not measured.",
+      "page": "whole paper"
+    }
+  ],
+  "errors": [
+    {
+      "what": "Intra-observer reliability, one observer, 20 randomly chosen vertebrae re-measured after 2 weeks",
+      "value": "ICC > 0.90 for all parameters; exact ICCs not given",
+      "page": "p. 3 (PDF 3)"
+    },
+    {
+      "what": "Inter-observer reliability",
+      "value": "Not evaluated (admitted limitation)",
+      "page": "p. 8 (PDF 8)"
+    },
+    {
+      "what": "Repeat measurements per value",
+      "value": "Mean of three measurements for morphology and for each HU region",
+      "page": "p. 3 to 4 (PDF 3 to 4)"
+    },
+    {
+      "what": "Instrument resolution",
+      "value": "1 mm slices at 1 mm interval, B60s kernel; pixel spacing, FOV and mAs not given. Inference: endplate cortex 0.8 to 1.0 mm is at the resolution limit",
+      "page": "p. 3 (PDF 3)"
+    },
+    {
+      "what": "HU calibration",
+      "value": "Same scanner, 120 kV, B60s, no contrast; no phantom calibration and no DXA comparison",
+      "page": "p. 3 (PDF 3); p. 8 (PDF 8)"
+    },
+    {
+      "what": "Within-ROI HU spread, single Figure 3A example",
+      "value": "In-ROI SD 56.6, 69.9, 72.9 HU (upper, middle, lower)",
+      "page": "p. 4 (PDF 4), Figure 3A"
+    },
+    {
+      "what": "Between-person SDs of widths and VBHa",
+      "value": "0.6 to 1.7 mm (2.4 at L5 EPWu); Inference: implausibly small next to Panjabi's implied SDs of about 2.6 to 4.9 mm",
+      "page": "Table 2, p. 5 (PDF 5)"
+    }
+  ],
+  "pearls_pitfalls": [
+    {
+      "text": "Endplate width guides interbody cage size; a cage sized for L1 (about 42 mm) is undersized for L5 (about 51 mm), risking poor coverage and subsidence.",
+      "page": "p. 2 (PDF 2); p. 7 (PDF 7)"
+    },
+    {
+      "text": "The anterior third of the superior endplate cortex is thinner (0.8 vs 0.9 to 1.0 mm); avoid excessive distraction or compression to prevent endplate breach; the anterior endplate often fails first under compression (Zhao 2009, as cited).",
+      "page": "p. 6 to 7 (PDF 6 to 7)"
+    },
+    {
+      "text": "The anterosuperior region is the lowest-density zone at every level, a stress-weak zone matching the usual site of osteoporotic compression fractures.",
+      "page": "p. 1 to 2 (PDF 1 to 2); p. 7 (PDF 7)"
+    },
+    {
+      "text": "A mid-sagittal or mean lumbar CT value below 100 HU marks poor bone quality and is a cited threshold for cement augmentation or stronger fixation; in osteoporosis the anterosuperior region may fall well below it even when the global value looks acceptable.",
+      "page": "p. 7 (PDF 7)"
+    },
+    {
+      "text": "HU correlates with DXA T-score and predicts screw loosening, cut-out, cage subsidence and adjacent or post-fixation fractures (Elarjani 2021, Zhou 2021, Zhang 2023, as cited); single mid-body ROIs miss intravertebral heterogeneity.",
+      "page": "p. 2 (PDF 2); p. 7 (PDF 7)"
+    },
+    {
+      "text": "A wide body with very low density is a poor foundation for fixation; a body of acceptable density with a weak endplate cortex may still fail early.",
+      "page": "p. 2 (PDF 2)"
+    },
+    {
+      "text": "Pedicle screw trajectory and purchase depend on intravertebral density distribution; the anterosuperior region at L3 to L4 is singled out for augmentation or screw fixation in osteoporosis; cement should target the anterosuperior zone rather than fill the central cavity.",
+      "page": "p. 2 (PDF 2); p. 7 (PDF 7)"
+    },
+    {
+      "text": "Finite-element models should use regional, not uniform, density (Oefner 2022, as cited); the anterior column carries about 80% of the stress (Li 2024, as cited); greater body-height heterogeneity predicts incident lumbar fracture in postmenopausal women independent of areal BMD (Roux 2016, as cited).",
+      "page": "p. 6 to 7 (PDF 6 to 7)"
+    },
+    {
+      "text": "The posterior-higher upper lumbar and anterior-higher lower lumbar bodies form the wedge basis of lordosis, consistent with an MRI study of Egyptians (Hegazy 2014) and Hou 2013, as cited.",
+      "page": "p. 6 (PDF 6); p. 8 (PDF 8)"
+    },
+    {
+      "text": "Body height is preserved in disc degeneration while disc height falls (Nisanci and Yildiz 2026, as cited). Inference: body heights are the steadier level cue in a degenerate spine.",
+      "page": "p. 2 (PDF 2)"
+    },
+    {
+      "text": "A 3D U-Net on low-dose chest CT already gives vertebral morphology with sex- and age-related trends in height ratios in a Chinese population (Ma 2024, as cited); the authors suggest automated deep-learning segmentation for reproducibility (Baur 2022, as cited).",
+      "page": "p. 2 (PDF 2); p. 8 (PDF 8)"
+    },
+    {
+      "text": "Pitfalls: contrast, kernel and slice thickness change HU, so read only standardised non-contrast scans; ROIs must avoid cortex, the basivertebral foramen, osteophytes and calcifications; CT HU are not DXA BMD and vary with scanner and kV.",
+      "page": "p. 3 to 4 (PDF 3 to 4); p. 8 (PDF 8)"
+    },
+    {
+      "text": "Pitfall of the paper itself: Figure 1B draws the endplate widths as AP spans on a sagittal slice (29.6, 30.3 mm), while Table 2 widths only fit a mediolateral span; copying the figure would give a depth, not a width (Inference).",
+      "page": "p. 3 (PDF 3); Table 2, p. 5 (PDF 5)"
+    }
+  ],
+  "instructions": [
+    {
+      "text": "Measure VBHa, VBHm and VBHp on the mid-sagittal plane of each lumbar body as the paper defines them and form VBHa/VBHp; from Table 2 means expect about 0.92, 0.94, 0.99, 1.05, 1.13 at L1 to L5 (computed; Inference). On a lateral radiograph use the ratio, not mm (Inference).",
+      "page": "p. 3 (PDF 3); Table 2, p. 5 (PDF 5)"
+    },
+    {
+      "text": "Inference: treat the body with the largest anterior-over-posterior excess (about +3 mm, smallest VBHp) as the L5 candidate and posterior-higher bodies as L1 to L2; the paper proposes no such rule, VBHp SD is 2.1 to 2.6 mm, and numbering was never checked, so confirm with the sacrum and the count from C2.",
+      "page": "Table 2, p. 5 (PDF 5); p. 5 to 7 (PDF 5 to 7)"
+    },
+    {
+      "text": "Expect VBHm about 2.6 to 3.3 mm below the mean of the anterior and posterior heights at every level (computed from Table 2); if it is not smaller, re-check landmarks or look for an endplate lesion (Inference).",
+      "page": "Table 2, p. 5 (PDF 5); p. 6 (PDF 6)"
+    },
+    {
+      "text": "Inference: do not call a fracture for an L1 or L2 anterior height 1.5 to 2 mm (about 6 to 8%) below posterior height; that is the mean wedge in fracture-free spines here. The paper's semiquantitative fracture thresholds are not printed.",
+      "page": "Table 2, p. 5 (PDF 5); p. 3 (PDF 3)"
+    },
+    {
+      "text": "On coronal CT measure EPWu and EPWl between the outermost lateral edges of each endplate; expect a rise at every step L1 to L5 (EPWu 41.8 to 50.7, EPWl 44.8 to 52.4 mm) and EPWl > EPWu within each body. On AP radiographs compare adjacent-level ratios and correct for rotation (Inference).",
+      "page": "p. 3 (PDF 3); Table 2, p. 5 (PDF 5)"
+    },
+    {
+      "text": "Inference: do not rely on EPWl to separate L4 from L5 (1.1 mm step vs SD 1.7) or L1 from L2 (0.9 vs SD 1.1), nor on VBHa for L4 vs L5 (0.1 mm); use VBHa/VBHp and EPWu (L4 to L5 step 3.0 mm).",
+      "page": "Table 2, p. 5 (PDF 5)"
+    },
+    {
+      "text": "Inference: take width as the mediolateral span on the coronal plane, never the AP span drawn in Figure 1B; an AP span (about 30 mm) read as width mimics a much smaller vertebra.",
+      "page": "p. 3 (PDF 3), Figure 1B"
+    },
+    {
+      "text": "Apply these references only to spines without fracture, congenital deformity or short body, implants, bone-metabolic disease or drugs, degenerative scoliosis or severe osteophytosis; remove osteophytes from a mask before any width or height (Inference).",
+      "page": "p. 3 (PDF 3)"
+    },
+    {
+      "text": "Do not name a level from absolute HU: the order L1 > L2 > L5 > L3 > L4 holds in every third, but adjacent gaps are 1.5 to 9.2 HU against SDs of 8.4 to 30.4 HU (Inference); at most use the within-patient HU profile (trough at L3 to L4, rebound at L5) as a weak tie-breaker on non-contrast CT.",
+      "page": "Tables 3 to 6, p. 5 to 7 (PDF 5 to 7)"
+    },
+    {
+      "text": "Read HU only on non-contrast CT with a stated kernel, ROIs of about 1 cm^2 in trabecular bone away from cortex, the basivertebral foramen and osteophytes, three placements averaged.",
+      "page": "p. 3 to 4 (PDF 3 to 4)"
+    },
+    {
+      "text": "For fixation or cement planning read the anterosuperior quadrant of each body, the lowest region at every level, and flag values below 100 HU as poor bone by the cited threshold.",
+      "page": "Tables 4 to 6, p. 6 to 7 (PDF 6 to 7); p. 7 (PDF 7)"
+    },
+    {
+      "text": "Do not use endplate cortical thickness to name levels: it is flat (0.8 anterior, 0.9 to 1.0 mm posterior) from L1 to L5.",
+      "page": "Table 2, p. 5 (PDF 5)"
+    },
+    {
+      "text": "Treat these values as Chinese mixed-sex adult means aged 20 to 70 with no sex, age or size breakdown; widen the spread before using them as priors.",
+      "page": "p. 8 (PDF 8)"
+    }
+  ],
+  "bordercall": [
+    "(a) Anomaly priors: none. No LSTV, L6, T13, rib-count or block-vertebra prevalence; congenital deformity or short body excluded without count (p. 3 (PDF 3)). Inference: the absence of anomalies here is a filtered cohort, not a prevalence of zero.",
+    "(b) Generator already holds EPWu, EPWl, VBHp, EPDu, EPDl from Panjabi (panjabi_long.csv, 12 autopsy spines). EPWu Panjabi 41.2, 42.6, 44.1, 46.6, 47.3 vs here 41.8, 43.4, 45.2, 47.7, 50.7 mm (0.6 to 1.1 larger at L1 to L4, 3.4 at L5). EPWl Panjabi 43.3, 45.5, 48.0, 49.5, 49.4 vs here 44.8, 45.7, 48.7, 51.3, 52.4 (L4 to L5 step +1.1 here, -0.1 Panjabi). VBHp Panjabi 23.8, 24.3, 23.8, 24.1, 22.9 vs here 27.2, 28.1, 27.3, 26.3, 24.6 (1.7 to 3.8 mm larger; Inference: definition, living CT vs autopsy and population differ).",
+    "(b) Could add VBHa and VBHm (not in Panjabi's lumbar table) and the size-free ratios VBHa/VBHp and VBHm/VBHa, the best L4/L5 separators here (Inference). Inference: with Panjabi's EPDu (34.1 to 35.5 mm) the mean height difference is a body wedge of about -3.5 deg at L1 and +5.1 deg at L5. This paper gives no endplate depth; Figure 1B's AP spans (29.6, 30.3 mm) are one example, not a reference.",
+    "(b) Mask bias (Inference): the paper reads widths on one mid-coronal plane, a mask's maximum LR extent will be equal or slightly larger; mask heights at the very rim are shortened by rounding and partial volume, so step 1 to 2 mm inward; osteophytes must be removed; do not copy Figure 1B.",
+    "(c) Error: intra-observer ICC > 0.90 only; no SEM, no inter-observer. Printed SDs for widths and VBHa (0.6 to 1.7 mm) are about a third of Panjabi's implied SDs (2.6 to 4.9 mm); Inference: use the means' shape, not these SDs, as population spread.",
+    "(d) Covariates: none by sex, age, height, weight or BMI; Chinese (Henan), 20 to 70, about half women (46/54 by Table 1, 50/50 by text). EPTA/EPTP and HU are not level discriminators or generator dimensions (Inference)."
+  ],
+  "gaps": [
+    "Sex counts: text 50/50 (p. 1, 4) vs Table 1 46 men / 54 women (p. 5).",
+    "Age: the limitation calls the age distribution uneven with only 20 aged 41 to 50 (p. 8), but Table 1 has 20 in every decade (p. 5).",
+    "Consent: written informed consent from all volunteers (p. 3) vs consent waived for a retrospective analysis (p. 8).",
+    "L5 upper-third quadrants: Results say anterior slightly higher than posterior (p. 5); Table 4 and Discussion show them lower (152.0, 156.9 vs 164.0, 167.2; p. 6 to 7).",
+    "L4 craniocaudal gradient called even more pronounced than L1's (p. 6) though 10.4 HU (6.8%) < 13 HU (7.9%).",
+    "Anterior-posterior gradient called most pronounced at L3 and L4 (p. 7) and about 16 to 17 HU consistent from L1 to L4 (p. 7); Table 4 gives 17.3, 16.5, 14.6, 14.2 HU at L1 to L4 (Inference).",
+    "Anterosuperior region said to be often approaching or falling below 100 HU (p. 7); its lowest cohort mean is 146.7 HU (Table 4, p. 6).",
+    "Endplate area said to rise about 20% (p. 5); only widths were measured.",
+    "Results text gives EPTP 0.9 +/- 0.2 and EPTA 0.8 +/- 0.1 at all levels (p. 5) vs Table 2 (EPTP 1.0 at L2, L3, L5; EPTA SD 0.2 at L3 to L5).",
+    "Plane of widths not assigned (mid-sagittal, then mid-sagittal and mid-coronal; p. 3); Figure 1B shows AP spans of 29.6 and 30.3 mm on a sagittal slice; Table 2 widths fit only a mediolateral span (Inference).",
+    "Figure 1A example: anterior 30.9, middle 25.2, posterior 29.6 mm (Inference from leader lines), above every Table 2 mean; one unnamed example.",
+    "ROIs stated circular or elliptical, about 1 cm^2 and uniform (p. 4); Figure 3 shows rectangles of 107.5 to 123.0 mm^2 (sagittal) and about 85 to 211 mm^2 (axial, low-resolution annotation).",
+    "Left and right: quadrant 1 drawn at image left (Figures 2, 3B); Inference: may be patient right in radiological display; not stated.",
+    "Citations appear shifted: 100 HU threshold attributed to Elarjani but cited to Zhang 2023 (p. 7); semiquantitative fracture method cited to Elarjani 2021 while Genant 1993 is cited for reconstruction (p. 3); HR-pQCT finding cited to Liu 2018, a CT endplate study by its title (p. 6, 9).",
+    "Shrestha 2022 L5 width 42.59 mm called consistent (p. 5) with this paper's 50.7 mm (Inference: different measure or population).",
+    "Scanner named Definition 64 AS+ with 128 x 0.6 mm collimation (p. 3); Inference: name and collimation do not obviously match.",
+    "Admitted limitations (p. 8): single centre, n = 100, no power analysis, no sex-stratified analysis, no height, weight or BMI, manual measurement with intra-observer reliability only, no DXA, no biomechanical or fracture validation.",
+    "Unreported: level identification and counting, any transitional anomaly, sex and age breakdowns, body size, pixel spacing and mAs, endplate depth, pedicle, canal and facet measures, adjacent-level tests of morphology, per-parameter ICC, HU reliability, number screened and excluded; no individual data printed.",
+    "Inference from Panjabi (bordercall's table): VBHp here 1.7 to 3.8 mm larger; width SDs about a third of Panjabi's implied SDs; Panjabi EPWl flat L4 to L5 where this paper rises."
+  ]
+}

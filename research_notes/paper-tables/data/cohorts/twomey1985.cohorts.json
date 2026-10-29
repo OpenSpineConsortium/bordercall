@@ -1,0 +1,202 @@
+{
+  "paper": "twomey1985",
+  "cohorts": [
+    {
+      "cohort": "cadavers-204",
+      "labels": [
+        "all / (no group)",
+        "all / 0-1.5",
+        "all / 1.5-12",
+        "all / 20-35 vs 60+",
+        "all / young vs 60+",
+        "male / (no group)",
+        "male / 13-19",
+        "male / 20-35",
+        "male / 20-36",
+        "male / 36-59",
+        "male / 60+",
+        "male / 20-35 vs 60+",
+        "female / (no group)",
+        "female / 13-17",
+        "female / 18-35",
+        "female / 20-35",
+        "female / 36-59",
+        "female / 60+",
+        "female / 20-35 vs 60+",
+        "not stated / (no group) (source_of_values this paper)",
+        "not stated / all age groups",
+        "(no sex) / (no group) (caliper accuracy row)"
+      ],
+      "tables": [
+        "Table 1",
+        "Table 2",
+        "Table 3",
+        "Text: Abstract",
+        "Text: Material and methods",
+        "Text: Results"
+      ],
+      "subjects": "Post-mortem lumbar spines of 204 cadavers: from each a block holding the whole lumbar column, upper border of T12 to lower border of S2, removed within 48 h (most within 24 h), psoas major and erector spinae dissected away; the same blocks also served a study of the dimensions and movements of the lumbar column. Grouped by age and sex (Table 1). Source of the bodies, country, ethnicity, cause of death and inclusion or exclusion criteria are not stated. Inference: Western Australia, from the authors' affiliations (Western Australian Institute of Technology, University of Western Australia). Tables 2 and 3 report only the young adult (headed 20-35, or 18-35 for females in Table 3) and 60+ groups of each sex; the n per cell is not printed there.",
+      "n_people": 204,
+      "n_units": "204 lumbar blocks (T12-S2); five discs each reported, L1-2 to L5-S1",
+      "ages": "0 to over 60; Table 1 groups, mean (range): MF (0-1.5) no mean; MF 8 (1.5-12); M 16 (13-19); F 14 (13-17); M 25 (20-36); F 23 (18-35); M 47 (36-59); F 49 (36-59); M 68 (60+); F 73 (60+); units not printed, years assumed",
+      "sexes": "Table 1: 89 male (17+24+24+24), 78 female (6+24+24+24), 37 infants and children with sexes pooled (MF, 9+28); sums computed from the printed counts",
+      "page": "p. 496 (PDF 1); Tables 2-3 p. 497 (PDF 2)"
+    },
+    {
+      "cohort": "rolander-graded-140",
+      "labels": [
+        "not stated / 0-1.5",
+        "not stated / 1.5-12",
+        "not stated / 13-20",
+        "not stated / 20-35",
+        "not stated / 36-39",
+        "not stated / 60+",
+        "not stated / elderly",
+        "not stated / (no group) (the 140 specimens row of Text: Material and methods)"
+      ],
+      "tables": [
+        "Table 4",
+        "Text: Material and methods",
+        "Text: Discussion"
+      ],
+      "subjects": "140 specimens graded by Rolander's (1966) 4-point disc quality method, sexes not split, in six age bands: 0-1.5 (6), 1.5-12 (18), 13-20 (13), 20-35 (35), printed 36-39 (34), 60+ (34). Inference: a subset of the 204 cadaveric blocks, since the paper's methods describe one series; how the 140 were chosen is not stated; the band printed 36-39 is probably 36-59 as in Table 1, and 13-20 does not match Table 1's 13-19 and 13-17.",
+      "n_people": 140,
+      "n_units": "140 specimens, five discs each (L1-2 to L5-S1), 700 disc gradings; Table 4's 20-35 columns L2-3 and L4-5 sum to 36 and 17, not 35",
+      "ages": "0-1.5, 1.5-12, 13-20, 20-35, 36-39 (as printed), 60+",
+      "sexes": "not stated (sexes pooled in Table 4)",
+      "page": "p. 496 (PDF 1); Table 4 p. 498 (PDF 3)"
+    },
+    {
+      "cohort": "nachemson1979-quoted",
+      "labels": [
+        "not stated / (no group) (source_of_values Nachemson et al. (1979))"
+      ],
+      "tables": [
+        "Text: Introduction"
+      ],
+      "subjects": "Another study's lumbar discs, quoted: Nachemson et al. (1979), a relatively small number of lumbar discs, whose five most degenerated discs showed no thinning; not this paper's subjects",
+      "n_people": null,
+      "n_units": "five discs quoted",
+      "ages": "not stated",
+      "sexes": "not stated",
+      "page": "p. 496 (PDF 1)"
+    },
+    {
+      "cohort": "puschel1930-quoted",
+      "labels": [
+        "not stated / (no group) (source_of_values Puschel (1930))"
+      ],
+      "tables": [
+        "Text: Discussion"
+      ],
+      "subjects": "Another study's discs, quoted: Puschel (1930) measurements of disc water content, read by the authors; subjects not described here; not this paper's subjects",
+      "n_people": null,
+      "n_units": "not stated",
+      "ages": "early adult life to old age",
+      "sexes": "not stated",
+      "page": "pp. 498-499 (PDF 3-4)"
+    }
+  ],
+  "techniques": [
+    {
+      "technique": "caliper-intact-disc",
+      "cohorts": [
+        "cadavers-204"
+      ],
+      "modality": "other",
+      "instrument": "dial vernier calipers, stated accurate to 0.05 mm",
+      "how": "Direct measurement on the fresh, intact cadaveric disc (wet specimen, not dry bone) of the horizontal antero-posterior and transverse diameters; only the AP diameter is reported (Table 1, mean mm, no SD). Landmarks beyond horizontal are not stated.",
+      "magnification": "none; direct measurement on the specimen",
+      "observers": "not stated; inter-trial tests of the calipers r = 0.97 across all age groups",
+      "page": "p. 496 (PDF 1)"
+    },
+    {
+      "technique": "caliper-midsagittal-heights",
+      "cohorts": [
+        "cadavers-204"
+      ],
+      "modality": "other",
+      "instrument": "dial vernier calipers, stated accurate to 0.05 mm",
+      "how": "After mid-line sagittal sectioning of each specimen, anterior (A), mid-disc (M) and posterior (P) disc heights measured on the section (Figure 1); the disc convexity index is M / (A + P) (Table 3). The heights themselves are not tabulated.",
+      "magnification": "none; direct measurement on the cut section",
+      "observers": "not stated; inter-trial r = 0.97 for the calipers",
+      "page": "p. 496 (PDF 1); Figure 1 and Table 3 p. 497 (PDF 2)"
+    },
+    {
+      "technique": "image-analyser-median-area",
+      "cohorts": [
+        "cadavers-204"
+      ],
+      "modality": "other",
+      "instrument": "MOP Image Analyser",
+      "how": "The area of each disc in median (mid-line sagittal) section traced and measured; 'true average disc height' = that area divided by the disc's antero-posterior diameter (Table 2, mean and SD). Whether the divisor is the caliper diameter or the section's own length is not stated.",
+      "magnification": "not stated (calibration of the analyser not described)",
+      "observers": "not stated",
+      "page": "p. 496 (PDF 1); Table 2 p. 497 (PDF 2)"
+    },
+    {
+      "technique": "rolander-grading",
+      "cohorts": [
+        "rolander-graded-140"
+      ],
+      "modality": "other",
+      "instrument": "visual classification by Rolander's (1966) 4-point disc quality score",
+      "how": "Each disc graded 0 to 3 by physical appearance: 0 nucleus and anulus white and distinct; 1 more fibrous nucleus, boundary still distinct; 2 less distinct boundary, yellowish-brown colour, perhaps an isolated anular fissure; 3 frank degeneration with desiccation, multiple fissures and thinning (Table 4 counts discs per grade and level). Inference: graded on the sectioned discs.",
+      "magnification": "not applicable",
+      "observers": "not stated",
+      "page": "pp. 496-497 (PDF 1-2); Table 4 p. 498 (PDF 3)"
+    },
+    {
+      "technique": "quoted-from-other-studies",
+      "cohorts": [
+        "nachemson1979-quoted",
+        "puschel1930-quoted"
+      ],
+      "modality": "other",
+      "instrument": "not described in this paper",
+      "how": "Values stated in the text from cited studies; their methods are not described here.",
+      "magnification": "not stated",
+      "observers": "not stated",
+      "page": "p. 496 (PDF 1); pp. 498-499 (PDF 3-4)"
+    }
+  ],
+  "shared": [
+    {
+      "with": "an unnamed study of the dimensions and movements of the lumbar column (not on the list)",
+      "what": "subjects",
+      "evidence": "Each of the 204 blocks was also used for a study of the lumbar column's dimensions and movements. Inference: probably the authors' own work (Twomey 1981 thesis, Twomey & Taylor 1983a), but the paper names no study here.",
+      "page": "p. 496 (PDF 1)"
+    },
+    {
+      "with": "Rolander 1966, Acta Orthop Scand Suppl 90 (not on the list)",
+      "what": "method",
+      "evidence": "The disc quality grading is Rolander's 4-point classification, applied to 140 specimens.",
+      "page": "p. 496 (PDF 1); Table 4 p. 498 (PDF 3)"
+    },
+    {
+      "with": "Nachemson et al. 1979, Spine 4 (not on the list)",
+      "what": "values quoted",
+      "evidence": "The five most degenerated discs in that study showed no thinning.",
+      "page": "p. 496 (PDF 1)"
+    },
+    {
+      "with": "Puschel 1930, Beitr Path Anat 84 (not on the list)",
+      "what": "values quoted",
+      "evidence": "From Puschel's measurements, nucleus water falls only 6% from early adult life to old age.",
+      "page": "pp. 498-499 (PDF 3-4)"
+    },
+    {
+      "with": "Twomey & Taylor 1983b, The effects of aging in the lumbar intervertebral discs (not on the list)",
+      "what": "values quoted",
+      "evidence": "The very small decline in anterior and posterior disc height is cited to this study. Inference: the authors' own series, perhaps the same specimens, not stated.",
+      "page": "p. 498 (PDF 3)"
+    },
+    {
+      "with": "Twomey & Taylor 1983a, Arch Phys Med Rehab 64 (not on the list)",
+      "what": "findings compared; no subjects, method or values shared",
+      "evidence": "The rise of the disc convexity index with age is said to parallel that study's vertebral concavity index, a measure of the vertebra; the disc convexity index was devised in this paper (p. 496), so no method is said to be shared, and shared specimens are not stated. Inference: the reference listed as 1983a is on sagittal movements, so the concavity index may come from Twomey, Taylor and Furniss 1983.",
+      "page": "p. 497 (PDF 2); the index devised p. 496 (PDF 1)"
+    }
+  ],
+  "within_paper": "One series: every value of the paper's own comes from the lumbar blocks of the 204 cadavers (p. 496, PDF 1). The same specimens were measured intact with calipers (Table 1), then sectioned in the mid-line for the A, M and P heights (Table 3) and the median-section area (Table 2), and 140 of them were graded by Rolander's score (Table 4). Tables 2 and 3 report only the young adult and 60+ groups of each sex, whose bounds (20-35 in Table 2, 20-35 male and 18-35 female in Table 3) differ slightly from Table 1's (20-36 male, 18-35 female). Inference: the young adult and 60+ rows of Tables 1-3 are the same people; that the 140 graded specimens are among the 204 is not stated in so many words, and Table 4's age bands (13-20, 36-39) do not match Table 1's."
+}

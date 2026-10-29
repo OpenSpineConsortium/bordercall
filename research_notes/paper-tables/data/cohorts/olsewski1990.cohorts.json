@@ -1,0 +1,208 @@
+{
+  "paper": "olsewski1990",
+  "cohorts": [
+    {
+      "cohort": "part1_cadavers",
+      "labels": [
+        "male",
+        "female",
+        "all",
+        "not stated",
+        "Parts 1 and 2 cadavers",
+        "Part 1 cadavers",
+        "Part 1 cadavers, direct",
+        "Part 1 cadavers, direct, cephalad",
+        "Part 1 cadavers, direct, caudad"
+      ],
+      "tables": [
+        "Table I",
+        "Text: Abstract",
+        "Text: Materials and Methods",
+        "Text: Results",
+        "Text: Discussion"
+      ],
+      "subjects": "Lumbosacral spines of embalmed cadavers from the Department of Anatomical Sciences, State University of New York at Buffalo School of Medicine, Buffalo, New York, USA. No ethnicity or race printed; no inclusion or exclusion criteria printed for the cadavers; heights and weights not available.",
+      "n_people": 49,
+      "n_units": "both pedicles of L1 to L5 of 49 spines (at most 490 pedicles); Table I cells count 4 to 47 pedicles (24 to 47 outside the L5 caudad cells)",
+      "ages": "men 60 to 90 years (mean 74); women 60 to 98 years (mean 77)",
+      "sexes": "24 men, 25 women",
+      "page": "p. 542 (PDF 2); abstract p. 541 (PDF 1)"
+    },
+    {
+      "cohort": "part2_cadavers",
+      "labels": [
+        "all",
+        "male",
+        "female",
+        "not stated",
+        "Part 2 cadavers",
+        "Part 2 cadavers, direct",
+        "Part 2 cadavers, direct, cephalad",
+        "Part 2 cadavers, direct, caudad",
+        "Part 2 cadavers, AP radiographs",
+        "Part 2 cadavers, lateral radiographs, cephalad",
+        "Part 2 cadavers, lateral radiographs, caudad",
+        "Part 2 cadavers, transverse radiographs",
+        "Part 2 cadavers, transverse radiographs minus direct",
+        "Part 2 cadavers, caudad"
+      ],
+      "tables": [
+        "Table II",
+        "Text: Materials and Methods",
+        "Text: Results"
+      ],
+      "subjects": "Disarticulated lumbar spines of 21 of the 49 Part 1 cadavers, selected at random, radiographed in the Department of Radiology, Buffalo General Hospital; sexes combined for analysis.",
+      "n_people": 21,
+      "n_units": "both pedicles of L1 to L5 of 21 spines (at most 210 pedicles); Table II cells count 12 to 42 pedicles",
+      "ages": "not printed for the subset (drawn from the Part 1 range, 60 to 98 years)",
+      "sexes": "12 men, 9 women; pooled in Table II",
+      "page": "p. 543 (PDF 3); p. 545 (PDF 5)"
+    },
+    {
+      "cohort": "part3_patients",
+      "labels": [
+        "male",
+        "female",
+        "all",
+        "not stated",
+        "Part 3 living patients",
+        "Part 3 living patients, AP radiographs",
+        "Part 3 living patients, lateral radiographs, cephalad",
+        "Part 3 living patients, lateral radiographs, caudad",
+        "Part 3 living patients, CT"
+      ],
+      "tables": [
+        "Table III",
+        "Text: Abstract",
+        "Text: Materials and Methods",
+        "Text: Results"
+      ],
+      "subjects": "Living young-adult patients seen for low-back problems in the Department of Orthopaedics or Neurosurgery, Buffalo General Hospital, Buffalo, New York, USA, with plain radiographs and CT of the lumbosacral spine; a patient whose radiograph showed a gross abnormality of the lumbosacral spine was excluded (number excluded not printed). No ethnicity or race printed; heights and weights not available.",
+      "n_people": 51,
+      "n_units": "both pedicles of L1 to L5 of 51 patients (at most 510 pedicles); Table III cells count 2 to 56 pedicles; no CT data at L1",
+      "ages": "men 20 to 49 years (mean 35); women 21 to 50 years (mean 38)",
+      "sexes": "23 men, 28 women",
+      "page": "p. 543 (PDF 3); abstract p. 541 (PDF 1)"
+    }
+  ],
+  "techniques": [
+    {
+      "technique": "direct_caliper_microscope",
+      "cohorts": [
+        "part1_cadavers",
+        "part2_cadavers"
+      ],
+      "modality": "dry bone caliper",
+      "instrument": "vernier caliper (+/-0.1 mm; Inoxyd Helios, Hannover) for diameters and distances, protractor (+/-1 deg) for angles, on the embalmed gross specimens oriented on a clear Plexiglas stage with grid lines under a Wild Heerbrugg dissecting microscope (model M5-22991; eyepiece x8, objective x6, reducing lens x0.5); whether soft tissue was removed is not stated",
+      "how": "Both pedicles at L1 to L5. Transverse and sagittal diameters: the narrowest pedicle dimension in the transverse and in the sagittal plane (Figs. 1, 2). Transverse angle: angle between the pedicle's central axis and a line parallel to the median vertebral plane, the vertebra viewed from above with its median plane on the stage's vertical grid lines and the superior end-plate in view (Fig. 4). Sagittal angle: vertebra on its side, superior end-plate parallel to a horizontal grid line, far pedicle hidden behind the near one as on an ideal lateral film; angle between the pedicle axis and the superior end-plate line, positive cephalad, negative caudad, caudad ones reported apart (Fig. 5). Posterior-to-anterior distance: shortest distance from the back of the laminar cortex to the front of the vertebral body cortex along the line through the middle of the pedicle used for the transverse angle (Fig. 6).",
+      "magnification": "not applicable (direct measurement on the specimen)",
+      "observers": "one investigator for every measurement, each data point the mean of three trials (stated once for all diameters, distances and angles, pp. 541-542)",
+      "page": "pp. 541-543 (PDF 1-3)"
+    },
+    {
+      "technique": "cadaver_ap_radiograph",
+      "cohorts": [
+        "part2_cadavers"
+      ],
+      "modality": "AP radiograph",
+      "instrument": "vernier caliper (+/-0.1 mm; Inoxyd Helios, Hannover) for diameters and distances, protractor (+/-1 deg) for angles, on anteroposterior films of the disarticulated lumbar spines; target-to-film 47 inches (119.4 cm), focal spot 0.6 mm, Buffalo General Hospital",
+      "how": "Transverse and sagittal diameters of both pedicles at L1 to L5, the same definitions as directly.",
+      "magnification": "technique held constant and calibrated to give no measurable magnification; no correction",
+      "observers": "one investigator for every measurement, each data point the mean of three trials (stated once for all diameters, distances and angles, pp. 541-542)",
+      "page": "p. 543 (PDF 3)"
+    },
+    {
+      "technique": "cadaver_lateral_radiograph",
+      "cohorts": [
+        "part2_cadavers"
+      ],
+      "modality": "lateral radiograph",
+      "instrument": "vernier caliper (+/-0.1 mm; Inoxyd Helios, Hannover) for diameters and distances, protractor (+/-1 deg) for angles, on lateral films of the disarticulated lumbar spines, same radiographic setup",
+      "how": "Sagittal angle of the pedicle axis against the superior end-plate, both pedicles at L1 to L5, cephalad positive and caudad negative, caudad ones reported apart.",
+      "magnification": "calibrated to give no measurable magnification; angles need none",
+      "observers": "one investigator for every measurement, each data point the mean of three trials (stated once for all diameters, distances and angles, pp. 541-542)",
+      "page": "p. 543 (PDF 3)"
+    },
+    {
+      "technique": "cadaver_transverse_radiograph",
+      "cohorts": [
+        "part2_cadavers"
+      ],
+      "modality": "other",
+      "instrument": "vernier caliper (+/-0.1 mm; Inoxyd Helios, Hannover) for diameters and distances, protractor (+/-1 deg) for angles, on transverse (axial-projection) radiographs of the disarticulated vertebrae, same radiographic setup",
+      "how": "Transverse angle to the median plane and posterior-to-anterior distance along the pedicle axis, both pedicles at L1 to L5, the same definitions as directly.",
+      "magnification": "calibrated to give no measurable magnification; no correction",
+      "observers": "one investigator for every measurement, each data point the mean of three trials (stated once for all diameters, distances and angles, pp. 541-542)",
+      "page": "p. 543 (PDF 3)"
+    },
+    {
+      "technique": "patient_ap_radiograph",
+      "cohorts": [
+        "part3_patients"
+      ],
+      "modality": "AP radiograph",
+      "instrument": "vernier caliper (+/-0.1 mm; Inoxyd Helios, Hannover) for diameters and distances, protractor (+/-1 deg) for angles, on routine anteroposterior radiographs of the lumbosacral spine",
+      "how": "Transverse and sagittal diameters of both pedicles at L1 to L5, same technique for every patient.",
+      "magnification": "corrected: a collimator test tool (Radiation Measurements, Middleton, Wisconsin) at the patients' distance and settings read 100 mm as 108 mm, so diameters were multiplied by 0.93 (100/108)",
+      "observers": "one investigator for every measurement, each data point the mean of three trials (stated once for all diameters, distances and angles, pp. 541-542)",
+      "page": "pp. 543-544 (PDF 3-4)"
+    },
+    {
+      "technique": "patient_lateral_radiograph",
+      "cohorts": [
+        "part3_patients"
+      ],
+      "modality": "lateral radiograph",
+      "instrument": "vernier caliper (+/-0.1 mm; Inoxyd Helios, Hannover) for diameters and distances, protractor (+/-1 deg) for angles, on routine decubitus lateral radiographs of the lumbosacral spine",
+      "how": "Sagittal angle of the pedicle axis against the superior end-plate, both pedicles at L1 to L5; caudad pedicles left out of Table III and given in the text.",
+      "magnification": "no correction for angles",
+      "observers": "one investigator for every measurement, each data point the mean of three trials (stated once for all diameters, distances and angles, pp. 541-542)",
+      "page": "pp. 543-544, 546 (PDF 3-4, 6)"
+    },
+    {
+      "technique": "patient_ct",
+      "cohorts": [
+        "part3_patients"
+      ],
+      "modality": "CT axial",
+      "instrument": "vernier caliper (+/-0.1 mm; Inoxyd Helios, Hannover) for diameters and distances, protractor (+/-1 deg) for angles, on retrospective routine CT scans (Siemens Somatom DRH, version G/G1/H), contiguous 4 mm cuts",
+      "how": "Cuts parallel to the superior end-plates and through the middle of the pedicles where possible, gantry not always parallel at L5-S1; transverse angle to the median plane and posterior-to-anterior distance along the pedicle axis, both pedicles; L1 usually not on the scans, so no L1 data.",
+      "magnification": "distance corrected: a known 100 mm read 55 mm on the scans, so distances were multiplied by 1.82 (100/55); angles not corrected",
+      "observers": "one investigator for every measurement, each data point the mean of three trials (stated once for all diameters, distances and angles, pp. 541-542)",
+      "page": "pp. 543-544, 546 (PDF 3-4, 6)"
+    }
+  ],
+  "shared": [
+    {
+      "with": "Zindrick et al. 1987, Spine 12:160-166 [63] (zindrick1987)",
+      "what": "values quoted",
+      "evidence": "Discussion compares the Part 1 means with this study's published pedicle data, plotted as means and SDs in Figs. 7 to 11; also cited for more caudad sagittal angles and the greatest distance at L2",
+      "page": "Figs. 7 to 11, pp. 546-547 (PDF 6-7); Discussion p. 546 (PDF 6); p. 547 (PDF 7)"
+    },
+    {
+      "with": "Krag et al. 1986, Clin Orthop 203:75-98 [26] (not krag1988 of the list)",
+      "what": "values quoted",
+      "evidence": "plotted as Krag 1986 in Figs. 7, 9 and 11; cited for the greatest distance at L2 and L5 less than L4",
+      "page": "Figs. 7 to 11, pp. 546-547 (PDF 6-7); Discussion p. 546 (PDF 6); p. 547 (PDF 7)"
+    },
+    {
+      "with": "Berry et al. 1987, Spine 12:362-367 [7] (not in the list)",
+      "what": "values quoted",
+      "evidence": "plotted as Berry 1987 in Figs. 7, 8, 9 and 11; cited for the greatest distance at L2 and L5 less than L4",
+      "page": "Figs. 7 to 11, pp. 546-547 (PDF 6-7); Discussion p. 546 (PDF 6); p. 547 (PDF 7)"
+    },
+    {
+      "with": "Saillant 1976, Rev Chir Orthop 62:151-160 [52] (not in the list)",
+      "what": "values quoted",
+      "evidence": "plotted as Saillant 1976 (no SD reported) in Figs. 7 to 10; good agreement said except the L5 transverse angle",
+      "page": "Figs. 7 to 11, pp. 546-547 (PDF 6-7); Discussion p. 546 (PDF 6)"
+    },
+    {
+      "with": "Olsewski 1988 (figure keys; no such entry in the references)",
+      "what": "subjects | method (Inference only; the paper does not say they are shared)",
+      "evidence": "Figs. 7 to 11 key a male and a female series 'Olsewski 1988', and their caption calls the plotted points direct cadaver measurements set beside previously published studies; the plotted means match Table I (L5 width about 21 and 18 mm), and the references hold no Olsewski paper. Inference: this paper's own Part 1 means under an earlier year, so no other study's values are quoted",
+      "page": "Figs. 7 to 11, pp. 546-547 (PDF 6-7); Discussion p. 546 (PDF 6)"
+    }
+  ],
+  "within_paper": "The 21 Part 2 spines were selected at random from the 49 Part 1 cadavers (p. 543, PDF 3), so Part 2 is a subset of Part 1's subjects: the same measurements made directly in Part 1 were made again on their radiographs, and Table II's direct column is of those 21 spines (p. 545, PDF 5). Inference: the Table II direct values are Part 1 measurements of the subset, which the matching caudad pedicle values on p. 545 support, though the L5 transverse angle (22 deg against 17 and 18 in Table I) leaves open a separate session. The Part 3 patients are different, living people (p. 543, PDF 3) and share no subjects with Parts 1 and 2."
+}

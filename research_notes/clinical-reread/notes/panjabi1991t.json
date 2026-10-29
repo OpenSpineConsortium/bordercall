@@ -1,0 +1,331 @@
+{
+  "id": "panjabi1991t",
+  "citation": "Manohar M. Panjabi, Koichiro Takata, Vijay Goel, Dale Federico, Thomas Oxland, Joanne Duranceau, Martin Krag. Thoracic Human Vertebrae: Quantitative Three-Dimensional Anatomy. Spine 1991;16(8):888-901. Copy read: bordercall archive/bordercall/reference/papers/Panjabi_1991_Thoracic_Spine_16-8_888-901.pdf (13 scanned pages, no text layer; sha256 begins f4078fa2cd2cf2c1) with the one-page extract of printed p. 892 (Table 3). Source: thread \"Reread every paper for clinical detail\", project symphony_4, 2026-10-28.",
+  "population": "Country and ethnicity not stated (Inference: US autopsy service; corresponding author at Yale). Cadaveric dry bone: 12 fresh autopsy whole spines C2 to L5 (no sacrum), 8 men and 4 women, aged 19 to 59, 54 to 84 kg, 157 to 178 cm (Table 1, p. 889, PDF 2); means 46.3 y, 67.8 kg, 167.8 cm by arithmetic (men 50.3 y, 70.4 kg, 170.3 cm; women 38.5 y, 62.8 kg, 162.8 cm). Six of twelve died of malignancy (four carcinomas, carcinomatosis, leukemia); no screening for metastases, osteoporosis or deformity reported. Specimen numbers S3 to S24 with gaps (selection rule not given). Denominator: 144 thoracic vertebrae (12 spines x 12 levels T1 to T12), p. 890 (PDF 3); every mean over 12 spines, dispersion printed as SEM.",
+  "modality": "Dry-bone 3D morphometry: bones cleaned by boiling, bleach (0.5 h) and 75% ethanol (1 h) into single vertebrae (p. 888, PDF 1); points digitised with a purpose-built morphometer (one LVDT and two RVDTs as a spherical coordinate system, 12-bit A/D to a DEC 11/03), largest point error +/-0.5 mm (pp. 888-889, PDF 1-2); per-vertebra frame from the posterior-wall corners A, B, D, E (frontal plane by least squares; z anterior normal, x parallel to AB to the left, y cranial; origin the centroid of the superior end-plate), p. 889 (PDF 2), Figure 1. Areas as the root sum of squares of the three projected areas. Phantom accuracy under 5%. Side study: end-plate angles on ten lateral radiographs of unstated source (p. 889, PDF 2).",
+  "levels_covered": "T1 to T12 only (C7, L1 and the junction partners not reported here; cervical and lumbar papers follow). How levels were identified and counted is not stated; no vertebra or specimen reported excluded; no transitional segment mentioned. PIA not measured at T1 and T2.",
+  "anomalies": [
+    {
+      "variant": "Lumbosacral transitional vertebra, sacralisation, lumbarisation, L6, T13, 11 or 13 rib pairs, cervical or lumbar ribs, block vertebrae",
+      "finding": "Not mentioned anywhere; all 12 spines tabulated as T1 to T12 (144 vertebrae). Inference: sacrum not harvested so LSTV could not be seen; silent exclusion possible (specimen numbers S3 to S24 with gaps); n = 12 would bound prevalence only below about 25% (rule of three), useless as a prior.",
+      "page": "p. 888-890 (PDF 1-3); Table 1, p. 889 (PDF 2)",
+      "population": "12 autopsy spines C2 to L5, 8 men and 4 women, 19 to 59 y",
+      "how_identified": "Not described"
+    },
+    {
+      "variant": "Normal rib-articulation pattern (costovertebral)",
+      "finding": "T1 to T10: two costovertebral surfaces (upper and lower) on each side, rib n on Tn and the vertebra above (rib 7 on T7 and T6). T11 and T12 'uniarticular with respect to the vertebral body': lower facets absent (dashes). Upper facet largest at T11 (71.9 right, 60.0 left mm2); T12 61.0 right, 47.9 left; T1 45.3 and 56.6, 1.6 and 1.9 times T2's 29.0 and 29.5. T10 still has lower facets (30.0 right, 26.9 left), which by the authors' rule would belong to rib 11 (internal conflict; Inference).",
+      "page": "p. 893 (PDF 5); Table 6, p. 895 (PDF 7)",
+      "population": "144 vertebrae of 12 spines",
+      "how_identified": "Digitised facet contours on cleaned bone, up to 20 points each"
+    },
+    {
+      "variant": "Normal rib-articulation pattern (costotransverse)",
+      "finding": "Costotransverse facets present T1 to T10 (CTAr 48.2 to 63.8, CTAl 40.0 to 65.0 mm2), small at T11 (16.7 right, 11.7 left), absent at T12 (dash).",
+      "page": "Table 6, p. 895 (PDF 7); p. 893 (PDF 5)",
+      "population": "144 vertebrae of 12 spines",
+      "how_identified": "Digitised facet contours on cleaned bone"
+    },
+    {
+      "variant": "Floating ribs 11 and 12; T12 lumbar-type inferior facets",
+      "finding": "The authors place the thoracolumbar transition where ribs change from a complete unit at T10 to floating ribs (no ventral bony attachment) at T11 and T12, with less stiffness; T12's inferior facets change from thoracic to lumbar type, given as the reason for the sudden pars-area drop at T12. No prevalence; normal anatomy.",
+      "page": "p. 893 (PDF 5); p. 897-898 (PDF 9-10)",
+      "population": "12 spines",
+      "how_identified": "Stated by the authors"
+    }
+  ],
+  "measures": [
+    {
+      "name": "EPWu, EPWl: upper and lower end-plate width",
+      "definition": "Lateral margin to lateral margin of the superior (u) or inferior (l) end-plate (Figure 3A, p. 891, PDF 4); Inference: extent parallel to x of the local frame.",
+      "projection": "Dry bone, 3D morphometer; AP radiograph equivalent (Inference)",
+      "levels": "T1 to T12",
+      "level_pattern": "EPWu flat 24.5 to 24.9 T1 to T5, then 26.2, 27.8, 29.5, 30.6, 31.9, 34.9, 39.0 (T12); EPWl 27.8, 27.4, 25.9 (T3 minimum), 26.0, 27.0, 28.2, 29.1, 30.5, 33.0, 35.4, 39.1, 42.1; steepest rise T10 to T12. Lower wider than upper at every level by 1.0 (T8) to 4.2 mm (T11). Across a disc the upper vertebra's lower width exceeds the lower vertebra's upper width at 9 of 11 junctions (fails T7/T8, T8/T9 by 0.1). T12 differs from T1 to T10.",
+      "covariates": "Pooled; none analysed",
+      "error": "SEM 0.43 to 1.10 mm (SD about 1.5 to 3.8 by SEM x 3.46); instrument +/-0.5 mm",
+      "ct_mask_recipe": "Inference: superior (inferior) end-plate rim of the body subregion projected on the per-vertebra x axis; extent.",
+      "radiograph_recipe": "Inference: AP film, lateral corners of the end-plate, magnification corrected; not from a lateral.",
+      "page": "Table 3, p. 892 (extract PDF 1); p. 890 (PDF 3); Figure 4A, p. 896 (PDF 8)"
+    },
+    {
+      "name": "EPDu, EPDl: upper and lower end-plate depth",
+      "definition": "Posterior to anterior edge of the end-plate (Figure 3B, p. 891, PDF 4); Inference: extent parallel to z, at the end-plate.",
+      "projection": "Dry bone, 3D morphometer; lateral radiograph equivalent (Inference)",
+      "levels": "T1 to T12",
+      "level_pattern": "EPDu 18.5, 19.6, 22.7, 23.3, 24.3, 26.0, 27.4, 27.9, 29.3, 30.5, 31.9, 32.8; EPDl 19.7, 21.6, 23.3, 24.5, 25.8, 26.9, 28.5, 29.4, 31.0, 31.6, 31.8, 33.4. Largest step T2 to T3 (upper) and T1 to T2 (lower). Lower exceeds upper except T11. Depths of facing end-plates across a disc match within 1.1 mm. Separates levels only four or more apart (EPDu T12 differs from T1 to T7).",
+      "covariates": "Pooled",
+      "error": "SEM 0.41 to 1.21 mm (SD about 1.4 to 4.2). Two other studies 4 to 5 mm lower, which the authors suggest (not shown) were taken at mid-body height (p. 898).",
+      "ct_mask_recipe": "Inference: extent of the end-plate rim along z at the end-plate, not mid-body.",
+      "radiograph_recipe": "Inference: lateral film, posterior to anterior corner of each end-plate, magnification corrected.",
+      "page": "Table 3, p. 892 (extract PDF 1); p. 890 (PDF 3); p. 898 (PDF 10)"
+    },
+    {
+      "name": "EPWu/EPDu, EPWl/EPDl: end-plate width to depth ratio",
+      "definition": "Derived ratio of width to depth.",
+      "projection": "Derived; needs AP and lateral views",
+      "levels": "T1 to T12",
+      "level_pattern": "1.3 and 1.4 at T1, about 1.0 middle (T4 to T10 upper, T5 to T8 lower), 1.2 and 1.3 at T12. Inference: the T1 to T4 fall comes from growing depth, not narrowing width.",
+      "covariates": "Size-free shape cue",
+      "error": "No SEM; T4 and T8 upper printed 1.0 against 1.05 and 1.06 from the means (possibly mean of per-specimen ratios)",
+      "ct_mask_recipe": "Inference: ratio of the mask-derived EPW and EPD.",
+      "radiograph_recipe": "Inference: AP width over lateral depth of the same level.",
+      "page": "Table 3, p. 892 (extract PDF 1); p. 890 (PDF 3); Figure 4B, p. 896 (PDF 8)"
+    },
+    {
+      "name": "EPAu, EPAl: end-plate area",
+      "definition": "Area of the digitised end-plate, square root of the sum of squares of its three projected areas (p. 889, PDF 2).",
+      "projection": "Dry bone, 3D morphometer",
+      "levels": "T1 to T12",
+      "level_pattern": "EPAu 300 to 954 mm2, EPAl 376 to 1024, T12 3.2 and 2.7 times T1, steady near-linear rise; EPAu T12 differs from T1 to T10, EPAl T12 from T1 to T9.",
+      "covariates": "Pooled",
+      "error": "SEM 10.9 to 49.8 mm2. Authors: ellipse within 10%, triangle -20% (T1) to -40% (T12) (p. 900); Inference from the means and Figure 4C: ellipse +11% to +19% at T1 to T5, within 10% below; triangle -24% to -34%.",
+      "ct_mask_recipe": "Inference: vector area of the end-plate rim contour (area projected on the best-fit end-plate plane).",
+      "radiograph_recipe": "Not directly; ellipse pi x EPW x EPD / 4 from AP width and lateral depth, about 10% in lower thoracic, up to a fifth over in upper thoracic (Inference).",
+      "page": "Table 3, p. 892 (extract PDF 1); p. 890 (PDF 3); p. 900 (PDF 12); Figure 4C, p. 896 (PDF 8)"
+    },
+    {
+      "name": "VBHp: posterior vertebral body height",
+      "definition": "Height of the posterior wall of the body between the end-plates (Figure 3B, p. 891, PDF 4); location across the wall not stated; no anterior height reported.",
+      "projection": "Dry bone; lateral radiograph equivalent (Inference)",
+      "levels": "T1 to T12",
+      "level_pattern": "14.1, 15.6, 15.7, 16.2, 16.2, 17.4, 18.2, 18.7, 19.3, 20.2, 21.3, 22.7 mm; +60%, 0.8 mm per level (text gives 14.3 at T1; Figure 4D plots T12 at about 21.9). T12 differs from T1 to T7.",
+      "covariates": "Pooled",
+      "error": "SEM 0.41 to 1.04 mm (SD about 1.4 to 3.6); one level's step under half an SD (Inference)",
+      "ct_mask_recipe": "Inference: extent along y of the posterior wall of the body subregion at the midline.",
+      "radiograph_recipe": "Inference: lateral film, posterior-superior to posterior-inferior corner, magnification corrected.",
+      "page": "Table 3, p. 892 (extract PDF 1); p. 890 (PDF 3); Figure 4D, p. 896 (PDF 8)"
+    },
+    {
+      "name": "EPItu, EPItl, EPIt: end-plate inclinations to the transverse plane and wedge angle",
+      "definition": "Angle of the best-fit upper (lower) end-plate plane to the local transverse (x-z) plane, perpendicular to the posterior wall; EPIt is their sum (p. 890, PDF 3; Figure 3B).",
+      "projection": "Dry bone; also ten lateral radiographs",
+      "levels": "T1 to T12",
+      "level_pattern": "EPItu 0.5 to 2.4 (mean 1.7), EPItl 1.2 to 3.9 (mean 2.1, max at T1); EPIt 5.7 (T1), 3.6, 4.5, 3.8, 4.1, 3.9, 3.8, 3.6, 2.1, 1.7, 4.5, 4.0; least at T9 and T10; no level significantly different; sum 45.3 (authors 45.6) deg bony kyphosis.",
+      "covariates": "Pooled",
+      "error": "SEM 0.14 to 0.87 deg; EPIt no SEM; films 3.9 against bone 3.8 deg mean, no agreement statistic",
+      "ct_mask_recipe": "Inference: fit planes to superior and inferior end-plate surfaces; angle of each to the plane perpendicular to the posterior wall; the sum is frame-free.",
+      "radiograph_recipe": "Lateral film, angle between the end-plates of each vertebra; no magnification correction needed (Inference).",
+      "page": "Table 3, p. 892 (extract PDF 1); p. 889-890 (PDF 2-3); p. 898 (PDF 10)"
+    },
+    {
+      "name": "SCW, SCD: spinal canal width and depth",
+      "definition": "Widest transverse diameter and midline anteroposterior depth of the digitised canal contour (Figure 3C, p. 891, PDF 4); height of the traced contour not stated.",
+      "projection": "Dry bone",
+      "levels": "T1 to T12",
+      "level_pattern": "SCW 21.8, 19.5, 18.3, 17.0, 17.1, 17.3, 17.3, 17.7, 17.9, 18.2, 19.4, 22.2: parabola, mean 17.4 at T4 to T9; SCD 15.3 to 16.5 (mean 16.2) then 18.1 at T12. SCW/SCD 1.3, 1.3, 1.2, 1.0 (T4 to T6), 1.1 (T7 to T9), 1.2 (T10 to T12). Only SCW T12 against T4 marked significant; text calls the T12 depth rise significant though Table 4 marks none.",
+      "covariates": "Pooled",
+      "error": "SEM SCW 0.34 to 1.19, SCD 0.42 to 1.25 mm (SD about 1.2 to 4.3)",
+      "ct_mask_recipe": "Inference: canal cross-section perpendicular to y bounded by posterior body wall, pedicles and laminae; x and z extents; record the slice (mid-pedicle or minimum).",
+      "radiograph_recipe": "Inference (not measured on film here): SCW about the AP interpedicular distance; SCD on the lateral film from posterior body wall to spinolaminar line; shoulders obscure T1 to T3.",
+      "page": "Table 4, p. 893 (PDF 5); p. 891 (PDF 4); Figure 5A-B, p. 896 (PDF 8)"
+    },
+    {
+      "name": "SCA: spinal canal cross-sectional area",
+      "definition": "Area of the canal contour (vector area).",
+      "projection": "Dry bone",
+      "levels": "T1 to T12",
+      "level_pattern": "213, 200, 180 (T3 minimum; text says 189), 192, 201, 206, 199, 194, 200, 202, 220, 280; about 198 from T2 to T10; large rise T11 to T12; no level marked significant.",
+      "covariates": "Pooled; SEM at T1 to T4 nearly twice that below",
+      "error": "SEM 14.3 to 30.6 mm2. Ellipse always over (+9 to +32% from the means), triangle always under (-16 to -31%); triangle closer at T1",
+      "ct_mask_recipe": "Inference: vector area of the canal cross-section in the slice used for SCW and SCD.",
+      "radiograph_recipe": "Not possible; shape approximations biased.",
+      "page": "Table 4, p. 893 (PDF 5); p. 891 (PDF 4); p. 900 (PDF 12); Figure 5C, p. 896 (PDF 8)"
+    },
+    {
+      "name": "PDWr, PDWl, PDHr, PDHl: pedicle width and height",
+      "definition": "Transverse and vertical dimensions of the pedicle cross-section perpendicular to its centreline (Figure 3C inset; p. 893); section location along the pedicle not stated.",
+      "projection": "Dry bone",
+      "levels": "T1 to T12, right and left",
+      "level_pattern": "Mean PDW 8.5, 8.2, 6.8, 6.3, 6.0, 6.0, 5.9, 6.7, 7.7, 9.0, 9.8, 8.7 (narrowest T4 to T7; single sides 5.5 right T4, 5.2 left T7); PDH 9.6, 11.4, 11.9, 12.1, 11.3, 11.8, 12.0, 12.5, 13.9, 14.9, 17.4, 16.7; both peak at T11. PDH at T11 and T12 differs from T1 to T8 or T9.",
+      "covariates": "Pooled",
+      "error": "PDW SEM 0.35 to 1.06 (SD 1.2 to 3.7); PDH SEM 0.23 to 0.94 (SD 0.8 to 3.3); other studies differ by 1 to 4 mm in width",
+      "ct_mask_recipe": "Inference: pedicle centreline, cross-section perpendicular to it; record whether the narrowest section is taken.",
+      "radiograph_recipe": "Inference: AP film pedicle oval, oblique to the true section because of 10 to 29 deg convergence and 5 to 18 deg tilt.",
+      "page": "Table 5, p. 894 (PDF 6); Table 8, p. 899-900 (PDF 11-12); p. 891 (PDF 4); Figure 6A, p. 897 (PDF 9)"
+    },
+    {
+      "name": "PDH/PDW: pedicle shape ratio",
+      "definition": "Derived ratio of height to width.",
+      "projection": "Derived",
+      "levels": "T1 to T12",
+      "level_pattern": "1.1 at T1 (round), about 1.9 by T5 and 1.8 to 2.0 thereafter (right up to 2.2 at T4, left 2.3 at T7). Table 5 left prints 1.4 at T3 and T4 where the means give 1.85 and 1.74 (Figure 6B agrees with the computed values).",
+      "covariates": "Size-free",
+      "error": "No SEM",
+      "ct_mask_recipe": "Inference: ratio of mask PDH and PDW.",
+      "radiograph_recipe": "Inference: AP pedicle oval, oblique.",
+      "page": "Table 5, p. 894 (PDF 6); p. 893 (PDF 5); Figure 6B, p. 897 (PDF 9)"
+    },
+    {
+      "name": "PDAr, PDAl: pedicle cross-sectional area",
+      "definition": "Area of the digitised pedicle cross-section.",
+      "projection": "Dry bone",
+      "levels": "T1 to T12",
+      "level_pattern": "Parabola: about 53 at T1, 32 mid-region, steep rise T8 to T11, 94 at T12, threefold T7 to T12; right 52.2, 31.6 (T5), 88.4, 90.9; left 54.4, 33.1, 98.3, 97.0.",
+      "covariates": "Pooled",
+      "error": "SEM 1.72 to 13.0 mm2. Authors: triangle excellent T2 to T12; Inference: triangle within about 11% T2 to T9 but 16 to 26% under at T11 and T12",
+      "ct_mask_recipe": "Inference: vector area of the section used for PDW and PDH.",
+      "radiograph_recipe": "Not directly; triangle PDW x PDH / 2 from the oval (Inference).",
+      "page": "Table 5, p. 894 (PDF 6); p. 893 (PDF 5); p. 900 (PDF 12); Figure 6C, p. 897 (PDF 9)"
+    },
+    {
+      "name": "PDIsr, PDIsl: pedicle axis inclination to the sagittal plane",
+      "definition": "Angle between the pedicle centreline (normal to its section) and the sagittal plane, seen from above; converges anteriorly (Figure 3C; p. 893).",
+      "projection": "Dry bone",
+      "levels": "T1 to T12",
+      "level_pattern": "Mean 27.1, 28.6, 19.4, 19.5, 15.6, 16.4, 20.7, 19.6, 14.8, 12.4, 13.1, 9.8; largest step T2 to T3; never negative here. Right exceeds left by 4.0 to 9.2 deg at every level T3 to T10; left exceeds right at T11 and T12.",
+      "covariates": "Pooled",
+      "error": "SEM 1.10 to 8.58 deg; T2 SEMs 6.17 and 8.58 (SD about 21 and 30)",
+      "ct_mask_recipe": "Inference: centreline projected on x-z, angle to z; use the side mean.",
+      "radiograph_recipe": "Not from plain AP or lateral (Inference).",
+      "page": "Table 5, p. 894 (PDF 6); Table 8, p. 900 (PDF 12); p. 893 (PDF 5); p. 898 (PDF 10)"
+    },
+    {
+      "name": "PDItr, PDItl: pedicle axis inclination to the transverse plane",
+      "definition": "Angle between the centreline and the transverse plane, seen from the side (Figure 3B); Inference: anterior end lower.",
+      "projection": "Dry bone",
+      "levels": "T1 to T12",
+      "level_pattern": "Mean 7.6 (T1), 17.9 (T2 outlier), 7.1 to 11.6 T3 to T11 (about 9), 5.1 at T12 (text 5.0). T1 sides 4.6 right, 10.5 left.",
+      "covariates": "Pooled",
+      "error": "SEM 0.84 to 9.77 deg; T2 7.93 and 9.77",
+      "ct_mask_recipe": "Inference: centreline projected on y-z, angle to z.",
+      "radiograph_recipe": "Inference: lateral film, pedicle long axis against the plane perpendicular to the posterior wall.",
+      "page": "Table 5, p. 894 (PDF 6); Table 8, p. 900 (PDF 12); p. 893 (PDF 5)"
+    },
+    {
+      "name": "PDMs, PDMt: pedicle second moments of area",
+      "definition": "PDMs = pi x H^3 x W / 64, PDMt = pi x H x W^3 / 64 from measured height and width (p. 893, PDF 5).",
+      "projection": "Derived",
+      "levels": "T1 to T12",
+      "level_pattern": "Roughly constant T1 to T8, sharp rise to T11, slight drop at T12; sagittal always above transverse.",
+      "covariates": "Pooled",
+      "error": "Inference: Figure 6E plots 16 times the printed formula (pi x H^3 x W / 4); use the formula",
+      "ct_mask_recipe": "Inference: compute from mask PDH and PDW, or directly from the section.",
+      "radiograph_recipe": "Not applicable",
+      "page": "p. 893 (PDF 5); Figure 6E, p. 897 (PDF 9)"
+    },
+    {
+      "name": "CVAur, CVAul, CVAlr, CVAll, CVA: costovertebral articulation areas",
+      "definition": "Area of the rib-head facet on the body, upper and lower, right and left; up to 20 points each (p. 888; Figure 3B).",
+      "projection": "Dry bone",
+      "levels": "T1 to T12",
+      "level_pattern": "Upper 26.7 to 56.6 at T1 to T10, 71.9/60.0 at T11, 61.0/47.9 at T12; lower 12.1 to 44.5 at T1 to T10, absent T11 and T12. 'CVA total per rib' 74.7, 45.8, 51.7, 55.5, 67.4, 88.8, 86.3, 76.8, 75.4, 82.6, 66.0, 54.5 (equals mean upper plus mean lower of one vertebra: a per-side total, not per rib).",
+      "covariates": "Pooled",
+      "error": "SEM 1.40 to 8.77 mm2",
+      "ct_mask_recipe": "Inference: needs rib heads; presence and position of a lower facet is the readable feature.",
+      "radiograph_recipe": "Not possible",
+      "page": "Table 6, p. 895 (PDF 7); p. 893 (PDF 5); Figure 7, p. 898 (PDF 10)"
+    },
+    {
+      "name": "CTAr, CTAl, CVA + CTA: costotransverse articulation area and total",
+      "definition": "Area of the rib-tubercle facet on the transverse process (Figure 3B); CVA + CTA = CVA plus side mean of CTA (arithmetic).",
+      "projection": "Dry bone",
+      "levels": "T1 to T12",
+      "level_pattern": "About 40 to 65 at T1 to T10; T11 16.7 right, 11.7 left; T12 none. CVA + CTA 132.0, 95.9, 110.4 to 138.4 (T3 to T10), 80.2, 54.5.",
+      "covariates": "Pooled",
+      "error": "SEM 0.35 to 8.67 apart from CTAr 26.7 (T8) and 17.3 (T10), possibly misprints",
+      "ct_mask_recipe": "Inference: facet on the anterior face of the transverse (costal) process tip; presence T1 to T11, absence T12; area needs the rib.",
+      "radiograph_recipe": "Not possible",
+      "page": "Table 6, p. 895 (PDF 7); p. 893 (PDF 5)"
+    },
+    {
+      "name": "PIAr, PIAl: pars interarticularis area",
+      "definition": "Cross-sectional area of the pars between superior and inferior articular processes (Figures 2A, 3B); section plane not stated; T1 and T2 not measured.",
+      "projection": "Dry bone",
+      "levels": "T3 to T12",
+      "level_pattern": "Right 118, 75, 89, 58, 113, 113, 140, 131, 145, 86; left 73, 66, 81, 98, 98, 121, 124, 148, 179, 98; rise T4 to T11, peak T11, sudden drop at T12 (lumbar-type inferior facets).",
+      "covariates": "Pooled",
+      "error": "SEM 1.3 to 45.6 mm2; right SEMs 1.3 and 2.8 at T3 and T4 implausibly small; right-left gaps up to 45",
+      "ct_mask_recipe": "Inference: narrowest cross-section of the arch between superior and inferior articular subregions, each side.",
+      "radiograph_recipe": "Not possible",
+      "page": "Table 7, p. 895 (PDF 7); p. 893 (PDF 5); Figure 8, p. 898 (PDF 10)"
+    },
+    {
+      "name": "SPL: spinous process length",
+      "definition": "From the centroid of the superior end-plate (origin C) to the most inferoposterior tip of the spinous process (p. 893, PDF 5; Figure 3B).",
+      "projection": "Dry bone",
+      "levels": "T1 to T12",
+      "level_pattern": "50.1, 52.1, 51.7, 51.1, 52.1, 53.8 (T6 longest), 50.5, 52.8, 51.3, 49.3, 45.6 (T11 shortest), 47.4; no level significantly different.",
+      "covariates": "Pooled",
+      "error": "SEM 1.02 to 2.00 mm (SD 3.5 to 6.9)",
+      "ct_mask_recipe": "Inference: 3D distance from superior end-plate centroid to the most posterior-inferior voxel of the spinous subregion.",
+      "radiograph_recipe": "Inference: lateral film, superior end-plate midpoint to spinous tip; overlap and shoulders limit T1 to T3.",
+      "page": "Table 7, p. 895 (PDF 7); p. 893 (PDF 5); Figure 9, p. 898 (PDF 10)"
+    },
+    {
+      "name": "TPW: transverse process width",
+      "definition": "Tip of the left transverse process to tip of the right (p. 893; Figure 3A).",
+      "projection": "Dry bone; AP radiograph equivalent (Inference)",
+      "levels": "T1 to T12",
+      "level_pattern": "75.3, 69.4, 60.8, 56.9, 61.1, 61.3, 60.4, 59.9, 59.3, 58.4, 52.2, 46.9; falls T1 to T4, flat to T10, falls T10 to T12; T1 differs from T3 to T12.",
+      "covariates": "Pooled",
+      "error": "SEM 0.90 to 3.77 mm (SD 3.1 to 13.1)",
+      "ct_mask_recipe": "Inference: distance between lateral extremes of the right and left transverse (costal) process subregions.",
+      "radiograph_recipe": "Inference: AP film tip to tip, magnification corrected.",
+      "page": "Table 7, p. 895 (PDF 7); p. 893 (PDF 5); Figure 9, p. 898 (PDF 10)"
+    }
+  ],
+  "level_details": [
+    {"level": "Regions", "detail": "Three regions: cervicothoracic transition, middle, thoracolumbar transition; middle T3 to T9 (abstract), T4 to T9 (narrowest canal; critical vascular zone), T4 through T9 or T10 (discussion). Grant, Gray, Hollingshead and Parke disagree on membership.", "page": "p. 888 (PDF 1); p. 891 (PDF 4); p. 897 (PDF 9)"},
+    {"level": "T1 to T4 (upper transition)", "detail": "Authors: end-plate and canal widths narrow with depths constant, so ratios fall. Inference from Tables 3-4: true for the canal (SCW 21.8 to 17.0, SCD constant) but the upper end-plate width is flat and both end-plate depths grow 4.8 mm.", "page": "p. 897 (PDF 9); Tables 3-4"},
+    {"level": "T1", "detail": "Canal second widest (SCW 21.8, ratio 1.3); end-plate ratio 1.3/1.4; longest TPW 75.3; round pedicle (H/W 1.1; 8.5 x 9.6); PDIs about 27, PDIt 7.6; largest EPItl 3.9 and wedge 5.7; upper rib facet 1.6 to 1.9 times T2's; rib-articulation total 132.0.", "page": "Tables 3-7, pp. 892-895"},
+    {"level": "T1 to T2", "detail": "Costovertebral and total rib areas drop (74.7 to 45.8; 132.0 to 95.9); TPW 75.3 to 69.4; SCW 21.8 to 19.5; EPDl largest step; PDIt 7.6 to 17.9; pedicle ratio 1.1 to about 1.4.", "page": "p. 893 (PDF 5); Tables 3-7"},
+    {"level": "T2 to T3", "detail": "EPDu largest step 19.6 to 22.7; TPW 69.4 to 60.8; PDIs 28.6 to 19.4; PDIt 17.9 to 8.8; T3 smallest canal area (180; text 189) and smallest EPWl (25.9).", "page": "Tables 3-5, 7-8; p. 891 (PDF 4)"},
+    {"level": "T4 to T9 (middle)", "detail": "Round, narrow canal (SCW about 17.4); round end-plates; narrowest tall-oval pedicles (about 6 mm, ratio about 1.9); TPW about 60; critical vascular zone with least cord blood supply; strict care in surgery; rib articulations add stiffness.", "page": "p. 897 (PDF 9); Tables 3-7"},
+    {"level": "T9 to T10", "detail": "Least end-plate wedge (2.1, 1.7 deg); pedicle height and width climb about 1 and 0.7 mm per level from T8.", "page": "Table 3; p. 891 (PDF 4)"},
+    {"level": "T10 to T11", "detail": "T11 loses the lower costovertebral facet and nearly the costotransverse (62.3/49.3 to 16.7/11.7); largest upper facet (71.9/60.0); TPW 58.4 to 52.2; SPL 49.3 to 45.6; pars area peaks (145/179); pedicle height, width and moments peak; ribs 11 and 12 float, less stiffness.", "page": "Tables 5-7; p. 897-898 (PDF 9-10)"},
+    {"level": "T11 to T12 (toward T12/L1)", "detail": "No costotransverse facet; canal jumps (SCW 19.4 to 22.2, SCD 16.0 to 18.1, SCA 220 to 280); pars drops (lumbar-type inferior facets); TPW 52.2 to 46.9; PDIs 13.1 to 9.8; PDIt 8.7 to 5.1; EPWu 34.9 to 39.0; PDH and PDW dip, pedicle area flat. No L1 values here.", "page": "Tables 3-8; p. 893 (PDF 5); p. 897 (PDF 9)"},
+    {"level": "C2/C3, C7/T1 partner C7, L1, L5/S1", "detail": "Not covered by this paper.", "page": "p. 888 (PDF 1)"}
+  ],
+  "errors": [
+    {"what": "Instrument point-location error", "value": "+/-0.5 mm (largest)", "page": "p. 889 (PDF 2)"},
+    {"what": "Phantom accuracy (Plexiglas pseudo-vertebra, faces at 30, 45, 60 deg)", "value": "Linear, angular and area errors under 5% in all cases", "page": "p. 889 (PDF 2)"},
+    {"what": "Intra- and inter-observer reliability", "value": "Not studied; number of operators not stated", "page": "p. 888-889 (PDF 1-2)"},
+    {"what": "Radiographic end-plate angle check", "value": "Ten lateral films: 3.9 deg mean per vertebra against 3.8 deg from bone; no per-level or agreement statistic; film source not given", "page": "p. 889-890 (PDF 2-3); p. 898 (PDF 10)"},
+    {"what": "Between-specimen dispersion", "value": "SEM over 12 spines printed; Inference SD = 3.46 x SEM: lengths 1.2 to 4.3 mm, PDW 1.2 to 3.7, PDH 0.8 to 3.3, pedicle angles about 3 to 34 deg (worst T2), SPL 3.5 to 6.9, TPW 3.1 to 13.1", "page": "Tables 3-7, pp. 892-895"},
+    {"what": "Shape approximations (authors)", "value": "End-plate ellipse within 10%, triangle -20% (T1) to -40% (T12); canal ellipse over, triangle under, triangle better at T1; pedicle triangle excellent T2 to T12, T1 midway", "page": "p. 900 (PDF 12)"},
+    {"what": "Shape approximations (Inference from table means)", "value": "End-plate ellipse +11% to +19% at T1 to T5; canal ellipse +9 to +32%, triangle -16 to -31%; pedicle triangle -16% to -26% at T11-T12", "page": "Tables 3-5; Figures 4C, 5C, 6C"},
+    {"what": "Agreement with other studies", "value": "EPDl 4 to 5 mm above Scoles and Cotterill (possibly mid-height there); PDW 1 to 2 mm above earlier work, Scoles 2 to 4 mm below others; pedicle angles vary widely, negative at T12 in Berry (-3.0) and Zindrick (-4.2); Berry's transverse angles (137 at T2) called grossly wrong", "page": "Table 8, p. 899-900 (PDF 11-12); p. 898 (PDF 10)"}
+  ],
+  "pearls_pitfalls": [
+    {"text": "Data meant for mathematical spine models (scoliosis, trauma, impact), instability, trauma, pedicle screw and internal device design; canal size related to low-back pain and childhood stress (malnutrition) in cited work.", "page": "p. 888 (PDF 1); p. 893 (PDF 5); p. 900 (PDF 12)"},
+    {"text": "Critical vascular zone T4 to T9: narrowest canal coincides with least profuse cord blood supply; strict care when surgery is contemplated there.", "page": "p. 897 (PDF 9)"},
+    {"text": "Inference for screws: mid-thoracic pedicle width about 6 mm (SD 1.3 to 3.0), tall ovals except T1, convergence 27 deg at T1-T2 to 10 at T12, never divergent here; caudal tilt about 9 deg, 18 at T2, 5 at T12.", "page": "Tables 5, 8, pp. 894, 899-900"},
+    {"text": "Thoracolumbar transition where ribs go from a complete unit at T10 to floating ribs, with less stiffness, canal enlargement and wider end-plates.", "page": "p. 897-898 (PDF 9-10)"},
+    {"text": "Bony kyphosis about 45.6 deg (3.8 per vertebra); disc wedging not measured, so the curve cannot be apportioned; thoracic curve primary, cervical and lumbar adaptive (Aeby, Hollingshead).", "page": "p. 898 (PDF 10)"},
+    {"text": "Pitfall: other studies' end-plate depths 4 to 5 mm low, perhaps measured at mid-body height (authors' suggestion); measure at the end-plate.", "page": "p. 898 (PDF 10)"},
+    {"text": "Pitfall: the transverse plane is defined from the posterior wall (A, B, D, E), not from end-plates or scanner; posterior-wall corners chosen because osteophytes barely move them.", "page": "p. 889 (PDF 2)"},
+    {"text": "Pitfall: suffix l means lower in Table 2 but left in Tables 5-7; Table 2 lists an unused suffix a (anterior).", "page": "p. 890 (PDF 3); pp. 894-895 (PDF 6-7)"},
+    {"text": "Pitfall: 'CVA total per rib' sums the upper and lower facets of one vertebra, which belong to two different ribs.", "page": "Table 6, p. 895 (PDF 7)"},
+    {"text": "Pitfall: authors held that 3D CT may not give such accurate quantitative data.", "page": "p. 893 (PDF 5)"}
+  ],
+  "instructions": [
+    {"text": "Build the per-vertebra frame first: plane through the four posterior-wall corners as frontal, its anterior normal as z, the superior posterior-wall corner line as x (to the left), y cranial, origin at the superior end-plate centroid; widths along x, depths along z, heights along y.", "page": "p. 889 (PDF 2), Figure 1"},
+    {"text": "Take end-plate depth at the end-plate rim, not at mid-body.", "page": "p. 898 (PDF 10)"},
+    {"text": "Expect the inferior end-plate wider than the superior at every thoracic level (1.0 to 4.2 mm in the means) and usually deeper; use as a weak check (no within-person SD printed).", "page": "Table 3, p. 892 (extract PDF 1)"},
+    {"text": "Across each disc expect facing end-plate depths to match within about 1 mm and the upper vertebra's lower width to be at least the lower vertebra's upper width (9 of 11 junctions); Inference: a large mismatch suggests a missing or extra vertebra or a segmentation error.", "page": "p. 890 (PDF 3); Table 3"},
+    {"text": "Identify T1: canal about 22 mm wide, ratio 1.3; end-plate ratio 1.3-1.4; round pedicle (H/W 1.1); TPW about 75 mm; large upper rib facet; wedge 5.7 deg. Then T2: TPW about 69, H/W about 1.4, SCW about 19.5, pedicle tilt about 18 deg.", "page": "Tables 3-8; p. 897 (PDF 9)"},
+    {"text": "Identify T11 and T12 by ribs where visible on CT: one costovertebral facet each, T11 a small costotransverse facet, T12 none; T10 still has lower facets and a full costotransverse facet.", "page": "Table 6, p. 895 (PDF 7); p. 893 (PDF 5)"},
+    {"text": "Confirm T12 by the canal jump (about 22 x 18 mm, 280 mm2 against about 200 above), shortest TPW (about 47 mm), smallest pedicle angles (about 10 and 5 deg) and lumbar-type inferior facets with a smaller pars than T11.", "page": "Tables 4, 7, 8; p. 893 (PDF 5)"},
+    {"text": "Do not name a single T4 to T9 vertebra from its own measures; neighbours differ by about one SD or less and ANOVA separates body dimensions only four or more levels apart; count from T1 or T12 along the sequence.", "page": "Table 3 parentheses, p. 892"},
+    {"text": "Use the side mean for pedicle angles; a right-over-left medial angle of 4 to 9 deg at T3 to T10 is normal in this series; distrust single T2 pedicle angles (SD 21 to 34 deg).", "page": "Table 5, p. 894 (PDF 6)"},
+    {"text": "On a lateral film measure the angle between each vertebra's end-plates (expect 1.7 to 5.7 deg, least T9-T10, largest T1), VBHp and EPD; on an AP film EPW, TPW and pedicle ovals; correct linear measures for magnification.", "page": "p. 890 (PDF 3); p. 898 (PDF 10); Table 3"},
+    {"text": "Check pedicles against level means: width about 6 mm at T4 to T7 rising to 9-10 at T10-T11, height about 12 rising to 17; SD about 1 to 4 (width) and 1 to 3 mm (height); Inference: flag beyond 2 SD as misnamed level or anomaly.", "page": "Table 5, p. 894; Table 8, p. 899-900"},
+    {"text": "Measure SPL from the superior end-plate centroid to the inferoposterior spinous tip (about 50 mm through T10, 46 at T11) and TPW tip to tip.", "page": "p. 893 (PDF 5); Table 7"},
+    {"text": "Treat 'CVA total per rib' as a per-side total for one vertebra; read suffix l as left in pedicle, CTA and PIA rows and as lower in end-plate rows.", "page": "Table 6, p. 895; Table 2, p. 890"}
+  ],
+  "bordercall": [
+    "(a) Anomaly priors: none from this paper (no anomaly reported, numbering method not given, sacrum absent, possible silent selection S3 to S24). It offers emission features: the T10 to T12 rib-facet pattern and the T12 lumbar-type inferior facet; Inference: the across-disc end-plate depth match as a transition feature.",
+    "(b) SPL: paper measures from superior end-plate centroid to spinous tip (p. 893), mnemonics.py from the posterior canal wall; a mask extractor following mnemonics.py reads shorter (Inference: of the order of 20 to 30 mm). PDW/PDH/PDA: mnemonics.py says narrowest; paper gives no section location. SCW: mnemonics.py says at the pedicles; paper does not state. CVA: not demifacets at T11-T12 (single whole facet, lower absent) nor at T1 upper (Inference); model lower CVA as absent at T11-T12; 'total per rib' is per vertebra side. CTA absent at T12, tiny at T11 (presence feature). EPI frame from posterior wall; EPIt frame-free. PDIs: use side mean; right-left gap of 4 to 9 deg at T3 to T10 in the source. PDM: use the /64 formula; Figure 6E is 16 times larger (Inference). Areas are vector areas of digitised contours; ellipse substitutes are biased (+11 to +19% end-plate at T1-T5, +9 to +32% canal). New measures offered: rib-facet presence, inferior-wider-than-superior relation, across-disc depth match, PDH/PDW and SCW/SCD ratios.",
+    "(c) Error: instrument +/-0.5 mm, phantom under 5%, no observer error; between-person SD = SEM x 3.46 per cell (Inference); doubtful SEMs: CTAr 26.7 (T8) and 17.3 (T10), PIAr 1.3 and 2.8 (T3, T4), PDIs and PDIt at T2, PIA at T11, TPW at T4.",
+    "(d) Covariates: none analysed; 8 men, 4 women, 19-59 y, 54-84 kg, 157-178 cm, ethnicity not stated, pooled; men older, heavier, taller (Inference from Table 1). From bordercall provenance of other papers (not this one): the cervical (p. 861), lumbar (p. 299) and facet (p. 1299) papers print the same specimen summary (weight range 54-85), so the same twelve spines (Inference)."
+  ],
+  "gaps": [
+    "Level identification and numbering method; anomaly handling; specimen selection from S3 to S24; sacrum not harvested.",
+    "Section locations: canal contour height for SCW, SCD, SCA; pedicle section location; pars section plane; VBHp midline or lateral.",
+    "n per cell; reason T1-T2 pars not measured; number of observers; repeatability.",
+    "Source, levels and agreement statistic of the ten lateral radiographs; magnification never treated.",
+    "Conflicts: two rods versus three tips and three pins in Figure 1 (p. 888-889); 55% and 73% end-plate growth versus 51.4% and 77.3% (p. 890); VBHp T1 14.3 text versus 14.1 tables; Figure 4D T12 about 21.9 versus 22.7; SCA T3 189 text versus 180; SCD T12 'significant' in text, unmarked in Table 4; upper transition said to be width narrowing with depth constant, contradicted by Table 3 end-plates; pars about 90 at T3 and 98 at T12 versus means 95.5 and 92; Table 8 EPDl T3 23.2 versus 23.3; PDH/PDWl 1.4 at T3-T4 versus 1.85 and 1.74; text cites Table 8 for SPL and TPW (Table 7) and Figure 3 cites nomenclature Table 1 (Table 2); middle region T3-T9 versus T4-T9/T10; lower end-plate wider than next upper fails at T7/T8 and T8/T9; pedicle angles called symmetric but right exceeds left at T3-T10; shape approximation claims not borne out at T1-T5 (end-plate ellipse) and T11-T12 (pedicle triangle); Figure 6E 16 times the formula; non-monotone significance marks (EPWu T11, TPW T12, PDWl T10); rib rule versus uniarticular T11 and T10 lower facets.",
+    "Rounding only: PDW T1 8.4 vs 8.5, PDH T12 16.6 vs 16.7, PDIt T12 5.0 vs 5.1.",
+    "No values by sex, age, body size or population; no C7 or L1 for junction comparisons (in the cervical and lumbar papers)."
+  ]
+}

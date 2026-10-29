@@ -1,0 +1,344 @@
+{
+  "paper": "otsuki2021",
+  "cohorts": [
+    {
+      "cohort": "rush_cadaver_6",
+      "labels": [
+        "all",
+        "female",
+        "male",
+        "not stated",
+        "Donor 1",
+        "Donor 2",
+        "Donor 3",
+        "Donor 4",
+        "Donor 5",
+        "Donor 6",
+        "L1 below 110 HU",
+        "clinical CT",
+        "comparison vs L1",
+        "comparison vs L2",
+        "comparison vs L3",
+        "comparison vs lateral wall",
+        "comparison vs medial wall"
+      ],
+      "tables": [
+        "Table 1",
+        "Table 2",
+        "Table 3",
+        "Table 4",
+        "Figure 2",
+        "Figure 4",
+        "Text: Abstract",
+        "Text: Materials and methods",
+        "Text: Results",
+        "Text: Discussion"
+      ],
+      "subjects": "Six fresh-frozen cadaveric lumbar spines (L1-L5) from an accredited US tissue bank (Science Care, Phoenix, Arizona), studied at Rush University Medical Center, Chicago; all donors free from spine-related conditions or spine surgery; causes of death in Table 1 (COPD, heart attack, cardiac arrest in two, atherosclerotic heart disease, chronic heart failure); ethnicity not stated; no other inclusion or exclusion criteria given; IRB exempt as cadaveric tissue. Left and right pedicles of L1-L5 were cut out at the pedicle-body and pedicle-lamina junctions for micro-CT. Weight 40.8-127.5 kg, height 160.0-193.0 cm, BMI 15.4-42.2 (Table 1). How the levels were identified, and whether any spine was transitional, is not stated.",
+      "n_people": 6,
+      "n_units": "60 pedicles (left and right, L1-L5) of 6 lumbar spines; vertebral bodies L1-L5 for HU (n = 30)",
+      "ages": "mean 60.2 +/- 7.2 years, range 50-67 (donor ages 54, 50, 66, 67, 58, 66)",
+      "sexes": "3 male, 3 female",
+      "page": "p. 2 (PDF 2), Table 1; p. 5 (PDF 5)"
+    },
+    {
+      "cohort": "inceoglu_quoted",
+      "labels": [
+        "not stated",
+        "direct (histology)"
+      ],
+      "tables": [
+        "Text: Discussion"
+      ],
+      "subjects": "Cadaveric lumbar pedicles at L3 measured directly, as quoted in this paper's Discussion; number, ages and sexes not given here (Inceoglu S et al. 2007, J Neurosurg Spine, ref. 13). Rows carry source_of_values Inceoglu et al. [13].",
+      "n_people": null,
+      "n_units": "not stated in this paper",
+      "ages": "not stated in this paper",
+      "sexes": "not stated in this paper",
+      "page": "p. 7-8 (PDF 7-8)"
+    },
+    {
+      "cohort": "mitra_quoted",
+      "labels": [
+        "not stated",
+        "CT"
+      ],
+      "tables": [
+        "Text: Discussion"
+      ],
+      "subjects": "Lumbar pedicles L1-L5 measured by CT, as quoted; the reference title names an Indian population (Mitra SR et al. 2002, Spine, ref. 11); number, ages and sexes not given here. Rows carry source_of_values Mitra et al. [11]. The same ten values stand in mitra2002's own reading (its Table 2: cohort nagpur_cadavers20, technique ct_axial_midpedicle, 5-mm axial CT slices at the pedicle isthmus).",
+      "n_people": null,
+      "n_units": "not stated in this paper",
+      "ages": "not stated in this paper",
+      "sexes": "not stated in this paper",
+      "page": "p. 8 (PDF 8)"
+    },
+    {
+      "cohort": "li_quoted",
+      "labels": [
+        "female",
+        "male",
+        "CT"
+      ],
+      "tables": [
+        "Text: Discussion"
+      ],
+      "subjects": "Lumbar pedicles of women and men, L1-L5, measured on CT, as quoted; the reference title says reformatted CT images (Li B et al. 2004, Spine, ref. 8); number and ages not given here. Rows carry source_of_values Li et al. [8].",
+      "n_people": null,
+      "n_units": "not stated in this paper",
+      "ages": "not stated in this paper",
+      "sexes": "women and men reported separately",
+      "page": "p. 8 (PDF 8)"
+    },
+    {
+      "cohort": "burghardt_quoted",
+      "labels": [
+        "not stated",
+        "tibia",
+        "radius"
+      ],
+      "tables": [
+        "Text: Discussion"
+      ],
+      "subjects": "Tibia and radius cortical bone, as quoted (Burghardt AJ et al. 2010, J Bone Miner Res, ref. 24); subjects not described here. Rows carry source_of_values Burghardt et al. [24].",
+      "n_people": null,
+      "n_units": "not stated in this paper",
+      "ages": "not stated in this paper",
+      "sexes": "not stated in this paper",
+      "page": "p. 9 (PDF 9)"
+    },
+    {
+      "cohort": "tsai_quoted",
+      "labels": [
+        "not stated",
+        "tibia",
+        "radius"
+      ],
+      "tables": [
+        "Text: Discussion"
+      ],
+      "subjects": "Tibia and radius cortical bone, as quoted; the reference title names the DATA-HRpQCT study of teriparatide and denosumab (Tsai JN et al. 2015, J Bone Miner Res, ref. 25); subjects not described here. Rows carry source_of_values Tsai et al. [25].",
+      "n_people": null,
+      "n_units": "not stated in this paper",
+      "ages": "not stated in this paper",
+      "sexes": "not stated in this paper",
+      "page": "p. 9 (PDF 9)"
+    },
+    {
+      "cohort": "goda_quoted",
+      "labels": [
+        "not stated"
+      ],
+      "tables": [
+        "Text: Discussion"
+      ],
+      "subjects": "Pedicle screws redirected after lateral wall breach, against correctly aligned screws, as quoted (Goda Y et al. 2016, Spine, ref. 22); specimens not described here. Rows carry source_of_values Goda et al. [22].",
+      "n_people": null,
+      "n_units": "not stated in this paper",
+      "ages": "not stated in this paper",
+      "sexes": "not stated in this paper",
+      "page": "p. 7 (PDF 7)"
+    },
+    {
+      "cohort": "pickhardt_quoted",
+      "labels": [
+        "not stated"
+      ],
+      "tables": [
+        "Text: Results"
+      ],
+      "subjects": "The source of the 110 HU cut-off at L1 for osteoporosis; the reference title says abdominal CT obtained for other indications (Pickhardt PJ et al. 2013, Ann Intern Med, ref. 20); subjects not described here. Rows carry source_of_values Pickhardt et al [20].",
+      "n_people": null,
+      "n_units": "not stated in this paper",
+      "ages": "not stated in this paper",
+      "sexes": "not stated in this paper",
+      "page": "p. 5 (PDF 5)"
+    }
+  ],
+  "techniques": [
+    {
+      "technique": "microct_isthmus_dimensions",
+      "cohorts": [
+        "rush_cadaver_6"
+      ],
+      "modality": "micro-CT",
+      "instrument": "Scanco muCT 50 (55 kV, 145 uA, 34.4 um voxels, matrix 1024 x 1024), each pedicle in distilled water in a 35 mm tube; reslicing in Mimics (Materialise); lengths and areas in ImageJ",
+      "how": "Pedicle axis = line through the centroids of cross-sections at the anterior and posterior thirds of the pedicle; cross-sections taken perpendicular to that axis; the isthmus is the section with the shortest minor (transverse) axis. On it: transverse diameter = length on the minor axis, longitudinal diameter = length on the major (longest) axis, outer surface to outer surface; medial and lateral wall thickness on the minor axis and cranial and caudal wall thickness on the major axis, from the medullary-cavity boundary (judged over a few slices around the isthmus) to the outer surface; areas of the whole section and of the medullary cavity (Table 2). Sides pooled or averaged is not stated for Table 2.",
+      "magnification": "Not applicable: a calibrated micro-CT volume of the excised pedicle, 34.4 um voxels; no projection.",
+      "observers": "Not stated (no observer count, no repeatability).",
+      "page": "p. 2-5 (PDF 2-5), Fig 1 p. 3, Fig 2A p. 4"
+    },
+    {
+      "technique": "microct_bone_area_fraction",
+      "cohorts": [
+        "rush_cadaver_6"
+      ],
+      "modality": "micro-CT",
+      "instrument": "Same micro-CT scans; custom Visual C++ routine",
+      "how": "On the isthmus section, binarised at threshold = (cortical bone grey level - background grey level) x 0.5; four 30 deg sector ROIs measured from the 12 o'clock direction set by the major axis (cranial +/-15 deg, medial 75-105, caudal 165-195, lateral 255-285), each spanning the wall between the cavity boundary and the outer surface (Fig 2B); bone area fraction = bone pixels / ROI pixels x 100. Left and right were averaged since they did not differ. Summarised by donor (Table 3) and by level (Table 4).",
+      "magnification": "Not applicable: calibrated micro-CT volume, a ratio of pixel counts.",
+      "observers": "Not stated.",
+      "page": "p. 4-5 (PDF 4-5), Fig 2B p. 4"
+    },
+    {
+      "technique": "ct_vertebral_body_hu",
+      "cohorts": [
+        "rush_cadaver_6"
+      ],
+      "modality": "CT axial",
+      "instrument": "ImageJ; the CT scanner used is not stated (Inference: the clinical CT of Fig 4, Siemens Volume Zoom)",
+      "how": "Largest possible elliptical ROI in each vertebral body on all axial CT slices of L1-L5, excluding osseous abnormalities and voids such as vascular channels, after Schreiber et al. [19]; used to judge osteoporosis (L1 below 110 HU, Pickhardt [20]) and correlated with the average pedicle-wall bone area fraction (n = 30). No HU values are printed.",
+      "magnification": "Not applicable (attenuation).",
+      "observers": "Not stated.",
+      "page": "p. 5 (PDF 5)"
+    },
+    {
+      "technique": "clinical_ct_comparison_image",
+      "cohorts": [
+        "rush_cadaver_6"
+      ],
+      "modality": "CT axial",
+      "instrument": "Siemens Volume Zoom; 120 kV, 100 mA, field of view 272 mm, matrix 512 x 512, slice thickness 0.625 mm, increment 1.0 mm",
+      "how": "A clinical CT image of the pedicle isthmus of one specimen shown beside its micro-CT image to show the loss of wall detail; no measurement from it is reported.",
+      "magnification": "Not applicable.",
+      "observers": "Not stated.",
+      "page": "p. 10 (PDF 10), Fig 4"
+    },
+    {
+      "technique": "inceoglu_direct",
+      "cohorts": [
+        "inceoglu_quoted"
+      ],
+      "modality": "other",
+      "instrument": "Direct (histological) measurement of cadaveric specimens, as this paper describes it",
+      "how": "Lateral and medial cortex thickness in the midportion of the pedicle cross-section at L3.",
+      "magnification": "Not stated in this paper.",
+      "observers": "Not stated in this paper.",
+      "page": "p. 7-9 (PDF 7-9)"
+    },
+    {
+      "technique": "mitra_ct",
+      "cohorts": [
+        "mitra_quoted"
+      ],
+      "modality": "other",
+      "instrument": "CT, as this paper says; plane and scanner not stated here",
+      "how": "Pedicle cortical thickness of the lateral and medial walls at L1-L5. The same ten values stand in mitra2002's own reading (its Table 2: cohort nagpur_cadavers20, technique ct_axial_midpedicle, 5-mm axial CT slices at the pedicle isthmus).",
+      "magnification": "Not stated in this paper.",
+      "observers": "Not stated in this paper.",
+      "page": "p. 8 (PDF 8)"
+    },
+    {
+      "technique": "li_ct",
+      "cohorts": [
+        "li_quoted"
+      ],
+      "modality": "CT MPR",
+      "instrument": "CT; the reference title says reformatted CT images (ref. 8, p. 12)",
+      "how": "Medial and lateral pedicle wall thickness by sex, rising from L1 to L5; quoted as ranges.",
+      "magnification": "Not stated in this paper.",
+      "observers": "Not stated in this paper.",
+      "page": "p. 8 (PDF 8)"
+    },
+    {
+      "technique": "long_bone_porosity",
+      "cohorts": [
+        "burghardt_quoted",
+        "tsai_quoted"
+      ],
+      "modality": "other",
+      "instrument": "Not stated in this paper (Tsai's reference title names HR-pQCT)",
+      "how": "Intracortical porosity of tibia and radius, converted here to bone area fraction as 100 minus porosity.",
+      "magnification": "Not stated in this paper.",
+      "observers": "Not stated in this paper.",
+      "page": "p. 9 (PDF 9)"
+    },
+    {
+      "technique": "goda_pullout",
+      "cohorts": [
+        "goda_quoted"
+      ],
+      "modality": "other",
+      "instrument": "Biomechanical pullout testing, as this paper describes the result",
+      "how": "Mean pullout strength of screws redirected after lateral wall breach against correctly aligned screws.",
+      "magnification": "Not applicable.",
+      "observers": "Not stated in this paper.",
+      "page": "p. 7 (PDF 7)"
+    },
+    {
+      "technique": "pickhardt_ct_threshold",
+      "cohorts": [
+        "pickhardt_quoted"
+      ],
+      "modality": "other",
+      "instrument": "CT attenuation; the reference title says abdominal CT obtained for other indications",
+      "how": "An L1 attenuation cut-off of 110 HU with high specificity for osteoporosis.",
+      "magnification": "Not applicable.",
+      "observers": "Not stated in this paper.",
+      "page": "p. 5 (PDF 5)"
+    }
+  ],
+  "shared": [
+    {
+      "with": "Sugisaki et al. 2009, Spine [18] (in vivo 3D CT of the lumbar pedicle isthmus; not on the list)",
+      "what": "method",
+      "evidence": "The isthmus is defined as the section with the shortest minor axis, citing ref. 18.",
+      "page": "p. 3 (PDF 3)"
+    },
+    {
+      "with": "Squillante and Williams 1993, Calcif Tissue Int [16] (not on the list)",
+      "what": "method",
+      "evidence": "The cortical wall to medullary cavity boundary is drawn by referring to slices around the isthmus, citing ref. 16.",
+      "page": "p. 3 (PDF 3)"
+    },
+    {
+      "with": "Schreiber et al. 2011, J Bone Joint Surg Am [19] (not on the list)",
+      "what": "method",
+      "evidence": "The vertebral body HU measurement with the largest elliptical ROI follows ref. 19.",
+      "page": "p. 5 (PDF 5)"
+    },
+    {
+      "with": "Pickhardt et al. 2013, Ann Intern Med [20] (not on the list)",
+      "what": "values quoted",
+      "evidence": "The 110 HU cut-off at L1 for osteoporosis is taken from ref. 20.",
+      "page": "p. 5 (PDF 5)"
+    },
+    {
+      "with": "Goda et al. 2016, Spine [22] (not on the list)",
+      "what": "values quoted",
+      "evidence": "Redirected screws after lateral wall breach: mean pullout strength 24.0% lower.",
+      "page": "p. 7 (PDF 7)"
+    },
+    {
+      "with": "Inceoglu et al. 2007, J Neurosurg Spine [13] (not on the list)",
+      "what": "values quoted",
+      "evidence": "L3 lateral and medial cortex thicknesses quoted as comparators for Table 2.",
+      "page": "p. 8 (PDF 8)"
+    },
+    {
+      "with": "Mitra et al. 2002, Spine [11], mitra2002",
+      "what": "values quoted",
+      "evidence": "CT cortical thicknesses of the lateral and medial walls, L1-L5, quoted as comparators for Table 2.",
+      "page": "p. 8 (PDF 8)"
+    },
+    {
+      "with": "Li et al. 2004, Spine [8] (not on the list)",
+      "what": "values quoted",
+      "evidence": "Medial and lateral wall thickness ranges by sex quoted as comparators for Table 2.",
+      "page": "p. 8 (PDF 8)"
+    },
+    {
+      "with": "Burghardt et al. 2010, J Bone Miner Res [24] (not on the list)",
+      "what": "values quoted",
+      "evidence": "Tibia and radius intracortical porosity ranges quoted, converted to bone area fraction.",
+      "page": "p. 9 (PDF 9)"
+    },
+    {
+      "with": "Tsai et al. 2015, J Bone Miner Res [25] (not on the list)",
+      "what": "values quoted",
+      "evidence": "Mean tibia and radius cortical porosity quoted, converted to bone area fraction.",
+      "page": "p. 9 (PDF 9)"
+    }
+  ],
+  "within_paper": "One cohort only. Every value of this paper's own comes from the same six donors of Table 1 (p. 2, PDF 2): the isthmus dimensions (Table 2) and the bone area fraction (Tables 3 and 4, Results text) were both measured on the same micro-CT scans of the same 60 pedicles (p. 2-5, PDF 2-5); Table 3 (by donor) and Table 4 (by level) summarise the same side-averaged bone area fraction values two ways, and the Results' regional averages (p. 5) are a third summary of them; the vertebral body HU (p. 5) were measured on the L1-L5 bodies of the same spines, and Fig 4's clinical CT is of one of the same specimens (p. 10, PDF 10). The two donors with L1 below 110 HU (a 66-year-old man and a 50-year-old woman, p. 5) are among the six. Inference: by age and sex they are donors 6 and 2 of Table 1. The paper does not say whether the HU CT was taken before or after the pedicles were cut out."
+}

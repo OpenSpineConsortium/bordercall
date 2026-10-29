@@ -1,0 +1,204 @@
+{
+  "id": "duman2026",
+  "citation": "Lale Duman and Esra Yamansavci Sirzai. MDCT Morphometry of the Thoracolumbar Junction in a Turkish Cohort: Surgical, Radiological, and Forensic Implications. Tomography 2026, 12, 109 (16 pages). https://doi.org/10.3390/tomography12080109. Received 3 June 2026, accepted 16 July 2026, published 28 July 2026. No issue printed (Inference from DOI: issue 8). Copy read: PMC open-access Cloud Service (pmc-oa-opendata), PMC13517915.1, fetched 2026-10-28; sha256 begins 4a0d099a3939274d. Source: thread \"Reread every paper for clinical detail\", project symphony_4, 2026-10-28.",
+  "population": "Turkey, single tertiary chest diseases and thoracic surgery hospital (Izmir); 517 living adult patients (277 men, 240 women), called consecutive in Figure 1; age >= 18, mean 48.6 +/- 16.4 years, groups 18-35 n = 198, 36-55 n = 176, > 55 n = 143 (not split by sex); thoracic or abdominal MDCT for non-spinal, non-oncological indications, 1 Jan 2021 to 31 Jan 2025; excluded prior spinal or chest wall surgery, rib resection, tumour or myeloma, congenital spinal deformity, major fracture, advanced disc degeneration, spondylolysis, spondylolisthesis, scoliosis Cobb > 10 deg, motion artefact or incomplete field of view; no number screened or excluded given (pp. 3-4, 6-7).",
+  "modality": "CT: 64-slice MDCT (Philips Brilliance), 120 kVp, AEC 150-250 mA, supine, contiguous 0.625 mm axial slices; MPR and 3D on PACS and IntelliSpace Portal 11.1; bone window W 1500 / L 300 HU; one radiologist (14 years) made every measurement and anomaly call; 30-scan pilot for calibration, excluded (pp. 3-4, 6). Radiographs appear only as illustrations (Figure 4B, 4C).",
+  "levels_covered": "T11, T12, L1, L2 for morphometry (the authors' thoracolumbar junction); ribs searched over the scan for numerical and structural anomalies (extent not stated; cervical, 3rd and 12th ribs shown). How levels were identified or counted is never stated; no T13, 11 thoracic vertebrae, L6 or LSTV handling.",
+  "anomalies": [
+    {
+      "variant": "Hypoplastic 12th rib (< 4 cm)",
+      "finding": "55/517 (10.64%); men 25/277 (9.03%), women 30/240 (12.50%); printed chi-square 0.982, p = 0.322 (not reproducible from the counts: Pearson 1.63, Yates 1.29, Inference). Most frequent anomaly. Length measurement method not stated; laterality not reported.",
+      "page": "p. 10 (PDF 10), Table 5; text p. 8-9; Figure 6 p. 10; definition p. 5",
+      "population": "517 Turkish adults, chest hospital CT",
+      "how_identified": "CT (axial, MPR, 3D); hypoplastic defined as less than 4 cm long"
+    },
+    {
+      "variant": "Absent 12th rib",
+      "finding": "22/517 (4.26%); men 4/277 (1.44%), women 18/240 (7.50%); chi-square 11.231, p = 0.001 (Fisher about 0.0007, Inference). Laterality not reported, so not a rate of 11 rib pairs. Figure 4A-B shows one patient with hypoplastic right and absent left 12th rib.",
+      "page": "p. 10 (PDF 10), Table 5; Figure 4 p. 9",
+      "population": "517 Turkish adults",
+      "how_identified": "CT; illustrated also on AP radiograph"
+    },
+    {
+      "variant": "Lumbar rib",
+      "finding": "12/517 (2.32%); men 10/277 (3.61%), women 2/240 (0.83%); chi-square 4.412, p = 0.036 (Fisher about 0.042, Inference). Bearing vertebra not named; no criterion against an unfused transverse process or a T13.",
+      "page": "p. 10 (PDF 10), Table 5; Figure 5B p. 10",
+      "population": "517 Turkish adults",
+      "how_identified": "CT; Figure 5B shows a separate element jointed to the tip of the image-left (patient's right, Inference) transverse process"
+    },
+    {
+      "variant": "Cervical rib",
+      "finding": "7/517 (1.35%); men 1/277 (0.36%), women 6/240 (2.50%); printed chi-square 4.021, p = 0.045; expected cells 3.75 and 3.25, Fisher exact p about 0.053, not significant (Inference, recomputed). Denominator may include scans without C7 (Inference).",
+      "page": "p. 10 (PDF 10), Table 5; Figure 5A p. 10",
+      "population": "517 Turkish adults",
+      "how_identified": "Axial CT; level not named (Inference: C7)"
+    },
+    {
+      "variant": "Any rib anomaly",
+      "finding": "96/517 (18.57%); men 40/277 (14.44%), women 56/240 (23.33%); chi-square 6.143, p = 0.013. Categories sum exactly to 96, so mutually exclusive (Inference).",
+      "page": "p. 10 (PDF 10), Table 5; p. 8",
+      "population": "517 Turkish adults",
+      "how_identified": "CT"
+    },
+    {
+      "variant": "Bifid rib, foramen rib, supernumerary rib from a short 3rd rib",
+      "finding": "Bifid and foramen ribs said to be recorded by incidence and laterality but never counted; Figure 5C shows a supernumerary rib arising from a short left 3rd rib, uncounted.",
+      "page": "p. 5 (PDF 5); Figure 5C p. 10",
+      "population": "517 Turkish adults",
+      "how_identified": "CT"
+    },
+    {
+      "variant": "T13, 11 thoracic vertebrae, L6, LSTV, sacralisation, lumbarisation, block vertebrae",
+      "finding": "Not mentioned; neither counted nor said to be excluded. T12 called the T12 transitional segment only in the anatomical sense.",
+      "page": "whole paper; p. 1, 7, 11",
+      "population": "",
+      "how_identified": ""
+    }
+  ],
+  "measures": [
+    {
+      "name": "Anterior, middle, posterior corpus heights (ACH, MCH, PCH)",
+      "definition": "Heights of the vertebral body at its anterior, middle and posterior parts in the mid-sagittal plane, after Yerli 2024 and Gulec 2017; exact middle point and endplate handling not stated; Figure 2A example on L2 27.0 / 24.2 / 27.3 mm.",
+      "projection": "CT sagittal (mid-sagittal) reformat",
+      "page": "p. 4 (PDF 4); Figure 2A p. 5; Table 1 p. 7",
+      "levels": "T11 to L2",
+      "level_pattern": "Men / women mean +/- SD mm: T11 ACH 21.43/19.22, MCH 22.11/20.03, PCH 23.08/20.81; T12 23.61/21.09, 24.04/21.55, 24.83/22.19; L1 24.78/22.56, 25.12/23.02, 25.94/23.57; L2 26.31/23.85, 26.55/24.11, 27.12/24.68 (SDs 1.48 to 2.21). All rise T11 to L2; PCH > MCH > ACH at every level; ACH/PCH 0.93 (T11) to 0.97 (L2), largest step T11 to T12 (Inference, computed). Steps 1.1 to 2.2 mm, about 0.55 to 1.15 SD.",
+      "covariates": "Men 9.1% to 11.9% larger, all p < 0.001, Cohen d > 0.8 (computed about 1.1 to 1.4, Inference); difference 2.1 to 2.6 mm, about one level's step. Age not analysed. No body height, weight or BMI.",
+      "error": "Intra-observer ICC 0.912 to 0.965 for all linear measures together (50 scans, 4 weeks, one reader); Inference: SEM about 0.3 to 0.65 mm.",
+      "ct_mask_recipe": "Inference: SPINEPS body labels 49, 52, 53 in the vertebra's own frame; in a thin mid-sagittal slab through the body centroid, craniocaudal extent along z at the anterior cortex, at the AP midpoint, and at the posterior wall; PCH corresponds to the generator's VBHp. Fix whether the middle height is at the central concavity.",
+      "radiograph_recipe": "Inference (not in paper): lateral radiograph, projected ACH and PCH with magnification correction; tilted beam doubles endplates and blurs MCH; ACH/PCH ratio is magnification-free."
+    },
+    {
+      "name": "Transverse pedicle diameter (TPD, pedicle width)",
+      "definition": "Narrowest pedicle isthmus between the outer cortical borders; text names points X and Y but Figure 2E puts P and Q across the pedicle (letters appear swapped, Inference); landmarks after Zindrick 1987 and Kim 1994.",
+      "projection": "CT axial (plane from Figure 2B caption)",
+      "page": "p. 4 (PDF 4); Figure 2B, 2E p. 5; Tables 2-4 p. 8",
+      "levels": "T11 to L2",
+      "level_pattern": "Men / women mm: T11 7.62 +/- 1.35 / 7.21 +/- 1.14; T12 8.46 +/- 1.42 / 8.28 +/- 1.53; L1 9.53 +/- 1.64 / 8.88 +/- 1.72; L2 10.08 +/- 1.71 / 9.72 +/- 1.83. Rises monotonically; T11 narrowest, 57/517 (about 11%) below 6 mm. Steps 0.55 to 1.07 mm, 0.3 to 0.8 SD (Inference). TPD/SPD 0.53 (T11) to 0.63 (L2), Inference.",
+      "covariates": "Sex: men larger at T11 (p < 0.001), L1 (p < 0.001), L2 (p = 0.021), not T12 (p = 0.168). Age groups: no effect (ANOVA p 0.112 to 0.450, Table 4).",
+      "error": "ICC 0.912 to 0.965 (all linear); Inference SEM 0.2 to 0.55 mm. Right-left mean difference 0.04 to 0.09 mm (p 0.31 to 0.78, Table 3), but printed intervals imply within-patient side-difference SD about 1.3 to 1.9 mm (Inference).",
+      "ct_mask_recipe": "Inference: arch label 41, per side, smallest mediolateral width of the pedicle bridge across the pedicle axis in axial slabs of the vertebra frame, outer boundary to outer boundary, sub-voxel boundary.",
+      "radiograph_recipe": "Inference (not in paper): AP pedicle oval width approximates TPD, widened by medial angulation and rotation; not from lateral."
+    },
+    {
+      "name": "Sagittal pedicle diameter (SPD, pedicle height)",
+      "definition": "Maximum vertical height of the pedicle between the superior and inferior pedicle notches (text: P and Q; Figure 2E: X and Y); Figure 2C example 15.3 mm.",
+      "projection": "CT sagittal through the pedicle (Figure 2C caption)",
+      "page": "p. 4 (PDF 4); Figure 2C p. 5; Table 2 p. 8; Figure 3 p. 9",
+      "levels": "T11 to L2",
+      "level_pattern": "Men / women mm: T11 14.17 +/- 1.42 / 13.93 +/- 1.31; T12 14.65 +/- 1.51 / 14.50 +/- 1.44; L1 15.21 +/- 1.43 / 14.88 +/- 1.55; L2 16.24 +/- 1.72 / 15.19 +/- 1.84. Rises T11 to L2; male L1 to L2 step 1.03 mm, female curve flattens. Opposite to Panjabi PDH and Zindrick sagittal width, which fall from T11 (about 17 mm) to L2 (about 15 mm) (Inference from their notes and data).",
+      "covariates": "Men larger at T11 (p = 0.046), L1 (p = 0.012), L2 (p < 0.001), not T12 (p = 0.251). Age not analysed.",
+      "error": "ICC 0.912 to 0.965 (all linear); Inference SEM 0.2 to 0.55 mm.",
+      "ct_mask_recipe": "Inference: parasagittal slab through pedicle centre, craniocaudal extent of arch bone from the floor of the superior notch to the roof of the inferior notch; paper says maximum, generator PDH says smallest; record which.",
+      "radiograph_recipe": "Inference: lateral radiograph shows notch-to-notch height, both sides superimposed and magnified; not in paper."
+    },
+    {
+      "name": "Pedicle length (PL, screw-path chord)",
+      "definition": "From the posterior cortical surface of the articular process (R) to the anterior vertebral body cortex (S), drawn through the pedicle in Figures 2B and 2E.",
+      "projection": "CT axial (Figure 2B caption)",
+      "page": "p. 4 (PDF 4); Figure 2B, 2E p. 5; Table 3 p. 8",
+      "levels": "T11 only reported",
+      "level_pattern": "T11 right 41.25 +/- 2.14, left 41.08 +/- 2.20 mm (difference 0.17, p = 0.41); not reported at T12, L1, L2 or by sex. Close to Zindrick's T11 pedicle-axis depth 41.8 mm (Inference, from this set's note).",
+      "covariates": "None reported.",
+      "error": "Right-left only; its printed interval (-0.13 to 0.19) is not centred on 0.17.",
+      "ct_mask_recipe": "Inference: along the pedicle axis in the vertebra's axial plane, length of bone from the posterior articular-process surface to the anterior body cortex.",
+      "radiograph_recipe": "Inference: not from a lateral alone (shows about PL x cos(TPA))."
+    },
+    {
+      "name": "Transverse pedicle angle (TPA)",
+      "definition": "Angle between the central pedicle axis and the mid-sagittal axis of the vertebral body, after Zindrick 1987 and Wu 2024; axes converge anterior to the body (Figure 2D, example 15.12 and 14.50 deg).",
+      "projection": "CT axial (Figure 2D caption)",
+      "page": "p. 4 (PDF 4); Figure 2D p. 5; Table 2 p. 8; p. 11",
+      "levels": "T11 to L2",
+      "level_pattern": "Men / women deg: T11 21.18 +/- 3.20 / 20.98 +/- 2.50; T12 23.45 +/- 3.73 / 23.35 +/- 2.21; L1 25.55 +/- 5.33 / 25.33 +/- 4.47; L2 27.79 +/- 5.55 / 27.32 +/- 4.78. About 2 deg per level (0.4 to 1.0 SD). 8 to 15 deg above Panjabi PDIs and 15 to 28 deg above Zindrick's transverse angle (T11 1.2, T12 -4.2, L1 10.9, L2 12.0) at the same levels (Inference).",
+      "covariates": "No sex difference at any level (p 0.303 to 0.706). Age not analysed.",
+      "error": "Intra-observer ICC 0.898 (95% CI 0.872 to 0.924); Inference SEM 0.7 to 1.8 deg.",
+      "ct_mask_recipe": "Inference: angle in the vertebra's axial plane between each pedicle's long axis (principal axis of pedicle voxels, or entry point through isthmus centre) and the canal-to-body y axis; generator's PDIs.",
+      "radiograph_recipe": "Not from lateral. Wu 2024 digital-radiography method cited by title only (ref 8, p. 15). Inference: on AP, pedicle oval position relative to the lateral body margin, confounded by rotation."
+    },
+    {
+      "name": "12th rib presence, absence and length; supernumerary, bifid and foramen ribs",
+      "definition": "12th rib presence, absence and length documented; hypoplastic rib less than 4 cm; supernumerary cervical or lumbar ribs, bifid and foramen ribs recorded by incidence and laterality (laterality, lengths, bifid and foramen counts never reported).",
+      "projection": "CT axial, MPR, 3D",
+      "page": "p. 5 (PDF 5); Table 5 p. 10",
+      "levels": "12th rib; cervical and lumbar supernumerary ribs",
+      "level_pattern": "See anomalies.",
+      "covariates": "Absent 12th rib and any anomaly more frequent in women; lumbar rib in men; cervical rib female excess not robust (Inference).",
+      "error": "No reliability given for anomaly calls or rib length.",
+      "ct_mask_recipe": "SPINEPS has no ribs (scanimport/schemes.py ribs False); use the independent rib arm; costal-process labels 43 and 44 mark where a lumbar or short 12th rib lies (Inference).",
+      "radiograph_recipe": "AP radiograph can show hypoplastic or absent 12th rib (Figure 4B) but authors say AP alone is insufficient for level localisation; Inference: the 4 cm cut-off is a CT length, foreshortened on AP."
+    }
+  ],
+  "level_details": [
+    {"level": "T11", "detail": "Narrowest pedicles (TPD 7.62 men, 7.21 women); 57/517 (about 11%) TPD < 6 mm; critical bottleneck for screws; Pedicle Safety Threshold defined here; TPA about 21 deg; PL about 41 mm.", "page": "p. 7, 8, 11, 13 (PDF 7, 8, 11, 13); Tables 2-3"},
+    {"level": "T12", "detail": "Only level with no sex difference in TPD (p = 0.168) or SPD (p = 0.251); body heights still differ by 11.5% to 11.9%; attributed to T12's role in axial load transfer (untested); close to the thoracic aorta (Korkmaz and Ozevren); 12th rib hypoplastic 10.64%, absent 4.26%.", "page": "p. 7-8, 11, 12 (PDF 7-8, 11, 12); Tables 1, 2, 5"},
+    {"level": "L1", "detail": "Largest sex difference in TPD (0.65 mm); L1 virtual morphometry cited as a sex estimator in Turkish people (citation mismatched to ref 10); lumbar ribs 2.32%, bearing level not named.", "page": "p. 8, 13 (PDF 8, 13); Table 5"},
+    {"level": "L2", "detail": "Largest values of every height, TPD, SPD and TPA; male SPD step L1 to L2 1.03 mm.", "page": "p. 7-8 (PDF 7-8); Tables 1-2"},
+    {"level": "T12/L1 junction", "detail": "50% to 60% of spinal column injuries at the TLJ; commonest site of traumatic and osteoporotic compression fractures; no measured quantity shows a step at T12/L1, all rise smoothly T11 to L2 (Inference from Tables 1-2).", "page": "p. 2 (PDF 2); Tables 1-2 p. 7-8"},
+    {"level": "C7/T1", "detail": "Only the cervical rib rate, 7/517 (1.35%); level of the rib not named.", "page": "p. 10 (PDF 10), Table 5"},
+    {"level": "C2/C3, L5/S1", "detail": "Not covered.", "page": "whole paper"}
+  ],
+  "errors": [
+    {"what": "Intra-observer ICC, all linear measures (TPD, SPD, heights), 50 scans re-read after 4 weeks by the same radiologist", "value": "0.912 to 0.965 (95% CI 0.895 to 0.978), p < 0.001", "page": "p. 6 (PDF 6)"},
+    {"what": "Intra-observer ICC, TPA", "value": "0.898 (95% CI 0.872 to 0.924)", "page": "p. 6 (PDF 6)"},
+    {"what": "Repeatability SEM (Inference, SD x sqrt(1 - ICC))", "value": "TPD and SPD about 0.2 to 0.55 mm; heights 0.3 to 0.65 mm; TPA 0.7 to 1.8 deg", "page": "computed from p. 6 and Tables 1-2"},
+    {"what": "Right-left TPD mean difference (paired t)", "value": "T11 0.09 (p 0.31), T12 0.04 (0.58), L1 0.04 (0.65), L2 0.04 mm (0.78)", "page": "p. 8 (PDF 8), Table 3"},
+    {"what": "Within-patient SD of right-left TPD difference (Inference from printed 95% CI)", "value": "about 1.3 (T11), 1.5 (T12), 1.7 (L1), 1.9 mm (L2)", "page": "computed from Table 3, p. 8"},
+    {"what": "Right-left PL difference at T11", "value": "0.17 mm, 95% CI -0.13 to 0.19 (not centred), p 0.41", "page": "p. 8 (PDF 8), Table 3"},
+    {"what": "Inter-observer reliability; reliability of anomaly calls and rib lengths", "value": "not reported", "page": "p. 6 (PDF 6)"}
+  ],
+  "pearls_pitfalls": [
+    {"text": "When the 12th rib is rudimentary or absent, cranial-to-caudal and caudal-to-cranial counts often disagree in planning and on intraoperative fluoroscopy, causing wrong-level surgery; do not rely on AP radiographs alone; trace the whole rib cage on preoperative CT (Standardized Rib-Tracing Protocol), especially in women.", "page": "p. 12-13 (PDF 12-13)"},
+    {"text": "Pedicle Safety Threshold: defined at T11 where 11% have TPD < 6 mm; TPD < 6 mm is said to carry high breach risk with a 6.5 mm screw; consider 4.5-5.5 mm screws or extrapedicular technique. No outcome data given.", "page": "p. 13 (PDF 13)"},
+    {"text": "Pedicle width limits screw diameter; mismatch raises breach risk; medial breach most dangerous (dural tear, CSF leak, neural injury).", "page": "p. 11 (PDF 11)"},
+    {"text": "Despite cohort symmetry, read each side on multiplanar CT before instrumentation; Inference: within-patient side differences of 1-2 mm are common.", "page": "p. 11-12 (PDF 11-12); Table 3"},
+    {"text": "TPA is sex-independent and predictable, a baseline safe corridor for free-hand or 2D-fluoroscopy screws where O-arm is costly or slow.", "page": "p. 12 (PDF 12)"},
+    {"text": "Sex differences in body height call for sex-specific planning of screw length and vertebral body replacement size.", "page": "p. 7 (PDF 7)"},
+    {"text": "Pedicles are a vertical ellipse, taller than wide, widening caudally.", "page": "p. 11 (PDF 11)"},
+    {"text": "Forensic: absent 12th rib favours female sex as a marker combined with pelvic or cranial markers; rib variants as radiological fingerprints; asymptomatic hypoplastic or absent 12th rib on antemortem and postmortem images can corroborate identification; population height baselines separate traumatic compression from natural wedging. No discriminant accuracy computed.", "page": "p. 2, 10, 12-13 (PDF 2, 10, 12-13)"},
+    {"text": "Limitations: single-centre chest-hospital sample; no body height, weight, BMI or workload; cross-sectional; pristine spines only (pathology and scoliosis > 10 deg excluded); supine non-weight-bearing; age analysis underpowered; no multiplicity correction; one reader.", "page": "p. 6, 14 (PDF 6, 14)"},
+    {"text": "Pitfall: figure overlay labels conflict with captions (Figure 2B PL-L on the caption's right pedicle; Figure 2D labels a, b, c; Figure 2E P/Q and X/Y swapped against the text). Figures follow image-left = patient right.", "page": "p. 4-5, 9-10 (PDF 4-5, 9-10)"}
+  ],
+  "instructions": [
+    {"text": "Never name T12 only as the lowest rib-bearing vertebra: 12th rib absent 4.26%, hypoplastic 10.64%, lumbar rib 2.32% here; count the whole column from a fixed end and check the rib count against it.", "page": "p. 10 Table 5; p. 12"},
+    {"text": "On CT, trace every rib to its vertebra, both sides separately, before naming the lowest thoracic level; one patient can have a hypoplastic right and absent left 12th rib.", "page": "p. 9 Figure 4A-B"},
+    {"text": "On AP radiograph or fluoroscopy, treat a short or missing lowest rib as a warning that counts may disagree; do not settle the level from AP alone; do not apply the CT 4 cm cut-off to a foreshortened projected rib (Inference).", "page": "p. 5, 9, 12-13"},
+    {"text": "Raise the prior of an absent 12th rib in women (7.50% vs 1.44%) and of a lumbar rib in men (3.61% vs 0.83%).", "page": "p. 10 Table 5"},
+    {"text": "Inference: call a costal element on a lumbar-type vertebra a lumbar rib on L1 only if twelve thoracic vertebrae lie above it by count from C2 or T1; otherwise consider T13.", "page": "p. 10 Figure 5B (no rule in paper)"},
+    {"text": "Look for cervical ribs on the lowest cervical vertebra (Inference: C7), about 1.35%; confirm C7 is in the field of view before calling a rib absent; the female excess rests on 7 cases.", "page": "p. 10 Figure 5A, Table 5"},
+    {"text": "Measure TPD at the narrowest isthmus outer cortex to outer cortex on axial; SPD notch to notch on sagittal through the pedicle; PL from the posterior articular-process cortex to the anterior body cortex through the pedicle on axial; TPA between pedicle axis and mid-sagittal line on axial.", "page": "p. 4; Figure 2B-2E p. 5"},
+    {"text": "Use TPA as a weak sex-free level cue: about 21.1, 23.4, 25.4, 27.6 deg at T11, T12, L1, L2; compare only with values of the same construction (15-28 deg above Zindrick's angle, Inference).", "page": "p. 8 Table 2"},
+    {"text": "Use TPD and SPD as weak level cues only (neighbours 0.3-0.8 SD apart); TPD about 7.4 at T11 to 9.9 mm at L2.", "page": "p. 8 Table 2"},
+    {"text": "Normalise body heights for sex and size before comparing with level tables (sex gap 2.1-2.6 mm equals one level step); Inference: prefer ACH/PCH, 0.93 at T11 to 0.97 at L2.", "page": "p. 7 Table 1"},
+    {"text": "Do not expect sex differences in pedicle size at T12.", "page": "p. 8 Table 2"},
+    {"text": "Read laterality from image orientation (image-left = patient right in this paper), never from overlay text.", "page": "p. 5 Figure 2B; p. 9-10 Figures 4A, 5C"},
+    {"text": "Expect right and left TPD of one vertebra to differ by 1-2 mm routinely (Inference from Table 3 intervals); flag only larger asymmetry and check rotation or segmentation first.", "page": "p. 8 Table 3"},
+    {"text": "Flag a TLJ pedicle with TPD < 6 mm as narrow; expect it in about 11% at T11.", "page": "p. 7, 13"},
+    {"text": "Inference: expect pedicles taller than wide, TPD/SPD 0.53 at T11 to 0.63 at L2; magnification-free on AP.", "page": "p. 8 Table 2; p. 11"},
+    {"text": "Do not look for a step at T12/L1 in heights, TPD, SPD or TPA; all rise smoothly T11 to L2; use ribs and other features to find the junction (Inference).", "page": "p. 7-8 Tables 1-2"},
+    {"text": "When the lowest rib is short or absent, count from both ends; if they disagree, settle names on CT with the whole rib cage traced (cross-check is Inference).", "page": "p. 12-13"}
+  ],
+  "bordercall": [
+    "(a) Decoder priors, Table 5 p. 10, 517 Turkish adults: 12th rib absent 4.26% (men 1.44%, women 7.50%), laterality unknown, not an 11-rib-pair rate; hypoplastic 12th rib 10.64% (9.03%, 12.50%); lumbar rib 2.32% (3.61%, 0.83%), not separated from T13; cervical rib 1.35% (0.36%, 2.50%), sex difference not robust (Fisher p about 0.053, Inference); any rib anomaly 18.57% (14.44%, 23.33%); categories mutually exclusive. Nothing on T13, 11 thoracic vertebrae, L6, LSTV or missing bodies.",
+    "(b) TPD = PDW (same definition) but rises T11 to L2 (7.43, 8.38, 9.23, 9.91 pooled) while Panjabi PDW is flat or falling; SPD = PDH but Duman says maximum (generator smallest) and rises (14.06 to 15.75) while Panjabi and Zindrick fall (about 17 to 15); TPA = PDIs concept but 8-15 deg above Panjabi and 15-28 deg above Zindrick; PCH close to VBHp, 0.7-1.7 mm above Panjabi. Do not mix Duman into Panjabi-built distributions; Duman's thoracic SPD and TPA magnitudes are outliers (Inference).",
+    "(b) Candidate additions: ACH/PCH (0.93 at T11 to 0.97 at L2) and TPD/SPD (0.53 to 0.63), both scale-free (Inference, computed). PL reported only at T11 (41 mm). Nothing on end-plates, canal, facets or processes.",
+    "(c) Error: intra-observer ICC 0.912-0.965 linear, 0.898 TPA, one reader, 50 scans; Inference SEM 0.2-0.55 mm pedicle, 0.3-0.65 mm heights, 0.7-1.8 deg TPA; no inter-observer data; within-patient right-left TPD difference SD about 1.3-1.9 mm, so draw sides as correlated, not equal.",
+    "(d) Covariates: sex strong for heights (9.1-11.9%, d about 1.1-1.4 computed), weak for pedicle width and height (1-7%, none at T12), none for TPA; age groups no effect on TPD; no body size data, so no size factor; Turkish adults, healthy spines only."
+  ],
+  "gaps": [
+    "Level identification and counting never described; no T12/L1 criterion; no handling of numeric variants.",
+    "Rib laterality, rib lengths, bifid and foramen rib counts recorded but not reported; methods name numerical anomalies but no rib-pair count is given.",
+    "Table 5 categories sum to 96 yet Figure 4A-B shows a patient with two anomaly types; filing rule not given.",
+    "Table 5 chi-square values do not reproduce from the counts (hypoplastic 0.982 vs Pearson 1.63); cervical rib should have used Fisher (p about 0.053) (Inference).",
+    "Figure 2E letters (P/Q, X/Y) swapped against the text; Figure 2D labels a, b, c disagree with the caption; Figure 2B PL-L label on the caption's right pedicle; example angles in Figure 2D (15 deg) far below table means.",
+    "MCH lies between ACH and PCH in Table 1 although Figure 2A shows MCH smallest (24.2 vs 27.0 and 27.3).",
+    "Table 3: PL interval not centred on its mean; TPD intervals imply p near 0.11 at T11 vs printed 0.31; intervals imply within-patient side SD 1.3-1.9 mm, unmentioned.",
+    "Table 4 Mean Diff column undefined (matches group 2 minus group 1 in most rows); limitations say no CIs though Table 4 prints them; below-0.2 mm claim equals 0.20 at male L2.",
+    "Simple Summary overstates T12 similarity (only pedicles, heights still differ about 12%); abstract and conclusions speak of bone volume never measured; abstract says thoracic CT, methods thoracic or abdominal.",
+    "Citation mismatch: Ekizoglu credited as ref 10, but ref 10 is Bozdag and Karaman 2021.",
+    "PL listed as a measured parameter but reported only at T11.",
+    "Field of view required by the incomplete-field exclusion is not defined; cervical rib denominator may include scans without C7 (Inference).",
+    "Against other papers in this set (Inference, from their notes): TPA 15-28 deg above Zindrick 1987, the cited source; SPD rises where Zindrick and Panjabi fall; TPD at L1-L2 about 1.7 mm above Bonczar 2024; PCH at L1-L2 1-1.7 mm below Bonczar; PL at T11 agrees with Zindrick (41.8 mm).",
+    "Anonymised data available from the corresponding author on request (p. 15): per-patient values and rib laterality could be obtained."
+  ]
+}

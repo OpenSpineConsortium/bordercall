@@ -1,0 +1,156 @@
+{
+  "id": "griffith2016",
+  "citation": "James F. Griffith, Junbin Huang, Sheung-Wai Law, Fan Xiao, Jason Chi Shun Leung, Defeng Wang, Lin Shi. Population reference range for developmental lumbar spinal canal size. Quant Imaging Med Surg 2016;6(6):671-679 (Vol 6, No 6, December 2016). doi: 10.21037/qims.2016.12.17. Journal pp. 671-679 are PDF pages 1-9; PDF pages 10-14 are the article's own supplement (Tables S1-S6, Figures S1-S3). Copy read: publisher's free copy (Quant Imaging Med Surg), project files literature/synthetic_spine/griffith2016.pdf; sha256 begins 5abf05f7d813036a. Source: thread \"Reread every paper for clinical detail\", project symphony_4, 2026-10-28.",
+  "population": "Hong Kong; 1,080 living ambulatory adult patients having abdominopelvic CT at the authors' institution (affiliations Prince of Wales Hospital, The Chinese University of Hong Kong), Feb 2014 to Jan 2015; over 99% of 'the patient population' ethnically Chinese and patients with non-Chinese names not included; 540 men (mean age 50.53 +/- 16.98 y) and 540 women (50.65 +/- 17.02 y), ages 21-80, quota of 90 per sex per 10-year band; men 168.1 +/- 6.8 cm, 66.9 +/- 12.8 kg, BMI 23.7 +/- 4.1; women 157.0 +/- 5.9 cm, 55.5 +/- 10.6 kg, BMI 22.5 +/- 4.0. 5,400 vertebral levels (1,080 patients x L1-L5). Excluded: skeletal disorders (dwarfism, scoliosis), prior lumbar surgery, childhood chronic inflammatory condition, major lumbar morphological abnormality (vertebral fracture, dysraphism). Reliability subsample: 20 random subjects, 100 levels. p. 672-673 (PDF 2-3).",
+  "modality": "64-slice MDCT (GE LightSpeed VCT), reconstructive resolution 0.6 mm, bone window; volume reoriented per level to a plane at right angles to the vertebral body; mid-pedicle axial image determined automatically, orthogonal to the vertebra's mid-sagittal plane; canal by seed-growing segmentation after rigid co-registration with manual correction; body by attenuation threshold with manual correction (ref 8, Yushkevich 2006); one operator; SPSS 22. p. 672-673 (PDF 2-3).",
+  "levels_covered": "L1, L2, L3, L4, L5 at the mid-pedicle level of each vertebra only; no disc level, no thoracic, sacral or cervical level; how levels were identified or counted is not stated.",
+  "anomalies": [
+    {
+      "variant": "lumbosacral transitional vertebra, sacralisation, lumbarisation, L6, T13, rib-count or cervical-rib anomaly",
+      "finding": "Not mentioned anywhere: no prevalence, no handling rule and no statement of how lumbar levels were numbered. Inference: a transitional L5 or an L6 would fall into the 'L5' row, the largest and most variable (male width SD 4.25 mm).",
+      "page": "p. 671-679 (PDF 1-14); Table 4, p. 675 (PDF 5)",
+      "population": "1,080 Hong Kong Chinese adult CT patients",
+      "how_identified": "not described"
+    },
+    {
+      "variant": "major lumbar morphological abnormality (vertebral fracture, dysraphism), dwarfism, scoliosis",
+      "finding": "Exclusion criteria only; no count of how many were excluded.",
+      "page": "p. 672 (PDF 2)",
+      "population": "abdominopelvic CT patients screened Feb 2014 to Jan 2015",
+      "how_identified": "not described"
+    }
+  ],
+  "measures": [
+    {
+      "name": "Spinal canal cross-sectional area (SC CSA), mm2",
+      "definition": "Area of the osseous canal on the reformatted mid-pedicle axial CT image; seed-growing segmentation after rigid co-registration, then manual correction of the canal boundary (Figure 1A). Means (SD), M / F, N = 540 each: L1 273.7 (49.0) / 264.8 (42.5); L2 256.3 (52.1) / 252.7 (42.6); L3 247.8 (53.3) / 241.8 (43.6); L4 276.3 (64.4) / 258.1 (55.1); L5 338.3 (82.6) / 296.9 (72.4); L1-L5 278.5 (50.3) / 262.8 (42.5); sex P 0.002, 0.212, 0.043, <0.0001, <0.0001, <0.0001 (Table 2). Adjusted for height and weight (SE 2.3-3.9): L1 264.1 / 274.4; L2 247.8 / 261.2; L3 240.9 / 248.6; L4 268.5 / 265.9 (P 0.589); L5 324.0 / 311.2; L1-L5 269.1 / 272.3 (P 0.386) (Table S1). Smallest-quartile cut-offs (Figure S1; left column male by Inference): M 245.25, 221, 212, 235, 283.25; F 239.0, 225, 213, 222.25, 247 mm2, L1-L5.",
+      "projection": "CT axial (reformatted, mid-pedicle)",
+      "page": "p. 672 (PDF 2), Figure 1A; Table 2, p. 675 (PDF 5); Table S1, suppl. (PDF 10); Figure S1, suppl. (PDF 11)",
+      "levels": "L1-L5",
+      "level_pattern": "Smallest at L3 in both sexes (about 9% below L1 and 23% below L5, p. 673), larger above and below, largest at L5. Inference (mean difference / pooled SD): M 0.34, 0.16, 0.48, 0.84; F 0.28, 0.25, 0.33, 0.60 for L1/L2 to L4/L5; barely separates L1-L3.",
+      "covariates": "Men larger at every level but L2 before adjustment; after adjustment women larger at L1-L3, men at L5 (p. 673). Age r M 0.071 (P 0.101), F -0.040 (P 0.349); height r M 0.186, F 0.298; weight F 0.092 (P 0.033) only; BMI none (Table 1, p. 674). Inference: about +1.4 (M) and +2.1 (F) mm2 per cm of height. Swiss CSA 8-16% larger (p. 678).",
+      "ct_mask_recipe": "Inference: in the mid-pedicle plane of the instance, fill the holes of the vertebra's cross-section; canal = enclosed hole posterior to the body (filled minus bone). Do not use a canal or thecal-sac label (the measure is the osseous ring). Close an unclosed ring with a chord.",
+      "radiograph_recipe": "Not measurable. Inference: k x lateral depth x AP width, with k = CSA/(depth x width) from Tables 2-4: M 0.85, 0.83, 0.80, 0.73, 0.58; F 0.86, 0.84, 0.81, 0.75, 0.60, L1-L5.",
+      "error": "Intra-operator ICC by level (pooled over CSA, depth, width): 0.85, 0.87, 0.91, 0.85, 0.96; computerised vs manual (second reader): 0.80, 0.89, 0.88, 0.83, 0.95 (p. 676). Inference: SEM about 10-30 mm2."
+    },
+    {
+      "name": "Spinal canal depth (anteroposterior diameter), mm",
+      "definition": "From the posterior margin of the vertebral body to the cortex of the neural arch at the base of the spinous process, on the mid-pedicle axial image (Figure 1B; Inference: in the midline). Means (SD), M / F: L1 15.46 (2.13) / 15.58 (2.02); L2 14.58 (2.36) / 14.87 (1.97); L3 14.04 (2.45) / 14.18 (2.08); L4 15.34 (2.99) / 15.03 (2.75); L5 19.67 (3.76) / 18.12 (3.28); L1-L5 15.82 (1.96) / 15.55 (1.72); sex P 0.363, 0.033, 0.300, 0.077, <0.0001, 0.019 (Table 3). Adjusted (SE 0.09-0.18): L1 15.02 / 16.02; L2 14.24 / 15.21; L3 13.81 / 14.40; L4 15.06 / 15.31 (P 0.294); L5 19.38 / 18.41; L1-L5 15.50 / 15.87 (P 0.013) (Table S2). Smallest-quartile cut-offs (Figure S2): M 14, 13, 12.4, 13.2, 17.2; F 14, 14, 13, 13.2, 15.9 mm.",
+      "projection": "CT axial (reformatted, mid-pedicle)",
+      "page": "p. 673 (PDF 3), Figure 1B; Table 3, p. 675 (PDF 5); Table S2, suppl. (PDF 10); Figure S2, suppl. (PDF 12)",
+      "levels": "L1-L5",
+      "level_pattern": "Smallest at L3, larger above and below, jumping at L5 (p. 673, p. 675). Inference: separation M 0.39, 0.22, 0.48, 1.27; F 0.36, 0.34, 0.35, 1.02 (L1/L2 to L4/L5).",
+      "covariates": "Unadjusted: women deeper at L2 (P 0.033), men at L5 and L1-L5; adjusted: women deeper at L1-L3 and L1-L5, men at L5 (p. 673). Age r M 0.008 (P 0.860), F -0.102 (P 0.018); height r M 0.163, F 0.255 (Table 1). Inference: +0.05 (M), +0.07 (F) mm per cm. Depth-CSA r 0.871 / 0.865; depth is the main contributor to CSA (refs 3, 20, p. 676). AP growth complete by about 5 years (p. 671).",
+      "ct_mask_recipe": "Inference: in the mid-pedicle plane, along the vertebra's own AP axis in the midline, from the posterior surface of the body subregion to the inner surface of the arch at the spinous process base; never at the disc or end plate.",
+      "radiograph_recipe": "Inference (paper is CT only): lateral view, posterior body line to spinolaminar line at mid-pedicle height, divided by the magnification; not from AP.",
+      "error": "As for CSA (ICC by level only). Inference: SEM about 0.4-1.2 mm; one 0.6 mm pixel is about 4% of a 14 mm depth."
+    },
+    {
+      "name": "Spinal canal width (transverse diameter, interpedicular distance), mm",
+      "definition": "From the inner margin of one pedicle to the inner margin of the other, on the mid-pedicle axial image (Figure 1B). Means (SD), M / F: L1 20.87 (2.50) / 19.83 (2.16); L2 21.19 (2.62) / 20.13 (2.28); L3 22.13 (2.70) / 20.96 (2.35); L4 24.55 (3.24) / 22.95 (2.90); L5 29.55 (4.25) / 27.41 (3.69); L1-L5 23.66 (2.59) / 22.26 (2.25); all P < 0.0001 (Table 4). Adjusted (SE 0.12-0.20): L1 20.63 / 20.07; L2 20.99 / 20.34; L3 21.89 / 21.20; L4 24.28 / 23.21; L5 29.09 / 27.87; L1-L5 23.38 / 22.54; all P <= 0.003 (Table S3). Smallest-quartile cut-offs (Figure S3): M 19.2, 20, 20.6, 22.5, 27; F 18, 19, 19.3, 21, 25 mm.",
+      "projection": "CT axial (reformatted, mid-pedicle)",
+      "page": "p. 673 (PDF 3), Figure 1B; Table 4, p. 675 (PDF 5); Table S3, suppl. (PDF 10); Figure S3, suppl. (PDF 13)",
+      "levels": "L1-L5",
+      "level_pattern": "Rises steadily L1 to L5, unlike CSA and depth (p. 675, p. 676); nearly flat L1 to L2 (+0.3 mm). Inference: separation M 0.12, 0.35, 0.81, 1.32; F 0.14, 0.36, 0.75, 1.34; best canal measure for L3/L4 and L4/L5. Width/depth ratio M 1.35 at L1 to 1.5-1.6 at L3-L5.",
+      "covariates": "Men wider at every level, also after adjustment (p. 675). Age r M 0.281, F 0.267 (P < 0.001; not discussed in the text); height r M 0.126 (P 0.003), F 0.143; weight F 0.102 (P 0.018) only (Table 1). Inference: about +0.04 mm per year; +0.05 (M), +0.055 (F) mm per cm of height. Transverse growth continues to 15-17 years (p. 671).",
+      "ct_mask_recipe": "Inference: in the mid-pedicle plane, the left-right distance between the medial pedicle surfaces along the vertebra's own transverse axis; the pedicle lies inside SPINEPS's arch label (no separate pedicle label, from memory).",
+      "radiograph_recipe": "Inference: AP view, between the medial cortices of the pedicle ovals, divided by the magnification; not from a lateral.",
+      "error": "As for CSA (ICC by level only). Inference: SEM about 0.4-1.2 mm."
+    },
+    {
+      "name": "Vertebral body cross-sectional area (VB CSA), mm2",
+      "definition": "Area of the vertebral body on the same mid-pedicle image, by an attenuation threshold between body and surrounding soft tissue (ref 8) with manual correction and demarcation at the pedicle bases (Figure 1C). Means (SD), M / F: L1 1,201.0 (172.3) / 961.7 (138.1); L2 1,273.4 (179.3) / 1,030.0 (145.0); L3 1,399.3 (194.5) / 1,144.6 (159.5); L4 1,511.5 (206.7) / 1,251.9 (173.9); L5 1,711.4 (240.9) / 1,426.5 (206.4); L1-L5 1,419.3 (185.5) / 1,162.9 (153.7); all P < 0.0001 (Table 5). Adjusted (SE 7.6-10.7): L1 1,165.0 / 997.7; L2 1,231.6 / 1,071.7; L3 1,350.3 / 1,193.5; L4 1,456.7 / 1,306.7; L5 1,646.4 / 1,491.4 (Table S4). By age 21-40 / 41-60 / 61-80 (N 180 each), L1-L5 mean: M 1,378.8 / 1,431.1 / 1,448.0; F 1,129.8 / 1,146.0 / 1,213.0 (Table S5, which also gives each level).",
+      "projection": "CT axial (reformatted, mid-pedicle)",
+      "page": "p. 673 (PDF 3), Figure 1C; Table 5, p. 675 (PDF 5); Tables S4-S5, suppl. (PDF 14)",
+      "levels": "L1-L5",
+      "level_pattern": "Rises steadily L1 to L5 (M +42%, F +48%, computed). Inference: separation M 0.41, 0.67, 0.56, 0.89; F 0.48, 0.75, 0.64, 0.91; better than any canal measure at L1/L2 and L2/L3, width better at L3/L4.",
+      "covariates": "Men larger at every level, also adjusted (p. 675). Rises with age, about twice as fast in women (r M 0.165, F 0.294), attributed to low bone density enlarging vertebral CSA (refs 24, 25, p. 678). Height r M 0.331, F 0.264; weight 0.255 / 0.269; BMI 0.118 / 0.177 (Table 1). Inference: +9.0 (M), +6.9 (F) mm2 per cm; +1.8 (M), +2.7 (F) mm2 per year; in women the rise is mostly after 60.",
+      "ct_mask_recipe": "Inference: area of the body (corpus) subregion in the mid-pedicle plane, cut at the pedicle bases; a waist area, smaller than an end-plate area.",
+      "radiograph_recipe": "Not measurable. Inference: ellipse from AP body width and lateral mid-body depth.",
+      "error": "No reliability reported for VB CSA."
+    },
+    {
+      "name": "SC CSA / VB CSA ratio",
+      "definition": "Canal CSA divided by body CSA at the mid-pedicle level. Means (SD), M / F: L1 0.23 (0.05) / 0.28 (0.06); L2 0.20 / 0.25; L3 0.18 / 0.21; L4 0.18 / 0.21; L5 0.20 / 0.21; L1-L5 0.20 (0.04) / 0.23 (0.04); all P <= 0.0002 (Table 6). Adjusted: L1 0.23 / 0.28; L2 0.21 / 0.25; L3 0.18 / 0.21; L4 0.19 / 0.21; L5 0.20 / 0.21 (Table S6).",
+      "projection": "CT axial (reformatted, mid-pedicle)",
+      "page": "p. 673 (PDF 3); Table 6, p. 676 (PDF 6); Table S6, suppl. (PDF 14)",
+      "levels": "L1-L5",
+      "level_pattern": "Highest at L1; men lowest at L3-L4 (0.18), women flat 0.21 at L3-L5; weak for labelling.",
+      "covariates": "Larger in women (the reverse of absolute size), also adjusted (p. 676). Falls with age in women only (r -0.249; men -0.031, P 0.474); falls slightly with weight (M -0.108, F -0.138) and BMI (M -0.098, F -0.174) (Table 1).",
+      "ct_mask_recipe": "Inference: ratio of the two mask areas; scale-free.",
+      "radiograph_recipe": "Not measurable.",
+      "error": "Not reported."
+    },
+    {
+      "name": "Smallest versus largest quartile contrast",
+      "definition": "For each level and sex, mean of the 25% largest against the 25% smallest, height-matched (p. 673); percentage difference equals (smallest - largest) / largest (computed check). L1-L5: CSA M -35.9%, F -32.6%; depth -26.2% / -23.6%; width -23.5% / -22.0%; VB CSA -26.9% / -27.9%; ratio -37.4% / -36.8%; all P < 0.0001. CSA gap widens caudally: M -36.1% (L1) to -46.9% (L5), F -33.2% to -45.4%. Smallest-quartile mean depth L2-L4: M 11.54, 11.29, 11.84; F 12.68, 11.71, 11.94 mm.",
+      "projection": "CT axial (reformatted, mid-pedicle)",
+      "page": "p. 673 (PDF 3); p. 676 (PDF 6); Table 7, p. 677 (PDF 7)",
+      "levels": "L1-L5",
+      "level_pattern": "Variation within the population is about 34% for CSA, 24% for depth and 22% for width (p. 676).",
+      "covariates": "Height-matched (p. 673) or adjusted for height and weight (p. 676); method not described."
+    }
+  ],
+  "level_details": [
+    {"level": "T12/L1 and L5/S1 junctions", "detail": "Not addressed; mid-pedicle L1-L5 only, no disc level.", "page": "p. 672 (PDF 2)"},
+    {"level": "L1", "detail": "Largest CSA of L1-L3 and highest canal/body ratio (M 0.23, F 0.28); smallest width and VB CSA; cut-offs M/F CSA 245.25/239.0 mm2, depth 14/14 mm, width 19.2/18 mm.", "page": "Tables 2, 4-6, p. 675-676 (PDF 5-6); Figures S1-S3, suppl. (PDF 11-13)"},
+    {"level": "L2", "detail": "Only level with no unadjusted sex difference in CSA (P 0.212) and the only level where unadjusted depth is larger in women (P 0.033); width +0.3 mm over L1; the text's depth cut-off is at L2 (13 mm M, 14 mm F); literature stenosis threshold below 11 mm at L2 and L3 (ref 23).", "page": "Tables 2-4, p. 675 (PDF 5); p. 676-678 (PDF 6-8)"},
+    {"level": "L3", "detail": "Narrowest CSA and depth in both sexes; CSA cut-off 212 mm2 (M), 213 mm2 (F) by Figure S1 (the discussion quotes the values without a level); Lausanne also found the smallest CSA at L3.", "page": "p. 673 (PDF 3); Figure S1, suppl. (PDF 11); p. 678 (PDF 8)"},
+    {"level": "L4", "detail": "CSA and depth rise again from L3, width keeps rising; adjusted CSA and depth do not differ by sex (P 0.589, 0.294); unadjusted depth P 0.077.", "page": "Tables 2-4, p. 675 (PDF 5); Tables S1-S2, suppl. (PDF 10)"},
+    {"level": "L5", "detail": "Largest absolute values of every measure and largest SDs (width 4.25/3.69 mm); men exceed women even adjusted for CSA, depth and width; widest CSA quartile gap (-46.9% M, -45.4% F); L4-to-L5 mean steps: width +5.00/+4.46 mm, depth +4.33/+3.09 mm, CSA +62.0/+38.8 mm2, VB CSA +199.9/+174.6 mm2 (M/F). Inference: CSA/(depth x width) 0.58-0.60 implies a triangular canal; possibly mixed with transitional segments.", "page": "Tables 2-5 and 7, p. 675-677 (PDF 5-7); Tables S1-S3, suppl. (PDF 10)"}
+  ],
+  "errors": [
+    {"what": "intra-operator reliability, computerised method, one reader twice 1 week apart, 20 subjects (100 levels), ICC by level (pooled over CSA, depth, width)", "value": "L1 0.85, L2 0.87, L3 0.91, L4 0.85, L5 0.96", "page": "p. 673 (PDF 3); p. 676 (PDF 6)"},
+    {"what": "computerised vs manual readings (second reader chose the image and measured by hand), ICC by level", "value": "L1 0.80, L2 0.89, L3 0.88, L4 0.83, L5 0.95; reader and method differences are mixed", "page": "p. 673 (PDF 3); p. 676 (PDF 6)"},
+    {"what": "instrument resolution", "value": "CT reconstructive resolution 0.6 mm; no projection magnification on a CT plane (Inference)", "page": "p. 672 (PDF 2)"},
+    {"what": "not reported", "value": "ICC per measure, ICC form, absolute error (mm, mm2), sex mix of the 20, reliability of VB CSA and of the ratio", "page": "p. 673 (PDF 3); p. 676 (PDF 6)"},
+    {"what": "Inference: standard error of measurement, SD x sqrt(1 - ICC)", "value": "about 0.4-1.2 mm for depth and width, 10-30 mm2 for CSA", "page": "computed from Tables 2-4, p. 675 (PDF 5), and p. 676 (PDF 6)"}
+  ],
+  "pearls_pitfalls": [
+    {"text": "Lumbar canal stenosis is the most common indication for lumbar surgery over 65 (ref 1); symptomatic stenosis combines developmental size with acquired, mostly degenerative, encroachment; a larger developmental canal lowers the risk of neurological compromise (ref 2).", "page": "p. 671 (PDF 1); p. 676 (PDF 6)"},
+    {"text": "Measure developmental size at the mid-pedicle level, away from the acquired narrowing at the disc-vertebral level.", "page": "p. 671 (PDF 1)"},
+    {"text": "AP canal growth is complete by about 5 years, transverse by 15-17, all by 17; prenatal and maternal factors (gestation, placenta, nutrition, birth weight, maternal age, parity, class, smoking) may shape it (refs 3-7).", "page": "p. 671 (PDF 1)"},
+    {"text": "Apart from uncommon diseases such as dural ectasia, intraspinal tumours and intradural cysts, nothing acquired is known to alter the developmental canal, so CT patients can serve as a reference population. Inference: such diseases widen the canal.", "page": "p. 672 (PDF 2)"},
+    {"text": "No accepted definition of a developmentally narrow canal exists (ref 21); AP cut-offs from below 10 to below 14 mm are used, below 11 mm at L2 and L3 most widely (ref 23); the authors use the smallest quartile, arbitrarily.", "page": "p. 673 (PDF 3); p. 676-678 (PDF 6-8)"},
+    {"text": "Ullrich's US-based 145 mm2 'developmental stenosis' threshold is too low for this population, whose smallest-quartile CSA line is 212 mm2 (men) and 213 mm2 (women) (Inference: the L3 values); L2 AP below 13 mm (men) or 14 mm (women) is the smallest quartile.", "page": "p. 678 (PDF 8)"},
+    {"text": "Absolute canal size is larger in men, but relative to the body it is larger in women; the difference lessens in older women as VB CSA grows with lower bone density (refs 24, 25).", "page": "p. 676 (PDF 6); p. 678 (PDF 8)"},
+    {"text": "Taller people have slightly larger canal CSA and depth (weak r, 0.126-0.298); canal CSA and depth do not change with age per the discussion, although women's depth falls slightly in the results.", "page": "p. 673-675 (PDF 3-5); Table 1, p. 674 (PDF 4); p. 678 (PDF 8)"},
+    {"text": "Each region, race and sex needs its own reference range; Swiss (Lausanne) CSA is 8-16% larger, with the same L3 minimum and male excess; nearly all canal dimensions are smaller in women (refs 16-19).", "page": "p. 672 (PDF 2); p. 676 (PDF 6); p. 678 (PDF 8)"},
+    {"text": "Depth rather than width is the primary contributor to developmental canal CSA (refs 3, 20).", "page": "p. 676 (PDF 6)"}
+  ],
+  "instructions": [
+    {"text": "For each lumbar instance, reorient so the axial plane is at right angles to the body and orthogonal to its mid-sagittal plane and take the slice through the mid-pedicles (Inference: halfway through the pedicles' craniocaudal extent); never measure developmental canal size at the disc level.", "page": "p. 671-672 (PDF 1-2)"},
+    {"text": "Measure canal CSA as the enclosed osseous hole of the vertebral ring in that plane, not a soft-tissue or dural-sac label.", "page": "p. 672 (PDF 2), Figure 1A"},
+    {"text": "Measure depth in the midline from the posterior body wall to the inner cortex of the arch at the spinous process base; width between the medial pedicle cortices.", "page": "p. 673 (PDF 3), Figure 1B"},
+    {"text": "Measure VB CSA in the same plane with the pedicles cut off at their bases.", "page": "p. 673 (PDF 3), Figure 1C"},
+    {"text": "Use width and VB CSA as monotone L1-to-L5 gradients and the CSA and depth minimum at L3 and jump at L5 as landmarks; compare neighbours rather than the population table alone (Inference).", "page": "Tables 2-5, p. 675 (PDF 5)"},
+    {"text": "Treat the largest step (mean width +4.5 to +5 mm, depth +3 to +4.5 mm, CSA +40 to +60 mm2, VB CSA +175 to +200 mm2) as L4 to L5; an unusually large step may be a transitional or extra segment, so check the sacrum and ribs (Inference; not addressed by the paper).", "page": "Tables 2-5, p. 675 (PDF 5)"},
+    {"text": "Judge a canal developmentally small against the sex- and level-specific smallest-quartile cut-off (Figures S1-S3; left column male by Inference), for example L2 depth below 13 mm (M) or 14 mm (F) and L3 CSA below 212 mm2 (M) or 213 mm2 (F); do not use 145 mm2 here.", "page": "Figures S1-S3, suppl. (PDF 11-13); p. 678 (PDF 8)"},
+    {"text": "Inference: flag a canal well above the range as a possible dural ectasia, intraspinal tumour or intradural cyst.", "page": "p. 672 (PDF 2)"},
+    {"text": "Inference (paper is CT only): on a lateral radiograph use only depth at mid-pedicle height, on an AP only width, both corrected for magnification.", "page": "p. 673 (PDF 3)"},
+    {"text": "To remove body size use the canal/body CSA ratio, expecting it to fall with age in women (r -0.249) and the sex comparison to reverse.", "page": "Table 1, p. 674 (PDF 4); p. 676 (PDF 6); p. 678 (PDF 8)"},
+    {"text": "Apply these numbers to Chinese adults 21-80 only; expect other populations to differ (Swiss CSA 8-16% larger); Inference: not below 17 years.", "page": "p. 671 (PDF 1); p. 672 (PDF 2); p. 678 (PDF 8)"},
+    {"text": "Do not name L1, L2 or L3 from canal size alone (width step L1-L2 +0.3 mm; CSA and depth differ little); Inference: VB CSA separates them better.", "page": "Tables 2-5, p. 675 (PDF 5)"}
+  ],
+  "bordercall": [
+    "(a) Decoder priors: none; no prevalence of LSTV, L6, T13 or rib anomaly and no statement of how levels were counted.",
+    "(b) Canal depth and width correspond to the generator's SCD and SCW; Inference from this set's panjabi1992 note: Panjabi's SCD (19.0, 18.2, 17.5, 18.6, 19.7) is about 3.3-3.6 mm larger than Griffith's men at L1-L4 and equal at L5, his SCW (23.7 to 27.1) 2.8 mm larger at L1 and 2.5 mm smaller at L5, his SCA (320, 281, 280, 290, 330) 25-46 mm2 larger at L1-L3. Pick one definition for generator and extractor and do not mix the tables at one level. Mid-pedicle VB CSA is not in Panjabi's set and could be added with Griffith's sex-specific means and SDs. Scale-free features: shape factor CSA/(depth x width) about 0.85 at L1 to 0.59 at L5 (computed); canal/body ratio, flat L2-L5 and weak.",
+    "(c) Error: intra-operator ICC 0.85-0.96, computerised vs manual 0.80-0.95 (by level only); voxel 0.6 mm; Inference: SEM about 0.4-1.2 mm (depth, width) and 10-30 mm2 (CSA); a 1 mm mask adds at least half a voxel per boundary.",
+    "(d) Covariates: separate sex tables; adjusted for height and weight women are deeper and larger at L1-L3. Height (Inference, r x SD ratio): CSA +1.4/+2.1 mm2 per cm (M/F), depth +0.05/+0.07 mm, width +0.05/+0.055 mm, VB CSA +9.0/+6.9 mm2; canal size only weakly tied to stature (r <= 0.30). Age: CSA flat, depth flat (M) or slightly falling (F), width rising about 0.04 mm per year, VB CSA rising 1.8/2.7 mm2 per year. Between-measure r of subject L1-L5 means (Table 1): depth-width 0.610/0.553, CSA-VB 0.293/0.250, width-VB 0.439/0.372, depth-VB 0.287/0.196. Population Hong Kong Chinese; Swiss CSA 8-16% larger."
+  ],
+  "gaps": [
+    "Level identification and transitional anatomy not described; the L5 row may hold transitional segments.",
+    "Canal width correlates with age (r 0.281 M, 0.267 F) but the text never discusses it; Inference: a birth-cohort effect (ref 2) or remodelling.",
+    "Figure S1: the male L5 histogram is bar for bar the male L4 panel (marker near 235 mm2) while labelled 283.25 mm2, which agrees with Table 2; trust label and table.",
+    "Figures S1-S3 do not label sex columns; left = male inferred from the text's values.",
+    "Whether cut-offs are empirical percentiles or normal-fit values is not stated; several labels (245.25, 222.25, 283.25, female L2 depth 14 vs 13.5 by normal fit, male L2 width 20 vs 19.4) suggest empirical percentiles.",
+    "Abstract says no change in CSA with weight, but women show r 0.092 (P 0.033) and the results say so; the abstract attaches (P<0.05) to this null finding.",
+    "Discussion says depth did not change with age; results and Table 1 show a slight fall in women (r -0.102, P 0.018).",
+    "The height-and-weight adjustment model behind Tables S1-S4 and S6 is not described in the statistical methods; the quartile comparison is called height-matched (p. 673) and adjusted (p. 676).",
+    "Table S5's P values compare sexes, not ages; no test of the VB CSA age trend by level.",
+    "Reliability reported per level, not per measure; no absolute error; no reliability for VB CSA or the ratio; reader and method confounded in the manual comparison.",
+    "Ullrich cited by name with no reference number and absent from the reference list; the 100 million yearly CTs 'around the world' cites a US projection (ref 15).",
+    "Abstract P < 0.0001 for height against Table 1's P < 0.001; 'skeletal orders' typo; 'mid-vertebral' and 'mid-pedicle' used for one plane.",
+    "Inference, from this set's eisenstein1977 note: Eisenstein's dry-bone caliper AP is a minimum near the canal's cranial end and his interpedicular distance a maximum, so they differ in definition from Griffith's single-slice values; their level patterns agree and his lower limits (AP 13 mm, interpedicular 18 mm) sit near Griffith's L1-L3 smallest-quartile lines."
+  ]
+}

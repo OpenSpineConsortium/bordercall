@@ -1,0 +1,298 @@
+{
+  "id": "yu2015",
+  "citation": "Charles C. Yu, BA; Roger T. Yuh, BS; Navkirat S. Bajwa, MD; Jason O. Toy, MD; Uri M. Ahn, MD; Nicholas U. Ahn, MD. Pedicle Morphometry of Lumbar Vertebrae: Male, Taller, and Heavier Specimens Have Bigger Pedicles. Spine 2015;40(21):1639-1646 (section Anatomy; Level of Evidence 3; DOI 10.1097/BRS.0000000000001086). Source: thread \"Reread every paper for clinical detail\", project symphony_4, 2026-10-28. Copy read: greg's upload of 2026-10-28 01:02 UTC (upload id 0045c655-4136-4e6a-8129-74f8c66642a6), 8 PDF pages, sha256 begins f4246bb9a4901c54; printed pages 1639-1646 are PDF pages 1-8.",
+  "population": "USA (Cleveland, Ohio), dry bone: the Hamann-Todd Osteological Collection (more than 3300 treated and dried skeletons of people who died in Cleveland 1893-1938, with height and weight documented at the time of death, sex and ethnic origin). 503 skeletons chosen at random: 404 male and 99 female; 281 Caucasian and 222 African American; age 17 to 93 years (mean 47); mean height 170 cm; mean weight 56 kg (Inference: BMI about 19.4). L1-L5 of each skeleton (Inference: 2,515 vertebrae and 5,030 pedicles); left and right were averaged, so each level has n = 503. Specimens with congenital diseases such as scoliosis were excluded (number not given); medical and surgical history largely unavailable. Table 1 crosses age with sex and with race but not sex with race; race is confounded with age (32 of 35 aged 15-24 are African American, 2 of 24 aged 75-84). p. 1639 (PDF 1); p. 1640 (PDF 2), Table 1.",
+  "modality": "Direct digital caliper on dry bone (precision 0.01 mm), one examiner (C.C.Y.), who \"subjectively measured the gross specimens\"; caliper at the narrowest points of PH and PW along the pedicle's longitudinal axis; PH with a lateral approach in the sagittal plane, PW with an inferior approach in the transverse plane; all vertebrae of one skeleton before the next. Statistics: means and SD by age, sex, race, height and weight bands; multiple regression on age, sex, race, height and weight; one-way ANOVA, Student t tests, chi-square for narrow-pedicle proportions; Statgraphics Centurion XVI 16.2; P < 0.05. No imaging. p. 1640 (PDF 2); Figure 1 p. 1641 (PDF 3); Figure 3 caption p. 1643 (PDF 5).",
+  "levels_covered": "L1 to L5 only; no T12 and no S1. How L1 and L5 were identified, and whether any skeleton had four or six lumbar-type vertebrae, is not stated. The same group reported T1-T6 (ref 23, title naming 503 cadaveric specimens) and T7-T12 (ref 24) separately; Inference: probably the same skeletons, not stated here. p. 1640 (PDF 2); p. 1646 (PDF 8).",
+  "anomalies": [
+    {
+      "variant": "none reported (lumbosacral transitional vertebra, sacralisation, lumbarisation, L6, T13, 11 or 13 rib pairs, cervical ribs, block vertebrae)",
+      "finding": "The paper never mentions any numerical or transitional anomaly and does not say how levels were counted; no prevalence, numerator or denominator can be taken. Inference: a transitional L5 or a lumbarised S1 counted as L5 would sit unrecognised in the L5 row (L5 PW range 9.09-29.06 mm, PH 9.72-19.94 mm).",
+      "page": "pp. 1639-1646 (PDF 1-8); Methods p. 1640 (PDF 2)",
+      "population": "503 Hamann-Todd skeletons, Cleveland, died 1893-1938",
+      "how_identified": "not applicable; level identification not described"
+    },
+    {
+      "variant": "congenital disease such as scoliosis (exclusion criterion)",
+      "finding": "Excluded; the number excluded is not given.",
+      "page": "p. 1640 (PDF 2)",
+      "population": "Hamann-Todd collection, sampling of 503",
+      "how_identified": "not stated"
+    },
+    {
+      "variant": "narrow pedicle, PW < 4.5 mm (the smallest screw)",
+      "finding": "L1 0.80%, L2 0.40%, L3-L5 virtually none, of 503 specimens with left and right averaged (Inference: 4 and 2 specimens). L1 by age: >=70 y 1.92%, 50-69 y 1.30%, 31-49 y 0.47%, <=30 y none (P = 0.514); by height: <=1600 mm 4.35%, 1601-1699 mm 0.60%, taller none (P = 0.004); by weight: <=45 kg 3.61%, 46-55 kg 0.81%, heavier none (P = 0.013). L2 by age: 50-69 y 0.65%, 31-49 y 0.47% (P = 0.848); by height: <=1600 mm 2.90% (P = 0.006); by weight: <=45 kg 2.41% (P = 0.017).",
+      "page": "p. 1640 (PDF 2); p. 1641 (PDF 3); Figure 3 and text p. 1643 (PDF 5)",
+      "population": "503 Hamann-Todd skeletons; bands of 82/215/154/52 (age), 69/168/204/62 (height), 83/123/206/91 (weight)",
+      "how_identified": "caliper PW, chi-square across bands at L1 and L2"
+    },
+    {
+      "variant": "narrow pedicle, PW < 5.5 mm",
+      "finding": "L1 4.77%, L2 2.78%, L3 0.20% of 503 specimens (Inference: 24, 14 and 1 specimens); none reported at L4-L5. By subgroup only described as following the 4.5 mm trend, not shown.",
+      "page": "p. 1641 (PDF 3); p. 1644 (PDF 6)",
+      "population": "503 Hamann-Todd skeletons",
+      "how_identified": "caliper PW"
+    },
+    {
+      "variant": "unexplained extreme values at L1 (Inference)",
+      "finding": "L1 maxima PW 18.74 mm (about 5 SD above the L1 mean of 8.52 and above the L4 mean of 13.19) and PH 22.33 mm (about 4.7 SD above 15.75); the paper does not comment. Inference: a mislabelled lower lumbar bone, a recording error or an anomalous L1.",
+      "page": "p. 1640 (PDF 2)",
+      "population": "503 Hamann-Todd skeletons",
+      "how_identified": "Inference from the printed ranges and pooled SD"
+    }
+  ],
+  "measures": [
+    {
+      "name": "Pedicle height (PH)",
+      "definition": "Cranial-caudal dimension of the pedicle at its narrowest point along the pedicle's longitudinal axis, caliper applied laterally in the sagittal plane; left and right averaged. Inference: outer cortex to outer cortex (external isthmus height, not the cancellous channel).",
+      "projection": "dry bone caliper, sagittal plane",
+      "page": "p. 1640 (PDF 2); Figure 1A p. 1641 (PDF 3); Tables 2-5 pp. 1641-1645 (PDF 3-7)",
+      "levels": "L1-L5",
+      "level_pattern": "Means (Table 5): L1 15.75, L2 15.06, L3 14.59, L4 13.81, L5 13.67 mm; ranges L1 10.84-22.33, L5 9.72-19.94. Falls caudally, largest L1, smallest L5 (Figure 2; abstract). Steps -0.69, -0.47, -0.78, -0.14 mm. Inference: pooled SD 1.41, 1.33, 1.31, 1.41, 1.66 mm; step/SD 0.5, 0.4, 0.6, 0.1, so PH separates no adjacent pair well and cannot tell L4 from L5. PH exceeds PW at L1-L4, is below it at L5.",
+      "covariates": "Sex (Table 4): male 16.04+/-1.35, 15.33+/-1.27, 14.80+/-1.28, 14.05+/-1.34, 13.90+/-1.65 against female 14.57+/-0.95, 13.98+/-0.99, 13.73+/-1.07, 12.85+/-1.27, 12.77+/-1.36 (n 404/99; P 1.25E-22 to 4.59E-10); F/M 0.91-0.93 (Inference). Adjusted (Table 2): age +0.011 to +0.018 mm/yr; height +5.51, +4.97, +5.56, +5.02, +5.68 mm/m; weight +0.001, +0.005, -0.004, -0.003, -0.011 mm/kg. Unadjusted (Table 3): tallest minus shortest 1.78-2.07 mm; heaviest minus lightest 0.37 (L5) to 0.94 (L2) mm, weight ANOVA n.s. at L5 (P 0.47); age ANOVA significant at L1, L2, L4, L5, not L3 (P 0.06). Race (Table 4): Caucasian against African American 0.01-0.17 mm apart, none significant (P 0.25-0.92).",
+      "ct_mask_recipe": "Inference (paper uses no imaging): vertebral frame from the body part of the mask (cranial-caudal = end-plate normal, AP = body centroid to arch midline, ML = cross product); isolate each pedicle as the bridge of the posterior-element mask between the posterior body wall and the base of the superior articular process and pars (in SPINEPS, the part of the arch subregion joining the corpus; no pedicle label exists); fit the pedicle long axis through section centroids; slice perpendicular to it at sub-mm steps; take the outer cranial-caudal extent per slice and the minimum over slices; average sides. Use a sub-voxel surface: one 1 mm voxel is about 7% of a 14 mm PH.",
+      "radiograph_recipe": "Inference (no radiographic method in the paper, which cites Olsewski's finding that direct and radiographic values differ significantly, p. 1639, PDF 1): true lateral view, narrowest cranial-caudal height of the pedicle between the superior and inferior notches, both sides superimposed (rotation splits them); remove magnification (roughly 1.1-1.3) by calibration or use ratios. The AP pedicle oval's vertical extent approximates it as well.",
+      "error": "Averaged intra-rater CV 4.0% (1.7-6.2%), inter-rater CV 5.2% (1.5-16.8%) on 21 random samples, not split by dimension or level (p. 1640, PDF 2). Left-right difference significant only at L1 (15.57 against 15.94 mm) and L2 (14.96 against 15.17 mm). Inference: about 0.6-0.8 mm absolute; error CV is about a third to four fifths of the within-sex biological CV of PH (6.5-12%)."
+    },
+    {
+      "name": "Pedicle width (PW)",
+      "definition": "Medial-lateral dimension of the pedicle at its narrowest point along the pedicle's longitudinal axis, caliper applied from below (inferior approach) in the transverse plane; left and right averaged. Inference: outer cortex to outer cortex.",
+      "projection": "dry bone caliper, transverse plane",
+      "page": "p. 1640 (PDF 2); Figure 1B p. 1641 (PDF 3); Tables 2-5 pp. 1641-1645 (PDF 3-7)",
+      "levels": "L1-L5",
+      "level_pattern": "Means (Table 5): L1 8.52, L2 8.66, L3 10.46, L4 13.19, L5 18.33 mm (text 8.53 and 18.34); ranges L1 3.92-18.74, L5 9.09-29.06. Rises caudally, narrowest L1, widest L5 (Figure 2). Steps +0.14, +1.80, +2.73, +5.14 mm. Inference: pooled SD 2.03, 1.79, 1.94, 2.00, 2.44 mm; step/SD 0.1, 1.0, 1.4, 2.3: PW cannot tell L1 from L2, separates L2/L3 moderately and L4/L5 strongly.",
+      "covariates": "Sex (Table 4): male 8.88+/-1.96, 9.01+/-1.69, 10.84+/-1.85, 13.58+/-1.89, 18.78+/-2.33 against female 7.06+/-1.61, 7.24+/-1.47, 8.91+/-1.45, 11.60+/-1.59, 16.47+/-1.95 (P 1.41E-20 to 8.54E-17); F/M 0.80 at L1 to 0.88 at L5 (Inference). Adjusted (Table 2): age +0.008, +0.009, +0.012, +0.015, +0.026 mm/yr; height +2.07, +2.71, +3.34, +4.20, +7.59 mm/m; weight +0.017, +0.022, +0.015, +0.015, +0.015 mm/kg. Unadjusted (Table 3): tallest minus shortest 1.74-2.67 mm; heaviest minus lightest 1.07-1.48 mm, all weight and height ANOVAs significant; age ANOVA significant only at L4 (0.01) and L5 (1.17E-05). Race (Table 4): African American wider at L1 (8.88 against 8.24, P 3.99E-04) and L2 (8.86 against 8.50, P 0.027), Caucasian wider at L5 (18.69 against 17.86, P 1.24E-04), n.s. at L3 and L4.",
+      "ct_mask_recipe": "Inference: as for PH, but take the outer medial-lateral extent within each slice perpendicular to the pedicle axis, minimum along the axis, average sides. Measuring in the vertebra's transverse plane instead inflates PW by about 1/cos(medial convergence angle), largest at L5 (angles not measured here, p. 1644, PDF 6). One 1 mm voxel is about 12% of an 8.5 mm L1 PW.",
+      "radiograph_recipe": "Inference (no method in the paper): AP view, transverse width of the pedicle oval, divided by magnification; the medially converging pedicle projects wider than its true minimum, most at L5. A lateral view cannot give PW.",
+      "error": "Same CVs as PH (4.0% intra, 5.2% inter; p. 1640, PDF 2). Inference: about 0.35-0.45 mm at L1 and 0.7-0.95 mm at L5; within-sex biological CV about 22% at L1 falling to about 12% at L5 (Table 4)."
+    },
+    {
+      "name": "Proportion of narrow pedicles (PW < 4.5 mm and < 5.5 mm)",
+      "definition": "Share of the 503 specimens whose side-averaged PW is under 4.5 mm (the smallest screw) or under 5.5 mm; called a percentage of pedicles in the text and of subjects on Figure 3's axis.",
+      "projection": "derived from dry bone caliper PW",
+      "page": "p. 1640 (PDF 2); p. 1641 (PDF 3); Figure 3 and text p. 1643 (PDF 5); p. 1644 (PDF 6)",
+      "levels": "L1-L5 (subgroups only L1-L2)",
+      "level_pattern": "< 4.5 mm: L1 0.80%, L2 0.40%, L3-L5 virtually none; < 5.5 mm: L1 4.77%, L2 2.78%, L3 0.20%.",
+      "covariates": "Concentrated in short (<= 1600 mm: L1 4.35%, L2 2.90%) and light (<= 45 kg: L1 3.61%, L2 2.41%) people, chi-square significant for height and weight, not for age (P 0.514, 0.848). Inference: 3 of the 4 narrow L1 specimens are in the shortest band and 3 of 4 in the lightest band.",
+      "ct_mask_recipe": "Inference: apply the same thresholds to a mask PW measured as above.",
+      "radiograph_recipe": "Inference: apply to an AP PW after magnification correction, knowing the AP oval overstates width.",
+      "error": "Not given; Inference: with a 4-5% CV, a PW near 4.5 mm is uncertain by about +/-0.2 mm."
+    },
+    {
+      "name": "PW / PH ratio (derived; Inference, not in the paper)",
+      "definition": "Ratio of the paper's mean PW to mean PH at each level, computed here from Table 5 and Table 4.",
+      "projection": "derived; needs both dimensions of one pedicle (mask, or AP oval with distortion)",
+      "page": "Table 5 p. 1645 (PDF 7); Table 4 p. 1643 (PDF 5)",
+      "levels": "L1-L5",
+      "level_pattern": "Inference: 0.54, 0.58, 0.72, 0.96, 1.34 from L1 to L5 (as PH/PW 1.85, 1.74, 1.39, 1.05, 0.75); only L5 exceeds 1.",
+      "covariates": "Inference: women 0.06-0.08 lower at every level (Table 4); less size-dependent than either dimension but not size-free (at L1 PW grows more slowly with height than PH, Table 2).",
+      "ct_mask_recipe": "Inference: divide the mask PW by the mask PH of the same pedicle, both at the isthmus.",
+      "radiograph_recipe": "Inference: AP oval width over height, distorted by pedicle convergence; magnification cancels.",
+      "error": "No per-person spread or PW-PH correlation is given, so the ratio's SD is unknown."
+    }
+  ],
+  "level_details": [
+    {
+      "level": "L1",
+      "detail": "Tallest PH (15.75 mm, range 10.84-22.33) and narrowest PW (8.52 mm, range 3.92-18.74); left-right PH asymmetry (15.57 left against 15.94 right, P < 0.05); most narrow pedicles (< 4.5 mm 0.80%, < 5.5 mm 4.77%); largest relative sex gap in PW (F/M about 0.80, Inference); age n.s. for PW (P 0.73), significant for PH (P 2.37E-03); African American PW wider (P 3.99E-04).",
+      "page": "p. 1640 (PDF 2); Tables 3-5 pp. 1642-1645 (PDF 4-7)"
+    },
+    {
+      "level": "L2",
+      "detail": "PW 8.66 mm, nearly the same as L1; PH 15.06 mm; left-right PH asymmetry 14.96 against 15.17 mm; PW < 4.5 mm 0.40%, < 5.5 mm 2.78%; African American PW wider (8.86 against 8.50, P 0.027); the heaviest-lightest PH gap is largest here (0.94 mm).",
+      "page": "p. 1640 (PDF 2); Tables 3-4 pp. 1642-1643 (PDF 4-5); p. 1644 (PDF 6)"
+    },
+    {
+      "level": "L3",
+      "detail": "PW 10.46, PH 14.59 mm; age n.s. for PH (P 0.06) and PW (P 0.10); race n.s. for PW (P 0.70); PW < 5.5 mm 0.20%, virtually none under 4.5 mm.",
+      "page": "Tables 3-5 pp. 1642-1645 (PDF 4-7); p. 1641 (PDF 3)"
+    },
+    {
+      "level": "L4",
+      "detail": "PW 13.19 and PH 13.81 mm, nearly equal (the Figure 2 curves cross just caudal to L4); the one level where African American PH exceeded Caucasian, n.s.; race n.s. for PW (P 0.65); age significant for both (P 0.01).",
+      "page": "Figure 2 p. 1641 (PDF 3); Table 4 p. 1643 (PDF 5); p. 1644 (PDF 6)"
+    },
+    {
+      "level": "L5",
+      "detail": "Widest PW (18.33 mm, range 9.09-29.06) and shortest PH (13.67 mm, range 9.72-19.94); PW exceeds PH, so at L5 height, not width, is the smaller dimension (Inference); the only level where both dimensions kept rising into the >= 70 y band (PW 17.32 to 19.15 mm, P 1.17E-05; PH 13.49 to 14.00, P 0.03); largest height slope for PW (7.59 mm/m); weight n.s. for PH (P 0.47); Caucasian PW wider (P 1.24E-04).",
+      "page": "p. 1641 (PDF 3); Tables 2-5 pp. 1641-1645 (PDF 3-7)"
+    },
+    {
+      "level": "T12/L1",
+      "detail": "Not covered; T12 is in the group's lower thoracic paper (ref 24).",
+      "page": "p. 1640 (PDF 2); p. 1646 (PDF 8)"
+    },
+    {
+      "level": "L5/S1",
+      "detail": "S1 not measured; the lumbosacral junction is not discussed.",
+      "page": "p. 1640 (PDF 2)"
+    }
+  ],
+  "errors": [
+    {
+      "what": "Intra-rater coefficient of variation",
+      "value": "4.0% averaged (range 1.7-6.2%), 21 random samples, dimension and level not specified",
+      "page": "p. 1640 (PDF 2)"
+    },
+    {
+      "what": "Inter-rater coefficient of variation",
+      "value": "5.2% averaged (range 1.5-16.8%), 21 random samples; no second rater named although one examiner measured all specimens",
+      "page": "p. 1640 (PDF 2)"
+    },
+    {
+      "what": "Instrument resolution",
+      "value": "digital caliper, 0.01 mm; placement at the narrowest point by the examiner's judgement",
+      "page": "p. 1640 (PDF 2)"
+    },
+    {
+      "what": "Left-right difference",
+      "value": "significant only for PH at L1 (15.57 against 15.94 mm) and L2 (14.96 against 15.17 mm); sides averaged for analysis",
+      "page": "p. 1640 (PDF 2)"
+    },
+    {
+      "what": "Absolute error (Inference)",
+      "value": "about 0.6-0.8 mm for PH; 0.35-0.45 mm (L1) to 0.7-0.95 mm (L5) for PW",
+      "page": "derived from p. 1640 (PDF 2) and Table 5 p. 1645 (PDF 7)"
+    },
+    {
+      "what": "Between-study spread",
+      "value": "L5 PW 10.7 (Berry, American, n = 30) to 20.1 mm (Olsewski, American, n = 41-42); L5 PH 13.67 (this study) to 19.8 mm (Hou, Chinese, n = 40); most earlier studies had 10-180 specimens",
+      "page": "Table 5 p. 1645 (PDF 7); p. 1640 (PDF 2)"
+    }
+  ],
+  "pearls_pitfalls": [
+    {
+      "text": "Transpedicular screws give segmental fixation across multilevel fusions with a biomechanical advantage over hook and lateral mass fixation; the pedicle is the strongest part of the vertebra even in osteoporotic bone; Ofiram et al argued screws are safer in the lower thoracic than the upper lumbar spine.",
+      "page": "p. 1639 (PDF 1)"
+    },
+    {
+      "text": "PW is called \"the limiting factor\" for screw caliber because it is smaller than PH. Inference pitfall: at L5 the mean PW (18.33) exceeds PH (13.67), so there height is the smaller dimension.",
+      "page": "p. 1644 (PDF 6); Key Points p. 1646 (PDF 8)"
+    },
+    {
+      "text": "Surgeons prefer the largest fully threaded screw a pedicle accepts; a mismatch breaches the medial cortex (spinal canal penetration) or the lateral cortex (nerve root injury).",
+      "page": "p. 1644 (PDF 6)"
+    },
+    {
+      "text": "Virtually every lumbar level accepts a 4.5 mm screw; acceptance rises with height and weight (similar trend at 5.5 mm); narrow L1-L2 pedicles cluster in people <= 160 cm and <= 45 kg.",
+      "page": "p. 1644 (PDF 6); Figure 3 p. 1643 (PDF 5)"
+    },
+    {
+      "text": "Inference pitfall: acceptance is defined only as outer PW >= screw diameter; a caliper reads cortex to cortex, so the percentages are optimistic.",
+      "page": "p. 1640 (PDF 2); p. 1644 (PDF 6)"
+    },
+    {
+      "text": "The authors claim demographic cut-offs that would predict a more successful procedure can be extrapolated, but print none.",
+      "page": "p. 1644 (PDF 6)"
+    },
+    {
+      "text": "Age cut-offs cannot reliably guide screw caliber; race did not consistently matter; sex, height and weight do.",
+      "page": "p. 1644 (PDF 6); Key Points p. 1646 (PDF 8)"
+    },
+    {
+      "text": "Heavier people may have stronger bone and better screw purchase (the authors' speculation).",
+      "page": "p. 1644 (PDF 6)"
+    },
+    {
+      "text": "Imaging pitfall in the authors' view: lordosis, the pedicle's complex inner structure and spatial orientation prevent accurate imaging-based planning; Olsewski found direct and radiographic values differ significantly; direct cadaver caliper measurement is held most accurate.",
+      "page": "p. 1639 (PDF 1); p. 1644 (PDF 6)"
+    },
+    {
+      "text": "Population differences reported elsewhere: smaller pedicles in Koreans than Westerners (Kim), Indian against Caucasian differences (Chadha, Acharya).",
+      "page": "p. 1644 (PDF 6)"
+    },
+    {
+      "text": "Transverse and sagittal pedicle angles were not measured (left to goniometer and imaging studies). Inference: no chord length, pedicle length or inner width either.",
+      "page": "p. 1644 (PDF 6)"
+    },
+    {
+      "text": "Secular trend: means similar to three American series (Zindrick 1987, Berry 1987, Olsewski 1990), taken to show no significant change over about 100 years. Inference: no test reported, and Berry's L5 PW 10.7 mm is far from 18.33.",
+      "page": "p. 1644 (PDF 6); Table 5 p. 1645 (PDF 7)"
+    }
+  ],
+  "instructions": [
+    {
+      "text": "For each lumbar candidate in a CT instance mask, measure PW and PH at the pedicle isthmus: the narrowest outer medial-lateral and cranial-caudal extents along the pedicle's long axis, both sides, then average, as Yu did with a caliper.",
+      "page": "p. 1640 (PDF 2); Figure 1 p. 1641 (PDF 3)"
+    },
+    {
+      "text": "Expect PW to rise from about 8.5 mm at L1 to 18.3 mm at L5 and PH to fall from about 15.8 to 13.7 mm; lean on the PW jumps L3-L4 (+2.7) and L4-L5 (+5.1); never use PW to separate L1 from L2 (8.52 against 8.66) or PH to separate L4 from L5 (13.81 against 13.67).",
+      "page": "Table 5 p. 1645 (PDF 7); Figure 2 p. 1641 (PDF 3)"
+    },
+    {
+      "text": "Compute PW / PH (Inference: about 0.54, 0.58, 0.72, 0.96, 1.34 from L1 to L5; women 0.06-0.08 lower); only L5 exceeds 1 in this sample, but do not take a ratio above 1 alone as proof of L5: L6, a transitional L5 and S1 were never examined, and the ratio's per-person spread is not given.",
+      "page": "Table 5 p. 1645 (PDF 7); Table 4 p. 1643 (PDF 5)"
+    },
+    {
+      "text": "Before comparing with these norms, allow for sex and stature: men have PW 1.8-2.3 mm and PH 1.1-1.5 mm larger; per 10 cm of height, after the other covariates, PH gains 0.50-0.57 mm and PW 0.21 (L1) to 0.76 mm (L5).",
+      "page": "Table 4 p. 1643 (PDF 5); Table 2 p. 1641 (PDF 3)"
+    },
+    {
+      "text": "Once height, sex, age and race are allowed for, add only about 0.15-0.22 mm of PW per 10 kg of weight and nothing meaningful to PH (-0.11 to +0.05 mm per 10 kg).",
+      "page": "Table 2 p. 1641 (PDF 3); p. 1643 (PDF 5)"
+    },
+    {
+      "text": "Treat age as small: by Table 2, 50 years add 0.55-0.90 mm to PH and 0.40-1.30 mm to PW; the text on the same page swaps the two ranges, so take the table.",
+      "page": "p. 1641 (PDF 3)"
+    },
+    {
+      "text": "Apply no fixed race correction: the Caucasian/African American PW difference reverses between L1-L2 and L5 and stays under 1 mm; the Discussion states its direction backwards, so trust Table 4.",
+      "page": "Table 4 p. 1643 (PDF 5); p. 1644 (PDF 6)"
+    },
+    {
+      "text": "Flag PW < 4.5 mm (0.8% at L1, 0.4% at L2, virtually never at L3-L5) or < 5.5 mm (4.8%, 2.8%, 0.2% at L1-L3); at L1-L2 expect it mainly in short (<= 160 cm), light (<= 45 kg) patients. Inference: at L3-L5 suspect segmentation error or a wrong level first, then a dysplastic pedicle.",
+      "page": "pp. 1640-1641 (PDF 2-3); Figure 3 p. 1643 (PDF 5)"
+    },
+    {
+      "text": "Do not read meaning into differences below measurement error: 4-5% CV even for a caliper on dry bone (about 0.6-0.8 mm for PH), more for a voxel mask; left-right PH differences of 0.2-0.4 mm at L1-L2 are normal.",
+      "page": "p. 1640 (PDF 2)"
+    },
+    {
+      "text": "On radiographs (Inference; no method in the paper, which warns direct and radiographic values differ): PH from a true lateral view at the narrowest part of the pedicle shadow, PW from the AP pedicle oval; remove magnification or use ratios; expect AP PW to read too wide where pedicles converge most (L5).",
+      "page": "p. 1639 (PDF 1)"
+    },
+    {
+      "text": "Do not use this paper to name the junction levels: it has no T12 or S1 and does not say how L1 or L5 were identified; for T12 against L1 use the group's lower thoracic paper (ref 24).",
+      "page": "p. 1640 (PDF 2); p. 1646 (PDF 8)"
+    },
+    {
+      "text": "Check definitions before comparing series: Table 5 mixes caliper and CT series, and L5 PW varies from 10.7 to 20.1 mm among American series alone.",
+      "page": "Table 5 p. 1645 (PDF 7)"
+    },
+    {
+      "text": "Treat one extreme value with suspicion before renaming a level: this sample's L1 range reaches PW 18.74 and PH 22.33 mm, several SD from the L1 mean (Inference: errors or mislabelled bones); decide levels from the whole ordered sequence, not one pedicle.",
+      "page": "p. 1640 (PDF 2)"
+    },
+    {
+      "text": "Measure PH at the narrowest point, as Yu did, and expect it to keep falling to L5 (13.67 mm); series reporting L5 PH of 15-20 mm (Olsewski 16.2, Mitra 15.80, Hou 19.8) used other definitions or sites (Inference for the cause), so never mix a narrowest-height mask value with a prior built on them.",
+      "page": "Table 5 p. 1645 (PDF 7)"
+    }
+  ],
+  "bordercall": [
+    "(a) Anomaly priors: none. No prevalence of L6, T13, transitional vertebrae or rib anomalies, and no account of how levels were counted; congenital disease such as scoliosis excluded without a count (p. 1640, PDF 2).",
+    "(b) Pedicle width and height L1-L5 are in the generator (Panjabi's PDW, PDH). Yu's definition: outer minimum at the isthmus, PW transverse, PH sagittal, sides averaged (p. 1640, PDF 2). Inference from the panjabi1992 note in this set: Panjabi's PDW agrees (L1 8.6 against 8.52, L5 18.6 against 18.33 mm) but his PDH has its minimum at L3 (14.4) and rises to 19.6 mm at L5, where Yu's narrowest PH is 13.67; the generator's L5 PDH (and PDH/PDW at L4-L5: Panjabi about 1.0 at L5, Yu PH/PW 0.75) will not match a narrowest-height mask value unless one of the two is re-based. Table 5 (p. 1645, PDF 7) shows the same split: L5 PH 13.67-14.67 mm in Yu, Berry and Zindrick, 15.2-19.8 mm in Marchesi, Mitra, Olsewski and Hou.",
+    "(b) Yu's sex-specific means and SDs for n = 503 (Table 4, p. 1643, PDF 5) are a stronger L1-L5 prior than 12 spines, for an American 1893-1938 sample that is 80% male. Inference, mask bias: PW in the vertebral transverse plane instead of perpendicular to the pedicle axis reads too wide (worst at L5); dilated or smoothed masks read both too large; one 1 mm voxel is about 12% of L1 PW; failure to separate the pedicle from the articular or transverse process root misses the isthmus.",
+    "(b) Candidate addition (Inference): PW/PH per level (0.54-1.34 L1-L5), less size-dependent than either dimension; the paper gives no PW-PH correlation and no between-level correlation within a person, which a joint generator needs.",
+    "(c) Measurement error: caliper CV 4.0% intra-rater and 5.2% inter-rater (p. 1640, PDF 2). Inference: absolute floor about 0.6-0.8 mm for PH and 0.35-0.95 mm for PW (L1 to L5); a CT mask adds voxel and boundary error.",
+    "(d) Height, adjusted for age, sex, race and weight (Table 2, p. 1641, PDF 3): PH +5.51, +4.97, +5.56, +5.02, +5.68 mm/m; PW +2.07, +2.71, +3.34, +4.20, +7.59 mm/m (L1-L5). Inference: elasticity at 1.70 m about 0.56-0.71 for PH and 0.41 (L1) to 0.70 (L5) for PW, below the 1.0 of an isometric size factor, so one multiplicative size factor shared with other dimensions overstates stature effects on pedicles, most at L1 PW.",
+    "(d) Sex (unadjusted, Table 4): F/M 0.91-0.93 for PH, 0.80 (L1) to 0.88 (L5) for PW; the regression's sex coefficient is not printed, so the part of the sex gap left after height is unknown. Weight (adjusted): PH -0.011 to +0.005, PW +0.015 to +0.022 mm/kg. Age (adjusted): PH +0.011 to +0.018, PW +0.008 to +0.026 mm/yr; unadjusted means peak at 50-69 y except L5.",
+    "(d) Population: Caucasian against African American under 1 mm with PW reversing direction along the spine (Table 4); other series in Table 5: Indian L5 PW 13.47-15.85 mm (Mitra, Chadha), Chinese 12.9 (Hou), Swiss 18.8 (Marchesi) against 18.33 here. Intercepts are printed (PH 4.95, 5.26, 4.43, 4.26, 3.33; PW 2.84, 1.59, 2.35, 3.44, 2.17 mm) but without sex and race coefficients and coding the equations cannot predict a person's values."
+  ],
+  "gaps": [
+    "Age, text against table: p. 1641 (PDF 3) gives PH +0.40-1.3 and PW +0.55-0.90 mm from age 25 to 75; Table 2 times 50 years gives the reverse (PH 0.55-0.90, PW 0.40-1.30). Height and weight comparisons in the text agree with Table 2.",
+    "Race, Discussion against Results: p. 1644 (PDF 6) says Caucasian PW is bigger at L1-L2 and smaller at L5; Table 4 (p. 1643, PDF 5) and the Results say the opposite.",
+    "Inference: Figure 2's error bars (p. 1641, PDF 3) appear exchanged between curves: PH bars about +/-1.8-2.45 mm, PW bars about +/-1.3-1.65 mm, while pooled SDs are about 1.3-1.7 (PH) and 1.8-2.4 mm (PW); PH bars exceed every PH SD in Tables 3-4 (max 1.83) and PW bars fall below every PW SD of Table 4's sex and race groups (min 1.45).",
+    "Weight bins: Table 3 (p. 1642, PDF 4) and the band definition on p. 1643 (PDF 5) use 46-54 and 55-63 kg; Figure 3C and the narrow-pedicle sentence on p. 1643 use 46-55 and 56-63 kg.",
+    "Text L1 PW 8.53 and L5 PW 18.34 mm (p. 1640, PDF 2) against 8.52 and 18.33 in Table 5 and the abstract.",
+    "The sex Results say significance held for all lower lumbar levels (p. 1644, PDF 6); Table 4 shows every level L1-L5 significant.",
+    "The Discussion calls this the first study of body weight and body height effects, though the group's lower thoracic paper of the same year has the same subtitle (ref 24).",
+    "The so-called quartiles are fixed bands of unequal size (82/215/154/52; 69/168/204/62; 83/123/206/91).",
+    "One examiner measured everything yet an inter-rater CV is reported with no second rater named; no CV per dimension or level.",
+    "Narrow-pedicle percentages are called percentages of pedicles but match specimen counts out of 503 after side averaging (Inference from the arithmetic).",
+    "No overall SD, no regression P values or R-squared, no sex or race regression coefficients, no PW-PH or between-level correlation, no sex-by-race crossing; no claimed demographic cut-off is printed.",
+    "Level identification and numerical variants (L6, sacralisation, T13) are not addressed; congenital exclusions are not counted; L1 maxima (PW 18.74, PH 22.33 mm) are unexplained.",
+    "Height and weight are documented at the time of death (p. 1640, PDF 2). Inference: mean 56 kg at 170 cm (BMI about 19.4) makes weight a poor proxy for living body size.",
+    "Table 5's footnote runs Mitra straight into the CT list; read literally, caliper: this study, Berry, Olsewski, Hou, Marchesi, Mitra; CT: Zindrick, Chadha, Krag (Inference from sibling notes: Zindrick used specimen roentgenograms and CT, Mitra three methods). Zindrick appears twice (American and Mean Values columns) unexplained; Hou's L5 PH 19.8 and Berry's L5 PW 10.7 lie far from other series.",
+    "Inference, from other notes in this set: the PW pattern agrees with Panjabi 1992, Zindrick and Olsewski; Hou 1993 finds L1 narrower than T12 in every column, which Yu cannot test; Panjabi 1992 and Hou 1993 have L5 pedicle height about 19.6-19.8 mm against Yu's 13.67, a definitional difference a mask extractor must settle by one stated definition."
+  ]
+}

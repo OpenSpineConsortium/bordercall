@@ -1,0 +1,312 @@
+{
+  "paper": "frontphys2026",
+  "cohorts": [
+    {
+      "cohort": "zhengzhou_ct_100",
+      "labels": [
+        "all",
+        "male",
+        "female",
+        "all / 20-30",
+        "all / 31-40",
+        "all / 41-50",
+        "all / 51-60",
+        "all / 61-70",
+        "male / 20-30",
+        "male / 31-40",
+        "male / 41-50",
+        "male / 51-60",
+        "male / 61-70",
+        "female / 20-30",
+        "female / 31-40",
+        "female / 41-50",
+        "female / 51-60",
+        "female / 61-70"
+      ],
+      "tables": [
+        "Table 1",
+        "Table 2",
+        "Table 3",
+        "Table 4",
+        "Table 5",
+        "Table 6",
+        "Figure 4",
+        "Text: Abstract",
+        "Text: Methods 2.1",
+        "Text: Methods 2.2",
+        "Text: Methods 2.3",
+        "Text: Methods 2.4.1",
+        "Text: Methods 2.4.2",
+        "Text: Results 3.1",
+        "Text: Results 3.2",
+        "Text: Discussion 4.1",
+        "Text: Discussion 4.2",
+        "Text: Discussion 4.3",
+        "Text: Discussion 4.4"
+      ],
+      "subjects": "Living adults: 100 'healthy volunteers' who had a lumbar spine CT at the Department of Health Examination of Zhengzhou Orthopedic Hospital, Henan, China, between September 2023 and September 2025, enrolled retrospectively; called healthy Chinese adults, no further ethnicity printed. Inclusion: age 20 to 70, a standard lumbar spine CT, no lumbar surgery or trauma. Exclusion: vertebral fracture on CT by a semiquantitative method, congenital vertebral deformity or acquired short vertebral body, spinal metal implants, drugs or diseases affecting bone metabolism, adult degenerative scoliosis or severe osteophytosis. No count of screened or excluded people. Level identification and transitional vertebrae are not mentioned.",
+      "n_people": 100,
+      "n_units": "500 vertebral bodies, L1 to L5 of 100 people (Inference: no missing levels are reported; n per level is not printed)",
+      "ages": "20 to 70 years; Table 1 gives five decade bands of 20 people each, band means 25.1 +/- 3.4 to 65.4 +/- 2.3 years",
+      "sexes": "50 male and 50 female by the Abstract and Results text; Table 1 columns sum to 46 male and 54 female; no sex-stratified values",
+      "page": "p. 1 (PDF 1); p. 2 to 3 (PDF 2 to 3); p. 4 to 5 (PDF 4 to 5); p. 8 (PDF 8)"
+    },
+    {
+      "cohort": "example_images",
+      "labels": [
+        "not stated / example image"
+      ],
+      "tables": [
+        "Figure 1",
+        "Figure 3"
+      ],
+      "subjects": "CT images of unnamed subjects used to show how the measures were taken: Figure 1 two sagittal MPR panels with caliper readouts, Figure 3 one sagittal and twelve axial slices with ROI software readouts. The paper does not say whose scans or which levels they are. Inference: probably members of the main cohort, but this is not stated, so their values are kept apart.",
+      "n_people": null,
+      "n_units": "Figure 1: one lumbar body per panel (2 panels); Figure 3: 3 sagittal ROIs and 12 axial ROIs (one per quadrant at each third); level not stated",
+      "ages": "not stated",
+      "sexes": "not stated",
+      "page": "p. 3 (PDF 3); p. 4 (PDF 4)"
+    },
+    {
+      "cohort": "shrestha2022_cited",
+      "labels": [
+        "not stated / Nepalese, dried vertebrae"
+      ],
+      "tables": [
+        "Text: Discussion 4.1"
+      ],
+      "subjects": "Another study quoted for comparison: an anatomical study of dried lumbar vertebrae in a Nepalese population (Shrestha 2022; its reference describes a cross-sectional study of specimens in a medical college anatomy department). Its reference title names a canal-body ratio study; which width is quoted (body or end-plate, upper or lower) is not said.",
+      "n_people": null,
+      "n_units": "not stated",
+      "ages": "not stated",
+      "sexes": "not stated",
+      "page": "p. 5 (PDF 5); reference p. 9 (PDF 9)"
+    },
+    {
+      "cohort": "liu2005_cited",
+      "labels": [
+        "male (source_of_values Liu et al. (2005))"
+      ],
+      "tables": [
+        "Text: Discussion 4.2"
+      ],
+      "subjects": "Another study quoted for comparison: 168 healthy men whose lumbar BMD fell from L1 to L4 in every age group (Liu et al. 2005, a Chinese gerontology journal by its reference). Only the count is quoted.",
+      "n_people": 168,
+      "n_units": "not stated",
+      "ages": "not stated (several age groups mentioned)",
+      "sexes": "168 male",
+      "page": "p. 6 (PDF 6); reference p. 9 (PDF 9)"
+    },
+    {
+      "cohort": "wei2026_cited",
+      "labels": [
+        "not stated (source_of_values Wei et al., 2026)"
+      ],
+      "tables": [
+        "Text: Introduction"
+      ],
+      "subjects": "quoted from Wei et al. 2026: a worldwide estimate of the annual direct economic burden of lumbar disorders; no subjects described",
+      "n_people": null,
+      "n_units": "not stated",
+      "ages": "not stated",
+      "sexes": "not stated",
+      "page": "p. 2 (PDF 2)"
+    },
+    {
+      "cohort": "li2024_cited",
+      "labels": [
+        "not stated (source_of_values Li et al., 2024)"
+      ],
+      "tables": [
+        "Text: Discussion 4.1"
+      ],
+      "subjects": "quoted from Li et al. 2024 (Medicine): the share of stress borne by the anterior column; no subjects described",
+      "n_people": null,
+      "n_units": "not stated",
+      "ages": "not stated",
+      "sexes": "not stated",
+      "page": "p. 6 (PDF 6)"
+    },
+    {
+      "cohort": "zhang2023_cited",
+      "labels": [
+        "not stated (source_of_values Zhang et al., 2023)"
+      ],
+      "tables": [
+        "Text: Discussion 4.2"
+      ],
+      "subjects": "quoted from Zhang et al. 2023 (Neurospine), introduced in the text as Elarjani et al: a mid-sagittal CT value threshold for poor bone quality; no subjects described",
+      "n_people": null,
+      "n_units": "not stated",
+      "ages": "not stated",
+      "sexes": "not stated",
+      "page": "p. 7 (PDF 7)"
+    },
+    {
+      "cohort": "elarjani2021_cited",
+      "labels": [
+        "not stated (source_of_values Elarjani et al., 2021)"
+      ],
+      "tables": [
+        "Text: Discussion 4.3"
+      ],
+      "subjects": "quoted from Elarjani et al. 2021 (World Neurosurg): a mean lumbar CT value threshold for augmentation; no subjects described",
+      "n_people": null,
+      "n_units": "not stated",
+      "ages": "not stated",
+      "sexes": "not stated",
+      "page": "p. 7 (PDF 7)"
+    }
+  ],
+  "techniques": [
+    {
+      "technique": "ct_mpr_morphometry",
+      "cohorts": [
+        "zhengzhou_ct_100",
+        "example_images"
+      ],
+      "modality": "CT MPR",
+      "instrument": "Siemens Somatom Definition 64 AS+ spiral CT as printed; acquisition slice 3.0 mm, collimation 128 x 0.6 mm, pitch 0.8, scan angle 0 deg, 120 kV, no contrast; reconstructed at 1 mm thickness and 1 mm interval, kernel B60s sharp, bone window; MPR on a syngo MMWP VE36A workstation; tube current, field of view and pixel spacing not printed",
+      "how": "Seven body parameters of L1 to L5 on CT MPR: the list of the seven opens by putting them on mid-sagittal images, and a later sentence says mid-sagittal and mid-coronal planes, so no parameter is given a plane of its own (Inference: widths on the mid-coronal, the rest mid-sagittal): anterior, middle and posterior body heights from the superior to the inferior endplate at its front edge, midpoint and back edge; superior and inferior endplate widths between the outermost lateral edges of each endplate; cortical thickness of the superior endplate measured vertically in its anterior and posterior thirds. Figure 1B draws the widths on a sagittal slice (Inference: Table 2 widths of 42 to 52 mm fit a mediolateral span, not the 30 mm AP span drawn).",
+      "magnification": "CT in true scale; no magnification correction applies (not discussed)",
+      "observers": "One trained observer (the first author), blinded to subject characteristics; each parameter measured three times and averaged; intra-observer ICC > 0.90 for all parameters on 20 random vertebrae re-measured after 2 weeks; inter-observer reliability not evaluated",
+      "page": "p. 3 (PDF 3); p. 8 (PDF 8)"
+    },
+    {
+      "technique": "ct_hu_regional_roi",
+      "cohorts": [
+        "zhengzhou_ct_100",
+        "example_images"
+      ],
+      "modality": "CT MPR",
+      "instrument": "the same CT, reconstruction and workstation as ct_mpr_morphometry; same scanner, kernel and 120 kV for every subject, no contrast; no phantom calibration",
+      "how": "After Banse et al. 2001: each body split into upper, middle and lower thirds on the sagittal plane and, on an axial slice in each third, into left anterior, right anterior, left posterior and right posterior quadrants, 15 regions per body; a circular or elliptical ROI of about 1 cm2 in the cancellous bone of each, avoiding cortex, basivertebral foramen, osteophytes and calcification; mean HU in the ROI, three measurements averaged. Which axial slice in each third is not stated; Figure 3 shows rectangular ROIs of about 85 to 211 mm2 by its readouts. Left and right convention (image or patient) not stated.",
+      "magnification": "not applicable (attenuation values in HU); no phantom or DXA calibration",
+      "observers": "Not stated for HU beyond three repeats per region. Inference: the same single observer; the ICC statement sits in the morphology section and may not cover HU.",
+      "page": "p. 4 (PDF 4); p. 8 (PDF 8)"
+    },
+    {
+      "technique": "shrestha2022_quoted",
+      "cohorts": [
+        "shrestha2022_cited"
+      ],
+      "modality": "dry bone (Inference from the reference title)",
+      "instrument": "not stated in this paper",
+      "how": "quoted from Shrestha 2022: a mean L5 width of dried Nepalese lumbar vertebrae; which width (body or end-plate, upper or lower) and how it was taken are not said",
+      "magnification": "not stated",
+      "observers": "not stated",
+      "page": "p. 5 (PDF 5)"
+    },
+    {
+      "technique": "wei2026_quoted",
+      "cohorts": [
+        "wei2026_cited"
+      ],
+      "modality": "other",
+      "instrument": "not stated in this paper",
+      "how": "quoted from Wei et al. 2026: an economic estimate, not an anatomical measure; its method is not described here",
+      "magnification": "not stated",
+      "observers": "not stated",
+      "page": "p. 2 (PDF 2)"
+    },
+    {
+      "technique": "li2024_quoted",
+      "cohorts": [
+        "li2024_cited"
+      ],
+      "modality": "other",
+      "instrument": "not stated in this paper",
+      "how": "quoted from Li et al. 2024: an approximate load share of the anterior column; whether modelled or measured is not said",
+      "magnification": "not stated",
+      "observers": "not stated",
+      "page": "p. 6 (PDF 6)"
+    },
+    {
+      "technique": "zhang2023_quoted",
+      "cohorts": [
+        "zhang2023_cited"
+      ],
+      "modality": "CT (as quoted)",
+      "instrument": "not stated in this paper",
+      "how": "quoted from Zhang et al. 2023: a threshold on the mid-sagittal CT attenuation in HU; ROI, kV and kernel not described here",
+      "magnification": "not stated",
+      "observers": "not stated",
+      "page": "p. 7 (PDF 7)"
+    },
+    {
+      "technique": "elarjani2021_quoted",
+      "cohorts": [
+        "elarjani2021_cited"
+      ],
+      "modality": "CT (as quoted)",
+      "instrument": "not stated in this paper",
+      "how": "quoted from Elarjani et al. 2021: a threshold on the mean lumbar CT attenuation in HU; ROI, kV and kernel not described here",
+      "magnification": "not stated",
+      "observers": "not stated",
+      "page": "p. 7 (PDF 7)"
+    }
+  ],
+  "shared": [
+    {
+      "with": "Banse et al. 2001 (Bone)",
+      "what": "method",
+      "evidence": "the division into thirds and quadrants follows Banse et al. 2001",
+      "page": "p. 4 (PDF 4)"
+    },
+    {
+      "with": "Li et al. 2011; Wang et al. 2022 (Chin J Anat Clinics)",
+      "what": "method",
+      "evidence": "the same partitioning protocol is said to be used and validated in these earlier studies; ROI size kept uniform after Wang 2022",
+      "page": "p. 4 (PDF 4)"
+    },
+    {
+      "with": "Liu et al. 2018; Han et al. 2023 (both CT studies of lumbar endplate or vertebral anatomy)",
+      "what": "method",
+      "evidence": "the morphological parameters were measured following previously established protocols of these studies",
+      "page": "p. 3 (PDF 3)"
+    },
+    {
+      "with": "Elarjani et al. 2021 (World Neurosurg)",
+      "what": "method",
+      "evidence": "fracture on CT, an exclusion criterion, was assessed by a semiquantitative method cited to this study",
+      "page": "p. 3 (PDF 3)"
+    },
+    {
+      "with": "Shrestha 2022 (JNMA J Nepal Med Assoc)",
+      "what": "values quoted",
+      "evidence": "a mean L5 width of 42.59 mm in a Nepalese dried-bone study, called consistent",
+      "page": "p. 5 (PDF 5)"
+    },
+    {
+      "with": "Liu et al. 2005 (Chin J Gerontology)",
+      "what": "values quoted",
+      "evidence": "168 healthy men with BMD falling from L1 to L4, called consistent",
+      "page": "p. 6 (PDF 6)"
+    },
+    {
+      "with": "Li et al. 2024 (Medicine)",
+      "what": "values quoted",
+      "evidence": "the anterior column bears about 80% of the stress",
+      "page": "p. 6 (PDF 6)"
+    },
+    {
+      "with": "Zhang et al. 2023 (Neurospine), introduced as Elarjani et al",
+      "what": "values quoted",
+      "evidence": "a mid-sagittal CT value below 100 HU marks poor bone quality",
+      "page": "p. 7 (PDF 7)"
+    },
+    {
+      "with": "Elarjani et al. 2021 (World Neurosurg)",
+      "what": "values quoted",
+      "evidence": "a mean lumbar CT value below 100 HU proposed as an augmentation threshold",
+      "page": "p. 7 (PDF 7)"
+    },
+    {
+      "with": "Wei et al. 2026 (Chin J Reparative Reconstructive Surg)",
+      "what": "values quoted",
+      "evidence": "annual direct economic burden of over 100 billion dollars worldwide",
+      "page": "p. 2 (PDF 2)"
+    }
+  ],
+  "within_paper": "One cohort of 100 people: Tables 1 to 6, Figure 4 and the text values are all of the same 100 subjects and the same 500 bodies, measured on the same scans; morphometry (Table 2) and HU (Tables 3 to 6) are two measurement sets on the same bodies, and Table 3 (sagittal thirds) and Tables 4 to 6 (axial quadrants) are two ROI schemes on the same bodies (p. 3 to 7 (PDF 3 to 7)). Figure 4 replots Table 3 (p. 6 (PDF 6)). The example images of Figures 1 and 3 are of unnamed subjects whose membership in the cohort is not stated (p. 3 to 4 (PDF 3 to 4)). Inference: none of the 42 listed studies shares subjects; arockiaraj2025, moncadahabib2025, tan2004 and kunkel2011 are cited only as background (p. 2 and p. 6 (PDF 2, 6))."
+}

@@ -1,0 +1,211 @@
+{
+  "paper": "yadav2020",
+  "cohorts": [
+    {
+      "cohort": "yadav-ct",
+      "labels": [
+        "male",
+        "female",
+        "all",
+        "20-25",
+        "25-30",
+        "30-35",
+        "35-40"
+      ],
+      "tables": [
+        "Table 1",
+        "Table 2",
+        "Table 3",
+        "Table 4",
+        "Table 5",
+        "Table 6",
+        "Table 7",
+        "Table 8",
+        "Text: Abstract",
+        "Text: Materials and Methods",
+        "Text: Results",
+        "Text: Conclusions"
+      ],
+      "subjects": "Rows whose source_of_values is 'this paper'. Living patients having diagnostic CT for abdominal or genitourinary complaints, or sent to radiology for a region other than the spine, at one North Indian tertiary care institute (authors' department: SGPGIMS, Lucknow, India) over 1 year; ethnicity printed only as Indian population. Excluded: age <20 or >40 years, gross spinal pathology with neurological deficit, major chronic systemic disease (chronic liver and kidney disease named), clinically labelled dwarfism, movement or metallic artifact. In Tables 4 to 8 the 'Our Study' columns repeat Tables 2 and 3.",
+      "n_people": 302,
+      "n_units": "302 patients, each measured at 7 levels from D12 (T12) to S1; every level row of Tables 2 and 3 carries n = 174 men and 128 women",
+      "ages": "20 to 40 years by the exclusion criteria; Table 1 bands 20-25 (94), 25-30 (82), 30-35 (86), 35-40 (40); no mean age printed",
+      "sexes": "174 men (57.6%), 128 women (42.4%)",
+      "page": "p. 176 (PDF 2); Table 1 p. 176 (PDF 2); Tables 2-3 pp. 177-178 (PDF 3-4)"
+    },
+    {
+      "cohort": "kumar-telangana-ct",
+      "labels": [
+        "male",
+        "female",
+        "all"
+      ],
+      "tables": [
+        "Table 4",
+        "Text: Discussion"
+      ],
+      "subjects": "Rows whose source_of_values is 'Kumar et al [7]'. Adult patients of a Telangana population with CT-based measurements of the lumbar spine, as cited (ref. 7: Kumar AP et al 2016, tertiary care institutions in Telangana). Inclusion and exclusion not given in this paper.",
+      "n_people": 61,
+      "n_units": "61 adult patients in the Discussion; Table 4 prints n = 61 for the men's column and n = 61 for the women's column, so the split by sex is unclear",
+      "ages": "adult; not otherwise printed",
+      "sexes": "men and women reported separately; numbers by sex not consistent (n = 61 printed for each)",
+      "page": "p. 179 (PDF 5)"
+    },
+    {
+      "cohort": "alam-pakistan-ct",
+      "labels": [
+        "male",
+        "female",
+        "all"
+      ],
+      "tables": [
+        "Table 5",
+        "Table 6",
+        "Table 7",
+        "Table 8",
+        "Text: Discussion"
+      ],
+      "subjects": "Rows whose source_of_values is 'Alam et al [14]'. Patients of a Pakistani population whose lumbar vertebrae were measured on CT, as cited (ref. 14: Alam MM et al 2014, Asian Spine J). Inclusion and exclusion not given in this paper.",
+      "n_people": 49,
+      "n_units": "49 patients, values for L1 to L5",
+      "ages": "not printed",
+      "sexes": "33 men, 16 women (Table 7)",
+      "page": "p. 179 (PDF 5); p. 180 (PDF 6); Table 8 p. 181 (PDF 7)"
+    },
+    {
+      "cohort": "kang-korea-ct",
+      "labels": [
+        "male",
+        "female",
+        "all"
+      ],
+      "tables": [
+        "Table 6"
+      ],
+      "subjects": "Rows whose source_of_values is 'Kang et al [16]'. A Korean population studied with CT morphometry, as cited (ref. 16: Kang KS et al 2011, Eur Spine J, a comparison of radiographic and CT measurement of pedicle and body dimensions in Koreans). Inclusion and exclusion not given in this paper.",
+      "n_people": 60,
+      "n_units": "N = 60, values for L1 to L5",
+      "ages": "not printed",
+      "sexes": "men and women reported separately; numbers by sex not printed",
+      "page": "p. 179 (PDF 5); Table 6 p. 180 (PDF 6)"
+    },
+    {
+      "cohort": "singh-north-india-cadaver",
+      "labels": [
+        "not stated"
+      ],
+      "tables": [
+        "Table 6",
+        "Table 7",
+        "Text: Discussion"
+      ],
+      "subjects": "Rows whose source_of_values is 'Jaskaran et al [15]' or 'Singh et al [15]'. Cadavers from a north Indian population, as cited (ref. 15: Singh J, Pahuja K, Khatri JK 2013, Asian J Pharm Health Sci); the tables call the study Jaskaran et al, the text Singh et al. Sexes pooled or not stated.",
+      "n_people": 20,
+      "n_units": "20 cadavers, values for L1 to L5",
+      "ages": "not printed",
+      "sexes": "not stated (one column for both sexes)",
+      "page": "p. 179 (PDF 5); p. 180 (PDF 6)"
+    }
+  ],
+  "techniques": [
+    {
+      "technique": "yadav-ct-axial-fig1",
+      "cohorts": [
+        "yadav-ct"
+      ],
+      "modality": "CT axial",
+      "instrument": "64-slice and 128-slice multidetector CT, unenhanced, diaphragm to pubic symphysis, field of view D12 to S1; 3 mm sections reconstructed to 1 mm; reconstructed in axial, coronal and sagittal planes in bone window; measuring workstation and tool not stated",
+      "how": "Measured as drawn in Figure 1 on axial images: spinal canal depth from the posterior border of the body to the lamina in the midline; lateral recess diameter on each side from the posterior body to the anteromedial point of the facet joint; interfacet distance between the anteromedial points of the two facet joints; upper and lower vertebral width between the lateral body borders, and upper and lower vertebral depth from the anterior to the posterior body edge, in the plane of the upper and of the lower end plate. An interpedicular canal width is drawn in Figure 1 but never reported.",
+      "magnification": "not applicable (CT, no projection); the paper says nothing of calibration",
+      "observers": "not stated; no reliability figures",
+      "page": "p. 176 (PDF 2), Figure 1"
+    },
+    {
+      "technique": "yadav-ct-undefined",
+      "cohorts": [
+        "yadav-ct"
+      ],
+      "modality": "other",
+      "instrument": "the same CT scans as yadav-ct-axial-fig1",
+      "how": "Intervertebral foramen diameter (right and left) and intervertebral disc height are tabulated by vertebra but never defined: no landmarks, plane or direction, and no statement of which disc or foramen belongs to which vertebra row.",
+      "magnification": "not applicable (CT)",
+      "observers": "not stated",
+      "page": "p. 176 (PDF 2); Tables 2-3 pp. 177-178 (PDF 3-4)"
+    },
+    {
+      "technique": "kumar-ct",
+      "cohorts": [
+        "kumar-telangana-ct"
+      ],
+      "modality": "other",
+      "instrument": "CT, as cited; scanner and plane not given in this paper",
+      "how": "Spinal canal anteroposterior diameter, means only, L1 to L5, as quoted in Table 4; landmarks not given here",
+      "magnification": "not stated",
+      "observers": "not stated",
+      "page": "p. 179 (PDF 5)"
+    },
+    {
+      "technique": "alam-ct",
+      "cohorts": [
+        "alam-pakistan-ct"
+      ],
+      "modality": "other",
+      "instrument": "CT, as cited; scanner and plane not given in this paper",
+      "how": "Lateral recess diameter by side, upper and lower vertebral width and upper vertebral depth, means only, L1 to L5, as quoted in Tables 5-8; landmarks not given here",
+      "magnification": "not stated",
+      "observers": "not stated",
+      "page": "p. 179 (PDF 5); p. 180 (PDF 6)"
+    },
+    {
+      "technique": "kang-ct",
+      "cohorts": [
+        "kang-korea-ct"
+      ],
+      "modality": "other",
+      "instrument": "CT morphometry as this paper describes the study (p. 179, PDF 5); the cited title (ref. 16, p. 181, PDF 7) names both radiographic and CT measurement, and which the quoted values come from is not checked here",
+      "how": "Upper vertebral width, mean +/- SD, L1 to L5, as quoted in Table 6; landmarks not given here; the cited title calls the measure the vertebral body transverse diameter, so whether it was taken at an end plate is not known (Inference)",
+      "magnification": "not stated",
+      "observers": "not stated",
+      "page": "p. 179 (PDF 5); Table 6 p. 180 (PDF 6)"
+    },
+    {
+      "technique": "singh-cadaver",
+      "cohorts": [
+        "singh-north-india-cadaver"
+      ],
+      "modality": "other",
+      "instrument": "cadaveric study, as cited; instrument not given in this paper (Inference: likely direct measurement of bone, not stated)",
+      "how": "Upper and lower vertebral width, mean +/- SD, L1 to L5, as quoted in Tables 6 and 7; landmarks not given here",
+      "magnification": "not stated",
+      "observers": "not stated",
+      "page": "p. 179 (PDF 5); p. 180 (PDF 6)"
+    }
+  ],
+  "shared": [
+    {
+      "with": "Kumar et al 2016, Telangana CT (ref. 7); not in the list",
+      "what": "values quoted",
+      "evidence": "Table 4 sets Kumar's canal AP diameters beside this study's; the text calls the trend similar",
+      "page": "p. 179 (PDF 5)"
+    },
+    {
+      "with": "Alam et al 2014, Pakistani CT (ref. 14); not in the list",
+      "what": "values quoted",
+      "evidence": "Tables 5 to 8 quote Alam's lateral recess, upper and lower width and upper depth means",
+      "page": "pp. 179-181 (PDF 5-7)"
+    },
+    {
+      "with": "Kang et al 2011, Korean CT (ref. 16); not in the list",
+      "what": "values quoted",
+      "evidence": "Table 6 quotes Kang's upper vertebral width by sex",
+      "page": "p. 180 (PDF 6)"
+    },
+    {
+      "with": "Singh (Jaskaran) et al 2013, north Indian cadavers (ref. 15); not in the list",
+      "what": "values quoted",
+      "evidence": "Tables 6 and 7 quote its upper and lower vertebral width; the text describes its LVW pattern",
+      "page": "p. 179 (PDF 5); p. 180 (PDF 6)"
+    }
+  ],
+  "within_paper": "One cohort: all measures in Tables 2 and 3 come from the same 302 patients' CT scans, every patient at every level D12 to S1 (p. 176, PDF 2; pp. 177-178, PDF 3-4), and the 'Our Study' columns of Tables 4 to 8 repeat those values (Table 4's L1 row prints the D12 means with the L1 SDs and its women's L3 mean is 13.60 against 13.66 in Table 2). Two scanners (64- and 128-slice) were pooled (p. 176, PDF 2). The four comparator cohorts are separate studies; the paper states no overlap among them or with its own patients. Inference: none of the comparator studies is one of the 42 papers of this list; Zindrick 1987 (zindrick1987) is cited only for CT being better than x-ray and cadaveric work (ref. 9, p. 176, PDF 2), with no subjects, method or values taken from it. Ref. 3 (Krag et al 1986, an internal fixator, Clin Orthop) is not krag1988 of this list (Spine 1988); it is cited among cadaveric and osteologic series (p. 176, PDF 2) with no subjects, method or values taken from it."
+}
