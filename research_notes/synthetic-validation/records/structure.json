@@ -1,0 +1,503 @@
+{
+ "correlations": {
+  "generator": [
+   {
+    "griffith_ci_men": [
+     0.21391085396579368,
+     0.368272909652742
+    ],
+    "griffith_ci_women": [
+     0.16919140508710123,
+     0.3274698075546769
+    ],
+    "griffith_men": 0.293,
+    "griffith_women": 0.25,
+    "pair": "canal_area with body_area",
+    "synthetic": 0.588438725374206
+   },
+   {
+    "griffith_ci_men": [
+     0.36826354436153524,
+     0.5046832303670279
+    ],
+    "griffith_ci_women": [
+     0.296942998489832,
+     0.44248855051093117
+    ],
+    "griffith_men": 0.439,
+    "griffith_women": 0.372,
+    "pair": "canal_w with body_area",
+    "synthetic": 0.5784754458958925
+   },
+   {
+    "griffith_ci_men": [
+     0.20765096654628415,
+     0.3625968080850816
+    ],
+    "griffith_ci_women": [
+     0.11349946951941461,
+     0.2758161363484594
+    ],
+    "griffith_men": 0.287,
+    "griffith_women": 0.196,
+    "pair": "canal_ap with body_area",
+    "synthetic": 0.555031776445718
+   },
+   {
+    "griffith_ci_men": [
+     0.554144408514607,
+     0.6603872382811259
+    ],
+    "griffith_ci_women": [
+     0.4915589507589322,
+     0.6089628870890788
+    ],
+    "griffith_men": 0.61,
+    "griffith_women": 0.553,
+    "pair": "canal_ap with canal_w",
+    "synthetic": 0.4992055223547114
+   }
+  ],
+  "nearest the papers": [
+   {
+    "griffith_ci_men": [
+     0.21391085396579368,
+     0.368272909652742
+    ],
+    "griffith_ci_women": [
+     0.16919140508710123,
+     0.3274698075546769
+    ],
+    "griffith_men": 0.293,
+    "griffith_women": 0.25,
+    "pair": "canal_area with body_area",
+    "synthetic": 0.44428534137190795
+   },
+   {
+    "griffith_ci_men": [
+     0.36826354436153524,
+     0.5046832303670279
+    ],
+    "griffith_ci_women": [
+     0.296942998489832,
+     0.44248855051093117
+    ],
+    "griffith_men": 0.439,
+    "griffith_women": 0.372,
+    "pair": "canal_w with body_area",
+    "synthetic": 0.4379065109619256
+   },
+   {
+    "griffith_ci_men": [
+     0.20765096654628415,
+     0.3625968080850816
+    ],
+    "griffith_ci_women": [
+     0.11349946951941461,
+     0.2758161363484594
+    ],
+    "griffith_men": 0.287,
+    "griffith_women": 0.196,
+    "pair": "canal_ap with body_area",
+    "synthetic": 0.4113432561072975
+   },
+   {
+    "griffith_ci_men": [
+     0.554144408514607,
+     0.6603872382811259
+    ],
+    "griffith_ci_women": [
+     0.4915589507589322,
+     0.6089628870890788
+    ],
+    "griffith_men": 0.61,
+    "griffith_women": 0.553,
+    "pair": "canal_ap with canal_w",
+    "synthetic": 0.36865403739303165
+   }
+  ],
+  "size_removed": [
+   {
+    "griffith_ci_men": [
+     0.21391085396579368,
+     0.368272909652742
+    ],
+    "griffith_ci_women": [
+     0.16919140508710123,
+     0.3274698075546769
+    ],
+    "griffith_men": 0.293,
+    "griffith_women": 0.25,
+    "pair": "canal_area with body_area",
+    "synthetic": 0.7841041726982219
+   },
+   {
+    "griffith_ci_men": [
+     0.36826354436153524,
+     0.5046832303670279
+    ],
+    "griffith_ci_women": [
+     0.296942998489832,
+     0.44248855051093117
+    ],
+    "griffith_men": 0.439,
+    "griffith_women": 0.372,
+    "pair": "canal_w with body_area",
+    "synthetic": 0.7683199126079889
+   },
+   {
+    "griffith_ci_men": [
+     0.20765096654628415,
+     0.3625968080850816
+    ],
+    "griffith_ci_women": [
+     0.11349946951941461,
+     0.2758161363484594
+    ],
+    "griffith_men": 0.287,
+    "griffith_women": 0.196,
+    "pair": "canal_ap with body_area",
+    "synthetic": 0.7197529354558954
+   },
+   {
+    "griffith_ci_men": [
+     0.554144408514607,
+     0.6603872382811259
+    ],
+    "griffith_ci_women": [
+     0.4915589507589322,
+     0.6089628870890788
+    ],
+    "griffith_men": 0.61,
+    "griffith_women": 0.553,
+    "pair": "canal_ap with canal_w",
+    "synthetic": 0.6346025804771456
+   }
+  ]
+ },
+ "griffith": [
+  {
+   "men": 0.293,
+   "pair": "canal_area with body_area",
+   "sexes_together": 0.31685413059683637,
+   "women": 0.25
+  },
+  {
+   "men": 0.439,
+   "pair": "canal_w with body_area",
+   "sexes_together": 0.48210862823247164,
+   "women": 0.372
+  },
+  {
+   "men": 0.287,
+   "pair": "canal_ap with body_area",
+   "sexes_together": 0.2420013272940096,
+   "women": 0.196
+  },
+  {
+   "men": 0.61,
+   "pair": "canal_ap with canal_w",
+   "sexes_together": 0.581133974064428,
+   "women": 0.553
+  }
+ ],
+ "isometry": [
+  {
+   "body_unit": 0.133238923309689,
+   "body_unit_measures": "endplate;endplate_depth",
+   "body_unit_papers": "chen2011 10",
+   "cells": 15,
+   "equal_means": 9,
+   "generator_loading": 1.0,
+   "is_unit": false,
+   "loading": 0.0,
+   "measure": "canal_ap",
+   "median_log_mf": 0.0,
+   "papers": "eisenstein1977 15",
+   "q1": -0.06258157147700302,
+   "q3": 0.0
+  },
+  {
+   "body_unit": 0.133238923309689,
+   "body_unit_measures": "endplate;endplate_depth",
+   "body_unit_papers": "chen2011 10",
+   "cells": 15,
+   "equal_means": 1,
+   "generator_loading": 1.0,
+   "is_unit": false,
+   "loading": 0.34914733982625945,
+   "measure": "canal_w",
+   "median_log_mf": 0.04652001563489291,
+   "papers": "eisenstein1977 15",
+   "q1": 0.04350568849481485,
+   "q3": 0.04879016416943205
+  },
+  {
+   "body_unit": 0.133238923309689,
+   "body_unit_measures": "endplate;endplate_depth",
+   "body_unit_papers": "chen2011 10",
+   "cells": 5,
+   "equal_means": 0,
+   "generator_loading": 1.0,
+   "is_unit": true,
+   "loading": 1.0489573084458816,
+   "measure": "endplate",
+   "median_log_mf": 0.13976194237515863,
+   "papers": "chen2011 5",
+   "q1": 0.1308396009588111,
+   "q3": 0.1441135019550596
+  },
+  {
+   "body_unit": 0.133238923309689,
+   "body_unit_measures": "endplate;endplate_depth",
+   "body_unit_papers": "chen2011 10",
+   "cells": 5,
+   "equal_means": 0,
+   "generator_loading": 1.0,
+   "is_unit": true,
+   "loading": 0.9905075851533786,
+   "measure": "endplate_depth",
+   "median_log_mf": 0.13197416417591626,
+   "papers": "chen2011 5",
+   "q1": 0.12814582269193003,
+   "q3": 0.13450368244346175
+  },
+  {
+   "body_unit": 0.133238923309689,
+   "body_unit_measures": "endplate;endplate_depth",
+   "body_unit_papers": "chen2011 10",
+   "cells": 5,
+   "equal_means": 0,
+   "generator_loading": 1.0,
+   "is_unit": false,
+   "loading": 0.956708181411446,
+   "measure": "endplate_lower",
+   "median_log_mf": 0.1274707680128317,
+   "papers": "chen2011 5",
+   "q1": 0.12453882578061375,
+   "q3": 0.14808298326483335
+  },
+  {
+   "body_unit": 0.133238923309689,
+   "body_unit_measures": "endplate;endplate_depth",
+   "body_unit_papers": "chen2011 10",
+   "cells": 5,
+   "equal_means": 0,
+   "generator_loading": 1.0,
+   "is_unit": false,
+   "loading": 0.9679328645279621,
+   "measure": "endplate_lower_depth",
+   "median_log_mf": 0.12896633270576874,
+   "papers": "chen2011 5",
+   "q1": 0.12100513280534231,
+   "q3": 0.13146313956046377
+  },
+  {
+   "body_unit": 0.133238923309689,
+   "body_unit_measures": "endplate;endplate_depth",
+   "body_unit_papers": "chen2011 10",
+   "cells": 12,
+   "equal_means": 0,
+   "generator_loading": 1.0,
+   "is_unit": false,
+   "loading": 0.3434856276348355,
+   "measure": "pedicle_w",
+   "median_log_mf": 0.04576565519841824,
+   "papers": "duman2026 12",
+   "q1": 0.030857102394976785,
+   "q3": 0.05914135396678083
+  }
+ ],
+ "ratios": [
+  {
+   "alonge2021": 0.7,
+   "amonookuofi1985 (men)": 0.57,
+   "amonookuofi1985 (women)": 0.61,
+   "level": "L1",
+   "panjabi_ratio_of_means": 0.5571847507331378,
+   "ratio": "canal depth / body depth",
+   "source": "alonge2021 p. 73 (CT, 120 Nigerian adults; body depth at mid-body); amonookuofi1985 Table 4, p. 74 (122 skeletons), its ratio of the sexes' means recomputed to two decimals (the reread's note, amonookuofi1985.md L184-185)",
+   "synthetic_mean": 0.5675185361702811,
+   "synthetic_sd": 0.10711132856496877
+  },
+  {
+   "alonge2021": 0.64,
+   "amonookuofi1985 (men)": 0.52,
+   "amonookuofi1985 (women)": 0.55,
+   "level": "L2",
+   "panjabi_ratio_of_means": 0.5260115606936415,
+   "ratio": "canal depth / body depth",
+   "source": "alonge2021 p. 73 (CT, 120 Nigerian adults; body depth at mid-body); amonookuofi1985 Table 4, p. 74 (122 skeletons), its ratio of the sexes' means recomputed to two decimals (the reread's note, amonookuofi1985.md L184-185)",
+   "synthetic_mean": 0.5326339492204424,
+   "synthetic_sd": 0.0813167387588496
+  },
+  {
+   "alonge2021": 0.58,
+   "amonookuofi1985 (men)": 0.46,
+   "amonookuofi1985 (women)": 0.49,
+   "level": "L3",
+   "panjabi_ratio_of_means": 0.4971590909090909,
+   "ratio": "canal depth / body depth",
+   "source": "alonge2021 p. 73 (CT, 120 Nigerian adults; body depth at mid-body); amonookuofi1985 Table 4, p. 74 (122 skeletons), its ratio of the sexes' means recomputed to two decimals (the reread's note, amonookuofi1985.md L184-185)",
+   "synthetic_mean": 0.5033043390075516,
+   "synthetic_sd": 0.07750776841554974
+  },
+  {
+   "alonge2021": 0.58,
+   "amonookuofi1985 (men)": 0.46,
+   "amonookuofi1985 (women)": 0.45,
+   "level": "L4",
+   "panjabi_ratio_of_means": 0.5239436619718311,
+   "ratio": "canal depth / body depth",
+   "source": "alonge2021 p. 73 (CT, 120 Nigerian adults; body depth at mid-body); amonookuofi1985 Table 4, p. 74 (122 skeletons), its ratio of the sexes' means recomputed to two decimals (the reread's note, amonookuofi1985.md L184-185)",
+   "synthetic_mean": 0.5275616146885721,
+   "synthetic_sd": 0.08395341952026483
+  },
+  {
+   "alonge2021": 0.58,
+   "amonookuofi1985 (men)": 0.5,
+   "amonookuofi1985 (women)": 0.47,
+   "level": "L5",
+   "panjabi_ratio_of_means": 0.5677233429394812,
+   "ratio": "canal depth / body depth",
+   "source": "alonge2021 p. 73 (CT, 120 Nigerian adults; body depth at mid-body); amonookuofi1985 Table 4, p. 74 (122 skeletons), its ratio of the sexes' means recomputed to two decimals (the reread's note, amonookuofi1985.md L184-185)",
+   "synthetic_mean": 0.5763269422076452,
+   "synthetic_sd": 0.08691456607813425
+  },
+  {
+   "cizmic2023": 1.3,
+   "level": "L1",
+   "panjabi_ratio_of_means": 1.2473684210526315,
+   "ratio": "canal width / canal depth",
+   "source": "cizmic2023 (CT, 200 adults of Bosnia and Herzegovina); measures.md L695 on the reread's branch",
+   "synthetic_mean": 1.2663761297167462,
+   "synthetic_sd": 0.23470138150342246
+  },
+  {
+   "cizmic2023": 1.39,
+   "level": "L2",
+   "panjabi_ratio_of_means": 1.3076923076923077,
+   "ratio": "canal width / canal depth",
+   "source": "cizmic2023 (CT, 200 adults of Bosnia and Herzegovina); measures.md L695 on the reread's branch",
+   "synthetic_mean": 1.3228976763349083,
+   "synthetic_sd": 0.1944540450277522
+  },
+  {
+   "cizmic2023": 1.55,
+   "level": "L3",
+   "panjabi_ratio_of_means": 1.3885714285714286,
+   "ratio": "canal width / canal depth",
+   "source": "cizmic2023 (CT, 200 adults of Bosnia and Herzegovina); measures.md L695 on the reread's branch",
+   "synthetic_mean": 1.4056720270615668,
+   "synthetic_sd": 0.20136560026004233
+  },
+  {
+   "cizmic2023": 1.63,
+   "level": "L4",
+   "panjabi_ratio_of_means": 1.3655913978494623,
+   "ratio": "canal width / canal depth",
+   "source": "cizmic2023 (CT, 200 adults of Bosnia and Herzegovina); measures.md L695 on the reread's branch",
+   "synthetic_mean": 1.3923463434807033,
+   "synthetic_sd": 0.21873721420369374
+  },
+  {
+   "cizmic2023": 1.79,
+   "level": "L5",
+   "panjabi_ratio_of_means": 1.3756345177664975,
+   "ratio": "canal width / canal depth",
+   "source": "cizmic2023 (CT, 200 adults of Bosnia and Herzegovina); measures.md L695 on the reread's branch",
+   "synthetic_mean": 1.38489350376291,
+   "synthetic_sd": 0.1975629399519037
+  },
+  {
+   "level": "L1",
+   "panjabi_ratio_of_means": 1.7281553398058251,
+   "ratio": "transverse width / end-plate width",
+   "source": "tan2004 (10 Singaporean cadavers), the ratio of his means at each level (the snapshot)",
+   "synthetic_mean": 1.7412984506751477,
+   "synthetic_sd": 0.20849745856507537,
+   "tan2004": 1.4765840220385678
+  },
+  {
+   "level": "L2",
+   "panjabi_ratio_of_means": 1.7863849765258215,
+   "ratio": "transverse width / end-plate width",
+   "source": "tan2004 (10 Singaporean cadavers), the ratio of his means at each level (the snapshot)",
+   "synthetic_mean": 1.7923066175547553,
+   "synthetic_sd": 0.1647052157322586,
+   "tan2004": 1.6832460732984291
+  },
+  {
+   "level": "L3",
+   "panjabi_ratio_of_means": 1.943310657596372,
+   "ratio": "transverse width / end-plate width",
+   "source": "tan2004 (10 Singaporean cadavers), the ratio of his means at each level (the snapshot)",
+   "synthetic_mean": 1.951377138057226,
+   "synthetic_sd": 0.23725779016653692,
+   "tan2004": 1.7894736842105265
+  },
+  {
+   "level": "L4",
+   "panjabi_ratio_of_means": 1.703862660944206,
+   "ratio": "transverse width / end-plate width",
+   "source": "tan2004 (10 Singaporean cadavers), the ratio of his means at each level (the snapshot)",
+   "synthetic_mean": 1.7180670718610258,
+   "synthetic_sd": 0.32625664287001727,
+   "tan2004": 1.611904761904762
+  },
+  {
+   "level": "L5",
+   "panjabi_ratio_of_means": 1.955602536997886,
+   "ratio": "transverse width / end-plate width",
+   "source": "tan2004 (10 Singaporean cadavers), the ratio of his means at each level (the snapshot)",
+   "synthetic_mean": 1.9702293034514746,
+   "synthetic_sd": 0.3207913652735171,
+   "tan2004": 1.7139423076923075
+  },
+  {
+   "level": "L1",
+   "panjabi_ratio_of_means": 0.7106373528758605,
+   "ratio": "canal area / (width x depth)",
+   "source": "tan2004, the ratio of his means at each level (the snapshot)",
+   "synthetic_mean": 0.7343508366280573,
+   "synthetic_sd": 0.2042786436332505,
+   "tan2004": 0.8247422680412372
+  },
+  {
+   "level": "L2",
+   "panjabi_ratio_of_means": 0.6487210268722874,
+   "ratio": "canal area / (width x depth)",
+   "source": "tan2004, the ratio of his means at each level (the snapshot)",
+   "synthetic_mean": 0.6602986782474587,
+   "synthetic_sd": 0.16075284842423485,
+   "tan2004": 0.8091168091168092
+  },
+  {
+   "level": "L3",
+   "panjabi_ratio_of_means": 0.6584362139917695,
+   "ratio": "canal area / (width x depth)",
+   "source": "tan2004, the ratio of his means at each level (the snapshot)",
+   "synthetic_mean": 0.670048013665069,
+   "synthetic_sd": 0.15507681687230723,
+   "tan2004": 0.7658321060382918
+  },
+  {
+   "level": "L4",
+   "panjabi_ratio_of_means": 0.6138345610024554,
+   "ratio": "canal area / (width x depth)",
+   "source": "tan2004, the ratio of his means at each level (the snapshot)",
+   "synthetic_mean": 0.6288210855377998,
+   "synthetic_sd": 0.15138851314104393,
+   "tan2004": 0.7240099009900991
+  },
+  {
+   "level": "L5",
+   "panjabi_ratio_of_means": 0.6181280086912544,
+   "ratio": "canal area / (width x depth)",
+   "source": "tan2004, the ratio of his means at each level (the snapshot)",
+   "synthetic_mean": 0.6282573050156938,
+   "synthetic_sd": 0.1683937538452825,
+   "tan2004": 0.6995051731893838
+  }
+ ]
+}

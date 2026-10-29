@@ -1,0 +1,16 @@
+panel,level,flags,endplate,h_post,canal_w,transverse_width
+Panjabi's means,L1,,41.2,23.8,23.7,71.2
+Panjabi's means,L2,,42.6,24.3,23.8,76.1
+Panjabi's means,L3,,44.1,23.8,24.3,85.7
+Panjabi's means,L4,,46.6,24.1,25.4,79.4
+Panjabi's means,L5,,47.3,22.9,27.1,92.5
+"synthetic, L3 passes",L1,,37.928,23.1402,22.4408,68.1447
+"synthetic, L3 passes",L2,box,42.5176,19.9711,24.0672,77.6761
+"synthetic, L3 passes",L3,,44.7026,20.0871,24.4233,83.8949
+"synthetic, L3 passes",L4,,46.4918,21.8622,23.1845,95.0316
+"synthetic, L3 passes",L5,,53.7327,19.3452,23.8528,103.067
+"synthetic, L3 canal over its box",L1,,38.7511,24.8275,18.5453,59.2651
+"synthetic, L3 canal over its box",L2,,36.1591,21.9315,21.9992,61.0297
+"synthetic, L3 canal over its box",L3,box,38.7437,21.719,20.6076,77.3435
+"synthetic, L3 canal over its box",L4,,42.5014,25.4858,19.1304,66.6135
+"synthetic, L3 canal over its box",L5,,35.8525,23.9781,25.7114,88.2429
