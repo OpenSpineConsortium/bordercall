@@ -9,12 +9,18 @@ paper's fields by another paper's table, need one mean and one population SD per
 level of each set of subjects, so this file decides, in code that can be read, how each is made:
 
 - the SD is the printed SD; else an SE times the root of its count; else the root of a printed
-  variance; a series with no way to an SD keeps its mean and an empty SD;
+  variance; a series with no way to an SD keeps its mean and an empty SD. A meta-analysis's SE
+  (technique meta_pool) is the uncertainty of a random-effects pooled mean, not the spread of the
+  people behind it, so it gives no SD: Bonczar 2024's SEs times the root of its 1,481 subjects
+  made SDs of 30 to 180 mm and deg;
 - the count is the n printed for that cell, else the n printed for that measure and subgroup
   elsewhere in the paper, else the cohort's number of people from its cohorts file, and the
   series says which (n_from);
 - the sides: a value printed for both sides or their mean is taken as it is; a right and a left
-  only are averaged, mean with mean and SD with SD (sides "averaged");
+  only are averaged, mean with mean and SD with SD (sides "averaged"). Where a paper prints the
+  two sides of one angle with opposite signs, its left is negated first (MIRRORED_LEFT), as its
+  mapping note says, since a plain mean would cancel the angle: Tan 2004's pedicle angles, left
+  -42.9 and right 39.6 at C3, averaged to -1.65 against Panjabi's 42.25;
 - the sexes: a value printed for both sexes is taken as it is; a male and a female only, each
   with its count, are pooled into one series with the pooled SD, which takes in the difference
   between the sexes' means (sex "pooled"); without both counts they stay two series;
@@ -33,6 +39,10 @@ import os
 import re
 import sys
 
+POOLED_MEANS = {"meta_pool"}
+# (paper, key) whose left side is printed with the opposite sign to the right and to Panjabi's
+# convention; the mapping note of each reading says to reverse the left (readings/tan2004.csv).
+MIRRORED_LEFT = {("tan2004", "pedicle_incl_sag")}
 NOT_MEASURES = {"subject_age", "subject_height", "subject_weight", "subject_bmi", "subject_count", "prevalence",
                 "reliability", "other"}
 PLAIN_SIDES = ("", "both", "mean of sides")
@@ -112,7 +122,7 @@ def first(values):
 
 
 def one_series(k, stats, people, by_measure, by_group):
-    paper, cohort, _, _, key, _, sex, group, _ = k
+    paper, cohort, technique, _, key, _, sex, group, _ = k
     mean = first(stats.get("mean", [])) if stats.get("mean") else first(stats.get("single", []))
     if mean is None:
         return None
@@ -126,7 +136,7 @@ def one_series(k, stats, people, by_measure, by_group):
     if n is None:
         n_from = ""
     sd, sd_from = first(stats.get("sd", [])), "sd"
-    if sd is None and stats.get("sem") and n:
+    if sd is None and stats.get("sem") and n and technique not in POOLED_MEANS:
         sd, sd_from = stats["sem"][0] * math.sqrt(n), "sem x root n"
     if sd is None and stats.get("variance"):
         sd, sd_from = math.sqrt(stats["variance"][0]), "root of variance"
@@ -135,14 +145,16 @@ def one_series(k, stats, people, by_measure, by_group):
     return {"mean": mean, "sd": sd, "n": n, "sd_from": sd_from, "n_from": n_from}
 
 
-def merge_sides(found):
+def merge_sides(found, mirrored=False):
     """found: {side: series}. One series for the measure: a plain side as it is, else the mean of
-    a right and a left."""
+    a right and a left, the left's sign reversed first where the paper prints the sides mirrored."""
     for side in PLAIN_SIDES:
         if side in found:
             return side, found[side]
     if "right" in found and "left" in found:
         r, l = found["right"], found["left"]
+        if mirrored:
+            l = dict(l, mean=-l["mean"])
         sd = (r["sd"] + l["sd"]) / 2 if r["sd"] is not None and l["sd"] is not None else None
         n = min(x for x in (r["n"], l["n"]) if x) if (r["n"] or l["n"]) else None
         return "averaged", dict(r, mean=(r["mean"] + l["mean"]) / 2, sd=sd, n=n,
@@ -177,7 +189,7 @@ def build(rows, people):
             sides[k[:8]][k[8]] = s
     sexes = collections.defaultdict(dict)
     for k, found in sides.items():
-        side, s = merge_sides(found)
+        side, s = merge_sides(found, (k[0], k[4]) in MIRRORED_LEFT)
         sexes[k[:6] + k[7:8]][k[6]] = (side, s)
     out = []
     for k, found in sexes.items():

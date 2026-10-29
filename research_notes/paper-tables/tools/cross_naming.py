@@ -238,7 +238,9 @@ def one_per_paper(rows: Sequence[dict], contains: Dict[str, List[str]] = None) -
     contains = contains or {}
     best: Dict[str, dict] = {}
     for r in rows:
-        if r["sd"] is None or not r["n"] or r["n"] < 2:
+        # A printed SD (or SEM) of zero is a small spread rounded away; it would give the source an
+        # infinite weight and the pool no mean (Tan 2004 prints an SEM of 0.0 for EPWu at C6).
+        if r["sd"] is None or r["sd"] <= 0 or not r["n"] or r["n"] < 2:
             continue
         cur = best.get(r["paper"])
         if cur is None or r["n"] > cur["n"]:
@@ -383,6 +385,18 @@ def one_source(job) -> List[dict]:
     return out
 
 
+def not_a_number(x, where: str = "") -> List[str]:
+    """Every place in the record that holds NaN or an infinity, so a bad pool stops the run instead
+    of reaching the page."""
+    if isinstance(x, float):
+        return [where] if math.isnan(x) or math.isinf(x) else []
+    if isinstance(x, dict):
+        return [p for k, v in x.items() for p in not_a_number(v, where + "/" + str(k))]
+    if isinstance(x, list):
+        return [p for i, v in enumerate(x) for p in not_a_number(v, where + "/" + str(i))]
+    return []
+
+
 def main(argv=None) -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("series")
@@ -411,6 +425,9 @@ def main(argv=None) -> int:
               "disagreement": disagreement(series, base, mu, sd, contains),
               "transport": transport(series, pool, base, mu, sd, noise, power, a.fields, a.seed, a.processes,
                                      contains=contains)}
+    bad = not_a_number(record)
+    if bad:
+        raise ValueError("the record holds no number at %d places, the first %s" % (len(bad), ", ".join(bad[:5])))
     with open(a.out, "w") as f:
         json.dump(record, f, indent=1, sort_keys=True)
         f.write("\n")

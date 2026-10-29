@@ -282,8 +282,9 @@ def profile_rows(record):
             continue
         best = {}
         for s in d["sources"]:
-            if s["vs_panjabi"] in SAME and s["sd"] is not None and s["n"]:
-                if s["paper"] not in best or s["n"] > best[s["paper"]]["n"]:
+            if s["vs_panjabi"] in SAME and s["n"]:
+                rank = (s["sd"] is not None, s["n"])
+                if s["paper"] not in best or rank > (best[s["paper"]]["sd"] is not None, best[s["paper"]]["n"]):
                     best[s["paper"]] = s
         for paper, s in sorted(best.items()):
             rows.append(dict(panel=d["key"], level=d["level"], who="pools_panjabi" if "panjabi" in holds.get(paper, []) else "paper",
@@ -312,7 +313,7 @@ def fig_profiles(record, out, caption):
             pts = [r for r in mine if r["paper"] == paper and r["level"] in y]
             off = 0.32 * ((k + 1) / (len(names_here) + 1) - 0.5)
             marker = "D" if pts and pts[0]["who"] == "pools_panjabi" else "o"
-            ax.errorbar([r["mean"] for r in pts], [y[r["level"]] + off for r in pts], xerr=[r["sd"] for r in pts],
+            ax.errorbar([r["mean"] for r in pts], [y[r["level"]] + off for r in pts], xerr=[r["sd"] or 0.0 for r in pts],
                         color=INK, linestyle="none", marker=marker, markerfacecolor="white", markersize=3.0,
                         elinewidth=0.5, capsize=0, alpha=0.9)
             drawn += pts
@@ -326,7 +327,7 @@ def fig_profiles(record, out, caption):
         letter(ax, let)
     for r in drawn:
         r["mean"] = round(r["mean"], 3)
-        r["sd"] = round(r["sd"], 3)
+        r["sd"] = "" if r["sd"] is None else round(r["sd"], 3)
     return save(fig, out, "profiles", caption) + [write_csv(out, "profiles", drawn)]
 
 
@@ -404,8 +405,7 @@ def page(record, read_rows, share, dis, summary, by_paper, cross_path):
               "- README.md, this page; transport.* and profiles.*, the figures as PNG and PDF with their captions and a CSV of",
               "  every number drawn; transport_by_paper.csv, every series' fields by arm and bodies.",
               "- ../data/: the readings, cohorts and series the record was made from; the record is ../data/%s." % os.path.basename(cross_path),
-              "- Made with: python research_notes/paper-tables/tools/cross_naming.py data/series.csv data/%s %s" % (
-                  os.path.basename(cross_path), record["command"].split(".json", 2)[-1].strip()),
+              "- Made with, from the repository's root: %s (any --processes gives the same record)," % record["command"],
               "  and python research_notes/paper-tables/tools/results.py research_notes/paper-tables/data",
               "  research_notes/paper-tables/data/%s research_notes/clinical-reread/notes research_notes/paper-tables/results." % os.path.basename(cross_path)]
     return "\n".join(lines) + "\n"
@@ -437,7 +437,8 @@ def main(argv):
                  "Each paper's means beside Panjabi's, one series per paper and measure (the largest count, a definition his "
                  "or close to it): filled circles on a solid line, Panjabi's 12 spines with one SD; open circles, each "
                  "paper's mean with one SD, spread a little up and down so they do not overlap; open diamonds, a paper "
-                 "that pools Panjabi's spines. Dotted lines, the cervicothoracic and thoracolumbar junctions.")
+                 "that pools Panjabi's spines, drawn with no bar since a meta-analysis's pooled SE gives no SD of its "
+                 "people. Dotted lines, the cervicothoracic and thoracolumbar junctions.")
     with open(os.path.join(OUT, "transport_by_paper.csv"), "w", newline="") as fh:
         w = csv.DictWriter(fh, fieldnames=list(by_paper[0]), lineterminator="\n")
         w.writeheader()
