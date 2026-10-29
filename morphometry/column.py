@@ -6,9 +6,12 @@ height is taken along. In L's frame the upper vertebra's body (U) is brought in 
 world, and at three places front to back on the midline the disc height is the gap along z from
 L's upper surface to U's lower surface, each plate read in a band 3 mm deep and 6 mm wide set at
 its own corners (body.plate_rims): 2.5 mm inside the anterior corners, half-way, and 2.5 mm
-inside the posterior corners, as body.band_surface reads a height's ends. Bands set at L's
-corners for both plates would miss U's when U has slipped: at a 4 mm slip U's plate holds no
-point in the posterior band. disc_h_mean is the mean of the three.
+inside the posterior corners, where body.band_surface reads a height's ends; each plate's
+surface is the band's typical one (body.band_typical), the median of its cells, since the
+outermost point of the band is set by one cell a lip or a stray voxel stands proud in, and the
+masks' discs are a few voxels tall. Bands set at L's corners for both plates would miss U's
+when U has slipped: at a 4 mm slip U's plate holds no point in the posterior band. disc_h_mean
+is the mean of the three.
 
 The segmental angles compare U's lower end-plate with L's upper end-plate, each drawn from rim to
 rim (body.rim_plane), in L's frame: sagittal positive where the disc opens in front (lordosis),
@@ -61,8 +64,8 @@ def disc_heights(U: Vertebra, L: Vertebra) -> Dict[str, float]:
     out = {}
     for name, yl, yu in (("disc_h_ant", la, ua), ("disc_h_mid", 0.5 * (lb + la), 0.5 * (ub + ua)),
                          ("disc_h_post", lb, ub)):
-        out[name] = (BODY.band_surface(Ub, xu, yu, up_plane, False, L.fz)
-                     - BODY.band_surface(Lb, xl, yl, low_plane, True, L.fz))
+        out[name] = (BODY.band_typical(Ub, xu, yu, up_plane, False, L.fz, L.pixel)
+                     - BODY.band_typical(Lb, xl, yl, low_plane, True, L.fz, L.pixel))
     vals = [out[k] for k in ("disc_h_ant", "disc_h_mid", "disc_h_post")]
     out["disc_h_mean"] = float(np.mean(vals)) if all(np.isfinite(vals)) else NAN
     return out

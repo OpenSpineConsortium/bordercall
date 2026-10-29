@@ -41,7 +41,7 @@ class Vert:
     # the pedicles: the gap between their medial walls at the isthmus, their width and height
     # there, the isthmus centre's height and its distance behind the body's posterior wall, the
     # axis's transverse (medial) and sagittal angles in degrees, and how fast the pedicle swells
-    # away from its isthmus (a fraction of its size per mm squared)
+    # away from its isthmus (a fraction of its size per mm squared, up to SWELL_MAX)
     canal_w: float = 22.0
     ped_w: float = 9.0
     ped_h: float = 15.0
@@ -50,6 +50,15 @@ class Vert:
     ped_t: float = 0.0
     ped_s: float = 0.0
     ped_waist: float = 0.0
+    # a block against each pedicle's side at the isthmus over its free length, as the lateral
+    # mass stands against a cervical pedicle: its width out from there and its height, 0 for
+    # none; and the foramen transversarium, a vertical hole of this diameter through the block
+    # whose medial edge lies a millimetre inside the pedicle's side at the isthmus, 0 for none,
+    # so that beside the isthmus the pedicle's side is the foramen's wall, as the real one is,
+    # and in front of and behind the foramen the block joins it
+    mass_w: float = 0.0
+    mass_h: float = 0.0
+    foramen_d: float = 0.0
     # the articular pillars: centre across and front to back; each runs from the pedicle's back
     # end to the lamina, between the inferior and the superior articular process
     pil_x: float = 17.0
@@ -75,10 +84,11 @@ class Vert:
     iap_thk: float = 5.0
     iap_bot: float = -24.0
     facet: float = 40.0
-    # the transverse processes: tip to tip, front-to-back centre and thickness, centre height and
-    # craniocaudal height
+    # the transverse processes: tip to tip, front-to-back centre (at the pillar, the junction
+    # of the pedicle and the lamina, where a lumbar transverse process springs) and thickness,
+    # centre height and craniocaudal height
     TP: float = 78.0
-    tp_y: float = -10.0
+    tp_y: float = -13.0
     tp_thk: float = 6.0
     tp_z: float = 2.0
     tp_h: float = 10.0
@@ -88,6 +98,9 @@ class Vert:
     sp_angle: float = 20.0
     sp_hw: float = 3.0
     sp_hh: float = 4.5
+
+
+SWELL_MAX = 0.5          # a pedicle swells to at most this much more than its isthmus
 
 
 def lumbar(**kw) -> Vert:
@@ -127,12 +140,28 @@ def pedicle_inside(q: np.ndarray, v: Vert, side: int) -> np.ndarray:
     ew, eh = pedicle_frame(d)
     r = q - c
     t = r @ d
-    g = 1.0 + v.ped_waist * t ** 2
+    g = 1.0 + np.minimum(v.ped_waist * t ** 2, SWELL_MAX)
     u, w = (r @ ew) / (g * v.ped_w / 2), (r @ eh) / (g * v.ped_h / 2)
     # from inside the body to the pillar: anteriorly to 12 mm in front of the isthmus, posteriorly
     # to the pillar's centre line
     t_back = (v.ped_back + (-v.pil_y - v.ped_back)) / max(abs(d[1]), 1e-6)
     return (u ** 2 + w ** 2 <= 1.0) & (t >= -(v.ped_back + 12.0) / abs(d[1])) & (t <= t_back)
+
+
+def mass_start(v: Vert) -> float:
+    """Where the block beside a pedicle begins: at the pedicle's side at the isthmus."""
+    return v.canal_w / 2 + v.ped_w
+
+
+def foramen_centre(v: Vert, side: int) -> Tuple[float, float]:
+    """The foramen transversarium's centre in (x, y): its medial edge a millimetre inside the
+    block's start, so that no sliver of the block stands beside the isthmus."""
+    return side * (mass_start(v) - 1.0 + v.foramen_d / 2), -v.ped_back
+
+
+def foramen_inside(q: np.ndarray, v: Vert, side: int) -> np.ndarray:
+    cx, cy = foramen_centre(v, side)
+    return (q[:, 0] - cx) ** 2 + (q[:, 1] - cy) ** 2 <= (v.foramen_d / 2) ** 2
 
 
 def box_along(q: np.ndarray, cx: float, cy: float, along: np.ndarray, half_len: float, half_thk: float,
@@ -172,6 +201,13 @@ def parts_inside(q: np.ndarray, v: Vert) -> Dict[str, np.ndarray]:
                                        v.iap_bot, v.lam_bot + 4.0)
         out["tp_" + name] = ((sx >= v.pil_x) & (sx <= v.TP / 2) & (np.abs(y - v.tp_y) <= v.tp_thk / 2)
                              & (np.abs(z - v.tp_z) <= v.tp_h / 2))
+        if v.mass_w > 0 and v.mass_h > 0:
+            x_in = mass_start(v)
+            mass = ((sx >= x_in) & (sx <= x_in + v.mass_w) & (y <= -1.0) & (y >= -(v.ped_back + 6.0))
+                    & (np.abs(z - v.ped_z) <= v.mass_h / 2))
+            if v.foramen_d > 0:
+                mass &= ~foramen_inside(q, v, side)
+            out["mass_" + name] = mass
     front = lamina_front(x, z, v)
     out["lamina"] = (np.abs(x) <= v.pil_x) & (y <= front) & (y >= front - v.lam_t) & (z >= v.lam_bot) & (z <= v.lam_top)
     b = math.radians(v.sp_angle)
@@ -295,11 +331,16 @@ def canal_ap_at(v: Vert, z: float) -> float:
 
 
 def interpedicular_at(v: Vert, z: float) -> float:
-    """The gap between the pedicles' medial walls at height z, for pedicles with no angle and no waist."""
-    s = (z - v.ped_z) / (v.ped_h / 2)
+    """The gap between the pedicles' medial walls at height z in the plane of their isthmus,
+    where a waisted pedicle has swollen by nothing. The plane cuts the pedicle's elliptic
+    cylinder on the slant of its angles, so the section is the ellipse stretched by the
+    secant of each: a across, b up."""
+    a = (v.ped_w / 2) / math.cos(math.radians(v.ped_t))
+    b = (v.ped_h / 2) / math.cos(math.radians(v.ped_s))
+    s = (z - v.ped_z) / b
     if abs(s) >= 1.0:
         return float("nan")
-    return v.canal_w + v.ped_w * (1.0 - math.sqrt(1.0 - s * s))
+    return v.canal_w + v.ped_w - 2.0 * a * math.sqrt(1.0 - s * s)
 
 
 def chord_length(v: Vert, side: int, step: float = 0.01) -> float:

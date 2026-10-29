@@ -181,21 +181,33 @@ def across_walls(v: A.Vertebra, s: A.CanalSlab) -> Optional[Tuple[float, float, 
 
 
 def interpedicular(v: A.Vertebra, ped: Dict[str, dict]) -> List[Line]:
-    rings = v.full_rings()
-    if not rings:
+    """The least and the greatest width between the pedicles (canal.measures): between the
+    pedicles' own walls where both were found (pedicle.canal_between), in the layer of the three
+    its smoothed value came from; else the hole's width through its middle over the middle
+    rings, in the ring of the three the least came from."""
+    band = PED.band(ped)
+    if band is not None and np.isfinite(band.get("interpedicular", NAN)):
+        out = []
+        for key in ("interpedicular", "interpedicular_max"):
+            at = band.get(key + "_at")
+            if at is None or not np.isfinite(band[key]):
+                continue
+            y, z, x0, x1 = at
+            a, b = world(v, (x0, y, z), (x1, y, z))
+            out.append(Line(key, v.level, float(band[key]), a, b, "length", "axial_canal"))
+        return out
+    sel = CANAL.middle_rings(v.full_rings(), CANAL.body_span(v))
+    if not sel:
         return []
-    near, _ = CANAL.pedicle_slabs(rings, PED.band(ped), CANAL.body_span(v))
-    if not near:
-        return []
-    w = CANAL.smoothed(near, "width")
-    k = int(np.argmin(w))
-    s = near[median_of_three(near, "width", k, float(w[k]))]
+    smooth = CANAL.smoothed(sel, "width")
+    k = int(np.argmin(smooth))
+    s = sel[median_of_three(sel, "width", k, float(smooth[k]))]
     walls = across_walls(v, s)
     if walls is None:
         return []
     x0, x1, ym = walls
     a, b = world(v, (x0, ym, s.z), (x1, ym, s.z))
-    return [Line("interpedicular", v.level, float(w[k]), a, b, "length", "axial_canal")]
+    return [Line("interpedicular", v.level, float(smooth[k]), a, b, "length", "axial_canal")]
 
 
 def lateral_film(v: A.Vertebra) -> List[Line]:
@@ -283,33 +295,28 @@ def march(v: A.Vertebra, c0: np.ndarray, d: np.ndarray) -> Optional[Tuple[float,
     return ts[a] - 0.5 * PED.MARCH_MM, ts[b] + 0.5 * PED.MARCH_MM
 
 
-def nearest_median(rows: List[dict], field_: str) -> dict:
-    med = float(np.median([r[field_] for r in rows]))
-    return min(rows, key=lambda r: abs(r[field_] - med))
-
-
 def pedicles(v: A.Vertebra) -> List[Line]:
+    """Each side's width across its section at the pedicle's own middle height in that row, its
+    height up the column at the middle of the section (pedicle.one_side), each in the row of
+    the isthmus rows nearest the median the measure takes, and the chord along the axis."""
     zb = CANAL.body_span(v)
     out = []
     for side, name in PED.SIDES:
-        rows = PED.coronal_sweep(v, side, zb)
-        if len(rows) < 3:
+        got, _, info = PED.one_side(v, side, zb)
+        if info is None:
             continue
-        k, d, _, reads = PED.axis_from(rows, side)
-        least = min(r["n"] for r in rows)
-        near = [r for r in rows if r["n"] <= PED.ISTHMUS_SHARE * least]
-        level = np.array([d[0], d[1], 0.0]) / np.linalg.norm(d[:2])
-        rw, rh = nearest_median(near, "w"), nearest_median(near, "h")
-        value_w = float(np.median([r["w"] for r in near])) * abs(level[1])
-        a, b = world(v, rw["c"] - [0.5 * rw["w"], 0, 0], rw["c"] + [0.5 * rw["w"], 0, 0])
-        out.append(Line("pedicle_w_" + name, v.level, value_w, a, b, "median", "coronal_pedicle"))
-        a, b = world(v, rh["c"] - [0, 0, 0.5 * rh["h"]], rh["c"] + [0, 0, 0.5 * rh["h"]])
-        out.append(Line("pedicle_h_" + name, v.level, float(np.median([r["h"] for r in near])), a, b, "median",
-                        "coronal_pedicle"))
-        got = march(v, rows[k]["c"], d) if reads != "neither" else None
-        if got is not None:
-            a, b = world(v, rows[k]["c"] + got[0] * d, rows[k]["c"] + got[1] * d)
-            out.append(Line("pedicle_chord_" + name, v.level, got[1] - got[0], a, b, "length", "axial_pedicle"))
+        m = info["map"]
+        r = info["rows"][info["width_row"]]
+        a, b = world(v, (m.x_of(r["u0"]), r["y"], r["z"]), (m.x_of(r["u1"]), r["y"], r["z"]))
+        out.append(Line("pedicle_w_" + name, v.level, got["pedicle_w"], a, b, "median", "coronal_pedicle"))
+        r = info["rows"][info["height_row"]]
+        a, b = world(v, (r["x"], r["y"], r["run"][0]), (r["x"], r["y"], r["run"][1]))
+        out.append(Line("pedicle_h_" + name, v.level, got["pedicle_h"], a, b, "median", "coronal_pedicle"))
+        c0, d = info["centre"], info["axis"]
+        ends = march(v, c0, d) if np.isfinite(got.get("pedicle_chord", NAN)) else None
+        if ends is not None:
+            a, b = world(v, c0 + ends[0] * d, c0 + ends[1] * d)
+            out.append(Line("pedicle_chord_" + name, v.level, ends[1] - ends[0], a, b, "length", "axial_pedicle"))
     return out
 
 
@@ -328,8 +335,8 @@ def discs(U: A.Vertebra, L: A.Vertebra) -> List[Line]:
     out = []
     for name, yl, yu in (("disc_h_ant", la, ua), ("disc_h_mid", 0.5 * (lb + la), 0.5 * (ub + ua)),
                          ("disc_h_post", lb, ub)):
-        zu = BODY.band_surface(Ub, xu, yu, up_plane, False, L.fz)
-        zl = BODY.band_surface(Lb, xl, yl, low_plane, True, L.fz)
+        zu = BODY.band_typical(Ub, xu, yu, up_plane, False, L.fz, L.pixel)
+        zl = BODY.band_typical(Lb, xl, yl, low_plane, True, L.fz, L.pixel)
         a, b = world(L, (xl, yl, zl), (xu, yu, zu))
         out.append(Line(name, level, zu - zl, a, b, "dz", "sagittal"))
     return out

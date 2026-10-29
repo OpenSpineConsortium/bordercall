@@ -142,6 +142,34 @@ def band_surface(pts: np.ndarray, x0: float, y0: float, plane: np.ndarray, top: 
     return G.surface(z, top, layer)
 
 
+def band_typical(pts: np.ndarray, x0: float, y0: float, plane: np.ndarray, top: bool, layer: float,
+                 pixel: float) -> float:
+    """Where a plate typically lies over the band: the points carried to the band's centre as
+    band_surface carries them, then the median over the band's cells (scanimport.geometry.cells)
+    of each cell's outermost point, plus half a layer. A disc is the gap between two such
+    surfaces, and band_surface's outermost point of the whole band is set by any one cell a lip,
+    an osteophyte or a voxel the mask gives the wrong label stands proud in: on the three CTs of
+    2026-10-29 the discs read 1.35 mm under the gap the masks leave in the neck (the research
+    note's disc test), a few tenths more than the masks themselves take in. The median takes
+    the band's typical cell. Half a layer is added because a cell's outermost centre lies
+    anywhere from flush with the surface to one layer below it: on a plate the lattice's layers
+    lie along, every cell's does the same, and the surface is half a layer beyond, as `surface`
+    puts it; on a plate they cross, the cells' outermost centres spread evenly over a layer, and
+    their median lies half a layer in. Heights keep band_surface: their two plates are read on
+    one body, where a lip is a part of the body, and the comparison with the papers stands on
+    them."""
+    sel = band(pts, x0, y0)
+    if len(sel) < G.MIN_CHORD_POINTS:
+        return NAN
+    z = sel[:, 2] - plane[1] * (sel[:, 0] - x0) - plane[2] * (sel[:, 1] - y0)
+    order, starts, ends = G.cells(sel, pixel)
+    zs = z[order]
+    pick = np.max if top else np.min
+    ext = np.array([pick(zs[a:b]) for a, b in zip(starts, ends)])
+    typical = float(np.median(ext))
+    return typical + 0.5 * layer if top else typical - 0.5 * layer
+
+
 def heights(v: Vertebra, B: np.ndarray, xc: float) -> Dict[str, float]:
     planes = plate_slopes(B, v.pixel, v.fz)
     rims = {top: plate_rims(v, B, top, xc) for top in (True, False)}

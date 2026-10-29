@@ -129,6 +129,38 @@ class Shapes(unittest.TestCase):
         self.assertLessEqual(abs(got - self.v.facet), 2 * TOL_DEG, "facet %.2f" % got)
 
 
+class LateralMass(unittest.TestCase):
+    """Pedicles that swell away from their isthmus, each with a block 8 mm wide and 24 mm tall
+    against its side, as the lateral mass stands against a cervical pedicle, pierced by a
+    foramen 6.5 mm across whose wall beside the isthmus is the pedicle's own side, as the
+    foramen transversarium lies beside the cervical pedicle, so that only the rows through the
+    foramen show the pedicle free of the block: the pedicle's width and height are its own, not
+    the block's, and the interpedicular distance is read at the isthmus, where the swelling is
+    nil, not across the hole's middle behind it, where the swollen pedicles narrow the canal.
+    The phantom is drawn unstrictly: the swollen posterior end of each pedicle, half again its
+    isthmus's size at the pillar, runs into the neighbour above's inferior articular process by
+    a few dozen voxels, a collision of the phantom's parts and not of any real vertebra's."""
+
+    @classmethod
+    def setUpClass(cls):
+        cls.v = P.lumbar(ped_waist=0.02, mass_w=8.0, mass_h=24.0, foramen_d=6.5)
+        cls.rows = measured(P.straight(LUMBAR, cls.v), LUMBAR, strict=False)
+        cls.truth = P.truth(cls.v)
+
+    def near(self, key, tol):
+        got, want = self.rows["L3"][key], self.truth[key]
+        self.assertTrue(np.isfinite(got), "%s is not finite" % key)
+        self.assertLessEqual(abs(got - want), tol, "%s: %.2f against %.2f" % (key, got, want))
+
+    def test_pedicle_without_the_mass(self):
+        for k in ("pedicle_w", "pedicle_h"):
+            self.near(k, TOL_MM)
+
+    def test_interpedicular_at_the_isthmus(self):
+        for k in ("interpedicular", "interpedicular_max"):
+            self.near(k, TOL_MM)
+
+
 class Joints(unittest.TestCase):
     """L2 to L4 with each joint opened 8 degrees in front, tilted 4 sideways, turned 5 and the
     upper vertebra slipped 4 mm forward. The turned facets of neighbours claim a few voxels
