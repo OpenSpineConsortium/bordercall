@@ -1,5 +1,11 @@
 """Longest run of equal consecutive values between any lumbar series and any cervical or
-thoracic series of bordercall's long table (means and SEMs alike), at every alignment."""
+thoracic series of bordercall's long table (means and SEMs alike), at every alignment, each
+lumbar series forward and reversed. The facet paper's series are read but not compared.
+
+Run from the repository root with the long table's path as the one argument:
+    python research_notes/panjabi-endplate-inclination-scripts/runs.py schwingcheck/data/panjabi_long.csv
+On the table of 2026-10-29 it prints the four EPI series (L1-L5 against C3-C7) and
+pairs by longest run {0: 13088, 1: 522, 2: 10, 5: 4}."""
 import csv, sys, collections
 
 series = collections.defaultdict(list)
