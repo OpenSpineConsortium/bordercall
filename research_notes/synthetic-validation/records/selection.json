@@ -1,0 +1,91 @@
+{
+ "flags": {
+  "both sexes printed, not pooled (men kept)": 41,
+  "one sex only (male)": 52,
+  "one side only": 1
+ },
+ "left_out": {
+  "a cohort whose people another cohort holds": 15,
+  "a meta-analysis pooling other series": 80,
+  "a stratum of a cohort printed whole": 170,
+  "another technique on the same people": 45,
+  "definition differs": 159,
+  "not human": 28,
+  "quoted from another study": 778,
+  "selected, diseased or example group": 137,
+  "the other sex, not pooled (no SD or no count)": 41
+ },
+ "n_from_cohort": 29,
+ "n_notes": {
+  "n is the printed pedicles halved": 29
+ },
+ "one_sex_only": 48,
+ "papers": 25,
+ "rows": 2407,
+ "sd_uncertain": 416,
+ "series": 954,
+ "unusable_by_paper": {
+  "busscher2010": 4,
+  "eisenstein1977": 30,
+  "krag1988": 1,
+  "mitra2002": 15,
+  "tan2004": 1
+ },
+ "usable": 903,
+ "usable_by_measure": {
+  "canal_ap": 70,
+  "canal_area": 32,
+  "canal_w": 47,
+  "endplate": 36,
+  "endplate_area": 25,
+  "endplate_depth": 42,
+  "endplate_incl": 22,
+  "endplate_lower": 36,
+  "endplate_lower_area": 24,
+  "endplate_lower_depth": 42,
+  "endplate_lower_incl": 22,
+  "facet_w_sup": 5,
+  "h_post": 76,
+  "pedicle_area": 27,
+  "pedicle_h": 109,
+  "pedicle_incl_sag": 79,
+  "pedicle_incl_trans": 56,
+  "pedicle_w": 109,
+  "spinous_length": 22,
+  "transverse_width": 22
+ },
+ "usable_by_modality": {
+  "bone": 532,
+  "ct": 210,
+  "film": 59,
+  "mixed": 68,
+  "mri": 34
+ },
+ "usable_by_paper": {
+  "abbas2021": 10,
+  "ahmed2019": 10,
+  "alonge2021": 10,
+  "amonookuofi1985": 5,
+  "arockiaraj2025": 15,
+  "busscher2010": 22,
+  "cizmic2023": 10,
+  "duman2026": 16,
+  "frontphys2026": 15,
+  "gilad1985": 26,
+  "griffith2016": 15,
+  "hou1993": 18,
+  "italianmri": 6,
+  "kunkel2011": 13,
+  "lien2007": 68,
+  "masharawi2021": 25,
+  "moncadahabib2025": 20,
+  "olsewski1990": 29,
+  "otsuki2021": 15,
+  "robertson2000": 10,
+  "tan2004": 416,
+  "tang2016": 18,
+  "yadav2020": 33,
+  "yu2015": 10,
+  "zindrick1987": 68
+ }
+}

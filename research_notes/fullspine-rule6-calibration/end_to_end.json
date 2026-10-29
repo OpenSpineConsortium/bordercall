@@ -1,0 +1,714 @@
+[
+ {
+  "added": [],
+  "anchors": [
+   "L2",
+   "L3",
+   "L4"
+  ],
+  "asked": [
+   "T12"
+  ],
+  "calibration": {
+   "pairs": 2,
+   "reason": null
+  },
+  "id": "s1411",
+  "machine_column": [
+   "C1",
+   "C2",
+   "C3",
+   "C4",
+   "C5",
+   "C6",
+   "C7",
+   "T1",
+   "T2",
+   "T3",
+   "T4",
+   "T5",
+   "T6",
+   "T7",
+   "T8",
+   "T9",
+   "T10",
+   "T11",
+   "T12",
+   "L1",
+   "L2",
+   "L3",
+   "L4",
+   "sacrum"
+  ],
+  "member": "totalsegmentator",
+  "refused": {
+   "T12": "the release draws L1 above L2 and the segmenter matches none of it"
+  }
+ },
+ {
+  "added": [],
+  "anchors": [],
+  "asked": [
+   "T6",
+   "T7",
+   "T8",
+   "T9"
+  ],
+  "calibration": {
+   "pairs": 0,
+   "reason": null
+  },
+  "id": "s1532",
+  "machine_column": [
+   "C1",
+   "C2",
+   "C3",
+   "C4",
+   "C5",
+   "C6",
+   "C7",
+   "T1",
+   "T2",
+   "T3",
+   "T4",
+   "T5",
+   "T6",
+   "T7",
+   "T8",
+   "T9",
+   "T10",
+   "T11",
+   "T12",
+   "sacrum"
+  ],
+  "member": "totalsegmentator",
+  "refused": {
+   "T6": "no release level is matched by the segmenter",
+   "T7": "no release level is matched by the segmenter",
+   "T8": "no release level is matched by the segmenter",
+   "T9": "no release level is matched by the segmenter"
+  }
+ },
+ {
+  "added": [],
+  "anchors": [],
+  "asked": [
+   "T8",
+   "T10",
+   "T11",
+   "T12",
+   "L1",
+   "L4",
+   "L5",
+   "sacrum"
+  ],
+  "calibration": {
+   "pairs": 0,
+   "reason": null
+  },
+  "id": "s1593",
+  "machine_column": [
+   "C6",
+   "C7",
+   "T1",
+   "T2",
+   "T3",
+   "T4",
+   "T5",
+   "T6",
+   "T7",
+   "T8",
+   "T9",
+   "T10",
+   "T11",
+   "T12",
+   "T13",
+   "L1",
+   "L2",
+   "L3"
+  ],
+  "member": "totalsegmentator",
+  "refused": {
+   "L1": "no release level is matched by the segmenter",
+   "L4": "no release level is matched by the segmenter",
+   "L5": "no release level is matched by the segmenter",
+   "T10": "no release level is matched by the segmenter",
+   "T11": "no release level is matched by the segmenter",
+   "T12": "no release level is matched by the segmenter",
+   "T8": "no release level is matched by the segmenter",
+   "sacrum": "no release level is matched by the segmenter"
+  }
+ },
+ {
+  "added": [],
+  "anchors": [],
+  "asked": [
+   "T4",
+   "T5",
+   "T6",
+   "L4",
+   "L5",
+   "sacrum"
+  ],
+  "calibration": {
+   "pairs": 0,
+   "reason": null
+  },
+  "id": "s1606",
+  "machine_column": [
+   "T2",
+   "T3",
+   "T4",
+   "T5",
+   "T6",
+   "T7",
+   "T8",
+   "T9",
+   "T10",
+   "T11",
+   "T12",
+   "T13",
+   "L1",
+   "L2",
+   "L3",
+   "L4",
+   "L5"
+  ],
+  "member": "totalsegmentator",
+  "refused": {
+   "L4": "no release level is matched by the segmenter",
+   "L5": "no release level is matched by the segmenter",
+   "T4": "no release level is matched by the segmenter",
+   "T5": "no release level is matched by the segmenter",
+   "T6": "no release level is matched by the segmenter",
+   "sacrum": "no release level is matched by the segmenter"
+  }
+ },
+ {
+  "added": [],
+  "anchors": [
+   "T1"
+  ],
+  "asked": [
+   "T11",
+   "L4",
+   "L5"
+  ],
+  "calibration": {
+   "pairs": 0,
+   "reason": "the disc reading could be checked on 0 pair(s) of the release's levels, under 2, so it is not shown to hold on this CT"
+  },
+  "id": "s2065",
+  "machine_column": [
+   "C1",
+   "C2",
+   "C3",
+   "C4",
+   "C5",
+   "C6",
+   "C7",
+   "T1",
+   "T2",
+   "T3",
+   "T4",
+   "T5",
+   "T6",
+   "T7",
+   "T8",
+   "T9",
+   "T10",
+   "T11",
+   "L1",
+   "L2",
+   "L3",
+   "L4",
+   "L5"
+  ],
+  "member": "totalsegmentator",
+  "refused": {
+   "L4": "the disc reading could be checked on 0 pair(s) of the release's levels, under 2, so it is not shown to hold on this CT",
+   "L5": "the disc reading could be checked on 0 pair(s) of the release's levels, under 2, so it is not shown to hold on this CT",
+   "T11": "the disc reading could be checked on 0 pair(s) of the release's levels, under 2, so it is not shown to hold on this CT"
+  }
+ },
+ {
+  "added": [
+   "C7"
+  ],
+  "anchors": [
+   "T1",
+   "T2",
+   "T3",
+   "T4",
+   "T5",
+   "T6",
+   "T7",
+   "T8",
+   "T9",
+   "T10",
+   "T11",
+   "T12",
+   "L1",
+   "L2",
+   "L3",
+   "L4"
+  ],
+  "asked": [
+   "C2",
+   "C3",
+   "C4",
+   "C5",
+   "C6",
+   "C7",
+   "sacrum"
+  ],
+  "calibration": {
+   "pairs": 15,
+   "reason": null
+  },
+  "id": "verse018",
+  "machine_column": [
+   "C6",
+   "C7",
+   "T1",
+   "T2",
+   "T3",
+   "T4",
+   "T5",
+   "T6",
+   "T7",
+   "T8",
+   "T9",
+   "T10",
+   "T11",
+   "T12",
+   "L1",
+   "L2",
+   "L3",
+   "L4",
+   "L5",
+   "sacrum"
+  ],
+  "member": "verse",
+  "refused": {
+   "C2": "the segmenter's level the count above T1 names C6: on its outer side, nothing lies beyond it in the segmenter's column, so its outer side cannot be read",
+   "C3": "the segmenter's level the count above T1 names C6: on its outer side, nothing lies beyond it in the segmenter's column, so its outer side cannot be read",
+   "C4": "the segmenter's level the count above T1 names C6: on its outer side, nothing lies beyond it in the segmenter's column, so its outer side cannot be read",
+   "C5": "the segmenter's level the count above T1 names C6: on its outer side, nothing lies beyond it in the segmenter's column, so its outer side cannot be read",
+   "C6": "the segmenter's level the count above T1 names C6: on its outer side, nothing lies beyond it in the segmenter's column, so its outer side cannot be read",
+   "sacrum": "the count names the segmenter's level(s) below the release's L4 L5, which the field test does not ask for, so the sacrum would lie under a body no arm draws"
+  }
+ },
+ {
+  "added": [
+   "C6",
+   "sacrum"
+  ],
+  "anchors": [
+   "C7",
+   "T1",
+   "T2",
+   "T3",
+   "T4",
+   "T5",
+   "T6",
+   "T7",
+   "T8",
+   "T9",
+   "T10",
+   "T11",
+   "T12",
+   "L1",
+   "L2",
+   "L3",
+   "L4",
+   "L5"
+  ],
+  "asked": [
+   "C2",
+   "C3",
+   "C4",
+   "C5",
+   "C6",
+   "sacrum"
+  ],
+  "calibration": {
+   "pairs": 17,
+   "reason": null
+  },
+  "id": "verse033",
+  "machine_column": [
+   "C5",
+   "C6",
+   "C7",
+   "T1",
+   "T2",
+   "T3",
+   "T4",
+   "T5",
+   "T6",
+   "T7",
+   "T8",
+   "T9",
+   "T10",
+   "T11",
+   "T12",
+   "L1",
+   "L2",
+   "L3",
+   "L4",
+   "L5",
+   "sacrum"
+  ],
+  "member": "verse",
+  "refused": {
+   "C2": "the segmenter's level the count above C7 names C5: on its outer side, nothing lies beyond it in the segmenter's column, so its outer side cannot be read",
+   "C3": "the segmenter's level the count above C7 names C5: on its outer side, nothing lies beyond it in the segmenter's column, so its outer side cannot be read",
+   "C4": "the segmenter's level the count above C7 names C5: on its outer side, nothing lies beyond it in the segmenter's column, so its outer side cannot be read",
+   "C5": "the segmenter's level the count above C7 names C5: on its outer side, nothing lies beyond it in the segmenter's column, so its outer side cannot be read"
+  }
+ },
+ {
+  "added": [
+   "C6",
+   "sacrum"
+  ],
+  "anchors": [
+   "C7",
+   "T1",
+   "T2",
+   "T3",
+   "T4",
+   "T5",
+   "T6",
+   "T7",
+   "T8",
+   "T9",
+   "T10",
+   "T11",
+   "T12",
+   "L1",
+   "L2",
+   "L3",
+   "L4",
+   "L5",
+   "L6"
+  ],
+  "asked": [
+   "C2",
+   "C3",
+   "C4",
+   "C5",
+   "C6",
+   "sacrum"
+  ],
+  "calibration": {
+   "pairs": 18,
+   "reason": null
+  },
+  "id": "verse255",
+  "machine_column": [
+   "C5",
+   "C6",
+   "C7",
+   "T1",
+   "T2",
+   "T3",
+   "T4",
+   "T5",
+   "T6",
+   "T7",
+   "T8",
+   "T9",
+   "T10",
+   "T11",
+   "T12",
+   "L1",
+   "L2",
+   "L3",
+   "L4",
+   "L5",
+   "L6",
+   "sacrum"
+  ],
+  "member": "verse",
+  "refused": {
+   "C2": "the segmenter's level the count above C7 names C5: on its outer side, nothing lies beyond it in the segmenter's column, so its outer side cannot be read",
+   "C3": "the segmenter's level the count above C7 names C5: on its outer side, nothing lies beyond it in the segmenter's column, so its outer side cannot be read",
+   "C4": "the segmenter's level the count above C7 names C5: on its outer side, nothing lies beyond it in the segmenter's column, so its outer side cannot be read",
+   "C5": "the segmenter's level the count above C7 names C5: on its outer side, nothing lies beyond it in the segmenter's column, so its outer side cannot be read"
+  }
+ },
+ {
+  "added": [
+   "sacrum"
+  ],
+  "anchors": [
+   "C4",
+   "C5",
+   "C6",
+   "C7",
+   "T1",
+   "T2",
+   "T3",
+   "T4",
+   "T5",
+   "T6",
+   "T7",
+   "T8",
+   "T9",
+   "T10",
+   "T11",
+   "T12",
+   "L1",
+   "L2",
+   "L3",
+   "L4",
+   "L5"
+  ],
+  "asked": [
+   "C2",
+   "C3",
+   "sacrum"
+  ],
+  "calibration": {
+   "pairs": 20,
+   "reason": null
+  },
+  "id": "verse531",
+  "machine_column": [
+   "C3",
+   "C4",
+   "C5",
+   "C6",
+   "C7",
+   "T1",
+   "T2",
+   "T3",
+   "T4",
+   "T5",
+   "T6",
+   "T7",
+   "T8",
+   "T9",
+   "T10",
+   "T11",
+   "T12",
+   "L1",
+   "L2",
+   "L3",
+   "L4",
+   "L5",
+   "sacrum"
+  ],
+  "member": "verse",
+  "refused": {
+   "C2": "the segmenter's level the count above C4 names C3: on its outer side, nothing lies beyond it in the segmenter's column, so its outer side cannot be read",
+   "C3": "the segmenter's level the count above C4 names C3: on its outer side, nothing lies beyond it in the segmenter's column, so its outer side cannot be read"
+  }
+ },
+ {
+  "added": [
+   "sacrum"
+  ],
+  "anchors": [
+   "C6",
+   "C7",
+   "T1",
+   "T2",
+   "T3",
+   "T4",
+   "T5",
+   "T6",
+   "T7",
+   "T8",
+   "T9",
+   "T10",
+   "T11",
+   "T12",
+   "L1",
+   "L2",
+   "L3",
+   "L4",
+   "L5"
+  ],
+  "asked": [
+   "C2",
+   "C3",
+   "C4",
+   "C5",
+   "sacrum"
+  ],
+  "calibration": {
+   "pairs": 18,
+   "reason": null
+  },
+  "id": "verse558",
+  "machine_column": [
+   "C5",
+   "C6",
+   "C7",
+   "T1",
+   "T2",
+   "T3",
+   "T4",
+   "T5",
+   "T6",
+   "T7",
+   "T8",
+   "T9",
+   "T10",
+   "T11",
+   "T12",
+   "L1",
+   "L2",
+   "L3",
+   "L4",
+   "L5",
+   "sacrum"
+  ],
+  "member": "verse",
+  "refused": {
+   "C2": "the segmenter's level the count above C6 names C5: on its outer side, nothing lies beyond it in the segmenter's column, so its outer side cannot be read",
+   "C3": "the segmenter's level the count above C6 names C5: on its outer side, nothing lies beyond it in the segmenter's column, so its outer side cannot be read",
+   "C4": "the segmenter's level the count above C6 names C5: on its outer side, nothing lies beyond it in the segmenter's column, so its outer side cannot be read",
+   "C5": "the segmenter's level the count above C6 names C5: on its outer side, nothing lies beyond it in the segmenter's column, so its outer side cannot be read"
+  }
+ },
+ {
+  "added": [
+   "C2",
+   "sacrum"
+  ],
+  "anchors": [
+   "C3",
+   "C4",
+   "C5",
+   "C6",
+   "C7",
+   "T1",
+   "T2",
+   "T3",
+   "T4",
+   "T5",
+   "T6",
+   "T7",
+   "T8",
+   "T9",
+   "T10",
+   "T11",
+   "L1",
+   "L2",
+   "L3",
+   "L4",
+   "L5"
+  ],
+  "asked": [
+   "C2",
+   "sacrum"
+  ],
+  "calibration": {
+   "pairs": 20,
+   "reason": null
+  },
+  "id": "verse559",
+  "machine_column": [
+   "C2",
+   "C3",
+   "C4",
+   "C5",
+   "C6",
+   "C7",
+   "T1",
+   "T2",
+   "T3",
+   "T4",
+   "T5",
+   "T6",
+   "T7",
+   "T8",
+   "T9",
+   "T10",
+   "T11",
+   "L1",
+   "L2",
+   "L3",
+   "L4",
+   "L5",
+   "sacrum"
+  ],
+  "member": "verse",
+  "refused": {}
+ },
+ {
+  "added": [
+   "sacrum"
+  ],
+  "anchors": [
+   "C5",
+   "C6",
+   "C7",
+   "T1",
+   "T2",
+   "T3",
+   "T4",
+   "T5",
+   "T6",
+   "T7",
+   "T8",
+   "T9",
+   "T10",
+   "T11",
+   "T12",
+   "L1",
+   "L2",
+   "L3",
+   "L4",
+   "L5",
+   "L6"
+  ],
+  "asked": [
+   "C2",
+   "C3",
+   "C4",
+   "sacrum"
+  ],
+  "calibration": {
+   "pairs": 20,
+   "reason": null
+  },
+  "id": "verse593",
+  "machine_column": [
+   "C3",
+   "C4",
+   "C5",
+   "C6",
+   "C7",
+   "T1",
+   "T2",
+   "T3",
+   "T4",
+   "T5",
+   "T6",
+   "T7",
+   "T8",
+   "T9",
+   "T10",
+   "T11",
+   "T12",
+   "L1",
+   "L2",
+   "L3",
+   "L4",
+   "L5",
+   "L6",
+   "sacrum"
+  ],
+  "member": "verse",
+  "refused": {
+   "C2": "the segmenter's level the count above C5 names C3: its body is 0.59 times its inner neighbour's height, outside 0.6 to 1.6",
+   "C3": "the segmenter's level the count above C5 names C3: its body is 0.59 times its inner neighbour's height, outside 0.6 to 1.6",
+   "C4": "the next level out, which the count names C3, fails against it: its body is 0.59 times its inner neighbour's height, outside 0.6 to 1.6"
+  }
+ }
+]

@@ -1,0 +1,67 @@
+{
+ "bordercall_commit": "560bd00a356189479f0bde265e52a4fee715f1ab",
+ "code": {
+  "figures.py": "c64c7a1a25dce76e112cd34c60000a64f8ec3a87763363680a9597a0119838ae",
+  "render.py": "d4bc0d70416d843a6d019ffefe741cb0fe01013357027395c24448c01cc3a9d9",
+  "run.py": "6a2b6d59baf7af2e0a486e8a3626a5f179a4ec5b62f22f38118697e1d5680cb3",
+  "snapshot.py": "c09b0eab7e839f02b0fc6b0fd35a6e5c55f231a1cc6073110e7994fb663f2f89",
+  "synthval/house.py": "396822b88fcb46e9533162f8a46b8e2443c1d58ac15d1f40e2d0eb4f5653323a",
+  "synthval/literature.py": "bd3a6a6adf1d7242df3d7d08d2e29dda75a3a1f80589f9f3520d4b7bd0679821",
+  "synthval/naming.py": "b9416b1c743ea68011699dc268f6208f1ebedefb2a84716349e8e3a354430db9",
+  "synthval/pooling.py": "292c34f8de6eadb40681f68143d35943eaf6c61130df2f5b778a40e2e0763df0",
+  "synthval/population.py": "99e322c7dc3ed69edb3eddaf5e39f3c0999996b6f925f649820a0a87a8f862ea",
+  "synthval/power.py": "4deef25fec9f5cc2efd56634057b3f17f4df0d23a0f67d01a145c5ca3dec444e",
+  "synthval/qi.py": "4e5ad50dbd18264980ba522ab2f328b9bbefb45a8b3f868280b28225c7fd8c82",
+  "synthval/references.py": "9791c7b46af7d0be381e130e7743b8b47e283fc1c9e3d2411a188e982482aeec",
+  "synthval/structure.py": "b04037b0ae7537454d9ac98d551ffa32a7149697328eacb1056c1a69c91e0cac",
+  "synthval/sweep.py": "77ee7e7a8ab6f251096a6a03ab69ea36c7ae47670843f610364266f112e46b87",
+  "synthval/validate.py": "480b4cc85debc474aa51422e7d97405663dc74995f1bab8d600ec04c8aac6877",
+  "tables.py": "bf3547db21c59e8869cc6bd001ea7b2b18666721388f84e6ccc4fcfb8c2a544f",
+  "tests/test_synthval.py": "499ce0c89803f50a2f88ccfad444d72e15201f2d1920dbfcc695a887c49832ca"
+ },
+ "command": "python3 -I run.py --out records",
+ "files": {
+  "grid.csv": "06a432ce5d7b517b9896e5d07c1499dd87f60258c06aad62c7ee4e9d0834f16d",
+  "grid_edges.csv": "a1d13150041e76856e1f1124eb328f9f5993205bf436c1f8dea8c4afdbc1b5c5",
+  "naming.csv": "65023d351bfad7f71c1c1b85c3a0d2759a5e67cd91ebcff3f9f120c6f0fa7292",
+  "power.json": "fb6ed9cf901b9ef16779a9057f949c8a63bf55c6abf98175df77f39847f64506",
+  "power_cells.csv": "fb25fad51b3f9394260e4e4b7ae1a890fbc14dd85b2e688eb3ee3a55c36950bf",
+  "power_naming.csv": "3a96da8830784f093ac2f53274035fb358a0097797ca1681b9b58b5bddeaa576",
+  "qi.json": "87b042935a3ef50650c95e61be447e8e9b7dd6ccc8680d0b30a788e810c41a12",
+  "references.json": "c104e505655b6e451a0af8a82debf6fc27304b48d3afb05d9744752c529678fd",
+  "selection.json": "a64eb2c364bfabbe6cd13b9db7227c8c429c1567397a4c81949c421ec17f651e",
+  "series.csv": "4c18f1ae19f7a09943b93bb0c5168d8af6c0d78b62ac4d32a5e69bfddf826ac4",
+  "state_space.csv": "39974ab9c9941953e09ed82e9bec0ae8d32206d78e5d986822623f7ddc1528ad",
+  "structure.json": "ff2787bc6cfeaad31c7bd92f4636ef8b7ea7d80bc251bbd45081f38ef257539a",
+  "validation_cells.csv": "9268e92ad2681d5ef96103044480a5a75bbe07bbce6e8a3134bbd38da0afe4fc",
+  "validation_summary.json": "01e46b4b4b56a2da7a18a5f49e6dd6cbfd7a57e6430bd11cff9e220c83504485"
+ },
+ "numpy": "2.5.4",
+ "python": "3.13.17",
+ "schwingcheck_changed_since_commit": false,
+ "seconds": 975,
+ "seeds": {
+  "naming_columns": 4101,
+  "population": 2026,
+  "power_calibration": 4103,
+  "power_columns": 4101,
+  "power_tables": 4102,
+  "split_recovery": 4104,
+  "split_recovery_calibrations": "split_recovery + 1000 + trial",
+  "sweep": 11
+ },
+ "sizes": {
+  "calibration_replicates": 400,
+  "grid_points": 480,
+  "naming_columns": 300,
+  "population": 20000,
+  "power_tables": 4,
+  "split_recovery_trials": 24,
+  "split_replicates": 200
+ },
+ "snapshot": {
+  "branch": "claude/project-thread-adplcz",
+  "commit": "401aaee1da3225f00cd3f9a2d684f664e1dfd179",
+  "sha256": "885ceb7f586600bb789b4efbbabf9de8fe438fd3d5f1d6da7a2702d48228d523"
+ }
+}
