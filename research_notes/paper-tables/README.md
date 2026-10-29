@@ -26,8 +26,11 @@ what naming fields drawn from each paper's own tables with his rule costs.
    reader rechecks every combination against the Methods. tools/check_mapped.py holds every mapped file to the
    vocabulary and the cohorts.
 4. **Series** (tools/series.py). One mean, population SD and count per measure, level, cohort, technique, sex and
-   subgroup, by rules written in its docstring (an SE times the root of its count; the two sides averaged; the two
-   sexes pooled with the difference between them taken into the SD; subgroups kept apart).
+   subgroup, by rules written in its docstring (an SE times the root of its count; the two sides averaged, a left side
+   printed with the opposite sign negated first; the two sexes pooled with the difference between them taken into the
+   SD; subgroups kept apart). A meta-analysis's SE or variance gives no SD, since it is the uncertainty of a pooled
+   mean, not the spread of people; and a printed value that cannot be the measure, a misprint, stays in the reading as
+   printed but out of the series, each with its reason (MISPRINTS).
 5. **Set beside Panjabi** (tools/cross_naming.py, in schwingcheck's environment): disagreement (each source's mean in
    Panjabi's SDs and in levels, and the between-source spread of a random-effects pool), transport (fields drawn from a
    source's series named by Panjabi's rule, against fields drawn from his own table at the same places), and a rule
@@ -47,8 +50,15 @@ paper's mapping against its Methods.
 - data/cohorts/<id>.cohorts.json: its cohorts, techniques and every stated or inferred sharing, with the page. A
   cohort that is not human carries "species" (Busscher 2010's and van der Houwen 2009's pig spines), and
   tools/cross_naming.py leaves it out of everything.
-- data/series.csv: tools/series.py over all 39, 4,477 series.
+- data/series.csv: tools/series.py over all 39, 4,476 series (Tan 2004's L3 lower end-plate area, printed 172.0 mm2
+  between 1,090.9 and 1,199.3, is the one misprint left out).
+- data/cross_naming.json and results/: the comparison with Panjabi (step 5) at 200 fields a setting, seed 2026, with
+  the two end-plate inclinations left out (../panjabi-endplate-inclination.md), and the evaluation written from it by
+  tools/results.py, its tables, figures and CSVs; [results/README.md](results/README.md) is the page to read and ends
+  with the commands that remake it. A pool member with an SD of 0 (Tan 2004's SEM of 0.0 for the upper end-plate
+  width at C6) is left out of the pools, and cross_naming.py refuses to write a record holding NaN or an infinity.
 
-The comparison with Panjabi (tools/cross_naming.py, step 5) and the evaluation's tables and figures follow in
-results/. No PDF, page image or run of a paper's text is kept in git; the PDFs stay in the project's files, and a
-reading holds only the printed cells and the short labels that name them.
+No PDF, page image or run of a paper's text is kept on this branch; a reading holds only the printed cells and the
+short labels that name them. The 44 PDFs the readings cite are on branch claude/project-thread-ljtlt9 (draft pull
+request 24, research_notes/clinical-reread/papers/), each matching ../clinical-reread/tools/PAPERS.sha256; whether
+they go to main waits for the owner (../clinical-reread/HANDOFF.md).
