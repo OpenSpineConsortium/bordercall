@@ -49,29 +49,29 @@ pedicle_w,L1,paper,lien2007,"dry_sets, dry vertebrae",6.45,1.65,15
 pedicle_w,L2,paper,lien2007,"dry_sets, dry vertebrae",7.2,1.75,15
 pedicle_w,L3,paper,lien2007,"dry_sets, dry vertebrae",9.15,1.85,15
 pedicle_w,L4,paper,lien2007,"dry_sets, dry vertebrae",11.9,2.2,15
-pedicle_w,L5,paper,lien2007,"dry_sets, dry vertebrae",17.6,,15
+pedicle_w,L5,paper,lien2007,"dry_sets, dry vertebrae",17.6,2.65,15
 pedicle_w,T1,paper,lien2007,"dry_sets, dry vertebrae",7.65,1.15,15
 pedicle_w,T10,paper,lien2007,"dry_sets, dry vertebrae",5.65,1.3,15
 pedicle_w,T11,paper,lien2007,"dry_sets, dry vertebrae",7.2,1.2,15
 pedicle_w,T12,paper,lien2007,"dry_sets, dry vertebrae",7.55,1.45,15
 pedicle_w,T2,paper,lien2007,"dry_sets, dry vertebrae",5.45,0.75,15
 pedicle_w,T3,paper,lien2007,"dry_sets, dry vertebrae",4,0.75,15
-pedicle_w,T4,paper,lien2007,"dry_sets, dry vertebrae",3.5,,15
-pedicle_w,T5,paper,lien2007,"dry_sets, dry vertebrae",3.8,,15
+pedicle_w,T4,paper,lien2007,"dry_sets, dry vertebrae",3.5,0.65,15
+pedicle_w,T5,paper,lien2007,"dry_sets, dry vertebrae",3.8,0.75,15
 pedicle_w,T6,paper,lien2007,"dry_sets, dry vertebrae",3.95,0.95,15
 pedicle_w,T7,paper,lien2007,"dry_sets, dry vertebrae",4.4,1.05,15
 pedicle_w,T8,paper,lien2007,"dry_sets, dry vertebrae",4.8,1.15,15
 pedicle_w,T9,paper,lien2007,"dry_sets, dry vertebrae",5.25,1.25,15
-pedicle_w,L1,paper,masharawi2021,"control, Control",7.253,1.798,50
-pedicle_w,L2,paper,masharawi2021,"control, Control",7.825,1.937,50
-pedicle_w,L3,paper,masharawi2021,"control, Control",9.057,2.541,50
-pedicle_w,L4,paper,masharawi2021,"control, Control",10.393,3.154,50
-pedicle_w,L5,paper,masharawi2021,"control, Control",14.1,4.324,50
-pedicle_w,L1,paper,mitra2002,nagpur_cadavers20,7.05,,20
+pedicle_w,L1,paper,masharawi2021,"control, Control",7.322,2.02,50
+pedicle_w,L2,paper,masharawi2021,"control, Control",7.925,2.049,50
+pedicle_w,L3,paper,masharawi2021,"control, Control",9.318,2.51,50
+pedicle_w,L4,paper,masharawi2021,"control, Control",10.425,3.289,50
+pedicle_w,L5,paper,masharawi2021,"control, Control",14.133,4.359,50
+pedicle_w,L1,paper,mitra2002,"nagpur_cadavers20, male, CT",7.5,,18
 pedicle_w,L2,paper,mitra2002,"nagpur_cadavers20, male, CT",7.59,,18
 pedicle_w,L3,paper,mitra2002,"nagpur_cadavers20, male, CT",8.65,,18
 pedicle_w,L4,paper,mitra2002,"nagpur_cadavers20, male, CT",9.81,,18
-pedicle_w,L5,paper,mitra2002,nagpur_cadavers20,16.19,,20
+pedicle_w,L5,paper,mitra2002,"nagpur_cadavers20, male, CT",14.64,,18
 pedicle_w,L1,paper,moncadahabib2025,mexico_ct37,6.85,1.65,37
 pedicle_w,L2,paper,moncadahabib2025,mexico_ct37,7,1.55,37
 pedicle_w,L3,paper,moncadahabib2025,mexico_ct37,7.85,1.9,37
@@ -81,7 +81,7 @@ pedicle_w,L1,paper,olsewski1990,"part3_patients, Part 3 living patients, AP radi
 pedicle_w,L2,paper,olsewski1990,"part3_patients, Part 3 living patients, AP radiographs",8.388,2.166,100
 pedicle_w,L3,paper,olsewski1990,"part3_patients, Part 3 living patients, AP radiographs",9.856,2.474,100
 pedicle_w,L4,paper,olsewski1990,"part3_patients, Part 3 living patients, AP radiographs",11.702,2.608,100
-pedicle_w,L5,paper,olsewski1990,"part1_cadavers, Part 1 cadavers, direct",19.876,3.725,86
+pedicle_w,L5,paper,olsewski1990,"part3_patients, Part 3 living patients, AP radiographs",14.905,2.62,82
 pedicle_w,L1,paper,otsuki2021,rush_cadaver_6,7.1,2.4,6
 pedicle_w,L2,paper,otsuki2021,rush_cadaver_6,7.3,2.4,6
 pedicle_w,L3,paper,otsuki2021,rush_cadaver_6,9.4,2,6
@@ -101,7 +101,7 @@ pedicle_w,L1,paper,tan2004,sg_chinese_cadavers10,5.55,0.791,10
 pedicle_w,L2,paper,tan2004,sg_chinese_cadavers10,6.3,0.949,10
 pedicle_w,L3,paper,tan2004,sg_chinese_cadavers10,7.6,0.632,10
 pedicle_w,L4,paper,tan2004,sg_chinese_cadavers10,8.85,1.265,10
-pedicle_w,L5,paper,tan2004,sg_chinese_cadavers10,11.6,,10
+pedicle_w,L5,paper,tan2004,sg_chinese_cadavers10,11.55,1.423,10
 pedicle_w,T1,paper,tan2004,sg_chinese_cadavers10,7.45,0.632,10
 pedicle_w,T10,paper,tan2004,sg_chinese_cadavers10,5.95,1.107,10
 pedicle_w,T11,paper,tan2004,sg_chinese_cadavers10,7,0.632,10
@@ -114,11 +114,28 @@ pedicle_w,T6,paper,tan2004,sg_chinese_cadavers10,4.35,0.316,10
 pedicle_w,T7,paper,tan2004,sg_chinese_cadavers10,4.45,0.632,10
 pedicle_w,T8,paper,tan2004,sg_chinese_cadavers10,4.5,0.474,10
 pedicle_w,T9,paper,tan2004,sg_chinese_cadavers10,4.95,0.949,10
-pedicle_w,L1,paper,yu2015,"hamann_todd_503, Caucasian",8.24,1.9,281
+pedicle_w,L1,paper,yu2015,hamann_todd_503,8.522,2.028,503
 pedicle_w,L2,paper,yu2015,hamann_todd_503,8.662,1.792,503
 pedicle_w,L3,paper,yu2015,hamann_todd_503,10.46,1.936,503
 pedicle_w,L4,paper,yu2015,hamann_todd_503,13.19,1.996,503
-pedicle_w,L5,paper,yu2015,"hamann_todd_503, Caucasian",18.69,2.4,281
+pedicle_w,L5,paper,yu2015,hamann_todd_503,18.325,2.438,503
+pedicle_w,L1,paper,zindrick1987,pooled_specimens_and_ct,8.7,2.3,26
+pedicle_w,L2,paper,zindrick1987,pooled_specimens_and_ct,8.9,2.2,30
+pedicle_w,L3,paper,zindrick1987,pooled_specimens_and_ct,10.3,2.6,49
+pedicle_w,L4,paper,zindrick1987,pooled_specimens_and_ct,12.9,2.1,36
+pedicle_w,L5,paper,zindrick1987,pooled_specimens_and_ct,18,4.1,56
+pedicle_w,T1,paper,zindrick1987,pooled_specimens_and_ct,7.9,1.4,24
+pedicle_w,T10,paper,zindrick1987,pooled_specimens_and_ct,6.3,1.7,24
+pedicle_w,T11,paper,zindrick1987,pooled_specimens_and_ct,7.8,2,27
+pedicle_w,T12,paper,zindrick1987,pooled_specimens_and_ct,7.1,2.3,36
+pedicle_w,T2,paper,zindrick1987,pooled_specimens_and_ct,7,1.8,24
+pedicle_w,T3,paper,zindrick1987,pooled_specimens_and_ct,5.6,1.4,27
+pedicle_w,T4,paper,zindrick1987,pooled_specimens_and_ct,4.7,1.3,25
+pedicle_w,T5,paper,zindrick1987,pooled_specimens_and_ct,4.5,0.9,34
+pedicle_w,T6,paper,zindrick1987,pooled_specimens_and_ct,5.2,1,33
+pedicle_w,T7,paper,zindrick1987,pooled_specimens_and_ct,5.3,1,32
+pedicle_w,T8,paper,zindrick1987,pooled_specimens_and_ct,5.9,1.6,41
+pedicle_w,T9,paper,zindrick1987,pooled_specimens_and_ct,6.1,1.5,27
 pedicle_h,C3,panjabi,panjabi,12 cadaver spines,7.4,1.403,12
 pedicle_h,C4,panjabi,panjabi,12 cadaver spines,7.35,1.576,12
 pedicle_h,C5,panjabi,panjabi,12 cadaver spines,7,1.403,12
@@ -164,15 +181,15 @@ pedicle_h,T10,paper,hou1993,xian_dry_bone,14.3,1.4,40
 pedicle_h,T11,paper,hou1993,xian_dry_bone,16.2,1.6,40
 pedicle_h,T12,paper,hou1993,xian_dry_bone,16.6,1.4,40
 pedicle_h,T9,paper,hou1993,xian_dry_bone,12.9,1.2,40
-pedicle_h,L1,paper,lien2007,"dry_sets, dry vertebrae",13.7,,15
-pedicle_h,L2,paper,lien2007,"dry_sets, dry vertebrae",14.1,,15
+pedicle_h,L1,paper,lien2007,"dry_sets, dry vertebrae",13.65,1.45,15
+pedicle_h,L2,paper,lien2007,"dry_sets, dry vertebrae",14.05,1.75,15
 pedicle_h,L3,paper,lien2007,"dry_sets, dry vertebrae",13.9,1.65,15
 pedicle_h,L4,paper,lien2007,"dry_sets, dry vertebrae",12.75,2.25,15
 pedicle_h,L5,paper,lien2007,"dry_sets, dry vertebrae",12.5,2.2,15
-pedicle_h,T1,paper,lien2007,"dry_sets, dry vertebrae",8.7,,15
+pedicle_h,T1,paper,lien2007,"dry_sets, dry vertebrae",8.65,1.05,15
 pedicle_h,T10,paper,lien2007,"dry_sets, dry vertebrae",13.65,1.55,15
-pedicle_h,T11,paper,lien2007,"dry_sets, dry vertebrae",15.1,,15
-pedicle_h,T12,paper,lien2007,"dry_sets, dry vertebrae",15.1,,15
+pedicle_h,T11,paper,lien2007,"dry_sets, dry vertebrae",15.1,1.35,15
+pedicle_h,T12,paper,lien2007,"dry_sets, dry vertebrae",15.1,1.45,15
 pedicle_h,T2,paper,lien2007,"dry_sets, dry vertebrae",10.3,0.85,15
 pedicle_h,T3,paper,lien2007,"dry_sets, dry vertebrae",10.4,1.15,15
 pedicle_h,T4,paper,lien2007,"dry_sets, dry vertebrae",10.3,1.1,15
@@ -195,7 +212,7 @@ pedicle_h,L1,paper,moncadahabib2025,mexico_ct37,12.9,1.45,37
 pedicle_h,L2,paper,moncadahabib2025,mexico_ct37,12.4,1.7,37
 pedicle_h,L3,paper,moncadahabib2025,mexico_ct37,12.05,1.85,37
 pedicle_h,L4,paper,moncadahabib2025,mexico_ct37,11.1,1.55,37
-pedicle_h,L5,paper,moncadahabib2025,mexico_ct37,10.2,,37
+pedicle_h,L5,paper,moncadahabib2025,mexico_ct37,10.2,1.5,37
 pedicle_h,L1,paper,olsewski1990,"part3_patients, Part 3 living patients, AP radiographs",15.984,1.759,98
 pedicle_h,L2,paper,olsewski1990,"part3_patients, Part 3 living patients, AP radiographs",15.867,2.125,102
 pedicle_h,L3,paper,olsewski1990,"part3_patients, Part 3 living patients, AP radiographs",16.002,2.339,101
@@ -208,19 +225,19 @@ pedicle_h,L4,paper,otsuki2021,rush_cadaver_6,18.8,1.6,6
 pedicle_h,L5,paper,otsuki2021,rush_cadaver_6,24.2,2.7,6
 pedicle_h,L1,paper,robertson2000,auckland_drybone,19.25,3.55,10
 pedicle_h,L2,paper,robertson2000,auckland_drybone,18.65,3.1,10
-pedicle_h,L3,paper,robertson2000,auckland_drybone,18.65,7.75,10
+pedicle_h,L3,paper,robertson2000,auckland_drybone,18.7,2.5,10
 pedicle_h,L4,paper,robertson2000,auckland_drybone,17.6,2.75,10
 pedicle_h,L5,paper,robertson2000,auckland_drybone,18.55,3.1,10
 pedicle_h,C3,paper,tan2004,sg_chinese_cadavers10,6.75,0.632,10
 pedicle_h,C4,paper,tan2004,sg_chinese_cadavers10,6.65,0.632,10
 pedicle_h,C5,paper,tan2004,sg_chinese_cadavers10,6.1,0.791,10
-pedicle_h,C6,paper,tan2004,sg_chinese_cadavers10,6,,10
+pedicle_h,C6,paper,tan2004,sg_chinese_cadavers10,6,0.632,10
 pedicle_h,C7,paper,tan2004,sg_chinese_cadavers10,6.3,0.474,10
 pedicle_h,L1,paper,tan2004,sg_chinese_cadavers10,13.1,1.107,10
 pedicle_h,L2,paper,tan2004,sg_chinese_cadavers10,12.85,0.632,10
 pedicle_h,L3,paper,tan2004,sg_chinese_cadavers10,12.5,1.897,10
 pedicle_h,L4,paper,tan2004,sg_chinese_cadavers10,13.2,1.107,10
-pedicle_h,L5,paper,tan2004,sg_chinese_cadavers10,17.4,,10
+pedicle_h,L5,paper,tan2004,sg_chinese_cadavers10,17.4,1.107,10
 pedicle_h,T1,paper,tan2004,sg_chinese_cadavers10,8.5,0.791,10
 pedicle_h,T10,paper,tan2004,sg_chinese_cadavers10,12.9,0.632,10
 pedicle_h,T11,paper,tan2004,sg_chinese_cadavers10,14.25,0.791,10
@@ -233,11 +250,28 @@ pedicle_h,T6,paper,tan2004,sg_chinese_cadavers10,8.9,0.474,10
 pedicle_h,T7,paper,tan2004,sg_chinese_cadavers10,9.55,0.474,10
 pedicle_h,T8,paper,tan2004,sg_chinese_cadavers10,10.35,0.632,10
 pedicle_h,T9,paper,tan2004,sg_chinese_cadavers10,10.9,0.949,10
-pedicle_h,L1,paper,yu2015,"hamann_todd_503, Caucasian",15.76,1.4,281
-pedicle_h,L2,paper,yu2015,"hamann_todd_503, Caucasian",15.11,1.26,281
+pedicle_h,L1,paper,yu2015,hamann_todd_503,15.751,1.408,503
+pedicle_h,L2,paper,yu2015,hamann_todd_503,15.064,1.332,503
 pedicle_h,L3,paper,yu2015,hamann_todd_503,14.589,1.312,503
 pedicle_h,L4,paper,yu2015,hamann_todd_503,13.814,1.409,503
-pedicle_h,L5,paper,yu2015,"hamann_todd_503, Caucasian",13.75,1.62,281
+pedicle_h,L5,paper,yu2015,hamann_todd_503,13.678,1.658,503
+pedicle_h,L1,paper,zindrick1987,pooled_specimens_and_ct,15.4,2.8,21
+pedicle_h,L2,paper,zindrick1987,pooled_specimens_and_ct,15,1.5,23
+pedicle_h,L3,paper,zindrick1987,pooled_specimens_and_ct,14.9,2.4,27
+pedicle_h,L4,paper,zindrick1987,pooled_specimens_and_ct,14.8,2.1,51
+pedicle_h,L5,paper,zindrick1987,pooled_specimens_and_ct,14,2.3,52
+pedicle_h,T1,paper,zindrick1987,pooled_specimens_and_ct,9.9,2,28
+pedicle_h,T10,paper,zindrick1987,pooled_specimens_and_ct,15.2,2,29
+pedicle_h,T11,paper,zindrick1987,pooled_specimens_and_ct,17.4,2.5,30
+pedicle_h,T12,paper,zindrick1987,pooled_specimens_and_ct,15.8,2.4,24
+pedicle_h,T2,paper,zindrick1987,pooled_specimens_and_ct,12,1.2,32
+pedicle_h,T3,paper,zindrick1987,pooled_specimens_and_ct,12.4,1.3,40
+pedicle_h,T4,paper,zindrick1987,pooled_specimens_and_ct,12.1,1,38
+pedicle_h,T5,paper,zindrick1987,pooled_specimens_and_ct,11.9,1.4,42
+pedicle_h,T6,paper,zindrick1987,pooled_specimens_and_ct,12.2,1,44
+pedicle_h,T7,paper,zindrick1987,pooled_specimens_and_ct,12.1,1,39
+pedicle_h,T8,paper,zindrick1987,pooled_specimens_and_ct,12.8,1.2,43
+pedicle_h,T9,paper,zindrick1987,pooled_specimens_and_ct,13.8,1.3,32
 pedicle_incl_sag,C3,panjabi,panjabi,12 cadaver spines,42.25,5.698,12
 pedicle_incl_sag,C4,panjabi,panjabi,12 cadaver spines,44.25,7.153,12
 pedicle_incl_sag,C5,panjabi,panjabi,12 cadaver spines,40.25,15.97,12
@@ -265,11 +299,11 @@ pedicle_incl_sag,L2,paper,arockiaraj2025,saudi_ct,13.26,2.3,300
 pedicle_incl_sag,L3,paper,arockiaraj2025,saudi_ct,15.47,2.37,300
 pedicle_incl_sag,L4,paper,arockiaraj2025,saudi_ct,17.47,3.3,300
 pedicle_incl_sag,L5,paper,arockiaraj2025,saudi_ct,28.23,3.87,300
-pedicle_incl_sag,L1,pools_panjabi,bonczar2024,pool18,6.465,,1481
-pedicle_incl_sag,L2,pools_panjabi,bonczar2024,pool18,5.925,,1481
-pedicle_incl_sag,L3,pools_panjabi,bonczar2024,pool18,7.92,,1481
-pedicle_incl_sag,L4,pools_panjabi,bonczar2024,pool18,5.22,,1481
-pedicle_incl_sag,L5,pools_panjabi,bonczar2024,pool18,6.35,,1481
+pedicle_incl_sag,L1,pools_panjabi,bonczar2024,pool18,10.31,,1481
+pedicle_incl_sag,L2,pools_panjabi,bonczar2024,pool18,12.21,,1481
+pedicle_incl_sag,L3,pools_panjabi,bonczar2024,pool18,18.79,,1481
+pedicle_incl_sag,L4,pools_panjabi,bonczar2024,pool18,13.9,,1481
+pedicle_incl_sag,L5,pools_panjabi,bonczar2024,pool18,21.24,,1481
 pedicle_incl_sag,L1,paper,duman2026,izmir-mdct-517,25.448,4.946,517
 pedicle_incl_sag,L2,paper,duman2026,izmir-mdct-517,27.572,5.207,517
 pedicle_incl_sag,T11,paper,duman2026,izmir-mdct-517,21.087,2.895,517
@@ -279,10 +313,10 @@ pedicle_incl_sag,L2,paper,lien2007,"dry_sets, dry vertebrae",12.35,2.75,15
 pedicle_incl_sag,L3,paper,lien2007,"dry_sets, dry vertebrae",15.25,3.55,15
 pedicle_incl_sag,L4,paper,lien2007,"dry_sets, dry vertebrae",18.9,3.3,15
 pedicle_incl_sag,L5,paper,lien2007,"dry_sets, dry vertebrae",24.35,4.3,15
-pedicle_incl_sag,T1,paper,lien2007,"dry_sets, dry vertebrae",28.2,,15
+pedicle_incl_sag,T1,paper,lien2007,"dry_sets, dry vertebrae",28.2,4.3,15
 pedicle_incl_sag,T10,paper,lien2007,"dry_sets, dry vertebrae",9,1.4,15
 pedicle_incl_sag,T11,paper,lien2007,"dry_sets, dry vertebrae",8,1.45,15
-pedicle_incl_sag,T12,paper,lien2007,"dry_sets, dry vertebrae",7.9,,15
+pedicle_incl_sag,T12,paper,lien2007,"dry_sets, dry vertebrae",7.9,1.45,15
 pedicle_incl_sag,T2,paper,lien2007,"dry_sets, dry vertebrae",26.35,3.65,15
 pedicle_incl_sag,T3,paper,lien2007,"dry_sets, dry vertebrae",23.3,3.6,15
 pedicle_incl_sag,T4,paper,lien2007,"dry_sets, dry vertebrae",22.85,3,15
@@ -291,16 +325,16 @@ pedicle_incl_sag,T6,paper,lien2007,"dry_sets, dry vertebrae",15.4,2.25,15
 pedicle_incl_sag,T7,paper,lien2007,"dry_sets, dry vertebrae",12.8,1.95,15
 pedicle_incl_sag,T8,paper,lien2007,"dry_sets, dry vertebrae",13.8,1.35,15
 pedicle_incl_sag,T9,paper,lien2007,"dry_sets, dry vertebrae",12.5,1.95,15
-pedicle_incl_sag,L1,paper,mitra2002,nagpur_cadavers20,9,,20
+pedicle_incl_sag,L1,paper,mitra2002,"nagpur_cadavers20, male, CT",11,,18
 pedicle_incl_sag,L2,paper,mitra2002,"nagpur_cadavers20, male, CT",9.5,,18
 pedicle_incl_sag,L3,paper,mitra2002,"nagpur_cadavers20, male, CT",10.8,,18
 pedicle_incl_sag,L4,paper,mitra2002,"nagpur_cadavers20, male, CT",12.3,,18
-pedicle_incl_sag,L5,paper,mitra2002,nagpur_cadavers20,29,,20
+pedicle_incl_sag,L5,paper,mitra2002,"nagpur_cadavers20, male, CT",24.3,,18
 pedicle_incl_sag,L1,paper,moncadahabib2025,mexico_ct37,16.75,1.95,37
 pedicle_incl_sag,L2,paper,moncadahabib2025,mexico_ct37,16.45,2.15,37
 pedicle_incl_sag,L3,paper,moncadahabib2025,mexico_ct37,17,2.5,37
 pedicle_incl_sag,L4,paper,moncadahabib2025,mexico_ct37,18.6,1.9,37
-pedicle_incl_sag,L5,paper,moncadahabib2025,mexico_ct37,21.9,,37
+pedicle_incl_sag,L5,paper,moncadahabib2025,mexico_ct37,21.9,2.65,37
 pedicle_incl_sag,L1,paper,olsewski1990,"part1_cadavers, Part 1 cadavers, direct",6.121,2.222,66
 pedicle_incl_sag,L2,paper,olsewski1990,"part1_cadavers, Part 1 cadavers, direct",6.547,2.047,64
 pedicle_incl_sag,L3,paper,olsewski1990,"part1_cadavers, Part 1 cadavers, direct",7.56,2.048,75
@@ -315,8 +349,8 @@ pedicle_incl_sag,L1,paper,tan2004,sg_chinese_cadavers10,4.8,2.372,10
 pedicle_incl_sag,L2,paper,tan2004,sg_chinese_cadavers10,7.4,3.479,10
 pedicle_incl_sag,L3,paper,tan2004,sg_chinese_cadavers10,14.35,4.269,10
 pedicle_incl_sag,L4,paper,tan2004,sg_chinese_cadavers10,11.1,3.162,10
-pedicle_incl_sag,L5,paper,tan2004,sg_chinese_cadavers10,19.9,,10
-pedicle_incl_sag,T1,paper,tan2004,sg_chinese_cadavers10,24,,10
+pedicle_incl_sag,L5,paper,tan2004,sg_chinese_cadavers10,19.9,3.004,10
+pedicle_incl_sag,T1,paper,tan2004,sg_chinese_cadavers10,24.2,4.427,10
 pedicle_incl_sag,T10,paper,tan2004,sg_chinese_cadavers10,-5.2,2.372,10
 pedicle_incl_sag,T11,paper,tan2004,sg_chinese_cadavers10,-6.85,3.795,10
 pedicle_incl_sag,T12,paper,tan2004,sg_chinese_cadavers10,-6.25,3.795,10
@@ -326,8 +360,25 @@ pedicle_incl_sag,T4,paper,tan2004,sg_chinese_cadavers10,8.65,4.269,10
 pedicle_incl_sag,T5,paper,tan2004,sg_chinese_cadavers10,9.45,5.376,10
 pedicle_incl_sag,T6,paper,tan2004,sg_chinese_cadavers10,7.15,3.479,10
 pedicle_incl_sag,T7,paper,tan2004,sg_chinese_cadavers10,6.9,4.111,10
-pedicle_incl_sag,T8,paper,tan2004,sg_chinese_cadavers10,8.6,,10
+pedicle_incl_sag,T8,paper,tan2004,sg_chinese_cadavers10,-8.6,4.427,10
 pedicle_incl_sag,T9,paper,tan2004,sg_chinese_cadavers10,-6.75,4.269,10
+pedicle_incl_sag,L1,paper,zindrick1987,pooled_specimens_and_ct,10.9,2.2,26
+pedicle_incl_sag,L2,paper,zindrick1987,pooled_specimens_and_ct,12,3.5,38
+pedicle_incl_sag,L3,paper,zindrick1987,pooled_specimens_and_ct,14.4,3.8,68
+pedicle_incl_sag,L4,paper,zindrick1987,pooled_specimens_and_ct,17.7,5.2,76
+pedicle_incl_sag,L5,paper,zindrick1987,pooled_specimens_and_ct,29.8,6.3,76
+pedicle_incl_sag,T1,paper,zindrick1987,pooled_specimens_and_ct,26.6,5.6,24
+pedicle_incl_sag,T10,paper,zindrick1987,pooled_specimens_and_ct,4.6,4.6,20
+pedicle_incl_sag,T11,paper,zindrick1987,pooled_specimens_and_ct,1.2,4.4,24
+pedicle_incl_sag,T12,paper,zindrick1987,pooled_specimens_and_ct,-4.2,9.5,24
+pedicle_incl_sag,T2,paper,zindrick1987,pooled_specimens_and_ct,19.1,7.1,26
+pedicle_incl_sag,T3,paper,zindrick1987,pooled_specimens_and_ct,14.6,4.4,28
+pedicle_incl_sag,T4,paper,zindrick1987,pooled_specimens_and_ct,12.6,4.1,28
+pedicle_incl_sag,T5,paper,zindrick1987,pooled_specimens_and_ct,9.4,4.4,36
+pedicle_incl_sag,T6,paper,zindrick1987,pooled_specimens_and_ct,9.6,4.5,30
+pedicle_incl_sag,T7,paper,zindrick1987,pooled_specimens_and_ct,8.7,4.7,32
+pedicle_incl_sag,T8,paper,zindrick1987,pooled_specimens_and_ct,8.1,5.2,42
+pedicle_incl_sag,T9,paper,zindrick1987,pooled_specimens_and_ct,7.6,2.8,30
 h_post,C3,panjabi,panjabi,12 cadaver spines,11.6,1.212,12
 h_post,C4,panjabi,panjabi,12 cadaver spines,11.4,1.49,12
 h_post,C5,panjabi,panjabi,12 cadaver spines,11.4,1.109,12
@@ -355,6 +406,28 @@ h_post,L2,pools_panjabi,bonczar2024,pool18,27.02,,1481
 h_post,L3,pools_panjabi,bonczar2024,pool18,26.67,,1481
 h_post,L4,pools_panjabi,bonczar2024,pool18,25.76,,1481
 h_post,L5,pools_panjabi,bonczar2024,pool18,24.11,,1481
+h_post,C3,paper,busscher2010,"human_cadaver, male, Human",15.1,1.1,6
+h_post,C4,paper,busscher2010,"human_cadaver, male, Human",14.6,1.1,6
+h_post,C5,paper,busscher2010,"human_cadaver, male, Human",14.2,1,6
+h_post,C6,paper,busscher2010,"human_cadaver, male, Human",13.9,0.8,6
+h_post,C7,paper,busscher2010,"human_cadaver, male, Human",15.9,0.7,6
+h_post,L1,paper,busscher2010,"human_cadaver, male, Human",28.5,2.5,6
+h_post,L2,paper,busscher2010,"human_cadaver, male, Human",29.8,1.2,6
+h_post,L3,paper,busscher2010,"human_cadaver, male, Human",29.8,1,6
+h_post,L4,paper,busscher2010,"human_cadaver, male, Human",28,2.1,6
+h_post,L5,paper,busscher2010,"human_cadaver, male, Human",24.9,3.8,6
+h_post,T1,paper,busscher2010,"human_cadaver, male, Human",18.8,1,6
+h_post,T10,paper,busscher2010,"human_cadaver, male, Human",25.3,1.6,6
+h_post,T11,paper,busscher2010,"human_cadaver, male, Human",27.1,1.9,6
+h_post,T12,paper,busscher2010,"human_cadaver, male, Human",28.5,0.9,6
+h_post,T2,paper,busscher2010,"human_cadaver, male, Human",19.1,0.8,6
+h_post,T3,paper,busscher2010,"human_cadaver, male, Human",19.6,1,6
+h_post,T4,paper,busscher2010,"human_cadaver, male, Human",20.6,1.2,6
+h_post,T5,paper,busscher2010,"human_cadaver, male, Human",21,1.6,6
+h_post,T6,paper,busscher2010,"human_cadaver, male, Human",21.7,2,6
+h_post,T7,paper,busscher2010,"human_cadaver, male, Human",22.4,1.7,6
+h_post,T8,paper,busscher2010,"human_cadaver, male, Human",22.7,1.5,6
+h_post,T9,paper,busscher2010,"human_cadaver, male, Human",23.7,2,6
 h_post,L1,paper,duman2026,izmir-mdct-517,24.84,2.243,517
 h_post,L2,paper,duman2026,izmir-mdct-517,25.987,2.38,517
 h_post,T11,paper,duman2026,izmir-mdct-517,22.026,2.118,517
@@ -364,6 +437,11 @@ h_post,L2,paper,frontphys2026,zhengzhou_ct_100,28.1,2.6,20
 h_post,L3,paper,frontphys2026,zhengzhou_ct_100,27.3,2.2,20
 h_post,L4,paper,frontphys2026,zhengzhou_ct_100,26.3,2.1,20
 h_post,L5,paper,frontphys2026,zhengzhou_ct_100,24.6,2.5,20
+h_post,L1,paper,gilad1985,"haifa_transport_men, male",27.1,2.1,154
+h_post,L2,paper,gilad1985,"haifa_transport_men, male",27,2.1,157
+h_post,L3,paper,gilad1985,"haifa_transport_men, male",27.9,2.1,157
+h_post,L4,paper,gilad1985,"haifa_transport_men, male",27.1,2.3,157
+h_post,L5,paper,gilad1985,"haifa_transport_men, male",25.7,2.5,156
 h_post,C7,paper,kunkel2011,"ulm_thoracic_segments, radiographic",14.38,2.22,30
 h_post,T1,paper,kunkel2011,"ulm_thoracic_segments, radiographic",15.28,1.14,30
 h_post,T10,paper,kunkel2011,"ulm_thoracic_segments, radiographic",20.35,1.89,30
@@ -431,11 +509,11 @@ canal_ap,L2,paper,abbas2021,control,17.9,1.599,180
 canal_ap,L3,paper,abbas2021,control,17.1,1.611,180
 canal_ap,L4,paper,abbas2021,control,17.8,1.763,180
 canal_ap,L5,paper,abbas2021,control,18.8,2.194,180
-canal_ap,L1,paper,ahmed2019,telangana_mri,14.34,,80
-canal_ap,L2,paper,ahmed2019,telangana_mri,13.43,,80
-canal_ap,L3,paper,ahmed2019,telangana_mri,12.35,,80
-canal_ap,L4,paper,ahmed2019,telangana_mri,12.7,,80
-canal_ap,L5,paper,ahmed2019,telangana_mri,13.63,,80
+canal_ap,L1,paper,ahmed2019,telangana_mri,14.335,1.279,80
+canal_ap,L2,paper,ahmed2019,telangana_mri,13.429,1.252,80
+canal_ap,L3,paper,ahmed2019,telangana_mri,12.35,1.419,80
+canal_ap,L4,paper,ahmed2019,telangana_mri,12.693,1.301,80
+canal_ap,L5,paper,ahmed2019,telangana_mri,13.63,1.866,80
 canal_ap,L1,paper,alonge2021,lagos_ct,16.283,1.695,120
 canal_ap,L2,paper,alonge2021,lagos_ct,15.643,1.712,120
 canal_ap,L3,paper,alonge2021,lagos_ct,15.102,2.101,120
@@ -451,11 +529,11 @@ canal_ap,L2,pools_panjabi,bonczar2024,pool18,15.08,,1481
 canal_ap,L3,pools_panjabi,bonczar2024,pool18,14.69,,1481
 canal_ap,L4,pools_panjabi,bonczar2024,pool18,15.06,,1481
 canal_ap,L5,pools_panjabi,bonczar2024,pool18,15.69,,1481
-canal_ap,L1,paper,cizmic2023,bih-sarajevo-ct,19.06,,200
-canal_ap,L2,paper,cizmic2023,bih-sarajevo-ct,18.05,,200
-canal_ap,L3,paper,cizmic2023,bih-sarajevo-ct,16.66,,200
-canal_ap,L4,paper,cizmic2023,bih-sarajevo-ct,16.79,,200
-canal_ap,L5,paper,cizmic2023,bih-sarajevo-ct,17.81,,200
+canal_ap,L1,paper,cizmic2023,bih-sarajevo-ct,19.064,1.64,200
+canal_ap,L2,paper,cizmic2023,bih-sarajevo-ct,18.055,1.978,200
+canal_ap,L3,paper,cizmic2023,bih-sarajevo-ct,16.663,2.002,200
+canal_ap,L4,paper,cizmic2023,bih-sarajevo-ct,16.798,2.213,200
+canal_ap,L5,paper,cizmic2023,bih-sarajevo-ct,17.81,2.694,200
 canal_ap,L1,paper,eisenstein1977,"dart_skeletons, male, Zulu Negroid",16,,108
 canal_ap,L2,paper,eisenstein1977,"dart_skeletons, male, Zulu Negroid",15,,108
 canal_ap,L3,paper,eisenstein1977,"dart_skeletons, male, Zulu Negroid",15,,108
@@ -526,11 +604,11 @@ canal_w,L2,panjabi,panjabi,12 cadaver spines,23.8,2.46,12
 canal_w,L3,panjabi,panjabi,12 cadaver spines,24.3,2.217,12
 canal_w,L4,panjabi,panjabi,12 cadaver spines,25.4,1.697,12
 canal_w,L5,panjabi,panjabi,12 cadaver spines,27.1,3.048,12
-canal_w,L1,paper,ahmed2019,telangana_mri,22.42,,80
-canal_w,L2,paper,ahmed2019,telangana_mri,22.64,,80
-canal_w,L3,paper,ahmed2019,telangana_mri,23.45,,80
-canal_w,L4,paper,ahmed2019,telangana_mri,24.52,,80
-canal_w,L5,paper,ahmed2019,telangana_mri,27.68,,80
+canal_w,L1,paper,ahmed2019,telangana_mri,22.424,1.864,80
+canal_w,L2,paper,ahmed2019,telangana_mri,22.634,1.863,80
+canal_w,L3,paper,ahmed2019,telangana_mri,23.453,1.832,80
+canal_w,L4,paper,ahmed2019,telangana_mri,24.515,2.046,80
+canal_w,L5,paper,ahmed2019,telangana_mri,27.675,2.611,80
 canal_w,L1,paper,alonge2021,lagos_ct,22.46,2.045,120
 canal_w,L2,paper,alonge2021,lagos_ct,22.927,2.006,120
 canal_w,L3,paper,alonge2021,lagos_ct,24.367,2.214,120
@@ -610,6 +688,18 @@ endplate_depth,L2,pools_panjabi,bonczar2024,pool18,32.12,,1481
 endplate_depth,L3,pools_panjabi,bonczar2024,pool18,33.17,,1481
 endplate_depth,L4,pools_panjabi,bonczar2024,pool18,33.83,,1481
 endplate_depth,L5,pools_panjabi,bonczar2024,pool18,34.09,,1481
+endplate_depth,C3,paper,busscher2010,"human_cadaver, male, Human",16.5,,6
+endplate_depth,L5,paper,busscher2010,"human_cadaver, male, Human",36.7,,6
+endplate_depth,C3,paper,gilad1985,"haifa_transport_men, male",14.8,1.5,141
+endplate_depth,C4,paper,gilad1985,"haifa_transport_men, male",15.5,1.7,141
+endplate_depth,C5,paper,gilad1985,"haifa_transport_men, male",15.5,1.7,141
+endplate_depth,C6,paper,gilad1985,"haifa_transport_men, male",16,1.7,140
+endplate_depth,C7,paper,gilad1985,"haifa_transport_men, male",16.4,1.4,126
+endplate_depth,L1,paper,gilad1985,"haifa_transport_men, male",33.5,2.8,154
+endplate_depth,L2,paper,gilad1985,"haifa_transport_men, male",34.4,2.9,157
+endplate_depth,L3,paper,gilad1985,"haifa_transport_men, male",34.7,2.7,157
+endplate_depth,L4,paper,gilad1985,"haifa_transport_men, male",34.3,2.7,157
+endplate_depth,L5,paper,gilad1985,"haifa_transport_men, male",34.2,2.7,156
 endplate_depth,C3,paper,tan2004,sg_chinese_cadavers10,13.6,0.316,10
 endplate_depth,C4,paper,tan2004,sg_chinese_cadavers10,14,0.316,10
 endplate_depth,C5,paper,tan2004,sg_chinese_cadavers10,14.3,0.316,10
@@ -667,6 +757,8 @@ endplate,L2,pools_panjabi,bonczar2024,pool18,42.98,,1481
 endplate,L3,pools_panjabi,bonczar2024,pool18,44.82,,1481
 endplate,L4,pools_panjabi,bonczar2024,pool18,47.5,,1481
 endplate,L5,pools_panjabi,bonczar2024,pool18,48.81,,1481
+endplate,C3,paper,busscher2010,"human_cadaver, male, Human",27.7,,6
+endplate,L5,paper,busscher2010,"human_cadaver, male, Human",54,,6
 endplate,L1,paper,frontphys2026,zhengzhou_ct_100,41.8,1,20
 endplate,L2,paper,frontphys2026,zhengzhou_ct_100,43.4,0.7,20
 endplate,L3,paper,frontphys2026,zhengzhou_ct_100,45.2,0.6,20

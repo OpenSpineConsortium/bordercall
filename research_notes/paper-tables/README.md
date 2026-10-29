@@ -28,9 +28,14 @@ what naming fields drawn from each paper's own tables with his rule costs.
 4. **Series** (tools/series.py). One mean, population SD and count per measure, level, cohort, technique, sex and
    subgroup, by rules written in its docstring (an SE times the root of its count; the two sides averaged, a left side
    printed with the opposite sign negated first; the two sexes pooled with the difference between them taken into the
-   SD; subgroups kept apart). A meta-analysis's SE or variance gives no SD, since it is the uncertainty of a pooled
-   mean, not the spread of people; and a printed value that cannot be the measure, a misprint, stays in the reading as
-   printed but out of the series, each with its reason (MISPRINTS).
+   SD; subgroups kept apart; a plain value with no SD giving way to the sides or sexes printed apart with theirs; a
+   cell's mean taken from the table that prints its SD; the count read per level where a table prints one). A
+   meta-analysis's SE or variance gives no SD, since it is the uncertainty of a pooled mean, not the spread of
+   people. A printed value that cannot be the measure, a misprint, stays in the reading as printed but out of the
+   series, each with its reason (MISPRINTS), and so do a paper's own values printed again under another label
+   (REPRINTS) and those it quotes from another work on its own subjects (REPRINTED_SOURCES), so no subjects count
+   twice; a side the mapping says not to use leaves the other alone (RIGHT_ONLY), and a group label the mapping
+   overruled is read as its cohort's (REGROUPED), each with its reason.
 5. **Set beside Panjabi** (tools/cross_naming.py, in schwingcheck's environment): disagreement (each source's mean in
    Panjabi's SDs and in levels, and the between-source spread of a random-effects pool), transport (fields drawn from a
    source's series named by Panjabi's rule, against fields drawn from his own table at the same places), and a rule
@@ -50,13 +55,18 @@ paper's mapping against its Methods.
 - data/cohorts/<id>.cohorts.json: its cohorts, techniques and every stated or inferred sharing, with the page. A
   cohort that is not human carries "species" (Busscher 2010's and van der Houwen 2009's pig spines), and
   tools/cross_naming.py leaves it out of everything.
-- data/series.csv: tools/series.py over all 39, 4,476 series (Tan 2004's L3 lower end-plate area, printed 172.0 mm2
-  between 1,090.9 and 1,199.3, is the one misprint left out).
+- data/series.csv: tools/series.py over all 39, 4,357 series. Two misprints are left out: Tan 2004's L3 lower
+  end-plate area, printed 172.0 mm2 between 1,090.9 and 1,199.3, and Robertson 2000's left L3 pedicle height,
+  printed with an SD of 13.0 mm where every other is 2.5 to 3.9. Two rounds of independent readers checked
+  series.py, cross_naming.py and results.py against the pages and the records, and each fault they found was fixed
+  and checked again (tools/code_review.js, code_fix.js and code_fix_2.js, Workflow scripts).
 - data/cross_naming.json and results/: the comparison with Panjabi (step 5) at 200 fields a setting, seed 2026, with
-  the two end-plate inclinations left out (../panjabi-endplate-inclination.md), and the evaluation written from it by
-  tools/results.py, its tables, figures and CSVs; [results/README.md](results/README.md) is the page to read and ends
-  with the commands that remake it. A pool member with an SD of 0 (Tan 2004's SEM of 0.0 for the upper end-plate
-  width at C6) is left out of the pools, and cross_naming.py refuses to write a record holding NaN or an infinity.
+  all 32 of Panjabi's measures scored as printed, the owner's choice of 2026-10-29 though the two end-plate
+  inclinations' lumbar row reprints the cervical one (../panjabi-endplate-inclination.md), and the evaluation written
+  from it by tools/results.py, its tables, figures and CSVs; [results/README.md](results/README.md) is the page to
+  read and ends with the commands that remake it. A pool member with an SD of 0 (Tan 2004's SEM of 0.0 for the upper
+  end-plate width at C6) is left out of the pools, and cross_naming.py refuses to write a record holding NaN or an
+  infinity.
 
 No page image or run of a paper's text is kept in git; a reading holds only the printed cells and the short labels
 that name them. The 44 PDFs the readings cite are in ../clinical-reread/papers/, each matching

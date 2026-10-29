@@ -407,8 +407,9 @@ def endplate_lines(left_out):
     to keep all 32 measures, unless the record names measures that --leave-out kept out."""
     note = "../../panjabi-endplate-inclination.md"
     if not left_out:
-        return ["The two end-plate angles are scored as printed, by the owner's choice of 2026-10-29 to keep all 32 of",
-                "Panjabi's measures, though the L1 to L5 row of his lumbar paper reprints his cervical C3 to C7 row (%s)." % note]
+        return ["The two end-plate angles are scored as printed, by the owner's choice of 2026-10-29 to keep all 32",
+                "of Panjabi's measures, though the L1 to L5 row of his lumbar paper reprints his cervical C3 to C7",
+                "row (%s)." % note]
     return ["Left out of every comparison too, by --leave-out: %s (for the two end-plate angles, see %s)."
             % (", ".join(left_out), note)]
 
