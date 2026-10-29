@@ -261,6 +261,47 @@ def fig_thicken(records: str, out: str) -> None:
     FIG.write_csv(out, "thicken", rows)
 
 
+# ---- what the change of frame moved ----------------------------------------------------------------
+
+REGION_STYLE = {"cervical": dict(marker="^", markerfacecolor="white"), "thoracic": dict(marker="s", markerfacecolor="white"),
+                "lumbar": dict(marker="o", markerfacecolor=FIG.INK)}
+
+
+def fig_axis(records: str, out: str) -> None:
+    shift = read(os.path.join(records, "axis-shift.csv"))
+    turn = read(os.path.join(records, "axis-turn.csv"))
+    plt = FIG.style()
+    fig, axes = plt.subplots(1, 4, figsize=(13.5, 5.2), gridspec_kw=dict(wspace=0.7, width_ratios=[1.15, 1, 1, 1]))
+    ax = axes[0]
+    levels = [r["level"] for r in turn if r["level"] in LEVEL_ORDER]
+    x = np.arange(len(levels))
+    med = [num(r["median_deg"]) for r in turn if r["level"] in levels]
+    lo = [num(r["p10_deg"]) for r in turn if r["level"] in levels]
+    hi = [num(r["p90_deg"]) for r in turn if r["level"] in levels]
+    for xi, a, b in zip(x, lo, hi):
+        ax.plot([xi, xi], [a, b], color=FIG.INK, lw=0.7)
+    ax.plot(x, med, color=FIG.INK, marker="o", markerfacecolor="white", label="median, 10th to 90th percentile")
+    ax.set_xticks(x)
+    ax.set_xticklabels(levels, fontsize=6.5, rotation=90)
+    ax.set_ylabel("turn from the column's line onto the vertebra's own axis, degrees")
+    ax.legend(loc="upper center", fontsize=6.5)
+    FIG.letter(ax, "A", "The turn, by level")
+    stats = [(r["key"], r["region"], num(r["median_shift"]), num(r["p10_shift"]), num(r["p90_shift"]), int(r["n"]))
+             for r in shift if r["region"] in REGION_STYLE]
+    for ax, (letter, title, keys, unit) in zip(axes[1:], (("B", "Body and discs", BODY, "mm"),
+                                                          ("C", "Canal, pedicles, arch", POSTERIOR, "mm"),
+                                                          ("D", "Angles", ANGLES, "degrees"))):
+        strip(ax, stats, keys, REGION_STYLE, unit)
+        ax.set_xlabel("shift, %s (own axis less column's line)" % unit)
+        FIG.letter(ax, letter, title)
+    axes[1].legend(loc="lower right", fontsize=6.5)
+    cap = ("What turning each vertebra's frame from the column's line onto its own axis moved, over the thin-slice "
+           "ENHANCE.PET studies: the turn by level (A), and each measure's shift, median and 10th to 90th "
+           "percentiles over vertebrae, by region (B to D).")
+    FIG.save(fig, out, "axis-shift", cap)
+    FIG.write_csv(out, "axis-shift", shift)
+
+
 # ---- ours against the papers -------------------------------------------------------------------
 
 def level_rank(level: str) -> float:
@@ -355,6 +396,7 @@ FIGURES = (("phantom-truth", fig_phantom, ("phantom-truth.csv",)),
            ("maskedge", fig_maskedge, ("maskedge-phantom.csv", "maskedge-ct.csv")),
            ("disc", fig_disc, ("disc-phantom.csv", "disc-ct.csv")),
            ("thicken", fig_thicken, ("thicken.csv",)),
+           ("axis", fig_axis, ("axis-shift.csv", "axis-turn.csv")),
            ("papers", fig_papers, ("compare-229.csv",)))
 
 

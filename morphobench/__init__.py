@@ -13,9 +13,13 @@ figures that show them.
 - The papers: the run's comparison with the paper tables, ours by level beside each paper's mean.
 - VerSe: the readers' Genant grades set against our height ratios, measured in a thread with full
   network access, its aggregates only.
+- A change of frame (python -m morphobench axis-shift): two runs' rows paired by study, level and
+  key, the shift of every measure by region against the phantom's tolerances, and the turn from
+  the column's line onto each vertebra's own axis by level, so what the frame moved is on record.
 
     python -m morphobench phantom --out records/.../phantom-truth.csv [--workers 1]
     python -m morphobench maskedge-phantom --out records/.../maskedge-phantom.csv
+    python -m morphobench axis-shift --before OLD/rows.csv --after NEW/rows.csv --out records/.../axis-shift.csv --out-turn records/.../axis-turn.csv
     python -m morphobench figures --records records/morphometry-2026-10-29 --out records/.../figures
 
 Nothing here reads a CT or a mask that is not given to it, and nothing it writes holds more than

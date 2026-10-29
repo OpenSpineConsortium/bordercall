@@ -1,5 +1,5 @@
 """python -m morphobench phantom | maskedge-phantom | maskedge-ct | disc-phantom | disc-ct | thicken |
-canal-shape | figures (the package's docstring says what each does)."""
+canal-shape | axis-shift | figures (the package's docstring says what each does)."""
 from __future__ import annotations
 
 import argparse
@@ -79,6 +79,15 @@ def cmd_canal_shape(a) -> None:
     write(rows, a.out)
 
 
+def cmd_axis_shift(a) -> None:
+    """Two runs' rows paired by study, level and key: the shift of every measure by region, and
+    the turn by level in the later run, each to its own file."""
+    from . import bench as B
+    before, after = read(a.before), read(a.after)
+    write(B.axis_shift(before, after), a.out)
+    write(B.axis_turn(after), a.out_turn)
+
+
 def cmd_figures(a) -> None:
     from . import figures as F
     F.all_figures(a.records, a.out)
@@ -107,11 +116,16 @@ def main(argv=None) -> None:
     s.add_argument("--labels", nargs="+", required=True)
     s.add_argument("--scheme", default="enhance")
     s.add_argument("--out", required=True)
+    s = sub.add_parser("axis-shift", help="what a change of frame moved, two runs' rows paired by study, level and key")
+    s.add_argument("--before", required=True)
+    s.add_argument("--after", required=True)
+    s.add_argument("--out", required=True)
+    s.add_argument("--out-turn", required=True)
     s = sub.add_parser("figures", help="the benchmark figures from the records")
     s.add_argument("--records", required=True)
     s.add_argument("--out", required=True)
     a = p.parse_args(argv)
-    {"phantom": cmd_phantom, "maskedge-phantom": cmd_maskedge_phantom, "maskedge-ct": cmd_maskedge_ct,
+    {"phantom": cmd_phantom, "maskedge-phantom": cmd_maskedge_phantom, "maskedge-ct": cmd_maskedge_ct, "axis-shift": cmd_axis_shift,
      "disc-phantom": cmd_disc_phantom, "disc-ct": cmd_disc_ct, "thicken": cmd_thicken,
      "canal-shape": cmd_canal_shape, "figures": cmd_figures}[a.cmd](a)
 

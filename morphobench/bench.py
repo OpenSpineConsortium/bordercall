@@ -170,3 +170,137 @@ def canal_shape(labels: np.ndarray, grid: G.VoxelGrid, names: Dict[int, str], st
                     "hole_middle": float(np.median(mid)), "hole_front_widest": float(np.median(front)),
                     "front_less_middle": float(np.median(front) - np.median(mid))})
     return out
+
+
+# ---- what a change of frame moved -----------------------------------------------------------------
+
+AXIS_KEYS = ("axis_offset", "plate_offset", "axis_residual")
+SKIP_KEYS = ("lowest_lumbar", "intercristal_level")
+TOL_MM, TOL_DEG, TOL_SHARE = 0.75, 1.5, 0.04
+ANGLE_WORDS = ("angle", "incl", "wedge", "tropism", "segment_", "lordosis", "kyphosis", "cobb", "slope", "tilt",
+               "incidence")
+RATIO_WORDS = ("index", "share", "pct", "ratio")
+
+
+def kind_of(key: str) -> str:
+    """A key's kind, which sets the tolerance its shift is judged against: the phantom's bounds,
+    0.75 mm for a length, 1.5 degrees for an angle, 4 per cent for an area or a volume, 0.04 for
+    a ratio."""
+    if any(w in key for w in ANGLE_WORDS):
+        return "angle"
+    if "area" in key:
+        return "area"
+    if "volume" in key:
+        return "volume"
+    if any(w in key for w in RATIO_WORDS):
+        return "ratio"
+    return "length"
+
+
+def beyond(kind: str, before: float, shift: float) -> bool:
+    if kind == "angle":
+        return abs(shift) > TOL_DEG
+    if kind in ("area", "volume"):
+        return abs(shift) > TOL_SHARE * abs(before)
+    if kind == "ratio":
+        return abs(shift) > TOL_SHARE
+    return abs(shift) > TOL_MM
+
+
+def region_of(level: str) -> str:
+    """cervical, thoracic or lumbar by the level's letter, a disc under its lower vertebra;
+    pelvis and column as they are; nothing for a study's own rows."""
+    if level in ("pelvis", "column"):
+        return level
+    if level == "study":
+        return ""
+    low = level.split("-")[-1]
+    return {"C": "cervical", "T": "thoracic", "L": "lumbar"}.get(low[:1], "")
+
+
+def numbered(rows: List[dict]) -> Dict[Tuple[str, str, str], float]:
+    out = {}
+    for r in rows:
+        key = r["key"]
+        if key.startswith("flag") or key in AXIS_KEYS or key in SKIP_KEYS:
+            continue
+        try:
+            v = float(r["value"])
+        except (TypeError, ValueError):
+            continue
+        if math.isfinite(v):
+            out[(r["study"], r["level"], key)] = v
+    return out
+
+
+def axis_shift(before: List[dict], after: List[dict]) -> List[dict]:
+    """Each key's shift between two runs' rows, after less before, paired by study and level and
+    gathered by region, over the studies both runs hold: how many pairs, the median shift and its
+    10th and 90th percentiles, the median absolute shift, and the share of pairs beyond the
+    tolerance of the key's kind. A value read in one run and not the other is no pair and is
+    counted apart (lost, gained)."""
+    b, a = numbered(before), numbered(after)
+    studies = {k[0] for k in b} & {k[0] for k in a}
+    by: Dict[Tuple[str, str], List[Tuple[float, float]]] = {}
+    lost: Dict[Tuple[str, str], int] = {}
+    gained: Dict[Tuple[str, str], int] = {}
+    for k, vb in b.items():
+        reg = region_of(k[1])
+        if not reg or k[0] not in studies:
+            continue
+        if k in a:
+            by.setdefault((reg, k[2]), []).append((vb, a[k] - vb))
+        else:
+            lost[(reg, k[2])] = lost.get((reg, k[2]), 0) + 1
+    for k in a:
+        reg = region_of(k[1])
+        if reg and k[0] in studies and k not in b:
+            gained[(reg, k[2])] = gained.get((reg, k[2]), 0) + 1
+    out = []
+    for (reg, key), pairs in sorted(by.items()):
+        kind = kind_of(key)
+        shifts = np.array([d for _, d in pairs])
+        out.append({"region": reg, "key": key, "kind": kind, "n": len(pairs),
+                    "median_shift": float(np.median(shifts)), "p10_shift": float(np.percentile(shifts, 10)),
+                    "p90_shift": float(np.percentile(shifts, 90)), "median_abs": float(np.median(np.abs(shifts))),
+                    "share_beyond": float(np.mean([beyond(kind, v, d) for v, d in pairs])),
+                    "lost": lost.get((reg, key), 0), "gained": gained.get((reg, key), 0)})
+    return out
+
+
+def axis_turn(after: List[dict]) -> List[dict]:
+    """By level, the turn from the column's line onto the vertebra's own axis (axis_offset) over
+    the vertebrae whose frame was turned: how many, the median and the 10th and 90th
+    percentiles, the median residual after the turn, and beside them how many vertebrae kept
+    the column's line (the flag axis), whose turn is nought by construction and is left out."""
+    turns: Dict[Tuple[str, str], float] = {}
+    resid: Dict[Tuple[str, str], float] = {}
+    kept = set()
+    for r in after:
+        at = (r["study"], r["level"])
+        if r["key"] == "flag:axis":
+            kept.add(at)
+        elif r["key"] in ("axis_offset", "axis_residual"):
+            try:
+                v = float(r["value"])
+            except (TypeError, ValueError):
+                continue
+            if math.isfinite(v):
+                (turns if r["key"] == "axis_offset" else resid)[at] = v
+    levels = sorted({at[1] for at in turns} | {at[1] for at in kept}, key=level_rank)
+    out = []
+    for lv in levels:
+        a = np.array([v for at, v in turns.items() if at[1] == lv and at not in kept])
+        res = [v for at, v in resid.items() if at[1] == lv and at not in kept]
+        if not len(a):
+            continue
+        out.append({"level": lv, "n": len(a), "median_deg": float(np.median(a)), "p10_deg": float(np.percentile(a, 10)),
+                    "p90_deg": float(np.percentile(a, 90)), "median_residual_deg": float(np.median(res)) if res else math.nan,
+                    "kept_column_line": sum(1 for at in kept if at[1] == lv)})
+    return out
+
+
+def level_rank(level: str) -> float:
+    letter, num = level[:1], level[1:]
+    base = {"C": 0, "T": 100, "L": 200}.get(letter, 300)
+    return base + (float(num) if num.isdigit() else 0.0)
