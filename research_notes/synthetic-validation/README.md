@@ -31,7 +31,9 @@ stand; a later snapshot is cut with `python3 -I snapshot.py --write <commit>` an
 
 1. **Panjabi's means sit above the papers', and the excess is one of shape more than of size.** In the 57
    cells (measure and level) where three or more bone or CT series pool, Panjabi's mean lies outside the
-   95% prediction interval, where one more population's mean should fall, in none. Set against the pooled
+   95% prediction interval, where one more population's mean should fall, in none, once his twelve
+   spines' own sampling variance widens it; the Higgins interval alone leaves him out in one cell, the
+   pedicle's width at T11 (9.75 against 5.55 to 9.30, four series), and in none without Tan 2004. Set against the pooled
    mean with his twelve spines' own SE taken in, it differs in 16 cells by z and 10 by t on k - 1 degrees
    of freedom, every one above (14 and 8 without Tan 2004, 11 and 8 above); taken as exact, in 25, 23
    above (table means). Over all 421 cells his mean sits a median 0.69 of his own SD above the papers',
@@ -73,13 +75,14 @@ stand; a later snapshot is cut with `python3 -I snapshot.py --write <commit>` an
    length or area at or below zero, a canal wider than its own transverse processes) fail 2.2% of
    vertebrae, and curation for them drops 3,793 of 10,000 people. The seven measures the rule reads are
    flagged in 13 of 10,000 people, by a canal depth at or below zero or at the floor (table quality,
-   figure fig7_quality).
+   figure fig7_quality). Curation is counted, never applied: every other result here is read on the whole
+   draw.
 5. **The point nearest the papers is narrower, and it names better.** Searched over 480 points, the
-   nearest takes every SD to 0.6 of Panjabi's, the size's spread from 0.07 to 0.035 and rho from 0.5 to
-   0.9. There the vertebrae that fail an indicator fall from 42% to 7%, and the exact rule names one body
+   nearest takes every SD to 0.6 of Panjabi's, the size's spread from 0.07 to 0.035, rho from 0.5 to
+   0.9 and r_between from 0 to 0.2. There the vertebrae that fail an indicator fall from 42% to 7%, and the exact rule names one body
    in 57.1% of fields against 47.5% at the generator, three in 80.2% against 72.8%, nine in 99.0% against
    95.6% (tables grid and naming, figures fig4_state_space and fig5_naming); at nine bodies the gain is
-   mostly rho's. The papers pin the SDs' scale to 0.6 to 0.7 (with the other axes held, 0.55 reads 0.032 and 0.8 reads 0.082; the best point at 0.8 reads 0.059); they
+   mostly rho's. The papers pin the SDs' scale to 0.6 to 0.7 (with the other axes held, 0.55 reads 0.032 and 0.8 reads 0.082; the grid's best point at 0.8, at scale_sd 0.01 and r_between 0.4, reads 0.059, the held reading fig4_state_space F draws); they
    leave the size's spread (0 to 0.035), rho (0.9 and above read alike) and r_between open, since all
    three set how much of a person's measures move together and Griffith's four correlations are one
    constraint on them.
@@ -92,8 +95,8 @@ stand; a later snapshot is cut with `python3 -I snapshot.py --write <commit>` an
    one CT scan of the population named (1.0, 0.8 corrected; 1.7 in Panjabi's SD), below the 2 to 16 part
    A gave, on part A's assumption that the population named is exchangeable with those pooled. A rule
    built on a table moved that much loses about 10 to 20 points of exact naming, and its answers at 0.99
-   are right only 88 to 96% of the time, against 99.5 to 100 on its own table (tables spread and part_c,
-   figure fig6_power).
+   are right only 88 to 96% of the time on the mean of each arm's four tables, against 99.5 to 100 on its
+   own table (tables spread and part_c, figure fig6_power).
 7. **What the 159 gold persons can test.** At 159 whole spines, against the table taken as exact, a
    two-sided test at 5% has 80% power for a shift of a level's mean of 0.22 of a person's SD (0.36 for
    one cell of the seven SPINEPS measures' 154, with a Bonferroni split) and an SD ratio of 1.17, and
@@ -159,7 +162,10 @@ reread's branch); only Tan's series measure either, so they enter no pooled cell
 <!-- end selection -->
 
 **The comparison.** Bone and CT series pool together as the main comparison, film and MRI apart, since
-film magnifies and MRI reads soft tissue. Means pool by REML with the prediction interval of Higgins,
+film magnifies and MRI reads soft tissue. 12 of the 32 measures have no published series at all, the
+inferior facet's width, both facets' heights, areas, transverse and sagittal angles and the three
+interfacet distances, so they are held to no paper; they carry 56% of the generator's sign flags
+(records/qi.json, sign by measure). Means pool by REML with the prediction interval of Higgins,
 Thompson and Spiegelhalter on t(k - 2), SDs on the log scale (synthval/pooling.py). Tan's SDs, whose
 conversion from standard errors the reread could not settle, weight the pooled means and set the spread
 between series like any other series', but the published SD a synthetic SD is held to leaves them out:
@@ -208,7 +214,12 @@ the SD the generator draws with, so a shift reads as what it costs the rule.
 The prediction interval and the tests against the pooled mean answer different questions. The first
 asks whether Panjabi's twelve spines could be one more population among the papers', and the answer is
 yes everywhere, partly because with three series that interval takes t on one degree of freedom and is
-too wide to test much. The second asks whether he sits at their centre. With his twelve spines' SE taken
+too wide to test much. The interval the table counts is widened by his twelve spines' sampling variance,
+sd^2 / 12 under its root (run.py, inside_prediction); the Higgins interval alone leaves his mean out in
+one cell, the pedicle's width at T11 (9.75 against 5.55 to 9.30, four series), and in none without Tan.
+The film and MRI series, kept apart, cover 68 cells of 11 measures: there Panjabi's mean sits a median
+0.13 of his SD below the papers', his SD is 1.16 times theirs, the generator's true SD 1.38 times (1.45
+measured) and the nearest point's 0.79 (records/validation_cells.csv, modalities film_mri). The second asks whether he sits at their centre. With his twelve spines' SE taken
 in, which a sample of twelve has, he does not in 16 cells by z and 10 by t, all above; taken as exact, a
 stricter reading than his twelve can bear, in 25. Both are true at once: his spines are a plausible
 population, a large one in some respects.
@@ -273,9 +284,11 @@ one reading, a caliper's 0.35 to 0.95 mm or a CT's 0.2 to 1.2 mm (table assumpti
 the generator's 1 mm; for a length whose SD is 2 mm an error of 0.5 mm adds 3% to the SD and 1 mm adds
 12%. So the fair ratio lies between the true and the measured one, nearer the true for these series. At
 the nearest point, chosen on the true SDs, the lengths sit at a median 0.90 of the published SDs
-(records/validation_cells.csv): 3 to 9% narrower than the papers' anatomy for a technique error of 0.2 to
-0.5 mm, about as wide at 0.75 mm and up to about 9% wider at 0.95 to 1.2 mm. Its areas sit at 0.67 and
-its angles at 1.69.
+(records/validation_cells.csv). Taking a technique error e out of each published SD as sqrt(sd^2 - e^2),
+and counting only the cells whose published SD exceeds it (96 of 96 up to 0.6 mm, 87 at 0.95 mm, 72 at
+1.2 mm), the nearest point's lengths read 3 to 9% narrower than the papers' anatomy for an error of 0.2
+to 0.5 mm, about as wide at 0.6 to 0.65 mm, 3% wider at 0.7 to 0.75 and about 9% wider at 0.95 to 1.2
+mm. Its areas sit at 0.67 and its angles at 1.69.
 
 ## Structure
 
@@ -327,10 +340,12 @@ paper-tables tools at 401aaee) and pools their sexes. The unit is Chen's upper e
 depth, so each share sets one population's ratio against another's unit and mixes the measure's own
 difference between the sexes with the populations'. The canal's width carries about a third of the body's
 difference, and so does the pedicle's width in Duman's CTs (0.23 to 0.44). Griffith's own means by sex,
-within one population (structure.GRIFFITH_SEX, from his paper beside the snapshot), put the canal's width
-at 0.61 of his body area's difference per length and its depth at 0.17 (synthesis/error.md at 448006f,
-L345: half to two thirds, and a fifth or less), so the canal width's third rests on Eisenstein set
-against Chen's unit, as the pedicle's rests on Duman (below). The canal's depth carries little or none: 9
+within one population (structure.GRIFFITH_SEX, from his paper beside the snapshot, which no record
+repeats), put the canal's width at 0.61 of his body area's difference per length and its depth at 0.17:
+log(23.66 / 22.26) and log(15.82 / 15.55) against half of log(1419.3 / 1162.9). The reread's error part
+reads the same shares across populations, Griffith's canal against Chen's and van der Houwen's bodies
+(synthesis/error.md at 448006f, L345: half to two thirds, and a fifth or less). So the canal width's
+third rests on Eisenstein set against Chen's unit, as the pedicle's rests on Duman (below). The canal's depth carries little or none: 9
 of Eisenstein's 15 pairs print the two sexes equal, and his other six print the women's canal one
 millimetre deeper (-0.46 to -0.52 of the unit); his whole millimetres step by about half the unit, so his
 pairs cannot tell a third from nothing. The lower end-plate, from Chen too, carries all of it. The
@@ -340,6 +355,16 @@ the body diameters' 0.094 to 0.128 (synthesis/error.md at 448006f, L333 and L335
 rests on Duman alone. A model that gave each measure its own loading on size (population.py holds the
 option, loadings) might draw both the lower correlations and the sexes' differences; it is not tried
 here.
+
+Four ratios of means by level, L1 to L5, set the generator beside the papers that print them
+(records/structure.json, ratios; fig3_structure C and D, fig7_quality C). Each synthetic ratio sits
+within 0.03 of Panjabi's own ratio of means, as it must. Against the papers: the canal's depth over the
+body's is 0.50 to 0.58 synthetic, below Alonge 2021's 0.58 to 0.70 and level with Amonoo-Kuofi 1985's
+0.45 to 0.61; the canal's width over its depth is 1.27 to 1.41, below Cizmic 2023's 1.30 to 1.79, and the
+gap grows down the lumbar spine (1.39 against 1.79 at L5); the transverse span over the end-plate's width
+is 1.72 to 1.97, above Tan 2004's 1.48 to 1.79; and the canal's area over its width times depth is 0.63
+to 0.73, below Tan's 0.70 to 0.83. The last two are Tan alone, so they are the one paper's shape against
+Panjabi's twelve.
 
 ## Quality and curation
 
@@ -434,14 +459,19 @@ a measure's levels and cannot say how high. Nor is the size's spread, though the
 inside the grid at 0.035: the next three points, at 0.026, take 0.035, 0 and 0.01, with r_between 0.2 or
 0.4 and sd_scale 0.6 or 0.7, since a between-measure correlation stands in for the size in Griffith's
 correlations and a wider SD for it in the spread. The four points within 0.004 of the nearest change
-order from one draw to the next, though the nearest stayed first in six seeds of 4,000 people, and the
+order from one draw to the next, though the nearest stayed first in six seeds of 4,000 people, a check
+run beside the records, which hold seed 11 alone (records/RECORD.json), and the
 gold persons' first measurable number is the correlation between neighbouring levels (item 7).
 
 ## Naming across the state space
 
 The exact rule on the seven SPINEPS measures with the CT's errors, on fields drawn at points of the state
 space. "1 body" is the share of fields of one body named exactly; "rule matched" is a rule built for the
-point's own setting where a rule can hold it (blank for the generator, whose rule is its own).
+point's own setting where a rule can hold it: the generator's column is blank, since its rule is its
+own, and the phi and r_between rows repeat the generator's rule, since no rule holds either. The nearest
+point's matched rule holds its SDs, size spread and rho and ignores its r_between of 0.2
+(records/naming.csv, rule_ignores), so figure fig5_naming, which draws a matched rule only where it holds
+the whole setting, leaves it out with phi's and r_between's.
 
 <!-- table naming -->
 | point | 1 body | 3 | 9 | rule matched: 1 | 3 | 9 |
@@ -521,8 +551,9 @@ The first rows repeat cadaver-power's part C on this note's columns; the last fo
 by the calibrated split just measured, the last with one shift for every measure of a table, as a paper
 whose whole method reads large would. On every table moved by the papers' split the rule's answers at
 0.99 are right 88 to 96% of the time at one, three and nine bodies, the mean of four tables, against 99.5
-to 100 on its own table, so the promise part C was framed around breaks, and not by noise: at nine bodies
-each such table answers 2,400 to 3,000 fields and none is right more than 98% of the time. The reread's
+to 100 on its own table, so the promise part C was framed around breaks, and not by noise: a single
+table at one body ranges from 69 to 100% on 25 to 206 answers, and at nine bodies each such table answers
+2,368 to 3,044 fields and none is right more than 98% of the time (records/power_naming.csv). The reread's
 own comparison, on the papers' fields rather than on tables moved by a fitted spread, reads the same way
 at 3aff843: at three bodies the rule built on Panjabi's table names 23.7% of the papers' fields exactly
 against 47.2% of his own, and is right on 88.8% of the 660 it names at 0.99
@@ -532,7 +563,9 @@ are uncertain, the spread is 0.63 (0.69 calibrated) and a pool is worth about 1.
 CT scans of the population named, gets stronger, on its assumption that the population named is
 exchangeable with those pooled (cadaver-power/README.md L175 to L178). The usable series' cohorts are
 from Singapore, China, India, Israel, Turkey, Saudi Arabia, Nigeria, Bosnia, Mexico, the Netherlands,
-Taiwan, the United States, Germany, Italy and New Zealand, so their spread is largely one between
+Taiwan, the United States, Germany, Italy and New Zealand (Germany and Israel inferred from Kunkel 2011's
+and Gilad 1985's institutions, New Zealand where Robertson 2000's bones were studied; Zindrick 1987's
+cohort names no country), so their spread is largely one between
 populations, which is what a named population would be drawn from only if it were one more of them.
 
 ## What gold persons can test
