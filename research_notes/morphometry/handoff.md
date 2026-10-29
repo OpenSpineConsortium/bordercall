@@ -2,7 +2,7 @@
 
 Source: the thread "Advance morphometry", written on the owner's word of 23:06 UTC ("im about to
 run out of fable please just write what you have now"). Everything below is pushed to bordercall's
-branch claude/project-thread-e89pjg, draft PR 30, with bordercall main (6d261f6, PR 28) merged in.
+branch claude/project-thread-e89pjg, draft PR 44 (it supersedes PR 30, now closed), with bordercall main (6d261f6, PR 28) merged in.
 The handoff of 17:30 UTC follows below it and still describes the screening package, the run on the
 vertebra's own axis and the VerSe record.
 
@@ -103,7 +103,7 @@ readings above, what the rows show that the next session should look at first:
 
 ## For the account that continues
 
-Start from bordercall PR 44 (branch claude/project-thread-e89pjg, head dd69c23 plus this commit): the
+Start from bordercall PR 44 (branch claude/project-thread-e89pjg, at its pushed head): the
 code, the probes and this handoff are all there, and nothing of this work is in SchwingNet except
 the grid word and the pinned engine of the 229 run (SchwingNet main, grid/bordercall/). The masks
 of the 229 thin-slice studies and the rows of the runs are in the project's files under gold3-ct/,
@@ -132,7 +132,7 @@ never in git. Take the steps below in order, the test suite first.
    neck), and the list of what fails. The transverse angle is the canal wall's angle along the
    pedicle: it under-reads the pedicle's bisector where the lateral cortex flares, so if its
    medians sit well under the papers' that is the construction, not noise.
-5. The adversarial review into PR 30's body, mark ready, merge; then re-pin the engine into
+5. The adversarial review into PR 44's body, mark ready, merge; then re-pin the engine into
    SchwingNet (`python3 tools/bordercall_vendor.py copy <clone>` from main, its check) and close
    bordercall PR 41, the other thread's vendoring draft, as that thread asked.
 
