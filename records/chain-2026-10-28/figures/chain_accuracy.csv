@@ -1,0 +1,97 @@
+panel,type,measures,rule,bodies,percent,fields
+A,typical,all,consecutive,1,86.5,200
+A,typical,all,consecutive,3,88.5,200
+A,typical,all,consecutive,5,88,200
+A,typical,all,consecutive,9,72.5,200
+A,typical,all,gaps,1,86.5,200
+A,typical,all,gaps,3,96,200
+A,typical,all,gaps,5,98,200
+A,typical,all,gaps,9,99,200
+A,typical,all,chain,1,86.5,200
+A,typical,all,chain,3,96,200
+A,typical,all,chain,5,98,200
+A,typical,all,chain,9,99,200
+A,typical,all,known gaps,1,86.5,200
+A,typical,all,known gaps,3,98,200
+A,typical,all,known gaps,5,99.5,200
+A,typical,all,known gaps,9,100,200
+B,six_lumbar,all,consecutive,1,84,200
+B,six_lumbar,all,consecutive,3,86,200
+B,six_lumbar,all,consecutive,5,82.5,200
+B,six_lumbar,all,consecutive,9,74,200
+B,six_lumbar,all,gaps,1,84,200
+B,six_lumbar,all,gaps,3,95,200
+B,six_lumbar,all,gaps,5,95.5,200
+B,six_lumbar,all,gaps,9,95,200
+B,six_lumbar,all,chain,1,85,200
+B,six_lumbar,all,chain,3,97.5,200
+B,six_lumbar,all,chain,5,98.5,200
+B,six_lumbar,all,chain,9,98,200
+B,six_lumbar,all,known gaps,1,84,200
+B,six_lumbar,all,known gaps,3,96.5,200
+B,six_lumbar,all,known gaps,5,96,200
+B,six_lumbar,all,known gaps,9,91,200
+C,t13,all,consecutive,1,79.5,200
+C,t13,all,consecutive,3,84.5,200
+C,t13,all,consecutive,5,76.5,200
+C,t13,all,consecutive,9,70,200
+C,t13,all,gaps,1,79.5,200
+C,t13,all,gaps,3,90,200
+C,t13,all,gaps,5,89.5,200
+C,t13,all,gaps,9,89,200
+C,t13,all,chain,1,84,200
+C,t13,all,chain,3,94.5,200
+C,t13,all,chain,5,98,200
+C,t13,all,chain,9,97.5,200
+C,t13,all,known gaps,1,79.5,200
+C,t13,all,known gaps,3,92,200
+C,t13,all,known gaps,5,93.5,200
+C,t13,all,known gaps,9,90,200
+D,typical,seven,consecutive,1,40.5,200
+D,typical,seven,consecutive,3,68,200
+D,typical,seven,consecutive,5,72.5,200
+D,typical,seven,consecutive,9,68,200
+D,typical,seven,gaps,1,40.5,200
+D,typical,seven,gaps,3,72,200
+D,typical,seven,gaps,5,78,200
+D,typical,seven,gaps,9,83,200
+D,typical,seven,chain,1,40.5,200
+D,typical,seven,chain,3,72,200
+D,typical,seven,chain,5,78,200
+D,typical,seven,chain,9,83,200
+D,typical,seven,known gaps,1,40.5,200
+D,typical,seven,known gaps,3,77,200
+D,typical,seven,known gaps,5,85.5,200
+D,typical,seven,known gaps,9,97.5,200
+E,six_lumbar,seven,consecutive,1,51,200
+E,six_lumbar,seven,consecutive,3,66,200
+E,six_lumbar,seven,consecutive,5,69.5,200
+E,six_lumbar,seven,consecutive,9,69,200
+E,six_lumbar,seven,gaps,1,51,200
+E,six_lumbar,seven,gaps,3,67.5,200
+E,six_lumbar,seven,gaps,5,73,200
+E,six_lumbar,seven,gaps,9,83,200
+E,six_lumbar,seven,chain,1,51,200
+E,six_lumbar,seven,chain,3,69,200
+E,six_lumbar,seven,chain,5,74.5,200
+E,six_lumbar,seven,chain,9,85,200
+E,six_lumbar,seven,known gaps,1,51,200
+E,six_lumbar,seven,known gaps,3,68.5,200
+E,six_lumbar,seven,known gaps,5,80.5,200
+E,six_lumbar,seven,known gaps,9,86,200
+F,t13,seven,consecutive,1,48,200
+F,t13,seven,consecutive,3,62,200
+F,t13,seven,consecutive,5,62,200
+F,t13,seven,consecutive,9,64,200
+F,t13,seven,gaps,1,48,200
+F,t13,seven,gaps,3,66,200
+F,t13,seven,gaps,5,70.5,200
+F,t13,seven,gaps,9,74,200
+F,t13,seven,chain,1,48,200
+F,t13,seven,chain,3,66.5,200
+F,t13,seven,chain,5,71.5,200
+F,t13,seven,chain,9,77,200
+F,t13,seven,known gaps,1,48,200
+F,t13,seven,known gaps,3,69,200
+F,t13,seven,known gaps,5,74.5,200
+F,t13,seven,known gaps,9,83,200

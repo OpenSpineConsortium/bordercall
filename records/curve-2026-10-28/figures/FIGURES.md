@@ -3,9 +3,10 @@
 Built with `python -m schwingcheck curve figures --record records/curve-2026-10-28/curve.nc --outdir records/curve-2026-10-28/figures`.
 
 - Record: `records/curve-2026-10-28/curve.nc`, sha256 c4d0cc979da8454609c19a2c7337c7eed1723d0a654c02cbe8536fd0f5167672.
-- Code: `schwingcheck/curve_report.py`, sha256 74e6145566f414027c9876f19bd692655578cabc10ae3034c9f7be70ab1686e6.
-- Code: `schwingcheck/curve.py`, sha256 d2a36049dc5e5f4d3a1563e07e208d2b3d6e93fd302ea3f7868286c85d97b4e4.
-- Python 3.13.17, numpy 2.5.4, matplotlib 3.11.2; serif type Liberation Serif, embedded in the PDF.
+- Code: `schwingcheck/figures.py`, sha256 3908d42cc8e93c839d8ddca5bf06591af281e1490d775483e20535a0908b0576.
+- Code: `schwingcheck/curve_report.py`, sha256 f2200663f286e3a113a15c441e179a40d59a1a4384241ab63520c0d3f084cdd0.
+- Code: `schwingcheck/curve.py`, sha256 7c8cc875437c7540b3127d5d7b799b2c7e23c804837a99ab3a22f58432e1ee15.
+- Python 3.12.3, numpy 2.5.4, matplotlib 3.11.2; serif type Liberation Serif, embedded in the PDF.
 - The PDFs carry no creation date, so a rebuild with the same versions gives the same files; the CSVs beside them hold every number drawn.
 
 | Figure | Files | Caption |
