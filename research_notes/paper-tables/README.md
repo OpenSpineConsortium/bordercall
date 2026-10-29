@@ -60,6 +60,9 @@ paper's mapping against its Methods.
   printed with an SD of 13.0 mm where every other is 2.5 to 3.9. Two rounds of independent readers checked
   series.py, cross_naming.py and results.py against the pages and the records, and each fault they found was fixed
   and checked again (tools/code_review.js, code_fix.js and code_fix_2.js, Workflow scripts).
+- tools/validation_sample.py draws the blind re-read sample of the readings (468 cells, twelve a paper, seed 2026),
+  the locators for the readers apart from the recorded values, for the validation the owner asked for on 2026-10-29
+  (../clinical-reread/HANDOFF.md, step 2); not run yet.
 - [review/](review/README.md): what the two review rounds found, and round 2's findings with the refuters'
   verdicts; the round 2 findings that change data/series.csv or the record come in the next pull request.
 - data/cross_naming.json and results/: the comparison with Panjabi (step 5) at 200 fields a setting, seed 2026, with
