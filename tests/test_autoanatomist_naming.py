@@ -14,8 +14,9 @@ sum to one and keep each type's weight, the bottom anchor ends every path on L4,
 top anchor starts every path at C3; and the loss's gradient in the measurements is a finite
 difference's. In float32, as train.py runs it: the loss far from the table, where every true
 name's posterior is below the type's smallest number, is float64's with a gradient that is
-float64's at every body; the forward pass at a gamma of 1e-10 is finite and is the Viterbi path;
-and whatever a per-value noise holds at a value not read changes nothing.
+float64's at every body; the forward pass at a gamma of 1e-10 is finite, its value the best
+state path's score and its gradient that path, by the enumeration of the chain's state paths; and
+whatever a per-value noise holds at a value not read changes nothing.
 """
 from __future__ import annotations
 
@@ -206,15 +207,18 @@ class InFloat32(unittest.TestCase):
     def test_the_forward_pass_at_a_tiny_gamma(self):
         from autoanatomist import naming as N
         ch = N.build(N.TYPES, None, CH.step_law(), 3)
-        le = jnp.asarray(np.random.default_rng(1).normal(size=(2, 3, ch.n_states)) * 3, jnp.float32)
+        le = (np.random.default_rng(1).normal(size=(2, 3, ch.n_states)) * 3).astype(np.float32)
+        paths = CH.support_paths(ch.init, ch.P)                           # every state path the chain allows
+        score = CH.path_log_prior(ch.init, ch.P, paths).astype(np.float32)[None] + le[:, np.arange(3)[None, :], paths].sum(-1)
+        best = score.argmax(-1)                                            # (2,): the Viterbi path of each field
         li, lP = N.log_laws(ch)
-        li, lP = jnp.asarray(li, jnp.float32), jnp.asarray(lP, jnp.float32)
-        v4, m4 = N.soft_marginals(le, li, lP, 1e-4)
-        v10, m10 = N.soft_marginals(le, li, lP, 1e-10)
+        v10, m10 = N.soft_marginals(jnp.asarray(le), jnp.asarray(li, jnp.float32), jnp.asarray(lP, jnp.float32), 1e-10)
         self.assertTrue(bool(jnp.isfinite(v10).all() and jnp.isfinite(m10).all()))
-        np.testing.assert_allclose(np.asarray(m10).sum(-1), 1.0, atol=1e-5)
-        np.testing.assert_allclose(np.asarray(m10), np.asarray(m4), atol=1e-6)
-        np.testing.assert_allclose(np.asarray(v10), np.asarray(v4), atol=1e-2)
+        np.testing.assert_allclose(np.asarray(v10), score[np.arange(2), best], rtol=1e-4)
+        want = np.zeros(m10.shape, np.float32)
+        for f in range(2):
+            want[f, np.arange(3), paths[best[f]]] = 1.0
+        np.testing.assert_allclose(np.asarray(m10), want, atol=1e-6)
 
     def test_an_unread_values_noise_counts_for_nothing(self):
         from autoanatomist import naming as N

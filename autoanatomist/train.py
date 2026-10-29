@@ -20,8 +20,10 @@ The losses, each named in the returned record:
 - landmark: the pseudo-Huber distance of each predicted landmark from the oracle's, with a 2 mm
   knee, over the landmarks the oracle gave;
 - spread: the Gaussian negative log likelihood of the landmark's error under its heatmap's spread
-  (tr S / 3 plus a floor), the error's gradient stopped, so the spread learns to match the error
-  and the position is trained by the landmark term alone;
+  (tr S / 3 plus a floor), the error's gradient stopped, so the term teaches the spread to match
+  the error and does not pull the position toward the target; it still reaches the heatmap, whose
+  weights give the spread and the position both, so the position is moved by the landmark term
+  and, through the spread, by this one;
 - value: the mean absolute error of the values, which the landmarks give by the measurements' own
   rules;
 - feature: ||F_ct - stopgrad(F_mask)||^2 at each scale, the generalized distillation term that
@@ -226,7 +228,8 @@ def evaluate(model: Model, ex: Examples, use_naming: bool = True) -> Dict[str, o
     each value's spread added to the measure's error, as train.py's loss adds it, and from the
     values alone, with the measures' own errors, beside the share the oracle's own values name
     right. An untrained or briefly trained spread is wide and uncalibrated, and a wide spread
-    hands the layer back its prior, so the two shares can differ widely."""
+    flattens each body's posterior over the neighbouring levels, short of the prior, so the two
+    shares can differ widely."""
     out = nnx.jit(lambda m, hu: m.ct_only(hu))(model, jnp.asarray(ex.hu))
     _, _, dist = landmark_terms(out, jnp.asarray(ex.targets))
     err = np.abs(np.asarray(out["values"]) - ex.values)
@@ -268,19 +271,20 @@ def error_curve(model: Model, batch, lams: Sequence[float], w: float = 1.0) -> T
 
 def timing(model: Model, n: int = 8, repeats: int = 3, seed: int = 0) -> Dict[str, float]:
     """Seconds per crop of the jitted CT-only path on this machine, batches of n, after the
-    compile, the best of `repeats`; and the compile's own seconds."""
+    first call, the best of `repeats`; and the first call's seconds, the compile and one batch's
+    run together."""
     cfg = model.cfg
     hu = jnp.asarray(np.random.default_rng(seed).normal(0.0, 300.0, (n,) + tuple(cfg.shape) + (1,)), jnp.float32)
     f = nnx.jit(lambda m, hu: m.ct_only(hu))
     t0 = time.time()
     jax.block_until_ready(f(model, hu))
-    compile_s = time.time() - t0
+    first_call_s = time.time() - t0
     best = np.inf
     for _ in range(repeats):
         t0 = time.time()
         jax.block_until_ready(f(model, hu))
         best = min(best, time.time() - t0)
-    return {"seconds_per_crop": best / n, "compile_seconds": compile_s, "batch": n,
+    return {"seconds_per_crop": best / n, "first_call_seconds": first_call_s, "batch": n,
             "device": str(jax.devices()[0])}
 
 

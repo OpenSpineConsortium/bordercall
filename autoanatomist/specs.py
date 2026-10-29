@@ -151,13 +151,3 @@ def values(P, keys: Sequence[str], xp=np):
     at = index_of(keys)
     return xp.stack([SPECS[k].value(P[..., at[k], :], xp) for k in keys], axis=-1)
 
-
-def directions(P, keys: Sequence[str], xp=np):
-    """Each length's unit direction from its first point to its second, (..., keys, 3); the
-    uncertainty of a length along it is what model.py reads from the heatmaps (the delta method)."""
-    at = index_of(keys)
-    out = []
-    for k in keys:
-        a, b = P[..., at[k][0], :], P[..., at[k][1], :]
-        out.append((b - a) / length(a, b, xp)[..., None])
-    return xp.stack(out, axis=-2)

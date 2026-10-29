@@ -18,9 +18,10 @@ has a derivative dE/dlambda that jax.grad computes (train.error_curve). The rung
 are this module's design, from the owner's pasted notes (a perfect mask, then semantic bone, then
 softer shapes, then HU thresholding), not a published schedule.
 
-The schedules (Schedule) run lambda from 0 to 1 first and then the fusion weight w from 1 to 0,
-each by a half cosine over its share of the training steps, so the branch is degraded before it is
-taken away, and at the end the network reads the CT alone (w = 0), with no mask asked for.
+The schedules (Schedule) run lambda from 0 to 1 over the middle of the training steps and the
+fusion weight w from 1 to 0 after it, each by a half cosine over its span, the two spans
+overlapping by a tenth of the steps, so most of the degradation comes before the branch is taken
+away, and at the end the network reads the CT alone (w = 0), with no mask asked for.
 """
 from __future__ import annotations
 
@@ -68,8 +69,8 @@ def degrade(masks, hu, lam, spacing_mm: float = 2.0, bone_hu: float = gates.BONE
 @dataclass(frozen=True)
 class Schedule:
     """lambda and w over `steps` training steps: lambda from 0 to 1 over the shares lam_span of the
-    steps, then w from 1 to 0 over w_span, each by a half cosine; before a span its start value
-    holds and after it its end value."""
+    steps and w from 1 to 0 over w_span, which starts a tenth of the steps before lam_span ends,
+    each by a half cosine; before a span its start value holds and after it its end value."""
     steps: int
     lam_span: Tuple[float, float] = (0.15, 0.55)
     w_span: Tuple[float, float] = (0.45, 0.85)

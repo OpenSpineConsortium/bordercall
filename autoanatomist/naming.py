@@ -200,7 +200,10 @@ def path_loglik(X, names, mu_ext, sd_ext, noise, power, sizes, rho):
     into NAMES, mu_ext and sd_ext (M, NAMES), sizes (J,), noise each measure's error (M,) or each
     value's (F, M, B), read only where the value is, so whatever it holds at a NaN value counts
     for nothing. With a measure's error the sums over the bodies are matrix products, as in
-    rule.py; with each value's they are taken directly."""
+    rule.py; with each value's they are taken directly, over arrays of (F, M, J, H, B), which in
+    float32 hold 1.2 MB per field at three bodies (H 92), 7.6 MB at five (339), 77 MB at eight
+    (2,140) and 1.15 GB at twelve (21,274) with rule.py's 161 nodes, a few of them per field, so a
+    long field takes each measure's error, fewer nodes or a smaller batch."""
     X = jnp.asarray(X)
     read = jnp.isfinite(X)
     w = read.astype(X.dtype)

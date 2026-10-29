@@ -151,10 +151,10 @@ class TheTraining(unittest.TestCase):
         batch = T.batch_of(ex, np.arange(len(ex)))
         E, dE = T.error_curve(model, batch, [0.0, 0.5, 1.0])
         self.assertTrue(np.isfinite(E).all() and np.isfinite(dE).all())
-        ends = []
-        for lam in (0.0, 1.0):
-            masks = LD.degrade(batch["masks"], batch["hu"], lam, spacing_mm=cfg.spacing)
-            ends.append(float(T.landmark_terms(model(batch["hu"], masks, 1.0), batch["targets"])[2]))
+        from autoanatomist import gates as GT
+        bone = GT.soft_threshold(batch["hu"][..., 0], GT.BONE_HU, LD.THRESHOLD_WIDTH_HU)
+        raw, ct_alone = batch["masks"], jnp.stack([bone, bone], -1)         # the ladder's two ends, made by hand
+        ends = [float(T.landmark_terms(model(batch["hu"], m, 1.0), batch["targets"])[2]) for m in (raw, ct_alone)]
         np.testing.assert_allclose([E[0], E[2]], ends, rtol=1e-5)
         t = T.timing(model, n=2, repeats=1)
         self.assertGreater(t["seconds_per_crop"], 0.0)

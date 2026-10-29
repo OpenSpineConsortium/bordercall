@@ -6,14 +6,20 @@ the smooth form whose limit is the hard one:
 
 - soft_threshold(x, t, width) = sigmoid((x - t) / width), the step at t as width goes to 0;
 - soft_band(x, lo, hi, width), inside lo to hi (the canal's -50 to 50 HU of scanimport.intensity);
-- soft_dilate(m, radius, tau, edge): a smoothed maximum over a ball, tau times the log of the
-  mean of exp((m(p + q) - phi(q)) / tau) over offsets q, where phi(q) = softplus((|q| - radius) /
-  edge) is near 0 inside the ball and grows linearly outside it. tau sets how hard the maximum is
-  and edge how sharp the ball's rim is; as both go to 0 it is the hard dilation by the ball, within
-  tau log N of it for a ball of N voxels once the rim is narrow beside the gaps between voxels'
-  distances, and a constant mask is left as it is at every tau. It is differentiable in the radius
-  through the rim. soft_erode is its dual,
-  1 - soft_dilate(1 - m), and opening and closing compose them;
+- soft_dilate(m, radius, tau, edge): a smoothed maximum over a ball, tau times the log of the mean
+  of exp((m(p + q) - phi(q)) / tau) over offsets q, where phi(q) = softplus((|q| - radius) / edge)
+  is near 0 inside the ball, where the radius exceeds |q| by much more than edge, and grows linearly
+  outside it. tau sets how hard the maximum is and edge how sharp the ball's rim is: the defaults
+  (tau 0.05, edge 0.5 voxels) give a soft cone rather than a ball, a lone voxel dilated by a radius
+  of 2 reading 0.97 at its centre, 0.86 one voxel out, 0.53 at the square root of 3 and 0.30 at 2,
+  while the tests' tau 0.004 and edge 0.01 give the ball (0.99 inside it, 0.29 at a voxel exactly
+  at the radius, where the softplus is log 2, which is why the tests take radii between the grid's
+  distances). As both go to 0 it is the hard dilation by the ball, within tau log N of it for a
+  ball of N voxels plus what the rim leaves (a softplus of width edge is not 0 at the voxels
+  nearest the radius, so the tests allow 0.01 for it beside tau log N) once the rim is narrow
+  beside the gaps between voxels' distances, and a constant mask is left as it is at every tau.
+  It is differentiable in the radius through the rim.
+  soft_erode is its dual, 1 - soft_dilate(1 - m), and opening and closing compose them;
 - gaussian_blur(m, sigma), separable, differentiable in sigma, the other smoothing the design
   notes name.
 

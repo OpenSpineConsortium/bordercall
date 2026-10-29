@@ -53,6 +53,7 @@ from . import specs
 
 NAN = float("nan")
 AGREE = 1e-9                  # how near a re-derived value must be to geometry.py's for its points to be given
+FRAME_ATOL = 1e-6             # how far a frame's axes may be from orthonormal (a float32 frame is off by up to about 1e-7)
 WITNESS_MAX = 1500            # at most this many voxels kept per measurement for drawing
 BODY_KEYS = ("endplate", "endplate_depth", "endplate_lower", "endplate_lower_depth", "h_post")
 
@@ -71,7 +72,10 @@ class Measurement:
 
     @property
     def drawn(self) -> bool:
-        return all(np.all(np.isfinite(p)) for p in self.points.values())
+        """Every point its spec names is there and finite; a measurement with no points is not
+        drawn, whatever its value."""
+        wanted = specs.SPECS[self.key].points if self.key in specs.SPECS else tuple(self.points)
+        return bool(wanted) and all(p in self.points and bool(np.all(np.isfinite(self.points[p]))) for p in wanted)
 
     def array(self) -> np.ndarray:
         """The points in the spec's order, (n, 3)."""
@@ -159,10 +163,11 @@ def check(reading: Reading, atol: float = 1e-6, keys: Optional[Sequence[str]] = 
     the oracle's), a point missing from a measurement, points given in part, a value NaN beside
     points given, a value that is not its spec's rule applied to its points, a chord that does not
     run along its spec's axis or whose named ends are the wrong way round, points withheld or a
-    value not taken with no reason, a frame that is not orthonormal or is left-handed."""
+    value not taken with no reason, a frame that is not orthonormal (within FRAME_ATOL) or is
+    left-handed."""
     out = []
     A = reading.frame.axes
-    if not np.allclose(A.T @ A, np.eye(3), atol=1e-9):
+    if not np.allclose(A.T @ A, np.eye(3), rtol=0.0, atol=FRAME_ATOL):
         out.append("%s: the frame's axes are not orthonormal" % reading.level)
     elif np.linalg.det(A) < 0:
         out.append("%s: the frame is left-handed; x is cross(y, z)" % reading.level)

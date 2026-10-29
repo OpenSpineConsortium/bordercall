@@ -4,7 +4,8 @@
 
 It draws phantoms, TRAIN_SPINES to train on and HELD_SPINES held out, each a column of COUNT
 consecutive levels, reads them with the oracle, trains the network for STEPS steps on the
-schedule (lambda from 0 to 1, then w from 1 to 0) and writes smoke.json: the settings, every
+schedule (lambda from 0 to 1 and w from 1 to 0 after it, the two ramps overlapping by a tenth of
+the steps) and writes smoke.json: the settings, every
 step's losses, the held-out evaluation of the CT-only path before training and after, E(lambda)
 and dE/dlambda on the held-out crops at w 1 after training, the CT-only path's seconds per crop
 and the versions of jax, flax and optax. It draws three figures under figures/: the oracle's lines
@@ -31,6 +32,9 @@ from . import render, train
 from .model import Config
 
 TRAIN_SPINES, HELD_SPINES, COUNT, STEPS = 8, 4, 3, 150
+SPINES_PER_BATCH, LR = 2, 2e-3
+SEEDS = {"train_examples": 1, "held_examples": 2, "untrained_model": 0, "run": 0}
+PHANTOM = {"spacing_mm": 1.25, "noise_hu": 20.0, "sub": 1, "jitter": True}
 TRAIN_STARTS = ("T11", "T12", "L1", "L2", "L3")
 HELD_STARTS = ("T12", "L1", "L2", "L3")
 LAMS = (0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0)
@@ -68,13 +72,14 @@ def figures(run: train.Run, held: train.Examples, out_dir: str) -> dict:
 def main(out_dir: str) -> dict:
     cfg = Config()
     t0 = time.time()
-    ex = train.make_examples(cfg, TRAIN_SPINES, COUNT, seed=1, starts=TRAIN_STARTS)
-    held = train.make_examples(cfg, HELD_SPINES, COUNT, seed=2, starts=HELD_STARTS, keep=True)
+    ex = train.make_examples(cfg, TRAIN_SPINES, COUNT, seed=SEEDS["train_examples"], starts=TRAIN_STARTS, **PHANTOM)
+    held = train.make_examples(cfg, HELD_SPINES, COUNT, seed=SEEDS["held_examples"], starts=HELD_STARTS, keep=True,
+                               **PHANTOM)
     made = time.time() - t0
-    untrained = train.Run(model=train.Model(cfg, nnx.Rngs(0)), schedule=None, record=[])
+    untrained = train.Run(model=train.Model(cfg, nnx.Rngs(SEEDS["untrained_model"])), schedule=None, record=[])
     before = train.evaluate(untrained.model, held)
     t0 = time.time()
-    run = train.train(ex, cfg, STEPS, spines_per_batch=2, seed=0, log_every=25)
+    run = train.train(ex, cfg, STEPS, spines_per_batch=SPINES_PER_BATCH, lr=LR, seed=SEEDS["run"], log_every=25)
     trained_s = time.time() - t0
     after = train.evaluate(run.model, held)
     batch = train.batch_of(held, np.arange(len(held)))
@@ -87,7 +92,10 @@ def main(out_dir: str) -> dict:
                                 "spacing_mm": cfg.spacing},
                      "train_spines": TRAIN_SPINES, "held_spines": HELD_SPINES, "count": COUNT, "steps": STEPS,
                      "train_starts": list(TRAIN_STARTS), "held_starts": list(HELD_STARTS),
-                     "loss_weights": train.LOSS_WEIGHTS, "phantom_spacing_mm": 1.25, "noise_hu": 20.0},
+                     "spines_per_batch": SPINES_PER_BATCH, "lr": LR, "seeds": SEEDS, "phantoms": PHANTOM,
+                     "loss_weights": train.LOSS_WEIGHTS, "huber_knee_mm": train.HUBER_KNEE_MM,
+                     "spread_floor_mm": train.SPREAD_FLOOR_MM,
+                     "schedule": {"lam_span": list(run.schedule.lam_span), "w_span": list(run.schedule.w_span)}},
         "examples": {"train": ex.meta, "held": held.meta, "seconds": made},
         "record": run.record,
         "train_seconds": trained_s,

@@ -38,7 +38,7 @@ The pieces, in the order the data meets them:
   computed from the landmarks by specs.py's rules.
 - train.py: the losses, one training step, the schedules and the error as a function of lambda.
 
-What is built is code and its tests. No network has been trained beyond seconds-long smoke runs on
+What is built is code and its tests. No network has been trained beyond a minutes-long smoke run on
 phantoms, no weight is kept, nothing ran on the grid and no WSU data was read (the owner's hold
 of 28 October 2026).
 """

@@ -9,8 +9,10 @@ them exactly; a constant is kept up to the volume's edges; their gradients in th
 the mask are finite differences' within 1e-6 relatively; their sums grow with the radius; the
 blur is scipy's gaussian_filter with mode 'nearest'; the soft threshold is a step as its width
 shrinks. The ladder gives the masks back exactly at lambda 0 and a function of the CT alone at
-1, with a gradient in lambda that matches finite differences inside each rung; the schedule
-starts at w 1 and lambda 0 and ends at w 0 and lambda 1. A crop carries a point into the world and
+1, a third of the way down the target's channel is the every-vertebra channel bit for bit and two
+thirds of the way both channels are scipy's 4 mm blur of it, with a gradient in lambda that
+matches finite differences inside each rung; the schedule starts at w 1 and lambda 0 and ends at
+w 0 and lambda 1, its ramps are half cosines, lambda moves before w and the two overlap. A crop carries a point into the world and
 back, its axes stay a rotation when jittered, and the oracle's landmarks land inside it.
 """
 from __future__ import annotations
@@ -134,6 +136,17 @@ class TheLadder(unittest.TestCase):
                 self.assertTrue(np.isfinite(float(g)))
                 self.assertLess(abs(float(g) - float(fd)), 1e-5 * abs(float(fd)) + 1e-6, lam)
 
+    def test_its_rungs(self):
+        from autoanatomist import ladder as LD
+        every = np.asarray(self.masks[..., 1])
+        third = np.asarray(LD.degrade(self.masks, self.hu, 1.0 / 3.0))     # the identity gone, nothing else yet
+        np.testing.assert_array_equal(third[..., 0], every)
+        np.testing.assert_array_equal(third[..., 1], every)
+        two = np.asarray(LD.degrade(self.masks, self.hu, 2.0 / 3.0))       # blurred to 4 mm at 2 mm, not yet the CT
+        want = np.stack([ndimage.gaussian_filter(e, 2.0, mode="nearest", truncate=3.0) for e in every])
+        self.assertLess(np.abs(two[..., 0] - want).max(), 1e-6)
+        self.assertLess(np.abs(two[..., 1] - want).max(), 1e-6)
+
     def test_the_schedule(self):
         from autoanatomist import ladder as LD
         s = LD.Schedule(100)
@@ -142,6 +155,11 @@ class TheLadder(unittest.TestCase):
         ws, lams = zip(*[s.at(i) for i in range(100)])
         self.assertTrue(all(a >= b for a, b in zip(ws, ws[1:])))
         self.assertTrue(all(a <= b for a, b in zip(lams, lams[1:])))
+        self.assertAlmostEqual(LD.Schedule.ramp(0.35, s.lam_span), 0.5, places=12)            # the half cosine's middle
+        self.assertAlmostEqual(LD.Schedule.ramp(0.25, s.lam_span), 0.5 * (1.0 - np.cos(np.pi / 4.0)), places=12)
+        self.assertEqual(ws[30], 1.0)                                                         # lambda moves before w
+        self.assertGreater(lams[30], 0.0)
+        self.assertTrue(0.0 < ws[50] < 1.0 and 0.0 < lams[50] < 1.0)                           # and the two overlap
 
 
 class TheCrops(unittest.TestCase):
