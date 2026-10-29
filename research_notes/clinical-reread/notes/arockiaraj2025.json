@@ -1,0 +1,145 @@
+{
+  "id": "arockiaraj2025",
+  "citation": "Arockiaraj J, Alawaji AI, Alkuhaimi TS, Alshahrani MS, Prithishkumar IJ, Wani TA, Bauones S, Attia WI, Almusrea KN. Morphometric analysis of lumbar pedicles in the Saudi Arabian population - A CT-based study on 1500 vertebrae. Journal of Craniovertebral Junction and Spine 2025;16(3):312-9. DOI 10.4103/jcvjs.jcvjs_92_25. Copy read: PMC open-access Cloud Service (pmc-oa-opendata), PMC12459938.1, fetched 2026-10-28; sha256 begins 956b5ac2fd50b714.",
+  "population": "Saudi Arabia, one tertiary centre in Riyadh (claimed representative of the country, p. 316 (PDF 5), p. 318 (PDF 7)); 300 living adult Saudi patients, 150 men and 150 women, aged 18 to 60 years (mean 42.0), consecutive retrospective CTs of the abdomen or lumbar spine done 2015 to 2020 for suspected abdominal pathology or low back ache (p. 313 (PDF 2); p. 314 (PDF 3)); 1,500 lumbar vertebrae (300 x L1 to L5), measured left and right (Inference: 3,000 pedicles); excluded congenital or acquired deformity, fracture, spondylolysis or spondylolisthesis, any prior spine surgery (p. 313 (PDF 2)).",
+  "modality": "Non-contrast CT, 2.5 mm contiguous axial sections from L1 to S5, 140 kV, 500 mA, 0.7 s rotation, 200 images, 5 s exposure, DLP 700 to 900 mGy cm; read on a GE AW 5 workstation with Centricity Enterprise 6.0 SP4 (p. 314 (PDF 3)); TPD, PL, CL and angle on axial images, PH in the sagittal plane (p. 313 (PDF 2), Figures 1 to 3); two radiologists, each measurement three times, averaged (p. 314 (PDF 3)). Pixel size, kernel, window and reformat thickness not given.",
+  "levels_covered": "L1 to L5, left and right; no thoracic, sacral or junctional measures (S1 in the scan field but not measured).",
+  "anomalies": [
+    {
+      "variant": "None reported (no LSTV, sacralisation, lumbarisation, L6, T13 or rib-count anomaly)",
+      "finding": "The paper takes the lumbar spine as five vertebrae and reports no numbering or transitional anomaly and no prevalence; congenital deformities were excluded without definition. Inference: with scans starting at L1 and no stated counting method, levels were probably counted from the sacrum and any transitional spine would have been misnumbered silently.",
+      "page": "p. 312 (PDF 1); p. 313 (PDF 2); p. 314 (PDF 3)",
+      "population": "300 Saudi adults, 1,500 lumbar vertebrae",
+      "how_identified": "Not described; level identification method not stated."
+    }
+  ],
+  "measures": [
+    {
+      "name": "Transverse pedicle diameter (TPD)",
+      "definition": "Distance between the medial and lateral outer cortex of the pedicle at the isthmus (Vaccaro and Garfin), outer-cortical width; Figure 1B draws it as a short, nearly left-right arrow across one pedicle from the canal-side cortex to the lateral cortex.",
+      "projection": "CT axial",
+      "page": "p. 313 (PDF 2) Figure 1; Table 2 p. 316 (PDF 5); Table 1 p. 315 (PDF 4)",
+      "levels": "L1 5.76 +/- 1.02, L2 6.34 +/- 0.96, L3 8.11 +/- 1.1, L4 9.82 +/- 1.2, L5 13.62 +/- 1.48 mm (pooled, n = 300 patients)",
+      "level_pattern": "Rises monotonically L1 to L5; steps +0.58, +1.77, +1.71, +3.80 mm (Inference arithmetic); L1-L2 about 0.6 SD apart, L4-L5 about 2.8 pooled SD apart.",
+      "covariates": "Men larger at every level, P < 0.001; male minus female +0.86, +0.77, +0.99, +0.97, +0.64 mm (about 16% at L1 to 5% at L5, Inference arithmetic). No age or size analysis. Saudi TPD exceeds only Makino's Asian degenerative-spine series at L1 to L4, and also Dzierzanowski's European series at L5 (13.2 mm); Indian, Eastern Anatolian, North American, Mexican and Burkinabe series are wider at every level (Table 3, p. 317 (PDF 6)). Authors link smaller Asian pedicles to stature (ref. 27, p. 317 (PDF 6)).",
+      "ct_mask_recipe": "Inference: locate the isthmus as the narrowest bony bridge between body and arch on each side (the pedicle lies inside the SPINEPS arch subregion as far as known); fit the pedicle axis from posterior entry through the isthmus centre into the body; take the minimum mediolateral extent of the outer mask boundary perpendicular to that axis; report left and right; a mask excluding cortex underestimates; measuring along the scanner left-right axis overestimates by 1/cos(angle), about 13% at L5 and 2.5% at L1.",
+      "radiograph_recipe": "Not addressed (radiographic studies excluded, p. 314 (PDF 3)). Inference: AP radiograph pedicle-oval width after magnification correction; not possible on a lateral.",
+      "error": "No per-measure reliability; 'no interobserver bias (P > 0.05)' overall (p. 314 (PDF 3)); pooled SD 0.96 to 1.48 mm bounds total error; CV 11 to 18% (Inference)."
+    },
+    {
+      "name": "Pedicle height (PH)",
+      "definition": "Distance between the superior and inferior cortex of the pedicle in the sagittal plane at the isthmus; Figure 3A puts the arrow at the narrowest part of the pedicle between the superior and inferior vertebral notches just behind the body; Figure 3B is a parasagittal CT image through pedicles and facets.",
+      "projection": "CT sagittal (Inference: reformat of the 2.5 mm axial series)",
+      "page": "p. 313 (PDF 2) Figure 3; Table 2 p. 316 (PDF 5)",
+      "levels": "L1 9.75 +/- 1.2, L2 9.32 +/- 1.12, L3 9.11 +/- 1.1, L4 8.71 +/- 1.03, L5 8.3 +/- 0.99 mm",
+      "level_pattern": "Falls slowly L1 to L5 (-0.43, -0.21, -0.40, -0.41 mm; 0.2 to 0.4 SD a step, Inference arithmetic); useless for adjacent-level separation.",
+      "covariates": "Men taller at every level, P < 0.001; male minus female +0.82, +0.61, +0.59, +0.50, +0.50 mm (Inference arithmetic). Authors: Saudi PH least, Caucasian greatest (p. 318 (PDF 7)). Values sit 4.5 to 7.6 mm below the European and North American CT series and 0.65 to 2.1 mm below Makino's (Takahiro, ref. 24) Asian series (Table 3, p. 317 (PDF 6)).",
+      "ct_mask_recipe": "Inference: craniocaudal extent of the mask between superior and inferior notches in the plane perpendicular to the pedicle axis at the isthmus, or in a parasagittal slice through the pedicle centre; in this paper that direction is the 2.5 mm slice direction, the coarsest.",
+      "radiograph_recipe": "Inference: lateral radiograph, pedicle between superior and inferior notches, or AP pedicle-oval height, after magnification correction.",
+      "error": "None per measure. Inference: up to about +/- 1.25 mm partial-volume uncertainty from 2.5 mm slices; absolute values doubtful (likely definitional or reformat difference); use the trend only."
+    },
+    {
+      "name": "Pedicle length (PL)",
+      "definition": "From the posterior cortex of the pedicle to the posterior longitudinal ligament, along the pedicle mid-axis; Figure 2B draws lines parallel to the image left-right axis through the posterior entry point and along the posterior body wall, the axis crossing both. Inference: in practice the end point is the posterior wall of the body.",
+      "projection": "CT axial",
+      "page": "p. 313 (PDF 2) Figure 2; Table 2 p. 316 (PDF 5)",
+      "levels": "L1 16.01 +/- 1.27, L2 14.63 +/- 1.16, L3 13.42 +/- 1.17, L4 12.18 +/- 1.12, L5 9.93 +/- 1.31 mm",
+      "level_pattern": "Falls steadily: -1.38, -1.21, -1.24, -2.25 mm (Inference arithmetic); about 1 SD a step, about 1.8 SD at L4-L5.",
+      "covariates": "Sex difference significant only at L1 (15.69 F vs 16.33 M, P < 0.001); L2 to L5 P 0.138, 0.509, 0.407, 0.145. Other series: Urrutia (Mexican, n = 60) 16.67 to 20.92 mm; Tall (Burkinabe, n = 70) 9.5 at L1 to 6.45 mm at L5 (Table 3, p. 317 (PDF 6)), probably definitional.",
+      "ct_mask_recipe": "Inference: along the fitted pedicle axis from the posterior bone entry point (base of the transverse process lateral to the superior articular process) to the crossing of the posterior wall of the body subregion.",
+      "radiograph_recipe": "Inference: not directly; a lateral projection gives PL x cos(axis angle) (about 15.6 mm at L1, 8.7 mm at L5) plus magnification.",
+      "error": "None per measure; pooled SD 1.12 to 1.31 mm; CV 8 to 13% (Inference)."
+    },
+    {
+      "name": "Chord length (CL)",
+      "definition": "From the posterior cortical entry point of the pedicle to the anterior vertebral cortex along the pedicle mid-axis; Figure 1B runs it from the entry at the base of the transverse process through the pedicle to the anterior cortex near the midline. Inference: unicortical screw-path length.",
+      "projection": "CT axial",
+      "page": "p. 313 (PDF 2) Figure 1; Table 2 p. 316 (PDF 5)",
+      "levels": "L1 49.18 +/- 3.29, L2 50.39 +/- 3.09, L3 50.92 +/- 2.86, L4 50.15 +/- 3.31, L5 47.63 +/- 3.45 mm",
+      "level_pattern": "Inverted V ('Caret' pattern, p. 316 (PDF 5)): peak at L3, shortest at L5; adjacent steps 0.2 to 0.75 SD (Inference); weak level cue.",
+      "covariates": "Women shorter at every level (Table 2 P < 0.001; text P = 0.001); male minus female +2.99, +2.78, +2.21, +2.17, +2.51 mm (Inference). Dzierzanowski (Europe) about 52 mm highest; Matsukawa (Japanese, cortical bone trajectory) 36.8 to 39.8 mm; Zindrick 33.7 mm at L5 (Table 3, p. 317 (PDF 6); p. 318 (PDF 7)).",
+      "ct_mask_recipe": "Inference: ray-cast along the fitted pedicle axis from the posterior entry point to the last voxel of the body's anterior cortex.",
+      "radiograph_recipe": "Inference: not directly; lateral projection gives CL x cos(axis angle) (about 48 mm at L1, 42 mm at L5) plus magnification.",
+      "error": "None per measure; pooled SD 2.86 to 3.45 mm; CV 6 to 7% (Inference)."
+    },
+    {
+      "name": "Pedicle axis angle (transverse angle)",
+      "definition": "Angle between the pedicle mid-axis and the midline in the axial plane (medial convergence); Figure 2B draws lines parallel to the image vertical axis through the midline of body and spinous process and through the entry point, and marks the angle between the axis and each; rotation correction not stated.",
+      "projection": "CT axial",
+      "page": "p. 313 (PDF 2) Figure 2; Table 2 p. 316 (PDF 5); Table 1 p. 315 (PDF 4)",
+      "levels": "L1 12.68 +/- 2.54, L2 13.26 +/- 2.3, L3 15.47 +/- 2.37, L4 17.47 +/- 3.3, L5 28.23 +/- 3.87 deg",
+      "level_pattern": "Rises L1 to L5; steps +0.58, +2.21, +2.00, +10.76 deg (Inference arithmetic); authors describe about 2 deg a level to L4 and an 11 deg jump L4 to L5 (p. 316 (PDF 5); p. 318 (PDF 7)); L4-L5 about 3 pooled SD, the strongest level marker; L1-L2 do not separate.",
+      "covariates": "Table 2: sex difference significant only at L1 (P = 0.009) and L2 (P = 0.042); male minus female +0.76 to +0.25 deg. Left exceeds right by 1.1 to 2.4 deg at every level (Table 1, Inference arithmetic). Other series: Olsewski 6 deg at L1 least, Dzierzanowski 20.6 at L1 and 32.1 at L5 most; Acharya's Indian L3 value 15.4 +/- 3.6 did not differ (Table 3, p. 317 (PDF 6)).",
+      "ct_mask_recipe": "Inference: angle between the pedicle axis, projected onto the vertebra's own end-plate-parallel axial plane, and the vertebra's own midsagittal plane (fitted to left-right symmetry or body centroid to spinous tip), not the scanner y axis.",
+      "radiograph_recipe": "Inference: not measurable on a lateral; on an AP only indirectly from pedicle-oval position and shape.",
+      "error": "None per measure; pooled SD 2.3 to 3.87 deg; CV 14 to 20% (Inference); unexplained left-right asymmetry may reflect midline placement or rotation (Inference)."
+    }
+  ],
+  "level_details": [
+    {"level": "L1", "detail": "Smallest TPD (5.76 mm), longest PL (16.01 mm), tallest PH (9.75 mm), least medial angle (12.68 deg); 4.0 to 5.0 mm screw and 10 deg medial angulation judged safe; sex difference significant in PL and angle here.", "page": "p. 316 (PDF 5); p. 317 (PDF 6); Table 2"},
+    {"level": "L2", "detail": "TPD 6.34 mm and angle 13.26 deg, close to L1; PL 14.63 mm. Inference: L1 and L2 are the hardest adjacent pair to separate by pedicle measures.", "page": "Table 2, p. 316 (PDF 5)"},
+    {"level": "L3", "detail": "Longest CL (50.92 +/- 2.86 mm); the only level where a comparison series with an SD (Acharya, angle 15.4 +/- 3.6 deg) did not differ from the Saudi value.", "page": "p. 316 (PDF 5); Table 3, p. 317 (PDF 6)"},
+    {"level": "L4", "detail": "TPD 9.82 mm, angle 17.47 deg, CL 50.15 mm, PL 12.18 mm. Inference: TPD/PH ratio passes 1 between L3 (0.89) and L4 (1.13) with this paper's PH, which is doubtful.", "page": "Table 2, p. 316 (PDF 5)"},
+    {"level": "L5", "detail": "Widest TPD (13.62 mm), shortest PL (9.93), PH (8.3) and CL (47.63 mm), steepest medial angle (28.23 deg); 25 deg medial angulation judged safe; the sudden L4-L5 angle jump is also reported in North American and North Indian series (refs 9, 11, 25).", "page": "p. 316 (PDF 5); p. 318 (PDF 7)"},
+    {"level": "T12/L1 and L5/S1 junctions", "detail": "Nothing measured; S1 was in the scan field but not measured; no thoracic or cervical levels.", "page": "p. 314 (PDF 3)"}
+  ],
+  "errors": [
+    {"what": "Observers and repetition", "value": "Two radiologists of equal experience, each parameter measured three times, averaged", "page": "p. 314 (PDF 3)"},
+    {"what": "Inter-observer agreement", "value": "No interobserver bias, P > 0.05; statistic not named; no ICC, kappa, SEM, Bland-Altman or intra-observer figure", "page": "p. 314 (PDF 3); p. 312 (PDF 1)"},
+    {"what": "Table 1 Correlation column", "value": "-0.018 to 0.143, never explained", "page": "Table 1, p. 315 (PDF 4)"},
+    {"what": "Slice thickness", "value": "2.5 mm contiguous axial; Inference: up to about +/- 1.25 mm partial volume on PH; pixel size not given", "page": "p. 314 (PDF 3)"},
+    {"what": "Total variability (pooled SD, Table 2)", "value": "TPD 0.96 to 1.48 mm; PH 0.99 to 1.2 mm; PL 1.12 to 1.31 mm; CL 2.86 to 3.45 mm; angle 2.3 to 3.87 deg (CV: TPD 11 to 18%, PH 12%, PL 8 to 13%, CL 6 to 7%, angle 14 to 20%, Inference)", "page": "Table 2, p. 316 (PDF 5)"}
+  ],
+  "pearls_pitfalls": [
+    {"text": "Lumbar pedicle screws are indicated for fractures, spondylolisthesis, tumours, scoliosis, kyphosis and degenerative disease; at risk are lumbar nerve roots, meninges, aorta, inferior vena cava and abdominal viscera.", "page": "pp. 312-313 (PDF 1-2)"},
+    {"text": "TPD sets screw diameter against mediolateral breach; authors: L1 takes 4.0 to 5.0 mm screws, other lumbar levels 6.0 or 6.5 mm; violating more than 80% of the outer pedicle diameter risks fracture or cut-out. Inference: by the 80% rule L2 (5.1 mm, 4.8 mm in women) cannot take 6.0 mm and L3 in women takes 6.0 but not 6.5 mm.", "page": "pp. 316-317 (PDF 5-6)"},
+    {"text": "Medial angulation of 10 deg at L1 and 25 deg at L5 is called safe from medial breach.", "page": "p. 316 (PDF 5); p. 318 (PDF 7)"},
+    {"text": "Deeper insertion raises fixation and pull-out strength under cyclic loading only with mid-body and bicortical purchase (ref. 28); at least 50% to 80% body purchase makes the construct sound; CL bounds purchase and anterior breach endangers the great vessels; screw length affects lateral bending, axial rotation and interface stress (ref. 30); bone density, depth and angle bear on pull-out (ref. 14).", "page": "p. 316 (PDF 5); p. 318 (PDF 7)"},
+    {"text": "Asians, Saudis included, have smaller TPD than Western series, which the authors tie to stature (ref. 27).", "page": "p. 317 (PDF 6)"},
+    {"text": "Pitfall: PL ends at a soft-tissue landmark (the PLL) not seen on bone CT; Figure 2B shows it drawn at the posterior body wall.", "page": "p. 313 (PDF 2)"},
+    {"text": "Pitfall: cross-series comparison mixes definitions (PL at L1 9.5 to 20.92 mm, at L5 6.45 to 17.23 mm; PH 8.3 to 17.3 mm); Matsukawa's CL is a cortical bone trajectory, not comparable (Inference).", "page": "Table 3, p. 317 (PDF 6); ref. 29, p. 319 (PDF 8)"},
+    {"text": "Pitfall: the angle midline in Figure 2B is drawn parallel to the image axis; uncorrected rotation would bias left against right (Inference; left exceeds right by 1.1 to 2.4 deg in Table 1).", "page": "p. 313 (PDF 2); Table 1, p. 315 (PDF 4)"}
+  ],
+  "instructions": [
+    {"text": "Measure pedicle width at the isthmus as outer cortex to outer cortex, the narrowest mediolateral span between body and arch, both sides; expect about 5.8 mm at L1 rising to about 13.6 mm at L5 in Saudi adults.", "page": "p. 313 (PDF 2) Figure 1; Table 2, p. 316 (PDF 5)"},
+    {"text": "Anchor the caudal lumbar end with the L4-L5 step: TPD +3.8 mm and transverse angle +11 deg (17.5 to 28.2 deg); if one more wide, steeply converging pedicle lies below, suspect L6 or lumbarised S1 (Inference: no transitional data in the paper).", "page": "Table 2, p. 316 (PDF 5)"},
+    {"text": "Do not separate L1 from L2 by pedicle measures (TPD and angle differ by about 0.6 mm and 0.6 deg, under 1 SD); anchor L1 by the T12 rib instead (Inference).", "page": "Table 2, p. 316 (PDF 5)"},
+    {"text": "Measure the transverse angle against the vertebra's own midsagittal line, not the scanner axis, and compare left with right; a consistent one-sided excess suggests rotation or a misplaced midline (Inference).", "page": "p. 313 (PDF 2) Figure 2; Table 1, p. 315 (PDF 4)"},
+    {"text": "Measure pedicle height perpendicular to the pedicle axis at the isthmus, but do not compare it with this paper's absolute PH (8.3 to 9.75 mm), 4.5 to 7.6 mm below the Western CT series; use only its slight caudal fall (Inference).", "page": "p. 316 (PDF 5); Table 3, p. 317 (PDF 6)"},
+    {"text": "Measure chord length along the pedicle axis from posterior entry to anterior body cortex; expect a peak at L3 (about 51 mm) and the shortest at L5 (about 47.6 mm); treat it as a weak level cue.", "page": "p. 316 (PDF 5)"},
+    {"text": "Measure pedicle length along the pedicle axis from the posterior pedicle cortex to the posterior body wall (standing in for the PLL, Inference); expect a fall of about 1.2 to 1.4 mm a level and 2.25 mm from L4 to L5.", "page": "p. 313 (PDF 2) Figure 2; Table 2, p. 316 (PDF 5)"},
+    {"text": "Adjust for sex: men have wider (+0.6 to 1.0 mm), taller (+0.5 to 0.8 mm) pedicles and longer chords (+2.2 to 3.0 mm); PL differs significantly only at L1 and angle only at L1 and L2.", "page": "Table 2, p. 316 (PDF 5)"},
+    {"text": "Adjust for population: Saudi pedicles are narrower than the Indian, Eastern Anatolian, North American, Mexican and Burkinabe CT series at every level and than Dzierzanowski's European series at L1 to L4; wider only than Makino's Asian degenerative series, and Dzierzanowski's at L5.", "page": "Table 3, p. 317 (PDF 6)"},
+    {"text": "On radiographs take pedicle width from the AP oval and height from the lateral or AP after magnification correction; angle, PL and CL cannot be read from a lateral (Inference; the paper excluded radiographic studies).", "page": "p. 314 (PDF 3)"},
+    {"text": "When a scan starts at L1, count from a confirmed anchor, not the top edge, and flag numbering uncertainty; this paper states no counting method (Inference).", "page": "p. 314 (PDF 3)"},
+    {"text": "Read a printed range in this paper as mean +/- 2 SD, not the observed spread (Inference from arithmetic).", "page": "p. 316 (PDF 5)"}
+  ],
+  "bordercall": [
+    "(a) Anomaly priors: none; the paper assumes five lumbar vertebrae (p. 312 (PDF 1)) and reports no transitional, L6, T13 or rib anomaly or denominator; its level values may carry unknown misnumbering (Inference).",
+    "(b) Pedicle width = TPD, outer-cortical at the isthmus; measure perpendicular to the fitted pedicle axis, since the scanner left-right axis inflates width by 1/cos(angle), about 13% at L5 and 2.5% at L1 (Inference).",
+    "(b) Pedicle height: do not set or validate generator means with this paper's PH (8.3 to 9.75 mm), 4.5 to 7.6 mm below the Western CT series (Table 3, p. 317 (PDF 6)); Inference from memory: Panjabi's are in the mid-teens of mm.",
+    "(b) Transverse angle: Inference (from memory): same idea as Panjabi's transverse pedicle inclination; reference the vertebra's own midsagittal plane from the mask.",
+    "(b) Could add chord length and pedicle length along the fitted pedicle axis (need the body subregion); CL weak (peak L3), PL moderate (steady caudal fall) level discriminators.",
+    "(c) Measurement error: none usable (no ICC or SEM); pooled SDs bound the total: TPD 0.96 to 1.48 mm, PH 0.99 to 1.2 mm, PL 1.12 to 1.31 mm, CL 2.86 to 3.45 mm, angle 2.3 to 3.87 deg; add about +/- 1.25 mm resolution error to PH from 2.5 mm slices (Inference).",
+    "(d) Covariates: sex effects per level (Table 2); relative TPD sex effect shrinks from about 16% at L1 to 5% at L5, which one global size factor would not reproduce (Inference); no age, height, weight or BMI analysis; Table 3 gives L1 to L5 values for Indian, European, Eastern Anatolian, North American, Mexican, Asia Pacific and Burkinabe CT series for a population prior."
+  ],
+  "gaps": [
+    "Statistical test: abstract says Mann-Whitney (p. 312 (PDF 1)); Methods say Student t-test (pp. 313-314 (PDF 2-3)).",
+    "Angle sex sentence states the reverse of Table 2 (significant at L1 P = 0.009 and L2 P = 0.042 only) (p. 316 (PDF 5); p. 318 (PDF 7)).",
+    "No side-versus-side statistic shown, yet text and abstract claim no side difference; the angle is larger on the left by 1.1 to 2.4 deg at every level (Table 1, p. 315 (PDF 4)).",
+    "Table 1 Correlation column unexplained (p. 315 (PDF 4)).",
+    "CL sex P: text 0.001 against Table 2 < 0.001 (p. 316 (PDF 5)).",
+    "Printed ranges are mean +/- 2 SD (Inference); the L1 angle upper limit 17.06 should be 17.76 (p. 316 (PDF 5)).",
+    "Text gives about 2 deg a level from L1 to L4; Table 2 gives +0.58 deg from L1 to L2 (p. 316 (PDF 5)).",
+    "Olsewski's L5 angle: 20 deg in text (p. 318 (PDF 7)) against 25.6 +/- 5.5 deg in Table 3 (p. 317 (PDF 6)).",
+    "Text names Olsewski and Zindrick for the largest L1 TPD (about 8 mm), but Kadioglu's 8.8 mm is larger (p. 317 (PDF 6), Table 3).",
+    "Text says Matsukawa's CL is smallest at all levels, but Zindrick's L5 33.7 mm is below Matsukawa's 38.3 mm (p. 318 (PDF 7); Table 3).",
+    "Text cites Urrutia and Tall for the PH trend, but Table 3 has no PH row for either (p. 318 (PDF 7)); text says Caucasians had the longest PL, but Table 3's other PL series are Mexican and Burkinabe.",
+    "Text claims significance against all regions, but Tall's rows and Matsukawa's CL row have no SD or asterisk (p. 317 (PDF 6)).",
+    "Table 3 citation errors: current study cited as ref. 23 (Tall); Tall's angle row as ref. 11; 'Makino Takahiro' and 'Takahiro' are both ref. 24 (Makino T.); Tall n = 70 against 170 cases in the reference title; n in Table 3 never defined (p. 317 (PDF 6); p. 319 (PDF 8)).",
+    "Ref. 26 (Tse), cited for lumbar Asian-Western differences, is a C7 study (p. 319 (PDF 8)).",
+    "Comparison rule excludes specimen studies, but Zindrick 1987 and Olsewski 1990 may be partly cadaveric (Inference, from memory, unverified).",
+    "PH far below Western series with no discussion of definition (Table 3; p. 318 (PDF 7)).",
+    "Not given: level counting method, any transitional anomaly, pixel size, kernel, window, reformat thickness, inter- and intra-observer statistics, per-observer values, how left and right were combined in Table 2, age or body-size effects, sagittal pedicle angle, inner (cancellous) width, S1 values."
+  ]
+}

@@ -1,0 +1,233 @@
+{
+  "id": "cizmic2023",
+  "citation": "Midhat Cizmic, Emir Hadziosmanovic, Rusmir Baljic, Adi Ahmetspahic, Zulejha Merhemic. Morphometric Study of Lumbar Spinal Canal Dimensions in Bosnia and Herzegovina Population. Acta Inform Med. 2023; 31(3): 200-205. doi: 10.5455/aim.2023.31.200-205. Copy read: PMC open-access Cloud Service (pmc-oa-opendata), PMC10540747.1, fetched 2026-10-28; sha256 begins 571257aba4fa267b. Source: thread \"Reread every paper for clinical detail\", project symphony_4, 2026-10-28.",
+  "population": "Bosnia and Herzegovina, single centre (Radiology Department, General Hospital \"Prim. dr. Abdulah Nakas\", Sarajevo); 200 living adult patients with lumbar pain referred for lumbosacral multislice CT between 1 Jan 2013 and 31 Dec 2014: 100 men (mean age 43.84, SD 10.99, range 20-60) and 100 women (mean 43.78, SD 6.00, range 27-50) (Table 1, p. 201, PDF 2). Every patient carries a CT disc diagnosis (men: bulge 33, herniation 46, protrusion 8, extrusion 13; women 22, 52, 16, 10; Table 2, p. 201, PDF 2). Excluded: congenital and acquired deformities, benign or malignant lesions, trauma, inflammation, pronounced degeneration; numbers screened or excluded not given. Ethnicity not stated beyond the country; no height or weight. 100 values per sex per level per measure (Table 5, p. 202, PDF 3).",
+  "modality": "CT: 40-slice Siemens Somatom Definition AS, 120 kV, 266 mAs, acquisition 40 x 0.6 mm, 2 mm layers, axial scans with coronal and sagittal MPR from T12 to S1; bone window 2300-2500 HU and soft-tissue window 300-500 HU (widths by Inference); diameters measured on screen with Siemens Syngo in the bone window, stated as in the axial plane (p. 201, PDF 2). One reader or several, and repeats, not stated.",
+  "levels_covered": "L1-L5 only (T12 and S1 scanned but not reported); how levels were identified or counted is not stated; no transitional or numbering anomaly mentioned.",
+  "anomalies": [
+    {
+      "variant": "lumbosacral transitional vertebra, sacralisation, lumbarisation, L6, T13, rib-count anomaly",
+      "finding": "Not mentioned anywhere: no prevalence, no denominator, no counting rule. Inference: with a T12-S1 scan and no stated rule, any transitional L5 or L6 would fall silently into the L5 row (the row with the largest SDs and the extreme maxima, MSG 30.8 and IPD 42.8 mm, Table 5), and a thoracolumbar variant would shift every row.",
+      "page": "pp. 200-205 (PDF 1-6); Table 5, p. 202 (PDF 3)",
+      "population": "200 Bosnian adults with lumbar pain on CT",
+      "how_identified": "not described"
+    },
+    {
+      "variant": "congenital and acquired spinal deformities",
+      "finding": "Exclusion criterion only; how many were excluded, and whether transitional anatomy counted as a congenital deformity, is not said.",
+      "page": "p. 201 (PDF 2)",
+      "population": "CT patients 2013-2014, Sarajevo",
+      "how_identified": "not described"
+    }
+  ],
+  "measures": [
+    {
+      "name": "MSG (also MSGD, MSAG): midsagittal diameter of the bony lumbar canal, mm",
+      "definition": "In the midline, from the posterior edge of the vertebral body to the anterior (inner) edge of the lamina where the spinous process leaves the arch; bone window; Figure 1 draws it on an axial slice through the pedicles and transverse processes. The text says both diameters were measured in the axial plane and the MSG \"in the midsagittal plane\"; the slice is not named. Mean +/- SD (min-max) from Table 5 (Table 3 prints truncated means): men L1 18.82 +/- 1.67 (15.5-24.3), L2 17.56 +/- 1.97 (13.0-23.7), L3 16.12 +/- 1.84 (12.3-20.2), L4 16.45 +/- 2.22 (11.7-22.4), L5 17.79 +/- 2.84 (11.9-30.8); women L1 19.31 +/- 1.58 (15.5-23.9), L2 18.55 +/- 1.86 (14.3-22.9), L3 17.21 +/- 2.02 (13.5-21.8; Table 3 prints 12.2-21.8), L4 17.14 +/- 2.16 (12.3-23.9; Table 3 prints mean 17.38), L5 17.83 +/- 2.55 (12.9-26.1); both sexes (Table 3) 19.06, 18.05, 16.66, 16.79, 17.81; overall range 11.70-30.80.",
+      "projection": "CT axial (bone window), pedicle level per Figure 1; possibly read on the sagittal MPR (text ambiguous)",
+      "page": "p. 201 (PDF 2), Figure 1; Tables 3 and 5, p. 202 (PDF 3)",
+      "levels": "L1-L5",
+      "level_pattern": "Hourglass (p. 203, PDF 4): largest at L1, waist at L3 (men; women L3 by Table 3, L4 by Table 5, a tie), rebound at L5. Steps both sexes (computed): -1.01, -1.39, +0.13, +1.02 mm; separation index (step / pooled SD, Inference) 0.56, 0.70, 0.06, 0.42: best for L2/L3, useless for L3/L4, weak for L4/L5.",
+      "covariates": "Women larger at L1-L4 by 0.49, 0.99, 1.09, 0.69 mm (Table 5; 0.93 at L4 by Table 3), equal at L5 (+0.04); authors call it significant at every level with no test or p printed; Welch t from Table 5 (Inference) p about 0.03, <0.001, <0.001, 0.03, 0.91. Age and size not analysed. Bosnian means 1.3-3.0 mm above Tobin's US 1970-79 cohort, 1.1-3.7 mm above Griffith's Chinese at L1-L4 (below at L5: 19.67/18.12 vs 17.78/17.83), 2.6-4.0 mm above Yadav's Indian (Tables 6-8, p. 203, PDF 4; computed).",
+      "ct_mask_recipe": "Inference: in the vertebra's own frame (craniocaudal axis normal to the mean end-plate plane, AP from body centroid toward the spinous process), take the section at mid-pedicle height, fill the closed bony ring (body plus posterior elements) and subtract bone to get the vertebral foramen; MSG = foramen extent along AP on the midline, posterior body surface to anterior surface of the laminar junction. Close partial-volume gaps first. Never use SPINEPS's spinal-canal label.",
+      "radiograph_recipe": "Inference (paper is CT only): lateral radiograph, posterior body line at mid-pedicle height to the spinolaminar line, divided by magnification; not available on AP.",
+      "error": "Not reported (no intra- or inter-observer study, no repeats, reader count unknown). Readings to 0.1 mm; 0.6 mm acquisition, 2 mm layers. Between-subject SD 1.58-2.84 mm; CV about 8-9% at L1 to 14-16% at L5 (computed)."
+    },
+    {
+      "name": "IPD (IP, 'interpeduncular' in abstract): interpedicular diameter of the bony lumbar canal, mm",
+      "definition": "Transverse distance between the inner (medial) edges of the two pedicles, taken at the canal's widest point; axial plane, bone window; Figure 1 draws it in the anterior canal near the pedicle-body junction. Mean +/- SD (min-max) from Table 5 (Table 4 prints truncated means): men L1 25.01 +/- 2.25 (21.3-33.5), L2 25.32 +/- 2.21 (21.7-33.2), L3 26.22 +/- 2.36 (22.2-34.6), L4 27.81 +/- 3.06 (21.6-37.2), L5 32.69 +/- 4.18 (23.5-41.8); women L1 24.56 +/- 2.33 (20.1-31.0), L2 24.97 +/- 2.28 (20.5-31.5), L3 25.51 +/- 2.34 (21.1-32.0), L4 26.84 +/- 3.00 (21.6-34.4), L5 31.20 +/- 3.69 (22.1-42.8); both sexes (text, p. 202) 24.78 +/- 2.29, 25.14 +/- 2.24, 25.86 +/- 2.37, 27.32 +/- 3.06, 31.94 +/- 4.00; overall range 20.10-42.80.",
+      "projection": "CT axial (bone window), pedicle level per Figure 1",
+      "page": "p. 201 (PDF 2), Figure 1; Tables 4 and 5 and text, p. 202 (PDF 3)",
+      "levels": "L1-L5",
+      "level_pattern": "Steady rise L1 to L5 (p. 202, PDF 3; p. 204, PDF 5; Chart 3). Steps (computed) +0.36, +0.72, +1.46, +4.62 mm (men +4.88, women +4.36 at L4/L5); separation index (Inference) 0.16, 0.31, 0.54, 1.31: useless for L1/L2, best single canal cue for L4/L5.",
+      "covariates": "Men larger at every level by 0.44, 0.35, 0.71, 0.97, 1.49 mm (Table 5); discussion says significant at L3-L5 only, abstract and conclusion at all levels; Welch t (Inference) p about 0.17, 0.28, 0.03, 0.02, 0.008. Age and size not analysed. Bosnian IPD 3.1-4.8 mm above Griffith's Chinese (540 M, 540 F), 0.8-5.2 above Alam's Pakistani (33 M, 16 F), 0.9-2.3 above Urrutia's Mexican (60) (Tables 9-11, p. 204, PDF 5; computed).",
+      "ct_mask_recipe": "Inference: in the vertebra's frame, in the sections cutting both pedicles, the left-right width of the bony foramen between the medial pedicle surfaces; take the maximum over those sections to match 'widest point'. Use the posterior-elements subregion, not a canal label.",
+      "radiograph_recipe": "Inference: AP radiograph, interpedicular distance between the medial cortices of the pedicle ovals, divided by magnification; not on a lateral.",
+      "error": "Not reported. Between-subject SD 2.21-4.18 mm; CV about 9% at L1-L3, 11% at L4, 12-13% at L5 (computed)."
+    },
+    {
+      "name": "IPD/MSG ratio (derived here, not in the paper)",
+      "definition": "Inference: ratio of the both-sexes means of Tables 3-4: 1.30, 1.39, 1.55, 1.63, 1.79 for L1-L5.",
+      "projection": "derived from CT axial; on radiographs needs both AP (IPD) and lateral (MSG)",
+      "page": "Tables 3-4, p. 202 (PDF 3)",
+      "levels": "L1-L5",
+      "level_pattern": "Monotone rise; the canal becomes relatively wider and shallower caudally.",
+      "covariates": "Largely free of overall size; sex-specific because sex moves MSG and IPD in opposite directions (Inference).",
+      "ct_mask_recipe": "Inference: ratio of the two mask-derived values above.",
+      "radiograph_recipe": "Inference: AP IPD over lateral MSG, each corrected for its own magnification.",
+      "error": "Not reported."
+    }
+  ],
+  "level_details": [
+    {
+      "level": "L1",
+      "detail": "Widest MSG (19.06 both; 18.81 men, 19.31 women by Table 3) and narrowest IPD (24.78 both; 25.0 men, 24.56 women). Authors attribute the wide L1 canal to the thoracolumbar transition (thoracic convexity to lumbar concavity, between 'immobile' thoracic and 'mobile' lumbar spine, citing Davis) and a protective adaptation (citing Amonoo-Kuofi), and say the widest MSG is at L1 in nearly all studies except Griffith's Chinese (L5).",
+      "page": "p. 202 (PDF 3); p. 203 (PDF 4); pp. 204-205 (PDF 5-6)"
+    },
+    {
+      "level": "L2",
+      "detail": "Intermediate on both measures: MSG 18.05, IPD 25.14 (both sexes).",
+      "page": "Tables 3-4, p. 202 (PDF 3)"
+    },
+    {
+      "level": "L3",
+      "detail": "Narrowest MSG both sexes (16.66, range 12.3-21.8) and men (16.11); women 17.20 by Table 3 but L4 is lower by Table 5 (17.14 vs 17.21). The discussion says narrowing at L3 and L4.",
+      "page": "p. 202 (PDF 3); pp. 204-205 (PDF 5-6)"
+    },
+    {
+      "level": "L4",
+      "detail": "MSG nearly equal to L3 (16.79 both); IPD begins its steep rise (27.32). Smallest single MSG, 11.70 mm, a man's L4.",
+      "page": "Tables 3-5, p. 202 (PDF 3)"
+    },
+    {
+      "level": "L5",
+      "detail": "Widest IPD (31.94 both; 32.69 men, 31.20 women); largest SDs (IPD 4.18/3.69, MSG 2.84/2.55); MSG rebounds to 17.81 and the sex difference vanishes (+0.04). Largest MSG 30.80 mm in a man, 4.6 SD above the male mean (Inference: outlier, possibly a transitional or misnumbered segment).",
+      "page": "Tables 4-5, p. 202 (PDF 3)"
+    },
+    {
+      "level": "T12/L1 and L5/S1",
+      "detail": "T12 and S1 in the scan range but not measured; nothing on the junctions beyond the L1 explanation.",
+      "page": "p. 201 (PDF 2)"
+    }
+  ],
+  "errors": [
+    {
+      "what": "intra- and inter-observer reliability, repeat readings, number of readers",
+      "value": "not reported",
+      "page": "p. 201 (PDF 2)"
+    },
+    {
+      "what": "technical resolution",
+      "value": "acquisition 40 x 0.6 mm, 2 mm layers; ranges read to 0.1 mm",
+      "page": "p. 201 (PDF 2); Tables 3-5, p. 202 (PDF 3)"
+    },
+    {
+      "what": "between-subject SD, MSG (men / women, L1-L5)",
+      "value": "1.67, 1.97, 1.84, 2.22, 2.84 / 1.58, 1.86, 2.02, 2.16, 2.55 mm",
+      "page": "Table 5, p. 202 (PDF 3)"
+    },
+    {
+      "what": "between-subject SD, IPD (men / women, L1-L5)",
+      "value": "2.25, 2.21, 2.36, 3.06, 4.18 / 2.33, 2.28, 2.34, 3.00, 3.69 mm; both sexes 2.29, 2.24, 2.37, 3.06, 4.00 (text)",
+      "page": "Table 5 and text, p. 202 (PDF 3)"
+    },
+    {
+      "what": "distribution shape (Inference)",
+      "value": "maxima 2.2-4.6 SD above the means, minima 1.6-2.5 SD below: right-skewed",
+      "page": "Table 5, p. 202 (PDF 3)"
+    }
+  ],
+  "pearls_pitfalls": [
+    {
+      "text": "Indication: reference values for judging lumbar canal stenosis in patients with low back pain; clinical and imaging findings must be combined to diagnose stenosis. Stenosis is defined as a congenital or acquired reduction of the osteoligamentous canal compressing the dural sac or roots.",
+      "page": "p. 200 (PDF 1); p. 204 (PDF 5)"
+    },
+    {
+      "text": "Quoted CT stenosis criteria: MSG > 13 mm normal, 10-13 mm relative stenosis, < 10 mm absolute stenosis; IPD 16-18 mm normal, < 15 mm stenotic (refs 7 and 25). Inference: ref 7 is a 1974 facet-kinematics paper, an unlikely source; the IPD bands leave 15-16 and > 18 mm undefined.",
+      "page": "pp. 200-201 (PDF 1-2); pp. 204-205 (PDF 5-6)"
+    },
+    {
+      "text": "Authors conclude no tendency to stenosis since every mean MSG exceeds 13 mm and every mean IPD exceeds 16-18 mm. Inference: individual minima (MSG 11.7 male L4, 11.9 male L5, 12.3 female L4 and male L3) fall in the relative-stenosis band, uncounted; no IPD (minimum 20.1) nears 15 mm, so the 16-18 mm 'normal' band is below every value measured and is not a usable normal range for this CT IPD.",
+      "page": "pp. 204-205 (PDF 5-6); Table 5, p. 202 (PDF 3)"
+    },
+    {
+      "text": "Disc diagnoses did not hinder reading the bony contours in the bone window. Pitfall: these are bony canal sizes; soft-tissue (disc, ligamentum flavum) narrowing is not captured.",
+      "page": "p. 202 (PDF 3)"
+    },
+    {
+      "text": "Pitfall: a symptomatic disc-disease cohort (every patient has a disc diagnosis) is presented as normative data; Yadav's comparison cohort had no lumbar pain.",
+      "page": "Table 2, p. 201 (PDF 2); p. 200 (PDF 1); p. 203 (PDF 4)"
+    },
+    {
+      "text": "Population: Bosnian MSG and IPD larger than US, Chinese, Indian, Pakistani, Mexican, Egyptian and Korean series; authors stress population-specific norms. Inference: part of the gap may be method (Griffith reoriented to a mid-pedicle plane; others measured differently).",
+      "page": "pp. 203-205 (PDF 4-6)"
+    },
+    {
+      "text": "Sex acts in opposite directions: women's MSG larger at L1-L4, men's IPD larger at every level; other series disagree on the MSG sex direction (Eisenstein, Malas: women wider; Alam: men larger, not significant; Tobin: smaller sex difference).",
+      "page": "Table 5, p. 202 (PDF 3); pp. 202-203 (PDF 3-4)"
+    },
+    {
+      "text": "Shape of the MSG curve differs by series: L1 max and L3 min (Lee, Eisenstein, Amonoo-Kuofi, Tobin, this study); minimum at L4 (Yadav, Alam Muhammad M); progressive fall L1-L5 (Rema and Rajagopalan, Wang and Shih); widest at L5 (Griffith). IPD rises L1-L5 in most series (Lee, Zhou, Griffith, Urrutia), but Alam's Pakistani IPD dips at L3.",
+      "page": "pp. 203-204 (PDF 4-5)"
+    },
+    {
+      "text": "Pitfall (Inference): MSG is a midline measure and misses the lateral recesses; the paper does not discuss canal shape beyond quoting Urrutia's 'diamond' canal.",
+      "page": "p. 204 (PDF 5)"
+    }
+  ],
+  "instructions": [
+    {
+      "text": "Measure the bony canal in the bone window on the axial section through the pedicles as Figure 1 draws it: MSG in the midline from the posterior body wall to the inner arch where the spinous process leaves it; IPD between the medial pedicle walls at the widest point. Check the axial MSG against the sagittal reformat (the text also says midsagittal plane). From a mask, use each vertebra's filled-ring foramen, never a canal label (Inference).",
+      "page": "p. 201 (PDF 2), Figure 1"
+    },
+    {
+      "text": "Read IPD as a monotone gradient, about 24.8, 25.1, 25.9, 27.3, 31.9 mm L1-L5; the mean L4-L5 step (4.6 mm) is the largest; Inference: a 4-5 mm rise between consecutive instances is evidence for L4-L5, weighed against an L5 SD of 3.7-4.2 mm. Do not use IPD to separate L1 from L2.",
+      "page": "Table 4 and text, p. 202 (PDF 3)"
+    },
+    {
+      "text": "Read MSG as an hourglass: about 19 mm at L1, waist about 16.7 mm at L3-L4, 17.8 mm at L5. Inference: the L2-L3 fall is its best step; never use MSG to tell L3 from L4.",
+      "page": "Table 3, p. 202 (PDF 3); p. 203 (PDF 4)"
+    },
+    {
+      "text": "Inference: combine the two as IPD/MSG, about 1.30, 1.39, 1.55, 1.63, 1.79 L1-L5, a size-light level cue.",
+      "page": "Tables 3-4, p. 202 (PDF 3)"
+    },
+    {
+      "text": "Compare each instance with its neighbours: between-subject SDs (MSG 1.6-2.8, IPD 2.2-4.2 mm) exceed every adjacent-level step except IPD L4-L5 (Inference, computed).",
+      "page": "Table 5, p. 202 (PDF 3)"
+    },
+    {
+      "text": "Condition on sex per measure: women's MSG 0.5-1.1 mm larger at L1-L4, equal at L5; men's IPD 0.4-1.5 mm larger. Do not use one sex size multiplier for the canal (Inference).",
+      "page": "Table 5, p. 202 (PDF 3)"
+    },
+    {
+      "text": "Condition on population and size: Bosnian MSG 1-4 mm above US, Chinese (L1-L4) and Indian CT means, IPD 1-5 mm above Chinese, Pakistani and Mexican; let a population or size factor shift the whole column (Inference). Griffith's Chinese L5 MSG is larger than the Bosnian.",
+      "page": "Tables 6-11, pp. 203-204 (PDF 4-5)"
+    },
+    {
+      "text": "Use Table 5, not Table 3, for women's MSG: L4 mean 17.14 (not 17.38), L3 minimum 13.5 (not 12.2); Table 5 agrees with the both-sexes means and range.",
+      "page": "Tables 3 and 5, p. 202 (PDF 3)"
+    },
+    {
+      "text": "Widen the L5 likelihood: largest SDs and extreme maxima (MSG 30.8, IPD 42.8); Inference: use heavy-tailed or log-scale likelihoods.",
+      "page": "Table 5, p. 202 (PDF 3)"
+    },
+    {
+      "text": "Do not take the paper's L1-L5 labels as anomaly-checked: no counting method though T12 and S1 were scanned; count ribs and find the sacrum independently before naming (Inference).",
+      "page": "p. 201 (PDF 2)"
+    },
+    {
+      "text": "Flag MSG < 13 mm (relative) or < 10 mm (absolute stenosis) and IPD < 15 mm as the quoted criteria define; do not use the 16-18 mm IPD band as a normal range.",
+      "page": "pp. 200-201 (PDF 1-2); pp. 204-205 (PDF 5-6)"
+    },
+    {
+      "text": "Inference (paper is CT only): on a lateral radiograph or fluoroscopy frame take only the MSG analogue (posterior body line to spinolaminar line); on an AP only the IPD (medial pedicle cortices); correct each for magnification.",
+      "page": "p. 201 (PDF 2)"
+    },
+    {
+      "text": "Expect the bony canal to measure normal in disc disease (every patient had a disc diagnosis; all mean diameters above the cut-offs); do not infer soft-tissue stenosis from bony MSG or IPD (Inference).",
+      "page": "Table 2, p. 201 (PDF 2); pp. 204-205 (PDF 5-6)"
+    }
+  ],
+  "bordercall": [
+    "(a) Decoder priors: none. No prevalence of LSTV, L6, T13 or any rib anomaly, no denominator and no counting rule; 200 patients reported only as L1-L5 (pp. 200-202, PDF 1-3).",
+    "(b) MSG corresponds to Panjabi's SCD and IPD to his SCW (Inference; Panjabi does not say SCW is interpedicular). Sex-specific L1-L5 means and SDs (Table 5, p. 202, PDF 3) can serve as a second likelihood for living adults on CT. Inference from the set's panjabi1992 note: Panjabi SCD 19.0, 18.2, 17.5, 18.6, 19.7 vs Cizmic MSG 19.06, 18.05, 16.66, 16.79, 17.81 (0.8-1.9 mm smaller at L3-L5); Panjabi SCW 23.7, about 23.8, 24.3, 25.5, 27.1 vs Cizmic IPD 24.78, 25.14, 25.86, 27.32, 31.94 (1-2 mm larger at L1-L4, 4.8 at L5); width/depth 1.79 at L5 here vs about 1.38. Possible sources (Inference, untested): 'widest point' running into the lateral recess at L5, unreoriented gantry plane (tilt about the left-right axis lengthens MSG, not IPD, so it cannot explain these gaps), 2 mm layers, living symptomatic adults vs dry bone. Do not mix the two tables at one level without checking definitions. Could add the IPD/MSG ratio as a derived feature. Use the bony foramen enclosed by body and posterior elements; SPINEPS's canal label is a different object.",
+    "(c) Measurement error: none given. Table 5 SDs are total between-subject spread (MSG 1.58-2.84, IPD 2.21-4.18 mm). For observer error borrow from elsewhere (Inference: Griffith 2016 intra-reader ICC 0.85-0.96 by level, per the set's griffith2016 note).",
+    "(d) Covariates: sex with opposite signs per measure (women deeper canal, men wider); age men 20-60 (43.84 +/- 10.99), women 27-50 (43.78 +/- 6.00), not analysed; body size not recorded; population Bosnian adults with low back pain, larger than the compared Asian, Mexican and US series (Tables 6-11, pp. 203-204, PDF 4-5)."
+  ],
+  "gaps": [
+    "Not stated: how levels were counted; any anomaly; which axial slice was used, and whether the MSG was read on the axial or the sagittal image (the methods say both, p. 201, PDF 2); whether the plane was reoriented; how 'widest point' was found; who measured and how often; which tests were used; how many were screened and excluded.",
+    "Table 3 vs Table 5 (p. 202, PDF 3): women's L4 MSG mean 17.38 vs 17.142 and L3 minimum 12.20 vs 13.50; Table 5 is consistent with the both-sexes values (L4 16.79 = average of 16.454 and 17.142 truncated; 17.38 would give 16.91). Chart 2 and Tables 6-8 carry 17.38.",
+    "Tables 3 and 4 truncate Table 5's four-decimal means rather than rounding them (p. 202, PDF 3).",
+    "Text vs Table 2: men's extrusion 8% in the text (p. 202, PDF 3) vs 13/100 in Table 2 (p. 201, PDF 2). Chart 1 misspells 'Femanle' and places the 8% and 10% labels beside the ring labels.",
+    "IPD sex difference significant at all levels (abstract p. 200, conclusion p. 204) vs L3-L5 only (discussion p. 204, PDF 5); MSG female excess called significant at all levels though L5 differs by 0.04 mm; no p printed for sex.",
+    "Conclusion says Bosnian MSG and IPD larger than other populations at all levels (p. 204, PDF 5), but Griffith's L5 MSG is larger (Table 7, p. 203, PDF 4); the text says the Griffith difference is not significant at L5 yet prints p<0.05, and calls Griffith's population Egyptian in that sentence.",
+    "Design called retrospective (abstract) and 'retrospective, prospective' (methods, p. 201, PDF 2); keywords (psychometric properties, reliability, validity, responsiveness, outcome measure) do not fit.",
+    "Citation errors: Alam's Pakistani MSG result and Griffith's IPD both cited as ref 9 (Yadav); refs 11 and 18 are the same Alam paper; Urrutia's diamond statement carries ref 21 (Wang and Shih); Alam M et al.'s IPD called significantly larger with p>0.05 (pp. 203-205, PDF 4-6).",
+    "Inference (set's yadav2020 note): Table 8's Yadav 'L1' values (16.19 men, 16.33 women) are Yadav's D12 values (his L1 is 15.68 men); Table 8's women's L3 13.60 vs Yadav's 13.66.",
+    "Inference (set's eisenstein1977 note): Eisenstein's dry-bone table shows the sexes within 0-1 mm and L1 equal to L5 (a 'venturi tube' waisted at L2-L4), not clearly the wider-female hourglass Cizmic credits him with.",
+    "Inference: ref 7, cited for the stenosis thresholds, is a 1974 facet-kinematics paper (p. 205, PDF 6).",
+    "Tobin's 1970-79 cohort only partly matches the Bosnian age range (men 20-60) (Inference).",
+    "No power calculation, no body size, unequal age spread by sex, symptomatic disc cohort; the authors state no limitation."
+  ]
+}

@@ -1,0 +1,319 @@
+{
+  "id": "zindrick1987",
+  "citation": "Zindrick MR, Wiltse LL, Doornik A, Widell EH, Knight GW, Patwardhan AG, Thomas JC, Rothman SL, Fields BT. Analysis of the morphometric characteristics of the thoracic and lumbar pedicles. Spine 1987;12(2):160-166. Presented at the 21st annual meeting of the Scoliosis Research Society, Hamilton, Bermuda, September 1986. Copy read: greg's upload of 2026-10-28 01:02 UTC (upload id dfa798ab-fa2c-4646-a152-ad8166ddc0ba), sha256 begins 889dd8c6626805b0; 7-page scan, no text layer.",
+  "population": "Postmortem adult spine specimens (some whole spines, some only thoracic or only lumbar segments) plus reviewed clinical CT examinations, most often L3 to S1. No number of specimens or patients, no age, sex, race, body size or country (authors in Illinois and California, USA). Denominator: 2,905 measurements (sum of the five tables' total studies: 547 + 595 + 628 + 522 + 613), 2,005 from specimen roentgenograms and 900 from CT; Table 5's 613 studies each give two depths (3,518 values in all, my arithmetic). N per level 20 to 76 and differs by measure, so the measures are not all from the same vertebrae; left/right handling unstated. p. 160 (PDF 1); Tables 1-5, pp. 161-165 (PDF 2-6).",
+  "modality": "Two routes: (1) disarticulated vertebrae radiographed singly in the transverse (axial) plane, then hemisected in the midline and radiographed laterally, constant technique, no detectable magnification, measured directly on the films; (2) axial CT measured with the scanner software (no scanner, slice or reformat details). CT and film said not to differ significantly, no numbers. p. 160 (PDF 1).",
+  "levels_covered": "T1 to L5, every level (17 levels). No cervical, no sacral data. C7/T1 and L5/S1 not studied.",
+  "anomalies": [
+    {
+      "variant": "Any transitional or numbering variant (LSTV, sacralisation, lumbarisation, L6, T13, rib count anomalies, block vertebrae)",
+      "finding": "Not mentioned anywhere; no prevalence, no denominator; numbering method of isolated thoracic or lumbar segments not stated.",
+      "page": "pp. 160-166 (PDF 1-7)",
+      "population": "Postmortem adult specimens and clinical CT, undescribed",
+      "how_identified": "Not described"
+    },
+    {
+      "variant": "Possible contamination of T12 by transitional or misnumbered vertebrae (Inference)",
+      "finding": "Inference only: T12 has the widest spreads of the paper (transverse angle -17.0 to +14.5 deg, SD 9.5; pedicle-axis depth 23 to 61 mm, SD 11.0), consistent with mixed thoracolumbar morphology; the paper does not say so.",
+      "page": "Table 3 p. 163 (PDF 4); Table 5 p. 165 (PDF 6)",
+      "population": "Same",
+      "how_identified": "Inference from the tables"
+    }
+  ],
+  "measures": [
+    {
+      "name": "Transverse pedicle isthmus width (TW, pedicle width)",
+      "definition": "Narrowest dimension of the pedicle in the transverse plane; Fig 1 inset marks a mediolateral chord across one pedicle at its narrowest, on an axial outline.",
+      "projection": "Axial (transverse-plane) radiograph of an isolated dry/postmortem vertebra, or axial CT",
+      "page": "p. 160 (PDF 1); Table 1 and Fig 1, p. 161 (PDF 2)",
+      "levels": "T1-L5; N 24 to 56 per level; 387 films + 160 CT = 547",
+      "level_pattern": "Mean (SD) mm: L5 18.0 (4.1), L4 12.9 (2.1), L3 10.3 (2.6), L2 8.9 (2.2), L1 8.7 (2.3), T12 7.1 (2.3), T11 7.8 (2.0), T10 6.3 (1.7), T9 6.1 (1.5), T8 5.9 (1.6), T7 5.3 (1.0), T6 5.2 (1.0), T5 4.5 (0.9), T4 4.7 (1.3), T3 5.6 (1.4), T2 7.0 (1.8), T1 7.9 (1.4). Max L5, min T5; steep L5-L3, flat L2-L1 and T10-T6, rises T4 to T1. Effect sizes (mine): L5/L4 1.6, L4/L3 1.1, L2/L1 0.1, T2/T1 0.6.",
+      "ct_mask_recipe": "Inference: vertebra frame from end plates and midsagittal plane; isolate the pedicle between posterior body wall and process branching; smallest chord perpendicular to the pedicle axis, outer cortex to outer cortex; projecting along z mimics the film (envelope, reads >= a single slice); measuring along x overstates by 1/cos(TA) (about 15 percent at L5).",
+      "radiograph_recipe": "No clinical film gives the paper's axial projection. Inference: AP pedicle oval approximates TW only after magnification correction and where the pedicle axis is near the beam; overstated at L4-L5; not from a lateral film.",
+      "covariates": "None reported; SD pools unknown sexes, ages and two modalities; CV 0.16 to 0.32 (mine).",
+      "error": "SEM 0.2 to 0.5 mm; no observer study; no detectable film magnification; CT vs film no significant difference, no numbers."
+    },
+    {
+      "name": "Sagittal pedicle isthmus width (SW, pedicle height)",
+      "definition": "Narrowest dimension of the pedicle in the sagittal plane (craniocaudal height at the isthmus); Fig 2 inset chord across the neck between body and posterior elements on a lateral outline of a hemisected vertebra.",
+      "projection": "Lateral radiograph of a midline-hemisected vertebra, or CT",
+      "page": "p. 160 (PDF 1); text p. 161 (PDF 2); Table 2 and Fig 2, p. 162 (PDF 3)",
+      "levels": "T1-L5; N 21 to 52; 433 films + 162 CT = 595",
+      "level_pattern": "Mean (SD) mm: L5 14.0 (2.3), L4 14.8 (2.1), L3 14.9 (2.4), L2 15.0 (1.5), L1 15.4 (2.8), T12 15.8 (2.4), T11 17.4 (2.5), T10 15.2 (2.0), T9 13.8 (1.3), T8 12.8 (1.2), T7 12.1 (1.0), T6 12.2 (1.0), T5 11.9 (1.4), T4 12.1 (1.0), T3 12.4 (1.3), T2 12.0 (1.2), T1 9.9 (2.0). Peak T11, min T1; nearly flat lumbar; plateau T7-T2. Effect sizes (mine): T11/T10 1.0, T2/T1 1.3, lumbar pairs < 0.4. TW/SW ratio of means > 1 only at L5 (1.29).",
+      "ct_mask_recipe": "Inference: split the instance at the midsagittal plane, project one half along x, take the narrowest craniocaudal chord between superior and inferior notches perpendicular to the pedicle's sagittal axis; or a parasagittal slice through the pedicle axis.",
+      "radiograph_recipe": "Lateral radiograph in principle (authors used hemisected bone, no magnification). Inference: clinical laterals superimpose both pedicles and thoracic rib heads; correct magnification.",
+      "covariates": "None reported; CV 0.08 to 0.20 (mine).",
+      "error": "SEM 0.2 to 0.6 mm; nothing else."
+    },
+    {
+      "name": "Transverse pedicle angle (TA)",
+      "definition": "Angle between a line perpendicular to the transverse isthmus (pedicle axis) and a line parallel to the vertebral midline, in the transverse plane; positive medial (axis converges anteriorly), negative lateral. Fig 3 inset draws the pedicle line from the posterior tip of the articular process anteromedially to meet the midline-parallel line at the anterior cortex.",
+      "projection": "Axial radiograph of isolated vertebra or axial CT",
+      "page": "p. 160 (PDF 1); text pp. 161-162 (PDF 2-3); Table 3 and Fig 3, p. 163 (PDF 4); Discussion p. 164 (PDF 5)",
+      "levels": "T1-L5; N 20 to 76; 410 films + 218 CT = 628",
+      "level_pattern": "Mean (SD) deg: L5 29.8 (6.3), L4 17.7 (5.2), L3 14.4 (3.8), L2 12.0 (3.5), L1 10.9 (2.2), T12 -4.2 (9.5), T11 1.2 (4.4), T10 4.6 (4.6), T9 7.6 (2.8), T8 8.1 (5.2), T7 8.7 (4.7), T6 9.6 (4.5), T5 9.4 (4.4), T4 12.6 (4.1), T3 14.6 (4.4), T2 19.1 (7.1), T1 26.6 (5.6). U shape with reversal at T12. Effect sizes (mine): L5/L4 2.1, L1/T12 2.2, T2/T1 1.2, T9-T5 < 0.2.",
+      "ct_mask_recipe": "Inference: per side, pedicle axis in the vertebra's own axial plane against the vertebra's own midsagittal plane (not scanner axes, or rotation biases sides); positive when the anterior end is medial.",
+      "radiograph_recipe": "Not from a lateral film. Inference: not from AP either; needs an axial image.",
+      "covariates": "None reported.",
+      "error": "SEM 0.4 to 1.9 deg; SD up to 9.5 at T12, 7.1 at T2."
+    },
+    {
+      "name": "Sagittal pedicle angle (SA)",
+      "definition": "Measured between a line perpendicular to the sagittal isthmus (pedicle axis) and the posterior vertebral body border in the sagittal plane; reported values are the deviation from the perpendicular to the posterior wall (lumbar near 0, essentially perpendicular), positive cephalad, negative caudal; which end of the axis is cephalad is not stated. Fig 4 inset (beta) draws the reference along the vertebra's AP direction (reading of drawing).",
+      "projection": "Lateral radiograph of hemisected vertebra, or CT",
+      "page": "p. 160 (PDF 1); text p. 162 (PDF 3); Table 4 and Fig 4, p. 164 (PDF 5)",
+      "levels": "T1-L5; N 20 to 52; 372 films + 150 CT = 522",
+      "level_pattern": "Mean (SD) deg: L5 -1.8 (3.5), L4 0.2 (3.9), L3 0.2 (4.7), L2 1.8 (5.5), L1 2.4 (6.3), T12 11.6 (2.6), T11 15.4 (4.9), T10 16.8 (5.3), T9 16.0 (3.8), T8 16.6 (4.1), T7 15.7 (4.2), T6 15.0 (4.2), T5 15.0 (3.4), T4 16.3 (4.4), T3 17.3 (6.0), T2 17.5 (7.7), T1 12.6 (5.8). A step at T12/L1, thoracic plateau 15-17.5, drop at T1. Effect sizes (mine): L1/T12 1.9, T12/T11 1.0, T2/T1 0.7.",
+      "ct_mask_recipe": "Inference: parasagittal plane through the pedicle; line fit to posterior body cortex, its perpendicular, angle to the pedicle's sagittal axis; check sign convention.",
+      "radiograph_recipe": "Lateral radiograph in principle. Inference: posterior body line clear, pedicle outline blurred by superimposition; patient tilt does not change it.",
+      "covariates": "None reported.",
+      "error": "SEM 0.5 to 1.5 deg; lumbar SDs 3.5 to 6.3 deg as large as the means; printed ranges at T9 and T12 do not contain their means."
+    },
+    {
+      "name": "Depth to anterior cortex along the pedicle axis (Dpa)",
+      "definition": "Distance from the most posterior aspect of the transverse process to the anterior cortex, along the transverse pedicle angle. Fig 5 inset starts the line at the posterior tip of the articular process outline behind the transverse process root (reading of drawing); y axis labelled cort-cort distance.",
+      "projection": "Axial radiograph or axial CT",
+      "page": "p. 160 (PDF 1); text pp. 162-163 (PDF 3-4); Table 5 and Fig 5, p. 165 (PDF 6)",
+      "levels": "T1-L5; N 22 to 74; 403 films + 210 CT = 613",
+      "level_pattern": "Mean (SD) mm: L5 51.0 (4.7), L4 49.7 (4.4), L3 51.9 (4.6), L2 51.9 (3.7), L1 50.7 (4.3), T12 38.6 (11.0), T11 41.8 (6.5), T10 44.0 (5.0), T9 45.2 (4.9), T8 45.4 (4.8), T7 44.6 (3.7), T6 42.1 (4.7), T5 41.9 (4.7), T4 38.5 (3.9), T3 37.7 (5.1), T2 35.7 (4.7), T1 36.9 (5.8). Lumbar plateau, sharp drop at T12 (local minimum), hump T10-T7, minimum T2 (text says T1). Effect size L1/T12 1.45 (mine).",
+      "ct_mask_recipe": "Inference: from the most posterior bone at the pedicle entry, ray in the axial plane at TA toward anteromedial, to exit through the anterior body cortex; record start point used.",
+      "radiograph_recipe": "Inference: not from a lateral film (foreshortened by cos TA, start point unseen); needs an axial image.",
+      "covariates": "None reported; Inference: scales with size.",
+      "error": "SEM 0.5 to 2.2 mm."
+    },
+    {
+      "name": "Depth to anterior cortex parallel to the midline (Dma)",
+      "definition": "Same start, to the anterior cortex along a line parallel to the midline of the vertebral body.",
+      "projection": "Axial radiograph or axial CT",
+      "page": "p. 160 (PDF 1); text p. 163 (PDF 4); Table 5 and Fig 5, p. 165 (PDF 6)",
+      "levels": "T1-L5; same N as Dpa",
+      "level_pattern": "Mean (SD) mm: L5 33.7 (5.6), L4 40.7 (4.3), L3 44.4 (5.1), L2 45.5 (3.7), L1 44.7 (4.5), T12 43.2 (5.0), T11 41.2 (3.8), T10 40.1 (4.6), T9 41.2 (5.3), T8 40.6 (4.1), T7 39.5 (3.7), T6 36.9 (5.0), T5 35.9 (4.1), T4 31.5 (3.2), T3 31.1 (3.1), T2 27.4 (6.3), T1 26.7 (5.8). Min T1, max L2, sharp fall at L5. Dpa minus Dma 17.3 at L5, 10.2 at T1, 0.6 at T11, -4.6 at T12; Dpa significantly longer except T11 and T12 (P < 0.05).",
+      "ct_mask_recipe": "Inference: same start voxel, ray parallel to the midsagittal y axis to exit through the anterior or anterolateral cortex; compute by ray casting, not from Dpa x cos(TA) (L5 33.7 vs 44.3).",
+      "radiograph_recipe": "Inference: a lateral film shows a midline-parallel line at true length after magnification correction, but the start point is hard to see.",
+      "covariates": "None reported.",
+      "error": "SEM 0.5 to 1.3 mm."
+    }
+  ],
+  "level_details": [
+    {
+      "level": "L5",
+      "detail": "Widest transverse width 18.0 mm (9.1-29.0); only level with TW > SW (18.0 vs 14.0); narrowest lumbar SW 14.0; largest TA 29.8 deg (19.0-44.0); only caudal SA -1.8 (-8.0 to +8.0); largest Dpa-Dma gap (51.0 vs 33.7).",
+      "page": "pp. 161-162 (PDF 2-3); Tables 1-5"
+    },
+    {
+      "level": "L4-L2",
+      "detail": "TW 12.9, 10.3, 8.9; TA 17.7, 14.4, 12.0; SA about 0 (essentially perpendicular to posterior body margin); Dpa longest at L2 and L3, 51.9.",
+      "page": "pp. 161-163 (PDF 2-4)"
+    },
+    {
+      "level": "L1",
+      "detail": "Narrowest lumbar TW 8.7 (4.5-13.0); widest lumbar SW 15.4 (11.0-21.0); shallowest lumbar TA 10.9 (6.5-14.5).",
+      "page": "pp. 161-162 (PDF 2-3)"
+    },
+    {
+      "level": "T12/L1 junction",
+      "detail": "Sharpest change: TA 10.9 to -4.2 deg, SA 2.4 to 11.6 deg, Dpa 50.7 to 38.6 mm, TW 8.7 to 7.1 mm. Discussion: TA returns to neutral by L1 and angles laterally at T12 (table L1 still 10.9 medial).",
+      "page": "Tables 1, 3-5; p. 164 (PDF 5)"
+    },
+    {
+      "level": "T12",
+      "detail": "Only lateral mean TA, -4.2 deg, SD 9.5, range -17.0 to +14.5; TW 7.1 < T11 7.8; Dpa 38.6 (SD 11.0, 23-61) shorter than Dma 43.2; no significant Dpa-Dma difference at T12 or T11.",
+      "page": "p. 161 (PDF 2); Tables 1, 3, 5; p. 163 (PDF 4)"
+    },
+    {
+      "level": "T11",
+      "detail": "Widest SW 17.4 (12.5-24.1); TA near neutral 1.2; SA 15.4; TW 7.8, local maximum among T5-T12.",
+      "page": "p. 161 (PDF 2); Tables 1-4"
+    },
+    {
+      "level": "T10-T6",
+      "detail": "TW 6.3 to 5.2; SW 15.2 to about 12; TA 4.6 to 9.6; SA 15 to 17; Dpa 42 to 45 mm.",
+      "page": "Tables 1-5, pp. 161-165"
+    },
+    {
+      "level": "T5 and T4",
+      "detail": "Narrowest TW: T5 4.5 (3.0-7.0), T4 4.7 (2.5-7.0); single values down to 2.5 mm at T4 and T8.",
+      "page": "p. 161 (PDF 2), Table 1"
+    },
+    {
+      "level": "T4-T2",
+      "detail": "TW rises 4.7, 5.6, 7.0; TA rises 12.6, 14.6, 19.1; T2 largest cephalad SA 17.5 (7.0-32.0) and shortest Dpa 35.7.",
+      "page": "p. 162 (PDF 3); Tables 1, 3, 5"
+    },
+    {
+      "level": "T1",
+      "detail": "Narrowest SW 9.9 (7.0-14.5); TW 7.9 (nearly round, ratio 0.80 mine); largest thoracic TA 26.6 (16.0-33.5), maximum medial angulation per Discussion; SA 12.6 (T2 17.5); shortest Dma 26.7 (17.0-43.0); text calls its Dpa 36.9 the shortest though T2 is 35.7.",
+      "page": "pp. 161-164 (PDF 2-5)"
+    },
+    {
+      "level": "C2/C3, C7/T1, L5/S1",
+      "detail": "No data; the study stops at T1 and L5.",
+      "page": "pp. 160-166"
+    }
+  ],
+  "errors": [
+    {
+      "what": "SEM per level (error of the mean only)",
+      "value": "Widths 0.2-0.6 mm; angles 0.4-1.9 deg; depths 0.5-2.2 mm",
+      "page": "Tables 1-5, pp. 161-165 (PDF 2-6)"
+    },
+    {
+      "what": "Total per-level SD (biology + measurement + modality)",
+      "value": "Widths 0.9-4.1 mm; angles 2.2-9.5 deg; depths 3.1-11.0 mm",
+      "page": "Tables 1-5"
+    },
+    {
+      "what": "CT vs specimen roentgenogram agreement",
+      "value": "No significant difference, printed with (P < 0.05), no test, no numbers, different vertebrae; CT 27-35 percent of each table",
+      "page": "p. 160 (PDF 1); table footnotes"
+    },
+    {
+      "what": "Film magnification",
+      "value": "None detectable with constant technique",
+      "page": "p. 160 (PDF 1)"
+    },
+    {
+      "what": "Intra- or inter-observer reliability",
+      "value": "Not studied",
+      "page": "pp. 160-166"
+    },
+    {
+      "what": "Internal consistency (my arithmetic)",
+      "value": "SEM = SD/sqrt(N) except Table 4 T6 (0.6 vs 0.66); Table 1 N sum 551 vs 547; total 2,909 vs 2,905; Table 4 T9 and T12 means outside printed ranges",
+      "page": "Tables 1 and 4, pp. 161, 164"
+    }
+  ],
+  "pearls_pitfalls": [
+    {
+      "text": "Pedicle fixation lets fusion cover fewer segments than Harrington rods or intralaminar wiring, and laminectomy can be done at fused levels.",
+      "page": "p. 160 (PDF 1)"
+    },
+    {
+      "text": "The oval pedicle is narrowest transversely; transverse width sets maximum screw diameter; oversize screws cause pedicle breakage or thread cutout; sagittal width does not limit diameter.",
+      "page": "p. 164 (PDF 5)"
+    },
+    {
+      "text": "Methyl methacrylate leaking through a screw-made pedicle defect can be disastrous.",
+      "page": "p. 164 (PDF 5)"
+    },
+    {
+      "text": "Depth to the anterior cortex prevents anterior perforation and injury to vital structures; pedicle-axis path is significantly longer than a midline-parallel path except at T11 and T12.",
+      "page": "p. 165 (PDF 6)"
+    },
+    {
+      "text": "Deeper screws withstood more cycles before failure, and anterior-cortex purchase raised pullout strength (refs 5, 13).",
+      "page": "p. 165 (PDF 6)"
+    },
+    {
+      "text": "The radiographic blind spot on lateral fluoroscopy shrinks as the tip nears the vertebral body midline, so convergent pedicle-axis screws are less likely to penetrate the anterior cortex unseen, except at T11 and T12.",
+      "page": "p. 165 (PDF 6)"
+    },
+    {
+      "text": "Screw length must always be checked intraoperatively under fluoroscopy; knowledge of these relationships prevents cutout, fixation failure and neurologic injury.",
+      "page": "pp. 165-166 (PDF 6-7)"
+    },
+    {
+      "text": "Pitfall: a width must name its plane; transverse and sagittal widths differ up to 2.6 times (T5 4.5 vs 11.9 mm).",
+      "page": "Tables 1-2, pp. 161-162"
+    },
+    {
+      "text": "Pitfall: mid thoracic pedicles are very narrow (T4-T8 means 4.5-5.9 mm, minimum 2.5 mm); Inference: a 5 mm screw will not fit many.",
+      "page": "Table 1, p. 161"
+    },
+    {
+      "text": "Pitfall: T12 is the most variable level for transverse angle and depth (SD 9.5 deg, 11.0 mm).",
+      "page": "Tables 3, 5"
+    },
+    {
+      "text": "Pitfall: several text statements disagree with the tables (L1 neutral, T1 shortest Dpa, abstract anterolateral, cephalad from L3); trust the tables.",
+      "page": "pp. 160-164"
+    }
+  ],
+  "instructions": [
+    {
+      "text": "Measure TW as the narrowest transverse-plane chord across the pedicle; Inference: in the vertebra's own frame, perpendicular to the pedicle axis, outer cortex, never along scanner x. Expect L5 18.0, L4 12.9, L3 10.3, L2 8.9, L1 8.7 mm.",
+      "page": "p. 160 (PDF 1); Table 1 p. 161 (PDF 2)"
+    },
+    {
+      "text": "Measure SW as the narrowest craniocaudal chord between the notches on a lateral silhouette of one half of the vertebra split at the midsagittal plane.",
+      "page": "p. 160 (PDF 1); Table 2 p. 162 (PDF 3)"
+    },
+    {
+      "text": "Use TW to separate L5/L4/L3; not L2 from L1 or T6-T10 (adjacent means differ 0.1-0.6 mm, SDs 1.0-2.3 mm).",
+      "page": "Table 1, p. 161"
+    },
+    {
+      "text": "Flag a pedicle wider than tall (TW/SW > 1) as L5-like; untested for transitional segments.",
+      "page": "Tables 1-2"
+    },
+    {
+      "text": "Locate the thoracolumbar junction by TA: L1 about 11 deg medial, T12 about 4 deg lateral (wide spread), T11 about 1 deg; measure against the vertebra's own midsagittal plane.",
+      "page": "Table 3, p. 163 (PDF 4)"
+    },
+    {
+      "text": "Confirm with SA: lumbar near 0, T12 about 12, T11-T2 15-17.5 deg; check sign convention first.",
+      "page": "Table 4, p. 164 (PDF 5)"
+    },
+    {
+      "text": "Locate T11 by maximal SW 17.4 mm with near-neutral TA 1.2 deg.",
+      "page": "Tables 2-3"
+    },
+    {
+      "text": "Recognise T1 by minimal SW 9.9 (2 mm below T2), round pedicle (TW 7.9), TA 26.6 vs T2 19.1, SA 12.6 vs T2 17.5.",
+      "page": "Tables 1-4, pp. 161-164"
+    },
+    {
+      "text": "Recognise T4-T5 by the narrowest TW (4.5-4.7 mm).",
+      "page": "Table 1, p. 161"
+    },
+    {
+      "text": "Take depths from the most posterior point at the transverse process (drawn at the articular/transverse process junction), along the pedicle axis and parallel to the midline; expect pedicle-axis depth longer except T11 and T12, shorter at T12 (38.6 vs 43.2).",
+      "page": "p. 160 (PDF 1); Table 5 and Fig 5, p. 165 (PDF 6)"
+    },
+    {
+      "text": "Inference: use Dpa minus Dma (17 mm at L5, 10 at T1, about 0 at T11, negative at T12) as a consistency check on TA.",
+      "page": "Table 5, p. 165"
+    },
+    {
+      "text": "Inference: on lateral radiographs or fluoroscopy take only sagittal measures (SW, SA), correct magnification, expect bilateral and rib-head superimposition; never TW, TA or Dpa from a lateral image.",
+      "page": "p. 160 (PDF 1)"
+    },
+    {
+      "text": "When judging a screw tip on lateral fluoroscopy, distrust a tip far from the midline, where the blind spot is largest.",
+      "page": "p. 165 (PDF 6)"
+    },
+    {
+      "text": "Give T12 wide priors for TA and Dpa (SD 9.5 deg, 11.0 mm); a lumbar-looking T12 may be transitional or misnumbered (Inference).",
+      "page": "Tables 3, 5"
+    },
+    {
+      "text": "Ignore the printed SA ranges at T9 and T12; use means and SDs (Fig 4 agrees with them).",
+      "page": "Table 4 and Fig 4, p. 164"
+    },
+    {
+      "text": "Do not split these values by sex, age or size; the paper gives none.",
+      "page": "pp. 160-166"
+    }
+  ],
+  "bordercall": [
+    "(a) Anomaly priors: none; no prevalence of any transitional or numbering variant, numbering method unstated.",
+    "(b) Pedicle width and height = TW and SW; pedicle angles = TA and SA; T1-L5 only, nothing for C3-C7.",
+    "(b) Definition differences (Inference): film TW/TA are axial projections (envelope >= single slice); widths are narrowest chords perpendicular to the pedicle axis (x-axis width overstates by 1/cos(TA), 15 percent at L5, 12 percent at T1); SA is deviation from the perpendicular to the posterior wall, sign convention unstated; Panjabi's reference line may differ (unverified); depths are screw-path lengths from the transverse-process/facet junction, not body depth; cortex convention unstated.",
+    "(b) Measures come from partly different vertebrae (different N per table and level): no between-measure correlation is available for a joint generator.",
+    "(b) Candidate additions: TW/SW ratio (L5 1.29, others < 0.9), Dpa, Dma and their difference.",
+    "(b) Strongest separators (my effect sizes): L5/L4 by TA 2.1, TW 1.6; L1/T12 by TA 2.2, SA 1.9, Dpa 1.45; T11/T10 by SW 1.0; T2/T1 by SW 1.3, TA 1.2.",
+    "(c) No reliability data; SEMs are error of the means only; SDs are an upper bound on per-level sigma; TW CV 0.16-0.32 and SW CV 0.08-0.20 suggest multiplicative spread for TW (Inference).",
+    "(d) No sex, age, size, race or country; the size factor cannot be calibrated from this paper."
+  ],
+  "gaps": [
+    "No demographics: counts of specimens and patients, sex, age, race, stature; side handling and whether N counts pedicles or vertebrae unstated.",
+    "CT method unstated (scanner, slices, gantry, reformatting); how sagittal measures came from CT unstated (Inference: possibly multiplanar reformats, given the acknowledged imaging centre); methods say clinical CT examinations, table footnotes say specimen CT scans.",
+    "No level-numbering method and no transitional anomalies; isolated segments numbered by an unstated rule.",
+    "CT vs film: 'no significant difference' printed with P < 0.05 (Inference: P > 0.05 meant); abstract gives no P; no test, no numbers; film/CT split given per table only, not per level.",
+    "Table 1 per-level N sum 551 vs footnote 547; all five tables 2,909 vs 2,905.",
+    "Table 4: T12 (11.6) and T9 (16.0) means outside printed ranges; Fig 4 supports means and SDs; T6 SEM 0.6 vs 0.66.",
+    "Fig 4 matches Table 4 within 0.3 deg once the scan's tilt is allowed for (the earlier note's claim of a 0.5-1 deg offset was a tilt artifact).",
+    "Text vs table: shortest Dpa given as T1 36.9, table shows T2 35.7; Discussion says TA neutral by L1, table L1 10.9 medial; abstract 'posterolateral to anterolateral' (anteromedial meant); abstract cephalad 'from L3-T1' though L3 and L4 are 0.2 deg; methods' SA wording implies about 90 deg; Fig 5 axis 'cort-cort' vs transverse-process start.",
+    "Agreement with Panjabi, Krag and Scoles is from memory (Inference) and must be verified against their notes; T12 lateral angle and spread rarely reported elsewhere."
+  ]
+}

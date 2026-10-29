@@ -1,0 +1,157 @@
+{
+  "id": "ahn2001",
+  "citation": "Nicholas U Ahn, Uri M Ahn, Leelakrishna Nallamshetty, Peter S Rose, Jacob M Buchowski, Elizabeth S Garrett, Khaled M Kebaish and Paul D Sponseller. The lumbar interpediculate distance is widened in adults with the Marfan syndrome. Data from 32 cases. Acta Orthop Scand 2001; 72 (1): 67-71. Copy read: Acta Orthopaedica's open archive, actaorthop.org/actao/article/download/20022/23827, fetched 2026-10-28 by this thread; sha256 begins 921a130b5e2b1f44. Source: thread \"Reread every paper for clinical detail\", project symphony_4, 2026-10-28.",
+  "population": "United States, living adults: 32 volunteers with Marfan syndrome by the DePaepe (1996) criteria, 18 female and 14 male (14 by subtraction), recruited 16 from the Johns Hopkins human genetics clinic (222 Marfan records, 83 aged 30-50, 51 eligible) and 16 from National Marfan Foundation chapters and a Marfan internet newsgroup (47 replied, 27 eligible); age (beyond the clinic arm's 30-50 window), height, weight and ethnicity not reported (p. 67-68, PDF 1-2). Controls: historical normal adults of Hinck et al. 1966, n per level L1 59, L2 57, L3 53, L4 52, L5 50 (Table, p. 68, PDF 2); Inference from the hinck1966 note: white hospital patients over 18 from Portland, Oregon, sexes combined.",
+  "modality": "Standard AP and lateral radiographs of the lumbosacral spine (printed 'from L1-S5') at a 'standard distance of 101 mm' (p. 68, PDF 2; Inference: 101 cm, the 40-inch target-film distance of Hinck's norms); IPD read on the AP (abstract, p. 67, PDF 1); instrument, readers and blinding not stated; no magnification correction; unpaired t-test against Hinck's published n, mean and SD; cut-offs and sensitivities from fitted normal distributions (p. 68, PDF 2).",
+  "levels_covered": "L1 to L5 (IPD). No thoracic, cervical or sacral values, although the films reached the sacrum. Level identification and numbering not stated; Inference: the 5 patients with lumbosacral transitional vertebrae were kept (n = 32 at every level).",
+  "anomalies": [
+    {
+      "variant": "lumbosacral transitional vertebra (type, side and numbering not given)",
+      "finding": "5/32 = 15.6% (Inference, my arithmetic: Wilson 95% 6.9% to 31.8%)",
+      "page": "p. 68 (PDF 2); repeated p. 70 (PDF 4)",
+      "population": "32 US adult volunteers with Marfan syndrome by DePaepe criteria, 18 F / 14 M",
+      "how_identified": "not stated; Inference: on the AP and lateral lumbosacral radiographs, the only images taken"
+    },
+    {
+      "variant": "transitional vertebrae, biconcave vertebrae and lengthened transverse process distance (cited, Tallroth 1995)",
+      "finding": "described as a high prevalence in the Marfan lumbar spine; no number quoted",
+      "page": "p. 70 (PDF 4)",
+      "population": "Marfan syndrome (Tallroth et al. 1995, Skeletal Radiol)",
+      "how_identified": "not stated in this paper"
+    },
+    {
+      "variant": "spondylolisthesis",
+      "finding": "4/32 on the lateral radiograph (12.5%; Inference: Wilson 95% 5.0% to 28.1%), 2 isthmic and 2 degenerative, mean slip 26%; the discussion says 5/32 but then speaks of 2 of the 4 cases as degenerative; levels not stated",
+      "page": "p. 68 (PDF 2); p. 70 (PDF 4)",
+      "population": "32 US adult volunteers with Marfan syndrome",
+      "how_identified": "lateral radiograph; slip measurement method not stated"
+    },
+    {
+      "variant": "spondylolisthesis (cited, Sponseller 1995)",
+      "finding": "5/82 = 6.1% (Inference: Wilson 95% 2.6% to 13.5%)",
+      "page": "p. 70 (PDF 4)",
+      "population": "82 skeletally mature Marfan patients, youngest 16 years, not held to DePaepe criteria",
+      "how_identified": "not stated in this paper"
+    },
+    {
+      "variant": "dural ectasia (cited, Pyeritz 1988)",
+      "finding": "dural sac ballooning in its most caudal part, present in the lumbosacral spine in two thirds of Marfan patients; not imaged in this study",
+      "page": "p. 70 (PDF 4)",
+      "population": "Marfan syndrome (Pyeritz et al. 1988, Am J Hum Genet)",
+      "how_identified": "not stated in this paper"
+    },
+    {
+      "variant": "dural ectasia with anterior sacral meningocele and widened IPDs (cited case, Arroyo and Garcia 1989); widened IPD in 2 of 4 Marfan patients (cited, Nelson 1958)",
+      "finding": "single case; 2/4",
+      "page": "p. 67 (PDF 1); p. 70 (PDF 4)",
+      "population": "Marfan case reports",
+      "how_identified": "not stated in this paper"
+    },
+    {
+      "variant": "T13, L6 as such, 11 or 13 rib pairs, cervical ribs, block vertebrae",
+      "finding": "not mentioned",
+      "page": "whole paper, p. 67-71 (PDF 1-5)"
+    }
+  ],
+  "measures": [
+    {
+      "name": "Interpediculate distance (IPD), also called interpedicular distance",
+      "definition": "\"the shortest distance between the medial surfaces of the pedicles\" (p. 68, PDF 2), read on the AP lumbar radiograph (abstract, p. 67, PDF 1); instrument not stated; film values, uncorrected for magnification.",
+      "projection": "AP radiograph at about 101 cm (40 in) source-film distance (printed 101 mm; Inference: misprint); not obtainable from a lateral (Inference: geometry). Rotation of a vertebra (lumbar scoliosis over 20 deg, an exclusion) makes the projected IPD inaccurate (p. 67, PDF 1).",
+      "levels": "L1-L5",
+      "level_pattern": "Normal (Hinck) mean/SD mm: L1 25.0/2.2, L2 25.5/2.3, L3 26.0/2.7, L4 26.9/3.0, L5 29.7/3.7; Marfan: 29.5/3.0, 30.3/2.5, 32.1/2.4, 34.8/2.8, 39.6/4.7 (Table, p. 68, PDF 2). Both rise L1 to L5; largest step L4 to L5 in both (+2.8 normal, +4.8 Marfan); normal L1-L3 nearly flat. Marfan excess +4.5 to +9.9 mm, ratio 1.18 (L1) to 1.33 (L5), growing caudally; standardised difference 1.8, 2.0, 2.3, 2.7, 2.4; Marfan L1 nearly equals normal L5; Marfan L2-L5 exceed every normal lumbar mean (arithmetic mine, Inference). p < 0.001 at every level (Table).",
+      "covariates": "No split by sex, age or size; 18 F / 14 M; age not reported (clinic arm 30-50); height not reported though Marfan patients are tall. Inference: a size effect would scale all levels by one ratio, but the Marfan/normal ratio rises caudally, which fits a caudal process such as dural ectasia. Controls are Hinck's combined-sex film values (males about 1 mm larger, hinck1966 note).",
+      "error": "Not measured; no readers, repeats or instrument resolution. Reliability argued from the literature: little interobserver variability (Simril and Thurston 1955, Schwarz 1956, Hinck and Clark 1966, Roberson 1973, McCall 1993) and agreement of the Elsberg and Dyke, Schwarz and Hinck normal series (p. 69, PDF 3); plain-film IPDs correlated with CT and anatomic measures (Eisenstein 1977, Ullrich 1980, Malmivaara 1986; p. 67, PDF 1). Inference: SE of Marfan means 0.42-0.53 mm (L1-L4), 0.83 mm (L5).",
+      "page": "p. 67 (PDF 1); p. 68 (PDF 2), Table; p. 69 (PDF 3), Figure",
+      "ct_mask_recipe": "Inference throughout: in the vertebra's local frame (craniocaudal normal to the end plates, AP from body centroid to spinous process), isolate the two pedicles from the posterior-elements subregion between the posterior body wall and the articular processes; project pedicle voxels along AP onto the coronal plane and, row by row, take the gap between the medial-most right and left pedicle edges; IPD is the smallest gap. The axial-slice minimum is never smaller. Multiply by the film magnification (about 1.07-1.17 at 40 in, hinck1966 note) or compare between-level ratios to match these film values. A wide bony gap in dural ectasia is real signal, not segmentation error.",
+      "radiograph_recipe": "AP (or PA) film or AP fluoroscopy: shortest gap between the medial cortices of the two pedicle shadows at each lumbar level; values are magnified film values; flag levels in a lumbar curve over 20 deg as unreliable (p. 67-68, PDF 1-2). Lateral cannot give it."
+    },
+    {
+      "name": "Cut-off value (per-level screening threshold for Marfan)",
+      "definition": "Normal (Hinck) mean + 2 x normal SD at that level; an IPD above it is read as positive for Marfan (p. 68, PDF 2; Table footnote b; Figure caption, p. 69, PDF 3).",
+      "projection": "AP radiograph, film scale, as IPD",
+      "levels": "L1-L5",
+      "level_pattern": "Cut-offs L1 29.4, L2 30.1, L3 31.4, L4 32.9 (33 in the text, p. 70, PDF 4), L5 37.1 mm; stated specificity 95% at every level; sensitivity L1 51%, L2 53%, L3 61%, L4 75% (best), L5 70% (Table, p. 68, PDF 2). Sensitivities come from a normal fitted to the Marfan mean and SD, reproduced exactly as P(Z > (cut - mean)/SD) (Inference). Inference: mean + 2 SD is 97.7% one-sided specificity; a true one-sided 95% cut (mean + 1.645 SD) would be 28.6, 29.3, 30.4, 31.8, 35.8 mm with model sensitivities about 62%, 66%, 76%, 86%, 79%. The rounded L4 cut-off, 33 mm, equals Hinck's adult 90% tolerance upper limit at L4 (hinck1966 note).",
+      "covariates": "None; inherits Hinck's combined-sex adults.",
+      "error": "No sampling uncertainty given. Inference: L4 sensitivity of 75% of 32 has a Wilson 95% interval of about 58% to 87%; the cut-offs carry the sampling error of Hinck's means and SDs (n 50-59 per level). The caption's 'p < 0.0001' for the cut-offs differing from both groups' means cannot hold at L1-L2 (cut-off 0.1-0.2 mm below the Marfan mean) (Inference).",
+      "page": "p. 68 (PDF 2), Table; p. 69 (PDF 3), Figure; p. 70 (PDF 4)",
+      "ct_mask_recipe": "Inference: only after putting the CT IPD on the film scale (magnification about 1.07-1.17).",
+      "radiograph_recipe": "AP film at about 40 in; compare each level's IPD with its cut-off."
+    },
+    {
+      "name": "Spondylolisthesis slip percentage",
+      "definition": "Reported only as present on the lateral radiograph, mean slip 26% in 4 patients (2 isthmic, 2 degenerative); method, levels and individual values not given.",
+      "projection": "lateral radiograph",
+      "levels": "not stated; linked to the lumbosacral spine in the discussion (p. 70, PDF 4)",
+      "page": "p. 68 (PDF 2)",
+      "ct_mask_recipe": "Inference: in the midsagittal plane, AP offset of the upper body's posterior-inferior corner from the lower body's posterior-superior corner, as a percentage of the lower end plate's AP depth.",
+      "radiograph_recipe": "lateral radiograph (p. 68, PDF 2)"
+    }
+  ],
+  "level_details": [
+    {"level": "L1", "detail": "Normal 25.0/2.2, Marfan 29.5/3.0, cut-off 29.4, sensitivity 51%; least discriminating level; Marfan L1 nearly equals a normal L5 (Inference).", "page": "Table, p. 68 (PDF 2)"},
+    {"level": "L2", "detail": "Normal 25.5/2.3, Marfan 30.3/2.5, cut-off 30.1, sensitivity 53%.", "page": "Table, p. 68 (PDF 2)"},
+    {"level": "L3", "detail": "Normal 26.0/2.7, Marfan 32.1/2.4, cut-off 31.4, sensitivity 61%.", "page": "Table, p. 68 (PDF 2)"},
+    {"level": "L4", "detail": "Normal 26.9/3.0, Marfan 34.8/2.8, cut-off 32.9 (33 mm in the text), sensitivity 75%: the best single screening level; largest standardised difference (2.7, Inference).", "page": "Table, p. 68 (PDF 2); p. 70 (PDF 4)"},
+    {"level": "L5", "detail": "Normal 29.7/3.7, Marfan 39.6/4.7, cut-off 37.1, sensitivity 70%; largest absolute widening and largest spread; L4 to L5 is the largest adjacent step in both groups.", "page": "Table, p. 68 (PDF 2)"},
+    {"level": "L5/S1 and lumbosacral region", "detail": "5 LSTVs in 32; 4 (or 5) spondylolistheses at unstated levels, linked to destabilisation of the lumbosacral spine; dural ectasia described in the cited literature as caudal sac ballooning in the lumbosacral spine, with an anterior sacral meningocele in one cited case; films reached the sacrum but no sacral IPD reported.", "page": "p. 67 (PDF 1); p. 68 (PDF 2); p. 70 (PDF 4)"},
+    {"level": "T12/L1", "detail": "Not studied; L1 is the most cranial level. Malmivaara 1986 (radiographic against direct canal measurement at T10-L1) is cited only for film-to-anatomy correlation.", "page": "p. 67 (PDF 1); reference list p. 70 (PDF 4)"},
+    {"level": "C2/C3, C7/T1", "detail": "Not covered.", "page": "whole paper"}
+  ],
+  "errors": [
+    {"what": "intra- and inter-observer error, repeat readings, number of readers, instrument resolution", "value": "not reported", "page": "p. 68 (PDF 2)"},
+    {"what": "interobserver variability of plain-film IPD (cited literature)", "value": "described as little; no figure quoted", "page": "p. 69 (PDF 3)"},
+    {"what": "film-to-CT and film-to-anatomy agreement (cited literature)", "value": "said to be correlated; no coefficient or offset quoted", "page": "p. 67 (PDF 1)"},
+    {"what": "projection error from rotation", "value": "lumbar scoliosis over 20 deg excluded because rotation makes the projected IPD inaccurate; no size given", "page": "p. 67 (PDF 1)"},
+    {"what": "magnification", "value": "not corrected; source-film distance printed 101 mm (Inference: 101 cm, as Hinck's 40 in)", "page": "p. 68 (PDF 2)"},
+    {"what": "biological spread (SD per level)", "value": "normal 2.2 (L1) to 3.7 (L5) mm; Marfan 2.4 (L3) to 4.7 (L5) mm", "page": "Table, p. 68 (PDF 2)"},
+    {"what": "sampling error of Marfan means (Inference, my arithmetic)", "value": "SD/sqrt(32): 0.42-0.53 mm at L1-L4, 0.83 mm at L5", "page": "Table, p. 68 (PDF 2)"}
+  ],
+  "pearls_pitfalls": [
+    {"text": "Indication: lumbar IPD as a cheap, noninvasive skeletal criterion or screening test for Marfan, as protrusio acetabuli is used in the DePaepe criteria.", "page": "p. 67 (PDF 1); p. 69 (PDF 3)"},
+    {"text": "Pearl: IPDs above the per-level cut-offs are \"highly indicative of Marfan syndrome\"; an L4 IPD over 33 mm is the best single screen, specificity 95% and sensitivity 75% as stated.", "page": "Table caption, p. 68 (PDF 2); p. 67 (PDF 1); p. 70 (PDF 4)"},
+    {"text": "Proposed mechanisms of the widening, neither tested: abnormal growth and formation of the vertebral elements from the connective tissue disorder (with Tallroth's developmental anomalies and the 5 LSTVs here), or dural ectasia, present lumbosacrally in two thirds of Marfan patients (Pyeritz 1988).", "page": "p. 70 (PDF 4)"},
+    {"text": "Spondylolisthesis in Marfan may follow dural ectasia eroding bone and destabilising the lumbosacral spine, or weak connective tissue support allowing translation; the higher prevalence than Sponseller's 5/82 may reflect strict DePaepe diagnosis or older age, 2 of the 4 slips being degenerative.", "page": "p. 70 (PDF 4)"},
+    {"text": "Widened IPD differential: trauma, tumours, diastematomyelia, neurofibromatosis, and Marfan. Narrowed IPD: achondroplasia, diastrophic dwarfism, acrodysostosis, cloacal exstrophy.", "page": "p. 69 (PDF 3)"},
+    {"text": "Pitfall, projection: a rotated vertebra (lumbar scoliosis over 20 deg) gives an inaccurate projected IPD.", "page": "p. 67 (PDF 1)"},
+    {"text": "Pitfall, level (Inference): the Marfan canal widens more at each more caudal level, so a Marfan lumbar vertebra carries the IPD of a more caudal normal one (Marfan L1 about normal L5; Marfan L2-L5 above every normal lumbar mean); with a transitional segment (5/32) a level can look like the one below it or like a sacral segment if IPD is read as an absolute level cue. Dural ectasia is thus a numbering pitfall, not only a diagnosis.", "page": "Table, p. 68 (PDF 2)"},
+    {"text": "Pitfall, comparison: historical 1966 film norms from another population, sexes combined, no matched controls; the caption's p < 0.0001 for the cut-offs is not usable.", "page": "p. 68 (PDF 2)"}
+  ],
+  "instructions": [
+    {"text": "On an AP lumbar radiograph or AP fluoroscopy frame, measure each lumbar IPD as the shortest distance between the medial cortices of the two pedicle shadows; do not try it on a lateral (Inference: geometry).", "page": "p. 68 (PDF 2); p. 67 (PDF 1)"},
+    {"text": "Mark IPDs unreliable at levels within a lumbar curve over about 20 deg, since rotation distorts the projection; Inference: also flag a level whose spinous process sits off the midline between the pedicles.", "page": "p. 67 (PDF 1)"},
+    {"text": "Put every IPD on the film scale before comparing with these tables (uncorrected film values at about 101 cm / 40 in; unit corrected by Inference); for a CT mask multiply the true width by an assumed magnification, or compare between-level ratios.", "page": "p. 68 (PDF 2)"},
+    {"text": "Screen against the cut-offs L1 29.4, L2 30.1, L3 31.4, L4 32.9 (33), L5 37.1 mm; an L4 above 33 mm puts the spine in a widened-canal state (differential: Marfan, neurofibromatosis, tumour, trauma, diastematomyelia). Inference: several levels above cut-off strengthen the call; the paper tests levels one at a time.", "page": "Table, p. 68 (PDF 2); p. 69 (PDF 3); p. 70 (PDF 4)"},
+    {"text": "In the widened-canal state stop using absolute IPD as a level cue (Marfan L1 29.5 reads like normal L5 29.7); use the within-patient rise L1 to L5 and other anchors (last rib-bearing vertebra, iliac crests, sacral ala, a count from C2; Inference for the anchors).", "page": "Table, p. 68 (PDF 2)"},
+    {"text": "Expect larger adjacent steps in the widened state (Marfan L3-L4 +2.7, L4-L5 +4.8 mm against normal +0.9, +2.8); Inference: do not mistake a Marfan L3/L4 step for a normal L4/L5 step.", "page": "Table, p. 68 (PDF 2)"},
+    {"text": "In the widened-canal state raise the LSTV prior (5/32 Marfan adults; Tallroth cited for a high prevalence); Inference: count from a cranial anchor rather than from the sacrum.", "page": "p. 68 (PDF 2); p. 70 (PDF 4)"},
+    {"text": "On the lateral look for spondylolisthesis (4/32, 2 isthmic, 2 degenerative, mean slip 26%; levels not given, tied to the lumbosacral spine); Inference: a slip should not break the chain of instances.", "page": "p. 68 (PDF 2); p. 70 (PDF 4)"},
+    {"text": "Inference from memory: look for posterior vertebral scalloping on the lateral and a widened dural sac or anterior sacral meningocele on CT or MRI as signs of dural ectasia; the paper cites the meningocele case and lists Mitchell 1967 on scalloped vertebrae but measures neither.", "page": "p. 67 (PDF 1); p. 70 (PDF 4)"},
+    {"text": "If IPD fails to widen caudally or falls below normal, think of the narrowed-IPD conditions (achondroplasia, diastrophic dwarfism, acrodysostosis, cloacal exstrophy); Inference: expect the opposite level bias.", "page": "p. 69 (PDF 3)"},
+    {"text": "Carry the per-level biological SD (normal 2.2-3.7, Marfan 2.4-4.7 mm) as the IPD's uncertainty; the paper gives no reading error of its own.", "page": "Table, p. 68 (PDF 2)"},
+    {"text": "Use the L4 to L5 jump as the strongest within-patient IPD cue to the last lumbar vertebra (+2.8 normal, +4.8 Marfan, the largest step in both); Inference: with a transitional segment it may sit one level off, so confirm with the sacral ala and iliac crests.", "page": "Table, p. 68 (PDF 2)"}
+  ],
+  "bordercall": [
+    "(a) Decoder priors: LSTV in adult Marfan syndrome (US volunteers, DePaepe criteria, 18 F / 14 M) 5/32 = 15.6%, Wilson 95% 6.9-31.8% (count p. 68, PDF 2; interval Inference); type unknown, so no split into sacralised L5 and lumbarised S1. Spondylolisthesis 4/32 (p. 68) or 5/32 (p. 70); cited Sponseller 1995 5/82. Dural ectasia (cited, Pyeritz 1988) lumbosacral in two thirds of Marfan patients (p. 70, PDF 4). No general-population prevalence. Inference: model Marfan or dural ectasia as a patient-level latent state that raises the LSTV transition and changes the IPD emissions, with a small prior in a general cohort.",
+    "(b) Measures and definitional bias: IPD here is the shortest medial-pedicle gap projected on an AP film, magnified. Panjabi's SCW is a true-size cadaveric width drawn near mid-depth, at the pedicles by inference, widest chord or minimum not stated (panjabi1992 note, L1 23.7 to L5 27.1); a mask's widest canal width runs above a projected minimum and a film value above true size by the magnification (Hinck/Panjabi ratios 1.05-1.10, Inference). Eisenstein 1977 used the greatest interpedicular distance on dry bone (eisenstein1977 note). Candidate additions (Inference): a Marfan/dural-ectasia mixture for canal width with per-level factors 1.18, 1.19, 1.23, 1.29, 1.33 (L1-L5) and film-scale SDs 3.0, 2.5, 2.4, 2.8, 4.7 mm; adjacent-level IPD ratios as a magnification- and size-free observable (normal L5/L4 1.10, L4/L3 1.03; Marfan 1.14, 1.08). Nothing on end plates, body heights, canal depth, pedicle dimensions or facets.",
+    "(c) Measurement error: none measured; use Hinck's reading error of about 0.3 mm (Inference, hinck1966 note) plus a rotation term; the Table's SDs are biological spread plus error; SE of Marfan means 0.42-0.83 mm; L4 sensitivity roughly 58-87% (Inference).",
+    "(d) Covariates: 18 F / 14 M, no split; age not reported (clinic arm 30-50); height and weight not reported; US, ethnicity unstated (p. 68, PDF 2). Inference: the caudally rising Marfan/normal ratio (1.18 to 1.33) argues against a pure size effect, so the patient size factor should not absorb it."
+  ],
+  "gaps": [
+    "Unit misprint: source-film distance printed 101 mm; 101 cm (40 in) is meant (Inference) (p. 68, PDF 2).",
+    "'L1-S5' for the film extent is loose; no sacral IPD reported (p. 68, PDF 2).",
+    "Abstract says AP radiographs only; methods say AP and lateral (p. 67-68, PDF 1-2).",
+    "Spinal stenosis is an exclusion in the clinic screen (p. 68) but not in the methods' list (p. 67).",
+    "Whether the volunteer arm was held to the clinic arm's 30-50 year window is not said (p. 68, PDF 2).",
+    "Spondylolisthesis 4 in the methods (p. 68) against 5/32 in the discussion, which then speaks of the 4 cases (p. 70).",
+    "Table p < 0.001 for Marfan against normal; caption p < 0.0001 for the cut-offs differing from both means, impossible at L1-L2 (Inference) (p. 68, PDF 2).",
+    "Discussion invokes a 'higher mean age' but no age is ever printed (p. 70, PDF 4).",
+    "Control citation printed as Hinck and Clark (1966), Hinck et al. 1966 and, in the table footnote, Hinck et al. 1996 (p. 68, p. 70).",
+    "Mean + 2 SD called 95% specificity; 97.7% one-sided under normality (Inference).",
+    "Sensitivities from a normal model, not counts; no confidence intervals; no per-patient data, the Figure showing only fitted curves (p. 68-69, PDF 2-3).",
+    "Not stated: instrument, readers, blinding, reliability, magnification correction, level identification and numbering, LSTV type and handling, level of each slip, age, height, ethnicity.",
+    "Dural ectasia proposed but not imaged; widening not related to sac size in any patient (p. 70, PDF 4).",
+    "Historical 1966 controls from another population, sexes combined, unmatched (p. 68, PDF 2).",
+    "Inference, against hinck1966: Hinck screened out significant anomalies while Ahn kept 5 LSTV patients; Hinck's adult n per level (59, 57, 53, 52, 50) matches the hinck1966 note."
+  ]
+}

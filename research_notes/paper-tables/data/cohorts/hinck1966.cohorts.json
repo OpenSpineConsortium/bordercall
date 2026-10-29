@@ -1,0 +1,187 @@
+{
+  "paper": "hinck1966",
+  "cohorts": [
+    {
+      "cohort": "oregon_ap_spine_films",
+      "labels": [
+        "all",
+        "male",
+        "female",
+        "age 3, 4, 5",
+        "age 6, 7, 8",
+        "age 9, 10",
+        "age 11, 12",
+        "age 13, 14",
+        "age 15, 16",
+        "age 17, 18",
+        "adult",
+        "children under 19 years",
+        "sample size 10",
+        "sample size 15",
+        "sample size 20",
+        "sample size 30"
+      ],
+      "tables": [
+        "Table IA",
+        "Table IB",
+        "Table IC",
+        "Table II",
+        "Table III",
+        "Text: Method",
+        "Text: Results"
+      ],
+      "subjects": "Living white hospital patients whose anteroposterior spine roentgenograms, taken for other purposes, were found by a systematic search of the roentgenographic files of the University of Oregon Medical School, Portland, Oregon, USA. Films were screened for readability, and an attempt was made to remove subjects with significant anomalies and other problems likely to influence growth and development, to limit the bias of a hospital population (what counted as significant is not defined). Children under 19 years in seven age groups (3, 4, 5; 6, 7, 8; 9, 10; 11, 12; 13, 14; 15, 16; 17, 18 years) and adults over 18. Each film classified by sex and by age to the nearest month. No child under 3 years. Many films did not show the whole spine, so N varies by level (lumbar best, cervical least); C1, C2 and the sacrum not measured.",
+      "n_people": null,
+      "n_units": "474 AP spine roentgenograms: 353 of children (35, 52, 30, 46, 59, 63 and 68 by age group, Table II) and 121 of adults; per vertebra and age group N 8 to 68 (Table II), 22 levels C3 to L5. The count is of films; whether a patient gave more than one is not stated",
+      "ages": "children 3 to 18 years (mean ages by group 4.1, 7.1, 9.4, 11.6, 13.6, 15.6, 17.5, Table IA); adults printed only as >18, no upper age or mean",
+      "sexes": "both; Tables IB and IC split males and females, but the number of each sex is not given",
+      "page": "p. 141-142 (PDF 1-2); Table II p. 145 (PDF 5)"
+    },
+    {
+      "cohort": "duplicate_cases",
+      "labels": [
+        "duplicates, 9 cases"
+      ],
+      "tables": [
+        "Text: Measurement error"
+      ],
+      "subjects": "9 cases on which IPDs were measured twice, independently and at different times; the paper does not say how they were chosen. Inference: cases of the Oregon AP spine series, since the check is reported in its Method.",
+      "n_people": 9,
+      "n_units": "89 duplicate IPD measurements in 9 cases",
+      "ages": "not stated",
+      "sexes": "not stated",
+      "page": "p. 142 (PDF 2)"
+    },
+    {
+      "cohort": "ap_spine_pa_chest_pairs",
+      "labels": [
+        "10 patients aged 10 to 15"
+      ],
+      "tables": [
+        "Table IV",
+        "Figure 4",
+        "Text: AP spine versus PA chest"
+      ],
+      "subjects": "10 randomly selected normal patients between 10 and 15 years of age who had both a PA chest roentgenogram and an AP thoracic spine roentgenogram; hospital and population not restated (Inference: the same Oregon files). Whether they are among the 474 films of the norms is not said.",
+      "n_people": 10,
+      "n_units": "89 comparable paired thoracic IPD measurements of a possible 120 (T1 to T12; N 3 to 10 by level, Table IV)",
+      "ages": "10 to 15 years",
+      "sexes": "not stated",
+      "page": "p. 148 (PDF 8)"
+    },
+    {
+      "cohort": "illustrative_cases",
+      "labels": [
+        "Case I",
+        "Case II",
+        "Case III",
+        "Case IV"
+      ],
+      "tables": [
+        "Figure 5",
+        "Figure 6",
+        "Figure 7",
+        "Figure 8",
+        "Text: Illustrative cases"
+      ],
+      "subjects": "Four patients shown to illustrate canal stenosis by small IPD: Case I (R.C.), a 60 year old man with symptomatic thoracic canal stenosis, mild degenerative change and a T7-8 osteophyte, studied by myelography; Case II (R.S.), a boy of 5 6/12 years with achondroplasia referred for mental retardation; Case III (R.C.), a girl of 4 4/12 years with osteopetrosis; Case IV (E.F.), a boy of 3 6/12 years with osteochondrodystrophy, basilar invagination, partial atlanto-occipital assimilation and hemivertebrae at T2 and (ventral) T10. Cases II to IV had no clinical findings of stenosis. Their IPDs are plotted against the tolerance range for their age group with no printed values.",
+      "n_people": 4,
+      "n_units": "4 patients, one IPD profile each (Fig. 5B C6 to L5, Fig. 6B T10 to L5, Fig. 7B T7 to L5, Fig. 8B T4 to L5)",
+      "ages": "60 years; 5 6/12 years (5 1/2 in the text); 4 4/12 years (4 in the text); 3 6/12 years (3 in the text)",
+      "sexes": "3 male (Cases I, II, IV), 1 female (Case III)",
+      "page": "p. 149-153 (PDF 9-13)"
+    },
+    {
+      "cohort": "simril_thurston_1955_cited",
+      "labels": [
+        "Simril and Thurston subjects",
+        "1 day to 2 months",
+        "2 months to 2 years",
+        "2 years to 12 years"
+      ],
+      "tables": [
+        "Text: Introduction"
+      ],
+      "subjects": "Not measured here: the infants and children of Simril and Thurston (1955), grouped by estimated physical age on the Wetzel grid, cited for their three age groups only",
+      "n_people": null,
+      "n_units": "not stated in this paper",
+      "ages": "1 day to 12 years in three groups (as cited)",
+      "sexes": "not stated in this paper",
+      "page": "p. 141 (PDF 1)"
+    }
+  ],
+  "techniques": [
+    {
+      "technique": "ap_spine_film_caliper",
+      "cohorts": [
+        "oregon_ap_spine_films",
+        "duplicate_cases",
+        "ap_spine_pa_chest_pairs",
+        "illustrative_cases"
+      ],
+      "modality": "AP radiograph",
+      "instrument": "calipers on anteroposterior spine roentgenograms taken at a target-film distance of 40 inches, recorded to the nearest 0.1 mm",
+      "how": "Interpediculate distance: the shortest distance between the medial surfaces of the left and right pedicles of a vertebra, read on the AP film for each vertebra C3 to L5. Means and SDs by level, sex and age group; 90 per cent tolerance limits as the mean plus or minus 2.8, 2.5, 2.3 or 2.1 SD for estimates on 10, 15, 20 or 30 films, with SDs and sample sizes averaged over groups of similar vertebrae. Patient position for the main series not stated (the thoracic spine film of the pairs substudy is called recumbent). Inference: the illustrative cases' IPDs were read the same way, since they are plotted against these norms.",
+      "magnification": "not corrected and not stated; values are film values at 40 inches target-film distance",
+      "observers": "one of the authors made all measurements; repeatability from 89 duplicates in 9 cases, no second reader",
+      "page": "p. 141-142, 145-146, 148 (PDF 1-2, 5-6, 8)"
+    },
+    {
+      "technique": "pa_chest_film_caliper",
+      "cohorts": [
+        "ap_spine_pa_chest_pairs"
+      ],
+      "modality": "other",
+      "instrument": "posteroanterior (frontal) chest roentgenograms at a target-film distance of 72 inches, IPD measured in the usual manner",
+      "how": "The same thoracic IPDs read on the erect PA chest film and on the recumbent AP thoracic spine film of each patient; the AP spine value minus the PA chest value per vertebra, averaged by level (Table IV), over T1 to T3, T4 to T12 and T1 to T12 (Fig. 4). Vertebrae obscured on the chest film were left out.",
+      "magnification": "not corrected; the comparison itself shows the effect of the two geometries (spine film IPDs larger by about 0.6 mm on average)",
+      "observers": "not stated (Inference: as for the main series)",
+      "page": "p. 148-149 (PDF 8-9)"
+    },
+    {
+      "technique": "simril_thurston_1955_quoted",
+      "cohorts": [
+        "simril_thurston_1955_cited"
+      ],
+      "modality": "other",
+      "instrument": "not described in this paper",
+      "how": "Quoted only: Simril and Thurston's subjects grouped by estimated physical age read from the Wetzel grid, in three groups; their IPD method is not described in this paper.",
+      "magnification": "not stated in this paper",
+      "observers": "not stated in this paper",
+      "page": "p. 141 (PDF 1)"
+    },
+    {
+      "technique": "case_report_clinical",
+      "cohorts": [
+        "illustrative_cases"
+      ],
+      "modality": "other",
+      "instrument": "clinical history and laboratory results as the case report gives them; method not stated",
+      "how": "Case I's history (intervals from symptom onset to admission, frequency of pains) and its spinal fluid protein, reported in the text of the illustrative cases; no method or reference range given.",
+      "magnification": "not applicable",
+      "observers": "not stated",
+      "page": "p. 149 (PDF 9)"
+    }
+  ],
+  "shared": [
+    {
+      "with": "Dixon and Massey (1957), Introduction to Statistical Analysis; not in the list",
+      "what": "method",
+      "evidence": "the tolerance factors 2.8, 2.5, 2.3 and 2.1 come from their probability tables",
+      "page": "p. 146 (PDF 6)"
+    },
+    {
+      "with": "Simril and Thurston (1955), ref. 9; not in the list",
+      "what": "values quoted",
+      "evidence": "quotes their three age groups, 1 day to 12 years, of infants and children",
+      "page": "p. 141 (PDF 1)"
+    },
+    {
+      "with": "Silverman, personal communication, ref. 8; not in the list",
+      "what": "findings compared; no subjects, method or values shared",
+      "evidence": "Silverman is said to have made the same observation independently (spine-film IPDs larger than chest-film IPDs), by personal communication; no data, subjects or method given",
+      "page": "p. 148 (PDF 8)"
+    }
+  ],
+  "within_paper": "Tables IA, IB, IC, II and III are all of the one series of 474 AP spine films: Table IA is the sexes combined, IB the males and IC the females of the same films, and Tables II and III give SD, N and tolerance limits of the combined sample (p. 142, 145 (PDF 2, 5)). The 9 duplicated cases are not said to be from that series (Inference: they are, p. 142 (PDF 2)). The 10 patients of the AP spine and PA chest pairs are 'randomly selected normal patients' with no word on whether their spine films are among the 474 (p. 148 (PDF 8)). The four illustrative cases are separate patients with disease (Inference: outside the normal series, which screened out significant anomalies, p. 141 (PDF 1)); Cases I and III share the initials R.C. but differ in age and sex and are different people (p. 149, 153 (PDF 9, 13))."
+}

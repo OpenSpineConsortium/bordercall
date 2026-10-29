@@ -1,0 +1,104 @@
+{
+  "paper": "robertson2000",
+  "cohorts": [
+    {
+      "cohort": "auckland_drybone",
+      "labels": [
+        "not stated"
+      ],
+      "tables": [
+        "Table 1",
+        "Text: Methods",
+        "Text: Abstract",
+        "Text: Results",
+        "Text: Discussion"
+      ],
+      "subjects": "Ten dry-bone lumbosacral spine specimens (lumbar vertebrae and sacra), studied at the Department of Orthopaedic Surgery, Auckland Hospital, New Zealand. Source collection, country of origin, ethnicity, pathology and any inclusion or exclusion criteria are not stated. Inference: the figures show each vertebra or sacrum alone, so the spines were disarticulated and every bone was imaged on its own.",
+      "n_people": 10,
+      "n_units": "100 lumbar pedicles (L1 to L5, both sides) and 20 S1 pedicles of 10 dry-bone lumbosacral spines; Inference: 10 per Table 1 cell, as the n per cell is not printed, and one person per spine specimen",
+      "ages": "not stated",
+      "sexes": "not stated",
+      "page": "p. 709 (PDF 1)"
+    },
+    {
+      "cohort": "olsewski_cadaveric_male",
+      "labels": [
+        "male"
+      ],
+      "tables": [
+        "Text: Discussion"
+      ],
+      "subjects": "Cadaveric specimens of Olsewski et al [33] (J Bone Joint Surg Am 1990;72:541-9), quoted for comparison as mean male L5 pedicle height and width; their number, ages and origin are not given in this paper.",
+      "n_people": null,
+      "n_units": "not stated in this paper",
+      "ages": "not stated in this paper",
+      "sexes": "male (the quoted means are of male pedicles)",
+      "page": "p. 713 (PDF 5)"
+    }
+  ],
+  "techniques": [
+    {
+      "technique": "coaxial_radiograph_wire",
+      "cohorts": [
+        "auckland_drybone"
+      ],
+      "modality": "other",
+      "instrument": "Plain radiographs of isolated dry vertebrae in the coaxial (pedicle en face) projection; 0.4 mm tinned copper wire drawn tight round each lumbar pedicle isthmus as a radiopaque marker of the outer cortex; vertebrae mounted on plate glass with malleable adhesive",
+      "how": "A direct posteroanterior film was taken first, then each vertebra was turned about its own longitudinal axis with repeated films until the pedicle image was at its widest transverse extent and wholly over the vertebral body; both pedicles were imaged this way. On the coaxial film: height is the upper to lower extent at the inner margin of the wire, read along the body's long axis; width is the most medial to most lateral extent outlined by the wire; axis is the angle of the long axis of the elliptical image from the vertical (sign convention not stated); isthmus is the short axis of the ellipse at the isthmus. The same films gave the distance of the densest pedicle image inside the wire (1 to 3 mm). Only L1 to L5 were measured; the PA films were not measured.",
+      "magnification": "corrected: every radiologic measurement was scaled to a known standard dimension",
+      "observers": "not stated; no intra- or inter-observer data",
+      "page": "p. 709-711 (PDF 1-3)"
+    },
+    {
+      "technique": "s1_oblique_pa_wire",
+      "cohorts": [
+        "auckland_drybone"
+      ],
+      "modality": "other",
+      "instrument": "Plain posteroanterior radiographs of the dry sacrum turned 10 to 15 deg out of the PA plane; 0.8 mm enamelled copper wire round the outer border of each S1 pedicle, since the finer wire did not show the S1 border",
+      "how": "The sacrum was rotated only 10 to 15 deg to widen the S1 pedicle image, a degree judged clinically usable; the radiographic superior and medial S1 cortices were compared with the wire (medial image often 3 to 4 mm inside the wire, more so caudally); no S1 dimension was measured",
+      "magnification": "corrected to a known standard dimension, as for all radiologic measurements",
+      "observers": "not stated",
+      "page": "p. 709 (PDF 1); p. 712 (PDF 4)"
+    },
+    {
+      "technique": "olsewski_direct_cadaveric",
+      "cohorts": [
+        "olsewski_cadaveric_male"
+      ],
+      "modality": "other",
+      "instrument": "not stated in this paper; described only as measurements direct from cadaveric specimens",
+      "how": "not described in this paper; mean male L5 pedicle height and width are quoted",
+      "magnification": "not applicable (direct measurement)",
+      "observers": "not stated in this paper",
+      "page": "p. 713 (PDF 5)"
+    }
+  ],
+  "shared": [
+    {
+      "with": "Olsewski et al [33], J Bone Joint Surg Am 1990;72:541-9 (olsewski1990)",
+      "what": "values quoted",
+      "evidence": "Their mean male L5 pedicle height 17.4 mm and width 21.1 mm, from direct cadaveric measurement, are quoted beside this study's 17.6 and 21.6 mm",
+      "page": "p. 713 (PDF 5)"
+    },
+    {
+      "with": "Krag et al [24], Spine 1989;14:879-83 (not in the list; not krag1988)",
+      "what": "method",
+      "evidence": "The coaxial image the films were taken in is defined with a citation to this paper",
+      "page": "p. 709 (PDF 1)"
+    },
+    {
+      "with": "Cheung et al [8], Spine 1997;22:2106-11, and Phillips et al [35], Spine 1994;19:446-9 (neither in the list)",
+      "what": "method",
+      "evidence": "Cortical marking to correlate anatomy with the radiograph had been used before in the thoracic spine, and similar cortex-to-wire separation was reported there",
+      "page": "p. 713 (PDF 5)"
+    },
+    {
+      "with": "Letournel and Judet [27], Fractures of the Acetabulum, 2nd ed, Springer 1993 (not in the list)",
+      "what": "method",
+      "evidence": "Cortical marking to correlate anatomy with radiology in another complex region (the acetabulum) is cited to this book as precedent for the wire marking",
+      "page": "p. 713 (PDF 5)"
+    }
+  ],
+  "within_paper": "One set of subjects only: Table 1 and every text value of this paper come from the same 10 dry-bone lumbosacral spines, the lumbar pedicles on the coaxial films and the S1 pedicles of the same spines on the oblique PA sacral films (p. 709, PDF 1; p. 712, PDF 4). The text values 31.0 and 55.0 deg (p. 711, PDF 3) and 17.6 and 21.6 mm (p. 713, PDF 5) restate Table 1 cells and are not further measurements. The paper also says its dimensions agree with Krag [25] (krag1988), Misenhimer [31], Olsewski [33] (olsewski1990), Panjabi [34] (panjabi1992) and Zindrick [46] (zindrick1987), a comparison only, with no shared subjects, method or numbers except Olsewski's quoted L5 values (p. 713, PDF 5)."
+}

@@ -1,0 +1,259 @@
+{
+  "id": "abbas2021",
+  "citation": "Janan Abbas, Natan Peled, Israel Hershkovitz, and Kamal Hamoud. The Role of Vertebral Morphometry in the Pathogenesis of Degenerative Lumbar Spinal Stenosis. BioMed Research International (Hindawi), Volume 2021, Article ID 7093745, 8 pages, 2021 (published 6 September 2021; no issue number printed). https://doi.org/10.1155/2021/7093745. Copy read: PMC open-access Cloud Service (pmc-oa-opendata), PMC8437646.1, fetched 2026-10-28; sha256 begins 0bcff4a020aedca7.",
+  "population": "Israel, living patients, all aged 40 or over; ethnicity not stated. Stenosis group: 165 patients with symptomatic degenerative lumbar spinal stenosis (DLSS; dural sac CSA < 100 mm2 at one or more levels, clinical criteria per SPORT applied by a spine surgeon), 80 men and 85 women, age 40 to 88 (men 66.2 +/- 11 y, BMI 28.9 +/- 4; women 62 +/- 8 y, BMI 31.4 +/- 5). Control group: 180 patients without stenosis symptoms referred to the radiology department of Carmel Medical Center, Haifa, for abdominal CT for renal colic and/or abdominal pain (the abstract says 'general population'), 90 men and 90 women, age 40 to 99 (men 62.8 +/- 12 y, BMI 27.3 +/- 4; women 62 +/- 12 y, BMI 27.6 +/- 5). Enrolled 2008 to 2012. Excluded: age < 40, congenital stenosis (bony AP canal < 12 mm), fractures, spondylolysis, tumours, Paget's disease, steroid treatment, scoliosis > 20 deg, iatrogenic conditions (counts not given). p. 2 (PDF 2); Table 1, p. 4 (PDF 4).",
+  "modality": "CT, Philips Brilliance 64, 120 kV, 150 to 570 mA, slice thickness 0.9 to 3 mm, reformatted in all planes, supine with knees extended, bone window; axial slices for body length and width, canal AP, ML and area and the interlaminar angle; midsagittal reformat for body heights; parasagittal reformat through the mid lamina for laminar inclination. Software and pixel size not given. Body and canal methods adapted from Berry et al. 1987 (printed in the text as 'Perry el al.'). p. 2 (PDF 2).",
+  "levels_covered": "L1 to L5 only; no thoracic level, no sacrum, no T12/L1 or L5/S1 junction measure. How levels were identified or counted is not described.",
+  "anomalies": [
+    {
+      "variant": "lumbosacral transitional vertebra, sacralisation, lumbarisation, L6, T13, rib-count anomalies, block vertebrae",
+      "finding": "Not mentioned at all: no prevalence, no numbering method, no handling rule.",
+      "page": "p. 1 to 8 (PDF 1 to 8)",
+      "population": "345 living Israeli patients (165 DLSS, 180 controls)",
+      "how_identified": "not described"
+    },
+    {
+      "variant": "spondylolysis",
+      "finding": "Exclusion criterion; number excluded not given.",
+      "page": "p. 2 (PDF 2)",
+      "population": "stated for 'this study' after the stenosis group's description",
+      "how_identified": "not described (CT available)"
+    },
+    {
+      "variant": "congenital (developmental) lumbar stenosis",
+      "finding": "Exclusion criterion, defined as bony canal AP diameter < 12 mm (Verbiest); number excluded not given. Table 3 has no subject below 12 mm in either group.",
+      "page": "p. 2 (PDF 2); Table 3, p. 5 (PDF 5)",
+      "population": "345 living Israeli patients",
+      "how_identified": "axial CT canal AP diameter"
+    },
+    {
+      "variant": "severe lumbar scoliosis (> 20 deg)",
+      "finding": "Exclusion criterion; number excluded not given.",
+      "page": "p. 2 (PDF 2)",
+      "population": "345 living Israeli patients",
+      "how_identified": "not described"
+    },
+    {
+      "variant": "spondylolisthesis, Scheuermann's disease, osteoarthritis",
+      "finding": "Named in the introduction only as conditions others related to vertebral body morphometry (refs. 12 to 15); no data or prevalence here. Degenerative spondylolisthesis was not an exclusion and its frequency is not given.",
+      "page": "p. 1 (PDF 1)",
+      "population": "none (literature mention)",
+      "how_identified": "not applicable"
+    }
+  ],
+  "measures": [
+    {
+      "name": "Vertebral body length (VL)",
+      "definition": "Longest line joining the anterior and posterior borders of the body on the axial slice at mid vertebral height; Figure 1a draws it in the midline, anterior to posterior cortex.",
+      "projection": "CT axial, bone window",
+      "page": "p. 2 (PDF 2) section 2.2; Figure 1a p. 3 (PDF 3); Table 1 p. 4 (PDF 4)",
+      "levels": "L1 to L5",
+      "level_pattern": "Control men 29.9 +/- 2.7, 31.1 +/- 2.2, 32.6 +/- 2.3, 32.8 +/- 2.3, 32.9 +/- 2.3 mm (rises to L3, plateau L3 to L5); stenosis men 31.3, 32.6, 34, 34.1, 34.5. Control women 26.4, 24.5 (suspect misprint), 29.3, 30, 30.5; stenosis women 27.8, 28.7, 30.9, 31.7, 32.1. All group differences P <= 0.003.",
+      "covariates": "Men 2.4 to 3.5 mm longer than women (Inference, L2 excluded); DLSS 1.3 to 1.7 mm longer at every level; VL L1 enters the adjusted DLSS model (OR 1.273 men, 1.473 women, Table 5).",
+      "ct_mask_recipe": "Inference: body subregion; plane halfway between end plates, perpendicular to the vertebra's own craniocaudal axis; extent along the vertebra's AP axis in the midsagittal line.",
+      "radiograph_recipe": "Inference: lateral radiograph, body depth at mid height, magnification-corrected; not done in the paper.",
+      "error": "Pooled ICCs only (intra 0.782 to 0.985, inter 0.721 to 0.980, 20 subjects)."
+    },
+    {
+      "name": "Vertebral body width (VW)",
+      "definition": "Longest line joining the right and left borders of the body on the same axial mid-height slice; Figure 1a draws it across the body at about mid depth, anterior to the pedicle roots.",
+      "projection": "CT axial, bone window",
+      "page": "p. 2 (PDF 2) section 2.2; Figure 1a p. 3 (PDF 3); Table 1 p. 4 (PDF 4)",
+      "levels": "L1 to L5",
+      "level_pattern": "Control men 39.7 +/- 2.9, 40.9 +/- 2.8, 42.8 +/- 2.9, 44.7 +/- 2.9, 49.1 +/- 3.8 mm; stenosis men 40.9, 42.8, 44.8, 46.6, 51.3. Control women 35, 36.8, 38.8, 40.8, 45; stenosis women 36.1, 37.9, 40.1, 42.2 (SD 8, suspect), 47.1. Monotonic rise, steps about 1.2 to 2 mm, then +4.2 to +4.4 mm at L4 to L5 (Inference).",
+      "covariates": "Men 3.9 to 4.7 mm wider than women (Inference); DLSS 1.1 to 2.2 mm wider; VW not in the regression model.",
+      "ct_mask_recipe": "Inference: same mid-height plane; maximal left-right extent of the body subregion excluding pedicle roots.",
+      "radiograph_recipe": "Inference: AP radiograph, waist width, magnification-corrected.",
+      "error": "Pooled ICCs only."
+    },
+    {
+      "name": "Anterior and posterior body heights (AH, pH) and vertebral beveling ratio (AH/pH x 100)",
+      "definition": "Midsagittal plane: AH between anterosuperior and anteroinferior corners; pH between posterosuperior and posteroinferior corners; ratio AH/pH x 100.",
+      "projection": "CT midsagittal reformat",
+      "page": "p. 2 (PDF 2) section 2.3; Figure 1b p. 3 (PDF 3); Figures 5 and 6 pp. 4 and 5 (PDF 4 and 5)",
+      "levels": "L1 to L5",
+      "level_pattern": "AH and pH not tabulated; ratio only plotted (no SD), read approximately: control men 93, 97, 99, 103, 117; stenosis men 90, 94, 96, 99, 113; control women 96, 99, 102, 104, 117; stenosis women 94, 99, 100, 102, 114. Steady rise L1 to L4 and a 12 to 14 point jump at L5 (Inference).",
+      "covariates": "Lower in DLSS men at all levels (more kyphotic L1 to L3, less lordotic L4 to L5), in DLSS women only at L4; beveling L2 and L4 enter the men's model (OR 0.919, 0.930).",
+      "ct_mask_recipe": "Inference: on the vertebra's midsagittal plane, four body corners; two craniocaudal distances; ratio scale-free.",
+      "radiograph_recipe": "Inference: lateral radiograph gives both heights; ratio cancels magnification; corners blur with beam divergence and rotation.",
+      "error": "Pooled ICCs only; no dispersion plotted."
+    },
+    {
+      "name": "Bony canal anteroposterior diameter (AP)",
+      "definition": "Axial slice at mid vertebral body at the basivertebral foramen; longest line from the posterior border of the body to the posterior canal border (Figure 2a: midline, to the spinolaminar junction).",
+      "projection": "CT axial, bone window",
+      "page": "p. 2 (PDF 2) section 2.4; Figure 2a p. 3 (PDF 3); Tables 2 and 3 p. 5 (PDF 5)",
+      "levels": "L1 to L5",
+      "level_pattern": "U-shaped, minimum at L3: control men 18.7 +/- 1.4, 17.8 +/- 1.6, 16.9 +/- 1.7, 17.6 +/- 1.9, 18.8 +/- 2.2 mm; control women 18.7, 18, 17.3, 18, 18.8; stenosis men 17.8, 16.6, 15.4, 15.6, 16.1; stenosis women 17.6, 16.6, 15.5, 15.5, 15.9. Adjacent steps 0.7 to 1.2 mm against SDs 1.4 to 2.2 (Inference). Table 3 (sexes pooled): percent of controls > 17 mm 87, 68.3, 48.3, 66.1, 80; of stenosis patients in 14.1 to 17 mm 32.1, 58, 67, 63, 59.8.",
+      "covariates": "No sex difference in controls (women equal or up to 0.4 mm larger) despite smaller bodies; DLSS 0.9 to 2.9 mm smaller at every level; AP L5 (men, OR 0.474) and AP L4 and L5 (women, OR 0.490, 0.664) enter the models. Midsagittal diameter fixed early in life (refs. 32, 33).",
+      "ct_mask_recipe": "Inference: mid-height plane; fill the canal hole enclosed by body, pedicles and laminae; extent along the vertebra's midsagittal AP axis from posterior body wall to spinolaminar junction; check the ring is closed; decide the end point at the basivertebral notch.",
+      "radiograph_recipe": "Inference: lateral radiograph, posterior body wall to spinolaminar line at mid body, magnification-corrected; not validated in the paper.",
+      "error": "Pooled ICCs only."
+    },
+    {
+      "name": "Bony canal mediolateral diameter (ML)",
+      "definition": "Same axial slice; longest line joining the medial borders of the two pedicles (Figure 2a: across the widest, anterior part of the canal).",
+      "projection": "CT axial, bone window",
+      "page": "p. 2 (PDF 2) section 2.4; Figure 2a p. 3 (PDF 3); Table 2 p. 5 (PDF 5)",
+      "levels": "L1 to L5",
+      "level_pattern": "Control men 25.5 +/- 1.8, 26 +/- 2.1, 27 +/- 2.2, 28.6 +/- 3, 34.9 +/- 3.9 mm; control women 24.5, 25.4, 26.5, 28.7, 34.8; slow rise L1 to L4 then about +6 mm at L5, the clearest single L4/L5 separator (Inference). No group difference at any level (P 0.064 to 0.725).",
+      "covariates": "Women 0.5 to 1 mm narrower at L1 to L3, equal at L4 and L5 (Inference). Transverse diameter grows until adulthood (ref. 33). Inference (set notes): L5 value 8 to 11 mm above dry-bone canal widths (Panjabi 27.1, Eisenstein 24 to 26) and 5 mm above Hinck's film mean; not poolable.",
+      "ct_mask_recipe": "Inference: in the AP plane, maximal left-right width of the canal hole between medial pedicle cortices.",
+      "radiograph_recipe": "Inference: AP radiograph interpediculate distance is a magnified minimum over the pedicle height, not this CT longest line; needs correction.",
+      "error": "Pooled ICCs only."
+    },
+    {
+      "name": "Bony canal cross-sectional area (CSA)",
+      "definition": "Area on the same axial slice bounded by the posterior body cortex, the medial pedicle borders and the anterior border of the neural arch.",
+      "projection": "CT axial, bone window",
+      "page": "p. 2 (PDF 2) section 2.4; Figure 2b p. 3 (PDF 3); Table 2 p. 5 (PDF 5)",
+      "levels": "L1 to L5",
+      "level_pattern": "Control men 296 +/- 41, 283 +/- 40, 279 +/- 45, 305 +/- 52, 370 +/- 66 mm2; control women 285, 283, 282 (SD 74, suspect), 308, 374; stenosis men 274, 256, 252, 268, 310; stenosis women 256, 243, 236, 253, 297. Minimum L3, +26 at L4, +65 at L5 (Inference).",
+      "covariates": "Men and women equal in controls; DLSS smaller at every level (P < 0.001).",
+      "ct_mask_recipe": "Inference: area of the filled canal hole, preferably on a plane perpendicular to the local canal axis.",
+      "radiograph_recipe": "Not possible from one projection (Inference).",
+      "error": "Pooled ICCs only."
+    },
+    {
+      "name": "Interlaminar angle (ILA)",
+      "definition": "Axial slice through the upper third of the laminae; angle between the long axes of the two laminae, meeting at the spinolaminar junction and opening anteriorly (Figure 3).",
+      "projection": "CT axial",
+      "page": "p. 2 (PDF 2) section 2.5; Figure 3 p. 3 (PDF 3); Table 4 p. 6 (PDF 6)",
+      "levels": "L1 to L5",
+      "level_pattern": "Control men 116 +/- 10, 116 +/- 9, 113 +/- 11, 102 +/- 11, 98 +/- 11 deg; control women 114, 112, 108, 98, 94; largest fall L3 to L4 (10 to 11 deg); separates L1-L3 from L4-L5, not neighbours (Inference).",
+      "covariates": "Women 2 to 5 deg smaller at every level (Inference); DLSS men smaller at L4 (98) and L5 (90); DLSS women larger at L2 to L4.",
+      "ct_mask_recipe": "Inference: axial plane at one sixth of the laminar craniocaudal extent from its top; principal axis of each lamina's cross-section; angle on the canal side.",
+      "radiograph_recipe": "Not possible (axial angle).",
+      "error": "Pooled ICCs only."
+    },
+    {
+      "name": "Laminar inclination (LI)",
+      "definition": "Parasagittal plane through the middle of one lamina (Figure 4b: a little lateral to the midline, still through the body); angle between the long axis of the mid lamina and the posterior cortex of the same vertebral body, marked on the caudal side (Figure 4a). Modified from Xu et al. 1999, who used the horizontal plane of the body.",
+      "projection": "CT parasagittal reformat",
+      "page": "p. 2 (PDF 2) section 2.6; Figure 4 p. 4 (PDF 4); Table 4 and Discussion p. 6 (PDF 6)",
+      "levels": "L1 to L5",
+      "level_pattern": "Control men 22.6 +/- 5, 26.4 +/- 6, 31.4 +/- 6, 39.5 +/- 6, 46.7 +/- 8 deg; control women 26.5, 29.5, 34, 42.3, 49.8; steady monotonic rise, steps 3 to 8 deg, largest L3 to L4 (Inference).",
+      "covariates": "Women 2.6 to 3.9 deg larger (Inference); DLSS smaller at L2 to L4 in men (2.7 to 3.9 deg) and L1 to L4 in women (2.8 to 5.0 deg), not at L5; LI L3 (men, OR 0.901) and LI L1 (women, OR 0.856) enter the models.",
+      "ct_mask_recipe": "Inference: sagittal plane through the centre of one lamina; line fit to the posterior body cortex and to the lamina's long axis; angle on the caudal side. Which side, or both, not stated.",
+      "radiograph_recipe": "Inference: lateral radiograph superimposes both laminae and facets; not validated.",
+      "error": "Pooled ICCs only."
+    }
+  ],
+  "level_details": [
+    {
+      "level": "L1",
+      "detail": "VL L1 is the body term in both sexes' adjusted DLSS models (men OR 1.273, 95% CI 1.094-1.481, P = 0.002; women 1.473, 1.164-1.864, P = 0.001); women's LI L1 also enters (OR 0.856, 0.761-0.963, P = 0.010). ML and ILA (both sexes) and men's LI do not differ by group at L1.",
+      "page": "Table 5, p. 6 (PDF 6); Tables 2 and 4"
+    },
+    {
+      "level": "L2",
+      "detail": "Beveling L2 enters the men's model (OR 0.919, 0.852-0.991, P = 0.028); the women's control VL at L2 (24.5 mm) is a suspect value.",
+      "page": "Table 5, p. 6 (PDF 6); Table 1, p. 4 (PDF 4)"
+    },
+    {
+      "level": "L3",
+      "detail": "Narrowest bony canal AP and smallest CSA in controls of both sexes; half of controls have AP 14.1 to 17 mm here; men's LI L3 enters the model (OR 0.901, 0.822-0.987, P = 0.025).",
+      "page": "Tables 2 and 3, p. 5 (PDF 5); Table 5, p. 6 (PDF 6)"
+    },
+    {
+      "level": "L4",
+      "detail": "Largest fall of ILA and largest rise of LI come between L3 and L4; beveling L4 enters men's model (OR 0.930, 0.873-0.990, P = 0.023); the only level where women's beveling differs by group; women's AP L4 enters their model (OR 0.490, 0.327-0.734, P = 0.001); in DLSS the AP minimum spreads to L4.",
+      "page": "Table 4 and 5, p. 6 (PDF 6); Figure 6, p. 5 (PDF 5); Table 2, p. 5"
+    },
+    {
+      "level": "L5",
+      "detail": "Widest body, interpedicular width about 6 mm above L4, largest canal area (+65 mm2), highest beveling ratio (about 117 in controls), smallest ILA, largest LI; AP L5 enters both models (men OR 0.474, 0.364-0.618, P < 0.001; women 0.664, 0.493-0.895, P = 0.007); LI and ML (and women's ILA) do not differ by group.",
+      "page": "Tables 1, 2, 4, 5 and Figures 5, 6, pp. 4 to 6 (PDF 4 to 6)"
+    },
+    {
+      "level": "junctions (T12/L1, L5/S1)",
+      "detail": "Not studied; no thoracic or sacral level measured.",
+      "page": "p. 2 (PDF 2)"
+    },
+    {
+      "level": "L3 to L5 (earlier work)",
+      "detail": "The authors' 2010 study (ref. 10) found DLSS body dimensions greater than controls from L3 to L5; ref. 11 found greater pedicle width in DLSS.",
+      "page": "p. 6 (PDF 6)"
+    }
+  ],
+  "errors": [
+    {
+      "what": "Intratester reliability, one tester (JA) measuring 20 individuals twice 3 to 5 days apart, blinded; all measures pooled",
+      "value": "ICC 0.782 to 0.985",
+      "page": "p. 2 (PDF 2) sections 2.7 and 3"
+    },
+    {
+      "what": "Intertester reliability, two testers (JA and KH) within an hour, 20 individuals, blinded; all measures pooled",
+      "value": "ICC 0.721 to 0.980",
+      "page": "p. 2 (PDF 2) sections 2.7 and 3"
+    },
+    {
+      "what": "Per-measure or per-level reliability, SEM, limits of agreement, pixel size, group of the 20 reliability subjects",
+      "value": "not reported",
+      "page": "p. 2 (PDF 2)"
+    },
+    {
+      "what": "Slice thickness (limits plane placement for mid height, basivertebral foramen and upper third of laminae)",
+      "value": "0.9 to 3 mm",
+      "page": "p. 2 (PDF 2)"
+    }
+  ],
+  "pearls_pitfalls": [
+    {"text": "Congenital stenosis is multilevel and presents at 30 to 40 years; degenerative stenosis is by far the commonest, usually single level, presenting in the 50s and 60s; DLSS arises from the disc anteriorly and the facets and ligamentum flavum posteriorly; central, lateral recess or foraminal; neurogenic claudication and radicular pain.", "page": "p. 1 (PDF 1)"},
+    {"text": "Stenosis here means a dural sac CSA < 100 mm2; DLSS goes with the dural sac area more than with bony diameters (Schonstrom: decompressed patients had a normal bony AP of 14.1 mm).", "page": "p. 1, p. 2 and p. 4 (PDF 1, 2, 4)"},
+    {"text": "Normal lumbar midsagittal bony diameter > 12 mm (Verbiest's ranges, then dry-bone and CT studies including Eisenstein's); congenital stenosis defined as < 12 mm.", "page": "p. 2 and p. 4 (PDF 2 and 4)"},
+    {"text": "Almost half to half of DLSS patients had AP 14.1 to 17 mm at L2 to L5 (Table 3: 58 to 67 percent) while half of controls were 17 to 25.4 mm; the authors want the borderline AP value revised and AP considered in DLSS evaluation.", "page": "p. 3 (PDF 3); Table 3 p. 5; p. 7 (PDF 7)"},
+    {"text": "Canal CSA on CT is reliable and more sensitive than AP and interpedicular measures (ref. 29); dural sac to canal area ratio is useful (Zheng); canal-to-body ratios sort large from small canals (Jones and Thomson 1968).", "page": "pp. 4 to 6 (PDF 4 to 6)"},
+    {"text": "In congenital stenosis canal AP, pedicle length and body width are smaller; in DLSS here the bodies are larger and the canal AP smaller.", "page": "p. 6 (PDF 6)"},
+    {"text": "Midsagittal canal diameter is fixed before or shortly after birth and can be stunted by early illness; transverse diameter grows until adulthood.", "page": "p. 5 to 6 (PDF 5 to 6)"},
+    {"text": "Smaller laminar slope angle linked to ligamentum flavum hypertrophy (Yu 2021) and, in the thorax, to greater ligamentum flavum tension; horizontal laminae and facets predispose to degenerative spondylolisthesis (Nagaosa 1998).", "page": "p. 6 (PDF 6)"},
+    {"text": "Pitfall: refer laminar angles to the posterior body cortex, not the upper end plate, which changes with osteoporosis and degeneration.", "page": "p. 6 (PDF 6)"},
+    {"text": "Larger bodies in DLSS may reflect higher BMI and heavy manual work; smaller vertebrae carry higher osteoporotic fracture risk, so DLSS patients may have lower fracture risk (needs a prospective study).", "page": "p. 7 (PDF 7)"},
+    {"text": "Authors' mechanism: larger body with altered LI and AP changes axial load path and beveling, destabilises the segment, leading to ligamentum flavum thickening, facet arthrosis, degenerative listhesis and osteophytes.", "page": "p. 7 (PDF 7)"},
+    {"text": "Limitation: retrospective design, no causation. Inference: controls are abdominal CT referrals aged 40+, not a population sample; values exclude scoliosis > 20 deg, spondylolysis and fractures.", "page": "p. 7 (PDF 7) section 4.1; p. 2 (PDF 2)"}
+  ],
+  "instructions": [
+    {"text": "Measure body length and width on an axial plane at the body's mid height, not at the end plates, and record the plane used.", "page": "p. 2 (PDF 2) section 2.2; Figure 1a p. 3"},
+    {"text": "To call L5 against L4 on CT compare interpedicular width (+6 mm at L5), canal area (+65 mm2) and body width (+4 mm). Inference: ML and CSA are not independent; count them as one piece of evidence with VW as a second.", "page": "Tables 1 and 2, pp. 4 and 5 (PDF 4 and 5)"},
+    {"text": "On a midsagittal reformat compute AH/pH x 100; expect about 93 to 104 at L1 to L4 and about 117 at L5 in non-stenotic adults (plotted, no SD). Inference: a lateral radiograph gives the same ratio free of magnification.", "page": "Figures 5 and 6, pp. 4 and 5 (PDF 4 and 5)"},
+    {"text": "Measure laminar inclination on a parasagittal plane through the middle of one lamina against the posterior body cortex; expect about 23 to 27 deg at L1 rising to 47 to 50 deg at L5; in DLSS expect about 3 to 5 deg less at L2 to L4 (men) or L1 to L4 (women) and no difference at L5. Inference: a candidate monotonic level marker.", "page": "p. 2 and p. 6 (PDF 2 and 6); Figure 4 p. 4; Table 4 p. 6"},
+    {"text": "Measure the interlaminar angle in the axial plane through the upper third of the laminae. Inference: it separates L1 to L3 (about 108 to 116 deg) from L4 and L5 (about 94 to 102 deg), not neighbours.", "page": "p. 2 (PDF 2); Figure 3 p. 3; Table 4 p. 6"},
+    {"text": "Do not name a level from canal AP alone (about 1 mm between neighbours, SD 1.5 to 2 mm, minimum at L3); use it to flag a narrow canal (< 12 mm congenital; 14.1 to 17 mm common in DLSS).", "page": "Tables 2 and 3, p. 5 (PDF 5); p. 2"},
+    {"text": "Inference: do not scale canal dimensions by body size; women's bodies are 7 to 12 percent smaller but their canal AP, ML and area equal men's.", "page": "Tables 1 and 2, pp. 4 and 5"},
+    {"text": "In a DLSS patient expect bodies 1 to 2 mm larger and canal AP and area smaller than control values at every level; a control-built level prior is biased there.", "page": "Tables 1 and 2, pp. 4 and 5"},
+    {"text": "Take canal measures on the axial slice through the basivertebral foramen at mid body. Inference: check the arch is closed and record the anterior end point convention at the foramen notch.", "page": "p. 2 (PDF 2) section 2.4; Figure 2 p. 3"},
+    {"text": "Check the level count independently before using any value: the paper has no numbering method or transitional-anomaly handling.", "page": "p. 2 (PDF 2)"},
+    {"text": "Inference: treat women's control VL L2 (24.5 mm), stenosis women's VW L4 SD (8 mm) and control women's CSA L3 SD (74 mm2) as probable misprints and interpolate.", "page": "Table 1 p. 4; Table 2 p. 5"},
+    {"text": "Inference (set notes): never pool this paper's canal ML with dry-bone widths or film interpediculate distances; at L5 it is 8 to 11 mm above dry bone and about 5 mm above Hinck's magnified film mean.", "page": "Table 2, p. 5 (PDF 5)"}
+  ],
+  "bordercall": [
+    "(a) Anomaly priors: none; no LSTV, L6, T13, rib or block-vertebra prevalence and no numbering method.",
+    "(b) Body depth and width here are mid-height (waist) values, not Panjabi's end-plate EPD and EPW (set's Panjabi note); Inference: mid-height width is below end-plate width, so do not compare a mid-height mask value with an end-plate prior.",
+    "(b) Canal AP follows the same L3-minimum U as Panjabi's SCD and agrees within about 1 mm; canal ML here is about 1 to 2 mm above Panjabi's SCW at L1 and about 8 mm above at L5 (Inference from the set's notes); check the plane before pooling.",
+    "(b) Candidates to add: canal CSA (strong L4 to L5 step) and the scale-free beveling ratio AH/pH (derivable from anterior and posterior body heights if the generator draws both; Inference); laminar inclination against the posterior body cortex (monotonic, 3 to 8 deg per level, scale-free) and interlaminar angle; Xu's laminar slope angle is not interchangeable with LI.",
+    "(b) Inference: canal does not scale with sex while the body does, so one shared size factor for body and canal would over-scale the canal in small (female) patients.",
+    "(b) Levels covered L1 to L5 only, against the generator's C3 to L5.",
+    "(c) Error: pooled ICCs only (intra 0.782 to 0.985, inter 0.721 to 0.980, 20 subjects); no SEM. Inference: use the between-subject SDs of Tables 1, 2 and 4 as an upper bound on measurement plus biological variation.",
+    "(d) Covariates: sex (body 2.4 to 4.7 mm larger in men, canal equal, LI 2.6 to 3.9 deg larger and ILA 2 to 5 deg smaller in women); DLSS (larger body, smaller canal AP and area, smaller LI, lower beveling); BMI higher in DLSS and in the model; age 40 to 99, in the model only; Israeli hospital patients, ethnicity not given; authors cite age, sex, race and level as determinants of lumbar vertebral size (refs. 22, 27, 39, 40)."
+  ],
+  "gaps": [
+    "No transitional-anomaly or numbering information; L1 to L5 taken as given.",
+    "The level of each patient's stenosis is not given, so stenosis-group values mix stenotic and non-stenotic segments.",
+    "AH and pH not tabulated; beveling only plotted without SDs; Table 1's caption lists beveling it does not contain (p. 4).",
+    "Abstract gives control men's VL L2 as 31.3 mm, Table 1 31.1 mm (p. 1 vs p. 4).",
+    "Abstract calls controls 'general population', methods say abdominal CT referrals for renal colic or abdominal pain (p. 1 vs p. 2).",
+    "Conclusion names body width, but no VW term entered the regression (Table 5 footnote defines VW, absent from the table); the discussion says VL, AP and LI increase the likelihood of DLSS while the AP and LI ORs are below 1 (pp. 3, 6, 7).",
+    "Table 1: control women VL L2 24.5 mm breaks the rising series (probable misprint); stenosis women VW L4 SD 8 mm out of line.",
+    "Table 2: control women CSA L3 SD 74 mm2 out of line; men's AP L4 P printed '< 0.00'; '+' printed for '+/-' in ML L1 women control and ML L3 men control; Table 4 ILA L3 men stenosis likewise.",
+    "Section 3.3 says women's ILA differed at L1 to L4, Table 4 gives P = 0.111 at L1 (p. 3 vs p. 6).",
+    "Table 3 pools sexes; control L5 row sums to 102.8 percent, stenosis rows 96.5 to 99.8; band edges differ (12.1-14 vs 12-14 mm); results and discussion swap 'almost 50 percent' and 'half'; 25.4 mm upper bound in no table.",
+    "Table 5: men's age OR 1.066 with CI 1.022-1.629, implausibly asymmetric; OR units not stated.",
+    "Method source printed 'Perry el al.' is Berry et al. 1987 (ref. 20); 'Johns and Thompson' is Jones and Thomson (ref. 34).",
+    "Which lamina LI was taken on, and whether ILA and LI were averaged, not stated; no per-measure reliability; group of the 20 reliability subjects not stated; whether axial slices were realigned to each vertebra not stated.",
+    "Degenerative spondylolisthesis not excluded and its frequency not given; exclusions are stated once and not restated for controls; numbers excluded not given.",
+    "Inference: the canal-growth argument (transverse diameter grows to adulthood, yet equal ML read as genetic or early control) is hard to follow (p. 6).",
+    "Inference: LI direction not reconciled with the cited slope-angle literature (smaller LI means a more vertical lamina; the cited risk is horizontal laminae).",
+    "Inference (set's Eisenstein 1977 note): Eisenstein's overall lower limit of normal midsagittal canal is 13 mm on dry bone and 15 mm on film, above this paper's 12 mm, although the paper cites Eisenstein for 12 mm; Eisenstein's canal AP is a caliper minimum and his interpedicular a maximum.",
+    "Inference (set's Panjabi 1992, Eisenstein 1977, Hinck 1966 notes): ML at L5 (34.8 to 34.9 mm) is about 8 to 11 mm above dry-bone canal widths and about 5 mm above Hinck's film mean; VL and VW lie within about 1 to 3 mm of Eisenstein's Caucasoid male caliper values."
+  ]
+}

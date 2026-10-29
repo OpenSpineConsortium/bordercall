@@ -1,0 +1,195 @@
+{
+  "paper": "tan2004",
+  "cohorts": [
+    {
+      "cohort": "sg_chinese_cadavers10",
+      "labels": [
+        "not stated",
+        "Chinese cadavers of Singaporean origin",
+        ""
+      ],
+      "tables": [
+        "Table 1",
+        "Table 2",
+        "Table 3",
+        "Table 4",
+        "Text: Abstract",
+        "Text: Materials and methods",
+        "Text: Results",
+        "Text: Discussion"
+      ],
+      "subjects": "Dry vertebrae C3 to L5 removed from ten Chinese cadavers of Singaporean origin; soft tissue trimmed, soaked 30 min in a solution printed as sodium hydrochloride, rinsed, air dried and stored at constant temperature and humidity. Institution of origin, sex, cause of death and inclusion or exclusion criteria (degeneration, osteophytes, fracture, transitional or numerical variants) are not stated. Tables 2 to 4 hold this cohort's Table 1 means set against the cited series as percent differences.",
+      "n_people": 10,
+      "n_units": "220 vertebrae (C3 to L5, 22 levels) of 10 cadavers; pedicle length only T1 to L5",
+      "ages": "mean 65.7 years, range 56 to 77",
+      "sexes": "not stated",
+      "page": "p. 137 (PDF 1)"
+    },
+    {
+      "cohort": "panjabi_cited",
+      "labels": [
+        "not stated",
+        "source: this paper vs Panjabi et al. [13, 14, 15]"
+      ],
+      "tables": [
+        "Table 2",
+        "Table 3",
+        "Text: Abstract",
+        "Text: Discussion"
+      ],
+      "subjects": "Not measured here: the Caucasian specimens of Panjabi et al. [13] cervical (Spine 1991), [15] thoracic (Spine 1991) and [14] lumbar (Spine 1992), used as the reference of every percent difference in Table 2 and of the Panjabi column of Table 3; their values are not printed, only the differences (and the curves of Figs. 10 and 11). Who they were is not stated in this paper.",
+      "n_people": null,
+      "n_units": "not stated in this paper",
+      "ages": "not stated in this paper",
+      "sexes": "not stated in this paper",
+      "page": "p. 142-144 (PDF 6-8)"
+    },
+    {
+      "cohort": "zindrick_cited",
+      "labels": [
+        "not stated",
+        "source: this paper vs Zindrick et al. [16]"
+      ],
+      "tables": [
+        "Table 3",
+        "Table 4",
+        "Text: Abstract",
+        "Text: Discussion"
+      ],
+      "subjects": "Not measured here: the specimens of Zindrick et al. [16] (Spine 1987), thoracic and lumbar only (the text says that study did not include the cervical spine), the reference of the Zindrick columns of Tables 3 and 4 and of Figs. 11 and 12; called Caucasian; not otherwise described.",
+      "n_people": null,
+      "n_units": "not stated in this paper",
+      "ages": "not stated in this paper",
+      "sexes": "not stated in this paper",
+      "page": "p. 144-145 (PDF 8-9)"
+    },
+    {
+      "cohort": "mclain_cited",
+      "labels": [
+        "female",
+        "male",
+        "all",
+        "not stated",
+        "source: McLain et al. [11]",
+        "source: this paper vs McLain et al. [11]"
+      ],
+      "tables": [
+        "Table 4",
+        "Text: Discussion"
+      ],
+      "subjects": "Not measured here: the cadavers of McLain et al. [11] (Spine 2002, pedicle morphology of the upper thoracic spine), T1 to T6 only, the reference of the McLain column of Table 4 and of Fig. 12; the text gives them as 11 women and 7 men aged 62 to 85.",
+      "n_people": 18,
+      "n_units": "not stated in this paper (upper thoracic pedicles, T1 to T6)",
+      "ages": "62 to 85 years",
+      "sexes": "11 women, 7 men",
+      "page": "p. 145 (PDF 9)"
+    },
+    {
+      "cohort": "instrument_checks",
+      "labels": [
+        "",
+        "linear accuracy test",
+        "micrometer set at 20 mm",
+        "set at 10 mm",
+        "angular accuracy test",
+        "angle gauge blocks of 15 and 30 deg",
+        "area accuracy test",
+        "two area bars of about 2,250 mm2"
+      ],
+      "tables": [
+        "Text: Materials and methods"
+      ],
+      "subjects": "No subjects: the digitiser's stated accuracy and its accuracy tests on a micrometer screw gauge (20 and 10 mm), two angle gauge blocks (15 and 30 deg) and two area bars of about 2,250 mm2.",
+      "n_people": null,
+      "n_units": "gauges: one micrometer at two settings, two angle blocks, two area bars",
+      "ages": "not applicable",
+      "sexes": "not applicable",
+      "page": "p. 138 (PDF 2)"
+    },
+    {
+      "cohort": "method_settings",
+      "labels": [
+        ""
+      ],
+      "tables": [
+        "Text: Materials and methods",
+        "Text: Discussion"
+      ],
+      "subjects": "No subjects: settings of the procedure (soak and rinse times, the fixation hole's diameter and depth, hits per digitised point, readings per parameter, the 0.1 mm thickness given to the end-plate polygon) and the 5 mm transpedicle screw the Discussion uses as a criterion for pedicle width.",
+      "n_people": null,
+      "n_units": "not applicable",
+      "ages": "not applicable",
+      "sexes": "not applicable",
+      "page": "p. 137-139, 144 (PDF 1-3, 8)"
+    }
+  ],
+  "techniques": [
+    {
+      "technique": "direct_contact_3d_digitiser",
+      "cohorts": [
+        "sg_chinese_cadavers10",
+        "instrument_checks",
+        "method_settings"
+      ],
+      "modality": "3D digitiser",
+      "instrument": "direct-contact three-dimensional digitiser with a contact probe, stated accuracy 0.01 mm, calibrated by the maker's procedure and connected to a computer; make and model not named. Each vertebra held by a screw in a 5 mm hole drilled about three-quarters into the body from anterior, the screw in a vice clamp, clay to stop motion (Fig. 2); no repositioning of bone or instrument.",
+      "how": "Per vertebra a coordinate frame: origin at the centroid of the upper end-plate (found by polygonising the digitised end-plate and giving it 0.1 mm thickness); the posterior wall of the body is the reference plane, set by digitised points a and b and the average of c and d; x-axis from b to a, z-axis by the right-hand rule (Fig. 3). Each digitised position is the average of ten hits. The profile is traced with the probe into a 3D surface; best-fit planes give linear measures between two marked points and areas from a triangular mesh on the plan view, and angles between two chosen planes on the side view (Fig. 4). Each parameter is the mean of three readings. Parameter definitions as Panjabi et al. (Fig. 1 is Panjabi's drawing), pedicle length after McLain and Zindrick (facet cortex to anterior cortex along the PDIs line), PDIs after Zindrick. Left and right pedicles measured separately. Values reported as mean +/- standard error of the mean, which the paper defines as the SD divided by the sample size.",
+      "magnification": "not applicable: direct contact on dry bone",
+      "observers": "not stated",
+      "page": "p. 137-139 (PDF 1-3)"
+    },
+    {
+      "technique": "cited_series_quoted",
+      "cohorts": [
+        "panjabi_cited",
+        "zindrick_cited",
+        "mclain_cited"
+      ],
+      "modality": "other",
+      "instrument": "not stated in this paper",
+      "how": "Values of the cited series enter only as percent differences of this paper's means with the cited value as the reference (Tables 2 to 4) and as plotted curves (Figs. 10 to 12); the paper says the parameter definitions are similar to those of Panjabi, McLain and Zindrick, but does not describe their instruments.",
+      "magnification": "not stated in this paper",
+      "observers": "not stated in this paper",
+      "page": "p. 138, 142-145 (PDF 2, 6-9)"
+    }
+  ],
+  "shared": [
+    {
+      "with": "Panjabi et al. [13] cervical 1991 (panjabi1991c), [15] thoracic 1991 (panjabi1991t), [14] lumbar 1992 (panjabi1992)",
+      "what": "method",
+      "evidence": "parameter definitions stated to be similar to Panjabi's; Fig. 1 reproduced with permission from Panjabi et al.",
+      "page": "p. 138 (PDF 2)"
+    },
+    {
+      "with": "Panjabi et al. [13, 14, 15]: panjabi1991c, panjabi1991t, panjabi1992",
+      "what": "values quoted",
+      "evidence": "Table 2 gives percent differences from Panjabi's values, Panjabi the reference; Fig. 10 plots Panjabi's canal width and depth; Panjabi's SCA minima at T3 and L3 cited",
+      "page": "p. 142-144 (PDF 6-8)"
+    },
+    {
+      "with": "Panjabi et al. [13, 14, 15] and Zindrick et al. [16] (zindrick1987)",
+      "what": "values quoted",
+      "evidence": "Table 3 and Fig. 11 compare pedicle sagittal inclination with both series; the text adds that Zindrick also found the divergence at T4",
+      "page": "p. 144-145 (PDF 8-9)"
+    },
+    {
+      "with": "McLain et al. [11] (Spine 2002, upper thoracic pedicle morphology; not in the list)",
+      "what": "method",
+      "evidence": "pedicle length defined as McLain's; definitions said similar in all the studies",
+      "page": "p. 138, 145 (PDF 2, 9)"
+    },
+    {
+      "with": "Zindrick et al. [16] (zindrick1987)",
+      "what": "method",
+      "evidence": "pedicle length and pedicle sagittal inclination defined as Zindrick's",
+      "page": "p. 138, 145 (PDF 2, 9)"
+    },
+    {
+      "with": "McLain et al. [11] (not in the list) and Zindrick et al. [16] (zindrick1987)",
+      "what": "values quoted",
+      "evidence": "Table 4 and Fig. 12 compare pedicle length with both; McLain's 11 women and 7 men aged 62-85 quoted",
+      "page": "p. 145 (PDF 9)"
+    }
+  ],
+  "within_paper": "One set of subjects measured by one method: the 220 vertebrae of the 10 cadavers give every value of Table 1, and Tables 2, 3 and 4 and the text's numbers restate or compare those same means (p. 137-145, PDF 1-9). The accuracy tests are on gauges, not on the specimens (p. 138, PDF 2). The three comparison series (Panjabi, Zindrick, McLain) are other studies' subjects and the paper states no overlap with its own. Inference: n is 10 per level (220 = 10 x 22), though the paper never prints n per cell."
+}

@@ -1,0 +1,236 @@
+{
+  "id": "ahmed2019",
+  "citation": "Mohammed Awais Ahmed, Aditya M, Anitha T, Sailaja TK. Radiological Anatomy of the Lumbar Canal: A MRI study. Journal of Chalmeda Anand Rao Institute of Medical Sciences, Vol 17, Issue 1, January - June 2019, pp. 21-26 (ISSN (Print) 2278-5310). Original Article. Copy read: publisher's free copy (J Chalmeda Anand Rao Inst Med Sci), project files literature/synthetic_spine/ahmed2019.pdf, sha256 begins bd1788c145fc8000. Source: thread \"Reread every paper for clinical detail\", project symphony_4, 2026-10-28.",
+  "population": "India, Telangana state (Karimnagar), living symptomatic adults: 80 patients (36 men, 44 women) aged 20-70 years referred for lumbar MRI between June 2017 and October 2018 with low back pain with or without radiculopathy; all consented. Excluded: age under 20, previous lumbar surgery, vertebral trauma, tumours, infections, congenital anomalies (number excluded not given). No mean age, height, weight or BMI. p. 21 (PDF 1), p. 22 (PDF 2).",
+  "modality": "MRI, GE Signa HDxt 1.5 T, sense spine coil, 4 mm slices (4.3 mm on Fig. 1's sagittal overlay); T2W FSE sagittal, T1W FSE sagittal, STIR coronal, T1W FSE axial, T2W FSE axial and a high-resolution T2 FSE drive axial with a small field of view against CSF flow artefact; measured with software callipers in the INSTARAD viewer 1.7, readout 0.1 mm. p. 22 (PDF 2); Figs. 1-2, p. 23 (PDF 3).",
+  "levels_covered": "L1-L5 only, two measures per level (mid-sagittal diameter, interpedicular distance) in all 80 subjects; how levels were identified and numbered is not stated; nothing above L1 or below L5.",
+  "anomalies": [
+    {
+      "variant": "congenital anomalies (unspecified; LSTV, L6, T13 and rib variants not named)",
+      "finding": "Exclusion criterion only; no definition, no count of patients excluded, no prevalence. The paper reports no anomaly prevalence of any kind.",
+      "page": "p. 21 (PDF 1, abstract); p. 22 (PDF 2)",
+      "population": "symptomatic adults referred for lumbar MRI, Telangana, India",
+      "how_identified": "not stated; no projection or numbering rule given"
+    }
+  ],
+  "measures": [
+    {
+      "name": "Mid-sagittal (antero-posterior) diameter of the lumbar canal (MS)",
+      "definition": "On the T2-weighted mid-sagittal image, from the body's posterior wall at its midpoint (located where the basivertebral vein leaves the body) back to the front of the spinous process, i.e. the spinolaminar junction (Inference for the last). Fig. 1 draws the lines at about mid-body height, roughly perpendicular to the local canal axis (Inference: read from the figure).",
+      "projection": "MRI, T2W FSE mid-sagittal slice (4 mm); software calliper",
+      "page": "p. 22 (PDF 2); Fig. 1, p. 23 (PDF 3); Table 1, p. 22 (PDF 2)",
+      "levels": "L1-L5",
+      "level_pattern": "Hour-glass: largest at L1, minimum at L3 in both sexes, rising at L4 and L5. Men 14.28 +/- 1.16, 13.33 +/- 1.24, 12.63 +/- 1.47, 12.88 +/- 1.44, 13.91 +/- 2.06; women 14.38 +/- 1.38, 13.51 +/- 1.27, 12.12 +/- 1.35, 12.54 +/- 1.17, 13.4 +/- 1.68; total 14.34, 13.43, 12.35, 12.7, 13.63 mm (Table 1, p. 22, PDF 2; Fig. 3, p. 23, PDF 3). Inference: adjacent steps 0.25-1.39 mm are smaller than the between-person SDs; standardised separations 0.17-1.06; L3 and L4 nearly equal; use the U shape over several vertebrae. Fig. 1's example subject bottoms out at the fourth line (Inference).",
+      "covariates": "No significant sex difference at any level (p 0.398, 0.521, 0.110, 0.262, 0.233; L1 p recomputes to about 0.73, Inference); women slightly larger at L1-L2, put down tentatively to greater differences in somatic size in women (p. 24, PDF 4). Age and body size not analysed. Smaller than most other populations in Table 3 (p. 25, PDF 5) except El-Rakhawy's Egyptian cadavers at L3-L5.",
+      "error": "No observer or repeat data. Readout 0.1 mm; slice 4 mm (4.3 mm on Fig. 1); how the mid-sagittal slice was chosen not stated. Between-person SD 1.16-2.06 mm, CV 8-15% (Inference), largest at L5 in both sexes.",
+      "ct_mask_recipe": "Inference: in the vertebra's own frame, take the instance's mid-sagittal (symmetry) plane; anterior point = posterior cortex of the body subregion at half body height (basivertebral foramen); posterior point = canal-facing surface of the posterior-element subregion at the base of the spinous process; MS = straight distance between them. Bone only; SPINEPS's spinal-canal label marks canal contents, not the bony canal. Expect a bone-mask value near Panjabi's SCD (4.7-6.1 mm above this paper's means).",
+      "radiograph_recipe": "Inference (the paper takes no radiograph): lateral view, mid-height of the posterior body line to the spinolaminar line, divided by the lateral magnification. Not obtainable from an AP view."
+    },
+    {
+      "name": "Transverse diameter, interpedicular distance (TD, IPD)",
+      "definition": "On the T2-weighted axial image at the mid-pedicular level, the distance between the inner (medial) borders of the two pedicles. In Fig. 2 (L1, 2.20 cm) the line runs across the canal just behind the body and its ends sit on the canal's lateral margins where pedicle cortex is faint on T2 (Inference: read from the figure).",
+      "projection": "MRI, T2W FSE axial slice (4 mm) at mid-pedicle; angulation not stated; software calliper",
+      "page": "p. 22 (PDF 2); Fig. 2, p. 23 (PDF 3); Table 2, p. 24 (PDF 4)",
+      "levels": "L1-L5",
+      "level_pattern": "Widens steadily L1 to L5 in both sexes. Men 23.32 +/- 2.00, 23.41 +/- 2.16, 24.30 +/- 1.99, 25.23 +/- 2.37, 27.89 +/- 2.76; women 21.69 +/- 1.38, 22.00 +/- 1.29, 22.76 +/- 1.36, 23.93 +/- 1.53, 27.50 +/- 2.50; total 22.42, 22.64, 23.45, 24.52, 27.68 mm (Table 2, p. 24, PDF 4; Fig. 4). Inference: steps men +0.09, +0.89, +0.93, +2.66; women +0.31, +0.76, +1.17, +3.57 mm; L1 and L2 not separable (especially in men); the L4->L5 jump (standardised 1.03 men, 1.72 women) is the strongest single-level cue. Authors tie the caudal widening to the axial trefoil shape and to cauda equina roots running laterally to their foramina below L1-L2 (p. 23, PDF 3; p. 24, PDF 4).",
+      "covariates": "Men wider at every level; significant at L1-L4 (p < 0.0001, < 0.001, < 0.0002, < 0.006), differences 1.63, 1.41, 1.54, 1.30 mm (text says 1-1.5 mm); not at L5 (0.39 mm, p 0.520) (p. 23, PDF 3; Table 2). Earlier work tied IPD to stature, growth and build (pp. 24-25, PDF 4-5), not tested here. Similar to Nigerian and Pakistani values (p. 25, PDF 5).",
+      "error": "No observer or repeat data. Readout 0.1 mm; 4 mm axial slice places mid-pedicle only to within a few mm (Inference). Between-person SD 1.29-2.76 mm; CV about 8-10% in men, about 6% in women at L1-L4 and 9% at L5 (Inference).",
+      "ct_mask_recipe": "Inference: in the vertebra's frame, axial section through the middle of the pedicles' cranio-caudal extent; left-right distance between the medial cortices of the two pedicles (arch voxels bridging the posterior body wall to the articular pillars where SPINEPS gives one arch subregion). A minimum over pedicle sections (Hinck) or a greatest gap differs slightly. Expect a value within about 1.3 mm of this paper's, as its means lie within 1.3 mm of Panjabi's dry-bone SCW.",
+      "radiograph_recipe": "Inference: AP view, between the medial cortices of the pedicle rings, divided by the AP magnification. Not from a lateral view. The radiographic series in Table 4 (p. 25, PDF 5) carry film magnification."
+    },
+    {
+      "name": "TD/MS ratio (derived; Inference, not in the paper)",
+      "definition": "Ratio of the group means of TD and MS from Tables 1-2; a size-free shape cue. A ratio of means, not a mean of individual ratios.",
+      "projection": "derived from MRI sagittal and axial measures; on radiographs it would need AP and lateral views with their own magnifications (Inference)",
+      "page": "Tables 1-2, pp. 22, 24 (PDF 2, 4)",
+      "levels": "L1-L5",
+      "level_pattern": "Men 1.63, 1.76, 1.92, 1.96, 2.01; women 1.51, 1.63, 1.88, 1.91, 2.05; total 1.56, 1.69, 1.90, 1.93, 2.03: rises monotonically, steepest L1-L3.",
+      "covariates": "Lower in women at L1-L4 (Inference: arithmetic).",
+      "error": "Not reported."
+    }
+  ],
+  "level_details": [
+    {
+      "level": "L1 (T12/L1)",
+      "detail": "Widest MS in both sexes (14.28 men, 14.38 women) and narrowest TD (23.32, 21.69). Authors cite Davis: L1 usually lies at the functional transition from stiff thoracic to mobile lumbar spine, houses the lower end of the conus, and sits where thoracic convexity turns to lumbar concavity; the cord is displaced dorsally when erect, so the sagittal diameter must be capacious, and the width may also be an adaptation protecting the transitional region. Fig. 2's L1 slice shows both kidneys beside the vertebra (Inference: read from the image).",
+      "page": "p. 22 (PDF 2); p. 23 (PDF 3); p. 24 (PDF 4)"
+    },
+    {
+      "level": "L1-L2",
+      "detail": "Women's MS slightly exceeds men's (14.38 vs 14.28; 13.51 vs 13.33), not significant; likened to Eisenstein's South African and Malas's Turkish findings. TD barely changes L1 to L2 (+0.09 men, +0.31 women; Inference). IPD widening caudal to L1-L2 explained by cauda equina roots heading laterally to their foramina.",
+      "page": "Table 1, p. 22 (PDF 2); p. 24 (PDF 4)"
+    },
+    {
+      "level": "L3",
+      "detail": "Narrowest MS in both sexes (12.63 men, 12.12 women): the waist of the hour-glass. Kapoor et al. (South Indian cadavers, MS 13.06-14.75 mm over L1-L5) held L3 to be the pivot of the level-to-level change in size and so the level likelier to suffer stenosis and nerve compression; the authors agree and suggest L3 narrowing could underlie their patients' symptoms. Inference (normal approximation): about 33% of men and 46% of women here are below 12 mm at L3.",
+      "page": "Table 1, p. 22 (PDF 2); pp. 23-24 (PDF 3-4); p. 25 (PDF 5)"
+    },
+    {
+      "level": "L4",
+      "detail": "MS only slightly above L3 (12.88 men, 12.54 women); TD 25.23 and 23.93 mm, still significantly different by sex (p < 0.006).",
+      "page": "Table 1, p. 22 (PDF 2); Table 2, p. 24 (PDF 4)"
+    },
+    {
+      "level": "L5 (L5/S1)",
+      "detail": "Widest TD (27.89 men, 27.50 women) with no sex difference (p 0.520); MS rises again (13.91, 13.40) and is most variable (SD 2.06, 1.68). Largest TD step of the series, L4->L5 +2.66 men, +3.57 women (Inference). Amonoo-Kuofi's reading, cited: the L5 increase accommodates the sacral roots, which would otherwise bowstring during angular movement at the lumbosacral junction.",
+      "page": "Tables 1-2, pp. 22, 24 (PDF 2, 4); p. 24 (PDF 4)"
+    },
+    {
+      "level": "Comparison populations (Table 3, MS)",
+      "detail": "Men/women mm L1-L5: Amonoo-Kuofi Nigerian cadaveric 16.60/15.80, 15.80/15.10, 14.90/14.20, 15.60/14.10, 16.00/14.60; El-Rakhawy Egyptian cadaveric 13.10/13.20, 14.60/13.40, 12.30/11.50, 11.70/11.00, 9.90/9.50; Al-Anazi Saudi CT normal L3-L5 only 16.60/16.20, 16.70/16.90, 17.80/17.60; Shukri Iraqi MRI normal 16.73/16.44, 15.61/15.45, 14.89/14.87, 15.17/14.89, 16.45/15.40; Varol Turkish CT symptomatic L4-L5 only 13.94/13.33, 16.31/15.96; Alam Pakistani CT symptomatic 17.70/16.70, 16.26/16.28, 15.48/15.31, 14.77/14.28, 15.25/13.76.",
+      "page": "Table 3, p. 25 (PDF 5)"
+    },
+    {
+      "level": "Comparison populations (Table 4, IPD)",
+      "detail": "Men/women mm L1-L5: Hinck American radiographs 25.9/24.3, 26.5/24.9, 26.8/25.4, 27.6/26.9, 30.7/29; Amonoo-Kuofi Nigerian radiographs 22.6/21.3, 22.7/22.5, 24.5/23.7, 26/25.4, 28.7/28.4; Piera Spanish radiographs 27.79/25.66, 28.39/26.25, 29.44/27.53, 30.89/29.53, 34.31/33.39; Tacar Turkish radiographs 26.71/25.37, 27.36/25.99, 28.47/27.20, 29.91/28.67, 34.01/32.56; Nirvan Indian radiographs 24.0/23.3, 25.4/24.3, 26.4/25.8, 27.9/27.0, 30.9/29.8; Alam Pakistani CT symptomatic 24.20/23.50, 24.34/23.46, 24.13/22.36, 24.48/23.81, 28.43/25.96. Present study's TD close to the Nigerian and Pakistani values.",
+      "page": "Table 4, p. 25 (PDF 5)"
+    },
+    {
+      "level": "Other junctions (C2/C3, C7/T1, disc levels)",
+      "detail": "Nothing measured outside L1-L5; no disc-level or junctional measure.",
+      "page": "whole paper"
+    }
+  ],
+  "errors": [
+    {
+      "what": "intra- and inter-observer error, repeatability, who measured",
+      "value": "not reported",
+      "page": "p. 22 (PDF 2)"
+    },
+    {
+      "what": "instrument resolution",
+      "value": "viewer readout 0.01 cm (0.1 mm); 512 x 512 display at zoom 1.69; FOV and pixel size not stated",
+      "page": "Figs. 1-2, p. 23 (PDF 3)"
+    },
+    {
+      "what": "slice thickness",
+      "value": "4 mm in the methods; 4.3 mm on Fig. 1's sagittal overlay, 4 mm on Fig. 2's axial overlay",
+      "page": "p. 22 (PDF 2); p. 23 (PDF 3)"
+    },
+    {
+      "what": "between-person SD (the only spread given)",
+      "value": "MS 1.16-2.06 mm; TD 1.29-2.76 mm",
+      "page": "Table 1, p. 22 (PDF 2); Table 2, p. 24 (PDF 4)"
+    },
+    {
+      "what": "systematic offset of this MRI MS against other series (Inference: arithmetic from Table 3)",
+      "value": "lower by 1.2-2.7 mm than Amonoo-Kuofi dry bone, 3.8-4.4 than Al-Anazi CT, 0.4-3.4 than Alam CT, 0.8-2.6 than Varol CT and 1.9-2.8 than Shukri MRI; higher than El-Rakhawy at L3-L5; 4.7-6.1 mm below Panjabi 1992 SCD",
+      "page": "Table 3, p. 25 (PDF 5)"
+    },
+    {
+      "what": "printed p value inconsistent with its own table (Inference)",
+      "value": "L1 MS p 0.398 printed; recomputed two-sided t-test about 0.73 (one-sided about 0.36); the other nine p values reproduce",
+      "page": "Table 1, p. 22 (PDF 2)"
+    }
+  ],
+  "pearls_pitfalls": [
+    {
+      "text": "Lumbar spinal stenosis matters through cauda equina compression by narrowing of the bony ring, as distinct from soft-tissue impingement; reduced interpedicular distance proposed as a cause of primary narrowing (Nelson); stenosis from reduced mid-sagittal diameter reported in cervical and lumbar spine.",
+      "page": "p. 21 (PDF 1)"
+    },
+    {
+      "text": "Cited prevalence: Shobeiri et al., LSS in 37% of patients with sciatica and 11% with low back pain (p < 0.001); North American Spine Society, about 20% of adults (5% central, 15% lateral). Denominators not given.",
+      "page": "p. 21 (PDF 1)"
+    },
+    {
+      "text": "Cited thresholds: Verbiest (CT, idiopathic developmental bony stenosis), AP diameter < 12 mm relative and < 10 mm absolute stenosis; Eisenstein and Verbiest, midline sagittal diameter < 12 mm pathological and <= 10 mm can compress the cauda equina with no other compressive agent; Ullrich (CT) normal adult sagittal diameter 14-15 mm. Inference: these are bony-canal thresholds; a T2 MRI value may read lower.",
+      "page": "p. 22 (PDF 2); p. 23 (PDF 3); p. 24 (PDF 4)"
+    },
+    {
+      "text": "The hour-glass sagittal profile with the waist at L3 is offered as the reason L3 is prone to stenosis and low back pain. Inference: in this symptomatic sample about 33% of men and 46% of women fall below 12 mm at L3, so the 12 mm cut-off is population-dependent.",
+      "page": "p. 23 (PDF 3); p. 24 (PDF 4); p. 25 (PDF 5)"
+    },
+    {
+      "text": "Authors call MS clinically the most significant canal dimension because TD is the largest; knowledge of both diameters helps detect LSS. The reasoning is not argued.",
+      "page": "p. 21 (PDF 1); p. 25 (PDF 5)"
+    },
+    {
+      "text": "TD shows sexual dimorphism (L1-L4) and MS does not; Inference: sex-specific norms for TD at L1-L4 only.",
+      "page": "p. 25 (PDF 5); Table 2, p. 24 (PDF 4)"
+    },
+    {
+      "text": "Canal growth reflects postural, mechanical and genetic factors with ethnic, racial, age and sex differences; any reduction of normal canal size could cause low back pain; population differences attributed to racial, ethnic and environmental factors; Indian norms are hard to set because the Indian population is heterogeneous.",
+      "page": "p. 22 (PDF 2); p. 23 (PDF 3); p. 25 (PDF 5)"
+    },
+    {
+      "text": "Pitfall (Inference): Table 4's radiographic IPD series carry film magnification; comparing them with MRI or CT true-size values overstates population differences.",
+      "page": "Table 4, p. 25 (PDF 5)"
+    },
+    {
+      "text": "Pitfall (Inference from Fig. 2): on axial T2 the pedicle cortex is faint and the IPD line ends on the canal's soft-tissue margin; on CT measure between medial pedicle cortices.",
+      "page": "Fig. 2, p. 23 (PDF 3)"
+    },
+    {
+      "text": "No content on screw sizing, safe zones, Marfan syndrome or achondroplasia.",
+      "page": "whole paper"
+    }
+  ],
+  "instructions": [
+    {
+      "text": "On a mid-sagittal T2 MRI or CT reformat, measure MS at each lumbar level from the mid-height point of the posterior body wall (basivertebral vein exit) back to the front of the spinous process (spinolaminar junction); draw it roughly perpendicular to the local canal axis (Inference from Fig. 1).",
+      "page": "p. 22 (PDF 2); Fig. 1, p. 23 (PDF 3)"
+    },
+    {
+      "text": "On an axial image through the middle of the pedicles, measure IPD between the medial pedicle borders.",
+      "page": "p. 22 (PDF 2); Fig. 2, p. 23 (PDF 3)"
+    },
+    {
+      "text": "Expect MS to be U-shaped over L1-L5 with the minimum at L3 (L4 nearly equal) and the maximum at L1; judge the turning point over three or more consecutive vertebrae, never one value, as adjacent steps (0.25-1.4 mm) are smaller than the between-person SDs (1.2-2.1 mm); individuals can bottom out at L4, as Fig. 1's subject does (Inference for the rule and the figure reading).",
+      "page": "Table 1, p. 22 (PDF 2); Figs. 1 and 3, p. 23 (PDF 3)"
+    },
+    {
+      "text": "Expect IPD to rise monotonically L1 to L5 with the biggest step at L4->L5 (+2.7 mm men, +3.6 mm women); use that jump as a caudal anchor for L5 (Inference) and never use IPD to separate L1 from L2.",
+      "page": "Table 2, p. 24 (PDF 4)"
+    },
+    {
+      "text": "Use the rising TD/MS ratio (about 1.5-1.6 at L1 to 2.0 at L5) as a size-free ordering check (Inference).",
+      "page": "Tables 1-2, pp. 22, 24 (PDF 2, 4)"
+    },
+    {
+      "text": "Condition IPD on sex at L1-L4 (men about 1.3-1.6 mm wider), not at L5; do not condition MS on sex.",
+      "page": "Tables 1-2, pp. 22, 24 (PDF 2, 4)"
+    },
+    {
+      "text": "Before comparing IPD with radiographic norms (Table 4) correct for AP magnification; expect this study's MS to run about 0.4-4.4 mm below the CT, dry-bone and other MRI series in Table 3, El-Rakhawy excepted (Inference: arithmetic).",
+      "page": "Tables 3-4, p. 25 (PDF 5)"
+    },
+    {
+      "text": "Check the lumbar count before applying these norms: the series excluded congenital anomalies and states no numbering rule; renumber a transitional spine first (Inference).",
+      "page": "p. 22 (PDF 2)"
+    },
+    {
+      "text": "Flag MS < 12 mm as relative and < 10 mm as absolute stenosis (Verbiest), but expect many symptomatic Indian patients near 12 mm at L3 (Inference from Table 1).",
+      "page": "p. 23 (PDF 3); p. 24 (PDF 4); Table 1, p. 22 (PDF 2)"
+    },
+    {
+      "text": "Do not trust the printed L1 MS p value (0.398); it recomputes to about 0.73 (Inference); the no-sex-difference conclusion stands.",
+      "page": "Table 1, p. 22 (PDF 2)"
+    },
+    {
+      "text": "Inference: on axial T2 MRI expect IPD ends on the canal's soft-tissue margin; on CT or a bone mask measure between medial pedicle cortices and expect agreement within about a millimetre (this study's IPD lies within 1.3 mm of Panjabi's dry-bone SCW).",
+      "page": "Fig. 2, p. 23 (PDF 3); Table 2, p. 24 (PDF 4)"
+    }
+  ],
+  "bordercall": [
+    "(a) Decoder priors: none. No prevalence of LSTV, L6, T13, rib or any other variant; congenital anomalies were excluded uncounted (p. 22, PDF 2).",
+    "(b) Canal depth (Panjabi SCD) corresponds to MS but is defined differently: MRI T2, mid-body height, body to spinolaminar junction. Means 14.34, 13.43, 12.35, 12.70, 13.63 mm (L1-L5) run 4.7-6.1 mm below Panjabi 1992 SCD (19.0, 18.2, 17.5, 18.6, 19.7, from the panjabi1992 note) with the same L3 minimum; a CT bone-mask value will read near Panjabi. Use the shape, not the level, unless a definitional offset is applied (Inference).",
+    "(b) Canal width (Panjabi SCW) corresponds to TD/IPD at mid-pedicle: 22.42, 22.64, 23.45, 24.52, 27.68 mm against SCW 23.7 (L1) to 27.1 (L5): within about 1.3 mm (Inference). Take the mask width between medial pedicle walls at mid-pedicle height, not at the lateral recess or mid-body.",
+    "(b) Candidate additions: a sex term on canal width at L1-L4 only; the TD/MS ratio (1.56 to 2.03, L1-L5) as a size-free feature; population offsets from Tables 3-4 with radiographic magnification removed first.",
+    "(c) Measurement error: none reported; readout 0.1 mm; 4 mm slices (Inference: slice placement on the order of 0.5-1 mm, unmeasured). Between-person SDs for the generator's spread: MS 1.16-2.06 mm, TD 1.29-2.76 mm (Tables 1-2).",
+    "(d) Covariates: sex for TD only (1.3-1.6 mm at L1-L4, 0.4 mm at L5); age 20-70 not analysed; no height or weight; Telangana Indian symptomatic population; Spanish and Turkish radiographic IPD series run about 3.4-6.4 mm above (part magnification, Inference). Nothing for a size factor beyond citing stature and build as determinants (pp. 24-25, PDF 4-5)."
+  ],
+  "gaps": [
+    "Unstated: level identification and numbering, transitional segments, number excluded for congenital anomalies, who measured, repeatability, axial angulation, FOV and pixel size, mean age, body size, how the mid-sagittal and mid-pedicle slices were chosen; no disc-level or foraminal measure; nothing above L1 or below L5.",
+    "Slice thickness 4 mm in the methods (p. 22, PDF 2) against 4.3 mm on Fig. 1's sagittal overlay (p. 23, PDF 3).",
+    "TD sex difference at L1-L4 called 1-1.5 mm (pp. 23-24, PDF 3-4); Table 2 gives 1.63 at L1 and 1.54 at L3.",
+    "L1 MS p 0.398 does not reproduce from Table 1 (about 0.73 two-sided; 0.36 one-sided); the other nine p values do (Inference).",
+    "Abstract says TD significantly larger in men (p. 21, PDF 1) without noting L5 is not (Table 2).",
+    "Widest MS at L1 'as in the other populations' (p. 24, PDF 4), but El-Rakhawy's widest is L2 and Al-Anazi and Varol give no L1; hour-glass said to occur in Nigerian and Pakistani series (p. 23, PDF 3), but Alam's Pakistani MS falls to L4 (men) and L5 (women) and Amonoo-Kuofi's Nigerian women bottom out at L4 (Table 3, p. 25, PDF 5).",
+    "Amonoo-Kuofi cited as supporting no MS sex difference (p. 24, PDF 4), yet his Table 3 values have women 0.7-1.5 mm narrower at every level (Inference; the amonookuofi1985 note says that paper reports females narrower and ran no test).",
+    "MS said to be smaller than previous studies (p. 25, PDF 5), but El-Rakhawy's Egyptian values are smaller at L3-L5.",
+    "IPD said to rise steadily in all populations (p. 24, PDF 4), but Alam's Pakistani values dip at L3 in men and at L2-L3 in women (Table 4, p. 25, PDF 5).",
+    "Trefoil shape attributed to the caudal TD widening (p. 23, PDF 3); Inference from the eisenstein1977 note: Eisenstein found a trefoil canal in 66 of 443 skeletons, almost always at L5, as a normal variant from laminar thickening, not a feature of every caudal canal.",
+    "Cross-paper (notes in this set): Amonoo-Kuofi's MS and IPD and Hinck's L1 and L5 IPD values in Tables 3-4 match those papers' notes; Amonoo-Kuofi and Eisenstein took MS at the narrowest point near the cranial ring, not at mid-body, so Table 3 mixes definitions as well as modalities.",
+    "Fig. 1's example subject has its MS minimum at the fourth of five lines (Inference about the level labels): the group L3 minimum does not hold in every person."
+  ]
+}

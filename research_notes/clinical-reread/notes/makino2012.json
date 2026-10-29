@@ -1,0 +1,291 @@
+{
+  "id": "makino2012",
+  "citation": "Makino T, Kaito T, Fujiwara H, Yonenobu K. Analysis of lumbar pedicle morphology in degenerative spines using multiplanar reconstruction computed tomography: what can be the reliable index for optimal pedicle screw diameter? Eur Spine J (2012) 21:1516-1521. DOI 10.1007/s00586-012-2199-x (issue number not printed). Received 7 Oct 2011, revised 5 Jan 2012, accepted 7 Feb 2012, published online 19 Feb 2012 (p. 1516, PDF 1). Source: thread \"Reread every paper for clinical detail\", project symphony_4, 2026-10-28. Copy read: greg's upload of 2026-10-28 17:00 UTC, filed as project files literature/synthetic_spine/makino2012.pdf, sha256 begins a5f5c24c2ae7a7a0; 6 pages, journal pp. 1516-1521 = PDF 1-6, born-digital with a text layer.",
+  "population": "Japan, one hospital (authors' orthopaedic department, Kawachinagano, Osaka; p. 1516, PDF 1): 50 consecutive living patients who had preoperative MPR-CT for lumbar surgery, August 2008 to July 2010; 23 men and 27 women; aged 52-85, mean 70.1 (no SD); ethnicity not stated (Inference: Japanese); no height, weight or body size. Diagnoses: 16 lumbar spinal canal stenosis (9 men, 7 women), 34 lumbar degenerative spondylolisthesis (14 men, 20 women). Excluded: spondylolysis and lumbar scoliosis > 10 deg (counts not given). Denominator: 100 pedicles per level L1-L5, 500 pedicles in all (Inference: both pedicles of all 50 patients at every level). p. 1517 (PDF 2).",
+  "modality": "Helical CT, GE Light Speed Plus; slice thickness 1.25 mm; 120 kVp; 300 mA; window centre 300, width 2,000. DICOM reconstructed as multiplanar reconstructions (MPR) in Exa Vision LITE (Ziosoft, Tokyo); software linear precision 0.01 mm and angular precision 0.01 deg (display precision, not accuracy; Inference). Measures taken on 3 planes: axial parallel to the upper endplate, sagittal parallel to the body's AP midline, and the oblique coronal plane perpendicular to the pedicle axis (plane C). Statistics: StatView 5.0, Mann-Whitney U, p < 0.05; simple linear regression. p. 1517 (PDF 2); Figs. 1-2, p. 1518 (PDF 3).",
+  "levels_covered": "L1 to L5 only (T12 and S1 not measured). Level identification and numbering method not described; transitional segments, rib counts and L6 not mentioned; no case reported dropped. p. 1517 (PDF 2).",
+  "anomalies": [
+    {
+      "variant": "Lumbosacral transitional vertebra, sacralisation, lumbarisation, L6, T13, 11 or 13 rib pairs, cervical ribs, block vertebrae",
+      "finding": "Not mentioned anywhere; no prevalence reported; numbering method not described. Inference: with exactly 100 pedicles per level L1-L5 from 50 patients, no case was dropped for a transitional segment, and any transitional L5 was measured as L5 without comment.",
+      "page": "pp. 1516-1521 (PDF 1-6); denominators p. 1517 (PDF 2)",
+      "population": "50 Japanese surgical patients, 23 men and 27 women, 52-85 years",
+      "how_identified": "not applicable"
+    },
+    {
+      "variant": "Spondylolysis (pars defect)",
+      "finding": "Exclusion criterion; number screened out not given; no prevalence.",
+      "page": "p. 1516 (PDF 1) abstract; p. 1517 (PDF 2)",
+      "population": "consecutive preoperative lumbar CT patients",
+      "how_identified": "not stated"
+    },
+    {
+      "variant": "Lumbar scoliosis > 10 deg",
+      "finding": "Exclusion criterion; number screened out not given.",
+      "page": "p. 1516 (PDF 1); p. 1517 (PDF 2)",
+      "population": "consecutive preoperative lumbar CT patients",
+      "how_identified": "not stated"
+    },
+    {
+      "variant": "Degenerative spondylolisthesis (case mix, not a prevalence)",
+      "finding": "34/50 patients (14 men, 20 women) had lumbar degenerative spondylolisthesis and 16/50 (9 men, 7 women) lumbar spinal canal stenosis; slipped level, grade and diagnostic method not given; no result by diagnosis or by slipped level. A selected surgical case mix, not a population rate.",
+      "page": "p. 1517 (PDF 2)",
+      "population": "50 surgical patients, Japan",
+      "how_identified": "clinical diagnosis for surgery; method not stated"
+    }
+  ],
+  "measures": [
+    {
+      "name": "Transverse pedicle width (TPW)",
+      "definition": "Minimum endosteal (inner cortex to inner cortex) distance perpendicular to the pedicle axis, on the axial plane parallel to the upper vertebral endplate. Pedicle axis = line bisecting the pedicle isthmus on the axial and sagittal planes. Fig. 1a draws the axis converging anteromedially and the width across the pedicle at its narrowest, perpendicular to that axis.",
+      "projection": "CT, axial MPR parallel to the upper endplate (Exa Vision LITE)",
+      "levels": "L1-L5, 100 pedicles each",
+      "level_pattern": "Mean +/- SD (mm): L1 5.46 +/- 1.69, L2 5.76 +/- 1.73, L3 7.25 +/- 1.82, L4 9.01 +/- 1.91, L5 12.86 +/- 2.47 (Table 1). Rises steadily; steps 0.30, 1.49, 1.76, 3.85 mm; Inference: adjacent-level separation (mean difference / pooled SD) 0.18, 0.84, 0.94, 1.74, so it separates L4 from L5 well and L1 from L2 not at all. Greater than SPW at L5, less at L1-L3 (Fig. 3, p < 0.0001), not significantly different at L4 (no bracket).",
+      "ct_mask_recipe": "Inference: fit the upper endplate plane to the cranial surface of the body subregion; locate the pedicle as the narrowest bridge between body and arch subregion (SPINEPS has no pedicle label, from memory); fit the pedicle axis through the isthmus midpoints in axial and sagittal projections; in the endplate-parallel slice containing the axis, take the minimum width perpendicular to the axis. Mask is periosteal: threshold the cancellous core by HU or subtract two cortical thicknesses, else the value runs larger than the paper's.",
+      "radiograph_recipe": "Not measured in the paper (earlier studies used plain radiographs, refs 8 and 10, p. 1519). Inference: AP radiograph pedicle oval gives an outer-cortex projected width along the beam, magnified about 1.1-1.2 without calibration, not perpendicular to the axis; a different quantity, poor at L5 where the section is strongly inclined.",
+      "covariates": "No breakdown by sex, side, age or diagnosis; elderly degenerative Japanese cohort, 52-85, mean 70.1.",
+      "error": "No intra- or inter-observer data; software precision 0.01 mm; slice thickness 1.25 mm; pixel size not given.",
+      "page": "p. 1517 (PDF 2); Fig. 1a and Table 1, p. 1518 (PDF 3); Fig. 3, p. 1519 (PDF 4)"
+    },
+    {
+      "name": "Sagittal pedicle width (SPW)",
+      "definition": "Minimum endosteal distance perpendicular to the pedicle axis on the sagittal plane parallel to the anteroposterior midline of the vertebral body; Fig. 1b shows the axis horizontal in a parasagittal cut and the width as a vertical double arrow. Inference: this is endosteal pedicle height (craniocaudal), what Panjabi calls pedicle height.",
+      "projection": "CT, sagittal (parasagittal) MPR through the pedicle",
+      "levels": "L1-L5, 100 pedicles each",
+      "level_pattern": "Mean +/- SD (mm): L1 11.89 +/- 1.57, L2 10.44 +/- 1.75, L3 10.23 +/- 1.63, L4 9.36 +/- 1.36, L5 8.95 +/- 1.54 (Table 1). Falls L1 to L5; steps -1.45, -0.21, -0.87, -0.41 mm; Inference: separation 0.87, 0.12, 0.58, 0.28. Inference: TPW/SPW ratio 0.46, 0.55, 0.71, 0.96, 1.44 crosses 1 between L4 and L5.",
+      "ct_mask_recipe": "Inference: in the parasagittal slice containing the pedicle axis, minimum craniocaudal extent perpendicular to the axis on the endosteal border (HU threshold inside the mask) or corrected for cortex.",
+      "radiograph_recipe": "Not measured. Inference: lateral radiograph shows outer-cortex pedicle height between the notches, left and right superimposed, magnified; an endosteal value cannot be read.",
+      "covariates": "No breakdown.",
+      "error": "No reliability data; as TPW.",
+      "page": "p. 1517 (PDF 2); Fig. 1b and Table 1, p. 1518 (PDF 3); Fig. 3, p. 1519 (PDF 4)"
+    },
+    {
+      "name": "Minimum pedicle diameter (MPD)",
+      "definition": "Maximum diameter of the circle centred on the pedicle axis and not beyond the inner cortex, in the oblique coronal plane(s) perpendicular to the pedicle axis of both axial and sagittal planes (plane C of Fig. 2). Fig. 1c draws it as the circle's diameter between two tangents inside an inclined oval section. Inference: twice the distance from the axis point to the nearest inner cortex, at most the minor width of the section; the largest screw that fits along the axis. Whether the minimum along the axis (isthmus) was taken is implied by the rationale (narrowest section lies perpendicular to the axis, ref 5) but not stated.",
+      "projection": "CT, oblique coronal MPR perpendicular to the pedicle axis (plane C)",
+      "levels": "L1-L5, 100 pedicles each",
+      "level_pattern": "Mean +/- SD (mm): L1 5.09 +/- 1.60, L2 5.39 +/- 1.64, L3 6.52 +/- 1.57, L4 6.83 +/- 1.45, L5 7.36 +/- 1.46 (Table 1). Rises slowly; Inference: separation 0.19, 0.70, 0.21, 0.36, names no level alone. Not different from TPW at L1-L2; smaller at L3 (p = 0.0015), L4, L5 (p < 0.0001); mean TPW - MPD 0.37, 0.37, 0.73, 2.18, 5.50 mm (paper: 2.2 and 5.5 at L4, L5). Smaller than SPW at all levels (p < 0.0001). Regressions MPD on TPW: L1 0.911x+0.108 (R2 0.932), L2 0.913x+0.134 (0.925), L3 0.813x+0.631 (0.891), L4 0.611x+1.322 (0.653), L5 0.395x+2.281 (0.447). On SPW: L1 0.617x-2.254 (0.368), L2 0.621x-1.092 (0.440), L3 0.642x-0.041 (0.444), L4 0.750x-0.193 (0.496), L5 0.776x+0.416 (0.670); all p < 0.0001. Fig. 5 scatter (approximate): L5 TPW about 7-20 mm, MPD about 4.6-11.2 mm, two pedicles with TPW about 18 and 20 mm have MPD only about 7.4 mm; L3 one pedicle TPW about 1.7, MPD about 2 mm.",
+      "ct_mask_recipe": "Inference: build the endosteal core inside the mask (HU), fit the pedicle axis, step along it through the isthmus; at each axis point take twice the in-plane distance to the nearest endosteal border in the plane perpendicular to the axis; MPD = minimum over the isthmus (a 3D distance transform of the core read at the axis gives nearly the same). On a periosteal mask, larger by about two cortical thicknesses.",
+      "radiograph_recipe": "Not possible on standard AP or lateral views (Inference). Inference: an en-face fluoroscopic view along the pedicle axis approximates plane C, outer cortex only, magnified and blurred by pedicle length.",
+      "covariates": "No breakdown. Inference: within-level r(MPD, TPW) = 0.97, 0.96, 0.94, 0.81, 0.67 and r(MPD, SPW) = 0.61, 0.66, 0.67, 0.70, 0.82 L1-L5.",
+      "error": "No reliability data. Inference: residual SD of MPD given TPW 0.42, 0.45, 0.52, 0.85, 1.09 mm; given SPW 1.27, 1.23, 1.17, 1.03, 0.84 mm (SD(MPD) x sqrt(1 - R2)).",
+      "page": "p. 1516-1517 (PDF 1-2); Figs. 1c, 2 and Table 1, p. 1518 (PDF 3); Fig. 3 and p. 1519 (PDF 4); Fig. 5, p. 1520 (PDF 5)"
+    },
+    {
+      "name": "Cephalocaudal inclination (CI)",
+      "definition": "Angle between the major axis of the pedicle section in plane C (perpendicular to the pedicle axis) and the line perpendicular to the upper vertebral endplate (angle alpha, Fig. 1c). 0 deg = long axis craniocaudal. Direction of tilt and whether the angle is signed are not defined (Fig. 4 axis runs to -10 deg; mean - SD < 0 at L1, L2). Inference from the perforation pattern (inferomedial, superolateral walls): long axis runs superomedial to inferolateral.",
+      "projection": "CT, oblique coronal MPR (plane C)",
+      "levels": "L1-L5, 100 pedicles each",
+      "level_pattern": "Mean +/- SD (deg): L1 3.47 +/- 4.75, L2 5.01 +/- 7.60, L3 18.04 +/- 9.39, L4 39.06 +/- 8.36, L5 51.81 +/- 5.18 (Table 1). L3, L4, L5 each significantly above the level above (p < 0.0001); L2 not different from L1 (Fig. 4). Inference: separation 0.24, 1.53, 2.36, 1.83; best single discriminator of L3/L4/L5 here, useless for L1 vs L2.",
+      "ct_mask_recipe": "Inference: in plane C at the isthmus, principal axes of the pedicle section (second moments or fitted ellipse); project the upper-endplate normal (from the body subregion) into plane C; CI = angle between first principal axis and that line, folded to 0-90 deg. Unstable for near-round sections (L1, L2). Use vertebra-referenced axes, not scanner axes. Not the same as Panjabi's pedicle-axis inclinations (Inference from memory): CI is the roll of the section about the axis.",
+      "radiograph_recipe": "Not possible on standard AP or lateral (Inference); an en-face view along the pedicle axis shows the oval's inclination, outer cortex only (Inference).",
+      "covariates": "No breakdown.",
+      "error": "Software angular precision 0.01 deg; no reliability data; large SD at L1-L2 relative to mean.",
+      "page": "p. 1517 (PDF 2); Fig. 1c and Table 1, p. 1518 (PDF 3); Fig. 4 and discussion, p. 1519 (PDF 4)"
+    },
+    {
+      "name": "Screw-diameter index (derived from regressions)",
+      "definition": "Rounded regressions of MPD on TPW taken as optimal screw diameter y from TPW x: y = 0.9x + 0.1 (L1, L2), 0.8x + 0.6 (L3), 0.6x + 1.3 (L4), 0.4x + 2.3 (L5); at L5 the SPW form y = 0.8x + 0.4 suggested because the TPW fit is weakest. The authors equate optimal screw diameter with MPD; no safety margin, no validation sample.",
+      "projection": "CT (axial TPW or sagittal SPW input)",
+      "levels": "L1-L5",
+      "level_pattern": "Inference by calculation: at mean TPW the rounded index gives 5.01, 5.28, 6.40, 6.71, 7.44 mm against mean MPD 5.09, 5.39, 6.52, 6.83, 7.36; SPW form at L5 mean gives 7.56 (0.2 mm above mean MPD).",
+      "ct_mask_recipe": "Apply to mask-derived TPW only after converting to endosteal values (Inference).",
+      "radiograph_recipe": "Not applicable; paper uses CT only.",
+      "covariates": "None.",
+      "error": "Inherits regression scatter: residual SD about 0.4-0.5 mm L1-L3, 0.85 mm L4, 1.09 mm L5 (TPW), 0.84 mm L5 (SPW) (Inference).",
+      "page": "p. 1519 (PDF 4); regressions p. 1517 (PDF 2)"
+    }
+  ],
+  "level_details": [
+    {
+      "level": "L1, L2",
+      "detail": "Section's long axis nearly sagittal (craniocaudal), CI 3.47 and 5.01 deg, not different from each other; MPD not different from TPW (both about 5-6 mm); SPW 11.89 and 10.44 mm (tall, narrow pedicle); TPW predicts MPD with R2 0.932 and 0.925.",
+      "page": "p. 1517 (PDF 2); Table 1 p. 1518 (PDF 3); Figs. 3-4 and discussion p. 1518-1519 (PDF 3-4)"
+    },
+    {
+      "level": "L3",
+      "detail": "Transition level: CI 18.04 deg, first significant rise over the level above; MPD 0.73 mm below TPW (p = 0.0015); TPW still predicts MPD well (R2 0.891).",
+      "page": "p. 1517 (PDF 2); Table 1 p. 1518 (PDF 3); Fig. 4 p. 1519 (PDF 4)"
+    },
+    {
+      "level": "L4",
+      "detail": "CI 39.06 deg; TPW 9.01 and SPW 9.36 mm nearly equal (only level with no TPW-SPW significance bracket); MPD about 2.2 mm below TPW; 7 of 67 pedicles (10.4%) with TPW >= 8 mm had minimum width < 6 mm (Inference: 67 of 100 L4 pedicles had TPW >= 8 mm). TPW-MPD R2 0.653.",
+      "page": "p. 1517 (PDF 2); Fig. 3 and p. 1519 (PDF 4)"
+    },
+    {
+      "level": "L5",
+      "detail": "CI 51.81 deg; wider than tall (TPW 12.86, SPW 8.95 mm); MPD about 5.5 mm below TPW; 16 of 96 pedicles (16.7%) with TPW >= 8 mm had minimum width < 6 mm (Inference: 96 of 100 had TPW >= 8 mm); TPW predicts MPD poorly (R2 0.447), SPW better (R2 0.670), so the SPW index is advised at L5.",
+      "page": "p. 1517 (PDF 2); Table 1 p. 1518 (PDF 3); p. 1519 (PDF 4); Fig. 5c-d p. 1520 (PDF 5)"
+    },
+    {
+      "level": "T12/L1 and L5/S1 junctions",
+      "detail": "T12 and S1 not measured; nothing said about either junction. Inference only: T12 likely resembles L1 (upright oval, small CI).",
+      "page": "whole paper"
+    }
+  ],
+  "errors": [
+    {
+      "what": "Intra- and inter-observer reliability",
+      "value": "Not reported; number of observers and blinding not stated",
+      "page": "whole paper"
+    },
+    {
+      "what": "Software display precision",
+      "value": "0.01 mm linear, 0.01 deg angular",
+      "page": "p. 1517 (PDF 2)"
+    },
+    {
+      "what": "CT slice thickness and window",
+      "value": "1.25 mm helical; window centre 300, width 2,000; pixel size not given",
+      "page": "p. 1517 (PDF 2)"
+    },
+    {
+      "what": "Residual SD of MPD given TPW (Inference, from SD and R2)",
+      "value": "0.42, 0.45, 0.52, 0.85, 1.09 mm at L1-L5",
+      "page": "p. 1517 (PDF 2); Table 1 p. 1518 (PDF 3)"
+    },
+    {
+      "what": "Residual SD of MPD given SPW (Inference)",
+      "value": "1.27, 1.23, 1.17, 1.03, 0.84 mm at L1-L5",
+      "page": "p. 1517 (PDF 2); Table 1 p. 1518 (PDF 3)"
+    },
+    {
+      "what": "Cited validity of CT",
+      "value": "CT inner-cortex measures correlate well with direct cadaveric ones (refs 3, 4); MPR-CT pedicle measurement useful and accurate (refs 5, 13)",
+      "page": "p. 1519 (PDF 4)"
+    },
+    {
+      "what": "Statistics (Inference)",
+      "value": "Unpaired Mann-Whitney U on paired measures; left and right pedicles pooled as independent; no multiple-comparison correction",
+      "page": "p. 1517 (PDF 2)"
+    }
+  ],
+  "pearls_pitfalls": [
+    {
+      "text": "Pedicle-screw instrumentation is the standard way to fuse or correct deformity in lumbar degenerative disorders, and preoperative CT sizing is essential; axial TPW is still the recommended sizing index (refs 1-4).",
+      "page": "p. 1516 (PDF 1); p. 1519 (PDF 4)"
+    },
+    {
+      "text": "The lumbar pedicle section is oval, more so in the lower lumbar spine, with its major axis inclined towards horizontal; hence TPW overestimates the usable diameter at L3-L5 but is a fair proxy at L1-L2.",
+      "page": "p. 1516 (PDF 1); p. 1518-1519 (PDF 3-4)"
+    },
+    {
+      "text": "Where MPD is much smaller than TPW, a TPW-sized screw can breach the wall and injure the nerve root.",
+      "page": "p. 1516 (PDF 1)"
+    },
+    {
+      "text": "A large TPW is no guarantee: 10.4% (7/67) of L4 and 16.7% (16/96) of L5 pedicles with TPW >= 8 mm had minimum width < 6 mm.",
+      "page": "p. 1519 (PDF 4)"
+    },
+    {
+      "text": "Lower-lumbar perforations tend to occur inferomedially (nerve root at risk) or superolaterally (weaker pullout and load sharing, ref 15, a thoracic study), because of the inclined long axis.",
+      "page": "p. 1519 (PDF 4); ref 15 p. 1521 (PDF 6)"
+    },
+    {
+      "text": "Do not choose the maximum screw diameter from TPW in the lower lumbar spine; use the regression index, and the SPW form at L5.",
+      "page": "p. 1519 (PDF 4)"
+    },
+    {
+      "text": "Abstract warns against sizing from 'plain CT scans', especially lower lumbar (Inference: unreformatted axial images).",
+      "page": "p. 1516 (PDF 1)"
+    },
+    {
+      "text": "Limitation the authors admit: MPD assumes a screw along the pedicle axis; another entry point or direction meets a smaller diameter, so use a smaller screw.",
+      "page": "p. 1519-1520 (PDF 4-5)"
+    },
+    {
+      "text": "Measuring MPD per pedicle is ideal but costs reconstruction and measurement effort, the reason for the index.",
+      "page": "p. 1519 (PDF 4)"
+    },
+    {
+      "text": "Recent research (ref 14, Sugisaki 2009, in vivo 3D) found significant TPW-MPD differences; Li et al. (ref 5) held the isthmus section perpendicular to the axis better than the axial plane.",
+      "page": "p. 1519 (PDF 4); ref titles p. 1520-1521 (PDF 5-6)"
+    },
+    {
+      "text": "Degeneration is a population label, not a tested factor: no normal comparison, no analysis by diagnosis or slipped level, no degenerative change named as error. Inference: an irregular or slip-tilted upper endplate would shift the TPW plane and the CI reference; isthmic spondylolisthesis and degenerative scoliosis are excluded, so do not carry these norms to them unchecked.",
+      "page": "p. 1517 (PDF 2); Inference"
+    }
+  ],
+  "instructions": [
+    {
+      "text": "Define each pedicle axis as the line bisecting the isthmus on both axial and sagittal views; take every width perpendicular to it.",
+      "page": "p. 1517 (PDF 2)"
+    },
+    {
+      "text": "Orient planes to the vertebra: TPW plane parallel to the upper endplate, SPW plane parallel to the body's AP midline, CI reference perpendicular to the upper endplate; never scanner axes (Inference: scanner axes fold lordosis into TPW, SPW and CI).",
+      "page": "p. 1517 (PDF 2)"
+    },
+    {
+      "text": "For the narrowest diameter cut plane C perpendicular to the pedicle axis and take the largest circle centred on the axis inside the inner cortex; place it at the isthmus (Inference; not stated how the position was chosen); do not substitute axial width at L3-L5.",
+      "page": "p. 1517-1519 (PDF 2-4); Fig. 2 p. 1518 (PDF 3)"
+    },
+    {
+      "text": "Measure endosteally; from a periosteal mask, threshold the cancellous core or correct for two cortical thicknesses before comparing (correction is Inference).",
+      "page": "p. 1517 (PDF 2)"
+    },
+    {
+      "text": "Measure CI in plane C; expect about 3.5, 5, 18, 39 and 52 deg at L1-L5, each of L3-L5 significantly above the level over it; use as a level cue for L3-L5 (Inference); report unsigned unless a side convention is fixed.",
+      "page": "p. 1517 (PDF 2); Table 1 p. 1518 (PDF 3); Fig. 4 p. 1519 (PDF 4)"
+    },
+    {
+      "text": "Inference: use TPW/SPW (0.46, 0.55, 0.71, 0.96, 1.44 at L1-L5) as a second cue: wider than tall plus steep CI points to L5; about equal with CI near 40 deg to L4.",
+      "page": "Table 1 p. 1518 (PDF 3)"
+    },
+    {
+      "text": "Do not separate L1 from L2 by these pedicle measures (TPW and MPD differ by 0.30 mm, CI by 1.5 deg, not significant); name them by ribs, transverse processes or count (Inference).",
+      "page": "Table 1 p. 1518 (PDF 3); Fig. 4 p. 1519 (PDF 4)"
+    },
+    {
+      "text": "Check a mask-derived MPD against the level's regression prediction from its own TPW, not against TPW; at a candidate L5 a value more than about 2 residual SD (about 2.2 mm) above the prediction questions the level or the axis (check is Inference).",
+      "page": "p. 1517 (PDF 2); p. 1519 (PDF 4); Fig. 5c p. 1520 (PDF 5)"
+    },
+    {
+      "text": "With TPW only, predict MPD from the level's regression with its residual spread (about 0.4 mm at L1 to 1.1 mm at L5, Inference); at L5 prefer the SPW regression.",
+      "page": "p. 1517 and 1519 (PDF 2 and 4)"
+    },
+    {
+      "text": "Flag lower-lumbar pedicles with TPW >= 8 mm as possibly < 6 mm in plane C (10.4% at L4, 16.7% at L5).",
+      "page": "p. 1519 (PDF 4)"
+    },
+    {
+      "text": "When checking a lower-lumbar screw, inspect the inferomedial wall (nerve root) and the superolateral wall (pullout) first.",
+      "page": "p. 1519 (PDF 4)"
+    },
+    {
+      "text": "Do not report MPD or CI from a plain AP or lateral film; only an en-face view along the pedicle axis approximates plane C, outer cortex only (Inference).",
+      "page": "Inference; no radiographs measured"
+    },
+    {
+      "text": "Treat values as elderly Japanese degenerative norms (52-85, mean 70.1; 34 spondylolisthesis, 16 stenosis; spondylolysis and scoliosis > 10 deg excluded); adjust and check before applying to young, non-Asian, isthmic or scoliotic spines (Inference for the caution).",
+      "page": "p. 1517 (PDF 2)"
+    },
+    {
+      "text": "Where trajectory or entry point departs from the pedicle axis, report the usable diameter as smaller than MPD.",
+      "page": "p. 1519-1520 (PDF 4-5)"
+    }
+  ],
+  "bordercall": [
+    "(a) Anomaly priors: none. No prevalence of LSTV, L6, T13, rib anomalies or spondylolysis; spondylolysis and scoliosis > 10 deg excluded without counts; 34/50 degenerative spondylolisthesis and 16/50 stenosis are a surgical case mix, not rates; slipped level not given (p. 1517, PDF 2).",
+    "(b) TPW and SPW map to pedicle width and height (Inference) but are endosteal and perpendicular to the pedicle axis in endplate-referenced planes; Panjabi's are external cadaver dimensions (memory, Inference), and a periosteal SPINEPS mask reads larger; calibrate before pooling.",
+    "(b) Candidate additions: MPD and CI. CI separates L3/L4/L5 at about 1.5-2.4 pooled SD (Inference) and is cheap from a mask cross-section; blind for L1 vs L2. CI is the roll of the section about the pedicle axis, not Panjabi's sagittal or transverse pedicle-axis inclination (Inference from memory).",
+    "(b) Draw MPD conditional on TPW (r = 0.97, 0.96, 0.94, 0.81, 0.67 L1-L5) or on SPW at L5 (r = 0.82) using the level regressions (p. 1517, PDF 2); a single-ellipse geometry does not jointly reproduce the L5 means (rough Inference).",
+    "(b) Use the upper-endplate reference for the TPW plane and the CI line, not scanner axes; degenerative endplates or slips may tilt it (Inference).",
+    "(c) Error: none reported. Inference: slice thickness 1.25 mm as edge-uncertainty scale; CI at L1-L2 poorly determined (SD 4.75 and 7.60 deg); residual SD of MPD given TPW 0.42-1.09 mm, given SPW 1.27-0.84 mm L1-L5. Table 1 SDs are population spreads over 100 pedicles of 50 patients, not error terms.",
+    "(d) Covariates: none by sex, age, height or weight; 23 men and 27 women, 52-85 (mean 70.1), degenerative, presumably Japanese; SDs mix sexes and sides. Reference list points to Korean (ref 7), Indian (refs 2, 8), Japanese (refs 9, 12) and Asian (ref 11) pedicle series (titles, p. 1520, PDF 5), not compared in the paper."
+  ],
+  "gaps": [
+    "No reliability study, observer count or blinding; no pixel size, field of view, kernel or MPR slab thickness; no per-side, per-sex or per-diagnosis results; degeneration not tested as a factor.",
+    "No account of level identification or of transitional segments.",
+    "MPD defined over 'planes' perpendicular to the axis; the minimum along the axis (isthmus) implied, not stated (p. 1516-1517, PDF 1-2).",
+    "The 10.4% and 16.7% counts speak of 'minimum pedicle width' < 6 mm (p. 1519, PDF 4); Inference: the MPD.",
+    "Text says CI rises significantly 'below L3' (p. 1517, PDF 2); Fig. 4 marks L3 itself as different from L2 (p. 1519, PDF 4).",
+    "TPW vs SPW tests appear only in Fig. 3 (p. 1519, PDF 4); MPD vs TPW at L1-L2 reported only as not different, no p value; abstract rounds p to < 0.01.",
+    "CI sign and side convention undefined; Fig. 4 axis runs to -10 deg and mean - SD < 0 at L1 and L2.",
+    "Fig. 2 caption's plane B wording ('including the axial plane') is garbled (p. 1518, PDF 3).",
+    "Only one limitation admitted (screw along the axis, p. 1519-1520, PDF 4-5); single centre, surgical sample, no normal comparison, unvalidated index unmentioned (Inference).",
+    "No multiple-comparison correction or sample-size reasoning; unpaired test on paired measures; sides pooled (Inference).",
+    "Superolateral-breach pullout claim rests on ref 15, a thoracic study (title, p. 1521, PDF 6).",
+    "Internal checks pass (Inference by calculation): abstract triplets match Table 1; each regression passes through the Table 1 means; slope = sqrt(R2) x SD(MPD)/SD(x) at every level; 7/67 = 10.4%, 16/96 = 16.7%; gaps 2.2 and 5.5 mm match.",
+    "From memory (Inference, not checked): Li 2004 (ref 5) and Sugisaki 2009 (ref 14) agree that the perpendicular isthmus is narrower than the axial width; Zindrick 1987 and Panjabi 1992 report transverse pedicle widths rising L1 to L5, larger in absolute value, probably as outer-cortex measures."
+  ]
+}

@@ -1,0 +1,287 @@
+{
+  "id": "otsuki2021",
+  "citation": "Irie TY, Irie T, Espinoza Orias AA, Segami K, Iwasaki N, An HS, Inoue N. Micro-computed tomography analysis of the lumbar pedicle wall. PLoS ONE 2021;16(7):e0253019. doi 10.1371/journal.pone.0253019 (12 pages, printed page n = PDF page n). File key otsuki2021 kept, though no author is named Otsuki. Copy read: PMC open-access Cloud Service (pmc-oa-opendata), PMC8266093.1, fetched 2026-10-28; sha256 begins 26190d026c80bf7d; born-digital, all 12 pages read as images by a second reader on 2026-10-28.",
+  "population": "USA, accredited tissue bank (Science Care, Phoenix, Arizona): six fresh-frozen cadaveric lumbar spines L1-L5, 3 men and 3 women, aged 50-67 (mean 60.2 +/- 7.2), BMI 15.4-42.2, height 160-193 cm, ethnicity not stated, free of spine-related conditions and spine surgery (Table 1, p. 2, PDF 2). 60 pedicles = 6 spines x 5 levels x 2 sides, each cut free at the pedicle-body and pedicle-lamina junctions. BAF by level (Table 4) is 6 side-averaged donor values per cell (Inference from p. 5); BAF by donor (Table 3) is a mean over 5 levels (Inference); BAF-HU correlation n = 30 (Inference: 6 donors x 5 levels); Table 2 dimensions give no n per level.",
+  "modality": "Micro-CT of excised pedicles: Scanco muCT 50, each pedicle in distilled water in a 35 mm inner-diameter tube held by gauze and sealed with paraffin film, 55 kV, 145 microA, 34.4 micrometre voxels, 1024 x 1024 matrix; DICOM resliced in Mimics; dimensions in ImageJ; bone area fraction by a custom Visual C++ routine (pp. 2-5, PDF 2-5). Vertebral body HU in ImageJ on axial CT (scan not named). A clinical CT of the same specimen shown for comparison (Siemens Volume Zoom, 120 kV, 100 mA, FOV 272 mm, 512 x 512, 0.625 mm slices at 1.0 mm increment; Fig 4, p. 10, PDF 10).",
+  "levels_covered": "L1 to L5 only, as supplied by the tissue bank; how levels were identified, rib count, lumbar count and transitional segments are not reported; no exclusion for anomalies is described.",
+  "anomalies": [
+    {
+      "variant": "Lumbosacral transitional vertebra, sacralisation, lumbarisation, L6, T13, 11 or 13 rib pairs, cervical ribs, block vertebrae",
+      "finding": "Not mentioned anywhere; no prevalence of any numerical or transitional variant and no numbering method. Levels are the tissue bank's L1-L5 labels.",
+      "page": "pp. 1-12 (PDF 1-12); specimens p. 2 (PDF 2)",
+      "population": "6 US tissue-bank cadaveric lumbar spines (3 M, 3 F, 50-67 years)",
+      "how_identified": "not applicable"
+    }
+  ],
+  "measures": [
+    {
+      "name": "Pedicle axis and isthmus section",
+      "definition": "Pedicle axis = line through approximate centre points of cross-sections at the anterior third and posterior third of the pedicle; final sections are planes perpendicular to it; the section is treated as an ellipse; the isthmus is the section with the shortest minor axis (after Sugisaki, ref. 18, an in vivo 3D CT method of the same group); its major axis is its longest diameter. The inner cortex-cavity boundary is a continuous cortical wall next to the cavity judged over a few slices around the isthmus (ref. 16).",
+      "projection": "micro-CT resliced in 3D (Mimics), section perpendicular to the pedicle axis",
+      "page": "p. 3 (PDF 3), Fig 1; ref. 18 p. 12 (PDF 12)",
+      "levels": "L1-L5",
+      "ct_mask_recipe": "Inference: SPINEPS has no pedicle label; take the arch voxels between the posterior body wall and the branching of the transverse and articular processes on one side (the paper's cut lines), join centroids of sections at its anterior and posterior thirds, reslice perpendicular in small steps, fit second-moment ellipses, take the section with the shortest minor axis; record two-point axis vs principal axis.",
+      "radiograph_recipe": "Not discussed. Inference: not possible as defined; AP pedicle oval is an oblique projection; lateral pedicle neck approximates the major axis only where the pedicle is not tilted.",
+      "level_pattern": "Frame only; see the diameters and areas.",
+      "covariates": "not analysed",
+      "error": "No repeatability; boundary drawn by judgement."
+    },
+    {
+      "name": "Transverse diameter (minor axis of the isthmus)",
+      "definition": "Length on the minor axis of the isthmus section, outer surface to outer surface as drawn in Fig 2A (horizontal yellow dotted line); ImageJ.",
+      "projection": "micro-CT section perpendicular to the pedicle axis",
+      "page": "p. 4 (PDF 4), Fig 2A; values Table 2, p. 6 (PDF 6)",
+      "levels": "L1-L5: 7.1 +/- 2.4, 7.3 +/- 2.4, 9.4 +/- 2.0, 10.6 +/- 0.8, 11.8 +/- 1.7 mm; average 9.2 +/- 2.1",
+      "ct_mask_recipe": "Minor-axis extent of the narrowest perpendicular section of the pedicle bridge. Inference: close to Zindrick's and Krag's isthmus width and to Panjabi's PDW taken at the narrowest point.",
+      "radiograph_recipe": "Not discussed. Inference: AP radiograph, mediolateral width of the pedicle oval over magnification; overstates the true section at L4-L5.",
+      "level_pattern": "Rises gradually L1 to L5, flat L1-L2 then steps up; L3 > L2 (p < 0.04), L4 > L1 (p < 0.03) and L2 (p < 0.05); L5 unmarked against every level. Only adjacent pair separated: L2/L3.",
+      "covariates": "Not analysed (3 M, 3 F).",
+      "error": "No repeatability; between-specimen SD 0.8-2.4 mm; voxel 34.4 micrometres."
+    },
+    {
+      "name": "Longitudinal diameter (major axis of the isthmus)",
+      "definition": "Length on the major axis, the longest diameter of the isthmus section (Fig 2A vertical yellow dotted line).",
+      "projection": "micro-CT section perpendicular to the pedicle axis",
+      "page": "pp. 3-4 (PDF 3-4); Table 2, p. 6 (PDF 6)",
+      "levels": "L1-L5: 17.0 +/- 2.7, 15.8 +/- 1.7, 15.8 +/- 1.7, 18.8 +/- 1.6, 24.2 +/- 2.7 mm; average 18.3 +/- 3.5",
+      "ct_mask_recipe": "Longest diameter of the isthmus section (Inference: major-axis extent, not necessarily vertical).",
+      "radiograph_recipe": "Not discussed. Inference: lateral radiograph, craniocaudal height of the superimposed pedicle necks over magnification.",
+      "level_pattern": "Smallest at L2-L3, rises L2 to L5; L4 > L2 (p < 0.02) and L3 (p = 0.0001); L5 > L1 (p < 0.02), L2 (p < 0.003), L3 (p < 0.001). Adjacent pair separated: L3/L4; L4/L5 unmarked. Inference: major/minor ratio of means 2.39, 2.16, 1.68, 1.77, 2.05.",
+      "covariates": "Not analysed.",
+      "error": "No repeatability; SD 1.6-2.7 mm."
+    },
+    {
+      "name": "Medial, lateral, cranial and caudal wall thickness",
+      "definition": "Medial and lateral on the minor axis, cranial and caudal on the major axis, each from the medullary-cavity boundary (red line) to the outer surface (Fig 2A red arrows). Inference: includes porous shell-like bone, not strictly cortical thickness.",
+      "projection": "micro-CT isthmus section",
+      "page": "p. 4 (PDF 4); Table 2, p. 6 (PDF 6); text p. 5 (PDF 5)",
+      "levels": "L1/L2/L3/L4/L5 mm: medial 0.8, 0.8, 0.8, 1.3, 1.3 (avg 1.0); lateral 0.6, 0.7, 0.9, 1.1, 1.7 (avg 1.0); cranial 3.1, 3.5, 3.9, 3.2, 4.0 (avg 3.5); caudal 2.6, 3.2, 2.8, 2.5, 2.9 (avg 2.8)",
+      "ct_mask_recipe": "Inference: not possible from a binary mask; needs the cavity boundary, which clinical CT at about 0.5 mm cannot draw (p. 9-10, Fig 4).",
+      "radiograph_recipe": "Not discussed. Inference: not possible.",
+      "level_pattern": "Lateral rises L1 to L5 (L5 > L1 p < 0.03, L2 p < 0.008, L3 p < 0.05); medial tends higher lower down, not significant; cranial L3 > L1 (p < 0.02); cranial and caudal exceed medial and lateral at L1-L3 and cranial at L4 (footnotes a-g), text says all levels except L5; no medial-lateral difference at any level.",
+      "covariates": "Not analysed.",
+      "error": "No repeatability; SD 0.2-1.7 mm."
+    },
+    {
+      "name": "Whole cross-section area and medullary cavity area at the isthmus",
+      "definition": "Area of the entire isthmus section and of the cavity inside the red line (Fig 2A); ImageJ.",
+      "projection": "micro-CT isthmus section",
+      "page": "pp. 4-5 (PDF 4-5); Table 2, p. 6 (PDF 6)",
+      "levels": "Whole L1-L5: 95.7, 92.5, 113.7, 152.4, 204.2 mm2 (avg 131.7 +/- 47.0); cavity 53.2, 43.3, 56.3, 83.2, 118.7 mm2 (avg 70.9 +/- 30.5)",
+      "ct_mask_recipe": "Inference: whole area = pixel area of the mask's isthmus section; cavity area not available from a mask.",
+      "radiograph_recipe": "Not discussed. Inference: not possible.",
+      "level_pattern": "Both smallest at L2, rising L2 to L5; whole: L4 > L2 (p < 0.02), L3 (p < 0.04); L5 > L1 (p < 0.02), L2 (p < 0.009), L3 (p < 0.04); cavity: L4 > L2 (p < 0.04); L5 > L1 (p < 0.04), L2 (p < 0.02). Inference: cavity/whole about 0.47-0.58; ellipse on mean diameters within 3 percent at L1-L4, 10 percent high at L5.",
+      "covariates": "Not analysed.",
+      "error": "No repeatability; SD 12.8-43.8 mm2."
+    },
+    {
+      "name": "Bone area fraction (BAF) of the wall by region",
+      "definition": "Binarise at threshold = (cortical grey - background grey) x 0.5; BAF = bone pixels / ROI pixels x 100. ROIs: four 30-deg sectors from the 12 o'clock set by the major axis: cranial +/-15, medial 75-105, caudal 165-195, lateral 255-285 deg, chosen to avoid transitional areas; left and right averaged (no side difference). BAF chosen over porosity because the lateral wall looked cancellous.",
+      "projection": "micro-CT isthmus section",
+      "page": "p. 4-5 (PDF 4-5), Fig 2B; Table 3 p. 6, Table 4 p. 7, Fig 3 p. 8; rationale p. 8 (PDF 8)",
+      "levels": "Table 4, lateral/medial/cranial/caudal/average %: L1 52.2/98.6/78.1/88.0/79.2; L2 64.0/98.9/84.1/89.1/84.0; L3 58.7/97.9/90.0/93.0/84.9; L4 55.7/95.1/86.6/66.7/76.0; L5 63.1/96.5/81.1/53.4/73.5. Overall lateral 58.8 +/- 22.3, medial 97.4 +/- 4.1, cranial 84.0 +/- 11.2, caudal 78.0 +/- 12.9.",
+      "ct_mask_recipe": "Not possible: clinical CT at about 0.5 mm cannot show the wall's trabeculae (p. 9, Fig 4); porosity may show only as lower CT values through partial volume (p. 9-10). Inference: a binary mask holds no porosity.",
+      "radiograph_recipe": "Not discussed. Inference: not possible.",
+      "level_pattern": "Lateral below medial at every level and below cranial at every level (Fig 3), below caudal at L1-L3 only; medial highest except not significantly above cranial at L4 (p = 0.26); caudal falls at L4 (< L3, p < 0.04) and L5 (< L1, L2, L3), below cranial at L5 (p < 0.0006); cranial L1 < L3 (p < 0.04); caudal tends above cranial at L1 (p = 0.08), significantly with L1-L2 combined (p < 0.04); average L5 < L2, L3.",
+      "covariates": "Not analysed; by donor (Table 3) lateral 46.4 (donor 5, BMI 34.2) to 74.3 (donor 4, BMI 17.0).",
+      "error": "No repeatability; SD up to 26.0 points by level (caudal L4) and 30.9 by donor (donor 5 caudal); sectors arbitrary (p. 10)."
+    },
+    {
+      "name": "Vertebral body attenuation (HU)",
+      "definition": "Largest possible elliptical ROI in each vertebral body on every axial CT slice of L1-L5, excluding osseous abnormalities and voids such as vascular channels (after Schreiber, ref. 19); ImageJ.",
+      "projection": "axial CT (scan not named; Inference: the clinical CT)",
+      "page": "p. 5 (PDF 5)",
+      "levels": "L1-L5; no HU values printed; two donors (66 M, 50 F; Inference donors 6 and 2) had L1 below 110 HU (Pickhardt cut-off, ref. 20).",
+      "ct_mask_recipe": "Inference: mean HU inside the body subregion, eroded from the cortex, on calibrated CT.",
+      "radiograph_recipe": "Not possible (Inference).",
+      "level_pattern": "Not reported by level.",
+      "covariates": "Not analysed; average pedicle-wall BAF did not correlate with body HU (n = 30, r = 0.06, p = 0.76).",
+      "error": "Not reported."
+    }
+  ],
+  "level_details": [
+    {
+      "level": "L1",
+      "detail": "Narrow (7.1 mm) and tall (17.0 mm) isthmus; thinnest lateral wall (0.6 mm); lowest lateral BAF (52.2 percent, lowest regional mean at any level); cranial BAF 78.1, below L3 (p < 0.04); caudal above cranial in tendency (p = 0.08); two of six donors had L1 body HU under 110.",
+      "page": "Table 2 p. 6, Table 4 p. 7; p. 5, p. 9 (PDF 5-9)"
+    },
+    {
+      "level": "L2",
+      "detail": "Smallest isthmus (whole 92.5 mm2, cavity 43.3 mm2, major 15.8 mm); width 7.3 mm, barely above L1; highest lateral BAF (64.0); caudal BAF 89.1; with L1, caudal BAF significantly above cranial (p < 0.04).",
+      "page": "Table 2 p. 6, Table 4 p. 7, p. 9 (PDF 6, 7, 9)"
+    },
+    {
+      "level": "L3",
+      "detail": "First significant widening (9.4 mm, above L2); major axis still 15.8 mm; cranial wall 3.9 mm (above L1); highest cranial and caudal BAF (90.0, 93.0) and highest four-region average (84.9).",
+      "page": "Table 2 p. 6, Table 4 p. 7 (PDF 6-7)"
+    },
+    {
+      "level": "L4",
+      "detail": "Width 10.6 mm (above L1 and L2); major 18.8 mm and whole area 152.4 mm2 (each above L2 and L3), so L3/L4 is separated by major axis and area; medial BAF 95.1, not significantly above cranial (p = 0.26); lateral BAF below medial and cranial but not caudal; caudal BAF 66.7, below L3 (p < 0.04).",
+      "page": "Table 2 p. 6, Table 4 p. 7, text p. 6, Fig 3 p. 8 (PDF 6-8)"
+    },
+    {
+      "level": "L5",
+      "detail": "Largest isthmus (11.8 x 24.2 mm, 204.2 mm2); lateral wall thickest (1.7 mm, above L1-L3, numerically above medial 1.3); caudal BAF 53.4, lowest caudal (below L1-L3) and below cranial, second only to L1 lateral among regional means; lowest four-region average 73.5. Authors: taller section raises the area moment of inertia, so the caudal wall may adapt to less stress, while the cranial wall passes stress to the superior end plate.",
+      "page": "Table 2 p. 6, Table 4 p. 7, p. 9 (PDF 6, 7, 9)"
+    },
+    {
+      "level": "Junctions T12/L1 and L5/S1",
+      "detail": "Not studied; only L1-L5. Inference: caudal-wall density is the denser half in the thoracic pedicle (Lehman, ref. 17) and at L1-L2 but the porous half at L4-L5, turning over in the mid lumbar spine.",
+      "page": "p. 7, p. 9 (PDF 7, 9); Table 4"
+    }
+  ],
+  "errors": [
+    {
+      "what": "Observer reliability",
+      "value": "None reported: no intra- or inter-observer study, no repeatability, no phantom; only between-specimen SDs.",
+      "page": "Tables 2-4, pp. 6-7 (PDF 6-7)"
+    },
+    {
+      "what": "Instrument resolution",
+      "value": "micro-CT voxel 34.4 micrometres; clinical CT about 0.5 mm at best (Fig 4 scanner 272/512 = 0.53 mm in-plane, Inference).",
+      "page": "p. 3, p. 9, Fig 4 p. 10 (PDF 3, 9, 10)"
+    },
+    {
+      "what": "Between-specimen SD, isthmus dimensions",
+      "value": "transverse 0.8-2.4 mm; longitudinal 1.6-2.7 mm; walls 0.2-1.7 mm; whole area 13.6-43.8 mm2; cavity 12.8-28.3 mm2",
+      "page": "Table 2, p. 6 (PDF 6)"
+    },
+    {
+      "what": "Between-specimen SD, BAF",
+      "value": "by level up to 26.0 points (caudal L4); by donor up to 30.9 (donor 5 caudal); medial 2.3-7.6",
+      "page": "Table 3 p. 6, Table 4 p. 7 (PDF 6-7)"
+    },
+    {
+      "what": "Threshold and boundary judgement",
+      "value": "Single half-way grey-level threshold per data set (formula printed without background offset; sampling of grey levels not stated); cavity boundary judged over a few slices.",
+      "page": "p. 3, p. 5 (PDF 3, 5)"
+    },
+    {
+      "what": "Average column SD in Table 2",
+      "value": "Inference: the SD of the five level means (recomputed 2.05, 3.51, 47.0, 30.5, 0.40, 0.27, 0.27 match; lateral 0.44 vs printed 0.5), not a pooled SD.",
+      "page": "Table 2, p. 6 (PDF 6)"
+    },
+    {
+      "what": "Sample size",
+      "value": "Six donors; authors say too few for a trustworthy BAF-HU correlation.",
+      "page": "p. 9 (PDF 9)"
+    }
+  ],
+  "pearls_pitfalls": [
+    {
+      "text": "Lateral wall breach is the most common pedicle-screw failure in thoracolumbar fixation; a screw redirected after a lateral breach lost 24.0 percent of mean pullout strength against a correctly aligned screw (Goda, ref. 22).",
+      "page": "p. 7 (PDF 7)"
+    },
+    {
+      "text": "The lateral isthmus wall is not only thin but porous, shell-like or cancellous-like rather than cortical at every lumbar level (BAF under 64 percent); lower mineralised matrix volume means lower strength (ref. 23).",
+      "page": "p. 1, p. 7, pp. 10-11 (PDF 1, 7, 10-11)"
+    },
+    {
+      "text": "The medial wall is dense cortex (BAF above 95 percent at every level), in the range of tibial and radial cortex (Burghardt, Tsai).",
+      "page": "pp. 8-9 (PDF 8-9)"
+    },
+    {
+      "text": "At L4 and L5 the caudal wall is porous (under 67 percent), so lateral and caudal walls are the breach-prone walls of the lower lumbar pedicle; at L1-L2 the caudal half is the denser, as in Lehman's thoracic pedicles.",
+      "page": "p. 1, p. 9 (PDF 1, 9)"
+    },
+    {
+      "text": "Inceoglu tied the thick medial and thin lateral wall to loading: the lateral pedicle joins the transverse process, the medial the lamina; osteons are colinear and tightly packed cranially and caudally (ref. 13).",
+      "page": "p. 2, p. 9 (PDF 2, 9)"
+    },
+    {
+      "text": "Pedicle-wall BAF did not correlate with vertebral body HU (r = 0.06); the wall and the cancellous body may lose bone independently, a rationale for cortical bone trajectory screws (ref. 26); sample too small to settle.",
+      "page": "p. 5, p. 9 (PDF 5, 9)"
+    },
+    {
+      "text": "Larger screws gain cortical purchase at the isthmus, important for fixation strength (refs 3-7); cortical bone needs more insertion torque but improves purchase (ref. 8); loosening and wall penetration are commoner in osteoporosis (refs 1, 2).",
+      "page": "p. 2 (PDF 2)"
+    },
+    {
+      "text": "Pitfall: clinical CT at about 0.5 mm cannot show the wall's trabeculae; porosity may appear only as lower CT values by partial volume; a micro-CT vs clinical-CT comparison is still needed.",
+      "page": "pp. 9-10, Fig 4 (PDF 9-10)"
+    },
+    {
+      "text": "Limitations the authors admit: isthmus only (cortical bone trajectory needs other parts); small sample; micro-CT not clinical; arbitrary 30-deg sectors leave transitional areas unmeasured.",
+      "page": "pp. 9-10 (PDF 9-10)"
+    },
+    {
+      "text": "Prior wall thicknesses called comparable: Inceoglu L3 lateral 609 +/- 247, medial 793 +/- 186 micrometres (direct); Mitra CT lateral 0.82, 0.55, 0.87, 0.60, 1.25 and medial 1.07, 1.15, 1.15, 1.37, 1.32 mm L1-L5; Li CT medial 1.4-2.3 (F) and 1.5-2.2 (M), lateral 0.8-1.6 (F) and 1.0-1.8 (M) mm.",
+      "page": "pp. 7-8 (PDF 7-8)"
+    }
+  ],
+  "instructions": [
+    {
+      "text": "Isolate the pedicle as the bridge between body and lamina, join centroids of its sections at the anterior and posterior thirds, reslice perpendicular and take the section with the shortest minor axis as the isthmus; the recipe stems from an in vivo 3D CT method.",
+      "page": "p. 2, p. 3, Fig 1, ref. 18 (PDF 2, 3, 12)"
+    },
+    {
+      "text": "Read minor and major diameters outer to outer on that section; expect about 7.1, 7.3, 9.4, 10.6, 11.8 mm and 17.0, 15.8, 15.8, 18.8, 24.2 mm L1-L5. Inference: rely on steps along the chain, not absolute values (n = 6, SD 0.8-2.7 mm).",
+      "page": "Fig 2A p. 4, Table 2 p. 6 (PDF 4, 6)"
+    },
+    {
+      "text": "Use width for the L2/L3 boundary and major axis plus whole area for the L3/L4 boundary; do not expect L1/L2 or L4/L5 to separate by significance; L5 has the largest mean of both diameters and both areas.",
+      "page": "Table 2 footnotes, p. 6 (PDF 6)"
+    },
+    {
+      "text": "Expect the isthmus area to dip at L2 and rise to L5 (92.5 to 204.2 mm2). Inference: an ellipse on the two diameters reproduces it within about 3 percent at L1-L4.",
+      "page": "p. 5, Table 2 p. 6 (PDF 5-6)"
+    },
+    {
+      "text": "Do not compute wall thickness, medullary area or BAF from a SPINEPS mask or 0.5 mm clinical CT: the wall's trabeculae are invisible there.",
+      "page": "pp. 9-10, Fig 4 (PDF 9-10)"
+    },
+    {
+      "text": "Inference: with intensity-based outlines, expect the porous lateral wall (BAF 58.8, as low as 46.4) to threshold away and under-read the width by up to a voxel; at L4-L5 the porous caudal wall (66.7, 53.4) may shorten the major axis likewise.",
+      "page": "Tables 3-4, pp. 6-7, pp. 9-10 (PDF 6-10)"
+    },
+    {
+      "text": "Treat left and right pedicles of a level as a pair (no side difference in BAF); Inference: a large asymmetry in isthmus size suggests a segmentation fault, rotation or pathology.",
+      "page": "p. 5 (PDF 5)"
+    },
+    {
+      "text": "Do not infer pedicle wall quality from body HU (r = 0.06, n = 30).",
+      "page": "p. 5 (PDF 5)"
+    },
+    {
+      "text": "Take the section perpendicular to the pedicle axis and report which reslice was used; Inference: an axial-slice width reads wider where the pedicle converges.",
+      "page": "p. 3 (PDF 3)"
+    },
+    {
+      "text": "Take no anomaly prior or numbering rule from this paper: it reports none and uses the tissue bank's labels.",
+      "page": "p. 2 (PDF 2)"
+    }
+  ],
+  "bordercall": [
+    "(a) Anomaly priors: none; the paper reports no transitional or numbering anomaly and no level-naming method.",
+    "(b) Isthmus transverse diameter ~ Panjabi PDW and longitudinal diameter ~ PDH, but here the section is perpendicular to a two-point pedicle axis and the major axis is the longest (possibly oblique) diameter; a mask extractor should report minor axis and vertical extent of the narrowest perpendicular section. At L5 this paper gives 11.8 x 24.2 mm (ratio about 2.0) against Panjabi's PDW 18.6 and PDH/PDW about 1.0 (panjabi1992 note): Inference: a mask value by this recipe is biased low in width and high in height against Panjabi draws at L5 and its ratio would mislabel L5 as upper lumbar; pick one definition and calibrate.",
+    "(b) Isthmus section area 95.7-204.2 mm2 here against Panjabi PDA about 87, 83, 94, 108, 151 mm2; both dip at L2 and rise to L5, this paper larger at L4-L5. Inference: a candidate robust mask measure.",
+    "(b) Wall thicknesses, medullary area, BAF and body HU are not mask measures; leave them out of the generator.",
+    "(c) No reliability data; use between-specimen SDs as a floor: transverse 0.8-2.4 mm, longitudinal 1.6-2.7 mm, area 13.6-43.8 mm2. Inference: add about +/- 0.5 mm per wall on 0.5-0.6 mm clinical CT, more on the porous lateral wall and the L4-L5 caudal wall.",
+    "(d) Covariates: 3 M, 3 F, 50-67 years, BMI 15.4-42.2, height 160-193 cm, US donors, ethnicity unstated; no analysis by sex, age or size; nothing usable for the size factor beyond Table 1."
+  ],
+  "gaps": [
+    "File key otsuki2021 but the first author is Irie; no Otsuki among authors or references; check whether another paper was intended.",
+    "Level identification and any transitional segment not reported.",
+    "Table 2 n per level not stated; text calls Table 2 'from each donor' though it is by level.",
+    "Methods: Pearson correlation at each level; Results: one pooled correlation (n = 30) only.",
+    "Text: cranial and caudal walls thicker at all levels except L5; footnotes mark no caudal L4 difference.",
+    "Transverse diameter L5 (11.8) carries no significance mark against any level while L4 (10.6) does.",
+    "Medial vs lateral BAF at L4: p < 0.004 in one sentence, p < 0.0004 in another and in Fig 3 g.",
+    "Caudal BAF L5 vs L1: p < 0.002 in the text, p < 0.04 in Table 4's footnote.",
+    "Fig 3 gives lateral below cranial at L4 (p < 0.002) and L5 (p < 0.05), not in the text.",
+    "Abstract medial median 99.8 percent (95.9-100) appears nowhere else, interval kind unstated; Inference: cannot be the full range given Table 4 L4 medial mean 95.1 and Table 3 donor 3 medial mean 93.0.",
+    "Lateral BAF 'less than 64 percent at all levels' against L2 64.0; summary says less than 67 percent.",
+    "'Medial highest except L4' is about significance; numerically medial is highest at L4 too.",
+    "L5 lateral wall 1.7 mm thicker than medial 1.3 mm despite the medial-thicker rule; no medial-lateral test difference reported.",
+    "Threshold formula lacks the background offset; how grey levels were sampled is not said.",
+    "Fig 4 clinical CT: 0.625 mm slices at 1.0 mm increment yet caption says no spacing.",
+    "Which CT gave the body HU, and when relative to the pedicle cuts, is not stated.",
+    "Ref. 18 printed as Spine volume 15; Spine 2009 is volume 34 (Inference from memory).",
+    "Radial extent and centre of the BAF sectors only shown in Fig 2B.",
+    "Table 1 prints 'Massive heart attach' (typo).",
+    "Inference: against Panjabi 1992, L5 width 11.8 here vs 18.6, shape ratio rises at L5 here but falls to 1.0 there; Panjabi separated L4/L5, this paper does not.",
+    "Inference: against Krag 1988, clinical-CT widths read small by partial volume; muCT here has no such bias, so widths are not directly comparable.",
+    "Inference: Mitra's 5 mm film CT cortical thicknesses, quoted as comparable, are near that method's resolution limit."
+  ]
+}
