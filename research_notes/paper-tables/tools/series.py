@@ -11,8 +11,9 @@ level of each set of subjects, so this file decides, in code that can be read, h
 - the SD is the printed SD; else an SE times the root of its count; else the root of a printed
   variance; a series with no way to an SD keeps its mean and an empty SD. A meta-analysis's SE
   (technique meta_pool) is the uncertainty of a random-effects pooled mean, not the spread of the
-  people behind it, so it gives no SD: Bonczar 2024's SEs times the root of its 1,481 subjects
-  made SDs of 30 to 180 mm and deg;
+  people behind it, so neither it nor its printed variance (its square) gives an SD: Bonczar
+  2024's SEs times the root of its 1,481 subjects made SDs of 30 to 180 mm and deg, and the root
+  of its variance would make SDs of about 1;
 - the count is the n printed for that cell, else the n printed for that measure and subgroup
   elsewhere in the paper, else the cohort's number of people from its cohorts file, and the
   series says which (n_from);
@@ -138,7 +139,7 @@ def one_series(k, stats, people, by_measure, by_group):
     sd, sd_from = first(stats.get("sd", [])), "sd"
     if sd is None and stats.get("sem") and n and technique not in POOLED_MEANS:
         sd, sd_from = stats["sem"][0] * math.sqrt(n), "sem x root n"
-    if sd is None and stats.get("variance"):
+    if sd is None and stats.get("variance") and technique not in POOLED_MEANS:
         sd, sd_from = math.sqrt(stats["variance"][0]), "root of variance"
     if sd is None:
         sd_from = ""

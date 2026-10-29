@@ -1,0 +1,704 @@
+panel,level,who,paper,series,mean,sd,n
+pedicle_w,C3,panjabi,panjabi,12 cadaver spines,5.6,1.663,12
+pedicle_w,C4,panjabi,panjabi,12 cadaver spines,5.4,1.836,12
+pedicle_w,C5,panjabi,panjabi,12 cadaver spines,5.6,1.403,12
+pedicle_w,C6,panjabi,panjabi,12 cadaver spines,5.95,1.524,12
+pedicle_w,C7,panjabi,panjabi,12 cadaver spines,6.55,1.334,12
+pedicle_w,T1,panjabi,panjabi,12 cadaver spines,8.45,1.68,12
+pedicle_w,T2,panjabi,panjabi,12 cadaver spines,8.15,3.516,12
+pedicle_w,T3,panjabi,panjabi,12 cadaver spines,6.75,2.304,12
+pedicle_w,T4,panjabi,panjabi,12 cadaver spines,6.25,2.078,12
+pedicle_w,T5,panjabi,panjabi,12 cadaver spines,5.95,1.576,12
+pedicle_w,T6,panjabi,panjabi,12 cadaver spines,6,2.858,12
+pedicle_w,T7,panjabi,panjabi,12 cadaver spines,5.85,2.165,12
+pedicle_w,T8,panjabi,panjabi,12 cadaver spines,6.7,1.697,12
+pedicle_w,T9,panjabi,panjabi,12 cadaver spines,7.65,2.061,12
+pedicle_w,T10,panjabi,panjabi,12 cadaver spines,9,2.563,12
+pedicle_w,T11,panjabi,panjabi,12 cadaver spines,9.75,2.2,12
+pedicle_w,T12,panjabi,panjabi,12 cadaver spines,8.7,2.581,12
+pedicle_w,L1,panjabi,panjabi,12 cadaver spines,8.6,3.17,12
+pedicle_w,L2,panjabi,panjabi,12 cadaver spines,8.25,2.338,12
+pedicle_w,L3,panjabi,panjabi,12 cadaver spines,10.15,2.078,12
+pedicle_w,L4,panjabi,panjabi,12 cadaver spines,14.05,1.109,12
+pedicle_w,L5,panjabi,panjabi,12 cadaver spines,18.6,3.568,12
+pedicle_w,L1,paper,arockiaraj2025,saudi_ct,5.76,1.02,300
+pedicle_w,L2,paper,arockiaraj2025,saudi_ct,6.34,0.96,300
+pedicle_w,L3,paper,arockiaraj2025,saudi_ct,8.11,1.1,300
+pedicle_w,L4,paper,arockiaraj2025,saudi_ct,9.82,1.2,300
+pedicle_w,L5,paper,arockiaraj2025,saudi_ct,13.62,1.48,300
+pedicle_w,L1,pools_panjabi,bonczar2024,pool18,7.51,,1481
+pedicle_w,L2,pools_panjabi,bonczar2024,pool18,8.23,,1481
+pedicle_w,L3,pools_panjabi,bonczar2024,pool18,9.71,,1481
+pedicle_w,L4,pools_panjabi,bonczar2024,pool18,11.52,,1481
+pedicle_w,L5,pools_panjabi,bonczar2024,pool18,14.58,,1481
+pedicle_w,L1,paper,duman2026,izmir-mdct-517,9.23,1.625,517
+pedicle_w,L2,paper,duman2026,izmir-mdct-517,9.91,1.75,517
+pedicle_w,T11,paper,duman2026,izmir-mdct-517,7.465,1.25,517
+pedicle_w,T12,paper,duman2026,izmir-mdct-517,8.3,1.475,517
+pedicle_w,L1,paper,hou1993,xian_dry_bone,7,1.2,40
+pedicle_w,L2,paper,hou1993,xian_dry_bone,7.4,1.3,40
+pedicle_w,L3,paper,hou1993,xian_dry_bone,9.2,1.6,40
+pedicle_w,L4,paper,hou1993,xian_dry_bone,10.5,1.8,40
+pedicle_w,L5,paper,hou1993,xian_dry_bone,12.9,2.7,40
+pedicle_w,T10,paper,hou1993,xian_dry_bone,6.8,1.4,40
+pedicle_w,T11,paper,hou1993,xian_dry_bone,8.1,1.8,40
+pedicle_w,T12,paper,hou1993,xian_dry_bone,8.3,1.9,40
+pedicle_w,T9,paper,hou1993,xian_dry_bone,5.7,1.1,40
+pedicle_w,L5,paper,krag1988,vermont_ct_patients,13,,41
+pedicle_w,L1,paper,lien2007,"dry_sets, dry vertebrae",6.45,1.65,15
+pedicle_w,L2,paper,lien2007,"dry_sets, dry vertebrae",7.2,1.75,15
+pedicle_w,L3,paper,lien2007,"dry_sets, dry vertebrae",9.15,1.85,15
+pedicle_w,L4,paper,lien2007,"dry_sets, dry vertebrae",11.9,2.2,15
+pedicle_w,L5,paper,lien2007,"dry_sets, dry vertebrae",17.6,,15
+pedicle_w,T1,paper,lien2007,"dry_sets, dry vertebrae",7.65,1.15,15
+pedicle_w,T10,paper,lien2007,"dry_sets, dry vertebrae",5.65,1.3,15
+pedicle_w,T11,paper,lien2007,"dry_sets, dry vertebrae",7.2,1.2,15
+pedicle_w,T12,paper,lien2007,"dry_sets, dry vertebrae",7.55,1.45,15
+pedicle_w,T2,paper,lien2007,"dry_sets, dry vertebrae",5.45,0.75,15
+pedicle_w,T3,paper,lien2007,"dry_sets, dry vertebrae",4,0.75,15
+pedicle_w,T4,paper,lien2007,"dry_sets, dry vertebrae",3.5,,15
+pedicle_w,T5,paper,lien2007,"dry_sets, dry vertebrae",3.8,,15
+pedicle_w,T6,paper,lien2007,"dry_sets, dry vertebrae",3.95,0.95,15
+pedicle_w,T7,paper,lien2007,"dry_sets, dry vertebrae",4.4,1.05,15
+pedicle_w,T8,paper,lien2007,"dry_sets, dry vertebrae",4.8,1.15,15
+pedicle_w,T9,paper,lien2007,"dry_sets, dry vertebrae",5.25,1.25,15
+pedicle_w,L1,paper,masharawi2021,"control, Control",7.253,1.798,50
+pedicle_w,L2,paper,masharawi2021,"control, Control",7.825,1.937,50
+pedicle_w,L3,paper,masharawi2021,"control, Control",9.057,2.541,50
+pedicle_w,L4,paper,masharawi2021,"control, Control",10.393,3.154,50
+pedicle_w,L5,paper,masharawi2021,"control, Control",14.1,4.324,50
+pedicle_w,L1,paper,mitra2002,nagpur_cadavers20,7.05,,20
+pedicle_w,L2,paper,mitra2002,"nagpur_cadavers20, male, CT",7.59,,18
+pedicle_w,L3,paper,mitra2002,"nagpur_cadavers20, male, CT",8.65,,18
+pedicle_w,L4,paper,mitra2002,"nagpur_cadavers20, male, CT",9.81,,18
+pedicle_w,L5,paper,mitra2002,nagpur_cadavers20,16.19,,20
+pedicle_w,L1,paper,moncadahabib2025,mexico_ct37,6.85,1.65,37
+pedicle_w,L2,paper,moncadahabib2025,mexico_ct37,7,1.55,37
+pedicle_w,L3,paper,moncadahabib2025,mexico_ct37,7.85,1.9,37
+pedicle_w,L4,paper,moncadahabib2025,mexico_ct37,9.1,1.85,37
+pedicle_w,L5,paper,moncadahabib2025,mexico_ct37,12.1,2.75,37
+pedicle_w,L1,paper,olsewski1990,"part3_patients, Part 3 living patients, AP radiographs",7.512,2.052,98
+pedicle_w,L2,paper,olsewski1990,"part3_patients, Part 3 living patients, AP radiographs",8.388,2.166,100
+pedicle_w,L3,paper,olsewski1990,"part3_patients, Part 3 living patients, AP radiographs",9.856,2.474,100
+pedicle_w,L4,paper,olsewski1990,"part3_patients, Part 3 living patients, AP radiographs",11.702,2.608,100
+pedicle_w,L5,paper,olsewski1990,"part1_cadavers, Part 1 cadavers, direct",19.876,3.725,86
+pedicle_w,L1,paper,otsuki2021,rush_cadaver_6,7.1,2.4,6
+pedicle_w,L2,paper,otsuki2021,rush_cadaver_6,7.3,2.4,6
+pedicle_w,L3,paper,otsuki2021,rush_cadaver_6,9.4,2,6
+pedicle_w,L4,paper,otsuki2021,rush_cadaver_6,10.6,0.8,6
+pedicle_w,L5,paper,otsuki2021,rush_cadaver_6,11.8,1.7,6
+pedicle_w,L1,paper,robertson2000,auckland_drybone,9.9,2.5,10
+pedicle_w,L2,paper,robertson2000,auckland_drybone,10.15,2.95,10
+pedicle_w,L3,paper,robertson2000,auckland_drybone,12.85,2.75,10
+pedicle_w,L4,paper,robertson2000,auckland_drybone,16.4,3.75,10
+pedicle_w,L5,paper,robertson2000,auckland_drybone,21.55,4.2,10
+pedicle_w,C3,paper,tan2004,sg_chinese_cadavers10,4.45,0.632,10
+pedicle_w,C4,paper,tan2004,sg_chinese_cadavers10,4.55,0.632,10
+pedicle_w,C5,paper,tan2004,sg_chinese_cadavers10,4.8,0.474,10
+pedicle_w,C6,paper,tan2004,sg_chinese_cadavers10,5.25,0.632,10
+pedicle_w,C7,paper,tan2004,sg_chinese_cadavers10,5.65,0.632,10
+pedicle_w,L1,paper,tan2004,sg_chinese_cadavers10,5.55,0.791,10
+pedicle_w,L2,paper,tan2004,sg_chinese_cadavers10,6.3,0.949,10
+pedicle_w,L3,paper,tan2004,sg_chinese_cadavers10,7.6,0.632,10
+pedicle_w,L4,paper,tan2004,sg_chinese_cadavers10,8.85,1.265,10
+pedicle_w,L5,paper,tan2004,sg_chinese_cadavers10,11.6,,10
+pedicle_w,T1,paper,tan2004,sg_chinese_cadavers10,7.45,0.632,10
+pedicle_w,T10,paper,tan2004,sg_chinese_cadavers10,5.95,1.107,10
+pedicle_w,T11,paper,tan2004,sg_chinese_cadavers10,7,0.632,10
+pedicle_w,T12,paper,tan2004,sg_chinese_cadavers10,7.55,0.791,10
+pedicle_w,T2,paper,tan2004,sg_chinese_cadavers10,5.95,0.474,10
+pedicle_w,T3,paper,tan2004,sg_chinese_cadavers10,4.6,0.474,10
+pedicle_w,T4,paper,tan2004,sg_chinese_cadavers10,4,0.474,10
+pedicle_w,T5,paper,tan2004,sg_chinese_cadavers10,4,0.791,10
+pedicle_w,T6,paper,tan2004,sg_chinese_cadavers10,4.35,0.316,10
+pedicle_w,T7,paper,tan2004,sg_chinese_cadavers10,4.45,0.632,10
+pedicle_w,T8,paper,tan2004,sg_chinese_cadavers10,4.5,0.474,10
+pedicle_w,T9,paper,tan2004,sg_chinese_cadavers10,4.95,0.949,10
+pedicle_w,L1,paper,yu2015,"hamann_todd_503, Caucasian",8.24,1.9,281
+pedicle_w,L2,paper,yu2015,hamann_todd_503,8.662,1.792,503
+pedicle_w,L3,paper,yu2015,hamann_todd_503,10.46,1.936,503
+pedicle_w,L4,paper,yu2015,hamann_todd_503,13.19,1.996,503
+pedicle_w,L5,paper,yu2015,"hamann_todd_503, Caucasian",18.69,2.4,281
+pedicle_h,C3,panjabi,panjabi,12 cadaver spines,7.4,1.403,12
+pedicle_h,C4,panjabi,panjabi,12 cadaver spines,7.35,1.576,12
+pedicle_h,C5,panjabi,panjabi,12 cadaver spines,7,1.403,12
+pedicle_h,C6,panjabi,panjabi,12 cadaver spines,7.3,1.23,12
+pedicle_h,C7,panjabi,panjabi,12 cadaver spines,7.5,1.039,12
+pedicle_h,T1,panjabi,panjabi,12 cadaver spines,9.6,1.628,12
+pedicle_h,T2,panjabi,panjabi,12 cadaver spines,11.35,1.282,12
+pedicle_h,T3,panjabi,panjabi,12 cadaver spines,11.9,0.953,12
+pedicle_h,T4,panjabi,panjabi,12 cadaver spines,12.05,1.663,12
+pedicle_h,T5,panjabi,panjabi,12 cadaver spines,11.3,1.507,12
+pedicle_h,T6,panjabi,panjabi,12 cadaver spines,11.8,1.576,12
+pedicle_h,T7,panjabi,panjabi,12 cadaver spines,12,0.987,12
+pedicle_h,T8,panjabi,panjabi,12 cadaver spines,12.5,1.611,12
+pedicle_h,T9,panjabi,panjabi,12 cadaver spines,13.85,2.321,12
+pedicle_h,T10,panjabi,panjabi,12 cadaver spines,14.85,1.264,12
+pedicle_h,T11,panjabi,panjabi,12 cadaver spines,17.35,1.351,12
+pedicle_h,T12,panjabi,panjabi,12 cadaver spines,16.65,2.858,12
+pedicle_h,L1,panjabi,panjabi,12 cadaver spines,15.85,2.685,12
+pedicle_h,L2,panjabi,panjabi,12 cadaver spines,14.95,1.836,12
+pedicle_h,L3,panjabi,panjabi,12 cadaver spines,14.4,2.148,12
+pedicle_h,L4,panjabi,panjabi,12 cadaver spines,15.45,1.784,12
+pedicle_h,L5,panjabi,panjabi,12 cadaver spines,19.55,2.996,12
+pedicle_h,L1,paper,arockiaraj2025,saudi_ct,9.75,1.2,300
+pedicle_h,L2,paper,arockiaraj2025,saudi_ct,9.32,1.12,300
+pedicle_h,L3,paper,arockiaraj2025,saudi_ct,9.11,1.1,300
+pedicle_h,L4,paper,arockiaraj2025,saudi_ct,8.71,1.03,300
+pedicle_h,L5,paper,arockiaraj2025,saudi_ct,8.3,0.99,300
+pedicle_h,L1,pools_panjabi,bonczar2024,pool18,15.4,,1481
+pedicle_h,L2,pools_panjabi,bonczar2024,pool18,14.9,,1481
+pedicle_h,L3,pools_panjabi,bonczar2024,pool18,14.52,,1481
+pedicle_h,L4,pools_panjabi,bonczar2024,pool18,14.2,,1481
+pedicle_h,L5,pools_panjabi,bonczar2024,pool18,14.73,,1481
+pedicle_h,L1,paper,duman2026,izmir-mdct-517,15.057,1.495,517
+pedicle_h,L2,paper,duman2026,izmir-mdct-517,15.753,1.851,517
+pedicle_h,T11,paper,duman2026,izmir-mdct-517,14.059,1.374,517
+pedicle_h,T12,paper,duman2026,izmir-mdct-517,14.58,1.478,517
+pedicle_h,L1,paper,hou1993,xian_dry_bone,15.8,1.4,40
+pedicle_h,L2,paper,hou1993,xian_dry_bone,15.1,1.5,40
+pedicle_h,L3,paper,hou1993,xian_dry_bone,14.7,1.6,40
+pedicle_h,L4,paper,hou1993,xian_dry_bone,15,2.2,40
+pedicle_h,L5,paper,hou1993,xian_dry_bone,19.8,3.7,40
+pedicle_h,T10,paper,hou1993,xian_dry_bone,14.3,1.4,40
+pedicle_h,T11,paper,hou1993,xian_dry_bone,16.2,1.6,40
+pedicle_h,T12,paper,hou1993,xian_dry_bone,16.6,1.4,40
+pedicle_h,T9,paper,hou1993,xian_dry_bone,12.9,1.2,40
+pedicle_h,L1,paper,lien2007,"dry_sets, dry vertebrae",13.7,,15
+pedicle_h,L2,paper,lien2007,"dry_sets, dry vertebrae",14.1,,15
+pedicle_h,L3,paper,lien2007,"dry_sets, dry vertebrae",13.9,1.65,15
+pedicle_h,L4,paper,lien2007,"dry_sets, dry vertebrae",12.75,2.25,15
+pedicle_h,L5,paper,lien2007,"dry_sets, dry vertebrae",12.5,2.2,15
+pedicle_h,T1,paper,lien2007,"dry_sets, dry vertebrae",8.7,,15
+pedicle_h,T10,paper,lien2007,"dry_sets, dry vertebrae",13.65,1.55,15
+pedicle_h,T11,paper,lien2007,"dry_sets, dry vertebrae",15.1,,15
+pedicle_h,T12,paper,lien2007,"dry_sets, dry vertebrae",15.1,,15
+pedicle_h,T2,paper,lien2007,"dry_sets, dry vertebrae",10.3,0.85,15
+pedicle_h,T3,paper,lien2007,"dry_sets, dry vertebrae",10.4,1.15,15
+pedicle_h,T4,paper,lien2007,"dry_sets, dry vertebrae",10.3,1.1,15
+pedicle_h,T5,paper,lien2007,"dry_sets, dry vertebrae",10.55,1.15,15
+pedicle_h,T6,paper,lien2007,"dry_sets, dry vertebrae",10.2,1.15,15
+pedicle_h,T7,paper,lien2007,"dry_sets, dry vertebrae",10.4,1.25,15
+pedicle_h,T8,paper,lien2007,"dry_sets, dry vertebrae",10.85,1.35,15
+pedicle_h,T9,paper,lien2007,"dry_sets, dry vertebrae",12.35,1.2,15
+pedicle_h,L1,paper,masharawi2021,"control, Control",12.735,2.866,50
+pedicle_h,L2,paper,masharawi2021,"control, Control",11.908,2.82,50
+pedicle_h,L3,paper,masharawi2021,"control, Control",12.035,2.564,50
+pedicle_h,L4,paper,masharawi2021,"control, Control",10.918,2.872,50
+pedicle_h,L5,paper,masharawi2021,"control, Control",9.418,2.836,50
+pedicle_h,L1,paper,mitra2002,"nagpur_cadavers20, male, Direct",15.68,,18
+pedicle_h,L2,paper,mitra2002,"nagpur_cadavers20, male, Direct",15.27,,18
+pedicle_h,L3,paper,mitra2002,"nagpur_cadavers20, male, Direct",15.03,,18
+pedicle_h,L4,paper,mitra2002,"nagpur_cadavers20, male, Direct",14.79,,18
+pedicle_h,L5,paper,mitra2002,"nagpur_cadavers20, male, Direct",15.67,,18
+pedicle_h,L1,paper,moncadahabib2025,mexico_ct37,12.9,1.45,37
+pedicle_h,L2,paper,moncadahabib2025,mexico_ct37,12.4,1.7,37
+pedicle_h,L3,paper,moncadahabib2025,mexico_ct37,12.05,1.85,37
+pedicle_h,L4,paper,moncadahabib2025,mexico_ct37,11.1,1.55,37
+pedicle_h,L5,paper,moncadahabib2025,mexico_ct37,10.2,,37
+pedicle_h,L1,paper,olsewski1990,"part3_patients, Part 3 living patients, AP radiographs",15.984,1.759,98
+pedicle_h,L2,paper,olsewski1990,"part3_patients, Part 3 living patients, AP radiographs",15.867,2.125,102
+pedicle_h,L3,paper,olsewski1990,"part3_patients, Part 3 living patients, AP radiographs",16.002,2.339,101
+pedicle_h,L4,paper,olsewski1990,"part3_patients, Part 3 living patients, AP radiographs",15.136,2.109,101
+pedicle_h,L5,paper,olsewski1990,"part3_patients, Part 3 living patients, AP radiographs",13.891,2.143,88
+pedicle_h,L1,paper,otsuki2021,rush_cadaver_6,17,2.7,6
+pedicle_h,L2,paper,otsuki2021,rush_cadaver_6,15.8,1.7,6
+pedicle_h,L3,paper,otsuki2021,rush_cadaver_6,15.8,1.7,6
+pedicle_h,L4,paper,otsuki2021,rush_cadaver_6,18.8,1.6,6
+pedicle_h,L5,paper,otsuki2021,rush_cadaver_6,24.2,2.7,6
+pedicle_h,L1,paper,robertson2000,auckland_drybone,19.25,3.55,10
+pedicle_h,L2,paper,robertson2000,auckland_drybone,18.65,3.1,10
+pedicle_h,L3,paper,robertson2000,auckland_drybone,18.65,7.75,10
+pedicle_h,L4,paper,robertson2000,auckland_drybone,17.6,2.75,10
+pedicle_h,L5,paper,robertson2000,auckland_drybone,18.55,3.1,10
+pedicle_h,C3,paper,tan2004,sg_chinese_cadavers10,6.75,0.632,10
+pedicle_h,C4,paper,tan2004,sg_chinese_cadavers10,6.65,0.632,10
+pedicle_h,C5,paper,tan2004,sg_chinese_cadavers10,6.1,0.791,10
+pedicle_h,C6,paper,tan2004,sg_chinese_cadavers10,6,,10
+pedicle_h,C7,paper,tan2004,sg_chinese_cadavers10,6.3,0.474,10
+pedicle_h,L1,paper,tan2004,sg_chinese_cadavers10,13.1,1.107,10
+pedicle_h,L2,paper,tan2004,sg_chinese_cadavers10,12.85,0.632,10
+pedicle_h,L3,paper,tan2004,sg_chinese_cadavers10,12.5,1.897,10
+pedicle_h,L4,paper,tan2004,sg_chinese_cadavers10,13.2,1.107,10
+pedicle_h,L5,paper,tan2004,sg_chinese_cadavers10,17.4,,10
+pedicle_h,T1,paper,tan2004,sg_chinese_cadavers10,8.5,0.791,10
+pedicle_h,T10,paper,tan2004,sg_chinese_cadavers10,12.9,0.632,10
+pedicle_h,T11,paper,tan2004,sg_chinese_cadavers10,14.25,0.791,10
+pedicle_h,T12,paper,tan2004,sg_chinese_cadavers10,14.1,0.791,10
+pedicle_h,T2,paper,tan2004,sg_chinese_cadavers10,9.5,0.791,10
+pedicle_h,T3,paper,tan2004,sg_chinese_cadavers10,9.8,0.949,10
+pedicle_h,T4,paper,tan2004,sg_chinese_cadavers10,9.15,0.632,10
+pedicle_h,T5,paper,tan2004,sg_chinese_cadavers10,9.05,0.791,10
+pedicle_h,T6,paper,tan2004,sg_chinese_cadavers10,8.9,0.474,10
+pedicle_h,T7,paper,tan2004,sg_chinese_cadavers10,9.55,0.474,10
+pedicle_h,T8,paper,tan2004,sg_chinese_cadavers10,10.35,0.632,10
+pedicle_h,T9,paper,tan2004,sg_chinese_cadavers10,10.9,0.949,10
+pedicle_h,L1,paper,yu2015,"hamann_todd_503, Caucasian",15.76,1.4,281
+pedicle_h,L2,paper,yu2015,"hamann_todd_503, Caucasian",15.11,1.26,281
+pedicle_h,L3,paper,yu2015,hamann_todd_503,14.589,1.312,503
+pedicle_h,L4,paper,yu2015,hamann_todd_503,13.814,1.409,503
+pedicle_h,L5,paper,yu2015,"hamann_todd_503, Caucasian",13.75,1.62,281
+pedicle_incl_sag,C3,panjabi,panjabi,12 cadaver spines,42.25,5.698,12
+pedicle_incl_sag,C4,panjabi,panjabi,12 cadaver spines,44.25,7.153,12
+pedicle_incl_sag,C5,panjabi,panjabi,12 cadaver spines,40.25,15.97,12
+pedicle_incl_sag,C6,panjabi,panjabi,12 cadaver spines,31.85,7.725,12
+pedicle_incl_sag,C7,panjabi,panjabi,12 cadaver spines,29.9,8.522,12
+pedicle_incl_sag,T1,panjabi,panjabi,12 cadaver spines,27.05,7.344,12
+pedicle_incl_sag,T2,panjabi,panjabi,12 cadaver spines,28.6,25.548,12
+pedicle_incl_sag,T3,panjabi,panjabi,12 cadaver spines,19.35,9.388,12
+pedicle_incl_sag,T4,panjabi,panjabi,12 cadaver spines,19.5,10.981,12
+pedicle_incl_sag,T5,panjabi,panjabi,12 cadaver spines,15.6,9.648,12
+pedicle_incl_sag,T6,panjabi,panjabi,12 cadaver spines,16.4,11.328,12
+pedicle_incl_sag,T7,panjabi,panjabi,12 cadaver spines,20.7,13.718,12
+pedicle_incl_sag,T8,panjabi,panjabi,12 cadaver spines,19.6,13.804,12
+pedicle_incl_sag,T9,panjabi,panjabi,12 cadaver spines,14.75,12.107,12
+pedicle_incl_sag,T10,panjabi,panjabi,12 cadaver spines,12.4,7.327,12
+pedicle_incl_sag,T11,panjabi,panjabi,12 cadaver spines,13.05,5.785,12
+pedicle_incl_sag,T12,panjabi,panjabi,12 cadaver spines,9.75,6.582,12
+pedicle_incl_sag,L1,panjabi,panjabi,12 cadaver spines,14.45,11.934,12
+pedicle_incl_sag,L2,panjabi,panjabi,12 cadaver spines,14.15,9.994,12
+pedicle_incl_sag,L3,panjabi,panjabi,12 cadaver spines,18.45,6.738,12
+pedicle_incl_sag,L4,panjabi,panjabi,12 cadaver spines,16.55,6.616,12
+pedicle_incl_sag,L5,panjabi,panjabi,12 cadaver spines,24.55,7.344,12
+pedicle_incl_sag,L1,paper,arockiaraj2025,saudi_ct,12.68,2.54,300
+pedicle_incl_sag,L2,paper,arockiaraj2025,saudi_ct,13.26,2.3,300
+pedicle_incl_sag,L3,paper,arockiaraj2025,saudi_ct,15.47,2.37,300
+pedicle_incl_sag,L4,paper,arockiaraj2025,saudi_ct,17.47,3.3,300
+pedicle_incl_sag,L5,paper,arockiaraj2025,saudi_ct,28.23,3.87,300
+pedicle_incl_sag,L1,pools_panjabi,bonczar2024,pool18,6.465,,1481
+pedicle_incl_sag,L2,pools_panjabi,bonczar2024,pool18,5.925,,1481
+pedicle_incl_sag,L3,pools_panjabi,bonczar2024,pool18,7.92,,1481
+pedicle_incl_sag,L4,pools_panjabi,bonczar2024,pool18,5.22,,1481
+pedicle_incl_sag,L5,pools_panjabi,bonczar2024,pool18,6.35,,1481
+pedicle_incl_sag,L1,paper,duman2026,izmir-mdct-517,25.448,4.946,517
+pedicle_incl_sag,L2,paper,duman2026,izmir-mdct-517,27.572,5.207,517
+pedicle_incl_sag,T11,paper,duman2026,izmir-mdct-517,21.087,2.895,517
+pedicle_incl_sag,T12,paper,duman2026,izmir-mdct-517,23.404,3.116,517
+pedicle_incl_sag,L1,paper,lien2007,"dry_sets, dry vertebrae",8.45,2.8,15
+pedicle_incl_sag,L2,paper,lien2007,"dry_sets, dry vertebrae",12.35,2.75,15
+pedicle_incl_sag,L3,paper,lien2007,"dry_sets, dry vertebrae",15.25,3.55,15
+pedicle_incl_sag,L4,paper,lien2007,"dry_sets, dry vertebrae",18.9,3.3,15
+pedicle_incl_sag,L5,paper,lien2007,"dry_sets, dry vertebrae",24.35,4.3,15
+pedicle_incl_sag,T1,paper,lien2007,"dry_sets, dry vertebrae",28.2,,15
+pedicle_incl_sag,T10,paper,lien2007,"dry_sets, dry vertebrae",9,1.4,15
+pedicle_incl_sag,T11,paper,lien2007,"dry_sets, dry vertebrae",8,1.45,15
+pedicle_incl_sag,T12,paper,lien2007,"dry_sets, dry vertebrae",7.9,,15
+pedicle_incl_sag,T2,paper,lien2007,"dry_sets, dry vertebrae",26.35,3.65,15
+pedicle_incl_sag,T3,paper,lien2007,"dry_sets, dry vertebrae",23.3,3.6,15
+pedicle_incl_sag,T4,paper,lien2007,"dry_sets, dry vertebrae",22.85,3,15
+pedicle_incl_sag,T5,paper,lien2007,"dry_sets, dry vertebrae",18.2,2.85,15
+pedicle_incl_sag,T6,paper,lien2007,"dry_sets, dry vertebrae",15.4,2.25,15
+pedicle_incl_sag,T7,paper,lien2007,"dry_sets, dry vertebrae",12.8,1.95,15
+pedicle_incl_sag,T8,paper,lien2007,"dry_sets, dry vertebrae",13.8,1.35,15
+pedicle_incl_sag,T9,paper,lien2007,"dry_sets, dry vertebrae",12.5,1.95,15
+pedicle_incl_sag,L1,paper,mitra2002,nagpur_cadavers20,9,,20
+pedicle_incl_sag,L2,paper,mitra2002,"nagpur_cadavers20, male, CT",9.5,,18
+pedicle_incl_sag,L3,paper,mitra2002,"nagpur_cadavers20, male, CT",10.8,,18
+pedicle_incl_sag,L4,paper,mitra2002,"nagpur_cadavers20, male, CT",12.3,,18
+pedicle_incl_sag,L5,paper,mitra2002,nagpur_cadavers20,29,,20
+pedicle_incl_sag,L1,paper,moncadahabib2025,mexico_ct37,16.75,1.95,37
+pedicle_incl_sag,L2,paper,moncadahabib2025,mexico_ct37,16.45,2.15,37
+pedicle_incl_sag,L3,paper,moncadahabib2025,mexico_ct37,17,2.5,37
+pedicle_incl_sag,L4,paper,moncadahabib2025,mexico_ct37,18.6,1.9,37
+pedicle_incl_sag,L5,paper,moncadahabib2025,mexico_ct37,21.9,,37
+pedicle_incl_sag,L1,paper,olsewski1990,"part1_cadavers, Part 1 cadavers, direct",6.121,2.222,66
+pedicle_incl_sag,L2,paper,olsewski1990,"part1_cadavers, Part 1 cadavers, direct",6.547,2.047,64
+pedicle_incl_sag,L3,paper,olsewski1990,"part1_cadavers, Part 1 cadavers, direct",7.56,2.048,75
+pedicle_incl_sag,L4,paper,olsewski1990,"part1_cadavers, Part 1 cadavers, direct",10.55,4.006,80
+pedicle_incl_sag,L5,paper,olsewski1990,"part1_cadavers, Part 1 cadavers, direct",17.451,7.437,82
+pedicle_incl_sag,C3,paper,tan2004,sg_chinese_cadavers10,41.25,3.162,10
+pedicle_incl_sag,C4,paper,tan2004,sg_chinese_cadavers10,41.45,3.795,10
+pedicle_incl_sag,C5,paper,tan2004,sg_chinese_cadavers10,42.2,4.111,10
+pedicle_incl_sag,C6,paper,tan2004,sg_chinese_cadavers10,40.2,6.166,10
+pedicle_incl_sag,C7,paper,tan2004,sg_chinese_cadavers10,30.45,3.162,10
+pedicle_incl_sag,L1,paper,tan2004,sg_chinese_cadavers10,4.8,2.372,10
+pedicle_incl_sag,L2,paper,tan2004,sg_chinese_cadavers10,7.4,3.479,10
+pedicle_incl_sag,L3,paper,tan2004,sg_chinese_cadavers10,14.35,4.269,10
+pedicle_incl_sag,L4,paper,tan2004,sg_chinese_cadavers10,11.1,3.162,10
+pedicle_incl_sag,L5,paper,tan2004,sg_chinese_cadavers10,19.9,,10
+pedicle_incl_sag,T1,paper,tan2004,sg_chinese_cadavers10,24,,10
+pedicle_incl_sag,T10,paper,tan2004,sg_chinese_cadavers10,-5.2,2.372,10
+pedicle_incl_sag,T11,paper,tan2004,sg_chinese_cadavers10,-6.85,3.795,10
+pedicle_incl_sag,T12,paper,tan2004,sg_chinese_cadavers10,-6.25,3.795,10
+pedicle_incl_sag,T2,paper,tan2004,sg_chinese_cadavers10,17.3,3.162,10
+pedicle_incl_sag,T3,paper,tan2004,sg_chinese_cadavers10,12,5.534,10
+pedicle_incl_sag,T4,paper,tan2004,sg_chinese_cadavers10,8.65,4.269,10
+pedicle_incl_sag,T5,paper,tan2004,sg_chinese_cadavers10,9.45,5.376,10
+pedicle_incl_sag,T6,paper,tan2004,sg_chinese_cadavers10,7.15,3.479,10
+pedicle_incl_sag,T7,paper,tan2004,sg_chinese_cadavers10,6.9,4.111,10
+pedicle_incl_sag,T8,paper,tan2004,sg_chinese_cadavers10,8.6,,10
+pedicle_incl_sag,T9,paper,tan2004,sg_chinese_cadavers10,-6.75,4.269,10
+h_post,C3,panjabi,panjabi,12 cadaver spines,11.6,1.212,12
+h_post,C4,panjabi,panjabi,12 cadaver spines,11.4,1.49,12
+h_post,C5,panjabi,panjabi,12 cadaver spines,11.4,1.109,12
+h_post,C6,panjabi,panjabi,12 cadaver spines,10.9,0.901,12
+h_post,C7,panjabi,panjabi,12 cadaver spines,12.8,1.593,12
+h_post,T1,panjabi,panjabi,12 cadaver spines,14.1,1.42,12
+h_post,T2,panjabi,panjabi,12 cadaver spines,15.6,2.009,12
+h_post,T3,panjabi,panjabi,12 cadaver spines,15.7,1.975,12
+h_post,T4,panjabi,panjabi,12 cadaver spines,16.2,1.663,12
+h_post,T5,panjabi,panjabi,12 cadaver spines,16.2,2.078,12
+h_post,T6,panjabi,panjabi,12 cadaver spines,17.4,1.871,12
+h_post,T7,panjabi,panjabi,12 cadaver spines,18.2,2.425,12
+h_post,T8,panjabi,panjabi,12 cadaver spines,18.7,2.39,12
+h_post,T9,panjabi,panjabi,12 cadaver spines,19.3,2.044,12
+h_post,T10,panjabi,panjabi,12 cadaver spines,20.2,1.524,12
+h_post,T11,panjabi,panjabi,12 cadaver spines,21.3,2.46,12
+h_post,T12,panjabi,panjabi,12 cadaver spines,22.7,3.603,12
+h_post,L1,panjabi,panjabi,12 cadaver spines,23.8,3.568,12
+h_post,L2,panjabi,panjabi,12 cadaver spines,24.3,3.291,12
+h_post,L3,panjabi,panjabi,12 cadaver spines,23.8,3.811,12
+h_post,L4,panjabi,panjabi,12 cadaver spines,24.1,3.811,12
+h_post,L5,panjabi,panjabi,12 cadaver spines,22.9,3.291,12
+h_post,L1,pools_panjabi,bonczar2024,pool18,26.57,,1481
+h_post,L2,pools_panjabi,bonczar2024,pool18,27.02,,1481
+h_post,L3,pools_panjabi,bonczar2024,pool18,26.67,,1481
+h_post,L4,pools_panjabi,bonczar2024,pool18,25.76,,1481
+h_post,L5,pools_panjabi,bonczar2024,pool18,24.11,,1481
+h_post,L1,paper,duman2026,izmir-mdct-517,24.84,2.243,517
+h_post,L2,paper,duman2026,izmir-mdct-517,25.987,2.38,517
+h_post,T11,paper,duman2026,izmir-mdct-517,22.026,2.118,517
+h_post,T12,paper,duman2026,izmir-mdct-517,23.605,2.369,517
+h_post,L1,paper,frontphys2026,zhengzhou_ct_100,27.2,1.3,20
+h_post,L2,paper,frontphys2026,zhengzhou_ct_100,28.1,2.6,20
+h_post,L3,paper,frontphys2026,zhengzhou_ct_100,27.3,2.2,20
+h_post,L4,paper,frontphys2026,zhengzhou_ct_100,26.3,2.1,20
+h_post,L5,paper,frontphys2026,zhengzhou_ct_100,24.6,2.5,20
+h_post,C7,paper,kunkel2011,"ulm_thoracic_segments, radiographic",14.38,2.22,30
+h_post,T1,paper,kunkel2011,"ulm_thoracic_segments, radiographic",15.28,1.14,30
+h_post,T10,paper,kunkel2011,"ulm_thoracic_segments, radiographic",20.35,1.89,30
+h_post,T11,paper,kunkel2011,"ulm_thoracic_segments, radiographic",22.67,1.38,30
+h_post,T12,paper,kunkel2011,"ulm_thoracic_segments, radiographic",23.12,1.94,30
+h_post,T2,paper,kunkel2011,"ulm_thoracic_segments, radiographic",16.11,1.67,30
+h_post,T3,paper,kunkel2011,"ulm_thoracic_segments, radiographic",17.41,1.12,30
+h_post,T4,paper,kunkel2011,"ulm_thoracic_segments, radiographic",18.15,1.54,30
+h_post,T5,paper,kunkel2011,"ulm_thoracic_segments, radiographic",17.33,2.16,30
+h_post,T6,paper,kunkel2011,"ulm_thoracic_segments, radiographic",18.22,1.38,30
+h_post,T7,paper,kunkel2011,"ulm_thoracic_segments, radiographic",18.67,1.64,30
+h_post,T8,paper,kunkel2011,"ulm_thoracic_segments, radiographic",20.05,1.77,30
+h_post,T9,paper,kunkel2011,"ulm_thoracic_segments, radiographic",20.25,2.44,30
+h_post,L1,paper,moncadahabib2025,mexico_ct37,26.89,1.83,37
+h_post,L2,paper,moncadahabib2025,mexico_ct37,26.75,1.95,37
+h_post,L3,paper,moncadahabib2025,mexico_ct37,26.11,2.43,37
+h_post,L4,paper,moncadahabib2025,mexico_ct37,25,2.45,37
+h_post,L5,paper,moncadahabib2025,mexico_ct37,22.49,2.71,37
+h_post,C3,paper,tan2004,sg_chinese_cadavers10,11.2,0.316,10
+h_post,C4,paper,tan2004,sg_chinese_cadavers10,11.3,0.632,10
+h_post,C5,paper,tan2004,sg_chinese_cadavers10,11.3,0.316,10
+h_post,C6,paper,tan2004,sg_chinese_cadavers10,11.3,0.632,10
+h_post,C7,paper,tan2004,sg_chinese_cadavers10,11.8,0.949,10
+h_post,L1,paper,tan2004,sg_chinese_cadavers10,22.4,1.265,10
+h_post,L2,paper,tan2004,sg_chinese_cadavers10,23.1,0.949,10
+h_post,L3,paper,tan2004,sg_chinese_cadavers10,22.1,1.265,10
+h_post,L4,paper,tan2004,sg_chinese_cadavers10,21.6,0.949,10
+h_post,L5,paper,tan2004,sg_chinese_cadavers10,20,1.897,10
+h_post,T1,paper,tan2004,sg_chinese_cadavers10,14,0.632,10
+h_post,T10,paper,tan2004,sg_chinese_cadavers10,19.1,0.632,10
+h_post,T11,paper,tan2004,sg_chinese_cadavers10,20.4,0.632,10
+h_post,T12,paper,tan2004,sg_chinese_cadavers10,21.5,0.632,10
+h_post,T2,paper,tan2004,sg_chinese_cadavers10,15.2,0.632,10
+h_post,T3,paper,tan2004,sg_chinese_cadavers10,15.3,0.632,10
+h_post,T4,paper,tan2004,sg_chinese_cadavers10,15.8,0.632,10
+h_post,T5,paper,tan2004,sg_chinese_cadavers10,16.4,0.632,10
+h_post,T6,paper,tan2004,sg_chinese_cadavers10,17,0.949,10
+h_post,T7,paper,tan2004,sg_chinese_cadavers10,17.4,0.949,10
+h_post,T8,paper,tan2004,sg_chinese_cadavers10,17.8,0.949,10
+h_post,T9,paper,tan2004,sg_chinese_cadavers10,18,0.949,10
+canal_ap,C3,panjabi,panjabi,12 cadaver spines,16.2,4.607,12
+canal_ap,C4,panjabi,panjabi,12 cadaver spines,17.7,1.593,12
+canal_ap,C5,panjabi,panjabi,12 cadaver spines,17.4,2.494,12
+canal_ap,C6,panjabi,panjabi,12 cadaver spines,18.1,1.593,12
+canal_ap,C7,panjabi,panjabi,12 cadaver spines,15.2,3.984,12
+canal_ap,T1,panjabi,panjabi,12 cadaver spines,16.4,1.455,12
+canal_ap,T2,panjabi,panjabi,12 cadaver spines,15.3,4.33,12
+canal_ap,T3,panjabi,panjabi,12 cadaver spines,15.9,3.776,12
+canal_ap,T4,panjabi,panjabi,12 cadaver spines,16.2,3.083,12
+canal_ap,T5,panjabi,panjabi,12 cadaver spines,16.3,2.494,12
+canal_ap,T6,panjabi,panjabi,12 cadaver spines,16.5,2.148,12
+canal_ap,T7,panjabi,panjabi,12 cadaver spines,16.1,2.39,12
+canal_ap,T8,panjabi,panjabi,12 cadaver spines,15.9,2.633,12
+canal_ap,T9,panjabi,panjabi,12 cadaver spines,15.7,2.841,12
+canal_ap,T10,panjabi,panjabi,12 cadaver spines,15.5,2.425,12
+canal_ap,T11,panjabi,panjabi,12 cadaver spines,16,1.593,12
+canal_ap,T12,panjabi,panjabi,12 cadaver spines,18.1,2.148,12
+canal_ap,L1,panjabi,panjabi,12 cadaver spines,19,2.321,12
+canal_ap,L2,panjabi,panjabi,12 cadaver spines,18.2,1.836,12
+canal_ap,L3,panjabi,panjabi,12 cadaver spines,17.5,1.836,12
+canal_ap,L4,panjabi,panjabi,12 cadaver spines,18.6,2.46,12
+canal_ap,L5,panjabi,panjabi,12 cadaver spines,19.7,1.697,12
+canal_ap,L1,paper,abbas2021,control,18.7,1.396,180
+canal_ap,L2,paper,abbas2021,control,17.9,1.599,180
+canal_ap,L3,paper,abbas2021,control,17.1,1.611,180
+canal_ap,L4,paper,abbas2021,control,17.8,1.763,180
+canal_ap,L5,paper,abbas2021,control,18.8,2.194,180
+canal_ap,L1,paper,ahmed2019,telangana_mri,14.34,,80
+canal_ap,L2,paper,ahmed2019,telangana_mri,13.43,,80
+canal_ap,L3,paper,ahmed2019,telangana_mri,12.35,,80
+canal_ap,L4,paper,ahmed2019,telangana_mri,12.7,,80
+canal_ap,L5,paper,ahmed2019,telangana_mri,13.63,,80
+canal_ap,L1,paper,alonge2021,lagos_ct,16.283,1.695,120
+canal_ap,L2,paper,alonge2021,lagos_ct,15.643,1.712,120
+canal_ap,L3,paper,alonge2021,lagos_ct,15.102,2.101,120
+canal_ap,L4,paper,alonge2021,lagos_ct,15.731,2.514,120
+canal_ap,L5,paper,alonge2021,lagos_ct,16.305,3.061,120
+canal_ap,L1,paper,amonookuofi1985,ibadan_dry_bone,16.318,1.137,122
+canal_ap,L2,paper,amonookuofi1985,ibadan_dry_bone,15.553,1.085,122
+canal_ap,L3,paper,amonookuofi1985,ibadan_dry_bone,14.653,1.085,122
+canal_ap,L4,paper,amonookuofi1985,ibadan_dry_bone,15.071,1.919,122
+canal_ap,L5,paper,amonookuofi1985,ibadan_dry_bone,15.507,2.16,122
+canal_ap,L1,pools_panjabi,bonczar2024,pool18,16.02,,1481
+canal_ap,L2,pools_panjabi,bonczar2024,pool18,15.08,,1481
+canal_ap,L3,pools_panjabi,bonczar2024,pool18,14.69,,1481
+canal_ap,L4,pools_panjabi,bonczar2024,pool18,15.06,,1481
+canal_ap,L5,pools_panjabi,bonczar2024,pool18,15.69,,1481
+canal_ap,L1,paper,cizmic2023,bih-sarajevo-ct,19.06,,200
+canal_ap,L2,paper,cizmic2023,bih-sarajevo-ct,18.05,,200
+canal_ap,L3,paper,cizmic2023,bih-sarajevo-ct,16.66,,200
+canal_ap,L4,paper,cizmic2023,bih-sarajevo-ct,16.79,,200
+canal_ap,L5,paper,cizmic2023,bih-sarajevo-ct,17.81,,200
+canal_ap,L1,paper,eisenstein1977,"dart_skeletons, male, Zulu Negroid",16,,108
+canal_ap,L2,paper,eisenstein1977,"dart_skeletons, male, Zulu Negroid",15,,108
+canal_ap,L3,paper,eisenstein1977,"dart_skeletons, male, Zulu Negroid",15,,108
+canal_ap,L4,paper,eisenstein1977,"dart_skeletons, male, Zulu Negroid",15,,108
+canal_ap,L5,paper,eisenstein1977,"dart_skeletons, male, Zulu Negroid",16,,108
+canal_ap,L1,paper,griffith2016,hk_ct_patients,15.52,2.076,1080
+canal_ap,L2,paper,griffith2016,hk_ct_patients,14.725,2.178,1080
+canal_ap,L3,paper,griffith2016,hk_ct_patients,14.11,2.273,1080
+canal_ap,L4,paper,griffith2016,hk_ct_patients,15.185,2.875,1080
+canal_ap,L5,paper,griffith2016,hk_ct_patients,18.895,3.611,1080
+canal_ap,L1,paper,italianmri,campobasso_604,18.7,2,604
+canal_ap,L2,paper,italianmri,campobasso_604,17.9,2,604
+canal_ap,L3,paper,italianmri,campobasso_604,16.9,2,604
+canal_ap,L4,paper,italianmri,campobasso_604,16.9,2.1,604
+canal_ap,L5,paper,italianmri,campobasso_604,17.3,2.4,604
+canal_ap,L1,paper,masharawi2021,"control, Control",16.375,2.395,50
+canal_ap,L2,paper,masharawi2021,"control, Control",14.975,2.064,50
+canal_ap,L3,paper,masharawi2021,"control, Control",13.995,1.622,50
+canal_ap,L4,paper,masharawi2021,"control, Control",13.915,1.947,50
+canal_ap,L5,paper,masharawi2021,"control, Control",14.615,2.672,50
+canal_ap,C3,paper,tan2004,sg_chinese_cadavers10,10.3,0.949,10
+canal_ap,C4,paper,tan2004,sg_chinese_cadavers10,10.3,0.949,10
+canal_ap,C5,paper,tan2004,sg_chinese_cadavers10,10.3,0.949,10
+canal_ap,C6,paper,tan2004,sg_chinese_cadavers10,10.3,0.949,10
+canal_ap,C7,paper,tan2004,sg_chinese_cadavers10,11,0.632,10
+canal_ap,L1,paper,tan2004,sg_chinese_cadavers10,12.5,0.632,10
+canal_ap,L2,paper,tan2004,sg_chinese_cadavers10,11.7,0.632,10
+canal_ap,L3,paper,tan2004,sg_chinese_cadavers10,11.2,0.949,10
+canal_ap,L4,paper,tan2004,sg_chinese_cadavers10,11.2,1.265,10
+canal_ap,L5,paper,tan2004,sg_chinese_cadavers10,11.4,1.265,10
+canal_ap,T1,paper,tan2004,sg_chinese_cadavers10,11.6,0.949,10
+canal_ap,T10,paper,tan2004,sg_chinese_cadavers10,11.9,0.949,10
+canal_ap,T11,paper,tan2004,sg_chinese_cadavers10,11.8,0.632,10
+canal_ap,T12,paper,tan2004,sg_chinese_cadavers10,12.4,0.949,10
+canal_ap,T2,paper,tan2004,sg_chinese_cadavers10,11.7,0.632,10
+canal_ap,T3,paper,tan2004,sg_chinese_cadavers10,12,0.632,10
+canal_ap,T4,paper,tan2004,sg_chinese_cadavers10,11.8,0.632,10
+canal_ap,T5,paper,tan2004,sg_chinese_cadavers10,11.5,0.632,10
+canal_ap,T6,paper,tan2004,sg_chinese_cadavers10,11.6,0.632,10
+canal_ap,T7,paper,tan2004,sg_chinese_cadavers10,11.9,0.316,10
+canal_ap,T8,paper,tan2004,sg_chinese_cadavers10,11.9,0.632,10
+canal_ap,T9,paper,tan2004,sg_chinese_cadavers10,11.8,0.632,10
+canal_ap,L1,paper,yadav2020,yadav-ct,15.752,1.477,302
+canal_ap,L2,paper,yadav2020,yadav-ct,14.642,1.505,302
+canal_ap,L3,paper,yadav2020,yadav-ct,13.539,1.619,302
+canal_ap,L4,paper,yadav2020,yadav-ct,13.337,1.766,302
+canal_ap,L5,paper,yadav2020,yadav-ct,14.705,2.934,302
+canal_ap,T12,paper,yadav2020,yadav-ct,16.249,1.376,302
+canal_w,C3,panjabi,panjabi,12 cadaver spines,22.9,3.984,12
+canal_w,C4,panjabi,panjabi,12 cadaver spines,24.7,1.801,12
+canal_w,C5,panjabi,panjabi,12 cadaver spines,24.9,3.914,12
+canal_w,C6,panjabi,panjabi,12 cadaver spines,25.8,2.286,12
+canal_w,C7,panjabi,panjabi,12 cadaver spines,24.5,3.187,12
+canal_w,T1,panjabi,panjabi,12 cadaver spines,21.8,2.46,12
+canal_w,T2,panjabi,panjabi,12 cadaver spines,19.5,1.178,12
+canal_w,T3,panjabi,panjabi,12 cadaver spines,18.3,1.871,12
+canal_w,T4,panjabi,panjabi,12 cadaver spines,17,1.975,12
+canal_w,T5,panjabi,panjabi,12 cadaver spines,17.1,2.356,12
+canal_w,T6,panjabi,panjabi,12 cadaver spines,17.3,2.563,12
+canal_w,T7,panjabi,panjabi,12 cadaver spines,17.3,2.875,12
+canal_w,T8,panjabi,panjabi,12 cadaver spines,17.7,2.182,12
+canal_w,T9,panjabi,panjabi,12 cadaver spines,17.9,4.122,12
+canal_w,T10,panjabi,panjabi,12 cadaver spines,18.2,2.702,12
+canal_w,T11,panjabi,panjabi,12 cadaver spines,19.4,3.291,12
+canal_w,T12,panjabi,panjabi,12 cadaver spines,22.2,3.88,12
+canal_w,L1,panjabi,panjabi,12 cadaver spines,23.7,3.187,12
+canal_w,L2,panjabi,panjabi,12 cadaver spines,23.8,2.46,12
+canal_w,L3,panjabi,panjabi,12 cadaver spines,24.3,2.217,12
+canal_w,L4,panjabi,panjabi,12 cadaver spines,25.4,1.697,12
+canal_w,L5,panjabi,panjabi,12 cadaver spines,27.1,3.048,12
+canal_w,L1,paper,ahmed2019,telangana_mri,22.42,,80
+canal_w,L2,paper,ahmed2019,telangana_mri,22.64,,80
+canal_w,L3,paper,ahmed2019,telangana_mri,23.45,,80
+canal_w,L4,paper,ahmed2019,telangana_mri,24.52,,80
+canal_w,L5,paper,ahmed2019,telangana_mri,27.68,,80
+canal_w,L1,paper,alonge2021,lagos_ct,22.46,2.045,120
+canal_w,L2,paper,alonge2021,lagos_ct,22.927,2.006,120
+canal_w,L3,paper,alonge2021,lagos_ct,24.367,2.214,120
+canal_w,L4,paper,alonge2021,lagos_ct,26.997,3.046,120
+canal_w,L5,paper,alonge2021,lagos_ct,32.359,4.398,120
+canal_w,L1,pools_panjabi,bonczar2024,pool18,22.04,,1481
+canal_w,L2,pools_panjabi,bonczar2024,pool18,22.15,,1481
+canal_w,L3,pools_panjabi,bonczar2024,pool18,22.62,,1481
+canal_w,L4,pools_panjabi,bonczar2024,pool18,23.19,,1481
+canal_w,L5,pools_panjabi,bonczar2024,pool18,26.46,,1481
+canal_w,L1,paper,cizmic2023,bih-sarajevo-ct,24.78,2.29,200
+canal_w,L2,paper,cizmic2023,bih-sarajevo-ct,25.14,2.24,200
+canal_w,L3,paper,cizmic2023,bih-sarajevo-ct,25.86,2.37,200
+canal_w,L4,paper,cizmic2023,bih-sarajevo-ct,27.32,3.06,200
+canal_w,L5,paper,cizmic2023,bih-sarajevo-ct,31.94,4,200
+canal_w,L1,paper,eisenstein1977,"dart_skeletons, male, Zulu Negroid",21,,108
+canal_w,L2,paper,eisenstein1977,"dart_skeletons, male, Zulu Negroid",22,,108
+canal_w,L3,paper,eisenstein1977,"dart_skeletons, male, Zulu Negroid",22,,108
+canal_w,L4,paper,eisenstein1977,"dart_skeletons, male, Zulu Negroid",23,,108
+canal_w,L5,paper,eisenstein1977,"dart_skeletons, male, Zulu Negroid",26,,108
+canal_w,L1,paper,griffith2016,hk_ct_patients,20.35,2.392,1080
+canal_w,L2,paper,griffith2016,hk_ct_patients,20.66,2.511,1080
+canal_w,L3,paper,griffith2016,hk_ct_patients,21.545,2.597,1080
+canal_w,L4,paper,griffith2016,hk_ct_patients,23.75,3.176,1080
+canal_w,L5,paper,griffith2016,hk_ct_patients,28.48,4.12,1080
+canal_w,L1,paper,masharawi2021,"control, Control",21.785,2.362,50
+canal_w,L2,paper,masharawi2021,"control, Control",22.12,2.34,50
+canal_w,L3,paper,masharawi2021,"control, Control",22.22,2.598,50
+canal_w,L4,paper,masharawi2021,"control, Control",22.44,3.091,50
+canal_w,L5,paper,masharawi2021,"control, Control",24.515,3.608,50
+canal_w,C3,paper,tan2004,sg_chinese_cadavers10,19.2,1.265,10
+canal_w,C4,paper,tan2004,sg_chinese_cadavers10,19.3,1.581,10
+canal_w,C5,paper,tan2004,sg_chinese_cadavers10,20.3,1.265,10
+canal_w,C6,paper,tan2004,sg_chinese_cadavers10,20.6,1.265,10
+canal_w,C7,paper,tan2004,sg_chinese_cadavers10,19.7,1.265,10
+canal_w,L1,paper,tan2004,sg_chinese_cadavers10,19.4,0.632,10
+canal_w,L2,paper,tan2004,sg_chinese_cadavers10,19.5,0.632,10
+canal_w,L3,paper,tan2004,sg_chinese_cadavers10,19.4,1.265,10
+canal_w,L4,paper,tan2004,sg_chinese_cadavers10,20.2,1.581,10
+canal_w,L5,paper,tan2004,sg_chinese_cadavers10,23.4,1.897,10
+canal_w,T1,paper,tan2004,sg_chinese_cadavers10,17.7,0.949,10
+canal_w,T10,paper,tan2004,sg_chinese_cadavers10,14.2,1.265,10
+canal_w,T11,paper,tan2004,sg_chinese_cadavers10,15.3,0.632,10
+canal_w,T12,paper,tan2004,sg_chinese_cadavers10,17.9,0.949,10
+canal_w,T2,paper,tan2004,sg_chinese_cadavers10,15.2,0.949,10
+canal_w,T3,paper,tan2004,sg_chinese_cadavers10,14.2,0.949,10
+canal_w,T4,paper,tan2004,sg_chinese_cadavers10,13.5,0.949,10
+canal_w,T5,paper,tan2004,sg_chinese_cadavers10,13.6,0.949,10
+canal_w,T6,paper,tan2004,sg_chinese_cadavers10,13.8,0.949,10
+canal_w,T7,paper,tan2004,sg_chinese_cadavers10,13.9,1.265,10
+canal_w,T8,paper,tan2004,sg_chinese_cadavers10,14.1,0.949,10
+canal_w,T9,paper,tan2004,sg_chinese_cadavers10,14.2,1.265,10
+endplate_depth,C3,panjabi,panjabi,12 cadaver spines,15,1.905,12
+endplate_depth,C4,panjabi,panjabi,12 cadaver spines,15.3,2.598,12
+endplate_depth,C5,panjabi,panjabi,12 cadaver spines,15.2,1.212,12
+endplate_depth,C6,panjabi,panjabi,12 cadaver spines,16.4,1.801,12
+endplate_depth,C7,panjabi,panjabi,12 cadaver spines,18.1,2.286,12
+endplate_depth,T1,panjabi,panjabi,12 cadaver spines,18.5,2.598,12
+endplate_depth,T2,panjabi,panjabi,12 cadaver spines,19.6,1.42,12
+endplate_depth,T3,panjabi,panjabi,12 cadaver spines,22.7,2.598,12
+endplate_depth,T4,panjabi,panjabi,12 cadaver spines,23.3,2.009,12
+endplate_depth,T5,panjabi,panjabi,12 cadaver spines,24.3,2.737,12
+endplate_depth,T6,panjabi,panjabi,12 cadaver spines,26,2.771,12
+endplate_depth,T7,panjabi,panjabi,12 cadaver spines,27.4,1.871,12
+endplate_depth,T8,panjabi,panjabi,12 cadaver spines,27.9,1.801,12
+endplate_depth,T9,panjabi,panjabi,12 cadaver spines,29.3,3.568,12
+endplate_depth,T10,panjabi,panjabi,12 cadaver spines,30.5,2.944,12
+endplate_depth,T11,panjabi,panjabi,12 cadaver spines,31.9,2.46,12
+endplate_depth,T12,panjabi,panjabi,12 cadaver spines,32.8,4.192,12
+endplate_depth,L1,panjabi,panjabi,12 cadaver spines,34.1,4.642,12
+endplate_depth,L2,panjabi,panjabi,12 cadaver spines,34.6,3.811,12
+endplate_depth,L3,panjabi,panjabi,12 cadaver spines,35.2,3.811,12
+endplate_depth,L4,panjabi,panjabi,12 cadaver spines,35.5,3.048,12
+endplate_depth,L5,panjabi,panjabi,12 cadaver spines,34.7,4.053,12
+endplate_depth,L1,pools_panjabi,bonczar2024,pool18,31.04,,1481
+endplate_depth,L2,pools_panjabi,bonczar2024,pool18,32.12,,1481
+endplate_depth,L3,pools_panjabi,bonczar2024,pool18,33.17,,1481
+endplate_depth,L4,pools_panjabi,bonczar2024,pool18,33.83,,1481
+endplate_depth,L5,pools_panjabi,bonczar2024,pool18,34.09,,1481
+endplate_depth,C3,paper,tan2004,sg_chinese_cadavers10,13.6,0.316,10
+endplate_depth,C4,paper,tan2004,sg_chinese_cadavers10,14,0.316,10
+endplate_depth,C5,paper,tan2004,sg_chinese_cadavers10,14.3,0.316,10
+endplate_depth,C6,paper,tan2004,sg_chinese_cadavers10,14.6,0.632,10
+endplate_depth,C7,paper,tan2004,sg_chinese_cadavers10,15.1,0.632,10
+endplate_depth,L1,paper,tan2004,sg_chinese_cadavers10,27.5,1.265,10
+endplate_depth,L2,paper,tan2004,sg_chinese_cadavers10,28.3,1.581,10
+endplate_depth,L3,paper,tan2004,sg_chinese_cadavers10,29.9,0.949,10
+endplate_depth,L4,paper,tan2004,sg_chinese_cadavers10,30.8,0.632,10
+endplate_depth,L5,paper,tan2004,sg_chinese_cadavers10,30.4,1.581,10
+endplate_depth,T1,paper,tan2004,sg_chinese_cadavers10,14.9,0.949,10
+endplate_depth,T10,paper,tan2004,sg_chinese_cadavers10,25.4,1.265,10
+endplate_depth,T11,paper,tan2004,sg_chinese_cadavers10,25.4,0.949,10
+endplate_depth,T12,paper,tan2004,sg_chinese_cadavers10,26.7,0.949,10
+endplate_depth,T2,paper,tan2004,sg_chinese_cadavers10,16.3,0.632,10
+endplate_depth,T3,paper,tan2004,sg_chinese_cadavers10,18,0.632,10
+endplate_depth,T4,paper,tan2004,sg_chinese_cadavers10,18.9,0.949,10
+endplate_depth,T5,paper,tan2004,sg_chinese_cadavers10,20.5,0.632,10
+endplate_depth,T6,paper,tan2004,sg_chinese_cadavers10,21.8,0.632,10
+endplate_depth,T7,paper,tan2004,sg_chinese_cadavers10,22.7,0.949,10
+endplate_depth,T8,paper,tan2004,sg_chinese_cadavers10,23.3,0.949,10
+endplate_depth,T9,paper,tan2004,sg_chinese_cadavers10,24.4,1.265,10
+endplate_depth,L4,paper,tang2016,utah_mri,37.2,2.6,107
+endplate_depth,L5,paper,tang2016,utah_mri,36.3,2.5,105
+endplate_depth,L1,paper,yadav2020,yadav-ct,27.728,2.656,302
+endplate_depth,L2,paper,yadav2020,yadav-ct,29.493,3.084,302
+endplate_depth,L3,paper,yadav2020,yadav-ct,30.692,2.923,302
+endplate_depth,L4,paper,yadav2020,yadav-ct,30.95,2.356,302
+endplate_depth,L5,paper,yadav2020,yadav-ct,31.787,2.481,302
+endplate_depth,T12,paper,yadav2020,yadav-ct,26.247,2.716,302
+endplate,C3,panjabi,panjabi,12 cadaver spines,15.8,1.593,12
+endplate,C4,panjabi,panjabi,12 cadaver spines,17.2,2.286,12
+endplate,C5,panjabi,panjabi,12 cadaver spines,17.5,2.009,12
+endplate,C6,panjabi,panjabi,12 cadaver spines,18.5,1.905,12
+endplate,C7,panjabi,panjabi,12 cadaver spines,21.8,2.286,12
+endplate,T1,panjabi,panjabi,12 cadaver spines,24.5,2.944,12
+endplate,T2,panjabi,panjabi,12 cadaver spines,24.9,2.044,12
+endplate,T3,panjabi,panjabi,12 cadaver spines,24.6,1.49,12
+endplate,T4,panjabi,panjabi,12 cadaver spines,24.5,2.009,12
+endplate,T5,panjabi,panjabi,12 cadaver spines,24.9,2.667,12
+endplate,T6,panjabi,panjabi,12 cadaver spines,26.2,2.737,12
+endplate,T7,panjabi,panjabi,12 cadaver spines,27.8,2.425,12
+endplate,T8,panjabi,panjabi,12 cadaver spines,29.5,2.46,12
+endplate,T9,panjabi,panjabi,12 cadaver spines,30.6,3.672,12
+endplate,T10,panjabi,panjabi,12 cadaver spines,31.9,2.321,12
+endplate,T11,panjabi,panjabi,12 cadaver spines,34.9,3.36,12
+endplate,T12,panjabi,panjabi,12 cadaver spines,39,2.009,12
+endplate,L1,panjabi,panjabi,12 cadaver spines,41.2,3.568,12
+endplate,L2,panjabi,panjabi,12 cadaver spines,42.6,2.563,12
+endplate,L3,panjabi,panjabi,12 cadaver spines,44.1,3.048,12
+endplate,L4,panjabi,panjabi,12 cadaver spines,46.6,4.157,12
+endplate,L5,panjabi,panjabi,12 cadaver spines,47.3,4.157,12
+endplate,L1,pools_panjabi,bonczar2024,pool18,41.09,,1481
+endplate,L2,pools_panjabi,bonczar2024,pool18,42.98,,1481
+endplate,L3,pools_panjabi,bonczar2024,pool18,44.82,,1481
+endplate,L4,pools_panjabi,bonczar2024,pool18,47.5,,1481
+endplate,L5,pools_panjabi,bonczar2024,pool18,48.81,,1481
+endplate,L1,paper,frontphys2026,zhengzhou_ct_100,41.8,1,20
+endplate,L2,paper,frontphys2026,zhengzhou_ct_100,43.4,0.7,20
+endplate,L3,paper,frontphys2026,zhengzhou_ct_100,45.2,0.6,20
+endplate,L4,paper,frontphys2026,zhengzhou_ct_100,47.7,0.8,20
+endplate,L5,paper,frontphys2026,zhengzhou_ct_100,50.7,2.4,20
+endplate,C3,paper,tan2004,sg_chinese_cadavers10,13.8,0.316,10
+endplate,C4,paper,tan2004,sg_chinese_cadavers10,14.7,0.316,10
+endplate,C5,paper,tan2004,sg_chinese_cadavers10,14.9,0.316,10
+endplate,C6,paper,tan2004,sg_chinese_cadavers10,15.8,0,10
+endplate,C7,paper,tan2004,sg_chinese_cadavers10,19,0.316,10
+endplate,L1,paper,tan2004,sg_chinese_cadavers10,36.3,1.265,10
+endplate,L2,paper,tan2004,sg_chinese_cadavers10,38.2,1.265,10
+endplate,L3,paper,tan2004,sg_chinese_cadavers10,39.9,0.949,10
+endplate,L4,paper,tan2004,sg_chinese_cadavers10,42,0.632,10
+endplate,L5,paper,tan2004,sg_chinese_cadavers10,41.6,0.949,10
+endplate,T1,paper,tan2004,sg_chinese_cadavers10,24.7,0.632,10
+endplate,T10,paper,tan2004,sg_chinese_cadavers10,28.8,1.265,10
+endplate,T11,paper,tan2004,sg_chinese_cadavers10,31.6,0.949,10
+endplate,T12,paper,tan2004,sg_chinese_cadavers10,34.5,0.949,10
+endplate,T2,paper,tan2004,sg_chinese_cadavers10,23.6,0.632,10
+endplate,T3,paper,tan2004,sg_chinese_cadavers10,23.3,1.265,10
+endplate,T4,paper,tan2004,sg_chinese_cadavers10,22.5,0.949,10
+endplate,T5,paper,tan2004,sg_chinese_cadavers10,23.3,0.949,10
+endplate,T6,paper,tan2004,sg_chinese_cadavers10,23.7,0.949,10
+endplate,T7,paper,tan2004,sg_chinese_cadavers10,24.6,0.949,10
+endplate,T8,paper,tan2004,sg_chinese_cadavers10,25.9,1.581,10
+endplate,T9,paper,tan2004,sg_chinese_cadavers10,27,0.949,10
+endplate,L4,paper,tang2016,utah_mri,50.5,3.8,107
+endplate,L5,paper,tang2016,utah_mri,52.1,4,105
+endplate,L1,paper,yadav2020,yadav-ct,38.794,3.487,302
+endplate,L2,paper,yadav2020,yadav-ct,41.253,3.948,302
+endplate,L3,paper,yadav2020,yadav-ct,43.153,3.574,302
+endplate,L4,paper,yadav2020,yadav-ct,45.221,4.059,302
+endplate,L5,paper,yadav2020,yadav-ct,47.608,5.02,302
+endplate,T12,paper,yadav2020,yadav-ct,35.986,3.087,302
