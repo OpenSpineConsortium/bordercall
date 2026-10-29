@@ -4,8 +4,9 @@ Source: thread "Plan clinical reread next steps", project symphony_2, 2026-10-29
 ../clinical-reread/HANDOFF.md (the owner's ask of 2026-10-29 for how prior art measures these measures, with
 benchmarked public test sets and code). Web reading by one reader a measure family, each note tagging every claim
 with its reading status; nothing fetched into git but links and numbers. Confidential, like the rest of this
-repository. Written in the state it was in when the owner asked for it on 2026-10-29 at 23:05 UTC: eight family
-notes finished, alignment still being read; it lands in a later commit of the same pull request or a following one.
+repository. First written in the state it was in when the owner asked for it on 2026-10-29 at 23:05 UTC, four
+family notes finished; the other five landed in the following commits of the same pull request, one each, as their
+readers finished.
 
 Starting points, read first by every reader so nothing already found was searched again: SchwingNet's
 docs/research/morphometry-beyond-the-42-papers.md, benchmarks-to-beat.md and
@@ -22,10 +23,10 @@ public-spine-and-pelvis-models-to-benchmark.md, and the four notes under "../Ver
 | Pedicles | pedicle_w, pedicle_h, the areas, inclinations, chord, length, cortex, pars | [pedicles.md](pedicles.md) | 20 | 2 (Goerres 2017's atlas on SpineWeb sets 2 and 5, three levels only; Burgin 2023's graph network on the public VID keypoint set, 2,118 CTs with two pedicle points a vertebra, CC BY-SA 4.0, VerSe's L6 and T13 among them); public truth without a method: LumASe's pedicle voxel masks; C2-Net's set behind an IEEE DataPort subscription | 3 (PedicleScrewGuide GPL-3.0, SonoGym, a C2-Net fragment), none validated for a pedicle measure, and no public code computes a pedicle width, height or angle | Knez and Vrtovec 2020's automatic width and height on 540 thoracic pedicles (0.44 and 0.56 mm MAD, private); Zhang 2024's lumbar landmark CNN (ICC 0.97 width, 0.92 axial angle, private); nothing covers C2 to S1 in one person, handles a transitional vertebra, measures inner and outer width, cortex or pars automatically, or gives a pedicle width in mm on a radiograph |
 | Canal and foramina | canal_w, canal_ap, canal_area, canal_index, interpedicular, lateral_recess, foramen_h, foramen_w, foramen_area | [canal-and-foramina.md](canal-and-foramina.md) | 19 | 6 (SPIDER's canal masks, Dice 0.92, which refuses level labels since sagittal MRI cannot resolve transitional vertebrae; RSNA 2024's lumbar stenosis set; three lumbar MRI stenosis sets); 13 private; no public set carries a canal or foraminal chord in mm | 5 (the SPIDER baseline, Saravi 2023, CTM-DuraSeg, LSS-MRI-AISSLab, SpineNetV2 non-commercial) | Netherton 2020's canal CNN as the counting axis, 94 percent level identification on CT with no transitional handling; Zhang 2024's CT interpedicular distance, ICC 0.91, MAE 1.25 mm, private; no CT method measures Panjabi's canal width or depth per level against public truth, the lateral recess is only graded, and foraminal millimetres exist only at L4-L5 in 100 MRI subjects |
 | Discs | disc_h_ant, disc_h_mid, disc_h_post, disc_h_mean, disc_index, disc_w, disc_d | [discs.md](discs.md) | 17 | 7 | 6 | Yao 2024's lateral lumbar radiograph disc height (MAE 0.63 mm); BianqueNet 2022's disc height index and ratio on MRI (ICC 0.91 to 0.95); SpineNetV2 with McSweeney 2023's level identification at 91 to 98 percent, which calls the lumbosacral transitional vertebra a major challenge; no method reads a level from a disc measure, no deep method gives a CT disc height, and disc_w and disc_d are measured by nothing |
-| Sagittal alignment and pelvic parameters | alignment | alignment.md (being read) | | | | |
+| Sagittal alignment and pelvic parameters | alignment | [alignment.md](alignment.md) | about 35 | 1 family in effect (AASCE 2019's coronal set, 609 AP films with 68 corners and three Cobb angles, 98 test films with truth withheld, used by about 8 methods, best MAE 3.2 to 3.7 degrees); every sagittal spinopelvic tool (Galbusera, Cina, Korez, Yeh, Weng, Cho, Schwartz, Orosz, Zerouali, LanDet, SpinePose, Yuan, the Zurich bi-planar, Song) is validated on private films against one to four readers (PT 1.1 to 1.3 degrees, SVA 1.2 to 2.2 mm, PI 2.2 to 4.6, SS 1.7 to 5.0, LL 2.0 to 5.1, kyphosis weakest); public sagittal truth is piecemeal (Chai 2024's 115 pelves for pelvic tilt; CSXA's cervical keypoints with computed, not read, parameters; lumbar corner sets without angles), and no public CT or MRI set carries alignment truth | 1 with a licence (Yi 2020's Vertebra-Focused, MIT); the rest unstated or on request | Yeh 2021, which excludes spines without exactly 25 vertebrae and whose main error is thoracic mis-levelling; VertXNet, naming levels by counting from a visible C2 or S1; Yuan 2024, which cannot identify a lumbosacral transitional vertebra; no method uses an angle to decide a level |
 | Counts and anomalies | rib, sacrum, prevalence | [counts-and-anomalies.md](counts-and-anomalies.md) | 23 | 10 (the VerSe entrants Payer, Lessmann and Chen; Lessmann 2019; Elton in part; VERIDAH's stump-rib sibling; RibSeg v2; the CTSpine1K and CTSpinoPelvic1K baselines; SpineNetV2's Zukic subset) | 9 (the VerSe tooling, Payer, SPINEPS and VERIDAH Apache-2.0, CTSpine1K, CTSpinoPelvic1K, TotalSpineSeg, Moeller's rib segmentation, RibSeg, BUU-LSPINE) | VERIDAH, the one labeller that models 11 to 13 thoracic and 4 to 6 lumbar vertebrae (96 to 97 percent anomaly recall on in-house CT, over-calling T13 on the project's own screen); the VerSe challenge's 47 L6 and 6 T13, where the hidden L6 beat almost every entrant; Kwak 2025, the one radiograph LSTV detector, binary at 76 percent and below a surgeon; no automatic Castellvi grading, no cervical or lumbar rib detector with data, no radiograph method reporting a transitional stratum, no pooled prevalence meta-analysis |
 
-## What the finished families say about naming levels
+## What the families say about naming levels
 
 - No public dataset carries per-level expert measurements of a vertebral body, a facet or a posterior element
   against which a measuring method is scored; the public truth is masks (VerSe, TotalSegmentator, CTSpine1K,
@@ -45,4 +46,13 @@ public-spine-and-pelvis-models-to-benchmark.md, and the four notes under "../Ver
 
 Each note lists what could not be read (RSNA, Springer, Nature, Spine, Wiley and MDPI pages refused from the
 cloud session; read through PMC, PubMed, arXiv and university records where those exist) and what the search
-budget did not reach (the vertebral-body reader ran out before Comp2Comp and the width, depth and area queries).
+budget did not reach (the vertebral-body reader ran out before Comp2Comp and the width, depth and area queries; the
+pedicle reader before Blomenkamp's geometric method and MRI or synthetic-CT planning; the alignment reader before
+Fujimori's cervical work, MRSpineSeg, Spinal-AI2024, BUU-LSPINE's own paper and the commercial EOS and Keops
+validations; the counts reader before MRSpineSeg).
+
+Across the nine families, the one level-naming result scored against public truth is Hipp 2022's diagonal
+end-plate ratio naming S1 on NHANES II (AUC 0.995), and the one labeller that models 11 to 13 thoracic and 4 to 6
+lumbar vertebrae is VERIDAH; every automatic measurement in millimetres or degrees against a reader is on private
+data, and no method anywhere reads a level from a measure, which is what the paper-tables comparison asks whether
+the literature's own tables allow.

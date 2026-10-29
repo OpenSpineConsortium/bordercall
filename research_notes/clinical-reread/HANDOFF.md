@@ -47,8 +47,18 @@ into a test set of the auto-anatomist. Step 2's parts a and b were done the same
 (../paper-tables/validation/README.md): the blind re-read of the 468 cells found 0 record faults (Wilson 0.0 to 0.8
 percent), and the 116 plausibility flags were each the paper's own printed number; part c, the mapping audit, read
 all 765 distinct mappings, fixed the 17 that held (Otsuki 2021's pedicle_h to differs, which reaches the comparison)
-and lists 41 judgements for the owner. Step 3 began the same day: ../prior-art-measurement/README.md, three family
-notes written and six being read when the owner asked for what there was (23:05 UTC); step 4 is kept as series.csv changes.
+and lists 41 judgements for the owner. Step 3 was done the same day: ../prior-art-measurement/README.md with
+all nine family notes, landed one commit each as the readers finished (the first four at the owner's ask of
+23:05 UTC, the rest by 23:15); each note ends with what its reader could not read or did not reach, and the README
+collects those gaps. Step 4 was done twice as series.csv changed (the four auto-anatomist threads told of the
+3,760 count and of Otsuki 2021's vs_panjabi change); nothing changed it after that.
+
+Handoff of 2026-10-29 23:15 UTC, at the owner's word to checkpoint everything: all four steps are on the branch of
+pull request 39, which is marked ready and waits only for the owner's merge; nothing is unfinished in this thread.
+What the next account would take up, none of it started: the 41 mapping judgements and the round-4 open items,
+which the owner settles (../paper-tables/validation/README.md, ../paper-tables/review/round-4.md); the prior-art
+gaps the README lists, if the owner wants them read; and a further review round over the validation and prior-art
+folders themselves, which no round has read.
 
 1. **Fix the second review's data findings and rerun.** (Done, above; kept as the record of what was asked.) Take each finding of
    ../paper-tables/review/round-2-findings.json that both refuters confirmed, or that is unverified, reproduce it,
