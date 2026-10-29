@@ -17,7 +17,10 @@
   drawing's superellipse holds the area it is asked for, its pedicles meeting the body;
 - the power tests have the power they say, the calibrated spreads read above the raw ones, as a
   correction of estimates that read low must, and Griffith's sexes taken together give the
-  mixture's correlation.
+  mixture's correlation;
+- Tan's stratum: the matched cells are the same with Tan pooled in and apart, pooling a series
+  that sits far off widens the spread and never leaves the rest's cells, and Tan's table is his
+  printed means wherever he prints one.
 """
 from __future__ import annotations
 
@@ -330,6 +333,46 @@ class Power(unittest.TestCase):
                          [("r_between", 0.8), ("sd_scale", 0.5), ("sd_scale", 0.55)])
         self.assertEqual([p["distance"] for p in got], sorted(p["distance"] for p in got))
         self.assertTrue(all(p["rho"] == 0.5 and p["scale_sd"] == 0.0 for p in got))
+
+
+class TanApart(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        from synthval import tan as T
+        cls.T = T
+        cls.series, _ = L.select(L.load_rows())
+        cls.rows = T.matched_spread(cls.series)
+
+    def test_split_takes_every_series_once(self):
+        rest, tan = self.T.split(self.series)
+        self.assertEqual(len(rest) + len(tan), len(self.series))
+        self.assertTrue(tan and all(s.paper == "tan2004" for s in tan))
+        self.assertFalse(any(s.paper == "tan2004" for s in rest))
+
+    def test_matched_cells_have_three_rest_series_and_tan(self):
+        self.assertTrue(self.rows)
+        self.assertTrue(all(r["k_rest"] >= 3 for r in self.rows))
+
+    def test_a_far_series_widens_the_spread(self):
+        from synthval import validate as V
+        rest = [L.Series("p%d" % i, "", "", "bone", "", "", "k", "L1", 30.0 + i * 0.1, 2.0, 40.0, "same")
+                for i in range(4)]
+        far = L.Series("tan2004", "", "", "bone", "", "", "k", "L1", 26.0, 2.0, 10.0, "same")
+        self.assertGreater(V.literature_at(rest + [far]).mean.tau, V.literature_at(rest).mean.tau)
+
+    def test_tan_table_is_his_means_where_he_prints(self):
+        seven = MS.select(MS.SPINEPS_7)
+        mu, sd, filled = self.T.tan_table(self.series, seven)
+        _, psd = MS.arrays(seven, LEVELS)
+        np.testing.assert_array_equal(sd, psd)
+        by = {(s.key, s.level): s.mean for s in self.series if s.paper == "tan2004" and L.usable(s)}
+        for j, m in enumerate(seven):
+            for i, lv in enumerate(LEVELS):
+                key = L.measure_key(m.key)
+                if (key, lv) in by:
+                    self.assertEqual(mu[j, i], by[key, lv])
+                else:
+                    self.assertIn("%s %s" % (key, lv), filled)
 
 
 if __name__ == "__main__":

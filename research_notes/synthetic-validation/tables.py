@@ -369,10 +369,60 @@ def t_assumptions(rec: str) -> str:
     return "\n\n".join((t1, t2, t3))
 
 
+def t_tan(rec: str) -> str:
+    """Tan 2004 apart from the rest (synthval/tan.py; records/tan-strata, written by tan_strata.py)."""
+    ts = read_json(os.path.join(rec, "tan-strata"), "tan_strata.json")
+    rows = []
+    for group, label in (("all", "every matched cell"), ("seven", "the seven's cells")):
+        g = ts["matched_spread"][group]
+        d = g["tan_distance_panjabi_sd"]
+        rows.append([label, g["f_panjabi_pooled"]["cells"],
+                     "%s to %s" % (f(g["f_panjabi_pooled"]["median"]), f(g["f_panjabi_apart"]["median"])),
+                     "%s to %s" % (f(g["f_literature_pooled"]["median"]), f(g["f_literature_apart"]["median"])),
+                     "%s to %s" % (f(g["worth_scans_pooled"]["median"], 1), f(g["worth_scans_apart"]["median"], 1)),
+                     f(g["variance_ratio_pooled_over_apart"]["median"]),
+                     "%s (%s to %s)" % (f(d["median"]), f(d["q1"]), f(d["q3"])), g["tan_above_rest"]])
+    t1 = table(["spread between populations, Tan pooled in to Tan apart", "cells", "tau / Panjabi's SD, median",
+                "tau / papers' SD, median", "worth in scans, the papers' SD", "variance pooled / apart, median",
+                "Tan's distance from the rest (Panjabi's SD), median (quartiles)", "cells with Tan above"], rows)
+    sp = ts["split"]
+    split = ("The calibrated split of the spread is a shift of %s and a rest of %s with Tan pooled in (%d series by"
+             " measure, %d distances), %s and %s for the rest alone (%d, %d)." % (
+                 f(sp["pooled"]["shift_sd_calibrated"]), f(sp["pooled"]["level_sd_calibrated"]), sp["pooled"]["series_measures"],
+                 sp["pooled"]["distances"], f(sp["rest"]["shift_sd_calibrated"]), f(sp["rest"]["level_sd_calibrated"]),
+                 sp["rest"]["series_measures"], sp["rest"]["distances"]))
+    out = []
+    for arm in [r["arm"] for r in ts["naming"] if r["width"] == 1]:
+        line = [arm]
+        for w in (1, 3, 9):
+            r = next(x for x in ts["naming"] if x["arm"] == arm and x["width"] == w)
+            line.append("%s (%s; %s)" % (pct(r["exact"]), f(r["loss_mean"], 1), pct(r["precision"])))
+        line.append("%s / %s / %s" % tuple(f(next(x for x in ts["naming"] if x["arm"] == arm and x["width"] == w)
+                                             ["loss_sd_between_tables"], 1) for w in (1, 3, 9)))
+        out.append(line)
+    t2 = table(["the rule's table", "1 body: exact (loss; right at 0.99)", "3 bodies", "9 bodies",
+                "SD of the loss between tables, 1 / 3 / 9"], out)
+    tables = max(r["tables"] for r in ts["naming"])
+    paired = ", ".join("%s (SE %s) at %d" % (f(r["paired_difference_mean"], 1), f(r["paired_difference_se"], 1), r["width"])
+                       for r in ts["naming"] if r["arm"] == "after: the rest without Tan")
+    gold = ts["gold_against_tan"]
+    found = next(g for g in gold if g["persons"] == 12)
+    note = ("Each moved row is the mean over %d tables of the same %d columns, the before and after tables of one"
+            " index drawn from the same standard draws; the rest's tables lose, paired with the pooled, %s bodies."
+            " Tan's row is his one table (%s filled where he prints no value), and the own-table row is the"
+            " generator's. Tan's median distance over the seven's %d matched cells is %s of Panjabi's SD; 12 persons"
+            " find a shift of %s in one cell, so a population as far off as Tan's shows in %s%% of those cells from"
+            " twelve gold persons." % (
+                tables, ts["columns"], paired, " and ".join(ts["tan_table_filled"]) or "nothing", found["cells"],
+                f(abs(found["tan_median_distance"])), f(found["least_mean_shift_one_cell"]),
+                pct(found["share_of_seven_cells_found"], 0)))
+    return t1 + "\n\n" + split + "\n\n" + t2 + "\n\n" + note
+
+
 TABLES: Dict[str, Callable[[str], str]] = {
     "selection": t_selection, "means": t_means, "by_measure": t_by_measure, "structure": t_structure,
     "quality": t_quality, "state_space": t_state_space, "grid": t_grid, "naming": t_naming, "spread": t_spread,
-    "part_c": t_part_c, "gold": t_gold, "assumptions": t_assumptions}
+    "part_c": t_part_c, "gold": t_gold, "assumptions": t_assumptions, "tan": t_tan}
 MARK = re.compile(r"(<!-- table (\w+) -->\n)(.*?)(<!-- end \2 -->)", re.S)
 
 

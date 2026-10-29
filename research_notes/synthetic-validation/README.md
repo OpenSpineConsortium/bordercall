@@ -106,6 +106,15 @@ stand; a later snapshot is cut with `python3 -I snapshot.py --write <commit>` an
    expect about 4 people with six lumbar-type segments among them; the generator's equal sixths are 4 to
    9 times what the papers count, 6.7 times for six lumbar-type segments (tables gold and assumptions,
    figures fig6_power and fig8_assumptions).
+8. **Tan 2004 apart from the rest takes a fifth to a half of the variance between populations out, and
+   moves the predictor by under a point.** Tan's means sit a median 1.71 of Panjabi's SD below the other
+   papers' pooled mean in the seven measures' 15 matched cells, so pooled he nearly doubles the variance
+   between populations there (the spread 0.87 to 0.63 of Panjabi's SD with him apart; 0.77 to 0.63 over
+   all 34 matched cells) and a pool's worth rises from 1.1 to 1.9 scans. The calibrated shift the rule's
+   tables are moved by falls only from 0.94 to 0.83 SD, and the rule's exact naming on tables moved by
+   the rest's spread is within a point of the pooled arm's, paired table by table (quick record). A table
+   as far off as Tan's own costs 8 to 22 points and is right at 0.99 only 78 to 98% of the time (table
+   tan, section Tan's population apart).
 
 ## What was compared
 
@@ -568,6 +577,73 @@ and Gilad 1985's institutions, New Zealand where Robertson 2000's bones were stu
 cohort names no country), so their spread is largely one between
 populations, which is what a named population would be drawn from only if it were one more of them.
 
+## Tan's population apart
+
+Thread "Separate TAN population in synthetic data", 2026-10-29, project symphony_2, for greg's ask of
+22:43 UTC: "separate the tan population from the rest to reduce variance and re-evaluate in a quick way
+how that effects the power and accuracy of the predictor". The readings above pool every usable series
+of a cell into one population of populations, Tan 2004's ten Chinese Singaporean cadavers among them.
+Tan prints 22 levels of 19 measures, 417 of the 954 series, so he is one of three or four series in most
+cells, and his means sit apart from the rest's: in the seven SPINEPS measures' 15 matched cells, where
+the rest alone hold three series or more and Tan prints too, his mean sits a median 1.71 of Panjabi's SD
+below the rest's pooled mean (quartiles 2.01 to 1.27), above it in none, and 2.8 of the rest's own spread
+(records/tan-strata/matched_cells.csv). Pooled, that distance enters the spread between populations as if
+any population could sit as far off, and every reading built on the spread widens with it: part A's worth
+in scans, part B's f and the tables part C moves the rule by. Dropped, as the "without tan2004" rows
+above drop him, his information goes with him and the cells compared change. Here Tan is a stratum of his
+own (synthval/tan.py, run by tan_strata.py into records/tan-strata/): the rest's series pool as before,
+Tan is one population, fixed, and the spread with him pooled in and with him apart is read on the same
+cells. His SDs stay out of every published SD, as the validation leaves them out.
+
+<!-- table tan -->
+| spread between populations, Tan pooled in to Tan apart | cells | tau / Panjabi's SD, median | tau / papers' SD, median | worth in scans, the papers' SD | variance pooled / apart, median | Tan's distance from the rest (Panjabi's SD), median (quartiles) | cells with Tan above |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| every matched cell | 34 | 0.77 to 0.63 | 1.04 to 0.81 | 1.2 to 1.9 | 1.22 | -0.86 (-1.65 to -0.49) | 2 |
+| the seven's cells | 15 | 0.87 to 0.63 | 1.01 to 0.79 | 1.1 to 1.9 | 1.87 | -1.71 (-2.01 to -1.27) | 0 |
+
+The calibrated split of the spread is a shift of 0.94 and a rest of 0.44 with Tan pooled in (54 series by measure, 297 distances), 0.83 and 0.45 for the rest alone (39, 194).
+
+| the rule's table | 1 body: exact (loss; right at 0.99) | 3 bodies | 9 bodies | SD of the loss between tables, 1 / 3 / 9 |
+| --- | ---: | ---: | ---: | ---: |
+| own table | 49.8 (0.0; 100.0) | 76.1 (0.0; 100.0) | 98.2 (0.0; 100.0) | 0.0 / 0.0 / 0.0 |
+| before: 39 papers pooled | 39.5 (10.2; 100.0) | 56.6 (19.6; 98.2) | 84.9 (13.3; 96.8) | 1.9 / 3.3 / 3.7 |
+| after: the rest without Tan | 40.1 (9.7; 100.0) | 56.9 (19.2; 98.2) | 84.7 (13.5; 96.0) | 2.2 / 3.0 / 3.2 |
+| after: Tan's own table | 30.7 (19.1; 77.8) | 54.5 (21.6; 92.2) | 90.4 (7.9; 98.0) | 0.0 / 0.0 / 0.0 |
+
+Each moved row is the mean over 2 tables of the same 40 columns, the before and after tables of one index drawn from the same standard draws; the rest's tables lose, paired with the pooled, -0.5 (SE 0.2) at 1, -0.3 (SE 0.2) at 3, 0.2 (SE 0.4) at 9 bodies. Tan's row is his one table (endplate C6 filled where he prints no value), and the own-table row is the generator's. Tan's median distance over the seven's 15 matched cells is 1.71 of Panjabi's SD; 12 persons find a shift of 0.89 in one cell, so a population as far off as Tan's shows in 100% of those cells from twelve gold persons.
+<!-- end tan -->
+
+The power readings. On the 34 matched cells the spread between populations is 0.77 of Panjabi's SD with
+Tan pooled in and 0.63 with him apart (1.04 and 0.81 in the papers' SD), and on the seven's 15 it is 0.87
+against 0.63: Tan's series nearly doubles the variance between populations in the seven's cells (a
+median ratio of 1.87) and adds a fifth over all of them (1.22). Part A's ceiling moves with it: in the
+seven's cells a pool of published series is worth a median 1.1 scans of the population named with Tan
+pooled in and 1.9 with him apart, in the papers' SD; either is far under the 2,000 CT scans part A set
+the pool against, so its answer stands. The calibrated split the rule's tables are moved by changes less,
+a shift of 0.94 to 0.83 of a person's SD with the level-by-level rest as it was (0.44 and 0.45), since Tan
+carries his distance as a whole-measure shift and the 39 series by measure left still spread.
+
+The predictor. The rule is scored as part C scores it above, on the same columns and seeds, the rule's
+table moved by the pooled split (before) and by the rest's (after), the two arms' tables of one index
+drawn from the same standard draws so that their difference is the spreads' alone. On the quick record
+in place (40 columns, 2 tables per arm; the full record of 300 columns and 8 tables is the next step
+below), the rest's tables lose 9.7 points of exact naming at one body, 19.2 at three and 13.5 at nine,
+against the pooled tables' 10.2, 19.6 and 13.3: paired table by table, 0.5 (SE 0.2) and 0.3 (SE 0.2)
+points less at one and three bodies and 0.2 (SE 0.4) more at nine. Separating Tan therefore takes a
+fifth to a half of the variance out of the spread, but moves the predictor's accuracy by under a point,
+because the rule's loss is set by the whole-measure shift, which falls only from 0.94 to 0.83 SD. Tan's
+own population is the harder case: the rule built on his means with Panjabi's SDs names the generator's
+columns 19.1 points worse at one body, 21.6 at three and 7.9 at nine, and its answers at 0.99 are right
+77.8, 92.2 and 98.0% of the time, so a population as far off as his is what breaks the 0.99 promise, and
+twelve gold persons would show such a population in every one of the seven's matched cells.
+
+What is left (the handoff of 2026-10-29, 23:10 UTC, greg's usage running out): run
+`python3 -I tan_strata.py --out records/tan-strata --tables 8` (about 25 minutes on 4 CPUs) and
+`tables.py --write`, then read the quick numbers in this section against the full record and correct
+them; the matched-cell and split numbers do not change with the run's size. tan.py reads Tan's SDs for
+nothing, as the validation does; whether his SDs, read as SE x sqrt(n), should be his stratum's own
+spread is not decided. Figures of the two strata are not drawn.
+
 ## What gold persons can test
 
 <!-- table gold -->
@@ -681,6 +757,7 @@ From this folder, with the Python that holds bordercall's pinned packages (requi
 ```
 python3 -I run.py --out records                    # every record, about ten minutes on 4 CPUs
 python3 -I figures.py --records records --out figures
+python3 -I tan_strata.py --out records/tan-strata --tables 8    # Tan's population apart, about 25 minutes
 python3 -I tables.py --records records --write README.md
 python3 -I tables.py --records records --check README.md     # exit 1 when a table differs from the records
 cd ../.. && python3 -m unittest discover -s research_notes/synthetic-validation/tests
@@ -693,12 +770,13 @@ the same bytes in every record but RECORD.json's seconds.
 
 ## Files
 
-- run.py writes records/; figures.py and render.py draw figures/; tables.py writes the tables above;
-  snapshot.py cuts and checks data/.
+- run.py writes records/; tan_strata.py writes records/tan-strata/ (Tan's population apart); figures.py
+  and render.py draw figures/; tables.py writes the tables above; snapshot.py cuts and checks data/.
 - synthval/: literature.py (the selection), pooling.py, population.py, validate.py, structure.py, qi.py,
-  sweep.py, naming.py, power.py, references.py (the papers' errors and prevalences), house.py.
+  sweep.py, naming.py, power.py, references.py (the papers' errors and prevalences), tan.py (Tan 2004 as a
+  stratum of his own), house.py.
 - data/: the snapshot of the reread's series and SOURCE.json.
-- tests/test_synthval.py: 31 tests of the code against what its docstrings say.
+- tests/test_synthval.py: 35 tests of the code against what its docstrings say.
 
 ## What this note does not do
 
