@@ -1,7 +1,7 @@
 {
- "bordercall_commit": "38ddbddd5728706e6748beb2b8fcae4fbe7f8209",
+ "bordercall_commit": "560bd00a356189479f0bde265e52a4fee715f1ab",
  "code": {
-  "figures.py": "89575e7ff35e262f7dd333286bf065408696ec149c49ff2f1b2368c78afe79e6",
+  "figures.py": "c64c7a1a25dce76e112cd34c60000a64f8ec3a87763363680a9597a0119838ae",
   "render.py": "d4bc0d70416d843a6d019ffefe741cb0fe01013357027395c24448c01cc3a9d9",
   "run.py": "6a2b6d59baf7af2e0a486e8a3626a5f179a4ec5b62f22f38118697e1d5680cb3",
   "snapshot.py": "c09b0eab7e839f02b0fc6b0fd35a6e5c55f231a1cc6073110e7994fb663f2f89",
@@ -16,7 +16,7 @@
   "synthval/structure.py": "b04037b0ae7537454d9ac98d551ffa32a7149697328eacb1056c1a69c91e0cac",
   "synthval/sweep.py": "77ee7e7a8ab6f251096a6a03ab69ea36c7ae47670843f610364266f112e46b87",
   "synthval/validate.py": "480b4cc85debc474aa51422e7d97405663dc74995f1bab8d600ec04c8aac6877",
-  "tables.py": "83c04e98433349dac9a6537805bc7e874d768e1da8987d40b2cfc8ebf922e19b",
+  "tables.py": "bf3547db21c59e8869cc6bd001ea7b2b18666721388f84e6ccc4fcfb8c2a544f",
   "tests/test_synthval.py": "499ce0c89803f50a2f88ccfad444d72e15201f2d1920dbfcc695a887c49832ca"
  },
  "command": "python3 -I run.py --out records",
@@ -39,7 +39,7 @@
  "numpy": "2.5.4",
  "python": "3.13.17",
  "schwingcheck_changed_since_commit": false,
- "seconds": 635,
+ "seconds": 975,
  "seeds": {
   "naming_columns": 4101,
   "population": 2026,

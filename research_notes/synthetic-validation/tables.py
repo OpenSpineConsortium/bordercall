@@ -73,8 +73,12 @@ def median(xs: Sequence[float]) -> float:
 
 
 def table(head: Sequence[str], rows: Sequence[Sequence[str]], right: int = 1, text: Sequence[int] = ()) -> str:
-    """A Markdown table, the first `right` columns and those named in `text` left-aligned, the rest right-aligned."""
+    """A Markdown table, the first `right` columns and those named in `text` left-aligned, the rest right-aligned.
+    A cell holding a bar is refused, since GitHub would read it as a column's edge and drop the table."""
     left = set(range(right)) | set(text)
+    for c in list(head) + [c for r in rows for c in r]:
+        if "|" in str(c):
+            raise ValueError("a table cell holds a bar: %r" % c)
     out = ["| " + " | ".join(head) + " |", "|" + "|".join(" --- " if i in left else " ---: " for i in range(len(head))) + "|"]
     out += ["| " + " | ".join(str(c) for c in r) + " |" for r in rows]
     return "\n".join(out)
@@ -137,7 +141,7 @@ def t_means(rec: str) -> str:
                      "%s (%s to %s)" % (f(g["sd_ratio_median"]), f(g["sd_ratio_q1"]), f(g["sd_ratio_q3"])),
                      "%d of %d" % (round(g["sd_inside"] * g["with_sd_interval"]), g["with_sd_interval"])
                      if g["with_sd_interval"] else "-"])
-    t2 = table(["synthetic population", "values", "cells", "|d| of its mean, median (Panjabi's SDs)", "|d| over 1 (%)",
+    t2 = table(["synthetic population", "values", "cells", "absolute d of its mean, median (Panjabi's SDs)", "absolute d over 1 (%)",
                 "its SD over the papers', median (quartiles)", "SD inside the papers' SD interval"], rows, right=2)
     kinds = vs["sd_ratio_by_kind"]
     cols = ["panjabi", "generator, true", "generator, measured", "nearest the papers, true", "nearest the papers, measured"]
