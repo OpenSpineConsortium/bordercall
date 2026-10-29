@@ -45,8 +45,9 @@ Each row, keys sorted, mm to 0.1, the grid to 6 decimals, shares to 4:
         where the series is in both releases, other_release {release, file, same_grid, same_levels,
         voxels_differ}.
 
-The rows are facts, never calls: what the field test and the column calls make of them is
-SchwingNet's tools/gold3_ct.py, so the thresholds live in one place.
+The rows are facts, never calls: what the field test makes of them is SchwingNet's
+tools/gold3_field.py and what the column calls make of them its tools/gold3_ct.py, so the
+thresholds live in one place.
 """
 from __future__ import annotations
 
