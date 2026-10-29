@@ -52,9 +52,10 @@ session's usage limit stopped four of its last checks, and then this handoff was
 
 ## Where the papers are, and what a new project needs
 
-No PDF is in git. In this project they are in the project's files, literature/synthetic_spine/ with its MANIFEST.md
-(sha256, pages and source of each), and the owner's uploads; Panjabi's four are in this repository under
-archive/bordercall/reference/papers/. A new project starts with empty files, so:
+Since the owner's word of 2026-10-29 00:33 UTC all 44 PDFs are in this repository, in [papers/](papers/README.md),
+each matching tools/PAPERS.sha256, so a new project needs nothing fetched or uploaded. Before that they lived only in
+the project's files (literature/synthetic_spine/ with its MANIFEST.md, and the owner's uploads), and this is how they
+were got, kept for anyone who must get them again:
 
 - 20 can be fetched again by a script with a plain GET, as this thread did: 13 from PMC's Cloud Service, the public bucket
   pmc-oa-opendata (key <PMCID>.1/<PMCID>.1.pdf: abbas2021, arockiaraj2025, bonczar2024, busscher2010, cizmic2023,

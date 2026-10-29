@@ -48,9 +48,9 @@ between 13 and 37 changes per note; most were derived ratios or ranges stated to
 figure gives. Few were transcribed values: the readers' table values almost always matched the page images.
 
 The rules every note keeps, held by tools/check_notes.py: no passage of a paper is copied (no run of 13 or more words
-below the citation matches the paper's own text, so a quote is 12 words at most); no page image, no PDF and no
-publisher download stamp is in git; every count says what it is made of; ASCII only. The PDFs stay in the project's
-files (literature/synthetic_spine/ with its MANIFEST.md) and the owner's uploads.
+below the citation matches the paper's own text, so a quote is 12 words at most); no page image and no
+publisher download stamp is in a note; every count says what it is made of; ASCII only. The PDFs themselves are in
+[papers/](papers/README.md) since the owner's word of 2026-10-29, each matching tools/PAPERS.sha256.
 
 ## What the reread found first
 

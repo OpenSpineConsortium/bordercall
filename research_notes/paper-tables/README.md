@@ -50,5 +50,5 @@ paper's mapping against its Methods.
 - data/series.csv: tools/series.py over all 39, 4,477 series.
 
 The comparison with Panjabi (tools/cross_naming.py, step 5) and the evaluation's tables and figures follow in
-results/. No PDF, page image or run of a paper's text is kept in git; the PDFs stay in the project's files, and a
-reading holds only the printed cells and the short labels that name them.
+results/. The PDFs read are in ../clinical-reread/papers/ (the owner's word of 2026-10-29); no page image or run of a
+paper's text is kept, and a reading holds only the printed cells and the short labels that name them.
