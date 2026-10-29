@@ -4,8 +4,8 @@ Source: thread "Plan clinical reread next steps", project symphony_2, 2026-10-29
 ../clinical-reread/HANDOFF.md (the owner's ask of 2026-10-29 for how prior art measures these measures, with
 benchmarked public test sets and code). Web reading by one reader a measure family, each note tagging every claim
 with its reading status; nothing fetched into git but links and numbers. Confidential, like the rest of this
-repository. Written in the state it was in when the owner asked for it on 2026-10-29 at 23:05 UTC: three family
-notes finished, six still being read; the six land in a later commit of the same pull request or a following one.
+repository. Written in the state it was in when the owner asked for it on 2026-10-29 at 23:05 UTC: four family
+notes finished, five still being read; the six land in a later commit of the same pull request or a following one.
 
 Starting points, read first by every reader so nothing already found was searched again: SchwingNet's
 docs/research/morphometry-beyond-the-42-papers.md, benchmarks-to-beat.md and
@@ -20,7 +20,7 @@ public-spine-and-pelvis-models-to-benchmark.md, and the four notes under "../Ver
 | Posterior elements (processes, laminae, costal and uncovertebral articulations) | spinous_length ... rib_articulation_area (21 keys) | [posterior-elements.md](posterior-elements.md) | about 15 | 2 (SPINEPS on SPIDER's 218 MRI subjects, Apache-2.0, no per-subregion Dice; RibSeg v2 on 160 RibFrac CTs, rib labels 1 to 24 at 91.5 percent); public truth without a method: LumASe, 663 lumbar vertebrae with lamina, transverse and spinous process by three physicians, CC BY 4.0 | 3 (SPINEPS, RibSeg, TotalSegmentator's vertebrae_body and 24 rib classes) | Da Mutten 2026's nnU-Net over seven thoracolumbar subregions (Dice 0.98 to 0.99 externally, data private); LumASe as the test set for a lamina or process measurer; RibSeg v2 with the T12-rib cue for the rib keys; nothing automated measures any key in mm or degrees against a reader, nothing at all for the uncovertebral or costal articulation areas, and no method handles 11 or 13 rib pairs |
 | End-plates | endplate, endplate_depth, endplate_lower, endplate_lower_depth, the areas, inclinations, wedge and concavity | end-plates.md (being read) | | | | |
 | Pedicles | pedicle_w, pedicle_h, the areas, inclinations, chord, length, cortex, pars | pedicles.md (being read) | | | | |
-| Canal and foramina | canal_w, canal_ap, canal_area, canal_index, interpedicular, lateral_recess, foramen_h, foramen_w, foramen_area | canal-and-foramina.md (being read) | | | | |
+| Canal and foramina | canal_w, canal_ap, canal_area, canal_index, interpedicular, lateral_recess, foramen_h, foramen_w, foramen_area | [canal-and-foramina.md](canal-and-foramina.md) | 19 | 6 (SPIDER's canal masks, Dice 0.92, which refuses level labels since sagittal MRI cannot resolve transitional vertebrae; RSNA 2024's lumbar stenosis set; three lumbar MRI stenosis sets); 13 private; no public set carries a canal or foraminal chord in mm | 5 (the SPIDER baseline, Saravi 2023, CTM-DuraSeg, LSS-MRI-AISSLab, SpineNetV2 non-commercial) | Netherton 2020's canal CNN as the counting axis, 94 percent level identification on CT with no transitional handling; Zhang 2024's CT interpedicular distance, ICC 0.91, MAE 1.25 mm, private; no CT method measures Panjabi's canal width or depth per level against public truth, the lateral recess is only graded, and foraminal millimetres exist only at L4-L5 in 100 MRI subjects |
 | Discs | disc_h_ant, disc_h_mid, disc_h_post, disc_h_mean, disc_index, disc_w, disc_d | discs.md (being read) | | | | |
 | Sagittal alignment and pelvic parameters | alignment | alignment.md (being read) | | | | |
 | Counts and anomalies | rib, sacrum, prevalence | counts-and-anomalies.md (being read) | | | | |
