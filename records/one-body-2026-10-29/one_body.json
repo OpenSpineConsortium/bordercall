@@ -18372,7 +18372,7 @@
   }
  ],
  "columns_per_type": 500,
- "command": "python -m schwingcheck.one_body run --columns 500",
+ "command": "python -m schwingcheck.one_body run --columns 500 --processes 3",
  "confusion": [
   {
    "counts": [
@@ -75476,9 +75476,9 @@
   "cpu_count": 4,
   "cpus_usable": 4,
   "load_average": [
-   3.76,
-   2.96,
-   1.53
+   3.45,
+   2.4,
+   1.41
   ],
   "machine": "x86_64",
   "platform": "Linux-6.18.44-fc-v185-x86_64-with-glibc2.39",
@@ -75487,10 +75487,10 @@
  "made_by": {
   "digests": {
    "panjabi_long.csv": "d5e16da45e158e20aaaddf02fa032f81b8f8f60a1f7532ccde30f4a44c0c1548",
-   "schwingcheck": "8d94de04efcfb8d73b7b33e8c07141012d6f4108a1be4388bbf269ae3050601a"
+   "schwingcheck": "67fc0bf0d62fb6c2c059262af31bc3262eb8375096ef2a18bd954c760a5958e6"
   },
   "git": {
-   "commit": "67e400e3751e0c7b212cf065b745ac3250b88024",
+   "commit": "74dfa053917f6cd1c73878fe293b8d0f9d0c1fe5",
    "package_changed": false
   }
  },
@@ -75638,6 +75638,7 @@
    "T9": 0.045454545454545456
   }
  },
+ "processes": 3,
  "rows": [
   {
    "answered": 0.006636363636363636,
@@ -87737,7 +87738,7 @@
   }
  ],
  "scale_sd": 0.07,
- "seconds": 365.6277742385864,
+ "seconds": 333.2895576953888,
  "seeds": {
   "columns": 801,
   "extra": 901,

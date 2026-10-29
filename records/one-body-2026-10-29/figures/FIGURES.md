@@ -2,9 +2,9 @@
 
 Built with `python -m schwingcheck.one_body figures --outdir records/one-body-2026-10-29/figures`.
 
-- Record: `records/one-body-2026-10-29/one_body.json`, sha256 137b70710176eef6886ca11bc3a318a9cb814c7d596786a55c6bce92dfef8a4d.
+- Record: `records/one-body-2026-10-29/one_body.json`, sha256 b36796daf74177e35f631ba5fefd447928e456dee1ae0d41c65c1524dd827603.
 - Code: `schwingcheck/figures.py`, sha256 3908d42cc8e93c839d8ddca5bf06591af281e1490d775483e20535a0908b0576.
-- Code: `schwingcheck/one_body.py`, sha256 c4970975d9e209102b2c1212d3ebc6f93658190eb324c8d0377d482d620d4b2b.
+- Code: `schwingcheck/one_body.py`, sha256 e7a86f5278a283a324d4a498ab274b9aa60b27a37a784bd9780180c1b4534a29.
 - Python 3.12.3, numpy 2.5.4, matplotlib 3.11.2; serif type Liberation Serif, embedded in the PDF.
 - The PDFs carry no creation date, so a rebuild with the same versions gives the same files; the CSVs beside them hold every number drawn.
 
