@@ -82,6 +82,12 @@ readings above, what the rows show that the next session should look at first:
 - C5's upper end-plate depth reads 9.8 mm against 16.7 below, as the second pass's render showed.
 - L5's interpedicular distance stands in from the hole's middle (24.2 and 30.3, flagged), since
   no pedicle is free of the transverse process's root there.
+- The renders of the six levels (`python -m morphoview render`, 23:25 UTC) draw 17 to 28 lines each
+  with none withheld, so every line matches its row. The pedicle widths and heights lie on the
+  pedicle ovals of the isthmus cuts at L3, L4 and T8, and the interpedicular lines run between the
+  pedicles' walls at the canal's front, as meant; the chord follows the axis, so L4's left chord
+  reads 28 mm against 53 on the right, since its axis diverges 6.5 degrees and leaves the body's
+  side early: a chord is only as good as the transverse angle, which is the open problem above.
 
 ## For the account that continues
 
