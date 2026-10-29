@@ -35,10 +35,10 @@ body's own draw and the error. The offset is shared, so the likelihood does not 
 chain, and the forward algorithm alone cannot sum the path out; the exact answer here enumerates
 the chain's support paths instead and integrates the size on rule.py's nodes, as step d's
 enumerated patterns do: path_logev with rule.py's own blocks, and prepare and logev, the same sum
-read along the paths' shared beginnings, in a tenth to a twentieth of its time (the section that
-introduces them). An L6 and a T13 take table columns made by the generator's own
-construction (columns.profiles): L6 = L5 + 0.5 (L5 - L4) with L5's SD, T13 half-way (blend 0.5)
-between T12 and L1 in mean and SD. That is the generator's, stated, and the exact rule's anomalous
+read along the paths' shared beginnings, in a small part of its time and the smaller the more
+bodies (the section that introduces them; chain_study's speed record gives the times). An L6 and
+a T13 take table columns made by the generator's own construction (columns.profiles): L6 = L5 +
+0.5 (L5 - L4) with L5's SD, T13 half-way (blend 0.5) between T12 and L1 in mean and SD. That is the generator's, stated, and the exact rule's anomalous
 places, item 6, which the owner's other account works on, replace it when they land.
 
 The weights, the probability of a missed body and the longest step are stated choices, not
@@ -59,7 +59,9 @@ TYPES = ("typical", "six_lumbar", "t13")
 NAMES = list(C.DRAW_LEVELS)                 # the levels a body can be named: C3 to L5, then L6 and T13
 NAME_INDEX = {n: i for i, n in enumerate(NAMES)}
 WEIGHTS = {"typical": 0.9, "six_lumbar": 0.05, "t13": 0.05}     # the types' prior weights, a stated choice
-SKIP = 0.2                                  # a step's probability of missing a body, a stated choice
+SKIP = 0.2                                  # the step law's ratio, a stated choice: cut at one body missed, a
+                                            # step misses one with probability SKIP / (1 + SKIP), 1/6, before
+                                            # the fit to the column
 MAX_STEP = 2                                # the longest step: one body missed at most between two read
 
 

@@ -1,8 +1,8 @@
 """The chain of levels scored against step d's rule: the first rung of step e's methods (TODO.md,
 item P, step e).
 
-    python -m schwingcheck.chain_study run [--columns 100]      # chain.json, the table as printed, about 6 minutes
-    python -m schwingcheck.chain_study axis [--columns 100]     # axis.json, the data axis, about 25 minutes on 4 CPUs
+    python -m schwingcheck.chain_study run [--columns 100]      # chain.json, the table as printed, about 8 minutes
+    python -m schwingcheck.chain_study axis [--columns 100]     # axis.json, the data axis, about 46 minutes on 3 processes
     python -m schwingcheck.chain_study speed                    # speed.json, the time to name one field, about 20 minutes
     python -m schwingcheck.chain_study table [--table main|claims|weights|axis|speed]   # a record's table
     python -m schwingcheck.chain_study check                    # whether the README's tables are the records'
@@ -10,7 +10,8 @@ item P, step e).
 The records are in records/chain-2026-10-28/.
 
 Fields are drawn by the chain's own law (chain.draw_fields: each step misses a body with
-probability chain.SKIP, one missed at most) from the generator's columns of the three types,
+probability 1/6, chain.step_law at chain.SKIP 0.2 cut at one missed, before the fit to the column)
+from the generator's columns of the three types,
 typical, six-lumbar and with a T13, every measure of the pool drawn for the same patients
 (curve.draw_pool). Four rules name the middle body of each, on the same fields:
 
@@ -23,9 +24,13 @@ Each is scored as curve.py scores (curve.rates: the name right, within one level
 scale, the answers at 0.99 with their precision, each with its SE clustered by column), at 1, 3, 5
 and 9 bodies, on the seven SPINEPS measures and on all 32. The first three are chain.py's exact sum
 over the paths read along their shared beginnings (chain.prepare and chain.logev), which gives
-chain.path_logev's answer (the tests hold the two within 1e-9) in a tenth to a twentieth of its
-time. The chain's L6 and T13 columns are the generator's construction (chain.extended_table), so on
-those columns it is scored against the truth it was built from.
+chain.path_logev's answer (the tests hold the two within 1e-9) in a small part of its time, the
+smaller the more bodies (`speed`). The chain's L6 and T13 columns are the generator's construction
+(chain.extended_table), so on those columns it is scored against the truth it was built from.
+
+A rule with no name for the true body, the three typical-column rules on an L6 or a T13, gives it
+a posterior of 0, which name_stats floors at 1e-300, so on those columns their log loss counts
+690.8 nats a field for each such body and says only how often it happens.
 
 The chain's type weights, 0.9, 0.05 and 0.05, are a stated choice (chain.WEIGHTS). `run` also
 scores the chain at the weights the clinical reread found in the papers (WEIGHT_SETS, PR 21): six
@@ -43,12 +48,17 @@ of the axis is read against the table as printed on the same fields. Its SEs are
 clustered by column with the tables held fixed, and crossed with the tables, on one degree of
 freedom fewer than the tables.
 
-The speed (`speed`) is the time to name the middle body of one field, single-threaded, with the
-rule built beforehand as a service would build it once (chain.prepare, whose seconds are given
-beside), at 1, 3, 5, 7 and 9 bodies, for each rule and each measure set alone: the median and the
+The speed (`speed`) is the time to name the middle body of one field, single-threaded, with the rule
+built beforehand as a service would build it once (chain.prepare, whose seconds are given beside),
+at 1, 3, 5, 7 and 9 bodies, for the consecutive, gaps and chain rules (the rule told the true gaps
+is no rule a service could run, and is not timed) and each measure set alone: the median and the
 largest over 30 single fields, and per field in a batch of 128, the median and the largest of five
 calls after one that warms them, as curve.time_engine takes them. chain.path_logev, which builds its
-blocks inside every call, is timed beside the chain at every width on fewer calls (REFERENCE_COUNTS).
+blocks inside every call, is timed beside the chain at every width on fewer calls
+(REFERENCE_COUNTS). Numba compiles chain.prepare's and chain.logev's loops on their first call in a
+process: `speed` compiles them before it sets the thread limit (load_loops), and every pool's
+threads are recorded inside the limit, while `run`'s seconds a field for the first cell each of
+its processes scores hold the compile.
 """
 from __future__ import annotations
 
@@ -288,6 +298,17 @@ def _logged(results, n: int, t0: float, log):
 
 # ---- the speed ------------------------------------------------------------------------------
 
+def load_loops(subsets, mu_e, sd_e, noise, power, nodes, X: np.ndarray) -> None:
+    """Compile chain.prepare's and chain.logev's loops now, on a whole field and one with a value
+    not read, outside the thread limit: Numba's first compile loads scipy's own BLAS, and
+    threadpool_limits holds only the libraries loaded when it is entered, so a limit entered first
+    would leave that one at every thread (curve.load_compiled, the build-up study's same step)."""
+    rule = CH.prepare(CH.paths_of(chains(1)["chain"]), mu_e, sd_e, subsets, noise, power, nodes)
+    part = np.array(X[:2])
+    part[1, 0, 0] = np.nan
+    CH.logev(rule, part)
+
+
 def speed(n_columns: int = 100, widths=SPEED_WIDTHS, counts=None, reference=None, log=print) -> dict:
     """The time to name the middle body of one field, single-threaded (the module's docstring), on
     the typical type's fields of `run`'s seeds."""
@@ -298,6 +319,7 @@ def speed(n_columns: int = 100, widths=SPEED_WIDTHS, counts=None, reference=None
     pool, subsets, mu, sd, noise, power, nodes = setting()
     mu_e, sd_e = CH.extended_table(mu, sd)
     drawn = draw_all(pool, n_columns, widths)
+    load_loops(subsets, mu_e, sd_e, noise, power, nodes, drawn["typical", widths[0]][0])
     rows = []
     with threadpool_limits(1):
         for B in widths:
@@ -351,7 +373,7 @@ def main_table(record: dict) -> str:
     return "\n".join(out) + "\n"
 
 
-def claims_table(record: dict, bodies=(5, 9)) -> str:
+def claims_table(record: dict, bodies=WIDTHS) -> str:
     """The answers at 0.99: the share answered and right of those answered, each rule, all 32."""
     out = ["| Column | Bodies | " + " | ".join("%s: answered / right" % a for a in ARMS) + " |",
            "|---|---:|" + "---:|" * len(ARMS)]
@@ -367,9 +389,10 @@ def claims_table(record: dict, bodies=(5, 9)) -> str:
     return "\n".join(out) + "\n"
 
 
-def weights_table(record: dict, bodies=(5, 9)) -> str:
+def weights_table(record: dict, bodies=(1, 5, 9)) -> str:
     """The chain at its stated type weights and at the clinical reread's (WEIGHT_SETS): each type's
-    share named exactly (SE) and the precision of the answers at 0.99, on the same fields."""
+    share named exactly (SE) and the precision of the answers at 0.99, on the same fields; one body
+    among the widths, since a lone body is where the prior counts most."""
     stated = {(r["type"], r["bodies"], r["subset"]): r for r in record["rows"] if r["arm"] == "chain"}
     other = {(r["weights"], r["type"], r["bodies"], r["subset"]): r for r in record["weight_rows"]}
     sets = [("stated", CH.WEIGHTS)] + list(record["weight_sets"].items())
@@ -455,22 +478,32 @@ def tables() -> Dict[str, str]:
     return out
 
 
-def readme_blocks(text: str) -> Dict[str, str]:
-    """The tables between <!-- name --> and <!-- /name --> in the README, by name."""
-    return {m.group(1): m.group(2) for m in re.finditer(r"<!-- (chain:[\w-]+) -->\n(.*?)<!-- /\1 -->", text, re.S)}
+def readme_blocks(text: str) -> Dict[str, List[str]]:
+    """The tables between <!-- name --> and <!-- /name --> in the README, by name, each as often
+    as it is written."""
+    out: Dict[str, List[str]] = {}
+    for m in re.finditer(r"<!-- (chain:[\w-]+) -->\n(.*?)<!-- /\1 -->", text, re.S):
+        out.setdefault(m.group(1), []).append(m.group(2))
+    return out
 
 
-def check() -> List[str]:
-    """What differs between the README's chain tables and the records': an empty list when none."""
-    with open(README) as f:
+def check(readme: str = README) -> List[str]:
+    """What differs between the README's chain tables and the records': an empty list when none.
+    A block may carry notes below its table, after a blank line or prose; the table itself must be
+    the record's, with no row of its own after the record's last."""
+    with open(readme) as f:
         have = readme_blocks(f.read())
     want = tables()
     out = []
     for name, table in want.items():
         if name not in have:
             out.append("the README has no block %s" % name)
-        elif not have[name].startswith(table):
+        elif len(have[name]) > 1:
+            out.append("the README writes %s more than once" % name)
+        elif not have[name][0].startswith(table):
             out.append("the README's %s is not the record's" % name)
+        elif have[name][0][len(table):].startswith("|"):
+            out.append("the README's %s has rows after the record's table" % name)
     for name in have:
         if name not in want:
             out.append("the README's %s has no record" % name)

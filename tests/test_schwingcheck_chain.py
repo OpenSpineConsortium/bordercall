@@ -8,10 +8,14 @@ of positive probability, summing to one; with one step and the typical type alon
 step d's, every place that fits equally likely, and its posterior is rule.name's within 1e-12;
 with uniform steps every fitting (pattern, place) pair is equally likely, counted by brute force;
 the forward-backward algorithm equals enumeration; the extended table is the generator's to the
-bit; and the exact sum read along the paths' shared beginnings (prepare, logev) is path_logev's
-within 1e-9, on fields with values not read and on whole ones, every type and two subsets at once. Model (b)'s log density is a dense normal computed by scipy, summed over the chain's paths,
-within 1e-10, and model (a)'s is the enumeration of its emissions given the offsets, with a
-finite gradient; recover() through (b) draws each body's level as often as (b)'s posterior says.
+bit; path_logev, the exact answer, is a dense normal computed by scipy integrated on the same
+nodes, within 1e-9, on fields of every type; and the exact sum read along the paths' shared
+beginnings (prepare, logev) is path_logev's within 1e-9, on fields with values not read and on
+whole ones, of every type, at 1, 3 and 5 bodies and two subsets at once. Model (b)'s log density
+given the size is that dense normal summed over the chain's paths, within 1e-10, so integrated on
+the nodes it is path_logev's; model (a)'s is the enumeration of its emissions given the offsets,
+with a finite gradient; and recover() through (b) draws the middle body's level as often as (b)'s
+posterior says.
 """
 from __future__ import annotations
 
@@ -43,11 +47,24 @@ def seven():
     return ms, mu, sd, mu_e, sd_e, MS.errors(ms), MS.powers(ms)
 
 
-def fields(n_bodies, per_column, seed=5, types=CH.TYPES):
+def fields(n_bodies, per_column, seed=5, types=CH.TYPES, n_columns=2):
+    """per_column fields from each of n_columns columns, the types taken in turn."""
     ms, _, _, _, _, noise, power = seven()
     ref, keys = MS.reference(ms), [MS.archive_key(m) for m in ms]
-    cols = C.draw_columns(ref, list(types), 97, 2, keys, noise_mm=noise, power=power)
+    cols = C.draw_columns(ref, list(types), 97, n_columns, keys, noise_mm=noise, power=power)
     return CH.draw_fields(cols, CH.step_law(), n_bodies, per_column, seed)
+
+
+def dense(x, names, log_s, mu_e, sd_e, noise, power):
+    """log p(field | names, size) as one multivariate normal per measure from scipy: the patient's
+    offset shared by the bodies, each body's own draw and the error, rule.py's model written out."""
+    rho, out = R.SYNTH["rho"], 0.0
+    for m in range(x.shape[0]):
+        s = np.exp(power[m] * log_s)
+        sd = sd_e[m, names]
+        cov = s * s * (rho * rho * np.outer(sd, sd) + (1 - rho * rho) * np.diag(sd * sd)) + noise[m] ** 2 * np.eye(len(names))
+        out += stats.multivariate_normal(s * mu_e[m, names], cov).logpdf(x[m])
+    return out
 
 
 class TheChain(unittest.TestCase):
@@ -116,14 +133,31 @@ class TheChain(unittest.TestCase):
             ch = CH.build(CH.TYPES, None, CH.step_law(), B)
             pa = CH.paths_of(ch)
             rule = CH.prepare(pa, mu_e, sd_e, subsets, noise, power, nodes)
-            X = fields(B, 1, seed=B)[0][:12].copy()
-            X[::3, 1, 0] = np.nan                     # a third of the fields with values not read
+            X, _, _, col = fields(B, 4, seed=B, n_columns=3)          # four fields from a column of each type
+            X = X.copy()
+            X[::3, 1, 0] = np.nan                     # two thirds of the fields with values not read
             X[1::3, :, -1] = np.nan
+            whole = np.isfinite(X).all((1, 2))        # the rest whole, read by logev's complete branch
+            self.assertEqual(sorted(set(col[whole])), [0, 1, 2])
             want = CH.path_logev(X, pa, ch, mu_e, sd_e, subsets, noise, power, nodes)
             got = CH.logev(rule, X)
             for k in subsets:
                 np.testing.assert_allclose(got[k], want[k], rtol=0, atol=1e-9, err_msg="%d bodies, %s" % (B, k))
             self.assertEqual(int(CH.shared_beginnings(rule.names)[0]), 0)
+
+    def test_path_logev_is_a_dense_normal_integrated_on_the_nodes(self):
+        _, _, _, mu_e, sd_e, noise, power = seven()
+        sizes, logw = R.trapezoid(R.SYNTH["scale_sd"], step=R.SYNTH["scale_sd"] / 2)   # coarse, the same on both sides
+        ch = CH.build(CH.TYPES, None, CH.step_law(), 3)
+        pa = CH.paths_of(ch)
+        X = fields(3, 1, seed=7, n_columns=3)[0]
+        got = CH.path_logev(X, pa, ch, mu_e, sd_e, {"all": list(range(7))}, noise, power, (sizes, logw))["all"]
+        picked = np.random.default_rng(2).choice(len(pa), 6, replace=False)
+        for f in range(len(X)):
+            for p in picked:
+                want = np.logaddexp.reduce([w + dense(X[f], pa.names[p], np.log(s), mu_e, sd_e, noise, power)
+                                            for s, w in zip(sizes, logw)])
+                self.assertLess(abs(got[f, p] - want), 1e-9, (f, CH.NAMES[pa.names[p][0]]))
 
     def test_extended_table_is_the_generators(self):
         ms, _, _, mu_e, sd_e, _, _ = seven()
@@ -152,13 +186,7 @@ class TheModels(unittest.TestCase):
         cls.z = rng.normal(size=cls.X.shape[:2])
 
     def dense(self, x, names, log_s):
-        rho, out = R.SYNTH["rho"], 0.0
-        for m in range(x.shape[0]):
-            s = np.exp(self.power[m] * log_s)
-            sd = self.sd_e[m, names]
-            cov = s * s * (rho * rho * np.outer(sd, sd) + (1 - rho * rho) * np.diag(sd * sd)) + self.noise[m] ** 2 * np.eye(len(names))
-            out += stats.multivariate_normal(s * self.mu_e[m, names], cov).logpdf(x[m])
-        return out
+        return dense(x, names, log_s, self.mu_e, self.sd_e, self.noise, self.power)
 
     def test_enumerated_is_a_dense_normal_over_the_paths(self):
         model = self.CP.enumerated(self.X, self.chain, self.mu_e, self.sd_e, self.noise, self.power)

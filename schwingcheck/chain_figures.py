@@ -50,7 +50,7 @@ CAPTIONS = {
         "Naming the middle body of a field on synthetic columns of three types, %s fields a point: per "
         "cent named exactly against the bodies in view, A to C with all 32 measures, D to F with the "
         "seven SPINEPS measures. Lines, the four rules on the same fields; each step misses a body "
-        "with probability %g.",
+        "with probability %.3g.",
     "chain_answers":
         "The answers at posterior 0.99, all 32 measures, synthetic columns of three types, %s fields a "
         "point: A to C, per cent of fields named at 0.99; D to F, per cent of those right, drawn where "
@@ -66,6 +66,11 @@ CAPTIONS = {
         "a batch of %d (points, median of %d calls); crosses, chain.path_logev, which builds its blocks "
         "in every call.",
 }
+
+
+def miss_probability(main: dict) -> float:
+    """The chance that a step misses a body under the record's step law, before the fit to the column."""
+    return float(CH.step_law(main["skip"], main["max_step"])[1:].sum())
 
 
 def rows_by(record: dict, *keys: str) -> Dict[tuple, dict]:
@@ -106,7 +111,7 @@ def fig_accuracy(main: dict, outdir: str) -> List[str]:
         axes[i, 0].set_ylabel("Per cent named exactly")
     fig.legend(*axes[0, 0].get_legend_handles_labels(), loc="outside right center")
     name = "chain_accuracy"
-    caption = CAPTIONS[name] % ("{:,}".format(fields_a_point(main)), main["skip"])
+    caption = CAPTIONS[name] % ("{:,}".format(fields_a_point(main)), miss_probability(main))
     return save(fig, outdir, name, caption) + [write_csv(outdir, name, rows)]
 
 

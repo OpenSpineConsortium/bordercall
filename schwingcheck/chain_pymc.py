@@ -20,12 +20,13 @@ https://www.pymc.io/projects/extras/en/latest/developer/extending_marginalizatio
   marginalised chain whose one dependent is this module's emission (PathEmission) and run in
   place of pymc-extras' own rewrite for the chain, which refuses an emission whose core
   dimensions take in the body; its log density, which enumerates the chain's support paths
-  (chain.support_paths, read from the chain's start and transitions, which must be constants or
-  data) and takes the logsumexp of the closed form plus each path's prior over them; and a
+  (chain.support_paths, read once from the chain's start and transitions when the log density is
+  built, so they must be constants, or data not changed after it) and takes the logsumexp of the closed form plus each path's prior over them; and a
   `marginalized_conditional`, the posterior over the support paths given the field and the size,
   so that pymc-extras' `recover()` gives the path back. NUTS samples only the size. Its density
   given the size is exact, and with the size integrated on rule.py's nodes it is chain.py's
-  exact rule (the tests hold both to 1e-10).
+  exact rule: the tests hold its density given the size to a dense normal from scipy within
+  1e-10, and chain.path_logev to the same normal integrated on the nodes within 1e-9.
 
 pymc-extras is imported only here, so the rest of the package runs without it.
 """
@@ -275,7 +276,8 @@ def sampled(X: np.ndarray, chain: CH.Chain, mu_ext: np.ndarray, sd_ext: np.ndarr
     level after the first body, or a start that does not fit), and NUTS then diverges on every
     draw; so here every move and start of probability zero is given FLOOR, a cost of about 691
     nats each, which leaves the log density as it was to far below rounding unless a path that
-    breaks the chain's law fits the field 690 nats better than every path that keeps it."""
+    breaks the chain's law fits the field some 655 nats better than every path that keeps it, the 691
+    less the 37 below which a double's rounding hides a term."""
     import pymc as pm
     import pymc_extras as pmx
     import pytensor.tensor as pt
