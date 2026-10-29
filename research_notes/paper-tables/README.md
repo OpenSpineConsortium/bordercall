@@ -63,9 +63,12 @@ paper's mapping against its Methods.
   of levels are brought to people (series.py's docstring says how). Four rounds of independent readers checked
   series.py, cross_naming.py and results.py against the pages and the records, and each fault they found was fixed
   and checked again (tools/code_review.js, code_fix.js and code_fix_2.js, Workflow scripts).
-- tools/validation_sample.py draws the blind re-read sample of the readings (468 cells, twelve a paper, seed 2026),
-  the locators for the readers apart from the recorded values, for the validation the owner asked for on 2026-10-29
-  (../clinical-reread/HANDOFF.md, step 2); not run yet.
+- [validation/](validation/README.md): the validation the owner asked for on 2026-10-29 (../clinical-reread/HANDOFF.md,
+  step 2). tools/validation_sample.py draws the blind re-read sample (468 cells, twelve a paper, seed 2026), ten
+  readers read them from the page images without the record, and tools/validation_compare.py gives the rate: 0
+  record faults in 468, Wilson interval 0.0 to 0.8 percent. tools/plausibility.py flags outliers and level
+  reversals against the other papers (116 flags, every one the paper's own number on its page). The mapping audit
+  (step 2c) is not done.
 - [review/](review/README.md): what the four review rounds found, and round 2's findings with the refuters'
   verdicts and, for each fixed, its resolution; the data findings were fixed on 2026-10-29 and the comparison
   rerun, then a third and a fourth round read the result (pull request 39).

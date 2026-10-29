@@ -1,0 +1,13 @@
+cell,read_value,legibility,note
+tan2004:50,14.3,clear,printed 14.3+/-0.1; mean taken
+tan2004:120,11.8,clear,printed 11.8+/-0.3; mean taken
+tan2004:521,9.2,clear,printed 9.2+/-1.4; mean taken
+tan2004:583,38.2,clear,page 141 rows carry no labels; row identified as first row (EPWu) by order of page 140; printed 38.2+/-0.4
+tan2004:599,35.3,clear,row 2 (EPWl) by order of page 140; printed 35.3+/-0.2
+tan2004:603,39.2,clear,row 2 (EPWl) by order of page 140; printed 39.2+/-0.5
+tan2004:683,18.0,clear,row 6 (VBHp) by order of page 140; printed 18.0+/-0.3
+tan2004:735,12.5,clear,row 8 (SCD) by order of page 140; printed 12.5+/-0.2
+tan2004:773,13.0,clear,row 10 (PDHr) by order of page 140; printed 13.0+/-0.2
+tan2004:803,6.4,clear,row 11 (PDWl) by order of page 140; printed 6.4+/-0.3
+tan2004:901,552.6,clear,first row of surface area block (EPAu); printed 552.6+/-18.9
+tan2004:1033,-2.2,clear,second row of angular block (EPItl); printed -2.2+/-0.6

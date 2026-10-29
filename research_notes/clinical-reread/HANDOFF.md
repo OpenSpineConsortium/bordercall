@@ -43,7 +43,10 @@ session on 4 CPUs, no grid job, and SYNTHESIS.md's points 5 and 7 brought to the
 reproduced the old record first. A third review round then read the result (../paper-tables/review/round-3.md):
 nothing refuted, seven small faults fixed, 4,077 series, the comparison rerun once more; a fourth round
 (../paper-tables/review/round-4.md) found eight more, one in the record's seeding, 3,760 series, rerun again. The papers' data are printed tables, not images, so nothing of this step can leak
-into a test set of the auto-anatomist. Steps 2 to 4 remain.
+into a test set of the auto-anatomist. Step 2's parts a and b were done the same day in the same pull request
+(../paper-tables/validation/README.md): the blind re-read of the 468 cells found 0 record faults (Wilson 0.0 to 0.8
+percent), and the 116 plausibility flags were each the paper's own printed number. Part c, the mapping audit, and
+steps 3 and 4 remain.
 
 1. **Fix the second review's data findings and rerun.** (Done, above; kept as the record of what was asked.) Take each finding of
    ../paper-tables/review/round-2-findings.json that both refuters confirmed, or that is unverified, reproduce it,

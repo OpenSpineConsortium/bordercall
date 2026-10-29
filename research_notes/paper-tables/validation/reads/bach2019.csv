@@ -1,0 +1,13 @@
+cell,read_value,legibility,note
+bach2019:2430,9.2,clear,"abstract: 9.2 +/- 1.6 mm for men ... at L4/5"
+bach2019:2339,7.14,clear,"Figure 4 data label on the Females line at decade 20"
+bach2019:422,9.08,clear,"printed 9.08 +/- 2.1"
+bach2019:501,0.7,clear,"printed 3.66 +/- 0.7"
+bach2019:585,1.5,clear,"printed 6.87 +/- 1.5"
+bach2019:939,1.8,clear,"printed 18.16 +/- 1.8"
+bach2019:1030,18.18,clear,"printed 18.18 +/- 1.4"
+bach2019:1934,67,clear,"row 70 counted 1-based over the data rows of Table 9, left column (41 rows) then its continuation (row 29 of the right column: 67, 163.8, 71.2, 26.5); the row convention is not stated in the task, neighbours are 66 (row 69) and 69 (row 71)"
+bach2019:2047,177.8,clear,"row 17 of Table 10 counted 1-based over the data rows (age 32, 177.8, 120.2, 38)"
+bach2019:2098,40,clear,"row 30 of Table 10 counted 1-based (the fourth of five rows aged 40: 40, 177.8, 91.6, 29); rows 27 to 31 all read 40"
+bach2019:2101,29,clear,"row 30 of Table 10 counted 1-based (40, 177.8, 91.6, 29); row convention not stated"
+bach2019:2150,60,clear,"row 43 counted 1-based over Table 10's data rows: the left column holds 39, so row 4 of the continuation (60, 185.4, 91, 26.5); row convention not stated"
