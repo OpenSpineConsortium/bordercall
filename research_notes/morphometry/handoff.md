@@ -59,7 +59,13 @@ vertebra's own axis and the VerSe record.
   axis_rows: a row beyond the isthmus rows takes its wall over the isthmus row's layers, as the
   docstring says, where the pushed trace took the row's own layers for a row the cleaning had
   dropped and so stopped the extension there; the shapes trace was running again on it when
-  this was written.
+  this was written; with it the shapes column reads width 9.11, height 14.88, transverse 11.8
+  against 12, sagittal 8.3 against 6, chord 51.4, interpedicular 21.7 and 23.2.
+- Found after the push and fixed in the commit that carries this line: column.foramen reads the
+  pedicle's height direction from the pedicle info as `eh`, which the rewrite had dropped, so
+  `python -m morphometry measure` on 0004 stopped at the first disc with KeyError; the info
+  carries `eh` again (the frame's z, along which the height is read). The 0004 measure and
+  the test suite were started again on it as this was written.
 
 ## What to do next, in order
 

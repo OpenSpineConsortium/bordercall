@@ -457,7 +457,8 @@ def one_side(v: Vertebra, side: int, zb: Tuple[float, float]) -> Tuple[Dict[str,
         out["pedicle_angle_sagittal"] = NAN
     if reads == "neither":
         out["pedicle_angle_transverse"] = out["pedicle_chord"] = NAN
-    info = {"centre": c0, "axis": d, "height": hgt, "rows": rows, "isthmus": k, "near": near, "taken": taken,
+    info = {"centre": c0, "axis": d, "eh": np.array([0.0, 0.0, 1.0]), "height": hgt, "rows": rows, "isthmus": k,
+            "near": near, "taken": taken,
             "walls": walls, "mids": mids, "map": m,
             "width_row": nearest(rows, near, lambda r: r["w"], sec),
             "height_row": nearest(rows, near, lambda r: r["h"], hgt)}
