@@ -4,7 +4,7 @@ Source: thread "Finish the clinical reread", project symphony_4, 2026-10-29: the
 
 The notes (../notes/<id>.md) are the authority. The Eisenstein counts were also checked against the paper's
 page images (p. 173, p. 177, p. 180). Measure names follow bordercall's schwingcheck (README, "The measures").
-The priors of sections 1.1, 1.2 and 3 agree with anomaly-priors.md, the table a second reader made by checking
+The priors of sections 1.1, 1.2 and 3 agree with [anomaly-priors.md](anomaly-priors.md), the table a second reader made by checking
 every count and interval of this part against the rendered pages.
 
 How to read this file:
@@ -17,9 +17,9 @@ How to read this file:
   Population and material are always named: living, cadaver, dry bone or imaging. A count that a note
   back-calculated from a printed percentage is marked Inference.
 - Wedge is the ratio of anterior to posterior body height, VBHa/VBHp. Below 1 the body is taller behind
-  ("posterior-taller"); above 1 it is taller in front ("anterior-taller"). gilad1985 calls the first shape
-  "anteriorly wedged" and the second "posteriorly wedged" (p. 119), so this file uses those words only when
-  quoting it.
+  ("posterior-taller"); above 1 it is taller in front ("anterior-taller"). gilad1985 says the shorter anterior
+  wall of L1 and the shorter posterior wall of L5 give each "a wedge shape" (p. 119); its note calls them
+  anteriorly and posteriorly wedged.
 - Where papers disagree, both sides are given with their populations and methods. None is averaged silently.
 
 The short answer for the decoder:
@@ -134,7 +134,7 @@ Notes on the table:
 | Pedicle centre at the bottom of the transverse process instead of its midpoint | Same | 6 of 100 level observations (Inference: 20 cadavers x 5 levels) | 6% | Direct | mitra2002 p. 456 |
 | Narrow lumbar pedicle, width under 4.5 mm | Hamann-Todd dry bone, Cleveland, 503 skeletons (404 M, 99 F; 281 Caucasian, 222 African American), age 17-93; left and right averaged | Inference (printed % x 503 specimens): about 4/503 at L1 and 2/503 at L2 | L1 0.80%; L2 0.40% (printed); virtually none at L3-L5 (the paper's word) | Digital caliper | yu2015 pp. 1640-1641; Fig. 3, p. 1643 |
 | Narrow lumbar pedicle, width under 5.5 mm | Same | Inference (printed % x 503 specimens): about 24/503 at L1, 14/503 at L2 and 1/503 at L3 | L1 4.77% (3.2-7.0); L2 2.78%; L3 0.20% (printed) | Digital caliper | yu2015 pp. 1640-1641; Fig. 3, p. 1643 |
-| Narrow thoracic pedicle, transverse diameter under 6 mm at T11 | Duman series | 57/517 | 11.0% (8.6-14.0) | CT | duman2026 p. 7 |
+| Narrow thoracic pedicle, transverse diameter under 6 mm at T11 | Duman series | 57/517 patients; the paper does not say whether one side or either side was counted, and gives no split by sex (duman2026 note) | 11.0% (8.6-14.0) | CT | duman2026 p. 7 |
 | Narrow thoracic pedicle under 5 mm at T9 (2 of the 3 under 4 mm) | US living patients, CT (Vermont): 41 patients, 14 F and 27 M, aged 18-75 | 3/14 pedicles | 21.4% (7.6-47.6) | Axial CT | krag1988 Table 2, p. 30 |
 | Narrow pedicle, all levels T9-L5 | Same Vermont series | Under 5 mm 7/182 pedicles; under 6 mm 23/182, all at T9-L1; under 4 mm 2/18 at T10 and 2/22 at L1 (counted in the note from Table 2) | 3.8% (1.9-7.7); 12.6% (8.6-18.3); T10 11.1% (3.1-32.8); L1 9.1% (2.5-27.8) | Axial CT | krag1988 Table 2, p. 30 |
 | Minimum pedicle width under 6 mm although the axial width (TPW) is 8 mm or more | Japanese living patients before surgery (34 degenerative spondylolisthesis, 16 canal stenosis), CT | L4 7/67 pedicles; L5 16/96 | L4 10.4% (5.2-20.0); L5 16.7% (10.5-25.4) | CT, a plane along the pedicle axis | makino2012 p. 1519 |
@@ -499,8 +499,8 @@ On an AP radiograph (Inference):
 On a lateral radiograph:
 
 - C7 itself may be hidden: it was obscured by the clavicle, humerus and ribs on 15 of 141 lateral cervical films
-  (10.6%; 126 measured; the paper says about 10%) (gilad1985 p. 117; count from Table 1's n, p. 118). The films
-  were selected so that only clearly defined vertebrae were examined (p. 115), so this is a lower bound for
+  (10.6%; 126 measured; the paper says about 10%) (gilad1985 p. 117; Inference: 141 - 126 = 15 from Table 1's
+  n, p. 118). The films were selected so that only clearly defined vertebrae were examined (p. 115), so this is a lower bound for
   unselected films (Inference).
 
 Effect on counting:
@@ -721,8 +721,8 @@ Canal limits the set gives, each with its population and method:
   there is no accepted definition of a
   developmentally narrow canal, so the smallest quartile is its arbitrary cut-off (pp. 673, 676, 678). For
   example canal depth below 13 mm (men) or 14 mm (women) at L2, and canal area below 212 mm2 (men) or 213 mm2
-  (women) at L3, put a patient in the smallest quartile (p. 678; Figs S1-S2). The quartile cut-offs by sex and
-  level are in Figs S1-S3 (supplement; griffith2016 note).
+  (women) (at L3, Inference from the Fig. S1 labels; the text names no level), put a patient in the smallest
+  quartile (p. 678; Figs S1-S2). The quartile cut-offs by sex and level are in Figs S1-S3 (supplement; griffith2016 note).
 - griffith2016 also reports that published stenosis cut-offs for the mid-vertebral AP diameter run from below
   10 to below 14 mm, below 11 mm at L2-L3 being the most widely accepted (pp. 676-678), and that Ullrich's
   145 mm2 "developmental stenosis" area is too low for its population (p. 678).
@@ -774,7 +774,7 @@ joint change shape or emission at L5, not the count (section 3.2).
 ### 3.2 Per-spine priors
 
 Every row is Inference, with the arithmetic and sources given. The counts, intervals and caveats are those of
-anomaly-priors.md, the checked table; shares are percentages with Wilson 95% intervals.
+[anomaly-priors.md](anomaly-priors.md), the checked table; shares are percentages with Wilson 95% intervals.
 
 | State or transition | Population of the data | Point prior | Range to test | What it is made of, arithmetic and sources |
 |---|---|---|---|---|
@@ -893,7 +893,8 @@ visibility rate.
   L5 pedicles in Buffalo (olsewski1990 pp. 544-546), a non-tapering sac in Italy (italianmri p. 3) and grade V
   discs in Utah (tang2016 p. 4117).
 - No reliability figure for any anomaly call: Eisenstein's are by one inspector with no definitions (p. 177);
-  Duman's are by one radiologist whose intraclass correlation covers only linear measures (duman2026 p. 6).
+  Duman's are by one radiologist whose intraclass correlation covers the linear measures and the pedicle
+  angle, not the anomaly calls (duman2026 p. 6).
 - How often the thoracolumbar facet switch falls away from the T12-L1 joint: panjabi1993f gives only SEMs that
   widen to 8.2-9.5 deg at T12-L1 against 0.9-2.8 deg at T1-T10 (Tables 6-7, p. 1303).
 - A count from total length: total column length cannot fix a count. Human C3-L5 measured 569.4 mm and the
@@ -944,8 +945,9 @@ Pedicles:
 
 - C2 pedicles are much larger: width 7.7/8.3, height 9.4/11.1 and area 32.3/51.8 (right/left). The left area is
   60% larger than the right (dry bone; panjabi1991c Table 4, p. 864; p. 866).
-- Pedicle width and height are largest at C2 and smallest at C3, and the area is larger at C2 than at any lower
-  level (panjabi1991c p. 866). The fall from C2 to C3 is significant in three of four dimensions (Scheffe, the
+- Pedicle width and height are largest at C2 (p. 866); the text says smallest at C3, but Table 4 puts most
+  minima at C4-C5 (panjabi1991c note, gaps). The area is larger at C2 than at any lower level
+  (panjabi1991c p. 866). The fall from C2 to C3 is significant in three of four dimensions (Scheffe, the
   marks of Table 4; panjabi1991c note, C2/C3 line).
 
 Uncovertebral surfaces:
@@ -980,7 +982,7 @@ Visibility:
 
 - C1 is never measurable on the lateral film (LAT; gilad1985 p. 117).
 - 11 of 141 C2s (7.8%; the paper says about 10 percent) were not clear enough to measure on the lateral film,
-  and 130 were measured (LAT; gilad1985 p. 117; count from Table 1's n, p. 118).
+  and 130 were measured (LAT; gilad1985 p. 117; Inference: 141 - 130 = 11 from Table 1's n, p. 118).
 - C1 and C2 are not measurable on AP films (AP; hinck1966 p. 142).
 
 C3 against C4 and C5:
@@ -1046,10 +1048,10 @@ Body:
 
 Pedicles:
 
-- T1's pedicle is nearly round: PDH/PDW 1.1, with PDW 8.5 and PDH 9.6 (dry bone; panjabi1991t Tables 3-7,
-  pp. 892-895).
+- T1's pedicle is nearly round: PDH/PDW 1.1, with PDW 8.5 and PDH 9.6 (dry bone; panjabi1991t p. 893; means
+  Table 8, pp. 899-900; sides Table 5, p. 894).
 - Its transverse inclination (PDIt, the pedicle axis's tilt to the transverse plane, seen in the side view) is
-  only 7.6 deg, jumping to 17.9 at T2 (panjabi1991t Tables 3-7, pp. 892-895).
+  only 7.6 deg, jumping to 17.9 at T2 (panjabi1991t Table 8, pp. 899-900; p. 893).
 - At C7/T1 in Singaporean specimens, PDW 5.65 -> 7.45 and PDH 6.3 -> 8.5 (dry bone; tan2004 Table 1,
   pp. 140-141).
 - In Dutch specimens, pedicle height 7.5 -> 9.6 and pedicle width peaks at T1, about 8.4 (busscher2010 Figs. 5, 8,
@@ -1088,7 +1090,7 @@ Canal:
 Visibility:
 
 - C7 was obscured on 15 of 141 lateral cervical films (10.6%; 126 measured; the paper says about 10%) (LAT;
-  gilad1985 p. 117; count from Table 1's n, p. 118).
+  gilad1985 p. 117; Inference: 141 - 126 = 15 from Table 1's n, p. 118).
 - Upper thoracic posterior landmarks are hidden by overlapping shadows on lateral contact radiographs of
   isolated segments (kunkel2011 p. 383).
 - The difference between AP spine films (40 in) and PA chest films (72 in) in IPD is largest at T1-T3, a mean of
@@ -1181,7 +1183,7 @@ Body:
   - moncadahabib2025: PH 26.9 against AH 24.3 (CT, Mexican; Tables 1-2, pp. 4-5);
   - bonczar2024: 26.57 against 24.54 (pooled; Table 2, p. 5); Inference (note): ratio 0.92;
   - gilad1985: anterior height b 25.4 against posterior d 27.1 on lateral films, a difference the paper calls
-    significant and names "anteriorly wedged" (LAT, Israeli men inferred; p. 119).
+    significant, giving L1 "a wedge shape" (LAT, Israeli men inferred; p. 119).
 - Inference: the posterior-taller L1 is the lumbar end of the thoracolumbar kyphosis. An anterior compression
   (eisenstein1977 p. 177) exaggerates it and may imitate it.
 
@@ -1280,8 +1282,8 @@ What makes an instance L5:
   - 29.8 (zindrick1987 p. 161);
   - 29.33 direct, men (mitra2002 Table 1, p. 455).
 - The sagittal pedicle angle at L5 is bimodal (olsewski1990 pp. 544-546).
-- L5 is anterior-taller, taller in front than behind (VBHa/VBHp above 1); gilad1985 calls this shape
-  "posteriorly wedged" (p. 119):
+- L5 is anterior-taller, taller in front than behind (VBHa/VBHp above 1); gilad1985 says this gives L5
+  "a wedge shape" (p. 119):
   - tan2004: 22.0 against 20.0, the only level so (Table 1, pp. 140-141);
   - busscher2010: VBHp -3.1, VBHa +1.7 (Table 3, p. 1107);
   - frontphys2026: +3.1 mm (p. 5);

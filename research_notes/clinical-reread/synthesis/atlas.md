@@ -453,7 +453,8 @@ What sets them apart: their sameness.
   3 mm [DB] (hou1993 pp. 1852-1853, Tables 1-3). In living CT, 3 of 14 T9 pedicles were under 5 mm wide and 2 under
   4 mm, and T9 has the longest chords [CT] (krag1988 pp. 28-31, Table 2).
 
-Where the middle turns, if at all (step/SD of about 0.8 or more between T4 and T9, Inference):
+Where the middle turns, if at all (step/SD of 0.80 or more in absolute value, to two decimals, between T4 and T9,
+Inference):
 
 | Measure | Step | step/SD | Material, source |
 |---|---|---|---|
@@ -544,6 +545,7 @@ What sets it apart:
 | endplate_lower | 39.1 -> 42.1 mm | +1.07 | [DB12] panjabi1991t p. 892 |
 | pedicle_incl_trans (PDIt) | 8.7 -> 5.0 deg | -1.01 | [DB12] panjabi1991t p. 894, Table 5 |
 | transverse_width | 52.2 -> 46.9 mm | -0.98 | [DB12] panjabi1991t p. 895, Table 7 |
+| pars_area | 162 -> 92 mm2 | -0.89 (not in the pool; on a T11 SEM the note doubts) | [DB12] panjabi1991t p. 895, Table 7; panjabi1991t note |
 | canal_w | 19.4 -> 22.2 mm | +0.78 | [DB12] panjabi1991t p. 893 |
 
 Pearls and pitfalls:
@@ -591,6 +593,8 @@ What sets it apart, in order of strength:
 | facet_sag_sup (S) | 70.0 -> 136.6 deg | +2.78 | [DB12] panjabi1993f p. 1303 |
 | pars_area | 92.0 -> 62.1 mm2 | -2.07 (crosses two papers) | [DB12] panjabi1991t p. 895, Table 7; panjabi1992 pp. 301-304 |
 | facet_area_inf | 90.4 -> 126.9 mm2 | +1.37 | [DB12] panjabi1993f p. 1302 |
+| facet_h_inf | 12.6 -> 15.5 mm | +1.34 | [DB12] panjabi1993f p. 1301 |
+| facet_w_inf | 9.65 -> 11.55 mm | +0.88 | [DB12] panjabi1993f p. 1301 |
 | pedicle_incl_trans (PDIt) | 5.0 -> 2.5 deg | -0.82 (crosses two papers) | [DB12] panjabi1991t p. 894, Table 5; panjabi1992 p. 302, Table 4 |
 | endplate | 39.0 -> 41.2 mm | +0.79 (crosses two papers) | [DB12] panjabi1991t p. 892; panjabi1992 pp. 301-304 |
 | canal_area | 280 -> 320 mm2 | +0.67 (crosses two papers) | [DB12] panjabi1991t p. 893; panjabi1992 pp. 301-304 |
@@ -1178,7 +1182,7 @@ it, so it survives a size factor and a population shift.
 | L5/S1 | The largest drop of the lower spine: body depth falls about 7 mm, canal depth about 2.4 mm, dural sac about 3 mm | [MRI] italianmri pp. 4-5, Tables 2-5 |
 | L5/S1 disc | The largest anterior height and anterior-minus-posterior difference (about 7 against 4.4 mm at L4-L5); wedge about 15 deg supine | [CT] shin2024 p. 3, Table 2 (note's Inference); vanderhouwen2009 p. 39, Fig. 3 |
 | T12 | One costovertebral facet on the body and no costotransverse facet; T11 has a small costotransverse facet, T10 a full one and lower facets | [DB12] panjabi1991t p. 893; p. 895, Table 6 |
-| T12 | Thoracic-type superior facets (S about 67 to 77 deg) over lumbar-type inferior facets (S about 139 deg) on average | [DB12] panjabi1993f p. 1304; p. 1307; Tables 6-7 |
+| T12 | Thoracic-type superior facets (S about 67 to 73 deg) over lumbar-type inferior facets (S about 139 deg) on average | [DB12] panjabi1993f p. 1304; p. 1307; Tables 6-7 |
 | T12/L1 | TPW at its minimum at T12, then the largest rise of the column: 41.0 -> 53.6 mm; 46.9 -> 71.2 mm; tip to tip about 54 -> 79 mm | [DB] tan2004 pp. 140-141, Table 1; [DB12] panjabi1991t p. 895, Table 7 with panjabi1992 p. 304, Table 5; [cad] busscher2010 p. 1111, Fig. 7a |
 | T12/L1 | Sagittal chord LI jumps 6 to 7 mm (about 43 at T12, 49.5 at L1 to L3) | [DB] hou1993 p. 1853, Table 3 |
 | T12/L1 | Transverse pedicle angle: T11 about 1 deg, T12 about 4 deg lateral, L1 about 11 deg medial | [cad, CT] zindrick1987 p. 163, Table 3 |
@@ -1316,7 +1320,7 @@ Then work down this list:
    pp. 711-713, note).
 7. Decide which disc is the last mobile one before you apply any L5/S1 norm (bach2019 note; the paper is silent on it),
    and do not call a thin lowest disc transitional without a body-shape or rib sign: grade 2 to 3 degeneration was
-   found at L5-S1 in 22 of 34 spines over 60 [cad] (twomey1985 p. 498, Table 4).
+   found at L5-S1 in 22 of 34 spines over 60 (Inference: 11 grade 2 + 11 grade 3, the note's sum from Table 4) [cad] (twomey1985 p. 498, Table 4).
 8. Raise the transitional prior in a widened-canal state, and count from a cranial anchor rather than from the
    sacrum (ahn2001 p. 68; p. 70; the counting rule is the note's Inference).
 9. Never apply an L5 norm to a transitional segment: no paper measured one, and the pooled L5 of the meta-analysis
@@ -1345,7 +1349,7 @@ the pool". The last column says whether a mask measurer exists today (schwingche
 | C7/T1 | interfacet_w_inf -2.23 (panjabi1993f p. 1302); endplate_lower_depth +1.99, endplate_lower_area +1.96 and transverse_width +1.75, all three across two papers (panjabi1991c pp. 863-864; panjabi1991t p. 892; p. 895, Table 7) | endplate_lower_depth |
 | T1/T2 | facet_sag_sup -2.10, interfacet_w_sup -1.92, interfacet_w_inf -1.88 (panjabi1993f pp. 1302-1303) | none |
 | T2/T3 | transverse_width -2.03, interfacet_w_sup -1.73, endplate_depth +1.54 (panjabi1991t p. 892; p. 895, Table 7; panjabi1993f p. 1302) | endplate_depth |
-| T3 to T9 | none above about 1.2 per level; the largest are facet_trans_sup +1.15 at T8/T9 and pars_area -1.03 at T3/T4, not in the pool (panjabi1991t p. 892; p. 895; panjabi1993f pp. 1302-1303) | carry by count |
+| T3 to T10 | none above about 1.2 per level; the largest are facet_trans_sup +1.15 at T8/T9 and pars_area -1.03 at T3/T4, not in the pool; at T9/T10 nothing reaches 0.7, endplate_lower +0.67 being the largest (panjabi1991t p. 892; p. 895; panjabi1993f pp. 1302-1303) | carry by count |
 | T10/T11 | pedicle_h +1.91, costotransverse area -1.72 (not in the pool; on a SEM the note suspects is misprinted, Part 1, T10), pedicle_area +1.49, interfacet_h +1.36, transverse_width -1.30, endplate_lower +1.26 (panjabi1991t pp. 892-895; panjabi1993f p. 1302) | endplate_lower |
 | T11/T12 | facet_sag_inf +2.77, endplate +1.53, canal_ap +1.12 (panjabi1993f p. 1303; panjabi1991t pp. 892-893) | endplate, canal_ap |
 | T12/L1 | transverse_width +4.01 and spinous_length +3.99 across two papers, facet_sag_sup +2.78, pars_area -2.07 across two papers and not in the pool (panjabi1991t p. 895, Table 7; panjabi1992 pp. 301-304; panjabi1993f p. 1303) | none of the four |
@@ -1358,7 +1362,9 @@ Inference, from the table: the seven measurers carry steps only at some junction
 T12; at C5/C6, T1/T2, T12/L1 and from L1 to L5 none of the strongest measures has one. Counting the junctions each would serve, add measurers in
 this order: transverse_width (seven: C6/C7, C7/T1, T2/T3, T10/T11, T12/L1, L2/L3, L4/L5); then the interfacet
 widths (five: C2/C3, C6/C7, C7/T1, T1/T2, T2/T3) and facet S (five: C2/C3, C3/C4, T1/T2, T11/T12, T12/L1); then
-the pedicle measures (four: C2/C3, T10/T11, L3/L4, L4/L5). A count of junctions weighs a measure that ranks last in
+pedicle size, width, height and area (four: C2/C3, T10/T11, L3/L4, L4/L5), with the pedicle inclinations PDIt and
+PDIs at two (C5/C6, L4/L5). Counted as one group, size and inclination together, the pedicle measures serve five
+junctions and tie with the interfacet widths and facet S. A count of junctions weighs a measure that ranks last in
 a row like one that ranks first, so it orders the work only roughly.
 
 Measures outside the pool that the set shows to step at a junction (each a likelihood, not a rule):
@@ -1370,7 +1376,7 @@ Measures outside the pool that the set shows to step at a junction (each a likel
 | Pedicle transverse angle | rises more than 10 deg from L4 to L5 (about 18.5 to 30 deg) | [DB] hou1993 Figure 7, p. 1854; [cad] mitra2002 p. 455; [CT] arockiaraj2025 p. 316, Table 2 |
 | Sagittal chord LI | jumps 6 to 7 mm at T12/L1 | [DB] hou1993 p. 1853, Table 3 |
 | VBHa/VBHp | about 1.10 to 1.18 at L5; about 0.99 to 1.05 at L4 in four series (tan2004 1.00, busscher2010 0.99, frontphys2026 1.05, moncadahabib2025 1.02); 0.85 to 1.01 elsewhere (busscher2010 C6 1.01). L4 can come near the low end of L5's range, so the cue separates L5 from L4 less than from L1 to L3. All ratios are Inference from the tables, the notes' or mine | [DB] tan2004 pp. 140-141, Table 1; [cad] busscher2010 p. 1107, Table 3; [CT] frontphys2026 p. 5, Table 2; [CT] moncadahabib2025 p. 4, Table 1 |
-| Pedicle section tilt CI (the long axis of the pedicle's oblique section against the end-plate normal) | 18.04, 39.06 and 51.81 deg at L3, L4 and L5: +21.0 deg from L3 to L4 (about 2.4 SD) and +12.8 from L4 to L5 (about 1.8 SD); useless for L1 against L2 | [CT] makino2012 p. 1518, Table 1 (SD multiples are the note's Inference) |
+| Pedicle section tilt CI (the long axis of the pedicle's oblique section against the end-plate normal) | 18.04, 39.06 and 51.81 deg at L3, L4 and L5: +21.0 deg from L3 to L4 (about 2.4 SD) and +12.8 from L4 to L5 (about 1.8 SD); useless for L1 against L2; about 1.5 SD from L2 to L3 | [CT] makino2012 p. 1518, Table 1 (SD multiples are the note's Inference) |
 | Interfacet distance IFD | +3.61 mm from L4 to L5 (about 1.0 SD) and +5.22 mm from L5 to S1 (about 1.2 SD) in men; over the upper body width, a size-free ratio, 0.40 to 0.43 down to L4, 0.47 at L5 and 0.57 at S1 | [CT] yadav2020 p. 177, Table 2; p. 178, Table 3 (steps, SD multiples and ratios are the note's Inference) |
 | Midline pedicle-axis depth Dma | falls from 40.7 mm at L4 to 33.7 at L5, about -1.4 SD | [cad, CT] zindrick1987 p. 165, Table 5 (the effect size is the note's Inference) |
 | Pedicle length PL | falls about 1.2 to 1.4 mm a level, then 2.25 mm from L4 to L5, about 1.8 SD | [CT] arockiaraj2025 p. 316, Table 2 (the steps are the note's Inference) |
@@ -1442,7 +1448,7 @@ it distorts.
 | Osteoporosis | end-plate planes and concavity; the anterosuperior body is the weakest region | under 100 HU on non-contrast CT | Refer angles to the posterior cortex; skip osteoporotic end plates | abbas2021 p. 6; frontphys2026 p. 7; vanderhouwen2009 p. 34 |
 | Rotation or scoliosis | IPD and every angle measured against the median plane | a lumbar curve over about 20 deg; a one-sided excess of pedicle angle | Mark IPD unreliable in the curve; measure in the instance's own frame | [AP] ahn2001 p. 67; arockiaraj2025 p. 315, Table 1, note; hou1993 p. 1851 |
 | Hemivertebra, irregular bodies | IPD and the count | focal IPD collapse, irregular body sizes | Count with care; expect a widened sagittal diameter at that level | [AP] hinck1966 pp. 152-153, Fig. 8 |
-| Implausible pedicle size | pedicle_w, pedicle_h | from T9 to L5 in dry bone the height always exceeded the width and was never below 9.2 mm (men) or 9.3 mm (women); a width under 4.5 mm is virtually never seen at L3 to L5 | Re-check the isthmus cut and the level before scoring; living CT runs lower (height minima 7.0 to 8.0 mm at L2 to L5, width minima 3.8 to 4.0 mm at L1 to L3), so use the dry-bone floors as a flag, never a rejection, and do not apply the height-over-width rule at L5, which is wider than tall in most series | [DB] hou1993 p. 1852; [DB] yu2015 pp. 1640-1641, Fig. 3, p. 1643 (that such a value points to a mask error or a wrong level is the note's Inference); [CT] moncadahabib2025 p. 5, Table 2 |
+| Implausible pedicle size | pedicle_w, pedicle_h | from T9 to L5 in dry bone the height always exceeded the width and was never below 9.2 mm (men) or 9.3 mm (women); a width under 4.5 mm is virtually never seen at L3 to L5 | Re-check the isthmus cut and the level before scoring; living CT runs lower (height minima 7.0 to 8.0 mm at L2, L3 and L5 and 8.14 and 9.0 at L4, width minima 3.8 to 4.0 mm at L1 to L3), so use the dry-bone floors as a flag, never a rejection, and do not apply the height-over-width rule at L5, which is wider than tall in most series | [DB] hou1993 p. 1852; [DB] yu2015 pp. 1640-1641, Fig. 3, p. 1643 (that such a value points to a mask error or a wrong level is the note's Inference); [CT] moncadahabib2025 p. 5, Table 2 |
 | Elderly end-plate collapse | central body height, h_post, disc heights | biconcave end plates; central body height well below the anterior and posterior heights, with disc height kept or raised | Compare central with anterior and posterior heights before reading a level or calling a fracture; do not read lost stature as disc collapse | [cad] twomey1985 pp. 496-498, Fig. 2, p. 498 (the comparison is the note's Inference) |
 | Sex and size | absolute widths: a woman's L4 pedicle is as wide as a man's L3 to L4 and her L3 as a man's L1 to L2 | sex known or not | Condition on sex and size, or a female vertebra tends to be named a level too cranial | [cad, AP] olsewski1990 p. 544, Table I; p. 545, Table III (naming bias is the note's Inference) |
 
@@ -1514,7 +1520,7 @@ from form first, then from ratios, and only last from millimetres.
 | View | Shows | Cannot show | Source |
 |---|---|---|---|
 | AP | IPD from C3 down; pedicle ovals; end-plate and body widths; transverse processes; ribs; the AP outline of the facet tips | C1 and C2; sacral IPD against norms; any depth or height | hinck1966 p. 142; panjabi1991t p. 890; p. 898; panjabi1993f p. 1308 |
-| Lateral, neck | C2 to C7 body corners and spinous tips | C1, always; C2 unclear in 11 of 141; C7 hidden by clavicle, humerus and ribs in 15 of 141 (healthy men 20 to 38) | gilad1985 p. 117 |
+| Lateral, neck | C2 to C7 body corners and spinous tips | C1, always; C2 unclear in 11 of 141; C7 hidden by clavicle, humerus and ribs in 15 of 141 (healthy men 20 to 38) | gilad1985 p. 117 (printed about 10 percent each); Inference: 141 - 130 and 141 - 126 from the n of Table 1, p. 118 |
 | Lateral, thorax | body heights and discs, C7 to T12, from contact films of specimens | thoracic levels on clinical films, lost under the ribs; upper thoracic posterior corners, hidden | gilad1985 p. 117; kunkel2011 p. 383 |
 | Lateral, lumbar | L1 to L5 bodies, discs, canal depth by construction, foramina, pedicle sagittal angle | pedicle width, transverse angle, IPD | gilad1985 p. 117; hinck1966 p. 149; zindrick1987 p. 160, note |
 
@@ -1569,7 +1575,7 @@ p. 149; zindrick1987 p. 160, note; mitra2002 p. 453, note).
      note's Inference): 0.54, 0.58, 0.72, 0.96, 1.34 [DB] (yu2015 p. 1645, Table 5); 0.47, 0.51, 0.66, 0.93, 1.41
      [DB] (lien2007 p. 1218, Table 1); right 0.52, 0.56, 0.63, 0.82, 1.22 and left 0.55, 0.57, 0.67, 0.82, 1.16 [CT]
      (moncadahabib2025 p. 5, Table 2); 0.49, 0.55, 0.67, 0.81, 0.99, and 0.87 to 0.88 at L5 by side [review]
-     (bonczar2024 pp. 5-9, Tables 2-6). Inference: widen the expectation to about 0.8 to 1.0 at L4 and 0.85 to
+     (bonczar2024 pp. 5-9, Tables 2-6). Inference: widen the expectation to about 0.7 to 1.0 at L4 and 0.85 to
      1.45 at L5; no series gives the per-person spread of the ratio. L5 is the only lumbar pedicle wider than tall
      in most series (olsewski1990 p. 547; lien2007 p. 1218, Table 1; yu2015 p. 1645, Table 5), though not in the
      pooled review (bonczar2024).
@@ -1709,7 +1715,8 @@ Inference throughout, from the steps above.
    Table IA, note) or from body height (kunkel2011 p. 379); use the disc ratios to place the run in the upper, middle or lower
    thorax (kunkel2011 p. 379, Table 3).
 5. Give the decoder's missing-body transition the observation rates of the films: C2 unclear in 11 of 141 and C7
-   hidden in 15 of 141 lateral cervical films of healthy young men (gilad1985 p. 117); C1 and C2 absent on every AP
+   hidden in 15 of 141 lateral cervical films of healthy young men (gilad1985 p. 117, which prints about 10
+   percent for each; Inference: 141 - 130 and 141 - 126, from the n of Table 1, p. 118); C1 and C2 absent on every AP
    (hinck1966 p. 142).
 
 ### Step 7. When to answer with uncertainty on a film
