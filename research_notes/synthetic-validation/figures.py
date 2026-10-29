@@ -453,7 +453,8 @@ def fig_naming(records: str, out: str) -> List[str]:
     return H.save(fig, out, "fig5_naming", (
         "Naming by the exact rule on the seven SPINEPS measures, with the CT's errors, at points of the "
         "state space: the rule built for the generator against one that knows the setting, left out "
-        "where no rule can (the generator, phi, r_between). Bars are 95% intervals over the columns."))
+        "where no rule holds the setting whole (the generator, phi, r_between, the nearest point, "
+        "whose rule ignores r_between). Bars are 95% intervals over the columns."))
 
 
 # ----- figure 6: power -------------------------------------------------------------------------

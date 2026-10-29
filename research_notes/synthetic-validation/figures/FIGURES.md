@@ -4,10 +4,10 @@ Drawn by `python3 -I figures.py --records records --out figures` from the record
 `python3 -I run.py --out records` (bordercall 560bd00). Each figure's numbers are its CSV; its caption is its .caption.txt.
 The three renders are drawn by render.py from the generator itself, seed 2029, 4000 people.
 
-Drawn at bordercall 560bd00, from and by:
+Drawn at bordercall 83c70e5, from and by:
 
 - records/RECORD.json, sha256 8229f63cad6bc1ddf0ecc53c9faa6602bb4d79b590165b4c4cd80f5d614c9df1
-- figures.py, sha256 c64c7a1a25dce76e112cd34c60000a64f8ec3a87763363680a9597a0119838ae
+- figures.py, sha256 9c056e857bd2742388109c62a23a2f41aea1cd5f683e1024fc449ddedae613ec
 - render.py, sha256 d4bc0d70416d843a6d019ffefe741cb0fe01013357027395c24448c01cc3a9d9
 - synthval/house.py, sha256 396822b88fcb46e9533162f8a46b8e2443c1d58ac15d1f40e2d0eb4f5653323a
 - schwingcheck/figures.py, sha256 3908d42cc8e93c839d8ddca5bf06591af281e1490d775483e20535a0908b0576
@@ -52,9 +52,9 @@ The generator's state space, one axis at a time from its own point (circled), an
 
 ## fig5_naming
 
-Naming by the exact rule on the seven SPINEPS measures, with the CT's errors, at points of the state space: the rule built for the generator against one that knows the setting, left out where no rule can (the generator, phi, r_between). Bars are 95% intervals over the columns.
+Naming by the exact rule on the seven SPINEPS measures, with the CT's errors, at points of the state space: the rule built for the generator against one that knows the setting, left out where no rule holds the setting whole (the generator, phi, r_between, the nearest point, whose rule ignores r_between). Bars are 95% intervals over the columns.
 
-- fig5_naming.caption.txt, sha256 1b8d064013fb822555180e04ac2b7edbe60a0e7be728d838e8a853e67913e2b6
+- fig5_naming.caption.txt, sha256 e855faa97a8793d973fc94f894bda158a9696e9e4ac9bf43a215990878e00daa
 - fig5_naming.csv, sha256 3313c2e0f6962b94e25e154840c98fce153e8a0a322c3a20c507446dd5641860
 - fig5_naming.pdf, sha256 d9526f04cd63e7d13867fffcb25c4b7d0dbe63bca688faf5e2cf41c67ed9dedd
 - fig5_naming.png, sha256 0a352cf1ab3d291b776e29b0e3295310ab61f8f55efec490293528efd9bba330
