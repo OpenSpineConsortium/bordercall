@@ -1,0 +1,84 @@
+{
+  "paper": "makino2012",
+  "cohorts": [
+    {
+      "cohort": "osaka_degenerative_ct",
+      "labels": [
+        "all",
+        "male",
+        "female",
+        "not stated",
+        "lumbar spinal canal stenosis",
+        "lumbar degenerative spondylolisthesis",
+        "TPW >= 8 mm",
+        "CT settings"
+      ],
+      "tables": [
+        "Table 1",
+        "Figure 5",
+        "Text: Materials and methods",
+        "Text: Results",
+        "Text: Discussion"
+      ],
+      "subjects": "Living patients: 50 consecutive patients who had preoperative MPR-CT for lumbar surgery at the authors' hospital (Department of Orthopaedic Surgery, National Hospital Organization Osaka Minami Medical Center, Kawachinagano, Osaka, Japan) between August 2008 and July 2010; 16 lumbar spinal canal stenosis (9 men, 7 women) and 34 lumbar degenerative spondylolisthesis (14 men, 20 women); excluded: spondylolysis and lumbar scoliosis over 10 deg. Ethnicity not printed (Inference: Japanese).",
+      "n_people": 50,
+      "n_units": "500 pedicles of L1 to L5 of 50 patients, 100 per level",
+      "ages": "52 to 85 years, mean 70.1 at CT; no SD printed",
+      "sexes": "23 men, 27 women; results not split by sex",
+      "page": "p. 1517 (PDF 2); affiliation p. 1516 (PDF 1)"
+    }
+  ],
+  "techniques": [
+    {
+      "technique": "tpw_axial_mpr",
+      "cohorts": [
+        "osaka_degenerative_ct"
+      ],
+      "modality": "CT MPR",
+      "instrument": "GE LightSpeed Plus helical CT, 1.25 mm slices, 120 kVp, 300 mA, window centre 300 and width 2,000; DICOM reconstructed in Exa Vision LITE (Ziosoft, Tokyo), stated precision 0.01 mm",
+      "how": "Transverse pedicle width: the narrowest inner-cortex to inner-cortex distance, taken at right angles to the pedicle axis, on an axial plane laid parallel to the upper endplate; the pedicle axis is the line bisecting the pedicle isthmus on the axial and sagittal planes (Fig. 1a).",
+      "magnification": "not applicable: measured in mm in the reconstruction software; pixel size not printed",
+      "observers": "not stated; no intra- or inter-observer figure",
+      "page": "p. 1517 (PDF 2); Fig. 1a p. 1518 (PDF 3)"
+    },
+    {
+      "technique": "spw_sagittal_mpr",
+      "cohorts": [
+        "osaka_degenerative_ct"
+      ],
+      "modality": "CT MPR",
+      "instrument": "same scans and software as tpw_axial_mpr",
+      "how": "Sagittal pedicle width: the narrowest inner-cortex to inner-cortex distance at right angles to the pedicle axis, on a sagittal plane parallel to the anteroposterior midline of the vertebral body (Fig. 1b).",
+      "magnification": "not applicable: measured in mm in the reconstruction software; pixel size not printed",
+      "observers": "not stated; no intra- or inter-observer figure",
+      "page": "p. 1517 (PDF 2); Fig. 1b p. 1518 (PDF 3)"
+    },
+    {
+      "technique": "mpd_ci_oblique_coronal_mpr",
+      "cohorts": [
+        "osaka_degenerative_ct"
+      ],
+      "modality": "CT MPR",
+      "instrument": "same scans and software as tpw_axial_mpr; angular precision stated as 0.01 deg",
+      "how": "On an oblique coronal plane perpendicular to the pedicle axis of both the axial and sagittal planes (plane C of Fig. 2): minimum pedicle diameter is the largest circle centred on the pedicle axis that stays inside the inner cortex; cephalocaudal inclination is the angle between the long axis of the oval pedicle section and the line perpendicular to the upper endplate (Fig. 1c).",
+      "magnification": "not applicable: measured in mm and deg in the reconstruction software",
+      "observers": "not stated; no intra- or inter-observer figure",
+      "page": "p. 1517 (PDF 2); Figs. 1c and 2 p. 1518 (PDF 3)"
+    }
+  ],
+  "shared": [
+    {
+      "with": "Li B et al. 2004, Spine 29:2438-2444 [5]; not in the list",
+      "what": "method",
+      "evidence": "The plane perpendicular to the pedicle axis, where the narrowest pedicle section lies, is taken from Li et al.; the MPD is measured on it.",
+      "page": "p. 1516-1517 (PDF 1-2); again in the Discussion p. 1519 (PDF 4)"
+    },
+    {
+      "with": "Bernard 1992 [1], Chadha 2003 [2], Krag 1988 [3] (krag1988), Misenhimer 1989 [4]",
+      "what": "cited only (no subjects, method or values shared or quoted)",
+      "evidence": "Cited as recommending the TPW on the axial CT plane as the screw-sizing index, and refs 3 and 4 for CT inner-cortex values agreeing with direct cadaver ones; the paper defines its own TPW (endosteal, perpendicular to the pedicle axis, on an axial plane parallel to the upper endplate) and never says it measured as these studies did. Inference: krag1988's own pedicle diameter is an outer-cortex measure on CT film.",
+      "page": "p. 1516 (PDF 1); again p. 1519 (PDF 4)"
+    }
+  ],
+  "within_paper": "One cohort only: every value, Table 1, the regressions of the Results and Fig. 5, and the Discussion counts, comes from the same 500 pedicles of the same 50 patients, each pedicle measured for all four parameters on three planes (p. 1517, PDF 2), so TPW, SPW, MPD and CI are paired on the same pedicles. The stenosis and spondylolisthesis groups are subsets of the 50 and no measure is reported per group; the Discussion counts (67 and 96 pedicles with TPW of 8 mm or more at L4 and L5) are subsets of the 100 pedicles per level (p. 1519, PDF 4; Inference: the paper does not name the denominator, 100 per level is from p. 1517, PDF 2). Other studies in the list, Krag 1988 [3], Mitra 2002 [8] and Zindrick 1987 [10], are cited only as earlier pedicle morphometry; no subjects or values are taken from them (p. 1519, PDF 4)."
+}

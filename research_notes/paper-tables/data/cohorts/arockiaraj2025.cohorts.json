@@ -1,0 +1,371 @@
+{
+  "paper": "arockiaraj2025",
+  "cohorts": [
+    {
+      "cohort": "saudi_ct",
+      "labels": [
+        "sex: male",
+        "sex: female",
+        "sex: all",
+        "group: Current study",
+        "source_of_values: this paper"
+      ],
+      "tables": [
+        "Table 1",
+        "Table 2",
+        "Table 3",
+        "Text: Title",
+        "Text: Abstract",
+        "Text: Materials and Methods",
+        "Text: Results",
+        "Text: Discussion"
+      ],
+      "subjects": "Living adult Saudi patients whose CT of the abdomen or lumbar spine was done in 2015 to 2020 for suspected abdominal pathology or low back ache at one tertiary care centre in Riyadh, Saudi Arabia, reviewed retrospectively and taken by consecutive sampling; inclusion age 18 to 60 years; excluded: congenital or acquired deformities, fractures, spondylolysis or spondylolisthesis, and any previous spine surgery, instrumented or not. Ethnicity printed only as Saudi; the authors call the centre representative of the Saudi population and say it serves patients from almost all of the country.",
+      "n_people": 300,
+      "n_units": "1,500 lumbar vertebrae (L1 to L5) of 300 patients; left and right pedicles measured (Inference: 3,000 pedicles)",
+      "ages": "mean 42.0 years, range 18.0 to 60.0 (inclusion 18 to 60); age by sex not given",
+      "sexes": "150 male, 150 female",
+      "page": "p. 312 (PDF 1) abstract and title; p. 313 (PDF 2) Materials and Methods; p. 314 (PDF 3) Results; p. 316 (PDF 5) and p. 318 (PDF 7) Discussion"
+    },
+    {
+      "cohort": "acharya_india",
+      "labels": [
+        "group: Asia",
+        "source_of_values: Acharya et al. [13]"
+      ],
+      "tables": [
+        "Table 3"
+      ],
+      "subjects": "Quoted comparison series: CT-based study of an Indian population (Table 3 region Asia; the Discussion calls it Acharya's study in the Indian population; reference title: lower dorsal and lumbar pedicle morphometry in the Indian population).",
+      "n_people": null,
+      "n_units": "n=50 printed in Table 3, unit not stated; the reference title names 450 vertebrae",
+      "ages": "not stated in this paper",
+      "sexes": "not stated in this paper",
+      "page": "Table 3, p. 317 (PDF 6); p. 316 (PDF 5); ref. 13, p. 319 (PDF 8)"
+    },
+    {
+      "cohort": "dzierzanowski_europe",
+      "labels": [
+        "group: Europe",
+        "source_of_values: Dzierzanowski et al. [10]",
+        "sex: not stated"
+      ],
+      "tables": [
+        "Table 3",
+        "Text: Materials and Methods",
+        "Text: Discussion"
+      ],
+      "subjects": "Quoted comparison series: CT-based study placed under Europe in Table 3 and called the European population in the Discussion; its TPD of 6.1 +/- 1.5 mm in 100 subjects set this paper's sample size.",
+      "n_people": null,
+      "n_units": "n=100 subjects (Table 3 and the sample size paragraph)",
+      "ages": "not stated in this paper",
+      "sexes": "not stated in this paper",
+      "page": "Table 3, p. 317 (PDF 6); p. 314 (PDF 3); p. 318 (PDF 7)"
+    },
+    {
+      "cohort": "kadioglu_eastern_anatolia",
+      "labels": [
+        "group: Europe",
+        "source_of_values: Kadioglu et al. [22]"
+      ],
+      "tables": [
+        "Table 3"
+      ],
+      "subjects": "Quoted comparison series: CT-based study placed under Europe in Table 3; the reference title names the Eastern Anatolian population.",
+      "n_people": null,
+      "n_units": "n=29 printed in Table 3, unit not stated",
+      "ages": "not stated in this paper",
+      "sexes": "not stated in this paper",
+      "page": "Table 3, p. 317 (PDF 6); ref. 22, p. 319 (PDF 8)"
+    },
+    {
+      "cohort": "zindrick_north_america",
+      "labels": [
+        "group: North America",
+        "source_of_values: Zindrick et al. [25]"
+      ],
+      "tables": [
+        "Table 3",
+        "Text: Discussion"
+      ],
+      "subjects": "Quoted comparison series placed under North America in Table 3; the paper counts it among CT-based studies. Inference (zindrick1987 reading): the values are that paper's Tables 1, 2, 3 and 5 (the depth parallel to the midline for CL), whose cohort pooled_specimens_and_ct pools films of postmortem specimens with CT examinations, so not CT alone.",
+      "n_people": null,
+      "n_units": "n printed as a range that differs by measure: 26-56 (TPD), 21-52 (pedicle height), 26-76 (pedicle axis), 26-74 (CL); unit not stated",
+      "ages": "not stated in this paper",
+      "sexes": "not stated in this paper",
+      "page": "Table 3, p. 317 (PDF 6); pp. 317-318 (PDF 6-7)"
+    },
+    {
+      "cohort": "olsewski_north_america",
+      "labels": [
+        "group: North America",
+        "source_of_values: Olsewski et al. [11]"
+      ],
+      "tables": [
+        "Table 3",
+        "Text: Discussion"
+      ],
+      "subjects": "Quoted comparison series placed under North America in Table 3; the paper counts it among CT-based studies. Inference (olsewski1990 reading): every printed value is the mean of that paper's Table II direct and radiographic columns, sexes pooled, so the subjects are its part2_cadavers, 21 embalmed cadaver lumbar spines (drawn from donors aged 60 to 98), measured by caliper, protractor and radiographs, not by CT.",
+      "n_people": null,
+      "n_units": "n printed as a range that differs by measure: 39-42 (TPD), 37-42 (pedicle height), 41-42 (pedicle axis); unit not stated",
+      "ages": "not stated in this paper",
+      "sexes": "not stated in this paper",
+      "page": "Table 3, p. 317 (PDF 6); pp. 317-318 (PDF 6-7)"
+    },
+    {
+      "cohort": "urrutia_mexico",
+      "labels": [
+        "group: Latin America Region",
+        "source_of_values: Urrutia et al. [21]"
+      ],
+      "tables": [
+        "Table 3"
+      ],
+      "subjects": "Quoted comparison series placed under Latin America Region in Table 3; the reference title names a Mexican population measured by CT and fluoroscopy.",
+      "n_people": null,
+      "n_units": "n=60 printed in Table 3, unit not stated",
+      "ages": "not stated in this paper",
+      "sexes": "not stated in this paper",
+      "page": "Table 3, p. 317 (PDF 6); ref. 21, p. 319 (PDF 8)"
+    },
+    {
+      "cohort": "makino_degenerative",
+      "labels": [
+        "group: Asia Pacific Region",
+        "source_of_values: Makino Takahiro et al. [24]",
+        "source_of_values: Takahiro et al. [24]"
+      ],
+      "tables": [
+        "Table 3"
+      ],
+      "subjects": "Quoted comparison series placed under Asia Pacific Region in Table 3, printed as Makino Takahiro et al. for TPD and Takahiro et al. for pedicle height, both ref. 24 (Makino T et al.); the Discussion calls it an Asian subset, and the reference title names degenerative spines measured on multiplanar reconstruction CT. Inference (makino2012 reading): the values are that paper's Table 1 inner-cortex TPW and SPW, its cohort osaka_degenerative_ct, 50 patients aged 52 to 85 with lumbar canal stenosis or degenerative spondylolisthesis (Inference: Japanese), 100 pedicles a level.",
+      "n_people": null,
+      "n_units": "n=50 printed in Table 3, unit not stated",
+      "ages": "not stated in this paper",
+      "sexes": "not stated in this paper",
+      "page": "Table 3, p. 317 (PDF 6); p. 317 (PDF 6); ref. 24, p. 319 (PDF 8)"
+    },
+    {
+      "cohort": "tall_burkina_faso",
+      "labels": [
+        "group: Africa",
+        "source_of_values: Tall et al. [23]",
+        "source_of_values: Tall et al. [11]"
+      ],
+      "tables": [
+        "Table 3"
+      ],
+      "subjects": "Quoted comparison series placed under Africa in Table 3 (cited as ref. 23, and as ref. 11 in the pedicle axis row, a misprint); the reference title names CT scans of black West African subjects in Ouagadougou, Burkina Faso. Means only, no SD or significance mark.",
+      "n_people": null,
+      "n_units": "n=70 printed in Table 3, unit not stated; the reference title names 170 cases",
+      "ages": "not stated in this paper",
+      "sexes": "not stated in this paper",
+      "page": "Table 3, p. 317 (PDF 6); ref. 23, p. 319 (PDF 8)"
+    },
+    {
+      "cohort": "matsukawa_japan",
+      "labels": [
+        "group: Asia Pacific region",
+        "group: Asia-Pacific, Japanese",
+        "source_of_values: Matsukawa et al. [29]"
+      ],
+      "tables": [
+        "Table 3",
+        "Text: Discussion"
+      ],
+      "subjects": "Quoted comparison series placed under Asia Pacific region in Table 3; the Discussion calls it a study of the Japanese population, and the reference title names a cortical bone trajectory measured on CT. Means only, no SD or significance mark.",
+      "n_people": null,
+      "n_units": "n=100 printed in Table 3, unit not stated",
+      "ages": "not stated in this paper",
+      "sexes": "not stated in this paper",
+      "page": "Table 3, p. 317 (PDF 6); p. 318 (PDF 7); ref. 29, p. 319 (PDF 8)"
+    },
+    {
+      "cohort": "olsewski_zindrick_joint",
+      "labels": [
+        "group: North America",
+        "source_of_values: Olsewski et al. [11] and Zindrick et al. [25]"
+      ],
+      "tables": [
+        "Text: Discussion"
+      ],
+      "subjects": "quoted from Olsewski et al. [11] and Zindrick et al. [25] jointly: one rounded largest TPD at L1 and at L5 given for the two North American series together; their subjects are those of olsewski_north_america and zindrick_north_america",
+      "n_people": null,
+      "n_units": "not stated",
+      "ages": "not stated in this paper",
+      "sexes": "not stated in this paper",
+      "page": "p. 317 (PDF 6)"
+    },
+    {
+      "cohort": "misenhimer_albano_joint",
+      "labels": [
+        "source_of_values: refs [15,16]"
+      ],
+      "tables": [
+        "Text: Discussion"
+      ],
+      "subjects": "quoted from Misenhimer et al. 1989 [15] and Albano et al. 2019 [16], cited together for the share of the outer pedicle diameter beyond which pedicle fracture or screw cut-out becomes possible",
+      "n_people": null,
+      "n_units": "not stated",
+      "ages": "not stated in this paper",
+      "sexes": "not stated in this paper",
+      "page": "p. 317 (PDF 6); refs 15-16, p. 319 (PDF 8)"
+    },
+    {
+      "cohort": "uncited_statement",
+      "labels": [
+        "source_of_values: not cited"
+      ],
+      "tables": [
+        "Text: Discussion"
+      ],
+      "subjects": "quoted from an uncited source: a biomechanical statement on the share of the vertebral body a screw should purchase, given with no reference (it follows a sentence citing ref. 28)",
+      "n_people": null,
+      "n_units": "not stated",
+      "ages": "not stated in this paper",
+      "sexes": "not stated in this paper",
+      "page": "p. 318 (PDF 7)"
+    }
+  ],
+  "techniques": [
+    {
+      "technique": "ct_axial_workstation",
+      "cohorts": [
+        "saudi_ct"
+      ],
+      "modality": "CT axial",
+      "instrument": "Noncontrast CT from L1 to the fifth sacral vertebra in 2.5 mm contiguous axial sections (140 kV, 500 mA, 0.7 s rotation, 200 images, 5 s total exposure, DLP 700 to 900 mGycm), read on a GE AW 5 workstation with GE Centricity Enterprise zero footprint software 6.0 SP4; the measuring tool is not named",
+      "how": "On axial sections, after Vaccaro and Garfin: transverse pedicle diameter is the medial to lateral outer cortical width at the isthmus; chord length runs along the pedicle mid-axis from the posterior cortical entry point to the anterior vertebral cortex; pedicle length runs along the mid-axis from the posterior pedicle cortex to the posterior longitudinal ligament; the pedicle axis angle lies between the mid-axis and the midline. L1 to L5, left and right.",
+      "magnification": "not applicable: distances and angles read on CT images at a workstation; calibration not described",
+      "observers": "two radiologists of equal experience, each measuring every parameter three times, the average taken; inter-rater analysis found no interobserver bias (P > 0.05), statistic not named",
+      "page": "p. 313 (PDF 2) and Figures 1-2; p. 314 (PDF 3)"
+    },
+    {
+      "technique": "ct_sagittal_pedicle_height",
+      "cohorts": [
+        "saudi_ct"
+      ],
+      "modality": "CT MPR",
+      "instrument": "the same CT series and GE AW 5 workstation; Figure 3B shows a sagittal CT image",
+      "how": "Pedicle height is the distance between the superior and inferior pedicle cortex in the sagittal plane at the isthmus, L1 to L5, left and right. Inference: a sagittal reformat of the 2.5 mm axial series, so this measure lies across the slice direction.",
+      "magnification": "not applicable: CT image distance; calibration not described",
+      "observers": "the same two radiologists, three repeats each, averaged",
+      "page": "p. 313 (PDF 2), Figure 3; p. 314 (PDF 3)"
+    },
+    {
+      "technique": "quoted_ct_literature",
+      "cohorts": [
+        "acharya_india",
+        "dzierzanowski_europe",
+        "kadioglu_eastern_anatolia",
+        "zindrick_north_america",
+        "olsewski_north_america",
+        "urrutia_mexico",
+        "makino_degenerative",
+        "tall_burkina_faso",
+        "matsukawa_japan",
+        "olsewski_zindrick_joint"
+      ],
+      "modality": "other",
+      "instrument": "not stated in this paper",
+      "how": "Means and SDs as each study published them, chosen as CT-based studies that presented adequate data; case reports, plain radiograph measurements, manual measurements on anatomical specimens, intraoperative measurements and studies of children were excluded. Each study's own landmarks, planes and observers are not described here. Inference from the list's own readings: Olsewski's rows are means of cadaver caliper and radiograph columns and Zindrick's pool specimen films with CT, so not every quoted series is CT, and Olsewski's are not values that study printed as such.",
+      "magnification": "not stated",
+      "observers": "not stated",
+      "page": "p. 314 (PDF 3); Table 3, p. 317 (PDF 6)"
+    },
+    {
+      "technique": "quoted_not_described",
+      "cohorts": [
+        "misenhimer_albano_joint",
+        "uncited_statement"
+      ],
+      "modality": "other",
+      "instrument": "not stated in this paper",
+      "how": "Figures the Discussion quotes, cited or not, from work whose methods this paper does not describe; thresholds and recommendations, not measurements of subjects.",
+      "magnification": "not stated",
+      "observers": "not stated",
+      "page": "p. 317 (PDF 6); p. 318 (PDF 7)"
+    }
+  ],
+  "shared": [
+    {
+      "with": "Vaccaro AR, Garfin SR 1995 [12] (not in the list)",
+      "what": "method",
+      "evidence": "All pedicle measures were taken as Vaccaro and Garfin described.",
+      "page": "p. 313 (PDF 2)"
+    },
+    {
+      "with": "Dzierzanowski et al. 2019 [10] (not in the list)",
+      "what": "values quoted",
+      "evidence": "Its TPD 6.1 +/- 1.5 mm in 100 subjects set the sample size; its TPD, height, axis and CL rows fill Table 3 and Figure 4; the Discussion quotes about 52.0 mm CL and 20 and 32 deg angles.",
+      "page": "p. 314 (PDF 3); Table 3, p. 317 (PDF 6); p. 318 (PDF 7)"
+    },
+    {
+      "with": "Acharya et al. 2010 [13] (not in the list)",
+      "what": "values quoted",
+      "evidence": "Its TPD, axis and CL rows fill Table 3 and Figure 4.",
+      "page": "Table 3, p. 317 (PDF 6); p. 314 (PDF 3) Figure 4"
+    },
+    {
+      "with": "Kadioglu et al. 2003 [22] (not in the list)",
+      "what": "values quoted",
+      "evidence": "Its TPD, height and CL rows fill Table 3 and Figure 4.",
+      "page": "Table 3, p. 317 (PDF 6)"
+    },
+    {
+      "with": "Zindrick et al. 1987 [25], zindrick1987",
+      "what": "values quoted",
+      "evidence": "Its TPD, height, axis and CL rows fill Table 3 and Figure 4; the Discussion quotes its L5 CL 33.7 +/- 5.6 mm and its TPD with Olsewski's (8 mm at L1, 18 mm at L5). Inference: the rows match zindrick1987 Tables 1, 2, 3 and 5 (its pooled_specimens_and_ct), the CL row being its depth parallel to the midline, not along the pedicle axis.",
+      "page": "Table 3, p. 317 (PDF 6); pp. 317-318 (PDF 6-7)"
+    },
+    {
+      "with": "Olsewski et al. 1990 [11], olsewski1990",
+      "what": "values quoted",
+      "evidence": "Its TPD, height and axis rows fill Table 3 and Figure 4; the Discussion quotes its TPD (with Zindrick's) and angles of 6 deg at L1 and 20 deg at L5. Inference: the rows are the means of olsewski1990 Table II's direct and radiographic columns (its part2_cadavers), not values printed there as such.",
+      "page": "Table 3, p. 317 (PDF 6); pp. 317-318 (PDF 6-7)"
+    },
+    {
+      "with": "Urrutia et al. 2009 [21] (not in the list)",
+      "what": "values quoted",
+      "evidence": "Its TPD and pedicle length rows fill Table 3 and Figure 4.",
+      "page": "Table 3, p. 317 (PDF 6)"
+    },
+    {
+      "with": "Makino et al. 2012 [24], makino2012",
+      "what": "values quoted",
+      "evidence": "Its TPD and pedicle height rows fill Table 3 (printed as Makino Takahiro and Takahiro et al.) and Figure 4; the Discussion says it reported the smallest TPD at L1 and L5. Inference: the rows match makino2012 Table 1's TPW and SPW (its osaka_degenerative_ct).",
+      "page": "Table 3, p. 317 (PDF 6); p. 317 (PDF 6)"
+    },
+    {
+      "with": "Tall et al. 2018 [23] (not in the list)",
+      "what": "values quoted",
+      "evidence": "Its TPD, pedicle length and axis rows fill Table 3 and Figure 4; the axis row cites it as ref. 11.",
+      "page": "Table 3, p. 317 (PDF 6)"
+    },
+    {
+      "with": "Matsukawa et al. 2013 [29] (not in the list)",
+      "what": "values quoted",
+      "evidence": "Its CL row fills Table 3 and Figure 4; the Discussion quotes an average CL of 38.5 mm.",
+      "page": "Table 3, p. 317 (PDF 6); p. 318 (PDF 7)"
+    },
+    {
+      "with": "Mitra et al. 2002, Spine [17], mitra2002",
+      "what": "comparison only (no subjects, method or values shared or quoted)",
+      "evidence": "cited with refs 13 and 18 only for an L1 to L5 rise in TPD among Asians; no value quoted",
+      "page": "p. 317 (PDF 6); ref. 17, p. 319 (PDF 8)"
+    },
+    {
+      "with": "Krag et al. 1988, Spine [19], krag1988",
+      "what": "comparison only (no subjects, method or values shared or quoted)",
+      "evidence": "cited with ref. 20 only for an L1 to L5 rise in TPD among North Americans; no value quoted",
+      "page": "p. 317 (PDF 6); ref. 19, p. 319 (PDF 8)"
+    },
+    {
+      "with": "Misenhimer et al. 1989 [15] and Albano et al. 2019 [16] (not in the list)",
+      "what": "values quoted",
+      "evidence": "the 80% share of the outer pedicle diameter beyond which fracture or cut-out is possible is cited to them together",
+      "page": "p. 317 (PDF 6); refs 15-16, p. 319 (PDF 8)"
+    }
+  ],
+  "within_paper": "All of this paper's own values (Tables 1 and 2, the Current study rows of Table 3, Figure 4's Current study line and the text) are the same 300 patients' CT scans measured by the same two radiologists: Table 2 is Table 1 with the sides combined (how is not stated) and Table 3's Current study rows repeat Table 2 (p. 314 (PDF 3); pp. 315-317 (PDF 4-6)). The quoted comparison series are other studies' subjects and share none with this paper. Inference: the Makino Takahiro and Takahiro rows of Table 3 are one study, ref. 24."
+}

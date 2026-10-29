@@ -1,0 +1,182 @@
+{
+  "id": "italianmri",
+  "citation": "Pierro A, Cilla S, Maselli G, Cucci E, Ciuffreda M, Sallustio G. Sagittal Normal Limits of Lumbosacral Spine in a Large Adult Population: A Quantitative Magnetic Resonance Imaging Analysis. J Clin Imaging Sci 2017;7:35 (no issue number printed; article 35, pages 1-7). DOI 10.4103/jcis.JCIS_24_17. Copy read: PMC open-access Cloud Service (pmc-oa-opendata), PMC5590400.1, fetched 2026-10-28; sha256 begins a34a022e95ae01c3. Source: thread 'Reread every paper for clinical detail', project symphony_4, 2026-10-28.",
+  "population": "Central and Southern Italy, all Caucasian; living adults whose lumbosacral MRI scans were selected from all adults referred to one radiology department between January 2007 and July 2012 (the abstract says 'prospectively enrolled'); 604 subjects, 302 men and 302 women; aged 20 to 45 (mean age, height and weight not reported); exclusions (Table 1, p. 2) include LSTV or any other spinal abnormality on MRI, body scalloping, degenerative arthrosis, neurogenic claudication, severe radiating pain, congenital, oncological, haematological, inflammatory or connective tissue disease, prior spinal surgery or trauma, chronic drug therapy, early menopause, and any qualitative suspicion of stenosis or dural ectasia; the numbers screened and excluded are not given. p. 2 (PDF 2).",
+  "modality": "1.5 T MRI (GE Signa Excite HD), sagittal T1-weighted FSE (TR/TE 420/8 ms) and T2-weighted FSE (2700/102 ms), 4 mm slices, 0.4 mm spacing, matrix 384 x 224, FOV 320 x 320 mm, 4 excitations; T1 and T2 read together by three radiologists with more than 10 years' experience; values printed to 0.01 mm on the figures; no axial measures. p. 2-3 (PDF 2-3).",
+  "levels_covered": "L1 to S1 (six levels), each at the vertebral body (mid-portion of the posterior wall), not at the disc; nothing above L1; how levels were counted is not stated.",
+  "anomalies": [
+    {
+      "variant": "Lumbosacral transitional vertebra",
+      "finding": "Exclusion criterion only; no prevalence, no numerator or denominator, no definition (no Castellvi type), no counting rule. Gives no prior for L6, T13, sacralisation or lumbarisation.",
+      "page": "p. 2 (PDF 2), Table 1",
+      "population": "Referred Italian adults aged 20 to 45 (the 604 retained have none)",
+      "how_identified": "Not stated; sagittal lumbar MRI, read qualitatively"
+    },
+    {
+      "variant": "Other spinal abnormality on MRI, vertebral body scalloping, congenital diseases",
+      "finding": "Exclusion criteria with no counts.",
+      "page": "p. 2 (PDF 2), Table 1",
+      "population": "Referred Italian adults aged 20 to 45",
+      "how_identified": "Sagittal T1 and T2 MRI; not described"
+    },
+    {
+      "variant": "Congenital (developmental) lumbar stenosis",
+      "finding": "Qualitative only: thick, short pedicles (ref 7) and thick laminae and articular processes give a reduced sagittal but a normal transverse canal (ref 11); a generic sagittal canal below 12 mm is the accepted definition (ref 12); one 32-year-old example (sex not stated) with SCD L1 12.1, L2 9.5, L3 9.7, L4 9.2 mm below cutoff and L5 12.7, S1 10.4 mm within range. No prevalence.",
+      "page": "p. 1, p. 3-5 (PDF 1, 3-5), Figure 5",
+      "population": "Literature and one illustrative patient",
+      "how_identified": "Sagittal MRI canal diameter against level-specific cutoffs"
+    },
+    {
+      "variant": "Non-tapering dural sac (S1 DSD greater than L4 DSD), a Marfan dural ectasia criterion",
+      "finding": "Present in 11 percent of 302 normal men and 4 percent of 302 normal women; normal S1/L4 limit below 1.2 in men and below 1 in women. Lundby (ref 25) found it in 5 percent of controls. Figure 3's line legend appears swapped relative to the text (Inference).",
+      "page": "p. 3, p. 6 (PDF 3, 6); Figure 3, p. 4 (PDF 4)",
+      "population": "The 604 Italian adults aged 20 to 45",
+      "how_identified": "Per-subject ratio of sagittal DSD at S1 to DSD at L4 on MRI"
+    },
+    {
+      "variant": "Dural ectasia by Oosterhof's DSR cutoffs (false positives in normals)",
+      "finding": "Oosterhof's cutoffs would call 30, 36, 49, 34, 30 and 18 percent of these 604 normal subjects ectatic at L1, L2, L3, L4, L5 and S1; Lundby found 12 percent at L1 and 19 percent at L5; Weigang found 94 percent of Marfan and 44 percent of non-Marfan patients meeting Oosterhof's criteria.",
+      "page": "p. 6 (PDF 6), Table 6",
+      "population": "604 Italian adults (this study); Lundby 101 (64 men, 37 women); Oosterhof 44 (29 men, 15 women)",
+      "how_identified": "DSR = DSD / VBD on sagittal MRI"
+    }
+  ],
+  "measures": [
+    {
+      "name": "Sagittal spinal canal diameter (SCD)",
+      "definition": "AP diameter of the bony canal, perpendicular to the long axis of the canal, from the posterior wall of the body at its mid-portion (middle third) to the front edge of the lamina, drawn in Figure 1 to the front edge of the base of the spinous process (spinolaminar junction). At S1 drawn obliquely, perpendicular to the sacral canal.",
+      "projection": "Sagittal MRI (midline landmarks; slice not named), T1 and T2 together; Figure 2b on T1",
+      "page": "p. 2-4 (PDF 2-4), Figures 1-2, Table 2",
+      "levels": "L1 to S1",
+      "level_pattern": "Pooled 18.7, 17.9, 16.9, 16.9, 17.3, 14.9 mm (L1 to S1): decreases L1 to L4, small rise at L5, sharp drop at S1. Men 18.6, 17.7, 16.8, 16.8, 17.5, 15.5; women 18.8, 18.0, 17.0, 16.9, 17.1, 14.2. Lower cutoffs men / women: 14.5/15.0, 13.9/14.1, 13.0/13.2, 12.7/12.8, 12.6/12.8, 10.4/9.9. Inference: only L5 to S1 (2.4 mm, about 1 SD) separates well; L3 and L4 do not separate.",
+      "covariates": "No sex difference at L1 to L4; men larger at L5 (0.4 mm, P = 0.031) and S1 (1.3 mm, P < 0.001). No correlation with height or weight (R squared < 0.1). Ages 20 to 45, Italian Caucasian only.",
+      "error": "Not reported. Inference: pixel about 0.83 x 1.43 mm and 4 mm slices 4.4 mm apart give a floor near 1 mm; within-sex SD 1.9 to 2.6 mm.",
+      "ct_mask_recipe": "Inference: in the vertebra's midsagittal plane at mid-body height, the gap from the posterior cortex of the body subregion to the anterior cortex of the spinolaminar junction in the posterior-elements subregion, measured perpendicular to the local canal axis; at S1 tilt with the sacral canal.",
+      "radiograph_recipe": "Inference: lateral radiograph, posterior body wall at mid-height to the spinolaminar line, divided by magnification or expressed over VBD; not on an AP."
+    },
+    {
+      "name": "Sagittal vertebral body diameter (VBD)",
+      "definition": "AP diameter of the body ('soma') at the same level as SCD, i.e. a mid-body line from anterior to posterior cortex, parallel to the end plates (Figure 1C); at S1 oblique along the sacral inclination.",
+      "projection": "Sagittal MRI; Figure 2a on T1",
+      "page": "p. 2-4 (PDF 2-4), Figures 1-2, Table 3",
+      "levels": "L1 to S1",
+      "level_pattern": "Pooled 26.5, 27.6, 28.9, 29.6, 29.6, 22.4 mm: steps +1.1, +1.3, +0.7, 0.0, -7.2. Men 28.3, 29.5, 30.8, 31.4, 31.4, 24.4; women 24.7, 25.6, 27.0, 27.8, 27.9, 20.3. L4 and L5 inseparable; the S1 drop exceeds 2 SD (Inference).",
+      "covariates": "Men larger at every level by 3.5 to 4.1 mm (P < 0.001), 13 to 15 percent at L1 to L5 and 20 percent at S1 (Inference from the table). No correlation of all metrics with height or weight (R squared < 0.1).",
+      "error": "Not reported; within-sex SD 2.4 to 2.8 mm.",
+      "ct_mask_recipe": "Inference: body subregion only, midsagittal plane, AP extent at mid-height parallel to the end plates; not an end-plate depth.",
+      "radiograph_recipe": "Inference: lateral radiograph, anterior to posterior cortex at mid-height, corrected for magnification; not on an AP."
+    },
+    {
+      "name": "Sagittal dural sac diameter (DSD)",
+      "definition": "AP diameter of the dural sac at the same level as SCD, parallel to it (Figure 1B); ventral sac surface separated from the anterior epidural fat by reading T1 and T2 together.",
+      "projection": "Sagittal MRI; Figure 2c on T1",
+      "page": "p. 2-4 (PDF 2-4), Figures 1-2, Table 4",
+      "levels": "L1 to S1",
+      "level_pattern": "Pooled 15.3, 14.4, 13.6, 13.3, 12.9, 9.9 mm, monotonic decrease; largest step L5 to S1 (3.0 mm). Men 15.1, 14.1, 13.1, 13.0, 12.9, 10.3; women 15.6, 14.8, 14.0, 13.6, 12.9, 9.5.",
+      "covariates": "Women larger at L1 to L4 by 0.5 to 0.9 mm (P < 0.001), equal at L5 (P = 0.719), men larger at S1 by 0.8 mm (P = 0.001). No correlation with height or weight.",
+      "error": "Not reported; SD widens caudally, 1.7 mm at L1 to 3.0 mm at S1 pooled.",
+      "ct_mask_recipe": "Not possible from a CT bone mask (soft tissue; needs MRI or CT myelography). Inference.",
+      "radiograph_recipe": "Not possible without myelography. Inference."
+    },
+    {
+      "name": "Dural sac ratio (DSR)",
+      "definition": "DSD divided by VBD at each level; upper limit (mean + 1.96 SD) is the cutoff above which dural ectasia is suspected.",
+      "projection": "Sagittal MRI",
+      "page": "p. 2-3, p. 5-6 (PDF 2-3, 5-6), Table 5, Table 6, Figure 4",
+      "levels": "L1 to S1",
+      "level_pattern": "Pooled 0.59, 0.53, 0.48, 0.45, 0.44, 0.44: decreases L1 to L5, equal at L5 and S1 (the text calls it monotonic to S1). Men 0.54, 0.48, 0.43, 0.42, 0.41, 0.41; women 0.64, 0.58, 0.52, 0.49, 0.46, 0.46. Upper cutoffs men / women 0.70/0.82, 0.62/0.76, 0.57/0.70, 0.56/0.65, 0.59/0.63, 0.70/0.75.",
+      "covariates": "Higher in women at every level (P < 0.001). Adults only: DSR is higher in children and falls about 10 percent every 3 years during growth (ref 27). No correlation with height or weight.",
+      "error": "Not reported.",
+      "ct_mask_recipe": "Not possible from a CT bone mask. Inference.",
+      "radiograph_recipe": "Not possible. Inference."
+    },
+    {
+      "name": "S1/L4 dural sac diameter ratio",
+      "definition": "DSD at S1 divided by DSD at L4, per subject; a sac not tapering (ratio above 1) is a major dural ectasia criterion (ref 28).",
+      "projection": "Sagittal MRI",
+      "page": "p. 2-3, p. 6 (PDF 2-3, 6), Figure 3 (p. 4, PDF 4)",
+      "levels": "L4 and S1",
+      "level_pattern": "Ratio above 1 in 11 percent of men and 4 percent of women; normal below 1.2 in men and below 1 in women. Ratio of Table 4 means: men 0.79, women 0.70 (Inference).",
+      "covariates": "Sex difference called significant without a test or P.",
+      "error": "Not reported.",
+      "ct_mask_recipe": "Not possible from a CT bone mask. Inference.",
+      "radiograph_recipe": "Not possible. Inference."
+    }
+  ],
+  "level_details": [
+    {"level": "L1", "detail": "Widest canal (18.7 mm), widest sac (15.3 mm), highest DSR (0.59), smallest lumbar VBD (26.5 mm).", "page": "p. 4-5 (PDF 4-5), Tables 2-5"},
+    {"level": "L2-L3", "detail": "Canal narrows by 0.8 then 1.0 mm a level; VBD grows by 1.1 then 1.3 mm a level.", "page": "p. 4 (PDF 4), Tables 2-3"},
+    {"level": "L3-L4", "detail": "Canal minimum, 16.9 mm at both levels pooled; VBD grows only 0.7 mm from L3 to L4.", "page": "p. 3-4 (PDF 3-4), Tables 2-3"},
+    {"level": "L4-L5", "detail": "VBD identical (29.6 mm pooled; 31.4 in men at both); canal rises 0.4 mm at L5; L5 is the first level with a sex difference in SCD; DSD shows no sex difference at L5 (P = 0.719).", "page": "p. 3-4 (PDF 3-4), Tables 2-4"},
+    {"level": "L5/S1", "detail": "From L5 to S1 VBD falls 7.2 mm (29.6 to 22.4), SCD 2.4 mm (17.3 to 14.9), DSD 3.0 mm (12.9 to 9.9); DSR unchanged (0.44). S1 has the largest pooled SD of every measure (VBD 3.4, SCD 2.5, DSD 3.0 mm, DSR 0.14). At S1 men exceed women in SCD by 1.3 mm and DSD by 0.8 mm. S1 lines drawn obliquely along the sacral inclination.", "page": "p. 3-5 (PDF 3-5), Tables 2-5, Figure 2"},
+    {"level": "T12/L1, C2/C3, C7/T1", "detail": "Not covered.", "page": "p. 2 (PDF 2)"},
+    {"level": "L1 to S1, one normal man (Figure 2)", "detail": "30-year-old asymptomatic man, T1: VBD 31.32, 33.45, 35.37, 32.71, 33.99, 24.68 (last digit partly hidden); SCD 20.36, 19.34, 17.70, 20.21, 20.58, 18.35; DSD 16.79, 14.84, 15.26, 16.33, 13.96, 11.21 mm. Inference: within him VBD, SCD and DSD each reverse between L2 and L5; only the S1 drop is clear in all three.", "page": "p. 3 (PDF 3), Figure 2"},
+    {"level": "L1 to S1, two 32-year-olds (Figure 5)", "detail": "Normal subject (panel b) 15.34, 14.79, 13.54, 13.72, 14.46, 11.04 mm; congenital stenosis with early degeneration (panel d) 12.21, 9.52, 9.77, 9.28, 12.67, 10.38 mm; text: L1 to L4 below cutoff, L5 and S1 within range, so cutoffs must be level-specific. Inference: with the label values one of L5 (female cutoff 12.8) or S1 (male cutoff 10.4) is marginally below cutoff whichever the sex.", "page": "p. 3-5 (PDF 3-5), Figure 5"}
+  ],
+  "errors": [
+    {"what": "Intra- and inter-observer reliability, repeat measurement, ICC, Bland-Altman", "value": "Not reported anywhere", "page": "p. 1-6 (PDF 1-6)"},
+    {"what": "Readers", "value": "Three radiologists with more than 10 years' experience; division of work not stated", "page": "p. 2 (PDF 2)"},
+    {"what": "Slice thickness and spacing", "value": "4 mm with 0.4 mm spacing (Inference: slice centres 4.4 mm apart; a midline structure may lie up to about 2 mm from a slice centre)", "page": "p. 2 (PDF 2)"},
+    {"what": "In-plane resolution", "value": "Matrix 384 x 224 over 320 mm (Inference: about 0.83 x 1.43 mm pixels, a precision floor near 1 mm)", "page": "p. 2 (PDF 2)"},
+    {"what": "Printed precision", "value": "Figure labels to 0.01 mm, a false precision for this pixel size (Inference)", "page": "p. 3, p. 5 (PDF 3, 5), Figures 2 and 5"},
+    {"what": "Normality of distributions", "value": "Tested; test and result not reported; cutoffs assume normality (mean +/- 1.96 SD)", "page": "p. 2-3 (PDF 2-3)"}
+  ],
+  "pearls_pitfalls": [
+    {"text": "Secondary stenosis is easy to see on MRI; stenosis without an acquired cause is hard to define, hence level-specific normal limits.", "page": "p. 1 (PDF 1)"},
+    {"text": "Congenital stenosis: thick, short pedicles and thick laminae and articular processes give a reduced sagittal but a normal transverse canal.", "page": "p. 1, p. 4-5 (PDF 1, 4-5)"},
+    {"text": "The Delphi survey (ref 12) recommends the AP canal diameter; a generic sagittal diameter below 12 mm defines congenital stenosis; published minimum sagittal diameters range from 8 to 15 mm (refs 12-19); the authors argue for sex- and level-specific cutoffs instead.", "page": "p. 5 (PDF 5)"},
+    {"text": "Stenosis can be segmental (L1 to L4 narrow, L5 and S1 within range in the Figure 5 patient): judge each level against its own norm.", "page": "p. 3-4 (PDF 3-4)"},
+    {"text": "DSCA is significantly affected by slice orientation; qualitative grading of the sac on axial T2 (refs 20, 21; CSF to rootlet ratio) depends less on orientation but is subjective; the AP bony canal diameter correlates with canal area (ref 23).", "page": "p. 5 (PDF 5)"},
+    {"text": "Canal shape changes from circular or rounded (upper lumbar) to triangular (mid lumbar) to trefoil (lower lumbar) (ref 22).", "page": "p. 5 (PDF 5)"},
+    {"text": "Dural ectasia is a major criterion of Marfan syndrome (ref 9, 1996 revised criteria); Oosterhof's DSR cutoffs (0.57 at S1, 0.47 at L3) flag 18 to 49 percent of normal adults here, and 44 percent of non-Marfan patients in Weigang; use this paper's sex-specific cutoffs (Tables 5-6).", "page": "p. 5-6 (PDF 5-6), Table 6"},
+    {"text": "A sac wider at S1 than L4 occurs in 11 percent of normal men and 4 percent of normal women: normal S1/L4 below 1.2 in men and below 1 in women.", "page": "p. 3, p. 6 (PDF 3, 6)"},
+    {"text": "DSR norms are adult only: DSR is higher in children and falls about 10 percent every 3 years during growth (ref 27).", "page": "p. 6 (PDF 6)"},
+    {"text": "Epidural fat: stenosis may go with less fat, and excess fat may compress the sac (ref 29); no subject had a fat-altering condition (kyphoscoliosis, stenosis, long-term steroids, endogenous steroid excess), so fat was not treated as a variable.", "page": "p. 6 (PDF 6)"},
+    {"text": "Population limit: one homogeneous Central and Southern Italian Caucasian population; Indian and Nepalese pedicles differ (refs 30, 31).", "page": "p. 6 (PDF 6)"},
+    {"text": "The authors read a 'large' female SCD cutoff as an adaptation to pregnancy (ref 24); Table 2 supports only a 0.1 to 0.5 mm excess at L1 to L5 (Inference).", "page": "p. 5 (PDF 5), Table 2"},
+    {"text": "Inference: mean +/- 1.96 SD cutoffs flag 2.5 percent of normal people at each level; over six levels a normal person often crosses one.", "page": "p. 2 (PDF 2)"}
+  ],
+  "instructions": [
+    {"text": "Measure the bony sagittal canal in the midsagittal plane, perpendicular to the local canal axis, from the middle third of the posterior body wall to the anterior edge of the spinolaminar junction; at S1 tilt the line with the sacral canal.", "page": "p. 2-3 (PDF 2-3), Figures 1-2"},
+    {"text": "Measure the body's AP diameter at the same (mid-body) height as the canal line, cortex to cortex parallel to the end plates; do not substitute an end-plate depth.", "page": "p. 2 (PDF 2); Figure 1C, p. 3 (PDF 3)"},
+    {"text": "Use the L5/S1 drop as a junction marker: VBD falls about 7 mm, SCD about 2.4 mm and DSD about 3 mm from L5 to S1, while DSR does not change.", "page": "p. 4-5 (PDF 4-5), Tables 2-5"},
+    {"text": "Do not use VBD to separate L4 from L5 (29.6 mm both) nor SCD to separate L3 from L4 (16.9 mm both).", "page": "p. 4 (PDF 4), Tables 2-3"},
+    {"text": "Expect the canal widest at L1, narrowest at L3-L4 and slightly wider at L5; a canal that widens steadily caudally from L1 is not this pattern.", "page": "p. 3-4 (PDF 3-4), Table 2"},
+    {"text": "Condition body depth on sex (men 3.5 to 4.1 mm larger at every level); do not condition the canal on sex above L5.", "page": "p. 4 (PDF 4), Tables 2-3"},
+    {"text": "Do not scale canal or sac dimensions with height or weight (R squared < 0.1).", "page": "p. 3 (PDF 3)"},
+    {"text": "Before applying these norms establish five lumbar vertebrae and a normal S1; transitional spines were excluded, so the S1 values do not describe a transitional segment.", "page": "p. 2 (PDF 2), Table 1"},
+    {"text": "Do not expect the population's level trends inside one spine: in Figure 2's normal man VBD, SCD and DSD each reverse between L2 and L5; trust the S1 drop and weigh small steps over several levels.", "page": "p. 3 (PDF 3), Figure 2"},
+    {"text": "To flag stenosis compare each level with its sex-specific cutoff, not a single 12 mm threshold; stenosis can spare L5 and S1.", "page": "p. 3-5 (PDF 3-5), Table 2"},
+    {"text": "To flag dural ectasia compare DSR with the sex-specific upper cutoffs and S1/L4 DSD with 1.2 (men) or 1 (women); do not use Oosterhof's cutoffs on normal adults; never apply adult DSR norms to children.", "page": "p. 5-6 (PDF 5-6), Tables 5-6"},
+    {"text": "Treat these values as Italian Caucasian adults aged 20 to 45; widen the prior for other populations or ages.", "page": "p. 2, p. 6 (PDF 2, 6)"},
+    {"text": "On MRI read T1 and T2 together to place the ventral sac surface against the anterior epidural fat.", "page": "p. 2 (PDF 2)"},
+    {"text": "When reading Figure 3, trust the text and Table 4 over the line legend for which sex has more S1/L4 ratios above 1 (Inference).", "page": "p. 3-4 (PDF 3-4)"}
+  ],
+  "bordercall": [
+    "(a) Anomaly priors: none. LSTV was an exclusion criterion with no count or denominator; nothing on L6, T13, ribs or block vertebrae; level counting not described (Table 1, p. 2).",
+    "(b) SCD here (mid-body posterior wall to spinolaminar junction, perpendicular to the canal axis, sagittal MRI) shares its two landmarks with Panjabi 1992's SCD (per the panjabi1992 note); a mask SCD at mid-body height on the midsagittal plane matches this paper, while a minimum over the arch (Eisenstein's caliper) reads smaller (Inference).",
+    "(b) VBD is a mid-body depth, not Panjabi's end-plate depth: Panjabi EPDu 34.1 to 35.5 mm against 26.5 to 29.6 mm pooled here (28.3 to 31.4 in men); a mask end-plate depth compared with this VBD is biased upward by several millimetres; add a mid-body depth to the generator or do not calibrate end-plate depths with this table (Inference).",
+    "(b) S1 values (VBD 22.4, SCD 14.9 mm pooled; by sex in Tables 2-3) could anchor an S1 state outside the generator's C3 to L5 range; measured obliquely along the sacral inclination.",
+    "(b) DSD, DSR and S1/L4 are soft-tissue measures, not obtainable from a CT bone mask.",
+    "(b) Inference: magnification-free SCD/VBD from the table means: men 0.66, 0.60, 0.55, 0.54, 0.56, 0.64; women 0.76, 0.70, 0.63, 0.61, 0.61, 0.70 (L1 to S1), a U shape bottoming at L4 (men) or L4-L5 (women), obtainable from a lateral radiograph.",
+    "(c) Measurement error: none reported; Inference: about 1 mm floor for SCD and VBD on this protocol; within-sex SDs (SCD 1.9 to 2.6, VBD 2.4 to 2.8, DSD 1.6 to 3.2 mm) are between-subject spread.",
+    "(d) Sex: VBD men +3.5 to +4.1 mm everywhere; SCD equal L1 to L4, men larger at L5 (0.4) and S1 (1.3); DSD women larger L1 to L4, men larger at S1; DSR women higher everywhere. Size: no correlation with height or weight (R squared < 0.1), so couple the canal weakly or not at all to the size factor. Age 20 to 45 only. Population Central and Southern Italian Caucasian only."
+  ],
+  "gaps": [
+    "Not stated: how levels were counted; how LSTV was recognised and how many were excluded; numbers screened and excluded; mean age, height, weight; which sagittal slice; which sequence for which measure; reader allocation; reliability; normality result; sex of the Figure 5 patients; any transverse dimension; anything above L1.",
+    "Figure 3 (p. 4): as drawn, the solid (men, per caption) curve has about 4 percent and the dotted (women) about 11 percent above ratio 1, and medians about 0.70 and 0.80, the reverse of the text (11 percent men, 4 percent women) and of Table 4's mean ratios (men 0.79, women 0.70); Inference: the caption's line styles are swapped.",
+    "Abstract gives the male SCD cutoff range as 14.5 to 10.1 mm; Table 2 gives 10.4 at S1 (15.5 - 1.96 x 2.6 = 10.4).",
+    "Abstract calls 0.70 to 0.56 (men) and 0.82 to 0.63 (women) the mean DSR; these are Table 5's cutoffs.",
+    "Text: DSD higher in women 'except at L5 and S1'; Table 4 shows S1 reversed (men larger, P = 0.001).",
+    "Text: DSR monotonic L1 to S1; Table 5 shows L5 = S1. Text: VBD increases L1 to L5; men L4 = L5.",
+    "S1/L4 sex difference called significant with no test or P.",
+    "Discussion calls female SCD cutoffs 'large'; Table 2 shows 0.1 to 0.5 mm at L1 to L5 and smaller at S1.",
+    "Discussion quotes an S1 DSR cutoff of 0.72; Tables 5-6 give 0.70 (men) and 0.75 (women); Inference: pooled 0.44 + 1.96 x 0.14 = 0.71.",
+    "S1/L4 limit 'below 1' for women although 4 percent of normal women exceed 1 (Inference: a 97.5th percentile lies above 1).",
+    "Table 2 prints P = 0.108 at both L2 and L3 (possible copying error, Inference).",
+    "Figure 5 labels against text: 12.21 given as 12.1; 9.77 and 9.28 truncated to 9.7 and 9.2 while others are rounded.",
+    "Abstract 'prospectively enrolled' against methods' selection of 2007 to 2012 referral scans; 'nonsymptomatic' means free of the excluded symptoms (Inference).",
+    "Inference: excluding any qualitative suspicion of stenosis or ectasia on the same images trims both tails, so the cutoffs are likely tighter than in an unselected population.",
+    "Other notes in this set (Inference until checked): Panjabi 1992 SCD L1 to L5 19.0, 18.2, 17.5, 18.6, 19.7 mm (minimum L3, rise of 2.2 mm to L5) against 18.7, 17.9, 16.9, 16.9, 17.3 here (rise 0.4 mm); Eisenstein 1977 Caucasoid men 18, 17, 16, 16, 18 mm on dry bone; MRI values are not directly comparable with dry bone or radiographs."
+  ]
+}

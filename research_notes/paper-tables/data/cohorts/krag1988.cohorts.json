@@ -1,0 +1,97 @@
+{
+  "paper": "krag1988",
+  "cohorts": [
+    {
+      "cohort": "vermont_ct_patients",
+      "labels": [
+        "all",
+        "female",
+        "male",
+        "0 deg axis",
+        "5 deg axis",
+        "10 deg axis",
+        "15 deg axis",
+        "0, 5, 10 and 15 deg axes",
+        "fractured vertebrae",
+        "herniated discs",
+        "bulging discs",
+        "unspecified cord lesions",
+        "bony degenerative changes",
+        "normal studies",
+        "normal study: suspected herniated disc",
+        "normal study: multitrauma",
+        "normal study: suspected fracture",
+        "normal study: suspected bony degenerative change"
+      ],
+      "tables": [
+        "Table 1",
+        "Table 2",
+        "Text: Abstract",
+        "Text: Materials and Methods",
+        "Text: Results",
+        "Text: Discussion",
+        "Text: Conclusions"
+      ],
+      "subjects": "Living patients whose clinical thoracic and lumbar CT scans, done at the Medical Center Hospital of Vermont (Burlington, USA) from September 1982 to November 1983, were reviewed retrospectively. Vertebrae T9 to L5 were measured; vertebrae that were fractured or next to internal fixation devices (metal artefact) were excluded. Final diagnoses: 10 fractured vertebrae, 7 herniated discs, 5 bulging discs, 3 unspecified cord lesions, 2 bony degenerative changes, 14 normal studies. Ethnicity, height and weight not reported; subjects not balanced for age; bone density not available. The method rows (CT and reading settings) carry the labels all with no group but describe the technique, which the cadaver vertebrae shared.",
+      "n_people": 41,
+      "n_units": "91 vertebrae of 41 patients, T9 to L5; 182 pedicles (Tables 1 and 2: T9 14, T10 18, T11 22, T12 24, L1 22, L2 14, L3 24, L4 24, L5 20)",
+      "ages": "18 to 75 years, mean 36, median 28",
+      "sexes": "14 women, 27 men",
+      "page": "p. 27 (PDF 1)"
+    },
+    {
+      "cohort": "cadaver_vertebrae",
+      "labels": [
+        "not stated",
+        "cadaver vertebrae"
+      ],
+      "tables": [
+        "Figure 7",
+        "Text: Abstract",
+        "Text: Materials and Methods"
+      ],
+      "subjects": "Eight cadaver vertebrae (1 T12, 3 L2, 3 L3, 1 L4) with their inferior end plates embedded in methylmethacrylate and mounted in jigs; donor source, number of donors, age, sex and country not stated.",
+      "n_people": null,
+      "n_units": "8 vertebrae (1 T12, 3 L2, 3 L3, 1 L4) from an unstated number of cadavers",
+      "ages": "not stated",
+      "sexes": "not stated",
+      "page": "p. 28 (PDF 2)"
+    }
+  ],
+  "techniques": [
+    {
+      "technique": "ct_midpedicle_film",
+      "cohorts": [
+        "vermont_ct_patients",
+        "cadaver_vertebrae"
+      ],
+      "modality": "CT axial",
+      "instrument": "Siemens Somatom 2 third-generation CT, 4-mm cuts, 5-s scan time; one slice per vertebra printed on x-ray film at 80% of life size and read on a backlit viewbox with a 0.5-mm pencil, a 1 x 1 mm grid overlay, dividers with a 0.5-mm ruled scale and a hand-held protractor",
+      "how": "On the axial slice where both pedicles look largest (midpedicle cut), the AP midline axis is set with the grid to bisect body and canal, a grid line lying across both transverse processes. Line A is perpendicular to it, tangent to the anterior-most point of the canal; line B is parallel to A along the flattest part of the posterior lamina cortex. The pedicle axis is drawn by eye through the middle of the pedicle, with a perpendicular at its narrowest width. Chord length: from line B through that crossing point at 0, 5, 10 and 15 deg to the sagittal plane, to the anterior body cortex. Pedicle length: posterior cortex to line A (methods: 5 deg data shown; Fig. 3 caption: 0 deg, lines A to B). Pedicle diameter: across the narrowest width perpendicular to the pedicle axis, and at 0 and 15 deg as the gap between parallel tangents to the medial and lateral cortices. Body length: line A to the anterior cortex along the AP midline. Pedicle angle: pedicle axis to the sagittal plane, anteromedial positive. Cadaver vertebrae were scanned and read the same way.",
+      "magnification": "corrected: film printed at 80% of life size, lengths read to the nearest 0.33 mm and multiplied by 1.25; angles read to 0.5 deg",
+      "observers": "not stated",
+      "page": "pp. 27-28 (PDF 1-2)"
+    },
+    {
+      "technique": "caliper_on_sections",
+      "cohorts": [
+        "cadaver_vertebrae"
+      ],
+      "modality": "other",
+      "instrument": "caliper on band-saw sections of cadaver vertebrae",
+      "how": "After CT, each cadaver vertebra was cut through the midpedicle in the transverse plane parallel to the end plates; chord length along the 0 deg axis, pedicle diameter perpendicular to the pedicle axis and body length were measured on the cut surface and plotted against the CT values (Fig. 7, Y = 1.01(x) + 0.7).",
+      "magnification": "none; direct measurement on the specimen",
+      "observers": "not stated",
+      "page": "p. 28 (PDF 2); Fig. 7 p. 31 (PDF 5)"
+    }
+  ],
+  "shared": [
+    {
+      "with": "Saillant G, Rev Chir Orthop 1976 (ref. 9); not one of the listed studies",
+      "what": "values quoted",
+      "evidence": "Saillant's means are plotted, as points only, beside this study's chord length (Fig. 2), pedicle diameter (Fig. 5) and pedicle angle (Fig. 6); no number of his is printed",
+      "page": "p. 28 (PDF 2), p. 30 (PDF 4), p. 31 (PDF 5)"
+    }
+  ],
+  "within_paper": "The two cohorts are separate: the 41 patients' scans give Tables 1 and 2 and the text values, and the 8 cadaver vertebrae only the CT-against-caliper check of Fig. 7 (p. 28, PDF 2; p. 31, PDF 5). The same 8 cadaver vertebrae were measured by both techniques, CT first and caliper after sectioning (p. 28, PDF 2). Tables 1 and 2 are of the same patient pedicles, with the same counts per level (pp. 29-30, PDF 3-4). Inference: each table's 182 pedicles are both pedicles of the 91 vertebrae, and several vertebrae come from one patient, so rows are not independent persons."
+}

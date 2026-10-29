@@ -103,6 +103,10 @@ their own, and part A gives what they are then worth. There are three reasons.
    - At the other 29 cells there are 22 to 144 cadavers for the four SPINEPS measures the series reach (worth 23
      to 194 scans), and, as the pedicle table records them, about 790 for the pedicle width at L1 to L5, which
      no SPINEPS measurer reads (worth 853 to 1,435). No cell reaches 2,000 at the tables' counts.
+   - On the corrected tables of spine-program #241 (main 621ee19), the 15 series hold 973 recorded specimens,
+     the four SPINEPS measures still 22 to 144 cadavers (worth 23 to 194 scans), and the pedicle width at L1 to L5
+     692 to 722 (worth 761 to 1,273); no cell reaches 2,000 there either ("The counts on #241's corrected
+     tables", below).
 2. **The studies do not agree.** Panjabi's comparison tables print his means beside earlier studies' means for
    the same measure and level: cervical Table 7, thoracic 8A and 8B, lumbar 6, and facets 9 and 10, read cell by
    cell into provenance.csv. Take the 86 level-and-measure cells, over 10 measures, where three or more of 14
@@ -269,6 +273,37 @@ specimens or people. Yu's five values are also midpoints of two age groups' mean
 skeletons. So the pedicle width's 791 is the table's count, not the papers'. Read from the papers, Olsewski's 100
 becomes 21 and Robertson's 10 join the cadavers, but the total is not known, since Zindrick's paper gives no
 count and the table records none for Lien.
+
+### The counts on #241's corrected tables (2026-10-29)
+
+Thread "Finish the clinical reread", for greg's question of 2026-10-29 00:19 UTC. spine-program #241 (merged at
+main 621ee19) decided what #239 left open and writes the two tables again, with the decisions applied, under
+synthetic_spine/data/corrected/; the copies the counts above read are unchanged. Two of its decisions move the
+counts: each sex's row now carries that sex's own count, where the copy's carried the whole sample in each, and
+the four pedicle rows above now read as the papers do. The checks were run again on the corrected tables
+(verify/*_corrected.log), with two changes to the scripts that leave every count above as it was: "skeleton"
+joins the words that mark a series as cadaveric, since Yu's cohort now reads "dry skeletons", and --sum-sexes
+gives a series split by sex the sum of its sexes' counts.
+
+| cells | the copy | #241's corrected tables |
+|---|---|---|
+| cadaveric or skeletal series, each once (series_totals) | 15, 1,163 specimens, three with no count | 15, 973 specimens, two with no count |
+| EPWu, VBHp and SCD, T12 to L5 | as the table above | unchanged |
+| SCW, L1 to L5 | 22 (worth 24 to 30) | 135 (worth 148 to 182) |
+| PDW, L1 to L5 | 791 (worth 853 to 1,435) | 692 to 722 (worth 761 to 1,273) |
+
+- The 973: Olsewski's 100 become 21, Twomey's 204 become no count (the paper prints none; its Table 1's nearest
+  group is 24 men), Krag's series is CT of living patients and leaves, and Robertson's 10 dry spines, Eisenstein's
+  78 men and 35 women and Amonoo-Kuofi 1985's 79 and 43 count, summed over the sexes. Zindrick's per-level counts
+  are now printed as studies, 26 to 56, which the tables still mark cadaveric although the paper counts no
+  specimens; they are kept so that the two columns count alike.
+- SCW rises because Eisenstein's dry bone now carries its counts. per_cell.py and worth_real.py read a series as
+  cadaveric by its cohort column alone and leave his series out there, as they did before; recorded_counts.py
+  reads the cohort and the modality.
+- What the recorded series are worth at the spreads part B measures barely moves: over the 29 cells, a median of
+  4.5 scans for the cadavers at 0.39 (range 3.9 to 10.4, from 10.5), and 1.0 at 0.87; at f = 0 the cadavers'
+  largest cell falls from 1,451 to 1,295 (verify/worth_real_corrected.log). The spread between the series' own
+  means is 0.87 over the 28 cells with three or more, 0.42 to 1.88 (verify/per_cell_corrected.log).
 
 Part A's formula at the recorded counts (verify/worth_real.py) treats every series as exact, which favours the
 imaging series, and counts Bonczar's 1,481 as a series of its own. It takes a series that records no count as
@@ -732,6 +767,13 @@ a minute, and wrote the logs beside them:
     python3 -I verify/per_cell.py D BC > verify/per_cell.log
     python3 -I verify/worth_real.py D BC > verify/worth_real.log
     python3 -I verify/worth_real.py D BC "Bonczar 2024" > verify/worth_real_no_bonczar.log
+    # the same six on #241's corrected tables, C = spine-program/synthetic_spine/data/corrected at 621ee19:
+    python3 -I verify/count_series.py C > verify/count_series_corrected.log
+    python3 -I verify/series_totals.py C --sum-sexes > verify/series_totals_corrected.log
+    python3 -I verify/recorded_counts.py C BC --sum-sexes > verify/recorded_counts_corrected.log
+    python3 -I verify/per_cell.py C BC --sum-sexes > verify/per_cell_corrected.log
+    python3 -I verify/worth_real.py C BC --sum-sexes > verify/worth_real_corrected.log
+    python3 -I verify/worth_real.py C BC "Bonczar 2024" --sum-sexes > verify/worth_real_no_bonczar_corrected.log
     python3 -I verify/extremes.py BC > verify/extremes.log
     python3 -I verify/definitions.py between_studies.json > verify/definitions.log
     python3 -I verify/pooled_sd_split.py between_studies.json > verify/pooled_sd_split.log
@@ -784,6 +826,7 @@ no rule, so it was run for the note, in seconds.
 | recorded_counts.py | recorded_counts.log | cadaveric specimens per cell and their worth at f = 0; every series' count per cell, specimens and people, 22 to 4,241 with Bonczar's pooled 1,481; 29 cells with a series beside Panjabi's and 675 with his alone, worth 14 |
 | per_cell.py | per_cell.log | each cell's series, 776 pedicle cadavers with Zindrick at 41, and the series' own spread, 0.87 (0.42 to 1.94) over 28 cells |
 | worth_real.py | worth_real.log, worth_real_no_bonczar.log | the recorded series' worth at f = 0, 0.39 and 0.87, each series taken as exact and one with no count as 12; and the same with Bonczar 2024 left out |
+| the five above, on #241's corrected tables | count_series_corrected.log, series_totals_corrected.log, recorded_counts_corrected.log, per_cell_corrected.log, worth_real_corrected.log, worth_real_no_bonczar_corrected.log | "The counts on #241's corrected tables": 973 specimens over 15 series, SCW 135, PDW 692 to 722, and the worth at 0.39 and 0.87 barely moved |
 | extremes.py | extremes.log | the cells at the ends of part A's ranges; 396, 132 and 176 cells by kind |
 | definitions.py | definitions.log | the median and the splits with the definition rows left out |
 | pooled_sd_split.py | pooled_sd_split.log | the level-by-level part with one SD per group: 0.18 to 0.34 over the ten, 0 to 0.27 over the five; EPAl's 0.77 and 0.32, and PDW L's 0.65, the largest with one SD per group |

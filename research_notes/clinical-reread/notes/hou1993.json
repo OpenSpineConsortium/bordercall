@@ -1,0 +1,335 @@
+{
+  "id": "hou1993",
+  "citation": "Hou S, Hu R, Shi Y. Pedicle Morphology of the Lower Thoracic and Lumbar Spine in a Chinese Population. Spine 1993;18(13):1850-1855 (J. B. Lippincott Company). Authors as printed: Shuxun Hou, MD; Richard Hu, MD, FRCSC; Yamin Shi, MD. Copy read: greg's upload of 2026-10-28 01:02 UTC (upload id 24796f41-20fb-4ece-9607-735a092c1e61), sha256 begins 1b3d30f4f8a70fe6; a 6-page scan with no text layer, journal p. 1850 = PDF 1 to p. 1855 = PDF 6.",
+  "population": "China (Chinese, called an oriental population), dry bone: disarticulated vertebrae from the anatomy department of the 4th Military Medical Institute, Xian; 40 'normal' T9-L5 columns (25 male, 15 female), grossly free of bony disease or deformity; Inference 40 x 9 = 360 vertebrae; one value per measure per vertebra implied by 1,440 data points (side not stated). Pedicle inclination in a further 10 specimens (sex not given). No ages, statures or weights ('not available'); how sex was assigned not stated. pp. 1850-1852 (PDF 1-3).",
+  "modality": "Direct measurement of dry bone with Vernier calipers (0.1 mm), one observer (Y.S.); visual grading of the pedicle centre against the transverse process and the superior facet (posterior view, checked laterally and from cephalad); pedicle inclination by an unstated method in 10 further specimens. Means compared with Zindrick (radiographic/CT), Berry and Olsewski (direct) white series. p. 1851 (PDF 2); p. 1854 (PDF 5).",
+  "levels_covered": "T9 to L5 (nine levels); no data above T9, at L5/S1, C2/C3 or C7/T1.",
+  "anomalies": [
+    {
+      "variant": "none reported (LSTV, sacralisation, lumbarisation, L6, T13, rib-count anomalies, cervical ribs, block vertebrae)",
+      "finding": "The paper never mentions any transitional or numerical anomaly; no prevalence, numerator or denominator can be taken. Inference: selecting 40 'normal' T9-L5 columns without disease or deformity may have excluded transitional columns silently.",
+      "page": "pp. 1850-1855 (PDF 1-6)",
+      "population": "40 Chinese dry-bone T9-L5 columns (25 male, 15 female)",
+      "how_identified": "not applicable; how levels were identified in disarticulated bone is not described"
+    }
+  ],
+  "measures": [
+    {
+      "name": "A: pedicle width (medial-lateral diameter)",
+      "definition": "Medial-lateral width of the pedicle taken at its narrowest section at the mid-point of the pedicle (p. 1851, PDF 2); Figure 1 left (axial outline) marks A between an arrow from the canal side and one from the lateral surface. Inference: a caliper on dry bone reads outer cortex to outer cortex.",
+      "projection": "dry bone caliper, transverse plane",
+      "page": "p. 1851 (PDF 2), Figure 1; Table 1 p. 1852 (PDF 3); Figure 3 p. 1853 (PDF 4)",
+      "levels": "T9-L5",
+      "level_pattern": "Pooled mean +/- SD mm (Table 1): T9 5.7+/-1.1, T10 6.8+/-1.4, T11 8.1+/-1.8, T12 8.3+/-1.9, L1 7.0+/-1.2, L2 7.4+/-1.3, L3 9.2+/-1.6, L4 10.5+/-1.8, L5 12.9+/-2.7. Male: 6.0, 7.0, 8.6, 8.8, 7.2, 7.6, 9.4, 10.8, 12.8 (SD 1.1-2.7). Female: 5.2, 6.4, 7.5, 7.5, 6.6, 7.1, 9.0, 10.2, 13.0 (SD 0.9-2.7). Rises T9 to T12, L1 a local minimum smaller than T12 and L2 in every column (p. 1851), then rises steeply L3-L5. Inference effect sizes: T12/L1 0.8, L2/L3 1.2, L3/L4 0.8, L4/L5 1.0, T9/T10 0.9, T10/T11 0.8; T11/T12 and L1/L2 below 0.35. Smallest single widths 3 mm (T9) and 4.2 mm (T10) in females; male L1 minima in the low 5 mm range (p. 1852).",
+      "covariates": "Sex: female narrower at T9 (P = 0.031) and T12 (P = 0.043), no lumbar sex difference (p. 1851); male minus female 0.4-1.3 mm T9-L4, female 0.2 wider at L5. Population: Olsewski white males wider at every lumbar level (L1 9.5, L5 21.1), Olsewski females at L1, L4, L5; Berry differs only at L5 (10.9, smaller); Zindrick differs at all levels but T11 (larger at T9 and L1-L5, smaller at T10-T12) (Table 1; p. 1854). No age or body-size data.",
+      "ct_mask_recipe": "Inference: vertebra frame from end-plate normal and midsagittal plane; pedicle = bony bridge of the posterior-element part next to the body; step along the pedicle axis, take medial-lateral chords perpendicular to it, A = minimum chord to the outer mask boundary; never along the scanner or vertebral x axis (at L4-L5 the axis is about 18-30 deg off midline, so an x chord is about 1/cos(angle) too wide).",
+      "radiograph_recipe": "Inference: AP radiograph, the pedicle oval's medial-lateral width divided by magnification; overstates the isthmus at L4-L5 where the pedicle runs obliquely. Not available from a lateral radiograph. The paper notes Zindrick's radiographic widths differ significantly from these caliper values (p. 1854).",
+      "error": "No intra- or inter-observer data; one observer; caliper resolution 0.1 mm; SDs are between-specimen spread (CV about 17-23 percent)."
+    },
+    {
+      "name": "B: pedicle height (cephalo-caudal diameter)",
+      "definition": "Cephalad-caudad diameter of the pedicle at its narrowest section at the mid-point of the pedicle (p. 1851, PDF 2); Figure 1 right (lateral outline drawn on its side) marks B across the pedicle's narrow neck. Inference: between the superior and inferior vertebral notches.",
+      "projection": "dry bone caliper, sagittal plane",
+      "page": "p. 1851 (PDF 2), Figure 1; Table 2 p. 1852 (PDF 3); Figure 4 p. 1853 (PDF 4)",
+      "levels": "T9-L5",
+      "level_pattern": "Pooled (Table 2): T9 12.9+/-1.2 (printed; above both sexes, see gaps), T10 14.3+/-1.4, T11 16.2+/-1.6, T12 16.6+/-1.4, L1 15.8+/-1.4, L2 15.1+/-1.5, L3 14.7+/-1.6, L4 15.0+/-2.2, L5 19.8+/-3.7. Male: 12.5, 14.4, 16.4, 17.1, 15.9, 15.4, 15.3, 15.3, 20.5. Female: 12.2, 14.2, 16.0, 15.9, 15.5, 14.7, 14.3, 14.5, 18.7. Climbs T9-T11, thoracic peak T11-T12, lumbar minimum L3 (p. 1851), jump at L5. Inference effect sizes: T9/T10 1.1 (1.5 if T9 is a misprint), T10/T11 1.3, L4/L5 1.6; L1-L4 pairs below 0.5. Height always exceeded width; never below 9.2 mm (male) or 9.3 mm (female) (p. 1852).",
+      "covariates": "Sex: only T12 significant in the text (P = 0.005), Table 2 also marks L4; male minus female 0.2-1.8 mm, largest at L5. Population: Olsewski males differ at L1, L3, L4, L5 (similar at L2), females at L2, L5; Berry differs at T12, L4; Zindrick at T9-T12 and L5; Hou L5 19.8 far above Zindrick 14.0 and Berry 13.8 (Table 2; p. 1854).",
+      "ct_mask_recipe": "Inference: in the pedicle sections used for A, the craniocaudal chord; B = its minimum along the pedicle (each measure at its own narrowest section), or the narrowest chord in the parasagittal plane through the pedicle axis.",
+      "radiograph_recipe": "Inference: lateral radiograph, narrowest vertical dimension of the pedicle between the notches (both sides superimposed) divided by magnification; AP radiograph, vertical extent of the pedicle oval.",
+      "error": "As for A; CV 8-11 percent T9-L3, 15 percent L4, 19 percent L5."
+    },
+    {
+      "name": "LI: pedicle length (depth) parallel to the midline, 'Length I'",
+      "definition": "From the posterior cortex to the anterior vertebral cortex parallel to the sagittal diameter of the body (p. 1851, PDF 2); Figure 1 left draws it from a point on the posterior outline lateral to the lamina near the TP/superior articular process root, straight forward through the pedicle to the anterior cortex. The Methods print the abbreviation as '(L1)'. Inference: a whole-vertebra chord, not the pedicle alone.",
+      "projection": "dry bone caliper, transverse plane parallel to the midsagittal plane",
+      "page": "p. 1851 (PDF 2), Figure 1; Table 3 p. 1853 (PDF 4); Figure 5 p. 1854 (PDF 5)",
+      "levels": "T9-L5",
+      "level_pattern": "Pooled (Table 3): T9 38.6+/-3.0, T10 38.8+/-2.9, T11 39.0+/-3.6, T12 42.9+/-5.2, L1 49.5+/-3.4, L2 49.7+/-3.4, L3 49.4+/-3.4, L4 47.3+/-3.4, L5 43.6+/-4.4. Male: 39.2, 39.4, 39.6, 43.5, 50.7, 50.3, 49.7, 47.9, 43.9. Female: 37.7, 37.6, 38.0, 41.9, 47.6, 48.6, 48.9, 46.3, 43.1. Thoracic plateau, step at T12, larger step at L1, lumbar plateau L1-L3, decline L4-L5 (pp. 1852-1853). Inference effect sizes: T11/T12 0.9, T12/L1 1.5, L3/L4 0.6, L4/L5 0.9.",
+      "covariates": "Sex: males longer at every level by 0.8-3.1 mm, significant only at L1 (50.7 vs 47.6, P = 0.003) (pp. 1851-1852). Population: Table 3's Zindrick column (printed beside LII but compared with LI) differs at all levels but T12; Zindrick shorter at L1-L5 (L5 33.7) but longer at T9-T11 (Table 3; p. 1854).",
+      "ct_mask_recipe": "Inference: in the axial plane through the pedicle centre, a ray parallel to the vertebra's own midsagittal plane through the pedicle centre; LI = mask extent along it from the most dorsal voxel (posterior surface near the lamina-TP junction) to the anterior body cortex; record the start point.",
+      "radiograph_recipe": "Inference: lateral radiograph, posterior surface of the posterior elements at pedicle level to anterior body cortex, divided by magnification; start point obscured by facets and TPs. Not from AP.",
+      "error": "As for A; SDs 2.2-5.8 mm; CV 7-12 percent."
+    },
+    {
+      "name": "LII: pedicle length to the anterior midline, 'Length II'",
+      "definition": "From the posterior cortex to the mid-point of the anterior vertebral cortex, measured along the pedicle (pp. 1851-1852, PDF 2-3); Figure 1 left draws it obliquely from the posterior outline near the lamina-TP junction through the pedicle to the anterior midline. Inference: a convergent screw-path length.",
+      "projection": "dry bone caliper, transverse plane, oblique",
+      "page": "p. 1851 (PDF 2), Figure 1; p. 1852 (PDF 3); Table 3 p. 1853 (PDF 4)",
+      "levels": "T9-L5",
+      "level_pattern": "Male / female (no pooled column, Table 3): T9 43.6/41.9, T10 44.2/47.7 (female suspect), T11 44.6/43.6, T12 49.1/47.8, L1 55.6/52.7, L2 55.4/53.2, L3 55.6/53.7, L4 53.9/51.8, L5 51.9/50.6 (SD 2.3-5.7). Same shape as LI, 4-8 mm longer; male LII minus LI 4.4 at T9 to 8.0 at L5 (Inference).",
+      "covariates": "Sex: significant only at L1 (P = 0.005), females smaller (p. 1852). No population comparator in Table 3.",
+      "ct_mask_recipe": "Inference: same dorsal start as LI; end where the midsagittal plane meets the anterior body surface at pedicle-axis height; straight distance between them.",
+      "radiograph_recipe": "Inference: not possible from AP or lateral alone (needs the axial angle).",
+      "error": "As for A."
+    },
+    {
+      "name": "Pedicle inclination from the midline (transverse angle)",
+      "definition": "Inclination of the pedicle relative to the sagittal plane of the vertebral body, in a further 10 specimens; method, instrument, side and sign not stated (p. 1851, PDF 2). Inference: transverse-plane angle between pedicle axis and midsagittal plane, positive = converging anteromedially.",
+      "projection": "dry bone, method not stated (axial plane by Inference)",
+      "page": "p. 1851 (PDF 2); p. 1853 (PDF 4); Figure 7 p. 1854 (PDF 5)",
+      "levels": "T9-L5",
+      "level_pattern": "Read from Figure 7 (about +/-0.5 deg; bars taken as +/-1 SD): T9 ~4 (1.5 to 6), T10 ~4.5 (1 to 8), T11 ~0 (-5 to 4.5), T12 ~-2.5 (-8 to 3), L1 ~3 (-1.5 to 7), L2 ~5.5 (1 to 10), L3 ~11 (5.5 to 16.5), L4 ~18.5 (11 to 26), L5 ~30.5 (20 to 41). Increases distally (p. 1853); said to resemble earlier reports. Inference effect sizes: L4/L5 1.3, L3/L4 1.1, L2/L3 1.1, T12/L1 1.1.",
+      "covariates": "Not reported (n = 10, sexes not given).",
+      "ct_mask_recipe": "Inference: per side, the pedicle axis through successive isthmus-section centres (or the normal to the narrowest section), its axial-plane angle to the vertebra's own midsagittal plane (from canal centre, spinous process, body symmetry), not the scanner's.",
+      "radiograph_recipe": "Inference: not measurable on AP or lateral; needs an axial image.",
+      "error": "Not reported; figure reading adds about +/-0.5 deg."
+    },
+    {
+      "name": "Pedicle centre (starting point) relative to the transverse process: T, U, M, B",
+      "definition": "Pedicle centre judged visually (laterally for the craniocaudal centre of the narrowest diameter, from cephalad along the canal for the medial-lateral centre) and coded as at the top of the TP (T), its upper half (U), the mid-transverse process line (M) or its bottom half (B) (p. 1851, PDF 2, Figure 2).",
+      "projection": "dry bone, visual, posterior view",
+      "page": "p. 1851 (PDF 2), Figure 2; p. 1852 (PDF 3); Figure 6 left p. 1854 (PDF 5)",
+      "levels": "T9-L5",
+      "level_pattern": "Counts of 40 (T/U/M/B, Figure 6): T9 36/4/0/0, T10 36/4/0/0, T11 32/8/0/0, T12 24/11/4/0 (sum 39), L1 4/23/13/0, L2 1/14/25/0, L3 0/8/29/3, L4 0/4/35/1, L5 0/2/37/1. Cephalad to mid-TP in all at T9-T11; mid-TP in 29-37 of 40 at L3-L5.",
+      "covariates": "Not reported by sex or population.",
+      "ct_mask_recipe": "Inference: project the instance onto the vertebra's coronal plane (posterior view); find the TP's craniocaudal extent at its base and its midline; code the pedicle centre's height relative to TP top, midline and bottom (better as a continuous fraction).",
+      "radiograph_recipe": "Inference: AP radiograph or fluoroscopy, pedicle oval centre against the TP; a ratio, so magnification-free, but valid only with the beam square to the vertebra.",
+      "error": "Visual judgement by one observer; none reported."
+    },
+    {
+      "name": "Pedicle centre relative to the superior facet: zones by lines 1 to 5",
+      "definition": "Superior facet divided by four vertical lines into three segments; a fifth line one segment (one third of a facet width) lateral to the facet makes a fourth; the pedicle centre is placed against these zones (p. 1851, PDF 2, Figure 2). Inference from Figure 2: line 1 near the medial edge, line 4 at the lateral edge, line 5 beyond. Figure 6 right numbers the lines 1-5 left to right (lateral on the right).",
+      "projection": "dry bone, visual, posterior view",
+      "page": "p. 1851 (PDF 2), Figure 2; p. 1852 (PDF 3); Figure 6 right p. 1854 (PDF 5); abstract p. 1850 (PDF 1)",
+      "levels": "T9-L5",
+      "level_pattern": "Inference reading of Figure 6: T9 middle third 2, lateral third 38; T10 7/33; T11 3/36 plus 1 at line 4; T12 1 middle, 26 lateral third, 12 at line 4, 1 beyond line 5; L1 1 at line 3, 3 lateral third, 12 at line 4, 5 between 4 and 5, 19 at line 5; L2 2, 5, 5 between 4-5, 27 at line 5, 1 beyond; L3 3 at line 4, 1 between 4-5, 29 at line 5, 7 beyond; L4 2 between 4-5, 22 at line 5, 16 beyond; L5 1 at line 5, 39 beyond. L5 mean 4.9 mm (SD 2) lateral to the facet's lateral border (p. 1852). Moves steadily lateral going caudally.",
+      "covariates": "Not reported.",
+      "ct_mask_recipe": "Inference: posterior (coronal) projection; superior articular process medial and lateral borders; pedicle centre's offset from the lateral border in facet widths and mm.",
+      "radiograph_recipe": "Inference: AP radiograph or fluoroscopy, pedicle oval centre against the facet's lateral border; ratio magnification-free, the 4.9 mm needs correction.",
+      "error": "Visual, one observer, none reported; how the 4.9 mm was measured not stated."
+    }
+  ],
+  "level_details": [
+    {
+      "level": "T9",
+      "detail": "Narrowest pedicle of the series (5.7; F 5.2, M 6.0, P = 0.031); single widths down to 3 mm (female); height 12.9 printed pooled; LI 38.6; pedicle centre cephalad to mid-TP in all 40 (36 top, 4 upper half); facet middle third 2, lateral third 38; inclination about 4 deg.",
+      "page": "Tables 1-3 pp. 1852-1853 (PDF 3-4); Figures 6-7 p. 1854 (PDF 5); p. 1852 (PDF 3)"
+    },
+    {
+      "level": "T10",
+      "detail": "Width 6.8 (single minimum 4.2 mm), height 14.3, LI 38.8; TP 36 top, 4 upper half; facet middle 7, lateral 33; inclination about 4.5 deg.",
+      "page": "Tables 1-3; p. 1852 (PDF 3); Figures 6-7 p. 1854 (PDF 5)"
+    },
+    {
+      "level": "T11",
+      "detail": "Width 8.1 (only level not different from Zindrick), height 16.2, LI 39.0; TP 32 top, 8 upper half; inclination about 0.",
+      "page": "Tables 1-3; p. 1854 (PDF 5)"
+    },
+    {
+      "level": "T12",
+      "detail": "Widest lower thoracic pedicle (8.3; M 8.8, F 7.5, P = 0.043) and tallest (16.6; M 17.1, F 15.9, P = 0.005); LI 42.9 with the largest LI SD (5.2); inclination about -2.5 deg (lateral, sign Inference); TP 24 top, 11 upper half, 4 midline (sum 39); facet 12 at its lateral border; authors stress the T12 sex difference for stabilisation.",
+      "page": "Tables 1-3; p. 1851-1852 (PDF 2-3); Figures 6-7 p. 1854 (PDF 5)"
+    },
+    {
+      "level": "T12/L1",
+      "detail": "Width falls 8.3 to 7.0, LI rises 42.9 to 49.5 (the largest step), inclination from about -2.5 to 3 deg, pedicle centre moves from TP top to upper half and laterally on the facet.",
+      "page": "Tables 1, 3; Figures 6-7"
+    },
+    {
+      "level": "L1",
+      "detail": "Smaller than T12 and L2 in every column (7.0; M 7.2, F 6.6; male minima low 5 mm); called the smallest vertebral pedicle in the Discussion though T9-T10 are smaller; 5 mm screw advised; LI longest male (50.7, sex P = 0.003), LII 55.6/52.7 (P = 0.005); TP 4 top, 23 upper half, 13 midline.",
+      "page": "pp. 1851-1852 (PDF 2-3); Tables 1, 3"
+    },
+    {
+      "level": "L2",
+      "detail": "Width 7.4, height 15.1, LI 49.7 (longest pooled); TP midline 25 of 40; inclination about 5.5 deg.",
+      "page": "Tables 1-3; Figures 6-7"
+    },
+    {
+      "level": "L3",
+      "detail": "Lowest lumbar height (14.7 pooled; text 15 mm SD 1.7 male, narrowest female); width 9.2; LI 49.4; inclination about 11 deg; TP midline 29, below 3.",
+      "page": "p. 1851 (PDF 2); Tables 1-3; Figures 6-7"
+    },
+    {
+      "level": "L4",
+      "detail": "Width 10.5, height 15.0 (sex marker in Table 2), LI 47.3, inclination about 18.5 deg; TP midline 35; 16 of 40 beyond line 5.",
+      "page": "Tables 1-3; Figures 6-7"
+    },
+    {
+      "level": "L5",
+      "detail": "Widest (12.9), tallest (19.8) and most inclined (about 30 deg) with the largest SDs for these three; LI down to 43.6; female width 13.0 above male 12.8; TP midline 37 of 40; 39 of 40 beyond line 5, mean 4.9 mm (SD 2) lateral to the facet's lateral border; lumbar screw length to about 45 mm.",
+      "page": "Tables 1-3; p. 1852-1853 (PDF 3-4); Figures 6-7 p. 1854 (PDF 5)"
+    },
+    {
+      "level": "C2/C3, C7/T1, L5/S1",
+      "detail": "No data; the study covers T9 to L5 only.",
+      "page": "pp. 1850-1855 (PDF 1-6)"
+    }
+  ],
+  "errors": [
+    {
+      "what": "Caliper resolution",
+      "value": "0.1 mm (Vernier)",
+      "page": "p. 1851 (PDF 2)"
+    },
+    {
+      "what": "Observers",
+      "value": "One observer (Y.S.) for all caliper measures; inclination subset unattributed; no repeat, intra- or inter-observer data",
+      "page": "p. 1850 (PDF 1); p. 1851 (PDF 2)"
+    },
+    {
+      "what": "Between-specimen SD, pedicle width (pooled)",
+      "value": "1.1-2.7 mm, CV about 17-23 percent (Inference arithmetic)",
+      "page": "Table 1 p. 1852 (PDF 3)"
+    },
+    {
+      "what": "Between-specimen SD, pedicle height (pooled)",
+      "value": "1.2-3.7 mm, CV 8-11 percent T9-L3, 15 percent L4, 19 percent L5",
+      "page": "Table 2 p. 1852 (PDF 3)"
+    },
+    {
+      "what": "Between-specimen SD, LI (pooled)",
+      "value": "2.9-5.2 mm, CV 7-12 percent",
+      "page": "Table 3 p. 1853 (PDF 4)"
+    },
+    {
+      "what": "Inclination",
+      "value": "SD bars about +/-2.5 deg (T9) to +/-10 deg (L5) from Figure 7; no measurement error; figure-reading error about +/-0.5 deg",
+      "page": "Figure 7 p. 1854 (PDF 5)"
+    },
+    {
+      "what": "Entry-point codes",
+      "value": "Visual judgement, no reliability; Figure 6 T12 TP counts sum to 39",
+      "page": "p. 1851 (PDF 2); Figure 6 p. 1854 (PDF 5)"
+    },
+    {
+      "what": "Inter-study (method and population) disagreement",
+      "value": "L5 width 10.9 (Berry) to 21.1 (Olsewski males) against 12.9 here; authors cite subtle differences in points measured",
+      "page": "Table 1 p. 1852 (PDF 3); p. 1854 (PDF 5)"
+    }
+  ],
+  "pearls_pitfalls": [
+    {
+      "text": "Pedicle size and position knowledge is crucial for safe screw placement; early European screws were small, so morphology mattered less.",
+      "page": "p. 1850 (PDF 1)"
+    },
+    {
+      "text": "Published size ranges came mostly from white series and shaped instrument and screw design; hence this oriental series.",
+      "page": "p. 1850 (PDF 1)"
+    },
+    {
+      "text": "Starting points: Roy-Camille at mid-TP line x mid-facet line; Magerl at the lateral facet border x mid-TP; Weinstein more lateral at the 'nape of the neck' of the superior articular process to avoid the adjoining facet. Most authors use one universal point, which the authors call contrary to accurate placement.",
+      "page": "p. 1850 (PDF 1)"
+    },
+    {
+      "text": "No universal starting point: the pedicle centre begins medial and cephalad to the TP midline in the lower thoracic spine and moves to the mid-TP and well lateral to the superior facet distally; Weinstein found Roy-Camille's point better in the lower thoracic and upper lumbar spine and his lateral point better in the lower lumbar spine.",
+      "page": "pp. 1853 (PDF 4); p. 1855 (PDF 6)"
+    },
+    {
+      "text": "Use smaller-diameter screws in the lower thoracic and upper lumbar spine; Weinstein had 40 percent failure with 7.0 mm screws in the upper lumbar spine, improved with 5.5 mm. L1 needs added care and a 5 mm screw seems prudent (male minima low 5 mm). Female T9 and T10 pedicles can be 3 and 4.2 mm wide.",
+      "page": "p. 1852 (PDF 3)"
+    },
+    {
+      "text": "Limit lumbar screw length to about 45 mm depending on inclination; account for increasing medial inclination distally when preparing the pedicle.",
+      "page": "p. 1853 (PDF 4)"
+    },
+    {
+      "text": "Screw choice depends on sex, size and level; the T12 sex difference matters for thoracolumbar stabilisation.",
+      "page": "p. 1850 (PDF 1); p. 1852 (PDF 3); p. 1855 (PDF 6)"
+    },
+    {
+      "text": "Values depend on measurement method and population; the authors suggest smaller vertebrae in orientals than whites (Inference: white-derived screw sizes may be too large for Chinese patients).",
+      "page": "pp. 1854-1855 (PDF 5-6)"
+    },
+    {
+      "text": "Pitfall: radiographic (Zindrick) and caliper values differ significantly despite similar landmarks (authors: wider and shorter by radiograph; exceptions at T10-T12 width and T9-T11 length in the tables).",
+      "page": "p. 1854 (PDF 5); Tables 1, 3"
+    },
+    {
+      "text": "Pitfall: the Methods print the LI abbreviation as '(L1)', and Table 3 prints the Zindrick LI comparator beside the LII columns.",
+      "page": "p. 1851 (PDF 2); Table 3 p. 1853 (PDF 4)"
+    }
+  ],
+  "instructions": [
+    {
+      "text": "On a CT instance mask, take pedicle width as the narrowest medial-lateral chord of the pedicle, outer boundary to outer boundary; Inference: perpendicular to the pedicle axis, never along the scanner or vertebral x axis (at L4-L5 an x chord is about 1/cos(18-30 deg) too wide).",
+      "page": "p. 1851 (PDF 2); Figure 7 p. 1854 (PDF 5)"
+    },
+    {
+      "text": "Look for the L1 dip: in all 40 columns L1's pedicle was narrower than T12's and L2's; use a local width minimum flanked by wider pedicles, with the LI step, as evidence for L1.",
+      "page": "p. 1851 (PDF 2)"
+    },
+    {
+      "text": "Locate T12/L1 by the sagittal chord LI: about 39 mm T9-T11, 43 at T12, 49.5 at L1-L3; a 6-7 mm jump between consecutive instances marks T12 to L1. Inference: use the step, since absolute LI depends on the start point and body size.",
+      "page": "Table 3 p. 1853 (PDF 4); Figure 5 p. 1854 (PDF 5)"
+    },
+    {
+      "text": "Separate L3, L4, L5 by pedicle width (9.2, 10.5, 12.9) and more strongly by transverse inclination (about 11, 18.5, 30 deg; 10 specimens, read from a figure); L5 also has the tallest pedicle (19.8) and a shorter LI (43.6).",
+      "page": "Tables 1-3 pp. 1852-1853 (PDF 3-4); Figure 7 p. 1854 (PDF 5)"
+    },
+    {
+      "text": "Do not use width alone between T10 and L1 (6.8 vs 7.0) or T11-T12 and L3 (8.1-8.3 vs 9.2); combine with LI (39 vs 49.5) and height.",
+      "page": "Tables 1-3 pp. 1852-1853 (PDF 3-4)"
+    },
+    {
+      "text": "Do not order L1-L4 by pedicle height (15.8, 15.1, 14.7, 15.0); use it for the T9-T11 climb (12.9, 14.3, 16.2) and for L5 (19.8).",
+      "page": "Table 2 p. 1852 (PDF 3)"
+    },
+    {
+      "text": "Read the pedicle centre against the TP: cephalad to the TP midline at T9-T11 in all 40 (top in 32-36); at the midline at L3-L5 (29, 35, 37 of 40); T12-L2 mixed. Judged by eye on dry bone; Inference: on AP radiographs or fluoroscopy use it as soft evidence, valid only with the beam square to the vertebra.",
+      "page": "Figure 6 p. 1854 (PDF 5); p. 1851 (PDF 2)"
+    },
+    {
+      "text": "Read the pedicle centre against the superior facet: middle or lateral third at T9-T11 (lateral third in 33-38 of 40); at or beyond one third of a facet width lateral to the facet in 36, 38 and 40 of 40 at L3, L4, L5 (L5 mean 4.9 mm, SD 2). Inference: the ratio is magnification-free on AP images; the mm value is not.",
+      "page": "Figure 6 p. 1854 (PDF 5); p. 1852 (PDF 3)"
+    },
+    {
+      "text": "Scale for sex before comparing with a level template: females narrower by 0.4-1.3 mm at T9-L4 (0.2 wider at L5) and shorter in LI by 0.8-3.1 mm; significant only for width at T9 and T12, height at T12, LI and LII at L1.",
+      "page": "Tables 1-3 pp. 1852-1853 (PDF 3-4); pp. 1851-1852 (PDF 2-3)"
+    },
+    {
+      "text": "Scale for population: these Chinese male lumbar widths are about 20-40 percent below Olsewski's white males; never apply one population's table to another without a size factor.",
+      "page": "Table 1 p. 1852 (PDF 3); pp. 1854-1855 (PDF 5-6)"
+    },
+    {
+      "text": "Give L5 the widest likelihoods for width, height and inclination (SD 2.7, 3.7, about 10 deg); for LI the widest is T12 (SD 5.2).",
+      "page": "Tables 1-3; Figure 7 p. 1854 (PDF 5)"
+    },
+    {
+      "text": "Inference: measure LI and inclination from the vertebra's own midsagittal plane; rotation or scoliosis in the scanner frame biases both.",
+      "page": "p. 1851 (PDF 2)"
+    },
+    {
+      "text": "When checking a planned or seen screw, flag a lumbar screw longer than about 45 mm, a screw over 5 mm at a small male L1 or narrow female T9-T10, and one universal entry point used at every level T9-L5.",
+      "page": "pp. 1852-1853 (PDF 3-4)"
+    },
+    {
+      "text": "Quality-check each extracted pedicle: here height always exceeded width and never fell below 9.2 mm (male) or 9.3 mm (female). Inference: at T9-L4 a width at or above the height signals an extraction error; skip the check at L5, where Zindrick's series has width above height.",
+      "page": "p. 1852 (PDF 3)"
+    },
+    {
+      "text": "When parsing this paper, read '(L1)' in the Methods as Length I, not the level L1, and take Table 3's Zindrick column as the LI comparator.",
+      "page": "p. 1851 (PDF 2); Table 3 p. 1853 (PDF 4)"
+    }
+  ],
+  "bordercall": [
+    "(a) Anomaly priors: none; the paper gives no prevalence of any transitional segment, rib anomaly or block vertebra (pp. 1850-1855, PDF 1-6).",
+    "(b) Pedicle width and height are held by the generator (Panjabi). Hou measures the narrowest section by caliper; per the panjabi1991t and panjabi1992 notes (not reread here) Panjabi's widths run larger (T9 7.7, T10 9.0, T11 9.8, T12 8.7, L1 8.6, L5 about 18.6 vs Hou 5.7, 6.8, 8.1, 8.3, 7.0, 12.9) while lumbar heights agree (L1 15.9, L3 14.4, L5 19.6 vs 15.8, 14.7, 19.8). Inference: an isthmus-minimum mask extractor will read nearer Hou for width; partial volume at 1 mm voxels moves a 5-7 mm width by 10-20 percent.",
+    "(b) Could add: transverse pedicle inclination (L3/L4/L5 separator); LI (T11/T12/L1 separator, a whole-vertebra chord whose value depends on the dorsal start point); LII (screw-path length to the anterior midline, not Zindrick's pedicle-axis depth); and two AP-projection features (pedicle centre height relative to the TP; lateral offset from the superior facet in facet widths), magnification-free, suiting radiographs and fluoroscopy; this paper gives the latter only as counts.",
+    "(b) Zindrick's depth parallel to the midline (Table 3 comparator) is 4.2-6.6 mm shorter than LI at L1-L4, 10 mm shorter at L5, 1.3-2.6 mm longer at T9-T11; Inference: start-point and ray differences of that order, so fix and record both.",
+    "(c) Measurement error: none reported; caliper 0.1 mm floor plus an observer error from another paper; printed SDs are between-specimen spread usable as per-level spread for this population.",
+    "(d) Covariates: sex (male minus female width 0.4-1.3 mm, female 0.2 wider at L5; height 0.2-1.8; LI 0.8-3.1; significant at width T9, T12, height T12 (and L4 by table marker), LI and LII at L1). Population: Chinese dry bone, smaller than Olsewski's white series. No age, stature or weight; Inference: female/male width ratio 0.85-0.96 (L5 1.02) as a crude size factor."
+  ],
+  "gaps": [
+    "Table 2 pooled T9 height 12.9 is above both sexes (12.5, 12.2; weighted 12.4); pooled L3 14.7 vs weighted 14.9 (p. 1852, PDF 3).",
+    "Table 3 female LII at T10 47.7 exceeds male 44.2 and female T11 43.6 and is 10.1 mm above its LI; Inference: misprint (perhaps 41.7) (p. 1853, PDF 4).",
+    "Figure 4B plots male L5 height at about 18.8 (bar 15-22.7), the female value, not Table 2's 20.5 +/- 3.6 (p. 1853 vs p. 1852).",
+    "Discussion gives LI 'at L1' as 50.3/48.6, which are Table 3's L2 values (L1 50.7/47.6) (p. 1852 vs p. 1853).",
+    "Text names T12 as the only height sex difference; Table 2 also marks L4. Table symbols are not explained; their meanings are inferred (pp. 1851-1852).",
+    "Abstract: all widths except T11 smaller than Zindrick's, but Hou is wider at T10 and T12; only L5 smaller than Berry's, but Berry's L5 is the smaller (pp. 1850, 1852, 1854).",
+    "'Six measurements' per vertebra vs 1,440 data points (four per vertebra); side not stated (p. 1851).",
+    "Discussion calls L1 the smallest vertebral pedicle, but T9 and T10 are narrower (p. 1852; Table 1).",
+    "Results find no lumbar width sex difference, but the Conclusion places width sex differences in the lower thoracic and upper lumbar spine (p. 1851 vs p. 1855).",
+    "Results put the T9 starting point at the mid-portion of the facet; abstract says middle or lateral third; Figure 6 has 38 of 40 in the lateral third (pp. 1850, 1852, 1854).",
+    "Authors say Zindrick's widths larger and lengths shorter; tables show Zindrick narrower at T10-T12 and longer at T9-T11 (p. 1854; Tables 1, 3).",
+    "Table 3 prints the Zindrick column beside LII although it is the LI comparator (p. 1853-1854).",
+    "Discussion's cross-series trend (rise to the L1 region, sharp fall, rise) does not match Hou's own table (rise to T12, fall at L1) (p. 1854).",
+    "Abstract rounds the width sex P values (0.03, 0.04) vs Results (0.031, 0.043).",
+    "Method and n for the L5 4.9 mm lateral offset not stated (p. 1852); Figure 6 T12 TP counts sum to 39 (p. 1854).",
+    "Text's male lumbar height minimum 15 mm (SD 1.7) at L3 vs Table 2 15.3, tied with L4 (p. 1851).",
+    "Inclination method, side, sign, sex mix, error and whether the 10 specimens are separate from the 40 are not stated (p. 1851).",
+    "Whether the starting point is the pedicle centre projected straight back or along the pedicle axis is not stated; at L5 the two differ by several mm (Inference).",
+    "No age, stature, weight, sex-determination method or reliability study; no anomaly or level-identification method.",
+    "Conflicts with sibling notes (Inference): Zindrick's transverse angle same shape (T12 -4.2, L5 29.8) but larger at L1-L2 (10.9, 12.0 vs about 3, 5.5); Panjabi PDIs L1 14.5, L5 24.5; Hou L5 height 19.8 agrees with Panjabi 19.6, not Zindrick 14.0 or Berry 13.8. Hou's lumbar widths equal Berry's at L1-L3, exceed Berry's at L4-L5, and are below Olsewski's and Zindrick's (Table 1)."
+  ]
+}

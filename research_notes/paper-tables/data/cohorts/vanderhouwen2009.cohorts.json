@@ -1,0 +1,362 @@
+{
+  "paper": "vanderhouwen2009",
+  "cohorts": [
+    {
+      "cohort": "groningen_ct_patients",
+      "labels": [
+        "all",
+        "male",
+        "female",
+        "females vs males",
+        "CT acquisition"
+      ],
+      "tables": [
+        "Figure 2",
+        "Table 2",
+        "Text: Abstract",
+        "Text: Materials and Method",
+        "Text: Results",
+        "Text: Discussion",
+        "Text: Conclusions"
+      ],
+      "subjects": "Living patients who had a spinal thoracic or abdominal CT, selected retrospectively from the hospital PACS; varied spinal problems (hernias and fractures named), only intact vertebrae above and below the problem area measured; excluded: implanted devices, visible osteoporotic deformation of the vertebral body, vertebrae with visible axial rotation relative to the scanner axis, spinal columns with a large lateral slant. Scanned supine. University Medical Center Groningen, the Netherlands (the acknowledgments thank its radiology department for the CT scans, p. 40). Ethnicity not stated. No statement on transitional or numbering anomalies.",
+      "n_people": 77,
+      "n_units": "12 endplates per spine region, T12 inferior to S1 superior; 25 measured per endplate as the stated goal, 10 points each, 3,000 coordinates in all (Inference: about 300 endplates from 77 patients, so each level comes from a different subset of patients)",
+      "ages": "21 to 86 years, mean 49.8",
+      "sexes": "46 male, 31 female; per-level sex counts not printed",
+      "page": "p. 34-35 (PDF 2-3)"
+    },
+    {
+      "cohort": "pig_vertebra_repeatability",
+      "labels": [
+        "not stated",
+        "pig vertebra"
+      ],
+      "tables": [
+        "Text: Materials and Method",
+        "Text: Results"
+      ],
+      "subjects": "One pig vertebra (animal specimen, origin not stated), used to test repeatability of CT and caliper measurement",
+      "n_people": null,
+      "n_units": "1 pig vertebra; 9 dimensions each measured 3 times by the same person, by caliper and by CT",
+      "ages": "not stated",
+      "sexes": "not stated",
+      "page": "p. 36 (PDF 4); results p. 38 (PDF 6)",
+      "species": "pig"
+    },
+    {
+      "cohort": "pig_vertebrae_ct_vs_caliper",
+      "labels": [
+        "not stated",
+        "pig vertebrae"
+      ],
+      "tables": [
+        "Text: Materials and Method",
+        "Text: Results",
+        "Figure 4"
+      ],
+      "subjects": "Two pig vertebrae (origin not stated), CT-scanned with the human settings, then excised with a scalpel, soft tissue removed as far as possible, and measured with a caliper",
+      "n_people": null,
+      "n_units": "2 pig vertebrae, 6 dimensions each, 12 measurements in all",
+      "ages": "not stated",
+      "sexes": "not stated",
+      "page": "p. 36 (PDF 4); results p. 38 (PDF 6); Figure 4 p. 39 (PDF 7)",
+      "species": "pig"
+    },
+    {
+      "cohort": "eijkelkamp_cited",
+      "labels": [
+        "not stated",
+        "source: Eijkelkamp [2]"
+      ],
+      "tables": [
+        "Table 1"
+      ],
+      "subjects": "Not measured here: subjects of Eijkelkamp [2], quoted in the literature table; method as printed: MRI, X-ray; sagittal diameters, disc height, wedge angle and endplate depth",
+      "n_people": null,
+      "n_units": "not stated in this paper",
+      "ages": "not stated in this paper",
+      "sexes": "not stated in this paper",
+      "page": "p. 34 (PDF 2)"
+    },
+    {
+      "cohort": "silva_cited",
+      "labels": [
+        "not stated",
+        "source: Silva [9]"
+      ],
+      "tables": [
+        "Table 1"
+      ],
+      "subjects": "Not measured here: subjects of Silva [9], quoted in the literature table; method as printed: Cadavers; cortex thickness",
+      "n_people": null,
+      "n_units": "not stated in this paper",
+      "ages": "not stated in this paper",
+      "sexes": "not stated in this paper",
+      "page": "p. 34 (PDF 2)"
+    },
+    {
+      "cohort": "ritzel_cited",
+      "labels": [
+        "not stated",
+        "source: Ritzel [8]"
+      ],
+      "tables": [
+        "Table 1"
+      ],
+      "subjects": "Not measured here: subjects of Ritzel [8], quoted in the literature table; method as printed: Cadavers; cortex (shell) thickness",
+      "n_people": null,
+      "n_units": "not stated in this paper",
+      "ages": "not stated in this paper",
+      "sexes": "not stated in this paper",
+      "page": "p. 34 (PDF 2)"
+    },
+    {
+      "cohort": "nissan_cited",
+      "labels": [
+        "not stated",
+        "source: Nissan [5]"
+      ],
+      "tables": [
+        "Table 1"
+      ],
+      "subjects": "Not measured here: subjects of Nissan [5], quoted in the literature table; method as printed: X-ray; sagittal diameters, body height and disc height",
+      "n_people": null,
+      "n_units": "not stated in this paper",
+      "ages": "not stated in this paper",
+      "sexes": "not stated in this paper",
+      "page": "p. 34 (PDF 2)"
+    },
+    {
+      "cohort": "aharinejad_cited",
+      "labels": [
+        "not stated",
+        "source: Aharinejad [1]"
+      ],
+      "tables": [
+        "Table 1"
+      ],
+      "subjects": "Not measured here: subjects of Aharinejad [1], quoted in the literature table; method as printed: Cadavers/CT/MRI; diameters, body height, disc height and marginal rim",
+      "n_people": null,
+      "n_units": "not stated in this paper",
+      "ages": "not stated in this paper",
+      "sexes": "not stated in this paper",
+      "page": "p. 34 (PDF 2)"
+    },
+    {
+      "cohort": "zhou_cited",
+      "labels": [
+        "not stated",
+        "source: Zhou [14]"
+      ],
+      "tables": [
+        "Table 1"
+      ],
+      "subjects": "Not measured here: subjects of Zhou [14], quoted in the literature table; method as printed: CT; diameters, body height and disc height",
+      "n_people": null,
+      "n_units": "not stated in this paper",
+      "ages": "not stated in this paper",
+      "sexes": "not stated in this paper",
+      "page": "p. 34 (PDF 2)"
+    }
+  ],
+  "techniques": [
+    {
+      "technique": "ct_mpr_endplate_points",
+      "cohorts": [
+        "groningen_ct_patients"
+      ],
+      "modality": "CT MPR",
+      "instrument": "Siemens 16-detector multi-detector CT (120 kV, 250 mAs, 0.75 s rotation, 16 x 0.75 mm collimation, 0.75 mm slices, 0.4 mm reconstruction index, B80s sharp kernel); read in Vitrea2 (Vital Images) on average intensity projections 3.13 mm thick",
+      "how": "Three reference planes set in oblique mode with bone window: sagittal through the most anterior point of the body and the posterior niche, frontal through the most lateral points of the body, axial parallel to the endplate; measurement then in orthogonal mode. On the sagittal section a tangent line to the endplate is marked at equal distances and projected onto the endplate (points 1 to 5, 1 posterior rim, 5 anterior rim); the same on the frontal section (points 6 to 10, 6 right rim, 10 left rim). Bone edge at the largest drop in HU next to a manually located HU maximum (Waarsing's procedure). A least-squares plane through rim points 1, 5, 6 and 10; endplate depth is each point's perpendicular distance to it; sagittal diameter 1 to 5 and transverse diameter 6 to 10 (rim to rim); disc height between same-numbered points across a disc; wedge angle between adjacent endplate planes by Eijkelkamp's heights method. Levels T12 inferior to S1 superior; how T12 and S1 were identified is not stated.",
+      "magnification": "not applicable: CT lengths in mm from the scanner calibration",
+      "observers": "not stated for the patients (Inference: one observer, as the repeatability test names one person); no inter- or intra-observer figure for the human measurements",
+      "page": "p. 34-35 (PDF 2-3)"
+    },
+    {
+      "technique": "ct_max_gradient_pig",
+      "cohorts": [
+        "pig_vertebra_repeatability",
+        "pig_vertebrae_ct_vs_caliper"
+      ],
+      "modality": "CT MPR",
+      "instrument": "the same CT settings as for the patients; maximum-gradient edge method",
+      "how": "Outer superior and inferior sagittal and transverse endplate diameters, right and left body heights (points 6 to 6 and 10 to 10), anterior body height (5 to 5), spinous process length and transverse process width (repeatability); for the caliper comparison the four outer endplate diameters and the anterior and posterior body heights (5 to 5, 1 to 1). Best image plane chosen separately for each repeated measurement.",
+      "magnification": "not applicable: CT lengths in mm",
+      "observers": "one person for the repeated measurements",
+      "page": "p. 36 (PDF 4)"
+    },
+    {
+      "technique": "caliper_pig",
+      "cohorts": [
+        "pig_vertebra_repeatability",
+        "pig_vertebrae_ct_vs_caliper"
+      ],
+      "modality": "other",
+      "instrument": "vernier caliper (Mitutoyo, Kawasaki, Japan), stated accuracy +/-0.05 mm",
+      "how": "Direct caliper measurement on the explanted pig vertebrae, the bone excised with a scalpel and as much soft tissue removed as possible (fresh, frozen or dried not stated; Inference: not macerated dry bone, since soft tissue had to be cut away), the same dimensions as the CT method",
+      "magnification": "not applicable: direct measurement",
+      "observers": "one person for the repeated measurements",
+      "page": "p. 36 (PDF 4)"
+    },
+    {
+      "technique": "eijkelkamp_mri_xray",
+      "cohorts": [
+        "eijkelkamp_cited"
+      ],
+      "modality": "other",
+      "instrument": "MRI and X-ray, as printed",
+      "how": "as summarised in Table 1; details not given in this paper",
+      "magnification": "not stated in this paper",
+      "observers": "not stated in this paper",
+      "page": "p. 34 (PDF 2)"
+    },
+    {
+      "technique": "silva_cadaver",
+      "cohorts": [
+        "silva_cited"
+      ],
+      "modality": "other",
+      "instrument": "cadaver specimens, as printed",
+      "how": "cortex thickness as summarised in Table 1; details not given in this paper",
+      "magnification": "not stated in this paper",
+      "observers": "not stated in this paper",
+      "page": "p. 34 (PDF 2)"
+    },
+    {
+      "technique": "ritzel_cadaver",
+      "cohorts": [
+        "ritzel_cited"
+      ],
+      "modality": "other",
+      "instrument": "cadaver (autopsy) specimens, as printed",
+      "how": "ventral and dorsal shell thickness as summarised in Table 1; details not given in this paper",
+      "magnification": "not stated in this paper",
+      "observers": "not stated in this paper",
+      "page": "p. 34 (PDF 2)"
+    },
+    {
+      "technique": "nissan_xray",
+      "cohorts": [
+        "nissan_cited"
+      ],
+      "modality": "other",
+      "instrument": "X-ray, as printed",
+      "how": "disc heights and sagittal diameters as summarised in Table 1 (Inference: lateral radiographs, as the reference title names the sagittal plane); this paper derived wedge angles from them",
+      "magnification": "not stated in this paper",
+      "observers": "not stated in this paper",
+      "page": "p. 34 (PDF 2)"
+    },
+    {
+      "technique": "aharinejad_mixed",
+      "cohorts": [
+        "aharinejad_cited"
+      ],
+      "modality": "other",
+      "instrument": "cadavers, CT and MRI, as printed",
+      "how": "disc heights as summarised in Table 1; details not given in this paper",
+      "magnification": "not stated in this paper",
+      "observers": "not stated in this paper",
+      "page": "p. 34 (PDF 2)"
+    },
+    {
+      "technique": "zhou_ct",
+      "cohorts": [
+        "zhou_cited"
+      ],
+      "modality": "other",
+      "instrument": "CT, as printed (reference title: digitised CT images)",
+      "how": "posterior body heights as summarised in Table 1; plane not stated",
+      "magnification": "not stated in this paper",
+      "observers": "not stated in this paper",
+      "page": "p. 34 (PDF 2)"
+    }
+  ],
+  "shared": [
+    {
+      "with": "Eijkelkamp 2002, PhD thesis [2]; not on the list",
+      "what": "method",
+      "evidence": "wedge angle computed by the heights method Eijkelkamp described",
+      "page": "p. 35 (PDF 3)"
+    },
+    {
+      "with": "Eijkelkamp 2002 [2]; not on the list",
+      "what": "values quoted",
+      "evidence": "endplate depth range and mean quoted in Table 1; wedge angles beside this study's in Figure 3; depths in Figure 5",
+      "page": "p. 34 (PDF 2); p. 36 (PDF 4); p. 39 (PDF 7)"
+    },
+    {
+      "with": "Nissan et al. 1986 [5]; not on the list",
+      "what": "values quoted",
+      "evidence": "anterior disc heights quoted in Table 1; the authors derived wedge angles from Nissan's disc heights and sagittal diameters (Figure 3)",
+      "page": "p. 34 (PDF 2); p. 36 (PDF 4); p. 39 (PDF 7)"
+    },
+    {
+      "with": "Waarsing et al. 2004 [13]; not on the list",
+      "what": "method",
+      "evidence": "bone edges found by the largest HU drop following Waarsing's procedure",
+      "page": "p. 35 (PDF 3)"
+    },
+    {
+      "with": "Lee, patent US2008046082 [4]; not on the list",
+      "what": "values quoted",
+      "evidence": "Lee's middle-point depths drawn beside this study's in Figure 5; same inferior-deeper finding cited",
+      "page": "p. 38-39 (PDF 6-7)"
+    },
+    {
+      "with": "Panjabi et al. 2001, cervical cortical shell [7]; not on the list",
+      "what": "findings compared; no subjects, method or values shared",
+      "evidence": "cited as finding the same inferior-deeper asymmetry in cervical endplates; also cited for cortex thickness by CT or staining",
+      "page": "p. 33 (PDF 1); p. 38 (PDF 6)"
+    },
+    {
+      "with": "Panjabi et al. 1992, lumbar quantitative 3-D anatomy [6]; panjabi1992",
+      "what": "cited only (no subjects, method or values shared or quoted)",
+      "evidence": "listed in Table 1 as cadaver diameters and cortex thickness, no number quoted; its summary (cervical cortex shell) fits reference 7 rather than 6",
+      "page": "p. 34 (PDF 2)"
+    },
+    {
+      "with": "Tan et al. 2004, Chinese Singaporeans [11]; tan2004",
+      "what": "cited only (no subjects, method or values shared or quoted)",
+      "evidence": "listed in Table 1, cadavers, all dimensions lower in the Chinese group; no number quoted",
+      "page": "p. 34 (PDF 2)"
+    },
+    {
+      "with": "Silva et al. 1994 [9]; not on the list",
+      "what": "values quoted",
+      "evidence": "superior and inferior cortex thickness ranges quoted in Table 1",
+      "page": "p. 34 (PDF 2)"
+    },
+    {
+      "with": "Ritzel et al. 1997 [8]; not on the list",
+      "what": "values quoted",
+      "evidence": "ventral and dorsal shell thickness quoted in Table 1",
+      "page": "p. 34 (PDF 2)"
+    },
+    {
+      "with": "Aharinejad et al. 1990 [1]; not on the list",
+      "what": "values quoted",
+      "evidence": "disc heights L1-L2 and L5-S1 quoted in Table 1",
+      "page": "p. 34 (PDF 2)"
+    },
+    {
+      "with": "Zhou et al. 2000 [14]; not on the list",
+      "what": "values quoted",
+      "evidence": "posterior body heights L3 and L5 quoted in Table 1",
+      "page": "p. 34 (PDF 2)"
+    },
+    {
+      "with": "Twomey and Taylor 1987, Clin Orthop [12]; not matched to the list (its twomey1985 has another year)",
+      "what": "cited only (no subjects, method or values shared or quoted)",
+      "evidence": "listed in Table 1, cadavers, concavity rising with age; no number quoted",
+      "page": "p. 34 (PDF 2)"
+    },
+    {
+      "with": "Hall et al. 1998 [3]; not on the list",
+      "what": "cited only (no subjects, method or values shared or quoted)",
+      "evidence": "listed in Table 1, CT endplate outline by level; no number quoted",
+      "page": "p. 34 (PDF 2)"
+    }
+  ],
+  "within_paper": "The 77 patients are one pool: each of the 12 endplates was measured on 25 of them, and the paper says some vertebrae come from the same person, hence the mixed model (p. 36 (PDF 4)); which patients gave which levels is not printed. Figure 2 (all patients) and Table 2 (split by sex) are of the same patients (Inference: Table 2 is the sex split of the Figure 2 diameters, p. 37 and 39 (PDF 5 and 7)). The pig repeatability vertebra (one) and the caliper comparison vertebrae (two) are both measured by CT and caliper; whether the one is among the two is not stated (p. 36 (PDF 4)). No pig value is pooled with a human one."
+}

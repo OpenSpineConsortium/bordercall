@@ -1,0 +1,333 @@
+{
+  "id": "panjabi1991c",
+  "citation": "Panjabi MM, Duranceau J, Goel V, Oxland T, Takata K. Cervical Human Vertebrae: Quantitative Three-Dimensional Anatomy of the Middle and Lower Regions. Spine 1991;16(8):861-869. Copy read: bordercall archive/bordercall/reference/papers/Panjabi_1991_Cervical_Spine_16-8_861-869.pdf, sha256 begins a95f369e673c6567. Source: thread \"Reread every paper for clinical detail\", project symphony_4, 2026-10-28.",
+  "population": "12 fresh autopsy spines (8 men, 4 women), mean age 46.3 years (19 to 59), mean weight 67.8 kg (54 to 85), mean height 167.8 cm (157 to 178); individual details in the thoracic paper of the series; radiographed beforehand to exclude significant abnormalities (criteria not given). Denominator 72 vertebrae, C2 to C7 of each spine; every cell is a mean over the 12 spines with its SEM. Country and ethnicity not stated (Inference: US autopsy source, Yale-led). Sexes pooled. p. 861 (PDF 1), p. 863 (PDF 3).",
+  "modality": "Direct 3D digitising of cleaned vertebrae with a purpose-built morphometer (one LVDT and two RVDT transducers, spherical coordinates) relative to three pin markers on two threaded rods per body; AP and lateral radiographs only to locate the pins. Linear dimensions from points, areas as the Euclidean norm of three projected areas, angles of least-squares planes to a frame built from four posterior-wall points. Accuracy under 5% on a Plexiglas pseudo-vertebra. p. 861 (PDF 1) to p. 863 (PDF 3).",
+  "levels_covered": "C2 to C7 (C1 not studied). C2 lacks upper end-plate values, VBHp, pedicle angles and upper uncovertebral values. Tables 2 to 6, pp. 863 to 865 (PDF 3 to 5).",
+  "anomalies": [
+    {
+      "variant": "Any count or transitional anomaly (cervical rib, block vertebra, C2-C3 fusion, extra or missing level)",
+      "finding": "None reported: all 12 spines are tabulated as exactly C2 to C7 (72 vertebrae). Prevalence not estimable; Inference: with 0/12 the rule-of-three upper bound is about 25%, useless as a prior. Numbering method not stated.",
+      "page": "p. 861 (PDF 1); p. 863 (PDF 3)",
+      "population": "12 US autopsy spines (Inference for country), 8 men and 4 women, 19 to 59 years",
+      "how_identified": "Screening radiographs for significant abnormalities before preparation; criteria and any exclusions not reported, so anomalous spines may have been removed silently."
+    },
+    {
+      "variant": "Structural absence, not an anomaly: no upper uncovertebral surface at C2",
+      "finding": "C2 has lower uncovertebral surfaces (19.8 right, 17.7 left mm2) but dashes for the upper surface; C7 has both upper and lower surfaces (Inference: C7's lower surface meets T1's uncus).",
+      "page": "p. 865 (PDF 5), Table 6",
+      "population": "same 12 spines",
+      "how_identified": "Digitising up to 20 points over each uncovertebral facet"
+    }
+  ],
+  "measures": [
+    {
+      "name": "EPWu, EPWl: upper and lower end-plate width",
+      "definition": "Lateral width of the upper and lower end-plates in the posterior-wall frame (x). Figure 1's front view draws EPWu between the bases of the uncinate processes (excluding the unci) and EPWl between the lower end-plate's lateral corners (Inference from the drawing; no words in the text).",
+      "projection": "Dry-bone 3D digitiser; AP radiograph equivalent",
+      "page": "p. 862 (PDF 2) Figure 1; p. 863 (PDF 3) Table 2",
+      "levels": "EPWu C3 to C7; EPWl C2 to C7",
+      "level_pattern": "EPWu 15.8, 17.2, 17.5, 18.5, 21.8 mm (C3 to C7); EPWl 17.5, 17.2, 17.0, 19.4, 22.0, 23.4 (C2 to C7). EPWl flat C2 to C4 then rising; EPWu gradual to C6 then +3.3 at C7 (C7 differs from C3 to C6, including C6). EPWl C6 differs from C2 to C4, C7 from C2 to C5. Width exceeds depth at every level.",
+      "ct_mask_recipe": "Inference: x-extent of the body subregion's inferior end-plate rim (EPWl); for EPWu the x-extent of the superior end-plate between the points where it turns up into each uncus. A plain superior-surface extent includes the unci and reads high.",
+      "radiograph_recipe": "AP radiograph: EPWl between inferior body corners; EPWu between uncus bases, not tips; correct magnification (not addressed by the paper).",
+      "covariates": "Sexes pooled; no age, sex or size effect reported.",
+      "error": "SEM 0.29 to 0.98 mm (Inference: SD 1.0 to 3.4 mm); method error under 5%."
+    },
+    {
+      "name": "EPDu, EPDl: upper and lower end-plate depth",
+      "definition": "Anteroposterior depth of each end-plate from the posterior wall to its anterior edge along z, Figure 1 side view.",
+      "projection": "Dry-bone 3D digitiser; lateral radiograph equivalent",
+      "page": "p. 862 (PDF 2); p. 863 (PDF 3) Table 2; p. 868 (PDF 8) Table 7",
+      "levels": "EPDu C3 to C7; EPDl C2 to C7",
+      "level_pattern": "EPDu 15.0, 15.3, 15.2, 16.4, 18.1 (C7 differs from C3 to C5); EPDl 15.6, 15.6, 15.9, 17.9, 18.5, 16.8: largest step at C5, peak C6 (differs from C2 to C4), fall at C7 read as a distinct transition to the thoracic region (p. 867, PDF 7).",
+      "ct_mask_recipe": "Inference: z-extent of the body subregion at the superior (inferior) end-plate rim, not at mid-body; include the anteroinferior lip in the lower rim.",
+      "radiograph_recipe": "Lateral radiograph posterior to anterior corner of each end-plate; Nissan and Gilad's radiographic depths and Francis's caliper depths lie within 2 mm of these; Liu's (probably mid-centrum) run 1.2 to 4.1 mm smaller.",
+      "covariates": "Sexes pooled; none reported.",
+      "error": "SEM 0.32 to 0.75 mm (Inference: SD 1.1 to 2.6 mm)."
+    },
+    {
+      "name": "EPWu/EPDu, EPWl/EPDl: end-plate width to depth (derived)",
+      "definition": "Ratio of the printed width and depth.",
+      "projection": "Needs AP and lateral views, or CT",
+      "page": "p. 863 (PDF 3) Table 2; Figure 2B p. 865 (PDF 5)",
+      "levels": "upper C3 to C7; lower C2 to C7",
+      "level_pattern": "Upper 1.05, 1.12, 1.15, 1.13, 1.20 (rise at C7); lower 1.12, 1.10, 1.07, 1.08, 1.19, 1.39 (flat C2 to C5, rise at C6 and C7).",
+      "ct_mask_recipe": "Ratio of the two extents in the instance frame (Inference).",
+      "radiograph_recipe": "Width from AP, depth from lateral of the same level; size-free if magnification is equal.",
+      "covariates": "Sexes pooled.",
+      "error": "No dispersion printed."
+    },
+    {
+      "name": "EPAu, EPAl: end-plate area",
+      "definition": "Area of the digitised end-plate contour, total = Euclidean norm of the three projected areas; excludes the uncovertebral facets (p. 868).",
+      "projection": "Dry-bone 3D digitiser; not from a radiograph directly",
+      "page": "p. 862 (PDF 2); p. 863 (PDF 3) Table 2; p. 864 (PDF 4); p. 868 (PDF 8)",
+      "levels": "EPAu C3 to C7; EPAl C2 to C7",
+      "level_pattern": "EPAu 169.4, 183.0, 182.9, 221.2, 278.3 mm2 (C6 differs from C3; C7 from C3 to C6); EPAl 194.4, 190.7, 199.2, 246.2, 289.9, 280.3 (C6 and C7 differ from C2 to C4).",
+      "ct_mask_recipe": "Inference: vector area of the end-plate rim contour of the body subregion, the upper one bounded by the uncus bases.",
+      "radiograph_recipe": "Ellipse pi x W x D / 4 overestimates by about 10% at every level (by Table 2: 1.07 to 1.14); triangle W x D / 2 underestimates (paper: about 40%; by Table 2 a 27 to 32% shortfall).",
+      "covariates": "Sexes pooled.",
+      "error": "SEM 5.74 to 16.54 mm2 (Inference: SD 20 to 57 mm2)."
+    },
+    {
+      "name": "EPItu, EPItl: end-plate inclination to the transverse plane",
+      "definition": "Angle of the least-squares plane of each end-plate to the transverse plane of the posterior-wall frame, sagittal view; Figure 1 draws both sloping down anteriorly.",
+      "projection": "Dry-bone 3D digitiser; lateral radiograph equivalent",
+      "page": "p. 862 (PDF 2); p. 863 (PDF 3) Table 2; p. 864 (PDF 4)",
+      "levels": "EPItu C3 to C7; EPItl C2 to C7",
+      "level_pattern": "EPItu 2.7, 3.5, 1.7, 4.7, 2.2 deg; EPItl 4.2, 4.0, 2.1, 2.7, 2.7, 1.8. No level differs; upper-lower difference under 2 deg by the text (2.0 at C6 by the table).",
+      "ct_mask_recipe": "Inference: fit planes to the superior and inferior end-plate surfaces and take their angles to the frame's transverse plane in the y-z plane; the cervical paper prints no wedge (sum).",
+      "radiograph_recipe": "Lateral radiograph; angles need no magnification correction; no radiographic check in the paper.",
+      "covariates": "Sexes pooled.",
+      "error": "SEM 0.4 to 1.5 deg (Inference: SD 1.4 to 5.2 deg, often larger than the mean)."
+    },
+    {
+      "name": "VBHp: posterior vertebral body height",
+      "definition": "Height of the posterior wall of the body in the midsagittal plane.",
+      "projection": "Dry-bone 3D digitiser, midsagittal; a lateral view reads higher",
+      "page": "p. 863 (PDF 3) Table 2; p. 864 (PDF 4); p. 868 (PDF 8) Table 7",
+      "levels": "C3 to C7",
+      "level_pattern": "11.6, 11.4, 11.4, 10.9, 12.8 mm; C6 shortest; C7 differs from C6.",
+      "ct_mask_recipe": "Inference: y-extent of the body's posterior wall in the instance's midsagittal slice.",
+      "radiograph_recipe": "Lateral view (Nissan's radiographs, Francis's caliper from the side) reads 1.8 to 3.0 mm higher (paper: 2 to 2.5 mm) because the uncovertebral region projects above the midline; measure the midline wall, not the lateral silhouette.",
+      "covariates": "Sexes pooled.",
+      "error": "SEM 0.26 to 0.46 mm (Inference: SD 0.9 to 1.6 mm)."
+    },
+    {
+      "name": "SCW: spinal canal width",
+      "definition": "Lateral width of the canal, Figure 1 top view; axial level of the section not stated.",
+      "projection": "Dry-bone 3D digitiser; AP radiograph interpedicular distance as an equivalent (Inference)",
+      "page": "p. 862 (PDF 2); p. 864 (PDF 4) Table 3; p. 865 (PDF 5)",
+      "levels": "C2 to C7",
+      "level_pattern": "24.5, 22.9, 24.7, 24.9, 25.8, 24.5 mm; constant by the text; no level differs; widest C6.",
+      "ct_mask_recipe": "Inference: x-extent of the vertebral foramen in an axial section, through the pedicles to match an interpedicular reading.",
+      "radiograph_recipe": "Inference: AP interpedicular distance, magnification corrected; the paper takes no canal radiographs.",
+      "covariates": "Sexes pooled.",
+      "error": "SEM 0.52 to 1.15 mm (Inference: SD 1.8 to 4.0 mm)."
+    },
+    {
+      "name": "SCD: spinal canal depth",
+      "definition": "Anteroposterior depth of the canal in the midline, posterior body wall to the inner arch, Figure 1 top view.",
+      "projection": "Dry-bone 3D digitiser; lateral radiograph equivalent (Inference)",
+      "page": "p. 862 (PDF 2); p. 864 (PDF 4) Table 3; p. 865 (PDF 5)",
+      "levels": "C2 to C7",
+      "level_pattern": "21.0, 16.2, 17.7, 17.4, 18.1, 15.2 mm; greatest at C2 (differs from C3 and C7), plateau C3 to C6, smallest at C7 (a 2.9 mm fall the text calls slight).",
+      "ct_mask_recipe": "Inference: z-extent of the vertebral foramen on the midline of an axial section.",
+      "radiograph_recipe": "Inference: lateral radiograph, posterior body wall to the spinolaminar line, magnification corrected; not in the paper.",
+      "covariates": "Sexes pooled.",
+      "error": "SEM 0.35 to 1.33 mm (Inference: SD 1.2 to 4.6 mm)."
+    },
+    {
+      "name": "SCW/SCD: canal width to depth (derived)",
+      "definition": "Ratio of canal width to depth.",
+      "projection": "Needs AP and lateral views, or CT",
+      "page": "p. 864 (PDF 4) Table 3; p. 865 (PDF 5); p. 867 (PDF 7)",
+      "levels": "C2 to C7",
+      "level_pattern": "1.17, 1.41, 1.40, 1.43, 1.42, 1.61: lowest at C2, constant C3 to C6, jump at C7 named a bony marker of the cervicothoracic transition.",
+      "ct_mask_recipe": "Ratio of the two foramen extents (Inference).",
+      "radiograph_recipe": "AP width over lateral depth of the same level; size-free if magnification is equal.",
+      "covariates": "Sexes pooled.",
+      "error": "No dispersion printed."
+    },
+    {
+      "name": "SCA: spinal canal area",
+      "definition": "Cross-sectional area of the canal; section level not stated.",
+      "projection": "Dry-bone 3D digitiser; not from a radiograph directly",
+      "page": "p. 864 (PDF 4) Table 3; p. 865 (PDF 5); p. 866 (PDF 6); p. 868 (PDF 8)",
+      "levels": "C2 to C7",
+      "level_pattern": "374.5, 248.7, 272.0, 249.5, 266.5, 223.8 mm2; largest C2, smallest C7, only C2 against C7 significant; C6 to C7 fall of clinical interest.",
+      "ct_mask_recipe": "Inference: filled area of the vertebral foramen in an axial section.",
+      "radiograph_recipe": "Ellipse best at C2 and C3, triangle better at C4 to C7; ellipse always over, triangle always under. By the tables SCA/(SCW x SCD) = 0.73, 0.67, 0.62, 0.58, 0.57, 0.60.",
+      "covariates": "Sexes pooled.",
+      "error": "SEM 13.08 to 36.26 mm2 (Inference: SD 45 to 126 mm2, CV up to 56%, suspiciously large)."
+    },
+    {
+      "name": "PDWr, PDWl, PDHr, PDHl: pedicle width and height",
+      "definition": "Width and height of the pedicle section perpendicular to the pedicle axis (Figure 1 inset); position along the pedicle not stated; not stated to be the narrowest.",
+      "projection": "Dry-bone 3D digitiser; CT equivalent",
+      "page": "p. 862 (PDF 2); p. 864 (PDF 4) Table 4; p. 866 (PDF 6)",
+      "levels": "C2 to C7",
+      "level_pattern": "Right width 7.7, 5.8, 5.7, 6.1, 6.3, 6.6; left width 8.3, 5.4, 5.1, 5.1, 5.6, 6.5; right height 9.4, 7.6, 7.4, 6.7, 7.1, 7.5; left height 11.1, 7.2, 7.3, 7.3, 7.5, 7.5 mm. Largest at C2 (significant except right width), small C3 to C5, rising slightly to C7; height exceeds width everywhere.",
+      "ct_mask_recipe": "Inference: isolate the pedicle bridge of the posterior-elements subregion, fit its axis, take the extents of the perpendicular section across and up-down.",
+      "radiograph_recipe": "Not reliably (Inference: the axis is 30 to 45 deg off the sagittal plane and overlaps the lateral mass); CT or an oblique view.",
+      "covariates": "Sexes pooled.",
+      "error": "SEM 0.28 to 0.64 mm at C3 to C7 (Inference: SD 1.0 to 2.2 mm); C2 left SEMs 0.07 and 0.14 implausibly small."
+    },
+    {
+      "name": "PDH/PDW: pedicle height to width (derived)",
+      "definition": "Printed ratio of height to width per side.",
+      "projection": "CT only (Inference)",
+      "page": "p. 864 (PDF 4) Table 4; Figure 4B p. 867 (PDF 7)",
+      "levels": "C2 to C7",
+      "level_pattern": "Right 1.22, 1.3, 1.3, 1.1, 1.1, 1.1; left 1.34, 1.3, 1.43, 1.43, 1.34, 1.15: a slightly tall oval, rounder than the thoracic pedicle.",
+      "ct_mask_recipe": "Ratio of the section's extents (Inference).",
+      "radiograph_recipe": "Not possible.",
+      "covariates": "Sexes pooled.",
+      "error": "No dispersion printed."
+    },
+    {
+      "name": "PDAr, PDAl: pedicle cross-sectional area",
+      "definition": "Area of the pedicle section perpendicular to its axis.",
+      "projection": "Dry-bone 3D digitiser; CT equivalent",
+      "page": "p. 864 (PDF 4) Table 4; p. 866 (PDF 6); p. 868 (PDF 8)",
+      "levels": "C2 to C7",
+      "level_pattern": "Right 32.3, 24.2, 24.7, 23.8, 24.5, 30.4; left 51.8, 21.4, 24.0, 23.9, 27.9, 27.8 mm2; C2 largest (left significant); left 60% above right at C2.",
+      "ct_mask_recipe": "Inference: area of the section perpendicular to the fitted pedicle axis.",
+      "radiograph_recipe": "Not possible; triangle W x H / 2 closest (0.75 to 0.91 of measured at C3 to C7 by the tables, but 1.12 at C2 right, against the text), ellipse 1.18 to 1.76.",
+      "covariates": "Sexes pooled.",
+      "error": "SEM 2.02 to 3.08 mm2 at C3 to C7 (Inference: SD 7 to 11 mm2); C2 left SEM 0.28 implausibly small."
+    },
+    {
+      "name": "PDIsr, PDIsl, PDItr, PDItl: pedicle axis inclination",
+      "definition": "Angles of the pedicle axis to the sagittal plane (top view) and to the transverse plane (side view); negative PDIt is below the transverse plane; which end is below is not defined in words (Inference from Figure 1: positive probably means the posterior end higher).",
+      "projection": "Dry-bone 3D digitiser; CT equivalent",
+      "page": "p. 862 (PDF 2); p. 864 (PDF 4) Table 4; p. 866 (PDF 6)",
+      "levels": "C3 to C7 (C2 not measured)",
+      "level_pattern": "PDIs right 41.6, 44.6, 39.3, 29.6, 33.1; left 42.9, 43.9, 41.2, 34.1, 26.7 deg (about 40 to 29 by the text). PDIt right -9.2, -8.6, -6.3, 7.1, 13.4; left -7.1, -6.5, -5.7, 5.9, 9.2 (about 8 below to 11 above); sign change between C5 and C6, C6 and C7 differ from C3 to C5. Axes converge, crossing in the anterior body.",
+      "ct_mask_recipe": "Inference: angles of the fitted pedicle axis to the instance's yz and xz planes.",
+      "radiograph_recipe": "PDIs needs an axial view; PDIt only roughly on a lateral (Inference).",
+      "covariates": "Sexes pooled.",
+      "error": "SEM 0.67 to 4.77 deg (Inference: SD 2.3 to 16.5 deg, worst at C5 sagittal)."
+    },
+    {
+      "name": "SPL: spinous process length",
+      "definition": "3D length from the lower posterior tip of the spinous process to the vertebral body centroid (text); Figure 1 draws it to about the upper end-plate centre.",
+      "projection": "Dry-bone 3D digitiser; lateral radiograph approximation (Inference)",
+      "page": "p. 862 (PDF 2); p. 864 (PDF 4) Table 5; p. 866 (PDF 6)",
+      "levels": "C2 to C7",
+      "level_pattern": "33.7, 29.6, 30.3, 28.5, 34.2, 45.7 mm; slight fall C2 to C3, constant to C5, C7 longest (differs from C2 to C6, +11.5 over C6).",
+      "ct_mask_recipe": "Inference: distance from the body centroid (or upper end-plate centre, as the series elsewhere) to the most posterior-inferior voxel of the spinous process; take either limb of a bifid tip.",
+      "radiograph_recipe": "Inference: true lateral, magnification corrected.",
+      "covariates": "Sexes pooled.",
+      "error": "SEM 0.78 to 1.88 mm (Inference: SD 2.7 to 6.5 mm)."
+    },
+    {
+      "name": "TPW: transverse process width",
+      "definition": "3D distance between the left and right transverse process tips; which tubercle is the tip is not stated.",
+      "projection": "Dry-bone 3D digitiser; AP radiograph equivalent (Inference)",
+      "page": "p. 862 (PDF 2); p. 864 (PDF 4) Table 5; p. 866 (PDF 6)",
+      "levels": "C2 to C7",
+      "level_pattern": "52.6, 50.3, 48.5, 46.4, 49.5, 66.6 mm; slight fall to C5, C7 differs from C2 to C6 (+17.1 over C6); the text also calls C6 significant, the table does not.",
+      "ct_mask_recipe": "Inference: distance between the most lateral points of the two transverse processes.",
+      "radiograph_recipe": "Inference: AP radiograph tip to tip, magnification corrected; a cervical rib or long C7 process would inflate it.",
+      "covariates": "Sexes pooled.",
+      "error": "SEM 1.13 to 2.97 mm (Inference: SD 3.9 to 10.3 mm)."
+    },
+    {
+      "name": "UJAru, UJAlu, UJArl, UJAll: uncovertebral joint surface area",
+      "definition": "Area of the articulating surfaces of the right and left uncovertebral joints, upper (u) and lower (l), each by up to 20 points spanning the facet (Inference: upper is the uncus, lower the inferolateral body).",
+      "projection": "Dry-bone 3D digitiser; CT only",
+      "page": "p. 861 (PDF 1); p. 865 (PDF 5) Table 6; p. 866 (PDF 6)",
+      "levels": "upper C3 to C7; lower C2 to C7",
+      "level_pattern": "Upper 37.0 to 58.1 mm2, lower 17.7 to 30.5; no significant trend; upper averages 44 mm2, about twice the lower (23.4 by the table).",
+      "ct_mask_recipe": "Inference: vector area of the body-surface patch on the uncus (or inferolateral body) facing the neighbouring instance within a small gap.",
+      "radiograph_recipe": "Not possible.",
+      "covariates": "Sexes pooled.",
+      "error": "SEM 1.79 to 7.45 mm2 (Inference: SD 6 to 26 mm2)."
+    },
+    {
+      "name": "UJIfu, UJIsu, UJIfl, UJIsl: uncovertebral joint inclination",
+      "definition": "Angles of the least-squares plane of each uncovertebral surface to the frontal and sagittal planes, sides combined; values above 90 deg imply an oriented angle whose reference is not defined.",
+      "projection": "Dry-bone 3D digitiser; CT (UJIs perhaps on AP, Inference)",
+      "page": "p. 862 (PDF 2); p. 865 (PDF 5) Table 6; p. 866 (PDF 6); Figure 6 p. 867 (PDF 7)",
+      "levels": "upper C3 to C7; lower C2 to C7",
+      "level_pattern": "Frontal: upper 76.6, 76.2, 82.7, 104.0, 115.6; lower 78.4, 81.6, 83.5, 84.9, 106.2, 113.4 deg, crossing 90 between C5 and C6, C6 and C7 significant. Sagittal: upper 38.7 to 47.3, lower 45.0 to 63.7, largest at C2 and C7.",
+      "ct_mask_recipe": "Inference: fit a plane to each uncovertebral patch and take its angles to the instance's frontal and sagittal planes.",
+      "radiograph_recipe": "Inference: UJIs as the uncus slope on an AP view; UJIf needs an axial view.",
+      "covariates": "Sexes pooled.",
+      "error": "SEM 1.10 to 5.05 deg (Inference: SD 3.8 to 17.5 deg)."
+    }
+  ],
+  "level_details": [
+    {
+      "level": "C2",
+      "detail": "Deepest, largest and roundest canal (SCD 21.0, SCA 374.5, ratio 1.17); largest pedicles (width 7.7/8.3, height 9.4/11.1, area 32.3/51.8, left 60% above right); lower end-plate 17.5 x 15.6, tilt 4.2; lower uncovertebral surfaces only; SPL 33.7, TPW 52.6. Authors: deep canal gives motion without cord encroachment, posteriorly placed load-bearing facets and the muscles on the large spinous process demand large pedicles.",
+      "page": "pp. 863 to 866 (PDF 3 to 6) Tables 2 to 6; p. 868 (PDF 8)"
+    },
+    {
+      "level": "C2/C3",
+      "detail": "The upper transition region: canal depth falls 4.8 mm (significant), pedicle size falls 1.8 to 3.9 mm (significant in three of four dimensions), canal area falls 126 mm2 and SPL 4.1 mm (both not significant).",
+      "page": "p. 864 (PDF 4) Tables 3 to 5; p. 868 (PDF 8)"
+    },
+    {
+      "level": "C3 to C5",
+      "detail": "A plateau: no measure separates any two of C3, C4, C5 significantly; pedicle axes about 40 to 44 deg medial and 6 to 9 deg below the transverse plane; uncovertebral frontal angles 76 to 85 deg; canal oval at C3 and triangular from C4 (Inference from area ratios).",
+      "page": "pp. 863 to 866 (PDF 3 to 6) Tables 2 to 6"
+    },
+    {
+      "level": "C5/C6",
+      "detail": "Orientation break: pedicle transverse inclination changes sign (about -6 to +6.5 deg), sagittal angle 40 to 32 deg, uncovertebral frontal angle crosses 90 deg (all significant); widest lower end-plate step; widest canal at C6; Fife and Kraus's high incidence of cord injury at C6.",
+      "page": "pp. 864 to 866 (PDF 4 to 6) Tables 4 and 6; p. 868 (PDF 8)"
+    },
+    {
+      "level": "C6/C7 (toward C7/T1)",
+      "detail": "Cervicothoracic transition: upper end-plate jumps (EPWu 21.8, EPAu 278.3, significant against C6), lower end-plate depth falls to 16.8 (distinct transition), lower width/depth 1.39, VBHp 12.8 (significant against C6), canal depth 15.2 and area 223.8 (smallest), canal ratio 1.61, SPL 45.7 and TPW 66.6 (significant against C2 to C6), uncovertebral frontal angle 115.6; C6 and C7 upper end-plates larger for load bearing; canal narrows while the cord stays the same size, raising impingement risk in trauma.",
+      "page": "pp. 863 to 865 (PDF 3 to 5) Tables 2 to 6; pp. 867 to 868 (PDF 7 to 8)"
+    },
+    {
+      "level": "Left against right",
+      "detail": "The authors say the data show left-right variation but test none; beyond C2 pedicle area, printed gaps include PDIs C7 (33.1 right, 26.7 left), PDIt C7 (13.4, 9.2), upper uncovertebral area C6 (48.8, 58.1).",
+      "page": "p. 868 (PDF 8); Tables 4 and 6"
+    }
+  ],
+  "errors": [
+    {"what": "Method accuracy on a Plexiglas pseudo-vertebra (linear, angular, area)", "value": "under 5% in all cases", "page": "p. 862 (PDF 2) to p. 863 (PDF 3)"},
+    {"what": "Observer reliability", "value": "not studied; no repeat digitising; operators not stated", "page": "pp. 861 to 863 (PDF 1 to 3)"},
+    {"what": "Dispersion printed", "value": "SEM over 12 spines; Inference SD = 3.46 x SEM", "page": "table notes pp. 863 to 865 (PDF 3 to 5)"},
+    {"what": "Doubtful SEMs", "value": "C2 left pedicle width 0.07, height 0.14, area 0.28 (right 0.35, 0.46, 2.44)", "page": "p. 864 (PDF 4) Table 4"},
+    {"what": "End-plate ellipse estimate", "value": "about +10% at every level (tables: +7 to +14%)", "page": "p. 864 (PDF 4); p. 868 (PDF 8)"},
+    {"what": "Posterior body height, lateral view against midsagittal", "value": "lateral 2 to 2.5 mm higher by the text; 1.8 to 3.0 mm by Table 7", "page": "p. 868 (PDF 8) Table 7"},
+    {"what": "Lower end-plate depth against earlier studies", "value": "within 2 mm of Nissan and Gilad and of Francis; Liu 1.2 to 4.1 mm smaller", "page": "p. 868 (PDF 8) Table 7"}
+  ],
+  "pearls_pitfalls": [
+    {"text": "Indications: models of injury, kinematics and instability; diagnosis; implant and procedure design; instability determinations; earlier thoracolumbar morphometry was driven by the need for pedicle size and orientation.", "page": "p. 861 (PDF 1); p. 868 (PDF 8)"},
+    {"text": "Canal area falls from C6 to C7 while the cord stays the same size, so the cord is more exposed to impingement in trauma; high incidence of cord injury at C6 (Fife and Kraus). No stenosis threshold given.", "page": "pp. 867 to 868 (PDF 7 to 8)"},
+    {"text": "C2's deep canal permits motion without cord encroachment; its posteriorly placed facets and muscle-loaded spinous process explain its large pedicles.", "page": "p. 868 (PDF 8)"},
+    {"text": "Pedicle axes converge and cross in the anterior body; medial angle about 40 to 44 deg at C3 to C5, about 30 at C6 and C7; craniocaudal tilt changes sign between C5 and C6. Inference: trajectory must change there; C3 to C5 pedicles about 5 to 6 mm wide.", "page": "p. 866 (PDF 6) Table 4"},
+    {"text": "C2 pedicle asymmetry: left area 60% above right.", "page": "p. 866 (PDF 6)"},
+    {"text": "Pitfall: a lateral projection overstates posterior body height because the uncovertebral region projects above the midline.", "page": "p. 868 (PDF 8)"},
+    {"text": "Pitfall: end-plate depth taken at mid-centrum reads smaller; end-plate area that includes the uncovertebral facets reads much larger (Liu).", "page": "p. 868 (PDF 8)"},
+    {"text": "Pitfall: repeated t tests across more than two levels are invalid; use ANOVA with a multiple-comparison test.", "page": "p. 862 (PDF 2)"},
+    {"text": "Pitfall: all angles are to planes built from the posterior body wall, not to the scanner or neighbouring vertebra.", "page": "p. 862 (PDF 2)"}
+  ],
+  "instructions": [
+    {"text": "Build Panjabi's frame per cervical instance: least-squares frontal plane from the four posterior-wall corners, z anterior, x lateral, y cranial, origin at the upper end-plate centre; measure widths on x, depths on z, heights on y.", "page": "p. 862 (PDF 2), Figure 1"},
+    {"text": "Confirm C2 (Inference: by its dens, which the paper does not mention) by the deepest canal (about 21 mm, ratio about 1.2, area about 375 mm2), the largest pedicles (about 8 mm wide, 9 to 11 mm high) and a lower end-plate about 17.5 x 15.6 mm; do not assume symmetric C2 pedicles.", "page": "pp. 863 to 864 (PDF 3 to 4) Tables 2 to 4; p. 866 (PDF 6)"},
+    {"text": "Across C2/C3 expect canal depth to drop about 5 mm and pedicle dimensions 2 to 4 mm; a C3 candidate with C2-like canal or pedicles suggests a misnamed C2 or a block (Inference).", "page": "p. 864 (PDF 4) Tables 3 and 4"},
+    {"text": "Confirm C7 by the combination: TPW about 67 mm (+17 over C6), SPL about 46 mm (+11 over C6), upper end-plate about 22 x 18 mm and 280 mm2, VBHp about 12.8 mm (above C6), smallest canal (about 224 mm2, depth about 15 mm, ratio about 1.6), lower end-plate ratio about 1.4.", "page": "pp. 863 to 864 (PDF 3 to 4) Tables 2, 3, 5; p. 867 (PDF 7)"},
+    {"text": "Before naming C7 by TPW, look for a cervical rib or long C7 transverse process on CT (Inference; not mentioned in the paper).", "page": "p. 864 (PDF 4) Table 5"},
+    {"text": "Separate C6 from C5 by orientation: pedicle transverse inclination from about -6 to +6 deg, sagittal angle from about 40 to 32 deg, uncovertebral frontal angle passing 90 deg; widest lower end-plate step at C5 to C6.", "page": "pp. 863 to 866 (PDF 3 to 6) Tables 2, 4, 6"},
+    {"text": "Do not name C3, C4 or C5 from their own measures (no significant pairwise difference); count from C2 and C7 and let the sequence decide (Inference: Scheffe on 12 spines is conservative).", "page": "Tables 2 to 6, pp. 863 to 865 (PDF 3 to 5)"},
+    {"text": "Measure the cervical upper end-plate width between the uncus bases (Inference from Figure 1) and leave the uncovertebral facets out of end-plate areas (stated).", "page": "p. 862 (PDF 2) Figure 1; p. 868 (PDF 8)"},
+    {"text": "Take end-plate depth at the end-plate rim, not at mid-body (mid-centrum reads 1.2 to 4.1 mm smaller).", "page": "p. 868 (PDF 8) Table 7"},
+    {"text": "On a lateral radiograph, expect posterior body height about 2 to 3 mm above the midsagittal VBHp; measure the midline wall.", "page": "p. 868 (PDF 8) Table 7"},
+    {"text": "Where magnification is unknown use ratios: end-plate width/depth (upper 1.05 to 1.20, lower 1.07 to 1.39), canal width/depth (1.17 at C2, about 1.4 at C3 to C6, 1.61 at C7), pedicle height/width (1.1 to 1.43).", "page": "pp. 863 to 864 (PDF 3 to 4) Tables 2 to 4"},
+    {"text": "To estimate an area from width and depth use the ellipse for end-plates (about 10% high), the ellipse for the canal at C2 and C3 and the triangle at C4 to C7, the triangle for pedicles.", "page": "p. 864 (PDF 4); p. 866 (PDF 6); p. 868 (PDF 8)"},
+    {"text": "Do not use end-plate tilts (about 2 to 5 deg, no level difference) to name a level.", "page": "p. 863 (PDF 3) Table 2; p. 864 (PDF 4)"},
+    {"text": "Allow wide tolerance on a single pedicle angle (SD up to about 16 deg at C5) and average the two sides.", "page": "p. 864 (PDF 4) Table 4"},
+    {"text": "Flag a C4 to C6 canal depth near or below C7's 15 mm as narrow for its level (Inference; no stenosis threshold in the paper).", "page": "p. 864 (PDF 4) Table 3"}
+  ],
+  "bordercall": [
+    "(a) Anomaly priors: none from this paper (no anomaly reported in 12 spines, numbering method not stated). Emission structure: C2 distinct (pedicles, canal depth), C7 distinct from C6 in EPWu, EPAu, VBHp, SPL, TPW and UJIfu, C6 distinct from C5 only in orientation (pedicle angles, uncovertebral frontal angles), C3 to C5 indistinguishable.",
+    "(b) SPL: paper measures tip to body centroid (Figure 1 near the upper end-plate centre); mnemonics.py says from the posterior canal wall to the tip, which would read about 20 to 25 mm short at C3 to C6 (Inference). Fix before use.",
+    "(b) EPWu and EPAu: cervical upper end-plate excludes the unci (Figure 1, Inference) and the uncovertebral facets (p. 868); mnemonics.py's lateral-ends width would include the unci and bias EPWu up; the extractor needs an uncus-aware rule.",
+    "(b) EPIt: the cervical paper prints no wedge and describes the difference of the inclinations; do not form a cervical wedge as a sum (Inference).",
+    "(b) PDW, PDH, PDA: mnemonics.py says smallest or narrowest; the paper says only the section perpendicular to the axis, position unstated.",
+    "(b) SCW: mnemonics.py says at the pedicles; the paper does not state the level. SCD in the midline agrees.",
+    "(b) VBHp: agrees in landmark, but the paper's value is midsagittal; a lateral-view value is 2 to 3 mm higher; mnemonics.py names no plane.",
+    "(b) UJA and UJI: C2's upper surface is structurally absent; UJI is printed once per level and surface, sides combined; UJIf above 90 deg is an oriented angle with an undefined reference.",
+    "(b) Candidate new features: canal shape factor SCA/(SCW x SCD) 0.73 at C2 to 0.57 at C6; end-plate and canal width/depth ratios; PDH/PDW; presence of uncovertebral surfaces.",
+    "(c) Error: phantom error under 5%; no observer error; per-cell SD = SEM x sqrt(12) (Inference), widened for the C2 left pedicle SEMs, SCA at every level and PDIs at C5.",
+    "(d) Covariates: none analysed; 8 men and 4 women pooled, 19 to 59 years, 54 to 85 kg, 157 to 178 cm, ethnicity not stated; sex differences acknowledged from Francis but not quantified. Size, sex and population effects must come from other papers."
+  ],
+  "gaps": [
+    "Not stated: how levels were identified or counted; exclusions after the screening radiographs; n per cell; the C2 frame origin; the axial level of the canal measures; the pedicle section's position; which transverse-process tubercle is the tip; SPL endpoint (centroid in text, near the upper end-plate centre in Figure 1); the PDIt and UJIf sign or reference conventions in words; how sides were combined for UJI; why C2 pedicle angles and VBHp were not measured.",
+    "Not measured: C1, lateral masses, laminae, facets (facets paper), foramen transversarium, intervertebral foramina, discs, anterior body height, body dimensions at mid-height, pedicle length or chord length.",
+    "Text against table: pedicles smallest at C3 (table: C4 and C5 for three of four); TPW significant at C6 (table marks only C7); end-plate triangle 40% under (table: 27 to 32%); upper tilt 2 to 5 deg (1.7 at C5) and lower 2 to 4 deg (1.8 at C7); upper-lower difference under 2 deg (2.0 at C6); canal depth slight decrease at C7 (2.9 mm); width over depth and pedicle height over width called significant with no test; C6 upper end-plate depth not marked significant; C2 canal depth and SPL less distinct by Scheffe than the text says; body height gap 2 to 2.5 mm (table 1.8 to 3.0); uncovertebral areas plus end-plate areas very close to Francis (short at C2 to C4 and C7); Francis's canal not wider at C5 and C6 (the difference is depth); triangle under for pedicles (over at C2 right).",
+    "Table 7 heads Francis 1952; reference 5 is 1955.",
+    "Rods printed 2 mm by 2.5 mm long (Inference: probably 2.5 cm; the thoracic paper gives 3.0 mm by 3.2 cm); weight range to 85 kg against the thoracic table's 84 kg (bordercall CONTRADICTIONS.md).",
+    "Implausible dispersion: C2 left pedicle SEMs; canal-area SEMs giving CVs up to 56%.",
+    "Figure 1's isometric view carries the letters MP (Inference: the illustrator's monogram, not a label).",
+    "Inference, from other notes and memory: T1 (thoracic paper) continues the C7 trend (TPW about 75 mm, SCW about 22 mm); later pedicle studies (for example Karaikovic 1997, not in this set) broadly agree on convergent mid-cervical pedicles near 5 mm wide."
+  ]
+}

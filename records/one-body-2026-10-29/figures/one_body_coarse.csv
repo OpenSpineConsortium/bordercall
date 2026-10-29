@@ -1,0 +1,385 @@
+panel,claim,measures,percent,decided_fields
+A,below C7,1,39.0545,4296
+A,below C7,2,71.0818,7819
+A,below C7,3,73.1091,8042
+A,below C7,4,94.6182,10408
+A,below C7,5,94.6636,10413
+A,below C7,6,94.9455,10444
+A,below C7,7,95.3727,10491
+A,below C7,8,95.6818,10525
+A,below C7,9,95.7273,10530
+A,below C7,10,96.1455,10576
+A,below C7,11,96.2091,10583
+A,below C7,12,96.4182,10606
+A,below C7,13,97.0091,10671
+A,below C7,14,97.4727,10722
+A,below C7,15,97.8364,10762
+A,below C7,16,97.8182,10760
+A,below C7,17,99.3273,10926
+A,below C7,18,99.3636,10930
+A,below C7,19,99.4818,10943
+A,below C7,20,99.5273,10948
+A,below C7,21,99.6,10956
+A,below C7,22,99.6,10956
+A,below C7,23,99.6182,10958
+A,below C7,24,99.6091,10957
+A,below C7,25,99.5909,10955
+A,below C7,26,99.6,10956
+A,below C7,27,99.6636,10963
+A,below C7,28,99.7545,10973
+A,below C7,29,99.8545,10984
+A,below C7,30,99.8727,10986
+A,below C7,31,99.8636,10985
+A,below C7,32,99.8455,10983
+B,below C7,1,99.6741,4296
+B,below C7,2,99.9233,7819
+B,below C7,3,99.9378,8042
+B,below C7,4,100,10408
+B,below C7,5,100,10413
+B,below C7,6,100,10444
+B,below C7,7,99.9905,10491
+B,below C7,8,99.9905,10525
+B,below C7,9,99.9905,10530
+B,below C7,10,100,10576
+B,below C7,11,100,10583
+B,below C7,12,99.9906,10606
+B,below C7,13,99.9906,10671
+B,below C7,14,100,10722
+B,below C7,15,100,10762
+B,below C7,16,100,10760
+B,below C7,17,99.9908,10926
+B,below C7,18,99.9909,10930
+B,below C7,19,99.9909,10943
+B,below C7,20,99.9909,10948
+B,below C7,21,99.9909,10956
+B,below C7,22,99.9909,10956
+B,below C7,23,99.9909,10958
+B,below C7,24,99.9909,10957
+B,below C7,25,99.9909,10955
+B,below C7,26,99.9909,10956
+B,below C7,27,100,10963
+B,below C7,28,100,10973
+B,below C7,29,100,10984
+B,below C7,30,100,10986
+B,below C7,31,100,10985
+B,below C7,32,100,10983
+A,below T5,1,14.1909,1561
+A,below T5,2,53.3273,5866
+A,below T5,3,59.3455,6528
+A,below T5,4,65,7150
+A,below T5,5,67.3545,7409
+A,below T5,6,68.8636,7575
+A,below T5,7,69.0909,7600
+A,below T5,8,69.7091,7668
+A,below T5,9,74.2182,8164
+A,below T5,10,74.4636,8191
+A,below T5,11,75.7273,8330
+A,below T5,12,76.5636,8422
+A,below T5,13,77.5636,8532
+A,below T5,14,77.7545,8553
+A,below T5,15,78.1455,8596
+A,below T5,16,78.9727,8687
+A,below T5,17,79.0727,8698
+A,below T5,18,79.2818,8721
+A,below T5,19,79.7909,8777
+A,below T5,20,80.4091,8845
+A,below T5,21,80.6727,8874
+A,below T5,22,81.6,8976
+A,below T5,23,81.9455,9014
+A,below T5,24,82.0273,9023
+A,below T5,25,82.3,9053
+A,below T5,26,82.5818,9084
+A,below T5,27,83.1364,9145
+A,below T5,28,83.2818,9161
+A,below T5,29,83.5727,9193
+A,below T5,30,83.7,9207
+A,below T5,31,83.7636,9214
+A,below T5,32,83.8727,9226
+B,below T5,1,99.4875,1561
+B,below T5,2,99.9318,5866
+B,below T5,3,99.954,6528
+B,below T5,4,99.9441,7150
+B,below T5,5,99.946,7409
+B,below T5,6,99.9472,7575
+B,below T5,7,99.9737,7600
+B,below T5,8,99.987,7668
+B,below T5,9,99.9878,8164
+B,below T5,10,99.9878,8191
+B,below T5,11,99.964,8330
+B,below T5,12,99.9644,8422
+B,below T5,13,99.9766,8532
+B,below T5,14,99.9649,8553
+B,below T5,15,99.9767,8596
+B,below T5,16,99.977,8687
+B,below T5,17,99.9885,8698
+B,below T5,18,99.9885,8721
+B,below T5,19,99.9772,8777
+B,below T5,20,99.9774,8845
+B,below T5,21,99.9775,8874
+B,below T5,22,99.9777,8976
+B,below T5,23,99.9667,9014
+B,below T5,24,99.9668,9023
+B,below T5,25,99.9448,9053
+B,below T5,26,99.978,9084
+B,below T5,27,99.9891,9145
+B,below T5,28,99.9891,9161
+B,below T5,29,99.9891,9193
+B,below T5,30,99.9891,9207
+B,below T5,31,99.9891,9214
+B,below T5,32,99.9892,9226
+A,at or above T6,1,13.7818,1516
+A,at or above T6,2,53.2727,5860
+A,at or above T6,3,59.4909,6544
+A,at or above T6,4,63.4545,6980
+A,at or above T6,5,67.7909,7457
+A,at or above T6,6,70.0545,7706
+A,at or above T6,7,70.1364,7715
+A,at or above T6,8,70.4909,7754
+A,at or above T6,9,74.9364,8243
+A,at or above T6,10,75.2727,8280
+A,at or above T6,11,77.2364,8496
+A,at or above T6,12,77.7364,8551
+A,at or above T6,13,78.4455,8629
+A,at or above T6,14,78.8727,8676
+A,at or above T6,15,79.4455,8739
+A,at or above T6,16,79.9364,8793
+A,at or above T6,17,80.0545,8806
+A,at or above T6,18,80.2182,8824
+A,at or above T6,19,80.6727,8874
+A,at or above T6,20,81.2818,8941
+A,at or above T6,21,81.4545,8960
+A,at or above T6,22,82.1364,9035
+A,at or above T6,23,82.7182,9099
+A,at or above T6,24,82.8545,9114
+A,at or above T6,25,83.1,9141
+A,at or above T6,26,83.1636,9148
+A,at or above T6,27,83.8273,9221
+A,at or above T6,28,84.0091,9241
+A,at or above T6,29,84.3727,9281
+A,at or above T6,30,84.4909,9294
+A,at or above T6,31,84.4909,9294
+A,at or above T6,32,84.7182,9319
+B,at or above T6,1,99.4723,1516
+B,at or above T6,2,99.8805,5860
+B,at or above T6,3,99.9083,6544
+B,at or above T6,4,99.9284,6980
+B,at or above T6,5,99.9464,7457
+B,at or above T6,6,99.974,7706
+B,at or above T6,7,99.9482,7715
+B,at or above T6,8,99.9484,7754
+B,at or above T6,9,99.9757,8243
+B,at or above T6,10,99.9638,8280
+B,at or above T6,11,99.9411,8496
+B,at or above T6,12,99.9532,8551
+B,at or above T6,13,99.9536,8629
+B,at or above T6,14,99.9539,8676
+B,at or above T6,15,99.9542,8739
+B,at or above T6,16,99.9773,8793
+B,at or above T6,17,99.9659,8806
+B,at or above T6,18,99.9433,8824
+B,at or above T6,19,99.9549,8874
+B,at or above T6,20,99.9664,8941
+B,at or above T6,21,99.9665,8960
+B,at or above T6,22,99.9447,9035
+B,at or above T6,23,99.945,9099
+B,at or above T6,24,99.9232,9114
+B,at or above T6,25,99.9344,9141
+B,at or above T6,26,99.9344,9148
+B,at or above T6,27,99.9458,9221
+B,at or above T6,28,99.9459,9241
+B,at or above T6,29,99.9461,9281
+B,at or above T6,30,99.957,9294
+B,at or above T6,31,99.9462,9294
+B,at or above T6,32,99.9463,9319
+A,below T12,1,56.1091,6172
+A,below T12,2,75.1455,8266
+A,below T12,3,80.3727,8841
+A,below T12,4,81.1909,8931
+A,below T12,5,83.4273,9177
+A,below T12,6,95.4455,10499
+A,below T12,7,96.1636,10578
+A,below T12,8,96.5455,10620
+A,below T12,9,96.6364,10630
+A,below T12,10,96.8727,10656
+A,below T12,11,97,10670
+A,below T12,12,97.2091,10693
+A,below T12,13,97.4,10714
+A,below T12,14,97.7182,10749
+A,below T12,15,97.9091,10770
+A,below T12,16,97.9727,10777
+A,below T12,17,98.1455,10796
+A,below T12,18,98.1364,10795
+A,below T12,19,98.1273,10794
+A,below T12,20,98.2636,10809
+A,below T12,21,99,10890
+A,below T12,22,99.0636,10897
+A,below T12,23,99.0545,10896
+A,below T12,24,99.0909,10900
+A,below T12,25,99.0636,10897
+A,below T12,26,99.0727,10898
+A,below T12,27,99.0909,10900
+A,below T12,28,99.1182,10903
+A,below T12,29,99.1545,10907
+A,below T12,30,99.2182,10914
+A,below T12,31,99.2364,10916
+A,below T12,32,99.2545,10918
+B,below T12,1,99.919,6172
+B,below T12,2,99.9516,8266
+B,below T12,3,99.9548,8841
+B,below T12,4,99.944,8931
+B,below T12,5,99.9346,9177
+B,below T12,6,99.9905,10499
+B,below T12,7,99.9905,10578
+B,below T12,8,100,10620
+B,below T12,9,100,10630
+B,below T12,10,100,10656
+B,below T12,11,100,10670
+B,below T12,12,99.9906,10693
+B,below T12,13,100,10714
+B,below T12,14,100,10749
+B,below T12,15,100,10770
+B,below T12,16,100,10777
+B,below T12,17,99.9907,10796
+B,below T12,18,100,10795
+B,below T12,19,100,10794
+B,below T12,20,100,10809
+B,below T12,21,100,10890
+B,below T12,22,100,10897
+B,below T12,23,100,10896
+B,below T12,24,100,10900
+B,below T12,25,100,10897
+B,below T12,26,100,10898
+B,below T12,27,100,10900
+B,below T12,28,100,10903
+B,below T12,29,100,10907
+B,below T12,30,100,10914
+B,below T12,31,100,10916
+B,below T12,32,100,10918
+A,below L2,1,56.0273,6163
+A,below L2,2,66.6545,7332
+A,below L2,3,73.5818,8094
+A,below L2,4,75.4818,8303
+A,below L2,5,77.7273,8550
+A,below L2,6,83.7727,9215
+A,below L2,7,86.2636,9489
+A,below L2,8,86.5636,9522
+A,below L2,9,86.7364,9541
+A,below L2,10,87.2636,9599
+A,below L2,11,87.3818,9612
+A,below L2,12,88.5818,9744
+A,below L2,13,89.0909,9800
+A,below L2,14,89.4273,9837
+A,below L2,15,89.7818,9876
+A,below L2,16,90.5182,9957
+A,below L2,17,91.4727,10062
+A,below L2,18,91.8818,10107
+A,below L2,19,92.0455,10125
+A,below L2,20,92.1364,10135
+A,below L2,21,92.5727,10183
+A,below L2,22,93.0273,10233
+A,below L2,23,93.0909,10240
+A,below L2,24,93.5273,10288
+A,below L2,25,93.6273,10299
+A,below L2,26,93.8364,10322
+A,below L2,27,94.1818,10360
+A,below L2,28,94.3818,10382
+A,below L2,29,94.4727,10392
+A,below L2,30,94.7091,10418
+A,below L2,31,94.8818,10437
+A,below L2,32,95.1818,10470
+B,below L2,1,99.9351,6163
+B,below L2,2,99.9727,7332
+B,below L2,3,99.9629,8094
+B,below L2,4,99.9518,8303
+B,below L2,5,99.9181,8550
+B,below L2,6,99.9891,9215
+B,below L2,7,99.9789,9489
+B,below L2,8,99.9895,9522
+B,below L2,9,99.9895,9541
+B,below L2,10,99.9896,9599
+B,below L2,11,99.9896,9612
+B,below L2,12,99.9795,9744
+B,below L2,13,100,9800
+B,below L2,14,100,9837
+B,below L2,15,99.9899,9876
+B,below L2,16,99.9799,9957
+B,below L2,17,99.9801,10062
+B,below L2,18,99.9901,10107
+B,below L2,19,99.9901,10125
+B,below L2,20,99.9901,10135
+B,below L2,21,99.9902,10183
+B,below L2,22,99.9902,10233
+B,below L2,23,99.9902,10240
+B,below L2,24,100,10288
+B,below L2,25,100,10299
+B,below L2,26,99.9903,10322
+B,below L2,27,99.9903,10360
+B,below L2,28,99.9904,10382
+B,below L2,29,99.9904,10392
+B,below L2,30,99.9904,10418
+B,below L2,31,100,10437
+B,below L2,32,100,10470
+A,"within the thoracolumbar junction, T11 to L2",1,10.5091,1156
+A,"within the thoracolumbar junction, T11 to L2",2,48.0091,5281
+A,"within the thoracolumbar junction, T11 to L2",3,55.4182,6096
+A,"within the thoracolumbar junction, T11 to L2",4,58.1818,6400
+A,"within the thoracolumbar junction, T11 to L2",5,65.8727,7246
+A,"within the thoracolumbar junction, T11 to L2",6,75.4273,8297
+A,"within the thoracolumbar junction, T11 to L2",7,78,8580
+A,"within the thoracolumbar junction, T11 to L2",8,78.3091,8614
+A,"within the thoracolumbar junction, T11 to L2",9,79.6727,8764
+A,"within the thoracolumbar junction, T11 to L2",10,80.2455,8827
+A,"within the thoracolumbar junction, T11 to L2",11,80.6182,8868
+A,"within the thoracolumbar junction, T11 to L2",12,82.0273,9023
+A,"within the thoracolumbar junction, T11 to L2",13,82.7091,9098
+A,"within the thoracolumbar junction, T11 to L2",14,84.4364,9288
+A,"within the thoracolumbar junction, T11 to L2",15,85.5818,9414
+A,"within the thoracolumbar junction, T11 to L2",16,86.6818,9535
+A,"within the thoracolumbar junction, T11 to L2",17,87.8455,9663
+A,"within the thoracolumbar junction, T11 to L2",18,88.3909,9723
+A,"within the thoracolumbar junction, T11 to L2",19,88.5818,9744
+A,"within the thoracolumbar junction, T11 to L2",20,89.1091,9802
+A,"within the thoracolumbar junction, T11 to L2",21,89.6091,9857
+A,"within the thoracolumbar junction, T11 to L2",22,90.1182,9913
+A,"within the thoracolumbar junction, T11 to L2",23,90.2818,9931
+A,"within the thoracolumbar junction, T11 to L2",24,90.8,9988
+A,"within the thoracolumbar junction, T11 to L2",25,91.0727,10018
+A,"within the thoracolumbar junction, T11 to L2",26,91.3,10043
+A,"within the thoracolumbar junction, T11 to L2",27,91.7273,10090
+A,"within the thoracolumbar junction, T11 to L2",28,92.4545,10170
+A,"within the thoracolumbar junction, T11 to L2",29,92.5636,10182
+A,"within the thoracolumbar junction, T11 to L2",30,92.9273,10222
+A,"within the thoracolumbar junction, T11 to L2",31,93.1,10241
+A,"within the thoracolumbar junction, T11 to L2",32,93.4636,10281
+B,"within the thoracolumbar junction, T11 to L2",1,99.654,1156
+B,"within the thoracolumbar junction, T11 to L2",2,99.8674,5281
+B,"within the thoracolumbar junction, T11 to L2",3,99.9344,6096
+B,"within the thoracolumbar junction, T11 to L2",4,99.8906,6400
+B,"within the thoracolumbar junction, T11 to L2",5,99.931,7246
+B,"within the thoracolumbar junction, T11 to L2",6,99.9397,8297
+B,"within the thoracolumbar junction, T11 to L2",7,99.9417,8580
+B,"within the thoracolumbar junction, T11 to L2",8,99.9536,8614
+B,"within the thoracolumbar junction, T11 to L2",9,99.9658,8764
+B,"within the thoracolumbar junction, T11 to L2",10,99.9887,8827
+B,"within the thoracolumbar junction, T11 to L2",11,99.9774,8868
+B,"within the thoracolumbar junction, T11 to L2",12,99.9889,9023
+B,"within the thoracolumbar junction, T11 to L2",13,100,9098
+B,"within the thoracolumbar junction, T11 to L2",14,99.9892,9288
+B,"within the thoracolumbar junction, T11 to L2",15,99.9894,9414
+B,"within the thoracolumbar junction, T11 to L2",16,99.979,9535
+B,"within the thoracolumbar junction, T11 to L2",17,99.9793,9663
+B,"within the thoracolumbar junction, T11 to L2",18,99.9794,9723
+B,"within the thoracolumbar junction, T11 to L2",19,99.9795,9744
+B,"within the thoracolumbar junction, T11 to L2",20,99.9898,9802
+B,"within the thoracolumbar junction, T11 to L2",21,99.9899,9857
+B,"within the thoracolumbar junction, T11 to L2",22,99.9899,9913
+B,"within the thoracolumbar junction, T11 to L2",23,99.9899,9931
+B,"within the thoracolumbar junction, T11 to L2",24,100,9988
+B,"within the thoracolumbar junction, T11 to L2",25,100,10018
+B,"within the thoracolumbar junction, T11 to L2",26,99.99,10043
+B,"within the thoracolumbar junction, T11 to L2",27,99.9901,10090
+B,"within the thoracolumbar junction, T11 to L2",28,99.9902,10170
+B,"within the thoracolumbar junction, T11 to L2",29,99.9902,10182
+B,"within the thoracolumbar junction, T11 to L2",30,99.9902,10222
+B,"within the thoracolumbar junction, T11 to L2",31,100,10241
+B,"within the thoracolumbar junction, T11 to L2",32,100,10281

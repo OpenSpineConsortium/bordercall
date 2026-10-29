@@ -1,0 +1,189 @@
+{
+  "paper": "shin2024",
+  "cohorts": [
+    {
+      "cohort": "shin700",
+      "labels": [
+        "all",
+        "male",
+        "female",
+        "White",
+        "Hispanic",
+        "Black",
+        "Asian",
+        "Caucasian",
+        "African-American",
+        "other",
+        "male vs female",
+        "inclusion criterion",
+        "exclusion criterion",
+        "excluded",
+        "excluded: poor or insufficient imaging",
+        "excluded: previous spinal surgery",
+        "excluded: scoliosis",
+        "excluded: congenital lumbar stenosis",
+        "excluded: spondylolisthesis",
+        "excluded: lumbar vertebral fracture",
+        ""
+      ],
+      "tables": [
+        "Table 1",
+        "Table 2",
+        "Table 3",
+        "Table 4",
+        "Table 5",
+        "Table 6",
+        "Table 7",
+        "Text: Abstract",
+        "Text: Methods",
+        "Text: Results",
+        "Text: Discussion",
+        "Text: Limitations",
+        "Text: Conclusion"
+      ],
+      "subjects": "Living patients aged 18 to 35 who had an abdomen-pelvis or lumbar CT on one GE Discovery 750 HD 64-slice scanner between February 2018 and March 2023; retrospective single-institution review (IRB #5220055), charts taken consecutively by imaging date, men and women reviewed alternately to reach equal numbers. Excluded: history of degenerative disc disease, scoliosis (coronal deformity over 10 deg), congenital lumbar stenosis (any L2-L5 pedicle length below Singh 2005 thresholds), spondylolisthesis, spinal trauma, neoplasm, spinal hardware, CT done for back pain, previous spinal surgery. 809 screened, 109 excluded (41 poor imaging, 37 prior surgery, 11 scoliosis, 7 CLS, 6 spondylolisthesis, 7 lumbar fracture); the rows labelled excluded are counts of the screened 809. Ethnicity as printed: Hispanic 297 (42.43%), Caucasian 261 (37.29%), African-American 70 (10.00%), Asian 60 (8.57%), other 11 (1.57%), which sum to 699; Table 5 uses White, Hispanic, Black, Asian. No hospital is named; the authors are of Loma Linda University School of Medicine and Loma Linda University Health radiology, among others. Inference: the scans are Loma Linda's, California, USA. How lumbar levels were numbered, and whether transitional vertebrae were excluded, is not stated.",
+      "n_people": 700,
+      "n_units": "3,500 interspaces (L1-L2 to L5-S1) and 7,000 foramina (left and right) of 700 patients; 38,500 measurements (15 DSH and 40 NFD per patient)",
+      "ages": "18 to 35 years by inclusion; mean (SD) 27.31 (5.21) men, 28.53 (5.06) women (Table 1, units not printed)",
+      "sexes": "350 male, 350 female",
+      "page": "p. 2-3 (PDF 2-3)"
+    },
+    {
+      "cohort": "harianja600",
+      "labels": [
+        "not stated"
+      ],
+      "tables": [
+        "Text: Introduction"
+      ],
+      "subjects": "Harianja et al. 2023's 600 young patients without spinal pathology, in whom the same group measured normative neural foraminal dimensions; only the count is quoted here. Whether they are among this paper's 700 is not stated.",
+      "n_people": 600,
+      "n_units": "600 patients",
+      "ages": "not stated here (called young)",
+      "sexes": "not stated",
+      "page": "p. 2 (PDF 2)"
+    },
+    {
+      "cohort": "bach240",
+      "labels": [
+        "not stated"
+      ],
+      "tables": [
+        "Text: Discussion"
+      ],
+      "subjects": "Bach et al. 2018's 240 CT scans, quoted only as a count; its participants are said to be compared in their second and third decades of life.",
+      "n_people": null,
+      "n_units": "240 CT scans",
+      "ages": "not stated here",
+      "sexes": "not stated",
+      "page": "p. 5 (PDF 5)"
+    }
+  ],
+  "techniques": [
+    {
+      "technique": "ct_sagittal_dsh",
+      "cohorts": [
+        "shin700"
+      ],
+      "modality": "CT MPR",
+      "instrument": "IMPAX6 PACS (printed Agfa-Gavaert, Mortsel, Belgium) calipers on CT from a GE Discovery 750 HD 64-slice scanner; bone window width 2000 HU, level 500 HU; slice thickness and reformat not reported",
+      "how": "On the sagittal view, anterior and posterior disc space height are the shortest distances between the facing endplates at the anterior and the posterior rim of the interspace, after Harianja 2023 (Inference: the Methods sentence is ambiguous and is read with Fig. 1 as the rims); middle DSH is taken at the centre of the interspace (Fig. 1). Which sagittal slice is not stated. Five interspaces L1-L2 to L5-S1, in mm.",
+      "magnification": "not applicable (CT distances in mm from the PACS)",
+      "observers": "four medical students (JR, EV, MC, DC) trained by a board-certified neuroradiologist (NW); one overall ICC of .842, its model, readers per image and sample not stated",
+      "page": "p. 2 (PDF 2), Fig. 1; ICC p. 5 (PDF 5)"
+    },
+    {
+      "technique": "ct_sagittal_nfd",
+      "cohorts": [
+        "shin700"
+      ],
+      "modality": "CT MPR",
+      "instrument": "IMPAX6 PACS calipers and its freeform tracing tool, same scanner and bone window as the DSH",
+      "how": "On the sagittal view through each foramen, left and right: sagittal AP width as the maximal distance from the posterior margin of the upper vertebral body to the anterior margin of the inferior articular facet (Fig. 2, CD); neuroforaminal height as the maximal distance from the inferior pedicle notch of the upper vertebra to the superior pedicle notch of the lower (Fig. 2, AB); foraminal area traced freehand round the foramen (Fig. 2, hatched line). Area printed in the table as mm, presumably mm2.",
+      "magnification": "not applicable (CT distances in mm from the PACS)",
+      "observers": "the same four trained medical students; the overall ICC of .842",
+      "page": "p. 2 (PDF 2), Fig. 2"
+    },
+    {
+      "technique": "ct_axial_nfd",
+      "cohorts": [
+        "shin700"
+      ],
+      "modality": "CT axial",
+      "instrument": "IMPAX6 PACS calipers, same scanner and bone window",
+      "how": "Axial AP width of each foramen, left and right: the same maximal distance from the posterior margin of the upper vertebral body to the anterior margin of the inferior articular facet, on the axial view; which axial slice is not stated.",
+      "magnification": "not applicable (CT distances in mm from the PACS)",
+      "observers": "the same four trained medical students; the overall ICC of .842",
+      "page": "p. 2 (PDF 2), Fig. 2 caption"
+    },
+    {
+      "technique": "chart_review",
+      "cohorts": [
+        "shin700"
+      ],
+      "modality": "other",
+      "instrument": "medical records, kept in Microsoft Excel 16.58",
+      "how": "Sex, race, ethnicity, age, BMI, height and weight collected from the records (Table 1, Results 3.1); how and when height and weight were measured is not stated.",
+      "magnification": "not applicable",
+      "observers": "not stated",
+      "page": "p. 2-3 (PDF 2-3)"
+    }
+  ],
+  "shared": [
+    {
+      "with": "Harianja et al. 2023, J Bone Joint Surg Am 105(19):1512-1518 (not in the list)",
+      "what": "method",
+      "evidence": "anterior and posterior DSH measured, and middle DSH taken at the interspace centre, as Harianja et al. described",
+      "page": "p. 2 (PDF 2)"
+    },
+    {
+      "with": "Harianja et al. 2023 (not in the list)",
+      "what": "subjects",
+      "evidence": "this study is called the second phase of the Harianja study, which gave normative NFD in 600 young patients; patient overlap not stated. Inference: same group, institution and age band, so the 600 may be among the 700",
+      "page": "p. 2 (PDF 2)"
+    },
+    {
+      "with": "Harianja et al. 2023 (not in the list)",
+      "what": "values quoted",
+      "evidence": "its sample size of 600 young patients is quoted",
+      "page": "p. 2 (PDF 2)"
+    },
+    {
+      "with": "Singh et al. 2005, Spine J 5(6):615-622 (not in the list)",
+      "what": "method",
+      "evidence": "congenital lumbar stenosis, an exclusion, called by L2-L5 pedicle lengths below Singh's thresholds",
+      "page": "p. 2 (PDF 2)"
+    },
+    {
+      "with": "Cramer et al. 2003; Senoo et al. 2014; Lee et al. 2010 (none in the list)",
+      "what": "method",
+      "evidence": "the four neuroforaminal dimensions (sagittal AP width, axial AP width, NFH, area) are named with these citations",
+      "page": "p. 2 (PDF 2)"
+    },
+    {
+      "with": "Razzouk et al. 2022, Eur Spine J (not in the list)",
+      "what": "method",
+      "evidence": "correlation classes weak, moderate, strong and the partial correlation power analysis settings cite it",
+      "page": "p. 3 (PDF 3)"
+    },
+    {
+      "with": "Ratner 2009 (not in the list)",
+      "what": "method",
+      "evidence": "the weak, moderate and strong correlation classes cite it",
+      "page": "p. 3 (PDF 3)"
+    },
+    {
+      "with": "Parra-Frutos 2013; Vetter 2017a, 2017b (none in the list)",
+      "what": "method",
+      "evidence": "homoscedasticity (Levene, residual plots) and normality (Kolmogorov-Smirnov, Q-Q plots) checks cite them",
+      "page": "p. 3 (PDF 3)"
+    },
+    {
+      "with": "Bach et al. 2018, World Neurosurg, doi 10.1016/j.wneu.2018.12.014 (bach2019)",
+      "what": "values quoted",
+      "evidence": "its 240 CT scans are quoted; its larger male DSH and null height or weight association agree, its values for the second and third decades differ",
+      "page": "p. 5 (PDF 5)"
+    }
+  ],
+  "within_paper": "One cohort: every table (Tables 1 to 7) and every text value of this paper is of the same 700 patients, each measured once on one CT for both DSH and NFD; Tables 4 and 5 split the same patients by sex and by ethnicity, Tables 3 and 7 analyse the same measurements as Tables 2 and 6, and the pooled n = 3,500 means in the Abstract and Results are Table 2's measurements over all five levels (p. 1, 3-5, PDF 1, 3-5). The excluded counts are of the 809 screened. The 600 patients of Harianja et al. are the same group's earlier phase; overlap with the 700 is not stated (p. 2, PDF 2)."
+}

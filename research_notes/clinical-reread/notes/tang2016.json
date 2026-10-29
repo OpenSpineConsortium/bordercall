@@ -1,0 +1,328 @@
+{
+  "id": "tang2016",
+  "citation": "Source: thread \"Reread every paper for clinical detail\", project symphony_4, 2026-10-28. Ruoliang Tang, Celal Gungor, Richard F. Sesek, Kenneth Bo Foreman, Sean Gallagher, Gerard A. Davis. Morphometry of the lower lumbar intervertebral discs and endplates: comparative analyses of new MRI data with previous findings. Eur Spine J (2016) 25:4116-4131 (issue number not printed). DOI 10.1007/s00586-016-4405-8. Received 6 Oct 2013, revised 11 Jan 2016, accepted 15 Jan 2016, published online 12 Feb 2016. Copy read: greg's upload of 2026-10-28 01:02 UTC (upload id 9b93af31-3b29-4341-ac31-45aa113d0401), sha256 begins 67db4f94bc064a40.",
+  "population": "USA (Salt Lake City, University of Utah hospital archive), ethnicity not reported; living adults aged 20 to 40 with clinical lumbar MRI whose report named no specific low back disorder (reason for scan unknown to the authors). Subjects with crushed vertebral body, trauma, scoliosis or tumour excluded at subject level (no counts). 109 subjects retrieved (55 women, 54 men) = 327 discs and 654 end-plates; per-disc exclusions only: 9 male Pfirrmann V discs (2 L3/L4, 4 L4/L5, 3 L5/S1) with their end-plates (Inference from counts) and the L5/S1 end-plates of 23 subjects (13 F, 10 M) without oblique slices; final 318 discs (L3/L4 107 = 55 F + 52 M; L4/L5 105 = 55 F + 50 M; L5/S1 106 = 55 F + 51 M) and 590 end-plates (per type 107, 105, 83 = 42 F + 41 M). Women 30.1 +/- 5.8 y, 165.72 +/- 9.46 cm (n 41), 74.65 +/- 19.71 kg; men (L3/L4 set) 30.5 +/- 5.3 y, 178.33 +/- 9.32 cm (n 38), 87.12 +/- 20.89 kg. pp. 4117-4119 (PDF 2-4), Tables 2 and 4.",
+  "modality": "Siemens MAGNETOM Avanto 1.5 T MRI, T2-weighted sagittal and transverse, supine head-first, TR 3000-4770 ms, TE 80-110 ms, slice 3-4.5 mm; measured by hand tracing in OsiriX 4.1.1 on oblique (disc-parallel, Inference) transverse slices. Plus a compilation of earlier cadaver, CT, X-ray, laser-scan and MRI studies (Tables 5 to 7).",
+  "levels_covered": "Discs L3/L4, L4/L5, L5/S1 and the end-plate above (CrEP: L3, L4, L5 inferior) and below (CaEP: L4, L5 superior, S1 superior) each disc. Nothing above L3; no junction other than L5/S1. Only transverse-section area, AP depth (bounding and midline) and width; no disc or body height, canal, pedicle or facet measure.",
+  "anomalies": [
+    {
+      "variant": "Lumbosacral transitional vertebra, sacralisation, lumbarisation, L6, T13, rib count, block vertebra",
+      "finding": "Not mentioned; no level numbering method and no transitional screening. The only trace is ref. 25's title (Mahato 2011, spines with L5-S1 transitions), cited on p. 4117 only as a CT morphometry study.",
+      "page": "whole paper; p. 4117 (PDF 2); p. 4130 (PDF 15)",
+      "population": "not applicable (nothing reported)",
+      "how_identified": "not applicable"
+    },
+    {
+      "variant": "Pfirrmann grade V (collapsed) disc",
+      "finding": "9 of 327 discs (2.8 percent), all in men: 2/54 at L3/L4, 4/54 at L4/L5, 3/54 at L5/S1 (9/162 male discs, 5.6 percent); none reported in 165 female discs; number of men affected not given. Excluded from analysis with their end-plates (Inference from counts). Selected sample, not a population prevalence.",
+      "page": "p. 4117 (PDF 2)",
+      "population": "US clinical MRI, ages 20 to 40, scans whose report named no specific low back disorder",
+      "how_identified": "Pfirrmann grading of every disc by a radiologist on T2 MRI"
+    },
+    {
+      "variant": "Crushed vertebral body, trauma, scoliosis, tumour",
+      "finding": "Subjects excluded at subject level (not per disc); no counts given. The limitations section adds that obvious spinal abnormalities, pathology and severe degeneration were screened out (p. 4128).",
+      "page": "p. 4117 (PDF 2); p. 4128 (PDF 13)",
+      "population": "same sample",
+      "how_identified": "not stated"
+    }
+  ],
+  "measures": [
+    {
+      "name": "Cross-sectional area (CSA) of disc and end-plates",
+      "definition": "Area inside the traced actual periphery of the IVD or end-plate on one transverse slice (Table 1); Fig. 1 shows the outline.",
+      "projection": "MRI T2 oblique transverse slice, 3-4.5 mm",
+      "page": "Table 1 p. 4119 (PDF 4); Fig. 1 p. 4118 (PDF 3); Table 4 p. 4120 (PDF 5); text p. 4119",
+      "levels": "L3/L4, L4/L5, L5/S1 (CrEP, IVD, CaEP)",
+      "level_pattern": "Constant L3/L4 to L4/L5, smaller at L5/S1 by 7 (IVD), 6 (CrEP), 5 (CaEP) percent, P < 0.05. All: CrEP 13.85 +/- 2.14, 13.75 +/- 2.10, 13.08 +/- 2.23; IVD 16.19 +/- 2.43, 16.27 +/- 2.57, 15.23 +/- 2.76; CaEP 15.13 +/- 2.12, 15.15 +/- 2.16, 14.63 +/- 2.39 cm2. Inference: pooled Table 4 means give L5/S1 drops of 6, 5, 3 percent, smaller than printed. Within each level CrEP < IVD > CaEP; IVD exceeds CrEP by 18 (M) / 17 (F) percent and CaEP by 9 (M) / 4 (F) percent; CaEP exceeds CrEP by 12 (F) / 9 (M) percent. L5 superior > inferior end-plate in both sexes, L4 only in women (11 percent; men P = 0.090). Range all subjects (Table 4): CrEP 9.77-19.14, 9.90-19.88, 9.25-20.45; IVD 11.48-22.51, 10.63-22.80, 10.21-22.98; CaEP 10.36-20.00, 10.46-21.04, 10.21-22.46 cm2 (about twofold; called substantial, p. 4126).",
+      "covariates": "Men larger: IVD by 20, 24, 26 percent (L3/L4 to L5/S1), end-plates about 18 percent on average as stated (16 to 24 percent level by level from Table 4, Inference), all P < 0.001; sex x level P = 0.088. Sex confounded with height and weight, not adjusted. Female: CrEP 12.59, 12.49, 11.71; IVD 14.76, 14.63, 13.52; CaEP 14.04, 13.95, 13.35. Male: CrEP 15.19, 15.13, 14.47; IVD 17.71, 18.08, 17.06; CaEP 16.29, 16.47, 15.93 cm2.",
+      "ct_mask_recipe": "Inference: in the vertebra's local frame, take the body subregion voxels in a 3-4.5 mm slab at the end-plate surface, project onto the end-plate plane, fill holes, area of outer outline including the rim; inferior end-plate of upper vertebra = CrEP, superior of lower = CaEP; disc from a disc label mid-height slab or the gap between end-plates.",
+      "radiograph_recipe": "Not directly. Inference: lateral bounding depth x AP width x pi/4 approximates traced area within 2-3 percent, with magnification squared.",
+      "error": "ICC(3,1) intra 0.996 / 0.990, inter 0.971; Pearson 0.997, 0.996, 0.978 (Table 3). Inference SEM about 0.4 cm2 between observers."
+    },
+    {
+      "name": "Antero-posterior diameter (APD)",
+      "definition": "Distance between the anterior-most and posterior-most transverse contour extents (Table 1): the AP side of the bounding rectangle, reaching the posterolateral lobes in a kidney-shaped section (Fig. 1b).",
+      "projection": "MRI T2 oblique transverse slice",
+      "page": "Table 1 p. 4119; Fig. 1 p. 4118; Table 4 p. 4120; text p. 4122 (PDF 7); Fig. 7 p. 4123 (PDF 8)",
+      "levels": "L3/L4, L4/L5, L5/S1",
+      "level_pattern": "Flat or falling slightly toward L5/S1. All: CrEP 3.59, 3.58, 3.52 (2 percent smaller at L5/S1, P < 0.05); IVD 3.86, 3.86, 3.76 (sex, level and interaction P = 0.017, but Fig. 6 plots FD values); CaEP 3.72, 3.63, 3.57 (sex x level P = 0.044; women 3.61, 3.50, 3.41; men 3.84, 3.76, 3.74) cm. Range all subjects (Table 4): CrEP 2.98-4.33, 3.07-4.57, 2.90-4.61; IVD 3.12-4.61, 3.21-4.68, 3.01-4.76; CaEP 3.12-4.41, 3.12-4.47, 2.95-4.64 cm.",
+      "covariates": "APD_CrEP 11 percent larger in men (P < 0.001); Inference from Table 4: APD_IVD 9-14 and APD_CaEP 6-10 percent larger in men, widest at L5/S1. Age, height, weight not analysed.",
+      "ct_mask_recipe": "Inference: extent of the end-plate or disc outline along the vertebra's own AP axis (bounding-box depth, not the midline chord).",
+      "radiograph_recipe": "Inference: lateral radiograph end-plate depth (anterior to posterior corner) approximates APD, since the posterior vertebral line is formed by the posterolateral lobes; magnified (p. 4126 warns radiographs give larger dimensions).",
+      "error": "ICC intra 0.993 / 0.984, inter 0.970; Pearson 0.994, 0.988, 0.971. Inference SEM about 0.05 cm between observers."
+    },
+    {
+      "name": "Frontal diameter (FD)",
+      "definition": "Distance between the right and left lateral-most transverse contour extents (Table 1); lateral side of the bounding rectangle (Fig. 1).",
+      "projection": "MRI T2 oblique transverse slice",
+      "page": "Table 1 p. 4119; Table 4 p. 4120; text p. 4122",
+      "levels": "L3/L4, L4/L5, L5/S1",
+      "level_pattern": "Nearly flat. All: CrEP 4.78, 4.79, 4.83 (no level difference); IVD 5.22, 5.29, 5.21 (+2 then -2 percent, P < 0.05); CaEP 5.05, 5.21, 5.19 (+3 percent L3/L4 to L4/L5, P < 0.05, then constant) cm. Range all subjects (Table 4): CrEP 3.95-5.80, 3.91-5.63, 3.82-5.82; IVD 4.39-6.22, 4.22-6.24, 4.13-6.22; CaEP 4.10-5.90, 4.28-6.21, 4.19-6.31 cm.",
+      "covariates": "Men larger by about 11 (IVD), 10 (CrEP), 9 (CaEP) percent, P < 0.001. Age, height, weight not analysed.",
+      "ct_mask_recipe": "Inference: extent of the end-plate or disc outline along the local left-right axis.",
+      "radiograph_recipe": "Inference: AP radiograph end-plate width, magnified; no factor given. Lordotic tilt foreshortens depth but not width on the AP view, so FD is the AP film's robust end-plate measure. Kang [23] (ref. title) compared radiographic and CT body transverse diameters in Koreans.",
+      "error": "ICC intra 0.984 / 0.984, inter 0.953; Pearson 0.986, 0.988, 0.955. Inference SEM about 0.09 cm between observers."
+    },
+    {
+      "name": "Mid-sagittal diameter (MSD)",
+      "definition": "Distance between the mid-sagittal extents of the contour (Table 1): the AP chord along the midline, ending at the bottom of the posterior notch in a kidney-shaped section (Fig. 1b). How the midline was set is not stated.",
+      "projection": "MRI T2 oblique transverse slice",
+      "page": "Table 1 p. 4119; Fig. 1 p. 4118; Table 4 p. 4120; Fig. 5 p. 4122",
+      "levels": "L3/L4, L4/L5, L5/S1",
+      "level_pattern": "Rises caudally, largest at L5/S1. All: CrEP 3.24, 3.31, 3.48; IVD 3.47, 3.54, 3.72; CaEP 3.27, 3.31, 3.52 cm. No ANOVA reported. Inference: MSD/APD about 0.88-0.90 at L3/L4, 0.91-0.93 at L4/L5, 0.99 at L5/S1 (posterior notch 0.35-0.45, 0.27-0.32, 0.04-0.05 cm): L5/S1 sections near oval, upper levels kidney-shaped; women deeper notch. Range all subjects (Table 4): CrEP 2.64-4.09, 2.72-4.27, 2.85-4.25; IVD 2.77-4.23, 2.84-4.43, 2.83-4.70; CaEP 2.60-4.00, 2.77-4.22, 2.82-4.43 cm.",
+      "covariates": "No test reported. Inference from Table 4: men 12-16 percent larger, more than APD.",
+      "ct_mask_recipe": "Inference: length of the outline along the AP line through the FD midpoint (or through canal centre and spinous process).",
+      "radiograph_recipe": "Inference: not obtainable from a lateral film (midline notch hidden behind the posterolateral lobes); needs an axial image.",
+      "error": "Least reliable: ICC intra 0.914 / 0.906, inter 0.938; Pearson 0.904, 0.909, 0.940. Inference SEM about 0.08-0.10 cm."
+    },
+    {
+      "name": "Ellipse-estimated area",
+      "definition": "APD x FD x pi/4 (formula 1, attributed to Panjabi [27]) or MSD x FD x pi/4 (formula 2, attributed to Hutton and Adams [39]; method traced to Farfan [21]) compared with traced CSA.",
+      "projection": "derived from the MRI diameters",
+      "page": "p. 4118 (PDF 3); results p. 4119 (PDF 4) and p. 4122 (PDF 7); p. 4126 (PDF 11)",
+      "levels": "L3/L4, L4/L5, L5/S1",
+      "level_pattern": "APD-based: 2 percent low at L3/L4 and L4/L5 for IVD, CrEP, CaEP (P < 0.01), 3 percent high for IVD and CrEP at L5/S1 (P < 0.001). MSD-based: 10 percent low at L3/L4 and L4/L5 (P < 0.001), 2 percent high for CrEP (P = 0.005) and IVD (P = 0.004) at L5/S1. No L5/S1 CaEP result.",
+      "covariates": "",
+      "ct_mask_recipe": "Inference: compute both the traced mask area and the ellipse the generator's source used.",
+      "radiograph_recipe": "Inference: two radiographs (lateral depth, AP width) give the APD-based ellipse.",
+      "error": "Mean absolute error 2 percent with APD, 9 percent with MSD; Seidel [29] had reported an overall 9 percent underestimate."
+    },
+    {
+      "name": "Compiled literature values (Tables 5 to 7)",
+      "definition": "Disc CSA (Table 5), cranial end-plate CSA, depth and FD (Table 6), caudal end-plate CSA, depth and FD (Table 7) from Nachemson, Farfan, Hansson, Hutton and Adams, Colombini, Porter, Turk and Celan, Brinckmann, Panjabi, Drerup, Zhou, Tan, Seidel, Wang, Nissan and Gilad, van Schaik, Berry, Amonoo-Kuofi, Aydinlioglu, van der Houwen, Postacchini, Aharinejad, Kang; methods caliper, graph paper, ellipsoid, CT, X-ray, laser scan, digitized image; one depth column mixes APD, MSD and caliper depths.",
+      "projection": "mixed: cadaver caliper, CT, X-ray, MRI, laser scan",
+      "page": "pp. 4124-4128 (PDF 9-13); Figs. 8-10 pp. 4128-4129",
+      "levels": "L3/L4, L4/L5, some L5/S1",
+      "level_pattern": "Inference from the tables: cranial end-plate area smallest at L5/S1 in every series reaching it (Panjabi 12.90, 12.73, 12.18; Tan; Seidel; Wang; Tang); caudal end-plate widens L3/L4 to L4/L5 in 8 of 10 series; depth trend toward L5/S1 depends on definition (Panjabi, Wang, Tang APD fall; van Schaik mid-sagittal rises; van der Houwen mid-sagittal falls).",
+      "covariates": "Postacchini Italian vs Indian cadavers (both 'caucasoid ethnic groups' in the ref. title): caudal depth 3.2, 3.3 vs 2.9, 2.9 cm, FD 4.7, 4.9 vs 4.1, 4.3; Tan 10 Chinese Singaporean cadavers aged 65.7: smallest areas; Kang Korean women and men; Berry caucasian; Aydinlioglu Turkish X-ray (magnified).",
+      "ct_mask_recipe": "",
+      "radiograph_recipe": "X-ray depths of Aydinlioglu (4.30-4.88) and Amonoo-Kuofi (3.84-4.31) exceed CT, MRI and cadaver values (2.51-3.86); Nissan and Gilad (3.39-3.49) do not. Inference: the reference titles of Amonoo-Kuofi [17] and Aydinlioglu [18] name lumbar disc heights and AP diameters, so their Table 6 'end-plate' depths may be disc depths on magnified lateral films.",
+      "error": "Tan's linear SDs (0.02-0.06) and Panjabi's (0.09-0.14 cm, 0.52-0.64 cm2) are implausibly small; Inference: standard errors, since Panjabi's x sqrt(12) = 3.46 gives 0.31-0.48 cm and 1.8-2.2 cm2, the size of other series' SDs. Panjabi L5/S1 depth SD 0.92 likely a typo."
+    }
+  ],
+  "level_details": [
+    {
+      "level": "L3/L4 and L4/L5",
+      "detail": "No difference in CSA (IVD, CrEP, CaEP) or APD_CrEP; FD_IVD and FD_CaEP 2-3 percent larger at L4/L5; largest male disc area and width at L4/L5 (18.08 cm2, 5.59 cm); kidney-shaped sections (Inference from Table 4). Male APD_CrEP and APD_CaEP tie at L4/L5 (3.76 cm).",
+      "page": "pp. 4119, 4120, 4122 (PDF 4, 5, 7)"
+    },
+    {
+      "level": "L5/S1",
+      "detail": "Smallest disc and end-plate areas (-5 to -7 percent), smallest APD_CrEP, largest MSD, near-oval sections (Inference); tied to highest theoretical load [62] and the commonest site of low back pain pathology [63]; 23 of 109 subjects lacked oblique slices of the L5/S1 end-plates; 3 of 54 men had a grade V L5/S1 disc.",
+      "page": "pp. 4117, 4119, 4126 (PDF 2, 4, 11)"
+    },
+    {
+      "level": "L4 vertebra",
+      "detail": "Superior end-plate (L3/L4 CaEP) larger than inferior (L4/L5 CrEP) in women by 11 percent (P < 0.001); in men P = 0.090 though Table 4 means differ by 7 percent.",
+      "page": "pp. 4119, 4123 (PDF 4, 8)"
+    },
+    {
+      "level": "L5 vertebra",
+      "detail": "Superior end-plate (L4/L5 CaEP) larger than inferior (L5/S1 CrEP) in both sexes (P < 0.001; 12 percent on average per text, 12-16 percent by Table 4 means); L5 inferior end-plate is the smallest measured (13.08 cm2, FD 4.83 vs 5.21 superior).",
+      "page": "pp. 4119, 4123 (PDF 4, 8); Table 4 p. 4120"
+    },
+    {
+      "level": "S1 superior end-plate",
+      "detail": "14.63 +/- 2.39 cm2, FD 5.19 +/- 0.46, APD 3.57 +/- 0.32, MSD 3.52 +/- 0.32 cm (all); no other study in Table 7 gives it; Panjabi [27] and Wang [34] left it out.",
+      "page": "p. 4120 (PDF 5); pp. 4127-4128 (PDF 12-13)"
+    },
+    {
+      "level": "Other studies, vertebra comparison",
+      "detail": "Seidel [29] (unknown-sex cadavers) found superior larger than inferior for L3 and L5 but not L4; Wang [34] similar trend; Brinckmann [1] and Panjabi [27] a slight increase for L4, direction not stated (Inference from Tables 6, 7: Panjabi's L4 inferior 12.73 vs superior 12.39 cm2; Brinckmann women 15.21 vs 14.40, men 18.16 vs 19.83); none tested statistically.",
+      "page": "p. 4123 (PDF 8)"
+    },
+    {
+      "level": "Craniocaudal asymmetry",
+      "detail": "End-plate cranial to the disc more often concave, caudal flatter [19, 34, 56, 57]; asymmetry may follow degeneration [57] more than sex or age.",
+      "page": "p. 4123 (PDF 8)"
+    },
+    {
+      "level": "C2/C3, C7/T1, T12/L1",
+      "detail": "Not covered; nothing above L3.",
+      "page": "whole paper"
+    }
+  ],
+  "errors": [
+    {
+      "what": "Reliability protocol",
+      "value": "2 observers, 40 random scans (20 F, 20 M), 2 rounds 1 month apart, random order; ICC(3,1) and Pearson; published values are observer I round 1",
+      "page": "p. 4118 (PDF 3)"
+    },
+    {
+      "what": "CSA ICC intra I / intra II / inter (Pearson)",
+      "value": "0.996 / 0.990 / 0.971 (0.997, 0.996, 0.978)",
+      "page": "Table 3 p. 4119 (PDF 4)"
+    },
+    {
+      "what": "FD ICC intra I / intra II / inter (Pearson)",
+      "value": "0.984 / 0.984 / 0.953 (0.986, 0.988, 0.955)",
+      "page": "Table 3 p. 4119 (PDF 4)"
+    },
+    {
+      "what": "APD ICC intra I / intra II / inter (Pearson)",
+      "value": "0.993 / 0.984 / 0.970 (0.994, 0.988, 0.971)",
+      "page": "Table 3 p. 4119 (PDF 4)"
+    },
+    {
+      "what": "MSD ICC intra I / intra II / inter (Pearson)",
+      "value": "0.914 / 0.906 / 0.938 (0.904, 0.909, 0.940)",
+      "page": "Table 3 p. 4119 (PDF 4)"
+    },
+    {
+      "what": "Inference: SEM between observers from pooled Table 4 SDs",
+      "value": "APD 0.05 cm, FD 0.09 cm, MSD 0.08 cm, CSA 0.4 cm2; within observer I 0.02, 0.05, 0.10 cm, 0.15 cm2",
+      "page": "Tables 3, 4 pp. 4119-4120"
+    },
+    {
+      "what": "Ellipse estimate mean absolute error",
+      "value": "2 percent (APD-based), 9 percent (MSD-based); 10 percent low with MSD at L3/L4 and L4/L5",
+      "page": "pp. 4119, 4122 (PDF 4, 7)"
+    },
+    {
+      "what": "Not reported",
+      "value": "SEM, absolute error in mm, Bland-Altman limits, pixel size, per-level reliability",
+      "page": "whole paper"
+    }
+  ],
+  "pearls_pitfalls": [
+    {
+      "text": "Indication: total disc arthroplasty; lower lumbar geometric variability is tied to its complications; footprints sized to the end-plate improve prosthesis-vertebra contact and load distribution; female and L5/S1 data were lacking.",
+      "page": "pp. 4116, 4117, 4122 (PDF 1, 2, 7)"
+    },
+    {
+      "text": "End-plate area and BMD together set bone mineral content, which explains much of the variance in ultimate compressive strength [1]; finite element models need disc and end-plate CSAs with their variability.",
+      "page": "pp. 4116-4117 (PDF 1-2)"
+    },
+    {
+      "text": "End-plate cranial to the disc usually has higher BMD and is thought stronger; more fractures involve the caudal one (the lower vertebra's superior end-plate); the authors speculate cranial concavity relates to its smaller area.",
+      "page": "p. 4123 (PDF 8)"
+    },
+    {
+      "text": "A small lower lumbar disc may be more vulnerable to degeneration and discogenic pain; L5/S1 bears the highest theoretical load and is the commonest site of pathology.",
+      "page": "p. 4126 (PDF 11)"
+    },
+    {
+      "text": "Pitfall: MSD-based ellipse under-reads area by about 10 percent at L3/L4 and L4/L5; use APD if an ellipse is needed; the minor-axis choice matters when comparing literature.",
+      "page": "pp. 4119, 4122, 4126"
+    },
+    {
+      "text": "Pitfall: cadaver geometry may change with water loss, freezing or fixative injection.",
+      "page": "p. 4126 (PDF 11)"
+    },
+    {
+      "text": "Pitfall: radiographs are prone to magnification error, giving larger dimensions on lateral films; X-ray depths of Aydinlioglu and Amonoo-Kuofi exceed CT, MRI and cadaver values. The authors blame extreme values on small samples [21] and magnification [17, 18] (p. 4128); Inference: these two may also be disc, not end-plate, depths.",
+      "page": "pp. 4125-4126 (PDF 10-11)"
+    },
+    {
+      "text": "Pitfall: Brinckmann measured end-plate area after a compressive strength test.",
+      "page": "p. 4128 (PDF 13)"
+    },
+    {
+      "text": "Pitfall: small samples and missing heights and weights in earlier studies; sex here confounded with height and weight.",
+      "page": "pp. 4123, 4126, 4128"
+    },
+    {
+      "text": "Pitfall: hospital database sample may not be healthy; degeneration correlates with end-plate change; supine minimally loaded MRI, geometry may change standing; authors call for larger samples varying in age, size and degeneration.",
+      "page": "pp. 4128-4130 (PDF 13-15)"
+    },
+    {
+      "text": "Pitfall: depth columns in Tables 6 and 7 mix APD, MSD and caliper depths, so they are not like for like.",
+      "page": "pp. 4125-4127; p. 4126"
+    },
+    {
+      "text": "Earlier studies found the same sex effect on disc area [38, 39, 41], end-plate area [14] and diameters [19, 33, 35]; older cadaver series report larger areas than younger ones, tied to ageing such as osteoporosis [65].",
+      "page": "pp. 4123, 4128 (PDF 8, 13)"
+    },
+    {
+      "text": "The authors' own purpose was biomechanics and ergonomic assessment of work-related low back pain (NIOSH-funded); they claim the first joint report of linear and planar measures of disc and both end-plates.",
+      "page": "pp. 4117, 4122, 4130 (PDF 2, 7, 15)"
+    }
+  ],
+  "instructions": [
+    {
+      "text": "Name end-plates by vertebra: L3/L4 CrEP = L3 inferior, L3/L4 CaEP = L4 superior, L5/S1 CaEP = S1 superior; in the vertebra statements CrEP means the vertebra's superior end-plate (mapping is Inference checked against Table 4).",
+      "page": "pp. 4118, 4119, 4123"
+    },
+    {
+      "text": "On a disc-parallel axial section or a resliced 3D mask, measure traced area, AP bounding depth (APD), left-right width (FD) and midline depth (MSD) per end-plate and disc; keep APD and MSD apart.",
+      "page": "Table 1, Fig. 1, pp. 4118-4119"
+    },
+    {
+      "text": "Use MSD/APD as a soft cue for L5/S1 (about 0.99) versus L3/L4 and L4/L5 (0.88-0.93) (Inference from Table 4 means); the notch is about one between-subject SD, so never use it alone.",
+      "page": "Table 4 p. 4120"
+    },
+    {
+      "text": "Expect L5/S1 disc and end-plate areas 5-7 percent below L4/L5 and L3/L4, and L3/L4 indistinguishable from L4/L5 by area; do not name those two by size alone.",
+      "page": "p. 4119; Table 6 p. 4125"
+    },
+    {
+      "text": "Within one vertebra on MRI expect the superior end-plate larger than the inferior at L5 (both sexes) and L4 (women), and at each disc the end-plate below larger than the one above; but do not rely on the direction: at the same disc Brinckmann's caudal end-plates are larger in area (as Tang), Panjabi's and Tan's cranial ones larger in area and width, Zhou's in depth and width, Seidel, Wang, Berry and van der Houwen mixed (Inference from Tables 6, 7); Seidel did not find Tang's L4 difference. Check modality and definition first.",
+      "page": "pp. 4119, 4123, 4125-4128"
+    },
+    {
+      "text": "Expect disc area 4-18 percent above the adjacent end-plates; Inference: a disc mask much smaller than its end-plates suggests segmentation error or a collapsed disc.",
+      "page": "p. 4119"
+    },
+    {
+      "text": "Adjust for sex: men 9-11 percent larger in FD and APD_CrEP (paper), 6-16 percent across diameters (Inference), areas 20-26 percent (disc) and about 18 percent on average (end-plates; 16-24 percent by level, Inference); prefer within-patient ratios between neighbouring levels.",
+      "page": "pp. 4119, 4122; Table 4"
+    },
+    {
+      "text": "Inference: on a lateral radiograph read end-plate depth as APD-like and correct magnification; on AP read width as FD; never read MSD from a lateral film.",
+      "page": "p. 4126"
+    },
+    {
+      "text": "Estimate area from diameters with APD x FD x pi/4 (2-3 percent error), never MSD x FD x pi/4 (10 percent low at L3/L4, L4/L5).",
+      "page": "pp. 4119, 4122"
+    },
+    {
+      "text": "Before comparing a depth with literature, establish whether it is bounding, mid-sagittal or caliper and whether X-ray magnified; level trends toward L5/S1 change sign between definitions (Inference) and X-ray depths run about 1 cm deeper.",
+      "page": "Tables 6, 7 pp. 4125-4127"
+    },
+    {
+      "text": "Inference: collapsed (Pfirrmann V) discs occur even at 20-40 years (9/327 discs, all men); do not read an absent disc gap as a block vertebra or missing level without checking end-plates.",
+      "page": "p. 4117"
+    },
+    {
+      "text": "Do not treat the L5/S1 values as LSTV-free; check the patient's L5/S1 is a true lumbosacral junction before using them.",
+      "page": "pp. 4117-4118 (no screening described)"
+    },
+    {
+      "text": "Expect L5/S1 end-plates missing from a routine axial MRI stack in about 1 in 5 subjects (23/109); Inference: reslice the volume parallel to the L5/S1 disc.",
+      "page": "p. 4117"
+    },
+    {
+      "text": "Do not use the Aydinlioglu [18] or Amonoo-Kuofi [17] X-ray depths in Table 6 as end-plate references: they are magnified and, by their reference titles, probably disc diameters (Inference).",
+      "page": "Table 6 p. 4125; pp. 4126, 4130"
+    }
+  ],
+  "bordercall": [
+    "(a) Anomaly priors: none (no LSTV, L6, T13, rib or block vertebra prevalence; no numbering method). Only related figure: Pfirrmann V disc 9/327 discs (2.8 percent), all men (2/54 L3/L4, 4/54 L4/L5, 3/54 L5/S1; 9/162 male discs), 0/165 female discs; US clinical MRI aged 20-40 selected for no specific low back diagnosis (p. 4117). Usable for a 'disc gap absent' emission, not a numbering transition.",
+    "(b) Inference mapping to Panjabi: FD ~ EPW, APD or MSD ~ EPD, CSA ~ EPA; L3/L4 CrEP = L3 lower, CaEP = L4 upper, L4/L5 CrEP = L4 lower, CaEP = L5 upper, L5/S1 CrEP = L5 lower, CaEP = S1 upper (no Panjabi counterpart). Could add S1 superior end-plate (14.63 cm2, FD 5.19, APD 3.57, MSD 3.52), disc transverse area/depth/width, the MSD/APD notch ratio, per-sex means and SDs (Table 4). The paper gives no disc or body height, canal, pedicle or facet measure.",
+    "(b) Bias 1: Panjabi's depth is listed under APD/MSD and his ellipse attributed as APD x FD x pi/4 (p. 4118); bounding versus midline depth differs by 0.3-0.45 cm at L3/L4 and L4/L5 (Inference: check Panjabi 1992's landmark). Inference: Panjabi's areas 7-22 percent below Tang's would fit a midline depth (MSD ellipse 10 percent low) plus age and cadaver effects; a guess to test.",
+    "(b) Bias 2: Panjabi's area is an ellipse estimate; ellipse vs traced mask area differs by about 2 percent (APD) or 10 percent (MSD) at L3/L4 and L4/L5 and 2-3 percent the other way at L5/S1 (pp. 4119, 4122).",
+    "(b) Bias 3: Panjabi's lower end-plates are wider than his upper ones (FD 4.80, 4.95, 4.94 vs 4.66, 4.73; Tables 6, 7) while Tang's superior end-plates are wider (CaEP 5.05, 5.21, 5.19 vs CrEP 4.78, 4.79, 4.83); other compiled series disagree on direction (Inference); slab choice (rim vs concavity) may drive it.",
+    "(b) Bias 4: vs Panjabi (12 cadavers, 46.3 y), Tang's cranial end-plates equal or narrower in FD (4.78 vs 4.80, 4.79 vs 4.95, 4.83 vs 4.94) but deeper (APD 3.59, 3.58, 3.52 vs 3.48, 3.39, 3.32); caudal wider (5.05, 5.21 vs 4.66, 4.73) and deeper (3.72, 3.63 vs 3.55, 3.47); areas larger by 7-22 percent (Tables 6, 7).",
+    "(b) Bias 5 (Inference): one 3-4.5 mm MRI slice averages a slab; match it with a mask slab of the same thickness at the end-plate surface.",
+    "(c) Error: inter-observer ICC CSA 0.971, FD 0.953, APD 0.970, MSD 0.938 (Table 3); Inference SEMs APD 0.05 cm, FD 0.09 cm, MSD 0.08-0.10 cm, CSA 0.4 cm2; add 2 or 10 percent definition error when mixing ellipse and traced areas; within-sex between-subject SD 0.2-0.4 cm for diameters and 1.5-2.3 cm2 for areas (Table 4); do not use Tan's or Panjabi's printed SDs as spreads. Inference: Panjabi's printed spreads look like standard errors (x sqrt(12) gives 0.31-0.48 cm, 1.8-2.2 cm2); check whether the generator took SE as SD.",
+    "(d) Covariates: sex as above (areas 16-26 percent (end-plates about 18 percent average), IVD area gap widening caudally 20, 24, 26 percent; men 178 vs 166 cm, height ratio 1.076, squared 1.158, so sex gap exceeds stature, Inference); ages 20-40 only, no age test; height and weight not used as covariates; population differences only from compiled studies (Postacchini Italian vs Indian, Tan Chinese Singaporean, Kang Korean, Berry caucasian, Aydinlioglu Turkish X-ray). Inference: ref. 31 (the dissertation on this data set) names regression models and may hold height and weight regressions; Colombini [20] estimated disc area from anthropometry. Earlier studies show the same sex effect [14, 19, 33, 35, 38, 39, 41]."
+  ],
+  "gaps": [
+    "Fig. 6 is captioned APD_IVD but plots FD_IVD values (about 4.9-5.6 cm); the text cites it for the APD_IVD interaction (P = 0.017).",
+    "CrEP/CaEP are disc-relative in methods and Table 4 but vertebra-relative in the vertebra statements (pp. 4119, 4123).",
+    "'12 percent on average' for L5 superior vs inferior end-plate does not match Table 4 means (12 M / 16 F percent of the superior, 14 / 19 percent of the inferior); female L4 11 percent does match.",
+    "Abstract says L5/S1 discs had the smallest dimensions, but MSD_IVD is largest at L5/S1 and FD_IVD at L5/S1 equals L3/L4.",
+    "Text says men heavier with P < 0.001; Table 2 prints P 0.002-0.003 for weight. Male BMI n (36, 35, 33) below height n (38, 37, 35) with complete weights.",
+    "Tables 5-7 give Tang male weight 87.43 vs Table 2 87.12, 86.71, 86.70, and print 107 F + M at every level though n is 105-106 (discs) and 105 or 83 (end-plates) below L3/L4.",
+    "Brinckmann labelled ellipsoid in Table 7 but not Table 6 and listed under actual shape in Fig. 8; Drerup 1999 in Table 6 and ref. 37 but 1990 in Fig. 8; Farfan listed as a radiograph study in the introduction but ellipsoid cadaver in Table 5.",
+    "No rule for which oblique slice stands for an end-plate, how the MSD midline was set, or in-plane resolution.",
+    "No ANOVA for MSD; no L5/S1 CaEP ellipse result; no sex percentages for APD_IVD or APD_CaEP; no Pfirrmann grade distribution for kept discs; no level identification method; no transitional screening; no ethnicity.",
+    "Heights missing for 14 of 55 women and 13-16 men by level.",
+    "Panjabi's L5/S1 depth SD printed 0.92 (Inference: typo for about 0.09); Tan's (0.02-0.06) and Panjabi's (0.09-0.14) linear SDs implausibly small (Inference: standard errors).",
+    "Turk and Celan rows not labelled patient or healthy; Amonoo-Kuofi gives two unlabelled depth values per level (Inference: women and men).",
+    "Inference against other papers: Panjabi 1992 (the generator's source) differs in end-plate direction and possibly depth landmark; van der Houwen depths (2.51-3.06 cm) and Postacchini's Indian group are far below others, both labelled mid-sagittal.",
+    "Amonoo-Kuofi [17] and Aydinlioglu [18] sit in the cranial end-plate table, but their reference titles name lumbar disc heights and AP diameters on radiographs (Inference: disc, not end-plate, depths).",
+    "The paper does not say in which direction Brinckmann's and Panjabi's 'slight increase for the L4 vertebra' runs; by Tables 6 and 7 Panjabi's L4 inferior end-plate is the larger (Inference)."
+  ]
+}

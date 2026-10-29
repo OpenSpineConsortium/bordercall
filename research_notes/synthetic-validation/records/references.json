@@ -1,0 +1,406 @@
+{
+ "errors": [
+  {
+   "high": 0.65,
+   "low": 0.3,
+   "modality": "CT",
+   "source": "duman2026, 50 scans read again after 4 weeks; error.md L55",
+   "unit": "mm",
+   "what": "body heights"
+  },
+  {
+   "high": 0.55,
+   "low": 0.2,
+   "modality": "CT",
+   "source": "duman2026; error.md L65",
+   "unit": "mm",
+   "what": "pedicle width and height"
+  },
+  {
+   "high": 1.8,
+   "low": 0.7,
+   "modality": "CT",
+   "source": "duman2026; error.md L73",
+   "unit": "deg",
+   "what": "pedicle angle"
+  },
+  {
+   "high": 1.2,
+   "low": 0.4,
+   "modality": "CT",
+   "source": "griffith2016, by level L1-L5; error.md L62",
+   "unit": "mm",
+   "what": "canal width and depth"
+  },
+  {
+   "high": 30.0,
+   "low": 10.0,
+   "modality": "CT",
+   "source": "griffith2016; error.md L62",
+   "unit": "mm2",
+   "what": "canal area"
+  },
+  {
+   "high": 0.9,
+   "low": 0.5,
+   "modality": "MRI",
+   "source": "tang2016, between observers; error.md L60",
+   "unit": "mm",
+   "what": "disc and end-plate diameters"
+  },
+  {
+   "high": 40.0,
+   "low": 40.0,
+   "modality": "MRI",
+   "source": "tang2016, between observers; error.md L60",
+   "unit": "mm2",
+   "what": "disc and end-plate area"
+  },
+  {
+   "high": 0.95,
+   "low": 0.35,
+   "modality": "bone, caliper",
+   "source": "yu2015; error.md L67",
+   "unit": "mm",
+   "what": "pedicle width and height"
+  },
+  {
+   "high": 0.27,
+   "low": 0.27,
+   "modality": "film",
+   "source": "hinck1966, 89 duplicate readings; error.md L63",
+   "unit": "mm",
+   "what": "interpedicular distance"
+  },
+  {
+   "high": 0.22,
+   "low": 0.22,
+   "modality": "CT",
+   "source": "vanderhouwen2009, the mean of nine dimensions' SDs over three repeats; error.md L59",
+   "unit": "mm",
+   "what": "one pig vertebra, CT repeated"
+  },
+  {
+   "high": 0.66,
+   "low": 0.66,
+   "modality": "CT and bone",
+   "source": "vanderhouwen2009 Fig. 4, 12 dimensions of 2 pig vertebrae, the caliper's own error in it; error.md L91",
+   "unit": "mm",
+   "what": "CT against caliper"
+  }
+ ],
+ "generator_errors": [
+  {
+   "error": 1.0,
+   "error_over_sd_l3": 0.3280399256759237,
+   "kind": "length",
+   "mean_l3": 44.1,
+   "measure": "endplate",
+   "sd_l3": 3.048409421321224
+  },
+  {
+   "error": 1.0,
+   "error_over_sd_l3": 0.262431940540739,
+   "kind": "length",
+   "mean_l3": 35.2,
+   "measure": "endplate_depth",
+   "sd_l3": 3.81051177665153
+  },
+  {
+   "error": 1.0,
+   "error_over_sd_l3": 0.23280252789904268,
+   "kind": "length",
+   "mean_l3": 48.0,
+   "measure": "endplate_lower",
+   "sd_l3": 4.295486002770815
+  },
+  {
+   "error": 1.0,
+   "error_over_sd_l3": 0.23280252789904268,
+   "kind": "length",
+   "mean_l3": 34.8,
+   "measure": "endplate_lower_depth",
+   "sd_l3": 4.295486002770815
+  },
+  {
+   "error": 1.0,
+   "error_over_sd_l3": 0.262431940540739,
+   "kind": "length",
+   "mean_l3": 23.8,
+   "measure": "h_post",
+   "sd_l3": 3.81051177665153
+  },
+  {
+   "error": 31.100470385090134,
+   "error_over_sd_l3": 0.1626731740238791,
+   "kind": "area",
+   "mean_l3": 1194.0,
+   "measure": "endplate_area",
+   "sd_l3": 191.18376813945267
+  },
+  {
+   "error": 32.00430138914878,
+   "error_over_sd_l3": 0.1435718105847006,
+   "kind": "area",
+   "mean_l3": 1290.0,
+   "measure": "endplate_lower_area",
+   "sd_l3": 222.91493893411447
+  },
+  {
+   "error": 3.0,
+   "error_over_sd_l3": 2.014012566940555,
+   "kind": "angle",
+   "mean_l3": 1.7,
+   "measure": "endplate_incl",
+   "sd_l3": 1.4895636945092343
+  },
+  {
+   "error": 3.0,
+   "error_over_sd_l3": 0.7872958216222169,
+   "kind": "angle",
+   "mean_l3": 2.7,
+   "measure": "endplate_lower_incl",
+   "sd_l3": 3.81051177665153
+  },
+  {
+   "error": 1.0,
+   "error_over_sd_l3": 0.4510548978043951,
+   "kind": "length",
+   "mean_l3": 24.3,
+   "measure": "canal_w",
+   "sd_l3": 2.217025033688163
+  },
+  {
+   "error": 1.0,
+   "error_over_sd_l3": 0.5446700652732319,
+   "kind": "length",
+   "mean_l3": 17.5,
+   "measure": "canal_ap",
+   "sd_l3": 1.8359738560230099
+  },
+  {
+   "error": 19.596569958926935,
+   "error_over_sd_l3": 0.38641000481488386,
+   "kind": "area",
+   "mean_l3": 280.0,
+   "measure": "canal_area",
+   "sd_l3": 50.71444764561673
+  },
+  {
+   "error": 1.0,
+   "error_over_sd_l3": 0.48112522432468807,
+   "kind": "length",
+   "mean_l3": 10.149999999999999,
+   "measure": "pedicle_w",
+   "sd_l3": 2.078460969082653
+  },
+  {
+   "error": 1.0,
+   "error_over_sd_l3": 0.46560505579808537,
+   "kind": "length",
+   "mean_l3": 14.399999999999999,
+   "measure": "pedicle_h",
+   "sd_l3": 2.1477430013854075
+  },
+  {
+   "error": 9.47403562257576,
+   "error_over_sd_l3": 0.3202480689113712,
+   "kind": "area",
+   "mean_l3": 94.1,
+   "measure": "pedicle_area",
+   "sd_l3": 29.58342779327642
+  },
+  {
+   "error": 3.0,
+   "error_over_sd_l3": 0.4452572770099942,
+   "kind": "angle",
+   "mean_l3": 18.450000000000003,
+   "measure": "pedicle_incl_sag",
+   "sd_l3": 6.737677641442932
+  },
+  {
+   "error": 3.0,
+   "error_over_sd_l3": 1.0011854379010852,
+   "kind": "angle",
+   "mean_l3": 2.65,
+   "measure": "pedicle_incl_trans",
+   "sd_l3": 2.9964478970941575
+  },
+  {
+   "error": 1.0,
+   "error_over_sd_l3": 0.16309329638125022,
+   "kind": "length",
+   "mean_l3": 71.7,
+   "measure": "spinous_length",
+   "sd_l3": 6.131459858793825
+  },
+  {
+   "error": 1.0,
+   "error_over_sd_l3": 0.11830948139131675,
+   "kind": "length",
+   "mean_l3": 85.7,
+   "measure": "transverse_width",
+   "sd_l3": 8.452407940936121
+  },
+  {
+   "error": 1.0,
+   "error_over_sd_l3": 0.3608439182435161,
+   "kind": "length",
+   "mean_l3": 13.850000000000001,
+   "measure": "facet_w_sup",
+   "sd_l3": 2.7712812921102037
+  },
+  {
+   "error": 1.0,
+   "error_over_sd_l3": 0.7216878364870322,
+   "kind": "length",
+   "mean_l3": 13.600000000000001,
+   "measure": "facet_w_inf",
+   "sd_l3": 1.3856406460551018
+  },
+  {
+   "error": 1.0,
+   "error_over_sd_l3": 0.3608439182435161,
+   "kind": "length",
+   "mean_l3": 15.95,
+   "measure": "facet_h_sup",
+   "sd_l3": 2.7712812921102037
+  },
+  {
+   "error": 1.0,
+   "error_over_sd_l3": 0.7216878364870322,
+   "kind": "length",
+   "mean_l3": 16.049999999999997,
+   "measure": "facet_h_inf",
+   "sd_l3": 1.3856406460551018
+  },
+  {
+   "error": 13.031375292923697,
+   "error_over_sd_l3": 0.2997477304095831,
+   "kind": "area",
+   "mean_l3": 167.35000000000002,
+   "measure": "facet_area_sup",
+   "sd_l3": 43.47447526997882
+  },
+  {
+   "error": 12.734640224328256,
+   "error_over_sd_l3": 0.5070584801068245,
+   "kind": "area",
+   "mean_l3": 163.85000000000002,
+   "measure": "facet_area_inf",
+   "sd_l3": 25.11473670974872
+  },
+  {
+   "error": 1.0,
+   "error_over_sd_l3": 0.2886751345948129,
+   "kind": "length",
+   "mean_l3": 28.6,
+   "measure": "interfacet_w_sup",
+   "sd_l3": 3.4641016151377544
+  },
+  {
+   "error": 1.0,
+   "error_over_sd_l3": 0.19245008972987526,
+   "kind": "length",
+   "mean_l3": 29.1,
+   "measure": "interfacet_w_inf",
+   "sd_l3": 5.196152422706632
+  },
+  {
+   "error": 1.0,
+   "error_over_sd_l3": 0.3608439182435161,
+   "kind": "length",
+   "mean_l3": 32.0,
+   "measure": "interfacet_h",
+   "sd_l3": 2.7712812921102037
+  },
+  {
+   "error": 3.0,
+   "error_over_sd_l3": 0.5587260669577023,
+   "kind": "angle",
+   "mean_l3": 83.0,
+   "measure": "facet_trans_sup",
+   "sd_l3": 5.36935750346352
+  },
+  {
+   "error": 3.0,
+   "error_over_sd_l3": 0.23406091994174022,
+   "kind": "angle",
+   "mean_l3": 76.69999999999999,
+   "measure": "facet_trans_inf",
+   "sd_l3": 12.81717597600969
+  },
+  {
+   "error": 3.0,
+   "error_over_sd_l3": 0.11945177983233637,
+   "kind": "angle",
+   "mean_l3": 132.3,
+   "measure": "facet_sag_sup",
+   "sd_l3": 25.11473670974872
+  },
+  {
+   "error": 3.0,
+   "error_over_sd_l3": 0.18042195912175807,
+   "kind": "angle",
+   "mean_l3": 126.94999999999999,
+   "measure": "facet_sag_inf",
+   "sd_l3": 16.62768775266122
+  }
+ ],
+ "prevalence": [
+  {
+   "chain_weight": 0.05,
+   "generator_share": 0.16666666666666666,
+   "high": 0.0439,
+   "low": 0.0139,
+   "papers": 0.0248,
+   "source": "eisenstein1977 p. 177, 11 / 443 dry skeletons (2 true L6, 9 lumbarised S1); anomaly-priors.md L11",
+   "state": "six lumbar-type segments (L6 or lumbarised S1)"
+  },
+  {
+   "chain_weight": null,
+   "generator_share": null,
+   "high": 0.0163,
+   "low": 0.0012,
+   "papers": 0.0045,
+   "source": "eisenstein1977 p. 177, 2 / 443; anomaly-priors.md L12",
+   "state": "of which a true L6"
+  },
+  {
+   "chain_weight": null,
+   "generator_share": 0.16666666666666666,
+   "high": 0.0352,
+   "low": 0.0092,
+   "papers": 0.0181,
+   "source": "eisenstein1977 p. 177, 8 / 443; sacralisation undefined, so a ceiling; anomaly-priors.md L14",
+   "state": "four lumbar segments (sacralised L5), a ceiling"
+  },
+  {
+   "chain_weight": 0.05,
+   "generator_share": 0.16666666666666666,
+   "high": null,
+   "low": null,
+   "papers": null,
+   "source": "no count and no bound in the 43 papers; any value is a modelling choice; anomaly-priors.md L22",
+   "state": "a thirteenth rib-bearing body (T13)"
+  },
+  {
+   "chain_weight": null,
+   "generator_share": 0.16666666666666666,
+   "high": 0.0401,
+   "low": 0.0133,
+   "papers": 0.0232,
+   "source": "duman2026 Table 5 p. 10, 12 / 517 adults' CTs at a chest hospital for other reasons; a T13 not told apart; anomaly-priors.md L21",
+   "state": "a rib on the first lumbar-type body"
+  },
+  {
+   "chain_weight": null,
+   "generator_share": 0.16666666666666666,
+   "high": 0.0636,
+   "low": 0.0283,
+   "papers": 0.0426,
+   "source": "duman2026 Table 5 p. 10, 22 / 517; a ceiling for bilateral absence, laterality never reported; anomaly-priors.md L23",
+   "state": "no twelfth rib, one side or both"
+  }
+ ]
+}

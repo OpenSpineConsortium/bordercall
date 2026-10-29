@@ -1,0 +1,35 @@
+pool cells holding any series: 35
+pool cells holding a series beside Panjabi's: 29 of 704
+
+measure    lev    k  kc    n_cad    n_all  f = SD(series means)/Panjabi SD
+canal_ap   T12    3   2       22      324  1.35   cad: Tan 2004(10), Panjabi 1992(12)
+canal_ap   L1    12   3      144     4241  0.87   cad: Panjabi 1992(12), Tan 2004(10), Amonoo-Kuofi 1985(79)
+canal_ap   L2    12   3      144     4241  1.11   cad: Panjabi 1992(12), Tan 2004(10), Amonoo-Kuofi 1985(79)
+canal_ap   L3    12   3      144     4241  1.07   cad: Panjabi 1992(12), Tan 2004(10), Amonoo-Kuofi 1985(79)
+canal_ap   L4    12   3      144     4241  0.88   cad: Panjabi 1992(12), Tan 2004(10), Amonoo-Kuofi 1985(79)
+canal_ap   L5    12   3      144     4241  1.44   cad: Panjabi 1992(12), Tan 2004(10), Amonoo-Kuofi 1985(79)
+canal_w    T12    2   2       22       22  nan   cad: Tan 2004(10), Panjabi 1992(12)
+canal_w    L1    13   2       22     3975  0.53   cad: Panjabi 1992(12), Tan 2004(10)
+canal_w    L2    13   2       22     3973  0.73   cad: Panjabi 1992(12), Tan 2004(10)
+canal_w    L3    13   2       22     3969  0.91   cad: Panjabi 1992(12), Tan 2004(10)
+canal_w    L4    13   2       22     3968  1.38   cad: Panjabi 1992(12), Tan 2004(10)
+canal_w    L5    13   2       22     3966  1.08   cad: Panjabi 1992(12), Tan 2004(10)
+endplate   T12    4   2       22      407  0.97   cad: Tan 2004(10), Panjabi 1992(12)
+endplate   L1     7   2       22     1988  0.74   cad: Panjabi 1992(12), Tan 2004(10)
+endplate   L2     7   2       22     1988  1.15   cad: Panjabi 1992(12), Tan 2004(10)
+endplate   L3     7   2       22     1988  0.98   cad: Panjabi 1992(12), Tan 2004(10)
+endplate   L4     7   2       22     2012  0.86   cad: Panjabi 1992(12), Tan 2004(10)
+endplate   L5     7   2       22     2010  1.02   cad: Panjabi 1992(12), Tan 2004(10)
+h_post     T12    5   4       58      575  0.75   cad: Tan 2004(10), Busscher 2010(6), Kunkel 2011(30), Panjabi 1992(12)
+h_post     L1     7   3       28     2283  0.61   cad: Panjabi 1992(12), Tan 2004(10), Busscher 2010(6)
+h_post     L2     7   3       28     2283  0.69   cad: Panjabi 1992(12), Tan 2004(10), Busscher 2010(6)
+h_post     L3     6   3       28     1766  0.74   cad: Panjabi 1992(12), Tan 2004(10), Busscher 2010(6)
+h_post     L4     6   3       28     1766  0.61   cad: Panjabi 1992(12), Tan 2004(10), Busscher 2010(6)
+h_post     L5     6   3       28     1766  0.62   cad: Panjabi 1992(12), Tan 2004(10), Busscher 2010(6)
+pedicle    L1    13   9      692     1551  0.42   cad: Panjabi 1992(12), Zindrick(26 studies), Yu(503), Olsewski(21), Lien(), Hou(40), Mitra(20), Robertson(10), Otsuki(60 pedicles)
+pedicle    L2    13   9      696     1547  0.51   cad: Panjabi 1992(12), Zindrick(30 studies), Yu(503), Olsewski(21), Lien(), Hou(40), Mitra(20), Robertson(10), Otsuki(60 pedicles)
+pedicle    L3    13   9      715     1576  0.68   cad: Panjabi 1992(12), Zindrick(49 studies), Yu(503), Olsewski(21), Lien(), Hou(40), Mitra(20), Robertson(10), Otsuki(60 pedicles)
+pedicle    L4    13   9      702     1563  1.88   cad: Panjabi 1992(12), Zindrick(36 studies), Yu(503), Olsewski(21), Lien(), Hou(40), Mitra(20), Robertson(10), Otsuki(60 pedicles)
+pedicle    L5    13   9      722     1579  0.91   cad: Panjabi 1992(12), Zindrick(56 studies), Yu(503), Olsewski(21), Lien(), Hou(40), Mitra(20), Robertson(10), Otsuki(60 pedicles)
+
+cells with 3+ series: 28 median f 0.87, range 0.42 to 1.88

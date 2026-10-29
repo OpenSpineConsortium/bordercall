@@ -1,0 +1,132 @@
+{
+  "paper": "amonookuofi1985",
+  "cohorts": [
+    {
+      "cohort": "ibadan_dry_bone",
+      "labels": [
+        "male",
+        "female",
+        "all",
+        "male minus female"
+      ],
+      "tables": [
+        "Table 1",
+        "Table 2",
+        "Table 3",
+        "Table 4",
+        "Table 5",
+        "Table 6",
+        "Text: Materials and methods",
+        "Text: Observations"
+      ],
+      "subjects": "Dry bone: complete sets of lumbar vertebrae of adult Nigerians from the osteological collection of the Department of Anatomy, University of Ibadan, Nigeria (measured by the author of the University of Ilorin). Full medical histories were not available for all; persons who died of chronic skeletal disorders or related causes were left out as far as possible, and specimens with osteophytes or other evidence of bone disease were excluded. Ethnic group within Nigeria not stated; the author counts the sample among black populations (p. 74). How sex and age were known is not stated. In Table 3 these are the 'Present study' columns.",
+      "n_people": 122,
+      "n_units": "122 complete sets of lumbar vertebrae (79 male, 43 female; the total is the sum, not printed), L1 to L5; per-level n not printed (Inference: 610 vertebrae if no set lacked one)",
+      "ages": "23 to 60 years (whole sample; not given by sex)",
+      "sexes": "79 male, 43 female",
+      "page": "p. 69 (PDF 1), p. 71 (PDF 3); n repeated in Table 3, p. 73 (PDF 5)"
+    },
+    {
+      "cohort": "eisenstein1977_zulu",
+      "labels": [
+        "Zulus"
+      ],
+      "tables": [
+        "Table 3"
+      ],
+      "subjects": "Not measured here: black South African Zulu subjects of Eisenstein's (1977) osteometric study, whose mean sagittal diameters Table 3 quotes to whole millimetres with no SD.",
+      "n_people": 162,
+      "n_units": "108 male and 54 female (per-sex n as printed in Table 3's headings; the total is the sum)",
+      "ages": "not stated in this paper",
+      "sexes": "108 male, 54 female",
+      "page": "p. 73 (PDF 5); p. 74, 76 (PDF 6, 8)"
+    },
+    {
+      "cohort": "eisenstein1977_sotho",
+      "labels": [
+        "Sotho"
+      ],
+      "tables": [
+        "Table 3"
+      ],
+      "subjects": "Not measured here: black South African Sotho subjects of Eisenstein's (1977) osteometric study, whose mean sagittal diameters Table 3 quotes to whole millimetres with no SD.",
+      "n_people": 168,
+      "n_units": "106 male and 62 female (per-sex n as printed in Table 3's headings; the total is the sum)",
+      "ages": "not stated in this paper",
+      "sexes": "106 male, 62 female",
+      "page": "p. 73 (PDF 5); p. 74, 76 (PDF 6, 8)"
+    }
+  ],
+  "techniques": [
+    {
+      "technique": "dry_bone_vernier",
+      "cohorts": [
+        "ibadan_dry_bone"
+      ],
+      "modality": "dry bone caliper",
+      "instrument": "sliding Vernier caliper, read to the nearest 0.1 mm",
+      "how": "Direct measurement of each isolated dry lumbar vertebra. Canal midsagittal diameter: in the midline from the back of the body to the deep surface of the posterior wall, at the narrowest point near the upper border, opposite a slight anterior bulge of the posterior wall (Fig. 1a, i). Body AP diameter: in the midline (Fig. 1a, ii), called the maximum AP diameter but taken at mid-waist where the body is narrowest. Inferior vertebral notch AP diameter: the greatest horizontal distance from the back of the lower part of the body to the deep surface of the lamina (Fig. 1b, N); side not stated. Canal shape, nerve groove and foramen shape were also noted but not reported. Tables 4 and 6 give ratios of the group means; Table 2 gives 95% limits of normal by Bradford Hill's formula.",
+      "magnification": "not applicable: direct caliper measurement on dry bone, no imaging",
+      "observers": "not stated (Inference: the author alone); no repeat or second-reader figure reported",
+      "page": "p. 69 (PDF 1), Fig. 1 p. 70 (PDF 2), p. 71-72 (PDF 3-4), p. 73-75 (PDF 5-7)"
+    },
+    {
+      "technique": "eisenstein1977_quoted",
+      "cohorts": [
+        "eisenstein1977_zulu",
+        "eisenstein1977_sotho"
+      ],
+      "modality": "dry bone caliper",
+      "instrument": "not described in this paper; the author says Eisenstein (1977) adopted the same Jones and Thomson technique for osteological specimens",
+      "how": "Mean lumbar sagittal (canal) diameters per level and sex quoted from Eisenstein (1977), whole millimetres, no SD; landmarks not restated here (Inference: the same technique as this paper's, since the author says Eisenstein adopted it).",
+      "magnification": "not applicable: an osteometric (dry bone) study as this paper calls it",
+      "observers": "not stated in this paper",
+      "page": "p. 69 (PDF 1), p. 73 (PDF 5), p. 74 (PDF 6), p. 76 (PDF 8)"
+    }
+  ],
+  "shared": [
+    {
+      "with": "Jones & Thomson (1968), J Bone Joint Surg 50B; not in the list",
+      "what": "method",
+      "evidence": "the measuring method was based on their technique for osteological specimens",
+      "page": "p. 69 (PDF 1)"
+    },
+    {
+      "with": "Eisenstein (1977), J Bone Joint Surg 59B, eisenstein1977",
+      "what": "method",
+      "evidence": "the Jones and Thomson technique used here was subsequently adopted by Eisenstein",
+      "page": "p. 69 (PDF 1)"
+    },
+    {
+      "with": "Eisenstein (1977), J Bone Joint Surg 59B, eisenstein1977",
+      "what": "values quoted",
+      "evidence": "Table 3 quotes Eisenstein's mean sagittal diameters of Zulu and Sotho males and females, L1 to L5, with their n, beside this study's means; no SD available",
+      "page": "p. 73-74 (PDF 5-6); discussed p. 76 (PDF 8)"
+    },
+    {
+      "with": "Verbiest (1977), J Bone Joint Surg 59B; not in the list",
+      "what": "method",
+      "evidence": "the canal landmark (narrowest point near the upper border) was used because Verbiest found it reproducible",
+      "page": "p. 72 (PDF 4)"
+    },
+    {
+      "with": "Bradford Hill (1977), A Short Textbook of Medical Statistics; not in the list",
+      "what": "method",
+      "evidence": "the 95% limits of normal in Table 2 use the formula Bradford Hill gives",
+      "page": "p. 73 (PDF 5)"
+    },
+    {
+      "with": "Amonoo-Kuofi (1982), J Anat 135, amonookuofi1982",
+      "what": "findings compared; no subjects, method or values shared",
+      "evidence": "cited as a review of canal techniques and for similar L4-L5 variability of interpedicular distances; no value quoted. Inference: different subjects (1982 used living patients' AP films at Ilorin, per the amonookuofi1982 reading; this is the Ibadan dry-bone collection)",
+      "page": "p. 69 (PDF 1), p. 75-76 (PDF 7-8)"
+    },
+    {
+      "with": "Hinck, Clark & Hopkins (1966), Am J Roentgenol 97, hinck1966",
+      "what": "findings compared; no subjects, method or values shared",
+      "evidence": "the author says the results confirm adult canal size differences between Nigerians and Hinck's samples; no Hinck value is printed",
+      "page": "p. 75 (PDF 7)"
+    }
+  ],
+  "within_paper": "One set of subjects: the canal, body AP and inferior notch were all measured on the same 122 dry lumbar sets (p. 71-72, PDF 3-4). Table 2 is derived from Table 1 (mean +/- 2 SD), Table 3's 'Present study' columns and Table 4's canal columns repeat Table 1's means, Table 6 repeats Table 5's notch means and Table 4's body AP means (with male notch L3/L4 swapped and male L5 body 34.2 against 32.2). The Zulu and Sotho columns of Table 3 are Eisenstein's separate subjects, not measured here (p. 73-74, PDF 5-6)."
+}

@@ -1,0 +1,456 @@
+{
+  "paper": "masharawi2021",
+  "cohorts": [
+    {
+      "cohort": "control",
+      "labels": [
+        "male Control",
+        "female Control",
+        "all control",
+        "male control",
+        "female control",
+        "all Israeli (Table 6, Current study)"
+      ],
+      "tables": [
+        "Table 1",
+        "Table 2",
+        "Table 3",
+        "Table 4",
+        "Table 5",
+        "Table 6",
+        "Text: Abstract",
+        "Text: Methods",
+        "Text: Results"
+      ],
+      "subjects": "Living people whose lumbar CT scans were taken from a hospital database (the CTs obtained from Carmel Hospital by the p. 2 ethics statement, from Assuta Hospital, Tel-Aviv, by the p. 12 one), Israel; Table 6 labels the population Israeli, no ethnicity given. Inclusion: examined in the hospital with no radiological findings and no complaint of back pain, without low back pain or DS, matched to the DS group by gender and age. Exclusion (all scans): slips other than at L4-L5, previous surgery, vertebral fractures, spondyloarthropathies, scoliosis, osteoporosis, transitional vertebra, isthmic spondylolisthesis. Retrospective; the 100 CTs were said to be randomly chosen from a database of 500 CTs of DS (p. 2).",
+      "n_people": 50,
+      "n_units": "50 lumbar CT scans, one per person; L1 to L5 measured (facet arthrosis graded T12-L1 to L5-S1)",
+      "ages": "50 to 80 years; mean (SD) men 64.7 (7.8), women 61.2 (7) (Table 1)",
+      "sexes": "25 men, 25 women",
+      "page": "p. 2 (PDF 2); Table 1 p. 2; Table 6 p. 12 (PDF 12)"
+    },
+    {
+      "cohort": "ds",
+      "labels": [
+        "male DS",
+        "female DS",
+        "all DS",
+        "all DS vs control",
+        "male DS vs control",
+        "female DS vs control"
+      ],
+      "tables": [
+        "Table 1",
+        "Table 2",
+        "Table 3",
+        "Table 4",
+        "Table 5",
+        "Text: Abstract",
+        "Text: Methods",
+        "Text: Results"
+      ],
+      "subjects": "Living people with low back pain, lower-limb symptoms and single-level degenerative spondylolisthesis, grade 1-2, at L4-L5, from the same hospital CT database, Israel; diagnosis made separately by two senior spine surgeons of Assuta Medical Center on supine CT and standing radiographs. Same exclusions as the controls. The DS-vs-control rows are differences between this cohort and the control cohort.",
+      "n_people": 50,
+      "n_units": "50 lumbar CT scans, one per person; L1 to L5 measured (facet arthrosis graded T12-L1 to L5-S1)",
+      "ages": "50 to 80 years; mean (SD) men 65.6 (9.9), women 68.6 (9.3), the women older than control women (p < 0.05) (Table 1)",
+      "sexes": "25 men, 25 women",
+      "page": "p. 1-2 (PDF 1-2); Table 1 p. 2"
+    },
+    {
+      "cohort": "reliability_set",
+      "labels": [
+        "not stated reliability set"
+      ],
+      "tables": [
+        "Text: Methods",
+        "Text: Results"
+      ],
+      "subjects": "Ten CT images measured twice, one week apart, by the first author in an intra-reliability trial before the study's procedure; whether these were among the 100 study CTs is not stated. The inter-tester ICC is reported without saying on which scans.",
+      "n_people": null,
+      "n_units": "10 CTs",
+      "ages": "not stated",
+      "sexes": "not stated",
+      "page": "p. 3-4 (PDF 3-4)"
+    },
+    {
+      "cohort": "fig1_examples",
+      "labels": [
+        "not stated example image"
+      ],
+      "tables": [
+        "Figure 1"
+      ],
+      "subjects": "The example CT slices of Fig. 1 (four axial, one parasagittal) with the measuring software's labels; whose scans, which level and how many people are not stated.",
+      "n_people": null,
+      "n_units": "5 example CT images",
+      "ages": "not stated",
+      "sexes": "not stated",
+      "page": "p. 3 (PDF 3)"
+    },
+    {
+      "cohort": "whole_sample_patterns",
+      "labels": [
+        "all",
+        "not stated",
+        "(no sex or group)"
+      ],
+      "tables": [
+        "Text: Abstract",
+        "Text: Methods",
+        "Text: Results"
+      ],
+      "subjects": "Rows that describe the 100 CTs together (counts, the sample-size calculation, the shape changes along L1 to L5 that the Results state without naming a group): the control and DS cohorts pooled, or the group not stated.",
+      "n_people": 100,
+      "n_units": "100 lumbar CTs",
+      "ages": "50 to 80 years",
+      "sexes": "50 men, 50 women",
+      "page": "p. 2-5 (PDF 2-5)"
+    },
+    {
+      "cohort": "cited_singh",
+      "labels": [
+        "not stated Indian (source Singh et al. [31])"
+      ],
+      "tables": [
+        "Table 6"
+      ],
+      "subjects": "Control group of an earlier study quoted in Table 6 (previous radiological studies, in control groups); population Indian as printed; this paper says nothing more of these subjects; values PW.",
+      "n_people": null,
+      "n_units": "sample size printed 302 (unit not stated)",
+      "ages": "not stated",
+      "sexes": "not stated",
+      "page": "p. 12 (PDF 12)"
+    },
+    {
+      "cohort": "cited_abbas",
+      "labels": [
+        "not stated Israeli (source Abbas et al. [30])"
+      ],
+      "tables": [
+        "Table 6"
+      ],
+      "subjects": "Control group of an earlier study quoted in Table 6 (previous radiological studies, in control groups); population Israeli as printed; this paper says nothing more of these subjects; values PW and PH. Inference: the count (180) and the population match abbas2021's control group (180 people, 90 men and 90 women, abdominal CTs at Carmel Medical Center, Haifa); neither paper says they are the same people.",
+      "n_people": null,
+      "n_units": "sample size printed 180 (unit not stated)",
+      "ages": "not stated",
+      "sexes": "not stated",
+      "page": "p. 12 (PDF 12)"
+    },
+    {
+      "cohort": "cited_mohanty",
+      "labels": [
+        "not stated Indian (source Mohanty et al. [21])"
+      ],
+      "tables": [
+        "Table 6"
+      ],
+      "subjects": "Control group of an earlier study quoted in Table 6 (previous radiological studies, in control groups); population Indian as printed; this paper says nothing more of these subjects; values PW.",
+      "n_people": null,
+      "n_units": "sample size printed 102 (unit not stated)",
+      "ages": "not stated",
+      "sexes": "not stated",
+      "page": "p. 12 (PDF 12)"
+    },
+    {
+      "cohort": "cited_marasini",
+      "labels": [
+        "not stated Nepalese (source Marasini et al. [32])"
+      ],
+      "tables": [
+        "Table 6"
+      ],
+      "subjects": "Control group of an earlier study quoted in Table 6 (previous radiological studies, in control groups); population Nepalese as printed; this paper says nothing more of these subjects; values PW and PH.",
+      "n_people": null,
+      "n_units": "sample size printed 246 (unit not stated)",
+      "ages": "not stated",
+      "sexes": "not stated",
+      "page": "p. 12 (PDF 12)"
+    },
+    {
+      "cohort": "cited_acharya",
+      "labels": [
+        "not stated Indian (source Acharya et al. [33])"
+      ],
+      "tables": [
+        "Table 6"
+      ],
+      "subjects": "Control group of an earlier study quoted in Table 6 (previous radiological studies, in control groups); population Indian as printed; this paper says nothing more of these subjects; values PW.",
+      "n_people": null,
+      "n_units": "sample size printed 50 (unit not stated)",
+      "ages": "not stated",
+      "sexes": "not stated",
+      "page": "p. 12 (PDF 12)"
+    },
+    {
+      "cohort": "cited_chadha",
+      "labels": [
+        "not stated Indian (source Chadha et al. [18])"
+      ],
+      "tables": [
+        "Table 6"
+      ],
+      "subjects": "Control group of an earlier study quoted in Table 6 (previous radiological studies, in control groups); population Indian as printed; this paper says nothing more of these subjects; values PW.",
+      "n_people": null,
+      "n_units": "sample size printed 20 (unit not stated)",
+      "ages": "not stated",
+      "sexes": "not stated",
+      "page": "p. 12 (PDF 12)"
+    },
+    {
+      "cohort": "cited_kadioglu",
+      "labels": [
+        "not stated Eastern Anatolian (source Kadioglu et al. [34])"
+      ],
+      "tables": [
+        "Table 6"
+      ],
+      "subjects": "Control group of an earlier study quoted in Table 6 (previous radiological studies, in control groups); population Eastern Anatolian as printed; this paper says nothing more of these subjects; values PW and PH.",
+      "n_people": null,
+      "n_units": "sample size printed 29 (unit not stated)",
+      "ages": "not stated",
+      "sexes": "not stated",
+      "page": "p. 12 (PDF 12)"
+    },
+    {
+      "cohort": "cited_mitra",
+      "labels": [
+        "not stated Indian (source Mitra et al. [35])"
+      ],
+      "tables": [
+        "Table 6"
+      ],
+      "subjects": "Control group of an earlier study quoted in Table 6 (previous radiological studies, in control groups); population Indian as printed; this paper says nothing more of these subjects; values PW and PH. Inference: mitra2002's 20 cadavers (18 men, 2 women), not a control group of living people: the widths equal its CT widths and the heights its lateral-radiograph heights, sexes pooled, within 0.1 mm at every level.",
+      "n_people": null,
+      "n_units": "sample size printed 20 (unit not stated)",
+      "ages": "not stated",
+      "sexes": "not stated",
+      "page": "p. 12 (PDF 12)"
+    },
+    {
+      "cohort": "cited_cheung",
+      "labels": [
+        "not stated Chinese (source Cheung et al. [36])"
+      ],
+      "tables": [
+        "Table 6"
+      ],
+      "subjects": "Control group of an earlier study quoted in Table 6 (previous radiological studies, in control groups); population Chinese as printed; this paper says nothing more of these subjects; values PW.",
+      "n_people": null,
+      "n_units": "sample size printed 134 (unit not stated)",
+      "ages": "not stated",
+      "sexes": "not stated",
+      "page": "p. 12 (PDF 12)"
+    },
+    {
+      "cohort": "cited_bernard",
+      "labels": [
+        "not stated American (source Bernard and Seibert [19])"
+      ],
+      "tables": [
+        "Table 6"
+      ],
+      "subjects": "Control group of an earlier study quoted in Table 6 (previous radiological studies, in control groups); population American as printed; this paper says nothing more of these subjects; values PW.",
+      "n_people": null,
+      "n_units": "sample size printed 154 (unit not stated)",
+      "ages": "not stated",
+      "sexes": "not stated",
+      "page": "p. 12 (PDF 12)"
+    },
+    {
+      "cohort": "cited_olsewski",
+      "labels": [
+        "not stated American (source Olsewski et al. [37])"
+      ],
+      "tables": [
+        "Table 6"
+      ],
+      "subjects": "Control group of an earlier study quoted in Table 6 (previous radiological studies, in control groups); population American as printed; this paper says nothing more of these subjects; values PW and PH. Inference: olsewski1990's Part 2, the disarticulated lumbar spines of 21 cadavers (42 pedicles a level), not a control group of living people: the values equal its Table II radiographic widths and heights.",
+      "n_people": null,
+      "n_units": "sample size printed 42 (unit not stated)",
+      "ages": "not stated",
+      "sexes": "not stated",
+      "page": "p. 12 (PDF 12)"
+    },
+    {
+      "cohort": "cited_background",
+      "labels": [
+        "female (source Jacobsen et al. [6])",
+        "male (source Jacobsen et al. [6])",
+        "not stated (source Iguchi et al. [5])",
+        "not stated (source Rosenberg [4]; Cinotti et al. [7])",
+        "not stated (source Boden et al. [38])"
+      ],
+      "tables": [
+        "Text: Background",
+        "Text: Discussion"
+      ],
+      "subjects": "Figures on DS prevalence, double-level slips, age and facet orientation risk that the Background and Discussion quote from other studies; their subjects are not described here.",
+      "n_people": null,
+      "n_units": "not stated",
+      "ages": "not stated",
+      "sexes": "not stated",
+      "page": "p. 1 (PDF 1); p. 9 (PDF 9)"
+    }
+  ],
+  "techniques": [
+    {
+      "technique": "ct_axial_2d",
+      "cohorts": [
+        "control",
+        "ds",
+        "reliability_set",
+        "fig1_examples"
+      ],
+      "modality": "CT axial",
+      "instrument": "K-Pacs Workstation Version 1.0.1 software; scanner, slice thickness and kernel not reported",
+      "how": "Linear and angular measures on axial CT slices of L1 to L5 (Fig. 1 I-IV): the transverse facet angle between a midline line and each facet joint line, and the inter-facet angle between the two facet lines; facet width along each joint line, superior and inferior inter-facet widths between the joint lines' anterior and posterior ends; canal length (anteroposterior, posterior body wall to inner arch) and canal width (between the pedicles) on a slice through the pedicles; pedicle length and width on an axial slice; the Transverse Pedicle row of Table 5 is never defined. Landmarks are read from the figure's panels; the caption names only point pairs.",
+      "magnification": "not applicable (CT, measured in mm by the software)",
+      "observers": "one examiner (SA, the first author, 6 years' experience) took all measurements; intra-tester ICC(3,1) 0.85-1 on 10 CTs one week apart; inter-tester ICC(3,1) 0.85-0.92, second tester not described",
+      "page": "p. 3-4 (PDF 3-4); Fig. 1 p. 3"
+    },
+    {
+      "technique": "ct_parasagittal_2d",
+      "cohorts": [
+        "control",
+        "ds",
+        "reliability_set",
+        "fig1_examples"
+      ],
+      "modality": "CT MPR",
+      "instrument": "K-Pacs Workstation Version 1.0.1 software",
+      "how": "On a parasagittal slice through the pedicles (Fig. 1 V): intervertebral foramen height from the lower edge of the upper pedicle to the upper edge of the lower pedicle (Table 4's columns L1 to L5 are the foramina L1-L2 to L5-S1, as Fig. 5 plots them), and pedicle height, the craniocaudal extent of the pedicle, left and right.",
+      "magnification": "not applicable (CT)",
+      "observers": "as ct_axial_2d",
+      "page": "p. 3 (PDF 3); Fig. 1 V; Fig. 5 p. 8"
+    },
+    {
+      "technique": "pathria_facet_grade_ct",
+      "cohorts": [
+        "control",
+        "ds"
+      ],
+      "modality": "other",
+      "instrument": "visual grading of the CT scans; plane not stated",
+      "how": "Facet arthrosis graded 0-3 by Pathria's classification (0 normal, 1 narrowing, 2 narrowing plus sclerosis or hypertrophy, 3 severe osteoarthritis with narrowing, sclerosis and osteophytes), each side, joints T12-L1 to L5-S1, reported as the percentage of each group at each grade (Table 3).",
+      "magnification": "not applicable",
+      "observers": "two examiners (first and second authors), blinded to diagnosis, grading all 100 scans by agreement, 6 months after the morphometry",
+      "page": "p. 3 (PDF 3); Table 3 p. 8"
+    },
+    {
+      "technique": "ds_diagnosis",
+      "cohorts": [
+        "ds"
+      ],
+      "modality": "other",
+      "instrument": "supine CT and standing radiographs",
+      "how": "DS and its grade (1-2) at L4-L5 diagnosed separately by two senior spine surgeons",
+      "magnification": "not stated",
+      "observers": "two senior spine surgeons of Assuta Medical Center",
+      "page": "p. 2 (PDF 2)"
+    },
+    {
+      "technique": "subject_characteristics",
+      "cohorts": [
+        "control",
+        "ds"
+      ],
+      "modality": "other",
+      "instrument": "not stated",
+      "how": "age, weight, height and BMI per group and sex (Table 1); how they were recorded is not stated",
+      "magnification": "not applicable",
+      "observers": "not stated",
+      "page": "Table 1 p. 2 (PDF 2)"
+    },
+    {
+      "technique": "cited_radiological",
+      "cohorts": [
+        "cited_singh",
+        "cited_abbas",
+        "cited_mohanty",
+        "cited_marasini",
+        "cited_acharya",
+        "cited_chadha",
+        "cited_kadioglu",
+        "cited_mitra",
+        "cited_cheung",
+        "cited_bernard",
+        "cited_olsewski"
+      ],
+      "modality": "other",
+      "instrument": "not stated in this paper",
+      "how": "Pedicle width and height of earlier studies' control groups, quoted as one mean per level; the caption calls them previous radiological studies, and their methods are not described here.",
+      "magnification": "not stated",
+      "observers": "not stated",
+      "page": "Table 6 p. 12 (PDF 12)"
+    },
+    {
+      "technique": "cited_epidemiology",
+      "cohorts": [
+        "cited_background"
+      ],
+      "modality": "other",
+      "instrument": "not stated in this paper",
+      "how": "prevalence and risk figures quoted from other studies",
+      "magnification": "not applicable",
+      "observers": "not stated",
+      "page": "p. 1 (PDF 1); p. 9 (PDF 9)"
+    }
+  ],
+  "shared": [
+    {
+      "with": "Abu-Leil, Floman, Bronstein, Masharawi 2016, Eur Spine J [13] (not in the list)",
+      "what": "subjects",
+      "evidence": "the vertebral body and disc data were published earlier in the same populations",
+      "page": "p. 2, p. 4, p. 7 and p. 9 (PDF 2, 4, 7, 9)"
+    },
+    {
+      "with": "Abu-Leil et al. 2016 [13] (not in the list)",
+      "what": "method",
+      "evidence": "the exclusion criteria and the sample-size assumptions (1 mm in means and in SD) are cited to [13]; the correlations use [13]'s vertebral body and disc measures of the same people, 'using the same methodology'",
+      "page": "p. 2 and p. 4 (PDF 2, 4); p. 7 (PDF 7)"
+    },
+    {
+      "with": "Mitra et al. 2002 [35], mitra2002",
+      "what": "values quoted",
+      "evidence": "Table 6 quotes its Indian sample (n 20) pedicle width and height, L1 to L5",
+      "page": "p. 12 (PDF 12)"
+    },
+    {
+      "with": "Olsewski et al. 1990 [37], olsewski1990",
+      "what": "values quoted",
+      "evidence": "Table 6 quotes its American sample (n 42) pedicle width and height, L1 to L5",
+      "page": "p. 12 (PDF 12)"
+    },
+    {
+      "with": "Abbas, Peled, Hershkovitz, Hamoud 2020, BioMed Res Int article 7125914 [30]; Inference: not abbas2021, which is a 2021 article (7093745) by the same four authors; Inference: its 180 Israelis may be abbas2021's 180 controls (same four authors, same count, both Israeli), which neither paper states",
+      "what": "values quoted",
+      "evidence": "Table 6 quotes its Israeli sample (n 180) pedicle width and height; the Discussion calls this paper's data very similar to it",
+      "page": "p. 7 and p. 12 (PDF 7, 12)"
+    },
+    {
+      "with": "Singh 2021 [31], Mohanty 2018 [21], Marasini 2014 [32], Acharya 2010 [33], Chadha 2003 [18], Kadioglu 2003 [34], Cheung 1994 [36], Bernard and Seibert 1992 [19] (none in the list)",
+      "what": "values quoted",
+      "evidence": "Table 6 quotes each one's control-group pedicle width (and Marasini's and Kadioglu's height)",
+      "page": "p. 12 (PDF 12)"
+    },
+    {
+      "with": "Pathria, Sartoris, Resnick 1987 [23] (not in the list)",
+      "what": "method",
+      "evidence": "facet arthrosis graded by Pathria's 0-3 classification, made for radiographs",
+      "page": "p. 3 (PDF 3)"
+    },
+    {
+      "with": "Shrout and Fleiss 1979 [27], Kramer and Feinstein 1981 [28], Cicchetti 1994 [29] (none in the list)",
+      "what": "method",
+      "evidence": "the ICC thresholds for good and poor reproducibility are cited to them",
+      "page": "p. 4 (PDF 4)"
+    },
+    {
+      "with": "Rosenberg 1975 [4], Iguchi 2002 [5], Jacobsen 2007 [6], Cinotti 1997 [7], Boden 1996 [38] (none in the list)",
+      "what": "values quoted",
+      "evidence": "DS prevalence by sex, double-level share, age and the 25-fold risk with sagittal L4-L5 facets are quoted from them",
+      "page": "p. 1 (PDF 1); p. 9 (PDF 9)"
+    }
+  ],
+  "within_paper": "The control and DS cohorts are different people: 100 CTs split into a study group of 50 and a control group of 50 (p. 2, PDF 2). Both cohorts' scans were measured by both CT techniques and graded for facet arthrosis (all 100 scans, p. 3, PDF 3), so the tables share subjects across Tables 1 to 5. Table 6's Current study row is the control cohort (caption: in control groups; n 50; p. 12, PDF 12). Whether the 10 reliability CTs and the Fig. 1 example images come from the 100 is not stated (p. 3, PDF 3). The correlations of p. 7 pair this paper's measures with the same people's vertebral body and disc data published in [13]."
+}

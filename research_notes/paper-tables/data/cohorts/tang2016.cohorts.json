@@ -1,0 +1,1025 @@
+{
+ "paper": "tang2016",
+ "cohorts": [
+  {
+   "cohort": "utah_mri",
+   "labels": [
+    "female / L3/L4 analysis sample",
+    "male / L3/L4 analysis sample",
+    "all / L3/L4 analysis sample",
+    "female / L4/L5 analysis sample",
+    "male / L4/L5 analysis sample",
+    "all / L4/L5 analysis sample",
+    "female / L5/S1 analysis sample",
+    "male / L5/S1 analysis sample",
+    "all / L5/S1 analysis sample",
+    "female / (no group)",
+    "male / (no group)",
+    "all / (no group)",
+    "all / male relative to female",
+    "source: this paper",
+    "female / MRI, in vivo",
+    "male / MRI, in vivo",
+    "all / MRI, in vivo",
+    "source: Tang [31]"
+   ],
+   "tables": [
+    "Table 2",
+    "Table 4",
+    "Table 5",
+    "Table 6",
+    "Table 7",
+    "Text: Abstract",
+    "Text: Materials and methods",
+    "Text: Results",
+    "Text: Discussion"
+   ],
+   "subjects": "Living adults whose T2-weighted lower lumbar (L3-S1) MRI was retrieved from the digital archive of the University Hospital of the University of Utah, Salt Lake City, USA, and anonymized; scans picked because the radiology diagnosis named no specific low back disorder, the clinical reason for each scan unknown to the authors. Inclusion: aged 20 to 40. Subjects excluded for evidence of morphological alteration of the lumbar or thoracic spine (crushed vertebral body, trauma) or known pathology likely to alter geometry (scoliosis, tumour); no count given. Per structure only: Pfirrmann grade V discs excluded (9 male discs: 2 L3/L4, 4 L4/L5, 3 L5/S1) and the L5/S1 end-plates of 23 subjects (13 F, 10 M) whose oblique slices were missing; the subject's other structures kept. Country USA; ethnicity not reported. IRB approval at Auburn University and the University of Utah. The rows quoted as Tang [31] in Tables 5 to 7 print this cohort's Table 4 means and SDs and its 55 F / 52 M (Inference: ref. 31 is the first author's 2013 dissertation on the same data set), so they repeat Table 4 and are not a separate sample.",
+   "n_people": 109,
+   "n_units": "327 discs and 654 end-plates retrieved (L3/L4 to L5/S1), 318 discs and 590 end-plates analysed; per level discs 107, 105, 106 and end-plates of each kind 107, 105, 83 (Table 4)",
+   "ages": "20 to 40 by inclusion; L3/L4 sample mean 30.1 (SD 5.8) women, 30.5 (5.3) men (Table 2); 30.11, 30.59 and 30.35 as Tables 5-7 print for Tang [31]",
+   "sexes": "55 female, 54 male retrieved; per level 55 F with 52, 50 and 51 M (discs), end-plates at L5/S1 42 F and 41 M",
+   "page": "p. 4117-4118 (PDF 2-3); Table 2 p. 4119 (PDF 4); Table 4 p. 4120 (PDF 5)"
+  },
+  {
+   "cohort": "utah_mri_reliability40",
+   "labels": [
+    "all / intra-observer, observer I",
+    "all / intra-observer, observer II",
+    "all / inter-observer, observers I and II",
+    "all / reliability subset",
+    "female / reliability subset",
+    "male / reliability subset",
+    "source: this paper"
+   ],
+   "tables": [
+    "Table 3",
+    "Text: Materials and methods",
+    "Text: Results"
+   ],
+   "subjects": "A random subset of 40 of the cohort's MRI scans (20 female, 20 male), measured independently by two observers, each twice, for reliability only; drawn from utah_mri.",
+   "n_people": 40,
+   "n_units": "40 scans; which levels and structures entered the ICCs is not stated",
+   "ages": "not stated for the subset (cohort 20 to 40)",
+   "sexes": "20 female, 20 male",
+   "page": "p. 4118 (PDF 3); Table 3 p. 4119 (PDF 4)"
+  },
+  {
+   "cohort": "nachemson1960",
+   "labels": [
+    "female / caliper, cadaver",
+    "male / caliper, cadaver",
+    "source: Nachemson [41]"
+   ],
+   "tables": [
+    "Table 5"
+   ],
+   "subjects": "Not measured here; quoted from another study. Post-mortem lumbar material of Nachemson 1960 [41] (method printed: caliper, cadaver; cadaver printed as Ccdaver); 14 female aged 59.71 and 19 male aged 47.84; no height or weight printed",
+   "n_people": 33,
+   "n_units": "disc areas at L3/L4 and L4/L5",
+   "ages": "59.71 (F), 47.84 (M), means as printed",
+   "sexes": "14 F, 19 M",
+   "page": "Table 5 p. 4124 (PDF 9)"
+  },
+  {
+   "cohort": "farfan1973",
+   "labels": [
+    "female / ellipsoid, cadaver",
+    "male / ellipsoid, cadaver",
+    "all / ellipsoid, cadaver",
+    "female / (no group)",
+    "male / (no group)",
+    "all / (no group)",
+    "source: Farfan [21]"
+   ],
+   "tables": [
+    "Table 5"
+   ],
+   "subjects": "Not measured here; quoted from another study. Cadavers of Farfan 1973 [21] (a book; method printed: ellipsoid, cadaver); 6 female + 6 male, age 55.92; no height or weight",
+   "n_people": 12,
+   "n_units": "discs at L3/L4 and L4/L5",
+   "ages": "55.92",
+   "sexes": "6 F, 6 M",
+   "page": "Table 5 p. 4124 (PDF 9)"
+  },
+  {
+   "cohort": "hansson1980",
+   "labels": [
+    "female / cadaver, graph paper",
+    "male / cadaver, graph paper",
+    "source: Hansson et al. [38]"
+   ],
+   "tables": [
+    "Table 5"
+   ],
+   "subjects": "Not measured here; quoted from another study. Cadavers of Hansson et al. 1980 [38] (method printed: cadaver, graph paper); 21 female aged 57.67, 15 male aged 59.73",
+   "n_people": 36,
+   "n_units": "discs at L3/L4",
+   "ages": "57.67 (F), 59.73 (M)",
+   "sexes": "21 F, 15 M",
+   "page": "Table 5 p. 4124 (PDF 9)"
+  },
+  {
+   "cohort": "hutton1982",
+   "labels": [
+    "female / ellipsoid, cadaver",
+    "male / ellipsoid, cadaver",
+    "source: Hutton and Adams [39]"
+   ],
+   "tables": [
+    "Table 5"
+   ],
+   "subjects": "Not measured here; quoted from another study. Cadavers of Hutton and Adams 1982 [39] (method printed: ellipsoid, cadaver); 5 female aged 52.00 weighing 67.00 kg, 13 male aged 38.31 weighing 68.46 kg",
+   "n_people": 18,
+   "n_units": "discs at L3/L4 and L4/L5",
+   "ages": "52.00 (F), 38.31 (M)",
+   "sexes": "5 F, 13 M",
+   "page": "Table 5 p. 4124 (PDF 9)"
+  },
+  {
+   "cohort": "colombini1989",
+   "labels": [
+    "not stated / ellipsoid, CT, in vivo",
+    "source: Colombini et al. [20]"
+   ],
+   "tables": [
+    "Table 5"
+   ],
+   "subjects": "Not measured here; quoted from another study. Living subjects of Colombini et al. 1989 [20] (method printed: ellipsoid, CT, in vivo); 16 subjects aged 45.00, 172.40 cm, 77.40 kg; sex not printed",
+   "n_people": 16,
+   "n_units": "discs at L3/L4 to L5/S1",
+   "ages": "45.00",
+   "sexes": "not printed",
+   "page": "Table 5 p. 4124 (PDF 9)"
+  },
+  {
+   "cohort": "porter1989",
+   "labels": [
+    "male / cadaver",
+    "source: Porter et al. [42]"
+   ],
+   "tables": [
+    "Table 5"
+   ],
+   "subjects": "Not measured here; quoted from another study. Cadavers of Porter et al. 1989 [42] (method printed: cadaver); 9 male aged 21.89, 72.40 kg",
+   "n_people": 9,
+   "n_units": "discs at L4/L5",
+   "ages": "21.89",
+   "sexes": "9 M",
+   "page": "Table 5 p. 4124 (PDF 9)"
+  },
+  {
+   "cohort": "turk2004_40",
+   "labels": [
+    "female / CT, LBP patient/healthy",
+    "male / CT, LBP patient/healthy",
+    "all / CT, LBP patient/healthy",
+    "source: Turk and Celan [32]",
+    "rows whose row_label holds 21F + 19M"
+   ],
+   "tables": [
+    "Table 5"
+   ],
+   "subjects": "Not measured here; quoted from another study. First Turk and Celan 2004 [32] group (method printed: CT, LBP patient/healthy): 21 female + 19 male aged 44. Which group is the low back pain patients is not printed (Inference: the first, by the order patient/healthy)",
+   "n_people": 40,
+   "n_units": "discs at L4/L5 and L5/S1",
+   "ages": "44",
+   "sexes": "21 F, 19 M",
+   "page": "Table 5 p. 4124 (PDF 9)"
+  },
+  {
+   "cohort": "turk2004_30m",
+   "labels": [
+    "male / CT, LBP patient/healthy",
+    "source: Turk and Celan [32]",
+    "rows whose row_label holds 30 Male"
+   ],
+   "tables": [
+    "Table 5"
+   ],
+   "subjects": "Not measured here; quoted from another study. Second Turk and Celan 2004 [32] group: 30 male, age not printed (Inference: the healthy group, by the order patient/healthy)",
+   "n_people": 30,
+   "n_units": "discs at L4/L5 and L5/S1",
+   "ages": "not printed",
+   "sexes": "30 M",
+   "page": "Table 5 p. 4124 (PDF 9)"
+  },
+  {
+   "cohort": "brinckmann1989",
+   "labels": [
+    "female / CT, cadaver",
+    "male / CT, cadaver",
+    "female / CT, cadaver, ellipsoid",
+    "male / CT, cadaver, ellipsoid",
+    "source: Brinckmann et al. [1]"
+   ],
+   "tables": [
+    "Table 6",
+    "Table 7"
+   ],
+   "subjects": "Not measured here; quoted from another study. Cadavers of Brinckmann et al. 1989 [1] (method printed: CT, cadaver; Table 7 adds ellipsoid); 22 female aged 49.15, 31 male aged 49.93. The text notes the end-plate area was measured after an ultimate compressive strength test",
+   "n_people": 53,
+   "n_units": "cranial and caudal end-plates at L3/L4 and L4/L5",
+   "ages": "49.15 (F), 49.93 (M)",
+   "sexes": "22 F, 31 M",
+   "page": "Tables 6-7 pp. 4125, 4127 (PDF 10, 12); p. 4128 (PDF 13)"
+  },
+  {
+   "cohort": "panjabi1992",
+   "labels": [
+    "female / cadaver, ellipsoid",
+    "male / cadaver, ellipsoid",
+    "all / cadaver, ellipsoid",
+    "female / (no group)",
+    "male / (no group)",
+    "all / (no group)",
+    "source: Panjabi et al. [27]"
+   ],
+   "tables": [
+    "Table 6",
+    "Table 7"
+   ],
+   "subjects": "Not measured here; quoted from another study. Cadaver spines of Panjabi et al. 1992 [27] (method printed: cadaver, ellipsoid); 4 female + 8 male, 46.3 years, 167.8 cm, 67.8 kg",
+   "n_people": 12,
+   "n_units": "cranial end-plates at L3/L4 to L5/S1, caudal at L3/L4 and L4/L5",
+   "ages": "46.3",
+   "sexes": "4 F, 8 M",
+   "page": "Tables 6-7 pp. 4125-4127 (PDF 10-12)"
+  },
+  {
+   "cohort": "drerup1999",
+   "labels": [
+    "male / CT, in vivo",
+    "source: Drerup et al. [37]"
+   ],
+   "tables": [
+    "Table 6"
+   ],
+   "subjects": "Not measured here; quoted from another study. Living men of Drerup et al. 1999 [37] (method printed: CT, in vivo; ref. title: subjects exposed to long-term whole-body vibration); 14 male, 42.21 years, 177.57 cm, 87.86 kg",
+   "n_people": 14,
+   "n_units": "cranial end-plate at L3/L4",
+   "ages": "42.21",
+   "sexes": "14 M",
+   "page": "Table 6 p. 4125 (PDF 10)"
+  },
+  {
+   "cohort": "zhou2000",
+   "labels": [
+    "female / CT, in vivo, patient",
+    "male / CT, in vivo, patient",
+    "all / CT, in vivo, patient",
+    "female / (no group)",
+    "male / (no group)",
+    "all / (no group)",
+    "source: Zhou et al. [35]"
+   ],
+   "tables": [
+    "Table 6",
+    "Table 7"
+   ],
+   "subjects": "Not measured here; quoted from another study. Patients of Zhou et al. 2000 [35] (method printed: CT, in vivo, patient; ref. title: digitised CT images); 71 female aged 50, 55 male aged 49, 126 together aged 50",
+   "n_people": 126,
+   "n_units": "cranial end-plates at L3/L4 to L5/S1, caudal at L3/L4 and L4/L5",
+   "ages": "50 (F), 49 (M), 50 (all)",
+   "sexes": "71 F, 55 M",
+   "page": "Tables 6-7 pp. 4125-4127 (PDF 10-12)"
+  },
+  {
+   "cohort": "tan2004",
+   "labels": [
+    "not stated / digitized image, cadaver",
+    "not stated / (no group)",
+    "source: Tan et al. [30]"
+   ],
+   "tables": [
+    "Table 6",
+    "Table 7"
+   ],
+   "subjects": "Not measured here; quoted from another study. Cadavers of Tan et al. 2004 [30] (method printed: digitized image, cadaver; ref. title: Chinese Singaporeans); 10 specimens, 65.7 years, 166 cm, 61.6 kg; sex not printed",
+   "n_people": 10,
+   "n_units": "cranial end-plates at L3/L4 to L5/S1, caudal at L3/L4 and L4/L5",
+   "ages": "65.7",
+   "sexes": "not printed",
+   "page": "Tables 6-7 pp. 4125-4127 (PDF 10-12)"
+  },
+  {
+   "cohort": "seidel2008",
+   "labels": [
+    "not stated / CT, cadaver",
+    "not stated / (no group)",
+    "source: Seidel et al. [29]"
+   ],
+   "tables": [
+    "Table 6",
+    "Table 7",
+    "Text: Discussion"
+   ],
+   "subjects": "Not measured here; quoted from another study. Cadavers of Seidel et al. 2008 [29] (method printed: CT, cadaver); 53, 33.26 years, 179.92 cm, 82.66 kg; sex unknown (the Discussion calls them gender-unknown cadavers)",
+   "n_people": 53,
+   "n_units": "cranial end-plates at L3/L4 to L5/S1, caudal at L3/L4 and L4/L5",
+   "ages": "33.26",
+   "sexes": "unknown",
+   "page": "Tables 6-7 pp. 4125, 4127 (PDF 10, 12); p. 4123 (PDF 8)"
+  },
+  {
+   "cohort": "wang2012",
+   "labels": [
+    "male / cadaver, laser scan",
+    "male / (no group)",
+    "source: Wang et al. [34]"
+   ],
+   "tables": [
+    "Table 6",
+    "Table 7"
+   ],
+   "subjects": "Not measured here; quoted from another study. Cadavers of Wang et al. 2012 [34] (method printed: cadaver, laser scan; ref. title: radiographic, visual and digital measurements); 149 male, under 64",
+   "n_people": 149,
+   "n_units": "cranial end-plates at L3/L4 to L5/S1, caudal at L3/L4 and L4/L5",
+   "ages": "under 64",
+   "sexes": "149 M",
+   "page": "Tables 6-7 pp. 4125-4128 (PDF 10-13)"
+  },
+  {
+   "cohort": "nissan1984",
+   "labels": [
+    "male / caliper, X-ray, healthy",
+    "source: Nissan and Gilad [26]"
+   ],
+   "tables": [
+    "Table 6",
+    "Table 7"
+   ],
+   "subjects": "Not measured here; quoted from another study. Healthy living men of Nissan and Gilad 1984 [26] (method printed: caliper, X-ray, healthy); 157 male, 26.80 years, 174.70 cm, 72.40 kg (Inference: the same 157 men as gilad1985, which prints the same count, mean age 26.8 and stature 174.7 cm)",
+   "n_people": 157,
+   "n_units": "cranial end-plates at L3/L4 to L5/S1, caudal at L3/L4 and L4/L5",
+   "ages": "26.80",
+   "sexes": "157 M",
+   "page": "Tables 6-7 pp. 4125, 4127 (PDF 10, 12)"
+  },
+  {
+   "cohort": "vanschaik1985",
+   "labels": [
+    "female / CT, patient, mid-sagittal",
+    "male / CT, patient, mid-sagittal",
+    "all / CT, patient, mid-sagittal",
+    "female / (no group)",
+    "male / (no group)",
+    "all / (no group)",
+    "source: van Schaik et al. [33]"
+   ],
+   "tables": [
+    "Table 6"
+   ],
+   "subjects": "Not measured here; quoted from another study. Patients of van Schaik et al. 1985 [33] (method printed: CT, patient, mid-sagittal); 59 female, 64 male, 123 together aged 41.40",
+   "n_people": 123,
+   "n_units": "cranial end-plates at L3/L4 to L5/S1",
+   "ages": "41.40 (all)",
+   "sexes": "59 F, 64 M",
+   "page": "Table 6 pp. 4125-4126 (PDF 10-11)"
+  },
+  {
+   "cohort": "berry1987",
+   "labels": [
+    "all / caliper, cadaver",
+    "all / (no group)",
+    "all / caliper, cadaver, caucasian",
+    "source: Berry et al. [13]"
+   ],
+   "tables": [
+    "Table 6",
+    "Table 7"
+   ],
+   "subjects": "Not measured here; quoted from another study. Cadavers of Berry et al. 1987 [13] (method printed: caliper, cadaver; Table 7 adds caucasian); 30 female and male together, aged 50 to 79",
+   "n_people": 30,
+   "n_units": "cranial end-plates at L3/L4 to L5/S1, caudal at L3/L4 and L4/L5",
+   "ages": "50 to 79",
+   "sexes": "30 F and M, split not printed",
+   "page": "Tables 6-7 pp. 4125-4127 (PDF 10-12)"
+  },
+  {
+   "cohort": "amonookuofi1991",
+   "labels": [
+    "female / X-ray, healthy",
+    "male / X-ray, healthy",
+    "all / X-ray, healthy",
+    "source: Amonoo-Kuofi [17]"
+   ],
+   "tables": [
+    "Table 6"
+   ],
+   "subjects": "Not measured here; quoted from another study. Healthy living subjects of Amonoo-Kuofi 1991 [17] (method printed: X-ray, healthy; ref. title: heights and AP diameters of the lumbar discs with age); 310 female and 305 male aged 10 to 64. Not amonookuofi1982 or amonookuofi1985 of the list (other years and titles)",
+   "n_people": 615,
+   "n_units": "cranial end-plate (or disc, per ref. title) depths at L3/L4 to L5/S1",
+   "ages": "10 to 64",
+   "sexes": "310 F, 305 M",
+   "page": "Table 6 p. 4125 (PDF 10)"
+  },
+  {
+   "cohort": "aydinlioglu1999",
+   "labels": [
+    "female / X-ray, healthy, average",
+    "male / X-ray, healthy, average",
+    "source: Aydinlioglu et al. [18]"
+   ],
+   "tables": [
+    "Table 6"
+   ],
+   "subjects": "Not measured here; quoted from another study. Healthy living subjects of Aydinlioglu et al. 1999 [18] (printed run together as Aydinliogluet al.; method printed: X-ray, healthy, average; ref. title: heights of the lumbar discs in Turkish individuals); 97 female aged 10 to 59, 103 male",
+   "n_people": 200,
+   "n_units": "cranial end-plate (or disc, per ref. title) depths at L3/L4 to L5/S1",
+   "ages": "10 to 59",
+   "sexes": "97 F, 103 M",
+   "page": "Table 6 p. 4125 (PDF 10)"
+  },
+  {
+   "cohort": "postacchini1983_italian",
+   "labels": [
+    "not stated / caliper, cadaver, mid-sagittal; Italian",
+    "not stated / Italian",
+    "source: Postacchini et al. [28]",
+    "rows whose row_label holds Italian"
+   ],
+   "tables": [
+    "Table 7"
+   ],
+   "subjects": "Not measured here; quoted from another study. Italian cadavers of Postacchini et al. 1983 [28] (method printed: caliper, cadaver, mid-sagittal; ref. title: two caucasoid ethnic groups); 63, age printed as Adult",
+   "n_people": 63,
+   "n_units": "caudal end-plates at L3/L4 and L4/L5",
+   "ages": "Adult (no number)",
+   "sexes": "not printed",
+   "page": "Table 7 p. 4127 (PDF 12)"
+  },
+  {
+   "cohort": "postacchini1983_indian",
+   "labels": [
+    "not stated / caliper, cadaver, mid-sagittal; Indian",
+    "not stated / Indian",
+    "source: Postacchini et al. [28]",
+    "rows whose row_label holds Indian"
+   ],
+   "tables": [
+    "Table 7"
+   ],
+   "subjects": "Not measured here; quoted from another study. Indian cadavers of Postacchini et al. 1983 [28]; 58, age not printed",
+   "n_people": 58,
+   "n_units": "caudal end-plates at L3/L4 and L4/L5",
+   "ages": "not printed",
+   "sexes": "not printed",
+   "page": "Table 7 p. 4127 (PDF 12)"
+  },
+  {
+   "cohort": "aharinejad1990",
+   "labels": [
+    "not stated / cadaver/CT/MRI, mid-sagittal",
+    "not stated / (no group)",
+    "source: Aharinejad et al. [16]"
+   ],
+   "tables": [
+    "Table 7"
+   ],
+   "subjects": "Not measured here; quoted from another study. Material of Aharinejad et al. 1990 [16] (method printed: cadaver/CT/MRI, mid-sagittal; ref. title: morphometric analysis of vertebrae and discs as a basis of disc replacement); 574 segments; persons, ages and sexes not printed",
+   "n_people": null,
+   "n_units": "574 segments",
+   "ages": "not printed",
+   "sexes": "not printed",
+   "page": "Table 7 p. 4127 (PDF 12)"
+  },
+  {
+   "cohort": "vanderhouwen2009",
+   "labels": [
+    "female / (no group)",
+    "male / (no group)",
+    "female / caliper, CT, patient, mid-sagittal",
+    "male / caliper, CT, patient, mid-sagittal",
+    "source: van der Houwen et al. [15]"
+   ],
+   "tables": [
+    "Table 6",
+    "Table 7"
+   ],
+   "subjects": "Not measured here; quoted from another study. Patients of van der Houwen et al. 2010 [15] (method printed: caliper, CT, patient, mid-sagittal); 31 female and 46 male, both aged 49.8; the list's vanderhouwen2009 is this paper (Ann Biomed Eng 38(1), online 2009)",
+   "n_people": 77,
+   "n_units": "cranial end-plates at L3/L4 to L5/S1, caudal at L3/L4 and L4/L5",
+   "ages": "49.8",
+   "sexes": "31 F, 46 M",
+   "page": "Tables 6-7 pp. 4125-4127 (PDF 10-12)"
+  },
+  {
+   "cohort": "kang2011",
+   "labels": [
+    "female / caliper/X-ray/CT, healthy",
+    "male / caliper/X-ray/CT, healthy",
+    "source: Kang et al. [23]"
+   ],
+   "tables": [
+    "Table 7"
+   ],
+   "subjects": "Not measured here; quoted from another study. Healthy subjects of Kang et al. 2011 [23] (method printed: caliper/X-ray/CT, healthy; ref. title: Koreans); 15 female aged 41, 161.2 cm, 53.4 kg; 35 male aged 39.8, 170.6 cm, 70.5 kg",
+   "n_people": 50,
+   "n_units": "caudal end-plate widths at L3/L4 and L4/L5",
+   "ages": "41 (F), 39.8 (M)",
+   "sexes": "15 F, 35 M",
+   "page": "Table 7 p. 4127 (PDF 12)"
+  }
+ ],
+ "techniques": [
+  {
+   "technique": "mri_t2_oblique_transverse",
+   "cohorts": [
+    "utah_mri",
+    "utah_mri_reliability40"
+   ],
+   "modality": "MRI",
+   "instrument": "Siemens MAGNETOM Avanto 1.5 T, subjects head-first supine; sagittal and transverse T2-weighted scans, TR 3000-4770 ms, TE 80-110 ms, slice thickness 3-4.5 mm; OsiriX 4.1.1 (32-bit) on a workstation; pixel size, matrix and field of view not stated",
+   "how": "On transverse slices, taken only in oblique slices to limit distortion (Inference: slices angled parallel to each disc), each disc (IVD) and the end-plate cranial (CrEP) and caudal (CaEP) to it were traced by hand. CSA is the area inside the traced periphery; APD the distance between the anterior-most and posterior-most points of the contour (Fig. 1: the bounding rectangle's AP side, which for a kidney-shaped section reaches the posterolateral lobes); FD the distance between the right and left lateral-most points; MSD the distance between the mid-sagittal extents (the midline chord, ending in the posterior notch of a kidney-shaped section). The CrEP of disc Lx/Ly is the inferior end-plate of Lx and the CaEP the superior end-plate of Ly (the reading's levels follow this). How levels were counted, and whether transitional vertebrae were looked for, is not stated.",
+   "magnification": "not applicable (MRI); no calibration stated",
+   "observers": "the published values are observer I's first round; two observers measured 40 scans twice, a month apart in random order, for reliability only: ICC(3,1) 0.906 to 0.996 and Pearson 0.904 to 0.997 (Table 3)",
+   "page": "p. 4117-4119 (PDF 2-4); Fig. 1 p. 4118 (PDF 3); Table 1 p. 4119 (PDF 4)"
+  },
+  {
+   "technique": "ellipse_from_mri_diameters",
+   "cohorts": [
+    "utah_mri"
+   ],
+   "modality": "MRI",
+   "instrument": "computed from the MRI diameters of mri_t2_oblique_transverse",
+   "how": "Ellipse-approximated area, formula (1) APD x FD x pi/4 (attributed to Panjabi [27]) and formula (2) MSD x FD x pi/4 (attributed to Hutton and Adams [39]), each compared with the traced CSA by level; the reading holds only the percentage errors the Results print.",
+   "magnification": "not applicable",
+   "observers": "as mri_t2_oblique_transverse",
+   "page": "p. 4118 (PDF 3); results p. 4119 and 4122 (PDF 4, 7)"
+  },
+  {
+   "technique": "scan_header_demographics",
+   "cohorts": [
+    "utah_mri"
+   ],
+   "modality": "other",
+   "instrument": "height, weight, age and sex embedded in and released with the MRI scans; BMI computed from weight in kg and height in m",
+   "how": "Read from the scan records, not measured by the authors; heights missing from some scans (Table 2 footnote b).",
+   "magnification": "not applicable",
+   "observers": "not applicable",
+   "page": "p. 4117 (PDF 2); Table 2 p. 4119 (PDF 4)"
+  },
+  {
+   "technique": "nachemson_caliper_cadaver",
+   "cohorts": [
+    "nachemson1960"
+   ],
+   "modality": "other",
+   "instrument": "caliper on cadaver material, as printed",
+   "how": "disc cross-sectional area; details not given in this paper (quoted values)",
+   "magnification": "not stated in this paper",
+   "observers": "not stated in this paper",
+   "page": "Table 5 p. 4124 (PDF 9)"
+  },
+  {
+   "technique": "farfan_ellipse_cadaver",
+   "cohorts": [
+    "farfan1973"
+   ],
+   "modality": "other",
+   "instrument": "ellipse estimate on cadavers, as printed",
+   "how": "disc area as sagittal x frontal diameter x pi/4 (the introduction traces this method to Farfan) and disc AP and frontal diameters (quoted values)",
+   "magnification": "not stated in this paper",
+   "observers": "not stated in this paper",
+   "page": "Table 5 p. 4124 (PDF 9)"
+  },
+  {
+   "technique": "hansson_graph_paper",
+   "cohorts": [
+    "hansson1980"
+   ],
+   "modality": "other",
+   "instrument": "cadaver end-plate or disc outline on graph paper, as printed",
+   "how": "disc cross-sectional area; details not given in this paper (quoted values)",
+   "magnification": "not stated in this paper",
+   "observers": "not stated in this paper",
+   "page": "Table 5 p. 4124 (PDF 9)"
+  },
+  {
+   "technique": "hutton_ellipse_cadaver",
+   "cohorts": [
+    "hutton1982"
+   ],
+   "modality": "other",
+   "instrument": "ellipse estimate on cadavers, as printed",
+   "how": "disc area as MSD x FD x pi/4 (this paper's formula 2 is attributed to Hutton and Adams) (quoted values)",
+   "magnification": "not stated in this paper",
+   "observers": "not stated in this paper",
+   "page": "Table 5 p. 4124 (PDF 9)"
+  },
+  {
+   "technique": "colombini_ct_ellipse",
+   "cohorts": [
+    "colombini1989"
+   ],
+   "modality": "CT axial",
+   "instrument": "CT, ellipse estimate, in vivo, as printed",
+   "how": "disc area by ellipse from CT diameters (Inference: axial CT); details not given in this paper (quoted values)",
+   "magnification": "not stated in this paper",
+   "observers": "not stated in this paper",
+   "page": "Table 5 p. 4124 (PDF 9)"
+  },
+  {
+   "technique": "porter_cadaver",
+   "cohorts": [
+    "porter1989"
+   ],
+   "modality": "other",
+   "instrument": "cadaver, as printed",
+   "how": "disc cross-sectional area; details not given in this paper (quoted values)",
+   "magnification": "not stated in this paper",
+   "observers": "not stated in this paper",
+   "page": "Table 5 p. 4124 (PDF 9)"
+  },
+  {
+   "technique": "turk_ct",
+   "cohorts": [
+    "turk2004_40",
+    "turk2004_30m"
+   ],
+   "modality": "CT axial",
+   "instrument": "CT, as printed",
+   "how": "disc cross-sectional area (Inference: axial CT); details not given in this paper (quoted values)",
+   "magnification": "not stated in this paper",
+   "observers": "not stated in this paper",
+   "page": "Table 5 p. 4124 (PDF 9)"
+  },
+  {
+   "technique": "brinckmann_ct_cadaver",
+   "cohorts": [
+    "brinckmann1989"
+   ],
+   "modality": "CT axial",
+   "instrument": "CT on cadavers (Table 7 adds ellipsoid), as printed",
+   "how": "end-plate area (Inference: axial CT), measured after a compressive strength test (p. 4128); details not given in this paper (quoted values)",
+   "magnification": "not stated in this paper",
+   "observers": "not stated in this paper",
+   "page": "Tables 6-7 pp. 4125, 4127 (PDF 10, 12); p. 4128 (PDF 13)"
+  },
+  {
+   "technique": "panjabi_cadaver",
+   "cohorts": [
+    "panjabi1992"
+   ],
+   "modality": "other",
+   "instrument": "cadaver spines digitised with a 3D morphometer (Panjabi 1992 p. 299); Tang prints ellipsoid",
+   "how": "Panjabi 1992 Table 2's EPAl/EPAu, EPDl/EPDu and EPWl/EPWu at L3-L5, quoted in cm and cm2 with Panjabi's SEMs in the SD place (the L5 lower depth's left in mm). Tang labels the area ellipsoid (Tables 6-7, Fig. 8 legend), but Panjabi's Methods take each area from the projected areas of the points digitised round the end-plate (p. 300) and use an ellipse only as an approximation in the Discussion (p. 305); depth and width are the minor and major dimensions of the digitised rim (quoted values)",
+   "magnification": "not stated in this paper",
+   "observers": "not stated in this paper",
+   "page": "Tables 6-7 pp. 4125-4127 (PDF 10-12)"
+  },
+  {
+   "technique": "drerup_ct",
+   "cohorts": [
+    "drerup1999"
+   ],
+   "modality": "CT axial",
+   "instrument": "CT, in vivo, as printed",
+   "how": "cranial end-plate area (Inference: axial CT); details not given in this paper (quoted values)",
+   "magnification": "not stated in this paper",
+   "observers": "not stated in this paper",
+   "page": "Table 6 p. 4125 (PDF 10)"
+  },
+  {
+   "technique": "zhou_ct",
+   "cohorts": [
+    "zhou2000"
+   ],
+   "modality": "CT axial",
+   "instrument": "digitised CT images (ref. title), as printed",
+   "how": "end-plate area, depth and width (Inference: axial CT); details not given in this paper (quoted values)",
+   "magnification": "not stated in this paper",
+   "observers": "not stated in this paper",
+   "page": "Tables 6-7 pp. 4125-4127 (PDF 10-12)"
+  },
+  {
+   "technique": "tan_digitiser",
+   "cohorts": [
+    "tan2004"
+   ],
+   "modality": "3D digitiser",
+   "instrument": "digitized image of cadaver vertebrae, as printed",
+   "how": "Tan 2004 Table 1's EPAl/EPAu, EPDl/EPDu and EPWl/EPWu at L3-L5, quoted in cm and cm2 with Tan's SEMs (n 10) in the SD place, the area SEMs divided by 10 instead of 100; direct-contact 3D digitiser on dry cadaver vertebrae, definitions like Panjabi's, areas from a triangular mesh (tan2004's Methods) (quoted values)",
+   "magnification": "not stated in this paper",
+   "observers": "not stated in this paper",
+   "page": "Tables 6-7 pp. 4125-4127 (PDF 10-12)"
+  },
+  {
+   "technique": "seidel_ct_cadaver",
+   "cohorts": [
+    "seidel2008"
+   ],
+   "modality": "CT axial",
+   "instrument": "CT on cadavers, as printed",
+   "how": "end-plate area (Inference: axial CT); the Discussion quotes an overall 9 percent ellipse underestimate from it (quoted values)",
+   "magnification": "not stated in this paper",
+   "observers": "not stated in this paper",
+   "page": "Tables 6-7 pp. 4125, 4127 (PDF 10, 12); p. 4123 (PDF 8)"
+  },
+  {
+   "technique": "wang_laser_scan",
+   "cohorts": [
+    "wang2012"
+   ],
+   "modality": "other",
+   "instrument": "laser scan of cadaver end-plates, as printed",
+   "how": "end-plate area, depth and width; details not given in this paper (quoted values)",
+   "magnification": "not stated in this paper",
+   "observers": "not stated in this paper",
+   "page": "Tables 6-7 pp. 4125-4128 (PDF 10-13)"
+  },
+  {
+   "technique": "nissan_xray_caliper",
+   "cohorts": [
+    "nissan1984"
+   ],
+   "modality": "lateral radiograph",
+   "instrument": "caliper on X-ray films, as printed",
+   "how": "end-plate depth: the means and SDs equal gilad1985 Table 1's inferior (a) and superior (c) end-plate depths at L3-L5, so the same caliper readings, corner to corner of the body outline on lateral films of the same 157 men (quoted values)",
+   "magnification": "corrected to the mid-sagittal plane, as gilad1985 (p. 117) says of the same data; not stated in this paper",
+   "observers": "not stated in this paper",
+   "page": "Tables 6-7 pp. 4125, 4127 (PDF 10, 12)"
+  },
+  {
+   "technique": "vanschaik_ct_midsagittal",
+   "cohorts": [
+    "vanschaik1985"
+   ],
+   "modality": "CT axial",
+   "instrument": "CT, as printed",
+   "how": "mid-sagittal end-plate depth and width (Inference: axial CT) (quoted values)",
+   "magnification": "not stated in this paper",
+   "observers": "not stated in this paper",
+   "page": "Table 6 pp. 4125-4126 (PDF 10-11)"
+  },
+  {
+   "technique": "berry_caliper_cadaver",
+   "cohorts": [
+    "berry1987"
+   ],
+   "modality": "other",
+   "instrument": "caliper on cadaver vertebrae, as printed",
+   "how": "end-plate depth and width; details not given in this paper (quoted values)",
+   "magnification": "not stated in this paper",
+   "observers": "not stated in this paper",
+   "page": "Tables 6-7 pp. 4125-4127 (PDF 10-12)"
+  },
+  {
+   "technique": "amonookuofi_xray",
+   "cohorts": [
+    "amonookuofi1991"
+   ],
+   "modality": "lateral radiograph",
+   "instrument": "X-ray, as printed",
+   "how": "AP depth listed as cranial end-plate APD/MSD; ref. title names disc AP diameters (Inference: lateral films); magnification not stated, which the authors cite for its high values (quoted values)",
+   "magnification": "not stated in this paper",
+   "observers": "not stated in this paper",
+   "page": "Table 6 p. 4125 (PDF 10)"
+  },
+  {
+   "technique": "aydinlioglu_xray",
+   "cohorts": [
+    "aydinlioglu1999"
+   ],
+   "modality": "lateral radiograph",
+   "instrument": "X-ray, average, as printed",
+   "how": "AP depth listed as cranial end-plate APD/MSD; ref. title names disc heights (Inference: lateral films); magnification not stated, which the authors cite for its high values (quoted values)",
+   "magnification": "not stated in this paper",
+   "observers": "not stated in this paper",
+   "page": "Table 6 p. 4125 (PDF 10)"
+  },
+  {
+   "technique": "postacchini_caliper",
+   "cohorts": [
+    "postacchini1983_italian",
+    "postacchini1983_indian"
+   ],
+   "modality": "other",
+   "instrument": "caliper on cadaver vertebrae, as printed",
+   "how": "mid-sagittal caudal end-plate depth and width (quoted values)",
+   "magnification": "not stated in this paper",
+   "observers": "not stated in this paper",
+   "page": "Table 7 p. 4127 (PDF 12)"
+  },
+  {
+   "technique": "aharinejad_mixed",
+   "cohorts": [
+    "aharinejad1990"
+   ],
+   "modality": "other",
+   "instrument": "cadaver, CT and MRI, as printed",
+   "how": "mid-sagittal caudal end-plate depth and width; details not given in this paper (quoted values)",
+   "magnification": "not stated in this paper",
+   "observers": "not stated in this paper",
+   "page": "Table 7 p. 4127 (PDF 12)"
+  },
+  {
+   "technique": "vanderhouwen_ct",
+   "cohorts": [
+    "vanderhouwen2009"
+   ],
+   "modality": "CT MPR",
+   "instrument": "caliper and CT, as printed",
+   "how": "end-plate depth and width as rim-to-rim chords where a line tangent to the end-plate meets the anterior and posterior rims on a CT MPR sagittal section through the posterior niche, and the right and left rims on a frontal section (vanderhouwen2009's Methods); Tang's sex-split means pool to within 1.2 mm of vanderhouwen2009's own Figure 2 means (quoted values)",
+   "magnification": "not stated in this paper",
+   "observers": "not stated in this paper",
+   "page": "Tables 6-7 pp. 4125-4127 (PDF 10-12)"
+  },
+  {
+   "technique": "kang_mixed",
+   "cohorts": [
+    "kang2011"
+   ],
+   "modality": "other",
+   "instrument": "caliper, X-ray and CT, as printed",
+   "how": "listed by Tang as caudal end-plate width; the reference's title pairs the vertebral body transverse diameter with the pedicle's, which suggests the slice through the pedicles rather than the end-plate (Inference); details not given in this paper (quoted values)",
+   "magnification": "not stated in this paper",
+   "observers": "not stated in this paper",
+   "page": "Table 7 p. 4127 (PDF 12)"
+  }
+ ],
+ "shared": [
+  {
+   "with": "Tang 2013, Auburn PhD dissertation [31]; tang2016 itself (this paper)",
+   "what": "subjects",
+   "evidence": "Tang [31] rows of Tables 5-7 print Table 4's means and SDs and 55 F / 52 M (Inference: the same data set as this paper); one cell differs, the male L5/S1 disc APD, 4.00 in Table 5 against 4.01 in Table 4",
+   "page": "Tables 5-7 pp. 4124-4128 (PDF 9-13); ref. 31 p. 4130 (PDF 15)"
+  },
+  {
+   "with": "Panjabi et al. 1992 [27]; on the list as panjabi1992",
+   "what": "method",
+   "evidence": "ellipse area formula (1), APD x FD x pi/4, attributed to [27]; Panjabi's own tabulated areas come from the digitised rim (his p. 300), the ellipse only an approximation in his Discussion (p. 305), so Tang's measurement shares no method with his",
+   "page": "p. 4118 (PDF 3)"
+  },
+  {
+   "with": "Panjabi et al. 1992 [27]; on the list as panjabi1992",
+   "what": "values quoted",
+   "evidence": "means (SD) and subject details quoted in Tables 6 and 7 and Figs. 8-10; the Discussion says it showed a slight increase for the L4 vertebra",
+   "page": "pp. 4125-4129 (PDF 10-14)"
+  },
+  {
+   "with": "Hutton and Adams 1982 [39]; not on the list",
+   "what": "method",
+   "evidence": "ellipse area formula (2), MSD x FD x pi/4, attributed to [39]",
+   "page": "p. 4118 (PDF 3)"
+  },
+  {
+   "with": "Hutton and Adams 1982 [39]; not on the list",
+   "what": "values quoted",
+   "evidence": "means (SD) and subject details quoted in Table 5 and Fig. 8",
+   "page": "p. 4124 (PDF 9); p. 4128 (PDF 13)"
+  },
+  {
+   "with": "Farfan 1973 [21]; not on the list",
+   "what": "method",
+   "evidence": "sagittal x frontal diameter x pi/4 described by Farfan, used by [20, 39]; Seidel [29] showed its systematic error",
+   "page": "p. 4117 (PDF 2)"
+  },
+  {
+   "with": "Farfan 1973 [21]; not on the list",
+   "what": "values quoted",
+   "evidence": "means (SD) and subject details quoted in Table 5 and Figs. 8-10",
+   "page": "p. 4124 (PDF 9); pp. 4128-4129 (PDF 13-14)"
+  },
+  {
+   "with": "Pfirrmann et al. 2001 [45]; not on the list",
+   "what": "method",
+   "evidence": "every disc graded by a radiologist on the Pfirrmann system; grade V excluded",
+   "page": "p. 4117 (PDF 2)"
+  },
+  {
+   "with": "Shrout and Fleiss 1979 [46]; Portney and Watkins 2000 [47]; Mayerhoefer et al. 2012 [48]; not on the list",
+   "what": "method",
+   "evidence": "ICC(3,1) as in [46]; ICC and PCC read as in [47, 48]",
+   "page": "p. 4118 (PDF 3)"
+  },
+  {
+   "with": "Rosset et al. 2004 [43]; Yamauchi et al. 2010 [44]; not on the list",
+   "what": "method",
+   "evidence": "OsiriX DICOM software for all measurements",
+   "page": "p. 4118 (PDF 3)"
+  },
+  {
+   "with": "Nachemson 1960 [41]; not on the list",
+   "what": "values quoted",
+   "evidence": "means (SD) and subject details quoted in Table 5 and Fig. 8",
+   "page": "p. 4124 (PDF 9); p. 4128 (PDF 13)"
+  },
+  {
+   "with": "Hansson et al. 1980 [38]; not on the list",
+   "what": "values quoted",
+   "evidence": "means (SD) and subject details quoted in Table 5 and Fig. 8",
+   "page": "p. 4124 (PDF 9); p. 4128 (PDF 13)"
+  },
+  {
+   "with": "Colombini et al. 1989 [20]; not on the list",
+   "what": "values quoted",
+   "evidence": "means (SD) and subject details quoted in Table 5 and Fig. 8",
+   "page": "p. 4124 (PDF 9); p. 4128 (PDF 13)"
+  },
+  {
+   "with": "Porter et al. 1989 [42]; not on the list",
+   "what": "values quoted",
+   "evidence": "means (SD) and subject details quoted in Table 5 and Fig. 8",
+   "page": "p. 4124 (PDF 9); p. 4128 (PDF 13)"
+  },
+  {
+   "with": "Turk and Celan 2004 [32]; not on the list",
+   "what": "values quoted",
+   "evidence": "means (SD) and subject details quoted in Table 5 and Fig. 8",
+   "page": "p. 4124 (PDF 9); p. 4128 (PDF 13)"
+  },
+  {
+   "with": "Brinckmann et al. 1989 [1]; not on the list",
+   "what": "values quoted",
+   "evidence": "means (SD) and subject details quoted in Tables 6 and 7 and Fig. 8; the Discussion says it showed a slight increase for the L4 vertebra",
+   "page": "pp. 4125, 4127-4128 (PDF 10, 12-13)"
+  },
+  {
+   "with": "Drerup et al. 1999 [37]; not on the list",
+   "what": "values quoted",
+   "evidence": "means (SD) and subject details quoted in Table 6 and Fig. 8",
+   "page": "p. 4125 (PDF 10); p. 4128 (PDF 13)"
+  },
+  {
+   "with": "Zhou et al. 2000 [35]; not on the list",
+   "what": "values quoted",
+   "evidence": "means (SD) and subject details quoted in Tables 6 and 7 and Figs. 8-10",
+   "page": "pp. 4125-4129 (PDF 10-14)"
+  },
+  {
+   "with": "Tan et al. 2004 [30]; on the list as tan2004",
+   "what": "values quoted",
+   "evidence": "means (SD) and subject details quoted in Tables 6 and 7 and Figs. 8-10; the means and spreads equal tan2004 Table 1's end-plate values, the spreads its SEMs (the area SEMs printed ten times too large in cm2)",
+   "page": "pp. 4125-4129 (PDF 10-14)"
+  },
+  {
+   "with": "Seidel et al. 2008 [29]; not on the list",
+   "what": "values quoted",
+   "evidence": "means (SD) and subject details quoted in Tables 6 and 7 and Fig. 8; the Discussion quotes its overall 9 percent ellipse underestimate and its L3 and L5 end-plate finding",
+   "page": "pp. 4125, 4127-4128 (PDF 10, 12-13); p. 4123 (PDF 8); p. 4126 (PDF 11)"
+  },
+  {
+   "with": "Wang et al. 2012 [34]; not on the list",
+   "what": "values quoted",
+   "evidence": "means (SD) and subject details quoted in Tables 6 and 7 and Figs. 8-10",
+   "page": "pp. 4125-4129 (PDF 10-14)"
+  },
+  {
+   "with": "Nissan and Gilad 1984 [26]; not on the list",
+   "what": "values quoted",
+   "evidence": "means (SD) and subject details quoted in Tables 6 and 7 and Fig. 9; Inference: its 157 men aged 26.8, 174.7 cm are the subjects of gilad1985 (same counts and means), which Tang does not cite; and the quoted L3-L5 end-plate depths equal gilad1985 Table 1's a (inferior) and c (superior), means and SDs, so they are gilad1985's data",
+   "page": "pp. 4125, 4127, 4129 (PDF 10, 12, 14)"
+  },
+  {
+   "with": "van Schaik et al. 1985 [33]; not on the list",
+   "what": "values quoted",
+   "evidence": "means (SD) and subject details quoted in Table 6 and Figs. 9-10",
+   "page": "pp. 4125-4126, 4129 (PDF 10-11, 14)"
+  },
+  {
+   "with": "Berry et al. 1987 [13]; not on the list",
+   "what": "values quoted",
+   "evidence": "means (SD) and subject details quoted in Tables 6 and 7 and Figs. 9-10",
+   "page": "pp. 4125-4127, 4129 (PDF 10-12, 14)"
+  },
+  {
+   "with": "Amonoo-Kuofi 1991 [17]; not on the list",
+   "what": "values quoted",
+   "evidence": "means (SD) and subject details quoted in Table 6 and Fig. 9; a different study from amonookuofi1982 and amonookuofi1985 of the list",
+   "page": "p. 4125 (PDF 10); p. 4129 (PDF 14)"
+  },
+  {
+   "with": "Aydinlioglu et al. 1999 [18]; not on the list",
+   "what": "values quoted",
+   "evidence": "means (SD) and subject details quoted in Table 6 and Fig. 9",
+   "page": "p. 4125 (PDF 10); p. 4129 (PDF 14)"
+  },
+  {
+   "with": "Postacchini et al. 1983 [28]; not on the list",
+   "what": "values quoted",
+   "evidence": "means (SD) and subject details quoted in Table 7 and Figs. 9-10",
+   "page": "p. 4127 (PDF 12); p. 4129 (PDF 14)"
+  },
+  {
+   "with": "Aharinejad et al. 1990 [16]; not on the list",
+   "what": "values quoted",
+   "evidence": "means (SD) and subject details quoted in Table 7 and Figs. 9-10",
+   "page": "p. 4127 (PDF 12); p. 4129 (PDF 14)"
+  },
+  {
+   "with": "van der Houwen et al. 2010 [15]; on the list as vanderhouwen2009",
+   "what": "values quoted",
+   "evidence": "means (SD) and subject details quoted in Tables 6 and 7 and Figs. 9-10; the list's vanderhouwen2009 is the same article (Ann Biomed Eng 38(1), online 2009); Tang's sex-split depths and widths pool to within 1.2 mm of vanderhouwen2009's own Figure 2 rim-to-rim means",
+   "page": "pp. 4125-4127, 4129 (PDF 10-12, 14)"
+  },
+  {
+   "with": "Kang et al. 2011 [23]; not on the list",
+   "what": "values quoted",
+   "evidence": "means (SD) and subject details quoted in Table 7 and Fig. 10",
+   "page": "p. 4127 (PDF 12); p. 4129 (PDF 14)"
+  }
+ ],
+ "within_paper": "One pool: the 109 Utah subjects (utah_mri) give every disc and both end-plates of each level from the same scans, so the IVD, CrEP and CaEP rows of a level are of the same people, and the L3/L4, L4/L5 and L5/S1 rows overlap almost wholly (all 55 women at every level; men 52, 50 and 51 after grade V discs; L5/S1 end-plates 42 F and 41 M after the 23 missing slices), p. 4117 (PDF 2), Tables 2 and 4 pp. 4119-4120 (PDF 4-5). Table 2's three level samples are subsets of the same 109, its female rows identical across levels. The reliability set (40 scans, 20 F and 20 M) is drawn from the same scans and measured by two observers twice; the published values are observer I's first round, so Table 3 is of the same specimens as part of Table 4, p. 4118 (PDF 3). The Tang [31] rows of Tables 5-7 repeat this cohort's Table 4 (Inference from equal values); every other quoted study is a separate cohort, and the two Postacchini groups (Italian, Indian) and the two Turk and Celan rows are separate subjects. No value of the paper's own is pooled with a quoted one."
+}

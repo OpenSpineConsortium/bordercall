@@ -1,0 +1,121 @@
+{
+  "id": "chaudhary2015",
+  "citation": "Dr. Shalini Chaudhary, Dr. Sarvesh, Dr. A.P.S. Batra, Dr. Rimpi Gupta, Dr. Shveta Swami. A radiographic study of interpedicular distance of the lumbar vertebrae measured in plain antero-posterior radiographs. International Journal of Advanced Research (2015), Volume 3, Issue 8, 33-36. ISSN 2320-5407. Received 14 June 2015, accepted 19 July 2015, published online August 2015. Copy read: publisher's free copy (Int J Adv Res), project files literature/synthetic_spine/chaudhary2015.pdf, sha256 begins 9faa4bbe4b261991.",
+  "population": "India, Sonepat district, Haryana (North India); living adults (Inference: hospital films). 300 plain AP lumbar radiographs of 300 subjects, 150 men and 150 women, of known sex and age, aged 25 to 40 years, from the radiology department of B.P.S.G.M.C. for women, Khanpur Kalan, Sonepat; films reported normal by experienced radiologists, any film with an obvious abnormality excluded, p. 33 (PDF 1), p. 34 (PDF 2). One film per subject and 150 values per sex per level implied, never stated. Indication for the films, consecutiveness, dates, stature and weight not given.",
+  "modality": "Plain AP lumbar radiographs only, measured on the film with a scale (ruler) calibrated to 0.5 mm, p. 34 (PDF 2). Tube-film distance, patient position and magnification not stated, no correction: values are film millimetres. Observer(s), repeats and blinding not stated. No lateral films, CT or dry bone.",
+  "levels_covered": "L1 to L5, men and women separately (Table I, p. 34, PDF 2). Nothing at T12, the sacrum or the junctions. How levels were identified and counted is not stated; transitional segments not mentioned (an LSTV may or may not have counted as an obvious abnormality).",
+  "anomalies": [
+    {
+      "variant": "Lumbosacral transitional vertebra, sacralisation, lumbarisation, L6, T13, rib-count anomalies, block vertebrae",
+      "finding": "Not mentioned anywhere; no prevalence, no numerator or denominator; level numbering method not stated. Films with any 'obvious abnormality' were excluded, undefined.",
+      "page": "pp. 33-36 (PDF 1-4); exclusion p. 34 (PDF 2)",
+      "population": "300 adults of Sonepat, Haryana (150 men, 150 women), 25-40 years",
+      "how_identified": "not applicable"
+    },
+    {
+      "variant": "Congenital malformations (generic)",
+      "finding": "Named only as one class of spinal disorder whose diagnosis CT and MRI have advanced; no count, no prevalence.",
+      "page": "p. 35 (PDF 3)",
+      "population": "none",
+      "how_identified": "not applicable"
+    },
+    {
+      "variant": "Canal stenosis or intraspinal tumour signalled by the IPD",
+      "finding": "An IPD below the sex- and level-specific lower limit (mean - 3 SD) may suggest stenosis at that level; above the upper limit (mean + 3 SD) may suggest an intraspinal tumour. No prevalence; no case reported.",
+      "page": "p. 34 (PDF 2), text C below Table I",
+      "population": "rule derived from 150 men and 150 women",
+      "how_identified": "IPD on AP radiograph against Table I limits"
+    },
+    {
+      "variant": "Possible unrecognised transitional L5 (Inference)",
+      "finding": "Inference only: the male L5 SD of 5.9 mm (1.5 to 2.7 times the male L1-L4 SDs, 1.7 times the female L5 SD) could be inflated by a missed LSTV, a lumbosacral miscount or the difficulty of reading L5 pedicles through the sacral ala and iliac crest. The paper gives no explanation.",
+      "page": "Table I, p. 34 (PDF 2)",
+      "population": "150 men",
+      "how_identified": "not identified by the paper"
+    }
+  ],
+  "measures": [
+    {
+      "name": "Interpedicular distance (IPD), taken by the authors as the transverse diameter of the lumbar spinal canal",
+      "definition": "The 'minimum distance between the shadows of pedicles of same vertebra' on the AP film, one value per vertebra, read with a ruler calibrated to 0.5 mm (p. 34, PDF 2). The paper never says medial margin, cortex or height. Inference: the gap between the medial cortical margins of the two pedicle rings where they bulge most medially, near mid pedicle height; Amonoo-Kuofi 1982 (tabulated in Table II) and Hinck 1966 define the same film measure as the shortest distance between the pedicles' medial surfaces.",
+      "projection": "AP lumbar radiograph; not obtainable from a lateral (Inference: transverse dimension).",
+      "levels": "L1-L5, each sex",
+      "level_pattern": "Rises L1 to L5 in both sexes (Table I, text A, p. 34, PDF 2; abstract p. 33; conclusion p. 36). Men 24.06 (2.2), 24.73 (2.2), 26.01 (2.4), 27.15 (3.9), 31.34 (5.9) mm; women 21.64 (3.4), 23.31 (2.4), 24.02 (2.5), 25.71 (2.4), 29.01 (3.4) mm, mean (SD), Table I, p. 34 (PDF 2). Printed ranges (mean +/- 3 SD): men 17.6-30.54, 18.1-31.33, 18.66-33.36, 15.15-39.15, 13.34-49.34; women 11.4-31.8, 16.11-30.5, 16.52-31.52, 18.5-32.9, 18.8-39.2. Inference (arithmetic): steps men +0.67, +1.28, +1.14, +4.19 mm; women +1.67, +0.71, +1.69, +3.30 mm; L5/L1 1.30 men, 1.34 women; step over mean SD men 0.30, 0.56, 0.36, 0.86, women 0.58, 0.29, 0.69, 1.14, so only L4-L5 separates well across people.",
+      "covariates": "Sex: men wider at every level by 2.42, 1.42, 1.99, 1.44, 2.33 mm (Inference: arithmetic), female/male 0.90-0.95, p < 0.001 at every level (Table I, p. 34, PDF 2); authors call it sexual dimorphism (p. 36, PDF 4). Age 25-40 only, no age analysis. No body-size data; authors attribute lower values than North Indians (Chhabra 1991) to build, without data (p. 35, PDF 3). Population: authors claim regional, ethnic and racial variation and ask for sex-specific ranges per region (p. 33, 35, 36).",
+      "ct_mask_recipe": "Inference throughout. Build the vertebra frame (cranio-caudal normal to end-plates, AP from body centroid to spinous process, left-right orthogonal). Cut the pedicles out of the SPINEPS arch subregion by position: arch voxels between the posterior body wall and the front of the articular processes, in slices where the ring is closed on both sides. Project them along AP onto the coronal plane; for each cranio-caudal row crossing both pedicles take the gap between the most medial voxels of the left and right silhouettes; IPD is the smallest gap. Result is true size: multiply by an AP magnification (about 1.1 to 1.15) before comparing with Table I, or use level ratios. Do not use the SPINEPS spinal-canal label width, the laminar width or the lateral recess.",
+      "radiograph_recipe": "AP radiograph or AP fluoroscopy: smallest horizontal gap between the medial borders of the two pedicle ovals of one vertebra. Values carry unstated, uncorrected magnification (p. 34, PDF 2). Inference: about 1.1 on a supine AP film near 100 cm; Eisenstein 1977 measured 1.14 for AP at 110 cm (Eisenstein p. 175); on a C-arm it depends on source-detector and patient-detector distances; axial rotation shortens the projected gap.",
+      "error": "None reported: no intra- or inter-observer study, no repeats, no named observer, no blinding, no magnification correction (p. 34, PDF 2). Ruler resolution 0.5 mm. SDs (biological plus measurement) men 2.2-5.9 mm, women 2.4-3.4 mm; CV men 9, 9, 9, 14, 19 percent, women 16, 10, 10, 9, 12 percent (Inference: arithmetic), above Amonoo-Kuofi 1982 (6.1-9.4) and Hinck 1966 (8.8-12.5 at L1-L5).",
+      "page": "p. 34 (PDF 2), Methods and Table I"
+    },
+    {
+      "name": "Transverse canal diameter of earlier series as copied in Table II (not measured in this paper)",
+      "definition": "Means by level and sex for Eisenstein 1977 (South African Caucasoids; Zulus), Amonoo-Kuofi 1982 (Nigerians), Amonoo-Kuofi et al. 1990 (Saudis), Chhabra et al. 1991 (North Indians) and the present study; no n, method, instrument or magnification given for any of them. Eisenstein rows: Caucasoid male 23 24 23 24 26, female 22 22 23 23 25; Zulu male 21 22 22 23 26, female 20 21 21 22 24 (printed with .00 for men). Checked against Eisenstein 1977 Table I (p. 174 of that paper): these are his Caucasoid and Zulu Canal I.P. rows exactly, vernier-caliper values on dry vertebrae of 443 Raymond Dart Collection skeletons (Caucasoid 78 men 35 women, Zulu 108 men 54 women; age at death 16-96, mean 50), taken as the greatest interpedicular distance, whole mm; his Sotho rows are omitted. Nigerian rows match Amonoo-Kuofi 1982 Table 1 exactly (film at 100 cm, uncorrected, shortest medial gap, 150 men 140 women).",
+      "projection": "Mixed: Eisenstein dry bone (caliper, true size, greatest distance); Amonoo-Kuofi 1982 AP film at 100 cm (minimum distance); others not stated in this paper. Chaudhary presents Eisenstein 1977 as radiographic (p. 34, PDF 2).",
+      "levels": "L1-L5, each sex",
+      "level_pattern": "All series rise caudally to L5. Authors: highest in North Indians, lowest in Zulus, Sonepat between and comparable with Nigerians (p. 35, PDF 3). Inference: Zulus lowest at every level except male L5 (tie with Caucasoids at 26). Chhabra's male L4 35.5 and L5 37.4 stand far above every other series.",
+      "covariates": "Ethnicity and source modality confounded; Eisenstein's skeletons older than the Sonepat subjects.",
+      "ct_mask_recipe": "Not applicable (copied values). Inference: Eisenstein's values are the comparable true-size quantity for a CT mask only if the greatest axial gap between medial pedicle walls is taken.",
+      "radiograph_recipe": "Inference: to set Eisenstein's dry-bone values beside film values multiply them by about 1.14 (his AP factor at 110 cm, Eisenstein p. 175); dividing Chaudhary's male values by 1.1-1.14 gives about 21.1-21.9 (L1), 21.7-22.5 (L2), 22.8-23.6 (L3), 23.8-24.7 (L4), 27.5-28.5 (L5) mm.",
+      "error": "Table II reprints Eisenstein's whole millimetres with two zero decimals for men, a precision the source never had (Inference).",
+      "page": "p. 35 (PDF 3), Table II; references p. 36 (PDF 4)"
+    }
+  ],
+  "level_details": [
+    {"level": "L1", "detail": "Narrowest in both sexes (men 24.06, women 21.64 mm). Largest sex difference (2.42 mm); female SD 3.4 (equal to female L5, largest of the female series); female lower limit 11.4 mm, the lowest printed limit.", "page": "Table I, p. 34 (PDF 2)"},
+    {"level": "L2", "detail": "Men only 0.67 mm above L1 (SD 2.2), women 1.67 mm above L1. Smallest sex difference (1.42 mm).", "page": "Table I, p. 34 (PDF 2)"},
+    {"level": "L3", "detail": "Men 26.01, women 24.02 mm; women's L2-L3 step 0.71 mm is the smallest female step.", "page": "Table I, p. 34 (PDF 2)"},
+    {"level": "L4", "detail": "Men's SD jumps to 3.9 (from 2.4 at L3); women's stays 2.4.", "page": "Table I, p. 34 (PDF 2)"},
+    {"level": "L5", "detail": "Widest in both sexes (men 31.34, women 29.01 mm); L4-L5 step largest (+4.19 men, +3.30 women). Male SD 5.9 gives the printed range 13.34-49.34 mm, the widest cell; male L5 lower limit lies below male L1 lower limit.", "page": "Table I, p. 34 (PDF 2)"},
+    {"level": "T12/L1 and L5/S1 junctions", "detail": "Nothing said about either junction, the thoracic canal or the sacral canal beyond the introduction's shape remark.", "page": "pp. 33-36 (PDF 1-4)"},
+    {"level": "Lumbar canal shape by region", "detail": "Citing Eisenstein 1976: upper lumbar canal nearly circular, lower lumbar triangular, a transition from the circular thoracic to the triangular sacral canal; a trefoil configuration may predispose to lumbar and sacral root compression. Canal bounded in front by bodies, discs and PLL, laterally by pedicles, posterolaterally by laminae and ligamenta flava, behind by the laminae-spinous process junction (citing Gray's Anatomy).", "page": "p. 33-34 (PDF 1-2)"}
+  ],
+  "errors": [
+    {"what": "Instrument resolution", "value": "ruler calibrated to 0.5 mm (Inference: reading resolution about +/-0.25 mm)", "page": "p. 34 (PDF 2)"},
+    {"what": "Observer reliability", "value": "not reported: no intra- or inter-observer study, no repeats, observer and blinding not stated", "page": "p. 34 (PDF 2)"},
+    {"what": "Magnification", "value": "not stated, not corrected; tube-film distance and patient position not given", "page": "p. 34 (PDF 2)"},
+    {"what": "SD per level (biological plus measurement)", "value": "men 2.2, 2.2, 2.4, 3.9, 5.9 mm; women 3.4, 2.4, 2.5, 2.4, 3.4 mm at L1-L5", "page": "Table I, p. 34 (PDF 2)"},
+    {"what": "Internal arithmetic of printed ranges (Inference)", "value": "male ranges at L1, L3, L4, L5 imply SDs 2.16, 2.45, 4.0, 6.0 rather than 2.2, 2.4, 3.9, 5.9; male L2 and all female ranges agree", "page": "Table I, p. 34 (PDF 2)"}
+  ],
+  "pearls_pitfalls": [
+    {"text": "Clinical frame: canal narrowing, developmental or acquired, can compress the cauda equina and cause pain with or without neurological signs; the lumbar region is the commonest seat of backache.", "page": "p. 33 (PDF 1)"},
+    {"text": "Indication: sex- and level-specific normal IPD as a preliminary to investigating transverse lumbar canal stenosis, and to detect isolated segmental changes.", "page": "p. 35 (PDF 3); p. 34 (PDF 2)"},
+    {"text": "Rule: IPD below mean - 3 SD suggests stenosis at that level; above mean + 3 SD suggests an intraspinal tumour.", "page": "p. 34 (PDF 2)"},
+    {"text": "Claimed uses: bony canal stenosis, some intraspinal tumours, vertebral body compression, prolapsed discs; Inference: an IPD cannot show the last two, and no indices were reported.", "page": "p. 36 (PDF 4)"},
+    {"text": "Cited mechanism: laminar thickening narrows the canal and reduces the IPD, the second commonest cause (Sachs and Frankel 1900). Inference: doubtful, since the pedicles set the IPD, and the cited paper is on ankylosing rigidity of the spine.", "page": "p. 35 (PDF 3); p. 36 (PDF 4)"},
+    {"text": "Plain radiography is cheap and remains the mainstay in rural settings; careful film reading gives more than ultrasound (citing Hawkes and Roberts).", "page": "p. 34 (PDF 2); p. 35 (PDF 3)"},
+    {"text": "Pitfall (Inference): mean +/- 3 SD limits are very wide (male L5 13.34-49.34, female L1 11.4-31.8 mm); all ten lower limits (11.4-18.66 mm) lie below Eisenstein 1977's radiological lower limit of 20 mm (AP at 110 cm, Eisenstein p. 175); Hinck used 90 percent tolerance ranges and Amonoo-Kuofi mean +/- 2 SD.", "page": "Table I, p. 34 (PDF 2)"},
+    {"text": "Pitfall (Inference): Table II sets uncorrected film values beside Eisenstein's true-size dry-bone caliper values, and a minimum-distance definition beside a greatest-distance one.", "page": "p. 35 (PDF 3)"},
+    {"text": "Norms are sex- and region-specific, the authors stress.", "page": "p. 35 (PDF 3); p. 36 (PDF 4)"}
+  ],
+  "instructions": [
+    {"text": "On an AP lumbar radiograph or AP fluoroscopy frame, measure for each vertebra the smallest horizontal gap between its two pedicle rings, at their medial borders (medial borders: Inference, as Amonoo-Kuofi 1982 states); never from a lateral view.", "page": "p. 34 (PDF 2)"},
+    {"text": "Expect the IPD to rise L1 to L5 with the biggest step at L4-L5 (+4.2 mm men, +3.3 mm women, 13-15 percent); use the widest IPD and that jump as a caudal anchor for L5 (Inference); do not use IPD to separate L1 from L2 in men (0.67 mm, SD 2.2) or L2 from L3 in women (0.71 mm).", "page": "Table I, p. 34 (PDF 2)"},
+    {"text": "Work in within-patient ratios (each level over the patient's own L1 or L3) rather than absolute mm, because the norms are uncorrected film values of unknown magnification.", "page": "p. 34 (PDF 2)"},
+    {"text": "If absolute values are needed, scale CT or calibrated values to film with a stated factor (for example 1.14 for AP at 110 cm, Eisenstein p. 175), never treat Table I as true size (Inference).", "page": "p. 34 (PDF 2)"},
+    {"text": "Condition on sex: women are 1.4-2.4 mm narrower at every level; Inference: a sex error shifts a value by about one adjacent-level step from L1 to L4.", "page": "Table I, p. 34 (PDF 2)"},
+    {"text": "Flag a level outside its sex's mean +/- 3 SD as possible stenosis (low) or intraspinal mass (high), and also flag any level wider than the one below it (Inference); treat the limits as loose.", "page": "p. 34 (PDF 2)"},
+    {"text": "Treat a male L5 IPD with caution (SD 5.9 mm); check the lumbosacral junction for a transitional segment before trusting the L5 label (Inference; not discussed by the paper).", "page": "Table I, p. 34 (PDF 2)"},
+    {"text": "Before pooling published IPD tables, check source modality (dry bone, CT, film) and definition (minimum or greatest); this paper's Table II mixes them.", "page": "p. 35 (PDF 3); Eisenstein 1977 p. 173"},
+    {"text": "Use population-matched norms; this series is North Indian (Haryana), 25-40 years; do not apply it to children or the elderly (Inference: no data outside that range).", "page": "p. 34 (PDF 2)"}
+  ],
+  "bordercall": [
+    "(a) Anomaly priors: none; no prevalence of LSTV, L6, T13 or any variant, and no level-counting method.",
+    "(b) Panjabi 1992 SCW (cadaveric, true size, L1 23.7 to L5 27.1 mm) is the generator's nearest measure; Panjabi does not say it is interpedicular (the panjabi1992 note infers it from his Figure 1). Chaudhary's IPD differs by magnification (film larger by about 10-15 percent, Inference), by definition (minimum gap between projected pedicle shadows, never larger than the axial-slice width at any height, Inference) and by population. Compute a mask IPD as the projected minimum gap and compare only after scaling.",
+    "(b) Size-free cues to add: adjacent-level IPD ratios and L5/L1 (men 1.30, women 1.34; Inference from Table I). Canal/body-width ratio is not in this paper.",
+    "(b) Level likelihoods: within-person caudal rise with a large L4-L5 step; between-person standardised separation of adjacent levels 0.3-0.7 except L4-L5 (0.86 men, 1.14 women) (Inference).",
+    "(c) Measurement error: none reported; 0.5 mm instrument resolution; Table I SDs are an upper bound on measurement plus biological spread; male L4 and L5 SDs (3.9, 5.9) look inflated against Hinck adult (3.0, 3.7) and Amonoo-Kuofi men (1.7, 2.3) (Inference).",
+    "(d) Covariates: sex (women 0.90-0.95 of men); age 25-40 only, no age effect; no body-size data; North Indian (Haryana) population."
+  ],
+  "gaps": [
+    "Magnification, tube-film distance, patient position, observer, repeatability, indication for the films and level-counting method are all missing (p. 34, PDF 2).",
+    "Mean +/- 3 SD ranges disagree slightly with 3 x the printed SD in men at L1, L3, L4, L5 (Inference, Table I, p. 34, PDF 2).",
+    "Table II's heading says males only, but the table lists both sexes (p. 35, PDF 3).",
+    "Results text calls Sonepat comparable with 'Nigergians' but cites reference 7 (Saudis); the Discussion cites reference 6 for Nigerians (p. 35, PDF 3). Inference: Sonepat men lie closest to Saudi men (0.05-1.04 mm) and 1.15-2.64 mm above Nigerian men; Sonepat women are closer overall to Nigerian women (mean absolute difference 0.48 vs 0.99 mm).",
+    "Results call the ethnic variation minimal (p. 35) while Discussion and Conclusion call it significant at all levels (p. 35-36); no between-study test reported.",
+    "Abstract sets North Indians (Chhabra 1991) against Haryanvis, though Haryana is in North India (p. 33, PDF 1); Inference: Chhabra's very large male L4-L5 values suggest a method or magnification difference.",
+    "Eisenstein 1977 is presented as radiographic (p. 34, PDF 2); its tabulated values are dry-bone caliper values; radiographs there served only to derive magnification factors (Eisenstein p. 173-175).",
+    "Hinck 1966 and Piera 1988 are named in the introduction but not tabulated (p. 34, PDF 2); no comparison series is given with its n or method.",
+    "Hawkes and Roberts dated 1980 (initials G. M.) in the text, 1930 (G.H.) in the list; 'Saches' for Sachs; the Sachs and Frankel 1900 reference is on ankylosing rigidity of the spine (p. 34-36).",
+    "Conclusion claims value for vertebral body compression and disc prolapse and speaks of indices, which a single IPD cannot give (p. 36, PDF 4)."
+  ]
+}

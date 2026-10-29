@@ -1,0 +1,304 @@
+{
+  "paper": "chen2011",
+  "cohorts": [
+    {
+      "cohort": "chongqing_ct83",
+      "labels": [
+        "all",
+        "male",
+        "female",
+        "A1",
+        "A2",
+        "B1",
+        "B2",
+        "female vs male",
+        "inferior endplate",
+        "superior endplate",
+        "superior vs inferior endplate",
+        "endplate means",
+        "among all ten endplates",
+        "thoracic segment",
+        "lumbar segment",
+        "within thoracic segment",
+        "within lumbar segment",
+        "thoracic vs lumbar segment",
+        "lumbar vs thoracic segment",
+        ""
+      ],
+      "tables": [
+        "Table 1",
+        "Table 2",
+        "Table 3",
+        "Table 5",
+        "Text: Abstract",
+        "Text: Materials and methods",
+        "Text: Results"
+      ],
+      "subjects": "Living patients: 83 people who had a thoracic or abdominal CT on a GE LightSpeed VCT for abdominal or thoracic symptoms, with no spinal complaint, selected retrospectively from the PACS of the First Affiliated Hospital of Chongqing Medical University, Chongqing, China (the authors' hospital; Inference: the PACS is that hospital's). Excluded: marked osteophytes, significant vertebral degeneration, vertebral fracture, neoplasm of a vertebral body on CT, vertebrae visibly rotated axially relative to the scanner axis, columns with a large lateral slant. Split into four groups A1, A2, B1, B2 by age (over 40 or not) and sex, 22, 19, 21 and 21 people; which group is which is not stated. Ethnicity not stated (Inference: Chinese). Only the Table 5 columns headed Current report are this cohort's.",
+      "n_people": 83,
+      "n_units": "830 endplates (Table 1 n = 830), ten per person from T10 inferior to L3 superior; Male n = 430 and Female n = 400 in Tables 2 and 3 (Inference: endplate counts, so 43 men and 40 women)",
+      "ages": "mean 43 years, range 21-65; grouped as over 40 or not",
+      "sexes": "not stated in words; Inference from n = 430 and 400 endplates: 43 men, 40 women (22 + 21 and 19 + 21 fit the four groups)",
+      "page": "p. 1815 (PDF 2); Tables 1-3 p. 1817-1818 (PDF 4-5); Table 5 p. 1819 (PDF 6)"
+    },
+    {
+      "cohort": "cadaver_spines10",
+      "labels": [
+        "not stated",
+        "cadaveric specimens",
+        "cadaveric specimens, CT",
+        "cadaveric specimens, photo of midsagittal cut",
+        "cadaveric specimens, CT vs photo"
+      ],
+      "tables": [
+        "Table 4",
+        "Text: Abstract",
+        "Text: Materials and methods",
+        "Text: Results"
+      ],
+      "subjects": "Ten human cadaveric thoracolumbar spines from T10 to L3; source, country, preservation, age, sex and ethnicity not stated. Each was CT scanned, then cut along its midsagittal plane into two pieces and photographed (Fig. 1 shows a T10-T12 specimen half beside a ruler).",
+      "n_people": 10,
+      "n_units": "10 spines T10 to L3; Table 4 n = 100 (Inference: ten endplates each, T10 inf to L3 sup); only SCA and SD measured",
+      "ages": "not stated",
+      "sexes": "not stated",
+      "page": "p. 1815 (PDF 2); p. 1816 (PDF 3); Table 4 p. 1818 (PDF 5)"
+    },
+    {
+      "cohort": "figure_example_ct",
+      "labels": [
+        "not stated",
+        "example image"
+      ],
+      "tables": [
+        "Figure 2",
+        "Figure 3"
+      ],
+      "subjects": "One CT shown as the example of the landmarks: a midsagittal section (Fig. 2) and a specified coronal section (Fig. 3); whose CT and which vertebra are not stated. Inference: one of the 83 patients, since both overlays print the same acquisition settings and the figures illustrate the CT method.",
+      "n_people": null,
+      "n_units": "one endplate per figure; level not stated",
+      "ages": "not stated",
+      "sexes": "not stated",
+      "page": "p. 1816 (PDF 3)"
+    },
+    {
+      "cohort": "vanderhouwen_cited",
+      "labels": [
+        "male",
+        "female",
+        "not stated",
+        "",
+        "inferior endplate",
+        "superior endplate",
+        "source: van der Houwen [17]"
+      ],
+      "tables": [
+        "Table 5",
+        "Text: Discussion"
+      ],
+      "subjects": "Not measured here: subjects of van der Houwen et al. [17] (Ann Biomed Eng 2010), whose endplate diameters by sex Table 5 quotes beside this paper's for T12 inf to L3 sup (dashes for T10 inf to T12 sup); the Discussion also quotes its rate of endplate depth increase with age. Who they were is not stated in this paper. Per vanderhouwen2009 (the same paper), its cohort groningen_ct_patients: 77 living patients (46 men, 31 women, aged 21 to 86) with thoracic or abdominal CT, Groningen, the Netherlands; about 25 endplates per level (its stated goal).",
+      "n_people": null,
+      "n_units": "not stated in this paper",
+      "ages": "not stated in this paper",
+      "sexes": "not stated in this paper",
+      "page": "p. 1819 (PDF 6); p. 1818 (PDF 5)"
+    },
+    {
+      "cohort": "rockoff_cited",
+      "labels": [
+        "not stated",
+        "source: Rockoff et al. [13]"
+      ],
+      "tables": [
+        "Text: Discussion"
+      ],
+      "subjects": "Not measured here: specimens of Rockoff et al. [13] (Calcif Tissue Res 1969), quoted for the endplate's share of peak vertebral strength under compression; not described in this paper.",
+      "n_people": null,
+      "n_units": "not stated in this paper",
+      "ages": "not stated in this paper",
+      "sexes": "not stated in this paper",
+      "page": "p. 1818 (PDF 5)"
+    },
+    {
+      "cohort": "lowe_cited",
+      "labels": [
+        "not stated",
+        "thoracic and lumbar spine",
+        "source: Lowe et al. [14]"
+      ],
+      "tables": [
+        "Text: Discussion"
+      ],
+      "subjects": "Not measured here: specimens of the biomechanical study [14] (Lowe et al., Spine 2004), quoted for strength loss after endplate removal and the weakness of the central endplate in the thoracic and lumbar spine; not described in this paper.",
+      "n_people": null,
+      "n_units": "not stated in this paper",
+      "ages": "not stated in this paper",
+      "sexes": "not stated in this paper",
+      "page": "p. 1818 (PDF 5)"
+    },
+    {
+      "cohort": "ferguson_cited",
+      "labels": [
+        "male",
+        "female",
+        "elderly",
+        "source: Ferguson and Steffen [15]"
+      ],
+      "tables": [
+        "Text: Discussion"
+      ],
+      "subjects": "Not measured here: elderly men and women of [15] (Ferguson and Steffen, Eur Spine J 2003), quoted for bone density loss with age; not described in this paper.",
+      "n_people": null,
+      "n_units": "not stated in this paper",
+      "ages": "elderly, not further stated",
+      "sexes": "men and women",
+      "page": "p. 1818 (PDF 5)"
+    },
+    {
+      "cohort": "criteria_and_context",
+      "labels": [
+        "not stated",
+        "",
+        "source: Bland and Altman [21]",
+        "source: no citation given"
+      ],
+      "tables": [
+        "Text: Discussion"
+      ],
+      "subjects": "No subjects: the conventional Cronbach alpha range regarded as satisfactory for inter-modality reliability (Bland and Altman [21]) and the authors' uncited statement that osteoporosis usually starts in the fourth decade of life.",
+      "n_people": null,
+      "n_units": "not applicable",
+      "ages": "not applicable",
+      "sexes": "not applicable",
+      "page": "p. 1818-1819 (PDF 5-6)"
+    }
+  ],
+  "techniques": [
+    {
+      "technique": "ct_mpr_pacs_endplate",
+      "cohorts": [
+        "chongqing_ct83",
+        "cadaver_spines10",
+        "figure_example_ct"
+      ],
+      "modality": "CT MPR",
+      "instrument": "GE LightSpeed VCT; all images multiplanar reformatted at 0.625 mm slice thickness; landmarks and measurements with the PACS's internal measuring tools. Figure overlays: 120 kV, 298 mA, SFOV 50.0 cm, 0.6 s, tilt 0.0, WW 1800 / WL 600.",
+      "how": "Midsagittal plane (MSP): the image in which the whole contour of that vertebra's spinous process is seen. Specified coronal plane (SCP): the coronal plane through the most concave point Cm of the endplate on the MSP. On the MSP the anterior (A) and posterior (P) rims of the endplate and Cm are marked by hand; on the SCP the right (R) and left (L) rims and the most concave point Cs. SCA is the obtuse angle A-Cm-P; SD is the length of AP; C' is the foot of the perpendicular from Cm to AP and LCR is C'P / AP in percent; CCA is the angle R-Cs-L; TD is the length of RL. aSD is the mean of a vertebra's superior and inferior SD. Ten endplates, T10 inf to L3 sup. For the cadaver CT scans the same marking and measuring was done but only SCA and SD.",
+      "magnification": "not applicable: lengths read in mm from CT with the PACS tool; in-plane pixel size not stated",
+      "observers": "one trained user (initials CH) for the patients; for the cadaver CT not stated (Inference: the same); no intra- or inter-observer repeat reported",
+      "page": "p. 1815 (PDF 2); p. 1816 (PDF 3), Figs. 2-3"
+    },
+    {
+      "technique": "cadaver_midsagittal_photo",
+      "cohorts": [
+        "cadaver_spines10"
+      ],
+      "modality": "other",
+      "instrument": "photographs of the specimen halves cut along the midsagittal plane, measured in Adobe Photoshop CS v8.01",
+      "how": "Each spine cut along its midsagittal plane into two pieces and photographed; on the photographs the same landmarks were marked and SCA (angle A-Cm-P) and SD (length AP) measured; compared with the same specimens' CT values by mean difference and Cronbach alpha (Table 4).",
+      "magnification": "not stated how photograph lengths were scaled (Inference: from the ruler shown beside the specimen in Fig. 1)",
+      "observers": "not stated",
+      "page": "p. 1815 (PDF 2); p. 1816 (PDF 3); Table 4 p. 1818 (PDF 5)"
+    },
+    {
+      "technique": "vanderhouwen_quoted",
+      "cohorts": [
+        "vanderhouwen_cited"
+      ],
+      "modality": "other",
+      "instrument": "not stated in this paper (Inference: CT, since the paper says van der Houwen reached the same conclusion on the reliability of CT sizes)",
+      "how": "sagittal and transverse endplate diameters by sex quoted in Table 5; the method is not described in this paper; per vanderhouwen2009 (the same paper), rim-to-rim chords on CT MPR sections (sagittal points 1 to 5 on a section through the most anterior body point and the posterior niche, transverse points 6 to 10 on a frontal section through the most lateral body points), given as medians by sex in its Table 2",
+      "magnification": "not stated in this paper",
+      "observers": "not stated in this paper",
+      "page": "p. 1819 (PDF 6)"
+    },
+    {
+      "technique": "cited_biomechanics_and_density",
+      "cohorts": [
+        "rockoff_cited",
+        "lowe_cited",
+        "ferguson_cited"
+      ],
+      "modality": "other",
+      "instrument": "not stated in this paper",
+      "how": "strength and bone density figures quoted from the cited studies; methods not described in this paper",
+      "magnification": "not applicable",
+      "observers": "not stated in this paper",
+      "page": "p. 1818 (PDF 5)"
+    }
+  ],
+  "shared": [
+    {
+      "with": "van der Houwen et al. [17] (Geometry of the intervertebral volume and vertebral endplates of the human spine, Ann Biomed Eng 2010; 38:33-40): vanderhouwen2009, the same paper (title, authors, journal, volume and pages match its first page, which prints January 2010, published online 2009)",
+      "what": "values quoted",
+      "evidence": "Table 5 sets its male and female sagittal and transverse endplate diameters, T12 inf to L3 sup, beside this paper's and calls them consistent; all 24 equal vanderhouwen2009's Table 2 medians by sex, so they are medians, not means",
+      "page": "p. 1819 (PDF 6)"
+    },
+    {
+      "with": "van der Houwen et al. [17]: vanderhouwen2009, the same paper",
+      "what": "values quoted",
+      "evidence": "endplate depth increasing about 0.01 mm a year quoted; also cited as confirming the posterior position of the most concave point, and as reaching the same conclusion that CT sizes are reliable",
+      "page": "p. 1818-1819 (PDF 5-6)"
+    },
+    {
+      "with": "van der Houwen et al. [17]: vanderhouwen2009, the same paper",
+      "what": "method",
+      "evidence": "Inference only: the selection (retrospective thoracic or abdominal CT from PACS) and the exclusions for visible axial rotation and large lateral slant are worded much as in van der Houwen; this paper does not say it took its method from that study",
+      "page": "p. 1815 (PDF 2)"
+    },
+    {
+      "with": "Panjabi et al. [6] (Human lumbar vertebrae: quantitative three-dimensional anatomy, Spine 1992): panjabi1992",
+      "what": "method",
+      "evidence": "cited among refs 5-9 as earlier morphometry of the vertebral body in sagittal and coronal planes, measuring maximum border-to-border widths, contrasted with this paper's rim-to-rim endplate lengths; no subjects or values shared",
+      "page": "p. 1814 (PDF 1); p. 1819 (PDF 6)"
+    },
+    {
+      "with": "Gilad and Nissan [7] (vertebra and disc geometric relations of the cervical and lumbar spine, Spine 1986); not gilad1985 by its year (Inference: possibly a companion paper by the same authors)",
+      "what": "method",
+      "evidence": "cited among refs 5-9 with the same contrast as Panjabi [6]; no subjects or values shared",
+      "page": "p. 1814 (PDF 1); p. 1819 (PDF 6)"
+    },
+    {
+      "with": "Berry et al. [5] (Spine 1987), Hall et al. [8] (Spine 1998), Zhou et al. [9] (Eur Spine J 2000); not in the list",
+      "what": "method",
+      "evidence": "cited among refs 5-9 as earlier body-dimension studies by imaging or cadavers, mostly without an inter-modality reliability test; no subjects or values shared",
+      "page": "p. 1814 (PDF 1); p. 1819 (PDF 6)"
+    },
+    {
+      "with": "Twomey and Taylor [16] (Age changes in lumbar vertebrae and intervertebral discs, Clin Orthop Relat Res 1987); not twomey1985 by its year (Inference: possibly a related paper by the same authors)",
+      "what": "values quoted",
+      "evidence": "finding quoted, with no number: more endplate concavity accompanies loss of bone mineral density",
+      "page": "p. 1818 (PDF 5)"
+    },
+    {
+      "with": "Rockoff et al. [13] (Calcif Tissue Res 1969); not in the list",
+      "what": "values quoted",
+      "evidence": "endplate share of peak vertebral strength, 45-75%",
+      "page": "p. 1818 (PDF 5)"
+    },
+    {
+      "with": "Lowe et al. [14] (Spine 2004); not in the list",
+      "what": "values quoted",
+      "evidence": "nearly 39% strength loss after full endplate removal; central region 38% weaker than posterolateral",
+      "page": "p. 1818 (PDF 5)"
+    },
+    {
+      "with": "Ferguson and Steffen [15] (Eur Spine J 2003); not in the list",
+      "what": "values quoted",
+      "evidence": "elderly men lose up to 30% and elderly women up to 50% of bone density",
+      "page": "p. 1818 (PDF 5)"
+    },
+    {
+      "with": "Miao et al. [18] (Zhongguo Gu Shang 2008); not in the list",
+      "what": "values quoted",
+      "evidence": "finding quoted, with no number: lumbar degeneration correlates with lumbar endplate concavity",
+      "page": "p. 1819 (PDF 6)"
+    },
+    {
+      "with": "Bland and Altman [21] (BMJ 1997); not in the list",
+      "what": "method",
+      "evidence": "alpha of 0.7-0.8 taken as satisfactory for the inter-modality reliability test",
+      "page": "p. 1819 (PDF 6)"
+    }
+  ],
+  "within_paper": "Two cohorts of this paper's own, with no subjects in common as far as the paper states: the 83 living patients (Tables 1, 2, 3 and the Current report columns of Table 5) and the 10 cadaveric spines (Table 4), p. 1815 (PDF 2). Within the patients, every table is the same 83 people: Table 1 pools both sexes (n = 830 endplates), Tables 2, 3 and 5 split them by sex (n = 430 and 400), and the groups A1 to B2 partition them by age and sex, p. 1815 (PDF 2), p. 1817-1819 (PDF 4-6). Table 2's aSD is derived from the same SD values Table 5 gives per endplate (the mean of a vertebra's two endplates), and Table 5's transverse diameters repeat Table 3, p. 1816-1819 (PDF 3-6). The 10 cadaveric spines were measured twice, on their CT and on photographs of their midsagittal cuts, the same specimens and endplates by two methods (Table 4, n = 100), p. 1815-1816 (PDF 2-3), p. 1818 (PDF 5). Inference: the Figs. 2-3 example is one of the 83 patients, not stated."
+}

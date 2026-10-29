@@ -1,0 +1,200 @@
+{
+  "id": "lien2007",
+  "citation": "Shiu-Bii Lien, Shiu-Bii Lien, Nien-Hsien Liou, Shing-Sheng Wu. Analysis of anatomic morphometry of the pedicles and the safe zone for through-pedicle procedures in the thoracic and lumbar spine. Eur Spine J (2007) 16:1215-1222. DOI 10.1007/s00586-006-0245-2 (issue number not printed; published online 19 December 2006; first author printed twice in the byline). Source: thread \"Reread every paper for clinical detail\", project symphony_4, 2026-10-28. Copy read: greg's upload of 2026-10-28 17:00 UTC, project files literature/synthetic_spine/lien2007.pdf, sha256 begins 030578a5d6670645.",
+  "population": "Taiwan. Dry bone arm: 15 sets of human vertebrae (8 male, 7 female), each T1 to L5 separated and measured individually, obtained from the Department of Anatomy, National Defense Medical Center, Taipei (p. 1216, PDF 2); the discussion calls them 15 whole dry vertebrae (p. 1220, PDF 6); Inference: 255 vertebrae and 30 pedicles per level if complete, never stated. Cadaver arm: 6 Taiwanese cadavers (3 male, 3 female) of average body size for the population, gross deformity (scoliosis, kyphosis) excluded, T11 to L5 dissected bilaterally after removal of spinous processes, laminae, facets and transverse processes (p. 1216, PDF 2; Fig. 3, p. 1217, PDF 3); Inference: 42 levels, 84 sides. No ages, statures or weights; no sex-split results; ethnicity of the dry sets not stated.",
+  "modality": "Dry bone morphometry with Vernier calipers (0.1 mm) and a standard goniometer (1 deg) (p. 1216, PDF 2); cadaver dissection in the prone position with an unnamed instrument. No imaging. Mean +/- SD per level and side; left and right compared by Student's t test (p. 1216, PDF 2).",
+  "levels_covered": "Dry bone T1 to L5 (pedicle width, height, safe zone width and height, transverse and sagittal pedicle angles); cadavers T11 to L5 (transverse root angle, pedicle-to-root and pedicle-to-dura distances). No cervical, sacral or S1 data.",
+  "anomalies": [
+    {
+      "variant": "Transitional or numerical anomalies (LSTV, L6, T13, rib count, block vertebrae)",
+      "finding": "Not mentioned; no prevalence given. Inference: every set is treated as T1 to L5 (12 thoracic, 5 lumbar); how levels were identified is not described.",
+      "page": "p. 1216 (PDF 2)",
+      "population": "15 Taiwanese dry sets and 6 Taiwanese cadavers",
+      "how_identified": "not described"
+    },
+    {
+      "variant": "Gross spinal deformity (scoliosis, kyphosis)",
+      "finding": "Cadavers with gross deformity such as scoliosis or kyphosis were excluded; no count of excluded cadavers; no exclusion stated for the dry sets.",
+      "page": "p. 1216 (PDF 2)",
+      "population": "cadaver arm",
+      "how_identified": "not described"
+    }
+  ],
+  "measures": [
+    {
+      "name": "Pedicle width (PW)",
+      "definition": "Narrowest dimension of the pedicle (isthmus) in the transverse plane, outer cortex to cortex, caliper on dry bone (Fig. 1 caption, p. 1217, PDF 3; p. 1216, PDF 2). Inference from Fig. 1a: bar drawn roughly perpendicular to the pedicle axis.",
+      "projection": "dry bone caliper",
+      "page": "p. 1216 (PDF 2); Fig. 1, p. 1217 (PDF 3); Table 1, p. 1218 (PDF 4); Fig. 4A, p. 1219 (PDF 5)",
+      "levels": "T1 to L5, both sides",
+      "level_pattern": "Side-averaged mm (Table 1): T1 7.65, T2 5.45, T3 4.0, T4 3.5 (min), T5 3.8, T6 3.95, T7 4.4, T8 4.8, T9 5.25, T10 5.65, T11 7.2, T12 7.55, L1 6.45, L2 7.2, L3 9.15, L4 11.9, L5 17.6 (max). Text: narrowest T4 (3.5) or T5 (3.8), widest L5 (17.6), falls sharply T1 to T4, rises gradually to T12, rises gradually L1 to L4 and sharply at L5 (p. 1218, PDF 4). Inference: L1 dips below T11 and T12; adjacent separations T1/T2 2.3 SD, T2/T3 1.9, T10/T11 1.2, T12/L1 0.7, L2/L3 1.1, L3/L4 1.4, L4/L5 2.3, T4 to T10 pairs 0.2 to 0.45 SD. Width/height ratio (Inference) T1 0.88, T4 0.34, T12 0.50, L3 0.66, L4 0.93, L5 1.41 (only L5 wider than tall).",
+      "covariates": "Extremes held in both sexes (p. 1218, PDF 4), no sex-split values; Taiwanese; L5 width larger than Hou's (a Chinese series, ref. 14) and Berry's (p. 1220, PDF 6); general trend consistent with Panjabi, Olsewski, Zindrick and Hou (p. 1220, PDF 6).",
+      "error": "Between-specimen SD 0.6 to 1.5 mm T1 to T12, 1.6 to 2.7 mm L1 to L5 (Table 1); caliper 0.1 mm; no observer reliability; no left-right difference (p. 1216, PDF 2).",
+      "ct_mask_recipe": "Inference: SPINEPS has no pedicle label (from memory); cut the pedicle geometrically from the arch between body and articular/transverse process bases, fit its axis through cross-section centroids, take the mediolateral outer extent in planes perpendicular to the axis and keep the minimum. One voxel at 1 mm is about 25 percent of a mid-thoracic width; use subvoxel contours.",
+      "radiograph_recipe": "Inference: AP film or fluoroscopy, transverse diameter of the pedicle oval, true only with the beam along the pedicle axis; most nearly end-on on a straight AP at T10 to L1 (TA about 8 to 9 deg), most oblique at T1 to T3 and L5; correct magnification or use ratios. Not from a lateral."
+    },
+    {
+      "name": "Pedicle height (PH)",
+      "definition": "Narrowest dimension of the pedicle (isthmus) in the sagittal plane, outer caliper dimension, craniocaudal (Fig. 1 caption, p. 1217, PDF 3). Inference from Fig. 1b: bar drawn roughly perpendicular to the oblique pedicle axis.",
+      "projection": "dry bone caliper",
+      "page": "p. 1216 (PDF 2); Fig. 1, p. 1217 (PDF 3); Table 1, p. 1218 (PDF 4); Fig. 4B, p. 1219 (PDF 5)",
+      "levels": "T1 to L5, both sides",
+      "level_pattern": "Side-averaged mm (Table 1): T1 8.65 (min), T2 10.3, T3 10.4, T4 10.3, T5 10.55, T6 10.2, T7 10.4, T8 10.85, T9 12.35, T10 13.65, T11 15.1, T12 15.1 (max), L1 13.65, L2 14.05, L3 13.9, L4 12.75, L5 12.5. Text: rises gradually T1 to T12, lumbar falls gradually L2 to L5, L1 13.7 slightly below L2 14.1, largest T11 or T12 15.1, smallest T1 8.7, in both sexes (p. 1218, PDF 4). Inference: plateau T2 to T8; separations T1/T2 1.7 SD, T8/T9 1.2, T9/T10 0.9, T10/T11 1.0, T12/L1 1.0; others 0.0 to 0.6 SD.",
+      "covariates": "No sex-split values; heights smaller than every compared series (p. 1220, PDF 6).",
+      "error": "Between-specimen SD 0.8 to 1.6 mm T1 to T12, 1.4 to 2.3 mm L1 to L5 (Table 1); no reliability; no left-right difference (p. 1216, PDF 2).",
+      "ct_mask_recipe": "Inference: along the fitted pedicle axis, craniocaudal outer extent in perpendicular planes, minimum kept; or minimum superior-to-inferior cortex extent in a parasagittal plane through the pedicle centre.",
+      "radiograph_recipe": "Inference: true lateral film, craniocaudal height of the pedicle bar between two foramina at its narrowest; both sides superimpose; magnification applies."
+    },
+    {
+      "name": "Safe zone width",
+      "definition": "Top view: distance from the lateral cortex of the vertebral body to the medial cortex of the ipsilateral pedicle (p. 1216, PDF 2). In T1 to T10 the measured value was smaller than PW (pedicle overhangs the body laterally, Fig. 2a), so the authors set it equal to PW; Table 1's T1 to T10 columns are copies of PW. In T11 to L5 the pedicle lies inside the body border (Fig. 2c) and the safe zone exceeds PW. Described as the far-out boundary of the peri-pedicle area identifiable on clinical imaging (p. 1220, PDF 6).",
+      "projection": "dry bone caliper, top (axial) view",
+      "page": "p. 1216 (PDF 2); Fig. 2, p. 1217 (PDF 3); Table 1 and text, p. 1218 (PDF 4); Fig. 5A, p. 1219 (PDF 5); p. 1220 (PDF 6)",
+      "levels": "T1 to L5 (T1 to T10 not independent)",
+      "level_pattern": "Side-averaged mm: T11 7.4, T12 8.35, L1 8.4, L2 9.9, L3 10.15, L4 12.5, L5 17.7; T1 to T10 equal to PW. Printed ranges 3.4 to 7.7 (T1 to T10), 7.2 to 10.0 (T11 to L2), 10.1 to 17.8 (L3 to L5) (p. 1218, PDF 4). Inference: excess over PW 0.2 (T11), 0.8, 1.95, 2.7, 1.0, 0.6, 0.1 mm (L5); largest at L1 and L2; flat across T12/L1.",
+      "covariates": "None given.",
+      "error": "SD 1.1 to 2.7 mm T11 to L5 (Table 1); no reliability; no side comparison reported.",
+      "ct_mask_recipe": "Inference: in the vertebra's own axial frame, mediolateral coordinate of the most medial point of the pedicle isthmus minus that of the most lateral point of the body, per side; record raw rather than applying the T1 to T10 rule.",
+      "radiograph_recipe": "Inference: true AP film or fluoroscopy, medial edge of the pedicle oval to the lateral edge of the body on the same side; authors call the data useful for fluoroscopy-guided surgery (p. 1220, PDF 6)."
+    },
+    {
+      "name": "Safe zone height",
+      "definition": "Side view: distance from the upper end plate of the body to the inferior cortex of the ipsilateral pedicle (p. 1216, PDF 2). Measured value below PH at T1 to T6, not different at T7 to T10, above PH at T11 to L5 (p. 1220, PDF 6); set equal to PH at T1 to T10 (p. 1216, PDF 2).",
+      "projection": "dry bone caliper, side (lateral) view",
+      "page": "p. 1216 (PDF 2); Fig. 2b and 2d, p. 1217 (PDF 3); Table 1, p. 1218 (PDF 4); Fig. 5B, p. 1219 (PDF 5); p. 1220 (PDF 6)",
+      "levels": "T1 to L5 (T1 to T10 not independent)",
+      "level_pattern": "Side-averaged mm: T11 15.85, T12 16.65, L1 16.0, L2 15.7, L3 16.15, L4 14.4, L5 15.05; T1 to T10 equal to PH. Printed ranges 8.6 to 13.7 (T1 to T10), 13.9 to 16.7 (T11 to L5) (p. 1218, PDF 4). Inference: excess over PH 0.75 to 2.55 mm; nearly flat T11 to L5, separates no lumbar level well.",
+      "covariates": "None given.",
+      "error": "SD 1.3 to 2.3 mm T11 to L5 (Table 1); no reliability; no side comparison reported.",
+      "ct_mask_recipe": "Inference: in the vertebra's own sagittal frame, craniocaudal distance from the superior end plate (posterior part of the body subregion) to the lowest point of the pedicle isthmus on that side.",
+      "radiograph_recipe": "Inference: true lateral film, superior end plate to the inferior pedicle border (roof of the foramen below)."
+    },
+    {
+      "name": "Transverse angle of the pedicle (TA)",
+      "definition": "Angle between the pedicle axis and a line parallel to the vertebral midline, in the transverse plane; goniometer (p. 1216, PDF 2; Fig. 1a, p. 1217, PDF 3). Inference from Fig. 1a: medial convergence anteriorly; axis construction and sign not stated.",
+      "projection": "dry bone goniometer, top (axial) view",
+      "page": "p. 1216 (PDF 2); Fig. 1a, p. 1217 (PDF 3); Table 2, p. 1218 (PDF 4); text p. 1218 to 1219 (PDF 4 to 5); Fig. 6A and discussion, p. 1220 (PDF 6)",
+      "levels": "T1 to L5, both sides",
+      "level_pattern": "Side-averaged deg (Table 2): T1 28.2 (max), T2 26.35, T3 23.3, T4 22.85, T5 18.2, T6 15.4, T7 12.8, T8 13.8, T9 12.5, T10 9.0, T11 8.0, T12 7.9 (min), L1 8.45, L2 12.35, L3 15.25, L4 18.9, L5 24.35. U-shaped: falls T1 to T12, rises L1 to L5 (p. 1218 to 1219); smallest T10 to L1 (p. 1220). Inference: T11, T12, L1 indistinguishable (0.1 to 0.3 SD); clearest steps T9/T10 2.0 SD, T4/T5 1.6, L1/L2 and L4/L5 1.4, T6/T7 1.2.",
+      "covariates": "None given.",
+      "error": "SD 1.2 to 4.5 deg thoracic, 2.5 to 4.7 lumbar (Table 2); goniometer 1 deg; side means differ up to 3.2 deg (T9), 1.6 to 2.3 deg at T3, T5, L2 to L5; no side test reported for angles.",
+      "ct_mask_recipe": "Inference: in the vertebra's own axial plane (end-plate based), angle between the fitted pedicle axis and the instance's midsagittal plane (body and spinous centroids or a symmetry fit); never the scanner axes.",
+      "radiograph_recipe": "Inference: not measurable on a single AP or lateral film; on AP fluoroscopy it is the oblique tilt that brings the pedicle end-on; axial CT is the source."
+    },
+    {
+      "name": "Sagittal angle of the pedicle (SA)",
+      "definition": "Angle between the pedicle axis and the superior border of the vertebral body, in the sagittal plane; goniometer (p. 1216, PDF 2; Fig. 1b, p. 1217, PDF 3). Inference from Fig. 1b: axis runs posterosuperior to anteroinferior relative to the end-plate line; sign not printed.",
+      "projection": "dry bone goniometer, side (lateral) view",
+      "page": "p. 1216 (PDF 2); Fig. 1b, p. 1217 (PDF 3); Table 2, p. 1218 (PDF 4); text p. 1219 (PDF 5); Fig. 6B and discussion, p. 1220 (PDF 6)",
+      "levels": "T1 to L5, both sides",
+      "level_pattern": "Side-averaged deg (Table 2): T1 11.6, T2 18.9 (max), T3 16.6, T4 15.0, T5 17.85, T6 16.5, T7 13.4, T8 14.15, T9 13.05, T10 13.45, T11 12.15, T12 10.7, L1 6.1, L2 5.45, L3 5.0, L4 3.35, L5 2.9 (min). Largest T2, smallest L5 (p. 1219), decreasing trend T2 to L5 (p. 1220). Inference: drop T12/L1 10.7 to 6.1 deg (2.8 SD), T1/T2 2.6 SD, L3/L4 2.3 SD; lumbar 3 to 6 deg vs thoracic 11 to 19 deg.",
+      "covariates": "None given.",
+      "error": "SD 1.4 to 3.5 deg thoracic, 0.6 to 2.1 lumbar (Table 2); goniometer 1 deg; side means differ up to 1.8 deg (T7).",
+      "ct_mask_recipe": "Inference: in a parasagittal plane through the pedicle, angle between the fitted pedicle axis and the same instance's superior end-plate line; not the scanner axis or the disc.",
+      "radiograph_recipe": "Inference: true lateral film, angle between the superimposed pedicle bar's axis and the superior end plate; not done in the paper."
+    },
+    {
+      "name": "Transverse root angle (TRA)",
+      "definition": "Angle between the midline of the dura and the axis of the spinal nerve root after posterior element removal; no mobilisation of neural structures evident (p. 1216, PDF 2; Fig. 3a caption, p. 1217, PDF 3).",
+      "projection": "cadaver dissection, posterior (coronal) view; instrument not named",
+      "page": "p. 1216 (PDF 2); Fig. 3a, p. 1217 (PDF 3); Table 3, p. 1218 (PDF 4); p. 1219 (PDF 5); p. 1220 (PDF 6)",
+      "levels": "T11 to L5, both sides",
+      "level_pattern": "Left/right deg: T11 70.6/75.2, T12 58.6/60.0, L1 40.2/40.0, L2 38.0/38.0, L3 35.4/37.8, L4 37.2/40.0, L5 28.6/29.0 (Table 3). Lower thoracic roots more cranial, nearly parallel to the rib cage (p. 1219, PDF 5). Ebraheim: 57.1 to 84.0 deg T10 to T12, 33.7 to 39.2 lumbar (p. 1220, PDF 6).",
+      "covariates": "None given.",
+      "error": "SD 3.4 to 9.4 deg (Table 3); no side difference (p. 1219, PDF 5).",
+      "ct_mask_recipe": "Inference: not obtainable from a bony mask; needs MRI or CT myelography.",
+      "radiograph_recipe": "Inference: not obtainable from a plain film."
+    },
+    {
+      "name": "Pedicle cortex to neural structure distances (superior, inferior, lateral to root; medial to dural sac)",
+      "definition": "Four linear distances from the pedicle cortex to the nerve root superiorly, inferiorly and laterally and to the dural sac medially (p. 1216, PDF 2; Fig. 3b, p. 1217, PDF 3). Which root is not named; Inference: superior and lateral the root of the level above, inferior the root exiting beneath.",
+      "projection": "cadaver dissection, measured in 2D; instrument not named",
+      "page": "p. 1216 (PDF 2); Fig. 3b, p. 1217 (PDF 3); Table 4, p. 1219 (PDF 5); p. 1220 to 1221 (PDF 6 to 7)",
+      "levels": "T11 to L5, both sides",
+      "level_pattern": "Superior 4.5 to 5.3 mm T11 to T12, 4.1 to 6.1 lumbar (max L3 6.1); inferior 3.0 to 3.8 T11 to T12, 1.9 to 2.6 lumbar (about 2.0 at L4, L5); medial 1.0 to 1.5 T11 to T12, 1.7 to 2.1 lumbar in Table 4 (text 1.9 to 2.1); lateral more than 10 mm at T11 and T12 (footnote), L1 9.4/9.6, L2 4.5/4.7, L3 4.2/4.3, L4 3.5/3.5, L5 2.4/2.6 (Table 4, p. 1219, PDF 5). Lateral greatest L1 (9.5), smallest L5 (2.5) (p. 1220, PDF 6).",
+      "covariates": "None given.",
+      "error": "SD 0.1 to 2.5 mm (Table 4); 2D not shortest 3D distance, post-mortem retraction or shrinkage, true distances shorter (p. 1221, PDF 7); no side difference (p. 1220, PDF 6).",
+      "ct_mask_recipe": "Inference: only the bony end is in a bone mask; neural structures need MRI or myelography.",
+      "radiograph_recipe": "Inference: not obtainable from a plain film."
+    }
+  ],
+  "level_details": [
+    {"level": "T1", "detail": "Widest thoracic pedicle 7.65 mm (just above T12 7.55), lowest PH 8.65 mm, largest TA 28.2 deg, SA 11.6 deg vs T2 18.9 (Tables 1 and 2). Inference: T1 differs from T2 by PW 2.3 SD, PH 1.7 SD, SA 2.6 SD. No cervical data.", "page": "p. 1218 (PDF 4)"},
+    {"level": "T2", "detail": "Largest sagittal angle, 18.9 deg.", "page": "p. 1219 (PDF 5)"},
+    {"level": "T3 to T6", "detail": "Narrowest pedicles, T4 3.5 mm and T5 3.8 mm; upper thoracic pedicle cortex outside the body outline in top and side views; measured safe zone height below PH at T1 to T6.", "page": "p. 1218 (PDF 4); Fig. 2, p. 1217 (PDF 3); p. 1220 (PDF 6)"},
+    {"level": "T7 to T10", "detail": "Measured safe zone height did not differ from PH; safe zone width still below PW; PH rises T8 to T10.", "page": "p. 1220 (PDF 6); Table 1, p. 1218 (PDF 4)"},
+    {"level": "T10 to L1", "detail": "Smallest transverse pedicle angles (about 8 to 9 deg).", "page": "p. 1220 (PDF 6); Table 2, p. 1218 (PDF 4)"},
+    {"level": "T11 and T12", "detail": "Largest PH 15.1 mm; roots nearly parallel to ribs, TRA 58.6 to 75.2 deg; lateral root distance more than 10 mm; medial distance to dura smallest (1.0 to 1.5 mm); superior 4.5 to 5.3 slightly above inferior 3.0 to 3.8 mm.", "page": "Tables 1, 3, 4, p. 1218 to 1219 (PDF 4 to 5)"},
+    {"level": "T12/L1", "detail": "PW 7.55 to 6.45 mm, PH 15.1 to 13.65 mm, SA 10.7 to 6.1 deg; safe zone width flat 8.35 to 8.4 mm; TRA about 59 to 40 deg; lateral root distance first given as a number at L1 (9.5 mm).", "page": "Tables 1 to 4, p. 1218 to 1219 (PDF 4 to 5)"},
+    {"level": "L1", "detail": "Pedicle narrower and shorter than T12 and L2; with L2 the largest safe zone width excess over PW (Inference).", "page": "Table 1, p. 1218 (PDF 4)"},
+    {"level": "L2 to L4", "detail": "PW 7.2, 9.15, 11.9 mm; TA 12.35, 15.25, 18.9 deg; SA 5.45, 5.0, 3.35 deg; lateral root distance 4.6, 4.25, 3.5 mm.", "page": "Tables 1, 2, 4, p. 1218 to 1219 (PDF 4 to 5)"},
+    {"level": "L5", "detail": "Widest pedicle 17.6 mm, only pedicle wider than tall (Inference: ratio 1.41), TA 24.35 deg, smallest SA 2.9 deg, smallest lateral root distance 2.5 mm, inferior about 2.0 mm, smallest TRA 28.6 to 29.0 deg. No S1 data.", "page": "Tables 1 to 4, p. 1218 to 1219 (PDF 4 to 5); p. 1220 (PDF 6)"},
+    {"level": "C2/C3, C7/T1, L5/S1", "detail": "Not covered beyond T1's and L5's own values.", "page": "p. 1216 (PDF 2)"}
+  ],
+  "errors": [
+    {"what": "Caliper resolution (dry bone)", "value": "0.1 mm", "page": "p. 1216 (PDF 2)"},
+    {"what": "Goniometer accuracy (dry bone)", "value": "1 deg", "page": "p. 1216 (PDF 2)"},
+    {"what": "Observer reliability", "value": "not reported (no intra- or inter-observer study, no repeats, no observer count)", "page": "p. 1216 (PDF 2)"},
+    {"what": "Between-specimen SD, pedicle width", "value": "0.6 to 1.5 mm T1 to T12; 1.6 to 2.7 mm L1 to L5 (Inference: 14 to 26 percent of the mean)", "page": "Table 1, p. 1218 (PDF 4)"},
+    {"what": "Between-specimen SD, pedicle height", "value": "0.8 to 1.6 mm T1 to T12; 1.4 to 2.3 mm L1 to L5 (Inference: 8 to 18 percent)", "page": "Table 1, p. 1218 (PDF 4)"},
+    {"what": "Between-specimen SD, safe zone width and height T11 to L5", "value": "1.1 to 2.7 mm and 1.3 to 2.3 mm", "page": "Table 1, p. 1218 (PDF 4)"},
+    {"what": "Between-specimen SD, transverse angle", "value": "1.2 to 4.5 deg thoracic; 2.5 to 4.7 deg lumbar; side means differ up to 3.2 deg (T9)", "page": "Table 2, p. 1218 (PDF 4)"},
+    {"what": "Between-specimen SD, sagittal angle", "value": "1.4 to 3.5 deg thoracic; 0.6 to 2.1 deg lumbar", "page": "Table 2, p. 1218 (PDF 4)"},
+    {"what": "SD, transverse root angle", "value": "3.4 to 9.4 deg", "page": "Table 3, p. 1218 (PDF 4)"},
+    {"what": "SD, neural distances", "value": "0.1 to 2.5 mm (Inference: 0.1 to 0.2 mm implausibly tight for 6 cadavers)", "page": "Table 4, p. 1219 (PDF 5)"},
+    {"what": "Left versus right (t test)", "value": "no significant difference for pedicle width and height, root angles and neural distances; no p values; no test reported for safe zones or pedicle angles", "page": "p. 1216 (PDF 2); p. 1219 (PDF 5); p. 1220 (PDF 6)"},
+    {"what": "Cadaver distance bias", "value": "2D not shortest 3D distance; post-mortem retraction or shrinkage; true distances shorter than measured", "page": "p. 1221 (PDF 7)"}
+  ],
+  "pearls_pitfalls": [
+    {"text": "Indications: pedicle screw instrumentation (Roy-Camille, put in 1985); percutaneous vertebroplasty (Galibert 1987, C2 haemangioma) and kyphoplasty with an inflatable bone tamp, transpedicular or extrapedicular, for osteoporotic compression fracture.", "page": "p. 1215 (PDF 1)"},
+    {"text": "Further indications: transpedicularly implanted anterior support; revision of pedicle screws, bone biopsy, bone grafting, restoration of the body.", "page": "p. 1216 (PDF 2)"},
+    {"text": "Complications: screw failure and neurovascular damage; about 10 percent of screws misplaced (Roy-Camille, put in 1988); 21 percent overall failure in cadaveric studies (Weinstein).", "page": "p. 1216 (PDF 2)"},
+    {"text": "In-out-in (extrapedicular) technique is used in the upper and mid-thoracic spine because of pedicle morphometry; the all-through-pedicle concept carries a true safe zone even when the upper and lateral pedicle walls are penetrated.", "page": "p. 1216 (PDF 2); p. 1221 (PDF 7)"},
+    {"text": "The safe zone depends on the transverse and sagittal angles as well as the pedicle dimensions, because the pedicle axis is oblique.", "page": "p. 1220 (PDF 6); p. 1221 (PDF 7)"},
+    {"text": "True safe zone = pedicle plus extrapedicular distance to the neural structures; the distances serve as a safe range if the pedicle is disrupted during surgery; authors claim first quantitative safe zone and first lateral mean distances.", "page": "p. 1220 to 1221 (PDF 6 to 7)"},
+    {"text": "Closest neural structures are medial (dura 1.0 to 2.1 mm) and inferior (root 1.9 to 3.8 mm); lumbar superior distances larger as roots run caudally; lateral generous at T11 to T12 (over 10 mm) and L1 (9.5 mm), tight at L5 (2.5 mm). Ebraheim: lumbar superior and lateral safer than inferior and medial; thoracic lateral, superior, inferior equally safe; findings not different in substance.", "page": "Table 4, p. 1219 (PDF 5); p. 1220 to 1221 (PDF 6 to 7)"},
+    {"text": "Pitfall of anatomy: in upper thoracic vertebrae the pedicle projects beyond the lateral body border (T1 to T10) and above the upper end plate (T1 to T6), so a safe zone from the body outline is smaller than the pedicle; in T11 to L5 the pedicle sits inside the body outline.", "page": "Fig. 2, p. 1217 (PDF 3); p. 1220 (PDF 6)"},
+    {"text": "Pitfall of measuring: cadaver distances overstate in-vivo margins (2D, post-mortem change); roots are relatively mobile outside the foramen.", "page": "p. 1221 (PDF 7)"},
+    {"text": "The safe zone and angle data are called preliminary and useful in fluoroscopy-guided surgery; no screw-size thresholds are given; narrowest pedicles T4 and T5 (3.5 to 3.8 mm).", "page": "p. 1218 (PDF 4); p. 1220 (PDF 6)"}
+  ],
+  "instructions": [
+    {"text": "In the lumbar spine, look for the abrupt pedicle-width step L4 to L5 (11.9 to 17.6 mm) and L5 as the only pedicle wider than tall; use width-to-height ratios, which need no magnification correction. Inference: on AP the L5 pedicle is seen obliquely (TA about 24 deg), so compare ratios between neighbours.", "page": "Table 1, p. 1218 (PDF 4)"},
+    {"text": "On a lateral image or sagittal CT plane, read the pedicle sagittal angle against the superior end plate: about 10 to 12 deg at T11 and T12, about 5 to 6 deg at L1 and L2; a drop of about 4.6 deg marks T12/L1; lumbar SDs reach 2.1 deg, so do not rely on it alone (lateral radiograph route is Inference).", "page": "Table 2, p. 1218 (PDF 4)"},
+    {"text": "At T12/L1 expect pedicle height to peak at T11 and T12 (15.1 mm) and fall at L1 (13.65 mm), and pedicle width to dip at L1 (6.45 mm) below T12 (7.55 mm).", "page": "Table 1, p. 1218 (PDF 4)"},
+    {"text": "At the top of the thoracic spine expect T1's pedicle wider (7.65 mm) and lower (8.65 mm) than T2's (5.45, 10.3 mm), its sagittal angle smaller (11.6 vs 18.9 deg) and its transverse angle the largest (28.2 deg).", "page": "Tables 1 and 2, p. 1218 (PDF 4)"},
+    {"text": "Do not tell T4 to T10 apart by pedicle width or height alone (adjacent differences 0.2 to 0.45 SD, Inference); count from a junction.", "page": "Table 1, p. 1218 (PDF 4)"},
+    {"text": "From a CT instance mask take PW and PH as the narrowest outer pedicle dimension in the transverse and sagittal planes; Inference: compute perpendicular to the fitted pedicle axis, as Fig. 1 draws the bars.", "page": "Fig. 1, p. 1217 (PDF 3)"},
+    {"text": "Measure TA against a line parallel to the vertebra's own midline and SA against its own superior end plate; Inference: never against scanner axes.", "page": "p. 1216 (PDF 2)"},
+    {"text": "In T1 to T10 expect the pedicle beyond the lateral body border on axial or AP, and in T1 to T6 above the upper end plate on lateral; do not clip the pedicle to the body outline.", "page": "Fig. 2, p. 1217 (PDF 3); p. 1220 (PDF 6)"},
+    {"text": "In T11 to L5 compute safe zone width (medial pedicle wall to lateral body wall) and height (upper end plate to inferior pedicle wall); expect them to exceed PW by about 0.1 to 2.7 mm and PH by about 0.75 to 2.55 mm (Inference from side-averaged means).", "page": "Table 1, p. 1218 (PDF 4)"},
+    {"text": "When checking a trajectory, flag medial breaches at T11 and T12 first (1.0 to 1.5 mm to dura) and inferior and lateral breaches at L4 and L5 (about 2.0 mm inferior, 2.5 to 3.5 mm lateral); treat cadaver margins as upper bounds.", "page": "Table 4, p. 1219 (PDF 5); p. 1221 (PDF 7)"},
+    {"text": "Average left and right before comparing; tolerate TA side differences up to about 3 deg (T9 3.2; 1.6 to 2.3 deg at several levels).", "page": "Table 2, p. 1218 (PDF 4)"},
+    {"text": "Treat absolute values as one Taiwanese sample of 15 dry spines: L5 width larger than Hou's (also Chinese) and Berry's series, heights smaller than all compared series; Inference: scale by a size factor and prefer between-level ratios.", "page": "p. 1220 (PDF 6); ref. 14, p. 1221 (PDF 7)"},
+    {"text": "Do not take numbering or transitional anatomy from this paper: no anomaly reported, level identification not described.", "page": "p. 1216 (PDF 2)"}
+  ],
+  "bordercall": [
+    "(a) Anomaly priors: none; no prevalence of any transitional or numerical anomaly; level counting not described.",
+    "(b) Pedicle width and height T1 to L5 match the generator's pedicle width and height in name; Lien's are caliper minima of the outer isthmus, Panjabi's (Inference from memory) 3D-digitiser landmark distances, possibly differing by tenths of a mm to a mm. A mask value at a fixed plane or the pedicle base is larger, most at L5.",
+    "(b) Transverse and sagittal pedicle angles T1 to L5: Lien's SA is referenced to the superior end plate; a mask angle referenced to scanner axes or the end-plate bisector is biased by wedging and lordosis or kyphosis (Inference).",
+    "(b) Candidates to add: pedicle width/height ratio (size-free; L5 1.41, L4 0.93, L3 0.66, thoracic 0.34 to 0.53, T1 0.88), safe zone width (AP-visible) and height (lateral-visible), recorded raw; Lien's T1 to T10 safe zone values are copies of PW and PH, not observations.",
+    "(b) Mask bias: one 1 mm voxel is about 25 percent of a 3.5 to 4 mm mid-thoracic pedicle width (Inference); use subvoxel contours.",
+    "(c) Measurement error: only instrument resolution (0.1 mm, 1 deg); use the Table 1 and 2 SDs as biological spread per level (PW 0.6 to 2.7 mm, PH 0.8 to 2.3 mm, TA 1.2 to 4.7 deg, SA 0.6 to 3.5 deg) and take measurement error from other papers.",
+    "(d) Covariates: 8 male and 7 female dry sets, 3 and 3 cadavers, Taiwanese, cadavers of average body size, ages unknown, no sex-split values (extremes held in both sexes, p. 1218), no size covariate; larger L5 width than Hou and Berry, smaller heights than all compared series (p. 1220)."
+  ],
+  "gaps": [
+    "No ages, statures, specimen counts per level, sex-split values, p values, significance level or reliability data.",
+    "The pedicle axis is never defined in words; only Fig. 1 shows it.",
+    "Methods (p. 1216) say measured safe zone width and height were below the pedicle dimensions throughout T1 to T10; discussion (p. 1220) says the height was below PH only at T1 to T6 and did not differ at T7 to T10; raw T1 to T10 safe zone values are not printed.",
+    "Abstract calls the safe zone ranges those of individual pedicles (p. 1215), but they are ranges of the side means in Table 1.",
+    "Methods say 15 sets of vertebrae (p. 1216); discussion says 15 whole dry vertebrae (p. 1220).",
+    "Lumbar medial distance to dura: text 1.9 to 2.1 mm (p. 1219) vs Table 4 1.7 to 2.1 mm.",
+    "TA called progressively decreasing T1 to T12 (p. 1215, 1218 to 1219) but Table 2 is not monotonic (T4 left above T3 left; T8 above T7; T9 right above T8 right; T11 and T12 equal within 0.1 deg).",
+    "SA called a decreasing trend T2 to L5 (p. 1220) but T5 (17.85) exceeds T3 and T4.",
+    "Lateral distances at T11 and T12 given only as more than 10 mm; roots measured are not named by level.",
+    "Inference: a planar distance between two points cannot exceed their 3D distance, so the authors' remark on 2D distances (p. 1221) must mean measurement along fixed directions rather than to the nearest point.",
+    "Figures 4 to 6 appear to plot left-side values only (Inference from plotted points).",
+    "Cited dates for Roy-Camille (1985 first use, 1988 misplacement report) match no listed Roy-Camille reference (ref. 25 is 1986).",
+    "First author printed twice in the byline.",
+    "Inference from memory: Panjabi 1991 agrees on mid-thoracic minimum width and caudally rising thoracic height; Lien's L5 width 17.6 mm is high among published series; check against the Panjabi, Zindrick and Olsewski notes."
+  ]
+}

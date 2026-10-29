@@ -1,0 +1,270 @@
+{
+  "id": "amonookuofi1985",
+  "citation": "H. S. Amonoo-Kuofi (Department of Anatomy, Faculty of Health Sciences, University of Ilorin, Nigeria). The sagittal diameter of the lumbar vertebral canal in normal adult Nigerians. J. Anat. (1985), 140, 1, pp. 69-78 (Journal of Anatomy vol. 140, part 1; with 3 figures; accepted 17 May 1984). Copy read: greg's upload of 2026-10-28 17:00 UTC, filed as project files literature/synthetic_spine/amonookuofi1985.pdf, sha256 begins 622d3c7f4e91f63d. Source: thread \"Reread every paper for clinical detail\", project symphony_4, 2026-10-28.",
+  "population": "Nigeria; dry bone: complete sets of lumbar vertebrae of 122 adults (79 male, 43 female), aged 23-60 years, from the osteological collection of the Department of Anatomy, University of Ibadan; the author counts them among black populations (p. 74, PDF 6); Nigerian ethnic groups not named; how sex and age were known not stated; per-level n not printed (Inference: 122 x 5 = 610 vertebrae if none missing). Excluded: as far as possible persons dead of chronic skeletal disorders (full histories not available for all) and specimens with osteophytes or other bone disease. p. 69, 71 (PDF 1, 3); n by sex repeated in Table 3, p. 73 (PDF 5). Comparison groups (Eisenstein 1977, Table 3): Zulu 108 male, 54 female; Sotho 106 male, 62 female skeletons.",
+  "modality": "Osteometry of isolated dry vertebrae with a sliding vernier caliper read to 0.1 mm, after the method of Jones and Thomson (1968) as used by Eisenstein (1977); no radiographs, CT or living patients, so no magnification applies to any value. p. 69 (PDF 1), p. 72 (PDF 4).",
+  "levels_covered": "L1 to L5 only, each sex separately; nothing above L1 (no T12) or in the sacrum (no S1); no cervical or thoracic data.",
+  "anomalies": [
+    {
+      "variant": "lumbosacral transitional vertebra, sacralisation, lumbarisation, L6, T13, rib-count variants, block vertebrae",
+      "finding": "Not mentioned anywhere; the paper gives no prevalence and does not say how L1 and L5 were identified or whether a six-lumbar or transitional set was measured, renumbered or excluded. Inference: 'complete sets of lumbar vertebrae' implies five per set as the collection labelled them.",
+      "page": "pp. 69-78 (PDF 1-10)",
+      "population": "122 Nigerian adult dry-bone lumbar sets (79 M, 43 F)",
+      "how_identified": "not stated"
+    },
+    {
+      "variant": "canal shape (for example trefoil), nerve groove and foramen shape",
+      "finding": "Recorded for every vertebra ('were noted') but no shape result or prevalence is ever reported.",
+      "page": "p. 71 (PDF 3)",
+      "population": "122 Nigerian adult dry-bone lumbar sets",
+      "how_identified": "direct inspection of each dry vertebra"
+    }
+  ],
+  "measures": [
+    {
+      "name": "Mid-sagittal (sagittal) diameter of the lumbar canal (Fig. 1a 'i')",
+      "definition": "Caliper distance in the midline from the posterior surface of the vertebral body to the deep surface of the canal's posterior wall at the point where the canal is narrowest: near the upper border, opposite 'a slight anterior bulge in the deep surface of the posterior wall'; landmark chosen because Verbiest (1977) found it reproducible. Fig. 1a draws it on the superior aspect of an L3 to the arch at the spinous base. Inference: the bulge is the midline laminar ridge at the spinous base; Eisenstein 1977 used the same landmark (eisenstein1977 note). Readings per vertebra not stated.",
+      "projection": "dry bone caliper, mid-sagittal plane; no radiograph",
+      "page": "p. 72 (PDF 4); Fig. 1a, p. 70 (PDF 2); Table 1, p. 71 (PDF 3); Table 2 and Table 3, p. 73 (PDF 5)",
+      "levels": "L1-L5",
+      "level_pattern": "Table 1 mean mm (SD; CV%): males L1 16.6 (1.0; 6.0), L2 15.8 (1.0; 6.3), L3 14.9 (1.0; 6.7), L4 15.6 (2.0; 12.8), L5 16.0 (2.4; 15.0); females L1 15.8 (1.2; 7.6), L2 15.1 (1.1; 7.3), L3 14.2 (1.1; 7.7), L4 14.1 (1.3; 9.2), L5 14.6 (1.2; 8.2). 'Hour-glass': narrows L1 to L3 in men and widens at L4-L5; in women narrowest at L4 (14.1 vs 14.2 at L3) with a small rise at L5; widest at L1 in both sexes; steps L1/L2 and L2/L3 nearly 1 mm, L4/L5 about 0.5 mm (p. 73, 76, PDF 5, 8; Fig. 2). 95% ranges, Table 2: males L1 14.6-18.6, L2 13.8-17.8, L3 12.9-16.9, L4 11.6-19.6, L5 11.2-20.8; females 13.4-18.2, 12.9-17.2, 12.0-16.4, 11.5-16.7, 12.2-17.0 (Inference: mean +/- 2 SD; female L2 upper computes 17.3). Inference: adjacent steps 0.1-0.9 mm against SDs 1.0-2.4 mm separate no adjacent pair; male L1 and L5 nearly equal; use the turning point over a run of vertebrae.",
+      "ct_mask_recipe": "Inference: in the vertebra frame (z normal to end-plates, y antero-posterior), keep a mid-sagittal band of the canal; in each axial slab where the posterior elements close the ring, take the y distance from the posterior cortex of the body subregion to the anterior surface of the posterior-element subregion at the midline; report the MINIMUM, near the cranial end of the ring, bone voxels only. A mid-height slab, mean or centroid depth reads larger.",
+      "radiograph_recipe": "The paper made none. Inference: lateral view only, posterior body cortex in the midline to the spinolaminar line in the upper part of the canal, divided by the lateral magnification (Eisenstein 1977 measured 1.23 at 110 cm, eisenstein1977 note). Not from an AP. The author's own suggestion for lateral films is the canal to body ratio (p. 75, PDF 7).",
+      "covariates": "Sex: females narrower at every level, by at most 0.8 mm at L1-L3 and about 1.5 mm at L4-L5 (0.8, 0.7, 0.7, 1.5, 1.4 from Table 1); females vary slightly more at L1-L3, 'perhaps' from greater variation of body size; males vary strikingly at L4-L5; in a few cases male lower lumbar canals smaller than female (p. 73, 76, PDF 5, 8). Age 23-60, not analysed; Larsen and Smith (1981) could not confirm the age variation Hinck et al. reported (p. 75, PDF 7). Population, Table 3: Zulu male 16 15 15 15 16, Sotho male 16 15 14 15 16, Zulu female 17 16 15 16 16, Sotho female 16 16 15 15 16; the author reads Nigerian males as broadly larger (p. 74) but also as showing no appreciable difference (p. 76), Nigerian females 'markedly narrower' (0.2-1.9 mm), the hour-glass only vague in South Africans, South African females wider than their males (p. 76, PDF 8); the summary claims racial variation (p. 77, PDF 9) while Eisenstein's caution that racial differences are subtle is quoted (p. 69, PDF 1). No significance tests.",
+      "error": "No intra- or inter-observer or repeat study; caliper resolution 0.1 mm; between-subject CV 6.0-15.0%; Eisenstein comparison means rounded to whole mm."
+    },
+    {
+      "name": "Antero-posterior diameter of the vertebral body at mid-waist (Fig. 1a 'ii')",
+      "definition": "Named the maximum AP diameter of the body but measured 'at mid-waist level where it was narrowest'; Fig. 1a caption calls it the midsagittal diameter of the body. Inference: mid-sagittal AP length at mid-height, smaller than an end-plate depth.",
+      "projection": "dry bone caliper, mid-sagittal at mid-height; no radiograph",
+      "page": "p. 72 (PDF 4); Fig. 1a, p. 70 (PDF 2); Table 4, p. 74 (PDF 6); Table 6, p. 75 (PDF 7)",
+      "levels": "L1-L5",
+      "level_pattern": "Table 4 means, mm, no SD: males 29.2, 30.6, 32.2, 34.0, 32.2; females 26.1, 27.6, 29.1, 31.1, 31.3 (Table 6 prints male L5 as 34.2). Rises L1 to L4 by 1.4-2.0 mm a level; at L5 falls (Table 4) or flat (Table 6) in males, flat in females. Inference: monotone cue L1-L4 that fails at L4/L5; spread unknown.",
+      "ct_mask_recipe": "Inference: axial slab midway between the end-plates (or the minimum AP over the middle third), y extent of the body subregion in the mid-sagittal band; not Panjabi's EPDu/EPDl across the rims (34.1-35.5 mm in the panjabi1992 note).",
+      "radiograph_recipe": "Inference: lateral view, AP width of the body at mid-height, divided by magnification; not from an AP.",
+      "covariates": "Inference from Table 4: females 3.1, 3.0, 3.1, 2.9 mm smaller at L1-L4 (8.5-10.6%), 0.9 mm (or 2.9) at L5. Age, size and population not analysed for the body.",
+      "error": "None reported; no SD printed."
+    },
+    {
+      "name": "Canal to body ratio (Table 4)",
+      "definition": "Mean canal sagittal diameter of a level over mean body AP of that level, per sex: a ratio of group means with no SD; motivated by the idea that body size follows build and with it pedicle height and laminar width, which set canal and foramen depth.",
+      "projection": "derived from dry-bone caliper means; offered by the author for lateral radiographs and forensic work",
+      "page": "Table 4 and text, p. 74 (PDF 6); p. 75 (PDF 7)",
+      "levels": "L1-L5",
+      "level_pattern": "Printed 0.6 at L1 and 0.5 at L2-L5 in both sexes; the author reads the canal as more capacious at L1. Inference to two decimals: males 0.57, 0.52, 0.46, 0.46, 0.50 (0.47 with 34.2); females 0.61, 0.55, 0.49, 0.45, 0.47; falls L1 to L3-L4, flat or rising at L5; relative steps L1/L2 and L2/L3 about 10% against the canal's 5%, but with no SD its separating power cannot be judged.",
+      "ct_mask_recipe": "Inference: measure 1 over measure 2 per vertebra.",
+      "radiograph_recipe": "Inference: lateral view; both lengths in about the same sagittal plane, so magnification cancels to first order; usable on uncalibrated film or fluoroscopy; rotation still distorts.",
+      "covariates": "Inference: female ratios higher than male at L1-L3 (0.61 vs 0.57, 0.55 vs 0.52, 0.49 vs 0.46), about equal at L4-L5. Not the Jones and Thomson Spinal Index (canal product over body product, per the eisenstein1977 note).",
+      "error": "None reported; one-decimal rounding +/-0.05."
+    },
+    {
+      "name": "Antero-posterior diameter of the inferior vertebral notch (Fig. 1b 'N')",
+      "definition": "Maximum horizontal distance between the posterior surface of the lower part of the vertebral body and the deep surface of the lamina; Fig. 1b, a lateral view of an L3, draws it below the pedicle; offered as an index of intervertebral foramen size, since the notch forms the foramen's cephalic boundary and its anterior and posterior walls. Side not stated.",
+      "projection": "dry bone caliper, parasagittal, below the pedicle; no radiograph",
+      "page": "p. 72 (PDF 4); Fig. 1b, p. 70 (PDF 2); Table 5, p. 74 (PDF 6); p. 75-76 (PDF 7-8)",
+      "levels": "L1-L5",
+      "level_pattern": "Table 5 mean mm (SD; CV%): males L1 8.8 (1.2; 13.6), L2 8.4 (1.3; 15.5), L3 7.5 (1.3; 17.3), L4 7.6 (1.1; 14.5), L5 7.0 (0.9; 12.9); females L1 8.1 (0.9; 11.1), L2 7.8 (0.7; 9.0), L3 7.5 (1.1; 14.7), L4 7.4 (1.2; 16.2), L5 7.3 (1.0; 13.7). A slight but steady fall L1 to L5 with much variation (p. 75); differs from the canal's hour-glass although pedicle height is common to both (p. 75-76). Inference: male L4 exceeds L3; steps 0.1-0.9 mm against SDs 0.7-1.3 mm separate no adjacent pair.",
+      "ct_mask_recipe": "Inference: in a parasagittal plane through each pedicle below its inferior border, the horizontal (y) gap between the body subregion's posterior surface and the posterior-element subregion's anterior surface (lamina, inferior articular process); maximum over the notch height; report each side and the mean.",
+      "radiograph_recipe": "Inference: lateral view, AP width of the foramen's upper bay below the pedicle, both sides superimposed, divided by magnification; not from an AP.",
+      "covariates": "Inference from Table 5: females 0.7, 0.6, 0.0, 0.2 mm smaller at L1-L4 and 0.3 mm larger at L5; female SDs smaller at L1-L2. Age, size, population not analysed.",
+      "error": "None reported; between-subject CV 9.0-17.3%; side and number of readings not stated."
+    },
+    {
+      "name": "Notch to body ratio (Table 6)",
+      "definition": "Mean notch AP over mean body AP per level and sex, a ratio of group means with no SD, computed to see whether the notch bears a fixed relation to the vertebra.",
+      "projection": "derived from dry-bone caliper means; offered for lateral radiographs and forensic work",
+      "page": "Table 6 and text, p. 75 (PDF 7)",
+      "levels": "L1-L5",
+      "level_pattern": "Printed males 0.3, 0.3, 0.2, 0.2, 0.2; females 0.3, 0.3, 0.3, 0.2, 0.2. Inference to two decimals: males 0.30, 0.27, 0.23, 0.22, 0.20-0.22; females 0.31, 0.28, 0.26, 0.24, 0.23: a steady fall.",
+      "ct_mask_recipe": "Inference: measure 4 over measure 2 per vertebra and side.",
+      "radiograph_recipe": "Inference: lateral view; magnification cancels to first order.",
+      "covariates": "Inference: female values 0.01-0.03 higher than male at every level.",
+      "error": "None reported; one-decimal rounding +/-0.05 is a fifth of the value."
+    }
+  ],
+  "level_details": [
+    {
+      "level": "L1 (thoracolumbar junction)",
+      "detail": "Widest canal in both sexes, as in other populations; canal to body ratio 0.6; largest notch. Davis (1955, 'The thoracolumbar mortice joint') places the functional transition from the immobile thoracic to the mobile lumbar spine at L1 in most people; the author adds that L1 houses the lower lumbar enlargement and the conus, that its width may also protect them during the complex movements of the transition, and that the change from thoracic convexity to lumbar concavity displaces the lower cord dorsally when erect, so the canal must be capacious. T12 not measured.",
+      "page": "p. 76 (PDF 8); Tables 1, 4, 5, p. 71, 74 (PDF 3, 6); reference list p. 77 (PDF 9)"
+    },
+    {
+      "level": "L2",
+      "detail": "Intermediate; nearly 1 mm narrower than L1 in both sexes (15.8 M, 15.1 F).",
+      "page": "p. 73 (PDF 5); Table 1, p. 71 (PDF 3)"
+    },
+    {
+      "level": "L3",
+      "detail": "Narrowest male canal (14.9 mm), the hour-glass waist in men; female 14.2 mm; female notch to body ratio 0.3 against male 0.2.",
+      "page": "p. 76 (PDF 8); Table 1, p. 71 (PDF 3); Table 6, p. 75 (PDF 7)"
+    },
+    {
+      "level": "L4",
+      "detail": "Narrowest female canal (14.1 mm); male SD doubles to 2.0 mm and the sex gap widens to about 1.5 mm; male 95% range 11.6-19.6 mm; body AP largest in males (34.0 mm, Table 4).",
+      "page": "p. 73 (PDF 5); Tables 1, 2, 4"
+    },
+    {
+      "level": "L5 (lumbosacral junction)",
+      "detail": "Male canal re-widens to 16.0 mm with the largest spread (SD 2.4, range 11.2-20.8); female 14.6 mm. Greater L4-L5 variability, wider in men, confirms Larsen and Smith (1981) and matches the author's 1982 interpedicular finding. The author calls the reason unclear and suggests the L5 widening accommodates the sacral roots, which would bowstring with movement at the lumbosacral angulation. Smallest notch in both sexes (7.0 M, 7.3 F). S1 not measured.",
+      "page": "p. 76 (PDF 8); Tables 1, 2, 5"
+    },
+    {
+      "level": "C2/C3, C7/T1, T12",
+      "detail": "Not covered.",
+      "page": "pp. 69-78 (PDF 1-10)"
+    }
+  ],
+  "errors": [
+    {
+      "what": "intra- and inter-observer error, repeat measurement",
+      "value": "not reported; readings per vertebra and the notch side not stated",
+      "page": "pp. 69-78 (PDF 1-10)"
+    },
+    {
+      "what": "instrument resolution",
+      "value": "0.1 mm (sliding vernier caliper); method called accurate and reproducible after Jones and Thomson; canal landmark reproducible per Verbiest (1977)",
+      "page": "p. 69 (PDF 1); p. 72 (PDF 4)"
+    },
+    {
+      "what": "between-subject spread, canal sagittal diameter",
+      "value": "SD 1.0-2.4 mm, CV 6.0-15.0%; widest at male L4-L5 (SD 2.0, 2.4)",
+      "page": "Table 1, p. 71 (PDF 3)"
+    },
+    {
+      "what": "between-subject spread, inferior notch",
+      "value": "SD 0.7-1.3 mm, CV 9.0-17.3%",
+      "page": "Table 5, p. 74 (PDF 6)"
+    },
+    {
+      "what": "body AP and the two ratios",
+      "value": "no SD printed; ratios rounded to one decimal (+/-0.05)",
+      "page": "Tables 4 and 6, p. 74-75 (PDF 6-7)"
+    },
+    {
+      "what": "95% limits",
+      "value": "Bradford Hill (1977) formula; Inference: mean +/- 2 SD, assuming normality, which the wide male L4-L5 spread may not satisfy",
+      "page": "Table 2, p. 73 (PDF 5)"
+    },
+    {
+      "what": "comparison data rounding",
+      "value": "Eisenstein's means in Table 3 printed to whole mm (+/-0.5 mm), no SDs, so firm deductions could not be made (author)",
+      "page": "Table 3, p. 73 (PDF 5); p. 74 (PDF 6)"
+    }
+  ],
+  "pearls_pitfalls": [
+    {
+      "text": "Lumbar spinal stenosis syndrome (Verbiest 1954, 1955, 1977): narrowing of canal and foramina compresses the cauda equina and roots, with back and leg pain on walking, weakness and paraesthesiae in the root distribution, classically relieved by reversing the lordosis by bending or crouching; congenital or developmental narrowing may cause it.",
+      "page": "p. 69 (PDF 1)"
+    },
+    {
+      "text": "In developmental stenosis (Verbiest 1977) the interpedicular distances are normal and the sagittal diameters reduced by thickened laminae and articular processes and sometimes short pedicles; telling the types apart needs proof of which diameter is involved, hence baseline values for diagnostic work.",
+      "page": "p. 69 (PDF 1)"
+    },
+    {
+      "text": "No numeric stenosis threshold is given. Inference: Table 2's lower 95% limits are the paper's implicit lower limits for Nigerian dry bone (male 14.6, 13.8, 12.9, 11.6, 11.2; female 13.4, 12.9, 12.0, 11.5, 12.2 mm, L1-L5).",
+      "page": "Table 2, p. 73 (PDF 5)"
+    },
+    {
+      "text": "The author argues that laminar inclination, interlaminar angle and laminar thickness are probably stronger determinants of the sagittal diameter than pedicle height, amplifying Verbiest's view that developmental stenosis comes from disturbed growth of pedicles, laminae and articular processes, and in accord with Chynn et al. (1978): abnormal superior articular process form and orientation, inferior articular process overgrowth, bulky laminae. None of these was measured here.",
+      "page": "p. 76-77 (PDF 8-9)"
+    },
+    {
+      "text": "Canal to body and notch to body ratios are offered for the clinical appraisal of lateral lumbar radiographs and for forensic work.",
+      "page": "p. 75 (PDF 7)"
+    },
+    {
+      "text": "Pitfall: a comparison with published means that carry no SDs supports only broad conclusions.",
+      "page": "p. 74 (PDF 6)"
+    },
+    {
+      "text": "Pitfall: in a few cases the male lower lumbar canal is smaller than the female (author's suggestion); Inference: canal size alone does not tell sex.",
+      "page": "p. 76 (PDF 8)"
+    },
+    {
+      "text": "Pitfall: notch (foramen) and canal follow different level patterns although pedicle height is common to both; Inference: the size of one does not predict the other.",
+      "page": "p. 75-77 (PDF 7-9)"
+    },
+    {
+      "text": "Pitfall: population norms may differ (racial variation claimed, p. 77) though Eisenstein cautioned that racial differences are subtle and probably insignificant (p. 69); Inference: use the patient's own population norms where they exist.",
+      "page": "p. 69, 75-77 (PDF 1, 7-9)"
+    },
+    {
+      "text": "Pitfall (Inference): this canal value is a minimum near the upper border at a laminar bulge on dry bone; a value taken elsewhere on the arch, with soft tissue, or on a film without magnification correction is not comparable.",
+      "page": "p. 72 (PDF 4)"
+    }
+  ],
+  "instructions": [
+    {
+      "text": "Treat every value of this paper as a dry-bone caliper value. Inference: divide a film length by its magnification, and use bone voxels only on CT, before comparing.",
+      "page": "p. 69-72 (PDF 1-4)"
+    },
+    {
+      "text": "Measure the canal sagittal diameter in the mid-sagittal plane from the posterior body cortex to the inner arch surface at the narrowest point near the upper border, opposite the slight anterior bulge of the posterior wall. Inference for a mask: the minimum over axial slabs where the arch closes the ring, not a mid-height or mean value.",
+      "page": "p. 72 (PDF 4); Fig. 1a, p. 70 (PDF 2)"
+    },
+    {
+      "text": "Read the canal diameter over the whole lumbar run: widest at L1, waist at L3 in men and L3-L4 in women, re-widening at L5; place L3 by the turning point, not by one value.",
+      "page": "p. 73 (PDF 5); p. 76 (PDF 8); Fig. 2, p. 71 (PDF 3)"
+    },
+    {
+      "text": "Do not use the canal diameter alone to tell L1 from L5 in a man: 16.6 vs 16.0 mm, SD 1.0 and 2.4.",
+      "page": "Table 1, p. 71 (PDF 3)"
+    },
+    {
+      "text": "Measure body AP depth in the midline at mid-height (the waist), not across the end-plate rims, when comparing with this paper; expect a rise of 1.4-2.0 mm a level from L1 to L4 that stops at L5.",
+      "page": "p. 72 (PDF 4); Table 4, p. 74 (PDF 6)"
+    },
+    {
+      "text": "On a lateral film or fluoroscopy frame of unknown magnification, compute canal to body ratio (the author's suggestion); Inference: expect about 0.57-0.61 at L1, 0.52-0.55 at L2, 0.45-0.50 at L3-L5, a weak cue with no spread known.",
+      "page": "Table 4, p. 74 (PDF 6); p. 75 (PDF 7)"
+    },
+    {
+      "text": "Measure the inferior notch horizontally below the pedicle from the posterior surface of the lower body to the deep surface of the lamina at its widest (Inference: on each side); expect about 8-9 mm at L1 falling to about 7 mm at L5, a weak, slowly falling trend.",
+      "page": "p. 72 (PDF 4); Fig. 1b, p. 70 (PDF 2); Table 5, p. 74 (PDF 6); p. 75 (PDF 7)"
+    },
+    {
+      "text": "Adjust for sex: a woman's canal about 0.7-0.8 mm smaller at L1-L3 and about 1.5 mm smaller at L4-L5; her body about 3 mm shallower at L1-L4.",
+      "page": "Tables 1 and 4, p. 71 and 74 (PDF 3 and 6); p. 73 (PDF 5)"
+    },
+    {
+      "text": "Expect the widest spread at male L4 and L5 (SD 2.0, 2.4 mm); widen the likelihood there rather than read an extreme value as a wrong level.",
+      "page": "Table 1, p. 71 (PDF 3); p. 76 (PDF 8)"
+    },
+    {
+      "text": "Inference (no threshold in the paper): flag a canal below the Table 2 lower limit for level and sex (e.g. under 11.6 mm at a male L4) as outside the Nigerian dry-bone normal range, then inspect laminae (inclination, interlaminar angle, thickness) and articular processes as well as pedicles.",
+      "page": "Table 2, p. 73 (PDF 5); p. 77 (PDF 9)"
+    },
+    {
+      "text": "Use Nigerian norms for a Nigerian patient and say so; do not transfer them to another population without noting the difference, especially in women (0.2-1.9 mm narrower than black South African women). Inference: the rule of practice is ours.",
+      "page": "Table 3, p. 73 (PDF 5); p. 76 (PDF 8)"
+    },
+    {
+      "text": "Do not draw anomaly priors (L6, transitional L5, trefoil canal) from this paper; it reports none.",
+      "page": "pp. 69-78 (PDF 1-10)"
+    }
+  ],
+  "bordercall": [
+    "(a) Anomaly priors: none from this paper (no LSTV, L6, T13, rib or canal-shape prevalence; numbering method not stated). Use Eisenstein 1977 in this set (L6 2/443, true transitional 1/443, trefoil 66/443 skeletons, per the eisenstein1977 note).",
+    "(b) Measures: canal sagittal diameter is nearest to Panjabi's SCD, but this paper takes the MINIMUM near the cranial border at a laminar bulge; Panjabi's SCD (panjabi1992 note) runs to the arch at the spinous base, digitised, 19.0, 18.2, 17.5, 18.6, 19.7 mm at L1-L5, 2.4-3.7 mm above the male and 3.1-5.1 mm above the female means here (Inference); same U with L3 minimum in men. Inference: same landmark as Eisenstein 1977's dry-bone canal AP, so those two can be pooled by definition. Body AP at mid-waist is not Panjabi's EPDu/EPDl (rim depths, larger); could be a separate measure. Notch AP width is a candidate foramen proxy not in the generator. Canal/body and notch/body ratios are magnification-free lateral features (Inference); derive from drawn dimensions.",
+    "(c) Measurement error: none given; use Table 1 and Table 5 SDs only as between-subject spread; caliper resolution 0.1 mm; on CT the voxel size dominates (Inference); body AP has no SD.",
+    "(d) Covariates: sex (canal 0.7-1.5 mm smaller in women, body about 3 mm smaller at L1-L4, notch 0.0-0.7 mm smaller at L1-L4 and 0.3 mm larger at L5); Inference: canal female/male 0.95-0.96 vs body 0.89-0.90 at L1-L3, so canal scales less than proportionally with size there. Age 23-60, not analysed. Population: Nigerian dry bone vs Zulu and Sotho means (Table 3); a population term is the author's reading, untested. Size: no individual size measure; only ratios of group means."
+  ],
+  "gaps": [
+    "No radiographs at all despite the special interest in lateral films; the only radiographic link is the suggestion that the ratios may help appraise lateral films (p. 75, PDF 7).",
+    "Male L5 body AP 32.2 mm in Table 4 (p. 74) vs 34.2 mm in Table 6 (p. 75).",
+    "Male notch L3/L4 7.5/7.6 in Table 5 vs 7.6/7.5 in Table 6; Table 5's CVs fit Table 5's means, so Table 6 has them swapped (Inference).",
+    "Notch said to fall steadily (p. 75) but Table 5's male L4 exceeds L3.",
+    "Body AP named a maximum diameter but measured where the waist is narrowest (p. 72).",
+    "Text says the tolerance ranges varied narrowly especially at L4-L5 (p. 73), but Table 2's male ranges are widest there (8.0 and 9.6 mm vs 4.0 at L1-L3). Female L2 upper limit 17.2 vs mean + 2 SD 17.3.",
+    "Ratios are ratios of means rounded to one decimal with no SD, hiding the level trend.",
+    "Canal, groove and foramen shapes recorded but never reported (p. 71).",
+    "Per-level n, missing vertebrae, sex and age determination, readings per vertebra, notch side and Nigerian ethnic groups not stated.",
+    "No significance tests; 'markedly narrower' Nigerian female canals rest on 0.2-1.9 mm against whole-mm South African means.",
+    "p. 74 says Nigerian male canals exceed black South African males'; p. 76 says the males show no appreciable difference (Table 3: -0.1 to 0.9 mm).",
+    "Summary attributes the canal mainly to laminar thickness and orientation and less to pedicle height, none of which was measured (p. 77).",
+    "Differences with Hinck et al. (1966) claimed (p. 75) though that reference is interpediculate distances and no Hinck value appears here; Inference: it rests on the author's 1982 AP-film comparison, or Hinck 1965 was meant.",
+    "Larsen and Smith (1981), cited as confirming adult L4-L5 variability, is a children's study per the reference list (p. 77).",
+    "Table 3 header misspells Eisenstein once (female Zulu column).",
+    "Cross-paper: Eisenstein 1977's Zulu and Sotho means match Table 3 exactly; his Caucasoid means are higher (male 18 17 16 16 18 mm); he judged race and sex differences insignificant with females equal or larger, whereas this paper finds females narrower and argues for racial variation (eisenstein1977 note). Panjabi 1992's SCD is 2.4-5.1 mm above these means, confounding definition, method and population (panjabi1992 note)."
+  ]
+}
