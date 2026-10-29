@@ -1,10 +1,16 @@
 """One vertebra's parts in its own frame, read from a whole-vertebra label.
 
-The frame's z is the column's line at the vertebra, through the centroids of the neighbours the
-volume holds whole (measure.column_line), and not the thinnest direction scanimport.geometry's
-refine_axis searches for, which on real masks turned cervical and lower lumbar levels 20 to 30
-degrees and lost their canals, nor the bisector of the end-plates, which thick slices bias by 3
-to 4 degrees; how far the bisector lies from z is written as axis_offset. y starts toward the
+The frame's z starts on the column's line at the vertebra, through the centroids of the
+neighbours the volume holds whole (measure.column_line), and is then turned once onto the
+vertebra's own axis (own_axis), since the column's line is the axis of the column at the
+vertebra and not of the vertebra: in a lordotic neck and at L5 the two lie 9 to 18 degrees
+apart. The axis is the bisector of the two end-plates' planes, each plate the body's face
+toward the neighbouring vertebra (plate_face, body_axis), a reading that needs no frame; how
+far it lies from the column's line is written as axis_offset, and how far the bisector of the
+plates as the frame's cells read them lies from z as plate_offset. The thinnest direction
+scanimport.geometry's refine_axis searches for was set aside, since on real masks it turned
+cervical and lower lumbar levels 20 to 30 degrees and lost their canals, and so was every
+reading taken inside the frame (body_axis). y starts toward the
 scanner's anterior, is turned toward the side of the canal where the body is (toward_body) and
 then settled about z toward the body's centre (settle); x is to the patient's right. The canal
 is the hole that the arch closes round in slabs across the column (scanimport.geometry.holes),
@@ -36,6 +42,11 @@ STRIP_MIN_MM = 8.0
 WALL_SPAN_MM = 6.0
 WALL_PAIR_MM = 4.0
 WALL_SLOPE_MAX = math.tan(math.radians(30.0))
+AXIS_TURN_MAX_DEG = 25.0
+PLATE_FACE_MM = 15.0
+PLATE_FACING_DEG = 45.0
+PLATE_SMOOTH_MM = 1.5
+MIN_PLATE_POINTS = 30
 
 
 @dataclass
@@ -71,6 +82,9 @@ class Vertebra:
     wall_slope: float = 0.0
     wall_z0: float = 0.0
     wall_y0: float = 0.0
+    column_ez: Optional[np.ndarray] = None
+    axis_turn: float = 0.0
+    axis_residual: float = NAN
 
     @property
     def fx(self) -> float:
@@ -135,12 +149,16 @@ class Vertebra:
         return [s for s in self.slabs if s.area >= 0.5 * med]
 
 
-def build(level: str, idx: np.ndarray, grid: G.VoxelGrid, ez: np.ndarray, touching: np.ndarray) -> Vertebra:
+def build(level: str, idx: np.ndarray, grid: G.VoxelGrid, ez: np.ndarray, touching: np.ndarray,
+          neighbours: Optional[Dict[str, np.ndarray]] = None) -> Vertebra:
     """The vertebra in its own frame, with its canal slabs and its body; flags say what failed.
 
-    The frame's z is the column's line through the neighbours (ez), its y turned from the canal
-    toward the body (settle). Panjabi's chords are read by scanimport.geometry.chords_from in
-    that frame, so they and the measures here share one axis."""
+    The frame's z starts on the column's line through the neighbours (ez) and is turned once onto
+    the vertebra's own axis (own_axis), read from its end-plates' faces toward the neighbours
+    given, the voxel indices of the labels above and below (measure.neighbours_of); with none
+    the column's line is kept and flagged. y is turned from the canal toward the body (settle).
+    Panjabi's chords are read by scanimport.geometry.chords_from in that frame, so they and the
+    measures here share one axis."""
     pts = grid.world(idx.astype(float))
     v = Vertebra(level, grid, idx, np.zeros((len(idx), 3)), G.frame_from(pts.mean(0), ez, grid.anterior()),
                  touching, np.zeros(len(idx), bool), [], NAN, NAN, NAN, {}, {})
@@ -153,6 +171,8 @@ def build(level: str, idx: np.ndarray, grid: G.VoxelGrid, ez: np.ndarray, touchi
     read_in(v, first)
     if "all" not in v.flags:
         settle(v)
+    if "all" not in v.flags:
+        own_axis(v, neighbours or {})
     if "all" in v.flags:
         return v
     secs = G.sections(v.loc, v.fz, v.pixel, as_hole=True)
@@ -364,8 +384,9 @@ def plate_axis(v: Vertebra) -> Optional[np.ndarray]:
 def settle(v: Vertebra) -> None:
     """Turn the frame about its z toward the body's centre until the turn is under SETTLED_DEG.
 
-    The frame's z stays on the column's line through the neighbours' centroids. Two other axes
-    were tried on the masks and set aside. scanimport.geometry.refine_axis, the direction along
+    The frame's z stays where it is, on the column's line through the neighbours' centroids or,
+    after own_axis, on the vertebra's own axis. Two other axes were tried on the masks and set
+    aside. scanimport.geometry.refine_axis, the direction along
     which the body's core is thinnest, is drawn to the slices' normal, along which the voxel
     centres of a plate all sit on one layer: at study 0001 (0.86 by 0.86 by 2.5 mm) it set
     T11's axis on the scan's z, 20 degrees from the line through its neighbours, so T10 on T11
@@ -376,8 +397,10 @@ def settle(v: Vertebra) -> None:
     put the axis 1.1 degrees off, which raised the anterior height by 2 mm and lowered the disc
     by 2 mm against the column's line, which was exact there. A centroid is the mean of thousands
     of voxels and the line through two of them carries no such step. Its cost is at a junction
-    or a wedged level, where the body's own axis leaves the line through its neighbours; the
-    end-plates' bisector is written beside it as axis_offset so such a level can be told."""
+    or a wedged level, where the body's own axis leaves the line through its neighbours, which
+    is why own_axis then turns z onto the vertebra's own axis, read from the plates' faces
+    toward the neighbours without the frame (body_axis), and the bisector the cells give is
+    written beside it as plate_offset."""
     for _ in range(SETTLE_TURNS):
         B = v.body_pts
         if not len(B):
@@ -393,10 +416,160 @@ def settle(v: Vertebra) -> None:
             return
 
 
-def axis_offset(v: Vertebra) -> float:
-    """Degrees between the frame's z and the bisector of the end-plates' planes."""
+def angle_deg(a: np.ndarray, b: np.ndarray) -> float:
+    """Degrees between two directions, either way round."""
+    return math.degrees(math.acos(min(1.0, abs(float(np.dot(a, b))))))
+
+
+def plate_offset(v: Vertebra) -> float:
+    """Degrees between the frame's z and the bisector of the end-plates' planes as the frame's
+    cells read them (plate_axis), a reading that moves with the frame and is written only to be
+    seen beside the axis the faces give."""
     ez = plate_axis(v)
-    return NAN if ez is None else math.degrees(math.acos(min(1.0, abs(float(ez @ v.frame.ez)))))
+    return NAN if ez is None else angle_deg(ez, v.frame.ez)
+
+
+def axis_offset(v: Vertebra) -> float:
+    """Degrees between the frame's z, the vertebra's own axis, and the column's line through
+    the neighbours: how far the vertebra leans against its column; nought where the column's
+    line was kept (own_axis)."""
+    return v.axis_turn
+
+
+def plate_face(v: Vertebra, other: np.ndarray) -> Optional[np.ndarray]:
+    """The body's face toward a neighbouring vertebra, as world points: the body's voxels on
+    the vertebra's surface that lie within PLATE_FACE_MM of the neighbour's label (other, its
+    voxel indices) and whose outward normal, the smoothed label's gradient, points within
+    PLATE_FACING_DEG of the neighbour's nearest voxel. The anterior and lateral walls face
+    sideways to the neighbour and are left out by the angle, the facets lie behind the canal's
+    wall and are no body, and the surface is the whole label's, so the cut that made the body
+    (body_in_front, clip_to_foramina) adds no face of its own. Nothing here is read along the
+    frame, so the face is the same whichever frame the vertebra stands in, which is what a
+    reading of the axis needs (body_axis). None where fewer than MIN_PLATE_POINTS voxels
+    qualify."""
+    body = v.idx[v.body]
+    if not len(body) or not len(other):
+        return None
+    margin = np.ceil(PLATE_FACE_MM / v.grid.spacing).astype(int) + 2
+    lo = np.maximum(body.min(0) - margin, 0)
+    hi = body.max(0) + margin + 1
+    shape = tuple(int(n) for n in hi - lo)
+
+    def box_of(idx: np.ndarray) -> np.ndarray:
+        keep = ((idx >= lo) & (idx < hi)).all(1)
+        box = np.zeros(shape, bool)
+        box[tuple((idx[keep] - lo).T)] = True
+        return box
+
+    mine, theirs, is_body = box_of(v.idx), box_of(other), box_of(body)
+    if not theirs.any():
+        return None
+    surface = mine & ~ndimage.binary_erosion(mine)
+    dist, near = ndimage.distance_transform_edt(~theirs, sampling=v.grid.spacing, return_indices=True)
+    cand = np.argwhere(surface & is_body & (dist <= PLATE_FACE_MM))
+    if len(cand) < MIN_PLATE_POINTS:
+        return None
+    smooth = ndimage.gaussian_filter(mine.astype(float), PLATE_SMOOTH_MM / v.grid.spacing)
+    at = tuple(cand.T)
+    slopes = np.stack([g[at] for g in np.gradient(smooth, *v.grid.spacing)], axis=1)
+    normal = -(slopes @ v.grid.axes.T)
+    toward = (np.stack([near[k][at] for k in range(3)], axis=1) - cand) @ np.asarray(v.grid.affine, float)[:3, :3].T
+    size = np.linalg.norm(normal, axis=1) * np.linalg.norm(toward, axis=1)
+    ok = size > 0
+    cosine = np.einsum("ij,ij->i", normal[ok], toward[ok]) / size[ok]
+    face = cand[ok][cosine >= math.cos(math.radians(PLATE_FACING_DEG))]
+    if len(face) < MIN_PLATE_POINTS:
+        return None
+    return v.grid.world((face + lo).astype(float))
+
+
+def face_normal(pts: np.ndarray, layer: float) -> Optional[np.ndarray]:
+    """The unit normal of the plane through a face's points, the direction of their least
+    spread, fitted again without the points more than two layers off the plane, as
+    body.plane_robust refits a plate; None where the refit leaves too few."""
+    n = None
+    for _ in range(3):
+        c = pts.mean(0)
+        n = np.linalg.eigh(np.cov((pts - c).T))[1][:, 0]
+        keep = np.abs((pts - c) @ n) <= 2.0 * layer
+        if keep.all():
+            break
+        if keep.sum() < MIN_PLATE_POINTS:
+            return None
+        pts = pts[keep]
+    return n
+
+
+def body_axis(v: Vertebra, neighbours: Dict[str, np.ndarray]) -> Optional[np.ndarray]:
+    """The vertebra's own axis in the world: the bisector of its two end-plates' planes, each
+    plate the body's face toward the neighbour above or below (plate_face) and its plane the
+    face's least spread (face_normal), both normals taken upward along the frame's z and
+    summed; where one plate alone faces a neighbour, at the top or
+    the bottom of the field, that plate's normal, which lies half the body's wedge off the
+    bisector and is flagged. None where neither can be read.
+
+    Every reading taken inside the frame was tried on study 0004 and set aside, since each
+    moved with the frame it was read in: with the body's voxels fixed and the frame turned 20
+    degrees, the bisector of the plates as the frame's cells read them (plate_axis) moved 4 to
+    19 degrees, a line through the layers' centroids 17 to 47, one through their posterior tenth
+    21 to 78, and the canal's axis through the slabs' holes stood on fewer than four full rings
+    at many thoracic levels. A face read by distance and surface normal needs no frame, so the
+    axis reads the same before and after the turn onto it (own_axis writes the residual)."""
+    normals = []
+    for side in ("above", "below"):
+        other = neighbours.get(side)
+        pts = plate_face(v, other) if other is not None else None
+        n = face_normal(pts, v.fz) if pts is not None else None
+        if n is None:
+            continue
+        normals.append(n if float(n @ v.frame.ez) >= 0 else -n)
+    if not normals:
+        return None
+    if len(normals) == 1:
+        v.flags["axis_one_plate"] = ("one end-plate alone faces a neighbour: the axis is that plate's normal, half "
+                                     "the body's wedge off the bisector")
+    return G.unit(np.sum(normals, axis=0))
+
+
+def own_axis(v: Vertebra, neighbours: Dict[str, np.ndarray]) -> None:
+    """Turn the frame's z from the column's line onto the vertebra's own axis (body_axis), once,
+    and read the vertebra again there.
+
+    The column's line through the neighbours' centroids is the axis of the column at the
+    vertebra, not of the vertebra: in a lordotic neck and at L5, where the body leans against
+    the line through its neighbours, the two lay 9 to 18 degrees apart over the 228 thin-slice
+    studies of ENHANCE.PET (medians of C3 16.7, C5 8.9, L5 18.1), and an axial cut square to the
+    column's line ran obliquely through the body, which the owner saw at study 0004's C5 on 29
+    October 2026. The turn is taken once, since the axis is read without the frame; the axis
+    read again in the turned frame, whose body is cut anew, lies within a degree or two of z,
+    and that residual is written as axis_residual. The turn is not taken, and the column's line
+    kept with a flag, where no end-plate faces a neighbour, where the axis lies more than
+    AXIS_TURN_MAX_DEG off the column's line, further than a vertebra leans against its
+    neighbours and as far as a misread body does, or where the turned frame loses the canal."""
+    v.column_ez = v.frame.ez.copy()
+    v.flags.pop("axis_one_plate", None)
+    axis = body_axis(v, neighbours)
+    if axis is None:
+        v.flags["axis"] = "no end-plate faces a neighbour the volume holds: the column's line is kept"
+        return
+    turn = angle_deg(axis, v.frame.ez)
+    if turn > AXIS_TURN_MAX_DEG:
+        v.flags["axis"] = ("the end-plates' bisector lies %.0f degrees off the column's line, further than a "
+                           "vertebra leans: the column's line is kept" % turn)
+        return
+    if turn >= SETTLED_DEG:
+        keep = v.frame
+        plain = G.frame_from(v.frame.origin, axis, v.grid.anterior())
+        turned = toward_body(v, plain)
+        read_in(v, plain if turned is None else turned)
+        if "all" in v.flags:
+            read_in(v, keep)
+            v.flags["axis"] = "turning onto the end-plates' bisector loses the canal: the column's line is kept"
+            return
+        settle(v)
+    v.axis_turn = angle_deg(v.frame.ez, v.column_ez)
+    after = body_axis(v, neighbours)
+    v.axis_residual = NAN if after is None else angle_deg(after, v.frame.ez)
 
 
 def usable(v: Optional[Vertebra]) -> bool:

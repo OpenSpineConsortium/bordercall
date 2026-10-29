@@ -45,14 +45,15 @@ def vertebrae(vol: np.ndarray, grid: G.VoxelGrid, names: Dict[int, str]) -> Dict
     vox = V.vertebra_voxels(vol, names)
     for lv in list(vox):
         vox[lv], _ = M.main_piece(vox[lv])
-    spine = [lv for lv in LEVELS if lv in vox and lv != "sacrum"]
+    order = [lv for lv in LEVELS if lv in vox]
+    spine = [lv for lv in order if lv != "sacrum"]
     cents = [grid.world(vox[lv].astype(float)).mean(0) for lv in spine]
     axes = dict(zip(spine, M.column_line(cents, M.whole_levels(vox, spine, vol.shape), grid.superior())))
     out: Dict[str, A.Vertebra] = {}
     for lv in spine:
         if lv in M.SKIP or len(vox[lv]) < G.MIN_BODY_VOXELS:
             continue
-        v = A.build(lv, vox[lv], grid, axes[lv], V.touching_edge(vox[lv], vol.shape))
+        v = A.build(lv, vox[lv], grid, axes[lv], V.touching_edge(vox[lv], vol.shape), M.neighbours_of(vox, order, lv))
         if A.usable(v) and not v.touching.any():
             out[lv] = v
     return out

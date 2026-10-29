@@ -54,6 +54,8 @@ def derived(vals: Dict[str, float]) -> Dict[str, float]:
 def vertebra_values(v: A.Vertebra) -> Tuple[Dict[str, float], Dict[str, str], Dict[str, dict]]:
     vals = {k: v.panjabi.get(k, NAN) for k in PANJABI}
     vals["axis_offset"] = A.axis_offset(v)
+    vals["plate_offset"] = A.plate_offset(v)
+    vals["axis_residual"] = v.axis_residual
     flags = dict(v.flags)
     got, f = BODY.measures(v)
     vals.update(got)
@@ -97,6 +99,22 @@ def adjacent(a: str, b: str, present) -> bool:
     no T13, had a T12-L1 disc."""
     seq = [lv for lv in LEVELS if lv != "T13" or "T13" in present]
     return seq.index(b) == seq.index(a) + 1
+
+
+def neighbours_of(vox: Dict[str, np.ndarray], order: List[str], lv: str) -> Dict[str, np.ndarray]:
+    """The labels above and below a level, by their voxel indices, where the volume holds the
+    adjacent level: the vertebrae its end-plates face, from which anatomy reads its axis
+    (anatomy.plate_face). The lowest lumbar level's lower face is the sacrum's; C2's top is
+    the dens and faces no plate, so C2 gets no label above."""
+    i = order.index(lv)
+    out: Dict[str, np.ndarray] = {}
+    if i > 0 and lv != "C2" and adjacent(order[i - 1], lv, vox):
+        out["above"] = vox[order[i - 1]]
+    if i + 1 < len(order):
+        below = order[i + 1]
+        if adjacent(lv, below, vox) or (below == "sacrum" and lv.startswith("L")):
+            out["below"] = vox[below]
+    return out
 
 
 def main_piece(idx: np.ndarray) -> Tuple[np.ndarray, int]:
@@ -192,7 +210,7 @@ def measure_volume(vol: np.ndarray, grid: G.VoxelGrid, names: Dict[int, str], st
         if len(idx) < G.MIN_BODY_VOXELS:
             rows.append({"study": study, "level": lv, "key": "flag:all", "value": "", "note": "only %d voxels" % len(idx)})
             continue
-        v = A.build(lv, idx, grid, ez, V.touching_edge(idx, vol.shape))
+        v = A.build(lv, idx, grid, ez, V.touching_edge(idx, vol.shape), neighbours_of(vox, order, lv))
         if not A.usable(v):
             rows += rows_of(study, lv, {}, v.flags)
             continue
