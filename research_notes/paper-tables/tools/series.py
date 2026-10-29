@@ -14,12 +14,15 @@ level of each set of subjects, so this file decides, in code that can be read, h
   people behind it, so neither it nor its printed variance (its square) gives an SD: Bonczar
   2024's SEs times the root of its 1,481 subjects made SDs of 30 to 180 mm and deg, and the root
   of its variance would make SDs of about 1;
-- the count is the n printed for that cell; else the n a table prints for every measure of that
+- the count is the n printed for that cell; else the n the text states for that measure, level
+  and sex where no table prints one (STATED_COUNTS); else the n a table prints for every measure of that
   level (Gilad 1985's and Zindrick 1987's rows of n), from the table the mean comes from; else the
-  n printed for that measure and subgroup elsewhere in the paper; else the n printed for the
+  n printed for that measure and subgroup elsewhere in the paper, at no level or one, never an n
+  over a range of levels; else the n printed for the
   subgroup as a whole, an n before a count where both are printed, since a count may count
   something else (Busscher 2010's vertebrae per spine); else the cohort's number of people from
-  its cohorts file; and the series says which (n_from);
+  its cohorts file; and the series says which (n_from). A paper's printed n that counts the pedicles
+  of both sides is halved (PEDICLES_COUNTED);
 - the sides: a value printed for both sides or their mean is taken as it is; a right and a left
   only are averaged, mean with mean and SD with SD (sides "averaged"). Where a paper prints the
   two sides of one angle with opposite signs, its left is negated first (MIRRORED_LEFT), as its
@@ -36,8 +39,12 @@ level of each set of subjects, so this file decides, in code that can be read, h
   and left 9.6, mirrored -8.6), and the two printed apart carry the spread;
 - subgroups (age bands, patients and controls, modalities) stay series of their own, since
   whether pooling them is right depends on what they are. A group label the mapping overruled,
-  having put the row in the other cohort, is read as that cohort's group (REGROUPED, with its
-  reason).
+  having put the row in the other cohort, or a label the text gives where a table names the same
+  people otherwise, is read as the table's group (REGROUPED, with its reason). A group that is no
+  population, a model's estimates for the paper's people or a group chosen by the measure itself,
+  makes no series (NOT_POPULATIONS);
+- a signed mean of a measure Panjabi prints unsigned, where the mapping says to compare
+  magnitudes, is taken as its magnitude (MAGNITUDES).
 
 Values a table quotes from another study are series of that study's subjects, not of the paper's,
 and keep the study's name in source_of_values. A series' mean is the first mean printed for its
@@ -62,8 +69,13 @@ import sys
 POOLED_MEANS = {"meta_pool"}
 # Cells printed as the paper prints them in readings/ but kept out of every series, each with why:
 # a value the page prints that cannot be the measure (a misprint), never corrected by guess. A key
-# of four names one side of a cell, the other side then standing for the cell.
+# of four names one side of a cell, the other side then standing for the cell; a key of five names
+# one side and one sex, the other sexes then standing for the cell.
 MISPRINTS = {
+    ("hou1993", "pedicle_h", "T9", "", "all"):
+        "Table 2 (p. 1852, PDF 3) prints the T9 cumulative height 12.9 +/- 1.2 mm beside the men's 12.5 and the "
+        "women's 12.2: no mean of the two sexes can lie outside them (25 men and 15 women give 12.39), as every "
+        "other level's does not; the sexes, pooled, stand for T9",
     ("tan2004", "endplate_lower_area", "L3"):
         "Table 1 prints 172.0 +/- 20.6 mm2 (p. 141, PDF 5; both readers and the text layer agree) between "
         "1,090.9 at L2 and 1,199.3 at L4: a sixth of its neighbours, probably 1172.0 with a digit lost",
@@ -96,6 +108,42 @@ REPRINTS = {
     ("ahn2001", "Text: Results", "Marfan"):
         "the Results (p. 68, PDF 2) give the Table's Marfan interpedicular means again, citing the Table, "
         "the same 32 patients",
+    ("chaudhary2015", "Table II", "sonepat District"):
+        "Table II (p. 35, PDF 3) prints Table I's interpedicular means again as 'Present study (sonepat "
+        "District)' beside other studies, the same 300 films, to the 0.01 mm",
+    ("mitra2002", "Text: Abstract", ""):
+        "the Abstract (p. 453, PDF 1) gives Table 1's direct means for the 18 men again with no sex named "
+        "(16.19 mm at L5, which the Results call the men's), so read as the cohort's they would displace the sexes",
+    ("mitra2002", "Text: Results", "Direct"):
+        "the Results (pp. 454 to 455, PDF 2 to 3) restate Tables 1 and 2's direct means, some under the wrong sex (5.95 mm at "
+        "L1, called male, is the women's) and one with a digit lost (4.79 for 14.79)",
+    ("mitra2002", "Text: Results", "CT"):
+        "the Results (p. 456, PDF 4) restate Table 1's CT widths, printed in cm for mm",
+    ("mitra2002", "Text: Discussion", "Direct"):
+        "the Discussion (pp. 456 to 457, PDF 4 to 5) gives Table 1's men's direct L5 width and angle again as 'the current "
+        "study', with no sex named",
+}
+# Bach 2019's Figures 2 to 7 (pp. e108 to e109, PDF 3 to 4) plot each decade's disc height of the same 240 patients
+# as Tables 2 and 3 print by decade (pp. e110 to e111; the points of decades 20 to 70 equal the tables' three-point
+# averages or lie within 0.15 mm, the 10 point is the same age band, read off a chart): the same
+# subjects twice. The 80 point has no table row and stays.
+REPRINTS.update({
+    ("bach2019", "Figure %d" % figure, "decade %d" % decade):
+        "Figure %d's decade %d point repeats Tables 2 and 3's decade of the same patients, read off a chart"
+        % (figure, decade)
+    for figure in range(2, 8) for decade in range(10, 80, 10)})
+# (paper, group) of values a paper prints that are no group of people measured: estimates of a model
+# fitted to the paper's people, whose SE is the model's and not a sampling SE, and groups chosen by
+# the measure itself, which a comparison of populations cannot take as one.
+NOT_POPULATIONS = {
+    ("griffith2016", "adjusted for height and weight"):
+        "Tables S1 to S4 and S6 (suppl.) print 'Estimated mean (SE)' after adjusting for height and weight: "
+        "a model's estimates for the same 1,080 patients as Tables 2 to 6, whose SE times the root of 540 "
+        "is no spread of people",
+    ("griffith2016", "25% largest"):
+        "Table 7's quartiles are the patients whose canal was largest, chosen by the measure itself",
+    ("griffith2016", "25% smallest"):
+        "Table 7's quartiles are the patients whose canal was smallest, chosen by the measure itself",
 }
 # (paper, source_of_values) of a work a paper's tables quote whose subjects are the paper's own: its
 # values repeat the paper's own series, so they make no series of their own.
@@ -126,7 +174,35 @@ RIGHT_ONLY = {
 REGROUPED = {
     ("masharawi2021", "Table 5", "control", "DS"): "Control",
     ("masharawi2021", "Table 5", "ds", "Control"): "DS",
+    # Shin 2024's Results count its people as Caucasian and African-American (p. 3) where Table 5
+    # prints the same groups as White and Black (p. 4), so its counts reach the table's groups.
+    ("shin2024", "Text: Results", "shin700", "Caucasian"): "White",
+    ("shin2024", "Text: Results", "shin700", "African-American"): "Black",
 }
+# (paper, cohort) whose text states, or whose counts over a range of levels give, how many were
+# measured at each level where no table prints an n for it:
+# the count for a measure, level and sex, and why. Kunkel 2011 tested 72 motion segments of 30 spines,
+# six a disc level from C7-T1 to T11-T12 (p. 377, PDF 3), each segment giving its disc and both
+# bodies: six a disc, twelve a body from T1 to T11 and six at C7 and T12.
+STATED_COUNTS = {
+    ("kunkel2011", "ulm_thoracic_segments"):
+        (lambda key, level, sex: 6 if "-" in level or level in ("C7", "T12") else 12,
+         "six motion segments a disc level (p. 377, PDF 3): six a disc, twelve a body, six at C7 and T12"),
+    # Chen 2011 prints its counts for the ten end-plates from T10 inferior to L3 superior together:
+    # 830 for its 83 patients (Table 1), 430 and 400 by sex (Tables 2 and 3), so 43 men and 40 women.
+    ("chen2011", "chongqing_ct83"):
+        (lambda key, level, sex: {"male": 43, "female": 40}.get(sex),
+         "Table 1 (p. 1817, PDF 4) counts 830 end-plates of 83 patients and Tables 2 and 3 (pp. 1817 to 1818, "
+         "PDF 4 to 5) 430 and 400 by sex, ten a person: 43 men and 40 women"),
+}
+# Papers whose cell n, printed for both sides together, counts pedicles and not people: the people
+# are taken as half the pedicles, rounded up, as one person gives two. Olsewski 1990's footnotes call
+# the n "the numbers of examples" (p. 544, PDF 4), 47 at the men's L5 width for 24 men.
+PEDICLES_COUNTED = {"olsewski1990"}
+# (paper, key) whose mean is signed where Panjabi prints a magnitude; the mapping note says to compare
+# magnitudes, so the series takes the mean's magnitude. Tan 2004 prints its end-plate angles signed,
+# the thoracic lower angles negative (Table 1, p. 141, PDF 5), Panjabi unsigned.
+MAGNITUDES = {("tan2004", "endplate_incl"), ("tan2004", "endplate_lower_incl")}
 NOT_MEASURES = {"subject_age", "subject_height", "subject_weight", "subject_bmi", "subject_count", "prevalence",
                 "reliability", "other"}
 PLAIN_SIDES = ("", "both", "mean of sides")
@@ -173,10 +249,12 @@ def cell_key(row):
 
 
 def left_out(row):
-    """Whether a row is kept out of every series: a misprint, a reprint, a quoted work on the paper's
-    own subjects or a side not to be used."""
+    """Whether a row is kept out of every series: a misprint, a group that is no population, a
+    reprint, a quoted work on the paper's own subjects or a side not to be used."""
     cell = (row["paper"], row["key"], row["level"])
-    if cell in MISPRINTS or cell + (row["side"],) in MISPRINTS:
+    if cell in MISPRINTS or cell + (row["side"],) in MISPRINTS or cell + (row["side"], row["sex"]) in MISPRINTS:
+        return True
+    if (row["paper"], row["group"]) in NOT_POPULATIONS:
         return True
     if row["source_of_values"] == "this paper" and (row["paper"], row["table"], row["group"]) in REPRINTS:
         return True
@@ -235,11 +313,15 @@ def printed_counts(rows):
     {(paper, cohort, table, level, sex, group): n} for an n a table prints for every measure of one
     level; "measure", {(paper, cohort, key, sex, group): n} where one n is printed for a measure and
     subgroup; "group", {(paper, cohort, sex, group): n} for a count printed for the subgroup as a
-    whole, where one n, else one n or count, is printed."""
+    whole, where one n, else one n or count, is printed. A count printed for a range of levels is
+    none of these, since it counts each level's people again (Shin 2024's 3,500 interspaces of 700
+    patients, Chen 2011's 430 end-plates of 43 men)."""
     by_level, by_measure, by_group, group_n = (collections.defaultdict(set) for _ in range(4))
     for row in rows:
         value = number(row["canonical_value"]) if row["canonical_value"] else number(row["value"])
         if value is None or row["statistic"] not in ("n", "count"):
+            continue
+        if row["level"] and not VERTEBRA.match(row["level"]):
             continue
         group = group_of(row)
         if row["key"] == "subject_count":
@@ -261,12 +343,17 @@ def first(values):
 def count_of(k, stats, table, people, counts):
     """The cell's n and where it came from (n_from), in the order the docstring gives."""
     paper, cohort, _, _, key, level, sex, group, _ = k
+    stated = STATED_COUNTS.get((paper, cohort))
     candidates = ((first(stats.get("n", [])), "cell"),
+                  (stated[0](key, level, sex) if stated else None, "stated"),
                   (counts["level"].get((paper, cohort, table, level, sex, group)), "level"),
                   (counts["measure"].get((paper, cohort, key, sex, group)), "measure"),
                   (counts["group"].get((paper, cohort, sex, group)), "subgroup"),
                   (people.get((paper, cohort)) if sex in ("all", "not stated") else None, "cohort"))
-    return next(((n, n_from) for n, n_from in candidates if n is not None), (None, ""))
+    n, n_from = next(((n, n_from) for n, n_from in candidates if n is not None), (None, ""))
+    if paper in PEDICLES_COUNTED and n_from in ("cell", "level", "measure") and k[8] == "both":
+        n, n_from = math.ceil(n / 2), n_from + ", pedicles halved"
+    return n, n_from
 
 
 def one_series(k, stats, description, people, counts):
@@ -355,6 +442,8 @@ def build(rows, people):
         s = one_series(k, stats, meta[k], people, counts)
         if s is not None:
             s.update(meta[k])
+            if (k[0], k[4]) in MAGNITUDES:
+                s["mean"] = abs(s["mean"])
             sides[k[:8]][k[8]] = s
     sexes = collections.defaultdict(dict)
     for k, found in sides.items():

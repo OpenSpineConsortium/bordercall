@@ -434,17 +434,26 @@ def main(argv=None) -> int:
     ap.add_argument("--fields", type=int, default=100, help="fields drawn per place, per source and per width")
     ap.add_argument("--seed", type=int, default=2026)
     ap.add_argument("--processes", type=int, default=1)
-    ap.add_argument("--cohorts", default="", help="the folder of <paper>.cohorts.json files, for the subjects papers share")
+    # Required: the cohorts files say which cohorts are not human and which papers hold another's
+    # subjects, and a run without them let the pig spines into every comparison while the page
+    # still said they were out.
+    ap.add_argument("--cohorts", required=True,
+                    help="the folder of <paper>.cohorts.json files, for the subjects papers share and the animals")
     ap.add_argument("--leave-out", default="", help="measures, comma-separated, that no series is compared or named on")
     a = ap.parse_args(argv)
     not_human = read_not_human(a.cohorts)
     animals = set(not_human)
     left_out = sorted(k for k in a.leave_out.split(",") if k)
-    series = [r for r in read_series(a.series) if (r["paper"], r["cohort"]) not in animals and r["key"] not in left_out]
+    every = read_series(a.series)
+    # A misspelt key would leave nothing out while the record, and the page from it, said it had.
+    unknown = sorted(set(left_out) - {r["key"] for r in every})
+    if unknown:
+        ap.error("--leave-out names no series: %s" % ", ".join(unknown))
+    series = [r for r in every if (r["paper"], r["cohort"]) not in animals and r["key"] not in left_out]
     contains = read_contains(a.cohorts)
     pool, base, mu, sd, noise, power = panjabi_table()
     record = {"command": "python research_notes/paper-tables/tools/cross_naming.py %s %s --fields %d --seed %d%s%s"
-                         % (a.series, a.out, a.fields, a.seed, " --cohorts %s" % a.cohorts if a.cohorts else "",
+                         % (a.series, a.out, a.fields, a.seed, " --cohorts %s" % a.cohorts,
                             " --leave-out %s" % ",".join(left_out) if left_out else ""),
               "settings": {"rho": RHO, "scale_sd": SCALE_SD, "claim": CLAIM, "widths": list(WIDTHS), "floor": FLOOR,
                            "definitions_named": list(SAME)},

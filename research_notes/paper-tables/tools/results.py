@@ -113,13 +113,15 @@ def kinds(rows):
 
 
 def table_read(read, called):
-    """One row a paper: its cells by how they were settled, and Panjabi's measures its own values give."""
+    """One row a paper: its cells by how they were settled, and Panjabi's measures its own values give,
+    counting only rows that hold a value: Busscher 2010's Tables 4 and 5 print only C or NC, human
+    against pig, for measures whose values its figures plot and the reading did not take."""
     out = []
     for paper, rows in read.items():
         checks = [r["check"] for r in rows]
         same, differs = set(), set()
         for r in rows:
-            if r["source_of_values"] == "this paper" and r["vs_panjabi"] != "none":
+            if r["source_of_values"] == "this paper" and r["vs_panjabi"] != "none" and r["canonical_value"].strip():
                 (same if r["vs_panjabi"] in SAME else differs).add(r["key"])
         who, what = called.get(paper, (paper, ""))
         out.append(dict(paper=paper, name=who, what=what, read=kinds(rows), cells=len(rows),
@@ -417,6 +419,9 @@ def endplate_lines(left_out):
 def page(record, read_rows, share, dis, summary, by_paper, cross_path):
     cells = {k: sum(r[k] for r in read_rows) for k in ("cells", "agreed", "resolved", "once")}
     left = record.get("left_out_not_human", [])
+    if not left:
+        # The page says the pig spines are out; a record made without the cohorts files let them in.
+        raise SystemExit("the record leaves no animal cohort out: remake it with cross_naming.py --cohorts")
     lines = ["# The evaluation with every paper's tables", "",
              "Source: thread \"Finish the clinical reread\", project symphony_4, 2026-10-29, for the owner's ask of 2026-10-28",
              "22:10 UTC. Written by tools/results.py from data/ and the cross_naming record (%s); the numbers the figures" % os.path.basename(cross_path),
@@ -429,7 +434,8 @@ def page(record, read_rows, share, dis, summary, by_paper, cross_path):
              "%d papers, %s cells: the two blind readings agreed on %s, a third reader settled %s on the page image, and %s"
              % (len(read_rows), num(cells["cells"]), num(cells["agreed"]), num(cells["resolved"]), num(cells["once"])),
              "were read by one reader and checked on the page. The last two columns count Panjabi's measures among the",
-             "paper's own values (not values it quotes), by whether its definition is his or close to it, or differs.", ""]
+             "paper's own values read (not values it quotes, nor codes that hold no value), by whether its definition",
+             "is his or close to it, or differs.", ""]
     lines += md_table(["Paper", "What it is", "Read", "Cells", "Agreed", "Resolved", "Read once", "Panjabi's, same or close", "Differs"],
                       "lllrrrrrr",
                       [[r["name"], r["what"], r["read"], num(r["cells"]), num(r["agreed"]), num(r["resolved"]), num(r["once"]),
