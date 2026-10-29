@@ -1,0 +1,1 @@
+Each chain's share of draws at the exact top place on synthetic fields with two likely places, the place free: Metropolis-within-NUTS with PyMC's uniform and the proportional proposal, and the place summed out by pymc-extras and recovered; the bar is the exact posterior.

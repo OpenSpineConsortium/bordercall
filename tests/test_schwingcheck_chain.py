@@ -14,8 +14,9 @@ beginnings (prepare, logev) is path_logev's within 1e-9, on fields with values n
 whole ones, of every type, at 1, 3 and 5 bodies and two subsets at once. Model (b)'s log density
 given the size is that dense normal summed over the chain's paths, within 1e-10, so integrated on
 the nodes it is path_logev's; model (a)'s is the enumeration of its emissions given the offsets,
-with a finite gradient; and recover() through (b) draws the middle body's level as often as (b)'s
-posterior says.
+with a finite gradient; recover() through (b) draws the middle body's level as often as (b)'s
+posterior says; and (b)'s posterior over the names, sampled by NUTS, is path_logev's within five
+Monte Carlo errors, from ten batches of the draws, plus 0.001.
 """
 from __future__ import annotations
 
@@ -214,11 +215,19 @@ class TheModels(unittest.TestCase):
         with model:
             idata = pm.sample(draws=500, tune=500, chains=2, cores=1, random_seed=11, progressbar=False,
                               compute_convergence_checks=False)
-        want, _ = self.CP.body_posterior_enumerated(idata, self.X, self.paths, self.mu_e, self.sd_e, self.noise, self.power, 1)
+        want, batches = self.CP.body_posterior_enumerated(idata, self.X, self.paths, self.mu_e, self.sd_e, self.noise,
+                                                          self.power, 1, n_batches=10)
         state = np.asarray(recover(idata, model=model, var_names=["state"], random_seed=5).posterior["state"].values)
         names = self.chain.state_name[state[..., 1]]
         got = np.stack([(names == k).mean((0, 1)) for k in range(len(CH.NAMES))], -1)
         self.assertLess(np.abs(got - want).max(), 5 * 0.5 / np.sqrt(names.shape[0] * names.shape[1]))
+        # and (b)'s posterior over the names is the exact one, chain.path_logev's, within five
+        # Monte Carlo errors plus 0.001, as the naming model's NUTS test holds it
+        exact = CH.path_logev(self.X, self.paths, self.chain, self.mu_e, self.sd_e, {"seven": list(range(7))},
+                              self.noise, self.power, R.trapezoid(R.SYNTH["scale_sd"]))["seven"]
+        exact = CH.body_posterior(CH.posterior(exact, self.paths.log_prior), self.paths.names, 1)
+        self.assertTrue(np.all(np.abs(want - exact) <= 5 * self.CP.mcse(batches) + 1e-3),
+                        np.abs(want - exact).max(1))
 
 
 if __name__ == "__main__":
