@@ -67,6 +67,18 @@ vertebra's own axis and the VerSe record.
   carries `eh` again (the frame's z, along which the height is read). The 0004 measure and
   the test suite were started again on it as this was written.
 
+## The test suite on the pushed code (23:28 UTC)
+
+`python -m unittest morphometry.tests.test_morphometry`: 22 tests, 20 pass, 2 fail, both on the
+sagittal angle alone: Straight.test_pedicles reads L3's sagittal angle 3.13 against 0 and
+Shapes.test_pedicle_angles 8.30 against 6, each over the 1.5 degrees the tests allow. Widths,
+heights, transverse angles, chords and both interpedicular distances pass on every phantom,
+the LateralMass case included. The sagittal angle is quantised by the raster on the 7.5 mm
+baseline the isthmus rows give (one layer of 1.24 mm over it is 9 degrees); either read it from
+the pedicle's top and bottom surfaces fitted as planes over the rows, or let the test state the
+raster's bound. Until one of the two is done the suite is red on those two tests and the pull
+request stays a draft.
+
 ## The 0004 measure on the pushed code (23:20 UTC)
 
 `python -m morphometry measure` on study 0004 runs through (1,972 rows). Beside the pedicle
