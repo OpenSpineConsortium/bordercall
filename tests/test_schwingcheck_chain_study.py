@@ -22,7 +22,8 @@ that do not read the same columns, fields a column and seeds. The committed reco
 carries their tables, they hold 9 bodies, each was made by committed code that did not change while
 it ran, one commit for the four, they read the same fields, the speed timed each measure set on
 its own measures with every pool at one thread, and the exact posteriors the PyMC models were set
-against are chain.py's on `run`'s fields, with every thread pool at one thread. `pymc` at QUICK's
+against are chain.py's on `run`'s fields, with every thread pool at one thread. The PyMC table reads a field's gap in Monte
+Carlo errors only where the model differs from the exact answer by 1e-6 or more. `pymc` at QUICK's
 sampling gives every row its table reads, holds each model to the cut rule's exact posterior on
 `run`'s fields, runs with every thread pool at one thread and names pymc-extras' version.
 """
@@ -311,6 +312,18 @@ class QuickPyMC(unittest.TestCase):
             for pool in job["pools"]:
                 self.assertEqual(pool["threads"], 1, (job["type"], pool))
         self.assertNotEqual(self.record["versions"]["pymc-extras"], "not installed")
+
+
+class PyMCTable(unittest.TestCase):
+    def test_the_gap_in_errors_is_read_only_where_the_model_differs(self):
+        row = {"type": "typical", "bodies": 3, "subset": "all", "model": "sampled", "fields_within": 2,
+               "same_name": [True, True], "gap": [1e-10, 0.01], "gap_mcse": [1e-11, 0.005],
+               "gap_in_errors": [9.0, 2.0], "rhat": [1.0, 1.01], "steps": [7.0, 7.0], "divergences": 0, "sample_s": 1.0}
+        cells = CS.pymc_table({"rows": [row]}).splitlines()[2].split(" | ")
+        self.assertEqual(cells[7], "2.0 (1)")
+        row["gap"] = [1e-10, 1e-9]
+        cells = CS.pymc_table({"rows": [row]}).splitlines()[2].split(" | ")
+        self.assertEqual(cells[7], "- (0)")
 
 
 class CutRule(unittest.TestCase):

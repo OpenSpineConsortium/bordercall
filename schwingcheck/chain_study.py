@@ -676,21 +676,28 @@ def speed_table(record: dict) -> str:
     return "\n".join(out) + "\n"
 
 
+PYMC_DIFFER = 1e-6     # a field whose every name is within this of the exact posterior is the exact
+                       # answer to rounding, and its gap in Monte Carlo errors a ratio of two roundings
+
+
 def pymc_table(record: dict) -> str:
     """Both PyMC models against the exact answer: for each type, measure set and model, the fields,
     those within five Monte Carlo errors plus 0.001 at every name, those named as the exact rule
     names them, the largest gap and its Monte Carlo error, the largest gap in Monte Carlo errors
-    where the exact posterior is above 0.05, the largest R-hat, NUTS's mean leapfrog steps a draw,
-    the divergences and NUTS's seconds a field."""
+    where the exact posterior is above 0.05 over the fields where the model differs from the exact
+    answer by PYMC_DIFFER or more somewhere (with how many those are), the largest R-hat, NUTS's
+    mean leapfrog steps a draw, the divergences and NUTS's seconds a field."""
     head = ["Column", "Bodies", "Measures", "Model", "Fields within", "Same name", "Largest gap (MC error)",
-            "Gap in MC errors, above 0.05", "Largest R-hat", "Steps a draw", "Divergences", "Seconds a field"]
+            "Gap in MC errors, above 0.05 (fields)", "Largest R-hat", "Steps a draw", "Divergences", "Seconds a field"]
     out = ["| " + " | ".join(head) + " |", "|---|---:|---|---|" + "---:|" * (len(head) - 4)]
     for r in record["rows"]:
         F = len(r["gap"])
         i = int(np.argmax(r["gap"]))
-        out.append("| %s | %d | %s | %s | %d of %d | %d of %d | %.4f (%.4f) | %.1f | %.3f | %.1f | %d | %s |"
+        differ = [e for g, e in zip(r["gap"], r["gap_in_errors"]) if g >= PYMC_DIFFER]
+        in_errors = "%.1f (%d)" % (max(differ), len(differ)) if differ else "- (0)"
+        out.append("| %s | %d | %s | %s | %d of %d | %d of %d | %.4f (%.4f) | %s | %.3f | %.1f | %d | %s |"
                    % (r["type"].replace("_", "-"), r["bodies"], r["subset"], r["model"], r["fields_within"], F,
-                      sum(r["same_name"]), F, r["gap"][i], r["gap_mcse"][i], max(r["gap_in_errors"]), max(r["rhat"]),
+                      sum(r["same_name"]), F, r["gap"][i], r["gap_mcse"][i], in_errors, max(r["rhat"]),
                       float(np.mean(r["steps"])), r["divergences"], _ms(r["sample_s"])))
     return "\n".join(out) + "\n"
 
