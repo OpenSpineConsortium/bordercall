@@ -2,7 +2,7 @@
 
     python3 -I snapshot.py --check                         # the snapshot against data/SOURCE.json
     python3 -I snapshot.py --check path/to/series.csv      # and its rows against a copy of series.csv
-    python3 -I snapshot.py --write 45130ac                 # cut it from the reread's branch at a commit
+    python3 -I snapshot.py --write 401aaee                 # cut it from the reread's branch at a commit
 
 The snapshot holds the rows of the pool's 32 measures, as series.csv spells them, each with its
 cohort's species and count of people (synthval/literature.py, write_snapshot). Cutting it needs a

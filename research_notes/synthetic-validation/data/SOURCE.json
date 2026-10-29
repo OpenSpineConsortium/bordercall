@@ -1,7 +1,7 @@
 {
  "branch": "claude/project-thread-adplcz",
  "cohorts_path": "research_notes/paper-tables/data/cohorts",
- "commit": "45130acb7beb58e1293c1ca71e4f00f8c0af3d91",
+ "commit": "401aaee1da3225f00cd3f9a2d684f664e1dfd179",
  "keys": [
   "canal_ap",
   "canal_area",
@@ -46,8 +46,8 @@
   "vanderhouwen2009/pig_vertebrae_ct_vs_caliper"
  ],
  "path": "research_notes/paper-tables/data/series.csv",
- "rows_in_source": 4476,
- "rows_kept": 2490,
- "sha256": "d2115a26f7ac6c188ba864df35b0255832c5ec0437dfe4327f544d83cf5fc0c6",
- "snapshot_sha256": "ea7eb5fc73752c756b4f69f71d0cc0d5e4289b3a30858f44c1986590eea85117"
+ "rows_in_source": 4357,
+ "rows_kept": 2407,
+ "sha256": "5bd5b8b867e58214b0b12059bd922e004034765db8f17010a14405076a9c40b5",
+ "snapshot_sha256": "885ceb7f586600bb789b4efbbabf9de8fe438fd3d5f1d6da7a2702d48228d523"
 }

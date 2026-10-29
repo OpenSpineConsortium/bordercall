@@ -91,50 +91,30 @@ ahmed2019,shukri_mri,shukri_mri_sagittal_quoted,Shukri et al [11],canal_ap,L4,fe
 ahmed2019,shukri_mri,shukri_mri_sagittal_quoted,Shukri et al [11],canal_ap,L4,male,MRI study of normal adults; Iraqi,,15.17,,,,,mm,close,,
 ahmed2019,shukri_mri,shukri_mri_sagittal_quoted,Shukri et al [11],canal_ap,L5,female,MRI study of normal adults; Iraqi,,15.4,,,,,mm,close,,
 ahmed2019,shukri_mri,shukri_mri_sagittal_quoted,Shukri et al [11],canal_ap,L5,male,MRI study of normal adults; Iraqi,,16.45,,,,,mm,close,,
-ahmed2019,telangana_mri,mri_t2_axial_interpedicular,this paper,canal_w,L1,all,,,22.42,,80,,subgroup,mm,close,,80
-ahmed2019,telangana_mri,mri_t2_axial_interpedicular,this paper,canal_w,L1,female,MRI study of symptomatic adults; Indian,,21.69,,,,,mm,close,,80
-ahmed2019,telangana_mri,mri_t2_axial_interpedicular,this paper,canal_w,L1,male,MRI study of symptomatic adults; Indian,,23.32,,,,,mm,close,,80
-ahmed2019,telangana_mri,mri_t2_axial_interpedicular,this paper,canal_w,L2,all,,,22.64,,80,,subgroup,mm,close,,80
-ahmed2019,telangana_mri,mri_t2_axial_interpedicular,this paper,canal_w,L2,female,MRI study of symptomatic adults; Indian,,22,,,,,mm,close,,80
-ahmed2019,telangana_mri,mri_t2_axial_interpedicular,this paper,canal_w,L2,male,MRI study of symptomatic adults; Indian,,23.41,,,,,mm,close,,80
-ahmed2019,telangana_mri,mri_t2_axial_interpedicular,this paper,canal_w,L3,all,,,23.45,,80,,subgroup,mm,close,,80
-ahmed2019,telangana_mri,mri_t2_axial_interpedicular,this paper,canal_w,L3,female,MRI study of symptomatic adults; Indian,,22.76,,,,,mm,close,,80
-ahmed2019,telangana_mri,mri_t2_axial_interpedicular,this paper,canal_w,L3,male,MRI study of symptomatic adults; Indian,,24.3,,,,,mm,close,,80
-ahmed2019,telangana_mri,mri_t2_axial_interpedicular,this paper,canal_w,L4,all,,,24.52,,80,,subgroup,mm,close,,80
-ahmed2019,telangana_mri,mri_t2_axial_interpedicular,this paper,canal_w,L4,female,MRI study of symptomatic adults; Indian,,23.93,,,,,mm,close,,80
-ahmed2019,telangana_mri,mri_t2_axial_interpedicular,this paper,canal_w,L4,male,MRI study of symptomatic adults; Indian,,25.23,,,,,mm,close,,80
-ahmed2019,telangana_mri,mri_t2_axial_interpedicular,this paper,canal_w,L5,all,,,27.68,,80,,subgroup,mm,close,,80
-ahmed2019,telangana_mri,mri_t2_axial_interpedicular,this paper,canal_w,L5,female,MRI study of symptomatic adults; Indian,,27.5,,,,,mm,close,,80
-ahmed2019,telangana_mri,mri_t2_axial_interpedicular,this paper,canal_w,L5,male,MRI study of symptomatic adults; Indian,,27.89,,,,,mm,close,,80
-ahmed2019,telangana_mri,mri_t2_midsagittal_diameter,this paper,canal_ap,L1,all,,,14.34,,80,,subgroup,mm,close,,80
-ahmed2019,telangana_mri,mri_t2_midsagittal_diameter,this paper,canal_ap,L1,female,MRI study of symptomatic adults; Indian,,14.38,,,,,mm,close,,80
-ahmed2019,telangana_mri,mri_t2_midsagittal_diameter,this paper,canal_ap,L1,male,MRI study of symptomatic adults; Indian,,14.28,,,,,mm,close,,80
-ahmed2019,telangana_mri,mri_t2_midsagittal_diameter,this paper,canal_ap,L2,all,,,13.43,,80,,subgroup,mm,close,,80
-ahmed2019,telangana_mri,mri_t2_midsagittal_diameter,this paper,canal_ap,L2,female,MRI study of symptomatic adults; Indian,,13.51,,,,,mm,close,,80
-ahmed2019,telangana_mri,mri_t2_midsagittal_diameter,this paper,canal_ap,L2,male,MRI study of symptomatic adults; Indian,,13.33,,,,,mm,close,,80
-ahmed2019,telangana_mri,mri_t2_midsagittal_diameter,this paper,canal_ap,L3,all,,,12.35,,80,,subgroup,mm,close,,80
-ahmed2019,telangana_mri,mri_t2_midsagittal_diameter,this paper,canal_ap,L3,female,MRI study of symptomatic adults; Indian,,12.12,,,,,mm,close,,80
-ahmed2019,telangana_mri,mri_t2_midsagittal_diameter,this paper,canal_ap,L3,male,MRI study of symptomatic adults; Indian,,12.63,,,,,mm,close,,80
-ahmed2019,telangana_mri,mri_t2_midsagittal_diameter,this paper,canal_ap,L4,all,,,12.7,,80,,subgroup,mm,close,,80
-ahmed2019,telangana_mri,mri_t2_midsagittal_diameter,this paper,canal_ap,L4,female,MRI study of symptomatic adults; Indian,,12.54,,,,,mm,close,,80
-ahmed2019,telangana_mri,mri_t2_midsagittal_diameter,this paper,canal_ap,L4,male,MRI study of symptomatic adults; Indian,,12.88,,,,,mm,close,,80
-ahmed2019,telangana_mri,mri_t2_midsagittal_diameter,this paper,canal_ap,L5,all,,,13.63,,80,,subgroup,mm,close,,80
-ahmed2019,telangana_mri,mri_t2_midsagittal_diameter,this paper,canal_ap,L5,female,MRI study of symptomatic adults; Indian,,13.4,,,,,mm,close,,80
-ahmed2019,telangana_mri,mri_t2_midsagittal_diameter,this paper,canal_ap,L5,male,MRI study of symptomatic adults; Indian,,13.91,,,,,mm,close,,80
+ahmed2019,telangana_mri,mri_t2_axial_interpedicular,this paper,canal_w,L1,pooled,,,22.4235,1.86404,80,pooled from the sexes,sum of the sexes,mm,close,,80
+ahmed2019,telangana_mri,mri_t2_axial_interpedicular,this paper,canal_w,L2,pooled,,,22.6345,1.86309,80,pooled from the sexes,sum of the sexes,mm,close,,80
+ahmed2019,telangana_mri,mri_t2_axial_interpedicular,this paper,canal_w,L3,pooled,,,23.453,1.83184,80,pooled from the sexes,sum of the sexes,mm,close,,80
+ahmed2019,telangana_mri,mri_t2_axial_interpedicular,this paper,canal_w,L4,pooled,,,24.515,2.04603,80,pooled from the sexes,sum of the sexes,mm,close,,80
+ahmed2019,telangana_mri,mri_t2_axial_interpedicular,this paper,canal_w,L5,pooled,,,27.6755,2.61054,80,pooled from the sexes,sum of the sexes,mm,close,,80
+ahmed2019,telangana_mri,mri_t2_midsagittal_diameter,this paper,canal_ap,L1,pooled,,,14.335,1.27876,80,pooled from the sexes,sum of the sexes,mm,close,,80
+ahmed2019,telangana_mri,mri_t2_midsagittal_diameter,this paper,canal_ap,L2,pooled,,,13.429,1.2519,80,pooled from the sexes,sum of the sexes,mm,close,,80
+ahmed2019,telangana_mri,mri_t2_midsagittal_diameter,this paper,canal_ap,L3,pooled,,,12.3495,1.41935,80,pooled from the sexes,sum of the sexes,mm,close,,80
+ahmed2019,telangana_mri,mri_t2_midsagittal_diameter,this paper,canal_ap,L4,pooled,,,12.693,1.30106,80,pooled from the sexes,sum of the sexes,mm,close,,80
+ahmed2019,telangana_mri,mri_t2_midsagittal_diameter,this paper,canal_ap,L5,pooled,,,13.6295,1.86588,80,pooled from the sexes,sum of the sexes,mm,close,,80
 ahmed2019,varol_ct,varol_ct_sagittal_quoted,Varol et al [12],canal_ap,L4,female,CT study of symptomatic adults; Turkish,,13.33,,,,,mm,close,,
 ahmed2019,varol_ct,varol_ct_sagittal_quoted,Varol et al [12],canal_ap,L4,male,CT study of symptomatic adults; Turkish,,13.94,,,,,mm,close,,
 ahmed2019,varol_ct,varol_ct_sagittal_quoted,Varol et al [12],canal_ap,L5,female,CT study of symptomatic adults; Turkish,,15.96,,,,,mm,close,,
 ahmed2019,varol_ct,varol_ct_sagittal_quoted,Varol et al [12],canal_ap,L5,male,CT study of symptomatic adults; Turkish,,16.31,,,,,mm,close,,
-alonge2021,lagos_ct,ct_axial_td,this paper,canal_w,L1,pooled,,,22.46,2.04511,120,pooled from the sexes,sum of the sexes,count,close,,120
-alonge2021,lagos_ct,ct_axial_td,this paper,canal_w,L2,pooled,,,22.9267,2.00597,120,pooled from the sexes,sum of the sexes,count,close,,120
-alonge2021,lagos_ct,ct_axial_td,this paper,canal_w,L3,pooled,,,24.3675,2.21396,120,pooled from the sexes,sum of the sexes,count,close,,120
-alonge2021,lagos_ct,ct_axial_td,this paper,canal_w,L4,pooled,,,26.9975,3.04643,120,pooled from the sexes,sum of the sexes,count,close,,120
-alonge2021,lagos_ct,ct_axial_td,this paper,canal_w,L5,pooled,,,32.3592,4.39792,120,pooled from the sexes,sum of the sexes,count,close,,120
-alonge2021,lagos_ct,ct_midsagittal_apd,this paper,canal_ap,L1,pooled,,,16.2833,1.69491,120,pooled from the sexes,sum of the sexes,count,same,,120
-alonge2021,lagos_ct,ct_midsagittal_apd,this paper,canal_ap,L2,pooled,,,15.6425,1.71177,120,pooled from the sexes,sum of the sexes,count,same,,120
-alonge2021,lagos_ct,ct_midsagittal_apd,this paper,canal_ap,L3,pooled,,,15.1025,2.10097,120,pooled from the sexes,sum of the sexes,count,same,,120
-alonge2021,lagos_ct,ct_midsagittal_apd,this paper,canal_ap,L4,pooled,,,15.7308,2.51392,120,pooled from the sexes,sum of the sexes,count,same,,120
-alonge2021,lagos_ct,ct_midsagittal_apd,this paper,canal_ap,L5,pooled,,,16.305,3.06134,120,pooled from the sexes,sum of the sexes,count,same,,120
+alonge2021,lagos_ct,ct_axial_td,this paper,canal_w,L1,pooled,,,22.46,2.04511,120,pooled from the sexes,sum of the sexes,mm,close,,120
+alonge2021,lagos_ct,ct_axial_td,this paper,canal_w,L2,pooled,,,22.9267,2.00597,120,pooled from the sexes,sum of the sexes,mm,close,,120
+alonge2021,lagos_ct,ct_axial_td,this paper,canal_w,L3,pooled,,,24.3675,2.21396,120,pooled from the sexes,sum of the sexes,mm,close,,120
+alonge2021,lagos_ct,ct_axial_td,this paper,canal_w,L4,pooled,,,26.9975,3.04643,120,pooled from the sexes,sum of the sexes,mm,close,,120
+alonge2021,lagos_ct,ct_axial_td,this paper,canal_w,L5,pooled,,,32.3592,4.39792,120,pooled from the sexes,sum of the sexes,mm,close,,120
+alonge2021,lagos_ct,ct_midsagittal_apd,this paper,canal_ap,L1,pooled,,,16.2833,1.69491,120,pooled from the sexes,sum of the sexes,mm,same,,120
+alonge2021,lagos_ct,ct_midsagittal_apd,this paper,canal_ap,L2,pooled,,,15.6425,1.71177,120,pooled from the sexes,sum of the sexes,mm,same,,120
+alonge2021,lagos_ct,ct_midsagittal_apd,this paper,canal_ap,L3,pooled,,,15.1025,2.10097,120,pooled from the sexes,sum of the sexes,mm,same,,120
+alonge2021,lagos_ct,ct_midsagittal_apd,this paper,canal_ap,L4,pooled,,,15.7308,2.51392,120,pooled from the sexes,sum of the sexes,mm,same,,120
+alonge2021,lagos_ct,ct_midsagittal_apd,this paper,canal_ap,L5,pooled,,,16.305,3.06134,120,pooled from the sexes,sum of the sexes,mm,same,,120
 amonookuofi1982,ilorin_ap_films,ap_film_vernier,this paper,pedicle_area,L1,pooled,,right,157.893,33.5171,290,pooled from the sexes,sum of the sexes,mm2,differs,,290
 amonookuofi1982,ilorin_ap_films,ap_film_vernier,this paper,pedicle_area,L2,pooled,,right,161.938,34.5412,290,pooled from the sexes,sum of the sexes,mm2,differs,,290
 amonookuofi1982,ilorin_ap_films,ap_film_vernier,this paper,pedicle_area,L3,pooled,,right,180.828,33.9252,290,pooled from the sexes,sum of the sexes,mm2,differs,,290
@@ -217,36 +197,21 @@ arockiaraj2025,olsewski_north_america,quoted_ct_literature,Olsewski et al. [11],
 arockiaraj2025,olsewski_north_america,quoted_ct_literature,Olsewski et al. [11],pedicle_w,L5,not stated,North America,both,18.2,3.1,,sd,,mm,close,,
 arockiaraj2025,olsewski_zindrick_joint,quoted_ct_literature,Olsewski et al. [11] and Zindrick et al. [25],pedicle_w,L1,not stated,North America,both,8,,,,,mm,close,,
 arockiaraj2025,olsewski_zindrick_joint,quoted_ct_literature,Olsewski et al. [11] and Zindrick et al. [25],pedicle_w,L5,not stated,North America,both,18,,,,,mm,close,,
-arockiaraj2025,saudi_ct,ct_axial_workstation,this paper,pedicle_incl_sag,L1,all,,both,12.68,2.54,300,sd,cohort,deg,close,,300
-arockiaraj2025,saudi_ct,ct_axial_workstation,this paper,pedicle_incl_sag,L1,all,Current study,both,12.68,2.54,300,sd,subgroup,deg,close,,300
-arockiaraj2025,saudi_ct,ct_axial_workstation,this paper,pedicle_incl_sag,L2,all,,both,13.26,2.3,300,sd,cohort,deg,close,,300
-arockiaraj2025,saudi_ct,ct_axial_workstation,this paper,pedicle_incl_sag,L2,all,Current study,both,13.26,2.3,300,sd,subgroup,deg,close,,300
-arockiaraj2025,saudi_ct,ct_axial_workstation,this paper,pedicle_incl_sag,L3,all,,both,15.47,2.37,300,sd,cohort,deg,close,,300
-arockiaraj2025,saudi_ct,ct_axial_workstation,this paper,pedicle_incl_sag,L3,all,Current study,both,15.47,2.37,300,sd,subgroup,deg,close,,300
-arockiaraj2025,saudi_ct,ct_axial_workstation,this paper,pedicle_incl_sag,L4,all,,both,17.47,3.3,300,sd,cohort,deg,close,,300
-arockiaraj2025,saudi_ct,ct_axial_workstation,this paper,pedicle_incl_sag,L4,all,Current study,both,17.47,3.3,300,sd,subgroup,deg,close,,300
-arockiaraj2025,saudi_ct,ct_axial_workstation,this paper,pedicle_incl_sag,L5,all,,both,28.23,3.87,300,sd,cohort,deg,close,,300
-arockiaraj2025,saudi_ct,ct_axial_workstation,this paper,pedicle_incl_sag,L5,all,Current study,both,28.23,3.87,300,sd,subgroup,deg,close,,300
-arockiaraj2025,saudi_ct,ct_axial_workstation,this paper,pedicle_w,L1,all,,both,5.76,1.02,300,sd,cohort,mm,close,,300
-arockiaraj2025,saudi_ct,ct_axial_workstation,this paper,pedicle_w,L1,all,Current study,both,5.76,1.02,300,sd,subgroup,mm,close,,300
-arockiaraj2025,saudi_ct,ct_axial_workstation,this paper,pedicle_w,L2,all,,both,6.34,0.96,300,sd,cohort,mm,close,,300
-arockiaraj2025,saudi_ct,ct_axial_workstation,this paper,pedicle_w,L2,all,Current study,both,6.34,0.96,300,sd,subgroup,mm,close,,300
-arockiaraj2025,saudi_ct,ct_axial_workstation,this paper,pedicle_w,L3,all,,both,8.11,1.1,300,sd,cohort,mm,close,,300
-arockiaraj2025,saudi_ct,ct_axial_workstation,this paper,pedicle_w,L3,all,Current study,both,8.11,1.1,300,sd,subgroup,mm,close,,300
-arockiaraj2025,saudi_ct,ct_axial_workstation,this paper,pedicle_w,L4,all,,both,9.82,1.2,300,sd,cohort,mm,close,,300
-arockiaraj2025,saudi_ct,ct_axial_workstation,this paper,pedicle_w,L4,all,Current study,both,9.82,1.2,300,sd,subgroup,mm,close,,300
-arockiaraj2025,saudi_ct,ct_axial_workstation,this paper,pedicle_w,L5,all,,both,13.62,1.48,300,sd,cohort,mm,close,,300
-arockiaraj2025,saudi_ct,ct_axial_workstation,this paper,pedicle_w,L5,all,Current study,both,13.62,1.48,300,sd,subgroup,mm,close,,300
-arockiaraj2025,saudi_ct,ct_sagittal_pedicle_height,this paper,pedicle_h,L1,all,,both,9.75,1.2,300,sd,cohort,mm,close,,300
-arockiaraj2025,saudi_ct,ct_sagittal_pedicle_height,this paper,pedicle_h,L1,all,Current study,both,9.75,1.2,300,sd,subgroup,mm,close,,300
-arockiaraj2025,saudi_ct,ct_sagittal_pedicle_height,this paper,pedicle_h,L2,all,,both,9.32,1.12,300,sd,cohort,mm,close,,300
-arockiaraj2025,saudi_ct,ct_sagittal_pedicle_height,this paper,pedicle_h,L2,all,Current study,both,9.32,1.12,300,sd,subgroup,mm,close,,300
-arockiaraj2025,saudi_ct,ct_sagittal_pedicle_height,this paper,pedicle_h,L3,all,,both,9.11,1.1,300,sd,cohort,mm,close,,300
-arockiaraj2025,saudi_ct,ct_sagittal_pedicle_height,this paper,pedicle_h,L3,all,Current study,both,9.11,1.1,300,sd,subgroup,mm,close,,300
-arockiaraj2025,saudi_ct,ct_sagittal_pedicle_height,this paper,pedicle_h,L4,all,,both,8.71,1.03,300,sd,cohort,mm,close,,300
-arockiaraj2025,saudi_ct,ct_sagittal_pedicle_height,this paper,pedicle_h,L4,all,Current study,both,8.71,1.03,300,sd,subgroup,mm,close,,300
-arockiaraj2025,saudi_ct,ct_sagittal_pedicle_height,this paper,pedicle_h,L5,all,,both,8.3,0.99,300,sd,cohort,mm,close,,300
-arockiaraj2025,saudi_ct,ct_sagittal_pedicle_height,this paper,pedicle_h,L5,all,Current study,both,8.3,0.99,300,sd,subgroup,mm,close,,300
+arockiaraj2025,saudi_ct,ct_axial_workstation,this paper,pedicle_incl_sag,L1,all,,both,12.68,2.54,300,sd,subgroup,deg,close,,300
+arockiaraj2025,saudi_ct,ct_axial_workstation,this paper,pedicle_incl_sag,L2,all,,both,13.26,2.3,300,sd,subgroup,deg,close,,300
+arockiaraj2025,saudi_ct,ct_axial_workstation,this paper,pedicle_incl_sag,L3,all,,both,15.47,2.37,300,sd,subgroup,deg,close,,300
+arockiaraj2025,saudi_ct,ct_axial_workstation,this paper,pedicle_incl_sag,L4,all,,both,17.47,3.3,300,sd,subgroup,deg,close,,300
+arockiaraj2025,saudi_ct,ct_axial_workstation,this paper,pedicle_incl_sag,L5,all,,both,28.23,3.87,300,sd,subgroup,deg,close,,300
+arockiaraj2025,saudi_ct,ct_axial_workstation,this paper,pedicle_w,L1,all,,both,5.76,1.02,300,sd,subgroup,mm,close,,300
+arockiaraj2025,saudi_ct,ct_axial_workstation,this paper,pedicle_w,L2,all,,both,6.34,0.96,300,sd,subgroup,mm,close,,300
+arockiaraj2025,saudi_ct,ct_axial_workstation,this paper,pedicle_w,L3,all,,both,8.11,1.1,300,sd,subgroup,mm,close,,300
+arockiaraj2025,saudi_ct,ct_axial_workstation,this paper,pedicle_w,L4,all,,both,9.82,1.2,300,sd,subgroup,mm,close,,300
+arockiaraj2025,saudi_ct,ct_axial_workstation,this paper,pedicle_w,L5,all,,both,13.62,1.48,300,sd,subgroup,mm,close,,300
+arockiaraj2025,saudi_ct,ct_sagittal_pedicle_height,this paper,pedicle_h,L1,all,,both,9.75,1.2,300,sd,subgroup,mm,close,,300
+arockiaraj2025,saudi_ct,ct_sagittal_pedicle_height,this paper,pedicle_h,L2,all,,both,9.32,1.12,300,sd,subgroup,mm,close,,300
+arockiaraj2025,saudi_ct,ct_sagittal_pedicle_height,this paper,pedicle_h,L3,all,,both,9.11,1.1,300,sd,subgroup,mm,close,,300
+arockiaraj2025,saudi_ct,ct_sagittal_pedicle_height,this paper,pedicle_h,L4,all,,both,8.71,1.03,300,sd,subgroup,mm,close,,300
+arockiaraj2025,saudi_ct,ct_sagittal_pedicle_height,this paper,pedicle_h,L5,all,,both,8.3,0.99,300,sd,subgroup,mm,close,,300
 arockiaraj2025,tall_burkina_faso,quoted_ct_literature,Tall et al. [11],pedicle_incl_sag,L1,not stated,Africa,both,16.3,,70,,subgroup,deg,close,,
 arockiaraj2025,tall_burkina_faso,quoted_ct_literature,Tall et al. [11],pedicle_incl_sag,L2,not stated,Africa,both,18.2,,70,,subgroup,deg,close,,
 arockiaraj2025,tall_burkina_faso,quoted_ct_literature,Tall et al. [11],pedicle_incl_sag,L3,not stated,Africa,both,20.8,,70,,subgroup,deg,close,,
@@ -347,11 +312,11 @@ bonczar2024,pool18,meta_pool,this paper,pedicle_h,L2,all,,both,14.9,,1481,,cohor
 bonczar2024,pool18,meta_pool,this paper,pedicle_h,L3,all,,both,14.52,,1481,,cohort,mm,close,,1481
 bonczar2024,pool18,meta_pool,this paper,pedicle_h,L4,all,,both,14.2,,1481,,cohort,mm,close,,1481
 bonczar2024,pool18,meta_pool,this paper,pedicle_h,L5,all,,both,14.73,,1481,,cohort,mm,close,,1481
-bonczar2024,pool18,meta_pool,this paper,pedicle_incl_sag,L1,all,,averaged,6.465,,1481,,cohort,deg,close,,1481
-bonczar2024,pool18,meta_pool,this paper,pedicle_incl_sag,L2,all,,averaged,5.925,,1481,,cohort,deg,close,,1481
-bonczar2024,pool18,meta_pool,this paper,pedicle_incl_sag,L3,all,,averaged,7.92,,1481,,cohort,deg,close,,1481
-bonczar2024,pool18,meta_pool,this paper,pedicle_incl_sag,L4,all,,averaged,5.22,,1481,,cohort,deg,close,,1481
-bonczar2024,pool18,meta_pool,this paper,pedicle_incl_sag,L5,all,,averaged,6.35,,1481,,cohort,deg,close,,1481
+bonczar2024,pool18,meta_pool,this paper,pedicle_incl_sag,L1,all,,right,10.31,,1481,,cohort,deg,close,,1481
+bonczar2024,pool18,meta_pool,this paper,pedicle_incl_sag,L2,all,,right,12.21,,1481,,cohort,deg,close,,1481
+bonczar2024,pool18,meta_pool,this paper,pedicle_incl_sag,L3,all,,right,18.79,,1481,,cohort,deg,close,,1481
+bonczar2024,pool18,meta_pool,this paper,pedicle_incl_sag,L4,all,,right,13.9,,1481,,cohort,deg,close,,1481
+bonczar2024,pool18,meta_pool,this paper,pedicle_incl_sag,L5,all,,right,21.24,,1481,,cohort,deg,close,,1481
 bonczar2024,pool18,meta_pool,this paper,pedicle_incl_trans,L1,all,,averaged,-0.355,,1481,,cohort,deg,differs,,1481
 bonczar2024,pool18,meta_pool,this paper,pedicle_incl_trans,L2,all,,averaged,-0.68,,1481,,cohort,deg,differs,,1481
 bonczar2024,pool18,meta_pool,this paper,pedicle_incl_trans,L3,all,,averaged,-1.88,,1481,,cohort,deg,differs,,1481
@@ -372,60 +337,60 @@ bonczar2024,pool18,meta_pool,this paper,transverse_width,L2,all,,,75.07,,1481,,c
 bonczar2024,pool18,meta_pool,this paper,transverse_width,L3,all,,,83.59,,1481,,cohort,mm,close,,1481
 bonczar2024,pool18,meta_pool,this paper,transverse_width,L4,all,,,79.31,,1481,,cohort,mm,close,,1481
 bonczar2024,pool18,meta_pool,this paper,transverse_width,L5,all,,,85.91,,1481,,cohort,mm,close,,1481
-busscher2010,human_cadaver,ct_mpr_per_vertebra,this paper,endplate,C3,male,Human,,27.7,,,,,mm,close,,6
-busscher2010,human_cadaver,ct_mpr_per_vertebra,this paper,endplate,L5,male,Human,,54,,,,,mm,close,,6
-busscher2010,human_cadaver,ct_mpr_per_vertebra,this paper,endplate_depth,C3,male,Human,,16.5,,,,,mm,same,,6
-busscher2010,human_cadaver,ct_mpr_per_vertebra,this paper,endplate_depth,L5,male,Human,,36.7,,,,,mm,same,,6
-busscher2010,human_cadaver,ct_mpr_per_vertebra,this paper,h_post,C3,male,Human,,15.1,1.1,,sd,,mm,same,,6
-busscher2010,human_cadaver,ct_mpr_per_vertebra,this paper,h_post,C4,male,Human,,14.6,1.1,,sd,,mm,same,,6
-busscher2010,human_cadaver,ct_mpr_per_vertebra,this paper,h_post,C5,male,Human,,14.2,1,,sd,,mm,same,,6
-busscher2010,human_cadaver,ct_mpr_per_vertebra,this paper,h_post,C6,male,Human,,13.9,0.8,,sd,,mm,same,,6
-busscher2010,human_cadaver,ct_mpr_per_vertebra,this paper,h_post,C7,male,Human,,15.9,0.7,,sd,,mm,same,,6
-busscher2010,human_cadaver,ct_mpr_per_vertebra,this paper,h_post,L1,male,Human,,28.5,2.5,,sd,,mm,same,,6
-busscher2010,human_cadaver,ct_mpr_per_vertebra,this paper,h_post,L2,male,Human,,29.8,1.2,,sd,,mm,same,,6
-busscher2010,human_cadaver,ct_mpr_per_vertebra,this paper,h_post,L3,male,Human,,29.8,1,,sd,,mm,same,,6
-busscher2010,human_cadaver,ct_mpr_per_vertebra,this paper,h_post,L4,male,Human,,28,2.1,,sd,,mm,same,,6
-busscher2010,human_cadaver,ct_mpr_per_vertebra,this paper,h_post,L5,male,Human,,24.9,3.8,,sd,,mm,same,,6
-busscher2010,human_cadaver,ct_mpr_per_vertebra,this paper,h_post,T1,male,Human,,18.8,1,,sd,,mm,same,,6
-busscher2010,human_cadaver,ct_mpr_per_vertebra,this paper,h_post,T10,male,Human,,25.3,1.6,,sd,,mm,same,,6
-busscher2010,human_cadaver,ct_mpr_per_vertebra,this paper,h_post,T11,male,Human,,27.1,1.9,,sd,,mm,same,,6
-busscher2010,human_cadaver,ct_mpr_per_vertebra,this paper,h_post,T12,male,Human,,28.5,0.9,,sd,,mm,same,,6
-busscher2010,human_cadaver,ct_mpr_per_vertebra,this paper,h_post,T2,male,Human,,19.1,0.8,,sd,,mm,same,,6
-busscher2010,human_cadaver,ct_mpr_per_vertebra,this paper,h_post,T3,male,Human,,19.6,1,,sd,,mm,same,,6
-busscher2010,human_cadaver,ct_mpr_per_vertebra,this paper,h_post,T4,male,Human,,20.6,1.2,,sd,,mm,same,,6
-busscher2010,human_cadaver,ct_mpr_per_vertebra,this paper,h_post,T5,male,Human,,21,1.6,,sd,,mm,same,,6
-busscher2010,human_cadaver,ct_mpr_per_vertebra,this paper,h_post,T6,male,Human,,21.7,2,,sd,,mm,same,,6
-busscher2010,human_cadaver,ct_mpr_per_vertebra,this paper,h_post,T7,male,Human,,22.4,1.7,,sd,,mm,same,,6
-busscher2010,human_cadaver,ct_mpr_per_vertebra,this paper,h_post,T8,male,Human,,22.7,1.5,,sd,,mm,same,,6
-busscher2010,human_cadaver,ct_mpr_per_vertebra,this paper,h_post,T9,male,Human,,23.7,2,,sd,,mm,same,,6
-busscher2010,porcine_landrace,ct_mpr_per_vertebra,this paper,endplate,C3,not stated,Porcine,,20.2,,,,,mm,close,pig,
-busscher2010,porcine_landrace,ct_mpr_per_vertebra,this paper,endplate,L6,not stated,Porcine,,28,,,,,mm,close,pig,
-busscher2010,porcine_landrace,ct_mpr_per_vertebra,this paper,endplate_depth,C3,not stated,Porcine,,14.4,,,,,mm,same,pig,
-busscher2010,porcine_landrace,ct_mpr_per_vertebra,this paper,endplate_depth,L6,not stated,Porcine,,14.1,,,,,mm,same,pig,
-busscher2010,porcine_landrace,ct_mpr_per_vertebra,this paper,h_post,C3,not stated,Porcine,,14.6,1.9,,sd,,mm,same,pig,
-busscher2010,porcine_landrace,ct_mpr_per_vertebra,this paper,h_post,C4,not stated,Porcine,,14.3,2,,sd,,mm,same,pig,
-busscher2010,porcine_landrace,ct_mpr_per_vertebra,this paper,h_post,C5,not stated,Porcine,,14.2,2.1,,sd,,mm,same,pig,
-busscher2010,porcine_landrace,ct_mpr_per_vertebra,this paper,h_post,C6,not stated,Porcine,,14.1,1.9,,sd,,mm,same,pig,
-busscher2010,porcine_landrace,ct_mpr_per_vertebra,this paper,h_post,C7,not stated,Porcine,,15.2,2.1,,sd,,mm,same,pig,
-busscher2010,porcine_landrace,ct_mpr_per_vertebra,this paper,h_post,L1,not stated,Porcine,,23.7,2.3,,sd,,mm,same,pig,
-busscher2010,porcine_landrace,ct_mpr_per_vertebra,this paper,h_post,L2,not stated,Porcine,,24,2.9,,sd,,mm,same,pig,
-busscher2010,porcine_landrace,ct_mpr_per_vertebra,this paper,h_post,L3,not stated,Porcine,,24.4,2.4,,sd,,mm,same,pig,
-busscher2010,porcine_landrace,ct_mpr_per_vertebra,this paper,h_post,L4,not stated,Porcine,,24.9,3,,sd,,mm,same,pig,
-busscher2010,porcine_landrace,ct_mpr_per_vertebra,this paper,h_post,L5,not stated,Porcine,,25,3,,sd,,mm,same,pig,
-busscher2010,porcine_landrace,ct_mpr_per_vertebra,this paper,h_post,L6,not stated,Porcine,,23.4,3.3,,sd,,mm,same,pig,
-busscher2010,porcine_landrace,ct_mpr_per_vertebra,this paper,h_post,T1,not stated,Porcine,,16.8,2.2,,sd,,mm,same,pig,
-busscher2010,porcine_landrace,ct_mpr_per_vertebra,this paper,h_post,T10,not stated,Porcine,,20.9,2.7,,sd,,mm,same,pig,
-busscher2010,porcine_landrace,ct_mpr_per_vertebra,this paper,h_post,T11,not stated,Porcine,,21,2.9,,sd,,mm,same,pig,
-busscher2010,porcine_landrace,ct_mpr_per_vertebra,this paper,h_post,T12,not stated,Porcine,,21.6,2.8,,sd,,mm,same,pig,
-busscher2010,porcine_landrace,ct_mpr_per_vertebra,this paper,h_post,T13,not stated,Porcine,,22.1,2.4,,sd,,mm,same,pig,
-busscher2010,porcine_landrace,ct_mpr_per_vertebra,this paper,h_post,T2,not stated,Porcine,,18.2,2.1,,sd,,mm,same,pig,
-busscher2010,porcine_landrace,ct_mpr_per_vertebra,this paper,h_post,T3,not stated,Porcine,,18.6,2.3,,sd,,mm,same,pig,
-busscher2010,porcine_landrace,ct_mpr_per_vertebra,this paper,h_post,T4,not stated,Porcine,,18.8,2.3,,sd,,mm,same,pig,
-busscher2010,porcine_landrace,ct_mpr_per_vertebra,this paper,h_post,T5,not stated,Porcine,,18.9,2.5,,sd,,mm,same,pig,
-busscher2010,porcine_landrace,ct_mpr_per_vertebra,this paper,h_post,T6,not stated,Porcine,,19.1,2.5,,sd,,mm,same,pig,
-busscher2010,porcine_landrace,ct_mpr_per_vertebra,this paper,h_post,T7,not stated,Porcine,,19.3,2.1,,sd,,mm,same,pig,
-busscher2010,porcine_landrace,ct_mpr_per_vertebra,this paper,h_post,T8,not stated,Porcine,,19.9,2.1,,sd,,mm,same,pig,
-busscher2010,porcine_landrace,ct_mpr_per_vertebra,this paper,h_post,T9,not stated,Porcine,,20.3,2.5,,sd,,mm,same,pig,
+busscher2010,human_cadaver,ct_mpr_per_vertebra,this paper,endplate,C3,male,Human,,27.7,,6,,subgroup,mm,close,,6
+busscher2010,human_cadaver,ct_mpr_per_vertebra,this paper,endplate,L5,male,Human,,54,,6,,subgroup,mm,close,,6
+busscher2010,human_cadaver,ct_mpr_per_vertebra,this paper,endplate_depth,C3,male,Human,,16.5,,6,,subgroup,mm,same,,6
+busscher2010,human_cadaver,ct_mpr_per_vertebra,this paper,endplate_depth,L5,male,Human,,36.7,,6,,subgroup,mm,same,,6
+busscher2010,human_cadaver,ct_mpr_per_vertebra,this paper,h_post,C3,male,Human,,15.1,1.1,6,sd,subgroup,mm,same,,6
+busscher2010,human_cadaver,ct_mpr_per_vertebra,this paper,h_post,C4,male,Human,,14.6,1.1,6,sd,subgroup,mm,same,,6
+busscher2010,human_cadaver,ct_mpr_per_vertebra,this paper,h_post,C5,male,Human,,14.2,1,6,sd,subgroup,mm,same,,6
+busscher2010,human_cadaver,ct_mpr_per_vertebra,this paper,h_post,C6,male,Human,,13.9,0.8,6,sd,subgroup,mm,same,,6
+busscher2010,human_cadaver,ct_mpr_per_vertebra,this paper,h_post,C7,male,Human,,15.9,0.7,6,sd,subgroup,mm,same,,6
+busscher2010,human_cadaver,ct_mpr_per_vertebra,this paper,h_post,L1,male,Human,,28.5,2.5,6,sd,subgroup,mm,same,,6
+busscher2010,human_cadaver,ct_mpr_per_vertebra,this paper,h_post,L2,male,Human,,29.8,1.2,6,sd,subgroup,mm,same,,6
+busscher2010,human_cadaver,ct_mpr_per_vertebra,this paper,h_post,L3,male,Human,,29.8,1,6,sd,subgroup,mm,same,,6
+busscher2010,human_cadaver,ct_mpr_per_vertebra,this paper,h_post,L4,male,Human,,28,2.1,6,sd,subgroup,mm,same,,6
+busscher2010,human_cadaver,ct_mpr_per_vertebra,this paper,h_post,L5,male,Human,,24.9,3.8,6,sd,subgroup,mm,same,,6
+busscher2010,human_cadaver,ct_mpr_per_vertebra,this paper,h_post,T1,male,Human,,18.8,1,6,sd,subgroup,mm,same,,6
+busscher2010,human_cadaver,ct_mpr_per_vertebra,this paper,h_post,T10,male,Human,,25.3,1.6,6,sd,subgroup,mm,same,,6
+busscher2010,human_cadaver,ct_mpr_per_vertebra,this paper,h_post,T11,male,Human,,27.1,1.9,6,sd,subgroup,mm,same,,6
+busscher2010,human_cadaver,ct_mpr_per_vertebra,this paper,h_post,T12,male,Human,,28.5,0.9,6,sd,subgroup,mm,same,,6
+busscher2010,human_cadaver,ct_mpr_per_vertebra,this paper,h_post,T2,male,Human,,19.1,0.8,6,sd,subgroup,mm,same,,6
+busscher2010,human_cadaver,ct_mpr_per_vertebra,this paper,h_post,T3,male,Human,,19.6,1,6,sd,subgroup,mm,same,,6
+busscher2010,human_cadaver,ct_mpr_per_vertebra,this paper,h_post,T4,male,Human,,20.6,1.2,6,sd,subgroup,mm,same,,6
+busscher2010,human_cadaver,ct_mpr_per_vertebra,this paper,h_post,T5,male,Human,,21,1.6,6,sd,subgroup,mm,same,,6
+busscher2010,human_cadaver,ct_mpr_per_vertebra,this paper,h_post,T6,male,Human,,21.7,2,6,sd,subgroup,mm,same,,6
+busscher2010,human_cadaver,ct_mpr_per_vertebra,this paper,h_post,T7,male,Human,,22.4,1.7,6,sd,subgroup,mm,same,,6
+busscher2010,human_cadaver,ct_mpr_per_vertebra,this paper,h_post,T8,male,Human,,22.7,1.5,6,sd,subgroup,mm,same,,6
+busscher2010,human_cadaver,ct_mpr_per_vertebra,this paper,h_post,T9,male,Human,,23.7,2,6,sd,subgroup,mm,same,,6
+busscher2010,porcine_landrace,ct_mpr_per_vertebra,this paper,endplate,C3,not stated,Porcine,,20.2,,6,,subgroup,mm,close,pig,
+busscher2010,porcine_landrace,ct_mpr_per_vertebra,this paper,endplate,L6,not stated,Porcine,,28,,6,,subgroup,mm,close,pig,
+busscher2010,porcine_landrace,ct_mpr_per_vertebra,this paper,endplate_depth,C3,not stated,Porcine,,14.4,,6,,subgroup,mm,same,pig,
+busscher2010,porcine_landrace,ct_mpr_per_vertebra,this paper,endplate_depth,L6,not stated,Porcine,,14.1,,6,,subgroup,mm,same,pig,
+busscher2010,porcine_landrace,ct_mpr_per_vertebra,this paper,h_post,C3,not stated,Porcine,,14.6,1.9,6,sd,subgroup,mm,same,pig,
+busscher2010,porcine_landrace,ct_mpr_per_vertebra,this paper,h_post,C4,not stated,Porcine,,14.3,2,6,sd,subgroup,mm,same,pig,
+busscher2010,porcine_landrace,ct_mpr_per_vertebra,this paper,h_post,C5,not stated,Porcine,,14.2,2.1,6,sd,subgroup,mm,same,pig,
+busscher2010,porcine_landrace,ct_mpr_per_vertebra,this paper,h_post,C6,not stated,Porcine,,14.1,1.9,6,sd,subgroup,mm,same,pig,
+busscher2010,porcine_landrace,ct_mpr_per_vertebra,this paper,h_post,C7,not stated,Porcine,,15.2,2.1,6,sd,subgroup,mm,same,pig,
+busscher2010,porcine_landrace,ct_mpr_per_vertebra,this paper,h_post,L1,not stated,Porcine,,23.7,2.3,6,sd,subgroup,mm,same,pig,
+busscher2010,porcine_landrace,ct_mpr_per_vertebra,this paper,h_post,L2,not stated,Porcine,,24,2.9,6,sd,subgroup,mm,same,pig,
+busscher2010,porcine_landrace,ct_mpr_per_vertebra,this paper,h_post,L3,not stated,Porcine,,24.4,2.4,6,sd,subgroup,mm,same,pig,
+busscher2010,porcine_landrace,ct_mpr_per_vertebra,this paper,h_post,L4,not stated,Porcine,,24.9,3,6,sd,subgroup,mm,same,pig,
+busscher2010,porcine_landrace,ct_mpr_per_vertebra,this paper,h_post,L5,not stated,Porcine,,25,3,6,sd,subgroup,mm,same,pig,
+busscher2010,porcine_landrace,ct_mpr_per_vertebra,this paper,h_post,L6,not stated,Porcine,,23.4,3.3,6,sd,subgroup,mm,same,pig,
+busscher2010,porcine_landrace,ct_mpr_per_vertebra,this paper,h_post,T1,not stated,Porcine,,16.8,2.2,6,sd,subgroup,mm,same,pig,
+busscher2010,porcine_landrace,ct_mpr_per_vertebra,this paper,h_post,T10,not stated,Porcine,,20.9,2.7,6,sd,subgroup,mm,same,pig,
+busscher2010,porcine_landrace,ct_mpr_per_vertebra,this paper,h_post,T11,not stated,Porcine,,21,2.9,6,sd,subgroup,mm,same,pig,
+busscher2010,porcine_landrace,ct_mpr_per_vertebra,this paper,h_post,T12,not stated,Porcine,,21.6,2.8,6,sd,subgroup,mm,same,pig,
+busscher2010,porcine_landrace,ct_mpr_per_vertebra,this paper,h_post,T13,not stated,Porcine,,22.1,2.4,6,sd,subgroup,mm,same,pig,
+busscher2010,porcine_landrace,ct_mpr_per_vertebra,this paper,h_post,T2,not stated,Porcine,,18.2,2.1,6,sd,subgroup,mm,same,pig,
+busscher2010,porcine_landrace,ct_mpr_per_vertebra,this paper,h_post,T3,not stated,Porcine,,18.6,2.3,6,sd,subgroup,mm,same,pig,
+busscher2010,porcine_landrace,ct_mpr_per_vertebra,this paper,h_post,T4,not stated,Porcine,,18.8,2.3,6,sd,subgroup,mm,same,pig,
+busscher2010,porcine_landrace,ct_mpr_per_vertebra,this paper,h_post,T5,not stated,Porcine,,18.9,2.5,6,sd,subgroup,mm,same,pig,
+busscher2010,porcine_landrace,ct_mpr_per_vertebra,this paper,h_post,T6,not stated,Porcine,,19.1,2.5,6,sd,subgroup,mm,same,pig,
+busscher2010,porcine_landrace,ct_mpr_per_vertebra,this paper,h_post,T7,not stated,Porcine,,19.3,2.1,6,sd,subgroup,mm,same,pig,
+busscher2010,porcine_landrace,ct_mpr_per_vertebra,this paper,h_post,T8,not stated,Porcine,,19.9,2.1,6,sd,subgroup,mm,same,pig,
+busscher2010,porcine_landrace,ct_mpr_per_vertebra,this paper,h_post,T9,not stated,Porcine,,20.3,2.5,6,sd,subgroup,mm,same,pig,
 chaudhary2015,eisenstein1977_caucasoid_quoted,eisenstein1977_quoted,Eisenstein 1977,canal_w,L1,female,South African Caucasoids,,22,,,,,mm,close,,
 chaudhary2015,eisenstein1977_caucasoid_quoted,eisenstein1977_quoted,Eisenstein 1977,canal_w,L1,male,South African Caucasoids,,23,,,,,mm,close,,
 chaudhary2015,eisenstein1977_caucasoid_quoted,eisenstein1977_quoted,Eisenstein 1977,canal_w,L2,female,South African Caucasoids,,22,,,,,mm,close,,
@@ -520,11 +485,11 @@ cizmic2023,alam-pakistan-ct,alam-ct,M.M. Alam et al. (11),canal_w,L4,female,,,23
 cizmic2023,alam-pakistan-ct,alam-ct,M.M. Alam et al. (11),canal_w,L4,male,,,24.48,,33,,subgroup,mm,close,,49
 cizmic2023,alam-pakistan-ct,alam-ct,M.M. Alam et al. (11),canal_w,L5,female,,,25.96,,16,,subgroup,mm,close,,49
 cizmic2023,alam-pakistan-ct,alam-ct,M.M. Alam et al. (11),canal_w,L5,male,,,28.43,,33,,subgroup,mm,close,,49
-cizmic2023,bih-sarajevo-ct,cizmic-ct-syngo,this paper,canal_ap,L1,all,,,19.06,,200,,subgroup,mm,same,,200
-cizmic2023,bih-sarajevo-ct,cizmic-ct-syngo,this paper,canal_ap,L2,all,,,18.05,,200,,subgroup,mm,same,,200
-cizmic2023,bih-sarajevo-ct,cizmic-ct-syngo,this paper,canal_ap,L3,all,,,16.66,,200,,subgroup,mm,same,,200
-cizmic2023,bih-sarajevo-ct,cizmic-ct-syngo,this paper,canal_ap,L4,all,,,16.79,,200,,subgroup,mm,same,,200
-cizmic2023,bih-sarajevo-ct,cizmic-ct-syngo,this paper,canal_ap,L5,all,,,17.81,,200,,subgroup,mm,same,,200
+cizmic2023,bih-sarajevo-ct,cizmic-ct-syngo,this paper,canal_ap,L1,pooled,,,19.0645,1.63964,200,pooled from the sexes,sum of the sexes,mm,same,,200
+cizmic2023,bih-sarajevo-ct,cizmic-ct-syngo,this paper,canal_ap,L2,pooled,,,18.0545,1.97814,200,pooled from the sexes,sum of the sexes,mm,same,,200
+cizmic2023,bih-sarajevo-ct,cizmic-ct-syngo,this paper,canal_ap,L3,pooled,,,16.663,2.00204,200,pooled from the sexes,sum of the sexes,mm,same,,200
+cizmic2023,bih-sarajevo-ct,cizmic-ct-syngo,this paper,canal_ap,L4,pooled,,,16.798,2.21264,200,pooled from the sexes,sum of the sexes,mm,same,,200
+cizmic2023,bih-sarajevo-ct,cizmic-ct-syngo,this paper,canal_ap,L5,pooled,,,17.81,2.69427,200,pooled from the sexes,sum of the sexes,mm,same,,200
 cizmic2023,bih-sarajevo-ct,cizmic-ct-syngo,this paper,canal_w,L1,all,,,24.78,2.29,200,sd,subgroup,mm,close,,200
 cizmic2023,bih-sarajevo-ct,cizmic-ct-syngo,this paper,canal_w,L2,all,,,25.14,2.24,200,sd,subgroup,mm,close,,200
 cizmic2023,bih-sarajevo-ct,cizmic-ct-syngo,this paper,canal_w,L3,all,,,25.86,2.37,200,sd,subgroup,mm,close,,200
@@ -693,39 +658,39 @@ frontphys2026,zhengzhou_ct_100,ct_mpr_morphometry,this paper,h_post,L2,all,,,28.
 frontphys2026,zhengzhou_ct_100,ct_mpr_morphometry,this paper,h_post,L3,all,,,27.3,2.2,20,sd,subgroup,mm,same,,100
 frontphys2026,zhengzhou_ct_100,ct_mpr_morphometry,this paper,h_post,L4,all,,,26.3,2.1,20,sd,subgroup,mm,same,,100
 frontphys2026,zhengzhou_ct_100,ct_mpr_morphometry,this paper,h_post,L5,all,,,24.6,2.5,20,sd,subgroup,mm,same,,100
-gilad1985,haifa_transport_men,lateral_cervical_film_caliper,this paper,endplate_depth,C2,male,,,12.6,2.1,,sd,,mm,differs,,157
-gilad1985,haifa_transport_men,lateral_cervical_film_caliper,this paper,endplate_depth,C3,male,,,14.8,1.5,,sd,,mm,close,,157
-gilad1985,haifa_transport_men,lateral_cervical_film_caliper,this paper,endplate_depth,C4,male,,,15.5,1.7,,sd,,mm,close,,157
-gilad1985,haifa_transport_men,lateral_cervical_film_caliper,this paper,endplate_depth,C5,male,,,15.5,1.7,,sd,,mm,close,,157
-gilad1985,haifa_transport_men,lateral_cervical_film_caliper,this paper,endplate_depth,C6,male,,,16,1.7,,sd,,mm,close,,157
-gilad1985,haifa_transport_men,lateral_cervical_film_caliper,this paper,endplate_depth,C7,male,,,16.4,1.4,,sd,,mm,close,,157
-gilad1985,haifa_transport_men,lateral_cervical_film_caliper,this paper,endplate_lower_depth,C2,male,,,15.3,1.6,,sd,,mm,close,,157
-gilad1985,haifa_transport_men,lateral_cervical_film_caliper,this paper,endplate_lower_depth,C3,male,,,15.6,1.5,,sd,,mm,close,,157
-gilad1985,haifa_transport_men,lateral_cervical_film_caliper,this paper,endplate_lower_depth,C4,male,,,15.8,1.5,,sd,,mm,close,,157
-gilad1985,haifa_transport_men,lateral_cervical_film_caliper,this paper,endplate_lower_depth,C5,male,,,16.1,1.5,,sd,,mm,close,,157
-gilad1985,haifa_transport_men,lateral_cervical_film_caliper,this paper,endplate_lower_depth,C6,male,,,16.6,1.4,,sd,,mm,close,,157
-gilad1985,haifa_transport_men,lateral_cervical_film_caliper,this paper,endplate_lower_depth,C7,male,,,16.3,1.4,,sd,,mm,close,,157
-gilad1985,haifa_transport_men,lateral_cervical_film_caliper,this paper,h_post,C2,male,,,19,3.2,,sd,,mm,differs,,157
-gilad1985,haifa_transport_men,lateral_cervical_film_caliper,this paper,h_post,C3,male,,,14.5,1.4,,sd,,mm,differs,,157
-gilad1985,haifa_transport_men,lateral_cervical_film_caliper,this paper,h_post,C4,male,,,13.9,1.2,,sd,,mm,differs,,157
-gilad1985,haifa_transport_men,lateral_cervical_film_caliper,this paper,h_post,C5,male,,,13.8,1.4,,sd,,mm,differs,,157
-gilad1985,haifa_transport_men,lateral_cervical_film_caliper,this paper,h_post,C6,male,,,13.9,1.6,,sd,,mm,differs,,157
-gilad1985,haifa_transport_men,lateral_cervical_film_caliper,this paper,h_post,C7,male,,,14.9,1.4,,sd,,mm,differs,,157
-gilad1985,haifa_transport_men,lateral_lumbar_film_caliper,this paper,endplate_depth,L1,male,,,33.5,2.8,,sd,,mm,close,,157
-gilad1985,haifa_transport_men,lateral_lumbar_film_caliper,this paper,endplate_depth,L2,male,,,34.4,2.9,,sd,,mm,close,,157
-gilad1985,haifa_transport_men,lateral_lumbar_film_caliper,this paper,endplate_depth,L3,male,,,34.7,2.7,,sd,,mm,close,,157
-gilad1985,haifa_transport_men,lateral_lumbar_film_caliper,this paper,endplate_depth,L4,male,,,34.3,2.7,,sd,,mm,close,,157
-gilad1985,haifa_transport_men,lateral_lumbar_film_caliper,this paper,endplate_depth,L5,male,,,34.2,2.7,,sd,,mm,close,,157
-gilad1985,haifa_transport_men,lateral_lumbar_film_caliper,this paper,endplate_lower_depth,L1,male,,,34.1,2.9,,sd,,mm,close,,157
-gilad1985,haifa_transport_men,lateral_lumbar_film_caliper,this paper,endplate_lower_depth,L2,male,,,34.7,3,,sd,,mm,close,,157
-gilad1985,haifa_transport_men,lateral_lumbar_film_caliper,this paper,endplate_lower_depth,L3,male,,,34.6,2.8,,sd,,mm,close,,157
-gilad1985,haifa_transport_men,lateral_lumbar_film_caliper,this paper,endplate_lower_depth,L4,male,,,34.9,2.8,,sd,,mm,close,,157
-gilad1985,haifa_transport_men,lateral_lumbar_film_caliper,this paper,endplate_lower_depth,L5,male,,,33.9,2.7,,sd,,mm,close,,157
-gilad1985,haifa_transport_men,lateral_lumbar_film_caliper,this paper,h_post,L1,male,,,27.1,2.1,,sd,,mm,close,,157
-gilad1985,haifa_transport_men,lateral_lumbar_film_caliper,this paper,h_post,L2,male,,,27,2.1,,sd,,mm,close,,157
-gilad1985,haifa_transport_men,lateral_lumbar_film_caliper,this paper,h_post,L3,male,,,27.9,2.1,,sd,,mm,close,,157
-gilad1985,haifa_transport_men,lateral_lumbar_film_caliper,this paper,h_post,L4,male,,,27.1,2.3,,sd,,mm,close,,157
-gilad1985,haifa_transport_men,lateral_lumbar_film_caliper,this paper,h_post,L5,male,,,25.7,2.5,,sd,,mm,close,,157
+gilad1985,haifa_transport_men,lateral_cervical_film_caliper,this paper,endplate_depth,C2,male,,,12.6,2.1,130,sd,level,mm,differs,,157
+gilad1985,haifa_transport_men,lateral_cervical_film_caliper,this paper,endplate_depth,C3,male,,,14.8,1.5,141,sd,level,mm,close,,157
+gilad1985,haifa_transport_men,lateral_cervical_film_caliper,this paper,endplate_depth,C4,male,,,15.5,1.7,141,sd,level,mm,close,,157
+gilad1985,haifa_transport_men,lateral_cervical_film_caliper,this paper,endplate_depth,C5,male,,,15.5,1.7,141,sd,level,mm,close,,157
+gilad1985,haifa_transport_men,lateral_cervical_film_caliper,this paper,endplate_depth,C6,male,,,16,1.7,140,sd,level,mm,close,,157
+gilad1985,haifa_transport_men,lateral_cervical_film_caliper,this paper,endplate_depth,C7,male,,,16.4,1.4,126,sd,level,mm,close,,157
+gilad1985,haifa_transport_men,lateral_cervical_film_caliper,this paper,endplate_lower_depth,C2,male,,,15.3,1.6,130,sd,level,mm,close,,157
+gilad1985,haifa_transport_men,lateral_cervical_film_caliper,this paper,endplate_lower_depth,C3,male,,,15.6,1.5,141,sd,level,mm,close,,157
+gilad1985,haifa_transport_men,lateral_cervical_film_caliper,this paper,endplate_lower_depth,C4,male,,,15.8,1.5,141,sd,level,mm,close,,157
+gilad1985,haifa_transport_men,lateral_cervical_film_caliper,this paper,endplate_lower_depth,C5,male,,,16.1,1.5,141,sd,level,mm,close,,157
+gilad1985,haifa_transport_men,lateral_cervical_film_caliper,this paper,endplate_lower_depth,C6,male,,,16.6,1.4,140,sd,level,mm,close,,157
+gilad1985,haifa_transport_men,lateral_cervical_film_caliper,this paper,endplate_lower_depth,C7,male,,,16.3,1.4,126,sd,level,mm,close,,157
+gilad1985,haifa_transport_men,lateral_cervical_film_caliper,this paper,h_post,C2,male,,,19,3.2,130,sd,level,mm,differs,,157
+gilad1985,haifa_transport_men,lateral_cervical_film_caliper,this paper,h_post,C3,male,,,14.5,1.4,141,sd,level,mm,differs,,157
+gilad1985,haifa_transport_men,lateral_cervical_film_caliper,this paper,h_post,C4,male,,,13.9,1.2,141,sd,level,mm,differs,,157
+gilad1985,haifa_transport_men,lateral_cervical_film_caliper,this paper,h_post,C5,male,,,13.8,1.4,141,sd,level,mm,differs,,157
+gilad1985,haifa_transport_men,lateral_cervical_film_caliper,this paper,h_post,C6,male,,,13.9,1.6,140,sd,level,mm,differs,,157
+gilad1985,haifa_transport_men,lateral_cervical_film_caliper,this paper,h_post,C7,male,,,14.9,1.4,126,sd,level,mm,differs,,157
+gilad1985,haifa_transport_men,lateral_lumbar_film_caliper,this paper,endplate_depth,L1,male,,,33.5,2.8,154,sd,level,mm,close,,157
+gilad1985,haifa_transport_men,lateral_lumbar_film_caliper,this paper,endplate_depth,L2,male,,,34.4,2.9,157,sd,level,mm,close,,157
+gilad1985,haifa_transport_men,lateral_lumbar_film_caliper,this paper,endplate_depth,L3,male,,,34.7,2.7,157,sd,level,mm,close,,157
+gilad1985,haifa_transport_men,lateral_lumbar_film_caliper,this paper,endplate_depth,L4,male,,,34.3,2.7,157,sd,level,mm,close,,157
+gilad1985,haifa_transport_men,lateral_lumbar_film_caliper,this paper,endplate_depth,L5,male,,,34.2,2.7,156,sd,level,mm,close,,157
+gilad1985,haifa_transport_men,lateral_lumbar_film_caliper,this paper,endplate_lower_depth,L1,male,,,34.1,2.9,154,sd,level,mm,close,,157
+gilad1985,haifa_transport_men,lateral_lumbar_film_caliper,this paper,endplate_lower_depth,L2,male,,,34.7,3,157,sd,level,mm,close,,157
+gilad1985,haifa_transport_men,lateral_lumbar_film_caliper,this paper,endplate_lower_depth,L3,male,,,34.6,2.8,157,sd,level,mm,close,,157
+gilad1985,haifa_transport_men,lateral_lumbar_film_caliper,this paper,endplate_lower_depth,L4,male,,,34.9,2.8,157,sd,level,mm,close,,157
+gilad1985,haifa_transport_men,lateral_lumbar_film_caliper,this paper,endplate_lower_depth,L5,male,,,33.9,2.7,156,sd,level,mm,close,,157
+gilad1985,haifa_transport_men,lateral_lumbar_film_caliper,this paper,h_post,L1,male,,,27.1,2.1,154,sd,level,mm,close,,157
+gilad1985,haifa_transport_men,lateral_lumbar_film_caliper,this paper,h_post,L2,male,,,27,2.1,157,sd,level,mm,close,,157
+gilad1985,haifa_transport_men,lateral_lumbar_film_caliper,this paper,h_post,L3,male,,,27.9,2.1,157,sd,level,mm,close,,157
+gilad1985,haifa_transport_men,lateral_lumbar_film_caliper,this paper,h_post,L4,male,,,27.1,2.3,157,sd,level,mm,close,,157
+gilad1985,haifa_transport_men,lateral_lumbar_film_caliper,this paper,h_post,L5,male,,,25.7,2.5,156,sd,level,mm,close,,157
 griffith2016,hk_ct_patients,ct_midpedicle_semiauto,this paper,canal_ap,L1,female,25% largest,,18.31,0.93,,sd,,mm,same,,1080
 griffith2016,hk_ct_patients,ct_midpedicle_semiauto,this paper,canal_ap,L1,female,25% smallest,,12.82,1.15,,sd,,mm,same,,1080
 griffith2016,hk_ct_patients,ct_midpedicle_semiauto,this paper,canal_ap,L1,male,25% largest,,18.19,1.15,,sd,,mm,same,,1080
@@ -908,7 +873,7 @@ italianmri,figure5_stenosis,sagittal_mri,this paper,canal_ap,L3,not stated,"cong
 italianmri,figure5_stenosis,sagittal_mri,this paper,canal_ap,L4,not stated,"congenital stenosis patient, Figure 5c-d",,9.2,,1,,cohort,mm,close,,1
 italianmri,figure5_stenosis,sagittal_mri,this paper,canal_ap,L5,not stated,"congenital stenosis patient, Figure 5c-d",,12.7,,1,,cohort,mm,close,,1
 italianmri,figure5_stenosis,sagittal_mri,this paper,canal_ap,S1,not stated,"congenital stenosis patient, Figure 5c-d",,10.4,,1,,cohort,mm,close,,1
-krag1988,vermont_ct_patients,ct_midpedicle_film,this paper,pedicle_w,L5,all,,both,13,,41,,cohort,count,close,,41
+krag1988,vermont_ct_patients,ct_midpedicle_film,this paper,pedicle_w,L5,all,,both,13,,41,,cohort,mm,close,,41
 kunkel2011,ulm_thoracic_segments,lateral_contact_radiograph,this paper,h_post,C7,all,radiographic,,14.38,2.22,30,sd,cohort,mm,close,,30
 kunkel2011,ulm_thoracic_segments,lateral_contact_radiograph,this paper,h_post,T1,all,radiographic,,15.28,1.14,30,sd,cohort,mm,close,,30
 kunkel2011,ulm_thoracic_segments,lateral_contact_radiograph,this paper,h_post,T10,all,radiographic,,20.35,1.89,30,sd,cohort,mm,close,,30
@@ -922,15 +887,15 @@ kunkel2011,ulm_thoracic_segments,lateral_contact_radiograph,this paper,h_post,T6
 kunkel2011,ulm_thoracic_segments,lateral_contact_radiograph,this paper,h_post,T7,all,radiographic,,18.67,1.64,30,sd,cohort,mm,close,,30
 kunkel2011,ulm_thoracic_segments,lateral_contact_radiograph,this paper,h_post,T8,all,radiographic,,20.05,1.77,30,sd,cohort,mm,close,,30
 kunkel2011,ulm_thoracic_segments,lateral_contact_radiograph,this paper,h_post,T9,all,radiographic,,20.25,2.44,30,sd,cohort,mm,close,,30
-lien2007,dry_sets,dry_caliper,this paper,pedicle_h,L1,all,dry vertebrae,mean of sides,13.7,,15,,subgroup,mm,close,,15
-lien2007,dry_sets,dry_caliper,this paper,pedicle_h,L2,all,dry vertebrae,mean of sides,14.1,,15,,subgroup,mm,close,,15
+lien2007,dry_sets,dry_caliper,this paper,pedicle_h,L1,all,dry vertebrae,averaged,13.65,1.45,15,sd,subgroup,mm,close,,15
+lien2007,dry_sets,dry_caliper,this paper,pedicle_h,L2,all,dry vertebrae,averaged,14.05,1.75,15,sd,subgroup,mm,close,,15
 lien2007,dry_sets,dry_caliper,this paper,pedicle_h,L3,all,dry vertebrae,averaged,13.9,1.65,15,sd,subgroup,mm,close,,15
 lien2007,dry_sets,dry_caliper,this paper,pedicle_h,L4,all,dry vertebrae,averaged,12.75,2.25,15,sd,subgroup,mm,close,,15
 lien2007,dry_sets,dry_caliper,this paper,pedicle_h,L5,all,dry vertebrae,averaged,12.5,2.2,15,sd,subgroup,mm,close,,15
-lien2007,dry_sets,dry_caliper,this paper,pedicle_h,T1,all,dry vertebrae,mean of sides,8.7,,15,,subgroup,mm,close,,15
+lien2007,dry_sets,dry_caliper,this paper,pedicle_h,T1,all,dry vertebrae,averaged,8.65,1.05,15,sd,subgroup,mm,close,,15
 lien2007,dry_sets,dry_caliper,this paper,pedicle_h,T10,all,dry vertebrae,averaged,13.65,1.55,15,sd,subgroup,mm,close,,15
-lien2007,dry_sets,dry_caliper,this paper,pedicle_h,T11,all,dry vertebrae,mean of sides,15.1,,15,,subgroup,mm,close,,15
-lien2007,dry_sets,dry_caliper,this paper,pedicle_h,T12,all,dry vertebrae,mean of sides,15.1,,15,,subgroup,mm,close,,15
+lien2007,dry_sets,dry_caliper,this paper,pedicle_h,T11,all,dry vertebrae,averaged,15.1,1.35,15,sd,subgroup,mm,close,,15
+lien2007,dry_sets,dry_caliper,this paper,pedicle_h,T12,all,dry vertebrae,averaged,15.1,1.45,15,sd,subgroup,mm,close,,15
 lien2007,dry_sets,dry_caliper,this paper,pedicle_h,T2,all,dry vertebrae,averaged,10.3,0.85,15,sd,subgroup,mm,close,,15
 lien2007,dry_sets,dry_caliper,this paper,pedicle_h,T3,all,dry vertebrae,averaged,10.4,1.15,15,sd,subgroup,mm,close,,15
 lien2007,dry_sets,dry_caliper,this paper,pedicle_h,T4,all,dry vertebrae,averaged,10.3,1.1,15,sd,subgroup,mm,close,,15
@@ -943,15 +908,15 @@ lien2007,dry_sets,dry_caliper,this paper,pedicle_w,L1,all,dry vertebrae,averaged
 lien2007,dry_sets,dry_caliper,this paper,pedicle_w,L2,all,dry vertebrae,averaged,7.2,1.75,15,sd,subgroup,mm,close,,15
 lien2007,dry_sets,dry_caliper,this paper,pedicle_w,L3,all,dry vertebrae,averaged,9.15,1.85,15,sd,subgroup,mm,close,,15
 lien2007,dry_sets,dry_caliper,this paper,pedicle_w,L4,all,dry vertebrae,averaged,11.9,2.2,15,sd,subgroup,mm,close,,15
-lien2007,dry_sets,dry_caliper,this paper,pedicle_w,L5,all,dry vertebrae,mean of sides,17.6,,15,,subgroup,mm,close,,15
+lien2007,dry_sets,dry_caliper,this paper,pedicle_w,L5,all,dry vertebrae,averaged,17.6,2.65,15,sd,subgroup,mm,close,,15
 lien2007,dry_sets,dry_caliper,this paper,pedicle_w,T1,all,dry vertebrae,averaged,7.65,1.15,15,sd,subgroup,mm,close,,15
 lien2007,dry_sets,dry_caliper,this paper,pedicle_w,T10,all,dry vertebrae,averaged,5.65,1.3,15,sd,subgroup,mm,close,,15
 lien2007,dry_sets,dry_caliper,this paper,pedicle_w,T11,all,dry vertebrae,averaged,7.2,1.2,15,sd,subgroup,mm,close,,15
 lien2007,dry_sets,dry_caliper,this paper,pedicle_w,T12,all,dry vertebrae,averaged,7.55,1.45,15,sd,subgroup,mm,close,,15
 lien2007,dry_sets,dry_caliper,this paper,pedicle_w,T2,all,dry vertebrae,averaged,5.45,0.75,15,sd,subgroup,mm,close,,15
 lien2007,dry_sets,dry_caliper,this paper,pedicle_w,T3,all,dry vertebrae,averaged,4,0.75,15,sd,subgroup,mm,close,,15
-lien2007,dry_sets,dry_caliper,this paper,pedicle_w,T4,all,dry vertebrae,mean of sides,3.5,,15,,subgroup,mm,close,,15
-lien2007,dry_sets,dry_caliper,this paper,pedicle_w,T5,all,dry vertebrae,mean of sides,3.8,,15,,subgroup,mm,close,,15
+lien2007,dry_sets,dry_caliper,this paper,pedicle_w,T4,all,dry vertebrae,averaged,3.5,0.65,15,sd,subgroup,mm,close,,15
+lien2007,dry_sets,dry_caliper,this paper,pedicle_w,T5,all,dry vertebrae,averaged,3.8,0.75,15,sd,subgroup,mm,close,,15
 lien2007,dry_sets,dry_caliper,this paper,pedicle_w,T6,all,dry vertebrae,averaged,3.95,0.95,15,sd,subgroup,mm,close,,15
 lien2007,dry_sets,dry_caliper,this paper,pedicle_w,T7,all,dry vertebrae,averaged,4.4,1.05,15,sd,subgroup,mm,close,,15
 lien2007,dry_sets,dry_caliper,this paper,pedicle_w,T8,all,dry vertebrae,averaged,4.8,1.15,15,sd,subgroup,mm,close,,15
@@ -961,10 +926,10 @@ lien2007,dry_sets,dry_goniometer,this paper,pedicle_incl_sag,L2,all,dry vertebra
 lien2007,dry_sets,dry_goniometer,this paper,pedicle_incl_sag,L3,all,dry vertebrae,averaged,15.25,3.55,15,sd,subgroup,deg,close,,15
 lien2007,dry_sets,dry_goniometer,this paper,pedicle_incl_sag,L4,all,dry vertebrae,averaged,18.9,3.3,15,sd,subgroup,deg,close,,15
 lien2007,dry_sets,dry_goniometer,this paper,pedicle_incl_sag,L5,all,dry vertebrae,averaged,24.35,4.3,15,sd,subgroup,deg,close,,15
-lien2007,dry_sets,dry_goniometer,this paper,pedicle_incl_sag,T1,all,dry vertebrae,mean of sides,28.2,,15,,subgroup,deg,close,,15
+lien2007,dry_sets,dry_goniometer,this paper,pedicle_incl_sag,T1,all,dry vertebrae,averaged,28.2,4.3,15,sd,subgroup,deg,close,,15
 lien2007,dry_sets,dry_goniometer,this paper,pedicle_incl_sag,T10,all,dry vertebrae,averaged,9,1.4,15,sd,subgroup,deg,close,,15
 lien2007,dry_sets,dry_goniometer,this paper,pedicle_incl_sag,T11,all,dry vertebrae,averaged,8,1.45,15,sd,subgroup,deg,close,,15
-lien2007,dry_sets,dry_goniometer,this paper,pedicle_incl_sag,T12,all,dry vertebrae,mean of sides,7.9,,15,,subgroup,deg,close,,15
+lien2007,dry_sets,dry_goniometer,this paper,pedicle_incl_sag,T12,all,dry vertebrae,averaged,7.9,1.45,15,sd,subgroup,deg,close,,15
 lien2007,dry_sets,dry_goniometer,this paper,pedicle_incl_sag,T2,all,dry vertebrae,averaged,26.35,3.65,15,sd,subgroup,deg,close,,15
 lien2007,dry_sets,dry_goniometer,this paper,pedicle_incl_sag,T3,all,dry vertebrae,averaged,23.3,3.6,15,sd,subgroup,deg,close,,15
 lien2007,dry_sets,dry_goniometer,this paper,pedicle_incl_sag,T4,all,dry vertebrae,averaged,22.85,3,15,sd,subgroup,deg,close,,15
@@ -977,12 +942,12 @@ lien2007,dry_sets,dry_goniometer,this paper,pedicle_incl_trans,L1,all,dry verteb
 lien2007,dry_sets,dry_goniometer,this paper,pedicle_incl_trans,L2,all,dry vertebrae,averaged,5.45,1.2,15,sd,subgroup,deg,close,,15
 lien2007,dry_sets,dry_goniometer,this paper,pedicle_incl_trans,L3,all,dry vertebrae,averaged,5,0.75,15,sd,subgroup,deg,close,,15
 lien2007,dry_sets,dry_goniometer,this paper,pedicle_incl_trans,L4,all,dry vertebrae,averaged,3.35,0.7,15,sd,subgroup,deg,close,,15
-lien2007,dry_sets,dry_goniometer,this paper,pedicle_incl_trans,L5,all,dry vertebrae,mean of sides,2.9,,15,,subgroup,deg,close,,15
+lien2007,dry_sets,dry_goniometer,this paper,pedicle_incl_trans,L5,all,dry vertebrae,averaged,2.9,0.75,15,sd,subgroup,deg,close,,15
 lien2007,dry_sets,dry_goniometer,this paper,pedicle_incl_trans,T1,all,dry vertebrae,averaged,11.6,2.05,15,sd,subgroup,deg,close,,15
 lien2007,dry_sets,dry_goniometer,this paper,pedicle_incl_trans,T10,all,dry vertebrae,averaged,13.45,2,15,sd,subgroup,deg,close,,15
 lien2007,dry_sets,dry_goniometer,this paper,pedicle_incl_trans,T11,all,dry vertebrae,averaged,12.15,1.65,15,sd,subgroup,deg,close,,15
 lien2007,dry_sets,dry_goniometer,this paper,pedicle_incl_trans,T12,all,dry vertebrae,averaged,10.7,1.55,15,sd,subgroup,deg,close,,15
-lien2007,dry_sets,dry_goniometer,this paper,pedicle_incl_trans,T2,all,dry vertebrae,mean of sides,18.9,,15,,subgroup,deg,close,,15
+lien2007,dry_sets,dry_goniometer,this paper,pedicle_incl_trans,T2,all,dry vertebrae,averaged,18.9,3.3,15,sd,subgroup,deg,close,,15
 lien2007,dry_sets,dry_goniometer,this paper,pedicle_incl_trans,T3,all,dry vertebrae,averaged,16.6,2.45,15,sd,subgroup,deg,close,,15
 lien2007,dry_sets,dry_goniometer,this paper,pedicle_incl_trans,T4,all,dry vertebrae,averaged,15,2.15,15,sd,subgroup,deg,close,,15
 lien2007,dry_sets,dry_goniometer,this paper,pedicle_incl_trans,T5,all,dry vertebrae,averaged,17.85,2.5,15,sd,subgroup,deg,close,,15
@@ -1084,30 +1049,15 @@ masharawi2021,control,ct_axial_2d,this paper,facet_w_sup,L2,pooled,Control,avera
 masharawi2021,control,ct_axial_2d,this paper,facet_w_sup,L3,pooled,Control,averaged,17.2,2.16823,50,pooled from the sexes,sum of the sexes,mm,close,,50
 masharawi2021,control,ct_axial_2d,this paper,facet_w_sup,L4,pooled,Control,averaged,17.1925,2.11181,50,pooled from the sexes,sum of the sexes,mm,close,,50
 masharawi2021,control,ct_axial_2d,this paper,facet_w_sup,L5,pooled,Control,averaged,18.4425,2.95234,50,pooled from the sexes,sum of the sexes,mm,close,,50
-masharawi2021,control,ct_axial_2d,this paper,pedicle_w,L1,all,Israeli,both,7.3,,50,,subgroup,mm,close,,50
-masharawi2021,control,ct_axial_2d,this paper,pedicle_w,L1,male,DS,left,7.63,2.91,,sd,,mm,close,,50
-masharawi2021,control,ct_axial_2d,this paper,pedicle_w,L1,pooled,Control,mixed,7.2525,1.79826,50,pooled from the sexes,sum of the sexes,mm,close,,50
-masharawi2021,control,ct_axial_2d,this paper,pedicle_w,L2,all,Israeli,both,7.9,,50,,subgroup,mm,close,,50
-masharawi2021,control,ct_axial_2d,this paper,pedicle_w,L2,male,DS,left,8.83,2.48,,sd,,mm,close,,50
-masharawi2021,control,ct_axial_2d,this paper,pedicle_w,L2,pooled,Control,mixed,7.825,1.93719,50,pooled from the sexes,sum of the sexes,mm,close,,50
-masharawi2021,control,ct_axial_2d,this paper,pedicle_w,L3,all,Israeli,both,9.3,,50,,subgroup,mm,close,,50
-masharawi2021,control,ct_axial_2d,this paper,pedicle_w,L3,male,DS,left,10.5,2.66,,sd,,mm,close,,50
-masharawi2021,control,ct_axial_2d,this paper,pedicle_w,L3,pooled,Control,mixed,9.0575,2.54062,50,pooled from the sexes,sum of the sexes,mm,close,,50
-masharawi2021,control,ct_axial_2d,this paper,pedicle_w,L4,all,Israeli,both,10.4,,50,,subgroup,mm,close,,50
-masharawi2021,control,ct_axial_2d,this paper,pedicle_w,L4,male,DS,left,10.78,3.96,,sd,,mm,close,,50
-masharawi2021,control,ct_axial_2d,this paper,pedicle_w,L4,pooled,Control,mixed,10.3925,3.15433,50,pooled from the sexes,sum of the sexes,mm,close,,50
-masharawi2021,control,ct_axial_2d,this paper,pedicle_w,L5,all,Israeli,both,14.1,,50,,subgroup,mm,close,,50
-masharawi2021,control,ct_axial_2d,this paper,pedicle_w,L5,male,DS,left,15.51,4.56,,sd,,mm,close,,50
-masharawi2021,control,ct_axial_2d,this paper,pedicle_w,L5,pooled,Control,mixed,14.1,4.3236,50,pooled from the sexes,sum of the sexes,mm,close,,50
-masharawi2021,control,ct_parasagittal_2d,this paper,pedicle_h,L1,all,Israeli,both,12.4,,50,,subgroup,mm,close,,50
+masharawi2021,control,ct_axial_2d,this paper,pedicle_w,L1,pooled,Control,averaged,7.3225,2.01976,50,pooled from the sexes,sum of the sexes,mm,close,,50
+masharawi2021,control,ct_axial_2d,this paper,pedicle_w,L2,pooled,Control,averaged,7.925,2.04883,50,pooled from the sexes,sum of the sexes,mm,close,,50
+masharawi2021,control,ct_axial_2d,this paper,pedicle_w,L3,pooled,Control,averaged,9.3175,2.5096,50,pooled from the sexes,sum of the sexes,mm,close,,50
+masharawi2021,control,ct_axial_2d,this paper,pedicle_w,L4,pooled,Control,averaged,10.425,3.28851,50,pooled from the sexes,sum of the sexes,mm,close,,50
+masharawi2021,control,ct_axial_2d,this paper,pedicle_w,L5,pooled,Control,averaged,14.1325,4.3588,50,pooled from the sexes,sum of the sexes,mm,close,,50
 masharawi2021,control,ct_parasagittal_2d,this paper,pedicle_h,L1,pooled,Control,averaged,12.735,2.86616,50,pooled from the sexes,sum of the sexes,mm,close,,50
-masharawi2021,control,ct_parasagittal_2d,this paper,pedicle_h,L2,all,Israeli,both,12.06,,50,,subgroup,mm,close,,50
 masharawi2021,control,ct_parasagittal_2d,this paper,pedicle_h,L2,pooled,Control,averaged,11.9075,2.81989,50,pooled from the sexes,sum of the sexes,mm,close,,50
-masharawi2021,control,ct_parasagittal_2d,this paper,pedicle_h,L3,all,Israeli,both,12.03,,50,,subgroup,mm,close,,50
 masharawi2021,control,ct_parasagittal_2d,this paper,pedicle_h,L3,pooled,Control,averaged,12.035,2.5645,50,pooled from the sexes,sum of the sexes,mm,close,,50
-masharawi2021,control,ct_parasagittal_2d,this paper,pedicle_h,L4,all,Israeli,both,10.9,,50,,subgroup,mm,close,,50
 masharawi2021,control,ct_parasagittal_2d,this paper,pedicle_h,L4,pooled,Control,averaged,10.9175,2.87172,50,pooled from the sexes,sum of the sexes,mm,close,,50
-masharawi2021,control,ct_parasagittal_2d,this paper,pedicle_h,L5,all,Israeli,both,9.4,,50,,subgroup,mm,close,,50
 masharawi2021,control,ct_parasagittal_2d,this paper,pedicle_h,L5,pooled,Control,averaged,9.4175,2.83609,50,pooled from the sexes,sum of the sexes,mm,close,,50
 masharawi2021,ds,ct_axial_2d,this paper,canal_ap,L1,pooled,DS,,17.06,3.12372,50,pooled from the sexes,sum of the sexes,mm,same,,50
 masharawi2021,ds,ct_axial_2d,this paper,canal_ap,L2,pooled,DS,,16.255,3.44767,50,pooled from the sexes,sum of the sexes,mm,same,,50
@@ -1124,16 +1074,11 @@ masharawi2021,ds,ct_axial_2d,this paper,facet_w_sup,L2,pooled,DS,averaged,15.815
 masharawi2021,ds,ct_axial_2d,this paper,facet_w_sup,L3,pooled,DS,averaged,16.655,1.81699,50,pooled from the sexes,sum of the sexes,mm,close,,50
 masharawi2021,ds,ct_axial_2d,this paper,facet_w_sup,L4,pooled,DS,averaged,17.65,2.58627,50,pooled from the sexes,sum of the sexes,mm,close,,50
 masharawi2021,ds,ct_axial_2d,this paper,facet_w_sup,L5,pooled,DS,averaged,20.1025,3.43849,50,pooled from the sexes,sum of the sexes,mm,close,,50
-masharawi2021,ds,ct_axial_2d,this paper,pedicle_w,L1,male,Control,left,8,1.41,,sd,,mm,close,,50
-masharawi2021,ds,ct_axial_2d,this paper,pedicle_w,L1,pooled,DS,mixed,7.2375,1.99657,50,pooled from the sexes,sum of the sexes,mm,close,,50
-masharawi2021,ds,ct_axial_2d,this paper,pedicle_w,L2,male,Control,left,8.17,1.91,,sd,,mm,close,,50
-masharawi2021,ds,ct_axial_2d,this paper,pedicle_w,L2,pooled,DS,mixed,7.68,1.91377,50,pooled from the sexes,sum of the sexes,mm,close,,50
-masharawi2021,ds,ct_axial_2d,this paper,pedicle_w,L3,male,Control,left,10.67,1.6,,sd,,mm,close,,50
-masharawi2021,ds,ct_axial_2d,this paper,pedicle_w,L3,pooled,DS,mixed,9.975,2.29371,50,pooled from the sexes,sum of the sexes,mm,close,,50
-masharawi2021,ds,ct_axial_2d,this paper,pedicle_w,L4,male,Control,left,12.31,1.9,,sd,,mm,close,,50
-masharawi2021,ds,ct_axial_2d,this paper,pedicle_w,L4,pooled,DS,mixed,11.99,2.55646,50,pooled from the sexes,sum of the sexes,mm,close,,50
-masharawi2021,ds,ct_axial_2d,this paper,pedicle_w,L5,male,Control,left,16.09,3.12,,sd,,mm,close,,50
-masharawi2021,ds,ct_axial_2d,this paper,pedicle_w,L5,pooled,DS,mixed,15.8725,3.00099,50,pooled from the sexes,sum of the sexes,mm,close,,50
+masharawi2021,ds,ct_axial_2d,this paper,pedicle_w,L1,pooled,DS,averaged,7.16,1.81622,50,pooled from the sexes,sum of the sexes,mm,close,,50
+masharawi2021,ds,ct_axial_2d,this paper,pedicle_w,L2,pooled,DS,averaged,7.5125,1.88583,50,pooled from the sexes,sum of the sexes,mm,close,,50
+masharawi2021,ds,ct_axial_2d,this paper,pedicle_w,L3,pooled,DS,averaged,9.91,2.16021,50,pooled from the sexes,sum of the sexes,mm,close,,50
+masharawi2021,ds,ct_axial_2d,this paper,pedicle_w,L4,pooled,DS,averaged,11.87,2.37985,50,pooled from the sexes,sum of the sexes,mm,close,,50
+masharawi2021,ds,ct_axial_2d,this paper,pedicle_w,L5,pooled,DS,averaged,15.62,2.9728,50,pooled from the sexes,sum of the sexes,mm,close,,50
 masharawi2021,ds,ct_parasagittal_2d,this paper,pedicle_h,L1,pooled,DS,averaged,13.0025,2.6778,50,pooled from the sexes,sum of the sexes,mm,close,,50
 masharawi2021,ds,ct_parasagittal_2d,this paper,pedicle_h,L2,pooled,DS,averaged,12.375,2.60233,50,pooled from the sexes,sum of the sexes,mm,close,,50
 masharawi2021,ds,ct_parasagittal_2d,this paper,pedicle_h,L3,pooled,DS,averaged,12.4925,2.37099,50,pooled from the sexes,sum of the sexes,mm,close,,50
@@ -1335,26 +1280,26 @@ mitra2002,zindrick_85,cited_roentgenogram,Zindrick et al [27],pedicle_incl_trans
 moncadahabib2025,fig1_l3_example,ct_mpr_pacs_calipers,this paper,pedicle_incl_sag,L3,not stated,,,23.45,,1,,cohort,deg,close,,1
 moncadahabib2025,fig1_l3_example,ct_mpr_pacs_calipers,this paper,pedicle_incl_trans,L3,not stated,,,13.33,,1,,cohort,deg,differs,,1
 moncadahabib2025,fig1_l3_example,ct_mpr_pacs_calipers,this paper,pedicle_w,L3,not stated,,,9.22,,1,,cohort,mm,close,,1
-moncadahabib2025,mexico_ct37,ct_mpr_pacs_calipers,this paper,h_post,L1,all,,,26.89,1.83,37,sd,cohort,mm,close,,37
-moncadahabib2025,mexico_ct37,ct_mpr_pacs_calipers,this paper,h_post,L2,all,,,26.75,1.95,37,sd,cohort,mm,close,,37
-moncadahabib2025,mexico_ct37,ct_mpr_pacs_calipers,this paper,h_post,L3,all,,,26.11,2.43,37,sd,cohort,mm,close,,37
-moncadahabib2025,mexico_ct37,ct_mpr_pacs_calipers,this paper,h_post,L4,all,,,25,2.45,37,sd,cohort,mm,close,,37
-moncadahabib2025,mexico_ct37,ct_mpr_pacs_calipers,this paper,h_post,L5,all,,,22.49,2.71,37,sd,cohort,mm,close,,37
-moncadahabib2025,mexico_ct37,ct_mpr_pacs_calipers,this paper,pedicle_h,L1,all,,averaged,12.9,1.45,37,sd,cohort,mm,close,,37
-moncadahabib2025,mexico_ct37,ct_mpr_pacs_calipers,this paper,pedicle_h,L2,all,,averaged,12.4,1.7,37,sd,cohort,mm,close,,37
-moncadahabib2025,mexico_ct37,ct_mpr_pacs_calipers,this paper,pedicle_h,L3,all,,averaged,12.05,1.85,37,sd,cohort,mm,close,,37
-moncadahabib2025,mexico_ct37,ct_mpr_pacs_calipers,this paper,pedicle_h,L4,all,,averaged,11.1,1.55,37,sd,cohort,mm,close,,37
-moncadahabib2025,mexico_ct37,ct_mpr_pacs_calipers,this paper,pedicle_h,L5,all,,both,10.2,,37,,cohort,mm,close,,37
-moncadahabib2025,mexico_ct37,ct_mpr_pacs_calipers,this paper,pedicle_incl_sag,L1,all,,averaged,16.75,1.95,37,sd,cohort,deg,close,,37
-moncadahabib2025,mexico_ct37,ct_mpr_pacs_calipers,this paper,pedicle_incl_sag,L2,all,,averaged,16.45,2.15,37,sd,cohort,deg,close,,37
-moncadahabib2025,mexico_ct37,ct_mpr_pacs_calipers,this paper,pedicle_incl_sag,L3,all,,averaged,17,2.5,37,sd,cohort,deg,close,,37
-moncadahabib2025,mexico_ct37,ct_mpr_pacs_calipers,this paper,pedicle_incl_sag,L4,all,,averaged,18.6,1.9,37,sd,cohort,deg,close,,37
-moncadahabib2025,mexico_ct37,ct_mpr_pacs_calipers,this paper,pedicle_incl_sag,L5,all,,both,21.9,,37,,cohort,deg,close,,37
-moncadahabib2025,mexico_ct37,ct_mpr_pacs_calipers,this paper,pedicle_w,L1,all,,averaged,6.85,1.65,37,sd,cohort,mm,close,,37
-moncadahabib2025,mexico_ct37,ct_mpr_pacs_calipers,this paper,pedicle_w,L2,all,,averaged,7,1.55,37,sd,cohort,mm,close,,37
-moncadahabib2025,mexico_ct37,ct_mpr_pacs_calipers,this paper,pedicle_w,L3,all,,averaged,7.85,1.9,37,sd,cohort,mm,close,,37
-moncadahabib2025,mexico_ct37,ct_mpr_pacs_calipers,this paper,pedicle_w,L4,all,,averaged,9.1,1.85,37,sd,cohort,mm,close,,37
-moncadahabib2025,mexico_ct37,ct_mpr_pacs_calipers,this paper,pedicle_w,L5,all,,averaged,12.1,2.75,37,sd,cohort,mm,close,,37
+moncadahabib2025,mexico_ct37,ct_mpr_pacs_calipers,this paper,h_post,L1,all,,,26.89,1.83,37,sd,subgroup,mm,close,,37
+moncadahabib2025,mexico_ct37,ct_mpr_pacs_calipers,this paper,h_post,L2,all,,,26.75,1.95,37,sd,subgroup,mm,close,,37
+moncadahabib2025,mexico_ct37,ct_mpr_pacs_calipers,this paper,h_post,L3,all,,,26.11,2.43,37,sd,subgroup,mm,close,,37
+moncadahabib2025,mexico_ct37,ct_mpr_pacs_calipers,this paper,h_post,L4,all,,,25,2.45,37,sd,subgroup,mm,close,,37
+moncadahabib2025,mexico_ct37,ct_mpr_pacs_calipers,this paper,h_post,L5,all,,,22.49,2.71,37,sd,subgroup,mm,close,,37
+moncadahabib2025,mexico_ct37,ct_mpr_pacs_calipers,this paper,pedicle_h,L1,all,,averaged,12.9,1.45,37,sd,subgroup,mm,close,,37
+moncadahabib2025,mexico_ct37,ct_mpr_pacs_calipers,this paper,pedicle_h,L2,all,,averaged,12.4,1.7,37,sd,subgroup,mm,close,,37
+moncadahabib2025,mexico_ct37,ct_mpr_pacs_calipers,this paper,pedicle_h,L3,all,,averaged,12.05,1.85,37,sd,subgroup,mm,close,,37
+moncadahabib2025,mexico_ct37,ct_mpr_pacs_calipers,this paper,pedicle_h,L4,all,,averaged,11.1,1.55,37,sd,subgroup,mm,close,,37
+moncadahabib2025,mexico_ct37,ct_mpr_pacs_calipers,this paper,pedicle_h,L5,all,,averaged,10.2,1.5,37,sd,subgroup,mm,close,,37
+moncadahabib2025,mexico_ct37,ct_mpr_pacs_calipers,this paper,pedicle_incl_sag,L1,all,,averaged,16.75,1.95,37,sd,subgroup,deg,close,,37
+moncadahabib2025,mexico_ct37,ct_mpr_pacs_calipers,this paper,pedicle_incl_sag,L2,all,,averaged,16.45,2.15,37,sd,subgroup,deg,close,,37
+moncadahabib2025,mexico_ct37,ct_mpr_pacs_calipers,this paper,pedicle_incl_sag,L3,all,,averaged,17,2.5,37,sd,subgroup,deg,close,,37
+moncadahabib2025,mexico_ct37,ct_mpr_pacs_calipers,this paper,pedicle_incl_sag,L4,all,,averaged,18.6,1.9,37,sd,subgroup,deg,close,,37
+moncadahabib2025,mexico_ct37,ct_mpr_pacs_calipers,this paper,pedicle_incl_sag,L5,all,,averaged,21.9,2.65,37,sd,subgroup,deg,close,,37
+moncadahabib2025,mexico_ct37,ct_mpr_pacs_calipers,this paper,pedicle_w,L1,all,,averaged,6.85,1.65,37,sd,subgroup,mm,close,,37
+moncadahabib2025,mexico_ct37,ct_mpr_pacs_calipers,this paper,pedicle_w,L2,all,,averaged,7,1.55,37,sd,subgroup,mm,close,,37
+moncadahabib2025,mexico_ct37,ct_mpr_pacs_calipers,this paper,pedicle_w,L3,all,,averaged,7.85,1.9,37,sd,subgroup,mm,close,,37
+moncadahabib2025,mexico_ct37,ct_mpr_pacs_calipers,this paper,pedicle_w,L4,all,,averaged,9.1,1.85,37,sd,subgroup,mm,close,,37
+moncadahabib2025,mexico_ct37,ct_mpr_pacs_calipers,this paper,pedicle_w,L5,all,,averaged,12.1,2.75,37,sd,subgroup,mm,close,,37
 olsewski1990,part1_cadavers,direct_caliper_microscope,this paper,pedicle_h,L1,pooled,"Part 1 cadavers, direct",both,16.2362,2.01564,69,pooled from the sexes,sum of the sexes,mm,close,,49
 olsewski1990,part1_cadavers,direct_caliper_microscope,this paper,pedicle_h,L2,pooled,"Part 1 cadavers, direct",both,15.6845,2.12648,71,pooled from the sexes,sum of the sexes,mm,close,,49
 olsewski1990,part1_cadavers,direct_caliper_microscope,this paper,pedicle_h,L3,pooled,"Part 1 cadavers, direct",both,15.616,1.92835,75,pooled from the sexes,sum of the sexes,mm,close,,49
@@ -1466,7 +1411,7 @@ otsuki2021,rush_cadaver_6,microct_isthmus_dimensions,this paper,pedicle_w,L4,all
 otsuki2021,rush_cadaver_6,microct_isthmus_dimensions,this paper,pedicle_w,L5,all,,both,11.8,1.7,6,sd,subgroup,mm,close,,6
 robertson2000,auckland_drybone,coaxial_radiograph_wire,this paper,pedicle_h,L1,not stated,,averaged,19.25,3.55,10,sd,cohort,mm,close,,10
 robertson2000,auckland_drybone,coaxial_radiograph_wire,this paper,pedicle_h,L2,not stated,,averaged,18.65,3.1,10,sd,cohort,mm,close,,10
-robertson2000,auckland_drybone,coaxial_radiograph_wire,this paper,pedicle_h,L3,not stated,,averaged,18.65,7.75,10,sd,cohort,mm,close,,10
+robertson2000,auckland_drybone,coaxial_radiograph_wire,this paper,pedicle_h,L3,not stated,,right,18.7,2.5,10,sd,cohort,mm,close,,10
 robertson2000,auckland_drybone,coaxial_radiograph_wire,this paper,pedicle_h,L4,not stated,,averaged,17.6,2.75,10,sd,cohort,mm,close,,10
 robertson2000,auckland_drybone,coaxial_radiograph_wire,this paper,pedicle_h,L5,not stated,,averaged,18.55,3.1,10,sd,cohort,mm,close,,10
 robertson2000,auckland_drybone,coaxial_radiograph_wire,this paper,pedicle_w,L1,not stated,,averaged,9.9,2.5,10,sd,cohort,mm,close,,10
@@ -1764,13 +1709,13 @@ tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,this paper,pedicle_are
 tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,this paper,pedicle_h,C3,not stated,,averaged,6.75,0.632456,10,sem x root n,cohort,mm,same,,10
 tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,this paper,pedicle_h,C4,not stated,,averaged,6.65,0.632456,10,sem x root n,cohort,mm,same,,10
 tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,this paper,pedicle_h,C5,not stated,,averaged,6.1,0.790569,10,sem x root n,cohort,mm,same,,10
-tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,this paper,pedicle_h,C6,not stated,,both,6,,10,,cohort,mm,same,,10
+tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,this paper,pedicle_h,C6,not stated,,averaged,6,0.632456,10,sem x root n,cohort,mm,same,,10
 tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,this paper,pedicle_h,C7,not stated,,averaged,6.3,0.474342,10,sem x root n,cohort,mm,same,,10
 tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,this paper,pedicle_h,L1,not stated,,averaged,13.1,1.1068,10,sem x root n,cohort,mm,same,,10
 tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,this paper,pedicle_h,L2,not stated,,averaged,12.85,0.632456,10,sem x root n,cohort,mm,same,,10
 tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,this paper,pedicle_h,L3,not stated,,averaged,12.5,1.89737,10,sem x root n,cohort,mm,same,,10
 tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,this paper,pedicle_h,L4,not stated,,averaged,13.2,1.1068,10,sem x root n,cohort,mm,same,,10
-tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,this paper,pedicle_h,L5,not stated,,mean of sides,17.4,,10,,cohort,mm,same,,10
+tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,this paper,pedicle_h,L5,not stated,,averaged,17.4,1.1068,10,sem x root n,cohort,mm,same,,10
 tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,this paper,pedicle_h,T1,not stated,,averaged,8.5,0.790569,10,sem x root n,cohort,mm,same,,10
 tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,this paper,pedicle_h,T10,not stated,,averaged,12.9,0.632456,10,sem x root n,cohort,mm,same,,10
 tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,this paper,pedicle_h,T11,not stated,,averaged,14.25,0.790569,10,sem x root n,cohort,mm,same,,10
@@ -1792,8 +1737,8 @@ tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,this paper,pedicle_inc
 tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,this paper,pedicle_incl_sag,L2,not stated,,averaged,7.4,3.47851,10,sem x root n,cohort,deg,close,,10
 tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,this paper,pedicle_incl_sag,L3,not stated,,averaged,14.35,4.26907,10,sem x root n,cohort,deg,close,,10
 tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,this paper,pedicle_incl_sag,L4,not stated,,averaged,11.1,3.16228,10,sem x root n,cohort,deg,close,,10
-tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,this paper,pedicle_incl_sag,L5,not stated,,mean of sides,19.9,,10,,cohort,deg,close,,10
-tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,this paper,pedicle_incl_sag,T1,not stated,,,24,,10,,cohort,deg,close,,10
+tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,this paper,pedicle_incl_sag,L5,not stated,,averaged,19.9,3.00416,10,sem x root n,cohort,deg,close,,10
+tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,this paper,pedicle_incl_sag,T1,not stated,,averaged,24.2,4.42719,10,sem x root n,cohort,deg,close,,10
 tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,this paper,pedicle_incl_sag,T10,not stated,,averaged,-5.2,2.37171,10,sem x root n,cohort,deg,close,,10
 tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,this paper,pedicle_incl_sag,T11,not stated,,averaged,-6.85,3.79473,10,sem x root n,cohort,deg,close,,10
 tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,this paper,pedicle_incl_sag,T12,not stated,,averaged,-6.25,3.79473,10,sem x root n,cohort,deg,close,,10
@@ -1803,7 +1748,7 @@ tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,this paper,pedicle_inc
 tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,this paper,pedicle_incl_sag,T5,not stated,,averaged,9.45,5.37587,10,sem x root n,cohort,deg,close,,10
 tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,this paper,pedicle_incl_sag,T6,not stated,,averaged,7.15,3.47851,10,sem x root n,cohort,deg,close,,10
 tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,this paper,pedicle_incl_sag,T7,not stated,,averaged,6.9,4.11096,10,sem x root n,cohort,deg,close,,10
-tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,this paper,pedicle_incl_sag,T8,not stated,,mean of sides,8.6,,10,,cohort,deg,close,,10
+tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,this paper,pedicle_incl_sag,T8,not stated,,averaged,-8.6,4.42719,10,sem x root n,cohort,deg,close,,10
 tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,this paper,pedicle_incl_sag,T9,not stated,,averaged,-6.75,4.26907,10,sem x root n,cohort,deg,close,,10
 tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,this paper,pedicle_incl_trans,C3,not stated,,averaged,-5.65,3.16228,10,sem x root n,cohort,deg,same,,10
 tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,this paper,pedicle_incl_trans,C4,not stated,,averaged,-4.3,2.84605,10,sem x root n,cohort,deg,same,,10
@@ -1814,13 +1759,13 @@ tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,this paper,pedicle_inc
 tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,this paper,pedicle_incl_trans,L2,not stated,,averaged,-2.15,0.948683,10,sem x root n,cohort,deg,same,,10
 tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,this paper,pedicle_incl_trans,L3,not stated,,averaged,-3.8,2.21359,10,sem x root n,cohort,deg,same,,10
 tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,this paper,pedicle_incl_trans,L4,not stated,,averaged,-6.8,2.52982,10,sem x root n,cohort,deg,same,,10
-tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,this paper,pedicle_incl_trans,L5,not stated,,mean of sides,7,,10,,cohort,deg,same,,10
+tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,this paper,pedicle_incl_trans,L5,not stated,,averaged,-7.05,2.21359,10,sem x root n,cohort,deg,same,,10
 tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,this paper,pedicle_incl_trans,T1,not stated,,averaged,4.05,2.05548,10,sem x root n,cohort,deg,same,,10
 tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,this paper,pedicle_incl_trans,T10,not stated,,averaged,3.65,1.58114,10,sem x root n,cohort,deg,same,,10
 tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,this paper,pedicle_incl_trans,T11,not stated,,averaged,3.9,2.37171,10,sem x root n,cohort,deg,same,,10
 tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,this paper,pedicle_incl_trans,T12,not stated,,averaged,3.75,2.37171,10,sem x root n,cohort,deg,same,,10
 tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,this paper,pedicle_incl_trans,T2,not stated,,averaged,7.2,3.79473,10,sem x root n,cohort,deg,same,,10
-tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,this paper,pedicle_incl_trans,T3,not stated,,mean of sides,7.8,,10,,cohort,deg,same,,10
+tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,this paper,pedicle_incl_trans,T3,not stated,,averaged,7.8,3.32039,10,sem x root n,cohort,deg,same,,10
 tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,this paper,pedicle_incl_trans,T4,not stated,,averaged,4.55,2.52982,10,sem x root n,cohort,deg,same,,10
 tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,this paper,pedicle_incl_trans,T5,not stated,,averaged,6.2,3.32039,10,sem x root n,cohort,deg,same,,10
 tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,this paper,pedicle_incl_trans,T6,not stated,,averaged,6.25,2.52982,10,sem x root n,cohort,deg,same,,10
@@ -1836,7 +1781,7 @@ tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,this paper,pedicle_w,L
 tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,this paper,pedicle_w,L2,not stated,,averaged,6.3,0.948683,10,sem x root n,cohort,mm,same,,10
 tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,this paper,pedicle_w,L3,not stated,,averaged,7.6,0.632456,10,sem x root n,cohort,mm,same,,10
 tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,this paper,pedicle_w,L4,not stated,,averaged,8.85,1.26491,10,sem x root n,cohort,mm,same,,10
-tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,this paper,pedicle_w,L5,not stated,,mean of sides,11.6,,10,,cohort,mm,same,,10
+tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,this paper,pedicle_w,L5,not stated,,averaged,11.55,1.42302,10,sem x root n,cohort,mm,same,,10
 tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,this paper,pedicle_w,T1,not stated,,averaged,7.45,0.632456,10,sem x root n,cohort,mm,same,,10
 tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,this paper,pedicle_w,T10,not stated,,averaged,5.95,1.1068,10,sem x root n,cohort,mm,same,,10
 tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,this paper,pedicle_w,T11,not stated,,averaged,7,0.632456,10,sem x root n,cohort,mm,same,,10
@@ -1974,42 +1919,24 @@ tang2016,tan2004,tan_digitiser,Tan et al. [30],endplate_lower_area,L5,not stated
 tang2016,tan2004,tan_digitiser,Tan et al. [30],endplate_lower_depth,L3,not stated,,,30.2,0.4,10,sd,subgroup,mm,close,,10
 tang2016,tan2004,tan_digitiser,Tan et al. [30],endplate_lower_depth,L4,not stated,,,30.3,0.6,10,sd,subgroup,mm,close,,10
 tang2016,tan2004,tan_digitiser,Tan et al. [30],endplate_lower_depth,L5,not stated,,,28.7,0.4,10,sd,subgroup,mm,close,,10
-tang2016,utah_mri,mri_t2_oblique_transverse,Tang [31],endplate,L4,all,,,50.5,3.8,109,sd,cohort,mm,close,,109
-tang2016,utah_mri,mri_t2_oblique_transverse,Tang [31],endplate,L5,all,,,52.1,4,109,sd,cohort,mm,close,,109
-tang2016,utah_mri,mri_t2_oblique_transverse,Tang [31],endplate,S1,all,,,51.9,4.6,109,sd,cohort,mm,close,,109
-tang2016,utah_mri,mri_t2_oblique_transverse,Tang [31],endplate_area,L4,all,"MRI, in vivo",,1513,212,107,sd,subgroup,mm2,close,,109
-tang2016,utah_mri,mri_t2_oblique_transverse,Tang [31],endplate_area,L5,all,"MRI, in vivo",,1515,216,107,sd,subgroup,mm2,close,,109
-tang2016,utah_mri,mri_t2_oblique_transverse,Tang [31],endplate_area,S1,all,"MRI, in vivo",,1463,239,107,sd,subgroup,mm2,close,,109
-tang2016,utah_mri,mri_t2_oblique_transverse,Tang [31],endplate_depth,L4,all,,,37.2,2.6,109,sd,cohort,mm,close,,109
-tang2016,utah_mri,mri_t2_oblique_transverse,Tang [31],endplate_depth,L5,all,,,36.3,2.5,109,sd,cohort,mm,close,,109
-tang2016,utah_mri,mri_t2_oblique_transverse,Tang [31],endplate_depth,S1,all,,,35.7,3.2,109,sd,cohort,mm,close,,109
-tang2016,utah_mri,mri_t2_oblique_transverse,Tang [31],endplate_lower,L3,all,,,47.8,4.1,109,sd,cohort,mm,close,,109
-tang2016,utah_mri,mri_t2_oblique_transverse,Tang [31],endplate_lower,L4,all,,,47.9,4.1,109,sd,cohort,mm,close,,109
-tang2016,utah_mri,mri_t2_oblique_transverse,Tang [31],endplate_lower,L5,all,,,48.3,4.2,109,sd,cohort,mm,close,,109
-tang2016,utah_mri,mri_t2_oblique_transverse,Tang [31],endplate_lower_area,L3,all,"MRI, in vivo",,1385,214,107,sd,subgroup,mm2,close,,109
-tang2016,utah_mri,mri_t2_oblique_transverse,Tang [31],endplate_lower_area,L4,all,"MRI, in vivo",,1375,210,107,sd,subgroup,mm2,close,,109
-tang2016,utah_mri,mri_t2_oblique_transverse,Tang [31],endplate_lower_area,L5,all,"MRI, in vivo",,1308,223,107,sd,subgroup,mm2,close,,109
-tang2016,utah_mri,mri_t2_oblique_transverse,Tang [31],endplate_lower_depth,L3,all,,,35.9,2.8,109,sd,cohort,mm,close,,109
-tang2016,utah_mri,mri_t2_oblique_transverse,Tang [31],endplate_lower_depth,L4,all,,,35.8,2.9,109,sd,cohort,mm,close,,109
-tang2016,utah_mri,mri_t2_oblique_transverse,Tang [31],endplate_lower_depth,L5,all,,,35.2,3.1,109,sd,cohort,mm,close,,109
-tang2016,utah_mri,mri_t2_oblique_transverse,this paper,endplate,L4,all,,,50.5,3.8,107,sd,cell,count,close,,109
-tang2016,utah_mri,mri_t2_oblique_transverse,this paper,endplate,L5,all,,,52.1,4,105,sd,cell,count,close,,109
-tang2016,utah_mri,mri_t2_oblique_transverse,this paper,endplate,S1,all,,,51.9,4.6,83,sd,cell,count,close,,109
-tang2016,utah_mri,mri_t2_oblique_transverse,this paper,endplate_area,L4,all,,,1513,212,107,sd,cell,count,close,,109
-tang2016,utah_mri,mri_t2_oblique_transverse,this paper,endplate_area,L5,all,,,1515,216,105,sd,cell,count,close,,109
-tang2016,utah_mri,mri_t2_oblique_transverse,this paper,endplate_area,S1,all,,,1463,239,83,sd,cell,count,close,,109
-tang2016,utah_mri,mri_t2_oblique_transverse,this paper,endplate_depth,L4,all,,,37.2,2.6,107,sd,cell,count,close,,109
-tang2016,utah_mri,mri_t2_oblique_transverse,this paper,endplate_depth,L5,all,,,36.3,2.5,105,sd,cell,count,close,,109
-tang2016,utah_mri,mri_t2_oblique_transverse,this paper,endplate_depth,S1,all,,,35.7,3.2,83,sd,cell,count,close,,109
-tang2016,utah_mri,mri_t2_oblique_transverse,this paper,endplate_lower,L3,all,,,47.8,4.1,107,sd,cell,count,close,,109
-tang2016,utah_mri,mri_t2_oblique_transverse,this paper,endplate_lower,L4,all,,,47.9,4.1,105,sd,cell,count,close,,109
-tang2016,utah_mri,mri_t2_oblique_transverse,this paper,endplate_lower,L5,all,,,48.3,4.2,83,sd,cell,count,close,,109
-tang2016,utah_mri,mri_t2_oblique_transverse,this paper,endplate_lower_area,L3,all,,,1385,214,107,sd,cell,count,close,,109
-tang2016,utah_mri,mri_t2_oblique_transverse,this paper,endplate_lower_area,L4,all,,,1375,210,105,sd,cell,count,close,,109
-tang2016,utah_mri,mri_t2_oblique_transverse,this paper,endplate_lower_area,L5,all,,,1308,223,83,sd,cell,count,close,,109
-tang2016,utah_mri,mri_t2_oblique_transverse,this paper,endplate_lower_depth,L3,all,,,35.9,2.8,107,sd,cell,count,close,,109
-tang2016,utah_mri,mri_t2_oblique_transverse,this paper,endplate_lower_depth,L4,all,,,35.8,2.9,105,sd,cell,count,close,,109
-tang2016,utah_mri,mri_t2_oblique_transverse,this paper,endplate_lower_depth,L5,all,,,35.2,3.1,83,sd,cell,count,close,,109
+tang2016,utah_mri,mri_t2_oblique_transverse,this paper,endplate,L4,all,,,50.5,3.8,107,sd,cell,mm,close,,109
+tang2016,utah_mri,mri_t2_oblique_transverse,this paper,endplate,L5,all,,,52.1,4,105,sd,cell,mm,close,,109
+tang2016,utah_mri,mri_t2_oblique_transverse,this paper,endplate,S1,all,,,51.9,4.6,83,sd,cell,mm,close,,109
+tang2016,utah_mri,mri_t2_oblique_transverse,this paper,endplate_area,L4,all,,,1513,212,107,sd,cell,mm2,close,,109
+tang2016,utah_mri,mri_t2_oblique_transverse,this paper,endplate_area,L5,all,,,1515,216,105,sd,cell,mm2,close,,109
+tang2016,utah_mri,mri_t2_oblique_transverse,this paper,endplate_area,S1,all,,,1463,239,83,sd,cell,mm2,close,,109
+tang2016,utah_mri,mri_t2_oblique_transverse,this paper,endplate_depth,L4,all,,,37.2,2.6,107,sd,cell,mm,close,,109
+tang2016,utah_mri,mri_t2_oblique_transverse,this paper,endplate_depth,L5,all,,,36.3,2.5,105,sd,cell,mm,close,,109
+tang2016,utah_mri,mri_t2_oblique_transverse,this paper,endplate_depth,S1,all,,,35.7,3.2,83,sd,cell,mm,close,,109
+tang2016,utah_mri,mri_t2_oblique_transverse,this paper,endplate_lower,L3,all,,,47.8,4.1,107,sd,cell,mm,close,,109
+tang2016,utah_mri,mri_t2_oblique_transverse,this paper,endplate_lower,L4,all,,,47.9,4.1,105,sd,cell,mm,close,,109
+tang2016,utah_mri,mri_t2_oblique_transverse,this paper,endplate_lower,L5,all,,,48.3,4.2,83,sd,cell,mm,close,,109
+tang2016,utah_mri,mri_t2_oblique_transverse,this paper,endplate_lower_area,L3,all,,,1385,214,107,sd,cell,mm2,close,,109
+tang2016,utah_mri,mri_t2_oblique_transverse,this paper,endplate_lower_area,L4,all,,,1375,210,105,sd,cell,mm2,close,,109
+tang2016,utah_mri,mri_t2_oblique_transverse,this paper,endplate_lower_area,L5,all,,,1308,223,83,sd,cell,mm2,close,,109
+tang2016,utah_mri,mri_t2_oblique_transverse,this paper,endplate_lower_depth,L3,all,,,35.9,2.8,107,sd,cell,mm,close,,109
+tang2016,utah_mri,mri_t2_oblique_transverse,this paper,endplate_lower_depth,L4,all,,,35.8,2.9,105,sd,cell,mm,close,,109
+tang2016,utah_mri,mri_t2_oblique_transverse,this paper,endplate_lower_depth,L5,all,,,35.2,3.1,83,sd,cell,mm,close,,109
 tang2016,vanderhouwen2009,vanderhouwen_ct,van der Houwen et al. [15],endplate,L4,female,,,37.7,,31,,subgroup,mm,differs,,77
 tang2016,vanderhouwen2009,vanderhouwen_ct,van der Houwen et al. [15],endplate,L4,male,,,42.4,,46,,subgroup,mm,differs,,77
 tang2016,vanderhouwen2009,vanderhouwen_ct,van der Houwen et al. [15],endplate,L5,female,,,38.1,,31,,subgroup,mm,differs,,77
@@ -2196,9 +2123,7 @@ yu2015,chadha,cited_ct,Chadha et al,pedicle_w,L2,not stated,Indian,,7.26,,,,,mm,
 yu2015,chadha,cited_ct,Chadha et al,pedicle_w,L3,not stated,Indian,,8.43,,,,,mm,close,,
 yu2015,chadha,cited_ct,Chadha et al,pedicle_w,L4,not stated,Indian,,10.81,,,,,mm,close,,
 yu2015,chadha,cited_ct,Chadha et al,pedicle_w,L5,not stated,Indian,,13.47,,,,,mm,close,,
-yu2015,hamann_todd_503,direct_caliper,this paper,pedicle_h,L1,all,,mean of sides,15.75,,503,,cohort,not printed,close,,503
 yu2015,hamann_todd_503,direct_caliper,this paper,pedicle_h,L1,all,African American,mean of sides,15.74,1.42,222,sd,subgroup,mm,close,,503
-yu2015,hamann_todd_503,direct_caliper,this paper,pedicle_h,L1,all,American,mean of sides,15.75,,503,,subgroup,mm,close,,503
 yu2015,hamann_todd_503,direct_caliper,this paper,pedicle_h,L1,all,Caucasian,mean of sides,15.76,1.4,281,sd,subgroup,mm,close,,503
 yu2015,hamann_todd_503,direct_caliper,this paper,pedicle_h,L1,all,age 31-49 yr,mean of sides,15.68,1.39,215,sd,subgroup,mm,close,,503
 yu2015,hamann_todd_503,direct_caliper,this paper,pedicle_h,L1,all,age 50-69 yr,mean of sides,16.05,1.47,154,sd,subgroup,mm,close,,503
@@ -2212,9 +2137,8 @@ yu2015,hamann_todd_503,direct_caliper,this paper,pedicle_h,L1,all,body weight 46
 yu2015,hamann_todd_503,direct_caliper,this paper,pedicle_h,L1,all,body weight 55-63 kg,mean of sides,15.88,1.39,206,sd,subgroup,mm,close,,503
 yu2015,hamann_todd_503,direct_caliper,this paper,pedicle_h,L1,all,body weight <=45 kg,mean of sides,15.32,1.43,83,sd,subgroup,mm,close,,503
 yu2015,hamann_todd_503,direct_caliper,this paper,pedicle_h,L1,all,body weight >=64 kg,mean of sides,16.09,1.39,91,sd,subgroup,mm,close,,503
-yu2015,hamann_todd_503,direct_caliper,this paper,pedicle_h,L2,all,,averaged,15.065,,503,,cohort,mm,close,,503
+yu2015,hamann_todd_503,direct_caliper,this paper,pedicle_h,L1,pooled,,mean of sides,15.7507,1.40767,503,pooled from the sexes,sum of the sexes,mm,close,,503
 yu2015,hamann_todd_503,direct_caliper,this paper,pedicle_h,L2,all,African American,mean of sides,15.01,1.42,222,sd,subgroup,mm,close,,503
-yu2015,hamann_todd_503,direct_caliper,this paper,pedicle_h,L2,all,American,mean of sides,15.06,,503,,subgroup,mm,close,,503
 yu2015,hamann_todd_503,direct_caliper,this paper,pedicle_h,L2,all,Caucasian,mean of sides,15.11,1.26,281,sd,subgroup,mm,close,,503
 yu2015,hamann_todd_503,direct_caliper,this paper,pedicle_h,L2,all,age 31-49 yr,mean of sides,15.02,1.33,215,sd,subgroup,mm,close,,503
 yu2015,hamann_todd_503,direct_caliper,this paper,pedicle_h,L2,all,age 50-69 yr,mean of sides,15.35,1.31,154,sd,subgroup,mm,close,,503
@@ -2228,8 +2152,8 @@ yu2015,hamann_todd_503,direct_caliper,this paper,pedicle_h,L2,all,body weight 46
 yu2015,hamann_todd_503,direct_caliper,this paper,pedicle_h,L2,all,body weight 55-63 kg,mean of sides,15.23,1.3,206,sd,subgroup,mm,close,,503
 yu2015,hamann_todd_503,direct_caliper,this paper,pedicle_h,L2,all,body weight <=45 kg,mean of sides,14.46,1.29,83,sd,subgroup,mm,close,,503
 yu2015,hamann_todd_503,direct_caliper,this paper,pedicle_h,L2,all,body weight >=64 kg,mean of sides,15.4,1.31,91,sd,subgroup,mm,close,,503
+yu2015,hamann_todd_503,direct_caliper,this paper,pedicle_h,L2,pooled,,mean of sides,15.0643,1.33223,503,pooled from the sexes,sum of the sexes,mm,close,,503
 yu2015,hamann_todd_503,direct_caliper,this paper,pedicle_h,L3,all,African American,mean of sides,14.58,1.39,222,sd,subgroup,mm,close,,503
-yu2015,hamann_todd_503,direct_caliper,this paper,pedicle_h,L3,all,American,mean of sides,14.59,,503,,subgroup,mm,close,,503
 yu2015,hamann_todd_503,direct_caliper,this paper,pedicle_h,L3,all,Caucasian,mean of sides,14.59,1.25,281,sd,subgroup,mm,close,,503
 yu2015,hamann_todd_503,direct_caliper,this paper,pedicle_h,L3,all,age 31-49 yr,mean of sides,14.55,1.32,215,sd,subgroup,mm,close,,503
 yu2015,hamann_todd_503,direct_caliper,this paper,pedicle_h,L3,all,age 50-69 yr,mean of sides,14.78,1.34,154,sd,subgroup,mm,close,,503
@@ -2245,7 +2169,6 @@ yu2015,hamann_todd_503,direct_caliper,this paper,pedicle_h,L3,all,body weight <=
 yu2015,hamann_todd_503,direct_caliper,this paper,pedicle_h,L3,all,body weight >=64 kg,mean of sides,14.72,1.34,91,sd,subgroup,mm,close,,503
 yu2015,hamann_todd_503,direct_caliper,this paper,pedicle_h,L3,pooled,,mean of sides,14.5894,1.31154,503,pooled from the sexes,sum of the sexes,mm,close,,503
 yu2015,hamann_todd_503,direct_caliper,this paper,pedicle_h,L4,all,African American,mean of sides,13.82,1.37,222,sd,subgroup,mm,close,,503
-yu2015,hamann_todd_503,direct_caliper,this paper,pedicle_h,L4,all,American,mean of sides,13.81,,503,,subgroup,mm,close,,503
 yu2015,hamann_todd_503,direct_caliper,this paper,pedicle_h,L4,all,Caucasian,mean of sides,13.8,1.44,281,sd,subgroup,mm,close,,503
 yu2015,hamann_todd_503,direct_caliper,this paper,pedicle_h,L4,all,age 31-49 yr,mean of sides,13.68,1.39,215,sd,subgroup,mm,close,,503
 yu2015,hamann_todd_503,direct_caliper,this paper,pedicle_h,L4,all,age 50-69 yr,mean of sides,14.08,1.4,154,sd,subgroup,mm,close,,503
@@ -2260,9 +2183,7 @@ yu2015,hamann_todd_503,direct_caliper,this paper,pedicle_h,L4,all,body weight 55
 yu2015,hamann_todd_503,direct_caliper,this paper,pedicle_h,L4,all,body weight <=45 kg,mean of sides,13.47,1.48,83,sd,subgroup,mm,close,,503
 yu2015,hamann_todd_503,direct_caliper,this paper,pedicle_h,L4,all,body weight >=64 kg,mean of sides,13.94,1.48,91,sd,subgroup,mm,close,,503
 yu2015,hamann_todd_503,direct_caliper,this paper,pedicle_h,L4,pooled,,mean of sides,13.8138,1.4087,503,pooled from the sexes,sum of the sexes,mm,close,,503
-yu2015,hamann_todd_503,direct_caliper,this paper,pedicle_h,L5,all,,mean of sides,13.67,,503,,cohort,not printed,close,,503
 yu2015,hamann_todd_503,direct_caliper,this paper,pedicle_h,L5,all,African American,mean of sides,13.58,1.69,222,sd,subgroup,mm,close,,503
-yu2015,hamann_todd_503,direct_caliper,this paper,pedicle_h,L5,all,American,mean of sides,13.67,,503,,subgroup,mm,close,,503
 yu2015,hamann_todd_503,direct_caliper,this paper,pedicle_h,L5,all,Caucasian,mean of sides,13.75,1.62,281,sd,subgroup,mm,close,,503
 yu2015,hamann_todd_503,direct_caliper,this paper,pedicle_h,L5,all,age 31-49 yr,mean of sides,13.49,1.55,215,sd,subgroup,mm,close,,503
 yu2015,hamann_todd_503,direct_caliper,this paper,pedicle_h,L5,all,age 50-69 yr,mean of sides,13.92,1.83,154,sd,subgroup,mm,close,,503
@@ -2276,9 +2197,8 @@ yu2015,hamann_todd_503,direct_caliper,this paper,pedicle_h,L5,all,body weight 46
 yu2015,hamann_todd_503,direct_caliper,this paper,pedicle_h,L5,all,body weight 55-63 kg,mean of sides,13.68,1.62,206,sd,subgroup,mm,close,,503
 yu2015,hamann_todd_503,direct_caliper,this paper,pedicle_h,L5,all,body weight <=45 kg,mean of sides,13.43,1.63,83,sd,subgroup,mm,close,,503
 yu2015,hamann_todd_503,direct_caliper,this paper,pedicle_h,L5,all,body weight >=64 kg,mean of sides,13.8,1.68,91,sd,subgroup,mm,close,,503
-yu2015,hamann_todd_503,direct_caliper,this paper,pedicle_w,L1,all,,mean of sides,8.53,,503,,cohort,not printed,close,,503
+yu2015,hamann_todd_503,direct_caliper,this paper,pedicle_h,L5,pooled,,mean of sides,13.6776,1.65799,503,pooled from the sexes,sum of the sexes,mm,close,,503
 yu2015,hamann_todd_503,direct_caliper,this paper,pedicle_w,L1,all,African American,mean of sides,8.88,2.12,222,sd,subgroup,mm,close,,503
-yu2015,hamann_todd_503,direct_caliper,this paper,pedicle_w,L1,all,American,mean of sides,8.52,,503,,subgroup,mm,close,,503
 yu2015,hamann_todd_503,direct_caliper,this paper,pedicle_w,L1,all,Caucasian,mean of sides,8.24,1.9,281,sd,subgroup,mm,close,,503
 yu2015,hamann_todd_503,direct_caliper,this paper,pedicle_w,L1,all,age 31-49 yr,mean of sides,8.48,1.98,215,sd,subgroup,mm,close,,503
 yu2015,hamann_todd_503,direct_caliper,this paper,pedicle_w,L1,all,age 50-69 yr,mean of sides,8.68,2.1,154,sd,subgroup,mm,close,,503
@@ -2292,8 +2212,8 @@ yu2015,hamann_todd_503,direct_caliper,this paper,pedicle_w,L1,all,body weight 46
 yu2015,hamann_todd_503,direct_caliper,this paper,pedicle_w,L1,all,body weight 55-63 kg,mean of sides,8.76,1.95,206,sd,subgroup,mm,close,,503
 yu2015,hamann_todd_503,direct_caliper,this paper,pedicle_w,L1,all,body weight <=45 kg,mean of sides,7.94,2,83,sd,subgroup,mm,close,,503
 yu2015,hamann_todd_503,direct_caliper,this paper,pedicle_w,L1,all,body weight >=64 kg,mean of sides,9.01,2.29,91,sd,subgroup,mm,close,,503
+yu2015,hamann_todd_503,direct_caliper,this paper,pedicle_w,L1,pooled,,mean of sides,8.52179,2.02847,503,pooled from the sexes,sum of the sexes,mm,close,,503
 yu2015,hamann_todd_503,direct_caliper,this paper,pedicle_w,L2,all,African American,mean of sides,8.86,1.84,222,sd,subgroup,mm,close,,503
-yu2015,hamann_todd_503,direct_caliper,this paper,pedicle_w,L2,all,American,mean of sides,8.66,,503,,subgroup,mm,close,,503
 yu2015,hamann_todd_503,direct_caliper,this paper,pedicle_w,L2,all,Caucasian,mean of sides,8.5,1.74,281,sd,subgroup,mm,close,,503
 yu2015,hamann_todd_503,direct_caliper,this paper,pedicle_w,L2,all,age 31-49 yr,mean of sides,8.63,1.65,215,sd,subgroup,mm,close,,503
 yu2015,hamann_todd_503,direct_caliper,this paper,pedicle_w,L2,all,age 50-69 yr,mean of sides,8.83,1.99,154,sd,subgroup,mm,close,,503
@@ -2309,7 +2229,6 @@ yu2015,hamann_todd_503,direct_caliper,this paper,pedicle_w,L2,all,body weight <=
 yu2015,hamann_todd_503,direct_caliper,this paper,pedicle_w,L2,all,body weight >=64 kg,mean of sides,9.13,1.92,91,sd,subgroup,mm,close,,503
 yu2015,hamann_todd_503,direct_caliper,this paper,pedicle_w,L2,pooled,,mean of sides,8.66163,1.79191,503,pooled from the sexes,sum of the sexes,mm,close,,503
 yu2015,hamann_todd_503,direct_caliper,this paper,pedicle_w,L3,all,African American,mean of sides,10.5,1.95,222,sd,subgroup,mm,close,,503
-yu2015,hamann_todd_503,direct_caliper,this paper,pedicle_w,L3,all,American,mean of sides,10.46,,503,,subgroup,mm,close,,503
 yu2015,hamann_todd_503,direct_caliper,this paper,pedicle_w,L3,all,Caucasian,mean of sides,10.43,1.93,281,sd,subgroup,mm,close,,503
 yu2015,hamann_todd_503,direct_caliper,this paper,pedicle_w,L3,all,age 31-49 yr,mean of sides,10.37,1.73,215,sd,subgroup,mm,close,,503
 yu2015,hamann_todd_503,direct_caliper,this paper,pedicle_w,L3,all,age 50-69 yr,mean of sides,10.73,2.2,154,sd,subgroup,mm,close,,503
@@ -2325,7 +2244,6 @@ yu2015,hamann_todd_503,direct_caliper,this paper,pedicle_w,L3,all,body weight <=
 yu2015,hamann_todd_503,direct_caliper,this paper,pedicle_w,L3,all,body weight >=64 kg,mean of sides,10.87,2.01,91,sd,subgroup,mm,close,,503
 yu2015,hamann_todd_503,direct_caliper,this paper,pedicle_w,L3,pooled,,mean of sides,10.4601,1.93598,503,pooled from the sexes,sum of the sexes,mm,close,,503
 yu2015,hamann_todd_503,direct_caliper,this paper,pedicle_w,L4,all,African American,mean of sides,13.14,2.03,222,sd,subgroup,mm,close,,503
-yu2015,hamann_todd_503,direct_caliper,this paper,pedicle_w,L4,all,American,mean of sides,13.19,,503,,subgroup,mm,close,,503
 yu2015,hamann_todd_503,direct_caliper,this paper,pedicle_w,L4,all,Caucasian,mean of sides,13.22,1.98,281,sd,subgroup,mm,close,,503
 yu2015,hamann_todd_503,direct_caliper,this paper,pedicle_w,L4,all,age 31-49 yr,mean of sides,13.14,1.78,215,sd,subgroup,mm,close,,503
 yu2015,hamann_todd_503,direct_caliper,this paper,pedicle_w,L4,all,age 50-69 yr,mean of sides,13.5,2.19,154,sd,subgroup,mm,close,,503
@@ -2340,9 +2258,7 @@ yu2015,hamann_todd_503,direct_caliper,this paper,pedicle_w,L4,all,body weight 55
 yu2015,hamann_todd_503,direct_caliper,this paper,pedicle_w,L4,all,body weight <=45 kg,mean of sides,12.46,2.06,83,sd,subgroup,mm,close,,503
 yu2015,hamann_todd_503,direct_caliper,this paper,pedicle_w,L4,all,body weight >=64 kg,mean of sides,13.68,1.95,91,sd,subgroup,mm,close,,503
 yu2015,hamann_todd_503,direct_caliper,this paper,pedicle_w,L4,pooled,,mean of sides,13.1903,1.99553,503,pooled from the sexes,sum of the sexes,mm,close,,503
-yu2015,hamann_todd_503,direct_caliper,this paper,pedicle_w,L5,all,,mean of sides,18.33,,503,,cohort,not printed,close,,503
 yu2015,hamann_todd_503,direct_caliper,this paper,pedicle_w,L5,all,African American,mean of sides,17.86,2.41,222,sd,subgroup,mm,close,,503
-yu2015,hamann_todd_503,direct_caliper,this paper,pedicle_w,L5,all,American,mean of sides,18.33,,503,,subgroup,mm,close,,503
 yu2015,hamann_todd_503,direct_caliper,this paper,pedicle_w,L5,all,Caucasian,mean of sides,18.69,2.4,281,sd,subgroup,mm,close,,503
 yu2015,hamann_todd_503,direct_caliper,this paper,pedicle_w,L5,all,age 31-49 yr,mean of sides,18.25,2.25,215,sd,subgroup,mm,close,,503
 yu2015,hamann_todd_503,direct_caliper,this paper,pedicle_w,L5,all,age 50-69 yr,mean of sides,18.74,2.55,154,sd,subgroup,mm,close,,503
@@ -2356,6 +2272,7 @@ yu2015,hamann_todd_503,direct_caliper,this paper,pedicle_w,L5,all,body weight 46
 yu2015,hamann_todd_503,direct_caliper,this paper,pedicle_w,L5,all,body weight 55-63 kg,mean of sides,18.68,2.48,206,sd,subgroup,mm,close,,503
 yu2015,hamann_todd_503,direct_caliper,this paper,pedicle_w,L5,all,body weight <=45 kg,mean of sides,17.39,2.33,83,sd,subgroup,mm,close,,503
 yu2015,hamann_todd_503,direct_caliper,this paper,pedicle_w,L5,all,body weight >=64 kg,mean of sides,18.87,2.47,91,sd,subgroup,mm,close,,503
+yu2015,hamann_todd_503,direct_caliper,this paper,pedicle_w,L5,pooled,,mean of sides,18.3253,2.4384,503,pooled from the sexes,sum of the sexes,mm,close,,503
 yu2015,hou,cited_direct_caliper,Hou et al,pedicle_h,L1,not stated,Chinese,,15.8,,40,,subgroup,mm,close,,
 yu2015,hou,cited_direct_caliper,Hou et al,pedicle_h,L2,not stated,Chinese,,15.1,,40,,subgroup,mm,close,,
 yu2015,hou,cited_direct_caliper,Hou et al,pedicle_h,L3,not stated,Chinese,,14.7,,40,,subgroup,mm,close,,
@@ -2421,71 +2338,71 @@ yu2015,zindrick_mean_values,cited_ct,Zindrick et al,pedicle_w,L2,not stated,Mean
 yu2015,zindrick_mean_values,cited_ct,Zindrick et al,pedicle_w,L3,not stated,Mean Values,,9.99,,,,,mm,close,,
 yu2015,zindrick_mean_values,cited_ct,Zindrick et al,pedicle_w,L4,not stated,Mean Values,,12.32,,,,,mm,close,,
 yu2015,zindrick_mean_values,cited_ct,Zindrick et al,pedicle_w,L5,not stated,Mean Values,,16.98,,,,,mm,close,,
-zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,this paper,pedicle_h,L1,not stated,,both,15.4,2.8,,sd,,mm,close,,
-zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,this paper,pedicle_h,L2,not stated,,both,15,1.5,,sd,,mm,close,,
-zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,this paper,pedicle_h,L3,not stated,,both,14.9,2.4,,sd,,mm,close,,
-zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,this paper,pedicle_h,L4,not stated,,both,14.8,2.1,,sd,,mm,close,,
-zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,this paper,pedicle_h,L5,not stated,,both,14,2.3,,sd,,mm,close,,
-zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,this paper,pedicle_h,T1,not stated,,both,9.9,2,,sd,,mm,close,,
-zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,this paper,pedicle_h,T10,not stated,,both,15.2,2,,sd,,mm,close,,
-zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,this paper,pedicle_h,T11,not stated,,both,17.4,2.5,,sd,,mm,close,,
-zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,this paper,pedicle_h,T12,not stated,,both,15.8,2.4,,sd,,mm,close,,
-zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,this paper,pedicle_h,T2,not stated,,both,12,1.2,,sd,,mm,close,,
-zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,this paper,pedicle_h,T3,not stated,,both,12.4,1.3,,sd,,mm,close,,
-zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,this paper,pedicle_h,T4,not stated,,both,12.1,1,,sd,,mm,close,,
-zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,this paper,pedicle_h,T5,not stated,,both,11.9,1.4,,sd,,mm,close,,
-zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,this paper,pedicle_h,T6,not stated,,both,12.2,1,,sd,,mm,close,,
-zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,this paper,pedicle_h,T7,not stated,,both,12.1,1,,sd,,mm,close,,
-zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,this paper,pedicle_h,T8,not stated,,both,12.8,1.2,,sd,,mm,close,,
-zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,this paper,pedicle_h,T9,not stated,,both,13.8,1.3,,sd,,mm,close,,
-zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,this paper,pedicle_incl_sag,L1,not stated,,both,10.9,2.2,,sd,,deg,close,,
-zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,this paper,pedicle_incl_sag,L2,not stated,,both,12,3.5,,sd,,deg,close,,
-zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,this paper,pedicle_incl_sag,L3,not stated,,both,14.4,3.8,,sd,,deg,close,,
-zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,this paper,pedicle_incl_sag,L4,not stated,,both,17.7,5.2,,sd,,deg,close,,
-zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,this paper,pedicle_incl_sag,L5,not stated,,both,29.8,6.3,,sd,,deg,close,,
-zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,this paper,pedicle_incl_sag,T1,not stated,,both,26.6,5.6,,sd,,deg,close,,
-zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,this paper,pedicle_incl_sag,T10,not stated,,both,4.6,4.6,,sd,,deg,close,,
-zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,this paper,pedicle_incl_sag,T11,not stated,,both,1.2,4.4,,sd,,deg,close,,
-zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,this paper,pedicle_incl_sag,T12,not stated,,both,-4.2,9.5,,sd,,deg,close,,
-zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,this paper,pedicle_incl_sag,T2,not stated,,both,19.1,7.1,,sd,,deg,close,,
-zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,this paper,pedicle_incl_sag,T3,not stated,,both,14.6,4.4,,sd,,deg,close,,
-zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,this paper,pedicle_incl_sag,T4,not stated,,both,12.6,4.1,,sd,,deg,close,,
-zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,this paper,pedicle_incl_sag,T5,not stated,,both,9.4,4.4,,sd,,deg,close,,
-zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,this paper,pedicle_incl_sag,T6,not stated,,both,9.6,4.5,,sd,,deg,close,,
-zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,this paper,pedicle_incl_sag,T7,not stated,,both,8.7,4.7,,sd,,deg,close,,
-zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,this paper,pedicle_incl_sag,T8,not stated,,both,8.1,5.2,,sd,,deg,close,,
-zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,this paper,pedicle_incl_sag,T9,not stated,,both,7.6,2.8,,sd,,deg,close,,
-zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,this paper,pedicle_incl_trans,L1,not stated,,both,2.4,6.3,,sd,,deg,close,,
-zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,this paper,pedicle_incl_trans,L2,not stated,,both,1.8,5.5,,sd,,deg,close,,
-zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,this paper,pedicle_incl_trans,L3,not stated,,both,0.2,4.7,,sd,,deg,close,,
-zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,this paper,pedicle_incl_trans,L4,not stated,,both,0.2,3.9,,sd,,deg,close,,
-zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,this paper,pedicle_incl_trans,L5,not stated,,both,-1.8,3.5,,sd,,deg,close,,
-zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,this paper,pedicle_incl_trans,T1,not stated,,both,12.6,5.8,,sd,,deg,close,,
-zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,this paper,pedicle_incl_trans,T10,not stated,,both,16.8,5.3,,sd,,deg,close,,
-zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,this paper,pedicle_incl_trans,T11,not stated,,both,15.4,4.9,,sd,,deg,close,,
-zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,this paper,pedicle_incl_trans,T12,not stated,,both,11.6,2.6,,sd,,deg,close,,
-zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,this paper,pedicle_incl_trans,T2,not stated,,both,17.5,7.7,,sd,,deg,close,,
-zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,this paper,pedicle_incl_trans,T3,not stated,,both,17.3,6,,sd,,deg,close,,
-zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,this paper,pedicle_incl_trans,T4,not stated,,both,16.3,4.4,,sd,,deg,close,,
-zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,this paper,pedicle_incl_trans,T5,not stated,,both,15,3.4,,sd,,deg,close,,
-zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,this paper,pedicle_incl_trans,T6,not stated,,both,15,4.2,,sd,,deg,close,,
-zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,this paper,pedicle_incl_trans,T7,not stated,,both,15.7,4.2,,sd,,deg,close,,
-zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,this paper,pedicle_incl_trans,T8,not stated,,both,16.6,4.1,,sd,,deg,close,,
-zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,this paper,pedicle_incl_trans,T9,not stated,,both,16,3.8,,sd,,deg,close,,
-zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,this paper,pedicle_w,L1,not stated,,both,8.7,2.3,,sd,,mm,close,,
-zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,this paper,pedicle_w,L2,not stated,,both,8.9,2.2,,sd,,mm,close,,
-zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,this paper,pedicle_w,L3,not stated,,both,10.3,2.6,,sd,,mm,close,,
-zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,this paper,pedicle_w,L4,not stated,,both,12.9,2.1,,sd,,mm,close,,
-zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,this paper,pedicle_w,L5,not stated,,both,18,4.1,,sd,,mm,close,,
-zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,this paper,pedicle_w,T1,not stated,,both,7.9,1.4,,sd,,mm,close,,
-zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,this paper,pedicle_w,T10,not stated,,both,6.3,1.7,,sd,,mm,close,,
-zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,this paper,pedicle_w,T11,not stated,,both,7.8,2,,sd,,mm,close,,
-zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,this paper,pedicle_w,T12,not stated,,both,7.1,2.3,,sd,,mm,close,,
-zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,this paper,pedicle_w,T2,not stated,,both,7,1.8,,sd,,mm,close,,
-zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,this paper,pedicle_w,T3,not stated,,both,5.6,1.4,,sd,,mm,close,,
-zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,this paper,pedicle_w,T4,not stated,,both,4.7,1.3,,sd,,mm,close,,
-zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,this paper,pedicle_w,T5,not stated,,both,4.5,0.9,,sd,,mm,close,,
-zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,this paper,pedicle_w,T6,not stated,,both,5.2,1,,sd,,mm,close,,
-zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,this paper,pedicle_w,T7,not stated,,both,5.3,1,,sd,,mm,close,,
-zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,this paper,pedicle_w,T8,not stated,,both,5.9,1.6,,sd,,mm,close,,
-zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,this paper,pedicle_w,T9,not stated,,both,6.1,1.5,,sd,,mm,close,,
+zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,this paper,pedicle_h,L1,not stated,,both,15.4,2.8,21,sd,level,mm,close,,
+zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,this paper,pedicle_h,L2,not stated,,both,15,1.5,23,sd,level,mm,close,,
+zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,this paper,pedicle_h,L3,not stated,,both,14.9,2.4,27,sd,level,mm,close,,
+zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,this paper,pedicle_h,L4,not stated,,both,14.8,2.1,51,sd,level,mm,close,,
+zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,this paper,pedicle_h,L5,not stated,,both,14,2.3,52,sd,level,mm,close,,
+zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,this paper,pedicle_h,T1,not stated,,both,9.9,2,28,sd,level,mm,close,,
+zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,this paper,pedicle_h,T10,not stated,,both,15.2,2,29,sd,level,mm,close,,
+zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,this paper,pedicle_h,T11,not stated,,both,17.4,2.5,30,sd,level,mm,close,,
+zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,this paper,pedicle_h,T12,not stated,,both,15.8,2.4,24,sd,level,mm,close,,
+zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,this paper,pedicle_h,T2,not stated,,both,12,1.2,32,sd,level,mm,close,,
+zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,this paper,pedicle_h,T3,not stated,,both,12.4,1.3,40,sd,level,mm,close,,
+zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,this paper,pedicle_h,T4,not stated,,both,12.1,1,38,sd,level,mm,close,,
+zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,this paper,pedicle_h,T5,not stated,,both,11.9,1.4,42,sd,level,mm,close,,
+zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,this paper,pedicle_h,T6,not stated,,both,12.2,1,44,sd,level,mm,close,,
+zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,this paper,pedicle_h,T7,not stated,,both,12.1,1,39,sd,level,mm,close,,
+zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,this paper,pedicle_h,T8,not stated,,both,12.8,1.2,43,sd,level,mm,close,,
+zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,this paper,pedicle_h,T9,not stated,,both,13.8,1.3,32,sd,level,mm,close,,
+zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,this paper,pedicle_incl_sag,L1,not stated,,both,10.9,2.2,26,sd,level,deg,close,,
+zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,this paper,pedicle_incl_sag,L2,not stated,,both,12,3.5,38,sd,level,deg,close,,
+zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,this paper,pedicle_incl_sag,L3,not stated,,both,14.4,3.8,68,sd,level,deg,close,,
+zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,this paper,pedicle_incl_sag,L4,not stated,,both,17.7,5.2,76,sd,level,deg,close,,
+zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,this paper,pedicle_incl_sag,L5,not stated,,both,29.8,6.3,76,sd,level,deg,close,,
+zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,this paper,pedicle_incl_sag,T1,not stated,,both,26.6,5.6,24,sd,level,deg,close,,
+zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,this paper,pedicle_incl_sag,T10,not stated,,both,4.6,4.6,20,sd,level,deg,close,,
+zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,this paper,pedicle_incl_sag,T11,not stated,,both,1.2,4.4,24,sd,level,deg,close,,
+zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,this paper,pedicle_incl_sag,T12,not stated,,both,-4.2,9.5,24,sd,level,deg,close,,
+zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,this paper,pedicle_incl_sag,T2,not stated,,both,19.1,7.1,26,sd,level,deg,close,,
+zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,this paper,pedicle_incl_sag,T3,not stated,,both,14.6,4.4,28,sd,level,deg,close,,
+zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,this paper,pedicle_incl_sag,T4,not stated,,both,12.6,4.1,28,sd,level,deg,close,,
+zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,this paper,pedicle_incl_sag,T5,not stated,,both,9.4,4.4,36,sd,level,deg,close,,
+zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,this paper,pedicle_incl_sag,T6,not stated,,both,9.6,4.5,30,sd,level,deg,close,,
+zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,this paper,pedicle_incl_sag,T7,not stated,,both,8.7,4.7,32,sd,level,deg,close,,
+zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,this paper,pedicle_incl_sag,T8,not stated,,both,8.1,5.2,42,sd,level,deg,close,,
+zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,this paper,pedicle_incl_sag,T9,not stated,,both,7.6,2.8,30,sd,level,deg,close,,
+zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,this paper,pedicle_incl_trans,L1,not stated,,both,2.4,6.3,22,sd,level,deg,close,,
+zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,this paper,pedicle_incl_trans,L2,not stated,,both,1.8,5.5,20,sd,level,deg,close,,
+zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,this paper,pedicle_incl_trans,L3,not stated,,both,0.2,4.7,28,sd,level,deg,close,,
+zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,this paper,pedicle_incl_trans,L4,not stated,,both,0.2,3.9,52,sd,level,deg,close,,
+zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,this paper,pedicle_incl_trans,L5,not stated,,both,-1.8,3.5,47,sd,level,deg,close,,
+zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,this paper,pedicle_incl_trans,T1,not stated,,both,12.6,5.8,21,sd,level,deg,close,,
+zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,this paper,pedicle_incl_trans,T10,not stated,,both,16.8,5.3,26,sd,level,deg,close,,
+zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,this paper,pedicle_incl_trans,T11,not stated,,both,15.4,4.9,27,sd,level,deg,close,,
+zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,this paper,pedicle_incl_trans,T12,not stated,,both,11.6,2.6,20,sd,level,deg,close,,
+zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,this paper,pedicle_incl_trans,T2,not stated,,both,17.5,7.7,25,sd,level,deg,close,,
+zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,this paper,pedicle_incl_trans,T3,not stated,,both,17.3,6,34,sd,level,deg,close,,
+zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,this paper,pedicle_incl_trans,T4,not stated,,both,16.3,4.4,33,sd,level,deg,close,,
+zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,this paper,pedicle_incl_trans,T5,not stated,,both,15,3.4,28,sd,level,deg,close,,
+zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,this paper,pedicle_incl_trans,T6,not stated,,both,15,4.2,40,sd,level,deg,close,,
+zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,this paper,pedicle_incl_trans,T7,not stated,,both,15.7,4.2,36,sd,level,deg,close,,
+zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,this paper,pedicle_incl_trans,T8,not stated,,both,16.6,4.1,33,sd,level,deg,close,,
+zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,this paper,pedicle_incl_trans,T9,not stated,,both,16,3.8,30,sd,level,deg,close,,
+zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,this paper,pedicle_w,L1,not stated,,both,8.7,2.3,26,sd,level,mm,close,,
+zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,this paper,pedicle_w,L2,not stated,,both,8.9,2.2,30,sd,level,mm,close,,
+zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,this paper,pedicle_w,L3,not stated,,both,10.3,2.6,49,sd,level,mm,close,,
+zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,this paper,pedicle_w,L4,not stated,,both,12.9,2.1,36,sd,level,mm,close,,
+zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,this paper,pedicle_w,L5,not stated,,both,18,4.1,56,sd,level,mm,close,,
+zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,this paper,pedicle_w,T1,not stated,,both,7.9,1.4,24,sd,level,mm,close,,
+zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,this paper,pedicle_w,T10,not stated,,both,6.3,1.7,24,sd,level,mm,close,,
+zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,this paper,pedicle_w,T11,not stated,,both,7.8,2,27,sd,level,mm,close,,
+zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,this paper,pedicle_w,T12,not stated,,both,7.1,2.3,36,sd,level,mm,close,,
+zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,this paper,pedicle_w,T2,not stated,,both,7,1.8,24,sd,level,mm,close,,
+zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,this paper,pedicle_w,T3,not stated,,both,5.6,1.4,27,sd,level,mm,close,,
+zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,this paper,pedicle_w,T4,not stated,,both,4.7,1.3,25,sd,level,mm,close,,
+zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,this paper,pedicle_w,T5,not stated,,both,4.5,0.9,34,sd,level,mm,close,,
+zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,this paper,pedicle_w,T6,not stated,,both,5.2,1,33,sd,level,mm,close,,
+zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,this paper,pedicle_w,T7,not stated,,both,5.3,1,32,sd,level,mm,close,,
+zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,this paper,pedicle_w,T8,not stated,,both,5.9,1.6,41,sd,level,mm,close,,
+zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,this paper,pedicle_w,T9,not stated,,both,6.1,1.5,27,sd,level,mm,close,,

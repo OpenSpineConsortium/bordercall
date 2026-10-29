@@ -7,19 +7,26 @@ worth in scans of the population named (part A) and what a rule built on such a 
 naming (part C). The reread now gives the 39 papers' own series (literature.py), so part B is
 taken again from them: in every cell with three or more series the REML spread between series,
 tau, which the series' own SEs have already been taken out of, over the person's SD. Two SDs
-are used, Panjabi's at that level, as part B used, and the pooled published SD.
+are used, Panjabi's at that level, as part B used, and the papers' SD, the one the validation
+holds a synthetic SD to (validate.literature_at: the REML-pooled log SD of the series whose SD is
+certain, Tan's left out, or the one such series' SD).
 
 Part A's worth follows as cadaver_power.part_a has it: an infinite pool of published series is
-worth at most r / f^2 scans of the population named, r = 1 + (e / sd)^2 the share a CT's error
-adds to a person's variance. Part C's rule is run again here on synthetic columns with its table
-moved by the new spread (shifted_table), at 1, 3 and 9 bodies, so the loss reads against the same
-rule built on its own table.
+worth at most (sd^2 + e^2) / tau^2 scans of the population named, a person's variance with a CT's
+error e over the spread between populations, and only where the population named is exchangeable
+with the pooled ones. The person's SD is the papers' (worth_scans), with Panjabi's beside it as
+part B read it (worth_scans_panjabi_sd). Part C's rule is run again here on synthetic columns with
+its table moved by the new spread (shifted_table), at 1, 3 and 9 bodies, so the loss reads against
+the same rule built on its own table.
 
-gold_power says what n persons with whole spines can test of the generator: the least shift of a
-level's mean, in a person's SD, a two-sided test finds with 80 per cent power (one cell, and with
-a Bonferroni split over the seven SPINEPS measures' 154 cells); the least SD ratio; the half-width
-of the 95 per cent interval of a correlation of 0.5 between neighbouring levels, the number no
-table gives; and how many columns of each anomaly the papers' prevalences lead one to expect.
+gold_power says what n persons with whole spines can test of the generator's table, taken as
+exact: the least shift of a level's mean, in a person's SD, a two-sided test finds with 80 per
+cent power (one cell, and with a Bonferroni split over the seven SPINEPS measures' 154 cells); the
+least SD ratio; the half-width of the 95 per cent interval of a correlation of 0.5 between
+neighbouring levels, the number no table gives; and how many columns of each anomaly the papers'
+prevalences lead one to expect in an unselected population. Against Panjabi's twelve spines taken
+as a sample rather than as exact, the same questions are two-sample tests
+(least_shift_two_sample, least_sd_ratio_two_sample), which need far larger differences.
 """
 from __future__ import annotations
 
@@ -35,12 +42,13 @@ from schwingcheck import measures as MS
 from . import literature as L
 from . import pooling as P
 from . import references as REF
-from .validate import MODALITY_SETS, cells, validated_measures
+from .validate import MODALITY_SETS, cells, literature_at, validated_measures
 
 ALPHA = 0.05
 POWER = 0.80
 SEVEN_CELLS = 7 * len(LEVELS)
 GOLD_COUNTS = (12, 17, 50, 142, 159, 300, 1000, 2000)    # 159 held: TotalSegmentator 142, VerSe 17 (holdings/gold-tier-3.md)
+PANJABI_SPINES = 12
 OLD_PART_B = {"median_f": 0.39, "cells": 86, "measures": 10, "studies": 14,
               "source": "research_notes/cadaver-power/README.md, part B (between_studies.json, f_low)"}
 
@@ -61,22 +69,27 @@ def _cells_of_three(series: Sequence[L.Series], modality_set: str, measures: Opt
 
 def between_series(series: Sequence[L.Series], modality_set: str = "bone_ct",
                    measures: Optional[Sequence[MS.Measure]] = None) -> List[dict]:
-    """Every (measure, level) with three or more usable series: tau, and tau over Panjabi's SD
-    and over the pooled published SD."""
+    """Every (measure, level) with three or more usable series: tau, tau over Panjabi's SD and over
+    the papers' SD, and part A's worth in scans with each SD as the person's."""
     seven = set(MS.SPINEPS_7)
     out = []
     for m, key, psd, level, rows in _cells_of_three(series, modality_set, measures):
-        pooled = P.pool_means([s.mean for s in rows], [s.sd for s in rows], [s.n for s in rows])
-        certain = [s for s in rows if not s.sd_uncertain]
-        lit_sd = P.pooled_sd([s.sd for s in certain], [s.n for s in certain]) if certain else float("nan")
-        r = 1.0 + (m.error / psd) ** 2
+        lit = literature_at(rows)
+        tau, lit_sd = lit.mean.tau, lit.sd
         out.append({"measure": key, "level": level, "kind": m.kind, "seven": key in seven, "k": len(rows),
-                    "papers": ";".join(sorted({s.paper for s in rows})), "tau": pooled.tau,
-                    "panjabi_sd": psd, "literature_sd": lit_sd, "i2": pooled.i2,
-                    "f_panjabi": pooled.tau / psd,
-                    "f_literature": pooled.tau / lit_sd if lit_sd > 0 else float("nan"),
-                    "r": float(r), "worth_scans_panjabi_sd": float(r / max(pooled.tau / psd, 1e-9) ** 2)})
+                    "papers": lit.papers, "tau": tau, "panjabi_sd": psd, "literature_sd": lit_sd,
+                    "error": float(m.error), "i2": lit.mean.i2, "f_panjabi": tau / psd,
+                    "f_literature": tau / lit_sd if lit_sd > 0 else float("nan"),
+                    "worth_scans": worth_in_scans(lit_sd, m.error, tau),
+                    "worth_scans_panjabi_sd": worth_in_scans(psd, m.error, tau)})
     return out
+
+
+def worth_in_scans(sd: float, error: float, tau: float) -> float:
+    """Part A's ceiling: how many scans of the population named an infinite pool is worth."""
+    if not (math.isfinite(sd) and sd > 0):
+        return float("nan")
+    return float((sd ** 2 + error ** 2) / max(tau, 1e-9 * sd) ** 2)
 
 
 def spread_summary(rows: Sequence[dict]) -> Dict[str, dict]:
@@ -91,7 +104,8 @@ def spread_summary(rows: Sequence[dict]) -> Dict[str, dict]:
     for key in sorted({r["measure"] for r in rows}):
         groups[key] = [r for r in rows if r["measure"] == key]
     return {g: {"f_panjabi": q([r["f_panjabi"] for r in rs]), "f_literature": q([r["f_literature"] for r in rs]),
-                "worth_scans": q([r["worth_scans_panjabi_sd"] for r in rs])} for g, rs in groups.items()}
+                "worth_scans": q([r["worth_scans"] for r in rs]),
+                "worth_scans_panjabi_sd": q([r["worth_scans_panjabi_sd"] for r in rs])} for g, rs in groups.items()}
 
 
 CALIBRATION_REPLICATES = 400
@@ -101,13 +115,18 @@ CALIBRATION_SEED = 4103
 def calibrated_median_f(series: Sequence[L.Series], scale: str = "panjabi", only_seven: bool = False,
                         modality_set: str = "bone_ct", replicates: int = CALIBRATION_REPLICATES,
                         seed: int = CALIBRATION_SEED) -> Dict[str, float]:
-    """The median f corrected for REML's downward pull at three to seven series, where tau^2 often
-    comes out at zero: the f that, given to every cell with its own series' SEs and count, makes
-    the expected median of the estimates over the cells equal to the median observed. The same
-    normal draws serve every f tried (common random numbers), so the expected median rises with f
-    and a bisection finds it. One f for every cell is an assumption: it corrects the median, not
-    the spread of f between measures. scale is "panjabi" (tau over his SD) or "literature" (over
-    the pooled published SD, Tan's left out)."""
+    """The median f corrected for REML's low reading at three to seven series: the square root of
+    tau^2 estimated on few degrees of freedom reads low (its median near 0.83 of the truth at three
+    series), though no cell here comes out at zero. The calibrated f is the one that, given to
+    every cell with its own series' SEs and count, makes the expected median of the estimates over
+    the cells equal to the median observed. The same normal draws serve every f tried (common
+    random numbers), so the expected median rises with f and a bisection finds it. One f for every
+    cell is an assumption: it corrects the median, not the spread of f between measures. scale is
+    "panjabi" (tau over his SD) or "literature" (over the papers' SD, Tan's left out).
+
+    The worth in scans is read the same way before and after: the median over the cells of
+    (sd^2 + e^2) / tau^2 with the scale's SD as the person's, every tau multiplied by the
+    calibrated f over the observed median for the calibrated reading."""
     rows = [r for r in between_series(series, modality_set) if r["seven"] or not only_seven]
     key = "f_panjabi" if scale == "panjabi" else "f_literature"
     rows_by = {(r["measure"], r["level"]): r for r in rows}
@@ -136,10 +155,15 @@ def calibrated_median_f(series: Sequence[L.Series], scale: str = "panjabi", only
         mid = (lo + hi) / 2.0
         lo, hi = (mid, hi) if expected(mid) < observed else (lo, mid)
     f = (lo + hi) / 2.0
-    median_r = float(np.median([r["r"] for r in rows]))
+    sd_key = "panjabi_sd" if scale == "panjabi" else "literature_sd"
+    usable = [r for r in rows if math.isfinite(r[key])]
+
+    def worth(c: float) -> float:
+        return float(np.median([worth_in_scans(r[sd_key], r["error"], c * r["tau"]) for r in usable]))
     return {"cells": len(cells_), "observed_median": observed, "calibrated_median": f,
             "expected_median_if_true_were_observed": expected(observed),
-            "worth_scans_at_calibrated": median_r / f ** 2 if f > 0 else float("inf")}
+            "worth_scans_observed": worth(1.0),
+            "worth_scans_at_calibrated": worth(f / observed) if f > 0 else float("inf")}
 
 
 def least_shift(n: int, tests: int = 1, alpha: float = ALPHA, power: float = POWER) -> float:
@@ -159,17 +183,45 @@ def least_sd_ratio(n: int, alpha: float = ALPHA, power: float = POWER) -> float:
     return float(math.sqrt(stats.chi2.ppf(1 - alpha / 2, n - 1) / stats.chi2.ppf(1 - power, n - 1)))
 
 
+def least_shift_two_sample(n: int, reference: int = PANJABI_SPINES, sd_ratio: float = 1.0,
+                           alpha: float = ALPHA, power: float = POWER) -> float:
+    """The least difference of means, in the gold persons' SD, that n persons find against a
+    reference of `reference` people whose SD is sd_ratio times theirs, by Welch's two-sided test
+    (Welch-Satterthwaite degrees of freedom), from the noncentral t."""
+    a, b = 1.0 / n, sd_ratio ** 2 / reference
+    se = math.sqrt(a + b)
+    df = (a + b) ** 2 / (a ** 2 / (n - 1) + b ** 2 / (reference - 1))
+    crit = stats.t.ppf(1 - alpha / 2, df)
+
+    def short(nc):
+        lower = stats.nct.cdf(-crit, df, nc)
+        return stats.nct.sf(crit, df, nc) + (lower if math.isfinite(lower) else 0.0) - power
+    return float(optimize.brentq(short, 0.0, 40.0) * se)
+
+
+def least_sd_ratio_two_sample(n: int, reference: int = PANJABI_SPINES, alpha: float = ALPHA,
+                              power: float = POWER) -> float:
+    """The least ratio of the reference's SD over the gold persons' that the two-sided F test of
+    the two sample variances finds, the reference's on top: its sd is the wider one here."""
+    upper = stats.f.ppf(1 - alpha / 2, reference - 1, n - 1)
+    return float(math.sqrt(upper / stats.f.ppf(1 - power, reference - 1, n - 1)))
+
+
 def correlation_half_width(n: int, r: float = 0.5) -> float:
     h = 1.959964 / math.sqrt(n - 3)
     return float((math.tanh(math.atanh(r) + h) - math.tanh(math.atanh(r) - h)) / 2)
 
 
-def gold_power(counts: Sequence[int] = GOLD_COUNTS) -> List[dict]:
+def gold_power(counts: Sequence[int] = GOLD_COUNTS, panjabi_sd_ratio: float = 1.0) -> List[dict]:
+    """The table's tests at each count. panjabi_sd_ratio, Panjabi's SD over the papers', sets the
+    reference's SD in the two-sample tests against his twelve (run.py passes the validation's)."""
     out = []
     for n in counts:
         row = {"persons": n, "least_mean_shift_one_cell": least_shift(n),
                "least_mean_shift_154_cells": least_shift(n, SEVEN_CELLS), "least_sd_ratio": least_sd_ratio(n),
-               "neighbour_r_half_width": correlation_half_width(n)}
+               "neighbour_r_half_width": correlation_half_width(n),
+               "against_panjabi_12_least_mean_shift": least_shift_two_sample(n, sd_ratio=panjabi_sd_ratio),
+               "against_panjabi_12_least_sd_ratio": least_sd_ratio_two_sample(n)}
         for state, _, _, point, lo, hi, _ in REF.PREVALENCE:
             if math.isfinite(point):
                 row["expected: " + state] = n * point
@@ -178,11 +230,14 @@ def gold_power(counts: Sequence[int] = GOLD_COUNTS) -> List[dict]:
 
 
 def shifted_table(mu: np.ndarray, sd: np.ndarray, rng: np.random.Generator, shift: float = 0.0,
-                  level: float = 0.0) -> np.ndarray:
+                  level: float = 0.0, shared: bool = False) -> np.ndarray:
     """A table from another population: every measure's means moved together by `shift` person
-    SDs (one draw per measure), and every cell apart by `level` (one draw per level), as
-    shift_profile.py split the disagreement of Panjabi's comparison tables."""
-    together = np.repeat(rng.normal(size=(mu.shape[0], 1)), mu.shape[1], 1)
+    SDs, and every cell apart by `level` (one draw per level), as shift_profile.py split the
+    disagreement of Panjabi's comparison tables. The shifts are drawn one per measure and
+    independent across measures, or, with `shared`, one for the whole table, since within one
+    paper and cohort the shifts of different measures go together (r near 0.5 in the papers)."""
+    draws = rng.normal(size=(1 if shared else mu.shape[0], 1))
+    together = np.broadcast_to(draws, mu.shape)
     apart = rng.normal(size=mu.shape)
     return mu + sd * (shift * together + level * apart)
 
@@ -195,14 +250,17 @@ ARMS = (
     ("part C, 0.3 SD level by level", 0.0, 0.3),
     ("part C, seven-r0", 0.57, 0.0),
 )
+NAMING_COLUMN_SEED = 4101
+NAMING_TABLE_SEED = 4102
 
 
 def naming_loss(arms: Sequence[tuple], widths: Sequence[int] = (1, 3, 9), columns: int = 300, tables: int = 4,
-                column_seed: int = 4101, table_seed: int = 4102) -> List[dict]:
+                column_seed: int = NAMING_COLUMN_SEED, table_seed: int = NAMING_TABLE_SEED) -> List[dict]:
     """Part C again: the exact rule on `columns` typical columns of the seven SPINEPS measures with
     their CT errors, built on the generator's own table and on `tables` tables moved as each arm
-    (name, shift, level) says, scored at each width. Each row is one table at one width; loss is
-    in points of the share named exactly, against the rule's own table on the same columns."""
+    (name, shift, level, and optionally shared, shifted_table's) says, scored at each width. Each
+    row is one table at one width; loss is in points of the share named exactly, against the
+    rule's own table on the same columns."""
     from . import naming as N
     from .population import GENERATOR, draw
     seven = MS.select(MS.SPINEPS_7)
@@ -213,11 +271,12 @@ def naming_loss(arms: Sequence[tuple], widths: Sequence[int] = (1, 3, 9), column
         own = N.score(pop, seven, w)
         out.append(dict(own, arm="own table", shift=0.0, level=0.0, table=0, width=w, loss=0.0))
         rng = np.random.default_rng(table_seed)
-        for name, shift, level in arms:
+        for name, shift, level, *rest in arms:
+            shared = bool(rest and rest[0])
             for t in range(tables):
-                got = N.score(pop, seven, w, table=(shifted_table(mu, sd, rng, shift, level), sd))
-                out.append(dict(got, arm=name, shift=float(shift), level=float(level), table=t, width=w,
-                                loss=100.0 * (own["exact"] - got["exact"])))
+                got = N.score(pop, seven, w, table=(shifted_table(mu, sd, rng, shift, level, shared), sd))
+                out.append(dict(got, arm=name, shift=float(shift), level=float(level), shared=shared, table=t,
+                                width=w, loss=100.0 * (own["exact"] - got["exact"])))
     return out
 
 
@@ -265,11 +324,18 @@ def _split_estimate(lay: dict, y: np.ndarray) -> tuple:
     return np.sqrt(np.maximum(0.0, shift2)), np.sqrt(level2), int(len(used)), int(keep.sum())
 
 
-def split_recovery(series: Sequence[L.Series], truth: Sequence[float] = (0.9, 0.4), trials: int = 24,
-                   seed: int = 4104, modality_set: str = "bone_ct") -> Dict[str, object]:
+RECOVERY_SEED = 4104
+RECOVERY_TRIALS = 24
+SPLIT_REPLICATES = 200
+
+
+def split_recovery(series: Sequence[L.Series], truth: Sequence[float] = (0.9, 0.4), trials: int = RECOVERY_TRIALS,
+                   seed: int = RECOVERY_SEED, modality_set: str = "bone_ct") -> Dict[str, object]:
     """Whether the calibration finds a known pair: `trials` sets of series laid out as the papers'
     are, drawn with shift and level-by-level parts `truth`, each split and calibrated as the papers'
-    series are; the mean of each estimate over the trials and its standard error."""
+    series are on draws of its own (seed + 1000 + t, apart from the trials' seed); the mean of each
+    estimate over the trials, its standard error, and the SD of one estimate, which is the
+    uncertainty the papers' one split carries."""
     lay = _split_layout(series, modality_set, None)
     rng = np.random.default_rng(seed)
     got = []
@@ -278,17 +344,19 @@ def split_recovery(series: Sequence[L.Series], truth: Sequence[float] = (0.9, 0.
         b = rng.normal(size=len(lay["means"]))
         e = rng.normal(size=len(lay["means"]))
         drawn = dict(lay, means=lay["psd"] * (truth[0] * a + truth[1] * b) + np.sqrt(lay["var"]) * e)
-        r = _calibrated_split(drawn, seed=CALIBRATION_SEED + 1 + t)
+        r = _calibrated_split(drawn, seed=seed + 1000 + t)
         got.append([r["shift_sd"], r["level_sd"], r["shift_sd_calibrated"], r["level_sd_calibrated"]])
     got = np.array(got)
     names = ("shift_sd", "level_sd", "shift_sd_calibrated", "level_sd_calibrated")
+    spread = got.std(0, ddof=1)
     return {"truth": {"shift_sd": float(truth[0]), "level_sd": float(truth[1])}, "trials": trials,
             "mean": dict(zip(names, map(float, got.mean(0)))),
-            "standard_error": dict(zip(names, map(float, got.std(0, ddof=1) / math.sqrt(trials))))}
+            "standard_error": dict(zip(names, map(float, spread / math.sqrt(trials)))),
+            "sd_of_one_estimate": dict(zip(names, map(float, spread)))}
 
 
 def shift_split(series: Sequence[L.Series], modality_set: str = "bone_ct",
-                measures: Optional[Sequence[MS.Measure]] = None, replicates: int = 200,
+                measures: Optional[Sequence[MS.Measure]] = None, replicates: int = SPLIT_REPLICATES,
                 seed: int = CALIBRATION_SEED) -> Dict[str, float]:
     """How the spread between series splits, as shift_profile.py split Panjabi's comparison
     tables: each series' distance from the pooled mean of its cell, in Panjabi's SD, over the cells
@@ -304,7 +372,7 @@ def shift_split(series: Sequence[L.Series], modality_set: str = "bone_ct",
     return _calibrated_split(_split_layout(series, modality_set, measures), replicates, seed)
 
 
-def _calibrated_split(lay: dict, replicates: int = 200, seed: int = CALIBRATION_SEED) -> Dict[str, float]:
+def _calibrated_split(lay: dict, replicates: int = SPLIT_REPLICATES, seed: int = CALIBRATION_SEED) -> Dict[str, float]:
     shift_sd, level_sd, groups, distances = _split_estimate(lay, lay["means"][None, :])
     observed = np.array([shift_sd[0], level_sd[0]])
     rng = np.random.default_rng(seed)

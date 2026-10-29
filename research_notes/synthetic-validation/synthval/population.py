@@ -88,6 +88,7 @@ class Population:
     settings: Settings
     seed: int
     clipped: int = 0          # level cells where size_removed left only MIN_RESIDUAL of the SD
+    size_passes: int = 0      # of them, the cells where the size's variance alone passes the printed SD
 
     def level_index(self, level: str) -> int:
         return self.levels.index(level)
@@ -107,7 +108,8 @@ def calibrated(mu: np.ndarray, sd: np.ndarray, power: np.ndarray, settings: Sett
     """The (measures, levels) means and SDs the model draws from. "printed" is the table as it is.
     "size_removed" solves E[s^p] mu' = mu and mu'^2 Var(s^p) + E[s^2p] sd'^2 = sd^2, so the true
     anatomy has the printed mean and SD; where the size alone would pass the printed SD, sd' is
-    held at MIN_RESIDUAL of it and the cell is counted."""
+    held at MIN_RESIDUAL of it and the cell is counted, as it is where the SD left would be positive
+    but under that tenth (size_passes counts the first kind)."""
     if settings.sd_mode == "printed":
         return mu, sd, 0
     if settings.sd_mode != "size_removed":
@@ -118,6 +120,16 @@ def calibrated(mu: np.ndarray, sd: np.ndarray, power: np.ndarray, settings: Sett
     floor = (MIN_RESIDUAL * sd) ** 2 / e2[:, None]
     clipped = int((left < floor).sum())
     return mu / e1[:, None], np.sqrt(np.maximum(left, floor)), clipped
+
+
+def size_passes(mu: np.ndarray, sd: np.ndarray, power: np.ndarray, settings: Settings) -> int:
+    """The level cells where, under size_removed, the size's own variance passes the printed SD,
+    so no SD of the level's own is left at all."""
+    if settings.sd_mode != "size_removed":
+        return 0
+    e1, e2 = size_moments(power, settings.scale_sd)
+    var_size = (mu / e1[:, None]) ** 2 * (e2 - e1 ** 2)[:, None]
+    return int((sd ** 2 - var_size < 0).sum())
 
 
 def ar1(rng, m: int, n: int, w: int, phi: float) -> np.ndarray:
@@ -144,6 +156,7 @@ def draw(settings: Settings, n: int, seed: int, measures: Optional[Sequence[MS.M
     error = MS.errors(measures) * settings.error_scale
     ref = MS.reference(measures)
     levels, _, mu, sd = C.profiles(ref, keys, phenotype, settings.blend)
+    passes = size_passes(mu, sd * settings.sd_scale, size_power, settings)
     mu, sd, clipped = calibrated(mu, sd * settings.sd_scale, size_power, settings)
     M, W = mu.shape
     rng = np.random.default_rng(seed)
@@ -161,7 +174,8 @@ def draw(settings: Settings, n: int, seed: int, measures: Optional[Sequence[MS.M
     if settings.floor:
         measured = np.where((power > 0)[None, None, :], np.maximum(measured, FLOOR), measured)
     return Population(true=true, measured=measured, scale=s, levels=list(levels), keys=keys, power=power,
-                      error=error, phenotype=phenotype, settings=settings, seed=seed, clipped=clipped)
+                      error=error, phenotype=phenotype, settings=settings, seed=seed, clipped=clipped,
+                      size_passes=passes)
 
 
 def moments(pop: Population, which: str = "true") -> Dict[str, np.ndarray]:

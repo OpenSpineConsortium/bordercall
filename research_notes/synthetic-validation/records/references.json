@@ -4,7 +4,7 @@
    "high": 0.65,
    "low": 0.3,
    "modality": "CT",
-   "source": "duman2026, 50 scans read again after 4 weeks; error.md L53",
+   "source": "duman2026, 50 scans read again after 4 weeks; error.md L55",
    "unit": "mm",
    "what": "body heights"
   },
@@ -12,7 +12,7 @@
    "high": 0.55,
    "low": 0.2,
    "modality": "CT",
-   "source": "duman2026; error.md L63",
+   "source": "duman2026; error.md L65",
    "unit": "mm",
    "what": "pedicle width and height"
   },
@@ -20,7 +20,7 @@
    "high": 1.8,
    "low": 0.7,
    "modality": "CT",
-   "source": "duman2026; error.md L71",
+   "source": "duman2026; error.md L73",
    "unit": "deg",
    "what": "pedicle angle"
   },
@@ -28,7 +28,7 @@
    "high": 1.2,
    "low": 0.4,
    "modality": "CT",
-   "source": "griffith2016, by level L1-L5; error.md L60",
+   "source": "griffith2016, by level L1-L5; error.md L62",
    "unit": "mm",
    "what": "canal width and depth"
   },
@@ -36,7 +36,7 @@
    "high": 30.0,
    "low": 10.0,
    "modality": "CT",
-   "source": "griffith2016; error.md L60",
+   "source": "griffith2016; error.md L62",
    "unit": "mm2",
    "what": "canal area"
   },
@@ -44,7 +44,7 @@
    "high": 0.9,
    "low": 0.5,
    "modality": "MRI",
-   "source": "tang2016, between observers; error.md L58",
+   "source": "tang2016, between observers; error.md L60",
    "unit": "mm",
    "what": "disc and end-plate diameters"
   },
@@ -52,7 +52,7 @@
    "high": 40.0,
    "low": 40.0,
    "modality": "MRI",
-   "source": "tang2016, between observers; error.md L58",
+   "source": "tang2016, between observers; error.md L60",
    "unit": "mm2",
    "what": "disc and end-plate area"
   },
@@ -60,7 +60,7 @@
    "high": 0.95,
    "low": 0.35,
    "modality": "bone, caliper",
-   "source": "yu2015; error.md L65",
+   "source": "yu2015; error.md L67",
    "unit": "mm",
    "what": "pedicle width and height"
   },
@@ -68,7 +68,7 @@
    "high": 0.27,
    "low": 0.27,
    "modality": "film",
-   "source": "hinck1966, 89 duplicate readings; error.md L61",
+   "source": "hinck1966, 89 duplicate readings; error.md L63",
    "unit": "mm",
    "what": "interpedicular distance"
   },
@@ -76,9 +76,17 @@
    "high": 0.22,
    "low": 0.22,
    "modality": "CT",
-   "source": "vanderhouwen2009, a pig vertebra; error.md L57",
+   "source": "vanderhouwen2009, the mean of nine dimensions' SDs over three repeats; error.md L59",
    "unit": "mm",
-   "what": "one vertebra, CT against caliper"
+   "what": "one pig vertebra, CT repeated"
+  },
+  {
+   "high": 0.66,
+   "low": 0.66,
+   "modality": "CT and bone",
+   "source": "vanderhouwen2009 Fig. 4, 12 dimensions of 2 pig vertebrae, the caliper's own error in it; error.md L91",
+   "unit": "mm",
+   "what": "CT against caliper"
   }
  ],
  "generator_errors": [
@@ -346,7 +354,7 @@
    "high": 0.0439,
    "low": 0.0139,
    "papers": 0.0248,
-   "source": "eisenstein1977 p. 177, 11 / 443 dry skeletons (2 true L6, 9 lumbarised S1); anomaly-priors.md",
+   "source": "eisenstein1977 p. 177, 11 / 443 dry skeletons (2 true L6, 9 lumbarised S1); anomaly-priors.md L11",
    "state": "six lumbar-type segments (L6 or lumbarised S1)"
   },
   {
@@ -355,7 +363,7 @@
    "high": 0.0163,
    "low": 0.0012,
    "papers": 0.0045,
-   "source": "eisenstein1977 p. 177, 2 / 443; anomaly-priors.md",
+   "source": "eisenstein1977 p. 177, 2 / 443; anomaly-priors.md L12",
    "state": "of which a true L6"
   },
   {
@@ -364,7 +372,7 @@
    "high": 0.0352,
    "low": 0.0092,
    "papers": 0.0181,
-   "source": "eisenstein1977 p. 177, 8 / 443; sacralisation undefined, so a ceiling; anomaly-priors.md",
+   "source": "eisenstein1977 p. 177, 8 / 443; sacralisation undefined, so a ceiling; anomaly-priors.md L14",
    "state": "four lumbar segments (sacralised L5), a ceiling"
   },
   {
@@ -373,7 +381,7 @@
    "high": null,
    "low": null,
    "papers": null,
-   "source": "no count and no bound in the 43 papers; any value is a modelling choice; anomaly-priors.md",
+   "source": "no count and no bound in the 43 papers; any value is a modelling choice; anomaly-priors.md L22",
    "state": "a thirteenth rib-bearing body (T13)"
   },
   {
@@ -382,7 +390,7 @@
    "high": 0.0401,
    "low": 0.0133,
    "papers": 0.0232,
-   "source": "duman2026 Table 5 p. 10, 12 / 517 chest CTs; anomaly-priors.md",
+   "source": "duman2026 Table 5 p. 10, 12 / 517 adults' CTs at a chest hospital for other reasons; a T13 not told apart; anomaly-priors.md L21",
    "state": "a rib on the first lumbar-type body"
   },
   {
@@ -391,7 +399,7 @@
    "high": 0.0636,
    "low": 0.0283,
    "papers": 0.0426,
-   "source": "duman2026 Table 5 p. 10, 22 / 517; a ceiling for bilateral absence, laterality never reported; anomaly-priors.md",
+   "source": "duman2026 Table 5 p. 10, 22 / 517; a ceiling for bilateral absence, laterality never reported; anomaly-priors.md L23",
    "state": "no twelfth rib, one side or both"
   }
  ]

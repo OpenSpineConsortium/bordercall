@@ -13,16 +13,22 @@ assumption; run.py's quality record counts each per setting, and box_rates per m
   plane region lies inside the rectangle of its extents, so area / (width x depth) is at most 1.
   The end-plate and the facets are curved surfaces, a little larger than their projection, so
   the end-plate is allowed 5 per cent over and a facet 15 per cent; the canal is a plane section;
-- convex: an end-plate whose area is under half its width times its depth. A convex region whose
-  extents are w and d holds at least the triangle w d / 2; the end-plate is convex but for a
-  shallow posterior notch, the canal is not (a lumbar canal can be trefoil), so only the
-  end-plate is held to it;
+- convex: an end-plate whose area is under half its width times its depth. A convex region that
+  is symmetric about its sagittal axis holds the rhombus of its four extreme points, w d / 2; a
+  convex region without that symmetry need not (a thin sliver along a diagonal of its box has
+  extents w and d and almost no area). The end-plate is nearly symmetric and convex but for a
+  shallow posterior notch, so the bound is a judgement for it, as box's allowances are; the canal
+  is not convex (a lumbar canal can be trefoil), so only the end-plate is held to it;
 - inside: a canal wider than the span of its own transverse processes, which cannot be, since the
   canal lies between the pedicles and the processes outside them.
 
 The pedicle's area is left out of box and convex: Panjabi reads its width and its height each at
 its own narrowest place, which need not be one section, so the area of the narrowest section can
 pass their product.
+
+Three unions are read beside each indicator: "sign or inside", which no anatomy can fail; "any
+but floor", which adds the two bounds that hold only under their allowances and assumptions; and
+"any", which adds floor, the generator's clip of a measured value rather than an anatomy.
 """
 from __future__ import annotations
 
@@ -44,6 +50,7 @@ BOX = (
 INSIDE = (("canal_w", "transverse_width"),)
 CONVEX_LEAST = 0.5
 INDICATORS = ("sign", "floor", "box", "convex", "inside")
+UNIONS = {"sign or inside": ("sign", "inside"), "any but floor": ("sign", "box", "convex", "inside")}
 
 
 @dataclass
@@ -52,10 +59,12 @@ class Flags:
     by: Dict[str, np.ndarray]
     tests: Dict[str, int]
 
-    def any(self) -> np.ndarray:
+    def any(self, of: Sequence[str] = ()) -> np.ndarray:
+        """The union of the indicators named, or of all of them."""
         out = None
-        for v in self.by.values():
-            out = v.copy() if out is None else out | v
+        for k, v in self.by.items():
+            if not of or k in of:
+                out = v.copy() if out is None else out | v
         return out
 
 
@@ -126,6 +135,7 @@ def box_rates(pop: Population) -> Dict[str, Dict[str, np.ndarray]]:
 def person_rates(fl: Flags) -> Dict[str, float]:
     """The share of people with at least one vertebra flagged, per indicator and for any."""
     out = {k: float(v.any(1).mean()) for k, v in fl.by.items()}
+    out.update({name: float(fl.any(of).any(1).mean()) for name, of in UNIONS.items()})
     out["any"] = float(fl.any().any(1).mean())
     return out
 
@@ -133,6 +143,7 @@ def person_rates(fl: Flags) -> Dict[str, float]:
 def vertebra_rates(fl: Flags) -> Dict[str, float]:
     """The share of vertebrae flagged, per indicator and for any."""
     out = {k: float(v.mean()) for k, v in fl.by.items()}
+    out.update({name: float(fl.any(of).mean()) for name, of in UNIONS.items()})
     out["any"] = float(fl.any().mean())
     return out
 

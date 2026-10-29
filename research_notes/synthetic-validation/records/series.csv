@@ -9,16 +9,16 @@ abbas2021,control,ct_axial_canal,ct,control,pooled,canal_area,L2,283.0,42.4544,1
 abbas2021,control,ct_axial_canal,ct,control,pooled,canal_area,L3,280.5,61.0885,180.0,close,,,False,True
 abbas2021,control,ct_axial_canal,ct,control,pooled,canal_area,L4,306.5,51.3804,180.0,close,,,False,True
 abbas2021,control,ct_axial_canal,ct,control,pooled,canal_area,L5,372.0,67.8688,180.0,close,,,False,True
-ahmed2019,telangana_mri,mri_t2_midsagittal_diameter,mri,,all,canal_ap,L1,14.34,,80.0,close,,,False,False
-ahmed2019,telangana_mri,mri_t2_midsagittal_diameter,mri,,all,canal_ap,L2,13.43,,80.0,close,,,False,False
-ahmed2019,telangana_mri,mri_t2_midsagittal_diameter,mri,,all,canal_ap,L3,12.35,,80.0,close,,,False,False
-ahmed2019,telangana_mri,mri_t2_midsagittal_diameter,mri,,all,canal_ap,L4,12.7,,80.0,close,,,False,False
-ahmed2019,telangana_mri,mri_t2_midsagittal_diameter,mri,,all,canal_ap,L5,13.63,,80.0,close,,,False,False
-ahmed2019,telangana_mri,mri_t2_axial_interpedicular,mri,,all,canal_w,L1,22.42,,80.0,close,,,False,False
-ahmed2019,telangana_mri,mri_t2_axial_interpedicular,mri,,all,canal_w,L2,22.64,,80.0,close,,,False,False
-ahmed2019,telangana_mri,mri_t2_axial_interpedicular,mri,,all,canal_w,L3,23.45,,80.0,close,,,False,False
-ahmed2019,telangana_mri,mri_t2_axial_interpedicular,mri,,all,canal_w,L4,24.52,,80.0,close,,,False,False
-ahmed2019,telangana_mri,mri_t2_axial_interpedicular,mri,,all,canal_w,L5,27.68,,80.0,close,,,False,False
+ahmed2019,telangana_mri,mri_t2_midsagittal_diameter,mri,,pooled,canal_ap,L1,14.335,1.27876,80.0,close,,,False,True
+ahmed2019,telangana_mri,mri_t2_midsagittal_diameter,mri,,pooled,canal_ap,L2,13.429,1.2519,80.0,close,,,False,True
+ahmed2019,telangana_mri,mri_t2_midsagittal_diameter,mri,,pooled,canal_ap,L3,12.3495,1.41935,80.0,close,,,False,True
+ahmed2019,telangana_mri,mri_t2_midsagittal_diameter,mri,,pooled,canal_ap,L4,12.693,1.30106,80.0,close,,,False,True
+ahmed2019,telangana_mri,mri_t2_midsagittal_diameter,mri,,pooled,canal_ap,L5,13.6295,1.86588,80.0,close,,,False,True
+ahmed2019,telangana_mri,mri_t2_axial_interpedicular,mri,,pooled,canal_w,L1,22.4235,1.86404,80.0,close,,,False,True
+ahmed2019,telangana_mri,mri_t2_axial_interpedicular,mri,,pooled,canal_w,L2,22.6345,1.86309,80.0,close,,,False,True
+ahmed2019,telangana_mri,mri_t2_axial_interpedicular,mri,,pooled,canal_w,L3,23.453,1.83184,80.0,close,,,False,True
+ahmed2019,telangana_mri,mri_t2_axial_interpedicular,mri,,pooled,canal_w,L4,24.515,2.04603,80.0,close,,,False,True
+ahmed2019,telangana_mri,mri_t2_axial_interpedicular,mri,,pooled,canal_w,L5,27.6755,2.61054,80.0,close,,,False,True
 alonge2021,lagos_ct,ct_midsagittal_apd,ct,,pooled,canal_ap,L1,16.2833,1.69491,120.0,same,,,False,True
 alonge2021,lagos_ct,ct_midsagittal_apd,ct,,pooled,canal_ap,L2,15.6425,1.71177,120.0,same,,,False,True
 alonge2021,lagos_ct,ct_midsagittal_apd,ct,,pooled,canal_ap,L3,15.1025,2.10097,120.0,same,,,False,True
@@ -49,37 +49,37 @@ arockiaraj2025,saudi_ct,ct_axial_workstation,ct,,all,pedicle_w,L2,6.34,0.96,300.
 arockiaraj2025,saudi_ct,ct_axial_workstation,ct,,all,pedicle_w,L3,8.11,1.1,300.0,close,,,False,True
 arockiaraj2025,saudi_ct,ct_axial_workstation,ct,,all,pedicle_w,L4,9.82,1.2,300.0,close,,,False,True
 arockiaraj2025,saudi_ct,ct_axial_workstation,ct,,all,pedicle_w,L5,13.62,1.48,300.0,close,,,False,True
-busscher2010,human_cadaver,ct_mpr_per_vertebra,ct,Human,male,endplate,C3,27.7,,6.0,close,one sex only (male),n is the cohort's people,False,False
-busscher2010,human_cadaver,ct_mpr_per_vertebra,ct,Human,male,endplate,L5,54.0,,6.0,close,one sex only (male),n is the cohort's people,False,False
-busscher2010,human_cadaver,ct_mpr_per_vertebra,ct,Human,male,endplate_depth,C3,16.5,,6.0,same,one sex only (male),n is the cohort's people,False,False
-busscher2010,human_cadaver,ct_mpr_per_vertebra,ct,Human,male,endplate_depth,L5,36.7,,6.0,same,one sex only (male),n is the cohort's people,False,False
-busscher2010,human_cadaver,ct_mpr_per_vertebra,ct,Human,male,h_post,C3,15.1,1.1,6.0,same,one sex only (male),n is the cohort's people,False,True
-busscher2010,human_cadaver,ct_mpr_per_vertebra,ct,Human,male,h_post,C4,14.6,1.1,6.0,same,one sex only (male),n is the cohort's people,False,True
-busscher2010,human_cadaver,ct_mpr_per_vertebra,ct,Human,male,h_post,C5,14.2,1.0,6.0,same,one sex only (male),n is the cohort's people,False,True
-busscher2010,human_cadaver,ct_mpr_per_vertebra,ct,Human,male,h_post,C6,13.9,0.8,6.0,same,one sex only (male),n is the cohort's people,False,True
-busscher2010,human_cadaver,ct_mpr_per_vertebra,ct,Human,male,h_post,C7,15.9,0.7,6.0,same,one sex only (male),n is the cohort's people,False,True
-busscher2010,human_cadaver,ct_mpr_per_vertebra,ct,Human,male,h_post,L1,28.5,2.5,6.0,same,one sex only (male),n is the cohort's people,False,True
-busscher2010,human_cadaver,ct_mpr_per_vertebra,ct,Human,male,h_post,L2,29.8,1.2,6.0,same,one sex only (male),n is the cohort's people,False,True
-busscher2010,human_cadaver,ct_mpr_per_vertebra,ct,Human,male,h_post,L3,29.8,1.0,6.0,same,one sex only (male),n is the cohort's people,False,True
-busscher2010,human_cadaver,ct_mpr_per_vertebra,ct,Human,male,h_post,L4,28.0,2.1,6.0,same,one sex only (male),n is the cohort's people,False,True
-busscher2010,human_cadaver,ct_mpr_per_vertebra,ct,Human,male,h_post,L5,24.9,3.8,6.0,same,one sex only (male),n is the cohort's people,False,True
-busscher2010,human_cadaver,ct_mpr_per_vertebra,ct,Human,male,h_post,T1,18.8,1.0,6.0,same,one sex only (male),n is the cohort's people,False,True
-busscher2010,human_cadaver,ct_mpr_per_vertebra,ct,Human,male,h_post,T10,25.3,1.6,6.0,same,one sex only (male),n is the cohort's people,False,True
-busscher2010,human_cadaver,ct_mpr_per_vertebra,ct,Human,male,h_post,T11,27.1,1.9,6.0,same,one sex only (male),n is the cohort's people,False,True
-busscher2010,human_cadaver,ct_mpr_per_vertebra,ct,Human,male,h_post,T12,28.5,0.9,6.0,same,one sex only (male),n is the cohort's people,False,True
-busscher2010,human_cadaver,ct_mpr_per_vertebra,ct,Human,male,h_post,T2,19.1,0.8,6.0,same,one sex only (male),n is the cohort's people,False,True
-busscher2010,human_cadaver,ct_mpr_per_vertebra,ct,Human,male,h_post,T3,19.6,1.0,6.0,same,one sex only (male),n is the cohort's people,False,True
-busscher2010,human_cadaver,ct_mpr_per_vertebra,ct,Human,male,h_post,T4,20.6,1.2,6.0,same,one sex only (male),n is the cohort's people,False,True
-busscher2010,human_cadaver,ct_mpr_per_vertebra,ct,Human,male,h_post,T5,21.0,1.6,6.0,same,one sex only (male),n is the cohort's people,False,True
-busscher2010,human_cadaver,ct_mpr_per_vertebra,ct,Human,male,h_post,T6,21.7,2.0,6.0,same,one sex only (male),n is the cohort's people,False,True
-busscher2010,human_cadaver,ct_mpr_per_vertebra,ct,Human,male,h_post,T7,22.4,1.7,6.0,same,one sex only (male),n is the cohort's people,False,True
-busscher2010,human_cadaver,ct_mpr_per_vertebra,ct,Human,male,h_post,T8,22.7,1.5,6.0,same,one sex only (male),n is the cohort's people,False,True
-busscher2010,human_cadaver,ct_mpr_per_vertebra,ct,Human,male,h_post,T9,23.7,2.0,6.0,same,one sex only (male),n is the cohort's people,False,True
-cizmic2023,bih-sarajevo-ct,cizmic-ct-syngo,ct,,all,canal_ap,L1,19.06,,200.0,same,,,False,False
-cizmic2023,bih-sarajevo-ct,cizmic-ct-syngo,ct,,all,canal_ap,L2,18.05,,200.0,same,,,False,False
-cizmic2023,bih-sarajevo-ct,cizmic-ct-syngo,ct,,all,canal_ap,L3,16.66,,200.0,same,,,False,False
-cizmic2023,bih-sarajevo-ct,cizmic-ct-syngo,ct,,all,canal_ap,L4,16.79,,200.0,same,,,False,False
-cizmic2023,bih-sarajevo-ct,cizmic-ct-syngo,ct,,all,canal_ap,L5,17.81,,200.0,same,,,False,False
+busscher2010,human_cadaver,ct_mpr_per_vertebra,ct,Human,male,endplate,C3,27.7,,6.0,close,one sex only (male),,False,False
+busscher2010,human_cadaver,ct_mpr_per_vertebra,ct,Human,male,endplate,L5,54.0,,6.0,close,one sex only (male),,False,False
+busscher2010,human_cadaver,ct_mpr_per_vertebra,ct,Human,male,endplate_depth,C3,16.5,,6.0,same,one sex only (male),,False,False
+busscher2010,human_cadaver,ct_mpr_per_vertebra,ct,Human,male,endplate_depth,L5,36.7,,6.0,same,one sex only (male),,False,False
+busscher2010,human_cadaver,ct_mpr_per_vertebra,ct,Human,male,h_post,C3,15.1,1.1,6.0,same,one sex only (male),,False,True
+busscher2010,human_cadaver,ct_mpr_per_vertebra,ct,Human,male,h_post,C4,14.6,1.1,6.0,same,one sex only (male),,False,True
+busscher2010,human_cadaver,ct_mpr_per_vertebra,ct,Human,male,h_post,C5,14.2,1.0,6.0,same,one sex only (male),,False,True
+busscher2010,human_cadaver,ct_mpr_per_vertebra,ct,Human,male,h_post,C6,13.9,0.8,6.0,same,one sex only (male),,False,True
+busscher2010,human_cadaver,ct_mpr_per_vertebra,ct,Human,male,h_post,C7,15.9,0.7,6.0,same,one sex only (male),,False,True
+busscher2010,human_cadaver,ct_mpr_per_vertebra,ct,Human,male,h_post,L1,28.5,2.5,6.0,same,one sex only (male),,False,True
+busscher2010,human_cadaver,ct_mpr_per_vertebra,ct,Human,male,h_post,L2,29.8,1.2,6.0,same,one sex only (male),,False,True
+busscher2010,human_cadaver,ct_mpr_per_vertebra,ct,Human,male,h_post,L3,29.8,1.0,6.0,same,one sex only (male),,False,True
+busscher2010,human_cadaver,ct_mpr_per_vertebra,ct,Human,male,h_post,L4,28.0,2.1,6.0,same,one sex only (male),,False,True
+busscher2010,human_cadaver,ct_mpr_per_vertebra,ct,Human,male,h_post,L5,24.9,3.8,6.0,same,one sex only (male),,False,True
+busscher2010,human_cadaver,ct_mpr_per_vertebra,ct,Human,male,h_post,T1,18.8,1.0,6.0,same,one sex only (male),,False,True
+busscher2010,human_cadaver,ct_mpr_per_vertebra,ct,Human,male,h_post,T10,25.3,1.6,6.0,same,one sex only (male),,False,True
+busscher2010,human_cadaver,ct_mpr_per_vertebra,ct,Human,male,h_post,T11,27.1,1.9,6.0,same,one sex only (male),,False,True
+busscher2010,human_cadaver,ct_mpr_per_vertebra,ct,Human,male,h_post,T12,28.5,0.9,6.0,same,one sex only (male),,False,True
+busscher2010,human_cadaver,ct_mpr_per_vertebra,ct,Human,male,h_post,T2,19.1,0.8,6.0,same,one sex only (male),,False,True
+busscher2010,human_cadaver,ct_mpr_per_vertebra,ct,Human,male,h_post,T3,19.6,1.0,6.0,same,one sex only (male),,False,True
+busscher2010,human_cadaver,ct_mpr_per_vertebra,ct,Human,male,h_post,T4,20.6,1.2,6.0,same,one sex only (male),,False,True
+busscher2010,human_cadaver,ct_mpr_per_vertebra,ct,Human,male,h_post,T5,21.0,1.6,6.0,same,one sex only (male),,False,True
+busscher2010,human_cadaver,ct_mpr_per_vertebra,ct,Human,male,h_post,T6,21.7,2.0,6.0,same,one sex only (male),,False,True
+busscher2010,human_cadaver,ct_mpr_per_vertebra,ct,Human,male,h_post,T7,22.4,1.7,6.0,same,one sex only (male),,False,True
+busscher2010,human_cadaver,ct_mpr_per_vertebra,ct,Human,male,h_post,T8,22.7,1.5,6.0,same,one sex only (male),,False,True
+busscher2010,human_cadaver,ct_mpr_per_vertebra,ct,Human,male,h_post,T9,23.7,2.0,6.0,same,one sex only (male),,False,True
+cizmic2023,bih-sarajevo-ct,cizmic-ct-syngo,ct,,pooled,canal_ap,L1,19.0645,1.63964,200.0,same,,,False,True
+cizmic2023,bih-sarajevo-ct,cizmic-ct-syngo,ct,,pooled,canal_ap,L2,18.0545,1.97814,200.0,same,,,False,True
+cizmic2023,bih-sarajevo-ct,cizmic-ct-syngo,ct,,pooled,canal_ap,L3,16.663,2.00204,200.0,same,,,False,True
+cizmic2023,bih-sarajevo-ct,cizmic-ct-syngo,ct,,pooled,canal_ap,L4,16.798,2.21264,200.0,same,,,False,True
+cizmic2023,bih-sarajevo-ct,cizmic-ct-syngo,ct,,pooled,canal_ap,L5,17.81,2.69427,200.0,same,,,False,True
 cizmic2023,bih-sarajevo-ct,cizmic-ct-syngo,ct,,all,canal_w,L1,24.78,2.29,200.0,close,,,False,True
 cizmic2023,bih-sarajevo-ct,cizmic-ct-syngo,ct,,all,canal_w,L2,25.14,2.24,200.0,close,,,False,True
 cizmic2023,bih-sarajevo-ct,cizmic-ct-syngo,ct,,all,canal_w,L3,25.86,2.37,200.0,close,,,False,True
@@ -101,36 +101,36 @@ duman2026,izmir-mdct-517,mdct-axial-pedicle,ct,,all,pedicle_w,L1,9.23,1.625,517.
 duman2026,izmir-mdct-517,mdct-axial-pedicle,ct,,all,pedicle_w,L2,9.91,1.75,517.0,close,,,False,True
 duman2026,izmir-mdct-517,mdct-axial-pedicle,ct,,all,pedicle_w,T11,7.465,1.25,517.0,close,,,False,True
 duman2026,izmir-mdct-517,mdct-axial-pedicle,ct,,all,pedicle_w,T12,8.3,1.475,517.0,close,,,False,True
-eisenstein1977,dart_skeletons,caliper_dry_bone,bone,Caucasoid,male,canal_ap,L1,18.0,,78.0,close,one sex only (male),,False,False
-eisenstein1977,dart_skeletons,caliper_dry_bone,bone,Sotho Negroid,male,canal_ap,L1,16.0,,106.0,close,one sex only (male),,False,False
-eisenstein1977,dart_skeletons,caliper_dry_bone,bone,Zulu Negroid,male,canal_ap,L1,16.0,,108.0,close,one sex only (male),,False,False
-eisenstein1977,dart_skeletons,caliper_dry_bone,bone,Caucasoid,male,canal_ap,L2,17.0,,78.0,close,one sex only (male),,False,False
-eisenstein1977,dart_skeletons,caliper_dry_bone,bone,Sotho Negroid,male,canal_ap,L2,15.0,,106.0,close,one sex only (male),,False,False
-eisenstein1977,dart_skeletons,caliper_dry_bone,bone,Zulu Negroid,male,canal_ap,L2,15.0,,108.0,close,one sex only (male),,False,False
-eisenstein1977,dart_skeletons,caliper_dry_bone,bone,Caucasoid,male,canal_ap,L3,16.0,,78.0,close,one sex only (male),,False,False
-eisenstein1977,dart_skeletons,caliper_dry_bone,bone,Sotho Negroid,male,canal_ap,L3,14.0,,106.0,close,one sex only (male),,False,False
-eisenstein1977,dart_skeletons,caliper_dry_bone,bone,Zulu Negroid,male,canal_ap,L3,15.0,,108.0,close,one sex only (male),,False,False
-eisenstein1977,dart_skeletons,caliper_dry_bone,bone,Caucasoid,male,canal_ap,L4,16.0,,78.0,close,one sex only (male),,False,False
-eisenstein1977,dart_skeletons,caliper_dry_bone,bone,Sotho Negroid,male,canal_ap,L4,15.0,,106.0,close,one sex only (male),,False,False
-eisenstein1977,dart_skeletons,caliper_dry_bone,bone,Zulu Negroid,male,canal_ap,L4,15.0,,108.0,close,one sex only (male),,False,False
-eisenstein1977,dart_skeletons,caliper_dry_bone,bone,Caucasoid,male,canal_ap,L5,18.0,,78.0,close,one sex only (male),,False,False
-eisenstein1977,dart_skeletons,caliper_dry_bone,bone,Sotho Negroid,male,canal_ap,L5,16.0,,106.0,close,one sex only (male),,False,False
-eisenstein1977,dart_skeletons,caliper_dry_bone,bone,Zulu Negroid,male,canal_ap,L5,16.0,,108.0,close,one sex only (male),,False,False
-eisenstein1977,dart_skeletons,caliper_dry_bone,bone,Caucasoid,male,canal_w,L1,23.0,,78.0,close,one sex only (male),,False,False
-eisenstein1977,dart_skeletons,caliper_dry_bone,bone,Sotho Negroid,male,canal_w,L1,21.0,,106.0,close,one sex only (male),,False,False
-eisenstein1977,dart_skeletons,caliper_dry_bone,bone,Zulu Negroid,male,canal_w,L1,21.0,,108.0,close,one sex only (male),,False,False
-eisenstein1977,dart_skeletons,caliper_dry_bone,bone,Caucasoid,male,canal_w,L2,24.0,,78.0,close,one sex only (male),,False,False
-eisenstein1977,dart_skeletons,caliper_dry_bone,bone,Sotho Negroid,male,canal_w,L2,21.0,,106.0,close,one sex only (male),,False,False
-eisenstein1977,dart_skeletons,caliper_dry_bone,bone,Zulu Negroid,male,canal_w,L2,22.0,,108.0,close,one sex only (male),,False,False
-eisenstein1977,dart_skeletons,caliper_dry_bone,bone,Caucasoid,male,canal_w,L3,23.0,,78.0,close,one sex only (male),,False,False
-eisenstein1977,dart_skeletons,caliper_dry_bone,bone,Sotho Negroid,male,canal_w,L3,22.0,,106.0,close,one sex only (male),,False,False
-eisenstein1977,dart_skeletons,caliper_dry_bone,bone,Zulu Negroid,male,canal_w,L3,22.0,,108.0,close,one sex only (male),,False,False
-eisenstein1977,dart_skeletons,caliper_dry_bone,bone,Caucasoid,male,canal_w,L4,24.0,,78.0,close,one sex only (male),,False,False
-eisenstein1977,dart_skeletons,caliper_dry_bone,bone,Sotho Negroid,male,canal_w,L4,23.0,,106.0,close,one sex only (male),,False,False
-eisenstein1977,dart_skeletons,caliper_dry_bone,bone,Zulu Negroid,male,canal_w,L4,23.0,,108.0,close,one sex only (male),,False,False
-eisenstein1977,dart_skeletons,caliper_dry_bone,bone,Caucasoid,male,canal_w,L5,26.0,,78.0,close,one sex only (male),,False,False
-eisenstein1977,dart_skeletons,caliper_dry_bone,bone,Sotho Negroid,male,canal_w,L5,25.0,,106.0,close,one sex only (male),,False,False
-eisenstein1977,dart_skeletons,caliper_dry_bone,bone,Zulu Negroid,male,canal_w,L5,26.0,,108.0,close,one sex only (male),,False,False
+eisenstein1977,dart_skeletons,caliper_dry_bone,bone,Caucasoid,male,canal_ap,L1,18.0,,78.0,close,"both sexes printed, not pooled (men kept)",,False,False
+eisenstein1977,dart_skeletons,caliper_dry_bone,bone,Sotho Negroid,male,canal_ap,L1,16.0,,106.0,close,"both sexes printed, not pooled (men kept)",,False,False
+eisenstein1977,dart_skeletons,caliper_dry_bone,bone,Zulu Negroid,male,canal_ap,L1,16.0,,108.0,close,"both sexes printed, not pooled (men kept)",,False,False
+eisenstein1977,dart_skeletons,caliper_dry_bone,bone,Caucasoid,male,canal_ap,L2,17.0,,78.0,close,"both sexes printed, not pooled (men kept)",,False,False
+eisenstein1977,dart_skeletons,caliper_dry_bone,bone,Sotho Negroid,male,canal_ap,L2,15.0,,106.0,close,"both sexes printed, not pooled (men kept)",,False,False
+eisenstein1977,dart_skeletons,caliper_dry_bone,bone,Zulu Negroid,male,canal_ap,L2,15.0,,108.0,close,"both sexes printed, not pooled (men kept)",,False,False
+eisenstein1977,dart_skeletons,caliper_dry_bone,bone,Caucasoid,male,canal_ap,L3,16.0,,78.0,close,"both sexes printed, not pooled (men kept)",,False,False
+eisenstein1977,dart_skeletons,caliper_dry_bone,bone,Sotho Negroid,male,canal_ap,L3,14.0,,106.0,close,"both sexes printed, not pooled (men kept)",,False,False
+eisenstein1977,dart_skeletons,caliper_dry_bone,bone,Zulu Negroid,male,canal_ap,L3,15.0,,108.0,close,"both sexes printed, not pooled (men kept)",,False,False
+eisenstein1977,dart_skeletons,caliper_dry_bone,bone,Caucasoid,male,canal_ap,L4,16.0,,78.0,close,"both sexes printed, not pooled (men kept)",,False,False
+eisenstein1977,dart_skeletons,caliper_dry_bone,bone,Sotho Negroid,male,canal_ap,L4,15.0,,106.0,close,"both sexes printed, not pooled (men kept)",,False,False
+eisenstein1977,dart_skeletons,caliper_dry_bone,bone,Zulu Negroid,male,canal_ap,L4,15.0,,108.0,close,"both sexes printed, not pooled (men kept)",,False,False
+eisenstein1977,dart_skeletons,caliper_dry_bone,bone,Caucasoid,male,canal_ap,L5,18.0,,78.0,close,"both sexes printed, not pooled (men kept)",,False,False
+eisenstein1977,dart_skeletons,caliper_dry_bone,bone,Sotho Negroid,male,canal_ap,L5,16.0,,106.0,close,"both sexes printed, not pooled (men kept)",,False,False
+eisenstein1977,dart_skeletons,caliper_dry_bone,bone,Zulu Negroid,male,canal_ap,L5,16.0,,108.0,close,"both sexes printed, not pooled (men kept)",,False,False
+eisenstein1977,dart_skeletons,caliper_dry_bone,bone,Caucasoid,male,canal_w,L1,23.0,,78.0,close,"both sexes printed, not pooled (men kept)",,False,False
+eisenstein1977,dart_skeletons,caliper_dry_bone,bone,Sotho Negroid,male,canal_w,L1,21.0,,106.0,close,"both sexes printed, not pooled (men kept)",,False,False
+eisenstein1977,dart_skeletons,caliper_dry_bone,bone,Zulu Negroid,male,canal_w,L1,21.0,,108.0,close,"both sexes printed, not pooled (men kept)",,False,False
+eisenstein1977,dart_skeletons,caliper_dry_bone,bone,Caucasoid,male,canal_w,L2,24.0,,78.0,close,"both sexes printed, not pooled (men kept)",,False,False
+eisenstein1977,dart_skeletons,caliper_dry_bone,bone,Sotho Negroid,male,canal_w,L2,21.0,,106.0,close,"both sexes printed, not pooled (men kept)",,False,False
+eisenstein1977,dart_skeletons,caliper_dry_bone,bone,Zulu Negroid,male,canal_w,L2,22.0,,108.0,close,"both sexes printed, not pooled (men kept)",,False,False
+eisenstein1977,dart_skeletons,caliper_dry_bone,bone,Caucasoid,male,canal_w,L3,23.0,,78.0,close,"both sexes printed, not pooled (men kept)",,False,False
+eisenstein1977,dart_skeletons,caliper_dry_bone,bone,Sotho Negroid,male,canal_w,L3,22.0,,106.0,close,"both sexes printed, not pooled (men kept)",,False,False
+eisenstein1977,dart_skeletons,caliper_dry_bone,bone,Zulu Negroid,male,canal_w,L3,22.0,,108.0,close,"both sexes printed, not pooled (men kept)",,False,False
+eisenstein1977,dart_skeletons,caliper_dry_bone,bone,Caucasoid,male,canal_w,L4,24.0,,78.0,close,"both sexes printed, not pooled (men kept)",,False,False
+eisenstein1977,dart_skeletons,caliper_dry_bone,bone,Sotho Negroid,male,canal_w,L4,23.0,,106.0,close,"both sexes printed, not pooled (men kept)",,False,False
+eisenstein1977,dart_skeletons,caliper_dry_bone,bone,Zulu Negroid,male,canal_w,L4,23.0,,108.0,close,"both sexes printed, not pooled (men kept)",,False,False
+eisenstein1977,dart_skeletons,caliper_dry_bone,bone,Caucasoid,male,canal_w,L5,26.0,,78.0,close,"both sexes printed, not pooled (men kept)",,False,False
+eisenstein1977,dart_skeletons,caliper_dry_bone,bone,Sotho Negroid,male,canal_w,L5,25.0,,106.0,close,"both sexes printed, not pooled (men kept)",,False,False
+eisenstein1977,dart_skeletons,caliper_dry_bone,bone,Zulu Negroid,male,canal_w,L5,26.0,,108.0,close,"both sexes printed, not pooled (men kept)",,False,False
 frontphys2026,zhengzhou_ct_100,ct_mpr_morphometry,ct,,all,endplate,L1,41.8,1.0,20.0,close,,,False,True
 frontphys2026,zhengzhou_ct_100,ct_mpr_morphometry,ct,,all,endplate,L2,43.4,0.7,20.0,close,,,False,True
 frontphys2026,zhengzhou_ct_100,ct_mpr_morphometry,ct,,all,endplate,L3,45.2,0.6,20.0,close,,,False,True
@@ -146,32 +146,32 @@ frontphys2026,zhengzhou_ct_100,ct_mpr_morphometry,ct,,all,h_post,L2,28.1,2.6,20.
 frontphys2026,zhengzhou_ct_100,ct_mpr_morphometry,ct,,all,h_post,L3,27.3,2.2,20.0,same,,,False,True
 frontphys2026,zhengzhou_ct_100,ct_mpr_morphometry,ct,,all,h_post,L4,26.3,2.1,20.0,same,,,False,True
 frontphys2026,zhengzhou_ct_100,ct_mpr_morphometry,ct,,all,h_post,L5,24.6,2.5,20.0,same,,,False,True
-gilad1985,haifa_transport_men,lateral_cervical_film_caliper,film,,male,endplate_depth,C3,14.8,1.5,157.0,close,one sex only (male),n is the cohort's people,False,True
-gilad1985,haifa_transport_men,lateral_cervical_film_caliper,film,,male,endplate_depth,C4,15.5,1.7,157.0,close,one sex only (male),n is the cohort's people,False,True
-gilad1985,haifa_transport_men,lateral_cervical_film_caliper,film,,male,endplate_depth,C5,15.5,1.7,157.0,close,one sex only (male),n is the cohort's people,False,True
-gilad1985,haifa_transport_men,lateral_cervical_film_caliper,film,,male,endplate_depth,C6,16.0,1.7,157.0,close,one sex only (male),n is the cohort's people,False,True
-gilad1985,haifa_transport_men,lateral_cervical_film_caliper,film,,male,endplate_depth,C7,16.4,1.4,157.0,close,one sex only (male),n is the cohort's people,False,True
-gilad1985,haifa_transport_men,lateral_lumbar_film_caliper,film,,male,endplate_depth,L1,33.5,2.8,157.0,close,one sex only (male),n is the cohort's people,False,True
-gilad1985,haifa_transport_men,lateral_lumbar_film_caliper,film,,male,endplate_depth,L2,34.4,2.9,157.0,close,one sex only (male),n is the cohort's people,False,True
-gilad1985,haifa_transport_men,lateral_lumbar_film_caliper,film,,male,endplate_depth,L3,34.7,2.7,157.0,close,one sex only (male),n is the cohort's people,False,True
-gilad1985,haifa_transport_men,lateral_lumbar_film_caliper,film,,male,endplate_depth,L4,34.3,2.7,157.0,close,one sex only (male),n is the cohort's people,False,True
-gilad1985,haifa_transport_men,lateral_lumbar_film_caliper,film,,male,endplate_depth,L5,34.2,2.7,157.0,close,one sex only (male),n is the cohort's people,False,True
-gilad1985,haifa_transport_men,lateral_cervical_film_caliper,film,,male,endplate_lower_depth,C2,15.3,1.6,157.0,close,one sex only (male),n is the cohort's people,False,True
-gilad1985,haifa_transport_men,lateral_cervical_film_caliper,film,,male,endplate_lower_depth,C3,15.6,1.5,157.0,close,one sex only (male),n is the cohort's people,False,True
-gilad1985,haifa_transport_men,lateral_cervical_film_caliper,film,,male,endplate_lower_depth,C4,15.8,1.5,157.0,close,one sex only (male),n is the cohort's people,False,True
-gilad1985,haifa_transport_men,lateral_cervical_film_caliper,film,,male,endplate_lower_depth,C5,16.1,1.5,157.0,close,one sex only (male),n is the cohort's people,False,True
-gilad1985,haifa_transport_men,lateral_cervical_film_caliper,film,,male,endplate_lower_depth,C6,16.6,1.4,157.0,close,one sex only (male),n is the cohort's people,False,True
-gilad1985,haifa_transport_men,lateral_cervical_film_caliper,film,,male,endplate_lower_depth,C7,16.3,1.4,157.0,close,one sex only (male),n is the cohort's people,False,True
-gilad1985,haifa_transport_men,lateral_lumbar_film_caliper,film,,male,endplate_lower_depth,L1,34.1,2.9,157.0,close,one sex only (male),n is the cohort's people,False,True
-gilad1985,haifa_transport_men,lateral_lumbar_film_caliper,film,,male,endplate_lower_depth,L2,34.7,3.0,157.0,close,one sex only (male),n is the cohort's people,False,True
-gilad1985,haifa_transport_men,lateral_lumbar_film_caliper,film,,male,endplate_lower_depth,L3,34.6,2.8,157.0,close,one sex only (male),n is the cohort's people,False,True
-gilad1985,haifa_transport_men,lateral_lumbar_film_caliper,film,,male,endplate_lower_depth,L4,34.9,2.8,157.0,close,one sex only (male),n is the cohort's people,False,True
-gilad1985,haifa_transport_men,lateral_lumbar_film_caliper,film,,male,endplate_lower_depth,L5,33.9,2.7,157.0,close,one sex only (male),n is the cohort's people,False,True
-gilad1985,haifa_transport_men,lateral_lumbar_film_caliper,film,,male,h_post,L1,27.1,2.1,157.0,close,one sex only (male),n is the cohort's people,False,True
-gilad1985,haifa_transport_men,lateral_lumbar_film_caliper,film,,male,h_post,L2,27.0,2.1,157.0,close,one sex only (male),n is the cohort's people,False,True
-gilad1985,haifa_transport_men,lateral_lumbar_film_caliper,film,,male,h_post,L3,27.9,2.1,157.0,close,one sex only (male),n is the cohort's people,False,True
-gilad1985,haifa_transport_men,lateral_lumbar_film_caliper,film,,male,h_post,L4,27.1,2.3,157.0,close,one sex only (male),n is the cohort's people,False,True
-gilad1985,haifa_transport_men,lateral_lumbar_film_caliper,film,,male,h_post,L5,25.7,2.5,157.0,close,one sex only (male),n is the cohort's people,False,True
+gilad1985,haifa_transport_men,lateral_cervical_film_caliper,film,,male,endplate_depth,C3,14.8,1.5,141.0,close,one sex only (male),,False,True
+gilad1985,haifa_transport_men,lateral_cervical_film_caliper,film,,male,endplate_depth,C4,15.5,1.7,141.0,close,one sex only (male),,False,True
+gilad1985,haifa_transport_men,lateral_cervical_film_caliper,film,,male,endplate_depth,C5,15.5,1.7,141.0,close,one sex only (male),,False,True
+gilad1985,haifa_transport_men,lateral_cervical_film_caliper,film,,male,endplate_depth,C6,16.0,1.7,140.0,close,one sex only (male),,False,True
+gilad1985,haifa_transport_men,lateral_cervical_film_caliper,film,,male,endplate_depth,C7,16.4,1.4,126.0,close,one sex only (male),,False,True
+gilad1985,haifa_transport_men,lateral_lumbar_film_caliper,film,,male,endplate_depth,L1,33.5,2.8,154.0,close,one sex only (male),,False,True
+gilad1985,haifa_transport_men,lateral_lumbar_film_caliper,film,,male,endplate_depth,L2,34.4,2.9,157.0,close,one sex only (male),,False,True
+gilad1985,haifa_transport_men,lateral_lumbar_film_caliper,film,,male,endplate_depth,L3,34.7,2.7,157.0,close,one sex only (male),,False,True
+gilad1985,haifa_transport_men,lateral_lumbar_film_caliper,film,,male,endplate_depth,L4,34.3,2.7,157.0,close,one sex only (male),,False,True
+gilad1985,haifa_transport_men,lateral_lumbar_film_caliper,film,,male,endplate_depth,L5,34.2,2.7,156.0,close,one sex only (male),,False,True
+gilad1985,haifa_transport_men,lateral_cervical_film_caliper,film,,male,endplate_lower_depth,C2,15.3,1.6,130.0,close,one sex only (male),,False,True
+gilad1985,haifa_transport_men,lateral_cervical_film_caliper,film,,male,endplate_lower_depth,C3,15.6,1.5,141.0,close,one sex only (male),,False,True
+gilad1985,haifa_transport_men,lateral_cervical_film_caliper,film,,male,endplate_lower_depth,C4,15.8,1.5,141.0,close,one sex only (male),,False,True
+gilad1985,haifa_transport_men,lateral_cervical_film_caliper,film,,male,endplate_lower_depth,C5,16.1,1.5,141.0,close,one sex only (male),,False,True
+gilad1985,haifa_transport_men,lateral_cervical_film_caliper,film,,male,endplate_lower_depth,C6,16.6,1.4,140.0,close,one sex only (male),,False,True
+gilad1985,haifa_transport_men,lateral_cervical_film_caliper,film,,male,endplate_lower_depth,C7,16.3,1.4,126.0,close,one sex only (male),,False,True
+gilad1985,haifa_transport_men,lateral_lumbar_film_caliper,film,,male,endplate_lower_depth,L1,34.1,2.9,154.0,close,one sex only (male),,False,True
+gilad1985,haifa_transport_men,lateral_lumbar_film_caliper,film,,male,endplate_lower_depth,L2,34.7,3.0,157.0,close,one sex only (male),,False,True
+gilad1985,haifa_transport_men,lateral_lumbar_film_caliper,film,,male,endplate_lower_depth,L3,34.6,2.8,157.0,close,one sex only (male),,False,True
+gilad1985,haifa_transport_men,lateral_lumbar_film_caliper,film,,male,endplate_lower_depth,L4,34.9,2.8,157.0,close,one sex only (male),,False,True
+gilad1985,haifa_transport_men,lateral_lumbar_film_caliper,film,,male,endplate_lower_depth,L5,33.9,2.7,156.0,close,one sex only (male),,False,True
+gilad1985,haifa_transport_men,lateral_lumbar_film_caliper,film,,male,h_post,L1,27.1,2.1,154.0,close,one sex only (male),,False,True
+gilad1985,haifa_transport_men,lateral_lumbar_film_caliper,film,,male,h_post,L2,27.0,2.1,157.0,close,one sex only (male),,False,True
+gilad1985,haifa_transport_men,lateral_lumbar_film_caliper,film,,male,h_post,L3,27.9,2.1,157.0,close,one sex only (male),,False,True
+gilad1985,haifa_transport_men,lateral_lumbar_film_caliper,film,,male,h_post,L4,27.1,2.3,157.0,close,one sex only (male),,False,True
+gilad1985,haifa_transport_men,lateral_lumbar_film_caliper,film,,male,h_post,L5,25.7,2.5,156.0,close,one sex only (male),,False,True
 griffith2016,hk_ct_patients,ct_midpedicle_semiauto,ct,,pooled,canal_ap,L1,15.52,2.07563,1080.0,same,,,False,True
 griffith2016,hk_ct_patients,ct_midpedicle_semiauto,ct,,pooled,canal_ap,L2,14.725,2.17759,1080.0,same,,,False,True
 griffith2016,hk_ct_patients,ct_midpedicle_semiauto,ct,,pooled,canal_ap,L3,14.11,2.27257,1080.0,same,,,False,True
@@ -225,15 +225,15 @@ kunkel2011,ulm_thoracic_segments,lateral_contact_radiograph,film,radiographic,al
 kunkel2011,ulm_thoracic_segments,lateral_contact_radiograph,film,radiographic,all,h_post,T7,18.67,1.64,30.0,close,,,False,True
 kunkel2011,ulm_thoracic_segments,lateral_contact_radiograph,film,radiographic,all,h_post,T8,20.05,1.77,30.0,close,,,False,True
 kunkel2011,ulm_thoracic_segments,lateral_contact_radiograph,film,radiographic,all,h_post,T9,20.25,2.44,30.0,close,,,False,True
-lien2007,dry_sets,dry_caliper,bone,dry vertebrae,all,pedicle_h,L1,13.7,,15.0,close,,,False,False
-lien2007,dry_sets,dry_caliper,bone,dry vertebrae,all,pedicle_h,L2,14.1,,15.0,close,,,False,False
+lien2007,dry_sets,dry_caliper,bone,dry vertebrae,all,pedicle_h,L1,13.65,1.45,15.0,close,,,False,True
+lien2007,dry_sets,dry_caliper,bone,dry vertebrae,all,pedicle_h,L2,14.05,1.75,15.0,close,,,False,True
 lien2007,dry_sets,dry_caliper,bone,dry vertebrae,all,pedicle_h,L3,13.9,1.65,15.0,close,,,False,True
 lien2007,dry_sets,dry_caliper,bone,dry vertebrae,all,pedicle_h,L4,12.75,2.25,15.0,close,,,False,True
 lien2007,dry_sets,dry_caliper,bone,dry vertebrae,all,pedicle_h,L5,12.5,2.2,15.0,close,,,False,True
-lien2007,dry_sets,dry_caliper,bone,dry vertebrae,all,pedicle_h,T1,8.7,,15.0,close,,,False,False
+lien2007,dry_sets,dry_caliper,bone,dry vertebrae,all,pedicle_h,T1,8.65,1.05,15.0,close,,,False,True
 lien2007,dry_sets,dry_caliper,bone,dry vertebrae,all,pedicle_h,T10,13.65,1.55,15.0,close,,,False,True
-lien2007,dry_sets,dry_caliper,bone,dry vertebrae,all,pedicle_h,T11,15.1,,15.0,close,,,False,False
-lien2007,dry_sets,dry_caliper,bone,dry vertebrae,all,pedicle_h,T12,15.1,,15.0,close,,,False,False
+lien2007,dry_sets,dry_caliper,bone,dry vertebrae,all,pedicle_h,T11,15.1,1.35,15.0,close,,,False,True
+lien2007,dry_sets,dry_caliper,bone,dry vertebrae,all,pedicle_h,T12,15.1,1.45,15.0,close,,,False,True
 lien2007,dry_sets,dry_caliper,bone,dry vertebrae,all,pedicle_h,T2,10.3,0.85,15.0,close,,,False,True
 lien2007,dry_sets,dry_caliper,bone,dry vertebrae,all,pedicle_h,T3,10.4,1.15,15.0,close,,,False,True
 lien2007,dry_sets,dry_caliper,bone,dry vertebrae,all,pedicle_h,T4,10.3,1.1,15.0,close,,,False,True
@@ -247,10 +247,10 @@ lien2007,dry_sets,dry_goniometer,bone,dry vertebrae,all,pedicle_incl_sag,L2,12.3
 lien2007,dry_sets,dry_goniometer,bone,dry vertebrae,all,pedicle_incl_sag,L3,15.25,3.55,15.0,close,,,False,True
 lien2007,dry_sets,dry_goniometer,bone,dry vertebrae,all,pedicle_incl_sag,L4,18.9,3.3,15.0,close,,,False,True
 lien2007,dry_sets,dry_goniometer,bone,dry vertebrae,all,pedicle_incl_sag,L5,24.35,4.3,15.0,close,,,False,True
-lien2007,dry_sets,dry_goniometer,bone,dry vertebrae,all,pedicle_incl_sag,T1,28.2,,15.0,close,,,False,False
+lien2007,dry_sets,dry_goniometer,bone,dry vertebrae,all,pedicle_incl_sag,T1,28.2,4.3,15.0,close,,,False,True
 lien2007,dry_sets,dry_goniometer,bone,dry vertebrae,all,pedicle_incl_sag,T10,9.0,1.4,15.0,close,,,False,True
 lien2007,dry_sets,dry_goniometer,bone,dry vertebrae,all,pedicle_incl_sag,T11,8.0,1.45,15.0,close,,,False,True
-lien2007,dry_sets,dry_goniometer,bone,dry vertebrae,all,pedicle_incl_sag,T12,7.9,,15.0,close,,,False,False
+lien2007,dry_sets,dry_goniometer,bone,dry vertebrae,all,pedicle_incl_sag,T12,7.9,1.45,15.0,close,,,False,True
 lien2007,dry_sets,dry_goniometer,bone,dry vertebrae,all,pedicle_incl_sag,T2,26.35,3.65,15.0,close,,,False,True
 lien2007,dry_sets,dry_goniometer,bone,dry vertebrae,all,pedicle_incl_sag,T3,23.3,3.6,15.0,close,,,False,True
 lien2007,dry_sets,dry_goniometer,bone,dry vertebrae,all,pedicle_incl_sag,T4,22.85,3.0,15.0,close,,,False,True
@@ -263,12 +263,12 @@ lien2007,dry_sets,dry_goniometer,bone,dry vertebrae,all,pedicle_incl_trans,L1,6.
 lien2007,dry_sets,dry_goniometer,bone,dry vertebrae,all,pedicle_incl_trans,L2,5.45,1.2,15.0,close,,,False,True
 lien2007,dry_sets,dry_goniometer,bone,dry vertebrae,all,pedicle_incl_trans,L3,5.0,0.75,15.0,close,,,False,True
 lien2007,dry_sets,dry_goniometer,bone,dry vertebrae,all,pedicle_incl_trans,L4,3.35,0.7,15.0,close,,,False,True
-lien2007,dry_sets,dry_goniometer,bone,dry vertebrae,all,pedicle_incl_trans,L5,2.9,,15.0,close,,,False,False
+lien2007,dry_sets,dry_goniometer,bone,dry vertebrae,all,pedicle_incl_trans,L5,2.9,0.75,15.0,close,,,False,True
 lien2007,dry_sets,dry_goniometer,bone,dry vertebrae,all,pedicle_incl_trans,T1,11.6,2.05,15.0,close,,,False,True
 lien2007,dry_sets,dry_goniometer,bone,dry vertebrae,all,pedicle_incl_trans,T10,13.45,2.0,15.0,close,,,False,True
 lien2007,dry_sets,dry_goniometer,bone,dry vertebrae,all,pedicle_incl_trans,T11,12.15,1.65,15.0,close,,,False,True
 lien2007,dry_sets,dry_goniometer,bone,dry vertebrae,all,pedicle_incl_trans,T12,10.7,1.55,15.0,close,,,False,True
-lien2007,dry_sets,dry_goniometer,bone,dry vertebrae,all,pedicle_incl_trans,T2,18.9,,15.0,close,,,False,False
+lien2007,dry_sets,dry_goniometer,bone,dry vertebrae,all,pedicle_incl_trans,T2,18.9,3.3,15.0,close,,,False,True
 lien2007,dry_sets,dry_goniometer,bone,dry vertebrae,all,pedicle_incl_trans,T3,16.6,2.45,15.0,close,,,False,True
 lien2007,dry_sets,dry_goniometer,bone,dry vertebrae,all,pedicle_incl_trans,T4,15.0,2.15,15.0,close,,,False,True
 lien2007,dry_sets,dry_goniometer,bone,dry vertebrae,all,pedicle_incl_trans,T5,17.85,2.5,15.0,close,,,False,True
@@ -280,15 +280,15 @@ lien2007,dry_sets,dry_caliper,bone,dry vertebrae,all,pedicle_w,L1,6.45,1.65,15.0
 lien2007,dry_sets,dry_caliper,bone,dry vertebrae,all,pedicle_w,L2,7.2,1.75,15.0,close,,,False,True
 lien2007,dry_sets,dry_caliper,bone,dry vertebrae,all,pedicle_w,L3,9.15,1.85,15.0,close,,,False,True
 lien2007,dry_sets,dry_caliper,bone,dry vertebrae,all,pedicle_w,L4,11.9,2.2,15.0,close,,,False,True
-lien2007,dry_sets,dry_caliper,bone,dry vertebrae,all,pedicle_w,L5,17.6,,15.0,close,,,False,False
+lien2007,dry_sets,dry_caliper,bone,dry vertebrae,all,pedicle_w,L5,17.6,2.65,15.0,close,,,False,True
 lien2007,dry_sets,dry_caliper,bone,dry vertebrae,all,pedicle_w,T1,7.65,1.15,15.0,close,,,False,True
 lien2007,dry_sets,dry_caliper,bone,dry vertebrae,all,pedicle_w,T10,5.65,1.3,15.0,close,,,False,True
 lien2007,dry_sets,dry_caliper,bone,dry vertebrae,all,pedicle_w,T11,7.2,1.2,15.0,close,,,False,True
 lien2007,dry_sets,dry_caliper,bone,dry vertebrae,all,pedicle_w,T12,7.55,1.45,15.0,close,,,False,True
 lien2007,dry_sets,dry_caliper,bone,dry vertebrae,all,pedicle_w,T2,5.45,0.75,15.0,close,,,False,True
 lien2007,dry_sets,dry_caliper,bone,dry vertebrae,all,pedicle_w,T3,4.0,0.75,15.0,close,,,False,True
-lien2007,dry_sets,dry_caliper,bone,dry vertebrae,all,pedicle_w,T4,3.5,,15.0,close,,,False,False
-lien2007,dry_sets,dry_caliper,bone,dry vertebrae,all,pedicle_w,T5,3.8,,15.0,close,,,False,False
+lien2007,dry_sets,dry_caliper,bone,dry vertebrae,all,pedicle_w,T4,3.5,0.65,15.0,close,,,False,True
+lien2007,dry_sets,dry_caliper,bone,dry vertebrae,all,pedicle_w,T5,3.8,0.75,15.0,close,,,False,True
 lien2007,dry_sets,dry_caliper,bone,dry vertebrae,all,pedicle_w,T6,3.95,0.95,15.0,close,,,False,True
 lien2007,dry_sets,dry_caliper,bone,dry vertebrae,all,pedicle_w,T7,4.4,1.05,15.0,close,,,False,True
 lien2007,dry_sets,dry_caliper,bone,dry vertebrae,all,pedicle_w,T8,4.8,1.15,15.0,close,,,False,True
@@ -309,39 +309,29 @@ masharawi2021,control,ct_axial_2d,ct,Control,pooled,facet_w_sup,L3,17.2,2.16823,
 masharawi2021,control,ct_axial_2d,ct,Control,pooled,facet_w_sup,L4,17.1925,2.11181,50.0,close,,,False,True
 masharawi2021,control,ct_axial_2d,ct,Control,pooled,facet_w_sup,L5,18.4425,2.95234,50.0,close,,,False,True
 masharawi2021,control,ct_parasagittal_2d,ct,Control,pooled,pedicle_h,L1,12.735,2.86616,50.0,close,,,False,True
-masharawi2021,control,ct_parasagittal_2d,ct,Israeli,all,pedicle_h,L1,12.4,,50.0,close,,,False,False
 masharawi2021,control,ct_parasagittal_2d,ct,Control,pooled,pedicle_h,L2,11.9075,2.81989,50.0,close,,,False,True
-masharawi2021,control,ct_parasagittal_2d,ct,Israeli,all,pedicle_h,L2,12.06,,50.0,close,,,False,False
 masharawi2021,control,ct_parasagittal_2d,ct,Control,pooled,pedicle_h,L3,12.035,2.5645,50.0,close,,,False,True
-masharawi2021,control,ct_parasagittal_2d,ct,Israeli,all,pedicle_h,L3,12.03,,50.0,close,,,False,False
 masharawi2021,control,ct_parasagittal_2d,ct,Control,pooled,pedicle_h,L4,10.9175,2.87172,50.0,close,,,False,True
-masharawi2021,control,ct_parasagittal_2d,ct,Israeli,all,pedicle_h,L4,10.9,,50.0,close,,,False,False
 masharawi2021,control,ct_parasagittal_2d,ct,Control,pooled,pedicle_h,L5,9.4175,2.83609,50.0,close,,,False,True
-masharawi2021,control,ct_parasagittal_2d,ct,Israeli,all,pedicle_h,L5,9.4,,50.0,close,,,False,False
-masharawi2021,control,ct_axial_2d,ct,Control,pooled,pedicle_w,L1,7.2525,1.79826,50.0,close,,,False,True
-masharawi2021,control,ct_axial_2d,ct,Israeli,all,pedicle_w,L1,7.3,,50.0,close,,,False,False
-masharawi2021,control,ct_axial_2d,ct,Control,pooled,pedicle_w,L2,7.825,1.93719,50.0,close,,,False,True
-masharawi2021,control,ct_axial_2d,ct,Israeli,all,pedicle_w,L2,7.9,,50.0,close,,,False,False
-masharawi2021,control,ct_axial_2d,ct,Control,pooled,pedicle_w,L3,9.0575,2.54062,50.0,close,,,False,True
-masharawi2021,control,ct_axial_2d,ct,Israeli,all,pedicle_w,L3,9.3,,50.0,close,,,False,False
-masharawi2021,control,ct_axial_2d,ct,Control,pooled,pedicle_w,L4,10.3925,3.15433,50.0,close,,,False,True
-masharawi2021,control,ct_axial_2d,ct,Israeli,all,pedicle_w,L4,10.4,,50.0,close,,,False,False
-masharawi2021,control,ct_axial_2d,ct,Control,pooled,pedicle_w,L5,14.1,4.3236,50.0,close,,,False,True
-masharawi2021,control,ct_axial_2d,ct,Israeli,all,pedicle_w,L5,14.1,,50.0,close,,,False,False
-mitra2002,nagpur_cadavers20,direct_intact_column,bone,Direct,male,pedicle_h,L1,15.68,,18.0,close,one sex only (male),,False,False
-mitra2002,nagpur_cadavers20,direct_intact_column,bone,Direct,male,pedicle_h,L2,15.27,,18.0,close,one sex only (male),,False,False
-mitra2002,nagpur_cadavers20,direct_intact_column,bone,Direct,male,pedicle_h,L3,15.03,,18.0,close,one sex only (male),,False,False
-mitra2002,nagpur_cadavers20,direct_intact_column,bone,Direct,male,pedicle_h,L4,14.79,,18.0,close,one sex only (male),,False,False
-mitra2002,nagpur_cadavers20,direct_intact_column,bone,Direct,male,pedicle_h,L5,15.67,,18.0,close,one sex only (male),,False,False
+masharawi2021,control,ct_axial_2d,ct,Control,pooled,pedicle_w,L1,7.3225,2.01976,50.0,close,,,False,True
+masharawi2021,control,ct_axial_2d,ct,Control,pooled,pedicle_w,L2,7.925,2.04883,50.0,close,,,False,True
+masharawi2021,control,ct_axial_2d,ct,Control,pooled,pedicle_w,L3,9.3175,2.5096,50.0,close,,,False,True
+masharawi2021,control,ct_axial_2d,ct,Control,pooled,pedicle_w,L4,10.425,3.28851,50.0,close,,,False,True
+masharawi2021,control,ct_axial_2d,ct,Control,pooled,pedicle_w,L5,14.1325,4.3588,50.0,close,,,False,True
+mitra2002,nagpur_cadavers20,direct_intact_column,bone,Direct,male,pedicle_h,L1,15.68,,18.0,close,"both sexes printed, not pooled (men kept)",,False,False
+mitra2002,nagpur_cadavers20,direct_intact_column,bone,Direct,male,pedicle_h,L2,15.27,,18.0,close,"both sexes printed, not pooled (men kept)",,False,False
+mitra2002,nagpur_cadavers20,direct_intact_column,bone,Direct,male,pedicle_h,L3,15.03,,18.0,close,"both sexes printed, not pooled (men kept)",,False,False
+mitra2002,nagpur_cadavers20,direct_intact_column,bone,Direct,male,pedicle_h,L4,14.79,,18.0,close,"both sexes printed, not pooled (men kept)",,False,False
+mitra2002,nagpur_cadavers20,direct_intact_column,bone,Direct,male,pedicle_h,L5,15.67,,18.0,close,"both sexes printed, not pooled (men kept)",,False,False
 mitra2002,nagpur_cadavers20,direct_sectioned,bone,,not stated,pedicle_incl_sag,L1,9.0,,20.0,close,,,False,False
-mitra2002,nagpur_cadavers20,direct_sectioned,bone,Direct,male,pedicle_incl_sag,L2,10.05,,18.0,close,one sex only (male),,False,False
-mitra2002,nagpur_cadavers20,direct_sectioned,bone,Direct,male,pedicle_incl_sag,L3,12.33,,18.0,close,one sex only (male),,False,False
-mitra2002,nagpur_cadavers20,direct_sectioned,bone,Direct,male,pedicle_incl_sag,L4,14.72,,18.0,close,one sex only (male),,False,False
+mitra2002,nagpur_cadavers20,direct_sectioned,bone,Direct,male,pedicle_incl_sag,L2,10.05,,18.0,close,"both sexes printed, not pooled (men kept)",,False,False
+mitra2002,nagpur_cadavers20,direct_sectioned,bone,Direct,male,pedicle_incl_sag,L3,12.33,,18.0,close,"both sexes printed, not pooled (men kept)",,False,False
+mitra2002,nagpur_cadavers20,direct_sectioned,bone,Direct,male,pedicle_incl_sag,L4,14.72,,18.0,close,"both sexes printed, not pooled (men kept)",,False,False
 mitra2002,nagpur_cadavers20,direct_sectioned,bone,,not stated,pedicle_incl_sag,L5,29.0,,20.0,close,,,False,False
 mitra2002,nagpur_cadavers20,direct_sectioned,bone,,not stated,pedicle_w,L1,7.05,,20.0,close,,,False,False
-mitra2002,nagpur_cadavers20,direct_sectioned,bone,Direct,male,pedicle_w,L2,7.85,,18.0,close,one sex only (male),,False,False
-mitra2002,nagpur_cadavers20,direct_sectioned,bone,Direct,male,pedicle_w,L3,9.01,,18.0,close,one sex only (male),,False,False
-mitra2002,nagpur_cadavers20,direct_sectioned,bone,Direct,male,pedicle_w,L4,11.6,,18.0,close,one sex only (male),,False,False
+mitra2002,nagpur_cadavers20,direct_sectioned,bone,Direct,male,pedicle_w,L2,7.85,,18.0,close,"both sexes printed, not pooled (men kept)",,False,False
+mitra2002,nagpur_cadavers20,direct_sectioned,bone,Direct,male,pedicle_w,L3,9.01,,18.0,close,"both sexes printed, not pooled (men kept)",,False,False
+mitra2002,nagpur_cadavers20,direct_sectioned,bone,Direct,male,pedicle_w,L4,11.6,,18.0,close,"both sexes printed, not pooled (men kept)",,False,False
 mitra2002,nagpur_cadavers20,direct_sectioned,bone,,not stated,pedicle_w,L5,16.19,,20.0,close,,,False,False
 moncadahabib2025,mexico_ct37,ct_mpr_pacs_calipers,ct,,all,h_post,L1,26.89,1.83,37.0,close,,,False,True
 moncadahabib2025,mexico_ct37,ct_mpr_pacs_calipers,ct,,all,h_post,L2,26.75,1.95,37.0,close,,,False,True
@@ -352,61 +342,46 @@ moncadahabib2025,mexico_ct37,ct_mpr_pacs_calipers,ct,,all,pedicle_h,L1,12.9,1.45
 moncadahabib2025,mexico_ct37,ct_mpr_pacs_calipers,ct,,all,pedicle_h,L2,12.4,1.7,37.0,close,,,False,True
 moncadahabib2025,mexico_ct37,ct_mpr_pacs_calipers,ct,,all,pedicle_h,L3,12.05,1.85,37.0,close,,,False,True
 moncadahabib2025,mexico_ct37,ct_mpr_pacs_calipers,ct,,all,pedicle_h,L4,11.1,1.55,37.0,close,,,False,True
-moncadahabib2025,mexico_ct37,ct_mpr_pacs_calipers,ct,,all,pedicle_h,L5,10.2,,37.0,close,,,False,False
+moncadahabib2025,mexico_ct37,ct_mpr_pacs_calipers,ct,,all,pedicle_h,L5,10.2,1.5,37.0,close,,,False,True
 moncadahabib2025,mexico_ct37,ct_mpr_pacs_calipers,ct,,all,pedicle_incl_sag,L1,16.75,1.95,37.0,close,,,False,True
 moncadahabib2025,mexico_ct37,ct_mpr_pacs_calipers,ct,,all,pedicle_incl_sag,L2,16.45,2.15,37.0,close,,,False,True
 moncadahabib2025,mexico_ct37,ct_mpr_pacs_calipers,ct,,all,pedicle_incl_sag,L3,17.0,2.5,37.0,close,,,False,True
 moncadahabib2025,mexico_ct37,ct_mpr_pacs_calipers,ct,,all,pedicle_incl_sag,L4,18.6,1.9,37.0,close,,,False,True
-moncadahabib2025,mexico_ct37,ct_mpr_pacs_calipers,ct,,all,pedicle_incl_sag,L5,21.9,,37.0,close,,,False,False
+moncadahabib2025,mexico_ct37,ct_mpr_pacs_calipers,ct,,all,pedicle_incl_sag,L5,21.9,2.65,37.0,close,,,False,True
 moncadahabib2025,mexico_ct37,ct_mpr_pacs_calipers,ct,,all,pedicle_w,L1,6.85,1.65,37.0,close,,,False,True
 moncadahabib2025,mexico_ct37,ct_mpr_pacs_calipers,ct,,all,pedicle_w,L2,7.0,1.55,37.0,close,,,False,True
 moncadahabib2025,mexico_ct37,ct_mpr_pacs_calipers,ct,,all,pedicle_w,L3,7.85,1.9,37.0,close,,,False,True
 moncadahabib2025,mexico_ct37,ct_mpr_pacs_calipers,ct,,all,pedicle_w,L4,9.1,1.85,37.0,close,,,False,True
 moncadahabib2025,mexico_ct37,ct_mpr_pacs_calipers,ct,,all,pedicle_w,L5,12.1,2.75,37.0,close,,,False,True
-olsewski1990,part1_cadavers,direct_caliper_microscope,bone,"Part 1 cadavers, direct",pooled,pedicle_h,L1,16.2362,2.01564,69.0,close,,,False,True
-olsewski1990,part1_cadavers,direct_caliper_microscope,bone,"Part 1 cadavers, direct",pooled,pedicle_h,L2,15.6845,2.12648,71.0,close,,,False,True
-olsewski1990,part1_cadavers,direct_caliper_microscope,bone,"Part 1 cadavers, direct",pooled,pedicle_h,L3,15.616,1.92835,75.0,close,,,False,True
-olsewski1990,part1_cadavers,direct_caliper_microscope,bone,"Part 1 cadavers, direct",pooled,pedicle_h,L4,15.7077,2.21745,78.0,close,,,False,True
-olsewski1990,part1_cadavers,direct_caliper_microscope,bone,"Part 1 cadavers, direct",pooled,pedicle_h,L5,16.8558,2.86897,86.0,close,,,False,True
-olsewski1990,part1_cadavers,direct_caliper_microscope,bone,"Part 1 cadavers, direct",pooled,pedicle_incl_sag,L1,6.12121,2.22237,66.0,close,,,False,True
-olsewski1990,part1_cadavers,direct_caliper_microscope,bone,"Part 1 cadavers, direct",pooled,pedicle_incl_sag,L2,6.54688,2.04652,64.0,close,,,False,True
-olsewski1990,part1_cadavers,direct_caliper_microscope,bone,"Part 1 cadavers, direct",pooled,pedicle_incl_sag,L3,7.56,2.04833,75.0,close,,,False,True
-olsewski1990,part1_cadavers,direct_caliper_microscope,bone,"Part 1 cadavers, direct",pooled,pedicle_incl_sag,L4,10.55,4.00601,80.0,close,,,False,True
-olsewski1990,part1_cadavers,direct_caliper_microscope,bone,"Part 1 cadavers, direct",pooled,pedicle_incl_sag,L5,17.4512,7.43723,82.0,close,,,False,True
-olsewski1990,part1_cadavers,direct_caliper_microscope,bone,"Part 1 cadavers, direct",pooled,pedicle_w,L1,8.66164,2.6288,73.0,close,,,False,True
-olsewski1990,part1_cadavers,direct_caliper_microscope,bone,"Part 1 cadavers, direct",pooled,pedicle_w,L2,8.83151,2.22529,73.0,close,,,False,True
-olsewski1990,part1_cadavers,direct_caliper_microscope,bone,"Part 1 cadavers, direct",pooled,pedicle_w,L3,10.7351,2.65577,74.0,close,,,False,True
-olsewski1990,part1_cadavers,direct_caliper_microscope,bone,"Part 1 cadavers, direct",pooled,pedicle_w,L4,13.71,2.74312,80.0,close,,,False,True
-olsewski1990,part1_cadavers,direct_caliper_microscope,bone,"Part 1 cadavers, direct",pooled,pedicle_w,L5,19.8756,3.7253,86.0,close,,,False,True
-olsewski1990,part2_cadavers,direct_caliper_microscope,bone,"Part 2 cadavers, direct",all,pedicle_h,L1,16.4,1.7,42.0,close,,,False,True
-olsewski1990,part2_cadavers,direct_caliper_microscope,bone,"Part 2 cadavers, direct",all,pedicle_h,L2,15.4,1.5,42.0,close,,,False,True
-olsewski1990,part2_cadavers,direct_caliper_microscope,bone,"Part 2 cadavers, direct",all,pedicle_h,L3,15.4,1.6,42.0,close,,,False,True
-olsewski1990,part2_cadavers,direct_caliper_microscope,bone,"Part 2 cadavers, direct",all,pedicle_h,L4,15.4,2.0,40.0,close,,,False,True
-olsewski1990,part2_cadavers,direct_caliper_microscope,bone,"Part 2 cadavers, direct",all,pedicle_h,L5,16.2,2.1,42.0,close,,,False,True
-olsewski1990,part2_cadavers,direct_caliper_microscope,bone,"Part 2 cadavers, direct",all,pedicle_incl_sag,L1,6.0,2.0,42.0,close,,,False,True
-olsewski1990,part2_cadavers,direct_caliper_microscope,bone,"Part 2 cadavers, direct",all,pedicle_incl_sag,L2,6.0,2.0,42.0,close,,,False,True
-olsewski1990,part2_cadavers,direct_caliper_microscope,bone,"Part 2 cadavers, direct",all,pedicle_incl_sag,L3,7.0,3.0,42.0,close,,,False,True
-olsewski1990,part2_cadavers,direct_caliper_microscope,bone,"Part 2 cadavers, direct",all,pedicle_incl_sag,L4,11.0,5.0,42.0,close,,,False,True
-olsewski1990,part2_cadavers,direct_caliper_microscope,bone,"Part 2 cadavers, direct",all,pedicle_incl_sag,L5,22.0,5.0,42.0,close,,,False,True
-olsewski1990,part2_cadavers,direct_caliper_microscope,bone,"Part 2 cadavers, direct",all,pedicle_w,L1,8.2,2.3,41.0,close,,,False,True
-olsewski1990,part2_cadavers,direct_caliper_microscope,bone,"Part 2 cadavers, direct",all,pedicle_w,L2,8.4,2.1,42.0,close,,,False,True
-olsewski1990,part2_cadavers,direct_caliper_microscope,bone,"Part 2 cadavers, direct",all,pedicle_w,L3,10.2,2.5,42.0,close,,,False,True
-olsewski1990,part2_cadavers,direct_caliper_microscope,bone,"Part 2 cadavers, direct",all,pedicle_w,L4,13.2,2.5,42.0,close,,,False,True
-olsewski1990,part2_cadavers,direct_caliper_microscope,bone,"Part 2 cadavers, direct",all,pedicle_w,L5,20.1,3.7,42.0,close,,,False,True
-olsewski1990,part3_patients,patient_ap_radiograph,film,"Part 3 living patients, AP radiographs",pooled,pedicle_h,L1,15.9837,1.75888,98.0,close,,,False,True
-olsewski1990,part3_patients,patient_ap_radiograph,film,"Part 3 living patients, AP radiographs",pooled,pedicle_h,L2,15.8667,2.12467,102.0,close,,,False,True
-olsewski1990,part3_patients,patient_ap_radiograph,film,"Part 3 living patients, AP radiographs",pooled,pedicle_h,L3,16.002,2.33867,101.0,close,,,False,True
-olsewski1990,part3_patients,patient_ap_radiograph,film,"Part 3 living patients, AP radiographs",pooled,pedicle_h,L4,15.1356,2.10946,101.0,close,,,False,True
-olsewski1990,part3_patients,patient_ap_radiograph,film,"Part 3 living patients, AP radiographs",pooled,pedicle_h,L5,13.8909,2.14252,88.0,close,,,False,True
-olsewski1990,part3_patients,patient_ct,ct,"Part 3 living patients, CT",pooled,pedicle_incl_sag,L2,9.75,1.0351,8.0,close,,,False,True
-olsewski1990,part3_patients,patient_ct,ct,"Part 3 living patients, CT",pooled,pedicle_incl_sag,L3,11.6418,2.71193,67.0,close,,,False,True
-olsewski1990,part3_patients,patient_ct,ct,"Part 3 living patients, CT",pooled,pedicle_incl_sag,L4,13.0,3.58795,80.0,close,,,False,True
-olsewski1990,part3_patients,patient_ct,ct,"Part 3 living patients, CT",pooled,pedicle_incl_sag,L5,23.0,6.40115,80.0,close,,,False,True
-olsewski1990,part3_patients,patient_ap_radiograph,film,"Part 3 living patients, AP radiographs",pooled,pedicle_w,L1,7.51224,2.05164,98.0,close,,,False,True
-olsewski1990,part3_patients,patient_ap_radiograph,film,"Part 3 living patients, AP radiographs",pooled,pedicle_w,L2,8.388,2.16565,100.0,close,,,False,True
-olsewski1990,part3_patients,patient_ap_radiograph,film,"Part 3 living patients, AP radiographs",pooled,pedicle_w,L3,9.856,2.47371,100.0,close,,,False,True
-olsewski1990,part3_patients,patient_ap_radiograph,film,"Part 3 living patients, AP radiographs",pooled,pedicle_w,L4,11.702,2.60774,100.0,close,,,False,True
-olsewski1990,part3_patients,patient_ap_radiograph,film,"Part 3 living patients, AP radiographs",pooled,pedicle_w,L5,14.9049,2.62043,82.0,close,,,False,True
+olsewski1990,part1_cadavers,direct_caliper_microscope,bone,"Part 1 cadavers, direct",pooled,pedicle_h,L1,16.2362,2.01564,34.5,close,,n is the printed pedicles halved,False,True
+olsewski1990,part1_cadavers,direct_caliper_microscope,bone,"Part 1 cadavers, direct",pooled,pedicle_h,L2,15.6845,2.12648,35.5,close,,n is the printed pedicles halved,False,True
+olsewski1990,part1_cadavers,direct_caliper_microscope,bone,"Part 1 cadavers, direct",pooled,pedicle_h,L3,15.616,1.92835,37.5,close,,n is the printed pedicles halved,False,True
+olsewski1990,part1_cadavers,direct_caliper_microscope,bone,"Part 1 cadavers, direct",pooled,pedicle_h,L4,15.7077,2.21745,39.0,close,,n is the printed pedicles halved,False,True
+olsewski1990,part1_cadavers,direct_caliper_microscope,bone,"Part 1 cadavers, direct",pooled,pedicle_h,L5,16.8558,2.86897,43.0,close,,n is the printed pedicles halved,False,True
+olsewski1990,part1_cadavers,direct_caliper_microscope,bone,"Part 1 cadavers, direct",pooled,pedicle_incl_sag,L1,6.12121,2.22237,33.0,close,,n is the printed pedicles halved,False,True
+olsewski1990,part1_cadavers,direct_caliper_microscope,bone,"Part 1 cadavers, direct",pooled,pedicle_incl_sag,L2,6.54688,2.04652,32.0,close,,n is the printed pedicles halved,False,True
+olsewski1990,part1_cadavers,direct_caliper_microscope,bone,"Part 1 cadavers, direct",pooled,pedicle_incl_sag,L3,7.56,2.04833,37.5,close,,n is the printed pedicles halved,False,True
+olsewski1990,part1_cadavers,direct_caliper_microscope,bone,"Part 1 cadavers, direct",pooled,pedicle_incl_sag,L4,10.55,4.00601,40.0,close,,n is the printed pedicles halved,False,True
+olsewski1990,part1_cadavers,direct_caliper_microscope,bone,"Part 1 cadavers, direct",pooled,pedicle_incl_sag,L5,17.4512,7.43723,41.0,close,,n is the printed pedicles halved,False,True
+olsewski1990,part1_cadavers,direct_caliper_microscope,bone,"Part 1 cadavers, direct",pooled,pedicle_w,L1,8.66164,2.6288,36.5,close,,n is the printed pedicles halved,False,True
+olsewski1990,part1_cadavers,direct_caliper_microscope,bone,"Part 1 cadavers, direct",pooled,pedicle_w,L2,8.83151,2.22529,36.5,close,,n is the printed pedicles halved,False,True
+olsewski1990,part1_cadavers,direct_caliper_microscope,bone,"Part 1 cadavers, direct",pooled,pedicle_w,L3,10.7351,2.65577,37.0,close,,n is the printed pedicles halved,False,True
+olsewski1990,part1_cadavers,direct_caliper_microscope,bone,"Part 1 cadavers, direct",pooled,pedicle_w,L4,13.71,2.74312,40.0,close,,n is the printed pedicles halved,False,True
+olsewski1990,part1_cadavers,direct_caliper_microscope,bone,"Part 1 cadavers, direct",pooled,pedicle_w,L5,19.8756,3.7253,43.0,close,,n is the printed pedicles halved,False,True
+olsewski1990,part3_patients,patient_ap_radiograph,film,"Part 3 living patients, AP radiographs",pooled,pedicle_h,L1,15.9837,1.75888,49.0,close,,n is the printed pedicles halved,False,True
+olsewski1990,part3_patients,patient_ap_radiograph,film,"Part 3 living patients, AP radiographs",pooled,pedicle_h,L2,15.8667,2.12467,51.0,close,,n is the printed pedicles halved,False,True
+olsewski1990,part3_patients,patient_ap_radiograph,film,"Part 3 living patients, AP radiographs",pooled,pedicle_h,L3,16.002,2.33867,50.5,close,,n is the printed pedicles halved,False,True
+olsewski1990,part3_patients,patient_ap_radiograph,film,"Part 3 living patients, AP radiographs",pooled,pedicle_h,L4,15.1356,2.10946,50.5,close,,n is the printed pedicles halved,False,True
+olsewski1990,part3_patients,patient_ap_radiograph,film,"Part 3 living patients, AP radiographs",pooled,pedicle_h,L5,13.8909,2.14252,44.0,close,,n is the printed pedicles halved,False,True
+olsewski1990,part3_patients,patient_ct,ct,"Part 3 living patients, CT",pooled,pedicle_incl_sag,L2,9.75,1.0351,4.0,close,,n is the printed pedicles halved,False,True
+olsewski1990,part3_patients,patient_ct,ct,"Part 3 living patients, CT",pooled,pedicle_incl_sag,L3,11.6418,2.71193,33.5,close,,n is the printed pedicles halved,False,True
+olsewski1990,part3_patients,patient_ct,ct,"Part 3 living patients, CT",pooled,pedicle_incl_sag,L4,13.0,3.58795,40.0,close,,n is the printed pedicles halved,False,True
+olsewski1990,part3_patients,patient_ct,ct,"Part 3 living patients, CT",pooled,pedicle_incl_sag,L5,23.0,6.40115,40.0,close,,n is the printed pedicles halved,False,True
+olsewski1990,part3_patients,patient_ap_radiograph,film,"Part 3 living patients, AP radiographs",pooled,pedicle_w,L1,7.51224,2.05164,49.0,close,,n is the printed pedicles halved,False,True
+olsewski1990,part3_patients,patient_ap_radiograph,film,"Part 3 living patients, AP radiographs",pooled,pedicle_w,L2,8.388,2.16565,50.0,close,,n is the printed pedicles halved,False,True
+olsewski1990,part3_patients,patient_ap_radiograph,film,"Part 3 living patients, AP radiographs",pooled,pedicle_w,L3,9.856,2.47371,50.0,close,,n is the printed pedicles halved,False,True
+olsewski1990,part3_patients,patient_ap_radiograph,film,"Part 3 living patients, AP radiographs",pooled,pedicle_w,L4,11.702,2.60774,50.0,close,,n is the printed pedicles halved,False,True
+olsewski1990,part3_patients,patient_ap_radiograph,film,"Part 3 living patients, AP radiographs",pooled,pedicle_w,L5,14.9049,2.62043,41.0,close,,n is the printed pedicles halved,False,True
 otsuki2021,rush_cadaver_6,microct_isthmus_dimensions,ct,,all,pedicle_area,L1,95.7,43.8,6.0,close,,,False,True
 otsuki2021,rush_cadaver_6,microct_isthmus_dimensions,ct,,all,pedicle_area,L2,92.5,35.7,6.0,close,,,False,True
 otsuki2021,rush_cadaver_6,microct_isthmus_dimensions,ct,,all,pedicle_area,L3,113.7,26.4,6.0,close,,,False,True
@@ -424,7 +399,7 @@ otsuki2021,rush_cadaver_6,microct_isthmus_dimensions,ct,,all,pedicle_w,L4,10.6,0
 otsuki2021,rush_cadaver_6,microct_isthmus_dimensions,ct,,all,pedicle_w,L5,11.8,1.7,6.0,close,,,False,True
 robertson2000,auckland_drybone,coaxial_radiograph_wire,film,,not stated,pedicle_h,L1,19.25,3.55,10.0,close,,,False,True
 robertson2000,auckland_drybone,coaxial_radiograph_wire,film,,not stated,pedicle_h,L2,18.65,3.1,10.0,close,,,False,True
-robertson2000,auckland_drybone,coaxial_radiograph_wire,film,,not stated,pedicle_h,L3,18.65,7.75,10.0,close,,,False,True
+robertson2000,auckland_drybone,coaxial_radiograph_wire,film,,not stated,pedicle_h,L3,18.7,2.5,10.0,close,one side only,,False,True
 robertson2000,auckland_drybone,coaxial_radiograph_wire,film,,not stated,pedicle_h,L4,17.6,2.75,10.0,close,,,False,True
 robertson2000,auckland_drybone,coaxial_radiograph_wire,film,,not stated,pedicle_h,L5,18.55,3.1,10.0,close,,,False,True
 robertson2000,auckland_drybone,coaxial_radiograph_wire,film,,not stated,pedicle_w,L1,9.9,2.5,10.0,close,,,False,True
@@ -564,6 +539,28 @@ tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,bone,,not stated,endpl
 tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,bone,,not stated,endplate_depth,T7,22.7,0.948683,10.0,same,,,True,True
 tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,bone,,not stated,endplate_depth,T8,23.3,0.948683,10.0,same,,,True,True
 tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,bone,,not stated,endplate_depth,T9,24.4,1.26491,10.0,same,,,True,True
+tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,bone,,not stated,endplate_incl,C3,5.0,12.9653,10.0,same,,,True,True
+tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,bone,,not stated,endplate_incl,C4,5.2,16.4438,10.0,same,,,True,True
+tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,bone,,not stated,endplate_incl,C5,7.1,3.79473,10.0,same,,,True,True
+tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,bone,,not stated,endplate_incl,C6,5.8,1.89737,10.0,same,,,True,True
+tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,bone,,not stated,endplate_incl,C7,5.8,2.52982,10.0,same,,,True,True
+tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,bone,,not stated,endplate_incl,L1,1.8,1.26491,10.0,same,,,True,True
+tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,bone,,not stated,endplate_incl,L2,3.4,1.26491,10.0,same,,,True,True
+tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,bone,,not stated,endplate_incl,L3,1.9,0.948683,10.0,same,,,True,True
+tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,bone,,not stated,endplate_incl,L4,3.7,1.89737,10.0,same,,,True,True
+tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,bone,,not stated,endplate_incl,L5,6.9,2.84605,10.0,same,,,True,True
+tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,bone,,not stated,endplate_incl,T1,7.2,2.21359,10.0,same,,,True,True
+tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,bone,,not stated,endplate_incl,T10,1.4,0.632456,10.0,same,,,True,True
+tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,bone,,not stated,endplate_incl,T11,3.4,2.21359,10.0,same,,,True,True
+tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,bone,,not stated,endplate_incl,T12,4.5,2.21359,10.0,same,,,True,True
+tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,bone,,not stated,endplate_incl,T2,3.9,1.26491,10.0,same,,,True,True
+tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,bone,,not stated,endplate_incl,T3,3.2,1.89737,10.0,same,,,True,True
+tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,bone,,not stated,endplate_incl,T4,1.5,0.632456,10.0,same,,,True,True
+tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,bone,,not stated,endplate_incl,T5,1.4,1.26491,10.0,same,,,True,True
+tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,bone,,not stated,endplate_incl,T6,1.0,0.632456,10.0,same,,,True,True
+tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,bone,,not stated,endplate_incl,T7,2.1,1.58114,10.0,same,,,True,True
+tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,bone,,not stated,endplate_incl,T8,2.2,0.632456,10.0,same,,,True,True
+tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,bone,,not stated,endplate_incl,T9,1.6,1.26491,10.0,same,,,True,True
 tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,bone,,not stated,endplate_lower,C3,14.3,0.316228,10.0,same,,,True,True
 tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,bone,,not stated,endplate_lower,C4,15.0,0.316228,10.0,same,,,True,True
 tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,bone,,not stated,endplate_lower,C5,15.9,0.316228,10.0,same,,,True,True
@@ -629,6 +626,28 @@ tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,bone,,not stated,endpl
 tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,bone,,not stated,endplate_lower_depth,T7,23.5,0.948683,10.0,same,,,True,True
 tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,bone,,not stated,endplate_lower_depth,T8,24.7,1.26491,10.0,same,,,True,True
 tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,bone,,not stated,endplate_lower_depth,T9,25.5,1.26491,10.0,same,,,True,True
+tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,bone,,not stated,endplate_lower_incl,C3,3.3,1.58114,10.0,same,,,True,True
+tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,bone,,not stated,endplate_lower_incl,C4,3.5,2.21359,10.0,same,,,True,True
+tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,bone,,not stated,endplate_lower_incl,C5,2.7,0.948683,10.0,same,,,True,True
+tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,bone,,not stated,endplate_lower_incl,C6,4.2,1.26491,10.0,same,,,True,True
+tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,bone,,not stated,endplate_lower_incl,C7,5.1,1.58114,10.0,same,,,True,True
+tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,bone,,not stated,endplate_lower_incl,L1,-2.6,1.26491,10.0,same,,,True,True
+tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,bone,,not stated,endplate_lower_incl,L2,-1.1,0.632456,10.0,same,,,True,True
+tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,bone,,not stated,endplate_lower_incl,L3,1.8,0.316228,10.0,same,,,True,True
+tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,bone,,not stated,endplate_lower_incl,L4,3.2,1.89737,10.0,same,,,True,True
+tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,bone,,not stated,endplate_lower_incl,L5,10.5,2.52982,10.0,same,,,True,True
+tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,bone,,not stated,endplate_lower_incl,T1,-2.9,1.26491,10.0,same,,,True,True
+tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,bone,,not stated,endplate_lower_incl,T10,-3.0,0.632456,10.0,same,,,True,True
+tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,bone,,not stated,endplate_lower_incl,T11,-3.2,0.948683,10.0,same,,,True,True
+tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,bone,,not stated,endplate_lower_incl,T12,-3.1,0.948683,10.0,same,,,True,True
+tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,bone,,not stated,endplate_lower_incl,T2,-3.0,1.58114,10.0,same,,,True,True
+tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,bone,,not stated,endplate_lower_incl,T3,-1.8,0.948683,10.0,same,,,True,True
+tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,bone,,not stated,endplate_lower_incl,T4,-4.1,1.89737,10.0,same,,,True,True
+tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,bone,,not stated,endplate_lower_incl,T5,-2.6,1.26491,10.0,same,,,True,True
+tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,bone,,not stated,endplate_lower_incl,T6,-3.8,1.26491,10.0,same,,,True,True
+tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,bone,,not stated,endplate_lower_incl,T7,-3.2,1.26491,10.0,same,,,True,True
+tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,bone,,not stated,endplate_lower_incl,T8,-2.2,1.89737,10.0,same,,,True,True
+tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,bone,,not stated,endplate_lower_incl,T9,-2.6,1.26491,10.0,same,,,True,True
 tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,bone,,not stated,h_post,C3,11.2,0.316228,10.0,same,,,True,True
 tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,bone,,not stated,h_post,C4,11.3,0.632456,10.0,same,,,True,True
 tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,bone,,not stated,h_post,C5,11.3,0.316228,10.0,same,,,True,True
@@ -676,13 +695,13 @@ tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,bone,,not stated,pedic
 tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,bone,,not stated,pedicle_h,C3,6.75,0.632456,10.0,same,,,True,True
 tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,bone,,not stated,pedicle_h,C4,6.65,0.632456,10.0,same,,,True,True
 tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,bone,,not stated,pedicle_h,C5,6.1,0.790569,10.0,same,,,True,True
-tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,bone,,not stated,pedicle_h,C6,6.0,,10.0,same,,,True,False
+tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,bone,,not stated,pedicle_h,C6,6.0,0.632456,10.0,same,,,True,True
 tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,bone,,not stated,pedicle_h,C7,6.3,0.474342,10.0,same,,,True,True
 tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,bone,,not stated,pedicle_h,L1,13.1,1.1068,10.0,same,,,True,True
 tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,bone,,not stated,pedicle_h,L2,12.85,0.632456,10.0,same,,,True,True
 tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,bone,,not stated,pedicle_h,L3,12.5,1.89737,10.0,same,,,True,True
 tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,bone,,not stated,pedicle_h,L4,13.2,1.1068,10.0,same,,,True,True
-tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,bone,,not stated,pedicle_h,L5,17.4,,10.0,same,,,True,False
+tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,bone,,not stated,pedicle_h,L5,17.4,1.1068,10.0,same,,,True,True
 tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,bone,,not stated,pedicle_h,T1,8.5,0.790569,10.0,same,,,True,True
 tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,bone,,not stated,pedicle_h,T10,12.9,0.632456,10.0,same,,,True,True
 tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,bone,,not stated,pedicle_h,T11,14.25,0.790569,10.0,same,,,True,True
@@ -704,8 +723,8 @@ tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,bone,,not stated,pedic
 tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,bone,,not stated,pedicle_incl_sag,L2,7.4,3.47851,10.0,close,,,True,True
 tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,bone,,not stated,pedicle_incl_sag,L3,14.35,4.26907,10.0,close,,,True,True
 tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,bone,,not stated,pedicle_incl_sag,L4,11.1,3.16228,10.0,close,,,True,True
-tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,bone,,not stated,pedicle_incl_sag,L5,19.9,,10.0,close,,,True,False
-tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,bone,,not stated,pedicle_incl_sag,T1,24.0,,10.0,close,,,True,False
+tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,bone,,not stated,pedicle_incl_sag,L5,19.9,3.00416,10.0,close,,,True,True
+tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,bone,,not stated,pedicle_incl_sag,T1,24.2,4.42719,10.0,close,,,True,True
 tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,bone,,not stated,pedicle_incl_sag,T10,-5.2,2.37171,10.0,close,,,True,True
 tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,bone,,not stated,pedicle_incl_sag,T11,-6.85,3.79473,10.0,close,,,True,True
 tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,bone,,not stated,pedicle_incl_sag,T12,-6.25,3.79473,10.0,close,,,True,True
@@ -715,7 +734,7 @@ tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,bone,,not stated,pedic
 tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,bone,,not stated,pedicle_incl_sag,T5,9.45,5.37587,10.0,close,,,True,True
 tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,bone,,not stated,pedicle_incl_sag,T6,7.15,3.47851,10.0,close,,,True,True
 tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,bone,,not stated,pedicle_incl_sag,T7,6.9,4.11096,10.0,close,,,True,True
-tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,bone,,not stated,pedicle_incl_sag,T8,8.6,,10.0,close,,,True,False
+tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,bone,,not stated,pedicle_incl_sag,T8,-8.6,4.42719,10.0,close,,,True,True
 tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,bone,,not stated,pedicle_incl_sag,T9,-6.75,4.26907,10.0,close,,,True,True
 tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,bone,,not stated,pedicle_incl_trans,C3,-5.65,3.16228,10.0,same,,,True,True
 tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,bone,,not stated,pedicle_incl_trans,C4,-4.3,2.84605,10.0,same,,,True,True
@@ -726,13 +745,13 @@ tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,bone,,not stated,pedic
 tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,bone,,not stated,pedicle_incl_trans,L2,-2.15,0.948683,10.0,same,,,True,True
 tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,bone,,not stated,pedicle_incl_trans,L3,-3.8,2.21359,10.0,same,,,True,True
 tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,bone,,not stated,pedicle_incl_trans,L4,-6.8,2.52982,10.0,same,,,True,True
-tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,bone,,not stated,pedicle_incl_trans,L5,7.0,,10.0,same,,,True,False
+tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,bone,,not stated,pedicle_incl_trans,L5,-7.05,2.21359,10.0,same,,,True,True
 tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,bone,,not stated,pedicle_incl_trans,T1,4.05,2.05548,10.0,same,,,True,True
 tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,bone,,not stated,pedicle_incl_trans,T10,3.65,1.58114,10.0,same,,,True,True
 tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,bone,,not stated,pedicle_incl_trans,T11,3.9,2.37171,10.0,same,,,True,True
 tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,bone,,not stated,pedicle_incl_trans,T12,3.75,2.37171,10.0,same,,,True,True
 tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,bone,,not stated,pedicle_incl_trans,T2,7.2,3.79473,10.0,same,,,True,True
-tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,bone,,not stated,pedicle_incl_trans,T3,7.8,,10.0,same,,,True,False
+tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,bone,,not stated,pedicle_incl_trans,T3,7.8,3.32039,10.0,same,,,True,True
 tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,bone,,not stated,pedicle_incl_trans,T4,4.55,2.52982,10.0,same,,,True,True
 tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,bone,,not stated,pedicle_incl_trans,T5,6.2,3.32039,10.0,same,,,True,True
 tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,bone,,not stated,pedicle_incl_trans,T6,6.25,2.52982,10.0,same,,,True,True
@@ -748,7 +767,7 @@ tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,bone,,not stated,pedic
 tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,bone,,not stated,pedicle_w,L2,6.3,0.948683,10.0,same,,,True,True
 tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,bone,,not stated,pedicle_w,L3,7.6,0.632456,10.0,same,,,True,True
 tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,bone,,not stated,pedicle_w,L4,8.85,1.26491,10.0,same,,,True,True
-tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,bone,,not stated,pedicle_w,L5,11.6,,10.0,same,,,True,False
+tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,bone,,not stated,pedicle_w,L5,11.55,1.42302,10.0,same,,,True,True
 tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,bone,,not stated,pedicle_w,T1,7.45,0.632456,10.0,same,,,True,True
 tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,bone,,not stated,pedicle_w,T10,5.95,1.1068,10.0,same,,,True,True
 tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,bone,,not stated,pedicle_w,T11,7.0,0.632456,10.0,same,,,True,True
@@ -856,81 +875,81 @@ yadav2020,yadav-ct,yadav-ct-axial-fig1,ct,,pooled,endplate_lower_depth,L3,30.542
 yadav2020,yadav-ct,yadav-ct-axial-fig1,ct,,pooled,endplate_lower_depth,L4,31.2387,3.31831,302.0,close,,,False,True
 yadav2020,yadav-ct,yadav-ct-axial-fig1,ct,,pooled,endplate_lower_depth,L5,31.0836,2.81655,302.0,close,,,False,True
 yadav2020,yadav-ct,yadav-ct-axial-fig1,ct,,pooled,endplate_lower_depth,T12,27.0069,2.80415,302.0,close,,,False,True
-yu2015,hamann_todd_503,direct_caliper,bone,,all,pedicle_h,L1,15.75,,503.0,close,,,False,False
-yu2015,hamann_todd_503,direct_caliper,bone,,all,pedicle_h,L2,15.065,,503.0,close,,,False,False
+yu2015,hamann_todd_503,direct_caliper,bone,,pooled,pedicle_h,L1,15.7507,1.40767,503.0,close,,,False,True
+yu2015,hamann_todd_503,direct_caliper,bone,,pooled,pedicle_h,L2,15.0643,1.33223,503.0,close,,,False,True
 yu2015,hamann_todd_503,direct_caliper,bone,,pooled,pedicle_h,L3,14.5894,1.31154,503.0,close,,,False,True
 yu2015,hamann_todd_503,direct_caliper,bone,,pooled,pedicle_h,L4,13.8138,1.4087,503.0,close,,,False,True
-yu2015,hamann_todd_503,direct_caliper,bone,,all,pedicle_h,L5,13.67,,503.0,close,,,False,False
-yu2015,hamann_todd_503,direct_caliper,bone,,all,pedicle_w,L1,8.53,,503.0,close,,,False,False
+yu2015,hamann_todd_503,direct_caliper,bone,,pooled,pedicle_h,L5,13.6776,1.65799,503.0,close,,,False,True
+yu2015,hamann_todd_503,direct_caliper,bone,,pooled,pedicle_w,L1,8.52179,2.02847,503.0,close,,,False,True
 yu2015,hamann_todd_503,direct_caliper,bone,,pooled,pedicle_w,L2,8.66163,1.79191,503.0,close,,,False,True
 yu2015,hamann_todd_503,direct_caliper,bone,,pooled,pedicle_w,L3,10.4601,1.93598,503.0,close,,,False,True
 yu2015,hamann_todd_503,direct_caliper,bone,,pooled,pedicle_w,L4,13.1903,1.99553,503.0,close,,,False,True
-yu2015,hamann_todd_503,direct_caliper,bone,,all,pedicle_w,L5,18.33,,503.0,close,,,False,False
-zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,mixed,,not stated,pedicle_h,L1,15.4,2.8,,close,,,False,False
-zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,mixed,,not stated,pedicle_h,L2,15.0,1.5,,close,,,False,False
-zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,mixed,,not stated,pedicle_h,L3,14.9,2.4,,close,,,False,False
-zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,mixed,,not stated,pedicle_h,L4,14.8,2.1,,close,,,False,False
-zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,mixed,,not stated,pedicle_h,L5,14.0,2.3,,close,,,False,False
-zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,mixed,,not stated,pedicle_h,T1,9.9,2.0,,close,,,False,False
-zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,mixed,,not stated,pedicle_h,T10,15.2,2.0,,close,,,False,False
-zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,mixed,,not stated,pedicle_h,T11,17.4,2.5,,close,,,False,False
-zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,mixed,,not stated,pedicle_h,T12,15.8,2.4,,close,,,False,False
-zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,mixed,,not stated,pedicle_h,T2,12.0,1.2,,close,,,False,False
-zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,mixed,,not stated,pedicle_h,T3,12.4,1.3,,close,,,False,False
-zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,mixed,,not stated,pedicle_h,T4,12.1,1.0,,close,,,False,False
-zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,mixed,,not stated,pedicle_h,T5,11.9,1.4,,close,,,False,False
-zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,mixed,,not stated,pedicle_h,T6,12.2,1.0,,close,,,False,False
-zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,mixed,,not stated,pedicle_h,T7,12.1,1.0,,close,,,False,False
-zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,mixed,,not stated,pedicle_h,T8,12.8,1.2,,close,,,False,False
-zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,mixed,,not stated,pedicle_h,T9,13.8,1.3,,close,,,False,False
-zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,mixed,,not stated,pedicle_incl_sag,L1,10.9,2.2,,close,,,False,False
-zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,mixed,,not stated,pedicle_incl_sag,L2,12.0,3.5,,close,,,False,False
-zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,mixed,,not stated,pedicle_incl_sag,L3,14.4,3.8,,close,,,False,False
-zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,mixed,,not stated,pedicle_incl_sag,L4,17.7,5.2,,close,,,False,False
-zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,mixed,,not stated,pedicle_incl_sag,L5,29.8,6.3,,close,,,False,False
-zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,mixed,,not stated,pedicle_incl_sag,T1,26.6,5.6,,close,,,False,False
-zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,mixed,,not stated,pedicle_incl_sag,T10,4.6,4.6,,close,,,False,False
-zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,mixed,,not stated,pedicle_incl_sag,T11,1.2,4.4,,close,,,False,False
-zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,mixed,,not stated,pedicle_incl_sag,T12,-4.2,9.5,,close,,,False,False
-zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,mixed,,not stated,pedicle_incl_sag,T2,19.1,7.1,,close,,,False,False
-zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,mixed,,not stated,pedicle_incl_sag,T3,14.6,4.4,,close,,,False,False
-zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,mixed,,not stated,pedicle_incl_sag,T4,12.6,4.1,,close,,,False,False
-zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,mixed,,not stated,pedicle_incl_sag,T5,9.4,4.4,,close,,,False,False
-zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,mixed,,not stated,pedicle_incl_sag,T6,9.6,4.5,,close,,,False,False
-zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,mixed,,not stated,pedicle_incl_sag,T7,8.7,4.7,,close,,,False,False
-zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,mixed,,not stated,pedicle_incl_sag,T8,8.1,5.2,,close,,,False,False
-zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,mixed,,not stated,pedicle_incl_sag,T9,7.6,2.8,,close,,,False,False
-zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,mixed,,not stated,pedicle_incl_trans,L1,2.4,6.3,,close,,,False,False
-zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,mixed,,not stated,pedicle_incl_trans,L2,1.8,5.5,,close,,,False,False
-zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,mixed,,not stated,pedicle_incl_trans,L3,0.2,4.7,,close,,,False,False
-zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,mixed,,not stated,pedicle_incl_trans,L4,0.2,3.9,,close,,,False,False
-zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,mixed,,not stated,pedicle_incl_trans,L5,-1.8,3.5,,close,,,False,False
-zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,mixed,,not stated,pedicle_incl_trans,T1,12.6,5.8,,close,,,False,False
-zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,mixed,,not stated,pedicle_incl_trans,T10,16.8,5.3,,close,,,False,False
-zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,mixed,,not stated,pedicle_incl_trans,T11,15.4,4.9,,close,,,False,False
-zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,mixed,,not stated,pedicle_incl_trans,T12,11.6,2.6,,close,,,False,False
-zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,mixed,,not stated,pedicle_incl_trans,T2,17.5,7.7,,close,,,False,False
-zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,mixed,,not stated,pedicle_incl_trans,T3,17.3,6.0,,close,,,False,False
-zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,mixed,,not stated,pedicle_incl_trans,T4,16.3,4.4,,close,,,False,False
-zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,mixed,,not stated,pedicle_incl_trans,T5,15.0,3.4,,close,,,False,False
-zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,mixed,,not stated,pedicle_incl_trans,T6,15.0,4.2,,close,,,False,False
-zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,mixed,,not stated,pedicle_incl_trans,T7,15.7,4.2,,close,,,False,False
-zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,mixed,,not stated,pedicle_incl_trans,T8,16.6,4.1,,close,,,False,False
-zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,mixed,,not stated,pedicle_incl_trans,T9,16.0,3.8,,close,,,False,False
-zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,mixed,,not stated,pedicle_w,L1,8.7,2.3,,close,,,False,False
-zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,mixed,,not stated,pedicle_w,L2,8.9,2.2,,close,,,False,False
-zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,mixed,,not stated,pedicle_w,L3,10.3,2.6,,close,,,False,False
-zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,mixed,,not stated,pedicle_w,L4,12.9,2.1,,close,,,False,False
-zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,mixed,,not stated,pedicle_w,L5,18.0,4.1,,close,,,False,False
-zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,mixed,,not stated,pedicle_w,T1,7.9,1.4,,close,,,False,False
-zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,mixed,,not stated,pedicle_w,T10,6.3,1.7,,close,,,False,False
-zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,mixed,,not stated,pedicle_w,T11,7.8,2.0,,close,,,False,False
-zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,mixed,,not stated,pedicle_w,T12,7.1,2.3,,close,,,False,False
-zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,mixed,,not stated,pedicle_w,T2,7.0,1.8,,close,,,False,False
-zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,mixed,,not stated,pedicle_w,T3,5.6,1.4,,close,,,False,False
-zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,mixed,,not stated,pedicle_w,T4,4.7,1.3,,close,,,False,False
-zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,mixed,,not stated,pedicle_w,T5,4.5,0.9,,close,,,False,False
-zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,mixed,,not stated,pedicle_w,T6,5.2,1.0,,close,,,False,False
-zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,mixed,,not stated,pedicle_w,T7,5.3,1.0,,close,,,False,False
-zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,mixed,,not stated,pedicle_w,T8,5.9,1.6,,close,,,False,False
-zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,mixed,,not stated,pedicle_w,T9,6.1,1.5,,close,,,False,False
+yu2015,hamann_todd_503,direct_caliper,bone,,pooled,pedicle_w,L5,18.3253,2.4384,503.0,close,,,False,True
+zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,mixed,,not stated,pedicle_h,L1,15.4,2.8,21.0,close,,,False,True
+zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,mixed,,not stated,pedicle_h,L2,15.0,1.5,23.0,close,,,False,True
+zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,mixed,,not stated,pedicle_h,L3,14.9,2.4,27.0,close,,,False,True
+zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,mixed,,not stated,pedicle_h,L4,14.8,2.1,51.0,close,,,False,True
+zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,mixed,,not stated,pedicle_h,L5,14.0,2.3,52.0,close,,,False,True
+zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,mixed,,not stated,pedicle_h,T1,9.9,2.0,28.0,close,,,False,True
+zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,mixed,,not stated,pedicle_h,T10,15.2,2.0,29.0,close,,,False,True
+zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,mixed,,not stated,pedicle_h,T11,17.4,2.5,30.0,close,,,False,True
+zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,mixed,,not stated,pedicle_h,T12,15.8,2.4,24.0,close,,,False,True
+zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,mixed,,not stated,pedicle_h,T2,12.0,1.2,32.0,close,,,False,True
+zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,mixed,,not stated,pedicle_h,T3,12.4,1.3,40.0,close,,,False,True
+zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,mixed,,not stated,pedicle_h,T4,12.1,1.0,38.0,close,,,False,True
+zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,mixed,,not stated,pedicle_h,T5,11.9,1.4,42.0,close,,,False,True
+zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,mixed,,not stated,pedicle_h,T6,12.2,1.0,44.0,close,,,False,True
+zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,mixed,,not stated,pedicle_h,T7,12.1,1.0,39.0,close,,,False,True
+zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,mixed,,not stated,pedicle_h,T8,12.8,1.2,43.0,close,,,False,True
+zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,mixed,,not stated,pedicle_h,T9,13.8,1.3,32.0,close,,,False,True
+zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,mixed,,not stated,pedicle_incl_sag,L1,10.9,2.2,26.0,close,,,False,True
+zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,mixed,,not stated,pedicle_incl_sag,L2,12.0,3.5,38.0,close,,,False,True
+zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,mixed,,not stated,pedicle_incl_sag,L3,14.4,3.8,68.0,close,,,False,True
+zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,mixed,,not stated,pedicle_incl_sag,L4,17.7,5.2,76.0,close,,,False,True
+zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,mixed,,not stated,pedicle_incl_sag,L5,29.8,6.3,76.0,close,,,False,True
+zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,mixed,,not stated,pedicle_incl_sag,T1,26.6,5.6,24.0,close,,,False,True
+zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,mixed,,not stated,pedicle_incl_sag,T10,4.6,4.6,20.0,close,,,False,True
+zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,mixed,,not stated,pedicle_incl_sag,T11,1.2,4.4,24.0,close,,,False,True
+zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,mixed,,not stated,pedicle_incl_sag,T12,-4.2,9.5,24.0,close,,,False,True
+zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,mixed,,not stated,pedicle_incl_sag,T2,19.1,7.1,26.0,close,,,False,True
+zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,mixed,,not stated,pedicle_incl_sag,T3,14.6,4.4,28.0,close,,,False,True
+zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,mixed,,not stated,pedicle_incl_sag,T4,12.6,4.1,28.0,close,,,False,True
+zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,mixed,,not stated,pedicle_incl_sag,T5,9.4,4.4,36.0,close,,,False,True
+zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,mixed,,not stated,pedicle_incl_sag,T6,9.6,4.5,30.0,close,,,False,True
+zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,mixed,,not stated,pedicle_incl_sag,T7,8.7,4.7,32.0,close,,,False,True
+zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,mixed,,not stated,pedicle_incl_sag,T8,8.1,5.2,42.0,close,,,False,True
+zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,mixed,,not stated,pedicle_incl_sag,T9,7.6,2.8,30.0,close,,,False,True
+zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,mixed,,not stated,pedicle_incl_trans,L1,2.4,6.3,22.0,close,,,False,True
+zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,mixed,,not stated,pedicle_incl_trans,L2,1.8,5.5,20.0,close,,,False,True
+zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,mixed,,not stated,pedicle_incl_trans,L3,0.2,4.7,28.0,close,,,False,True
+zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,mixed,,not stated,pedicle_incl_trans,L4,0.2,3.9,52.0,close,,,False,True
+zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,mixed,,not stated,pedicle_incl_trans,L5,-1.8,3.5,47.0,close,,,False,True
+zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,mixed,,not stated,pedicle_incl_trans,T1,12.6,5.8,21.0,close,,,False,True
+zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,mixed,,not stated,pedicle_incl_trans,T10,16.8,5.3,26.0,close,,,False,True
+zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,mixed,,not stated,pedicle_incl_trans,T11,15.4,4.9,27.0,close,,,False,True
+zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,mixed,,not stated,pedicle_incl_trans,T12,11.6,2.6,20.0,close,,,False,True
+zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,mixed,,not stated,pedicle_incl_trans,T2,17.5,7.7,25.0,close,,,False,True
+zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,mixed,,not stated,pedicle_incl_trans,T3,17.3,6.0,34.0,close,,,False,True
+zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,mixed,,not stated,pedicle_incl_trans,T4,16.3,4.4,33.0,close,,,False,True
+zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,mixed,,not stated,pedicle_incl_trans,T5,15.0,3.4,28.0,close,,,False,True
+zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,mixed,,not stated,pedicle_incl_trans,T6,15.0,4.2,40.0,close,,,False,True
+zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,mixed,,not stated,pedicle_incl_trans,T7,15.7,4.2,36.0,close,,,False,True
+zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,mixed,,not stated,pedicle_incl_trans,T8,16.6,4.1,33.0,close,,,False,True
+zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,mixed,,not stated,pedicle_incl_trans,T9,16.0,3.8,30.0,close,,,False,True
+zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,mixed,,not stated,pedicle_w,L1,8.7,2.3,26.0,close,,,False,True
+zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,mixed,,not stated,pedicle_w,L2,8.9,2.2,30.0,close,,,False,True
+zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,mixed,,not stated,pedicle_w,L3,10.3,2.6,49.0,close,,,False,True
+zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,mixed,,not stated,pedicle_w,L4,12.9,2.1,36.0,close,,,False,True
+zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,mixed,,not stated,pedicle_w,L5,18.0,4.1,56.0,close,,,False,True
+zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,mixed,,not stated,pedicle_w,T1,7.9,1.4,24.0,close,,,False,True
+zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,mixed,,not stated,pedicle_w,T10,6.3,1.7,24.0,close,,,False,True
+zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,mixed,,not stated,pedicle_w,T11,7.8,2.0,27.0,close,,,False,True
+zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,mixed,,not stated,pedicle_w,T12,7.1,2.3,36.0,close,,,False,True
+zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,mixed,,not stated,pedicle_w,T2,7.0,1.8,24.0,close,,,False,True
+zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,mixed,,not stated,pedicle_w,T3,5.6,1.4,27.0,close,,,False,True
+zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,mixed,,not stated,pedicle_w,T4,4.7,1.3,25.0,close,,,False,True
+zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,mixed,,not stated,pedicle_w,T5,4.5,0.9,34.0,close,,,False,True
+zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,mixed,,not stated,pedicle_w,T6,5.2,1.0,33.0,close,,,False,True
+zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,mixed,,not stated,pedicle_w,T7,5.3,1.0,32.0,close,,,False,True
+zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,mixed,,not stated,pedicle_w,T8,5.9,1.6,41.0,close,,,False,True
+zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,mixed,,not stated,pedicle_w,T9,6.1,1.5,27.0,close,,,False,True

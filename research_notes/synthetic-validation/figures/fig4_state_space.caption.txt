@@ -1,1 +1,1 @@
-The generator's state space, one axis at a time from its own point (circled), and the grid searched for the point nearest the papers: the squared log SD ratio plus the mean squared distance from Griffith's four correlations.
+The generator's state space, one axis at a time from its own point (circled), and the grid searched for the point nearest the papers: the squared log SD ratio plus the mean squared distance from Griffith's four correlations; in F, grey, past the grid's lowest sd_scale.

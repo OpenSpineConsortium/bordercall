@@ -90,7 +90,8 @@ def t_selection(rec: str) -> str:
     rows = [["rows of the 32 measures in the snapshot", s["rows"]], ["series formed", s["series"]],
             ["series with a mean, an SD and a count of two or more", s["usable"]]]
     rows += [["  of them %s" % MODALITY.get(k, k), v] for k, v in sorted(s["usable_by_modality"].items())]
-    rows += [["  of them with the cohort's count of people", s["n_from_cohort"]],
+    rows += [["  of them with a count this note sets from the cohort file or the paper (%s)" % "; ".join(
+        "%s %d" % (k, v) for k, v in sorted(s["n_notes"].items())), s["n_from_cohort"]],
              ["  of them with Tan's uncertain SDs (weighting the means, left out of the published SD)", s["sd_uncertain"]],
              ["  of them one sex only", s["one_sex_only"]], ["papers behind the usable series", s["papers"]]]
     kept = {k: v for k, v in s["left_out"].items() if k.startswith("kept ")}
@@ -113,10 +114,17 @@ def t_means(rec: str) -> str:
              nt["outside_prediction_interval"]],
             ["    of the cells with five series or more (%d; %d)" % (p["pooled_cells_k5"], nt["pooled_cells_k5"]),
              p["outside_prediction_interval_k5"], nt["outside_prediction_interval_k5"]],
-            ["  Panjabi's mean outside the 95% CI of the pooled mean", p["outside_pooled_mean_ci"], nt["outside_pooled_mean_ci"]],
-            ["    of them with Panjabi's mean above", p["outside_pooled_mean_ci_above"], nt["outside_pooled_mean_ci_above"]],
-            ["median distance from the papers' mean, in Panjabi's SDs (all cells)", f(p["abs_d_median"]), f(nt["abs_d_median"])],
+            ["  Panjabi's mean differs from the pooled mean, his twelve spines' SE taken in: z / t(k - 1)",
+             "%d / %d" % (p["outside_mean_z"], p["outside_mean_t"]), "%d / %d" % (nt["outside_mean_z"], nt["outside_mean_t"])],
+            ["    of them with Panjabi's mean above", "%d / %d" % (p["outside_mean_z_above"], p["outside_mean_t_above"]),
+             "%d / %d" % (nt["outside_mean_z_above"], nt["outside_mean_t_above"])],
+            ["    his mean taken as exact, as a stricter reading would", "%d (%d above)" % (p["outside_mean_exact"],
+             p["outside_mean_exact_above"]), "%d (%d above)" % (nt["outside_mean_exact"], nt["outside_mean_exact_above"])],
+            ["Panjabi - papers in his SDs, median (all cells)", f(p["d_median"]), f(nt["d_median"])],
+            ["  share of cells where he is above", pct(p["d_above"], 0) + "%", pct(nt["d_above"], 0) + "%"],
+            ["  the same, absolute", f(p["abs_d_median"]), f(nt["abs_d_median"])],
             ["  share of cells more than one of his SDs away", pct(p["d_over_one"], 0) + "%", pct(nt["d_over_one"], 0) + "%"],
+            ["  absolute, in the papers' SD (cells with one)", f(p["abs_d_papers_sd_median"]), f(nt["abs_d_papers_sd_median"])],
             ["cells with a published SD: pooled from two series or more / one series / none (Tan's alone)",
              "%d / %d / %d" % (p["sd_cells_pooled"], p["sd_cells_one_series"], p["sd_cells_none"]),
              "%d / %d / %d" % (nt["sd_cells_pooled"], nt["sd_cells_one_series"], nt["sd_cells_none"])],
@@ -131,24 +139,48 @@ def t_means(rec: str) -> str:
                      if g["with_sd_interval"] else "-"])
     t2 = table(["synthetic population", "values", "cells", "|d| of its mean, median (Panjabi's SDs)", "|d| over 1 (%)",
                 "its SD over the papers', median (quartiles)", "SD inside the papers' SD interval"], rows, right=2)
-    return t1 + "\n\n" + t2
+    kinds = vs["sd_ratio_by_kind"]
+    cols = ["panjabi", "generator, true", "generator, measured", "nearest the papers, true", "nearest the papers, measured"]
+    with_sd = sd_cells_by_kind(rec)
+    t3 = table(["SD over the papers', median", "cells with a published SD", "Panjabi's", "generator, true", "measured",
+                "nearest point, true", "measured"], [[k, with_sd[k]] + [f(v[c]) for c in cols] for k, v in kinds.items()])
+    return t1 + "\n\n" + t2 + "\n\n" + t3
+
+
+SPINEPS_7 = ("endplate", "endplate_depth", "endplate_lower", "endplate_lower_depth", "h_post", "canal_w", "canal_ap")
+
+
+def sd_cells_by_kind(rec: str) -> Dict[str, int]:
+    """The cells behind each median of run.sd_ratio_by_kind that hold a published SD: the record
+    counts every cell of the kind, and a cell with no published SD gives no ratio. SPINEPS_7 is
+    schwingcheck.measures.SPINEPS_7, spelt out so that tables.py reads the records alone."""
+    cells = {(r["measure"], r["level"]): r for r in read_csv(rec, "validation_cells.csv")
+             if r["modalities"] == "bone_ct" and r["setting"] == "generator" and r["which"] == "true"}
+    has_sd = [r for r in cells.values() if math.isfinite(num(r["lit_sd"]))]
+    return {"lengths and areas": sum(1 for r in has_sd if r["kind"] in ("length", "area")),
+            "angles": sum(1 for r in has_sd if r["kind"] == "angle"),
+            "the seven SPINEPS measures": sum(1 for r in has_sd if r["measure"] in SPINEPS_7)}
 
 
 def t_by_measure(rec: str) -> str:
     cells = [r for r in read_csv(rec, "validation_cells.csv") if r["modalities"] == "bone_ct" and r["which"] == "measured"]
+    no_tan = read_json(rec, "validation_summary.json")["panjabi_by_measure"]
     measures = sorted({r["measure"] for r in cells}, key=lambda m: (-sum(1 for r in cells if r["measure"] == m), m))
     out = []
     for m in measures:
         gen = [r for r in cells if r["measure"] == m and r["setting"] == "generator"]
         d = [num(r["d_panjabi"]) for r in gen]
+        nt = no_tan.get(m, {})
         row = [m, len(gen), sum(1 for r in gen if int(r["k"]) >= 3), sum(1 for r in gen if math.isfinite(num(r["lit_sd"]))),
-               f(median(d)), f(median([abs(x) for x in d]))]
+               f(median(d)), f(median([abs(x) for x in d])),
+               "%s (%d)" % (f(nt.get("d_median_without_tan2004")), nt.get("cells_without_tan2004", 0))]
         row.append(f(median([num(r["panjabi_sd_ratio"]) for r in gen])))
         for s in SETTINGS:
             row.append(f(median([num(r["sd_ratio"]) for r in cells if r["measure"] == m and r["setting"] == s])))
         out.append(row)
     return table(["measure", "cells", "pooled (3 series or more)", "with a published SD", "Panjabi - papers (his SDs)",
-                  "same, absolute", "Panjabi's SD over the papers'", "measured SD over the papers': generator",
+                  "same, absolute", "Panjabi - papers, Tan left out (cells)", "Panjabi's SD over the papers'",
+                  "measured SD over the papers': generator",
                   "size taken out", "nearest point"], out)
 
 
@@ -157,17 +189,24 @@ def t_structure(rec: str) -> str:
     rows = []
     for g in st["griffith"]:
         r = {s: next(x for x in st["correlations"][s] if x["pair"] == g["pair"])["synthetic"] for s in SETTINGS}
-        rows.append([g["pair"].replace("_", " "), f(g["men"]), f(g["women"])] + [f(r[s]) for s in SETTINGS])
-    t1 = table(["correlation of subject means, L1-L5", "Griffith, men", "women", "generator", "size taken out",
-                "nearest point"], rows)
+        rows.append([g["pair"].replace("_", " "), f(g["men"]), f(g["women"]), f(g["sexes_together"])]
+                    + [f(r[s]) for s in SETTINGS])
+    t1 = table(["correlation of subject means, L1-L5", "Griffith, men", "women", "sexes together", "generator",
+                "size taken out", "nearest point"], rows)
     iso = [[r["measure"], r["cells"], r["equal_means"], f(r["loading"]),
             "%s to %s" % (f(r["q1"] / r["body_unit"]), f(r["q3"] / r["body_unit"])), f(r["generator_loading"], 0),
             r["papers"]] for r in st["isometry"]]
     t2 = table(["measure", "cells", "printed equal", "share of the body's sex difference", "quartiles", "generator",
                 "papers (cells)"], iso, text=(6,))
     unit = st["isometry"][0]
-    return t1 + "\n\n" + t2 + "\n\nThe body's unit, log(men/women) = %s, is the median over the end-plate widths and depths" \
-        " and the posterior heights (%s)." % (f(unit["body_unit"], 3), unit["body_unit_papers"])
+    names = {"endplate": "upper end-plate width", "endplate_depth": "upper end-plate depth", "h_post": "posterior height"}
+    measures = [names.get(k, k) for k in unit["body_unit_measures"].split(";") if k]
+    return t1 + "\n\n" + t2 + "\n\nThe body's unit, log(men/women) = %s, is the median over the pairs of the %s (%s)," \
+        " one population's; the rows for those measures are the unit itself." % (
+            f(unit["body_unit"], 3), " and the ".join(measures), unit["body_unit_papers"])
+
+
+QI_COLUMNS = ("sign", "inside", "sign or inside", "box", "convex", "any but floor", "floor", "any")
 
 
 def t_quality(rec: str) -> str:
@@ -176,8 +215,8 @@ def t_quality(rec: str) -> str:
     for t in qi["typical"]:
         rows.append(["%s, %s" % (t["setting"], "all 32 measures" if t["measures"] == "pool" else "the seven SPINEPS measures")]
                     + ["%s / %s" % (pct_fine(t["vertebra " + k]), pct_fine(t["person " + k], 0))
-                       for k in ("sign", "floor", "box", "convex", "inside", "any")])
-    t1 = table(["setting (% of vertebrae / % of people)", "sign", "floor", "box", "convex", "inside", "any"], rows)
+                       for k in QI_COLUMNS])
+    t1 = table(["setting (% of vertebrae / % of people)"] + list(QI_COLUMNS), rows)
     cur = [[s, c["kept"], c["dropped"], c["sign"], c["inside"]] for s, c in qi["curation"].items()]
     t2 = table(["setting", "people kept", "dropped", "for sign", "for inside"], cur)
     return t1 + "\n\n" + t2
@@ -187,10 +226,17 @@ def t_state_space(rec: str) -> str:
     rows = []
     for r in read_csv(rec, "state_space.csv"):
         g = [num(r[k]) for k in r if k.startswith("griffith ")]
+        held = "%s (%s)" % (r["clipped"], r["clipped_size_passes"]) if r["clipped"] != "0" else "0"
         rows.append([r["name"], f(r["sd_ratio_true"]), f(r["sd_ratio_measured"]), f(r["neighbour_r"]), f(sum(g) / len(g)),
-                     pct(r["qi vertebra box"]), pct(r["qi vertebra any"]), pct(r["qi person any"], 0), r["clipped"]])
+                     pct_fine(r["qi vertebra sign or inside"]), pct(r["qi vertebra any but floor"]),
+                     pct(r["qi person any but floor"], 0), held])
     return table(["point", "SD ratio, true", "SD ratio, measured", "neighbour r", "mean Griffith-pair r",
-                  "box (% vertebrae)", "any (% vertebrae)", "any (% people)", "cells held at a tenth of the SD"], rows)
+                  "sign or inside (% vertebrae)", "any but floor (% vertebrae)", "any but floor (% people)",
+                  "cells held at a tenth of the SD (the size alone passing it)"], rows)
+
+
+def and_join(items: List[str]) -> str:
+    return items[0] if len(items) == 1 else ", ".join(items[:-1]) + " and " + items[-1]
 
 
 def t_grid(rec: str) -> str:
@@ -199,8 +245,17 @@ def t_grid(rec: str) -> str:
     for r in grid[:8]:
         rows.append([f(r["scale_sd"], 3), f(r["sd_scale"]), f(r["rho"]), f(r["r_between"]), f(r["sd_ratio_true"]),
                      f(r["neighbour_r"]), pct(r["qi vertebra any"]), f(r["distance"], 3)])
+    edges = read_csv(rec, "grid_edges.csv")
+    best = grid[0]
+    on_edge = sorted({e["axis"] for e in edges}, key=list(best).index)
+    note = "%d points searched; the eight nearest shown." % len(grid)
+    if edges:
+        note += (" The nearest sits on the grid's edge in %s; past it, with the other axes held, %s." % (
+            and_join(["%s (%s)" % (a, f(best[a], 3 if a == "scale_sd" else 2)) for a in on_edge]),
+            ", ".join("%s %s reads %s" % (e["axis"], f(e[e["axis"]], 3 if e["axis"] == "scale_sd" else 2),
+                                           f(e["distance"], 3)) for e in edges)))
     return table(["scale_sd", "sd_scale", "rho", "r_between", "SD ratio, true", "neighbour r", "any (% vertebrae)",
-                  "distance"], rows, right=0) + "\n\n%d points searched; the eight nearest shown." % len(grid)
+                  "distance"], rows, right=0) + "\n\n" + note
 
 
 def t_naming(rec: str) -> str:
@@ -223,28 +278,33 @@ def t_naming(rec: str) -> str:
 def t_spread(rec: str) -> str:
     pw = read_json(rec, "power.json")
     rows = [["part B before (Panjabi's comparison tables)", pw["old_part_b"]["cells"], f(pw["old_part_b"]["median_f"]),
-             "", "", "", ""]]
+             "", "", "", "", ""]]
     for name, s in pw["spread"].items():
         a, cal = s["all"], pw["calibrated_median_f"][name]
         rows.append(["39 papers, %s" % name, a["f_panjabi"]["cells"],
                      "%s (%s to %s)" % (f(a["f_panjabi"]["median"]), f(a["f_panjabi"]["q1"]), f(a["f_panjabi"]["q3"])),
                      f(cal["panjabi"]["calibrated_median"]), f(a["f_literature"]["median"]),
                      f(cal["literature"]["calibrated_median"]),
-                     "%s (%s)" % (f(a["worth_scans"]["median"], 1), f(cal["panjabi"]["worth_scans_at_calibrated"], 1))])
+                     "%s (%s)" % (f(cal["literature"]["worth_scans_observed"], 1),
+                                  f(cal["literature"]["worth_scans_at_calibrated"], 1)),
+                     "%s (%s)" % (f(cal["panjabi"]["worth_scans_observed"], 1),
+                                  f(cal["panjabi"]["worth_scans_at_calibrated"], 1))])
     t1 = table(["spread between series", "cells", "tau / Panjabi's SD, median (quartiles)", "calibrated",
-                "tau / papers' SD", "calibrated", "worth in scans (at the calibrated median)"], rows)
+                "tau / papers' SD", "calibrated", "worth in scans, the papers' SD (calibrated)",
+                "the same, Panjabi's SD (calibrated)"], rows)
     sp = [[k, v["series_measures"], v["distances"], "%s (%s)" % (f(v["shift_sd"]), f(v["shift_sd_calibrated"])),
            "%s (%s)" % (f(v["level_sd"]), f(v["level_sd_calibrated"])), "%s (%s)" % (f(v["total"]), f(v["total_calibrated"]))]
           for k, v in pw["split"].items()]
     t2 = table(["split of the spread", "series x measure", "distances", "shift, whole measure (calibrated)",
                 "level by level (calibrated)", "total (calibrated)"], sp)
     rc = pw["split_recovery"]
-    m, se = rc["mean"], rc["standard_error"]
+    m, se, one = rc["mean"], rc["standard_error"], rc["sd_of_one_estimate"]
     check = ("Drawn with a shift of %s and a rest of %s, %d sets of series laid out as the papers' give the moments"
-             " %s and %s and the calibrated pair %s (SE %s) and %s (SE %s)." % (
+             " %s and %s and the calibrated pair %s (SE of the mean %s) and %s (SE %s); one set's calibrated pair, as"
+             " the papers' is, varies by an SD of %s and %s." % (
                  f(rc["truth"]["shift_sd"]), f(rc["truth"]["level_sd"]), rc["trials"], f(m["shift_sd"]), f(m["level_sd"]),
                  f(m["shift_sd_calibrated"]), f(se["shift_sd_calibrated"], 3), f(m["level_sd_calibrated"]),
-                 f(se["level_sd_calibrated"], 3)))
+                 f(se["level_sd_calibrated"], 3), f(one["shift_sd_calibrated"], 3), f(one["level_sd_calibrated"], 3)))
     return t1 + "\n\n" + t2 + "\n\n" + check
 
 
@@ -276,9 +336,15 @@ def t_gold(rec: str) -> str:
     keys = sorted((k for k in gold[0] if k.startswith("expected: ")), key=lambda k: order.index(k[len("expected: "):]))
     rows = [[g["persons"], f(g["least_mean_shift_one_cell"]), f(g["least_mean_shift_154_cells"]), f(g["least_sd_ratio"]),
              f(g["neighbour_r_half_width"])] + [f(g[k], 1) for k in keys] for g in keep]
-    return table(["persons", "least mean shift found, one cell (SD)", "one cell of 154, Bonferroni (SD)",
-                  "least SD ratio found", "half-width of a neighbour r of 0.5"]
-                 + [k.replace("expected: ", "").split(" (")[0] for k in keys], rows, right=0)
+    t1 = table(["persons", "least mean shift found, one cell (SD)", "one cell of 154, Bonferroni (SD)",
+                "least SD ratio found", "half-width of a neighbour r of 0.5"]
+               + [k.replace("expected: ", "").split(" (")[0] for k in keys], rows, right=0)
+    rows = [[g["persons"], f(g["least_mean_shift_one_cell"]), f(g["against_panjabi_12_least_mean_shift"]),
+             f(g["least_sd_ratio"]), f(g["against_panjabi_12_least_sd_ratio"])] for g in keep]
+    t2 = table(["persons", "least mean shift: the table exact (SD)", "against Panjabi's 12 as a sample, Welch (SD)",
+                "least SD ratio: the table exact", "against his 12, F"], rows, right=0)
+    return t1 + "\n\n" + t2 + ("\n\nIn the second table Panjabi's SD is %s times the gold persons', the papers' median"
+                               " (records/power.json)." % f(read_json(rec, "power.json")["panjabi_sd_ratio"]))
 
 
 def t_assumptions(rec: str) -> str:

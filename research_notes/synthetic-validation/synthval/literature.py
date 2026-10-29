@@ -14,31 +14,36 @@ A row becomes a series of the validation by these rules, each counted in the rec
 1. the values are the paper's own (source_of_values "this paper"; a value a table quotes from
    another study is that study's, and may be one of the 39 already);
 2. the subjects are human (a cohort with a species, Busscher's and van der Houwen's pigs, is out),
-   adult and unselected: a group or a cohort of patients with a disease (stenosis, degenerative
-   spondylolisthesis, Marfan), of children (an age band ending below 18), the largest or smallest
-   quarter, values adjusted by a model, and one example subject are out. The cohort is read as
-   well as the group because Masharawi's Table 5 labels its two cohorts' one-sided rows crosswise
-   (the spondylolisthesis cohort's rows say "Control", the controls' say "DS"), so both are out;
-3. the measure is one of the pool's 32 but the two end-plate inclinations, whose 20 numbers
-   Panjabi's cervical and lumbar papers print twice, near certainly one set (the reread's note,
-   research_notes/panjabi-endplate-inclination.md on its branch at 45130ac, checked by three
-   second readers, recommends dropping both whichever paper holds the original), and its definition
-   is Panjabi's or close to it (vs_panjabi "same" or "close"; "differs" and "none" are left out,
+   adult and not selected for a spinal disease or anomaly: a group or a cohort of patients with a
+   disease (stenosis, degenerative spondylolisthesis, Marfan), of children (an age band ending
+   below 18), the largest or smallest quarter, values adjusted by a model, and one example subject
+   are out. Patients scanned for back pain stay in (Cizmic 2023's CTs, Olsewski's Part 3, Ahmed
+   2019's MRIs), since a pain is not an anatomy. The cohort is read as well as the group: at the
+   reread's 45130ac Masharawi's Table 5 rows were labelled crosswise (the spondylolisthesis
+   cohort's rows said "Control"), and the rule kept both cohorts out; since 401aaee each cohort's
+   rows carry its own label, and the controls stay in;
+3. the measure is one of the pool's 32, and its definition is Panjabi's or close to it (vs_panjabi "same" or "close"; "differs" and "none" are left out,
    and the power part reads the spread once more on "same" alone);
-4. one technique per cohort, measure and level, since a paper that measures the same people twice
-   (direct and on film, Olsewski's and Mitra's cadavers) gives one set of people: bone first, then
-   CT, then MRI, then film, then a mixed pool, and "same" before "close";
+4. one set of people per measure and level: one technique per cohort, since a paper that measures
+   the same people twice (direct and on film, Olsewski's and Mitra's cadavers) gives one set of
+   people, bone first, then CT, then MRI, then film, then a mixed pool, and "same" before "close";
+   and a cohort whose people another cohort of the paper holds (SAME_PEOPLE: Olsewski's Part 2, 21
+   of Part 1's 49 cadavers chosen at random) is left out where that cohort gives the cell;
 5. one group per cohort where the paper prints the whole cohort (group empty): its strata (age,
    height, weight or ethnic bands of the same people) are left out; where it prints only strata,
    each is a series of its own, as disjoint people; two groups of one cohort with the same mean,
    SD and count are one;
 6. one sex per series: both sexes together where printed (all, pooled, not stated); else a man's
-   and a woman's row with their counts pooled, the SD taking in the difference of the means; else
-   the one sex printed, flagged;
+   and a woman's row with their counts pooled, the SD taking in the difference of the means; else,
+   where both are printed but one has no SD or no count, the men's row, the women's counted as left
+   out and the series flagged; else the one sex printed, flagged;
 7. a series needs a mean, an SD and a count of two or more to enter a pooled estimate; one without
-   is counted and left out. A row with no count of its own takes its cohort's count of people
-   where the cohort file prints one (Busscher's six men, Gilad's 157), and says so; Zindrick's
-   counts are of films and scans, not of people, and his rows stay without one.
+   is counted and left out. A count is of people: a row with no count of its own takes its cohort's
+   count of people where the cohort file prints one (Busscher's six men), or the per-level count a
+   paper prints beside its table (N_BY_LEVEL: Gilad's 130 to 157), and says so; a paper whose counts
+   are of pedicles, both of each vertebra (PEDICLE_COUNTS: Olsewski's), has its counts halved;
+   Zindrick's counts, per level since the reread's 401aaee, are of films and scans pooled, and
+   his series are of a mixed modality that no comparison pools.
 8. a length or an area that breaks its own run of levels is left out: under half or over twice the
    mean of the same series at its printed levels next above and below. Tan's lower end-plate area at
    L3 (172 mm2 between 1,090.9 at L2 and 1,199.3 at L4) is the case it was written for: the page
@@ -71,8 +76,11 @@ SNAPSHOT = os.path.join(DATA, "literature_series.csv")
 SOURCE = os.path.join(DATA, "SOURCE.json")
 SOURCE_PATH = "research_notes/paper-tables/data/series.csv"
 COHORTS_PATH = "research_notes/paper-tables/data/cohorts"
-LEFT_OUT_MEASURES = {"endplate_incl": "one set of numbers printed for C3-C7 and for L1-L5; the reread drops both measures",
-                     "endplate_lower_incl": "one set of numbers printed for C3-C7 and for L1-L5; the reread drops both measures"}
+# Measures left out of the validation, with why. None: the two end-plate inclinations, whose 20
+# numbers Panjabi's cervical and lumbar papers print twice, near certainly one set
+# (research_notes/panjabi-endplate-inclination.md on the reread's branch), are scored as printed,
+# as the owner chose on 2026-10-29 at 09:01 UTC for every study (TODO.md, step b).
+LEFT_OUT_MEASURES: Dict[str, str] = {}
 COLUMNS = ["paper", "cohort", "technique", "source_of_values", "key", "level", "sex", "group", "side", "mean", "sd",
            "n", "sd_from", "n_from", "units", "vs_panjabi", "species", "cohort_n"]
 # The papers whose printed spread the reread could not settle: Tan's methods define SE as SD / n,
@@ -80,6 +88,18 @@ COLUMNS = ["paper", "cohort", "technique", "source_of_values", "key", "level", "
 # SD = SE x sqrt(n) as the usual reading (research_notes/clinical-reread/notes/tan2004.md on the
 # reread's branch). Their SDs weight the means but stay out of the published SD (validate.py).
 DISPERSION_UNCERTAIN = {"tan2004": "SE defined in the methods as SD / n; converted as SE x sqrt(n)"}
+# A cohort whose people another cohort of the same paper holds: (paper, cohort) -> (the cohort that
+# holds them, why); its series is left out where the other gives the cell (rule 4).
+SAME_PEOPLE = {("olsewski1990", "part2_cadavers"): ("part1_cadavers", "21 of Part 1's 49 cadavers chosen at random "
+                                                                      "(p. 543; the cohort file's within_paper)")}
+# Papers whose printed counts are of pedicles, both of each vertebra, so that a count of people is
+# half (rule 7): Olsewski's Table I to III n count pedicles (the cohort file's n_units; the note's
+# Denominators: Table II's 42 is 21 spines x 2).
+PEDICLE_COUNTS = {"olsewski1990": 2.0}
+# Per-level counts a paper prints beside a table whose rows carry none (rule 7): Gilad's Tables 1
+# and 2 (p. 118; the note's Denominators), 141 cervical and 157 lumbar films in all.
+N_BY_LEVEL = {"gilad1985": {"C2": 130, "C3": 141, "C4": 141, "C5": 141, "C6": 140, "C7": 126,
+                            "L1": 154, "L2": 157, "L3": 157, "L4": 157, "L5": 156}}
 DEFINITIONS_MAIN = ("same", "close")
 MODALITY_ORDER = ("bone", "ct", "mri", "film", "mixed")
 WHOLE_SEXES = ("all", "pooled", "not stated")
@@ -215,8 +235,13 @@ def load_rows(path: str = SNAPSHOT) -> List[dict]:
     for r in rows:
         r["mean"], r["sd"], r["n"] = _num(r["mean"]), _num(r["sd"]), _num(r["n"])
         r["n_note"] = ""
-        if not math.isfinite(r["n"]) and math.isfinite(_num(r.get("cohort_n", ""))):
+        per_level = N_BY_LEVEL.get(r["paper"], {}).get(r["level"])
+        if not math.isfinite(r["n"]) and per_level:
+            r["n"], r["n_note"] = float(per_level), "n is the paper's count at this level"
+        elif not math.isfinite(r["n"]) and math.isfinite(_num(r.get("cohort_n", ""))):
             r["n"], r["n_note"] = _num(r["cohort_n"]), "n is the cohort's people"
+        elif math.isfinite(r["n"]) and r["paper"] in PEDICLE_COUNTS:
+            r["n"], r["n_note"] = r["n"] / PEDICLE_COUNTS[r["paper"]], "n is the printed pedicles halved"
         r["group"] = r["group"] or ""
         r["modality"] = modality(r["technique"])
     return rows
@@ -228,7 +253,7 @@ def excluded_why(r: dict, definitions: Sequence[str]) -> Optional[str]:
     if r["species"]:
         return "not human"
     if r["key"] in LEFT_OUT_MEASURES:
-        return "end-plate inclination, one set printed for two regions"
+        return "measure left out: " + LEFT_OUT_MEASURES[r["key"]]
     if r["vs_panjabi"] not in definitions:
         return "definition %s" % r["vs_panjabi"]
     g = r["group"]
@@ -327,7 +352,21 @@ def select(rows: Sequence[dict], definitions: Sequence[str] = DEFINITIONS_MAIN) 
                 continue
             seen.add(sig)
             series.append(s)
-    return series, why
+    return _one_set_of_people(series, why), why
+
+
+def _one_set_of_people(series: List[Series], why: Dict[str, int]) -> List[Series]:
+    """Rule 4's second half: a cohort whose people another cohort of the paper holds is left out
+    where that cohort gives the same measure and level."""
+    held = {(s.paper, s.cohort, s.key, s.level) for s in series}
+    out = []
+    for s in series:
+        other = SAME_PEOPLE.get((s.paper, s.cohort))
+        if other and (s.paper, other[0], s.key, s.level) in held:
+            why["a cohort whose people another cohort holds"] = why.get("a cohort whose people another cohort holds", 0) + 1
+            continue
+        out.append(s)
+    return out
 
 
 ONE_SIDE = ("left", "right")
@@ -358,8 +397,7 @@ def _sides(rs: List[dict], why: Dict[str, int]) -> List[dict]:
             out.append(dict(a, side="left and right averaged here", mean=(a["mean"] + b["mean"]) / 2,
                             sd=math.sqrt((a["sd"] ** 2 + b["sd"] ** 2) / 2), n=min(a["n"], b["n"])))
         else:
-            out.append((left or right)[0])
-            why["kept with one side only"] = why.get("kept with one side only", 0) + 1
+            out.append(dict((left or right)[0], side_note="one side only"))
     return out
 
 
@@ -381,10 +419,16 @@ def _one_sex(rs: List[dict], why: Dict[str, int]) -> Optional[Series]:
             r = male[0]
             mean, sd, n = pooled
             flag = "sexes pooled here"
+        elif male and female:
+            r = male[0]
+            mean, sd, n = r["mean"], r["sd"], r["n"]
+            why["the other sex, not pooled (no SD or no count)"] = why.get("the other sex, not pooled (no SD or no count)", 0) + len(female)
+            flag = "both sexes printed, not pooled (men kept)"
         else:
             r = (male or female or rs)[0]
             mean, sd, n = r["mean"], r["sd"], r["n"]
             flag = "one sex only (%s)" % r["sex"]
+    flag = "; ".join(f for f in (flag, r.get("side_note", "")) if f)
     return Series(paper=r["paper"], cohort=r["cohort"], technique=r["technique"], modality=r["modality"],
                   group=r["group"], sex=r["sex"] if not flag.startswith("sexes") else "pooled here", key=r["key"],
                   level=r["level"], mean=mean, sd=sd, n=n, vs_panjabi=r["vs_panjabi"], flag=flag,

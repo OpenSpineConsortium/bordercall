@@ -9,9 +9,12 @@ the exact rule's accuracy (naming.py). The anomalous phenotypes are read for the
 nearest() searches a grid of the four axes that set a population's spread and correlations,
 the size's spread, the SDs' scale, rho and the between-measure correlation, for the point whose
 synthetic SDs and Griffith correlations sit closest to the papers': the median log SD ratio
-squared plus the mean squared distance of the four correlations from the mean of Griffith's men
-and women. It is the nearest point of this space, not a fitted model of the population, and the
-mixed-sex synthetic population is held to within-sex correlations, which read lower.
+squared plus the mean squared distance of the four correlations from Griffith's men and women
+taken together (structure.mixed_sex_r), since the synthetic population has no sex. It is the
+nearest point of this space, not a fitted model of the population. The grid reaches no size
+spread at all and a between-measure correlation of 0.6, since r_between stands in for the size
+in the correlations and the two trade against each other; beyond_edges reads past each end of the
+grid the nearest point sits on.
 """
 from __future__ import annotations
 
@@ -38,8 +41,13 @@ AXES = {
     "sd_scale": (0.7, 0.85, 1.0),
     "sd_mode": ("printed", "size_removed"),
 }
-GRID = {"scale_sd": (0.02, 0.035, 0.05, 0.07), "sd_scale": (0.6, 0.7, 0.8, 0.9, 1.0), "rho": (0.25, 0.5, 0.75),
-        "r_between": (0.0, 0.2, 0.4)}
+GRID = {"scale_sd": (0.0, 0.01, 0.02, 0.035, 0.05, 0.07), "sd_scale": (0.6, 0.7, 0.8, 0.9, 1.0),
+        "rho": (0.25, 0.5, 0.75, 0.9), "r_between": (0.0, 0.2, 0.4, 0.6)}
+# Values past each end of GRID, read where the nearest point sits on that end, since a point on
+# the grid's edge may have a nearer one past it. scale_sd and r_between end at 0 below, so nothing
+# is read past their lower ends, and rho stops short of 1.
+BEYOND = {"scale_sd": ((), (0.1,)), "sd_scale": ((0.5, 0.55), (1.1,)),
+          "rho": ((0.0, 0.1), (0.95, 0.99)), "r_between": ((), (0.8,))}
 LUMBAR = ST.LUMBAR
 
 
@@ -71,7 +79,7 @@ def read_point(settings: Settings, series: Sequence[L.Series], n: int, seed: int
     pop = draw(settings, n, seed, measures)
     rows = V.compare({settings.name: pop}, series, "bone_ct", V.validated_measures(measures))
     sums = {s["which"]: s for s in V.summarise(rows)}
-    out = dict(settings.as_dict(), n=n, seed=seed, clipped=pop.clipped,
+    out = dict(settings.as_dict(), n=n, seed=seed, clipped=pop.clipped, clipped_size_passes=pop.size_passes,
                sd_ratio_true=sums["true"]["sd_ratio_median"], sd_ratio_measured=sums["measured"]["sd_ratio_median"],
                sd_ratio_true_q1=sums["true"]["sd_ratio_q1"], sd_ratio_true_q3=sums["true"]["sd_ratio_q3"],
                neighbour_r=neighbour_correlation(pop))
@@ -87,9 +95,9 @@ def read_point(settings: Settings, series: Sequence[L.Series], n: int, seed: int
 
 def distance(point: dict) -> float:
     """How far a point sits from the papers: (log median SD ratio)^2 plus the mean squared distance
-    of the four subject-mean correlations from Griffith's (the mean of men and women)."""
+    of the four subject-mean correlations from Griffith's, his sexes taken together."""
     d_sd = math.log(point["sd_ratio_true"]) ** 2
-    d_r = np.mean([(point["griffith %s~%s" % (a, b)] - (men + women) / 2) ** 2 for a, b, men, women in ST.GRIFFITH])
+    d_r = np.mean([(point["griffith " + pair] - target) ** 2 for pair, target in ST.griffith_targets().items()])
     return float(d_sd + d_r)
 
 
@@ -104,6 +112,24 @@ def nearest(series: Sequence[L.Series], n: int = 4000, seed: int = 11, grid: Dic
         p = read_point(st, series, n, seed)
         p["distance"] = distance(p)
         out.append(p)
+    return sorted(out, key=lambda p: p["distance"])
+
+
+def beyond_edges(best: dict, series: Sequence[L.Series], n: int = 4000, seed: int = 11,
+                 grid: Dict[str, Sequence] = GRID, base: Settings = GENERATOR,
+                 beyond: Dict[str, tuple] = BEYOND) -> List[dict]:
+    """The points past each end of the grid that the nearest point sits on, the other axes held at
+    the nearest point's values, read and scored as the grid's are, nearest first."""
+    out = []
+    for axis, values in grid.items():
+        lower, upper = beyond.get(axis, ((), ()))
+        past = lower if best[axis] == min(values) else upper if best[axis] == max(values) else ()
+        for x in past:
+            kw = dict({k: best[k] for k in grid}, **{axis: x})
+            p = read_point(base.but(name="past the grid, %s=%s" % (axis, x), **kw), series, n, seed)
+            p["distance"] = distance(p)
+            p["axis"] = axis
+            out.append(p)
     return sorted(out, key=lambda p: p["distance"])
 
 

@@ -19,7 +19,13 @@ convex shape with those extents it is the one family that spans the whole range 
 from the diamond (half of width times depth) to the rectangle (all of it). Where the area passes
 the rectangle no shape exists; the rectangle is drawn dashed and the excess written beside it.
 The tables hold no lamina, no pedicle length and no process thickness: those are drawn at
-fixed sizes (FIXED_MM), as a drawing must, and carry no number.
+fixed sizes (FIXED_MM), as a drawing must, and carry no number. Each pedicle runs from the
+lamina up under the body's posterior outline (pedicle_top), so no gap opens between them.
+Panjabi's spinous length runs from the centre of the upper end-plate, his origin, to the tip of
+the process (panjabi1992 p. 302, the reread's note), so the tip is drawn that far behind the
+end-plate's centre, as if the process were level; it slopes down in life, so its true reach from
+above is shorter. (schwingcheck's mnemonics.py starts it at the canal's posterior wall; the note
+and the paper start it at the end-plate.)
 """
 from __future__ import annotations
 
@@ -146,7 +152,8 @@ def draw_axial(ax, v: Dict[str, float]) -> List[str]:
     plen = FIXED_MM["pedicle_length_share"] * ca
     lam = FIXED_MM["lamina"]
     th = FIXED_MM["process_thickness"]
-    tip = -ca - v["spinous_length"]
+    tip = spinous_tip(v)
+    bx, by, bn = outline(v["endplate"], v["endplate_depth"], v["endplate_area"], (0, v["endplate_depth"] / 2))
     ax.add_patch(Polygon([(-3.5, -ca - lam / 2), (3.5, -ca - lam / 2), (1.5, tip), (-1.5, tip)], closed=True,
                          facecolor="white", edgecolor=H.INK, linewidth=0.8))
     for side in (-1, 1):
@@ -156,18 +163,36 @@ def draw_axial(ax, v: Dict[str, float]) -> List[str]:
                                linewidth=0.8))
         ax.add_patch(Polygon([(inner, -plen), (outer, -plen), (side * 3.5, -ca - lam), (0, -ca - lam), (0, -ca)],
                              closed=True, facecolor="white", edgecolor=H.INK, linewidth=0.8))
-        ax.add_patch(Rectangle((min(inner, outer), -plen), pw, plen, facecolor="white", edgecolor=H.INK, linewidth=0.8))
+        top = pedicle_top(v["endplate"], v["endplate_depth"], bn, max(abs(inner), abs(outer)))
+        ax.add_patch(Rectangle((min(inner, outer), -plen), pw, plen + top, facecolor="white", edgecolor=H.INK,
+                               linewidth=0.8))
     cx, cy, cn = outline(cw, ca, v["canal_area"], (0, -ca / 2))
     ax.add_patch(Polygon(np.c_[cx, cy], closed=True, facecolor="white", edgecolor=H.INK, linewidth=0.9, hatch=HATCH,
                          linestyle="-" if cn is not None else "--"))
     if cn is None:
         notes.append("canal area %.0f%% of its box" % (100 * v["canal_area"] / (cw * ca)))
-    bx, by, bn = outline(v["endplate"], v["endplate_depth"], v["endplate_area"], (0, v["endplate_depth"] / 2))
     ax.add_patch(Polygon(np.c_[bx, by], closed=True, facecolor="white", edgecolor=H.INK, linewidth=0.9,
                          linestyle="-" if bn is not None else "--"))
     if bn is None:
         notes.append("end-plate area %.0f%% of its box" % (100 * v["endplate_area"] / (v["endplate"] * v["endplate_depth"])))
     return notes
+
+
+def spinous_tip(v: Dict[str, float]) -> float:
+    """Where the spinous process ends, its length taken from the upper end-plate's centre, the
+    body being drawn from y = 0 (its posterior wall) to y = depth."""
+    return v["endplate_depth"] / 2 - v["spinous_length"]
+
+
+def pedicle_top(width: float, depth: float, n: Optional[float], x: float, overlap: float = 1.0) -> float:
+    """How far up a pedicle at |x| runs to meet the body: the body's posterior outline there, the
+    superellipse y = b - b (1 - |x / a|^n)^(1 / n) above its posterior wall, and a millimetre more,
+    held at the body's centre; the body, drawn last, covers the overlap."""
+    a, b = width / 2, depth / 2
+    if abs(x) >= a:
+        return b
+    rise = 0.0 if n is None else b - b * (1 - (abs(x) / a) ** n) ** (1 / n)
+    return min(b, rise + overlap)
 
 
 def scale_bar(ax, x: float, y: float, mm: float = 10.0):
@@ -195,7 +220,7 @@ def fig_axial(pop, chosen: Dict[str, int], out: str) -> List[str]:
               ("its end-plate under half its box", person(pop, chosen["convex"])["L3"])]
     fig, axes = plt.subplots(1, 4, figsize=(10.0, 4.6))
     rows = []
-    deepest = min(-v["canal_ap"] - v["spinous_length"] for _, v in panels) - 4
+    deepest = min(spinous_tip(v) for _, v in panels) - 4
     for p, (ax, (title, v)) in enumerate(zip(axes, panels)):
         notes = draw_axial(ax, v)
         ax.set_aspect("equal")
@@ -211,9 +236,9 @@ def fig_axial(pop, chosen: Dict[str, int], out: str) -> List[str]:
     H.write_csv(out, "render1_axial", rows)
     return H.save(fig, out, "render1_axial", (
         "The third lumbar vertebra from above, anterior up, drawn to its measures: Panjabi's means, then "
-        "three synthetic people the generator draws (seed %d). Each section is the superellipse with the "
-        "measured width, depth and area; dashed where no superellipse of those extents holds the area. "
-        "Laminae and process thickness are drawn at fixed sizes." % SEED))
+        "three synthetic people the generator draws (seed %d). Each section is the superellipse of its "
+        "width, depth and area, dashed where none holds the area. The spinous process reaches its "
+        "length from the end-plate's centre. Laminae and process thickness are fixed." % SEED))
 
 
 # ----- figure 2: the column from in front -----------------------------------------------------
@@ -281,13 +306,25 @@ def prism(x0, y0, x1, y1, z0, z1):
             [(x0, y0, z0), (x0, y1, z0), (x0, y1, z1), (x0, y0, z1)], [(x1, y0, z0), (x1, y1, z0), (x1, y1, z1), (x1, y0, z1)]]
 
 
+BOX_SHARE = 0.998     # an end-plate area at or past its box is lofted at this share of it
+
+
+def plates_at_box(v: Dict[str, float]) -> List[str]:
+    """The end-plates of one vertebra whose area passes BOX_SHARE of their box, drawn as nearly
+    the box in the solid."""
+    return [k for k, w, d in (("endplate_area", "endplate", "endplate_depth"),
+                               ("endplate_lower_area", "endplate_lower", "endplate_lower_depth"))
+            if v[k] > BOX_SHARE * v[w] * v[d]]
+
+
 def body_faces(v: Dict[str, float], z_top: float, points: int = 48):
     """The body as a loft from its lower end-plate to its upper, each the superellipse of its
-    measures (the rectangle where no shape holds the area)."""
-    top = outline(v["endplate"], v["endplate_depth"], min(v["endplate_area"], 0.998 * v["endplate"] * v["endplate_depth"]),
+    measures; an area at or past its box (plates_at_box) is held at BOX_SHARE of it, since a loft
+    needs points on a curve, and the drawing's CSV says which."""
+    top = outline(v["endplate"], v["endplate_depth"], min(v["endplate_area"], BOX_SHARE * v["endplate"] * v["endplate_depth"]),
                   (0, v["endplate_depth"] / 2), points)
     low = outline(v["endplate_lower"], v["endplate_lower_depth"],
-                  min(v["endplate_lower_area"], 0.998 * v["endplate_lower"] * v["endplate_lower_depth"]),
+                  min(v["endplate_lower_area"], BOX_SHARE * v["endplate_lower"] * v["endplate_lower_depth"]),
                   (0, v["endplate_lower_depth"] / 2), points)
     z_low = z_top - v["h_post"]
     faces = [list(zip(top[0], top[1], [z_top] * points)), list(zip(low[0], low[1], [z_low] * points))]
@@ -304,15 +341,18 @@ def posterior_faces(v: Dict[str, float], z_top: float):
     plen = FIXED_MM["pedicle_length_share"] * ca
     th = FIXED_MM["process_thickness"]
     lam = FIXED_MM["lamina"]
+    n = exponent_for(min(v["endplate_area"], BOX_SHARE * v["endplate"] * v["endplate_depth"])
+                     / (v["endplate"] * v["endplate_depth"]))
     faces = []
     for side in (-1, 1):
         x0, x1 = sorted((side * cw / 2, side * (cw / 2 + pw)))
-        faces += prism(x0, -ca, x1, 0.0, zc - ph / 2, zc + ph / 2)
+        top = pedicle_top(v["endplate"], v["endplate_depth"], n, max(abs(x0), abs(x1)))
+        faces += prism(x0, -ca, x1, top, zc - ph / 2, zc + ph / 2)
         t0, t1 = sorted((side * (cw / 2 + pw), side * v["transverse_width"] / 2))
         faces += prism(t0, -plen, t1, -plen + th, zc - th / 2, zc + th / 2)
     faces += prism(-(cw / 2 + pw), -ca - lam, cw / 2 + pw, -ca, zc - ph / 2, zc + ph / 2)
     sh = FIXED_MM["spinous_height_share"] * ph
-    faces += prism(-th / 4, -ca - v["spinous_length"], th / 4, -ca - lam, zc - sh / 2 - 3, zc + sh / 2 - 3)
+    faces += prism(-th / 4, spinous_tip(v), th / 4, -ca - lam, zc - sh / 2 - 3, zc + sh / 2 - 3)
     return faces
 
 
@@ -343,7 +383,7 @@ def draw_solid(ax, col: Dict[str, Dict[str, float]]):
     coll = Poly3DCollection(faces, facecolors=shade(faces), edgecolors=(0.15, 0.15, 0.15), linewidths=0.15)
     ax.add_collection3d(coll, autolim=False)
     ax.set_xlim(-50, 50)
-    ax.set_ylim(-95, 45)
+    ax.set_ylim(-75, 45)
     ax.set_zlim(z, 0)
     ax.set_box_aspect((100, 140, -z))
     ax.view_init(elev=14, azim=-130)
@@ -362,13 +402,22 @@ def fig_solid(pop, chosen: Dict[str, int], out: str) -> List[str]:
         ax = fig.add_subplot(1, 3, p + 1, projection="3d")
         height = draw_solid(ax, col)
         ax.set_title("%s   %s" % (chr(65 + p), title), loc="left", fontsize=9, fontweight="normal")
-        rows += [dict({"panel": title, "level": lv, "column_height": height}, **col[lv]) for lv in LUMBAR]
+        rows += [dict({"panel": title, "level": lv, "column_height": height,
+                       "plates drawn at their box": ";".join(plates_at_box(col[lv]))}, **col[lv]) for lv in LUMBAR]
     fig.subplots_adjust(left=0.0, right=1.0, top=0.93, bottom=0.0, wspace=0.0)
     H.write_csv(out, "render3_solid", rows)
     return H.save(fig, out, "render3_solid", (
         "Lumbar columns as solids, seen from the left and behind, shaded grey from one light: Panjabi's "
         "means and two synthetic people of the first drawing. Bodies are lofted between the two "
-        "end-plates' superellipses; pedicles, laminae and processes are boxes, their thicknesses fixed."))
+        "end-plates' superellipses, an area past its box drawn as the box%s; pedicles, laminae and "
+        "processes are boxes, their thicknesses fixed." % at_box(columns)))
+
+
+def at_box(columns) -> str:
+    """The caption's note of which panels' end-plates were drawn as their box."""
+    found = ["%s's %s %s" % (chr(65 + p), lv, "lower plate" if k.startswith("endplate_lower") else "upper plate")
+             for p, (_, col) in enumerate(columns) for lv in LUMBAR for k in plates_at_box(col[lv])]
+    return " (%s)" % ", ".join(found) if found else ""
 
 
 RENDERS = (fig_axial, fig_column, fig_solid)

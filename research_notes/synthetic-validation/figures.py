@@ -18,6 +18,8 @@ import hashlib
 import json
 import math
 import os
+import re
+import subprocess
 import sys
 from typing import Dict, List, Sequence
 
@@ -50,7 +52,7 @@ SETTINGS = ("generator", "size_removed", "nearest the papers")
 SETTING_LABEL = {"generator": "generator as it stands", "size_removed": "SDs with size taken out",
                  "nearest the papers": "nearest point to the papers"}
 MEANS_MEASURES = ("endplate", "endplate_depth", "h_post", "canal_w", "canal_ap", "canal_area", "pedicle_w", "pedicle_h")
-INDICATORS = ("sign", "floor", "box", "convex", "inside", "any")
+INDICATORS = ("sign", "inside", "sign or inside", "box", "convex", "any but floor", "floor", "any")
 LEAST_MEASURES = 4
 
 
@@ -155,7 +157,8 @@ def fig_means(records: str, out: str) -> List[str]:
     H.write_csv(out, "fig1_means", rows)
     return H.save(fig, out, "fig1_means", (
         "Lumbar means of eight measures. The generator draws around Panjabi's means; each grey circle "
-        "is one published series of the 39 papers (bone and CT, adults, Panjabi's definitions), pooled "
+        "is one published series of the 39 papers (bone and CT, adults, Panjabi's definitions or close "
+        "ones), pooled "
         "by REML where three or more exist. The grey band is the synthetic population's measured spread."))
 
 
@@ -235,40 +238,50 @@ def fig_structure(records: str, out: str) -> List[str]:
     a = axes[0, 0]
     pairs = [g["pair"] for g in st["griffith"]]
     corr = st["correlations"]
+    together = {g["pair"]: g["sexes_together"] for g in st["griffith"]}
     for pi, pair in enumerate(pairs):
         ref = next(r for r in corr["generator"] if r["pair"] == pair)
         for j, (sex, lo_hi) in enumerate((("men", ref["griffith_ci_men"]), ("women", ref["griffith_ci_women"]))):
             v = ref["griffith_" + sex]
-            a.errorbar([pi + dodge(j, 5)], [v], yerr=[[v - lo_hi[0]], [lo_hi[1] - v]], color=H.INK, linestyle="none",
-                       marker="s" if sex == "men" else "D", markerfacecolor="white",
+            a.errorbar([pi + dodge(j, 6)], [v], yerr=[[v - lo_hi[0]], [lo_hi[1] - v]], color=H.INK, linestyle="none",
+                       marker="D" if sex == "men" else "v", markerfacecolor="white",
                        label="Griffith 2016, %s (95%% CI)" % sex if pi == 0 else None)
             drawn.append({"panel": "A", "pair": pair, "series": "griffith " + sex, "r": v, "low": lo_hi[0], "high": lo_hi[1]})
+        a.plot([pi + dodge(2, 6)], [together[pair]], linestyle="none", color=H.INK, marker="x",
+               label="Griffith, the sexes together (the target)" if pi == 0 else None)
+        drawn.append({"panel": "A", "pair": pair, "series": "griffith, sexes together", "r": together[pair]})
         for j, s in enumerate(SETTINGS):
             r = next(x for x in corr[s] if x["pair"] == pair)["synthetic"]
-            sty = H.SERIES_STYLE[[0, 2, 4][j]]
-            a.plot([pi + dodge(j + 2, 5)], [r], linestyle="none", color=H.INK, marker=sty["marker"],
-                   markerfacecolor=sty["markerfacecolor"] if j else H.INK, label=SETTING_LABEL[s] if pi == 0 else None)
+            sty = H.SERIES_STYLE[j]
+            a.plot([pi + dodge(j + 3, 6)], [r], linestyle="none", color=H.INK, marker=sty["marker"],
+                   markerfacecolor=sty["markerfacecolor"], label=SETTING_LABEL[s] if pi == 0 else None)
             drawn.append({"panel": "A", "pair": pair, "series": s, "r": r})
     a.set_xticks(range(len(pairs)))
     a.set_xticklabels([p.replace(" with ", "\nwith ").replace("_", " ") for p in pairs], fontsize=7)
-    a.set_ylim(0, 1)
+    a.set_ylim(0, 1.35)
+    a.set_yticks([0, 0.2, 0.4, 0.6, 0.8, 1.0])
     a.set_ylabel("correlation of subject means, L1-L5")
-    a.legend(loc="upper left", fontsize=6.5)
+    a.legend(loc="upper left", fontsize=6.2, ncol=2)
     H.letter(a, "A", "the canal against the body")
     b = axes[0, 1]
     iso = st["isometry"]
+    first = {True: True, False: True}
     for i, r in enumerate(iso):
+        unit = bool(r.get("is_unit"))
         b.errorbar([i], [r["loading"]], yerr=[[r["loading"] - r["q1"] / r["body_unit"]], [r["q3"] / r["body_unit"] - r["loading"]]],
-                   color=H.INK, linestyle="none", marker="o", markerfacecolor="white",
-                   label="papers: log(men/women) over the body's" if i == 0 else None)
+                   color=H.INK, linestyle="none", marker="s" if unit else "o", markerfacecolor=H.GREY if unit else "white",
+                   label=("the unit's own measures (their median is the unit)" if unit else
+                          "papers: log(men/women) over the body's; bars: quartiles over cells") if first[unit] else None)
+        first[unit] = False
         drawn.append({"panel": "B", "measure": r["measure"], "loading": r["loading"], "q1": r["q1"] / r["body_unit"],
-                      "q3": r["q3"] / r["body_unit"], "cells": r["cells"], "generator": r["generator_loading"]})
+                      "q3": r["q3"] / r["body_unit"], "cells": r["cells"], "generator": r["generator_loading"],
+                      "is_unit": unit})
     b.axhline(1.0, color=H.INK, linestyle="--", linewidth=0.9, label="generator: every measure 1")
     b.set_xticks(range(len(iso)))
     b.set_xticklabels([SHORT.get(r["measure"], r["measure"]) for r in iso])
     b.set_ylabel("share of the body's sex difference")
-    b.set_ylim(-0.6, 1.4)
-    b.legend(loc="lower right")
+    b.set_ylim(-0.6, 2.2)
+    b.legend(loc="upper left", fontsize=6.2)
     H.letter(b, "B", "how the measures scale with size")
     for p, (ax, ratio) in enumerate(zip(axes[1], ("canal depth / body depth", "canal width / canal depth"))):
         rr = [r for r in st["ratios"] if r["ratio"] == ratio]
@@ -286,14 +299,17 @@ def fig_structure(records: str, out: str) -> List[str]:
         ax.set_xticks(range(len(LUMBAR)))
         ax.set_xticklabels(LUMBAR)
         ax.set_ylabel(ratio)
-        ax.legend(loc="best", fontsize=6.5)
+        lo, hi = ax.get_ylim()
+        ax.set_ylim(lo, hi + 0.55 * (hi - lo))
+        ax.legend(loc="upper left", fontsize=6.2, ncol=2)
         H.letter(ax, "CD"[p], "the canal over the body" if p == 0 else "the canal's shape")
     fig.tight_layout(h_pad=2.0)
     H.write_csv(out, "fig3_structure", drawn)
     return H.save(fig, out, "fig3_structure", (
         "What the means and SDs do not test. A, the canal's correlations with the body, synthetic "
-        "against Griffith's 1,080 CTs; B, the share of the body's sex difference each measure carries "
-        "(the generator scales all alike); C and D, two ratios by level against the papers that print them."))
+        "against Griffith's 1,080 CTs, his sexes apart and together; B, the share of the body's sex "
+        "difference each measure carries (the generator scales all alike); C and D, two ratios by "
+        "level against the papers that print them."))
 
 
 # ----- figure 4: the state space -----------------------------------------------------------------
@@ -374,7 +390,15 @@ def fig_state_space(records: str, out: str) -> List[str]:
         drawn.extend({"axis": "grid", "scale_sd": sc, "sd_scale": xi, "distance": yi, "rho": best_rho,
                       "r_between": num(grid[0]["r_between"])} for xi, yi in zip(x, y))
     f.plot([num(grid[0]["sd_scale"])], [num(grid[0]["distance"])], marker="*", markersize=10, color=H.INK, linestyle="none",
-           label="nearest point")
+           label="nearest point", zorder=5)
+    past = sorted((e for e in read_csv(records, "grid_edges.csv") if e["axis"] == "sd_scale"), key=lambda e: num(e["sd_scale"]))
+    if past:
+        x = [num(e["sd_scale"]) for e in past] + [num(grid[0]["sd_scale"])]
+        y = [num(e["distance"]) for e in past] + [num(grid[0]["distance"])]
+        f.plot(x, y, color=H.GREY, linestyle=":", marker="o", markerfacecolor="white", markeredgecolor=H.GREY,
+               label="past the grid's edge")
+        drawn.extend({"axis": "past the grid", "scale_sd": num(e["scale_sd"]), "sd_scale": num(e["sd_scale"]),
+                      "distance": num(e["distance"]), "rho": num(e["rho"]), "r_between": num(e["r_between"])} for e in past)
     f.set_xlabel("sd_scale (rho %g, r_between %g)" % (best_rho, num(grid[0]["r_between"])))
     f.set_ylabel("distance from the papers")
     f.legend(loc="upper left", fontsize=6.5)
@@ -384,7 +408,7 @@ def fig_state_space(records: str, out: str) -> List[str]:
     return H.save(fig, out, "fig4_state_space", (
         "The generator's state space, one axis at a time from its own point (circled), and the grid "
         "searched for the point nearest the papers: the squared log SD ratio plus the mean squared "
-        "distance from Griffith's four correlations."))
+        "distance from Griffith's four correlations; in F, grey, past the grid's lowest sd_scale."))
 
 
 # ----- figure 5: naming ------------------------------------------------------------------------
@@ -404,8 +428,8 @@ def fig_naming(records: str, out: str) -> List[str]:
             xs, ys, es = [], [], []
             for i, s in enumerate(settings):
                 got = [r for r in rows if r["setting"] == s and r["rule"] == rule and int(num(r["width"])) == w]
-                if rule == "rule matched" and s == "generator":
-                    got = [r for r in rows if r["setting"] == s and r["rule"] == "generator's rule" and int(num(r["width"])) == w]
+                if rule == "rule matched" and got and got[0].get("rule_ignores"):
+                    continue    # no rule holds phi or r_between: the matched rule is the generator's, drawn once
                 if not got:
                     continue
                 xs.append(i + dodge(j, 2, 0.24))
@@ -427,8 +451,8 @@ def fig_naming(records: str, out: str) -> List[str]:
     H.write_csv(out, "fig5_naming", drawn)
     return H.save(fig, out, "fig5_naming", (
         "Naming by the exact rule on the seven SPINEPS measures, with the CT's errors, at points of the "
-        "state space: the rule built for the generator against one that knows the setting (no rule here "
-        "holds phi or r_between). Bars are 95% intervals over the columns."))
+        "state space: the rule built for the generator against one that knows the setting, left out "
+        "where no rule can (the generator, phi, r_between). Bars are 95% intervals over the columns."))
 
 
 # ----- figure 6: power -------------------------------------------------------------------------
@@ -456,6 +480,7 @@ def fig_power(records: str, out: str) -> List[str]:
     a.set_xticks(range(len(measures)))
     a.set_xticklabels([SHORT.get(m, m) for m in measures], rotation=90)
     a.set_ylabel("spread between series / Panjabi's SD")
+    a.set_ylim(0, 1.55 * max(num(c["f_panjabi"]) for c in cells))
     a.legend(loc="upper right", fontsize=6.5)
     H.letter(a, "A", "part B again")
     arms = []
@@ -486,23 +511,29 @@ def fig_power(records: str, out: str) -> List[str]:
         ax.set_ylabel(ylabel)
         H.letter(ax, "BC"[p], "part C again" if p == 0 else "what it says, when it says it")
     handles, labels = axes[0, 1].get_legend_handles_labels()
-    fig.legend(handles, labels, loc="lower center", ncol=6, fontsize=6.5, bbox_to_anchor=(0.5, -0.01),
-               title="B and C: the rule's table", title_fontsize=6.5)
+    tables = max(int(num(r["table"])) for r in pn) + 1
+    fig.legend(handles, labels, loc="lower center", ncol=4, fontsize=6.5, bbox_to_anchor=(0.5, -0.01),
+               title="B and C: the rule's table (bars: the range over its %d tables)" % tables, title_fontsize=6.5)
     gold = pw["gold"]
     n = [g["persons"] for g in gold]
     d = axes[1, 0]
     d.plot(n, [g["least_mean_shift_one_cell"] for g in gold], color=H.INK, **H.SERIES_STYLE[0], label="one cell")
     d.plot(n, [g["least_mean_shift_154_cells"] for g in gold], color=H.INK, **H.SERIES_STYLE[1],
            label="one of the seven's 154 cells, Bonferroni")
+    d.plot(n, [g["against_panjabi_12_least_mean_shift"] for g in gold], color=H.INK, **H.SERIES_STYLE[2],
+           label="against Panjabi's 12 as a sample (Welch)")
     e = axes[1, 1]
     e.plot(n, [g["least_sd_ratio"] for g in gold], color=H.INK, **H.SERIES_STYLE[0], label="least SD ratio found")
+    e.plot(n, [g["against_panjabi_12_least_sd_ratio"] for g in gold], color=H.INK, **H.SERIES_STYLE[1],
+           label="against Panjabi's 12 as a sample (F)")
     e.plot(n, [1 + g["neighbour_r_half_width"] for g in gold], color=H.INK, **H.SERIES_STYLE[2],
            label="1 + half-width of a neighbour r of 0.5")
-    for ax in (d, e):
+    for ax, ticks, where in ((d, (0.05, 0.1, 0.2, 0.5, 1, 2), "lower left"), (e, (1, 1.25, 1.5, 2, 2.5), "upper right")):
         ax.axvline(159, color=H.GREY, linewidth=0.8, linestyle=":")
         ax.set_xscale("log")
+        log_ticks(ax, ticks)
         ax.set_xlabel("persons with whole spines")
-        ax.legend(loc="upper right", fontsize=6.5)
+        ax.legend(loc=where, fontsize=6.5)
     d.set_ylabel("least mean shift found (person SDs)")
     e.set_ylabel("ratio, or 1 + half-width")
     H.letter(d, "D", "what the gold tier can test")
@@ -527,7 +558,8 @@ def fig_power(records: str, out: str) -> List[str]:
     return H.save(fig, out, "fig6_power", (
         "The power calculations rerun. A, the REML spread between published series over Panjabi's SD, "
         "cell by cell; B and C, the exact rule built on tables moved as the papers disagree; D to F, "
-        "what a count of whole spines can test (two-sided, 5%, 80% power, exact tests; 159 marked)."))
+        "what whole spines can test against the table taken as exact, and against Panjabi's twelve "
+        "as a sample (two-sided, 5%, 80% power; 159 marked)."))
 
 
 # ----- figure 7: quality -----------------------------------------------------------------------
@@ -548,8 +580,9 @@ def fig_quality(records: str, out: str) -> List[str]:
         drawn.extend({"panel": "A", "setting": s, "indicator": k, "vertebrae": y / 100, "persons": t["person " + k]}
                      for k, y in zip(INDICATORS, ys))
     a.set_xticks(range(len(INDICATORS)))
-    a.set_xticklabels(INDICATORS)
+    a.set_xticklabels(INDICATORS, rotation=30, ha="right", fontsize=7)
     a.set_ylabel("vertebrae flagged (%)")
+    a.set_ylim(0, 100)
     a.legend(loc="upper left", fontsize=6.5)
     H.letter(a, "A", "each indicator, by setting")
     b = axes[0, 1]
@@ -562,13 +595,18 @@ def fig_quality(records: str, out: str) -> List[str]:
     b.set_xticks(range(len(levels)))
     b.set_xticklabels(levels, rotation=90)
     b.set_ylabel("area over its own box (%)")
-    b.legend(loc="upper left", fontsize=6.5)
+    b.set_ylim(0, 1.5 * max(100 * x for k, v in box.items() if not k.startswith("facet") for x in v["over_box"]))
+    b.legend(loc="upper center", fontsize=6.5, ncol=2)
     H.letter(b, "B", "the box, by level (generator; facets in the CSV)")
     drawn.extend({"panel": "B", "area": area, "level": lv, "over_box": o, "k_mean": k, "k_sd": s}
                  for area, v in sorted(box.items()) if area.startswith("facet")
                  for lv, o, k, s in zip(levels, v["over_box"], v["k_mean"], v["k_sd"]))
     c = axes[1, 0]
-    c.axhspan(0.70, 0.90, color="#e6e6e6", linewidth=0, label="Tan 2004, L1-L5 range")
+    tan = [r for r in read_json(records, "structure.json")["ratios"] if r["ratio"] == "canal area / (width x depth)"]
+    tan_x = [levels.index(r["level"]) for r in tan]
+    c.plot(tan_x, [r["tan2004"] for r in tan], color=H.INK, linestyle="none", marker="D", markerfacecolor="white",
+           label="Tan 2004, his ratio of means")
+    drawn.extend({"panel": "C", "setting": "tan2004, ratio of means", "level": r["level"], "k_mean": r["tan2004"]} for r in tan)
     g = qi["box"]["generator"]["canal_area"]
     c.fill_between(range(len(levels)), [m - s for m, s in zip(g["k_mean"], g["k_sd"])],
                    [m + s for m, s in zip(g["k_mean"], g["k_sd"])], color="#bdbdbd", alpha=0.6, linewidth=0,
@@ -582,24 +620,27 @@ def fig_quality(records: str, out: str) -> List[str]:
     c.set_xticks(range(len(levels)))
     c.set_xticklabels(levels, rotation=90)
     c.set_ylabel("canal area / (width x depth)")
-    c.legend(loc="upper left", fontsize=6.5)
+    c.set_ylim(0.4, 1.35)
+    c.legend(loc="upper left", fontsize=6.5, ncol=2)
     H.letter(c, "C", "the canal's shape factor")
     d = axes[1, 1]
     ph = qi["phenotypes"]
-    for j, k in enumerate(("any", "box", "convex", "sign")):
+    for j, k in enumerate(("any", "any but floor", "box", "convex", "sign or inside")):
         d.plot(range(len(ph)), [100 * p["vertebra " + k] for p in ph], color=H.INK, label=k, **H.SERIES_STYLE[j])
     drawn.extend(dict({"panel": "D"}, **p) for p in ph)
     d.set_xticks(range(len(ph)))
     d.set_xticklabels([p["phenotype"].replace("_", " ") for p in ph], rotation=90, fontsize=7)
     d.set_ylabel("vertebrae flagged (%)")
-    d.legend(loc="upper left", fontsize=6.5)
+    d.set_ylim(0, 100)
+    d.legend(loc="upper center", fontsize=6.5, ncol=3)
     H.letter(d, "D", "the six phenotypes (generator)")
     fig.tight_layout(h_pad=2.0)
     H.write_csv(out, "fig7_quality", drawn)
     return H.save(fig, out, "fig7_quality", (
         "Quality indicators of synthetic vertebrae: a length or area at or below zero (sign), a measured value "
         "at the floor, an area larger than its own width times depth (box), an end-plate under half of "
-        "it (convex), a canal wider than its transverse processes (inside)."))
+        "it (convex), a canal wider than its transverse processes (inside). Sign and inside no anatomy "
+        "can fail; box and convex hold under allowances."))
 
 
 # ----- figure 8: what the generator assumes ------------------------------------------------------
@@ -609,7 +650,7 @@ def fig_assumptions(records: str, out: str) -> List[str]:
     ref = read_json(records, "references.json")
     fig, (a, b) = plt.subplots(1, 2, figsize=(10.0, 3.8), gridspec_kw={"width_ratios": [1.3, 1.0]})
     drawn = []
-    errs = [e for e in ref["errors"] if e["unit"] == "mm" and e["modality"] in ("CT", "bone, caliper", "film", "MRI")]
+    errs = [e for e in ref["errors"] if e["unit"] == "mm"]
     for i, e in enumerate(errs):
         a.plot([i, i], [e["low"], e["high"]], color=H.INK, linewidth=2.2)
         a.plot([i], [(e["low"] + e["high"]) / 2], marker="o", markerfacecolor="white", color=H.INK, linestyle="none")
@@ -623,7 +664,10 @@ def fig_assumptions(records: str, out: str) -> List[str]:
     H.letter(a, "A", "measurement error, papers' range")
     prev = ref["prevalence"]
     for i, p in enumerate(prev):
-        if p["papers"] is not None:
+        if p["papers"] is not None and "ceiling" in p["state"]:
+            b.plot([i], [100 * p["papers"]], marker="v", markerfacecolor="white", color=H.INK, linestyle="none",
+                   label="papers, a ceiling")
+        elif p["papers"] is not None:
             pt = p["papers"]
             b.errorbar([i], [100 * pt], yerr=[[100 * (pt - p["low"])], [100 * (p["high"] - pt)]], color=H.INK,
                        linestyle="none", marker="o", markerfacecolor="white",
@@ -641,16 +685,16 @@ def fig_assumptions(records: str, out: str) -> List[str]:
         drawn.append(dict({"panel": "B"}, **p))
     b.set_yscale("log")
     b.set_xticks(range(len(prev)))
-    b.set_xticklabels([p["state"].split(" (")[0] for p in prev], rotation=90, fontsize=6.5)
+    b.set_xticklabels([re.sub(r" \([^)]*\)", "", p["state"]) for p in prev], rotation=90, fontsize=6.5)
     b.set_ylabel("columns (%)")
-    b.legend(loc="lower left", fontsize=6)
+    b.legend(loc="upper left", bbox_to_anchor=(1.01, 1.0), fontsize=6)
     H.letter(b, "B", "how often a column is not typical")
     fig.tight_layout()
     H.write_csv(out, "fig8_assumptions", drawn)
     return H.save(fig, out, "fig8_assumptions", (
         "Two things the generator assumes, set beside the papers. A, the error of one reading as the "
-        "reread's error draft gives it from repeated readings; B, how often a column carries each "
-        "anomaly, from Eisenstein's 443 skeletons and Duman's 517 chest CTs (the reread's checked priors)."))
+        "reread's checked error part gives it, two figures from pig bone; B, how often a column carries "
+        "each anomaly, from Eisenstein's 443 skeletons and Duman's 517 CTs (the reread's checked priors)."))
 
 
 FIGURES = (fig_means, fig_spread, fig_structure, fig_state_space, fig_naming, fig_power, fig_quality, fig_assumptions)
@@ -661,14 +705,26 @@ def sha(path: str) -> str:
         return hashlib.sha256(fh.read()).hexdigest()
 
 
+DRAWN_BY = ("figures.py", "render.py", "synthval/house.py", "../../schwingcheck/figures.py")
+
+
 def write_index(records: str, out: str, written: Dict[str, List[str]]) -> str:
+    """FIGURES.md: the command, the records and the code that drew the figures, each by sha256,
+    the commit at drawing time, the abbreviations on the axes, then every figure's caption and
+    files."""
     rec = read_json(records, "RECORD.json")
+    commit = subprocess.run(["git", "-C", HERE, "rev-parse", "HEAD"], capture_output=True, text=True).stdout.strip()
     lines = ["# Figures", "", "Drawn by `python3 -I figures.py --records %s --out %s` from the records of"
              % (os.path.basename(records.rstrip("/")), os.path.basename(out.rstrip("/"))),
              "`%s` (bordercall %s). Each figure's numbers are its CSV; its caption is its .caption.txt."
              % (rec.get("command", "run.py"), (rec.get("bordercall_commit") or "")[:7]),
              "The three renders are drawn by render.py from the generator itself, seed %d, %d people."
-             % (R.SEED, R.PEOPLE), ""]
+             % (R.SEED, R.PEOPLE), "",
+             "Drawn at bordercall %s, from and by:" % commit[:7], "",
+             "- %s/RECORD.json, sha256 %s" % (os.path.basename(records.rstrip("/")), sha(os.path.join(records, "RECORD.json")))]
+    lines += ["- %s, sha256 %s" % (name.replace("../../", ""), sha(os.path.normpath(os.path.join(HERE, name))))
+              for name in DRAWN_BY]
+    lines += ["", "Abbreviations on the axes: " + "; ".join("%s %s" % (SHORT[k], NAMES.get(k, k)) for k in SHORT) + ".", ""]
     for name, paths in written.items():
         cap = open(os.path.join(out, name + ".caption.txt"), encoding="ascii").read().strip()
         lines += ["## %s" % name, "", cap, ""]

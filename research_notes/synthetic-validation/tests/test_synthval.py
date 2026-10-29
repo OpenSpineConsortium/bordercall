@@ -10,12 +10,14 @@
   and the many-row REML of the simulations is the one-row REML;
 - the literature selection gives the counts the README quotes from the pinned snapshot, the
   snapshot is the one SOURCE.json records, the jump screen catches a jump and nothing smooth or
-  far apart, children and diseased cohorts are left out, and a cell's published SD is its one
-  certain series' where Tan's is the other;
-- the quality indicators flag what they say they flag, and the drawing's superellipse holds the
-  area it is asked for;
-- the power tests have the power they say, and the calibrated spreads read above the raw ones,
-  as a correction of estimates that read low must.
+  far apart, children and diseased cohorts are left out, a cell's published SD is its one
+  certain series' where Tan's is the other, Olsewski's Part 2 leaves wherever Part 1 holds the
+  cell, his pedicle counts are halved and Gilad's counts are his per level;
+- the quality indicators flag what they say they flag, their unions hold what they name, and the
+  drawing's superellipse holds the area it is asked for, its pedicles meeting the body;
+- the power tests have the power they say, the calibrated spreads read above the raw ones, as a
+  correction of estimates that read low must, and Griffith's sexes taken together give the
+  mixture's correlation.
 """
 from __future__ import annotations
 
@@ -38,6 +40,8 @@ from synthval import literature as L  # noqa: E402
 from synthval import pooling as P  # noqa: E402
 from synthval import power as PW  # noqa: E402
 from synthval import qi as Q  # noqa: E402
+from synthval import structure as ST  # noqa: E402
+from synthval import sweep as SW  # noqa: E402
 from synthval import validate as V  # noqa: E402
 from synthval.population import GENERATOR, draw, size_moments  # noqa: E402
 
@@ -123,11 +127,26 @@ class Literature(unittest.TestCase):
     def test_selection_counts(self):
         rows = L.load_rows()
         series, why = L.select(rows)
-        self.assertEqual(len(rows), 2490)
-        self.assertEqual(len(series), 935)
-        self.assertEqual(sum(1 for s in series if L.usable(s)), 764)
-        self.assertEqual(len({s.paper for s in series if L.usable(s)}), 23)
+        self.assertEqual(len(rows), 2407)
+        self.assertEqual(len(series), 954)
+        self.assertEqual(sum(1 for s in series if L.usable(s)), 903)
+        self.assertEqual(len(rows) - sum(why.values()), len(series))
+        self.assertEqual(len({s.paper for s in series if L.usable(s)}), 25)
         self.assertNotIn(L.BREAKS_OWN_SERIES, why)
+        self.assertEqual(sum(1 for s in series if s.flag.endswith("one side only")), 1)
+        self.assertEqual(sum(1 for s in series if L.usable(s) and s.key in ("endplate_incl", "endplate_lower_incl")), 44)
+
+    def test_one_set_of_people_and_counts_of_people(self):
+        series, _ = L.select(L.load_rows())
+        olsewski = {}
+        for s in series:
+            if s.paper == "olsewski1990":
+                olsewski.setdefault((s.key, s.level, s.technique), set()).add(s.cohort)
+                self.assertEqual(s.n_note, "n is the printed pedicles halved")
+        self.assertFalse([c for c in olsewski.values() if {"part1_cadavers", "part2_cadavers"} <= c])
+        gilad = {s.level: s.n for s in series if s.paper == "gilad1985"}
+        self.assertEqual(gilad.get("C7"), 126)
+        self.assertEqual(gilad.get("L1"), 154)
 
     def test_jump_screen(self):
         base = dict(paper="p", cohort="c", technique="t", source_of_values="this paper", key="endplate_lower_area",
@@ -200,6 +219,14 @@ class Quality(unittest.TestCase):
         bad = fl.by["sign"].any(1) | fl.by["inside"].any(1)
         self.assertTrue(np.array_equal(kept, ~bad))
 
+    def test_unions_hold_what_they_name(self):
+        fl = Q.flags(self.pop)
+        rates = Q.vertebra_rates(fl)
+        hard = (fl.by["sign"] | fl.by["inside"]).mean()
+        self.assertAlmostEqual(rates["sign or inside"], hard)
+        self.assertLessEqual(rates["sign or inside"], rates["any but floor"])
+        self.assertLessEqual(rates["any but floor"], rates["any"])
+
 
 class Drawing(unittest.TestCase):
     def test_superellipse_area(self):
@@ -208,6 +235,19 @@ class Drawing(unittest.TestCase):
         for share in (0.55, 0.7, 0.785, 0.9, 0.98):
             self.assertAlmostEqual(R.area_share(R.exponent_for(share)), share, places=6)
         self.assertIsNone(R.exponent_for(1.07))
+
+    def test_pedicles_meet_the_body(self):
+        width, depth, area = 44.1, 35.2, 1194.0
+        x, y, n = R.outline(width, depth, area, (0.0, depth / 2), points=4000)
+        for at in (12.0, 17.0, 21.0):
+            top = R.pedicle_top(width, depth, n, at)
+            behind = y[(np.abs(np.abs(x) - at) < 0.2) & (y < depth / 2)]
+            self.assertGreaterEqual(top, behind.max() if len(behind) else 0.0)
+            self.assertLessEqual(top, depth / 2)
+
+    def test_spinous_tip_from_the_end_plate(self):
+        v = {"endplate_depth": 35.2, "spinous_length": 71.7}
+        self.assertAlmostEqual(R.spinous_tip(v), 17.6 - 71.7)
 
     def test_outline_holds_the_area(self):
         x, y, n = R.outline(44.1, 35.2, 1194.0, (0.0, 0.0), points=4000)
@@ -251,10 +291,45 @@ class Power(unittest.TestCase):
         got = PW.shifted_table(mu, sd, np.random.default_rng(1), 0.0, 0.0)
         self.assertTrue(np.array_equal(got, mu))
 
+    def test_two_sample_tests_against_panjabi(self):
+        # Welch at 159 against 12 with an SD 1.47 times the gold persons': about 1.3 SD on 11.8 df
+        self.assertAlmostEqual(PW.least_shift_two_sample(159, sd_ratio=1.47), 1.32, places=2)
+        self.assertGreater(PW.least_shift_two_sample(159, sd_ratio=1.0), PW.least_shift(159))
+        from scipy import stats
+        ratio = PW.least_sd_ratio_two_sample(159)
+        crit = stats.f.ppf(0.975, 11, 158)
+        self.assertAlmostEqual(stats.f.sf(crit / ratio ** 2, 11, 158), 0.80, places=8)
+
+    def test_shared_shift_moves_every_measure_alike(self):
+        mu, sd = MS.arrays(MS.select(MS.SPINEPS_7), LEVELS)
+        got = (PW.shifted_table(mu, sd, np.random.default_rng(3), 0.5, 0.0, shared=True) - mu) / sd
+        self.assertTrue(np.allclose(got, got[0, 0]))
+
+    def test_griffith_sexes_together(self):
+        rng = np.random.default_rng(5)
+        a, b, men, women = ST.GRIFFITH[2]
+        draws = []
+        for sex, r in ((0, men), (1, women)):
+            (ma, sa), (mb, sb) = ST.GRIFFITH_SEX[a][sex], ST.GRIFFITH_SEX[b][sex]
+            z = rng.multivariate_normal([0, 0], [[1, r], [r, 1]], size=200000)
+            draws.append(np.c_[ma + sa * z[:, 0], mb + sb * z[:, 1]])
+        both = np.vstack(draws)
+        self.assertAlmostEqual(np.corrcoef(both.T)[0, 1], ST.mixed_sex_r(a, b, men, women), places=2)
+
     def test_gold_power_leaves_out_what_the_papers_do_not_count(self):
         row = PW.gold_power((159,))[0]
         self.assertNotIn("expected: a thirteenth rib-bearing body (T13)", row)
         self.assertAlmostEqual(row["expected: six lumbar-type segments (L6 or lumbarised S1)"], 159 * 0.0248)
+
+    def test_beyond_edges_reads_only_past_the_ends_the_nearest_point_sits_on(self):
+        grid = {"scale_sd": (0.0, 0.07), "sd_scale": (0.7, 1.0), "rho": (0.25, 0.5, 0.9), "r_between": (0.0, 0.4)}
+        best = {"scale_sd": 0.0, "sd_scale": 0.7, "rho": 0.5, "r_between": 0.4}
+        series, _ = L.select(L.load_rows())
+        got = SW.beyond_edges(best, series, n=200, seed=1, grid=grid)
+        self.assertEqual(sorted((p["axis"], p[p["axis"]]) for p in got),
+                         [("r_between", 0.8), ("sd_scale", 0.5), ("sd_scale", 0.55)])
+        self.assertEqual([p["distance"] for p in got], sorted(p["distance"] for p in got))
+        self.assertTrue(all(p["rho"] == 0.5 and p["scale_sd"] == 0.0 for p in got))
 
 
 if __name__ == "__main__":

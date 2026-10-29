@@ -26,6 +26,7 @@ REPO = os.path.dirname(os.path.dirname(HERE))
 sys.path[:0] = [REPO, HERE]
 
 import numpy as np  # noqa: E402
+from scipy import stats  # noqa: E402
 
 from schwingcheck import LEVELS  # noqa: E402
 from schwingcheck import columns as C  # noqa: E402
@@ -100,8 +101,17 @@ def selection_record(rows, series) -> dict:
     return {"rows": len(rows), "series": len(series), "usable": len(usable), "left_out": why,
             "usable_by_measure": by_measure, "usable_by_paper": by_paper, "usable_by_modality": by_modality,
             "unusable_by_paper": unusable, "papers": len(by_paper),
-            "n_from_cohort": sum(1 for s in usable if s.n_note), "sd_uncertain": sum(1 for s in usable if s.sd_uncertain),
-            "one_sex_only": sum(1 for s in usable if s.flag.startswith("one sex"))}
+            "n_from_cohort": sum(1 for s in usable if s.n_note), "n_notes": count_of(s.n_note for s in usable if s.n_note),
+            "sd_uncertain": sum(1 for s in usable if s.sd_uncertain),
+            "one_sex_only": sum(1 for s in usable if s.flag.startswith("one sex")),
+            "flags": count_of(s.flag for s in series if s.flag)}
+
+
+def count_of(things) -> dict:
+    out = {}
+    for t in things:
+        out[t] = out.get(t, 0) + 1
+    return dict(sorted(out.items()))
 
 
 def validation(out, series, settings, n):
@@ -115,43 +125,110 @@ def validation(out, series, settings, n):
                "by_measure": V.summarise([c for c in cells if c["modalities"] == "bone_ct" and c["which"] == "true"],
                                          by=("setting", "measure")),
                "by_modality": V.summarise([c for c in cells if c["which"] == "true"], by=("setting", "modalities")),
-               "panjabi": panjabi_summary([c for c in cells if c["modalities"] == "bone_ct"
-                                           and c["setting"] == "generator" and c["which"] == "true"]),
-               "panjabi_without_tan2004": panjabi_summary(
-                   [c for c in V.compare({"generator": pops["generator"]}, [s for s in series if s.paper != "tan2004"],
-                                         "bone_ct", ms) if c["which"] == "true"])}
+               "sd_ratio_by_kind": sd_ratio_by_kind([c for c in cells if c["modalities"] == "bone_ct"])}
+    generator = [c for c in cells if c["modalities"] == "bone_ct" and c["setting"] == "generator" and c["which"] == "true"]
+    without_tan = [c for c in V.compare({"generator": pops["generator"]}, [s for s in series if s.paper != "tan2004"],
+                                        "bone_ct", ms) if c["which"] == "true"]
+    summary.update({"panjabi": panjabi_summary(generator), "panjabi_without_tan2004": panjabi_summary(without_tan),
+                    "panjabi_by_measure": panjabi_by_measure(generator, without_tan)})
     write_json(out, "validation_summary.json", summary)
     return pops
 
 
+PANJABI_SPINES = 12
+
+
 def panjabi_summary(cells) -> dict:
     """Panjabi's means against the pooled series, two ways: inside the prediction interval, where
-    another population's mean may fall, and inside the 95 per cent interval of the pooled mean
-    itself, the stricter test of whether Panjabi's specimens sit at the papers' average. With three
-    series the prediction interval takes t on one degree of freedom (12.7), so the count of
-    series behind each cell is kept beside it."""
+    another population's mean may fall, and against the pooled mean itself, the stricter test of
+    whether Panjabi's specimens sit at the papers' average. His mean is of twelve spines, so both
+    tests take his own sampling variance, sd^2 / 12, beside the pool's: the difference is tested
+    on sqrt(SE^2 + sd^2 / 12), by z and, since a cell rests on three to nine series, by t on k - 1
+    degrees of freedom; the prediction interval is widened by the same variance. The test that
+    takes his mean as exact is kept beside them. With three series the prediction interval takes t
+    on one degree of freedom (12.7), so the count of series behind each cell is kept beside it.
+
+    The distance d is given signed as well as absolute, since a median of |d| can hold steady while
+    its sign moves, and in the papers' SD as well as his."""
     z = np.array([c["z_panjabi"] for c in cells if c["z_panjabi"] is not None and math.isfinite(c["z_panjabi"])])
-    d = np.array([abs(c["d_panjabi"]) for c in cells if math.isfinite(c["d_panjabi"])])
+    signed = np.array([c["d_panjabi"] for c in cells if math.isfinite(c["d_panjabi"])])
+    d = np.abs(signed)
+    in_papers_sd = np.array([abs(c["panjabi_mean"] - c["lit_mean"]) / c["lit_sd"] for c in cells
+                             if math.isfinite(c["lit_sd"]) and c["lit_sd"] > 0])
     r = np.array([c["panjabi_sd_ratio"] for c in cells if math.isfinite(c["panjabi_sd_ratio"])])
     pooled = [c for c in cells if c["k"] >= 3 and math.isfinite(c["lit_se"])]
-    outside_ci = [c for c in pooled if abs(c["panjabi_mean"] - c["lit_mean"]) > 1.959964 * c["lit_se"]]
-    outside_pi = [c for c in pooled if not c["pi_low"] <= c["panjabi_mean"] <= c["pi_high"]]
+    tests = {name: [c for c in pooled if outside(c, name)] for name in ("exact", "z", "t")}
+    outside_pi = [c for c in pooled if not inside_prediction(c)]
     ks = {}
     for c in pooled:
         ks[str(c["k"])] = ks.get(str(c["k"]), 0) + 1
-    return {"cells_with_interval": int(len(z)), "abs_z_median": float(np.median(np.abs(z))),
-            "abs_z_over_2": float((np.abs(z) > 2).mean()), "cells": int(len(d)), "abs_d_median": float(np.median(d)),
-            "d_over_one": float((d > 1).mean()), "sd_ratio_cells": int(len(r)),
-            "sd_ratio_quartiles": [float(np.quantile(r, q)) for q in (0.25, 0.5, 0.75)],
-            "pooled_cells": len(pooled), "series_per_pooled_cell": ks,
-            "outside_prediction_interval": len(outside_pi), "outside_pooled_mean_ci": len(outside_ci),
-            "outside_pooled_mean_ci_above": sum(1 for c in outside_ci if c["panjabi_mean"] > c["lit_mean"]),
-            "outside_prediction_interval_k5": sum(1 for c in outside_pi if c["k"] >= 5),
-            "pooled_cells_k5": sum(1 for c in pooled if c["k"] >= 5),
-            "cells_only_tan2004": sum(1 for c in cells if c["only_tan2004"]),
-            "sd_cells_pooled": sum(1 for c in cells if c["k_sd"] >= 2),
-            "sd_cells_one_series": sum(1 for c in cells if c["k_sd"] == 1),
-            "sd_cells_none": sum(1 for c in cells if c["k_sd"] == 0)}
+    out = {"cells_with_interval": int(len(z)), "abs_z_median": float(np.median(np.abs(z))),
+           "abs_z_over_2": float((np.abs(z) > 2).mean()), "cells": int(len(d)), "abs_d_median": float(np.median(d)),
+           "d_median": float(np.median(signed)), "d_above": float((signed > 0).mean()),
+           "abs_d_papers_sd_median": float(np.median(in_papers_sd)),
+           "d_over_one": float((d > 1).mean()), "sd_ratio_cells": int(len(r)),
+           "sd_ratio_quartiles": [float(np.quantile(r, q)) for q in (0.25, 0.5, 0.75)],
+           "pooled_cells": len(pooled), "series_per_pooled_cell": ks,
+           "outside_prediction_interval": len(outside_pi),
+           "outside_prediction_interval_k5": sum(1 for c in outside_pi if c["k"] >= 5),
+           "pooled_cells_k5": sum(1 for c in pooled if c["k"] >= 5),
+           "cells_only_tan2004": sum(1 for c in cells if c["only_tan2004"]),
+           "sd_cells_pooled": sum(1 for c in cells if c["k_sd"] >= 2),
+           "sd_cells_one_series": sum(1 for c in cells if c["k_sd"] == 1),
+           "sd_cells_none": sum(1 for c in cells if c["k_sd"] == 0)}
+    for name, found in tests.items():
+        out["outside_mean_%s" % name] = len(found)
+        out["outside_mean_%s_above" % name] = sum(1 for c in found if c["panjabi_mean"] > c["lit_mean"])
+    return out
+
+
+def outside(c: dict, test: str) -> bool:
+    """Whether Panjabi's mean differs from the pooled mean at 5 per cent: "exact" takes his mean
+    as a constant, "z" and "t" take his twelve spines' sampling variance in too."""
+    se = c["lit_se"] if test == "exact" else math.sqrt(c["lit_se"] ** 2 + c["panjabi_sd"] ** 2 / PANJABI_SPINES)
+    crit = stats.t.ppf(0.975, c["k"] - 1) if test == "t" else 1.959964
+    return abs(c["panjabi_mean"] - c["lit_mean"]) > crit * se
+
+
+def inside_prediction(c: dict) -> bool:
+    """The prediction interval with Panjabi's own sampling variance added under its root."""
+    half = (c["pi_high"] - c["pi_low"]) / 2
+    centre = (c["pi_high"] + c["pi_low"]) / 2
+    root = math.sqrt(c["lit_tau"] ** 2 + c["lit_se"] ** 2)
+    wider = half / root * math.sqrt(root ** 2 + c["panjabi_sd"] ** 2 / PANJABI_SPINES)
+    return centre - wider <= c["panjabi_mean"] <= centre + wider
+
+
+def panjabi_by_measure(cells, without_tan) -> dict:
+    """Per measure, the signed median of Panjabi's distance from the papers in his SDs, with all
+    series and with Tan 2004's left out (a measure only Tan prints has no second reading)."""
+    out = {}
+    for key in sorted({c["measure"] for c in cells}):
+        mine = [c["d_panjabi"] for c in cells if c["measure"] == key]
+        rest = [c["d_panjabi"] for c in without_tan if c["measure"] == key]
+        out[key] = {"cells": len(mine), "d_median": float(np.median(mine)), "cells_without_tan2004": len(rest),
+                    "d_median_without_tan2004": float(np.median(rest)) if rest else None}
+    return out
+
+
+def sd_ratio_by_kind(cells) -> dict:
+    """The median SD ratio over the lengths and areas apart from the angles, and over the seven
+    SPINEPS measures, for Panjabi's SD and each setting's true and measured SD: the angles' ratios
+    run about twice the others', so one median over both hides that one scale fits neither."""
+    seven = set(MS.SPINEPS_7)
+    groups = {"lengths and areas": lambda c: c["kind"] in ("length", "area"), "angles": lambda c: c["kind"] == "angle",
+              "the seven SPINEPS measures": lambda c: c["measure"] in seven}
+    out = {}
+    for gname, keep in groups.items():
+        mine = [c for c in cells if keep(c)]
+        panjabi = {(c["measure"], c["level"]): c["panjabi_sd_ratio"] for c in mine}
+        row = {"cells": len(panjabi), "panjabi": float(np.nanmedian(list(panjabi.values())))}
+        for setting in sorted({c["setting"] for c in mine}):
+            for which in ("true", "measured"):
+                got = [c["sd_ratio"] for c in mine if c["setting"] == setting and c["which"] == which]
+                row["%s, %s" % (setting, which)] = float(np.nanmedian(got))
+        out[gname] = row
+    return out
 
 
 def structure(out, pops, rows):
@@ -161,9 +238,10 @@ def structure(out, pops, rows):
     full = {name: PO.draw(pop.settings, pop.true.shape[0], SEED_POPULATION, ms) for name, pop in pops.items()}
     powers = {L.measure_key(m.key): float(p) for m, p in zip(ms, MS.powers(ms))}
     data = {"correlations": {name: ST.subject_mean_correlations(p) for name, p in full.items()},
-            "ratios": ST.ratio_table(full["generator"], mu, keys, LEVELS),
+            "ratios": ST.ratio_table(full["generator"], mu, keys, LEVELS, rows),
             "isometry": ST.isometry_table(rows, powers),
-            "griffith": [{"pair": "%s with %s" % (a, b), "men": m, "women": w} for a, b, m, w in ST.GRIFFITH]}
+            "griffith": [{"pair": "%s with %s" % (a, b), "men": m, "women": w, "sexes_together": ST.mixed_sex_r(a, b, m, w)}
+                         for a, b, m, w in ST.GRIFFITH]}
     write_json(out, "structure.json", data)
 
 
@@ -207,15 +285,22 @@ def sign_by_measure(pop) -> dict:
     return out
 
 
+QUICK_GRID = {"scale_sd": (0.0, 0.07), "sd_scale": (0.7, 1.0), "rho": (0.5,), "r_between": (0.0, 0.2)}
+
+
+def grid_of(quick: bool) -> dict:
+    return QUICK_GRID if quick else SW.GRID
+
+
 def state_space(out, series, n, quick):
     points = SW.one_at_a_time()
     rows = []
     for st in points:
         rows.append(SW.read_point(st, series, n, SEED_SWEEP))
     write_csv(out, "state_space.csv", rows)
-    grid = SW.GRID if not quick else {"scale_sd": (0.02, 0.07), "sd_scale": (0.7, 1.0), "rho": (0.5,), "r_between": (0.0, 0.2)}
-    near = SW.nearest(series, n=n, seed=SEED_SWEEP, grid=grid)
+    near = SW.nearest(series, n=n, seed=SEED_SWEEP, grid=grid_of(quick))
     write_csv(out, "grid.csv", near)
+    write_csv(out, "grid_edges.csv", SW.beyond_edges(near[0], series, n=n, seed=SEED_SWEEP, grid=grid_of(quick)))
     return points, near[0]
 
 
@@ -242,6 +327,10 @@ def naming(out, points, nearest_point, columns):
 
 
 def power(out, series, columns, tables):
+    """Part B, A and C again. The two-sample tests against Panjabi's twelve take his SD as the
+    validation found it, the median of his SD over the papers' (validation_summary.json)."""
+    with open(os.path.join(out, "validation_summary.json"), encoding="utf-8") as fh:
+        sd_ratio = json.load(fh)["panjabi"]["sd_ratio_quartiles"][1]
     main = PW.between_series(series)
     write_csv(out, "power_cells.csv", main)
     no_tan = [s for s in series if s.paper != "tan2004"]
@@ -255,20 +344,27 @@ def power(out, series, columns, tables):
     data = {"old_part_b": PW.OLD_PART_B,
             "spread": {k: PW.spread_summary(main if k == "main" else PW.between_series(v)) for k, v in variants.items()},
             "calibrated_median_f": calibrated, "split": splits, "split_recovery": PW.split_recovery(series),
-            "gold": PW.gold_power()}
+            "panjabi_sd_ratio": sd_ratio, "gold": PW.gold_power(panjabi_sd_ratio=sd_ratio)}
     write_json(out, "power.json", data)
     arms = list(PW.ARMS) + [("39 papers, %s" % k, v["shift_sd_calibrated"], v["level_sd_calibrated"])
                             for k, v in splits.items()]
+    a = splits["all"]
+    arms.append(("39 papers, all, one shift for every measure", a["shift_sd_calibrated"], a["level_sd_calibrated"], True))
     write_csv(out, "power_naming.csv", PW.naming_loss(arms, columns=columns, tables=tables))
 
 
 def code_digests() -> dict:
-    """The sha256 of run.py and every module of synthval/, read before the run starts."""
+    """The sha256 of every Python file of this folder (the run, the figures, the renders, the
+    tables, the snapshot, synthval/ and the tests), read before the run starts."""
     code = {}
-    for name in ["run.py"] + ["synthval/" + f for f in sorted(os.listdir(os.path.join(HERE, "synthval"))) if f.endswith(".py")]:
-        with open(os.path.join(HERE, name), "rb") as fh:
-            code[name] = hashlib.sha256(fh.read()).hexdigest()
-    return code
+    for folder, dirs, files in os.walk(HERE):
+        dirs[:] = sorted(d for d in dirs if d not in ("__pycache__", "records") and not d.startswith("."))
+        for f in sorted(files):
+            if f.endswith(".py"):
+                name = os.path.relpath(os.path.join(folder, f), HERE).replace(os.sep, "/")
+                with open(os.path.join(folder, f), "rb") as fh:
+                    code[name] = hashlib.sha256(fh.read()).hexdigest()
+    return dict(sorted(code.items()))
 
 
 def record(out, args, started, code):
@@ -287,8 +383,12 @@ def record(out, args, started, code):
         "bordercall_commit": commit, "schwingcheck_changed_since_commit": bool(dirty),
         "snapshot": {"commit": source["commit"], "branch": source["branch"], "sha256": source["snapshot_sha256"]},
         "seeds": {"population": SEED_POPULATION, "sweep": SEED_SWEEP, "naming_columns": SEED_NAMING,
-                  "power_columns": 4101, "power_tables": 4102},
-        "sizes": {"population": args.n, "naming_columns": args.columns, "power_tables": args.tables},
+                  "power_columns": PW.NAMING_COLUMN_SEED, "power_tables": PW.NAMING_TABLE_SEED,
+                  "power_calibration": PW.CALIBRATION_SEED, "split_recovery": PW.RECOVERY_SEED,
+                  "split_recovery_calibrations": "split_recovery + 1000 + trial"},
+        "sizes": {"population": args.n, "naming_columns": args.columns, "power_tables": args.tables,
+                  "calibration_replicates": PW.CALIBRATION_REPLICATES, "split_replicates": PW.SPLIT_REPLICATES,
+                  "split_recovery_trials": PW.RECOVERY_TRIALS, "grid_points": math.prod(len(v) for v in grid_of(args.quick).values())},
         "python": platform.python_version(), "numpy": np.__version__, "seconds": round(time.time() - started),
         "files": digests, "code": code})
 

@@ -1,6 +1,6 @@
 """Every synthetic measure and level held to the published populations.
 
-For each measure of the pool (the two end-plate inclinations left out, literature.py) and each
+For each measure of the pool (all 32, literature.LEFT_OUT_MEASURES being empty) and each
 level a published series covers, the synthetic population drawn at a setting of the state space
 is set beside:
 

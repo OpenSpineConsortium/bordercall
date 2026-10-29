@@ -1,1 +1,1 @@
-Naming by the exact rule on the seven SPINEPS measures, with the CT's errors, at points of the state space: the rule built for the generator against one that knows the setting (no rule here holds phi or r_between). Bars are 95% intervals over the columns.
+Naming by the exact rule on the seven SPINEPS measures, with the CT's errors, at points of the state space: the rule built for the generator against one that knows the setting, left out where no rule can (the generator, phi, r_between). Bars are 95% intervals over the columns.

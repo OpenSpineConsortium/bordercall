@@ -1,52 +1,52 @@
 panel,series,measure,cells,median,q1,q3,level
-A,generator as it stands,h_post,22,1.79854,1.60821,2.09101,
-A,generator as it stands,pedicle_h,16,1.54326,1.38746,1.82253,
-A,generator as it stands,pedicle_incl_sag,16,4.07551,2.82187,5.82723,
-A,generator as it stands,pedicle_incl_trans,15,2.89669,2.74183,3.36863,
-A,generator as it stands,pedicle_w,15,1.78135,1.64868,2.17242,
-A,generator as it stands,canal_ap,6,1.47673,1.4175,1.68823,
-A,generator as it stands,endplate,6,2.45292,1.74337,2.82976,
-A,generator as it stands,endplate_depth,6,1.77183,1.6295,1.90998,
-A,generator as it stands,endplate_lower,6,2.47617,2.03535,3.06197,
-A,generator as it stands,endplate_lower_depth,6,1.43325,1.34868,1.56952,
-A,generator as it stands,canal_area,5,1.25407,1.25203,1.55055,
-A,generator as it stands,canal_w,5,1.21216,0.913836,1.38407,
-A,generator as it stands,facet_w_sup,5,1.45062,1.02359,1.4576,
-A,generator as it stands,pedicle_area,5,1.16394,0.980952,1.30164,
-A,SDs with size taken out,h_post,22,1.62102,1.42922,1.87819,
-A,SDs with size taken out,pedicle_h,16,1.40524,1.18959,1.68522,
-A,SDs with size taken out,pedicle_incl_sag,16,4.07551,2.82187,5.82723,
-A,SDs with size taken out,pedicle_incl_trans,15,2.89669,2.74183,3.36863,
-A,SDs with size taken out,pedicle_w,15,1.72394,1.59342,2.1219,
-A,SDs with size taken out,canal_ap,6,1.26445,1.25418,1.47586,
-A,SDs with size taken out,endplate,6,1.91463,1.36544,2.13375,
-A,SDs with size taken out,endplate_depth,6,1.47787,1.35286,1.65466,
-A,SDs with size taken out,endplate_lower,6,1.96515,1.58004,2.41536,
-A,SDs with size taken out,endplate_lower_depth,6,1.12374,1.03484,1.351,
-A,SDs with size taken out,canal_area,5,1.01652,1.00262,1.25317,
-A,SDs with size taken out,canal_w,5,0.990409,0.783735,1.16914,
-A,SDs with size taken out,facet_w_sup,5,1.37196,0.972589,1.39092,
-A,SDs with size taken out,pedicle_area,5,0.990191,0.926741,1.17903,
-A,nearest point to the papers,h_post,22,1.29523,1.12617,1.4464,
-A,nearest point to the papers,pedicle_h,16,1.10567,0.988326,1.33936,
-A,nearest point to the papers,pedicle_incl_sag,16,2.97219,2.11918,4.32494,
-A,nearest point to the papers,pedicle_incl_trans,15,2.23349,2.16883,2.80359,
-A,nearest point to the papers,pedicle_w,15,1.35529,1.20644,1.62875,
-A,nearest point to the papers,canal_ap,6,1.00322,0.967173,1.14777,
-A,nearest point to the papers,endplate,6,1.40117,1.00572,1.64087,
-A,nearest point to the papers,endplate_depth,6,1.10375,1.00999,1.2165,
-A,nearest point to the papers,endplate_lower,6,1.47117,1.14978,1.81332,
-A,nearest point to the papers,endplate_lower_depth,6,0.864059,0.806321,0.996698,
-A,nearest point to the papers,canal_area,5,0.773277,0.769336,0.960191,
-A,nearest point to the papers,canal_w,5,0.775295,0.588817,0.894779,
-A,nearest point to the papers,facet_w_sup,5,1.0208,0.746633,1.03839,
-A,nearest point to the papers,pedicle_area,5,0.733064,0.681428,0.872469,
+A,generator as it stands,h_post,22,1.8001,1.61327,2.09515,
+A,generator as it stands,pedicle_h,17,1.5912,1.41335,1.92352,
+A,generator as it stands,pedicle_incl_sag,17,3.81669,2.94641,5.71066,
+A,generator as it stands,pedicle_incl_trans,17,2.92331,2.78049,3.85498,
+A,generator as it stands,pedicle_w,17,1.9694,1.76868,2.52776,
+A,generator as it stands,canal_ap,6,1.42911,1.40447,1.66804,
+A,generator as it stands,endplate,6,2.43697,1.73457,2.80342,
+A,generator as it stands,endplate_depth,6,1.75718,1.62412,1.92192,
+A,generator as it stands,endplate_lower,6,2.45627,2.01379,3.0562,
+A,generator as it stands,endplate_lower_depth,6,1.42186,1.34754,1.58157,
+A,generator as it stands,canal_area,5,1.25922,1.25079,1.54564,
+A,generator as it stands,canal_w,5,1.21852,0.903923,1.3647,
+A,generator as it stands,facet_w_sup,5,1.43078,1.01436,1.45264,
+A,generator as it stands,pedicle_area,5,1.15497,0.988491,1.29267,
+A,SDs with size taken out,h_post,22,1.61874,1.43021,1.88211,
+A,SDs with size taken out,pedicle_h,17,1.45472,1.20702,1.76617,
+A,SDs with size taken out,pedicle_incl_sag,17,3.81669,2.94641,5.71066,
+A,SDs with size taken out,pedicle_incl_trans,17,2.92331,2.78049,3.85498,
+A,SDs with size taken out,pedicle_w,17,1.93075,1.69666,2.45975,
+A,SDs with size taken out,canal_ap,6,1.24587,1.21513,1.4643,
+A,SDs with size taken out,endplate,6,1.90486,1.36148,2.13236,
+A,SDs with size taken out,endplate_depth,6,1.46896,1.34926,1.66256,
+A,SDs with size taken out,endplate_lower,6,1.94905,1.57215,2.41139,
+A,SDs with size taken out,endplate_lower_depth,6,1.11534,1.03593,1.35975,
+A,SDs with size taken out,canal_area,5,1.01966,1.00288,1.25184,
+A,SDs with size taken out,canal_w,5,0.994678,0.776015,1.15325,
+A,SDs with size taken out,facet_w_sup,5,1.3537,0.963923,1.38665,
+A,SDs with size taken out,pedicle_area,5,0.982462,0.933948,1.17051,
+A,nearest point to the papers,h_post,22,1.24939,1.05256,1.37321,
+A,nearest point to the papers,pedicle_h,17,1.07269,1.00061,1.33636,
+A,nearest point to the papers,pedicle_incl_sag,17,2.41788,2.01036,3.80916,
+A,nearest point to the papers,pedicle_incl_trans,17,2.22147,2.00446,2.74671,
+A,nearest point to the papers,pedicle_w,17,1.26528,1.16099,1.8466,
+A,nearest point to the papers,canal_ap,6,0.941001,0.905311,1.07538,
+A,nearest point to the papers,endplate,6,1.42487,1.0106,1.64475,
+A,nearest point to the papers,endplate_depth,6,1.05423,0.972465,1.15334,
+A,nearest point to the papers,endplate_lower,6,1.43366,1.17085,1.77735,
+A,nearest point to the papers,endplate_lower_depth,6,0.851239,0.808143,0.939012,
+A,nearest point to the papers,canal_area,5,0.758506,0.755265,0.934721,
+A,nearest point to the papers,canal_w,5,0.764605,0.554015,0.852841,
+A,nearest point to the papers,facet_w_sup,5,0.917142,0.683331,0.926249,
+A,nearest point to the papers,pedicle_area,5,0.687079,0.609258,0.801089,
 A,Panjabi's own SDs,h_post,22,1.40296,1.13441,1.7919,
-A,Panjabi's own SDs,pedicle_h,16,1.2821,0.958585,1.50883,
-A,Panjabi's own SDs,pedicle_incl_sag,16,3.9353,2.6069,5.47713,
-A,Panjabi's own SDs,pedicle_incl_trans,15,2.36573,2.1458,2.92813,
-A,Panjabi's own SDs,pedicle_w,15,1.60765,1.41548,1.94905,
-A,Panjabi's own SDs,canal_ap,6,1.13865,1.09525,1.35065,
+A,Panjabi's own SDs,pedicle_h,17,1.31033,0.97611,1.51161,
+A,Panjabi's own SDs,pedicle_incl_sag,17,3.6604,2.69614,5.23327,
+A,Panjabi's own SDs,pedicle_incl_trans,17,2.369,2.18165,3.50057,
+A,Panjabi's own SDs,pedicle_w,17,1.77769,1.46095,2.10155,
+A,Panjabi's own SDs,canal_ap,6,1.11953,1.0672,1.349,
 A,Panjabi's own SDs,endplate,6,1.68756,1.24799,1.9951,
 A,Panjabi's own SDs,endplate_depth,6,1.42331,1.29646,1.61109,
 A,Panjabi's own SDs,endplate_lower,6,1.90036,1.38594,2.33506,
@@ -55,58 +55,62 @@ A,Panjabi's own SDs,canal_area,5,0.986429,0.933587,1.17101,
 A,Panjabi's own SDs,canal_w,5,0.901419,0.741304,1.07219,
 A,Panjabi's own SDs,facet_w_sup,5,1.27813,0.866249,1.31228,
 A,Panjabi's own SDs,pedicle_area,5,0.950994,0.915852,1.12058,
-B,generator as it stands,,,3.99929,,,T2
-B,generator as it stands,,,2.48994,,,T3
-B,generator as it stands,,,2.31851,,,T4
-B,generator as it stands,,,2.31505,,,T5
-B,generator as it stands,,,2.55117,,,T6
-B,generator as it stands,,,2.30126,,,T7
-B,generator as it stands,,,1.94556,,,T8
-B,generator as it stands,,,2.23198,,,T9
-B,generator as it stands,,,2.00726,,,T10
-B,generator as it stands,,,1.7704,,,T11
-B,generator as it stands,,,1.88274,,,T12
-B,generator as it stands,,,1.88772,,,L1
-B,generator as it stands,,,1.519,,,L2
-B,generator as it stands,,,1.56786,,,L3
-B,generator as it stands,,,1.60908,,,L4
-B,generator as it stands,,,1.40323,,,L5
-B,SDs with size taken out,,,3.8013,,,T2
-B,SDs with size taken out,,,2.22298,,,T3
-B,SDs with size taken out,,,2.2363,,,T4
-B,SDs with size taken out,,,2.24025,,,T5
-B,SDs with size taken out,,,2.55117,,,T6
-B,SDs with size taken out,,,2.26122,,,T7
-B,SDs with size taken out,,,1.73004,,,T8
-B,SDs with size taken out,,,2.07613,,,T9
-B,SDs with size taken out,,,1.94871,,,T10
-B,SDs with size taken out,,,1.69702,,,T11
-B,SDs with size taken out,,,1.72372,,,T12
-B,SDs with size taken out,,,1.60162,,,L1
-B,SDs with size taken out,,,1.34245,,,L2
-B,SDs with size taken out,,,1.39272,,,L3
-B,SDs with size taken out,,,1.38068,,,L4
-B,SDs with size taken out,,,1.19954,,,L5
-B,nearest point to the papers,,,2.85235,,,T2
-B,nearest point to the papers,,,1.74239,,,T3
-B,nearest point to the papers,,,1.77722,,,T4
-B,nearest point to the papers,,,1.73824,,,T5
-B,nearest point to the papers,,,1.9961,,,T6
-B,nearest point to the papers,,,1.73332,,,T7
-B,nearest point to the papers,,,1.35529,,,T8
-B,nearest point to the papers,,,1.5878,,,T9
-B,nearest point to the papers,,,1.45427,,,T10
-B,nearest point to the papers,,,1.29447,,,T11
-B,nearest point to the papers,,,1.31307,,,T12
-B,nearest point to the papers,,,1.2169,,,L1
-B,nearest point to the papers,,,1.02736,,,L2
-B,nearest point to the papers,,,1.05453,,,L3
-B,nearest point to the papers,,,1.04034,,,L4
-B,nearest point to the papers,,,0.904018,,,L5
-B,Panjabi's own SDs,,,3.59978,,,T2
+B,generator as it stands,,,1.92352,,,T1
+B,generator as it stands,,,4.85453,,,T2
+B,generator as it stands,,,2.46776,,,T3
+B,generator as it stands,,,2.718,,,T4
+B,generator as it stands,,,2.52776,,,T5
+B,generator as it stands,,,2.52989,,,T6
+B,generator as it stands,,,2.27848,,,T7
+B,generator as it stands,,,1.94709,,,T8
+B,generator as it stands,,,2.21983,,,T9
+B,generator as it stands,,,2.00564,,,T10
+B,generator as it stands,,,1.7794,,,T11
+B,generator as it stands,,,1.88155,,,T12
+B,generator as it stands,,,1.87975,,,L1
+B,generator as it stands,,,1.53116,,,L2
+B,generator as it stands,,,1.56608,,,L3
+B,generator as it stands,,,1.59522,,,L4
+B,generator as it stands,,,1.46028,,,L5
+B,SDs with size taken out,,,1.80822,,,T1
+B,SDs with size taken out,,,4.77978,,,T2
+B,SDs with size taken out,,,2.20447,,,T3
+B,SDs with size taken out,,,2.718,,,T4
+B,SDs with size taken out,,,2.45975,,,T5
+B,SDs with size taken out,,,2.52989,,,T6
+B,SDs with size taken out,,,2.23892,,,T7
+B,SDs with size taken out,,,1.73077,,,T8
+B,SDs with size taken out,,,2.06471,,,T9
+B,SDs with size taken out,,,1.94744,,,T10
+B,SDs with size taken out,,,1.70595,,,T11
+B,SDs with size taken out,,,1.72286,,,T12
+B,SDs with size taken out,,,1.62104,,,L1
+B,SDs with size taken out,,,1.34435,,,L2
+B,SDs with size taken out,,,1.38186,,,L3
+B,SDs with size taken out,,,1.37071,,,L4
+B,SDs with size taken out,,,1.21538,,,L5
+B,nearest point to the papers,,,1.35519,,,T1
+B,nearest point to the papers,,,3.11473,,,T2
+B,nearest point to the papers,,,1.64018,,,T3
+B,nearest point to the papers,,,1.98188,,,T4
+B,nearest point to the papers,,,1.8466,,,T5
+B,nearest point to the papers,,,1.831,,,T6
+B,nearest point to the papers,,,1.56304,,,T7
+B,nearest point to the papers,,,1.26528,,,T8
+B,nearest point to the papers,,,1.45147,,,T9
+B,nearest point to the papers,,,1.32001,,,T10
+B,nearest point to the papers,,,1.18812,,,T11
+B,nearest point to the papers,,,1.21992,,,T12
+B,nearest point to the papers,,,1.14525,,,L1
+B,nearest point to the papers,,,0.944969,,,L2
+B,nearest point to the papers,,,0.983889,,,L3
+B,nearest point to the papers,,,0.982244,,,L4
+B,nearest point to the papers,,,0.875292,,,L5
+B,Panjabi's own SDs,,,1.5506,,,T1
+B,Panjabi's own SDs,,,4.68808,,,T2
 B,Panjabi's own SDs,,,1.97454,,,T3
-B,Panjabi's own SDs,,,1.9199,,,T4
-B,Panjabi's own SDs,,,1.97153,,,T5
+B,Panjabi's own SDs,,,2.3282,,,T4
+B,Panjabi's own SDs,,,2.10155,,,T5
 B,Panjabi's own SDs,,,2.18165,,,T6
 B,Panjabi's own SDs,,,2.06197,,,T7
 B,Panjabi's own SDs,,,1.59349,,,T8
@@ -114,8 +118,8 @@ B,Panjabi's own SDs,,,1.89797,,,T9
 B,Panjabi's own SDs,,,1.83232,,,T10
 B,Panjabi's own SDs,,,1.55249,,,T11
 B,Panjabi's own SDs,,,1.58452,,,T12
-B,Panjabi's own SDs,,,1.44606,,,L1
+B,Panjabi's own SDs,,,1.4465,,,L1
 B,Panjabi's own SDs,,,1.28122,,,L2
-B,Panjabi's own SDs,,,1.29706,,,L3
+B,Panjabi's own SDs,,,1.29389,,,L3
 B,Panjabi's own SDs,,,1.30318,,,L4
-B,Panjabi's own SDs,,,1.16075,,,L5
+B,Panjabi's own SDs,,,1.17101,,,L5
