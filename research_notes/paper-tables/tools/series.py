@@ -14,23 +14,41 @@ level of each set of subjects, so this file decides, in code that can be read, h
   people behind it, so neither it nor its printed variance (its square) gives an SD: Bonczar
   2024's SEs times the root of its 1,481 subjects made SDs of 30 to 180 mm and deg, and the root
   of its variance would make SDs of about 1;
-- the count is the n printed for that cell, else the n printed for that measure and subgroup
-  elsewhere in the paper, else the cohort's number of people from its cohorts file, and the
-  series says which (n_from);
+- the count is the n printed for that cell; else the n a table prints for every measure of that
+  level (Gilad 1985's and Zindrick 1987's rows of n), from the table the mean comes from; else the
+  n printed for that measure and subgroup elsewhere in the paper; else the n printed for the
+  subgroup as a whole, an n before a count where both are printed, since a count may count
+  something else (Busscher 2010's vertebrae per spine); else the cohort's number of people from
+  its cohorts file; and the series says which (n_from);
 - the sides: a value printed for both sides or their mean is taken as it is; a right and a left
   only are averaged, mean with mean and SD with SD (sides "averaged"). Where a paper prints the
   two sides of one angle with opposite signs, its left is negated first (MIRRORED_LEFT), as its
   mapping note says, since a plain mean would cancel the angle: Tan 2004's pedicle angles, left
-  -42.9 and right 39.6 at C3, averaged to -1.65 against Panjabi's 42.25;
+  -42.9 and right 39.6 at C3, averaged to -1.65 against Panjabi's 42.25. Where a mapping note
+  says a side is not to be used, the other stands alone (RIGHT_ONLY, each with its reason);
 - the sexes: a value printed for both sexes is taken as it is; a male and a female only, each
   with its count, are pooled into one series with the pooled SD, which takes in the difference
   between the sexes' means (sex "pooled"); without both counts they stay two series;
+- a value printed for both sides or both sexes that has no SD gives way to the two printed apart
+  where they give one (a right and a left with SDs, a male and a female that can be pooled): it
+  is most often the text restating a table, sometimes as a magnitude with its sign lost (Tan
+  2004's Results, p. 143, give the sagittal angle at T8 as 8.6 where Table 1 prints right -7.6
+  and left 9.6, mirrored -8.6), and the two printed apart carry the spread;
 - subgroups (age bands, patients and controls, modalities) stay series of their own, since
-  whether pooling them is right depends on what they are.
+  whether pooling them is right depends on what they are. A group label the mapping overruled,
+  having put the row in the other cohort, is read as that cohort's group (REGROUPED, with its
+  reason).
 
 Values a table quotes from another study are series of that study's subjects, not of the paper's,
-and keep the study's name in source_of_values. A printed value that cannot be the measure, a
-misprint, stays in readings/ as printed and is left out here (MISPRINTS, each with its reason).
+and keep the study's name in source_of_values. A series' mean is the first mean printed for its
+cell, else the first single value, but a cell printed in several tables takes its mean from the
+table that prints its SD, where that table prints a mean too, so that the mean and the SD are one
+table's pair (mean_row); its units, definition and comparison with Panjabi are those of the row
+its mean is taken from. A printed value that cannot be the measure, a misprint, stays in readings/
+as printed and is left out here (MISPRINTS, each with its reason), and so are a paper's own values
+printed again, under a label of their own in a table beside other studies' values or in text
+restating a table (REPRINTS), and the values a table quotes from another work on the paper's own
+subjects (REPRINTED_SOURCES), which would otherwise count the same subjects twice.
 """
 
 import collections
@@ -43,18 +61,78 @@ import sys
 
 POOLED_MEANS = {"meta_pool"}
 # Cells printed as the paper prints them in readings/ but kept out of every series, each with why:
-# a value the page prints that cannot be the measure (a misprint), never corrected by guess.
+# a value the page prints that cannot be the measure (a misprint), never corrected by guess. A key
+# of four names one side of a cell, the other side then standing for the cell.
 MISPRINTS = {
     ("tan2004", "endplate_lower_area", "L3"):
         "Table 1 prints 172.0 +/- 20.6 mm2 (p. 141, PDF 5; both readers and the text layer agree) between "
         "1,090.9 at L2 and 1,199.3 at L4: a sixth of its neighbours, probably 1172.0 with a digit lost",
+    ("robertson2000", "pedicle_h", "L3", "left"):
+        "Table 1 prints the left L3 height 18.6 mm with an SD of 13.0 (p. 711, PDF 3) on 10 pedicles, against "
+        "2.5 to 3.9 for every other height and 2.5 on the right at L3: a spread no 18.6 mm pedicle can have, "
+        "probably 3.0; the right side, 18.7 +/- 2.5, stands for L3",
+}
+# (paper, table, group) of the paper's own values printed again, under a label of their own, in a
+# table or text that sets them beside other studies' or restates another table: the same subjects
+# as the series they repeat, so they make no series of their own.
+REPRINTS = {
+    ("arockiaraj2025", "Table 3", "Current study"):
+        "Table 3 (p. 317, PDF 6) prints Table 2's means and SDs again as 'Current study, Arockiaraj et al. "
+        "(n=300)' beside other regions' studies",
+    ("ahmed2019", "Table 3", "MRI study of symptomatic adults; Indian"):
+        "Table 3 (p. 25, PDF 5) prints Table 1's male and female canal depths again as 'Present study' "
+        "beside other studies, the same 80 subjects",
+    ("ahmed2019", "Table No.4", "MRI study of symptomatic adults; Indian"):
+        "Table No.4 (p. 25, PDF 5) prints Table 2's male and female canal widths again as 'Present study' "
+        "beside other studies, the same 80 subjects",
+    ("masharawi2021", "Table 6", "Israeli"):
+        "Table 6 (p. 12, PDF 12) gives the same 50 controls again, one mean over sides and sexes, as 'Current "
+        "study, Israeli, 50' beside other studies; its widths and its L3 to L5 heights are Table 5's control "
+        "means over sides and sexes, rounded (p. 11, PDF 11, the controls as REGROUPED reads them), while its "
+        "L1 and L2 heights, 12.4 and 12.06, differ from those means, 12.74 and 11.91",
+    ("yu2015", "Table 5", "American"):
+        "Table 5 (p. 1645, PDF 7) gives the whole 503 again as 'CS, American (N = 503)' beside other studies; "
+        "its means are Table 4's 404 men and 99 women pooled, to 0.01 mm (p. 1643, PDF 5)",
+    ("ahn2001", "Text: Results", "Marfan"):
+        "the Results (p. 68, PDF 2) give the Table's Marfan interpedicular means again, citing the Table, "
+        "the same 32 patients",
+}
+# (paper, source_of_values) of a work a paper's tables quote whose subjects are the paper's own: its
+# values repeat the paper's own series, so they make no series of their own.
+REPRINTED_SOURCES = {
+    ("tang2016", "Tang [31]"):
+        "Tables 5 to 7 (pp. 4124 to 4128, PDF 9 to 13) quote the first author's 2013 dissertation (ref. 31, "
+        "p. 4130, PDF 15) with this paper's 55 women and 52 men and Table 4's means and SDs (p. 4120, PDF 5), "
+        "all but the men's L5/S1 disc AP diameter, printed 4.00 cm against Table 4's 4.01",
 }
 # (paper, key) whose left side is printed with the opposite sign to the right and to Panjabi's
 # convention; the mapping note of each reading says to reverse the left (readings/tan2004.csv).
 MIRRORED_LEFT = {("tan2004", "pedicle_incl_sag")}
+# (paper, key) whose mapping note says to compare the right side only: every other side is left out,
+# each with why.
+RIGHT_ONLY = {
+    ("bonczar2024", "pedicle_incl_sag"):
+        "Tables 2 to 6 (pp. 5 to 9) give pooled left sagittal angles falling from 2.62 to -8.54 deg, none "
+        "differing from zero (p 0.22 to 0.92), against 10.31 to 21.24 deg on the right: the pooled sources "
+        "likely mixed sign conventions on the left, and averaging the sides gave 5.2 to 7.9 deg",
+}
+# (paper, table, cohort, printed group): the group of the cohort the mapping put the row in, where
+# the page's label is wrong and the reading keeps it as printed. Masharawi 2021's Table 5 (p. 11,
+# PDF 11) prints its Control and DS labels in no fixed order (Left Width / Males reads DS then
+# Control, Left Length / Males Control twice); each sex's first row is the control, as Table 6's
+# control widths show (p. 12: 7.3 at L1 is the mean of the male left 7.63 printed DS, the male right
+# 7.35 and the female 7.36 and 6.95, where the row printed Control would give 7.4), so the mapping
+# put each row in its cohort (map_note) and its group follows the cohort.
+REGROUPED = {
+    ("masharawi2021", "Table 5", "control", "DS"): "Control",
+    ("masharawi2021", "Table 5", "ds", "Control"): "DS",
+}
 NOT_MEASURES = {"subject_age", "subject_height", "subject_weight", "subject_bmi", "subject_count", "prevalence",
                 "reliability", "other"}
 PLAIN_SIDES = ("", "both", "mean of sides")
+PLAIN_SEXES = ("all", "not stated", "")
+# The statistics a series' mean is taken from, the first present winning.
+MEAN_STATISTICS = ("mean", "single")
 COLUMNS = ["paper", "cohort", "technique", "source_of_values", "key", "level", "sex", "group", "side", "mean", "sd",
            "n", "sd_from", "n_from", "units", "vs_panjabi", "definition", "tables", "pages"]
 VERTEBRA = re.compile(r"^(C[1-7]|T(1[0-3]|[1-9])|L[1-6]|S[1-5])(-(C[1-7]|T(1[0-3]|[1-9])|L[1-6]|S[1-5]))?$")
@@ -85,67 +163,119 @@ def cohort_people(folder):
     return people
 
 
+def group_of(row):
+    return REGROUPED.get((row["paper"], row["table"], row["cohort"], row["group"]), row["group"])
+
+
 def cell_key(row):
     return (row["paper"], row["cohort"], row["technique"], row["source_of_values"], row["key"], row["level"],
-            row["sex"], row["group"], row["side"])
+            row["sex"], group_of(row), row["side"])
+
+
+def left_out(row):
+    """Whether a row is kept out of every series: a misprint, a reprint, a quoted work on the paper's
+    own subjects or a side not to be used."""
+    cell = (row["paper"], row["key"], row["level"])
+    if cell in MISPRINTS or cell + (row["side"],) in MISPRINTS:
+        return True
+    if row["source_of_values"] == "this paper" and (row["paper"], row["table"], row["group"]) in REPRINTS:
+        return True
+    if (row["paper"], row["source_of_values"]) in REPRINTED_SOURCES:
+        return True
+    return (row["paper"], row["key"]) in RIGHT_ONLY and row["side"] != "right"
 
 
 def gather(rows):
-    """{cell: {statistic: [values], ...}} for the measure rows that name one vertebra or one disc."""
+    """{cell: {statistic: [values], ...}} for the measure rows that name one vertebra or one disc,
+    and each cell's description (described)."""
     cells = collections.defaultdict(lambda: collections.defaultdict(list))
-    meta = {}
+    cell_rows = collections.defaultdict(list)
     for row in rows:
-        if row["key"] in NOT_MEASURES or not VERTEBRA.match(row["level"]):
-            continue
-        if (row["paper"], row["key"], row["level"]) in MISPRINTS:
+        if row["key"] in NOT_MEASURES or not VERTEBRA.match(row["level"]) or left_out(row):
             continue
         value = number(row["canonical_value"])
         if value is None:
             continue
         k = cell_key(row)
         cells[k][row["statistic"]].append(value)
-        m = meta.setdefault(k, {"units": row["canonical_units"], "vs_panjabi": row["vs_panjabi"],
-                                "definition": row["definition"], "tables": set(), "pages": set()})
-        m["tables"].add(row["table"])
-        m["pages"].add(row["pdf_page"])
-    return cells, meta
+        cell_rows[k].append(row)
+    return cells, {k: described(found) for k, found in cell_rows.items()}
+
+
+def mean_row(rows):
+    """The row a cell's mean is taken from: the first mean, else the first single, but where the
+    table of the cell's first SD, the SD one_series takes, prints a mean too, that table's first
+    mean, so that the mean and the SD are one table's pair; another table's mean may be rounded,
+    read off a chart or another number. Cizmic 2023 prints the women's L4 canal depth as 17.38 in
+    Table 3 and as 17.1420 +/- 2.15820 in Table 5 (p. 202, PDF 3); Bach 2019's Figure 8 labels its
+    points 5.656725 and so on (p. e113, PDF 8), where the Abstract gives 5.6 +/- 1.1 mm for men at
+    T12/L1 (p. e106, PDF 1)."""
+    sd_table = next((row["table"] for row in rows if row["statistic"] == "sd"), None)
+    for statistic in MEAN_STATISTICS:
+        means = [row for row in rows if row["statistic"] == statistic]
+        if means:
+            return next((row for row in means if row["table"] == sd_table), means[0])
+    return None
+
+
+def described(rows):
+    """A cell's description: every table and page that prints it, and the mean, table, units,
+    definition and comparison with Panjabi of the row its mean is taken from (mean_row), not of
+    whichever row comes first, which may be its n, r or p."""
+    description = {"tables": {row["table"] for row in rows}, "pages": {row["pdf_page"] for row in rows}}
+    row = mean_row(rows)
+    if row is not None:
+        description.update(mean=number(row["canonical_value"]), table=row["table"], units=row["canonical_units"],
+                           vs_panjabi=row["vs_panjabi"], definition=row["definition"])
+    return description
 
 
 def printed_counts(rows):
-    """The n a paper prints for a measure and subgroup at no particular cell, to stand in for a
-    cell that prints none: {(paper, cohort, key, sex, group): n} where one n is printed, and
-    {(paper, cohort, sex, group): n} for a count printed for the subgroup as a whole."""
-    by_measure, by_group = collections.defaultdict(set), collections.defaultdict(set)
+    """The n a paper prints outside a cell, to stand in for a cell that prints none: "level",
+    {(paper, cohort, table, level, sex, group): n} for an n a table prints for every measure of one
+    level; "measure", {(paper, cohort, key, sex, group): n} where one n is printed for a measure and
+    subgroup; "group", {(paper, cohort, sex, group): n} for a count printed for the subgroup as a
+    whole, where one n, else one n or count, is printed."""
+    by_level, by_measure, by_group, group_n = (collections.defaultdict(set) for _ in range(4))
     for row in rows:
         value = number(row["canonical_value"]) if row["canonical_value"] else number(row["value"])
         if value is None or row["statistic"] not in ("n", "count"):
             continue
+        group = group_of(row)
         if row["key"] == "subject_count":
-            by_group[(row["paper"], row["cohort"], row["sex"], row["group"])].add(value)
+            by_group[(row["paper"], row["cohort"], row["sex"], group)].add(value)
+            if row["statistic"] == "n":
+                group_n[(row["paper"], row["cohort"], row["sex"], group)].add(value)
+                if VERTEBRA.match(row["level"]):
+                    by_level[(row["paper"], row["cohort"], row["table"], row["level"], row["sex"], group)].add(value)
         elif row["key"] not in NOT_MEASURES:
-            by_measure[(row["paper"], row["cohort"], row["key"], row["sex"], row["group"])].add(value)
+            by_measure[(row["paper"], row["cohort"], row["key"], row["sex"], group)].add(value)
     single = lambda d: {k: next(iter(v)) for k, v in d.items() if len(v) == 1}
-    return single(by_measure), single(by_group)
+    return {"level": single(by_level), "measure": single(by_measure), "group": {**single(by_group), **single(group_n)}}
 
 
 def first(values):
     return values[0] if values else None
 
 
-def one_series(k, stats, people, by_measure, by_group):
-    paper, cohort, technique, _, key, _, sex, group, _ = k
-    mean = first(stats.get("mean", [])) if stats.get("mean") else first(stats.get("single", []))
+def count_of(k, stats, table, people, counts):
+    """The cell's n and where it came from (n_from), in the order the docstring gives."""
+    paper, cohort, _, _, key, level, sex, group, _ = k
+    candidates = ((first(stats.get("n", [])), "cell"),
+                  (counts["level"].get((paper, cohort, table, level, sex, group)), "level"),
+                  (counts["measure"].get((paper, cohort, key, sex, group)), "measure"),
+                  (counts["group"].get((paper, cohort, sex, group)), "subgroup"),
+                  (people.get((paper, cohort)) if sex in ("all", "not stated") else None, "cohort"))
+    return next(((n, n_from) for n, n_from in candidates if n is not None), (None, ""))
+
+
+def one_series(k, stats, description, people, counts):
+    """The cell's mean (from its description), SD and count, in the order the docstring gives."""
+    technique = k[2]
+    mean = description.get("mean")
     if mean is None:
         return None
-    n, n_from = first(stats.get("n", [])), "cell"
-    if n is None:
-        n, n_from = by_measure.get((paper, cohort, key, sex, group)), "measure"
-    if n is None:
-        n, n_from = by_group.get((paper, cohort, sex, group)), "subgroup"
-    if n is None and sex in ("all", "not stated"):
-        n, n_from = people.get((paper, cohort)), "cohort"
-    if n is None:
-        n_from = ""
+    n, n_from = count_of(k, stats, description["table"], people, counts)
     sd, sd_from = first(stats.get("sd", [])), "sd"
     if sd is None and stats.get("sem") and n and technique not in POOLED_MEANS:
         sd, sd_from = stats["sem"][0] * math.sqrt(n), "sem x root n"
@@ -156,20 +286,36 @@ def one_series(k, stats, people, by_measure, by_group):
     return {"mean": mean, "sd": sd, "n": n, "sd_from": sd_from, "n_from": n_from}
 
 
+def plain_stands(plain, pair_has_sd):
+    """Whether a value printed for both sides or both sexes is taken over the two printed apart:
+    unless it has no SD and they can give one (the module docstring says why)."""
+    return plain["sd"] is not None or not pair_has_sd
+
+
+def joined(a, b, **values):
+    """a with values set, its tables and pages joined with b's, for a series made of two."""
+    return dict(a, tables=a["tables"] | b["tables"], pages=a["pages"] | b["pages"], **values)
+
+
+def average_sides(r, l, mirrored):
+    if mirrored:
+        l = dict(l, mean=-l["mean"])
+    sd = (r["sd"] + l["sd"]) / 2 if r["sd"] is not None and l["sd"] is not None else None
+    n = min(x for x in (r["n"], l["n"]) if x) if (r["n"] or l["n"]) else None
+    return joined(r, l, mean=(r["mean"] + l["mean"]) / 2, sd=sd, n=n, sd_from=r["sd_from"] if sd is not None else "")
+
+
 def merge_sides(found, mirrored=False):
-    """found: {side: series}. One series for the measure: a plain side as it is, else the mean of
-    a right and a left, the left's sign reversed first where the paper prints the sides mirrored."""
-    for side in PLAIN_SIDES:
-        if side in found:
-            return side, found[side]
-    if "right" in found and "left" in found:
-        r, l = found["right"], found["left"]
-        if mirrored:
-            l = dict(l, mean=-l["mean"])
-        sd = (r["sd"] + l["sd"]) / 2 if r["sd"] is not None and l["sd"] is not None else None
-        n = min(x for x in (r["n"], l["n"]) if x) if (r["n"] or l["n"]) else None
-        return "averaged", dict(r, mean=(r["mean"] + l["mean"]) / 2, sd=sd, n=n,
-                                sd_from=r["sd_from"] if sd is not None else "")
+    """found: {side: series}. One series for the measure: a plain side as it is, unless it has no
+    SD and a right and a left with SDs are printed; else the mean of a right and a left, the left's
+    sign reversed first where the paper prints the sides mirrored."""
+    plain = next((side for side in PLAIN_SIDES if side in found), None)
+    pair = "right" in found and "left" in found
+    pair_has_sd = pair and found["right"]["sd"] is not None and found["left"]["sd"] is not None
+    if plain is not None and plain_stands(found[plain], pair_has_sd):
+        return plain, found[plain]
+    if pair:
+        return "averaged", average_sides(found["right"], found["left"], mirrored)
     side = sorted(found)[0]
     return side, found[side]
 
@@ -181,20 +327,32 @@ def pool_sexes(m, f):
     mean = (m["n"] * m["mean"] + f["n"] * f["mean"]) / n
     within = (m["n"] - 1) * m["sd"] ** 2 + (f["n"] - 1) * f["sd"] ** 2
     between = m["n"] * f["n"] / n * (m["mean"] - f["mean"]) ** 2
-    return dict(m, mean=mean, sd=math.sqrt((within + between) / (n - 1)), n=n,
-                sd_from="pooled from the sexes", n_from="sum of the sexes")
+    return joined(m, f, mean=mean, sd=math.sqrt((within + between) / (n - 1)), n=n,
+                  sd_from="pooled from the sexes", n_from="sum of the sexes")
 
 
 def poolable(s):
     return s is not None and s["n"] and s["n"] > 1 and s["sd"] is not None
 
 
+def pick_sexes(found):
+    """found: {sex: (side, series)}. The series written for one measure, level and subgroup."""
+    plain = next((sex for sex in PLAIN_SEXES if sex in found), None)
+    both = "male" in found and "female" in found and poolable(found["male"][1]) and poolable(found["female"][1])
+    if plain is not None and plain_stands(found[plain][1], both):
+        return [(plain, found[plain])]
+    if both:
+        side = found["male"][0] if found["male"][0] == found["female"][0] else "mixed"
+        return [("pooled", (side, pool_sexes(found["male"][1], found["female"][1])))]
+    return sorted(found.items())
+
+
 def build(rows, people):
     cells, meta = gather(rows)
-    by_measure, by_group = printed_counts(rows)
+    counts = printed_counts(rows)
     sides = collections.defaultdict(dict)
     for k, stats in cells.items():
-        s = one_series(k, stats, people, by_measure, by_group)
+        s = one_series(k, stats, meta[k], people, counts)
         if s is not None:
             s.update(meta[k])
             sides[k[:8]][k[8]] = s
@@ -205,15 +363,7 @@ def build(rows, people):
     out = []
     for k, found in sexes.items():
         paper, cohort, technique, source, key, level, group = k
-        plain = [x for x in ("all", "not stated", "") if x in found]
-        if plain:
-            picks = [(plain[0], found[plain[0]])]
-        elif "male" in found and "female" in found and poolable(found["male"][1]) and poolable(found["female"][1]):
-            side = found["male"][0] if found["male"][0] == found["female"][0] else "mixed"
-            picks = [("pooled", (side, pool_sexes(found["male"][1], found["female"][1])))]
-        else:
-            picks = sorted(found.items())
-        for sex, (side, s) in picks:
+        for sex, (side, s) in pick_sexes(found):
             out.append({"paper": paper, "cohort": cohort, "technique": technique, "source_of_values": source,
                         "key": key, "level": level, "sex": sex, "group": group, "side": side,
                         "mean": s["mean"], "sd": s["sd"], "n": s["n"], "sd_from": s["sd_from"], "n_from": s["n_from"],

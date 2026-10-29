@@ -8,31 +8,37 @@ Usage (from the repository's root, in the environment schwingcheck runs in):
 
 Every paper is taken to measure other people by another technique than every other paper, as the
 owner asked on 28 October 2026, unless its text says it shares subjects or a method; so each
-paper is its own source, and a paper's several cohorts and subgroups are its own series. What a
-series gives is a mean and a population SD per level, so the fields drawn from it are the
-generator's (columns.draw_columns' formula: the patient's size, the patient's offset in each
-measure, the level's own draw and the measurement error, with schwingcheck's settings) with the
-series' means and SDs in place of Panjabi's. That is an assumption, stated: a paper's table does
-not say how its measures correlate within a person. Where a paper's text says its values pool
-another source's subjects, as a meta-analysis that took in Panjabi's spines does (--cohorts reads
-it from the cohorts files' shared entries), that paper is kept out of every pool that holds the
-source it took in, so no spine is counted twice, and its rows carry the sources it holds. A cohort
-whose cohorts entry names a species other than human (the pig spines two papers measured beside
-people's) is left out of everything, since Panjabi's rule names people's vertebrae. A measure named
-by --leave-out is left out of everything too: the end-plate inclinations, whose L1 to L5 row in
-Panjabi's lumbar paper reprints his cervical C3 to C7 row (research_notes/panjabi-endplate-inclination.md).
+paper is its own source, and a paper's several cohorts, techniques, sexes and subgroups are its own
+series, a value series.py pooled from a cohort's two sexes counting as the same people as one the
+paper printed for both (people). What a series gives is a mean and a population SD per level, so
+the fields drawn from it are the generator's (columns.draw_columns' formula: the patient's size,
+the patient's offset in each measure, the level's own draw and the measurement error, with
+schwingcheck's settings) with the series' means and SDs in place of Panjabi's. That is an
+assumption, stated: a paper's table does not say how its measures correlate within a person. Where
+a paper's text says its values pool another source's subjects, as a meta-analysis that took in
+Panjabi's spines does (--cohorts reads it from the cohorts files' shared entries), that paper is
+kept out of every pool that holds the source it took in, so no spine is counted twice, and its rows
+carry the sources it holds. A cohort whose cohorts entry names a species other than human (the pig
+spines two papers measured beside people's) is left out of everything, since Panjabi's rule names
+people's vertebrae. A measure named by --leave-out is left out of everything too. The end-plate
+inclinations, whose L1 to L5 row in Panjabi's lumbar paper reprints his cervical C3 to C7 row
+(research_notes/panjabi-endplate-inclination.md), were left out this way until the owner chose on
+2026-10-29 to keep all 32 measures as printed; the record's run passes no --leave-out since.
 
 Three things are measured.
 
 - Disagreement. For each measure and level, every source's mean against Panjabi's: in Panjabi's
   SDs, and in levels, the difference divided by how much Panjabi's mean changes from one level to
-  the next there; and, across the sources, the between-source SD (tau) of a DerSimonian-Laird
-  random-effects pool, with I-squared.
-- Transport. Fields drawn from a source's series at every place it covers are named by
-  Panjabi's rule on the measures that series has, and the same count of fields drawn from
-  Panjabi's own table at the same places, on the same measures, are named by the same rule: the
-  difference between the two is what moving from Panjabi's specimens and technique to that
-  paper's costs, place for place.
+  the next there (the mean of its absolute changes to the levels on either side, level_step, so
+  the sign says only whether the source sits above or below him); and, across the sources, the
+  between-source SD (tau) of a DerSimonian-Laird random-effects pool, with I-squared.
+- Transport. Fields drawn from a source's series over the longest run of consecutive levels its
+  measures share are named by Panjabi's rule on those measures (run_of: the measures join, those
+  covering the most levels first, each kept if that run then stays at least as long as the bodies
+  in view, so a series may be named on fewer of its levels or measures than it gives), and the same
+  count of fields drawn from Panjabi's own table at the same places, on the same measures, are
+  named by the same rule: the difference between the two is what moving from Panjabi's specimens
+  and technique to that paper's costs, place for place.
 - A widened rule. The same fields are named by a rule whose table is the random-effects pool of
   every source but the series' own paper, its SD widened by the between-source SD (the
   leave-one-paper-out rule); whether its answers at 0.99 are right 99% of the time is the test.
@@ -84,25 +90,46 @@ def panjabi_table():
     return pool, base, mu, sd, MS.errors(pool), MS.powers(pool)
 
 
+def people(sex: str) -> str:
+    """Whose values a series' sex says they are. series.py writes "pooled" where it built a cell
+    from a cohort's male and female rows and "all" where the paper printed one for both sexes; in
+    one cohort both are its men and women together, so a paper that prints one measure for both
+    sexes and another by sex gives one series, named on both measures together (Duman 2026, p. 8,
+    PDF 8: Table 3's pedicle width for all 517, Table 2's pedicle angle by sex). "not stated" and ""
+    stay apart, since a paper that does not say may mean one sex. The record names a series' sex
+    this way in the disagreement and the transport alike, so a reader joining the two (results.py's
+    counts) finds one series in both."""
+    return "all" if sex == "pooled" else sex
+
+
 def series_id(r: dict) -> Tuple[str, ...]:
-    return (r["paper"], r["cohort"], r["technique"], r["sex"], r["group"])
+    return (r["paper"], r["cohort"], r["technique"], people(r["sex"]), r["group"])
 
 
 def tables_of(series: Sequence[dict], base: Sequence[str], allowed=SAME) -> Dict[tuple, Dict[str, Dict[str, tuple]]]:
     """{series id: {key: {level: (mean, sd, n)}}} for this paper's own subjects, on Panjabi's
-    measures, at the rule's levels, where the definition is allowed and an SD is known."""
+    measures, at the rule's levels, where the definition is allowed and an SD above zero is known;
+    a second value for one cell stops the run (ValueError) instead of replacing the first."""
     out: Dict[tuple, Dict[str, Dict[str, tuple]]] = {}
     for r in series:
         if (r["source_of_values"] != "this paper" or r["key"] not in base or r["level"] not in LEVELS
                 or r["sd"] is None or r["sd"] <= 0 or r["vs_panjabi"] not in allowed):
             continue
-        out.setdefault(series_id(r), {}).setdefault(r["key"], {})[r["level"]] = (r["mean"], r["sd"], r["n"])
+        cells = out.setdefault(series_id(r), {}).setdefault(r["key"], {})
+        # series.py writes a cell either for both sexes or pooled from them, never both. people()
+        # reads the two as one, so were it ever to write both, the second would replace the first
+        # unseen; the run stops instead.
+        if r["level"] in cells:
+            raise ValueError("two values for %s %s at %s" % (series_id(r), r["key"], r["level"]))
+        cells[r["level"]] = (r["mean"], r["sd"], r["n"])
     return out
 
 
 def run_of(table: Dict[str, Dict[str, tuple]], least: int) -> Tuple[List[str], List[int]]:
     """The measures and the longest run of consecutive levels they all cover: measures are added,
-    those covering most levels first, while the run they share stays at least `least` long."""
+    those covering most levels first, each kept if the run they then share stays at least `least`
+    long, so a measure that would leave the run shorter than `least` is passed over and the next
+    one is tried."""
     keys = sorted(table, key=lambda k: (-len(table[k]), k))
     chosen, run = [], []
     for k in keys:
@@ -264,7 +291,7 @@ def disagreement(series: Sequence[dict], base, mu, sd, contains: Dict[str, List[
         for r in rows:
             d_sd = (r["mean"] - mu[m, li]) / sd[m, li]
             d_lv = (r["mean"] - mu[m, li]) / step if step else None
-            sources.append({"paper": r["paper"], "cohort": r["cohort"], "technique": r["technique"], "sex": r["sex"],
+            sources.append({"paper": r["paper"], "cohort": r["cohort"], "technique": r["technique"], "sex": people(r["sex"]),
                             "group": r["group"], "mean": r["mean"], "sd": r["sd"], "n": r["n"], "vs_panjabi": r["vs_panjabi"],
                             "d_panjabi_sd": d_sd, "d_levels": d_lv,
                             "holds_subjects_of": (contains or {}).get(r["paper"], [])})
@@ -275,13 +302,16 @@ def disagreement(series: Sequence[dict], base, mu, sd, contains: Dict[str, List[
 
 
 def level_step(row: np.ndarray, i: int) -> float:
-    """How much Panjabi's mean changes per level at level i: the central difference, one-sided at
-    the ends."""
-    if i == 0:
-        return float(row[1] - row[0])
-    if i == len(row) - 1:
-        return float(row[-1] - row[-2])
-    return float((row[i + 1] - row[i - 1]) / 2)
+    """How much Panjabi's mean changes from one level to the next at level i: the mean of its
+    absolute changes to the levels on either side, the one side at the ends. A central difference
+    lets the two changes cancel at a peak or a trough (canal_area at L1: 280, 320 and 281 mm2 at
+    T12, L1 and L2 give 0.5 a level where the mean moves about 40, which put Tan 2004's 200 at 240
+    levels away), and is 0 wherever the two neighbours are equal (h_post at L2, pedicle_w at C4),
+    which dropped those cells. This is 0 only on a flat stretch, where every neighbour it has
+    equals the level (interfacet_w_inf at T10, 24.6 from T9 to T11) and no distance in levels has a
+    size; disagreement then records None for the cell."""
+    steps = [abs(float(row[j] - row[i])) for j in (i - 1, i + 1) if 0 <= j < len(row)]
+    return float(np.mean(steps))
 
 
 def pool_with_panjabi(rows: Sequence[dict], p_mean: float, p_sd: float) -> dict:

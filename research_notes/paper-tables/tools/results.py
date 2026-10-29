@@ -4,21 +4,27 @@ markdown and figure files in git, so the numbers live in the repository and not 
 Usage (from the repository's root, in the environment schwingcheck runs in):
     python research_notes/paper-tables/tools/results.py <data folder> <cross_naming record> <notes folder> <out folder>
 
-It writes <out>/README.md, the tables; and transport and profiles, each as .png, .pdf, .csv and
-.caption.txt, the figures with every number they draw. Line graphs take the build-up study's form
-(schwingcheck/curve_report.py: black ink, serif type, lettered panels, a line and a marker per
-series), and the profiles Benzel's: the levels down the side, Panjabi's means with their SDs as
-filled circles on a solid line, the junctions dotted.
+It writes <out>/README.md, the tables; transport and profiles, each as .png, .pdf, .csv and
+.caption.txt, the figures with every number they draw; and transport_by_paper.csv, the transport's
+fields by arm and bodies for the one series per paper the page uses. Line graphs take the build-up
+study's form (schwingcheck/curve_report.py: black ink, serif type, lettered panels, a line and a
+marker per series), and the profiles Benzel's: the levels down the side, Panjabi's means with their
+SDs as filled circles on a solid line, the junctions dotted.
 
-One series per paper counts in a summary, so no paper weighs more for printing more subgroups: in
-the transport part the series covering the most measures times levels (then the larger count, more
-fields, the name), and in the profiles the series with the largest count whose definition is
-Panjabi's or close to it. A paper whose text says it pools Panjabi's spines is shown apart and left
-out of every summary, since its fields are partly his.
+One series per paper counts in a summary, so no paper weighs more for printing more subgroups of
+the same people: in the disagreement table, at each measure and level, the paper's series with the
+largest count, as cross_naming's pools take one; in the transport part the series named on the most
+measures times levels at one body (pick_series ranks on its one-body row, which run_of may cut short
+of what the series gives; then the larger count, more fields, the name); and in the profiles one series
+per paper and measure whose definition is Panjabi's or close to it, drawn at every level it gives,
+and a further series of the paper only where it shares no level with those drawn (profile_series
+says which). A paper whose text says it pools Panjabi's spines is shown apart and left out of every
+summary, since its fields are partly his.
 """
 import csv
 import json
 import os
+import re
 import statistics
 import sys
 
@@ -99,7 +105,8 @@ def md_table(header, align, rows):
 def kinds(rows):
     tables = sorted({r["table"].split(":")[0].strip() for r in rows if r["table"]})
     t = sum(1 for n in tables if n.lower().startswith("table"))
-    f = sum(1 for n in tables if n.lower().startswith("fig"))
+    # A chart is a figure read off its marks (Cizmic 2023's Chart 1, p. 201, its rings of diagnoses by sex).
+    f = sum(1 for n in tables if n.lower().startswith(("fig", "chart")))
     parts = ["%d table%s" % (t, "" if t == 1 else "s")] if t else []
     parts += ["%d figure%s" % (f, "" if f == 1 else "s")] if f else []
     return ", ".join(parts + (["text"] if len(tables) - t - f else [])) or "text"
@@ -122,15 +129,30 @@ def table_read(read, called):
     return out
 
 
+# The clauses of a shared entry's "with" that name a paper of the list only to rule it out, or as
+# the readers' guess: "not krag1988" (Robertson 2000, p. 709: its Krag et al [24] is Spine 1989),
+# "not gilad1985 by its year" (Chen 2011, p. 1814), "not amonookuofi1982 or amonookuofi1985" and
+# "not twomey1985" (Kunkel 2011, p. 377: the 1991 and 1987 papers), and "(Inference: zindrick1987)"
+# (Mitra 2002, p. 453). A clause runs to the next semicolon or parenthesis.
+RULED_OUT = re.compile(r"\(\s*inference\b[^)]*\)|\binference\b[^;()]*|\bnot\b[^;()]*", re.I)
+
+
+def named_in(text, ids):
+    """The ids a shared entry's "with" names as the paper's own word, each as a whole word."""
+    kept = RULED_OUT.sub(" ", text)
+    return sorted(p for p in ids if re.search(r"\b%s\b" % re.escape(p), kept))
+
+
 def sharing(coh, papers):
-    """Every stated sharing of subjects, pooled data or a method between two papers of the list."""
+    """Every stated sharing of subjects, pooled data or a method between two papers of the list; a
+    paper an entry names only to rule it out, or as its readers' guess, is not one (RULED_OUT)."""
     on_list = set(papers) | {"panjabi1991c", "panjabi1991t", "panjabi1992", "panjabi1993f"}
     found = {}
     for paper, record in coh.items():
         for e in record.get("shared", []):
             if e.get("what") not in ("subjects", "data pooled", "method") or not stated(e):
                 continue
-            named = sorted(p for p in on_list if p != paper and p in e.get("with", ""))
+            named = named_in(e.get("with", ""), on_list - {paper})
             if named:
                 # One row a paper and kind of sharing: a paper that states a sharing in two places, or
                 # names a paper in two entries, would otherwise list it twice.
@@ -143,14 +165,26 @@ def sharing(coh, papers):
     return sorted(out, key=lambda r: (r["what"] != "data pooled", r["what"], r["paper"], r["with_"]))
 
 
+def largest_per_paper(sources):
+    """Each paper's series with the largest count among sources at one measure and level, the first
+    on a tie and a missing count as 0, as cross_naming.one_per_paper takes one for the pools (which
+    need besides an SD above zero and a count of two or more): a paper that prints its people in many subgroups (Yu 2015's 503 skeletons
+    by age, height, weight and race) counts once."""
+    best = {}
+    for x in sources:
+        if x["paper"] not in best or (x["n"] or 0) > (best[x["paper"]]["n"] or 0):
+            best[x["paper"]] = x
+    return list(best.values())
+
+
 def disagreement(record):
     """Per measure, over its levels: the sources set beside Panjabi with a definition his or close to
-    it, the median distance of their means from his in his SDs and in levels, and the median spread
-    between the sources (tau) in his SDs."""
+    it, one series a paper at each level, the median distance of their means from his in his SDs and
+    in levels, and the median spread (tau) of the pools of Panjabi and two papers or more, in his SDs."""
     holds = record.get("holds_subjects_of", {})
     by = {}
     for d in record["disagreement"]:
-        s = [x for x in d["sources"] if x["vs_panjabi"] in SAME and x["paper"] not in holds]
+        s = largest_per_paper([x for x in d["sources"] if x["vs_panjabi"] in SAME and x["paper"] not in holds])
         if not s:
             continue
         b = by.setdefault(d["key"], {"levels": set(), "papers": set(), "sd": [], "lev": [], "tau": []})
@@ -274,18 +308,48 @@ def panjabi_profile():
     return out
 
 
+def profile_rank(points):
+    """How a paper's series ranks for the profiles, over its (level, source) points: an SD at the most
+    levels, since the profiles draw SDs; then the most levels; then the largest count, taken where
+    it is smallest, so one level's larger count does not carry the rest."""
+    return (sum(s["sd"] is not None for _, s in points), len(points), min(s["n"] for _, s in points))
+
+
+def profile_series(record):
+    """{(panel, paper): the series ids the profiles draw}. One series per paper and measure, drawn
+    at every level it gives, so a paper's points never switch series at a level that series gives:
+    choosing at each level apart drew Olsewski 1990's living patients at L1 to L4 (Table III,
+    p. 545) and, where the patients' L5 count was smaller, its cadavers at L5 (Table I, p. 544),
+    about 5 mm from the patients' own L5 mean. A paper's next series by profile_rank is drawn too
+    where it shares no level with those taken, as one cohort's cervical and lumbar films are two
+    techniques at levels apart (Gilad 1985, Table 1, p. 118); the first in the record on a tie."""
+    found = {}
+    for d in record["disagreement"]:
+        if d["key"] in PANELS:
+            for s in d["sources"]:
+                if s["vs_panjabi"] in SAME and s["n"]:
+                    found.setdefault((d["key"], s["paper"]), {}).setdefault(series_key(s), []).append((d["level"], s))
+    chosen = {}
+    for pair, by_series in found.items():
+        taken, levels = set(), set()
+        for key, points in sorted(by_series.items(), key=lambda kv: profile_rank(kv[1]), reverse=True):
+            here = {level for level, _ in points}
+            if not here & levels:
+                taken.add(key)
+                levels |= here
+        chosen[pair] = taken
+    return chosen
+
+
 def profile_rows(record):
     holds = record.get("holds_subjects_of", {})
+    chosen = profile_series(record)
     rows = []
     for d in record["disagreement"]:
         if d["key"] not in PANELS:
             continue
-        best = {}
-        for s in d["sources"]:
-            if s["vs_panjabi"] in SAME and s["n"]:
-                rank = (s["sd"] is not None, s["n"])
-                if s["paper"] not in best or rank > (best[s["paper"]]["sd"] is not None, best[s["paper"]]["n"]):
-                    best[s["paper"]] = s
+        best = {s["paper"]: s for s in d["sources"]
+                if s["vs_panjabi"] in SAME and s["n"] and series_key(s) in chosen[(d["key"], s["paper"])]}
         for paper, s in sorted(best.items()):
             rows.append(dict(panel=d["key"], level=d["level"], who="pools_panjabi" if "panjabi" in holds.get(paper, []) else "paper",
                              paper=paper, series=label(s), mean=s["mean"], sd=s["sd"], n=int(s["n"])))
@@ -337,17 +401,29 @@ def pct(x):
     return "" if x is None else "%.1f" % x
 
 
+def endplate_lines(left_out):
+    """What the page says of the two end-plate angles, whose L1 to L5 row in Panjabi's lumbar paper
+    reprints his cervical C3 to C7 row: scored as printed, the owner's choice of 2026-10-29 09:01 UTC
+    to keep all 32 measures, unless the record names measures that --leave-out kept out."""
+    note = "../../panjabi-endplate-inclination.md"
+    if not left_out:
+        return ["The two end-plate angles are scored as printed, by the owner's choice of 2026-10-29 to keep all 32 of",
+                "Panjabi's measures, though the L1 to L5 row of his lumbar paper reprints his cervical C3 to C7 row (%s)." % note]
+    return ["Left out of every comparison too, by --leave-out: %s (for the two end-plate angles, see %s)."
+            % (", ".join(left_out), note)]
+
+
 def page(record, read_rows, share, dis, summary, by_paper, cross_path):
     cells = {k: sum(r[k] for r in read_rows) for k in ("cells", "agreed", "resolved", "once")}
     left = record.get("left_out_not_human", [])
     lines = ["# The evaluation with every paper's tables", "",
              "Source: thread \"Finish the clinical reread\", project symphony_4, 2026-10-29, for the owner's ask of 2026-10-28",
-             "22:10 UTC. Written by tools/results.py from data/ and the cross_naming record (%s); every number here is in" % os.path.basename(cross_path),
-             "a file beside it. Confidential, like the rest of this repository.", "",
+             "22:10 UTC. Written by tools/results.py from data/ and the cross_naming record (%s); the numbers the figures" % os.path.basename(cross_path),
+             "draw are in CSVs beside them, and the tables are remade from the record and data/ by the commands at the end.",
+             "Confidential, like the rest of this repository.", "",
              "Each paper counts as its own people measured its own way, unless its text says it shares subjects or a",
              "method (the owner, 2026-10-28). Pig spines are left out of every comparison (%d cohorts of Busscher 2010 and" % len(left),
-             "van der Houwen 2009), and so are the two end-plate angles, since the L1 to L5 row of Panjabi's lumbar paper",
-             "reprints his cervical C3 to C7 row (../../panjabi-endplate-inclination.md). Measures: %s." % ", ".join(record.get("left_out_measures", []) or ["none left out"]),
+             "van der Houwen 2009)."] + endplate_lines(record.get("left_out_measures", [])) + [
              "", "## The papers read", "",
              "%d papers, %s cells: the two blind readings agreed on %s, a third reader settled %s on the page image, and %s"
              % (len(read_rows), num(cells["cells"]), num(cells["agreed"]), num(cells["resolved"]), num(cells["once"])),
@@ -362,13 +438,20 @@ def page(record, read_rows, share, dis, summary, by_paper, cross_path):
               "used. Between papers of the list the text states these:", ""]
     lines += md_table(["Paper", "Shares", "With"], "lll", [[r["paper"], r["what"], r["with_"]] for r in share])
     lines += ["", "A paper that pools Panjabi's spines (Bonczar 2024's meta-analysis, which takes in Panjabi 1992, Tan 2004 and",
-              "Robertson 2000) is kept out of every pool that holds a source it took in. A shared method makes two papers'",
-              "techniques one, not their people: Tan 2004, Chen 2011, Kunkel 2011 and Tang 2016 measured as Panjabi did, so",
-              "where they differ from him the people differ, not the method.", "",
+              "Robertson 2000) is kept out of every pool that holds a source it took in. A method row says only that the text",
+              "cites the other paper on its method; no number here merges two papers' techniques on it, so every paper stays",
+              "its own technique. Of the four that cite Panjabi so, only Tan 2004 says its definitions are similar to his",
+              "(p. 138); Chen 2011 cites his border-to-border widths as a contrast to its own rim-to-rim lengths (p. 1814),",
+              "Kunkel 2011 cites him for its three thoracic regions (p. 381), and Tang 2016 credits him with an ellipse area",
+              "formula his tables do not use (p. 4118). Where these papers differ from him, the method may differ as well as",
+              "the people.", "",
               "## How far the papers sit from Panjabi", "",
               "Per measure, over the levels the papers give: each paper's mean against Panjabi's, in his population SDs and in",
-              "levels (the difference over how far his mean moves from one level to the next there), and the spread between",
-              "the papers (tau of a random-effects pool, three papers or more, in his SDs). Definitions his or close to it.", ""]
+              "levels (the difference over how far his mean moves from one level to the next there), taking at each level the",
+              "paper's series with the largest count, so a paper that prints its people in many subgroups counts once (Cells",
+              "counts each paper once at each level it gives); and the spread between Panjabi's mean and the papers' (tau of",
+              "a random-effects pool of Panjabi and two papers or more, one series a paper, in his SDs). Definitions his or",
+              "close to it.", ""]
     lines += md_table(["Measure", "Papers", "Levels", "Cells", "Median distance, SDs", "Median distance, levels",
                        "Cells over one level", "Median tau, SDs (cells)"], "lrlrrrrr",
                       [[r["key"], r["papers"], r["levels"], r["cells"], "%.2f" % r["median_sd"] if r["median_sd"] is not None else "",
@@ -378,11 +461,14 @@ def page(record, read_rows, share, dis, summary, by_paper, cross_path):
     lines += ["", "<img src=\"profiles.png\" alt=\"Eight panels, levels down the side: Panjabi's means with SDs on a solid line, each paper's means as open markers\" width=\"740\">", "",
               open(os.path.join(OUT, "profiles.caption.txt")).read().strip(), "",
               "## Naming the papers' fields with Panjabi's rule", "",
-              "Fields drawn from each paper's own means and SDs, at every place its series covers, named by the rule built on",
-              "Panjabi's table on the measures that series has, beside the same count of fields drawn from Panjabi's own",
-              "table at the same places; and the same fields named by a rule whose table is the random-effects pool of every",
-              "paper but the series' own, widened by their spread. One series per paper; papers that pool Panjabi's spines",
-              "left out.", ""]
+              "Fields drawn from each paper's own means and SDs, named by the rule built on Panjabi's table, over the longest",
+              "run of consecutive levels that the series' measures all give: its measures join in order of how many levels",
+              "they cover, the most first, each kept if that run then stays at least as long as the bodies in view",
+              "(cross_naming.run_of), so a paper may be named on fewer of its levels, or of its measures, than it prints; the",
+              "Measures (how many) and Levels below say what each was named on at three bodies, and transport_by_paper.csv",
+              "at each width it was named at. Beside them, the same count of fields drawn from Panjabi's own table at the same",
+              "places and measures; and the same fields named by a rule whose table is the random-effects pool of every paper",
+              "but the series' own, widened by their spread. One series per paper; papers that pool Panjabi's spines left out.", ""]
     lines += md_table(["Bodies", "Fields from", "Papers", "Fields", "Named exactly %", "Within one level %", "Named at 0.99 %",
                        "Right of those named %"], "rlrrrrrr",
                       [[r["bodies"], ARM_NAME[r["arm"]], r["papers"], num(r["fields"]), pct(r["exact"]), pct(r["within_one"]),
@@ -391,7 +477,10 @@ def page(record, read_rows, share, dis, summary, by_paper, cross_path):
     lines += ["", "<img src=\"transport.png\" alt=\"Three panels against the bodies in view: share named exactly, within one level and at 0.99, for Panjabi's fields and the papers' with the rule as built and widened\" width=\"720\">", "",
               open(os.path.join(OUT, "transport.caption.txt")).read().strip(), "", "By paper, three bodies:", ""]
     three = [r for r in by_paper if r["bodies"] == 3]
-    papers = sorted({r["paper"] for r in three}, key=lambda p: next(r["name"] for r in three if r["paper"] == p).split()[-1])
+    # By year, then name, as the papers read: a set of papers sorted on the year alone kept the
+    # order of one year's papers from the hash seed, so the page changed from run to run.
+    name_of = {r["paper"]: r["name"] for r in three}
+    papers = sorted(name_of, key=lambda p: (name_of[p].split()[-1], name_of[p], p))
     rows = []
     for p in papers:
         arm = {r["arm"]: r for r in three if r["paper"] == p}
@@ -403,7 +492,8 @@ def page(record, read_rows, share, dis, summary, by_paper, cross_path):
                        "Exact, widened %", "Paper's, within one %"], "llrlrrrr", rows)
     lines += ["", "## Files", "",
               "- README.md, this page; transport.* and profiles.*, the figures as PNG and PDF with their captions and a CSV of",
-              "  every number drawn; transport_by_paper.csv, every series' fields by arm and bodies.",
+              "  every number drawn; transport_by_paper.csv, the fields by arm and bodies of the one series per paper used",
+              "  above (the record holds them for every series named).",
               "- ../data/: the readings, cohorts and series the record was made from; the record is ../data/%s." % os.path.basename(cross_path),
               "- Made with, from the repository's root: %s (any --processes gives the same record)," % record["command"],
               "  and python research_notes/paper-tables/tools/results.py research_notes/paper-tables/data",
@@ -434,11 +524,15 @@ def main(argv):
                   "drawn from Panjabi's table at the same places; dashed, open squares: the papers' fields; dotted, "
                   "open triangles: the papers' fields named by the widened rule. Widths %s." % (fields, ", ".join(map(str, widths))))
     fig_profiles(record, OUT,
-                 "Each paper's means beside Panjabi's, one series per paper and measure (the largest count, a definition his "
-                 "or close to it): filled circles on a solid line, Panjabi's 12 spines with one SD; open circles, each "
-                 "paper's mean with one SD, spread a little up and down so they do not overlap; open diamonds, a paper "
-                 "that pools Panjabi's spines, drawn with no bar since a meta-analysis's pooled SE gives no SD of its "
-                 "people. Dotted lines, the cervicothoracic and thoracolumbar junctions.")
+                 "Each paper's means beside Panjabi's, one series per paper and measure drawn at every level it gives (the "
+                 "one with an SD at the most levels, then at the most levels, then the largest count, taken where it is "
+                 "smallest; a definition his or close to it), and a further series of the paper only where it shares "
+                 "no level with those drawn: "
+                 "filled circles on a solid line, Panjabi's 12 spines with one SD; open circles, each paper's mean with "
+                 "one SD where it gives one (no bar where it gives a mean alone), spread a little up and down so they "
+                 "do not overlap; open diamonds, a paper that pools Panjabi's spines, drawn with no bar since a "
+                 "meta-analysis's pooled SE gives no SD of its people. Dotted lines, the cervicothoracic and "
+                 "thoracolumbar junctions.")
     with open(os.path.join(OUT, "transport_by_paper.csv"), "w", newline="") as fh:
         w = csv.DictWriter(fh, fieldnames=list(by_paper[0]), lineterminator="\n")
         w.writeheader()
