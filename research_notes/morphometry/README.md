@@ -4,7 +4,7 @@ Thread "Extract morphometrics from gold tier 3 CT" of the claude.ai project symp
 
 ## The result in brief
 
-Paused on the owner's priorities of 29 October 2026, 12:06 UTC, with the thin-slice run part way: 121 of the 229 thin-slice ENHANCE.PET studies are measured, and the first 51 are set against the papers (handoff.md says how to carry on). On the phantoms every measure lands within its tolerance, and on 2.5 mm slices heights and discs move by about a quarter of a slice. Against the papers' adult means the masks read the bone larger: the end-plate widths by a median of 9 mm against five CT papers, the anterior heights by 4 to 5 mm, the end-plate depths by 6 mm, while the discs read 0.5 mm short against CT papers, and the foramen's height and the canal's width at the pedicles sit within a paper's spread in 60 to 76 per cent of rows. It is not the masks standing off the bone: on three ENHANCE.PET CTs read on the owner's word (12:12 UTC), the masks lie on the bone's own edge to within a few tenths of a millimetre, so a height reads 0.37 mm short, a disc 0.37 mm long and a width 0.14 mm wide from the masks, against the 2 to 9 mm differences from the papers (maskedge/, below). What is left is a larger population, osteophytes at the rims and the papers' definitions. The same CTs show each mask displaced along the column against its CT, by a median of 0.63, 0.44 and 0.77 mm over the levels of the three studies, one way in two of them and the other way in the third, which moves no measure taken within a vertebra.
+The run over the 229 thin-slice ENHANCE.PET studies finished at 13:10 UTC on 29 October 2026: 228 studies measured and one (0980) stopped by an error, 452,546 rows in the project's files under gold3-ct/morphometry/run229/, never in git. Every measure can be drawn on its own cuts of its own vertebra, and on study 0004 all 150 lines at C5, T1, T8, L3, L4 and L5 match the run's rows (morphoview, below). Against truth of five kinds: on the phantom's exact shapes the 20 tests hold lengths to 0.75 mm and angles to 1.5 degrees; on three ENHANCE.PET CTs the masks lie on the bone's own edge to within a few tenths of a millimetre, and leave each lumbar disc 0.3 mm wider and each cervical disc 0.5 mm narrower than the disc the CT shows; read again on the same studies thinned to 3 and to 5 mm slices, the median of every measure moves by less than 0.9 mm; and against the papers' adult means, the heights, the end-plates' depths and the widths at their rims read larger, the papers themselves differing by as much at some levels (the comparison, below). Three measures are wrong by their construction and are not used until the code changes: the interpedicular distance at L4, L5 and in the neck, read across the canal's middle where the papers read between the pedicles; the pedicle's width and height in the neck and at C7 and T1; and the mid-disc height in the neck and the upper thorax, whose rule for a plate's surface reads 1.35 mm short of the gap the masks leave. The VerSe test of the heights against two readers' fracture grades waits on the helper thread that reads VerSe.
 
 ## What was built
 
@@ -74,39 +74,48 @@ Three limits stand: L5's pedicle island takes in the transverse process's root (
 
 ## The 229 thin-slice studies of ENHANCE.PET
 
-The run is stopped at 121 of the 229 (the container restarted at 08:52 UTC and the thread then paused); the rows are in the project's files under gold3-ct/morphometry/run229-partial/, never in git, measured by the code at bordercall b90675f (stamp 7bda317295ef9f5b), so a `run` with the same `--out` measures only the 108 left. The comparison below is the interim one over the first 51 studies, against adult people only (the summary leaves out another species, children, groups chosen by size, a disease and worked examples), with each paper's technique set apart. Each cell gives the median of the rows' differences in units of the paper's standard deviation, then the median difference in mm or degrees, then the rows and papers:
+The run measured every study whose coarsest spacing is at most 1.25 mm, 229 of them, by the code at bordercall b90675f (stamp 7bda317295ef9f5b; morphometry and scanimport are unchanged since), the last 108 from a frozen worktree after the pause. The rows are in the project's files under gold3-ct/morphometry/run229/ with their sha256, never in git; the comparison, compare-229.csv, is aggregates only and is in records/morphometry-2026-10-29/. Against adult people only (the summary leaves out another species, children, groups chosen by size, a disease and worked examples), with each paper's technique set apart, each cell gives the median of the rows' differences in units of the paper's standard deviation, then the median difference in mm or degrees, then the rows and papers:
 
 | our key | CT | direct on bone | film | MRI | quoted or pooled |
 | --- | --- | --- | --- | --- | --- |
-| endplate (width) | +4.78, +9.0 (54, 5) | +2.12, +8.9 (17, 2) | | +1.72, +6.8 (2, 1) | +1.56, +7.4 (4, 1) |
-| endplate_depth | +4.16, +6.0 (40, 4) | +1.30, +2.6 (12, 1) | +0.78, +1.8 (12, 2) | -0.12, -0.3 (2, 1) | |
-| h_ant | +2.69, +4.3 (58, 5) | | +2.71, +4.6 (23, 2) | | |
-| h_post | +0.79, +1.8 (58, 5) | | +1.05, +1.7 (23, 2) | | |
-| body_w_mid | +0.66, +2.3 (5, 1) | | | | |
-| disc_h_ant | -0.26, -0.5 (75, 2) | -3.75, -3.2 (12, 1) | -6.38, -2.9 (12, 1) | | |
-| disc_h_post | -1.02, -1.1 (75, 2) | -4.50, -2.9 (12, 1) | -3.38, -1.4 (12, 1) | | |
-| foramen_h | -0.45, -0.8 (63, 3) | | | | |
-| canal_w | -0.61, -1.4 (20, 4) | | | | |
-| canal_ap | +1.41, +2.2 (48, 6) | | | -0.55, -1.1 (5, 1) | |
-| canal_area | +3.93, +57 mm2 (32, 3) | | | | |
-| interpedicular | | | -1.86, -3.7 (32, 3) | | -1.97, -5.3 (5, 1) |
-| pedicle_w | +1.33, +2.4 (112, 8) | +1.61, +2.4 (39, 2) | +0.85, +1.9 (24, 3) | | +1.61, +2.6 (47, 2) |
-| pedicle_h | +1.75, +3.8 (80, 8) | +1.12, +2.3 (37, 2) | +0.15, +0.3 (24, 3) | | +1.30, +1.8 (37, 2) |
-| pedicle_angle_transverse | -0.79, -1.7 (51, 5) | -1.44, -3.0 (15, 1) | -0.53, -1.6 (5, 1) | | -0.53, -1.6 (37, 2) |
-| pedicle_angle_sagittal | +4.80, +12.8 (28, 2) | +12.18, +25.3 (12, 1) | +2.27, +4.5 (11, 1) | | +5.22, +24.1 (13, 1) |
-| transverse_width | +5.24, +16.6 (22, 1) | | | | |
-| spinous_length | -4.23, -11.7 (22, 1) | | | | |
+| endplate | +4.72, +9.4 (54, 5) | +2.10, +8.8 (17, 2) |  | +1.67, +6.6 (2, 1) | +1.52, +7.2 (4, 1) |
+| endplate_lower | +5.46, +10.0 (49, 5) | +2.49, +7.1 (17, 2) |  | +2.11, +8.7 (3, 1) |  |
+| endplate_depth | +4.40, +6.1 (40, 4) | +0.94, +2.1 (12, 1) | +0.62, +1.6 (12, 2) | -0.26, -0.7 (2, 1) | -0.32, -1.7 (2, 1) |
+| endplate_lower_depth | +2.87, +4.7 (44, 4) | -0.10, -0.3 (12, 1) | +0.11, +0.3 (14, 2) | -0.50, -1.4 (3, 1) |  |
+| h_ant | +2.62, +4.2 (58, 5) |  | +2.47, +4.4 (23, 2) |  |  |
+| h_post | +0.71, +1.7 (58, 5) |  | +0.81, +1.7 (23, 2) |  |  |
+| h_mid | +1.22, +2.1 (31, 3) |  |  |  |  |
+| body_w_mid | +0.62, +2.2 (5, 1) |  |  |  |  |
+| body_d_mid | +1.18, +3.4 (5, 1) |  |  | +1.61, +5.2 (5, 1) |  |
+| disc_h_ant | -0.12, -0.2 (75, 2) | -3.72, -3.0 (12, 1) | -6.06, -2.6 (12, 1) |  |  |
+| disc_h_mid | -0.24, -0.4 (75, 2) | -3.33, -2.6 (12, 1) |  |  |  |
+| disc_h_post | -0.78, -0.8 (75, 2) | -4.40, -2.7 (12, 1) | -2.88, -1.2 (12, 1) |  |  |
+| foramen_h | -0.46, -0.8 (63, 3) |  |  |  |  |
+| canal_w | -0.89, -2.0 (20, 4) |  |  |  |  |
+| canal_ap | +1.10, +1.7 (48, 6) |  |  | -0.79, -1.6 (5, 1) |  |
+| canal_area | +3.73, +49.8 mm2 (32, 3) |  |  |  |  |
+| interpedicular |  |  | -2.08, -4.2 (32, 3) |  | -2.23, -6.0 (5, 1) |
+| interpedicular_max | +2.48, +2.5 (27, 2) |  |  |  |  |
+| pedicle_w | +1.43, +2.6 (112, 8) | +1.65, +2.6 (39, 2) | +0.92, +1.9 (24, 3) |  | +1.62, +2.6 (47, 2) |
+| pedicle_h | +1.81, +3.8 (80, 8) | +1.17, +2.4 (37, 2) | +0.20, +0.4 (24, 3) |  | +1.38, +2.0 (37, 2) |
+| pedicle_chord | +1.92, +7.6 (47, 5) | +0.74, +2.5 (9, 1) | +1.08, +4.9 (14, 2) |  | +0.49, +2.8 (37, 2) |
+| pedicle_angle_transverse | -0.87, -1.9 (51, 5) | -1.50, -4.2 (15, 1) | -0.58, -1.7 (5, 1) |  | -0.32, -1.6 (37, 2) |
+| pedicle_angle_sagittal | +3.88, +8.5 (32, 2) | +13.95, +25.3 (15, 1) | -1.04, -2.7 (11, 1) |  | +4.77, +23.4 (17, 1) |
+| transverse_width | +5.20, +16.2 (22, 1) |  |  |  |  |
+| spinous_length | -4.31, -11.7 (22, 1) |  |  |  |  |
 
-What the pattern says, and what it does not:
+Figure papers.png in records/morphometry-2026-10-29/figures/ draws ten of these by level, ours beside the papers with the most levels. What the pattern says, and what it does not:
 
-- The width at the end-plate's rim reads 9 mm wide where the waist's width reads 2.3 mm wide, on the same bodies against CT papers. A mask follows bone, and these are adults of a PET clinic, so marginal osteophytes at the rims are a likely part of it; it is not tested.
-- Heights read 2 to 5 mm tall and discs 0.5 to 3 mm short at once, which is what a mask standing off the bone at each end-plate would give, and also what a larger population and thinner degenerate discs would give. The mask-edge test tells the first apart.
+- The width at the end-plate's rim reads 9.4 mm wide against five CT papers where the waist's width reads 2.2 mm wide, on the same bodies, and from T2 to L5 the excess holds at every level (62.2 against 49.0 mm at L5). The renders put the rim width on the ring's flare and the lips at its edge (L3, below); the masks are not the cause (the mask-edge test), so osteophytes of a PET clinic's adults and the papers' narrower definitions remain. In the neck the width is mostly the body's cut: where a foramen transversarium is not found closed, the body is cut a millimetre beyond the canal's side walls (anatomy.clip_to_foramina), so it reads about the canal's width, 25 to 29 mm, where a cervical body is 15 to 21; the cut fell back so at C3 to C6 in 89 to 166 of the 228 studies and at C7 in 186. T1 stands out of its neighbours (40.2 mm against 25.1 at C7 and 31.2 at T2); study 0004's T1 reads 33.1 mm on a body its coronal cut shows whole and alone, so that render does not explain the median, and the studies at the top of T1's spread are the next to draw.
+- The heights read 4.2 mm tall in front and 1.7 behind against CT papers, but the papers disagree with each other by as much (figure papers, A and B): at T8 Busscher 2010's CT of human cadavers gives 20.1 mm against our 21.1, where Kunkel 2011's contact radiographs give 17.0 and Tan 2004's ten Singapore cadavers 16.1; at L3 Busscher gives 28.7 and Gilad 1985's films 27.9 against our 30.2, Tan 21.4. Tan 2004's bodies are the smallest of any series and its standard deviations the narrowest, and it weighs in nearly every comparison of the body. The masks put at most half a millimetre into a height.
+- The discs: against the lumbar CT papers the mid-disc height reads 0.4 mm short; against Kunkel 2011's cadaver sections in the neck and thorax 2.6 mm short. Of that, 0.5 mm is the masks taking in the disc and 1.35 mm the plate rule (the disc in the CT, below), and the rest is these patients: the CTs show their cervical discs 3.2 mm tall at the middle, where Kunkel's sections give 5.6.
+- The interpedicular distance reads narrow against films (4.2 mm), the narrowing growing from L3 to L5 (20.0 against 25.9 mm at L3, 18.5 against 30.0 at L5) and in the neck (19.5 against 28.8 at C4), while L1, L2 and the thorax read 2 to 4 mm narrow, about what a film's magnification gives. The run reads it across the canal's middle, front to back, where the papers read it between the pedicles' medial walls, at the canal's front corners. Where the canal is round the two agree; where it is a trefoil, at L4 and L5, or a triangle, in the neck, the canal's widest in its front half, where the pedicles join the body, is 3.4 to 9.8 mm wider than at its middle in all three studies read (canal-shape.csv). The fix reads the width at the pedicles' own place front to back.
+- The pedicle's width in the neck reads 12.4 to 13.6 mm from C3 to C6 against 4.5 to 5.2 (Tan 2004), and its height 12.8 to 13.8 against 6.0 to 6.8: the coronal island at a cervical pedicle's isthmus takes in more than the pedicle, likely the lateral mass and the bar behind the transverse foramen (C5, below). C7 and T1 read 16.2 and 18.1 mm wide; at study 0004's T1 the isthmus cuts are islands 13 to 14 mm square, about twice the papers' 7.7. None of these is used. From T3 to L3 the widths sit 1.6 to 3.5 mm over the papers' median means, T2 and L4 4.3 and 4.8, and L5's island takes in the transverse process's root (22.3 against 15.2 mm), the limit stated above.
+- The canal's depth at the pedicles reads 3 to 4 mm deep in the thorax against Tan 2004, the one CT paper there, and within a millimetre of the lumbar papers; its area takes in the lateral recesses, which the CT papers' outlines along the medial pedicle borders leave out.
 - Two keys differ by definition, not by measurement. Our spinous length runs from the canal's posterior wall at the midline to the tip; the dry-bone paper's runs from the tip to about the upper end-plate's centre, and the pool that names the laminar base gives 60 to 66 mm, nearer that longer length than ours. The transverse width has one CT paper, a series of ten Singapore cadavers whose bodies are the smallest of all the series (an L3 anterior height of 21.4 mm), whose standard deviations (under 1 mm for an end-plate's width at L3 and L4) are smaller than any other series gives.
-- The canal's area takes in the lateral recesses, which the CT papers' outlines along the medial pedicle borders leave out; its depth at the pedicles reads 2 mm deep against CT, its least depth 1.6 mm shallow against bone.
-- The interpedicular distance reads 3.7 mm narrow against films, which magnify; there is no CT paper for it among the 51 studies' rows.
-- Thoracic pedicles' sagittal angles are not right (T6 59.7 degrees, T12 36.5 against tens of degrees less), and L5's pedicle width takes in the transverse process's root (21.4 mm): both are the limits stated above, and neither is used.
+- Thoracic pedicles' sagittal angles are not right (tens of degrees over), the limit stated above, and are not used.
 
-Medians at L3 over the first studies, as a sense of scale: end-plate width 50.8 mm, end-plate depth 36.1, the waist 43.8 wide and 33.5 deep, anterior height 30.2, posterior 29.0, body volume 39,946 mm3, transverse span 93.5, least canal depth 13.9, canal width 23.6, interpedicular distance 20.9, pedicle width 11.6.
+Medians at L3 over the 228 studies, as a sense of scale: end-plate width 51.2 mm, end-plate depth 36.3, the waist 43.3 wide and 33.7 deep, anterior height 30.2, posterior 28.3, body volume 39,880 mm3, transverse span 93.0, least canal depth 13.7, canal width 22.4, interpedicular distance 20.2, pedicle width 11.8, and the L3-L4 disc 9.2 mm at its middle.
 
 ## Where the mask's surface lies against the bone
 
@@ -132,6 +141,27 @@ A positive offset is bone beyond the mask. What they make of a measure taken on 
 
 The end-plates' two offsets do not cancel within a study: the bone's half-way point between its two plates, (upper less lower) over two, lies above the mask's by +0.25 to +0.98 mm at every level of 0004 and +0.43 to +1.19 mm of 0010, and below it by 0.02 to 1.29 mm at every level of 0006, the 0.7 mm study. Each mask is displaced along the column against its CT, by a median of 0.63 mm (0004), 0.44 mm (0006) and 0.77 mm (0010) over the levels, about half a slice, one way or the other by study. A mask made on a coarser grid and carried back by nearest neighbour would do this, by up to half the coarser voxel; that is a guess, not tested. No measure here is taken across the two, so none is moved, but anything that sets a mask on its CT's intensities (density, a CT-based reading of the end-plate) would be.
 
+### The disc in the CT
+
+The edge reading skips a point with another label within 3.5 mm of it, so it could not read an end-plate where two masks nearly meet, which is where a mask taking in the disc would show. maskedge/disc.py reads each disc instead along 25 lines parallel to the column's line in the frame of the vertebra below, through the middle three fifths of that body's width and depth: the masks' gap is the distance between the two labels along the line, and the CT's disc is the distance between the two half-maximum crossings either side of the CT's least value near the masks' junction, each half-way from that side's cortex to the disc. A line counts where both cortices stand 150 HU or more above the disc, and a disc where eight or more lines count.
+
+```
+python -m maskedge disc --ct CT.nii.gz --labels 0004.nii.gz --scheme enhance --study 0004 --out disc.csv
+python -m maskedge disc-summary --rows disc.csv
+```
+
+On the phantom's 10 mm discs the exact masks leave 9.6 mm and the CT shows 9.5 (the labels' voxels put each surface within half a voxel of the truth), a mask grown by one voxel narrows the gap by 0.9 mm and one shrunk widens it by as much, and the CT's reading does not move (5 tests, `python -m unittest maskedge.tests.test_disc`, 76 s). The phantom's posterior elements collide below a 10 mm disc, so no thinner disc is drawn. The three CTs were read again for this on the owner's word of 12:12 UTC, the same files at the same sizes and sha256, and deleted after. Over the discs read on eight lines or more (records/morphometry-2026-10-29/disc-ct.csv, figure disc.png):
+
+| region | discs | masks' gap (mm) | CT's disc (mm) | masks' gap less CT's disc (mm) | quartiles |
+| --- | ---: | ---: | ---: | ---: | --- |
+| cervical | 14 | 2.60 | 3.15 | -0.47 | -0.66 to -0.34 |
+| thoracic | 16 | 3.00 | 3.48 | -0.11 | -0.62 to +0.19 |
+| lumbar | 10 | 7.90 | 7.46 | +0.31 | +0.04 to +0.44 |
+
+So the masks take in about half a millimetre of each cervical disc, a tenth of each thoracic one, and leave each lumbar disc 0.3 mm wide, the same few tenths the edge test found. Most of the thoracic discs of study 0010 and a few of 0004's showed too little contrast to count. The CTs themselves show these patients' cervical discs 3.2 mm tall at the middle and their thoracic discs 3.5, where Kunkel 2011's sections give 5.6 at C7-T1 and 4.4 to 6.7 down the thorax.
+
+The run's own mid-disc height (disc_h_mid) on the same discs reads a median of 1.35 mm less than the masks' gap in the neck (quartiles -1.75 to -0.88), 0.87 in the thorax and 0.32 in the lumbar spine. Its rule takes each plate's outermost point within a 3 by 6 mm band, carried along a plane fitted to the plate, where the lines here take the median gap; on a thin disc between irregular plates the outermost points stand proud of the typical one by a large share of the disc. With the masks' half millimetre, the run's cervical discs read 1.7 mm short of the CT, and they are not used until the rule reads a typical surface.
+
 ## Seeing each measure where it was taken
 
 The package [morphoview/](../../morphoview/) draws a vertebra's measures on its own mask, cut in four planes of its frame: sagittal through the body's middle across, coronal through the body's mid-depth, coronal through each pedicle's isthmus (the right at its isthmus, the left at its own, since the two can lie millimetres apart front to back), and axial through the pedicles' centre. Every line is built again from the measuring modules' own functions, its ends where the measure takes them, and the value its construction gives is set beside the value in the run's rows; a line that differs by more than the rows' rounding (four decimals) and a millionth of the value is not drawn and is listed as withheld. A length's ends are the line's ends; a disc is the gap along the lower vertebra's axis between the two plates' bands; a pedicle's width and height are drawn on the isthmus slab nearest the median they are taken over, the width then times the cosine of the axis's transverse angle; the wedge is the two end-plates drawn rim to rim.
@@ -140,12 +170,16 @@ The package [morphoview/](../../morphoview/) draws a vertebra's measures on its 
 python -m morphoview render --labels 0004.nii.gz --scheme enhance --study 0004 --levels L3 T8 C5 --rows rows.csv --out DIR
 ```
 
-On the phantom every line of L3 and its two discs is drawn, and each length's ends lie on the solid's true surface, bone a step of 0.8 mm inward and none a step outward (canal walls the other way round), which 10 tests hold (`python -m unittest discover -s morphoview/tests -t .`, 36 s). On study 0004 all 77 lines of L3, T8 and C5 matched the run's rows (records/morphometry-2026-10-29/renders/). What the drawings show that the numbers did not:
+On the phantom every line of L3 and its two discs is drawn, and each length's ends lie on the solid's true surface, bone a step of 0.8 mm inward and none a step outward (canal walls the other way round), which 10 tests hold (`python -m unittest discover -s morphoview/tests -t .`, 36 s). On study 0004 all 150 lines of C5, T1, T8, L3, L4 and L5 matched the run's rows (records/morphometry-2026-10-29/renders/). What the drawings show that the numbers did not:
 
-- At C5 the masks of C4, C5 and C6 nearly touch, so the three disc heights read -0.7 to 1.6 mm; over the studies measured, the mid-disc height reads a median of 1.4 to 1.9 mm from C2-C3 to C5-C6 and 2.3 to 3.0 mm from T2-T3 to T7-T8, where the lumbar discs read 7.5 to 9.1 mm. The mask-edge test cannot settle it there, since it reads an end-plate only where no other label lies within 3.5 mm, and in the neck only 5 to 126 points of each plate qualified; at the plates it could read, the masks lay beyond the bone by about half a millimetre in sum, not the 2 to 3 mm a cervical disc would need.
+- At C5 the masks of C4, C5 and C6 nearly touch, so the three disc heights read -0.7 to 1.6 mm; over the 228 studies the mid-disc height reads a median of 1.6 to 1.9 mm from C4-C5 to C5-C6 and 2.8 at T6-T7, where L3-L4 reads 9.2. The disc test in the CT (above) settles it: the masks take in half a millimetre, the run's plate rule 1.35, and the CTs' own discs are 3.2 mm.
 - C5's pedicle chord reads 6.25 mm on the right and nothing on the left: the right axis turns 61 degrees from the sagittal plane and the march along it leaves bone after 6.25 mm, and the left pedicle spans too little front to back to give an axis at all (its row's flag). Cervical chords are not used.
-- L3's lower end-plate width (47.6 mm) runs from rim lip to rim lip, 9 mm wider than the waist (38.3 mm) a few millimetres above it. That is the likeliest source of the 9 mm excess of the end-plate widths over the CT papers: the slab Panjabi's width is read in takes in the ring's flare and any lip at its edge. One study shows it; the full run's comparison by level is the test.
+- L3's lower end-plate width (47.6 mm) runs from rim lip to rim lip, 9 mm wider than the waist (38.3 mm) a few millimetres above it. The full run shows the same excess at every level from T2 to L5 against the CT papers (the comparison, above): the slab Panjabi's width is read in takes in the ring's flare and any lip at its edge.
 - L3's left pedicle chord (61.8 mm) is 14 mm longer than the right (47.5 mm): the left axis climbs 10.5 degrees where the right climbs 1.5, so it leaves the axial cut and runs into the posterior elements higher up, and the chord's posterior end is not the same landmark on the two sides.
+- T8's lower end-plate width (36.6 mm) is drawn past the body's outline in the coronal cut: it is read across a slab front to back that holds bone at the rim the cut through the body's mid-depth does not, 8.8 mm wider than the waist (27.8 mm). Its pedicles read 7.6 and 5.9 mm wide and 14.7 and 14.1 tall, and its discs 1.8 to 3.0 mm.
+- L4's lower end-plate depth (34.5 mm) runs about 5 mm behind the posterior wall's line at the lower plate, where the upper (26.5 mm) ends at the wall (the drawn lines' ends in render-0004-L4.csv). Whether that is a lip at the back of the rim or other bone the band takes in is not yet told apart; it is one body, and the next renders are to say whether it is common.
+- L5's interpedicular distance (23.4 mm) is drawn across the canal's middle front to back, behind the pedicles, where the trefoil canal narrows; in the canal's front half, between the pedicles, it is 27.6 mm wide. This is the construction the comparison faults at L4 and L5 (above), and canal-shape.csv measures it in three studies.
+- L5's pedicle widths (19.8 and 22.8 mm) and heights (33.3 and 18.8 mm) are drawn on islands that take in the transverse process's root, and its anterior height (37.3 mm) and wedge (19.2 degrees) on a body whose lower end-plate rises steeply behind; the L5 rows are to be read with that in mind.
 
 ## The survey
 
@@ -166,4 +200,11 @@ What masks cannot give: cortical thickness and the inner pedicle width, density 
 
 ## What comes next
 
-handoff.md, beside this note, is where to start: the resume command for the run, the checks still to do, the one fetch that needs the owner's word, and what must pass before the pull request is marked ready.
+In the order the findings above ask for them; handoff.md, beside this note, says where each piece of work stands.
+
+- The interpedicular distance read between the pedicles at their own place front to back, not across the canal's middle (canal-shape.csv). It changes the code's stamp, so every study is measured again, about an hour and a half here.
+- A cervical pedicle that keeps out the lateral mass and the bar behind the transverse foramen, and the same at C7 and T1; L5's pedicle without its transverse process's root.
+- The disc's plate rule reading a typical surface, not the outermost point in its band, and the neck's body cut where no transverse foramen is found closed.
+- Renders of the studies at the top of T1's end-plate spread, and of L4's lower end-plate depth in more studies; the end-plate width read inside the rim's lips as the CT papers read it, beside Panjabi's.
+- The VerSe test of the heights against the readers' grades, when the helper thread brings its rows, never pooled with ENHANCE.PET.
+- The published masks of 1347, 1283 and 1134 against their repaired copies, at 3 mm.
