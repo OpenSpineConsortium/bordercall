@@ -37,6 +37,12 @@ def write(path, data):
         handle.write(data)
 
 
+def box(i, j, k):
+    """The voxel indices of a box, each argument the first and last index on its axis."""
+    return np.array([(a, b, c) for a in range(i[0], i[1] + 1) for b in range(j[0], j[1] + 1)
+                     for c in range(k[0], k[1] + 1)])
+
+
 class Names(unittest.TestCase):
     def test_every_spelling_of_the_release(self):
         cases = {"verse014_seg.nii.gz": ("verse014", None),
@@ -117,6 +123,47 @@ class Slabs(unittest.TestCase):
         self.assertEqual(spans[-1][1], 11)
         self.assertTrue(all(a[1] == b[0] for a, b in zip(spans, spans[1:])))
 
+    def test_several_slabs_cover_the_slowest_axis_once_in_order(self):
+        saved = F.SLAB_VOXELS
+        F.SLAB_VOXELS = 3 * 4 * 5
+        try:
+            for order, shape, axis in (("F", (4, 5, 11), 2), ("C", (11, 4, 5), 0)):
+                spans = list(F.slabs(shape, order))
+                self.assertEqual(len(spans), 4, order)
+                self.assertEqual({a for a, _, _ in spans}, {axis}, order)
+                self.assertEqual([i for _, start, stop in spans for i in range(start, stop)], list(range(11)), order)
+        finally:
+            F.SLAB_VOXELS = saved
+
+    def test_a_level_on_the_last_plane_is_read_by_the_last_slab(self):
+        """The toy columns leave empty planes at both ends; here C1 reaches the head face, which only
+        the last slab of a sliced read holds, so a walker that dropped it would lose those voxels."""
+        mask = verse_column(T.labels(T.C1, T.L5)).astype(np.float64)
+        mask[2:4, 2:4, -1] = T.C1
+        img = F.image_of(nifti_bytes(mask, T.affine_for()))
+        self.assert_same(img)
+        found = self.sliced(img)
+        for label in found:
+            self.assertEqual(len(found[label]), int((mask == label).sum()), label)
+        self.assertEqual(int(found[T.C1][:, 2].max()), mask.shape[2] - 1)
+
+
+class Distances(unittest.TestCase):
+    """Distances are in mm on the grid's own spacing, 0.8 mm in plane and 2 mm between slices here."""
+
+    def test_lumbar_to_sacrum_across_slices_and_in_plane(self):
+        levels = {"sacrum": box((0, 2), (0, 2), (0, 2)), "L5": box((0, 2), (0, 2), (5, 6)),
+                  "L4": box((7, 8), (0, 2), (0, 2))}
+        # L5 lies three slices above the sacrum (6 mm), L4 five voxels beside it in plane (4 mm).
+        self.assertEqual(F.lumbosacral_distances(levels, T.affine_for()), {"L4-sacrum": 4.0, "L5-sacrum": 6.0})
+
+    def test_a_rib_reach_is_in_mm(self):
+        levels = {"T12": box((0, 2), (0, 2), (0, 2)), "L1": box((0, 2), (0, 2), (10, 12))}
+        rib = box((6, 7), (0, 2), (0, 2))
+        reach = F.rib_reach(rib, F.level_trees(levels, T.affine_for()), T.affine_for())
+        # Four voxels beside T12 is 3.2 mm; L1 is that far beside and eight slices above, 16.3 mm.
+        self.assertEqual(reach, {"T12": 3.2, "L1": 16.3})
+
 
 class Ribs(unittest.TestCase):
     def test_the_nearest_level_leads_and_a_tie_goes_to_the_head(self):
@@ -167,6 +214,20 @@ class Verse(unittest.TestCase):
         self.assertEqual(row["levels"]["C1"]["faces"], [])
         self.assertEqual(row["distances_mm"], {})
         self.assertNotIn("other_release", row)
+
+    def test_the_variant_levels_and_the_sacrum_are_named_by_the_scheme(self):
+        """VerSe's own numbers, not ENHANCE.PET's: T13 is 28, L6 25 and the sacrum 26."""
+        levels = [*range(1, 20), 28, *range(20, 26), 26]
+        mask = T.column(levels)
+        write(os.path.join(self.root, "verse20", "verse888_seg.nii.gz"), nifti_bytes(mask, T.affine_for()))
+        row = F.verse_row([j for j in F.verse_jobs(self.root) if j[0] == "verse888"][0])
+        names = [F.VERSE_NAMES[label] for label in levels]
+        self.assertEqual(sorted(row["levels"]), sorted(names))
+        for label, name in zip(levels, names):
+            self.assertEqual(row["levels"][name]["voxels"], int((mask == label).sum()), name)
+        self.assertGreater(row["levels"]["T13"]["top_mm"], row["levels"]["L1"]["top_mm"])
+        self.assertIn("L6-sacrum", row["distances_mm"])
+        self.assertNotIn("outside_scheme", row)
 
     def test_a_label_outside_the_scheme_is_named(self):
         odd = self.whole.copy()
