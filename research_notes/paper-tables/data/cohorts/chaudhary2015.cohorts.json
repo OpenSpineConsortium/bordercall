@@ -1,0 +1,203 @@
+{
+  "paper": "chaudhary2015",
+  "cohorts": [
+    {
+      "cohort": "sonepat_ap_films",
+      "labels": [
+        "male",
+        "female",
+        "all",
+        "sonepat District"
+      ],
+      "tables": [
+        "Table I",
+        "Table II",
+        "Text: Abstract",
+        "Text: Material and methods",
+        "Text: Conclusion"
+      ],
+      "subjects": "Adults of known sex and age from Sonepat district, Haryana, India (called haryanvis subjects in the abstract), whose plain AP lumbar radiographs came from the Radiology Department of B.P.S.G.M.C. for women, Khanpur Kalan, Sonepat. Inclusion: films diagnosed as normal by experienced radiologists. Exclusion: films with any obvious abnormality. Why they were imaged, dates and whether consecutive are not stated. Inference: living hospital subjects.",
+      "n_people": 300,
+      "n_units": "300 AP lumbar radiographs (150 male, 150 female), L1 to L5 measured; per-level n not printed (Inference: 1,500 vertebrae if every level was read on every film)",
+      "ages": "25 to 40 years",
+      "sexes": "150 male, 150 female",
+      "page": "p. 33 (PDF 1); p. 34 (PDF 2); p. 35 (PDF 3)"
+    },
+    {
+      "cohort": "eisenstein1977_caucasoid_quoted",
+      "labels": [
+        "South African Caucasoids"
+      ],
+      "tables": [
+        "Table II"
+      ],
+      "subjects": "Not measured here: the South African Caucasoid series of Eisenstein 1977 (reference 2), quoted as mean transverse canal diameters by sex at L1 to L5; this paper names it among radiographic studies of the lumbar canal in ethnic groups (p. 34, PDF 2) and gives no n, age, source or method for it. Inference (clinical note on this paper, checked against Eisenstein's own pages): dry lumbar vertebrae of the Raymond Dart Collection skeletons, not living subjects",
+      "n_people": null,
+      "n_units": "not stated in this paper",
+      "ages": "not stated in this paper",
+      "sexes": "male and female rows printed; numbers not stated in this paper",
+      "page": "p. 34-35 (PDF 2-3)"
+    },
+    {
+      "cohort": "eisenstein1977_zulu_quoted",
+      "labels": [
+        "Zulus"
+      ],
+      "tables": [
+        "Table II"
+      ],
+      "subjects": "Not measured here: the Zulu series of Eisenstein 1977 (reference 2), quoted as mean transverse canal diameters by sex at L1 to L5; this paper names it among radiographic studies of the lumbar canal in ethnic groups (p. 34, PDF 2) and gives no n, age, source or method for it. Inference (clinical note on this paper, checked against Eisenstein's own pages): dry lumbar vertebrae of the Raymond Dart Collection skeletons, not living subjects; Eisenstein's title calls the group South African Negroes and this paper relabels it Zulus",
+      "n_people": null,
+      "n_units": "not stated in this paper",
+      "ages": "not stated in this paper",
+      "sexes": "male and female rows printed; numbers not stated in this paper",
+      "page": "p. 34-35 (PDF 2-3)"
+    },
+    {
+      "cohort": "amonookuofi1982_nigerian_quoted",
+      "labels": [
+        "Nigerians"
+      ],
+      "tables": [
+        "Table II"
+      ],
+      "subjects": "Not measured here: the Nigerian series of Amonoo Kuofi H. S. 1982 (reference 6), quoted as mean transverse canal diameters by sex at L1 to L5; this paper names it among radiographic studies of the lumbar canal in ethnic groups (p. 34, PDF 2) and gives no n, age, source or method for it",
+      "n_people": null,
+      "n_units": "not stated in this paper",
+      "ages": "not stated in this paper",
+      "sexes": "male and female rows printed; numbers not stated in this paper",
+      "page": "p. 34-35 (PDF 2-3)"
+    },
+    {
+      "cohort": "amonookuofi1990_saudi_quoted",
+      "labels": [
+        "Saudis"
+      ],
+      "tables": [
+        "Table II"
+      ],
+      "subjects": "Not measured here: the Saudi series of Amonoo Kuofi H. S. et al. 1990 (reference 7), quoted as mean transverse canal diameters by sex at L1 to L5; this paper names it among radiographic studies of the lumbar canal in ethnic groups (p. 34, PDF 2) and gives no n, age, source or method for it",
+      "n_people": null,
+      "n_units": "not stated in this paper",
+      "ages": "not stated in this paper",
+      "sexes": "male and female rows printed; numbers not stated in this paper",
+      "page": "p. 34-35 (PDF 2-3)"
+    },
+    {
+      "cohort": "chhabra1991_north_indian_quoted",
+      "labels": [
+        "North Indians"
+      ],
+      "tables": [
+        "Table II"
+      ],
+      "subjects": "Not measured here: the North Indian series of Sudha Chhabra et al. 1991 (reference 9), quoted as mean transverse canal diameters by sex at L1 to L5; this paper names it among radiographic studies of the lumbar canal in ethnic groups (p. 34, PDF 2) and gives no n, age, source or method for it",
+      "n_people": null,
+      "n_units": "not stated in this paper",
+      "ages": "not stated in this paper",
+      "sexes": "male and female rows printed; numbers not stated in this paper",
+      "page": "p. 34-35 (PDF 2-3)"
+    }
+  ],
+  "techniques": [
+    {
+      "technique": "ap_film_scale",
+      "cohorts": [
+        "sonepat_ap_films"
+      ],
+      "modality": "AP radiograph",
+      "instrument": "a scale calibrated to 0.5 mm, applied to plain antero-posterior lumbar radiographs",
+      "how": "For each lumbar vertebra L1 to L5, the interpedicular distance: the minimum distance between the shadows of the two pedicles of the same vertebra on the AP film, taken as the transverse diameter of the spinal canal. Reported as mean, SD and a calculated range of mean +/- 3 SD by sex and level, with a male-female p-value per level (test not named).",
+      "magnification": "not stated and not corrected; tube-film distance and patient position not stated, so values are film millimetres",
+      "observers": "not stated in this paper; no repeat readings or reliability figures reported",
+      "page": "p. 34 (PDF 2)"
+    },
+    {
+      "technique": "eisenstein1977_quoted",
+      "cohorts": [
+        "eisenstein1977_caucasoid_quoted"
+      ],
+      "modality": "dry bone caliper (Eisenstein's own Methods, his p. 173; this paper calls the study radiographic)",
+      "instrument": "not stated in this paper; vernier caliper in Eisenstein's own Methods (his p. 173)",
+      "how": "quoted in Table II as the mean transverse diameter of the lumbar canal; this paper names Eisenstein 1977 among workers who used plain radiography (p. 34) and gives no definition. Checked against Eisenstein's own pages: the values are his Table I Canal I.P. rows (his p. 174), the greatest interpedicular distance measured with a vernier caliper on dry vertebrae (his p. 173), true size in whole millimetres; his radiographs served only to derive magnification factors (AP 1.14 at 110 cm, his p. 175). Keyed canal_w, as the eisenstein1977 reading keys the same values",
+      "magnification": "not stated in this paper",
+      "observers": "not stated in this paper",
+      "page": "p. 34-35 (PDF 2-3)"
+    },
+    {
+      "technique": "amonookuofi1982_quoted",
+      "cohorts": [
+        "amonookuofi1982_nigerian_quoted"
+      ],
+      "modality": "AP radiograph",
+      "instrument": "not stated in this paper",
+      "how": "quoted in Table II as the mean transverse diameter of the lumbar canal; this paper says the study used the radiographic method (p. 34) and equates the transverse diameter with the IPD; projection, landmarks and definition not given. Inference: a transverse canal width on a radiograph is read on an AP view. Inference (amonookuofi1982 reading): vernier calipers on AP films at 100 cm, shortest distance between the medial pedicle surfaces, no magnification correction",
+      "magnification": "not stated in this paper",
+      "observers": "not stated in this paper",
+      "page": "p. 34-35 (PDF 2-3)"
+    },
+    {
+      "technique": "amonookuofi1990_quoted",
+      "cohorts": [
+        "amonookuofi1990_saudi_quoted"
+      ],
+      "modality": "AP radiograph",
+      "instrument": "not stated in this paper",
+      "how": "quoted in Table II as the mean transverse diameter of the lumbar canal; this paper says the study used the radiographic method (p. 34) and equates the transverse diameter with the IPD; projection, landmarks and definition not given. Inference: a transverse canal width on a radiograph is read on an AP view",
+      "magnification": "not stated in this paper",
+      "observers": "not stated in this paper",
+      "page": "p. 34-35 (PDF 2-3)"
+    },
+    {
+      "technique": "chhabra1991_quoted",
+      "cohorts": [
+        "chhabra1991_north_indian_quoted"
+      ],
+      "modality": "AP radiograph",
+      "instrument": "not stated in this paper",
+      "how": "quoted in Table II as the mean transverse diameter of the lumbar canal; this paper says the study used the radiographic method (p. 34) and equates the transverse diameter with the IPD; projection, landmarks and definition not given. Inference: a transverse canal width on a radiograph is read on an AP view",
+      "magnification": "not stated in this paper",
+      "observers": "not stated in this paper",
+      "page": "p. 34-35 (PDF 2-3)"
+    }
+  ],
+  "shared": [
+    {
+      "with": "Eisenstein S. 1977, J Bone Joint Surg 59-B (reference 2), eisenstein1977",
+      "what": "values quoted",
+      "evidence": "Table II prints Eisenstein's South African Caucasoid and Zulu means by sex at L1 to L5 beside this study's; the introduction names the study among those using plain radiography",
+      "page": "p. 33 (PDF 1); p. 34 (PDF 2); p. 35 (PDF 3)"
+    },
+    {
+      "with": "Amonoo Kuofi H. S. 1982, J Anat 135 (reference 6), amonookuofi1982",
+      "what": "values quoted",
+      "evidence": "Table II prints the Nigerian means by sex at L1 to L5; the Discussion calls the present values comparable with Nigerians",
+      "page": "p. 34 (PDF 2); p. 35 (PDF 3)"
+    },
+    {
+      "with": "Amonoo Kuofi H. S., Patel and Fatani 1990, Acta Anat 137 (reference 7); not in the list",
+      "what": "values quoted",
+      "evidence": "Table II prints the Saudi means by sex at L1 to L5; the Results cite reference 7 when calling the present values comparable with Nigerians",
+      "page": "p. 34 (PDF 2); p. 35 (PDF 3)"
+    },
+    {
+      "with": "Sudha Chhabra, Gopinathnn and Chhibber 1991, J Anat Soc India 40 (reference 9); not in the list",
+      "what": "values quoted",
+      "evidence": "Table II prints the North Indian means by sex at L1 to L5; the abstract and Results say North Indians have the greater IPD",
+      "page": "p. 33 (PDF 1); p. 34 (PDF 2); p. 35 (PDF 3)"
+    },
+    {
+      "with": "Hinck V. C., Clark and Hopkins 1966, Am J Roentgenol 97 (reference 1), hinck1966",
+      "what": "method",
+      "evidence": "named, with Eisenstein 1977, among workers who used plain radiography to study canal dimensions (White Americans); no values quoted. Inference: a statement of a shared approach, not of an identical protocol",
+      "page": "p. 33-34 (PDF 1-2)"
+    },
+    {
+      "with": "Piera V. et al. 1988, Acta Anat 131 (reference 8); not in the list",
+      "what": "method",
+      "evidence": "named among studies of lumbar canal dimensions by the radiographic method (Spanish); no values quoted. Inference: a shared approach, not an identical protocol",
+      "page": "p. 34 (PDF 2)"
+    }
+  ],
+  "within_paper": "One set of subjects: every value of this paper's own comes from the same 300 AP radiographs (p. 34, PDF 2); the 'Present study (sonepat District)' rows of Table II repeat the Table I means (p. 35, PDF 3), and the Abstract and Conclusion counts restate the Methods sample (p. 33, PDF 1; p. 35, PDF 3). The five quoted series of Table II are other studies' subjects, distinct from this paper's; the paper states no overlap among them. The two Eisenstein rows are two groups of one study."
+}

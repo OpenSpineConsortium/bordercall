@@ -1,0 +1,331 @@
+{
+  "id": "olsewski1990",
+  "citation": "Olsewski JM, Simmons EH, Kallen FC, Mendel FC, Severin CM, Berens DL. Morphometry of the Lumbar Spine: Anatomical Perspectives Related to Transpedicular Fixation. J Bone Joint Surg Am 1990;72-A(4):541-549 (April 1990). Departments of Orthopaedic Surgery and Anatomical Sciences, SUNY at Buffalo. Copy read: greg's upload of 2026-10-28 01:02 UTC (upload id 67fff754-4c64-40f5-9e16-30114c8c3d2b), sha256 begins ebd2926b3d62cc5a; source thread \"Reread every paper for clinical detail\", project symphony_4, 2026-10-28.",
+  "population": "Buffalo, New York, USA; no race or ethnicity, height or weight reported. Part 1: lumbosacral spines of 49 embalmed cadavers (24 men aged 60-90, mean 74; 25 women aged 60-98, mean 77), both pedicles L1-L5 measured directly (p. 542, PDF 2). Part 2: 21 of these spines (12 men, 9 women), said to be chosen at random, radiographed disarticulated (p. 543, PDF 3), sexes pooled. Part 3: 51 living patients with low-back problems (23 men aged 20-49, mean 35; 28 women aged 21-50, mean 38), Buffalo General Hospital, plain films and routine CT; patients with a gross lumbosacral abnormality on the radiograph excluded, number not given (p. 543, PDF 3). Table n counts pedicles (Inference: maxima 47 of 48 male L5, 42 = 21 x 2, 46 = 23 x 2, 56 = 28 x 2); Table I cells 24-47 pedicles, women never more than 39 of 50.",
+  "modality": "Part 1: vernier caliper (+/-0.1 mm) and protractor (+/-1 deg) under a Wild Heerbrugg dissecting microscope with a gridded Plexiglas stage, one investigator, mean of three trials (pp. 541-543, PDF 1-3). Part 2: AP, lateral and transverse (axial) radiographs of disarticulated spines, no measurable magnification, 47 in (119.4 cm) target-film, 0.6 mm focal spot (p. 543, PDF 3). Part 3: AP and decubitus lateral radiographs (diameters x0.93 for 108 percent magnification) and Siemens Somatom DRH CT, contiguous 4 mm cuts parallel to the superior end-plates through mid-pedicle where possible (distances x1.82 for scans read at 0.55 scale); angles uncorrected (pp. 543-544, PDF 3-4).",
+  "levels_covered": "L1 to L5 only; no thoracic, sacral or cervical level; T12/L1 not studied; L5/S1 only as a CT gantry problem. Level identification method not stated; no word on transitional segments. Part 3 CT has no L1 (routine low-back scans usually omitted it) and only 2 male and 6 female pedicles at L2 (p. 546, PDF 6; Table III).",
+  "anomalies": [
+    {
+      "variant": "Lumbosacral transitional vertebra, sacralisation, lumbarisation, L6, T13, rib count anomalies, cervical ribs, block vertebrae",
+      "finding": "Not mentioned anywhere; no prevalence, no denominator; numbering method not stated.",
+      "page": "pp. 541-549 (PDF 1-9)"
+    },
+    {
+      "variant": "Gross lumbosacral abnormality (undefined)",
+      "finding": "Patients whose radiograph showed one were excluded from Part 3; number excluded and kind not given. Inference: LSTV may or may not have been excluded as 'gross'.",
+      "page": "p. 543 (PDF 3)",
+      "population": "Part 3 living patients, Buffalo",
+      "how_identified": "Plain radiograph, unspecified"
+    },
+    {
+      "variant": "Caudad-directed pedicle axis, L1-L4 (sagittal plane)",
+      "finding": "6 caudad pedicles in 5 vertebrae: L1 man -4 deg, L2 woman -3, L3 woman -4 and -5 (same vertebra), L3 woman -12, L3 man -8; in 4 of the 5 vertebrae the other pedicle was cephalad. Inference: 6 of about 283 L1-L4 pedicles with a sagittal angle (277 cephalad in Table I plus 6). Excluded from the means.",
+      "page": "p. 545 (PDF 5); Table I p. 544 (PDF 4)",
+      "population": "Part 1, 49 elderly embalmed cadaver spines (24 men, 25 women)",
+      "how_identified": "Protractor, vertebra on its side with pedicles superimposed (lateral-radiograph orientation)"
+    },
+    {
+      "variant": "Caudad-directed pedicle axis, L5",
+      "finding": "8 of 46 male and 4 of 37 female L5 pedicles caudad (mean -8 +/- 5 and -9 +/- 5 deg; Table I prints the female value without a minus sign), 12 of 83 pooled (14 percent, Inference); both pedicles of every L5 went the same way, so 4 male and 2 female vertebrae, 6 of about 42 (Inference).",
+      "page": "Table I p. 544 (PDF 4); p. 545 (PDF 5)",
+      "population": "Part 1, 49 elderly embalmed cadaver spines",
+      "how_identified": "Protractor in lateral-radiograph orientation; reported separately from cephalad"
+    },
+    {
+      "variant": "Caudad-directed pedicle axis, Part 2 subset",
+      "finding": "L1-L3: 5 caudad pedicles (L1 -4 direct/-5 radiographic, L2 -3/-6, L3 -4 and -5 direct/-6 radiographic, L3 -8 by both); text says 3 of 'the five vertebrae' had a cephalad partner (Inference: 3 of 4). L5: 12 of 42 pedicles caudad (direct -9 +/- 5, radiographic -10 +/- 5). Inference: these are the same pedicles as in Part 1, so the 21 'random' spines hold all 6 caudad L5 vertebrae (chance about 0.4 percent under random selection).",
+      "page": "p. 545 (PDF 5); Table II p. 544 (PDF 4)",
+      "population": "Part 2, 21 cadaver spines (12 men, 9 women)",
+      "how_identified": "Lateral radiograph of disarticulated spine and direct protractor"
+    },
+    {
+      "variant": "Caudad-directed pedicle axis, living young adults",
+      "finding": "6 caudad pedicles at L1 (two each at -3, -4, -5 deg, each pair from one patient, so 3 patients) and 2 at L5 (both -15, one patient); excluded from Table III means. Inference: L5 caudad in 2 of 94 pedicles (1 of 47 patients), far fewer than in elderly cadavers (12 of 83).",
+      "page": "p. 546 (PDF 6); Table III p. 545 (PDF 5)",
+      "population": "Part 3, 51 living patients aged 20-50 (23 men, 28 women)",
+      "how_identified": "Lateral radiograph (decubitus)"
+    },
+    {
+      "variant": "Caudad sagittal angles in other series",
+      "finding": "Zindrick et al. found an increased incidence of caudad sagittal angles at all lumbar levels.",
+      "page": "p. 546 (PDF 6)"
+    }
+  ],
+  "measures": [
+    {
+      "name": "Transverse diameter of the pedicle (pedicle width)",
+      "definition": "Narrowest dimension of the pedicle in the transverse plane, outer bone to outer bone (caliper); Fig. 1 arrow across the pedicle between canal and lateral surface on a top view, drawn close to the vertebra's left-right axis (Inference from drawing).",
+      "projection": "Dry (embalmed, disarticulated) bone caliper; AP radiograph (oval width) in Parts 2 and 3, x0.93 in Part 3",
+      "levels": "L1-L5, both sides",
+      "level_pattern": "Rises stepwise; L1 = L2, then larger steps, largest L4 to L5. Table I men 9.5+/-2.9 (39), 9.6+/-2.2 (40), 11.7+/-2.5 (40), 14.7+/-2.7 (44), 21.1+/-3.4 (47); women 7.7+/-1.9 (34), 7.9+/-1.9 (33), 9.6+/-2.4 (34), 12.5+/-2.3 (36), 18.4+/-3.6 (39). Table II pooled direct 8.2, 8.4, 10.2, 13.2, 20.1; radiographic 8.2, 8.3, 10.0, 12.6, 16.6. Table III living men 9.0, 9.9, 11.8, 13.7, 16.7; women 6.3, 7.1, 8.2, 10.0, 13.5. Inference effect sizes (men) L1/L2 0.04, L2/L3 0.9, L3/L4 1.2, L4/L5 2.1. Only L5 is wider than tall (width/height men 0.56, 0.60, 0.73, 0.90, 1.21; women 0.50, 0.52, 0.64, 0.84, 1.14).",
+      "ct_mask_recipe": "Inference: vertebra frame from the body's superior end-plate and the median plane (canal centre, spinous process); pedicle = bony bridge of the posterior-element subregion between the posterior body wall and the origins of the transverse and articular processes; narrowest mediolateral chord in axial sections, outer cortex. State whether perpendicular to the pedicle axis or to the median plane: at L5 (17-23 deg here, about 30 elsewhere) they differ by 1/cos, about 1-3 mm.",
+      "radiograph_recipe": "AP radiograph: width of the pedicle oval after magnification correction. L5 is read 3.5 mm low (16.6 vs 20.1, Table II) even with no magnification; authors link it tentatively to an unclear lateral L5 border (p. 548). Lateral: not possible.",
+      "covariates": "Women significantly smaller at every level (Tables I, III). Men exceed women by 15-23 percent of the women's value in cadavers, 24-44 percent in the living (Inference). No height, weight or race. Men's widths exceed every earlier pooled-sex series (p. 546; Fig. 7).",
+      "error": "Caliper +/-0.1 mm, mean of three trials, one observer; no repeatability study. Radiograph minus direct 0, -0.1, -0.2, -0.6, -3.5 mm L1-L5 (L5 significant; Table II, Inference by subtraction). Between-subject SD 1.2-3.7 mm.",
+      "page": "p. 542 (PDF 2) Fig. 1; p. 543 (PDF 3); Table I and II p. 544 (PDF 4); Table III p. 545 (PDF 5); pp. 545-548 (PDF 5-8); Fig. 7 p. 546 (PDF 6)"
+    },
+    {
+      "name": "Sagittal diameter of the pedicle (pedicle height)",
+      "definition": "Narrowest dimension of the pedicle in the sagittal plane; Fig. 2 side view, vertical arrow across the pedicle between the superior and inferior vertebral notches.",
+      "projection": "Dry bone caliper; AP radiograph (oval height) in Parts 2 and 3, x0.93 in Part 3",
+      "levels": "L1-L5, both sides",
+      "level_pattern": "Direct: nearly flat, greatest at L5 in both sexes (text p. 544). Table I men 17.0+/-1.7 (38), 16.0+/-2.2 (39), 16.1+/-2.1 (42), 16.4+/-2.5 (42), 17.4+/-3.4 (47); women 15.3+/-2.0 (31), 15.3+/-2.0 (32), 15.0+/-1.5 (33), 14.9+/-1.5 (36), 16.2+/-1.9 (39). Radiographic it falls to L5: Table II 18.2, 17.2, 16.9, 15.6, 13.8 (direct 16.4, 15.4, 15.4, 15.4, 16.2); Table III men 16.7, 16.8, 17.2, 16.3, 14.8, women 15.4, 15.1, 15.0, 14.2, 13.2. Separates no adjacent pair by direct measure (Inference, effect sizes <= 0.5 except women L4/L5 0.8). Other series (Fig. 8) fall to about 13-14.6 at L5.",
+      "ct_mask_recipe": "Inference: in the pedicle bridge, narrowest craniocaudal chord in parasagittal sections between the superior and inferior notch margins, outer cortex.",
+      "radiograph_recipe": "AP radiograph: height of the pedicle oval after magnification correction; reads 1.5-1.8 mm high at L1-L3 and 2.4 mm low at L5 (Table II). Inference: a lateral film also shows pedicle height (sides superimposed) but was not used.",
+      "covariates": "Women significantly smaller at every level except L2 in cadavers (16.0 vs 15.3 n.s.; p. 544) and at every level in the living. Men 4.6-11 percent larger in cadavers, 8-15 percent in the living (Inference). Men's heights exceed every earlier series (p. 546; Fig. 8).",
+      "error": "Caliper +/-0.1 mm; SD 1.3-3.4 mm; radiograph minus direct +1.8, +1.8, +1.5, +0.2, -2.4 mm (L1-L3 and L5 significant; Table II).",
+      "page": "p. 542 (PDF 2) Fig. 2; Tables I-II p. 544 (PDF 4); Table III p. 545 (PDF 5); pp. 545-546 (PDF 5-6); Fig. 8 p. 546 (PDF 6)"
+    },
+    {
+      "name": "Transverse angle of the pedicle",
+      "definition": "Angle between a line along the central axis of the pedicle and a line parallel to the median plane of the vertebra, in the transverse plane; Fig. 4 shows the axis converging on the midline anteriorly; no sign convention, all values positive. Direct: vertebra viewed from above with its median plane on the stage's vertical grid line and tilted until the posterior-inferior body corner is just hidden.",
+      "projection": "Dry bone protractor under microscope; transverse (axial) radiograph of disarticulated vertebra (Part 2); axial CT parallel to the superior end-plate (Part 3)",
+      "levels": "L1-L5 (CT L2-L5 only)",
+      "level_pattern": "Flat L1-L3, rise at L4, largest at L5. Table I men 7+/-2 (37), 7+/-2 (35), 8+/-2 (42), 11+/-4 (44), 17+/-7 (45); women 5+/-2 (29), 6+/-2 (29), 7+/-2 (33), 10+/-4 (36), 18+/-8 (37). Table II direct 6, 6, 7, 11, 22; radiographic 6, 8, 13, 16, 29. Table III CT men 9 (2), 11 (24), 13 (34), 23 (34); women 10 (6), 12 (43), 13 (46), 23 (46) at L2-L5. Inference effect sizes men L1/L2 0, L2/L3 0.5, L3/L4 1.0, L4/L5 1.1. About 9-14 deg below Krag, Zindrick and Berry at L5 (Fig. 9).",
+      "ct_mask_recipe": "Inference: fit the pedicle axis (centroids of successive cross-sections of the pedicle bridge into the body), project on the vertebra's axial plane, angle to the vertebra's own median plane (canal, spinous process, body symmetry), never the scanner's.",
+      "radiograph_recipe": "Not from AP or lateral in vivo; CT or an axial projection of an isolated vertebra. Radiographic axial projection reads 2-7 deg larger than bone at L2-L5 (Table II).",
+      "covariates": "Women smaller only at L1-L2 in cadavers (1-2 deg, called probably of no clinical importance, p. 547); no sex difference in the living. Age and method confounded.",
+      "error": "Protractor +/-1 deg; SD 1-8 deg, largest at L5; radiograph minus direct 0, +2, +6, +5, +7 deg (L2-L5 significant); CT gantry not always parallel at L5-S1.",
+      "page": "pp. 542-543 (PDF 2-3) Fig. 4; Tables I-II p. 544 (PDF 4); Table III p. 545 (PDF 5); pp. 545-547 (PDF 5-7); Fig. 9 p. 547 (PDF 7)"
+    },
+    {
+      "name": "Sagittal angle of the pedicle",
+      "definition": "Angle between a line along the central axis of the pedicle and a line parallel to the superior end-plate, in the sagittal plane; positive if cephalad, negative if caudad. Direct: vertebra on its side, superior end-plate on a horizontal grid line, far pedicle superimposed behind the near one to copy an ideal lateral radiograph, then reversed. Fig. 5 draws the axis rising toward the anterior-superior body corner (Inference: cephalad = anterior end higher).",
+      "projection": "Dry bone protractor in lateral orientation; lateral radiograph (Parts 2 and 3)",
+      "levels": "L1-L5",
+      "level_pattern": "Flat +5 to +7 deg cephalad at L1-L4 in all series; L5 bimodal, both pedicles of an L5 the same way. Table I men 5+/-1, 6, 6, 6, L5 +5+/-2 (38) and -8+/-5 (8); women 6, 5, 6, 7, L5 +8+/-3 (33) and 9+/-5 printed without minus (4; text -9). Table II direct 6, 6, 6, 7, L5 7 (30) and -9 (12); radiographic 7, 6, 7, 8, L5 7 (30) and -10 (12). Table III men 7, 6, 7, 7, 7; women 6, 6, 6, 6, 5 (caudad excluded). Does not separate L1-L4. Other series fall toward 0 or -3 at L3-L5 (Fig. 10).",
+      "ct_mask_recipe": "Inference: project the pedicle axis on the vertebra's sagittal plane and measure to the superior end-plate plane fitted to the body's upper surface; positive when the anterior end is cranial. Report cephalad and caudad separately.",
+      "radiograph_recipe": "Lateral radiograph with pedicles superimposed: angle of the pedicle axis to the superior end-plate line (p. 543). Radiograph within about 1 deg of bone (L1 and L4 flagged significant in Table II).",
+      "covariates": "No sex difference at L1-L4; L5 cephalad larger in cadaver women (8 vs 5, significant) but not in the living (5 vs 7). Caudad L5 far commoner in elderly cadavers (12 of 83 pedicles) than in young patients (2 of 94).",
+      "error": "Protractor +/-1 deg; SD 1-5 deg. Averaging cephalad and caudad L5 values algebraically gives a false picture (pp. 546-547; Fig. 10); Inference: such means would be about +2.7 (men) and +6.2 (women) deg here.",
+      "page": "p. 543 (PDF 3) Fig. 5; Tables I-II p. 544 (PDF 4); Table III p. 545 (PDF 5); pp. 545-547 (PDF 5-7); Fig. 10 p. 547 (PDF 7)"
+    },
+    {
+      "name": "Posterior-to-anterior distance along the pedicle axis (screw-path length)",
+      "definition": "Shortest distance from the posterior aspect of the laminar cortex to the anterior aspect of the cortex of the vertebral body along a line through the middle of the pedicle, the same line as the transverse angle; Fig. 6 starts it at the posterior cortex at the transverse process / superior articular process junction and ends it on the anterior body cortex, converging medially.",
+      "projection": "Dry bone vernier caliper under microscope; transverse radiograph (Part 2); axial CT x1.82 (Part 3)",
+      "levels": "L1-L5 (CT L2-L5 only)",
+      "level_pattern": "Shortest at L1, maximum at L4, drop at L5 (L1 vs L4 significant). Table I men 45.0+/-2.7 (31), 46.8+/-3.2 (33), 49.0+/-3.8 (40), 50.4+/-4.6 (41), 46.2+/-4.0 (45); women 42.5+/-2.6 (24), 43.5+/-3.0 (26), 44.8+/-2.6 (31), 45.9+/-3.0 (34), 42.3+/-4.0 (37). Table II direct 43.3, 45.0, 46.7, 47.3, 44.0; radiographic 45.8, 49.2, 51.7, 55.3, 49.2 (no n at L5). Table III CT men 53.3 (2), 53.3 (24), 55.4 (34), 52.0 (34); women 49.7 (6), 47.0 (41), 50.2 (46), 46.0 (46) at L2-L5. Krag, Zindrick and Berry put the maximum at L2 (p. 547). Inference: L4/L5 drop about one SD is the one usable step.",
+      "ct_mask_recipe": "Inference: extend the fitted pedicle axis (axial projection, or 3D) through the whole instance; chord from its posterior exit at the arch surface to its anterior exit at the body surface; keep the shortest among lines through the pedicle mid-section. Needs body and posterior elements joined.",
+      "radiograph_recipe": "Not from AP or lateral in vivo; CT or axial projection of an isolated vertebra. Radiographs read 2.5-8.0 mm long (Table II).",
+      "covariates": "Women 2.5-4.5 mm shorter in cadavers (Table I; text says 2.5-5.0 mm); 3.6-6.3 mm shorter on CT in the living (significant at L3-L5). No size covariate.",
+      "error": "Caliper +/-0.1 mm; SD 2.6-5.8 mm; radiograph minus direct +2.5, +4.2, +5.0, +8.0, +5.2 mm (all significant); CT scale corrected by 1.82.",
+      "page": "pp. 542-543 (PDF 2-3) Fig. 6; Tables I-II p. 544 (PDF 4); Table III p. 545 (PDF 5); pp. 545-548 (PDF 5-8); Fig. 11 p. 547 (PDF 7)"
+    }
+  ],
+  "level_details": [
+    {
+      "level": "L1",
+      "detail": "Shortest screw path (45.0 men, 42.5 women); width equal to L2; width/height about 0.5-0.56, tallest-narrowest lumbar pedicle; transverse angle 5-7 deg, women smaller; no CT data (routine low-back CT usually omitted L1); 3 young patients had both L1 pedicles caudad.",
+      "page": "p. 545 (PDF 5); p. 546 (PDF 6); Tables I, III"
+    },
+    {
+      "level": "L2",
+      "detail": "Width barely above L1; in cadavers the only level whose sagittal diameter did not differ significantly by sex (16.0 vs 15.3); women's transverse angle smaller in cadavers; CT only 2 male and 6 female pedicles.",
+      "page": "p. 544 (PDF 4); p. 545 (PDF 5); Table III"
+    },
+    {
+      "level": "L3",
+      "detail": "Most caudad pedicles in cadavers (4 of 6 at L1-L4); first clear widening (men 11.7, women 9.6).",
+      "page": "p. 545 (PDF 5); Table I"
+    },
+    {
+      "level": "L4",
+      "detail": "Longest screw path (50.4 men, 45.9 women), against earlier studies' L2 maximum; transverse angle rises to 10-11 deg (13 on CT).",
+      "page": "p. 545 (PDF 5); p. 547 (PDF 7); Tables I, III"
+    },
+    {
+      "level": "L5",
+      "detail": "Widest pedicle (21.1 men, 18.4 women) and greatest height; the only level wider than tall; largest transverse angle (17 men, 18 women; 22 in Table II; 23 on CT); bimodal sagittal angle, caudad in about one in seven cadaver pedicles, both pedicles the same way; screw path shorter than L4; AP films underestimate width and height (16.6 vs 20.1; 13.8 vs 16.2).",
+      "page": "pp. 544-545 (PDF 4-5); p. 548 (PDF 8); Tables I-III"
+    },
+    {
+      "level": "L5/S1",
+      "detail": "CT gantry could not always be set parallel to the end-plates there, so L5 axial angles and distances carry extra error.",
+      "page": "p. 543 (PDF 3)"
+    },
+    {
+      "level": "T12/L1, C2/C3, C7/T1",
+      "detail": "Not covered.",
+      "page": "pp. 541-549 (PDF 1-9)"
+    }
+  ],
+  "errors": [
+    {
+      "what": "Instrument resolution, called the error of measurement",
+      "value": "Caliper +/-0.1 mm, protractor +/-1 deg; one investigator; mean of three trials; no intra- or inter-observer study, no ICC",
+      "page": "pp. 541-542 (PDF 1-2)"
+    },
+    {
+      "what": "Radiograph minus direct, width (21 spines, pooled)",
+      "value": "0, -0.1, -0.2, -0.6, -3.5 mm L1-L5; only L5 significant",
+      "page": "Table II p. 544 (PDF 4); p. 545 (PDF 5)"
+    },
+    {
+      "what": "Radiograph minus direct, height",
+      "value": "+1.8, +1.8, +1.5, +0.2, -2.4 mm L1-L5; L1-L3 and L5 significant",
+      "page": "Table II p. 544 (PDF 4); p. 545 (PDF 5)"
+    },
+    {
+      "what": "Radiograph minus direct, transverse angle",
+      "value": "0, +2, +6, +5, +7 deg L1-L5; L2-L5 significant",
+      "page": "Table II p. 544 (PDF 4); p. 545 (PDF 5)"
+    },
+    {
+      "what": "Radiograph minus direct, sagittal angle",
+      "value": "Within about 1 deg at every level; L1 and L4 flagged significant in the table, called only slight in the text",
+      "page": "Table II p. 544 (PDF 4); p. 545 (PDF 5)"
+    },
+    {
+      "what": "Radiograph minus direct, distance",
+      "value": "+2.5, +4.2, +5.0, +8.0, +5.2 mm L1-L5; all significant",
+      "page": "Table II p. 544 (PDF 4); p. 546 (PDF 6)"
+    },
+    {
+      "what": "Magnification, clinical AP film",
+      "value": "100 mm read 108 mm; diameters x0.93",
+      "page": "p. 544 (PDF 4)"
+    },
+    {
+      "what": "Scale, clinical CT",
+      "value": "100 mm read 55 mm on the scans; distances x1.82; angles uncorrected",
+      "page": "p. 544 (PDF 4)"
+    },
+    {
+      "what": "CT slice geometry",
+      "value": "Contiguous 4 mm cuts, mid-pedicle only where possible; gantry not always parallel at L5-S1",
+      "page": "p. 543 (PDF 3)"
+    },
+    {
+      "what": "Between-subject SD",
+      "value": "Width 1.2-3.7 mm, height 1.3-3.4 mm, transverse angle 1-8 deg, sagittal angle 1-5 deg, distance 2.6-5.8 mm (0.6 mm at CT L2 men from 2 pedicles only)",
+      "page": "Tables I-III pp. 544-545 (PDF 4-5)"
+    }
+  ],
+  "pearls_pitfalls": [
+    {
+      "text": "Indications: pedicle screws hold even in osteoporotic vertebrae until fusion; scoliosis systems suit the lordotic lumbar spine poorly; most fusion patients are over fifty and often osteoporotic; wide laminectomy for stenosis can destabilise without fusion; lateral fusion after wide decompression with facets sacrificed often fails without internal fixation.",
+      "page": "p. 541 (PDF 1)"
+    },
+    {
+      "text": "Sex is the major new observation: dimensions smaller in women, angles nearly equal; earlier norms pooled the sexes and men's widths and heights here exceed every earlier series (Inference: pooled norms understate men and overstate women).",
+      "page": "pp. 546-547 (PDF 6-7); Figs. 7-8"
+    },
+    {
+      "text": "Men's pedicles may safely take substantially larger screws than earlier data implied; benefit unproved, but the data should set sex-specific upper limits above which the pedicle may break or the screw cut out.",
+      "page": "pp. 547-548 (PDF 7-8)"
+    },
+    {
+      "text": "Pedicles are oval and narrowest in the transverse plane except at L5, so width limits screw diameter at L1-L4 and height at L5.",
+      "page": "p. 547 (PDF 7); Table I"
+    },
+    {
+      "text": "Screw length: the laminar-to-anterior-body distance guards against anterior cortical perforation and injury to vital structures; it is 2.5-5.0 mm shorter in women.",
+      "page": "pp. 547-548 (PDF 7-8)"
+    },
+    {
+      "text": "Pitfall: radiographs and CT can differ significantly from bone even with no detectable magnification; at L5 the AP film understates width even on a disarticulated spine, possibly because the lateral L5 pedicle border is unclear (van Schaik).",
+      "page": "p. 548 (PDF 8)"
+    },
+    {
+      "text": "Pitfall: radiographic distances exceed bone by 2.5-8.0 mm and radiographic transverse angles by up to 7 deg; in vivo CT distances exceed cadaver caliper distances (Inference) - planning from images without allowance risks anterior breach.",
+      "page": "Table II p. 544 (PDF 4); p. 546 (PDF 6); Table III"
+    },
+    {
+      "text": "Pitfall: compute L5 sagittal angle means separately for cephalad and caudad pedicles; an algebraic mean misrepresents real patients.",
+      "page": "pp. 546-547 (PDF 6-7); Fig. 10"
+    },
+    {
+      "text": "Pitfall: routine low-back CT usually omits L1; CT gantry may not be parallel at L5-S1.",
+      "page": "p. 546 (PDF 6); p. 543 (PDF 3)"
+    },
+    {
+      "text": "Transverse angles here are substantially smaller than in every earlier series but Saillant's, and smaller than Saillant's at L5.",
+      "page": "p. 546 (PDF 6); Fig. 9"
+    },
+    {
+      "text": "No stenosis thresholds, canal measures, syndromes or safe zones are given.",
+      "page": "pp. 541-549 (PDF 1-9)"
+    }
+  ],
+  "instructions": [
+    {
+      "text": "On an AP radiograph measure each lumbar pedicle oval's width and height and correct for magnification (0.93 at 108 percent here) before comparing with norms.",
+      "page": "p. 544 (PDF 4)"
+    },
+    {
+      "text": "Use width/height to find L5, the only lumbar pedicle wider than tall; Inference: expect about 0.4-0.6 at L1-L2, 0.55-0.75 at L3, 0.7-0.9 at L4, 1.0-1.25 at L5, and only about 1.0 at L5 in women on radiographs.",
+      "page": "Table I p. 544 (PDF 4); Table III p. 545 (PDF 5); p. 547 (PDF 7)"
+    },
+    {
+      "text": "Do not separate L1 from L2 by pedicle width, transverse angle or sagittal angle (equal within 0.3 mm and 1 deg); use other features or the sequence.",
+      "page": "Table I p. 544 (PDF 4)"
+    },
+    {
+      "text": "Expect width to step up L2-L3-L4 and most at L4-L5 (about 6 mm, about two SDs); use L4/L5 as the strongest pedicle boundary cue.",
+      "page": "Table I p. 544 (PDF 4)"
+    },
+    {
+      "text": "Adjust width for sex or size before mapping to a level: a woman's L4 is as wide as a man's L3-L4 and her L3 as a man's L1-L2; Inference: unadjusted, a female vertebra tends to be named one level too cranial.",
+      "page": "Table I p. 544 (PDF 4); Table III p. 545 (PDF 5)"
+    },
+    {
+      "text": "Distrust AP-film L5 pedicle width and height (3.5 and 2.4 mm low against bone); Inference: a small-looking L5 pedicle on AP is still compatible with L5.",
+      "page": "Table II p. 544 (PDF 4); p. 548 (PDF 8)"
+    },
+    {
+      "text": "On the lateral film measure the sagittal angle to the superior end-plate with pedicles superimposed; expect +5 to +7 at L1-L4 (not discriminating); at L5 expect two populations, about +5/+8 and -8/-10, never averaged.",
+      "page": "p. 543 (PDF 3); pp. 545-547 (PDF 5-7)"
+    },
+    {
+      "text": "On axial CT cut parallel to the superior end-plate and measure the transverse angle to the vertebra's own median plane; expect 5-8 deg at L1-L3, 10-13 at L4, 17-23 at L5; check slice orientation at L5-S1.",
+      "page": "Tables I, III; p. 543 (PDF 3)"
+    },
+    {
+      "text": "On axial CT measure the screw path from the posterior laminar cortex through mid-pedicle to the anterior body cortex; expect a rise from L1 to a maximum at L4 and a drop at L5; correct the film scale and expect image values 2.5-8 mm above bone.",
+      "page": "Table I-II p. 544 (PDF 4); p. 545 (PDF 5)"
+    },
+    {
+      "text": "Check the reference series before judging an angle: this paper's L5 transverse angle is about 9-14 deg below Krag, Zindrick and Berry; about 30 deg at L5 is normal there and high here.",
+      "page": "Fig. 9 p. 547 (PDF 7); p. 546 (PDF 6)"
+    },
+    {
+      "text": "A single caudad pedicle with a cephalad partner was seen at L1-L3, while at L5 both pedicles went the same way; Inference: a caudad pedicle is not evidence for a different level, and a mixed pair argues against L5.",
+      "page": "p. 545 (PDF 5)"
+    },
+    {
+      "text": "On a low-back CT do not assume the top vertebra is L1 (such scans usually omitted it); Inference: count from the sacrum and confirm with a scout or wider field.",
+      "page": "p. 546 (PDF 6)"
+    },
+    {
+      "text": "Use modality- and sex-matched norms: CT distances in the living (46-55 mm) exceed cadaver caliper distances (42-50 mm), radiographic transverse angles exceed bone by up to 7 deg, and the sex gap in width is larger in the living.",
+      "page": "Tables I-III pp. 544-545 (PDF 4-5)"
+    }
+  ],
+  "bordercall": [
+    "(a) Anomaly priors: none for numbering; no LSTV, L6, T13, rib or block prevalence and no numbering method. Only a pedicle-orientation prior: L5 caudad in 12 of 83 elderly cadaver pedicles (8/46 men, 4/37 women; 6 of about 42 vertebrae; both pedicles alike) and 2 of 94 young living pedicles (one patient); L1-L4 caudad in 6 of about 283 cadaver pedicles and 6 living L1 pedicles (3 patients). Inference: draw L5 sagittal angle from a two-component mixture (caudad weight about 0.15 elderly, 0.02 young); do not let a caudad pedicle move the level likelihood.",
+    "(b) Measures: transverse diameter = Panjabi PDW, sagittal diameter = PDH (both narrowest/outer bone; Panjabi's section location unstated). Transverse angle = Panjabi PDIs and sagittal angle = PDIt: names swapped between papers, map by plane. Panjabi PDIs runs about 7 deg above this paper (14.5 L1 to 24.5 L5 vs 7 and 17-18); Panjabi PDIt drawn posterior end higher vs Olsewski cephalad = anterior end higher, so signs may be opposite. Both papers have pedicle height rising at L5 (19.6 Panjabi; 17.4/16.2 here) while Zindrick, Berry and this paper's radiographs fall. Screw-path length is not a Panjabi measure; it could be added as one chord along the fitted pedicle axis (L4/L5 drop about one SD). Mask biases (Inference): width along the vertebra x axis reads 1/cos(angle) wide, up to about 3 mm at L5; one-voxel boundary error is 6-12 percent of an 8 mm L1 pedicle; the body/arch cut moves the narrowest section where SPINEPS gives no pedicle label; mask axes are 3D while these angles are 2D projections on end-plate and median planes.",
+    "(c) Error: instrument resolution 0.1 mm and 1 deg only, no repeatability. Radiograph-derived biases (Table II): width 0 to -0.6 mm L1-L4, -3.5 L5; height +1.5 to +1.8 L1-L3, +0.2 L4, -2.4 L5; transverse angle 0 to +7 deg; distance +2.5 to +8.0 mm. Width SD grows with level, 1.9-2.9 at L1 to 3.4-3.7 at L5.",
+    "(d) Covariates: sex only; men's linear dimensions exceed women's by about 5-23 percent in elderly cadavers and up to 44 percent (width) in young living patients, angles nearly equal. No height, weight or race; age confounded with method. Inference: let sex scale pedicle width separately from the global size factor, since the width gap exceeds the height and distance gaps."
+  ],
+  "gaps": [
+    "No level-identification method, no transitional anatomy, no anomaly exclusions in cadavers; Part 3 excluded gross abnormalities uncounted and undefined.",
+    "No ethnicity, height or weight; no race groups exist in this paper despite expectation.",
+    "n per cell varies without reason; women's Table I cells never exceed 39 of 50 pedicles; pedicles of one spine treated as independent; Table II radiographic L5 distance has no n.",
+    "Methods promise pooled between-level t tests and an ANOVA across the three parts; no result of either is reported. Whether the Table II t test was paired is not stated.",
+    "Table I women's L5 caudad sagittal angle printed 9 +/- 5 without minus; text gives -9 (p. 545).",
+    "Text vs table: sex gap in distance 2.5-5.0 mm in text (pp. 547-548) vs 2.5-4.5 mm in Table I.",
+    "Abstract '5 to 20 per cent': fits gaps taken as a share of the men's value (4.4-19 percent, Table I); widths are 15-23 percent as a share of the women's value and the living series reaches 30 percent of men's width (Inference). Abstract's radiograph/CT 'from the second to the fifth' ignores the significant L1 distance and the fact that CT was never compared with bone; abstract implies all 49 spines were radiographed, only 21 were.",
+    "Part 2 text: five caudad L1-L3 pedicles lie in four vertebrae, yet it speaks of three of 'the five vertebrae' (Inference: three of four).",
+    "The 21 'random' spines hold all 12 caudad L5 pedicles and 5 of 6 caudad L1-L4 pedicles of the 49 (Inference from matching values); random selection would do this for the L5s with about 0.4 percent probability.",
+    "Table II direct L5 transverse angle 22 +/- 5 (42) vs Table I 17 +/- 7 men and 18 +/- 8 women for the cohort that contains them (Inference: the other pedicles would need to average about 13 deg).",
+    "Table II flags radiographic sagittal angle at L1 and L4 as significant; text calls the differences slight at all levels.",
+    "Authors say their algebraic L5 sagittal mean resembles published values (Fig. 10 about -3 deg); from Table I it would be about +2.7 (men) and +6.2 (women) deg (Inference).",
+    "Women's L5 sagittal counts (33 + 4 = 37) are odd though both pedicles of each L5 went the same way: one female L5 contributed one pedicle (Inference).",
+    "Figs. 7-11 label this study 'Olsewski 1988'.",
+    "Discussion claims good agreement with Saillant except at L5, but Fig. 9 shows Saillant at about 0, 2 and 5 deg at L1-L3 vs 5-8 here.",
+    "Fig. 8: earlier series show pedicle height falling to L5, this paper's direct values rise there; Fig. 11: published screw-path distances span about 38-52 mm (Krag lowest, Zindrick flat about 50-52) (approximate readings).",
+    "Against other notes (Inference): Zindrick 1987 L5 width 18.0, angle 29.8, flat depth 50-52 peaking L2-L3; Panjabi 1992 PDIs about 7 deg higher at every level and twice this paper's at L1; Krag L5 width about 13.8-13.9 (Panjabi Table 6 / krag1988 note) while this paper's Fig. 7 plots Krag 1986 at about 15; Fig. 10 plots Zindrick L5 sagittal about -3 vs his printed -1.8.",
+    "Elderly embalmed specimens only for bone values; osteophytes and age change at the pedicle base not discussed; age confounded with method between Parts 1 and 3."
+  ]
+}

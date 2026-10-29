@@ -1,0 +1,670 @@
+{
+  "paper": "ahmed2019",
+  "cohorts": [
+    {
+      "cohort": "telangana_mri",
+      "labels": [
+        "male",
+        "female",
+        "all",
+        "all / males vs females",
+        "all / male vs female",
+        "male / MRI study of symptomatic adults; Indian",
+        "female / MRI study of symptomatic adults; Indian"
+      ],
+      "tables": [
+        "Table 1",
+        "Table 2",
+        "Table 3",
+        "Table No.4",
+        "Text: Abstract",
+        "Text: Materials and Methods",
+        "Text: Results",
+        "Text: Discussion"
+      ],
+      "subjects": "Living symptomatic adults (low back pain with or without radiculopathy) referred for lumbar MRI to the Department of Radiology, Chalmeda Anand Rao Institute of Medical Sciences, Karimnagar, Telangana, India, June 2017 to October 2018; all consented; Telangana state population, ethnicity not otherwise stated. Excluded: age under 20, previous lumbar spine surgery, vertebral trauma, tumours, infections, congenital anomalies (number excluded not stated). Cross-sectional study.",
+      "n_people": 80,
+      "n_units": "80 people, L1 to L5 each (two diameters per level)",
+      "ages": "20-70 years (range only; no mean)",
+      "sexes": "36 male, 44 female",
+      "page": "p. 21 (PDF 1) abstract; p. 22 (PDF 2) methods and results"
+    },
+    {
+      "cohort": "example_subject",
+      "labels": [
+        "female / example subject"
+      ],
+      "tables": [
+        "Figure 1",
+        "Figure 2"
+      ],
+      "subjects": "One patient whose sagittal and axial T2 images illustrate the two measurements; the scanner overlay prints F and 040Y. Inference: one of the 80 study subjects (the paper does not say); both figures carry the same overlay identifier and study date, so one person.",
+      "n_people": 1,
+      "n_units": "1 person, 5 sagittal measurements (L1 to L5 by order) and 1 axial (L1)",
+      "ages": "40 years (overlay)",
+      "sexes": "female (overlay)",
+      "page": "p. 23 (PDF 3)"
+    },
+    {
+      "cohort": "amonookuofi_1985_cadaveric",
+      "labels": [
+        "male / Cadaveric study; Nigerian",
+        "female / Cadaveric study; Nigerian"
+      ],
+      "tables": [
+        "Table 3"
+      ],
+      "subjects": "Nigerian cadaveric specimens as Table 3 labels Amonoo-Kuofi [7]; values quoted, not measured here",
+      "n_people": null,
+      "n_units": "not printed in this paper",
+      "ages": "not printed in this paper",
+      "sexes": "male and female columns",
+      "page": "p. 25 (PDF 5)"
+    },
+    {
+      "cohort": "elrakhawy_cadaveric",
+      "labels": [
+        "male / Cadaveric study; Egyptian",
+        "female / Cadaveric study; Egyptian"
+      ],
+      "tables": [
+        "Table 3"
+      ],
+      "subjects": "Egyptian cadaveric specimens as Table 3 labels El-Rakhawy et al. [9]; values quoted",
+      "n_people": null,
+      "n_units": "not printed in this paper",
+      "ages": "not printed in this paper",
+      "sexes": "male and female columns",
+      "page": "p. 25 (PDF 5)"
+    },
+    {
+      "cohort": "alanazi_ct",
+      "labels": [
+        "male / CT study of normal adults; Saudi",
+        "female / CT study of normal adults; Saudi"
+      ],
+      "tables": [
+        "Table 3"
+      ],
+      "subjects": "Saudi normal adults studied by CT, Al-Anazi [10]; L3 to L5 only; values quoted",
+      "n_people": null,
+      "n_units": "not printed in this paper",
+      "ages": "not printed in this paper",
+      "sexes": "male and female columns",
+      "page": "p. 25 (PDF 5)"
+    },
+    {
+      "cohort": "shukri_mri",
+      "labels": [
+        "male / MRI study of normal adults; Iraqi",
+        "female / MRI study of normal adults; Iraqi"
+      ],
+      "tables": [
+        "Table 3"
+      ],
+      "subjects": "Iraqi normal adults studied by MRI, cited in the table as Shukri et al [11] (reference 11 lists Imad GS et al., Sulaimani city, asymptomatic subjects); values quoted",
+      "n_people": null,
+      "n_units": "not printed in this paper",
+      "ages": "not printed in this paper",
+      "sexes": "male and female columns",
+      "page": "p. 25 (PDF 5); reference list p. 26 (PDF 6)"
+    },
+    {
+      "cohort": "varol_ct",
+      "labels": [
+        "male / CT study of symptomatic adults; Turkish",
+        "female / CT study of symptomatic adults; Turkish"
+      ],
+      "tables": [
+        "Table 3"
+      ],
+      "subjects": "Turkish symptomatic adults studied by CT, Varol et al [12]; L4 and L5 only; values quoted",
+      "n_people": null,
+      "n_units": "not printed in this paper",
+      "ages": "not printed in this paper",
+      "sexes": "male and female columns",
+      "page": "p. 25 (PDF 5)"
+    },
+    {
+      "cohort": "alam_ct",
+      "labels": [
+        "male / CT study of symptomatic adults; Pakistani",
+        "female / CT study of symptomatic adults; Pakistani"
+      ],
+      "tables": [
+        "Table 3",
+        "Table No.4"
+      ],
+      "subjects": "Pakistani symptomatic adults studied by CT, cited as Alam et al [13] in Table 3 and as M Alam et al. [13] in Table No.4, one reference (Alam M et al. 2014, Asian Spine J); its sagittal (Table 3) and transverse (Table No.4) means quoted",
+      "n_people": null,
+      "n_units": "not printed in this paper",
+      "ages": "not printed in this paper",
+      "sexes": "male and female columns",
+      "page": "p. 25 (PDF 5); reference list p. 26 (PDF 6)"
+    },
+    {
+      "cohort": "hinck_radiograph",
+      "labels": [
+        "male / Plain Radiographic study normal adults; Americans",
+        "female / Plain Radiographic study normal adults; Americans"
+      ],
+      "tables": [
+        "Table No.4"
+      ],
+      "subjects": "American normal adults, plain radiographs, Hinck et al. [4]; values quoted",
+      "n_people": null,
+      "n_units": "not printed in this paper",
+      "ages": "not printed in this paper",
+      "sexes": "male and female columns",
+      "page": "p. 25 (PDF 5)"
+    },
+    {
+      "cohort": "amonookuofi_1982_radiograph",
+      "labels": [
+        "male / Plain Radiographic study normal adults; Nigerian",
+        "female / Plain Radiographic study normal adults; Nigerian"
+      ],
+      "tables": [
+        "Table No.4"
+      ],
+      "subjects": "Nigerian normal adults, plain radiographs, Amonoo Kuofi [6]; values quoted",
+      "n_people": null,
+      "n_units": "not printed in this paper",
+      "ages": "not printed in this paper",
+      "sexes": "male and female columns",
+      "page": "p. 25 (PDF 5)"
+    },
+    {
+      "cohort": "piera_radiograph",
+      "labels": [
+        "male / Plain Radiographic study normal adults; Spanish",
+        "female / Plain Radiographic study normal adults; Spanish"
+      ],
+      "tables": [
+        "Table No.4"
+      ],
+      "subjects": "Spanish normal adults, plain radiographs, Piera et al. [17]; values quoted",
+      "n_people": null,
+      "n_units": "not printed in this paper",
+      "ages": "not printed in this paper",
+      "sexes": "male and female columns",
+      "page": "p. 25 (PDF 5)"
+    },
+    {
+      "cohort": "tacar_radiograph",
+      "labels": [
+        "male / Plain Radiographic study normal adults; Turkish",
+        "female / Plain Radiographic study normal adults; Turkish",
+        "all / male vs female; Turkish"
+      ],
+      "tables": [
+        "Table No.4",
+        "Text: Discussion"
+      ],
+      "subjects": "Turkish normal adults, plain radiographs, Tacar et al. [18]; values and a 1-1.5 mm sex difference quoted",
+      "n_people": null,
+      "n_units": "not printed in this paper",
+      "ages": "not printed in this paper",
+      "sexes": "male and female columns",
+      "page": "p. 25 (PDF 5); p. 24 (PDF 4)"
+    },
+    {
+      "cohort": "nirvan_radiograph",
+      "labels": [
+        "male / Plain Radiographic study normal adults; Indian",
+        "female / Plain Radiographic study normal adults; Indian"
+      ],
+      "tables": [
+        "Table No.4"
+      ],
+      "subjects": "Indian (Gujarat, per reference 19) normal adults, plain radiographs, Nirvan et al. [19]; values quoted",
+      "n_people": null,
+      "n_units": "not printed in this paper",
+      "ages": "not printed in this paper",
+      "sexes": "male and female columns",
+      "page": "p. 25 (PDF 5)"
+    },
+    {
+      "cohort": "kapoor_cadaveric",
+      "labels": [
+        "not stated / cadaveric; South Indian"
+      ],
+      "tables": [
+        "Text: Discussion"
+      ],
+      "subjects": "South Indian lumbar vertebrae from a cadaveric study, Kapoor et al [14]; range of level means quoted",
+      "n_people": null,
+      "n_units": "not printed in this paper",
+      "ages": "not printed in this paper",
+      "sexes": "not stated",
+      "page": "p. 23 (PDF 3)"
+    },
+    {
+      "cohort": "ullrich_ct",
+      "labels": [
+        "not stated / normal adults; CT"
+      ],
+      "tables": [
+        "Text: Introduction"
+      ],
+      "subjects": "Normal adults measured by CT, Ullrich et al [3]; a normal range quoted",
+      "n_people": null,
+      "n_units": "not printed in this paper",
+      "ages": "not printed in this paper",
+      "sexes": "not stated",
+      "page": "p. 22 (PDF 2)"
+    },
+    {
+      "cohort": "shobeiri_prevalence",
+      "labels": [
+        "not stated / patients with sciatica",
+        "not stated / patients with low back pain"
+      ],
+      "tables": [
+        "Text: Introduction"
+      ],
+      "subjects": "quoted from Shobeiri et al. 2009 [2]: patients with sciatica and patients with low back pain (an MRI study by the title of reference 2); stenosis criterion and denominators not given here",
+      "n_people": null,
+      "n_units": "not printed in this paper",
+      "ages": "not printed in this paper",
+      "sexes": "not stated",
+      "page": "p. 21 (PDF 1); reference list p. 26 (PDF 6)"
+    },
+    {
+      "cohort": "nass_prevalence",
+      "labels": [
+        "not stated / adult population"
+      ],
+      "tables": [
+        "Text: Introduction"
+      ],
+      "subjects": "quoted from the North American Spinal Society (NASS), no reference given: share of the adult population with stenosis; criterion and denominator not given here",
+      "n_people": null,
+      "n_units": "not printed in this paper",
+      "ages": "not printed in this paper",
+      "sexes": "not stated",
+      "page": "p. 21 (PDF 1)"
+    },
+    {
+      "cohort": "verbiest_thresholds",
+      "labels": [
+        "not stated / relative stenosis",
+        "not stated / absolute stenosis"
+      ],
+      "tables": [
+        "Text: Discussion"
+      ],
+      "subjects": "quoted from Verbiest 1976 [8]: cut-offs on the antero-posterior canal diameter from his computerized axial tomography work on idiopathic developmental stenosis; no subjects described here",
+      "n_people": null,
+      "n_units": "not printed in this paper",
+      "ages": "not printed in this paper",
+      "sexes": "not stated",
+      "page": "p. 23 (PDF 3)"
+    },
+    {
+      "cohort": "eisenstein_verbiest_thresholds",
+      "labels": [
+        "not stated / pathological",
+        "not stated / cauda equina compression"
+      ],
+      "tables": [
+        "Text: Discussion"
+      ],
+      "subjects": "quoted from Eisenstein [5] and Verbiest [8] together: cut-offs on the midline sagittal canal diameter; no subjects described here",
+      "n_people": null,
+      "n_units": "not printed in this paper",
+      "ages": "not printed in this paper",
+      "sexes": "not stated",
+      "page": "p. 24 (PDF 4)"
+    }
+  ],
+  "techniques": [
+    {
+      "technique": "mri_t2_midsagittal_diameter",
+      "cohorts": [
+        "telangana_mri",
+        "example_subject"
+      ],
+      "modality": "MRI",
+      "instrument": "GE Signa HDxt 1.5 T, sense spine coil, 4 mm slice thickness; sequences T2W FSE sagittal, T1W FSE sagittal, STIR coronal, T1W and T2W FSE axial, high-resolution T2 FSE drive axial with small FOV; images read in INSTARAD viewer version 1.7, values in mm. Figure 1's overlay: Sag T2, TR 2780 ms, TE 119.2 ms, ST 4.3 mm, ETL 25, 512 x 512, readout to 0.01 cm",
+      "how": "On the T2-weighted mid-sagittal image, from the midpoint of the vertebral body's posterior border (where the basivertebral vein leaves the body) to the most anterior point of the spinous process, at each of L1 to L5. How the level was numbered and how the mid-sagittal slice was chosen are not stated.",
+      "magnification": "not applicable (MRI measured in the viewer in mm); no calibration stated",
+      "observers": "not stated; no repeatability reported",
+      "page": "p. 22 (PDF 2); Figure 1, p. 23 (PDF 3)"
+    },
+    {
+      "technique": "mri_t2_axial_interpedicular",
+      "cohorts": [
+        "telangana_mri",
+        "example_subject"
+      ],
+      "modality": "MRI",
+      "instrument": "GE Signa HDxt 1.5 T, sense spine coil, 4 mm slice thickness; sequences T2W FSE sagittal, T1W FSE sagittal, STIR coronal, T1W and T2W FSE axial, high-resolution T2 FSE drive axial with small FOV; images read in INSTARAD viewer version 1.7, values in mm",
+      "how": "On the T2-weighted axial image at the mid-pedicle level, the distance between the inner borders of the two pedicles (transverse diameter, interpedicular distance), L1 to L5. Slice angulation not stated.",
+      "magnification": "not applicable (MRI measured in the viewer in mm); no calibration stated",
+      "observers": "not stated; no repeatability reported",
+      "page": "p. 22 (PDF 2); Figure 2, p. 23 (PDF 3)"
+    },
+    {
+      "technique": "amonookuofi1985_sagittal_quoted",
+      "cohorts": [
+        "amonookuofi_1985_cadaveric"
+      ],
+      "modality": "other",
+      "instrument": "not stated in this paper (Table 3: cadaveric study); Inference from the amonookuofi1985 reading in this set: sliding vernier caliper on dry vertebrae",
+      "how": "mean mid-sagittal canal diameter as quoted; landmarks not described here (amonookuofi1985 reading: midline, back of the body to the arch, at the narrowest point near the upper border)",
+      "magnification": "not applicable if dry bone; not stated here",
+      "observers": "not stated",
+      "page": "p. 25 (PDF 5)"
+    },
+    {
+      "technique": "elrakhawy_sagittal_quoted",
+      "cohorts": [
+        "elrakhawy_cadaveric"
+      ],
+      "modality": "other",
+      "instrument": "not stated in this paper (Table 3: cadaveric study)",
+      "how": "mean mid-sagittal canal diameter as quoted; landmarks not described here",
+      "magnification": "not stated",
+      "observers": "not stated",
+      "page": "p. 25 (PDF 5)"
+    },
+    {
+      "technique": "kapoor_sagittal_quoted",
+      "cohorts": [
+        "kapoor_cadaveric"
+      ],
+      "modality": "other",
+      "instrument": "not stated in this paper (text: cadaveric study of lumbar vertebrae)",
+      "how": "range of the L1 to L5 mean mid-sagittal canal diameters as quoted; landmarks not described here",
+      "magnification": "not stated",
+      "observers": "not stated",
+      "page": "p. 23 (PDF 3)"
+    },
+    {
+      "technique": "alanazi_ct_sagittal_quoted",
+      "cohorts": [
+        "alanazi_ct"
+      ],
+      "modality": "other",
+      "instrument": "CT; plane and reconstruction not stated in this paper",
+      "how": "mean mid-sagittal canal diameter as quoted; landmarks not described here",
+      "magnification": "not stated",
+      "observers": "not stated",
+      "page": "p. 25 (PDF 5)"
+    },
+    {
+      "technique": "varol_ct_sagittal_quoted",
+      "cohorts": [
+        "varol_ct"
+      ],
+      "modality": "other",
+      "instrument": "CT; plane and reconstruction not stated in this paper",
+      "how": "mean mid-sagittal canal diameter as quoted; landmarks not described here",
+      "magnification": "not stated",
+      "observers": "not stated",
+      "page": "p. 25 (PDF 5)"
+    },
+    {
+      "technique": "alam_ct_sagittal_quoted",
+      "cohorts": [
+        "alam_ct"
+      ],
+      "modality": "other",
+      "instrument": "CT; plane and reconstruction not stated in this paper",
+      "how": "mean mid-sagittal canal diameter as quoted (Table 3); landmarks not described here",
+      "magnification": "not stated",
+      "observers": "not stated",
+      "page": "p. 25 (PDF 5)"
+    },
+    {
+      "technique": "alam_ct_transverse_quoted",
+      "cohorts": [
+        "alam_ct"
+      ],
+      "modality": "other",
+      "instrument": "CT; plane and reconstruction not stated in this paper",
+      "how": "mean transverse canal diameter (interpedicular distance) as quoted (Table No.4); landmarks not described here",
+      "magnification": "not stated",
+      "observers": "not stated",
+      "page": "p. 25 (PDF 5)"
+    },
+    {
+      "technique": "ullrich_ct_sagittal_quoted",
+      "cohorts": [
+        "ullrich_ct"
+      ],
+      "modality": "other",
+      "instrument": "CT; plane and reconstruction not stated in this paper",
+      "how": "normal range of the adult sagittal canal diameter as quoted; level and landmarks not described here",
+      "magnification": "not stated",
+      "observers": "not stated",
+      "page": "p. 22 (PDF 2)"
+    },
+    {
+      "technique": "shukri_mri_sagittal_quoted",
+      "cohorts": [
+        "shukri_mri"
+      ],
+      "modality": "MRI",
+      "instrument": "not stated in this paper",
+      "how": "mean mid-sagittal canal diameter as quoted; sequence and landmarks not described here",
+      "magnification": "not stated",
+      "observers": "not stated",
+      "page": "p. 25 (PDF 5)"
+    },
+    {
+      "technique": "hinck_ipd_quoted",
+      "cohorts": [
+        "hinck_radiograph"
+      ],
+      "modality": "AP radiograph",
+      "instrument": "not stated in this paper (Table No.4: plain radiographic study); hinck1966 reading in this set: calipers on AP spine films at 40 inches target-film distance",
+      "how": "mean interpedicular distance as quoted; hinck1966 reading: the shortest distance between the medial surfaces of the pedicles",
+      "magnification": "not corrected (hinck1966 reading); not stated here",
+      "observers": "not stated",
+      "page": "p. 25 (PDF 5)"
+    },
+    {
+      "technique": "amonookuofi1982_ipd_quoted",
+      "cohorts": [
+        "amonookuofi_1982_radiograph"
+      ],
+      "modality": "AP radiograph",
+      "instrument": "not stated in this paper (Table No.4: plain radiographic study); amonookuofi1982 reading in this set: vernier calipers on AP films at 100 cm",
+      "how": "mean interpedicular distance as quoted; amonookuofi1982 reading: the shortest distance between the medial surfaces of the pedicles",
+      "magnification": "not corrected (amonookuofi1982 reading); not stated here",
+      "observers": "not stated",
+      "page": "p. 25 (PDF 5)"
+    },
+    {
+      "technique": "piera_ipd_quoted",
+      "cohorts": [
+        "piera_radiograph"
+      ],
+      "modality": "other",
+      "instrument": "not stated in this paper (Table No.4: plain radiographic study; view not stated)",
+      "how": "mean interpedicular distance as quoted; landmarks not described here",
+      "magnification": "not stated",
+      "observers": "not stated",
+      "page": "p. 25 (PDF 5)"
+    },
+    {
+      "technique": "tacar_ipd_quoted",
+      "cohorts": [
+        "tacar_radiograph"
+      ],
+      "modality": "other",
+      "instrument": "not stated in this paper (Table No.4: plain radiographic study; view not stated)",
+      "how": "mean interpedicular distance as quoted, and its male excess of 1-1.5 mm; landmarks not described here",
+      "magnification": "not stated",
+      "observers": "not stated",
+      "page": "p. 25 (PDF 5); p. 24 (PDF 4)"
+    },
+    {
+      "technique": "nirvan_ipd_quoted",
+      "cohorts": [
+        "nirvan_radiograph"
+      ],
+      "modality": "AP radiograph",
+      "instrument": "plain antero-posterior radiographs, by the title of reference 19 (p. 26, PDF 6)",
+      "how": "mean interpedicular distance as quoted; landmarks not described here",
+      "magnification": "not stated",
+      "observers": "not stated",
+      "page": "p. 25 (PDF 5)"
+    },
+    {
+      "technique": "shobeiri_prevalence_quoted",
+      "cohorts": [
+        "shobeiri_prevalence"
+      ],
+      "modality": "other",
+      "instrument": "not stated in this paper (MRI by the title of reference 2)",
+      "how": "share of patients with lumbar spinal stenosis as quoted; criterion not given here",
+      "magnification": "not applicable",
+      "observers": "not stated",
+      "page": "p. 21 (PDF 1)"
+    },
+    {
+      "technique": "nass_prevalence_quoted",
+      "cohorts": [
+        "nass_prevalence"
+      ],
+      "modality": "other",
+      "instrument": "not stated in this paper",
+      "how": "share of adults with stenosis, central and lateral, as quoted; criterion not given here",
+      "magnification": "not applicable",
+      "observers": "not stated",
+      "page": "p. 21 (PDF 1)"
+    },
+    {
+      "technique": "verbiest_cutoff_quoted",
+      "cohorts": [
+        "verbiest_thresholds"
+      ],
+      "modality": "other",
+      "instrument": "attributed to Verbiest's computerized axial tomography work",
+      "how": "cut-offs on the antero-posterior canal diameter: below 12 mm relative, below 10 mm absolute stenosis; landmarks not described here",
+      "magnification": "not stated",
+      "observers": "not stated",
+      "page": "p. 23 (PDF 3)"
+    },
+    {
+      "technique": "eisenstein_verbiest_cutoff_quoted",
+      "cohorts": [
+        "eisenstein_verbiest_thresholds"
+      ],
+      "modality": "other",
+      "instrument": "not stated in this paper",
+      "how": "cut-offs on the midline sagittal canal diameter: below 12 mm pathological, 10 mm or less able to compress the cauda equina; landmarks not described here",
+      "magnification": "not stated",
+      "observers": "not stated",
+      "page": "p. 24 (PDF 4)"
+    }
+  ],
+  "shared": [
+    {
+      "with": "Ullrich et al. 1980 [3] (not in the list)",
+      "what": "values quoted",
+      "evidence": "earlier canal norms leaned on Ullrich's CT normal range of 14-15 mm",
+      "page": "p. 22 (PDF 2)"
+    },
+    {
+      "with": "Hinck et al. 1966 [4] (hinck1966)",
+      "what": "values quoted",
+      "evidence": "cited as an earlier radiographic source of norms; Table No.4 quotes its L1 to L5 means by sex. Inference: the female L4 cell (26.9) is Hinck's all-adult L4 mean, his adult women's being 26.4 (hinck1966 reading)",
+      "page": "p. 22 (PDF 2); p. 25 (PDF 5)"
+    },
+    {
+      "with": "Eisenstein 1977 [5] (eisenstein1977)",
+      "what": "values quoted",
+      "evidence": "cited as an earlier source of norms; its 12 mm and 10 mm sagittal thresholds quoted with Verbiest",
+      "page": "p. 22 (PDF 2); p. 24 (PDF 4)"
+    },
+    {
+      "with": "Amonoo-Kuofi 1982 [6] (amonookuofi1982)",
+      "what": "values quoted",
+      "evidence": "Table No.4 quotes its Nigerian radiographic interpedicular means by sex",
+      "page": "p. 25 (PDF 5)"
+    },
+    {
+      "with": "Amonoo-Kuofi 1985 [7] (amonookuofi1985)",
+      "what": "values quoted",
+      "evidence": "Table 3 quotes its Nigerian cadaveric sagittal means by sex",
+      "page": "p. 25 (PDF 5)"
+    },
+    {
+      "with": "Verbiest 1976 [8] (not in the list)",
+      "what": "values quoted",
+      "evidence": "its CT thresholds of <12 mm relative and <10 mm absolute stenosis quoted",
+      "page": "p. 23 (PDF 3); p. 24 (PDF 4)"
+    },
+    {
+      "with": "El-Rakhawy et al. 2010 [9] (not in the list)",
+      "what": "values quoted",
+      "evidence": "Table 3 quotes Egyptian cadaveric sagittal means",
+      "page": "p. 25 (PDF 5)"
+    },
+    {
+      "with": "Al-Anazi 2009 [10] (not in the list)",
+      "what": "values quoted",
+      "evidence": "Table 3 quotes Saudi CT sagittal means at L3 to L5",
+      "page": "p. 25 (PDF 5)"
+    },
+    {
+      "with": "Shukri et al [11] in Table 3; reference 11 is Imad GS et al. 2013, JSMC (not in the list)",
+      "what": "values quoted",
+      "evidence": "Table 3 quotes Iraqi MRI sagittal means",
+      "page": "p. 25 (PDF 5)"
+    },
+    {
+      "with": "Varol et al. 2016 [12] (not in the list)",
+      "what": "values quoted",
+      "evidence": "Table 3 quotes Turkish CT sagittal means at L4 and L5",
+      "page": "p. 25 (PDF 5)"
+    },
+    {
+      "with": "Alam M et al. 2014 [13] (not in the list)",
+      "what": "values quoted",
+      "evidence": "Tables 3 and No.4 quote its Pakistani CT sagittal and transverse means",
+      "page": "p. 25 (PDF 5)"
+    },
+    {
+      "with": "Kapoor et al. 2014 [14] (not in the list)",
+      "what": "values quoted",
+      "evidence": "its South Indian cadaveric sagittal means of 13.06 to 14.75 mm quoted",
+      "page": "p. 23 (PDF 3)"
+    },
+    {
+      "with": "Piera et al. 1988 [17] (not in the list)",
+      "what": "values quoted",
+      "evidence": "Table No.4 quotes Spanish radiographic interpedicular means",
+      "page": "p. 25 (PDF 5)"
+    },
+    {
+      "with": "Tacar et al. 2003 [18] (not in the list)",
+      "what": "values quoted",
+      "evidence": "Table No.4 quotes Turkish radiographic means; text quotes its 1-1.5 mm sex difference",
+      "page": "p. 25 (PDF 5); p. 24 (PDF 4)"
+    },
+    {
+      "with": "Nirvan et al. 2005 [19] (not in the list)",
+      "what": "values quoted",
+      "evidence": "Table No.4 quotes Gujarati radiographic interpedicular means",
+      "page": "p. 25 (PDF 5)"
+    },
+    {
+      "with": "Shobeiri et al. 2009 [2] (not in the list)",
+      "what": "values quoted",
+      "evidence": "stenosis prevalence in patients with sciatica and with low back pain quoted",
+      "page": "p. 21 (PDF 1)"
+    },
+    {
+      "with": "North American Spinal Society (NASS), no reference given (not in the list)",
+      "what": "values quoted",
+      "evidence": "share of adults with stenosis, central and lateral, quoted",
+      "page": "p. 21 (PDF 1)"
+    }
+  ],
+  "within_paper": "The two diameters (Tables 1 and 2) are measured on the same 80 patients (p. 22, PDF 2). The Present study columns of Table 3 and Table No.4 repeat Tables 1 and 2 for the same subjects (p. 25, PDF 5). Figures 1 and 2 show one female patient aged 40 by the overlay, the same person in both figures (p. 23, PDF 3; Inference: same overlay identifier and study date); Inference: she is one of the 80, which the paper does not state. Alam et al [13] in Table 3 and M Alam et al. [13] in Table No.4 cite one reference (p. 25, PDF 5), so they are one cohort, alam_ct, measured two ways; Amonoo-Kuofi [6] (radiographs) and [7] (cadaveric) are two papers whose subject overlap is not stated."
+}

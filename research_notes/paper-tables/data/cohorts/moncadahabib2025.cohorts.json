@@ -1,0 +1,62 @@
+{
+  "paper": "moncadahabib2025",
+  "cohorts": [
+    {
+      "cohort": "mexico_ct37",
+      "labels": [
+        "all",
+        "male",
+        "female",
+        "female vs male",
+        ""
+      ],
+      "tables": [
+        "Table 1",
+        "Table 2",
+        "Table 3",
+        "Table 4",
+        "Text: Methods",
+        "Text: Results"
+      ],
+      "subjects": "Living adult Mexican patients whose lumbar CT was done for non-pathological indications at a tertiary neurosurgical centre, named in the Discussion as Mexico's National Institute of Neurology and Neurosurgery (Mexico City by the affiliations); retrospective, observational, single centre. Ethnicity is printed only as Mexican. Inclusion: adults 18 years or older with a complete high-resolution lumbar CT done for a non-pathological indication. Exclusion: history or radiological evidence of spinal fracture, deformity or congenital anomaly; spinal neoplasm, infection or inflammatory disease; previous lumbar instrumentation or surgery; incomplete or poor-quality imaging. How many CTs were screened or excluded, the indications, the scan dates, how the lumbar levels were numbered and whether transitional vertebrae were excluded are not stated. Ethics approval was waived for the retrospective, anonymised design.",
+      "n_people": 37,
+      "n_units": "185 lumbar vertebrae (L1 to L5, five per patient) of 37 patients, pedicles measured on both sides (Inference: 370 pedicles)",
+      "ages": "mean 60.4 years, SD 15.8, range 26-88",
+      "sexes": "54.1% men, 45.9% women (Inference: 20 men and 17 women; the counts are not printed)",
+      "page": "p. 2-3 (PDF 2-3); centre named p. 7 (PDF 7)"
+    },
+    {
+      "cohort": "fig1_l3_example",
+      "labels": [
+        "not stated",
+        ""
+      ],
+      "tables": [
+        "Figure 1"
+      ],
+      "subjects": "One adult patient without structural spinal pathology whose L3 vertebra is shown on axial, sagittal and coronal CT with the measurement lines and their values, to illustrate the method. Sex, age and which pedicle is measured are not stated. Inference: probably one of the 37, since the caption says the parameters shown were included in the morphometric analysis, but the paper does not say this patient's values were. Its transverse angle, 23.45 deg, exceeds both L3 maxima of Table 2 (21.6 left, 21.2 right), so at least that value is not among the tabulated ones (p. 2 and p. 5 (PDF 2, 5)).",
+      "n_people": 1,
+      "n_units": "1 L3 vertebra of 1 patient",
+      "ages": "adult; age not stated",
+      "sexes": "not stated",
+      "page": "p. 2 (PDF 2)"
+    }
+  ],
+  "techniques": [
+    {
+      "technique": "ct_mpr_pacs_calipers",
+      "cohorts": [
+        "mexico_ct37",
+        "fig1_l3_example"
+      ],
+      "modality": "CT MPR",
+      "instrument": "CT acquired with 1.0 mm slice thickness, 250 mm field of view, 120 kVp and 200-250 mA; multiplanar reconstructions with a bone algorithm; read on PACS workstations with digital calipers. Scanner make and model, matrix and pixel size not stated. Data kept in Microsoft Excel and analysed in SPSS 25.",
+      "how": "On high-resolution axial, coronal and sagittal reformats each lumbar vertebra L1 to L5 was measured on both sides: pedicle height (PH), width (PW) and length (PL), pedicle transverse angle (PA), corpus length (CL), corpus width (CW), anterior (AH) and posterior (PH) vertebral body height. The measures are not defined in words; Figure 1 (an L3) and the drawings of Figure 2 show them. The transverse angle is taken on an axial slice through the pedicles, between the pedicle axis and the vertebral midline (Figure 2D; in Figure 1A the vertex sits at the anterior cortex in the midline). Pedicle width is a short line across the pedicle on that axial slice; body width a transverse line across the body on the axial slice and at mid-height on the coronal reformat; body height a vertical line on the coronal reformat; a sagittal pedicle angle is drawn on the sagittal reformat but appears in no table. Inference: pedicle height is read on a sagittal view across the pedicle between the notches (Figure 2A), pedicle length along the pedicle axis on the axial view (Figure 2C; means near 40 mm fit the whole path to the anterior cortex), CL as the midline anteroposterior body depth on the axial slice, AH and PH on the midsagittal reformat; Figure 1's caption labels for pedicle height (18.63 mm) and pedicle length (27.97 mm) do not fit the lines drawn. Sex was compared by independent-samples t-tests and age by Spearman correlation; Inference: both pool L1 to L5.",
+      "magnification": "Not applicable: CT read with digital calipers in mm and degrees. Tables 1 and 3 print body dimensions with no unit in what the Results text shows are tenths of a millimetre (L1 AH printed 243.1, given as 24.3 mm in the text).",
+      "observers": "Two observers trained in spinal anatomy measured independently and a senior spine surgeon verified the measurements; differences over 2 mm or 2 deg were settled by consensus with a third reviewer. Whether the recorded value is one reader's, their mean or the consensus is not stated; inter-observer reliability was not quantified (Discussion).",
+      "page": "p. 2-3 (PDF 2-3); reliability p. 7 (PDF 7)"
+    }
+  ],
+  "shared": [],
+  "within_paper": "One cohort throughout: Tables 1 and 2 give per-level values of all 37 patients (headed n = 37, p. 4-5 (PDF 4-5)); Table 3 splits the same patients by sex and Table 4 correlates the same measurements with age (p. 6 (PDF 6)); the Results text restates values of Tables 1 to 4 (p. 3-6 (PDF 3-6)). Inference: Tables 3 and 4 pool each patient's five vertebrae, so a patient counts up to five times there. Figure 1's L3 example is an adult patient without structural spinal pathology, and its caption says the parameters shown were included in the analysis (p. 2 (PDF 2)); Inference: probably one of the 37, not stated. No other study's subjects, method or values are used: of the listed ids, yu2015 (ref 2) and hou1993 (ref 11) are cited only as background on population and sex differences (p. 1 and p. 7 (PDF 1, 7)), and no values of any study are quoted."
+}

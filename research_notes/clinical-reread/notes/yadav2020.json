@@ -1,0 +1,372 @@
+{
+  "id": "yadav2020",
+  "citation": "Uttam Yadav, MD; Vivek Singh, DNB; Nishant Bhargava, MD; Arun Kumar Srivastav, MCh; Zafar Neyaz, MD; R.V. Phadke, MD; Prabhakar Mishra, PhD. Lumbar Canal Diameter Evaluation by CT Morphometry - Study of Indian Population. International Journal of Spine Surgery, Vol. 14, No. 2, 2020, pp. 175-181. https://doi.org/10.14444/7028. Copy read: publisher's open copy, ijssurgery.com/content/ijss/14/2/175.full.pdf, fetched 2026-10-28 by thread \"Reread every paper for clinical detail\" (project symphony_4); sha256 begins 8388bc70506fcbd7.",
+  "population": "India: one North Indian tertiary care institute over one year (Inference: the authors' institute in Lucknow, named in the affiliations, p. 175, PDF 1). Living patients having diagnostic CT for abdominal or genitourinary complaints or for a non-spinal region; ethnicity given only as Indian. 302 patients: 174 men (57.6%) and 128 women (42.4%), aged 20 to 40; Table 1 bins 20-25 y 50 men + 44 women (94), 25-30 y 47 + 35 (82), 30-35 y 50 + 36 (86), 35-40 y 27 + 13 (40) (p. 176, PDF 2). Excluded: age < 20 or > 40, gross spinal pathology with neurological deficit, major chronic systemic disease (chronic liver and kidney disease), clinically labelled dwarfism, movement or metal artifact (p. 176, PDF 2). Every patient contributed every level D12 to S1 (n = 174 and 128 on every row of Tables 2-3, pp. 177-178, PDF 3-4).",
+  "modality": "Unenhanced 64-slice and 128-slice multidetector CT, diaphragm to pubic symphysis, field of view D12 to S1; 3 mm sections with reconstruction to 1 mm; reformats in true axial, coronal and sagittal planes in bone window; all illustrated measures on axial slices (Figure 1, p. 176, PDF 2). Pixel size, kernel, workstation, tool, number of readers and blinding not stated. Statistics: SPSS 17, P < .05, independent t test men against women, unpaired t test against published means of other populations (p. 176, PDF 2); no right-left test named. Design: cross-sectional, observational review of CT images (p. 175, PDF 1); retrospective only by Inference.",
+  "levels_covered": "D12 (T12), L1 to L5 and S1, men and women separately (Tables 2-3, pp. 177-178, PDF 3-4). How levels were identified or counted is not stated; no transitional segment is mentioned; no cervical, cervicothoracic or upper thoracic level.",
+  "anomalies": [
+    {
+      "variant": "Lumbosacral transitional vertebra, sacralisation, lumbarisation, L6, T13, 11 or 13 rib pairs, block vertebra",
+      "finding": "Not mentioned anywhere; no counting rule; all 302 patients (174 men, 128 women) are labelled D12 to S1 with no level dropped. Inference: any transitional segment was forced into the seven labels, so the L5 and S1 rows (and D12) may mix transitional and typical segments; the large L5 and S1 canal-depth SDs (men 3.09 and 3.29, women 2.72 and 4.73 mm) are consistent with, but do not prove, such mixing. No prevalence can be taken from this paper.",
+      "page": "pp. 176-178 (PDF 2-4); Table 2, p. 177 (PDF 3)",
+      "population": "302 living North Indian adults aged 20 to 40",
+      "how_identified": "Not addressed; the scan ran from the diaphragm down, so the lowest ribs were in the field (Inference), but the paper does not say they were used to name T12."
+    },
+    {
+      "variant": "Dwarfism (exclusion criterion)",
+      "finding": "Clinically labelled dwarfism was an exclusion; no count of excluded patients is given.",
+      "page": "p. 176 (PDF 2)",
+      "population": "Candidates for the 302-patient sample",
+      "how_identified": "Clinical label, not imaging"
+    }
+  ],
+  "measures": [
+    {
+      "name": "Spinal canal depth (SCD), midsagittal diameter, canal AP diameter (A-B)",
+      "definition": "Caption: from the posterior border of the vertebra to the lamina at the midline (Figure 1A). Reading of the image: axial slice at the pedicle-lamina level, a closed roughly triangular canal with ring-shaped facet joints cut posterolaterally; A on the posterior body cortex in the midline, B on the inner cortex of the arch at the spinolaminar junction (the canal's apex). Figure 1 is a 424 x 452 pixel image, so these readings are coarse.",
+      "projection": "Axial CT reformat, bone window",
+      "page": "Figure 1A, p. 176 (PDF 2); Table 2, p. 177 (PDF 3); text p. 177 (PDF 3), p. 179 (PDF 5), p. 180 (PDF 6); Table 4, p. 179 (PDF 5)",
+      "levels": "D12 to S1",
+      "level_pattern": "Men 16.19 +/- 1.26 (D12), 15.68 +/- 1.51, 14.57 +/- 1.59, 13.45 +/- 1.75, 13.29 +/- 1.83, 14.73 +/- 3.09 (L5), 11.00 +/- 3.29 (S1); women 16.33 +/- 1.52, 15.85 +/- 1.43, 14.74 +/- 1.38, 13.66 +/- 1.42, 13.40 +/- 1.68, 14.67 +/- 2.72, 11.19 +/- 4.73. Falls to a floor at L3-L4, rises at L5, minimum S1 in both sexes; read by the authors as the canal changing from circular to oval, though no width is reported. Inference, adjacent separations (men): D12/L1 0.37, L1/L2 0.72, L2/L3 0.67, L3/L4 0.09, L4/L5 0.57, L5/S1 1.17: no L3/L4 separation; L5 rebound (+1.4 mm) and S1 drop (-3.7 mm) are the cues. Inference: SCD/UVD 0.60, 0.55, 0.48, 0.43, 0.42, 0.45, 0.35 (men), 0.65, 0.60, 0.52, 0.46, 0.44, 0.47, 0.38 (women).",
+      "covariates": "No significant sex difference (P > .05, p. 177, PDF 3); women 0.11 to 0.21 mm larger at six of seven levels, not at L5. Ages 20 to 40, no age analysis. Kumar et al's Telangana CT values (61 patients) are larger at L1 to L5 in men and L1 to L4 in women and show no L5 rebound in women (Table 4, p. 179, PDF 5); the authors say their values are lower than other studies with matching trends (p. 180, PDF 6). Inference against the panjabi1992 note: 3 to 5 mm below Panjabi's dry-bone 17.5 to 19.7 mm at L1-L5 with the same L3-L4 trough.",
+      "error": "Not reported. Inference: between-subject CV (men) 8 to 14% D12-L4, 21% L5, 30% S1; women's S1 mean - 2 SD is about 1.7 mm, so the S1 row is not a usable normal range.",
+      "ct_mask_recipe": "Inference: in the vertebra's own frame take the axial slice at mid-pedicle height, fill the ring of body and posterior arch, and measure the vertebral foramen along the AP axis on the midsagittal line, from the posterior surface of the body subregion to the anterior surface of the posterior-element subregion. A soft-tissue canal label is not this bony measure.",
+      "radiograph_recipe": "Inference: lateral radiograph, posterior body line to spinolaminar line divided by the magnification (Eisenstein's lateral films at 110 cm: 1.23, per the eisenstein1977 note); spinolaminar line faint at L5-S1. Not from an AP view."
+    },
+    {
+      "name": "Spinal canal width, interpedicular distance (C-D)",
+      "definition": "Caption: maximum distance between the pedicles (Figure 1A). Reading of the image: transverse line across the widest part of the canal between the medial pedicle cortices, on the same slice as A-B, crossing it in its anterior third.",
+      "projection": "Axial CT reformat",
+      "page": "Figure 1A, p. 176 (PDF 2)",
+      "levels": "Defined only; no values at any level",
+      "level_pattern": "Not reported, although the text says the canal changes transversely from D12 to S1 (p. 177, PDF 3).",
+      "covariates": "None reported. Cited pearl (Verbiest, p. 175, PDF 1): interpedicular distances are normal in developmental stenosis.",
+      "error": "Not reported.",
+      "ct_mask_recipe": "Inference: on the mid-pedicle axial slice, the largest transverse distance across the vertebral foramen between the medial surfaces of the two pedicles.",
+      "radiograph_recipe": "Inference: AP radiograph, interpedicular distance between medial pedicle borders, divided by the magnification."
+    },
+    {
+      "name": "Lateral recess diameter (LRD), right and left (E-F)",
+      "definition": "Caption: from the posterior aspect of the vertebral body to the anteromedial point of the facet joints, each side (Figure 1B). Reading of the image: on an end-plate or disc-level axial slice (canal not a closed ring) a transverse reference line is drawn tangent to the anterior margins of both facet joints, and each E-F is the perpendicular from the posterior body surface to that line, dropped at the lateral edge of the canal just medial to the facet, ending at its anteromedial corner.",
+      "projection": "Axial CT reformat; slice height not stated (Inference: at or near an end plate or the disc)",
+      "page": "Figure 1B, p. 176 (PDF 2); Table 2, p. 177 (PDF 3); text p. 177 (PDF 3), p. 179 (PDF 5); Table 5, p. 179 (PDF 5)",
+      "levels": "D12 to S1",
+      "level_pattern": "Men right 11.45 (printed 11.451) +/- 1.61, 11.36 +/- 0.68, 10.52 +/- 1.39, 9.24 +/- 0.91, 8.60 +/- 0.99, 7.71 +/- 0.66, 7.50 +/- 0.62; men left 11.61 to 7.61; women right 9.47, 9.40, 9.22, 8.58, 8.69, 7.53, 7.45; women left 9.67, 9.60, 9.28, 8.69, 7.77, 7.62, 7.56. Described as falling gradually from D12 (max) to S1 (min); women's right rises L3 to L4. Inference, adjacent separations (men right): 0.07, 0.77, 1.09, 0.67, 1.06, 0.33. Women's separations are weaker except right L4/L5 (1.74) and left L3/L4 (1.11), both made by the suspect women's L4 values (right 8.69, left 7.77).",
+      "covariates": "Reported significantly larger in men D12 to L5 (P < .05, p. 177, PDF 3; p. 179, PDF 5). Inference: about 2 mm (21%) at D12-L1, 1.3 mm at L2, 0.6-0.7 mm at L3, small caudally; right L4 women larger and not significant by a t test on printed values. Right-left difference reported significant at all levels, but printed differences are 0.03 to 0.20 mm except women's L4 (0.92) and no right-left test is named (Inference: doubtful). Larger than Alam et al's Pakistani CT values (49 patients) at every level and side except women's right L1 (Table 5, p. 179, PDF 5).",
+      "error": "Not reported. Inference: CV 6 to 15% (men); men's right L1 SD 0.68 is out of line with the left (1.70).",
+      "ct_mask_recipe": "Inference: on the axial slice through the vertebra's upper end plate, find the most anteromedial point of each superior articular process, draw the transverse line through both, and on each side take the AP distance from the posterior surface of the body subregion to that line at the facet's anteromedial corner (the lateral edge of the canal). Needs articular-process subregions; the cranial neighbour's inferior process may lie in the same slice.",
+      "radiograph_recipe": "Not possible (Inference): an axial structure hidden by overlap on lateral and AP views."
+    },
+    {
+      "name": "Intervertebral foramen diameter (IVFD), right and left",
+      "definition": "Not defined: no panel in Figure 1 and no text definition; plane, direction and which foramen is meant at D12 and S1 unstated.",
+      "projection": "Unstated",
+      "page": "p. 176 (PDF 2); Table 2, p. 177 (PDF 3); text p. 177 (PDF 3), p. 179 (PDF 5)",
+      "levels": "D12 to S1",
+      "level_pattern": "Men right 10.62 +/- 1.17, 10.54 +/- 1.32, 10.50 +/- 1.69, 9.72 +/- 1.29, 8.68 +/- 1.38, 8.32 +/- 1.48, 5.77 +/- 1.34; women right 10.43 to 5.80; women left L3 10.30 +/- 3.43 above L2 (10.22). Described as a constant decrease, max D12, min S1. Inference: flat D12-L2 (separations 0.06, 0.03), strongest step L5/S1 (about 1.8).",
+      "covariates": "No significant sex difference (P > .05); right-left significant only at S1 (p. 177, PDF 3; p. 179, PDF 5). Inference: a t test on the printed women's left L3 value would say women are larger there.",
+      "error": "Not reported; Inference: CV 11 to 24% (men).",
+      "ct_mask_recipe": "Inference only: a lumbar foramen is bounded by two adjacent vertebrae and cannot come from one instance mask; the S1 value (about 5.7 mm) suggests a sacral foramen. Do not generate from this paper's definition.",
+      "radiograph_recipe": "Inference: foramina are seen on a lateral radiograph; which dimension was taken is unknown."
+    },
+    {
+      "name": "Interfacet distance (IFD) (K-L)",
+      "definition": "Caption: distance between the anteromedial points of the facet joints (Figure 1D). Reading of the image: on an axial slice through the facet joints, K-L crosses the posterior part of the canal just in front of the laminae, between the medial margins of the articular processes; Inference: a transverse canal width at the facet level.",
+      "projection": "Axial CT reformat",
+      "page": "Figure 1D, p. 176 (PDF 2); Table 2, p. 177 (PDF 3); text pp. 177-178 (PDF 3-4), p. 179 (PDF 5)",
+      "levels": "D12 to S1",
+      "level_pattern": "Men 15.12 +/- 2.46, 17.27 +/- 2.02, 17.53 +/- 2.15, 17.67 +/- 2.42, 19.08 +/- 3.21, 22.69 +/- 3.91, 27.91 +/- 4.65; women 14.33 to 26.89. Monotonic rise, min D12, max S1. Inference: separations (men) 0.96, 0.12, 0.06, 0.50, 1.01, 1.22; steps +2.15, +0.26, +0.14, +1.41, +3.61, +5.22 mm: a T12/L1 step, an L1-L3 plateau and a steep lumbosacral run. IFD/UVW about 0.40-0.43 to L4, 0.47 at L5, 0.57 at S1 (men).",
+      "covariates": "Larger in men D12 to L5 (p. 178, PDF 4) or at all levels (p. 179, PDF 5), the passages disagreeing; Inference: by 0.71 to 1.06 mm (3.8 to 6.5%), just short of P < .05 at L4 and S1 by a t test on printed values.",
+      "error": "Not reported; Inference: CV 12 to 17% (men).",
+      "ct_mask_recipe": "Inference: on the axial slice through the facet joints, the transverse distance between the most anteromedial points of the two articular processes (the canal's width there). Level convention unstated; Inference: the S1 value must come from the L5-S1 joint, so the joint above each named vertebra is likely.",
+      "radiograph_recipe": "Inference: only approximately on an AP radiograph (medial margins of the articular pillars, lower lumbar); not from a lateral view."
+    },
+    {
+      "name": "Upper vertebral width (UVW) (I-J)",
+      "definition": "Caption: distance between the lateral borders of the vertebral body in the plane of the upper end plate (Figure 1C). Reading of the image: I-J across the widest part of the body; the example slice shows an enclosed canal and a transverse process, so it looks mid-body, and the end-plate height rests on the caption alone.",
+      "projection": "Axial CT reformat",
+      "page": "Figure 1C, p. 176 (PDF 2); Table 3, p. 178 (PDF 4); text p. 178 (PDF 4), p. 179 (PDF 5); Table 6, p. 180 (PDF 6)",
+      "levels": "D12 to S1",
+      "level_pattern": "Men 36.99 +/- 2.89, 40.15 +/- 3.09, 42.55 +/- 4.08, 44.34 +/- 3.17, 46.42 +/- 3.98, 48.79 +/- 5.54, 49.08 +/- 4.40; women 34.62 to 46.00 (L5) and 46.17 (S1). Progressive rise, min D12, max S1. Inference: steps 3.16, 2.40, 1.79, 2.08, 2.37, 0.29 mm; separations 1.06, 0.66, 0.49, 0.58, 0.49, 0.06.",
+      "covariates": "Significantly larger in men at all levels (P < .05, p. 178, PDF 4); Inference: by 2.4 to 3.2 mm (6.1 to 8.7%). Table 6: men here smaller than Alam (Pakistan, 49), Kang (Korea, 60) and Singh (north Indian, 20 cadavers) at every level; women here larger than Kang at L1-L3 and than Alam at L3-L4; Kang's men 54.83 at L5.",
+      "error": "Not reported; Inference: CV 7 to 11% (men).",
+      "ct_mask_recipe": "Inference: body subregion, axial slab just inside the superior end plate in the vertebra's frame, maximum transverse extent; state whether ring apophysis and lipping are included. Analogous to Panjabi's EPWu (dry-bone rim).",
+      "radiograph_recipe": "Inference: AP radiograph, end-plate width between lateral cortices divided by the magnification; tilt and rotation shorten it."
+    },
+    {
+      "name": "Lower vertebral width (LVW) (I-J)",
+      "definition": "Caption: distance between the lateral borders of the vertebral body in the plane of the lower end plate (Figure 1C); same slice caveat as UVW.",
+      "projection": "Axial CT reformat",
+      "page": "Figure 1C, p. 176 (PDF 2); Table 3, p. 178 (PDF 4); text p. 178 (PDF 4), pp. 179-180 (PDF 5-6); Table 7, p. 180 (PDF 6)",
+      "levels": "D12 to S1",
+      "level_pattern": "Men 39.30 +/- 3.16, 42.26 +/- 4.50, 44.35 +/- 3.27, 46.66 +/- 3.38, 46.86 +/- 3.85, 46.93 +/- 3.36, 30.78 +/- 3.45; women 36.73 to 45.91 (L5), 29.67 (S1). Rise to max at L5, abrupt fall at S1 (Inference: the S1-S2 fused junction). Inference: plateau L3-L5 (separations 0.06, 0.02), L5/S1 4.74; lower minus upper width +1.8 to +2.3 mm D12-L3, +0.4 at L4, -1.9 at L5 in men, unlike Panjabi's dry bone where EPWl > EPWu at L5.",
+      "covariates": "Significantly larger in men at all levels (p. 178, PDF 4; p. 180, PDF 6); Inference: by 1.0 to 2.7 mm (2.2 to 7.0%, smallest at L5-S1). Women here exceed Alam's women at every level; men mixed (Table 7). Singh's cadaveric pattern (rise L1-L2, fall L3, rise) not seen here.",
+      "error": "Not reported; Inference: CV 7 to 11% (men); women's L2 SD 5.53 out of line.",
+      "ct_mask_recipe": "Inference: body subregion, axial slab just inside the inferior end plate, maximum transverse extent; at S1 the lower surface is the fused S1-S2 junction and is not a lumbar end plate.",
+      "radiograph_recipe": "Inference: AP radiograph, lower end-plate width divided by the magnification."
+    },
+    {
+      "name": "Upper vertebral depth (UVD) (G-H)",
+      "definition": "Caption: distance between the anterior and posterior ends of the vertebral body in the plane of the upper end plate (Figure 1C); reading of the image: midline line from anterior to posterior body cortex, stopping at the canal.",
+      "projection": "Axial CT reformat",
+      "page": "Figure 1C, p. 176 (PDF 2); Table 3, p. 178 (PDF 4); text p. 178 (PDF 4), p. 180 (PDF 6); Table 8, p. 181 (PDF 7)",
+      "levels": "D12 to S1",
+      "level_pattern": "Men 27.09 +/- 2.59, 28.61 +/- 2.61, 30.37 +/- 3.26, 31.37 +/- 2.78, 31.56 +/- 2.27, 32.41 +/- 2.35, 31.16 +/- 3.19; women 25.10 to 30.94 (L5), 29.47 (S1). Rise to max at L5, fall at S1. Inference: separations 0.58, 0.60, 0.33, 0.07, 0.37, 0.45.",
+      "covariates": "Significantly larger in men at all levels (p. 178, PDF 4; p. 180, PDF 6); Inference: by 1.4 to 2.1 mm (4.8 to 7.9%). Alam's Pakistani values larger at every level in men and all but L4 in women (Table 8). Inference against the panjabi1992 note: about 2 to 6 mm below Panjabi's flat 34.1-35.5 mm and rising by level.",
+      "error": "Not reported; Inference: CV 7 to 11% (men).",
+      "ct_mask_recipe": "Inference: body subregion, slab just inside the superior end plate, AP extent on the midsagittal line (not the maximum AP extent).",
+      "radiograph_recipe": "Inference: lateral radiograph, upper end-plate length anterior to posterior corner divided by the magnification; the best-transferred body measure to lateral fluoroscopy."
+    },
+    {
+      "name": "Lower vertebral depth (LVD) (G-H)",
+      "definition": "Caption: distance between the anterior and posterior ends of the vertebral body in the plane of the lower end plate (Figure 1C).",
+      "projection": "Axial CT reformat",
+      "page": "Figure 1C, p. 176 (PDF 2); Table 3, p. 178 (PDF 4); text p. 178 (PDF 4), p. 180 (PDF 6)",
+      "levels": "D12 to S1",
+      "level_pattern": "Men 27.88 +/- 2.53, 29.49 +/- 2.90, 30.60 +/- 2.60, 31.25 +/- 2.39, 32.15 +/- 3.04, 31.66 +/- 2.89, 22.78 +/- 2.66; women 25.82 to 30.30 (L5), 22.03 (S1). Max L4 in men, L5 in women; min S1. Inference: separations 0.59, 0.40, 0.26, 0.33, 0.17, 3.20.",
+      "covariates": "Significantly larger in men at all levels (p. 178, PDF 4; p. 180, PDF 6); Inference: by 0.75 to 2.2 mm (3.4 to 8.0%, smallest at S1).",
+      "error": "Not reported; Inference: CV 8 to 12% (men).",
+      "ct_mask_recipe": "Inference: body subregion, slab just inside the inferior end plate, AP extent on the midsagittal line.",
+      "radiograph_recipe": "Inference: lateral radiograph, lower end-plate length divided by the magnification."
+    },
+    {
+      "name": "Intervertebral disc height (IVDH)",
+      "definition": "Not defined: no panel in Figure 1, no text on position (anterior, middle, posterior, mean) or plane; disc-to-level assignment not stated (Inference: the disc below the named vertebra, S1 = rudimentary S1-S2 disc).",
+      "projection": "Unstated (Inference: sagittal reformat)",
+      "page": "p. 176 (PDF 2); Table 3, p. 178 (PDF 4); text p. 178 (PDF 4), p. 180 (PDF 6)",
+      "levels": "D12 to S1",
+      "level_pattern": "Men 6.45 +/- 1.27, 7.33 +/- 1.48, 8.66 +/- 1.68, 9.76 +/- 1.80, 10.60 +/- 1.76, 9.82 +/- 1.99, 3.55 +/- 0.87; women 6.35, 7.30, 8.45, 10.17 +/- 6.87, 10.23, 9.37, 3.35. Rise to max at L4, then fall; min S1. Inference: separations 0.64, 0.84, 0.63, 0.47, 0.42, 4.08.",
+      "covariates": "Reported significantly larger in men at all levels (p. 178, PDF 4; p. 180, PDF 6); the table shows women larger at L3 and a 0.03 mm gap at L1, and Inference: a t test on printed values is borderline at S1 (t about 1.97) and short of significance elsewhere; treat as not sex-dependent.",
+      "error": "Not reported; Inference: CV 17 to 25% (men); women's L3 SD 6.87 implausible.",
+      "ct_mask_recipe": "Inference: needs two instances; the craniocaudal gap between the inferior end plate of one body and the superior end plate of the next at the end-plate centre or averaged over the overlap.",
+      "radiograph_recipe": "Inference: lateral radiograph or fluoroscopy, end-plate gap divided by the magnification."
+    }
+  ],
+  "level_details": [
+    {
+      "level": "T12/L1 (D12 to L1)",
+      "detail": "UVW jumps 3.2 mm in men (36.99 to 40.15, the largest step) and IFD 2.2 mm (15.12 to 17.27) while LRD and IVFD stay flat. D12 has the largest canal depth, lateral recess and foramen, the smallest upper end-plate width and depth and interfacet distance, and the smallest lower end-plate width and depth and disc height of any level above S1; the sex gap in lateral recess is largest here (about 2 mm). Inference: IFD and UVW together are the T12/L1 cue.",
+      "page": "Tables 2-3, pp. 177-178 (PDF 3-4)"
+    },
+    {
+      "level": "L1 to L3",
+      "detail": "Canal depth falls about 1.1 mm per level; IFD plateau (17.27, 17.53, 17.67); widths grow 1.8 to 2.4 mm per level.",
+      "page": "Tables 2-3, pp. 177-178 (PDF 3-4)"
+    },
+    {
+      "level": "L3 and L4",
+      "detail": "Canal depth floor (13.45 and 13.29 in men; indistinguishable); LVW and UVD plateau; disc height peaks at L4; women's right and left lateral recess diverge at L4 (8.69 against 7.77; Inference: likely data error).",
+      "page": "Tables 2-3, pp. 177-178 (PDF 3-4); p. 178 (PDF 4)"
+    },
+    {
+      "level": "L5",
+      "detail": "Canal depth rises above L4 (14.73 men, 14.67 women) with SD rising from 1.7-1.8 to 2.7-3.1 mm; IFD 22.69; UVW and UVD lumbar maxima; LVW maximum; in men the lower end plate is narrower than the upper (46.93 against 48.79, Inference).",
+      "page": "Tables 2-3, pp. 177-178 (PDF 3-4)"
+    },
+    {
+      "level": "L5/S1 (lumbosacral junction)",
+      "detail": "Canal depth minimum (11.00 men, 11.19 women; SD 3.3 and 4.7); IFD maximum (27.91, 26.89); foramen minimum (5.77, 5.80); lower body width and depth collapse at S1 (46.93 to 30.78; 31.66 to 22.78 in men) and the disc below falls to 3.55 mm; S1 upper width (49.08) barely exceeds L5's (48.79). Inference: S1 lower-surface and disc values describe the fused S1-S2 junction, the strongest single sign of S1.",
+      "page": "Tables 2-3, pp. 177-178 (PDF 3-4)"
+    },
+    {
+      "level": "C2/C3, C7/T1",
+      "detail": "Not covered.",
+      "page": "n/a"
+    }
+  ],
+  "errors": [
+    {
+      "what": "Reliability",
+      "value": "No intra- or inter-observer agreement, no repeat measures, no reader count, no phantom or calibration",
+      "page": "pp. 176-178 (PDF 2-4)"
+    },
+    {
+      "what": "Resolution",
+      "value": "3 mm sections, reconstruction to 1 mm; in-plane pixel not stated (Inference: about 0.7-0.8 mm; values printed to 0.001 mm such as 11.451, 9.469, 11.609 are spuriously precise)",
+      "page": "p. 176 (PDF 2); Table 2, p. 177 (PDF 3)"
+    },
+    {
+      "what": "Between-subject spread used as the only error proxy (Inference, CV in men)",
+      "value": "body widths and depths 7-12%; canal depth 8-14% D12-L4, 21% L5, 30% S1; lateral recess 6-15%; IFD 12-17%; foramen 11-24%; disc height 17-25%",
+      "page": "Tables 2-3, pp. 177-178 (PDF 3-4)"
+    },
+    {
+      "what": "Implausible SDs (likely typographic or data errors)",
+      "value": "women IVDH L3 6.87; women left IVFD L3 3.43; men right LRD L1 0.68 (left 1.70); women LVW L2 5.53",
+      "page": "Table 2, p. 177 (PDF 3); Table 3, p. 178 (PDF 4)"
+    },
+    {
+      "what": "Text against table: women's left LRD minimum at S1",
+      "value": "Text 5.80 mm; Table 2 7.56 +/- 0.60 (5.80 is the women's right IVFD at S1)",
+      "page": "p. 177 (PDF 3)"
+    },
+    {
+      "what": "Table 4 L1 row",
+      "value": "Carries the D12 means (16.19, 16.33) with the L1 SDs; true L1 means 15.68 and 15.85; female L3 13.60 against 13.66 in Table 2",
+      "page": "Table 4, p. 179 (PDF 5); Table 2, p. 177 (PDF 3)"
+    },
+    {
+      "what": "Sex-difference claims not reproduced by printed means and SDs (Inference, t tests on summary data)",
+      "value": "IVDH borderline at S1 only; IFD short at L4 and S1; LRD right L4 women larger; IVFD left L3 women larger (would be significant)",
+      "page": "Tables 2-3, pp. 177-178 (PDF 3-4); text pp. 177-180 (PDF 3-6)"
+    },
+    {
+      "what": "Right-left LRD significance",
+      "value": "Claimed at all levels with differences of 0.03-0.20 mm (except women's L4, 0.92) and no right-left test named",
+      "page": "p. 176 (PDF 2); p. 177 (PDF 3); p. 179 (PDF 5)"
+    },
+    {
+      "what": "Scanners pooled",
+      "value": "64-slice and 128-slice multidetector CT pooled with no check that they measure alike (Inference: any systematic difference sits inside the tabled SDs)",
+      "page": "p. 176 (PDF 2)"
+    },
+    {
+      "what": "Text truncates table values",
+      "value": "Maximum lateral recess in the text: men's left 11.60 and women's right 9.46 mm, against 11.609 and 9.469 in Table 2 (rounding to 11.61 and 9.47)",
+      "page": "p. 177 (PDF 3)"
+    }
+  ],
+  "pearls_pitfalls": [
+    {
+      "text": "Lumbar canal stenosis is defined here as AP and lateral bony canal dimensions below normal for age and sex; no numeric threshold is given for central, lateral recess or foraminal stenosis.",
+      "page": "p. 175 (PDF 1)"
+    },
+    {
+      "text": "Developmental stenosis (Verbiest, as cited) arises from the neural arch, pedicles, laminae and articular processes, with normal interpedicular distances but short lateral sagittal diameters from thick laminae and articular processes; Inference: a normal AP-radiograph interpedicular distance does not exclude it.",
+      "page": "p. 175 (PDF 1)"
+    },
+    {
+      "text": "Degenerative stenosis with facet osteoarthritis is worst opposite the disc and articular processes while AP and lateral diameters may be normal; Inference: a pedicle-level canal depth can be normal in it, so measure at disc level too.",
+      "page": "p. 175 (PDF 1)"
+    },
+    {
+      "text": "Combined stenosis (overall or segmental narrowing, disc protrusion or both) gives more neurological symptoms than developmental or degenerative stenosis alone.",
+      "page": "pp. 175-176 (PDF 1-2)"
+    },
+    {
+      "text": "Stenosis presents as low backache, paresthesia and bilateral lower limb pain; low backache is the commonest manifestation and the commonest complaint sent for imaging; canal size assessment is called one of the most essential steps in diagnosing it.",
+      "page": "p. 175 (PDF 1); p. 178 (PDF 4); p. 179 (PDF 5)"
+    },
+    {
+      "text": "Lumbar spondylosis is increasingly seen in young adults (attributed to lifestyle), and its management differs when canal stenosis accompanies it.",
+      "page": "p. 175 (PDF 1)"
+    },
+    {
+      "text": "The authors' account of why canal size matters: pathological change around the canal and foramina can disturb the canal's alignment and cause low backache, and the lumbar sagittal curvature absorbs impact and reduces stiffness; no data of their own on alignment or curvature.",
+      "page": "p. 178 (PDF 4)"
+    },
+    {
+      "text": "Population-specific norms are needed; Indian canal AP values run lower than other studies with matching trends. The abstract calls the canal differences significant but no comparison table carries a P value.",
+      "page": "p. 175 (PDF 1); p. 179 (PDF 5); p. 180 (PDF 6)"
+    },
+    {
+      "text": "Inference: mean - 2 SD from Table 2 gives an Indian lower limit for canal depth, e.g. L4 9.6 mm (men) and 10.0 mm (women); not a threshold the paper states.",
+      "page": "Table 2, p. 177 (PDF 3)"
+    },
+    {
+      "text": "Pitfall: this paper's lateral recess (7.5-11.6 mm, posterior body to the line across the facets' anterior margins at an end-plate-like slice) is larger than usual recess depths and should not be mixed with other definitions (Inference).",
+      "page": "Figure 1B, p. 176 (PDF 2); Table 2, p. 177 (PDF 3)"
+    },
+    {
+      "text": "Pitfall: S1 rows describe the sacrum (lower surface at the fused S1-S2 junction, disc about 3.5 mm, canal SD up to 4.7 mm) and are not lumbar norms (Inference).",
+      "page": "Tables 2-3, pp. 177-178 (PDF 3-4)"
+    },
+    {
+      "text": "No screw, safe-zone or syndrome content (dwarfism is only an exclusion), though pedicle-screw papers are cited.",
+      "page": "p. 176 (PDF 2); p. 181 (PDF 7)"
+    }
+  ],
+  "instructions": [
+    {
+      "text": "Measure canal and body dimensions on axial reformats in bone window, as the paper did. Inference: align the axial plane to each vertebra's end plates; the paper says only 'true axial'.",
+      "page": "p. 176 (PDF 2)"
+    },
+    {
+      "text": "Take canal depth in the midline from the posterior body cortex to the lamina (image: inner cortex of the spinolaminar junction, pedicle-level slice); do not expect it to separate L3 from L4 (13.45 and 13.29 mm in men).",
+      "page": "Figure 1A, p. 176 (PDF 2); Table 2, p. 177 (PDF 3)"
+    },
+    {
+      "text": "Use the L5 rebound of canal depth and the S1 drop as bottom-of-column cues but weigh them lightly (SD about 3 mm, 4.7 mm in women at S1; Kumar's women show no L5 rebound).",
+      "page": "Table 2, p. 177 (PDF 3); Table 4, p. 179 (PDF 5)"
+    },
+    {
+      "text": "Use interfacet distance as a cranio-caudal gradient: about +2 mm T12 to L1, plateau L1-L3, then +1.4, +3.6, +5.2 mm to L4, L5, S1 (men); take it on the facet-joint axial slice between the anteromedial points of the two articular processes across the back of the canal. Inference: divide by upper end-plate width (0.40-0.43 to L4, 0.47 L5, 0.57 S1).",
+      "page": "Figure 1D, p. 176 (PDF 2); Table 2, p. 177 (PDF 3)"
+    },
+    {
+      "text": "Expect upper end-plate width to grow 1.8 to 3.2 mm per level from T12 (37 mm) to L5 (49 mm) in Indian men and to be 2.4 to 3.2 mm smaller in women; treat one width as weak evidence and combine with depth and neighbours.",
+      "page": "Table 3, p. 178 (PDF 4)"
+    },
+    {
+      "text": "Inference: call an instance S1 when its lower surface is much narrower and shallower than its upper (about 31 x 23 mm against 49 x 31 mm in men) and the disc below is about 3.5 mm; an S1-sized upper surface with a lumbar-tall disc below is a candidate lumbarised S1, on which the paper has no data.",
+      "page": "Table 3, p. 178 (PDF 4)"
+    },
+    {
+      "text": "Correct for sex before comparing: end-plate widths and depths about 2-9% larger in men, lateral recess about 20% larger at T12-L1 and 14% at L2, IFD about 4-6.5% larger; canal depth and foramen reported not sex-dependent; disc height not shown to differ by the printed values (Inference).",
+      "page": "Tables 2-3, pp. 177-178 (PDF 3-4); p. 177 (PDF 3)"
+    },
+    {
+      "text": "Inference: prefer ratios when population or size is unknown; canal depth over upper body depth falls from about 0.60 at T12 to 0.42 at L4, 0.45 at L5, 0.35 at S1.",
+      "page": "Tables 2-3, pp. 177-178 (PDF 3-4)"
+    },
+    {
+      "text": "Inference: do not use right-left lateral recess asymmetry as a feature; the reported significance rests on 0.1-0.2 mm differences and no named paired test.",
+      "page": "p. 177 (PDF 3); Table 2"
+    },
+    {
+      "text": "Do not use this paper's foramen diameter or disc height as a recipe; neither is defined; use only their level trends.",
+      "page": "p. 176 (PDF 2); Tables 2-3"
+    },
+    {
+      "text": "Inference: do not apply these norms outside ages 20-40 or outside a North Indian population; dwarfism was excluded.",
+      "page": "p. 176 (PDF 2)"
+    },
+    {
+      "text": "For stenosis, report a z-score against the Indian means and SDs of Table 2 rather than a yes or no, since no cut-off is given; a normal interpedicular distance does not exclude developmental stenosis.",
+      "page": "p. 175 (PDF 1); Table 2, p. 177 (PDF 3)"
+    },
+    {
+      "text": "Read Table 2, not Table 4, for canal depth: Table 4's L1 row holds the D12 means.",
+      "page": "Table 4, p. 179 (PDF 5); Table 2, p. 177 (PDF 3)"
+    }
+  ],
+  "bordercall": [
+    "(a) Anomaly priors: none; no transitional segment, rib count, block vertebra or counting rule; all 302 patients (174 men, 128 women) labelled D12 to S1.",
+    "(b) SCD matches Panjabi's spinal canal depth (midline body to arch); here axial CT at pedicle level to the lamina. Values 13.3-15.7 mm (L1-L5, men) run 3-5 mm below Panjabi's 17.5-19.7 mm with the same L3-L4 trough and L5 rise (Inference, panjabi1992 note): population, living CT or landmark shifts the curve's level, not its shape. Fix mid-pedicle height and inner arch cortex in mask code.",
+    "(b) UVW, LVW, UVD, LVD match Panjabi's EPWu, EPWl, EPDu, EPDl; here axial CT 'in the plane of' the end plate, with a mid-body example slice. Widths agree with Panjabi (about 40-49 mm); depths here are about 2-6 mm smaller and rise by level where Panjabi's are flat; slab position and inclusion of the ring apophysis bias a mask value (Inference).",
+    "(b) Canal width (interpedicular distance) is defined but has no values; take it from another source.",
+    "(b) Interfacet distance is a candidate new variable (a canal width at the facet level): monotonic T12 to S1, steep at both junctions.",
+    "(b) Lateral recess diameter is a candidate but definition-sensitive (perpendicular from body to the line across the facets' anterior margins; slice unstated); 7.5-11.6 mm, not to be mixed with other recess definitions.",
+    "(b) Foramen diameter and disc height are undefined here; do not generate from them; disc height needs two instances.",
+    "(b) T12 and S1 rows extend the generator's C3-L5 range: anchors for a T12 class and a sacral class (Inference).",
+    "(c) Error: none reported; use table SDs as an upper bound (CV in men: body 7-12%, canal depth 8-14% T12-L4 and 21-30% L5-S1, lateral recess 6-15%, IFD 12-17%, foramen 11-24%, disc height 17-25%); voxel error about +/- 0.5-1 mm per linear measure at 1 mm reconstruction (Inference).",
+    "(d) Sex: end-plate widths and depths larger in men by 0.75-3.2 mm (2-9%); canal depth and foramen not sex-dependent; lateral recess larger in men cranially only; IFD about 1 mm larger; disc height not supported as sex-dependent by printed values (Inference).",
+    "(d) Age: 20 to 40 only, no age analysis. Size: no height, weight or BMI; the size factor must come from the body dimensions (Inference).",
+    "(d) Population: North Indian living adults; canal depth below Kumar's Telangana CT at L1-L5 in men and L1-L4 in women; men's upper widths below Alam, Kang and Singh and men's upper depths below Alam; women's widths mixed (above Alam's LVW at every level); lateral recess above Alam's almost everywhere; not uniformly lower (Inference from Tables 4-8, pp. 179-181, PDF 5-7)."
+  ],
+  "gaps": [
+    "No stenosis threshold despite the title and conclusion (pp. 175, 180, PDF 1, 6).",
+    "Interpedicular distance defined (Figure 1A) but never reported, though the text says the canal changes transversely (p. 176, PDF 2; p. 177, PDF 3).",
+    "Foramen diameter and disc height tabulated but never defined (p. 176, PDF 2).",
+    "Slice heights for canal depth, lateral recess and interfacet distance shown only in the figure; Figure 1C's example slice looks mid-body, not at an end plate; level-to-joint and level-to-disc assignment unstated.",
+    "Level identification and transitional anatomy not addressed; no reliability data, no reader count; no limitations section.",
+    "Text against table: women's left LRD minimum at S1 5.80 in text vs 7.56 in Table 2 (p. 177, PDF 3); Table 4 L1 row holds D12 means, female L3 13.60 vs 13.66 (p. 179, PDF 5).",
+    "LRD 'significantly more in men from the D12 to L5' but women larger at right L4; LRD said to fall gradually but women's right rises L3 to L4 (p. 177, PDF 3; Table 2).",
+    "IVFD said to decrease constantly but women's left rises L2 to L3; no sex difference claimed though the printed L3 left values would show one (Inference) (p. 177, PDF 3; Table 2).",
+    "IFD larger in men 'from D12 to L5' (p. 178, PDF 4) vs 'at all levels' (p. 179, PDF 5); printed values just short of significance at L4 and S1 (Inference).",
+    "IVDH 'significantly larger in men at all levels' (p. 178, PDF 4) but women larger at L3, 0.03 mm gap at L1, and no level clearly significant by printed values (Inference).",
+    "Text calls canal depth the AP diameter 'of the spinal cord' and speaks of the spinal cord traversing the lumbar canal (p. 177, PDF 3; p. 179, PDF 5); women not larger at L5.",
+    "Abstract says canal and vertebral dimensions generally greater in men (p. 175, PDF 1), but canal depth and foramen show no sex difference (p. 177, PDF 3).",
+    "Conclusions say vertebral width and depth increase progressively D12 to S1 (p. 180, PDF 6), but UVD, LVW and LVD fall at S1 and men's LVD falls at L5 (Table 3).",
+    "Singh's cadaveric LVW described as rising L3 to L5 (p. 180, PDF 6) but Table 7 gives 50.9 at L4 and 50.6 at L5.",
+    "Kumar et al described as 61 patients (p. 179, PDF 5) but Table 4 lists n = 61 men and n = 61 women.",
+    "Right-left LRD significance claimed at all levels with 0.03-0.20 mm differences and no named test; abstract claims significant population differences but no comparison table has a P value.",
+    "Circular-to-oval canal shape claim rests on depth alone (p. 177, PDF 3); Kumar's women show no L5 rebound (Table 4, p. 179, PDF 5).",
+    "Inference against other notes of this set: Panjabi 1992's dry-bone canal depth shares the L3-L4 trough and L5 rise but is 3-5 mm larger; his end-plate depths are flat and his lower end plate is wider than the upper at L5, unlike this paper's men; Eisenstein 1977's caliper takes the least midsagittal canal AP near the cranial end of the canal and his lateral-film recipe uses the articular-process line, so canal depths should not be pooled across these papers without matching definitions.",
+    "Body dimensions said to differ by sex 'in most of the dimensions' (p. 178, PDF 4), then each said larger in men at all levels (pp. 178, 180, PDF 4, 6).",
+    "Earlier series: small samples named as a limitation in the abstract (p. 175, PDF 1) but credited with adequate sample sizes in the introduction (p. 176, PDF 2).",
+    "The authors call for comparison with radiographic and osteologic techniques (p. 179, PDF 5) but make none; no radiograph is measured.",
+    "Table 3's women's L3 row is printed 'F (n=128)' beside the n column (p. 178, PDF 4), a typesetting slip with no effect on values.",
+    "Reference-list pointers not used in the text: a lumbar Torg ratio study of 420 postmortem subjects (ref. 13) and Kang et al's radiograph-versus-CT comparison in Koreans (ref. 16) (p. 181, PDF 7)."
+  ]
+}

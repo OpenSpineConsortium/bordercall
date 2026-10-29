@@ -1,0 +1,212 @@
+{
+  "id": "mitra2002",
+  "citation": "Mitra SR, Datir SP, Jadhav SO. Morphometric Study of the Lumbar Pedicle in the Indian Population as Related to Pedicular Screw Fixation. Spine 2002;27(5):453-459. Copy read: greg's upload of 2026-10-28 01:02 UTC (upload id 2c2b91c3-765a-42bf-8cca-b806dbe85a44), sha256 begins eafc569dbaf81478.",
+  "population": "India (Nagpur), cadavers of the Department of Anatomy, Government Medical College and Hospital, Nagpur: 20 cadavers, 18 men aged 20 to 70 and 2 women aged 55 and 60; obvious spinal deformity or fracture excluded; L1 to L5 removed en bloc after a posterior approach T12 to sacrum. No stature, weight, sub-ethnicity or cause of death. Tables give means only by sex (M 18, F 2); sides not stated. The authors call it a limited study in a subset of the Indian population. p. 453 (PDF 1).",
+  "modality": "Three methods on the same specimens: direct measurement (Vernier caliper 0.1 mm, goniometer 1 deg) on the intact column and on vertebrae sawn at midpedicle; lateral roentgenograms of the column (tube to cassette 100 cm, magnifying factor reported as 0); CT with 5-mm axial slices at the pedicle isthmus, plane set on the sagittal view, read from hard-copy films with software (distances) and a goniometer (angles); visual entry-point mapping by Hou's method. pp. 453-454 (PDF 1-2).",
+  "levels_covered": "L1 to L5 only (IPD L1-L2 to L4-L5; none at L5-S1). No thoracic, sacral or junctional level measured; how levels were counted is not stated.",
+  "anomalies": [
+    {
+      "variant": "Transitional or numbering variants (LSTV, sacralisation, lumbarisation, L6, T13, rib-count anomalies, block vertebrae)",
+      "finding": "Not mentioned anywhere; no prevalence, no denominator; the level-counting method is not stated. Whether a transitional segment counted as an excluded 'obvious deformity' is unknown.",
+      "page": "pp. 453-459 (PDF 1-7); exclusion p. 453 (PDF 1)",
+      "population": "20 Indian cadavers (18 M, 2 F)",
+      "how_identified": "Not described"
+    },
+    {
+      "variant": "Very narrow lumbar pedicles (TD under 5 mm, as low as 3 mm)",
+      "finding": "Direct TD under 5 mm (printed 'cm') at the upper lumbar levels in two specimens; as low as 3 mm in 'a few' specimens; similar in the Korean series; cause unknown, short stature or a developmental factor suggested. Denominator not given (20 cadavers x 5 levels).",
+      "page": "p. 454 (PDF 2); p. 457 (PDF 5)",
+      "population": "Indian cadavers of this study",
+      "how_identified": "Caliper on vertebrae sawn at midpedicle"
+    },
+    {
+      "variant": "Caudad-directed L5 pedicle (negative sagittal angle)",
+      "finding": "Male direct L5 SA ranged -8 to +15 deg (p. 454), radiographic L5 -4.5 to 11 deg (p. 456), Discussion -9 to 11 deg (p. 458); count of caudad pedicles not given, only that it was significantly fewer than in Zindrick's series (p. 456). Table 2 quotes Olsewski's L5 radiographic SA as 7 in 30 and -10 in 12 pedicles, which the olsewski1990 note reads as 12 caudad of 42 pedicles of 21 spines (Inference), though Mitra labels the row n = 49.",
+      "page": "p. 454 (PDF 2); p. 455 Table 2 (PDF 3); p. 456 (PDF 4); p. 458 (PDF 6)",
+      "population": "18 male Indian cadavers; Olsewski's US cadaver spines for the quoted split",
+      "how_identified": "Goniometer on the intact column and on lateral roentgenograms, pedicle axis against the superior end-plate line"
+    },
+    {
+      "variant": "Pedicle centre low on the transverse process",
+      "finding": "Entry point at the bottom of the transverse process instead of its midpoint in specimen 5 at L3 and L4 and specimen 9 at L1, L2, L3 and L5: 6 of 100 level observations (Inference by count; sides not stated).",
+      "page": "p. 456 (PDF 4)",
+      "population": "20 Indian cadavers",
+      "how_identified": "Visual examination of the dissected L1-L5 segment (Hou's method)"
+    }
+  ],
+  "measures": [
+    {
+      "name": "Transverse diameter (TD, pedicle width)",
+      "definition": "Mediolateral width of the pedicle at its narrowest part (isthmus) in the axial plane; Figure 1 draws two opposed horizontal arrows across the left pedicle, lateral surface to canal side. Perpendicular to the pedicle axis or to the midsagittal plane is not stated.",
+      "projection": "Direct caliper on the vertebra sawn at midpedicle; axial CT 5-mm slice at the isthmus. Not on radiographs.",
+      "page": "p. 454 Figure 1 (PDF 2); Table 1, p. 455 (PDF 3)",
+      "levels": "L1-L5; M 18, F 2 cadavers; means only",
+      "level_pattern": "Male direct 7.05, 7.85, 9.01, 11.6, 16.19 mm; female 5.95, 6.5, 7.55, 9.25, 12.75. Male CT 7.5, 7.59, 8.65, 9.81, 14.64; female CT 5.85, 6.15, 7.25, 8.8, 13.1. Monotonic rise, steps +0.80, +1.16, +2.59, +4.59 mm (male direct, my subtraction); separates L3/L4 and L4/L5, not L1/L2 (CT L1-L2 only 0.09 mm apart).",
+      "ct_mask_recipe": "Inference: SPINEPS has no pedicle label; isolate the bridge of the posterior-element mask between body and process branching; smallest chord perpendicular to the fitted pedicle axis, outer boundary to outer boundary; also record the chord along the vertebra's left-right axis (1/cos(TA), about 1.14 times wider at L5).",
+      "radiograph_recipe": "Not done in this paper. Inference: AP pedicle oval width divided by magnification; overstated at L4-L5 where the pedicle runs obliquely to the beam; not from a lateral.",
+      "covariates": "Females narrower at every level (n = 2). Indian male L5 16.19 against Olsewski white men 21.1, Kim Koreans 18.9, Hou Chinese 12.8 (p. 457); Olsewski men significantly larger at L2-L5 (Table 1). On CT smaller than the white series, significant at L4-L5 (p. 457). Short stature or a developmental factor suggested; no stature data. 'Great variation' (p. 458) but no SD.",
+      "error": "Caliper resolution 0.1 mm; no observer study. CT minus direct (male): +0.45, -0.26, -0.36, -1.79, -1.55 mm; text calls CT lower at all levels, significant at L4-L5 only (p. 456)."
+    },
+    {
+      "name": "Sagittal diameter (SD, pedicle height)",
+      "definition": "Craniocaudal height of the pedicle; Figure 2 (lateral drawing) draws opposed vertical arrows between the superior and inferior vertebral notches.",
+      "projection": "Direct caliper on the intact column; lateral roentgenogram of the column. Not on CT.",
+      "page": "p. 453 (PDF 1); Figure 2, p. 454 (PDF 2); Table 2, p. 455 (PDF 3)",
+      "levels": "L1-L5; M 18, F 2",
+      "level_pattern": "Male direct 15.68, 15.27, 15.03, 14.79, 15.67 mm (shallow U, lowest L4); female 15.7, 15.7, 15.4, 14.7, 17. Male film 16.3, 15.5, 15.1, 15.1, 14.8; female film 17.5, 17, 16.5, 17, 18.5. Separates no adjacent pair (Inference).",
+      "ct_mask_recipe": "Inference: in the same pedicle sections as TD, the craniocaudal chord to the outer boundary, its minimum along the pedicle; or the narrowest chord between the notches in the parasagittal plane through the pedicle axis.",
+      "radiograph_recipe": "Lateral radiograph: narrowest vertical dimension of the pedicle between the notches, both pedicles superimposed, divided by magnification (here reported as none).",
+      "covariates": "Females larger at most levels, not significant (n = 2). Olsewski's white series larger at all levels; similar to Hou's Chinese; no sex difference here or in Hou, unlike Olsewski (p. 456). Film values smaller than Olsewski's except L5, slightly above Zindrick's (p. 457).",
+      "error": "Film minus direct (male): +0.62, +0.23, +0.07, +0.31, -0.87 mm; higher on film except L5, not significant (p. 456)."
+    },
+    {
+      "name": "Transverse angle (TA, axial convergence)",
+      "definition": "Axial-plane angle between the pedicle axis and the midline; Figure 1 draws the midline through body, canal and spinous process and an oblique line through the right pedicle meeting it in front of the body. All values positive (anteromedial).",
+      "projection": "Direct goniometer on the vertebra sawn at midpedicle; goniometer on hard-copy axial CT film.",
+      "page": "Figure 1, p. 454 (PDF 2); Table 1, p. 455 (PDF 3); pp. 456-458 (PDF 4-6)",
+      "levels": "L1-L5; M 18, F 2",
+      "level_pattern": "Male direct 9, 10.05, 12.33, 14.72, 29.33 deg; female 5.5, 10, 10.5, 8.5, 21. Male CT 11, 9.5, 10.8, 12.3, 24.3; female CT 3.5, 8, 9.5, 11.5, 24.5. Gentle rise L1-L4 (1 to 2.4 deg per level), jump of 14.6 deg at L4-L5 (male direct); strongest L4/L5 discriminator here (Inference).",
+      "ct_mask_recipe": "Inference: fit the pedicle axis (centroids of successive cross-sections or normal to the narrowest section), project on the vertebra's axial plane, angle to the vertebra's own midsagittal plane (not the scanner y axis); average sides.",
+      "radiograph_recipe": "Not possible from a lateral or AP in a living patient (Inference); needs axial imaging or bone.",
+      "covariates": "Indian TA higher than Olsewski's white series at every level, significantly at L5 (29.3 against 17 deg); agrees with Cheung that Asian pedicles converge more; Roy-Camille and Saillant about 30 deg at L5 (p. 456). On CT said to be smaller than the white series, significant at L4-L5 (p. 457). Females lower except about equal at L2 (n = 2).",
+      "error": "Goniometer 1 deg. CT minus direct (male): +2.0, -0.55, -1.53, -2.42, -5.03 deg; text says CT significantly lower except L2 (M) and L3 (F) (p. 456), not borne out at male L1 or female L4-L5."
+    },
+    {
+      "name": "Sagittal angle (SA, craniocaudal tilt)",
+      "definition": "Angle between a line along the pedicle axis and a line along the superior border (end plate) of the body on a lateral view, after Olsewski; positive cephalad, negative caudad. Figure 2 draws the axis from the anterosuperior corner of the body back and down through the pedicle, so cephalad means the anterior end is higher.",
+      "projection": "Direct goniometer on the intact column; lateral roentgenogram.",
+      "page": "p. 453 (PDF 1); Figure 2, p. 454 (PDF 2); Table 2, p. 455 (PDF 3)",
+      "levels": "L1-L5; M 18, F 2",
+      "level_pattern": "Male direct 8.4, 9.3, 9.4, 10.4, 6.7 deg; female 4, 6, 8, 11, 7. Male film 5, 5.8, 5.9, 5.2, 0.6; female film 1.5, 0, 4, 5.5, -4.5. L5 spread -8 to +15 (direct), -4.5 to 11 (film). Does not separate L1-L4; a caudad pedicle is a weak L5 cue (Inference).",
+      "ct_mask_recipe": "Inference: project the pedicle axis on the vertebra's sagittal plane and measure against a plane fitted to the superior end plate of the body subregion; positive when the anterior end is cranial; keep L5 cephalad and caudad cases apart.",
+      "radiograph_recipe": "Lateral radiograph: superimposed pedicle axis against the superior end-plate line.",
+      "covariates": "Females lower at upper levels (n = 2). Close to Olsewski, slightly greater, significant only at L4 (p. 456); differs from Zindrick at L1-L4 because Zindrick had more caudad pedicles (p. 458).",
+      "error": "Goniometer 1 deg. Film minus direct (male): -3.4, -3.5, -3.5, -5.2, -6.1 deg; film significantly lower at all levels (p. 456)."
+    },
+    {
+      "name": "Chord length (CL, pedicle depth)",
+      "definition": "Labelled 'chord length (along pedicle axis)' in Figure 1, from the posterior arch through the pedicle to the anterior body cortex; but the labelled line is drawn nearly parallel to the midline, so along-axis or midline-parallel cannot be settled. No words in the text; posterior start not defined.",
+      "projection": "Direct caliper on the vertebra sawn at midpedicle; axial CT with software.",
+      "page": "Figure 1, p. 454 (PDF 2); Table 1, p. 455 (PDF 3); p. 457 (PDF 5); p. 458 (PDF 6)",
+      "levels": "L1-L5; M 18, F 2",
+      "level_pattern": "Male direct 46.01, 47.56, 46.9, 46.31, 45.87 mm (max L2, min L5); female 41.2, 45.8, 47.3, 46.55, 41.65. Male CT 46.8, 49.7, 49.35, 49.83, 46.87 (max L4); female CT 45.8, 44, 45.25, 44.95, 46.7. Fairly constant between people and levels (p. 458); separates no adjacent pair (Inference).",
+      "ct_mask_recipe": "Inference: chord of the instance along the fitted pedicle axis (axial projection) from posterior arch exit to anterior body exit, and also the chord through the pedicle centre parallel to the midsagittal plane; record the start point.",
+      "radiograph_recipe": "Not possible from a lateral or AP (needs the axial angle); Inference.",
+      "covariates": "Females shorter except L3-L4 (direct). Comparators mix definitions (Hou's Length I and Zindrick's midline depth are parallel to the midline; Inference from sibling notes). Range across studies 41.2 to 50.7 mm (p. 457).",
+      "error": "Caliper 0.1 mm. CT minus direct (male): +0.79, +2.14, +2.45, +3.52, +1.00 mm; CT greater except L2-L4 in females (p. 456), as Olsewski found (p. 457)."
+    },
+    {
+      "name": "Interpedicular distance (IPD, as used here: craniocaudal spacing of adjacent pedicles)",
+      "definition": "Not defined in words. Inference from the paper: the craniocaudal distance between pedicles of adjacent vertebrae (reported L1 to L4 with a dash at L5, extremes named L1-L2 and L4-L5, taken on lateral films where left and right overlap, compared with plate hole spacing of 2.6 cm); not the transverse interpediculate canal width.",
+      "projection": "Direct on the intact column; lateral roentgenogram.",
+      "page": "p. 453 (PDF 1); Table 2, p. 455 (PDF 3); p. 456 (PDF 4); p. 458 (PDF 6)",
+      "levels": "L1-L2 to L4-L5 (labelled L1 to L4); M 18, F 2",
+      "level_pattern": "Male direct 32.4, 32.8, 33.4, 34.1 mm; female 32.5, 34.5, 34, 35. Male film 37.3, 38.5, 38, 37.1; female film 37.5, 38, 40.5, 37. Smallest L1-L2, largest L4-L5 (direct).",
+      "ct_mask_recipe": "Inference: distance between pedicle centroids of consecutive instances (left with left, right with right), along the local spinal axis or straight; a segmental, not per-vertebra, feature.",
+      "radiograph_recipe": "Lateral radiograph: centre of the superimposed pedicle shadow of one vertebra to the next, divided by magnification; Inference: AP pedicle ovals give the same spacing.",
+      "covariates": "Slightly greater in females (n = 2). About 10 mm above Roy-Camille's constant 26 mm (p. 456).",
+      "error": "Film minus direct (male): +4.9, +5.7, +4.6, +3.0 mm (9 to 17 percent), significant at all levels; blamed on overlap of left and right pedicles (p. 458); Inference: magnification may contribute despite the reported factor of 0."
+    },
+    {
+      "name": "Medial and lateral pedicle cortical thickness",
+      "definition": "Thickness of the medial (canal-side) and lateral pedicle walls at the isthmus on axial CT; units not printed (mm assumed); sexes not separated.",
+      "projection": "Axial CT, 5-mm slice, hard-copy film.",
+      "page": "p. 454 (PDF 2); Table 2, p. 455 (PDF 3); p. 456 (PDF 4); p. 458 (PDF 6)",
+      "levels": "L1-L5",
+      "level_pattern": "Lateral 0.82, 0.55, 0.87, 0.6, 1.25; medial 1.07, 1.15, 1.15, 1.37, 1.32. Medial thicker at every level, significant only at L2.",
+      "ct_mask_recipe": "Not from a binary mask; needs CT intensities (Inference).",
+      "radiograph_recipe": "Not possible (Inference).",
+      "covariates": "None reported.",
+      "error": "Sub-millimetre values on 5-mm film CT near resolution (Inference)."
+    },
+    {
+      "name": "Pedicle entrance point (Hou's zones)",
+      "definition": "Pedicle centre found visually, placed against the transverse process (top, upper half, midpoint, lower half or bottom) and against vertical segments of the superior facet; Figure 3: five lines numbered 1 (medial) to 5 (lateral) bound four segments, 1 to 3 the facet's thirds and 4 lateral to it (Inference from the drawing; the text is garbled).",
+      "projection": "Visual on the dissected L1-L5 segment.",
+      "page": "p. 454 (PDF 2); p. 456 (PDF 4); Figure 3 and text, p. 457 (PDF 5)",
+      "levels": "L1-L5; 20 cadavers",
+      "level_pattern": "Midpoint of the transverse process at all levels except 6 level observations (bottom); L1-L4 in segment 3 (lateral third of the facet); L5 in segment 4, lateral to the facet, in all cadavers. Lateral migration L1 to L5.",
+      "ct_mask_recipe": "Inference: dorsal projection of the instance; code the isthmus centroid's height against the transverse process base and its mediolateral position in thirds of the superior articular process.",
+      "radiograph_recipe": "Inference: AP radiograph or fluoroscopy, pedicle oval centre against the transverse process midline and the facet's lateral border.",
+      "covariates": "None reported.",
+      "error": "Visual; observers not named; no reliability."
+    }
+  ],
+  "level_details": [
+    {"level": "T12, T12/L1", "detail": "Not studied; the specimen was exposed from T12 but measured from L1.", "page": "p. 453 (PDF 1)"},
+    {"level": "L1", "detail": "Narrowest pedicle (male direct TD 7.05, CT 7.5); least direct convergence (TA 9; on CT the minimum is L2, 9.5); TD/SD about 0.45 (Inference); shorter screw and a 5-mm screw advised; two specimens with TD under 5 mm at the upper levels; L1-L2 the smallest IPD (32.4).", "page": "p. 454 (PDF 2); Table 1-2, p. 455 (PDF 3); p. 456 (PDF 4); p. 457 (PDF 5); p. 458 (PDF 6)"},
+    {"level": "L2", "detail": "Maximum male direct CL (47.56); only level with a significant medial-over-lateral cortical difference; lateral cortex thinnest (0.55).", "page": "Table 1-2, p. 455 (PDF 3); p. 456 (PDF 4)"},
+    {"level": "L3", "detail": "Middle values; a 6-mm screw advised from L3 to L5.", "page": "p. 458 (PDF 6)"},
+    {"level": "L4", "detail": "Maximum male CT CL (49.83); maximum male direct SA (10.4), the only level differing significantly from Olsewski; lowest male direct SD (14.79); medial cortex thickest (1.37).", "page": "Table 1-2, p. 455 (PDF 3); p. 456 (PDF 4); p. 457 (PDF 5)"},
+    {"level": "L4-L5", "detail": "Largest direct IPD (34.1 male).", "page": "p. 456 (PDF 4)"},
+    {"level": "L5", "detail": "Widest pedicle (16.19 direct, 14.64 CT; TD about equal to SD); most convergent (29.33 direct, 24.3 CT, about 30 deg, as Roy-Camille and Saillant found); SA from -8 to +15 deg with caudad pedicles, lowest film SA; shortest male direct CL (45.87); thickest lateral cortex (1.25); entry point lateral to the facet in every cadaver; special care at screw insertion.", "page": "Table 1-2, p. 455 (PDF 3); p. 456 (PDF 4); p. 457 (PDF 5); p. 458 (PDF 6)"},
+    {"level": "L5/S1", "detail": "Nothing measured at S1 or the sacrum; no L5-S1 IPD.", "page": "Table 2, p. 455 (PDF 3)"}
+  ],
+  "errors": [
+    {"what": "Instrument resolution", "value": "Vernier caliper 0.1 mm; goniometer 1 deg; no intra- or inter-observer study, no repeats, no SDs or ranges", "page": "p. 453 (PDF 1)"},
+    {"what": "Radiographic magnification", "value": "Tube to cassette 100 cm (printed as about 33 inches); metal guide gave a magnifying factor reported as 0", "page": "p. 453 (PDF 1)"},
+    {"what": "CT minus direct, male means (my subtraction)", "value": "TD +0.45 to -1.79 mm (significant L4-L5); TA +2.0 to -5.03 deg; CL +0.79 to +3.52 mm", "page": "Table 1, p. 455 (PDF 3); p. 456 (PDF 4)"},
+    {"what": "Lateral film minus direct, male means (my subtraction)", "value": "SD -0.87 to +0.62 mm (not significant); SA -3.4 to -6.1 deg (significant all levels); IPD +3.0 to +5.7 mm (significant all levels)", "page": "Table 2, p. 455 (PDF 3); p. 456 (PDF 4)"},
+    {"what": "CT technique", "value": "5-mm axial slices at the isthmus, plane from the sagittal view; gantry, window, pixel size and reader not given", "page": "p. 454 (PDF 2)"},
+    {"what": "Female series", "value": "n = 2; not compared with other studies, yet female differences called significant (Inference: no power)", "page": "p. 454 (PDF 2); p. 456 (PDF 4)"}
+  ],
+  "pearls_pitfalls": [
+    {"text": "Pedicle fixation is used where lamina-dependent rods, hooks and wires fail (trauma, laminectomy); Harrington and Luque span many levels and Harrington needs an intact anterior longitudinal ligament; the pedicle is the strongest part of the vertebra even in osteoporotic bone.", "page": "p. 453 (PDF 1)"},
+    {"text": "TD, not SD, limits screw diameter; 5-mm screws at L1-L2, 6-mm at L3-L5, no 7-mm screws in this population, especially at the upper levels.", "page": "p. 453 (PDF 1); p. 457 (PDF 5); p. 458 (PDF 6)"},
+    {"text": "A 40-mm screw appeared safe at all lumbar levels; shorter screws at L1 and L5.", "page": "p. 457 (PDF 5); p. 458 (PDF 6)"},
+    {"text": "The axis runs anteromedially, about 30 deg at L5; keep a larger mediolateral inclination at the lower levels; oblique screws toe-nail left against right.", "page": "p. 458 (PDF 6)"},
+    {"text": "The entry point migrates laterally, lying lateral to the facet at L5; no single universal starting point.", "page": "p. 457 (PDF 5)"},
+    {"text": "The medial cortex is consistently thicker, so the medial wall can be sounded safely while probing.", "page": "p. 453 (PDF 1); p. 458 (PDF 6)"},
+    {"text": "Wide L5 sagittal-angle variation, cephalad to caudad, demands special care at screw insertion.", "page": "p. 456 (PDF 4)"},
+    {"text": "Plates with a fixed 2.6-cm pedicle spacing (Roy-Camille, Steffee) fit the Indian IPD poorly.", "page": "p. 456 (PDF 4); p. 458 (PDF 6)"},
+    {"text": "Pitfall: CT values are smaller than direct ones for width and convergence (significant at L4-L5 by the Results, not significant by the Discussion) and larger for chord length.", "page": "p. 456 (PDF 4); p. 457 (PDF 5); p. 458 (PDF 6)"},
+    {"text": "Pitfall: lateral films read the sagittal angle 3 to 6 deg low and the intersegmental pedicle spacing 3 to 6 mm high (my subtraction); left-right pedicle overlap blamed.", "page": "Table 2, p. 455 (PDF 3); p. 458 (PDF 6)"},
+    {"text": "Pitfall: Western pedicle dimensions overstate Indian widths; screw diameter and length should be substantially smaller; some pedicles as narrow as 3 mm.", "page": "p. 457 (PDF 5); p. 458 (PDF 6)"}
+  ],
+  "instructions": [
+    {"text": "Measure TD on the axial isthmus section as the narrowest outer-surface chord, both perpendicular to the pedicle axis and along the vertebra's left-right axis (Inference; they differ by about 14 percent at L5); expect Indian male direct means 7.05, 7.85, 9.01, 11.6, 16.19 mm.", "page": "Figure 1, p. 454 (PDF 2); Table 1, p. 455 (PDF 3)"},
+    {"text": "Use the steep TD rise at L3-L4 and L4-L5 (+2.6, +4.6 mm) to place L4 and L5; do not use TD to split L1 from L2 (+0.8 direct, 0.09 mm on CT).", "page": "Table 1, p. 455 (PDF 3)"},
+    {"text": "Compute TD/SD (Inference): about 0.45 at L1 to about 1.0 at L5; a pedicle as wide as tall is an L5 cue.", "page": "Tables 1-2, p. 455 (PDF 3)"},
+    {"text": "Measure TA against the vertebra's own midsagittal plane; expect 9 to 15 deg at L1-L4 and about 29 deg at L5 (direct), 24 on CT; Inference: a jump of more than 10 deg between consecutive instances marks L4 to L5.", "page": "Table 1, p. 455 (PDF 3); p. 458 (PDF 6)"},
+    {"text": "On a lateral radiograph or fluoroscopy take only the sagittal measures the paper took there (SD, SA against the superior end plate, spacing of pedicle shadows); Inference: do not attempt TD, TA or CL from a lateral.", "page": "p. 453 (PDF 1); Table 2, p. 455 (PDF 3)"},
+    {"text": "Read SA as positive when cephalad (anterior end higher, Figure 2); expect 8 to 10 deg direct or 5 to 6 deg on film at L1-L4; at L5 anything from about -9 to +15 deg; keep cephalad and caudad L5 pedicles apart.", "page": "Figure 2, p. 454 (PDF 2); p. 456 (PDF 4); p. 458 (PDF 6)"},
+    {"text": "Correct film values toward bone before comparing: SA about 3 to 6 deg low, pedicle spacing 3 to 6 mm high on film; do not trust the reported magnification factor of 0.", "page": "p. 453 (PDF 1); Table 2, p. 455 (PDF 3)"},
+    {"text": "When a source says interpedicular distance, check whether it is the craniocaudal spacing of adjacent pedicles (this paper, 32 to 35 mm direct) or the transverse canal width on an AP film (Inference).", "page": "p. 456 (PDF 4); p. 458 (PDF 6)"},
+    {"text": "Measure CL twice, along the convergent axis and parallel to the midline, since Figure 1's label and drawing disagree; expect a flat 46 to 50 mm L1-L4 in males with L5 shortest by direct measurement; do not use it to name a level.", "page": "Figure 1, p. 454 (PDF 2); Table 1, p. 455 (PDF 3); p. 458 (PDF 6)"},
+    {"text": "Expect the entry point at the transverse-process midline and in the lateral third of the facet at L1-L4, lateral to the facet at L5 in every cadaver; about 6 of 100 level observations sat at the bottom of the transverse process. Inference: on AP fluoroscopy a pedicle oval lateral to the facet is an L5 cue.", "page": "p. 456 (PDF 4); p. 457 (PDF 5)"},
+    {"text": "Treat a lumbar pedicle under 5 mm wide as a real but rare variant before calling it a segmentation failure.", "page": "p. 454 (PDF 2); p. 457 (PDF 5)"},
+    {"text": "For an Indian patient (Inference: perhaps South Asian more widely) shift width priors down from white series (L5 about 16 against 21 mm in men) and convergence up (L5 about 29 against 17 deg).", "page": "p. 456 (PDF 4); p. 457 (PDF 5)"},
+    {"text": "Do not use this paper for T12, T12/L1, S1 or transitional anatomy; it has none.", "page": "p. 453 (PDF 1)"},
+    {"text": "Treat CT widths and angles at L4-L5 as slightly low and chord lengths as slightly high against bone (male CT minus direct: TD -1.8 and -1.6 mm, TA -2.4 and -5.0 deg at L4 and L5; CL +1 to +3.5 mm).", "page": "Table 1, p. 455 (PDF 3); p. 456 (PDF 4)"}
+  ],
+  "bordercall": [
+    "(a) Anomaly priors: none. No prevalence of LSTV, L6, T13, rib anomalies or block vertebrae; level counting not stated. Only morphological variants: caudad L5 pedicles (own count not given; Olsewski's quoted L5 split read as 12 caudad of 42 pedicles, Inference) and a low entry point in about 6 of 100 level observations (Inference).",
+    "(b) Measures: TD = Panjabi's PDW but defined as the narrowest section and drawn left-right (axis convention ambiguous, up to 14 percent at L5); SD = PDH but flat at L5 here (15.67 direct) against Panjabi's about 19.6 (sibling note; Inference); TA = PDIs, larger at L5 (29.3) and smaller at L1 (9) than Panjabi's about 24.5 and 14.5 (Inference); SA is referenced to the superior end plate, signed cephalad positive, and may differ in reference and sign from Panjabi's PDIt (drawn with the posterior end higher per the sibling note; Inference); CL is a candidate addition but ambiguous between along-axis and midline-parallel and does not separate L1-L4; IPD here is a segmental craniocaudal spacing for the decoder's transitions, not a per-vertebra measure; cortical thickness needs intensities; TD/SD ratio is a size-free monotonic feature (0.45 to 1.03, Inference).",
+    "(c) Error: instrument resolution only (0.1 mm, 1 deg), no SDs, so no likelihood widths; modality offsets (male, my subtraction): CT minus bone TD to -1.8 mm, TA to -5 deg, CL to +3.5 mm; lateral film minus bone SD within +/-0.9 mm, SA -3.4 to -6.1 deg, IPD +3 to +5.7 mm. Take spreads from Olsewski, Hou or Zindrick.",
+    "(d) Covariates: population Indian (Nagpur cadavers; narrower pedicles and more convergence than white series, near Chinese and Korean), sex (2 women, not analysable), age (men 20 to 70, no analysis), size (short stature suggested, no data); no size factor to calibrate."
+  ],
+  "gaps": [
+    "No SD, range, per-side or per-specimen data; no effect sizes possible.",
+    "How levels were identified and counted is not stated; transitional anatomy not addressed.",
+    "IPD never defined; craniocaudal intersegmental reading is an inference.",
+    "Abstract against tables: SA 'largest at L5 (29) and smallest at L1 (9)' repeats TA numbers; CL 'smallest at L1' when L5 is smaller; 'linear measurements smaller in females at all levels' false for SD, CL at L3-L4 and IPD; L2 CL 47.5 against 47.56.",
+    "Female values called male: TD 5.95, TA 5.5, SA 4 and 11, IPD 35 (p. 454); CT TD 5.85 (p. 456).",
+    "Unit misprints: cm for mm in CL, IPD, TD, CT TD; SD '4.79' for 14.79 (p. 454).",
+    "100 cm is about 39 inches, not 33; a magnifying factor of 0 is impossible (p. 453).",
+    "CT against direct: CT TD higher at male L1; CT TA higher at male L1 and female L4-L5; male CT TA not monotonic; Results call the CT shortfall significant at L4-L5, the Discussion not significant.",
+    "Female CT TA at L5 (24.5) above male (24.3); female direct SD at L4 below male; female direct TA at L2 a tie (10 against 10.05).",
+    "Film IPD said to fall at L5 but no L5 value; film peaks at L2 (M) and L3 (F).",
+    "L5 SA range given as -8 to 15, -4.5 to 11 and -9 to 11; p. 456 also attributes -8 to 15 to Olsewski while p. 458 gives Olsewski -10 to 8.",
+    "CL claims against the table: female CT longest at L5; 'L5 less than other levels in all studies' fails for male CT, female CT and Olsewski's (51) row.",
+    "SD 'all studies rise again at L5' holds only for the direct rows; every film row and B&S fall at L5.",
+    "Entry-point segment text garbled; Results put L5 in the lateral third of the facet (segment 4), Discussion lateral to the facet (zone 4).",
+    "Table asterisks do not say against what; Zindrick SA marked at L2-L4 while text says L1-L4.",
+    "'B&S' (30) unidentified.",
+    "Inference from sibling notes: Olsewski '(51)' CT rows and '(49)' roentgenogram rows are his Table II radiographs of 21 disarticulated spines; values credited to Zindrick ref 27 (1986 biomechanics) are Zindrick 1987 morphometry (ref 26), a mix of film and CT; Hou's and Zindrick's chord lengths are midline-parallel depths; Hou female L3 quoted 46.3 for 48.9; Zindrick L5 SA quoted 1.8 for -1.8.",
+    "Figure 1 labels CL 'along pedicle axis' but draws it nearly parallel to the midline.",
+    "All distances said to be by caliper, yet CT distances read with software.",
+    "Cortical thickness has no units and no sex split; near CT resolution.",
+    "Female significance claims rest on two cadavers.",
+    "Nothing on T12, S1, sacrum, canal, end plates, body heights or living patients."
+  ]
+}

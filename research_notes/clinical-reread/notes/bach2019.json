@@ -1,0 +1,311 @@
+{
+ "id": "bach2019",
+ "citation": "Konrad Bach, Jonathan Ford, Robert Foley, Jacob Januszewski, Ryan Murtagh, Summer Decker, Juan S. Uribe. Morphometric Analysis of Lumbar Intervertebral Disc Height: An Imaging Study. World Neurosurg. (2019) 124:e106-e118 (April 2019; no issue number printed). https://doi.org/10.1016/j.wneu.2018.12.014. Received 11 July 2018, accepted 3 December 2018. Conflict of interest: Uribe is a paid consultant for NuVasive (p. e118, PDF 13). Source: thread \"Reread every paper for clinical detail\", project symphony_4, 2026-10-28. Copy read: greg's upload of 2026-10-28 01:02 UTC (upload id 44635a7e-db3b-4a7a-936e-5dc02bbc1153); sha256 begins ef46b33cb9428dc7. PDF 1-13 = pp. e106-e118.",
+ "population": "240 anonymized abdominal CT scans of living patients, 131 women and 109 men, University of South Florida (Tampa, Florida, USA), January 2010 to August 2012, collected prospectively after IRB approval; people aged 10-80 with a non-spinal complaint in whom thoracic and lumbar CT was obtained; anyone with incidental spinal pathology excluded (number excluded not given); ethnicity not reported (p. e107, PDF 2). Decade groups women/men: 10s 8/8, 20s 25/19, 30s 18/17, 40s 23/8, 50s 25/23, 60s 17/22, 70s 15/12 (Table 1, p. e108, PDF 3). Ages printed inconsistently: abstract 45 (14-83) women, 48 (14-89) men; results 45 (14-79) and 47 (14-79); methods 10-80. Table 6 N = 109 men, 131 women at every level. Stature, weight, BMI only for 81 women (46.5 +/- 17.8 y, 163.8 +/- 6.93 cm, 76.2 +/- 17.5 kg, BMI 28.4 +/- 6.13) and 69 men (48.5 +/- 19.3 y, 179.1 +/- 6.71 cm, 90 +/- 20.2 kg, BMI 27.9 +/- 5.4) (Tables 9-11, p. e115-e117, PDF 10-12); Inference: stature mostly whole inches, probably not measured.",
+ "modality": "CT (scanner, slice thickness, kernel, voxel size not reported) modelled in Mimics Innovation Suite 19.0 (Materialise); bone threshold 226-3071 HU; each vertebra cut free by hand of the adjacent articular processes and, for T12, the 12th rib; points placed on the 3D bone surface in the midsagittal plane (disc heights) and on the pedicle borders (foraminal height) (p. e107, PDF 2; Figure 1). One neuroradiologist, blinded to age and sex, measured every scan once. Statistics: independent t-tests by sex, paired t-test left vs right FH (result not given), Pearson R with age graded weak 0.1-0.39, moderate 0.4-0.59, strong > 0.6; SPSS 24.0, P < 0.05 (pp. e107-e108, PDF 2-3; Tables 7-8).",
+ "levels_covered": "Six discs T12/L1, L1/2, L2/3, L3/4, L4/5, L5/S1, with left and right foraminal heights at each (Tables 2-8). Level identification and counting not stated; Figure 1C shows six bodies above the sacrum (Inference: T12-L5 over S1). No cervical or thoracic discs; C2/C3 and C7/T1 not studied.",
+ "anomalies": [
+  {
+   "variant": "LSTV, sacralisation, lumbarisation, L6, T13, rib-count variants, block vertebrae",
+   "finding": "Not mentioned: no prevalence, no handling rule, no statement of how levels were counted; whether transitional spines were excluded as spinal pathology or measured under a 12-thoracic, 5-lumbar count cannot be told.",
+   "page": "p. e107 (PDF 2)",
+   "population": "240 CT patients, USF",
+   "how_identified": "not stated"
+  },
+  {
+   "variant": "Numbering convention (normal anatomy)",
+   "finding": "The 12th rib was cut away from T12 during segmentation, so T12 carried the 12th rib (Inference: 12-rib count); Figure 1C shows six bodies above the sacrum (Inference: T12-L5).",
+   "page": "p. e107 (PDF 2); Figure 1C",
+   "population": "240 CT patients",
+   "how_identified": "3D CT model; rib separated by hand"
+  },
+  {
+   "variant": "Possible hidden transitional discs in the L5/S1 row (Inference)",
+   "finding": "Inference, prevalence from memory not from this paper: with roughly 10-20 percent LSTV in most series, the L5/S1 row may mix in L5/L6 discs or discs above a sacralised L5; the L5/S1 anterior height has the widest SD in Table 6 (2.59 men, 2.94 women), which such mixing or lordosis variation would produce.",
+   "page": "Table 6, p. e113 (PDF 8)",
+   "population": "109 men, 131 women",
+   "how_identified": "Inference only"
+  }
+ ],
+ "measures": [
+  {
+   "name": "Anterior disc height",
+   "definition": "Midsagittal distance between the anterior edge of the inferior endplate of the cranial body and the anterior edge of the superior endplate of the caudal body; paper: \"anterior edge, center, and posterior edge of each vertebra\"; endplate assignment read from Figure 1A. Straight vs perpendicular distance not stated.",
+   "projection": "CT 3D bone surface model (Mimics), midsagittal plane, points placed by hand",
+   "page": "p. e107 (PDF 2), Figure 1; Table 6, p. e113 (PDF 8); Tables 2-3, p. e110-e111 (PDF 5-6)",
+   "levels": "T12/L1 to L5/S1",
+   "level_pattern": "Men vs women (mm, Table 6): T12/L1 6.29+/-1.49 vs 4.81+/-1.09; L1/2 7.59+/-1.58 vs 5.92+/-1.27; L2/3 8.70+/-1.67 vs 7.13+/-1.51; L3/4 9.66+/-1.75 vs 8.11+/-1.62; L4/5 10.94+/-2.15 vs 9.82+/-2.28; L5/S1 11.92+/-2.59 vs 11.36+/-2.94. Rises monotonically to L5/S1, the only directly measured height still rising there. Inference: adjacent steps 1.0-1.7 mm, 0.4-0.9 pooled SD; orders levels on average only.",
+   "covariates": "Sex P 0.000 at every level except L5/S1 (0.123); men/women ratio 1.31 at T12/L1 falling to 1.05 at L5/S1 (Inference). Age, men: only L4/5 R -0.202 (P 0.035). Age, women (Table 8 first column, mislabelled Average): L3/4 -0.265, L4/5 -0.387, L5/S1 -0.388. Women's L4/5 11.33 (30s) to 9.06 (40s), L5/S1 13.8 to 10.32 (Table 3). Not tested against stature.",
+   "error": "Not reported; one observer, one pass. Between-subject SD 1.1-2.9 mm, CV about 18-26 percent (Inference).",
+   "ct_mask_recipe": "Inference: body subregion of the two consecutive instances (or instance cut anterior to the pedicles); vertebra's own midsagittal (symmetry) plane; anteriormost point of the caudal surface of the cranial body and of the cranial surface of the caudal body; straight distance, and the cranio-caudal component along the mean body axis as a second value; exclude marginal osteophytes.",
+   "radiograph_recipe": "Inference: lateral radiograph, anterior rim to anterior rim; correct magnification or use a ratio; not on AP. Paper only says radiograph disc heights need complex corrections (p. e106, PDF 1)."
+  },
+  {
+   "name": "Middle disc height (centre)",
+   "definition": "Midsagittal distance between the centres of the facing endplates (centre point midway between anterior and posterior rim points in Figure 1B).",
+   "projection": "CT 3D bone surface model, midsagittal plane",
+   "page": "p. e107 (PDF 2), Figure 1A-B; Table 6, p. e113 (PDF 8)",
+   "levels": "T12/L1 to L5/S1",
+   "level_pattern": "Men vs women (Table 6): T12/L1 6.66+/-1.34 vs 6.13+/-1.04; L1/2 8.20+/-1.82 vs 7.18+/-1.22; L2/3 9.79+/-1.87 vs 8.51+/-1.46; L3/4 10.41+/-1.86 vs 9.16+/-1.54; L4/5 10.64+/-1.76 vs 9.70+/-1.79; L5/S1 9.34+/-2.12 vs 9.13+/-2.00. Peaks at L4/5, falls at L5/S1; exceeds anterior from T12/L1 to L3/4, about equal at L4/5, about 0.8 x anterior at L5/S1 (Inference). L2/3-L4/5 steps 0.1-0.45 SD: does not separate them.",
+   "covariates": "Sex P 0.001 at T12/L1, 0.000 L1/2-L4/5, 0.444 L5/S1; men 9-15 percent larger above L5/S1 (Inference). Age, men: T12/L1 R 0.403, L1/2 0.341, L2/3 0.258 (rise), none below; men's T12/L1 5.63 (10s) to 7.48 (70s). Women: only L1/2 R 0.195.",
+   "error": "Not reported. CV about 16-23 percent (Inference).",
+   "ct_mask_recipe": "Inference: on the midsagittal plane, gap between the two bodies at the AP midpoint of the endplates, on the outer bone surface (226 HU boundary), so it includes both endplate concavities; a minimum gap or fitted-plane gap reads lower.",
+   "radiograph_recipe": "Inference: a lateral radiograph projects the rims, not the midsagittal dome, so a radiographic mid-disc height underestimates this CT value; not on AP."
+  },
+  {
+   "name": "Posterior disc height",
+   "definition": "Midsagittal distance between the posterior edges of the facing endplates (endplate assignment from Figure 1A).",
+   "projection": "CT 3D bone surface model, midsagittal plane",
+   "page": "p. e107 (PDF 2); Table 6, p. e113 (PDF 8)",
+   "levels": "T12/L1 to L5/S1",
+   "level_pattern": "Men vs women (Table 6): T12/L1 3.75+/-1.00 vs 3.29+/-0.82; L1/2 4.96+/-1.27 vs 4.31+/-0.92; L2/3 5.67+/-1.45 vs 5.14+/-1.04; L3/4 5.90+/-1.50 vs 5.59+/-1.22; L4/5 6.05+/-1.42 vs 5.98+/-1.41; L5/S1 5.27+/-1.38 vs 5.23+/-1.43. Smallest at T12/L1, peak L4/5, falls at L5/S1; L2/3-L4/5 within 0.4 mm (men) and 0.85 mm (women).",
+   "covariates": "Sex P 0.000, 0.000, 0.001 at T12/L1-L2/3; 0.079, 0.705, 0.851 at L3/4-L5/S1. Age, men: T12/L1 +0.193, L4/5 -0.246. Women: L1/2 -0.186, L2/3 -0.315, L3/4 -0.424, L4/5 -0.248; women's L3/4 6.2 (20s) to 4.56 (70s).",
+   "error": "Not reported. CV about 20-27 percent, the largest relative spread (Inference).",
+   "ct_mask_recipe": "Inference: posteriormost points of the two facing body surfaces on the midsagittal plane at the canal side; pedicle must not remain in the body mask; exclude posterior osteophytes.",
+   "radiograph_recipe": "Inference: lateral radiograph, posterior rim to posterior rim; not on AP."
+  },
+  {
+   "name": "Average disc height (three-point mean)",
+   "definition": "Mean of anterior, middle and posterior heights (p. e107). Table 6's row labelled Average is NOT this (it equals (anterior+posterior)/2; Inference from arithmetic); the decade tables label it correctly.",
+   "projection": "Derived from the CT midsagittal points",
+   "page": "Abstract p. e106 (PDF 1); p. e108 (PDF 3); Figure 8 p. e113 (PDF 8); Tables 2-3",
+   "levels": "T12/L1 to L5/S1",
+   "level_pattern": "Abstract, men vs women: T12/L1 5.6+/-1.1 vs 4.8+/-0.8; L1/2 6.9+/-1.3 vs 5.8+/-0.9; L2/3 8.1+/-1.4 vs 6.9+/-1.1; L3/4 8.7+/-1.5 vs 7.6+/-1.2; L4/5 9.2+/-1.6 vs 8.5+/-1.6; L5/S1 8.8+/-1.6 vs 8.6+/-1.8. Figure 8: men 5.66, 6.94, 8.08, 8.72, 9.27, 8.90; women 4.73, 5.84, 6.94, 7.61, 8.46, 8.57. Men peak at L4/5; women flat L4/5-L5/S1.",
+   "covariates": "Women smaller except at L5/S1 (text, P < 0.001). Age, men: T12/L1 +0.265, L1/2 +0.211; women: L3/4 -0.304, L4/5 -0.291, L5/S1 -0.252. Teenagers smaller than 20s at every level (Tables 2-3).",
+   "error": "Not reported. Abstract SDs lie within 0.1 mm of Table 6's AP-average SDs (Inference); no table gives the SD of the three-point mean.",
+   "ct_mask_recipe": "Inference: mean of the three mask heights; inherits the middle height's concavity dependence.",
+   "radiograph_recipe": "Inference: not reproducible from a lateral radiograph because the middle point differs (see middle height)."
+  },
+  {
+   "name": "Anterior-posterior average disc height (AP Avg)",
+   "definition": "Mean of anterior and posterior heights only (p. e107; footnote of Tables 2-3); Table 6's row labelled Average disc height.",
+   "projection": "Derived from the CT midsagittal rim points",
+   "page": "p. e107 (PDF 2); Table 6, p. e113 (PDF 8); Tables 2-3",
+   "levels": "T12/L1 to L5/S1",
+   "level_pattern": "Men vs women (Table 6): 5.02+/-1.13 vs 4.05+/-0.81; 6.28+/-1.26 vs 5.12+/-0.95; 7.18+/-1.39 vs 6.14+/-1.10; 7.78+/-1.44 vs 6.85+/-1.21; 8.50+/-1.61 vs 7.90+/-1.62; 8.59+/-1.65 vs 8.30+/-1.87; rises monotonically T12/L1 to L5/S1.",
+   "covariates": "Sex P 0.000 T12/L1-L3/4, 0.005 L4/5, 0.198 L5/S1. Age, men: L4/5 -0.243 only; women: L2/3 -0.221, L3/4 -0.390, L4/5 -0.380, L5/S1 -0.320.",
+   "error": "Not reported; between-subject SD 0.81-1.87 mm.",
+   "ct_mask_recipe": "Inference: mean of the anterior and posterior mask heights.",
+   "radiograph_recipe": "Inference: the disc measure closest to what a lateral radiograph gives (rims only)."
+  },
+  {
+   "name": "Disc wedge, anterior minus posterior and anterior/posterior ratio (derived, Inference)",
+   "definition": "Not reported by the paper; computed from Table 6 means (ratio of means, no SD).",
+   "projection": "Derived; ratio is magnification-free on a lateral radiograph",
+   "page": "Table 6, p. e113 (PDF 8)",
+   "levels": "T12/L1 to L5/S1",
+   "level_pattern": "Difference men/women mm: 2.54/1.52, 2.63/1.61, 3.03/1.99, 3.76/2.52, 4.89/3.84, 6.65/6.13; ratio men 1.68, 1.53, 1.53, 1.64, 1.81, 2.26; women 1.46, 1.37, 1.39, 1.45, 1.64, 2.17. L5/S1 distinctly most wedged, L4/5 second.",
+   "covariates": "Women less wedged than men above L5/S1, nearly equal at it (Inference).",
+   "error": "Not available.",
+   "ct_mask_recipe": "Inference: from the same anterior and posterior points; a disc angle would need endplate depth, not given.",
+   "radiograph_recipe": "Inference: lateral radiograph or fluoroscopy, ratio of anterior to posterior rim heights."
+  },
+  {
+   "name": "Foraminal height (FH), left and right",
+   "definition": "Greatest distance between the inferior border of the cranial pedicle and the superior border of the caudal pedicle on each side; paper: distances \"furthest apart along the superior and inferior pedicle borders\"; Table 6 reports the left-right average. Vertical span vs longest chord not stated.",
+   "projection": "CT 3D bone model; plane not stated (Inference: parasagittal through the pedicles)",
+   "page": "p. e107 (PDF 2), Figure 1A-B; Tables 4-6, p. e112-e113 (PDF 7-8)",
+   "levels": "T12/L1 to L5/S1, left and right",
+   "level_pattern": "Men vs women (Table 6): 16.27+/-1.56 vs 15.35+/-1.86; 18.34+/-1.50 vs 17.29+/-1.87; 19.46+/-1.66 vs 18.63+/-2.02; 18.58+/-1.81 vs 18.00+/-2.12; 17.65+/-1.91 vs 17.43+/-2.06; 14.30+/-2.05 vs 14.36+/-1.80. Peak L2/3, smallest L5/S1; L4/5 to L5/S1 drop 3.3/3.1 mm, about 1.6-1.7 SD, the largest adjacent-level contrast in the paper (Inference).",
+   "covariates": "Sex P 0.000, 0.000, 0.001, 0.025, 0.387, 0.806. Age, men: L2/3 -0.247, L3/4 -0.355, L4/5 -0.430, L5/S1 -0.415; women every level -0.241 to -0.447. Men's L4/5 18.77 (10s) to 16.39 (70s); women's L3/4 18.89 to 15.49. Left-right within 1 mm in 81 of 84 decade cells; left > right at men's L4/5, right > left at women's T12/L1 and L5/S1 in all decades (Inference).",
+   "error": "Not reported; paired left-right test result not given. CV 8-14 percent (Inference).",
+   "ct_mask_recipe": "Inference: needs pedicles of both instances (S1 pedicle from the sacrum mask at L5/S1); lowest point of the cranial pedicle's inferior border to highest point of the caudal pedicle's superior border, maximum cranio-caudal distance in the parasagittal plane through the pedicles; average sides.",
+   "radiograph_recipe": "Inference: lateral radiograph pedicle to pedicle, the two sides superimposed (roughly the average); correct magnification or use a ratio; not on AP."
+  }
+ ],
+ "level_details": [
+  {
+   "level": "T12/L1",
+   "detail": "Smallest of the six discs in every disc height (anterior 6.29/4.81, middle 6.66/6.13, posterior 3.75/3.29, AP avg 5.02/4.05 mm, men/women); FH 16.27/15.35 second smallest after L5/S1; largest sex ratio at the anterior rim (1.31, Inference); men's middle height rises with age R 0.403 (the strongest positive age effect); in women no disc height changes with age but FH does (R -0.275); 12th rib cut from T12.",
+   "page": "Table 6, p. e113 (PDF 8); Tables 7-8, p. e114 (PDF 9); p. e107, e109 (PDF 2, 4)"
+  },
+  {
+   "level": "L1/2",
+   "detail": "Second smallest in every disc height; men's middle (R 0.341) and three-point average (0.211) rise with age; women's middle rises (0.195), posterior falls (-0.186).",
+   "page": "Tables 6-8, p. e113-e114 (PDF 8-9)"
+  },
+  {
+   "level": "L2/3",
+   "detail": "FH peaks (19.46/18.63 mm); men's middle rises with age (0.258); women's posterior (-0.315) and AP average (-0.221) fall.",
+   "page": "Tables 6-8, p. e113-e114 (PDF 8-9)"
+  },
+  {
+   "level": "L3/4",
+   "detail": "No disc height changes with age in men, FH falls (-0.355); in women posterior height falls most of any disc height (R -0.424) and FH most of all (-0.447); posterior height no longer differs by sex (P 0.079).",
+   "page": "p. e109 (PDF 4); Tables 6-8"
+  },
+  {
+   "level": "L4/5",
+   "detail": "Highest middle and posterior heights; men's highest three-point average (9.2 mm), named by the authors the maximum interbody height (conclusion values 8.9/8.6 do not match their own results); anterior now exceeds middle; FH no sex difference (P 0.387), strongest men's FH decline (R -0.430); only level where men's anterior, posterior and AP average fall with age.",
+   "page": "p. e106 (PDF 1); p. e116-e117 (PDF 11-12); Tables 6-7"
+  },
+  {
+   "level": "L5/S1",
+   "detail": "Largest anterior height (11.92/11.36), middle 9.34/9.13, posterior 5.27/5.23, most wedged (Inference); no sex difference in any measure (P 0.123-0.851), authors say about the same height; in men only FH changes with age (-0.415); FH smallest of all (14.30/14.36); widest anterior SD (2.59/2.94); women's anterior 13.8 mm in the 30s, 9.35 +/- 3.5 in the 70s; excluded from the elliptization pattern.",
+   "page": "p. e108-e110 (PDF 3-5); Tables 3, 6-8"
+  },
+  {
+   "level": "C2/C3, C7/T1",
+   "detail": "Not studied.",
+   "page": "-"
+  }
+ ],
+ "errors": [
+  {
+   "what": "Observer reliability",
+   "value": "None reported: one neuroradiologist, single pass, no intra- or inter-observer study, no phantom",
+   "page": "p. e107 (PDF 2)"
+  },
+  {
+   "what": "Resolution",
+   "value": "Slice thickness, voxel size, scanner not given; bone surface at 226-3071 HU threshold with manual separation; Inference: z spacing limits disc-height precision",
+   "page": "p. e107 (PDF 2)"
+  },
+  {
+   "what": "Position and modality",
+   "value": "Recumbent CT may differ from standing; MRI may give different heights; trends expected to hold",
+   "page": "p. e116 (PDF 11)"
+  },
+  {
+   "what": "Sample size",
+   "value": "14 sex-decade groups may be too small to show trends; statistical and clinical significance need not coincide; stature data only 81 women, 69 men",
+   "page": "p. e114 (PDF 9)"
+  },
+  {
+   "what": "Between-subject SD",
+   "value": "0.8-2.9 mm disc heights, 1.5-2.1 mm FH (population spread, not error)",
+   "page": "Table 6, p. e113 (PDF 8)"
+  },
+  {
+   "what": "Internal slips",
+   "value": "Nine of 252 derived decade cells disagree with their components by 0.09-0.63 mm (Inference from arithmetic)",
+   "page": "Tables 2-5, p. e110-e112 (PDF 5-7)"
+  }
+ ],
+ "pearls_pitfalls": [
+  {
+   "text": "Indication: interbody cage height for lumbar fusion; restore disc height and FH (indirect decompression) without oversizing; cited complication papers mostly lateral interbody fusion, the cage-height study TLIF (ref 20).",
+   "page": "p. e106 (PDF 1); p. e110 (PDF 5); refs p. e117-e118"
+  },
+  {
+   "text": "Authors conclude a cage over 10 mm restores the interbody space beyond physiological height and may predispose to complications; measured heights were below typical cage sizes.",
+   "page": "p. e106 (PDF 1); p. e117 (PDF 12)"
+  },
+  {
+   "text": "Recommended: cages 6-10 mm chosen by sex and overall body height, mid-body placement, maximum width, lordotic rather than square profile.",
+   "page": "p. e114 (PDF 9)"
+  },
+  {
+   "text": "Reported cage heights 11.25 +/- 1.32 to 12.38 +/- 1.43 mm (ref 20) against the largest average disc height 9.87 +/- 0.7 mm (men, eighth decade, a group no table shows); oversizing raises implant-endplate pressure and may cost lordosis. Inference: anterior heights at L5/S1 reach 11.4-11.9 mm on average and 13.2-13.8 mm in women in their 20s-30s.",
+   "page": "p. e113 (PDF 8); Tables 3, 6"
+  },
+  {
+   "text": "Subsidence is the main complication of excess endplate pressure; no unified grading system; cage height, anterior vs posterior placement, width and lordosis contribute; a prospective study is needed.",
+   "page": "p. e113-e114 (PDF 8-9)"
+  },
+  {
+   "text": "Elliptization: upper lumbar middle height rises with age while rims are unchanged; lower lumbar (not L5/S1) rims fall while middle is unchanged; authors admit it is not unequivocally shown and their tables support it only in part.",
+   "page": "p. e110 (PDF 5); p. e116 (PDF 11); Figure 9 p. e117"
+  },
+  {
+   "text": "FH falls with age more strongly and more often than disc height; authors attribute it to vertebral remodelling (endplate concavity, loss of body height), stiffer nucleus and loss of bone mass.",
+   "page": "p. e110-e111 (PDF 5-6)"
+  },
+  {
+   "text": "Pitfall: ageing and degeneration are separate processes; the belief that healthy discs narrow with age is not supported.",
+   "page": "p. e110-e113 (PDF 5-8)"
+  },
+  {
+   "text": "Sex matters more than age; cause unclear (BMI or muscle mass); effect of stature and weight left open.",
+   "page": "p. e106, e113, e116-e117"
+  },
+  {
+   "text": "Literature pitfalls: radiograph disc heights need complex corrections; MRI rests on a 2D sagittal section and is not broken down by level and decade; CT data scarce.",
+   "page": "p. e106 (PDF 1)"
+  }
+ ],
+ "instructions": [
+  {
+   "text": "Measure each lumbar disc at three midsagittal points (anterior rim, endplate centre, posterior rim) between the facing endplates and keep all three.",
+   "page": "p. e107 (PDF 2)"
+  },
+  {
+   "text": "Compare overall height with the abstract/Figure 8 three-point means; treat Table 6's Average row as the AP average (Inference from arithmetic).",
+   "page": "p. e106 (PDF 1); p. e113 (PDF 8)"
+  },
+  {
+   "text": "On lateral radiographs or fluoroscopy measure only rim heights and pedicle-to-pedicle FH; do not equate a radiographic mid-disc height with the CT centre height (Inference).",
+   "page": "p. e106 (PDF 1)"
+  },
+  {
+   "text": "Use ratios on radiographs: anterior/posterior about 1.4-1.8 at T12/L1-L4/5, about 2.2 at L5/S1; ratios of means, centres only (Inference).",
+   "page": "Table 6, p. e113 (PDF 8)"
+  },
+  {
+   "text": "Lumbosacral junction: greatest anterior height and wedge, middle about 20 percent below anterior, FH about 3 mm (17-19 percent) below the disc above (Inference from Table 6); confirm by sacral shape, never by disc numbers alone (Inference).",
+   "page": "Table 6, p. e113 (PDF 8)"
+  },
+  {
+   "text": "Thoracolumbar junction: expect T12/L1 to be the smallest of the six measured discs (posterior 3.3-3.8, anterior 4.8-6.3 mm); separate the 12th rib from T12; the paper has no disc above T12/L1, so confirm the junction by the last rib-bearing vertebra (Inference).",
+   "page": "p. e107 (PDF 2); Table 6"
+  },
+  {
+   "text": "Do not separate L2/3, L3/4, L4/5 by middle or posterior height (means within 0.4-1.2 mm, SDs 1.0-1.9 mm); use anterior height and wedge with vertebral measures.",
+   "page": "Table 6, p. e113 (PDF 8)"
+  },
+  {
+   "text": "Condition disc heights on sex: men 5-31 percent taller anteriorly depending on level; posterior heights at L3/4-L5/S1 and all L5/S1 measures do not differ by sex.",
+   "page": "Table 6, p. e113 (PDF 8)"
+  },
+  {
+   "text": "Do not treat a narrow disc as age-normal: the three-point average changes little with age in healthy people (Inference: narrowing suggests degeneration); expect FH to fall with age (women every level, men L2/3 down).",
+   "page": "p. e110, e113; Tables 7-8, p. e114"
+  },
+  {
+   "text": "Do not use adult norms below 20 years: teenagers' three-point averages are smaller than the 20s at every level (Inference).",
+   "page": "Tables 2-3, p. e110-e111 (PDF 5-6)"
+  },
+  {
+   "text": "These are recumbent CT values; position may change them and MRI may differ (Inference: standing films may read lower).",
+   "page": "p. e116 (PDF 11)"
+  },
+  {
+   "text": "In a possibly transitional spine, decide which disc is the last mobile one before applying the L5/S1 row; the paper gives no rule (Inference).",
+   "page": "paper silent"
+  },
+  {
+   "text": "Measure FH on each side as the greatest distance between cranial pedicle lower border and caudal pedicle upper border; average sides; expect a peak at L2/3 (19.5/18.6 mm) and a minimum at L5/S1 (14.3/14.4 mm).",
+   "page": "p. e107 (PDF 2); Table 6"
+  },
+  {
+   "text": "Build the bone surface at a bone threshold (226-3071 HU) and cut each vertebra free of neighbours' articular processes and T12 of its rib before placing points.",
+   "page": "p. e107 (PDF 2)"
+  }
+ ],
+ "bordercall": [
+  "(a) Anomaly priors: none; no prevalence of LSTV, L6, T13 or rib variants and no handling rule (p. e107, PDF 2).",
+  "(b) Panjabi's papers have no disc or foraminal heights (Inference, panjabi1991c note). This paper adds junction emissions between consecutive instances: anterior, middle, posterior midsagittal disc heights and left-right FH, T12/L1 to L5/S1, by sex (Table 6, p. e113, PDF 8; Table 6 Average = AP average); adult or age-specific priors from Tables 2-5 weighted by Table 1. Inference: neighbouring disc heights are likely correlated within a spine; independent draws add jitter.",
+  "(b) Mask biases (Inference): 226 HU surface vs SPINEPS boundary up to about one voxel per disc height; straight vs perpendicular distance unstated (matters at wedged L5/S1); middle height depends on endplate concavity, a minimum gap reads lower; marginal osteophytes shorten rim heights; FH needs a pedicle subregion (S1 pedicle at L5/S1).",
+  "(b) No cervical or thoracic discs: nothing for C3-T11 junctions. The L5/S1 row assumes a five-lumbar spine; the decoder's numbering decides which disc it describes.",
+  "(c) Measurement error: none reported. Inference: assume about one CT slice spacing per height until a reliability study gives a figure; Table 6 SDs (0.8-2.9 mm disc, 1.5-2.1 mm FH) are between-subject spread.",
+  "(d) Sex: strong T12/L1-L3/4 (anterior ratio 1.31-1.19, middle 1.09-1.15, posterior 1.06-1.15, FH 1.03-1.06), none at L5/S1 (1.00-1.05) (Inference from Table 6). Age small (Tables 7-8): men middle rises at T12/L1-L2/3, rims fall only at L4/5, FH falls L2/3-L5/S1; women anterior falls L3/4-L5/S1, posterior L1/2-L4/5, FH every level. Pooled values include 16 teenagers.",
+  "(d) Body size: no relation of disc height to stature, weight or BMI reported (attempted, incomplete data; p. e114, PDF 9); stature probably in inches (Inference). Population: one US centre, ethnicity not reported, supine abdominal CT of patients with non-spinal complaints."
+ ],
+ "gaps": [
+  "Table 6's Average disc height row equals (anterior+posterior)/2, not the three-point mean defined in the text and given in the abstract and Figure 8 (Inference from arithmetic).",
+  "Conclusions give the L4/5 maximum as 8.9 +/- 1.7 (men) and 8.6 +/- 1.8 (women); results give L4/5 9.2/8.5, and 8.6 is women's L5/S1; men's 8.9 matches Figure 8's L5/S1 8.90 (Inference: L5/S1 values printed as L4/5); in women L5/S1 (8.57) exceeds L4/5 (8.46).",
+  "Largest height 9.87 +/- 0.7 mm in men's eighth decade: no table or Table 1 group covers 80+, yet Figures 2-7 plot an 80 point; figures' 10 point differs from the tables' first decade (L4/5 men 9.16 vs 8.73); captions promise two series but plot one per sex (Inference: figures drawn from data including subjects 80+).",
+  "Ages: methods 10-80, abstract 14-83/14-89, results 14-79; men's mean 48 vs 47; stature subset includes a man of 80.",
+  "Text says women smaller at P < 0.001 at all levels except L5/S1, but posterior heights at L3/4 (0.079) and L4/5 (0.705) do not differ and some P are 0.001 or 0.005.",
+  "Text calls women's FH correlations moderate to strong (|R| 0.241-0.447) and women's L4/5 posterior moderate (R -0.248).",
+  "Table 8's first column is headed Average Disc Height (twice); the text shows it is anterior height.",
+  "Table 12 men's age-weight R printed -1.67 (impossible; Inference -0.167, recomputed about -0.165).",
+  "Table 4 men's L1/2 left FH fifth decade SD truncated (17.91 +/- 1.).",
+  "Decade-table slips (Inference): men T12/L1 first decade Average 4.72/AP 4.26 vs 4.81/4.41; men L3/4 first decade 7.62/6.67 vs 7.90/7.04; men L4/5 first decade AP 8.7 vs 8.07; men L5/S1 sixth decade AP 8.71 vs 8.14; women L1/2 seventh decade Average 5.81 vs 5.59; FH Average men T12/L1 third decade 16.43 vs 16.34, women L4/5 first decade 17.63 vs 17.45.",
+  "Tables 9-10: printed BMI disagrees with weight and height by > 1 kg/m2 in at least five rows each (Inference).",
+  "Elliptization partly contradicted by own tables: women's posterior heights fall at L1/2 and L2/3; men's L3/4 shows no change.",
+  "Sex called a strong correlation but only t-tests given; paired left-right FH test never reported.",
+  "Not reported: scanner, slice thickness, voxel size, number excluded, ethnicity, level counting, transitional anatomy, reliability, distance convention, disc angle, endplate dimensions, body heights, lordosis, disc height vs stature.",
+  "Inference (other papers): radiograph and MRI series usually put the tallest mid-disc at L4/5 with L5/S1 lower in the middle, as here; anterior L5/S1 tallest fits lordosis; the 10 mm cage limit applies to the three-point average, not anterior height used for lateral or anterior cages."
+ ]
+}

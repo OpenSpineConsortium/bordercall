@@ -1,0 +1,226 @@
+{
+  "paper": "kunkel2011",
+  "cohorts": [
+    {
+      "cohort": "ulm_thoracic_segments",
+      "labels": [
+        "all",
+        "female",
+        "male",
+        "anatomical",
+        "radiographic",
+        "anatomical vs radiographic",
+        "radiographic vs anatomical",
+        "anatomical disc, radiographic vertebra",
+        "upper region",
+        "middle region",
+        "lower region",
+        "method setting"
+      ],
+      "tables": [
+        "Table 1",
+        "Table 2",
+        "Table 3",
+        "Table 4",
+        "Figure 1",
+        "Figure 2",
+        "Figure 3",
+        "Figure 6",
+        "Figure 7",
+        "Figure 8",
+        "Figure 9",
+        "Text: Abstract",
+        "Text: Materials and methods",
+        "Text: Results",
+        "Text: Discussion"
+      ],
+      "subjects": "Cadaveric human thoracic spines (the abstract calls them donors): 72 isolated motion segments, each two vertebrae with the disc between, from 30 spines, six segments per disc level C7-T1 to T11-T12; dissected free of soft tissue, ribs sawn off, stored frozen at -28 deg C. Inclusion: only segments with mild or moderate degeneration (grades ii and iii of the authors' four-grade scheme) on anatomical and radiographic inspection; radiographs with overlay or poor film quality excluded. Country, collection, ethnicity, stature and cause of death are not stated. Inference: the specimens were probably obtained in Germany, since the authors work at the University of Ulm. Discs were not grouped by age or sex for analysis; the sex split per level is not given.",
+      "n_people": 30,
+      "n_units": "72 thoracic motion segments (6 per disc level, C7-T1 to T11-T12) of 30 spines; vertebral bodies C7 to T12, n per body not printed",
+      "ages": "female mean 58.67 +/- 10.74, range 43-80 years; male mean 56.20 +/- 11.65, range 37-79 years; all 57.43 +/- 11.27 years",
+      "sexes": "15 female donors (37 segments), 15 male donors (35 segments)",
+      "page": "p. 375 (PDF 1), pp. 376-377 (PDF 2-3), p. 379 (PDF 5)"
+    },
+    {
+      "cohort": "todd_pyle_1928",
+      "labels": [
+        "Todd and Pyle 1928 data"
+      ],
+      "tables": [
+        "Figure 9",
+        "Text: Results"
+      ],
+      "subjects": "Todd and Pyle's (1928) anatomical series, used as outside test data for this paper's equations (Fig 9b,c; the Results text also names it for Fig 9a, whose legend says present study). The Introduction says Todd and Pyle used only male cadavers and did not report the age distribution; nothing else about the subjects is given.",
+      "n_people": null,
+      "n_units": "not stated; plotted at T1 to T12",
+      "ages": "not reported (Introduction)",
+      "sexes": "male only (Introduction)",
+      "page": "p. 376 (PDF 2), p. 377 (PDF 3), p. 381 (PDF 7), p. 382 (PDF 8), p. 386 (PDF 12)"
+    },
+    {
+      "cohort": "pooni_1986",
+      "labels": [
+        "not stated"
+      ],
+      "tables": [
+        "Text: Introduction"
+      ],
+      "subjects": "Pooni et al. (1986): a few elderly cadavers aged 73 to 85 years, cited in the Introduction; their data were given only as a percentage of total spine height. Sex and number not stated.",
+      "n_people": null,
+      "n_units": "not stated ('a few' cadavers)",
+      "ages": "73-85 years",
+      "sexes": "not stated",
+      "page": "p. 376 (PDF 2)"
+    }
+  ],
+  "techniques": [
+    {
+      "technique": "sagittal_section_caliper",
+      "cohorts": [
+        "ulm_thoracic_segments"
+      ],
+      "modality": "other",
+      "instrument": "sliding vernier caliper (Mitutoyo Absolute Digimatic); high-precision saw (Exacta, PSI Medical); saw microtome (Leica SP4000)",
+      "how": "Frozen segments cut horizontally through both bodies, posterior elements removed; two rods (3.0 mm by 20 mm) set into each body to mark the frontal and median sagittal planes; the segment frozen in an ice block and cut sagittally along the rods. On the mid-sagittal section ADH and PDH taken between the anterior and posterior end-plate landmarks and MDH between two mid-vertebral points on the superior and inferior end-plates, cartilaginous end-plates included. Gives the anatomical ADH, PDH and MDH of Table 1 and the disc values of Tables 3 and 4.",
+      "magnification": "none; measured directly on the specimen",
+      "observers": "two observers measured every specimen (inter-observer CV 0.79-0.93 for disc heights); the Results call the intra-observer errors (1.7-6.1% ADH, 17-26.1% PDH, 1.7-5.1% VBHA and VBHP) anatomical, but the Methods put the repeats on 10 radiographs and the body heights exist only on film, so the mapped reading files them under lateral_contact_radiograph (Inference)",
+      "page": "p. 377 (PDF 3); Fig 1b p. 376 (PDF 2); Results p. 380 (PDF 6)"
+    },
+    {
+      "technique": "lateral_contact_radiograph",
+      "cohorts": [
+        "ulm_thoracic_segments"
+      ],
+      "modality": "lateral radiograph",
+      "instrument": "Faxitron automatic X-ray machine (Hewlett Packard); electronic digital caliper (Mitutoyo Absolute Digimatic, +/- 0.05 mm) on the film",
+      "how": "Each isolated segment radiographed in a neutral standard position, film-focus distance 60 cm, 60 s, 46.5 kV, beam centred on the disc; on a viewing table eight landmarks, the anterior and posterior corners of the end-plates of both vertebrae, marked by Farfan's method; ADH and PDH between the corners across the disc, VBHA and VBHP between the corners of each body (cartilaginous end-plates not counted). No radiographic MDH. Antero-posterior films were also taken, but no AP measurement is reported. Gives the radiographic columns of Table 1 and all of Table 2.",
+      "magnification": "corrected: films calibrated by a scale on the rig close to the specimen, and a factor calculated for the error of off-centre positioning",
+      "observers": "two observers measured every radiograph (inter-observer CV 0.49-0.82 for disc heights, 0.49 for PDH, 0.95-0.98 for VBHA and VBHP); intra-observer repeats on 10 radiographs of 10 specimens at five levels",
+      "page": "p. 377 (PDF 3); Fig 1a p. 376 (PDF 2); Results p. 380 (PDF 6)"
+    },
+    {
+      "technique": "indices_and_regressions_on_level_means",
+      "cohorts": [
+        "ulm_thoracic_segments",
+        "todd_pyle_1928"
+      ],
+      "modality": "other",
+      "instrument": "calculation from the level means of Tables 1 and 2",
+      "how": "Indices I1 = (ADH + PDH)/(VBHA + VBHP), I2 = MDH/(ADH + PDH), I3 = ADH/PDH and the disc : body ratio 1/I1 (Table 3); linear and polynomial (up to cubic) least-squares fits of disc and body heights on ADH, VBHA and VBHP, ANOVA for significance (Table 4, Figs 2 and 6 to 8); the equations then applied to Todd and Pyle's data (Fig 9). Inference: the fits are across the 12 disc-level or 13 vertebral-level means, not across specimens (Fig 2's caption says level means).",
+      "magnification": "not applicable; inherits the radiographic correction",
+      "observers": "not applicable",
+      "page": "p. 377 (PDF 3); Table 3 p. 379 (PDF 5); Table 4 p. 382 (PDF 8); Figs 6-9 pp. 383-386 (PDF 9-12)"
+    },
+    {
+      "technique": "todd_pyle_anatomical",
+      "cohorts": [
+        "todd_pyle_1928"
+      ],
+      "modality": "other",
+      "instrument": "not described in this paper",
+      "how": "Todd and Pyle's own anatomical measurements of VBHA and VBHP (and ADH, Fig 4a), as they published them; this paper describes no landmarks or plane for them.",
+      "magnification": "not stated",
+      "observers": "not stated",
+      "page": "Fig 9 p. 386 (PDF 12); Fig 4a p. 381 (PDF 7)"
+    }
+  ],
+  "shared": [
+    {
+      "with": "Todd & Pyle (1928), not in the list",
+      "what": "values quoted",
+      "evidence": "Their anatomical heights are plotted against this study's (Figs 4a, 5a, 5b) and serve as test data for the prediction equations (Methods; Fig 9b,c).",
+      "page": "p. 377 (PDF 3), p. 381 (PDF 7), p. 382 (PDF 8), p. 386 (PDF 12)"
+    },
+    {
+      "with": "Manns et al. (1986), not in the list",
+      "what": "values quoted",
+      "evidence": "Their radiographic ADH is plotted beside this study's in Fig 4b; the Discussion reports good agreement.",
+      "page": "p. 381 (PDF 7), p. 383 (PDF 9)"
+    },
+    {
+      "with": "Giles & Singer (2000), not in the list",
+      "what": "values quoted",
+      "evidence": "Their radiographic ADH and PDH are plotted beside this study's in Fig 4b,c; ADH agrees, PDH does not.",
+      "page": "p. 381 (PDF 7), p. 383 (PDF 9)"
+    },
+    {
+      "with": "Berry et al. (1987), not in the list",
+      "what": "values quoted",
+      "evidence": "Their VBHA and VBHP are plotted beside this study's in Fig 5a,b.",
+      "page": "p. 382 (PDF 8)"
+    },
+    {
+      "with": "Scoles et al. (1988), not in the list",
+      "what": "values quoted",
+      "evidence": "Their VBHA is plotted beside this study's in Fig 5a.",
+      "page": "p. 382 (PDF 8)"
+    },
+    {
+      "with": "Cotterill et al. (1986), not in the list",
+      "what": "values quoted",
+      "evidence": "Their VBHA is plotted beside this study's in Fig 5a.",
+      "page": "p. 382 (PDF 8)"
+    },
+    {
+      "with": "Panjabi et al. (1991a), Thoracic human vertebrae, Spine 16: 888-901; list id panjabi1991t",
+      "what": "values quoted",
+      "evidence": "VBHP from Panjabi et al. 1991a and 1991b is plotted beside this study's in Fig 5b.",
+      "page": "p. 382 (PDF 8)"
+    },
+    {
+      "with": "Panjabi et al. (1991b), Cervical human vertebrae, Spine 16: 861-869; list id panjabi1991c",
+      "what": "values quoted",
+      "evidence": "VBHP from Panjabi et al. 1991a and 1991b is plotted beside this study's in Fig 5b.",
+      "page": "p. 382 (PDF 8)"
+    },
+    {
+      "with": "Panjabi et al. (1991a); list id panjabi1991t",
+      "what": "method",
+      "evidence": "The three thoracic disc regions are offered as an approximation of the thoracic regions, citing Panjabi 1991a.",
+      "page": "p. 381 (PDF 7)"
+    },
+    {
+      "with": "Pooni et al. (1986), not in the list",
+      "what": "values quoted",
+      "evidence": "Cited as using a few elderly cadavers aged 73 to 85.",
+      "page": "p. 376 (PDF 2)"
+    },
+    {
+      "with": "Amonoo-Kuofi (1991), J Anat 175; not amonookuofi1982 or amonookuofi1985",
+      "what": "method",
+      "evidence": "Index I1, the relative disc height index, is taken from Amonoo-Kuofi 1991.",
+      "page": "p. 377 (PDF 3); Table 3 footnote p. 379 (PDF 5)"
+    },
+    {
+      "with": "Twomey & Taylor (1987), Clin Orthop 224; not twomey1985",
+      "what": "method",
+      "evidence": "Index I2, the disc convexity index, is taken from Twomey and Taylor 1987.",
+      "page": "p. 377 (PDF 3); Table 3 footnote p. 379 (PDF 5)"
+    },
+    {
+      "with": "Farfan (1973), not in the list",
+      "what": "method",
+      "evidence": "The eight radiographic corner landmarks were marked by Farfan's method.",
+      "page": "p. 377 (PDF 3)"
+    },
+    {
+      "with": "Kunkel et al. (2010, J Anat 216) and Kunkel et al. (2011, J Anat 218, facet joints), the same group's earlier papers; not this list's kunkel2011, which is this paper",
+      "what": "method",
+      "evidence": "The regressions follow a methodology based on Kunkel et al. 2010 and 2011; whether specimens are shared is not stated.",
+      "page": "p. 376 (PDF 2), p. 377 (PDF 3)"
+    },
+    {
+      "with": "Nachemson 1979; Galante 1967; Thompson et al. 1990; Adams et al. 1996; Wilke et al. 2006; Friberg & Hirsch 1949; Hirsch & Schajowicz 1953; Vernon-Roberts & Pirie 1977; none in the list",
+      "what": "method",
+      "evidence": "The thoracic degeneration grading was built from these lumbar disc grading schemes and pathology studies.",
+      "page": "p. 377 (PDF 3)"
+    },
+    {
+      "with": "Pope et al. (1977) and Andersson et al. (1981), not in the list",
+      "what": "method",
+      "evidence": "Their recommendations were used to minimise disc orientation and observer error on the radiographs.",
+      "page": "p. 383 (PDF 9)"
+    }
+  ],
+  "within_paper": "One cohort measured twice: every one of the 72 segments was measured both directly on its mid-sagittal section and on its lateral radiograph (p. 377, PDF 3), so Table 1's anatomical and radiographic columns, Table 2's radiographic body heights and the derived Table 3, Table 4 and Figs 2, 3 and 6 to 8 all come from the same 72 segments of 30 donors; the female (37 segments, 15 donors) and male (35 segments, 15 donors) counts are parts of it, not separate cohorts. Inference: each of T1 to T11 is the lower body of one segment type and the upper body of the next, so a Table 2 row may pool bodies from two segment types, and the pictured T9-T10 segment of a 57-year-old woman (Fig 1, p. 376, PDF 2) is presumably one of the 72. Fig 9a's points are this study's by its legend while the Results text (p. 381, PDF 7) attributes them to Todd and Pyle."
+}

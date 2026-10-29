@@ -1,0 +1,183 @@
+{
+  "paper": "busscher2010",
+  "cohorts": [
+    {
+      "cohort": "human_cadaver",
+      "labels": [
+        "male / Human"
+      ],
+      "tables": [
+        "Table 2",
+        "Table 3",
+        "Text: Materials and methods",
+        "Text: Results"
+      ],
+      "subjects": "Fresh frozen spines of six male human cadavers from the Department of Anatomy, University Medical Center Groningen, the Netherlands; ethnicity not printed; each dissected from C3 to S1 with musculature removed, ligaments and discs intact and about 3 cm of rib kept on each side; 7 cervical, 12 thoracic and 5 lumbar vertebrae each; CT showed mild degeneration and no other pathology; no inclusion or exclusion criteria stated beyond availability.",
+      "n_people": 6,
+      "n_units": "6 spines measured C3 to L5 (Inference: 6 x 22 = 132 vertebrae)",
+      "ages": "mean 72 years at death, range 55-84",
+      "sexes": "6 male",
+      "page": "p. 1105 (PDF 2); degeneration p. 1106 (PDF 3)"
+    },
+    {
+      "cohort": "porcine_landrace",
+      "labels": [
+        "not stated / Porcine"
+      ],
+      "tables": [
+        "Table 2",
+        "Table 3",
+        "Text: Materials and methods",
+        "Text: Results"
+      ],
+      "subjects": "Fresh frozen spines of six 4-month-old domestic Landrace pigs from a local abattoir, mean weight 40 kg (range 37-44); dissected C3 to S1 as the human spines; 7 cervical, 15 thoracic and 6 lumbar vertebrae each; no pathology on CT; not fully grown, as the Discussion notes.",
+      "n_people": null,
+      "n_units": "6 pig spines measured C3 to L6 (Inference: 6 x 26 = 156 vertebrae)",
+      "ages": "4 months",
+      "sexes": "not stated",
+      "page": "p. 1105 (PDF 2); age remark p. 1112 (PDF 9)",
+      "species": "pig"
+    },
+    {
+      "cohort": "human_and_porcine",
+      "labels": [
+        "not stated / human vs porcine",
+        "not stated / Human and porcine",
+        "not stated / lumbar region",
+        "not stated / (no group)"
+      ],
+      "tables": [
+        "Table 1",
+        "Table 4",
+        "Table 5",
+        "Text: Materials and methods",
+        "Text: Results",
+        "Text: Discussion"
+      ],
+      "subjects": "The six human spines of human_cadaver and the six pig spines of porcine_landrace taken together, for values of both species and of neither alone: the comparison codes of Tables 4 and 5, the text's human-porcine difference in total length and lumbar disc height ratio, the settings of the one CT protocol, observers and comparison rule used for both, and Table 1's reliability, which does not say whether the human, the porcine or all specimens entered it (Inference: either species or both).",
+      "n_people": null,
+      "n_units": "6 human spines measured C3 to L5 and 6 pig spines measured C3 to L6; for Table 1 the specimens and vertebrae used are not stated",
+      "ages": "humans mean 72 years at death (range 55-84); pigs 4 months",
+      "sexes": "humans 6 male; pigs not stated",
+      "page": "p. 1105-1106 (PDF 2-3); Results p. 1107 (PDF 4); Tables 4, 5 p. 1108 (PDF 5); Discussion p. 1111 (PDF 8)",
+      "species": "human and pig"
+    },
+    {
+      "cohort": "mclain_pigs",
+      "labels": [
+        "not stated / immature Landrace pigs"
+      ],
+      "tables": [
+        "Text: Discussion"
+      ],
+      "subjects": "Immature Landrace pigs of 60 kg whose L4 vertebrae McLain et al. [2] measured, as this paper cites them.",
+      "n_people": null,
+      "n_units": "not stated (L4 vertebrae)",
+      "ages": "not stated (immature)",
+      "sexes": "not stated",
+      "page": "p. 1111 (PDF 8)",
+      "species": "pig"
+    },
+    {
+      "cohort": "dath_pigs",
+      "labels": [
+        "not stated / older porcine specimens"
+      ],
+      "tables": [
+        "Text: Discussion"
+      ],
+      "subjects": "Older porcine cadavers of Dath et al. [17], a study of the porcine lumbar spine, as this paper cites them.",
+      "n_people": null,
+      "n_units": "not stated (lumbar vertebrae)",
+      "ages": "18-24 months",
+      "sexes": "not stated",
+      "page": "p. 1111-1112 (PDF 8-9)",
+      "species": "pig"
+    },
+    {
+      "cohort": "bozkus_pigs",
+      "labels": [
+        "not stated / pigs, thoracic spine"
+      ],
+      "tables": [
+        "Text: Discussion"
+      ],
+      "subjects": "Pigs of 30 kg whose thoracic spines Bozkus et al. [1] measured, as this paper cites them.",
+      "n_people": null,
+      "n_units": "not stated (thoracic vertebrae)",
+      "ages": "not stated",
+      "sexes": "not stated",
+      "page": "p. 1112 (PDF 9)",
+      "species": "pig"
+    }
+  ],
+  "techniques": [
+    {
+      "technique": "ct_mpr_per_vertebra",
+      "cohorts": [
+        "human_cadaver",
+        "porcine_landrace",
+        "human_and_porcine"
+      ],
+      "modality": "CT MPR",
+      "instrument": "Siemens Somatom Sensation 64 CT (printed Somaton), one protocol for both species, slice thickness 1.00 mm, in-plane resolution 0.39 x 0.39 mm; AquariusNET (TeraRecon) multiplanar viewer",
+      "how": "16 dimensions per vertebra (Table 1, Fig. 1) on 2D views of the dissected specimens, each in a plane set to the vertebra's own landmarks as seen in the other views (Fig. 2); width is side-to-side and depth dorsal-to-ventral; end-plate width and depth on transverse views; central body height and spinous process length in the sagittal midline; disc height at the disc's central mid-point; pedicle height, width and angle as the mean of left and right. Total spine length is the sum of central body heights and disc heights C3 to L5 (pig L6); curvatures are angles between end-plates (C3 upper to C7 lower, T1 upper to T12 or T15 lower, L1 upper to L5 or L6 lower). Human and porcine compared per vertebra by Mann-Whitney U and summarised by region (Tables 4, 5).",
+      "magnification": "not applicable (CT); no further calibration stated",
+      "observers": "three independent observers (IB, JP, PL); intraclass and interclass correlations in Table 1; whether the reported values are one observer's or the observers' mean is not stated",
+      "page": "p. 1105-1107 (PDF 2-4)"
+    },
+    {
+      "technique": "cited_not_stated",
+      "cohorts": [
+        "mclain_pigs",
+        "dath_pigs",
+        "bozkus_pigs"
+      ],
+      "modality": "other",
+      "instrument": "not stated in this paper",
+      "how": "not described in this paper; for Bozkus et al. it says some dimensions were measured in the same manner as here",
+      "magnification": "not stated",
+      "observers": "not stated",
+      "page": "p. 1111-1112 (PDF 8-9)"
+    }
+  ],
+  "shared": [
+    {
+      "with": "Busscher et al. 2009, Spine 34(26), in vitro biomechanical characteristics [11] (not in the list)",
+      "what": "subjects",
+      "evidence": "The biomechanics of these same specimens were reported in that paper.",
+      "page": "p. 1111 (PDF 8); reference p. 1113 (PDF 10)"
+    },
+    {
+      "with": "Bozkus et al. 2005, Surg Endosc [1] (not in the list)",
+      "what": "method",
+      "evidence": "Some of its porcine thoracic dimensions were measured the same way as here.",
+      "page": "p. 1112 (PDF 9)"
+    },
+    {
+      "with": "Bozkus et al. 2005, Surg Endosc [1] (not in the list)",
+      "what": "values quoted",
+      "evidence": "Its pigs weighed 30 kg; like-measured dimensions differed under 10% on average.",
+      "page": "p. 1112 (PDF 9)"
+    },
+    {
+      "with": "Dath et al. 2007, Clin Biomech [17] (not in the list)",
+      "what": "values quoted",
+      "evidence": "Its pigs were 18-24 months; its lumbar dimensions 1.3-1.5 times these.",
+      "page": "p. 1111-1112 (PDF 8-9)"
+    },
+    {
+      "with": "McLain et al. 2002, Spine [2] (not in the list)",
+      "what": "values quoted",
+      "evidence": "It used L4 of 60 kg immature Landrace pigs; pedicle width resemblance.",
+      "page": "p. 1111 (PDF 8)"
+    },
+    {
+      "with": "Panjabi et al. 1991 thoracic [19] (panjabi1991t), 1991 cervical [20] (panjabi1991c), 1992 lumbar [21] (panjabi1992)",
+      "what": "comparison only (no subjects, method or values shared or quoted)",
+      "evidence": "Human values set beside his, alike for pedicles, canal and transverse process; his spinous length runs to mid-body, unlike here.",
+      "page": "p. 1112 (PDF 9)"
+    }
+  ],
+  "within_paper": "The human and porcine cohorts are different subjects measured by one CT protocol and the same observers (p. 1105, PDF 2). Every human table and text value is of the same six human spines, and every porcine value of the same six pig spines: Table 2's total length and curvatures and Table 3's heights come from the same scans, and total length is the sum of Table 3's central heights and disc heights (p. 1107, PDF 4). Tables 4 and 5 and Figs. 3-8 compare the same two cohorts. Table 1's reliability does not say which specimens it was computed on (p. 1106, PDF 3). The cohorts of McLain, Dath and Bozkus share no subjects with this paper. Values of both cohorts together, or of an unstated subset of them (Table 1), carry the cohort id human_and_porcine."
+}

@@ -1,0 +1,32 @@
+distinct series 39 cadaveric 15
+   Panjabi 1992 ('cadaveric dry bone', '3-D digitiser', '12')
+   Tan 2004 ('cadaveric dry bone, Chinese Singaporean', 'contact digitiser', '10')
+   Busscher 2010 ('fresh-frozen cadaver, male', 'CT 1.0 mm', '6')
+   Kunkel 2011 ('cadaveric, German', 'lateral radiograph', '30')
+   Eisenstein 1977 ('Caucasoid men, Raymond Dart Collection', 'dry bone', '78')
+   Amonoo-Kuofi 1985 ('cadaveric dry bone, Nigerian', 'vernier', '79')
+   Twomey 1985 ('post-mortem, Australian', 'mid-sagittal section', '-')
+   Zindrick 1987 ('cadaveric', 'radiograph + CT', '26 studies')
+   Yu 2015 ('dry skeletons, Hamann-Todd collection, 404 male and 99 female', 'digital caliper', '503')
+   Olsewski 1990 ('cadaveric embalmed, 12 men and 9 women', 'direct', '21')
+   Lien 2007 ('cadaveric Taiwanese', 'caliper', '')
+   Hou 1993 ('cadaveric Chinese', 'direct', '40')
+   Mitra 2002 ('cadaveric Indian, 18 men and 2 women', 'direct', '20')
+   Robertson 2000 ('cadaveric dry bone, origin not given', 'radiograph, coaxial, wire-marked', '10')
+   Otsuki 2021 ('cadaveric micro-CT', 'micro-CT perpendicular to axis', '60 pedicles')
+   Panjabi 1992 summed over its sexes: 12
+   Tan 2004 summed over its sexes: 10
+   Busscher 2010 summed over its sexes: 6
+   Kunkel 2011 summed over its sexes: 30
+   Eisenstein 1977 summed over its sexes: 113
+   Amonoo-Kuofi 1985 summed over its sexes: 122
+   Twomey 1985 summed over its sexes: None
+   Zindrick 1987 summed over its sexes: 26
+   Yu 2015 summed over its sexes: 503
+   Olsewski 1990 summed over its sexes: 21
+   Lien 2007 summed over its sexes: None
+   Hou 1993 summed over its sexes: 40
+   Mitra 2002 summed over its sexes: 20
+   Robertson 2000 summed over its sexes: 10
+   Otsuki 2021 summed over its sexes: 60
+recorded cadaveric n, each series once: 973 blank: ['Twomey 1985', 'Lien 2007']

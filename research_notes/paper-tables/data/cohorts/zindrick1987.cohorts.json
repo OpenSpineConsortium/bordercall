@@ -1,0 +1,134 @@
+{
+  "paper": "zindrick1987",
+  "cohorts": [
+    {
+      "cohort": "pooled_specimens_and_ct",
+      "labels": [
+        "not stated / (no group)"
+      ],
+      "tables": [
+        "Table 1",
+        "Table 2",
+        "Table 3",
+        "Table 4",
+        "Table 5",
+        "Text: Abstract"
+      ],
+      "subjects": "Every mean, range, SD, SEM and per-level N of Tables 1 to 5 pools the two sets below: films of postmortem adult spine specimens and reviewed CT examinations. The per-level N counts studies (a film or a CT examination), not people or vertebrae. No number of spines or persons, no age, sex, ethnicity, country or inclusion or exclusion rule is given.",
+      "n_people": null,
+      "n_units": "2,905 pedicle measurements (studies) from T1 to L5: 547, 595, 628, 522 and 613 in Tables 1 to 5, of which 2,005 on specimen roentgenograms and 900 on CT; number of spines or persons not stated",
+      "ages": "not stated (specimens called adult)",
+      "sexes": "not stated",
+      "page": "p. 160 (PDF 1); table footnotes pp. 161-165 (PDF 2-6)"
+    },
+    {
+      "cohort": "postmortem_specimens",
+      "labels": [
+        "not stated / radiographs"
+      ],
+      "tables": [
+        "Table 1",
+        "Table 2",
+        "Table 3",
+        "Table 4",
+        "Table 5"
+      ],
+      "subjects": "Postmortem adult spine specimens, some whole spines and some thoracic or lumbar segments only, disarticulated into single vertebrae; source, number, age, sex and ethnicity not stated. Inference: the authors worked in Illinois and California, USA.",
+      "n_people": null,
+      "n_units": "387, 433, 410, 372 and 403 specimen roentgenograms in Tables 1 to 5 (2,005); vertebrae and spines not counted",
+      "ages": "adult; not stated further",
+      "sexes": "not stated",
+      "page": "p. 160 (PDF 1); table footnotes pp. 161-165 (PDF 2-6)"
+    },
+    {
+      "cohort": "ct_examinations",
+      "labels": [
+        "not stated / CT"
+      ],
+      "tables": [
+        "Table 1",
+        "Table 2",
+        "Table 3",
+        "Table 4",
+        "Table 5"
+      ],
+      "subjects": "Computerized axial tomography examinations that were reviewed and measured; whose they were (living patients or specimens), why they were made, and their number of persons are not stated; the lumbar spine L3 to S1 was the region most often studied. Every table footnote counts them as 'specimen CT scans', while the Methods speak of reviewed CT examinations, so whether they are of specimens is open (pp. 161-165, PDF 2-6). Inference: more likely clinical scans from the imaging centre the acknowledgement thanks (Torrance, California), the footnote wording leaving specimen scans possible.",
+      "n_people": null,
+      "n_units": "160, 162, 218, 150 and 210 CT scans in Tables 1 to 5 (900)",
+      "ages": "not stated",
+      "sexes": "not stated",
+      "page": "p. 160 (PDF 1); table footnotes pp. 161-165 (PDF 2-6)"
+    }
+  ],
+  "techniques": [
+    {
+      "technique": "pooled_film_and_ct",
+      "cohorts": [
+        "pooled_specimens_and_ct"
+      ],
+      "modality": "other",
+      "instrument": "specimen roentgenograms and CT software, pooled; the paper reports no significant difference between them",
+      "how": "The values of Tables 1 to 5 combine the two techniques below at every level; neither is reported apart. Widths are the narrowest pedicle dimension (isthmus) in the transverse and sagittal planes; transverse angle between the line perpendicular to the transverse isthmus and a line parallel to the vertebral midline; sagittal angle between the line perpendicular to the sagittal isthmus and the posterior vertebral body border; depth from the most posterior point of the transverse process to the anterior cortex along the transverse pedicle angle and along a line parallel to the body midline. Sides not reported apart.",
+      "magnification": "films: none detectable, as the authors state; CT: not stated",
+      "observers": "not stated",
+      "page": "pp. 160-161 (PDF 1-2); Tables 1-5 pp. 161-165 (PDF 2-6)"
+    },
+    {
+      "technique": "specimen_transverse_film",
+      "cohorts": [
+        "postmortem_specimens"
+      ],
+      "modality": "other",
+      "instrument": "roentgenogram of each disarticulated vertebra in the transverse plane, measured directly on the film (tool not named)",
+      "how": "Single vertebra filmed in the transverse plane (Inference: an axial, craniocaudal projection); transverse isthmus width, transverse pedicle angle and both depths to the anterior cortex read from it (Inference from the planes the paper names: Tables 1, 3 and 5).",
+      "magnification": "technique held constant; no detectable magnification, as the authors state",
+      "observers": "not stated",
+      "page": "p. 160 (PDF 1)"
+    },
+    {
+      "technique": "specimen_lateral_film_hemisected",
+      "cohorts": [
+        "postmortem_specimens"
+      ],
+      "modality": "lateral radiograph",
+      "instrument": "lateral roentgenogram of each vertebra after midline sagittal sectioning, measured directly on the film (tool not named)",
+      "how": "Vertebra cut in the midsagittal plane and each half filmed laterally, so one pedicle per film; sagittal isthmus width and sagittal pedicle angle read from it (Inference from the planes: Tables 2 and 4).",
+      "magnification": "technique held constant; no detectable magnification, as the authors state",
+      "observers": "not stated",
+      "page": "p. 160 (PDF 1)"
+    },
+    {
+      "technique": "ct_software",
+      "cohorts": [
+        "ct_examinations"
+      ],
+      "modality": "CT axial",
+      "instrument": "CT examinations measured with the scanner's computer software; scanner, slice thickness and reformatting not stated",
+      "how": "The same five measures taken on reviewed CT examinations; how the sagittal-plane widths and angles were obtained from CT (reformats or otherwise) is not stated.",
+      "magnification": "not stated (Inference: CT software distances carry no film magnification)",
+      "observers": "not stated",
+      "page": "p. 160 (PDF 1)"
+    }
+  ],
+  "shared": [
+    {
+      "with": "Saillant 1976, Rev Chir Orthop (ref 11); not in the list",
+      "what": "comparison only (no subjects, method or values shared or quoted)",
+      "evidence": "Named as earlier thoracic and lumbar pedicle measurement giving only means; this paper's data said to agree closely.",
+      "page": "p. 164 (PDF 5)"
+    },
+    {
+      "with": "Krag et al. 1986, Clin Orthop 203:75 (ref 5); not krag1988 of the list",
+      "what": "comparison only (no subjects, method or values shared or quoted)",
+      "evidence": "Named as having measured the lower thoracic and lumbar spine from CT; data said to agree closely. Inference: krag1988 may report that group's CT morphometry, but this paper cites the 1986 article.",
+      "page": "p. 164 (PDF 5); reference p. 166 (PDF 7)"
+    },
+    {
+      "with": "Berry et al., Spine (in press) (ref 1); not in the list",
+      "what": "comparison only (no subjects, method or values shared or quoted)",
+      "evidence": "Named as measuring select pedicles directly on specimens; data said to agree closely.",
+      "page": "p. 164 (PDF 5); reference p. 166 (PDF 7)"
+    }
+  ],
+  "within_paper": "The values of Tables 1 to 5 pool two sets of subjects, postmortem specimens filmed and CT examinations, which the paper never reports apart (p. 160, PDF 1; footnotes pp. 161-165, PDF 2-6). Within the specimens, the same vertebrae were filmed in the transverse plane and then hemisected and filmed laterally (p. 160, PDF 1), so the transverse and sagittal measures come from one specimen series. Inference: each table and each level has its own N (for example L3: 49, 27, 68, 28 and 64 studies in Tables 1 to 5), so the five measures were not all taken on the same vertebrae; Table 5's two depths share one N per level, so both depths come from the same studies. Whether the CT subjects overlap the specimens is not stated; the footnotes call the scans 'specimen CT scans' (Inference: they are other spines; the paper never says a specimen was both filmed and scanned, and each footnote counts films and scans apart)."
+}

@@ -1,0 +1,243 @@
+{
+  "paper": "eisenstein1977",
+  "cohorts": [
+    {
+      "cohort": "dart_skeletons",
+      "labels": [
+        "male Caucasoid",
+        "male Zulu Negroid",
+        "male Sotho Negroid",
+        "female Caucasoid",
+        "female Zulu Negroid",
+        "female Sotho Negroid",
+        "all direct",
+        "all radiographs",
+        "all",
+        "all Caucasoid",
+        "all Zulu Negroid",
+        "all Sotho Negroid",
+        "not stated Sotho Negroid",
+        "not stated Zulu Negroid",
+        "male"
+      ],
+      "tables": [
+        "Table I",
+        "Table II",
+        "Table III",
+        "Table IV",
+        "Text: Abstract",
+        "Text: Materials and Methods",
+        "Text: Results",
+        "Text: Discussion",
+        "Text: Conclusions"
+      ],
+      "subjects": "Dry, macerated adult skeletons of the Raymond Dart Collection, Department of Anatomy (the author is at the University of Witwatersrand, Johannesburg, South Africa; the paper does not name the anatomy department's university). Groups as printed: \"white\" caucasoid; South African Zulu negroid; South African Sotho negroid (the paper's 1977 terms). Inclusion: adult skeletons; exclusion: 49 lumbar vertebrae missing or damaged were left out. No other criterion stated. The abstract prints 433 skeletons; Methods, Results and Conclusions print 443, which the group counts sum to. The radiological lower limits (15 and 20 mm) are this cohort's skeletal limits converted with the magnification factors of the radiograph substudy.",
+      "n_people": 443,
+      "n_units": "2,166 lumbar vertebrae (L1 to L5) of 443 skeletons: caucasoid 113 (78 male, 35 female), Zulu 162 (108 male, 54 female), Sotho 168 (106 male, 62 female)",
+      "ages": "16 to 96 years at death, mean 50 (p. 173); group means 66, 49, 41 (male caucasoid, Zulu, Sotho) and 65, 47, 40 (female) in Table IV, p. 176",
+      "sexes": "292 male, 151 female (sums of the printed group counts)",
+      "page": "p. 173 (PDF 1); Table IV p. 176 (PDF 4)"
+    },
+    {
+      "cohort": "radiograph_substudy",
+      "labels": [
+        "not stated radiographs",
+        "not stated"
+      ],
+      "tables": [
+        "Text: Materials and Methods",
+        "Text: Results",
+        "Text: Discussion"
+      ],
+      "subjects": "Fifty-five dry lumbar vertebrae of eleven skeletons, suspended in sponge blocks to mimic the position of a patient's vertebrae, with radio-opaque metal markers placed in the canal at the mid-sagittal posterior limit; Fig. 1 is a lateral radiograph of a macerated spine with the markers. Whether the eleven skeletons are among the 443 is not stated. Also holds the general statement that the lateral beam crosses up to 8 cm of bone.",
+      "n_people": 11,
+      "n_units": "55 vertebrae of 11 skeletons",
+      "ages": "not stated",
+      "sexes": "not stated",
+      "page": "p. 174 (PDF 2); Fig. 1 p. 176 (PDF 4)"
+    },
+    {
+      "cohort": "huizinga1952",
+      "labels": [
+        "not stated Caucasoid (source_of_values Huizinga, Heiden and Vinken 1952)"
+      ],
+      "tables": [
+        "Text: Materials and Methods"
+      ],
+      "subjects": "The largest earlier similar study (Huizinga, Heiden and Vinken 1952): 51 skeletons, all caucasoid; quoted only for its size.",
+      "n_people": 51,
+      "n_units": "51 skeletons",
+      "ages": "not stated",
+      "sexes": "not stated",
+      "page": "p. 173 (PDF 1)"
+    },
+    {
+      "cohort": "jones_thomson1968",
+      "labels": [
+        "not stated (source_of_values Jones and Thomson (1968))"
+      ],
+      "tables": [
+        "Text: Discussion"
+      ],
+      "subjects": "Jones and Thomson (1968), source of the Spinal Index and its lower limit of normal (1:4.5); their subjects are not described in this paper.",
+      "n_people": null,
+      "n_units": "not stated",
+      "ages": "not stated",
+      "sexes": "not stated",
+      "page": "p. 178 (PDF 6)"
+    },
+    {
+      "cohort": "epstein1962",
+      "labels": [
+        "not stated myelography (source_of_values Epstein, Epstein and Lavine 1962)"
+      ],
+      "tables": [
+        "Text: Discussion"
+      ],
+      "subjects": "Epstein, Epstein and Lavine (1962), myelographic work said to confirm the 15 mm mid-sagittal limit; their patients are not described in this paper.",
+      "n_people": null,
+      "n_units": "not stated",
+      "ages": "not stated",
+      "sexes": "not stated",
+      "page": "p. 179 (PDF 7)"
+    },
+    {
+      "cohort": "nathan1962",
+      "labels": [
+        "not stated (source_of_values Nathan (1962))"
+      ],
+      "tables": [
+        "Text: Discussion"
+      ],
+      "subjects": "Nathan (1962), whose four grades of vertebral osteophytes this paper's three grades simplify; no subjects of his are described here.",
+      "n_people": null,
+      "n_units": "not stated",
+      "ages": "not stated",
+      "sexes": "not stated",
+      "page": "p. 179 (PDF 7)"
+    }
+  ],
+  "techniques": [
+    {
+      "technique": "caliper_dry_bone",
+      "cohorts": [
+        "dart_skeletons",
+        "radiograph_substudy"
+      ],
+      "modality": "dry bone caliper",
+      "instrument": "vernier caliper",
+      "how": "Each vertebra measured in transverse and antero-posterior diameters of the canal and the body, as described by Jones and Thomson (1968). Canal A.P. (mid-sagittal): one reading where it is least, near the canal's upper limit, opposite a slight forward bulge of the posterior wall in the midline. Canal transverse: the greatest interpedicular distance. Body A.P.: mid-sagittal at mid-height, to exclude border osteophytes. Body transverse: the greatest mid-waist distance. Tables II and III give per-group means over L1 to L5, a range of normal and the vertebrae below its lower limit; how the range was set is not stated. The 55 substudy vertebrae were measured this way before radiography.",
+      "magnification": "none: true size on dry bone",
+      "observers": "not stated (single-author paper)",
+      "page": "p. 173-174 (PDF 1-2); Tables I-III p. 174-175"
+    },
+    {
+      "technique": "radiograph_lateral",
+      "cohorts": [
+        "radiograph_substudy",
+        "dart_skeletons"
+      ],
+      "modality": "lateral radiograph",
+      "instrument": "plain lateral radiograph, Roentgen tube 110 cm from the plate; metal markers at the mid-sagittal posterior canal limit",
+      "how": "The caliper measurements were repeated on the films. Posterior canal limit, L1 to L4: opposite the cephalad half of the body, on the line joining the apex of the superior facet and the inverted apex of the inferior facet; at L5 just anterior to the radiolucent lake of the spinous process (Fig. 2). Anterior limit: the posterior body margin in the midline, well demarcated.",
+      "magnification": "factor 1.23 calculated for the lateral view; the 13 mm skeletal mid-sagittal limit gives a radiological limit of 15 mm",
+      "observers": "not stated",
+      "page": "p. 174-175 (PDF 2-3); p. 178-179 (PDF 6-7); Figs. 1-2 p. 176"
+    },
+    {
+      "technique": "radiograph_ap",
+      "cohorts": [
+        "radiograph_substudy",
+        "dart_skeletons"
+      ],
+      "modality": "AP radiograph",
+      "instrument": "plain antero-posterior radiograph, Roentgen tube 110 cm from the plate",
+      "how": "Interpedicular distance between the pedicle margins, which are well demarcated on the film; caliper values repeated on the films.",
+      "magnification": "factor 1.14 calculated for the AP view; the 18 mm skeletal interpedicular limit gives a radiological limit of 20 mm",
+      "observers": "not stated",
+      "page": "p. 174-175 (PDF 2-3); p. 178 (PDF 6)"
+    },
+    {
+      "technique": "inspection_dry_skeleton",
+      "cohorts": [
+        "dart_skeletons"
+      ],
+      "modality": "other",
+      "instrument": "direct inspection of the dry skeletal material; facet joints judged in the articulated skeleton",
+      "how": "Presence or absence of osteophytosis, graded mild, moderate or severe by defined descriptions, with its site (bodies, facets or both); facet shape; trefoil canal; lumbarisation of S1, persistent S1-S2 apophysial joints, sixth lumbar and transitional vertebrae, sacralisation of L5, sacro-transverse joints, sacro-iliac fusion, spondylolysis, spina bifida and wedge compression, counted per skeleton.",
+      "magnification": "not applicable",
+      "observers": "not stated; the grading is called subjective",
+      "page": "p. 174-177 (PDF 2-5); Table IV p. 176; p. 179 (PDF 7)"
+    },
+    {
+      "technique": "spinal_index",
+      "cohorts": [
+        "dart_skeletons",
+        "jones_thomson1968"
+      ],
+      "modality": "other",
+      "instrument": "computed from the four caliper diameters",
+      "how": "Product of the two canal diameters as a ratio of the product of the two body diameters; Jones and Thomson's lower limit of normal, 1:4.5, applied to this sample.",
+      "magnification": "none (computed from true-size caliper values)",
+      "observers": "not stated",
+      "page": "p. 178 (PDF 6)"
+    },
+    {
+      "technique": "myelography_quoted",
+      "cohorts": [
+        "epstein1962"
+      ],
+      "modality": "other",
+      "instrument": "myelography, as quoted from Epstein, Epstein and Lavine (1962)",
+      "how": "not described in this paper",
+      "magnification": "not stated",
+      "observers": "not stated",
+      "page": "p. 179 (PDF 7)"
+    },
+    {
+      "technique": "osteophyte_grading_quoted",
+      "cohorts": [
+        "nathan1962"
+      ],
+      "modality": "other",
+      "instrument": "Nathan's (1962) four-grade scheme of vertebral osteophytes",
+      "how": "not described in this paper",
+      "magnification": "not applicable",
+      "observers": "not stated",
+      "page": "p. 179 (PDF 7)"
+    }
+  ],
+  "shared": [
+    {
+      "with": "Jones and Thomson (1968), The narrow lumbar canal, J Bone Joint Surg 50-B; not in the list",
+      "what": "method",
+      "evidence": "canal and body diameters taken with a vernier caliper as Jones and Thomson described",
+      "page": "p. 173 (PDF 1)"
+    },
+    {
+      "with": "Jones and Thomson (1968); not in the list",
+      "what": "values quoted",
+      "evidence": "their Spinal Index and its 1:4.5 lower limit of normal, applied here and rejected",
+      "page": "p. 178 (PDF 6)"
+    },
+    {
+      "with": "Huizinga, Heiden and Vinken (1952); not in the list",
+      "what": "values quoted",
+      "evidence": "the largest earlier similar study: 51 skeletons, all caucasoid",
+      "page": "p. 173 (PDF 1)"
+    },
+    {
+      "with": "Epstein, Epstein and Lavine (1962); not in the list",
+      "what": "values quoted",
+      "evidence": "their myelographic work is said to confirm the 15 mm radiological mid-sagittal limit",
+      "page": "p. 179 (PDF 7)"
+    },
+    {
+      "with": "Nathan (1962); not in the list",
+      "what": "method",
+      "evidence": "the three osteophytosis grades are a simplification of Nathan's four",
+      "page": "p. 179 (PDF 7)"
+    }
+  ],
+  "within_paper": "The six groups are disjoint subsets of the same 443 skeletons (p. 173). The four diameters of Table I were taken on the same 2,166 vertebrae, so each vertebra is measured four ways; Tables II and III summarise the two canal rows over the same vertebrae, and the 2 skeletons stenotic in both diameters are counted in both tables (p. 174; Inference from 9 + 21 = 28 + 2, the paper does not say so). Table IV and the variant and anomaly counts are observations on the same skeletons (p. 174-177). The 55 vertebrae of 11 skeletons were measured with the caliper and again on AP and lateral radiographs, the same vertebrae by two methods (p. 174); whether those 11 skeletons are among the 443 is not stated. Inference: Figs. 3, 4 and 5 (p. 177, PDF 5) show bones carrying the same handwritten label 3292, so they are probably one skeleton photographed three times; Figs. 6 and 7 (p. 178, PDF 6) carry other labels."
+}

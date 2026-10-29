@@ -1,0 +1,316 @@
+{
+  "id": "chen2011",
+  "citation": "Hong Chen, Dianming Jiang, Yunsheng Ou, Jian Zhong, Fajin Lv. Geometry of thoracolumbar vertebral endplates of the human spine. Eur Spine J (2011) 20:1814-1820. DOI 10.1007/s00586-011-1787-5. Received 4 June 2010, revised 28 February 2011, accepted 27 March 2011, published online 8 April 2011; issue not printed (Inference, from memory: issue 11). Source: thread \"Reread every paper for clinical detail\", project symphony_4, 2026-10-28. Copy read: greg's upload of 2026-10-28 19:54 UTC (Springer's PDF, file s00586-011-1787-5.pdf); sha256 begins 9069ef6bad222fe6. PDF 1-7 = pp. 1814-1820.",
+  "population": "CT arm: 83 living patients (mean age 43, range 21 to 65) with a thoracic or abdominal CT for abdominal or thoracic symptoms and no spinal complaint, retrospectively from the hospital PACS; four age (over 40 or not) by sex groups A1, A2, B1, B2 of 22, 19, 21, 21 (labels not mapped); Tables 2-3 give Male n = 430 and Female n = 400 endplates, Table 1 n = 830 (Inference: 43 men and 40 women x 10 endplates). Country and ethnicity not stated (Inference: Chinese, Chongqing). Cadaver arm: 10 thoracolumbar spines T10-L3, demographics not given; Table 4 n = 100 (Inference: 10 x 10 endplates). Exclusions: marked osteophytes, significant degeneration, fracture, vertebral-body neoplasm, visible axial rotation, large lateral slant. p. 1815 (PDF 2); pp. 1817-1818 (PDF 4-5).",
+  "modality": "CT, GE LightSpeed VCT, multiplanar reformats 0.625 mm thick; figure overlays 120 kV, 298 mA, 0.6 s, tilt 0.0, SFOV 50 cm, pitch 0.984:1, bone window WW 1800 WL 600; landmarks placed by hand by one trained observer with the PACS's measuring tools on the midsagittal plane (MSP: the image showing the whole spinous process contour) and the specified coronal plane (SCP: coronal plane through the deepest sagittal point Cm). Cadaver halves cut in the midsagittal plane, photographed with a ruler and measured in Photoshop CS v8.01; cadaver CT measured the same way (SCA and SD only). pp. 1815-1816 (PDF 2-3).",
+  "levels_covered": "Ten endplates T10 inf, T11 sup/inf, T12 sup/inf, L1 sup/inf, L2 sup/inf, L3 sup: both faces of the discs T10/T11 to L2/L3 (T10 sup and L3 inf not measured). Level identification and counting method not stated. Table 1, p. 1817 (PDF 4).",
+  "anomalies": [
+    {
+      "variant": "transitional vertebrae, rib anomalies, T13, L6, LSTV, block vertebrae",
+      "finding": "Not mentioned; no prevalence, no numbering method, no statement whether transitional spines were excluded. Fig. 1 labels T10 and T12 on a cadaver half without saying how levels were identified.",
+      "page": "p. 1815 (PDF 2)",
+      "population": "83 CT patients; 10 cadaver spines",
+      "how_identified": "not stated"
+    },
+    {
+      "variant": "T12 shape signature (normal anatomy, not an anomaly)",
+      "finding": "T12 is the only vertebra whose superior and inferior TD do not differ (38.0 vs 37.6 mm men, P = 0.674; 32.9 vs 33.1 women, P = 0.848), while T11, L1, L2 widen caudally. Inference: candidate shape signature of the thoracic-to-lumbar transition; untested in 11 or 13 rib spines.",
+      "page": "p. 1817 (PDF 4); Table 3, p. 1818 (PDF 5)",
+      "population": "43 men, 40 women (Inference)",
+      "how_identified": "CT SCP, rim-to-rim width"
+    }
+  ],
+  "measures": [
+    {
+      "name": "Sagittal concave angle (SCA)",
+      "definition": "Angle A-Cm-P with vertex at Cm, the most concave endplate point on the MSP; A and P the anterior and posterior endplate rims; 180 deg = flat, smaller = deeper concavity. Paper: \"the obtuse angle formed by the rims\" (p. 1815).",
+      "projection": "CT midsagittal reformat (0.625 mm), PACS angle tool; also cadaver CT",
+      "page": "p. 1815 (PDF 2); Fig. 2, p. 1816 (PDF 3); Table 1, p. 1817 (PDF 4); Table 4, p. 1818 (PDF 5)",
+      "levels": "T10 inf to L3 sup",
+      "level_pattern": "Flat: T10 inf 163.1+/-3.9, T11 sup 163.1+/-3.9, T11 inf 163.3+/-4.6, T12 sup 163.9+/-3.7, T12 inf 163.0+/-4.6, L1 sup 163.7+/-4.4, L1 inf 162.5+/-4.8, L2 sup 163.3+/-4.9, L2 inf 162.9+/-4.3, L3 sup 163.5+/-4.2 deg; one-way ANOVA P = 0.843. Separates no level and no superior from inferior endplate.",
+      "covariates": "No difference among the four age-sex groups (least P = 0.140); no body size data; pooled sexes in Table 1.",
+      "error": "CT 162.4+/-5.7 vs cadaver 162.1+/-6.1 deg (n = 100), mean difference 0.3 deg (difference of means, Inference), Cronbach alpha 0.8191; no observer study. Inference: about 8 deg per mm of depth error at a 2 mm dip.",
+      "ct_mask_recipe": "Inference: body part of the mask (or endplate subregion); midsagittal section through the spinous process and body centre; boundary curve facing the disc; A, P at the rim ends; Cm = point farthest from chord AP; angle at Cm; use a sub-voxel surface.",
+      "radiograph_recipe": "Inference: not given by the paper; a true lateral projects the endplate profile but superimposes all sagittal sections and the lateral rims; valid only with the beam parallel to the endplate."
+    },
+    {
+      "name": "Location of the concave region in the MSP (LCR)",
+      "definition": "|C'P| / |AP| in percent, C' the foot of the perpendicular from Cm to AP, measured from the posterior rim; under 50% = deepest point posterior to the midpoint.",
+      "projection": "CT midsagittal reformat, PACS tools",
+      "page": "p. 1815 (PDF 2); Fig. 2, p. 1816 (PDF 3); Table 1, p. 1817 (PDF 4)",
+      "levels": "T10 inf to L3 sup",
+      "level_pattern": "Flat: 44.2+/-6.8, 43.5+/-6.5, 43.9+/-5.1, 43.3+/-5.3, 44.2+/-5.3, 43.6+/-6.1, 43.0+/-5.0, 42.8+/-5.0, 42.7+/-6.5, 42.5+/-5.6% (T10 inf to L3 sup); ANOVA P = 0.783; slight non-significant posterior drift caudally.",
+      "covariates": "No age or sex effect (least P = 0.668); no size data.",
+      "error": "Not given; not part of the cadaver check. Between-subject SD 5.0 to 6.8 points.",
+      "ct_mask_recipe": "Inference: project Cm onto chord AP; ratio of C'P to AP; P must be the posterior body-wall corner, not the pedicle base.",
+      "radiograph_recipe": "Inference: a ratio on a true lateral if the dip is visible (magnification cancels); untested."
+    },
+    {
+      "name": "Sagittal diameter of the endplate (SD) and vertebral average (aSD)",
+      "definition": "SD = |AP| on the MSP, rim to rim of the endplate; aSD = mean of superior and inferior SD of a vertebra (T10 and L3 from one endplate, Inference).",
+      "projection": "CT midsagittal reformat, PACS length tool; also cadaver photographs and cadaver CT",
+      "page": "p. 1815 (PDF 2); p. 1816 (PDF 3); Table 2, p. 1817 (PDF 4); Table 4, p. 1818 (PDF 5); Table 5, p. 1819 (PDF 6)",
+      "levels": "T10 inf to L3 sup",
+      "level_pattern": "Men/women SD (Table 5): T10 inf 27.6/24.2, T11 sup 27.5/24.1, T11 inf 27.2/24.1, T12 sup 27.5/23.8, T12 inf 28.1/24.7, L1 sup 29.4/25.7, L1 inf 29.4/25.4, L2 sup 29.2/26.0, L2 inf 29.3/26.0, L3 sup 29.1/25.6 mm. aSD T10-T12 27.6+/-2.3 men, 24.2+/-2.7 women; L1-L3 29.3+/-2.5, 25.8+/-2.7; lumbar about 1.6 mm larger (P < 0.000000002 men, < 0.0000007 women), no difference within segment (P 0.575, 0.974, 0.863, 0.667) or between superior and inferior of a vertebra (all P > 0.05). Step lies between T12 and L1.",
+      "covariates": "Women about 88% of men (all P < 0.0001; computed 0.86 to 0.89); no age effect (least P = 0.643); no height, weight.",
+      "error": "CT 28.8+/-3.7 vs cadaver 29.1+/-3.8 mm, mean difference 0.3 mm, alpha 0.8806; no observer study; 0.625 mm reformat.",
+      "ct_mask_recipe": "Inference: rim-to-rim chord AP on the midsagittal section of the body mask, osteophytes trimmed; smaller than the body's full AP extent.",
+      "radiograph_recipe": "Inference: true lateral, anterior-to-posterior endplate corners divided by magnification; midpoint of a double contour."
+    },
+    {
+      "name": "Coronal concave angle (CCA)",
+      "definition": "Angle R-Cs-L with vertex at Cs, the most concave point on the SCP (coronal plane through Cm); R, L the right and left endplate rims. Inference: the SCP lies about 43% of SD in front of the posterior rim.",
+      "projection": "CT coronal reformat through Cm, PACS angle tool",
+      "page": "p. 1815 (PDF 2); Fig. 3, p. 1816 (PDF 3); Table 1, p. 1817 (PDF 4)",
+      "levels": "T10 inf to L3 sup",
+      "level_pattern": "T10 inf 170.9+/-3.2, T11 sup 171.5+/-3.2, T11 inf 170.9+/-3.8, T12 sup 173.6+/-3.1, T12 inf 170.9+/-3.8, L1 sup 175.7+/-3.6, L1 inf 173.4+/-4.1, L2 sup 175.5+/-4.7, L2 inf 171.3+/-3.8, L3 sup 173.8+/-4.8 deg. Superior flatter than inferior: T11 0.6 (P = 0.346), T12 2.7 (P < 0.0001), L1 2.3 (P < 0.002), L2 4.2 (P < 0.000001). No test across levels.",
+      "covariates": "No difference among age-sex groups (least P = 0.351); no size data.",
+      "error": "Not validated against cadavers; no observer study. Inference: about 6 deg per mm of depth error.",
+      "ct_mask_recipe": "Inference: coronal section through Cm perpendicular to the midsagittal plane; R, L at the lateral rims of the endplate face; Cs = point farthest from chord RL; angle at Cs.",
+      "radiograph_recipe": "Inference: AP view only with the beam parallel to the endplate; untested."
+    },
+    {
+      "name": "Transverse diameter of the endplate (TD)",
+      "definition": "|RL| on the SCP, rim to rim; the width at the coronal section through Cm, not the maximum border-to-border body width of earlier studies (p. 1819).",
+      "projection": "CT coronal reformat through Cm, PACS length tool",
+      "page": "p. 1815 (PDF 2); p. 1817 (PDF 4); Table 3, p. 1818 (PDF 5); Table 5 and p. 1819 (PDF 6)",
+      "levels": "T10 inf to L3 sup",
+      "level_pattern": "Men/women (Table 3): T10 inf 35.6/30.7, T11 sup 34.5/29.6, T11 inf 37.7/33.4, T12 sup 38.0/32.9, T12 inf 37.6/33.1, L1 sup 38.4/34.4, L1 inf 42.7/37.7, L2 sup 41.4/36.0, L2 inf 44.5/38.3, L3 sup 42.4/37.2 mm. Superior about 91% of inferior within T11, L1, L2 (all P < 0.008), not T12 (P 0.674 men, 0.848 women). Inference (computed): superior TD separates T11 from T12 (+3.5 men, +3.3 women), inferior TD separates T12 from L1 (+5.1, +4.6); across discs the upper face is wider at T10/T11, L1/L2, L2/L3 (1.1 to 2.1 mm), nearly equal at T11/T12, and the lower face wider at T12/L1 (0.8 men, 1.3 women).",
+      "covariates": "Women about 88% of men (all P < 0.0008; computed 0.86 to 0.90); no age effect (least P = 0.602); no size data.",
+      "error": "Not validated against cadavers; no observer study.",
+      "ct_mask_recipe": "Inference: rim-to-rim chord at the coronal section through Cm, osteophytes trimmed; not the maximum left-right extent of the body mask.",
+      "radiograph_recipe": "Inference: AP view, lateral endplate corners over magnification; projects the widest silhouette so runs larger; not from a lateral."
+    },
+    {
+      "name": "Sagittal concavity depth (derived, not reported)",
+      "definition": "Inference: depth Cm-C' derived from SCA, LCR and SD with the triangle A-Cm-P; Fig. 2 labels 1.8 mm beside 25.8 mm (Inference: depth and AP).",
+      "projection": "CT midsagittal (derived)",
+      "page": "Fig. 2, p. 1816 (PDF 3); Tables 1 and 5",
+      "levels": "T10 inf to L3 sup",
+      "level_pattern": "Inference: about 1.9 to 2.2 mm in men and 1.65 to 1.9 mm in women at every endplate; coronal dip about 0.65 to 0.8 mm at L1 sup and L2 sup, 0.9 to 1.3 mm at T11, T12 and L3 sup, 1.1 to 1.7 mm at inferior endplates (Cs assumed central).",
+      "covariates": "Inference: about 12% smaller in women (SD smaller, SCA equal).",
+      "error": "Approximate; derived from means.",
+      "ct_mask_recipe": "Inference: maximum distance from chord AP to the endplate surface on the midsagittal section.",
+      "radiograph_recipe": "Inference: not reliable from projection."
+    }
+  ],
+  "level_details": [
+    {
+      "level": "coverage",
+      "detail": "T10 inf to L3 sup only; spans T12/L1, not C2/C3, C7/T1 or L5/S1.",
+      "page": "Table 1, p. 1817 (PDF 4)"
+    },
+    {
+      "level": "T10 inf",
+      "detail": "SD 27.6/24.2 mm (men/women), TD 35.6/30.7, CCA 170.9, SCA 163.1, LCR 44.2%.",
+      "page": "Tables 1, 3, 5, pp. 1817-1819 (PDF 4-6)"
+    },
+    {
+      "level": "T10/T11",
+      "detail": "T10 inf wider than T11 sup (35.6 vs 34.5 men; 30.7 vs 29.6 women).",
+      "page": "Table 3, p. 1818 (PDF 5)"
+    },
+    {
+      "level": "T11",
+      "detail": "Narrowest endplate (T11 sup 34.5/29.6); widens caudally to 37.7/33.4 (P < 0.00006/< 0.0000003); superior-inferior CCA 0.6 deg, P = 0.346.",
+      "page": "Tables 1, 3, pp. 1817-1818 (PDF 4-5)"
+    },
+    {
+      "level": "T11/T12",
+      "detail": "Inference: facing widths nearly equal (37.7 vs 38.0 men; 33.4 vs 32.9 women); superior TD steps +3.4 mm T11 sup to T12 sup; inferior TD unchanged T11 inf to T12 inf.",
+      "page": "Table 3, p. 1818 (PDF 5)"
+    },
+    {
+      "level": "T12",
+      "detail": "Superior and inferior TD do not differ (38.0 vs 37.6 men, P = 0.674; 32.9 vs 33.1 women, P = 0.848); superior CCA flatter by 2.7 deg (P < 0.0001).",
+      "page": "p. 1817 (PDF 4); Tables 1, 3"
+    },
+    {
+      "level": "T12/L1",
+      "detail": "Thoracic to lumbar aSD step about 1.6 mm (T12 27.8/24.2, L1 29.4/25.6); L1 sup wider than T12 inf (0.8 men, 1.3 women, Inference computed); L1 sup the flattest coronal endplate (175.7 deg).",
+      "page": "p. 1816 (PDF 3); Tables 1-3"
+    },
+    {
+      "level": "L1",
+      "detail": "Widens caudally 4.3 mm men (largest), 3.3 mm women; superior CCA flatter by 2.3 deg (P < 0.002); L1 inf SCA smallest (162.5, n.s.).",
+      "page": "Tables 1, 3"
+    },
+    {
+      "level": "L2",
+      "detail": "Widest endplate (L2 inf 44.5/38.3 mm); largest superior-inferior CCA difference (4.2 deg, P < 0.000001).",
+      "page": "Tables 1, 3"
+    },
+    {
+      "level": "L3 sup",
+      "detail": "TD 42.4/37.2, SD 29.1/25.6, CCA 173.8, LCR 42.5% (most posterior).",
+      "page": "Tables 1, 3, 5"
+    }
+  ],
+  "errors": [
+    {
+      "what": "Observer",
+      "value": "One trained observer, landmarks by hand in PACS; no intra- or inter-observer repeat",
+      "page": "p. 1815 (PDF 2)"
+    },
+    {
+      "what": "SCA CT vs cadaver (n = 100)",
+      "value": "162.4+/-5.7 vs 162.1+/-6.1 deg; mean difference 0.3 deg; Cronbach alpha 0.8191",
+      "page": "Table 4, p. 1818 (PDF 5); p. 1817 (PDF 4)"
+    },
+    {
+      "what": "SD CT vs cadaver (n = 100)",
+      "value": "28.8+/-3.7 vs 29.1+/-3.8 mm; mean difference 0.3 mm; Cronbach alpha 0.8806",
+      "page": "Table 4, p. 1818 (PDF 5); p. 1817 (PDF 4)"
+    },
+    {
+      "what": "Authors' threshold",
+      "value": "alpha 0.7 to 0.8 satisfactory (Bland and Altman); CT values called accurate and reliable",
+      "page": "p. 1819 (PDF 6)"
+    },
+    {
+      "what": "Unvalidated measures",
+      "value": "CCA, TD and LCR not checked against cadavers; no limits of agreement (Inference: mean difference = difference of means)",
+      "page": "p. 1816 (PDF 3); Table 4"
+    },
+    {
+      "what": "Resolution",
+      "value": "0.625 mm reformat thickness; in-plane pixel not stated",
+      "page": "p. 1815 (PDF 2)"
+    },
+    {
+      "what": "Between-subject SD",
+      "value": "SCA 3.7-4.9 deg, LCR 5.0-6.8%, CCA 3.1-4.8 deg (pooled); SD 1.8-3.1 mm, TD 2.4-4.0 mm (within sex)",
+      "page": "Tables 1, 3, 5"
+    }
+  ],
+  "pearls_pitfalls": [
+    {
+      "text": "Indications for VBR: acute thoracolumbar fractures, post-traumatic deformity, neoplasms and vertebral body infection; thoracolumbar region a common site of fracture, tumour and vertebroplasty.",
+      "page": "p. 1814 (PDF 1); p. 1815 (PDF 2)"
+    },
+    {
+      "text": "TMC advantages: modifiable shape and size, no donor-site morbidity, no disease transmission, room for autogenous cancellous bone.",
+      "page": "p. 1814 (PDF 1)"
+    },
+    {
+      "text": "Subsidence is the commonest TMC problem (small contact area, point loading); a little may help stability and fusion, more causes kyphosis, loss of anterior support, pseudarthrosis, deformity, instrumentation failure; no single remedy meets every demand.",
+      "page": "pp. 1817-1818 (PDF 4-5)"
+    },
+    {
+      "text": "Endplate is thin dense subchondral bone, thinnest centrally, thickest peripherally, arched with a depressed centre (Edwards).",
+      "page": "p. 1818 (PDF 5)"
+    },
+    {
+      "text": "Removing the endplate weakens the body: endplate 45-75% of peak strength (Rockoff, as cited); complete removal cuts strength nearly 39%; centre 38% weaker than posterolateral (Lowe); preserve the periphery.",
+      "page": "p. 1818 (PDF 5)"
+    },
+    {
+      "text": "The deepest point of the endplate lies posterior to the centre on the MSP (LCR about 43%), as van der Houwen also found; implant design should follow it.",
+      "page": "p. 1819 (PDF 6)"
+    },
+    {
+      "text": "Superior and inferior endplates differ in width (superior about 91% of inferior except T12) and coronal concavity (inferior deeper at T12-L2); Inference: cage ends would need different footprints.",
+      "page": "pp. 1816-1817 (PDF 3-4)"
+    },
+    {
+      "text": "Sex differences in SD and TD (women about 88% of men) should not be ignored.",
+      "page": "p. 1819 (PDF 6)"
+    },
+    {
+      "text": "Osteoporosis: BMD loss from the fourth decade (men up to 30%, women up to 50%); concavity rises with BMD loss but anterior wedge fractures act the other way; van der Houwen's depth +0.01 mm a year; this study found no age or sex effect on SCA or CCA but had no BMD.",
+      "page": "pp. 1818-1819 (PDF 5-6)"
+    },
+    {
+      "text": "Lumbar degeneration linked to lumbar endplate concavity (Miao); not studied at the thoracolumbar spine.",
+      "page": "p. 1819 (PDF 6)"
+    },
+    {
+      "text": "Pitfall of definition: earlier studies took maximum border-to-border body widths; this paper takes rim-to-rim endplate lengths on single sections.",
+      "page": "p. 1819 (PDF 6)"
+    },
+    {
+      "text": "Segmental lordosis/kyphosis also matters: an implant that misses the local curvature loads the endplate asymmetrically; angled or self-adjusting endplates and concavity matching may be combined.",
+      "page": "p. 1819 (PDF 6)"
+    },
+    {
+      "text": "Pitfall of the sample: only straight, non-degenerate, unfractured spines aged 21 to 65 without visible rotation or lateral slant.",
+      "page": "p. 1815 (PDF 2)"
+    }
+  ],
+  "instructions": [
+    {
+      "text": "Build each vertebra's midsagittal plane so the whole spinous process contour is seen (Inference: also through the body centre); flag visible axial rotation or a large lateral slant, which the paper excluded.",
+      "page": "p. 1815 (PDF 2)"
+    },
+    {
+      "text": "On that plane place A and P on the endplate rims after trimming osteophytes; SD = |AP|.",
+      "page": "p. 1815 (PDF 2)"
+    },
+    {
+      "text": "Take Cm as the endplate point farthest from chord AP; SCA = angle A-Cm-P; LCR = |C'P|/|AP|; fit the surface below voxel size first (Inference: 1 mm of depth error moves SCA about 8 deg).",
+      "page": "p. 1815 (PDF 2); Fig. 2, p. 1816 (PDF 3)"
+    },
+    {
+      "text": "Build the coronal section through Cm; R, L at the lateral rims, Cs at the deepest point; TD = |RL|, CCA = angle R-Cs-L; never substitute the maximum body width.",
+      "page": "p. 1815 (PDF 2); Fig. 3, p. 1816; p. 1819 (PDF 6)"
+    },
+    {
+      "text": "Expect SCA about 163 deg and LCR about 43% from the posterior rim at every endplate T10 inf to L3 sup; never use them to tell levels apart; check rim placement if LCR exceeds about 57% (Inference: mean + 2 SD).",
+      "page": "Table 1, p. 1817 (PDF 4)"
+    },
+    {
+      "text": "Use SD within one patient only to split T10-T12 from L1-L3 (step about 1.6 mm between T12 and L1); expect no significant superior-inferior SD difference.",
+      "page": "Table 2, p. 1817 (PDF 4); p. 1816 (PDF 3)"
+    },
+    {
+      "text": "Expect the inferior endplate about 10% wider than the superior at T11, L1, L2 and no significant widening at T12 (Inference: equal widths between caudally widening neighbours mark the T12 candidate; weak cue, combine with ribs).",
+      "page": "Table 3, p. 1818 (PDF 5); p. 1817 (PDF 4)"
+    },
+    {
+      "text": "Inference (computed): use inferior TD to separate T12 from L1 (+5.1 men, +4.6 women) and superior TD to separate T11 from T12 (+3.5, +3.3).",
+      "page": "Table 3, p. 1818 (PDF 5)"
+    },
+    {
+      "text": "Expect superior endplates coronally flatter than inferior at T12, L1, L2 (2.3 to 4.2 deg), L1 sup and L2 sup flattest (about 175.5 deg), inferior endplates near 171 deg except L1 inf (173.4); weak cues only.",
+      "page": "Table 1, p. 1817 (PDF 4)"
+    },
+    {
+      "text": "Scale SD and TD by about 0.88 for women; do not scale SCA, LCR, CCA by sex; no age adjustment between 21 and 65.",
+      "page": "pp. 1816-1817 (PDF 3-4)"
+    },
+    {
+      "text": "Inference: on a lateral radiograph or fluoroscopy take SD corner to corner over magnification and read the T12/L1 step as a within-film trend; on AP take TD between lateral corners; distrust angles unless the beam is parallel to the endplate.",
+      "page": "no radiographic method in the paper"
+    },
+    {
+      "text": "Keep names apart: this paper's SCA is an angle, not Panjabi's spinal canal area; SD is a length, not a standard deviation.",
+      "page": "p. 1815 (PDF 2)"
+    },
+    {
+      "text": "Count vertebrae from a fixed reference before trusting a T12 or L1 label; the paper states no counting method.",
+      "page": "p. 1815 (PDF 2)"
+    }
+  ],
+  "bordercall": [
+    "(a) Anomaly priors: none; the paper reports no transitional segment, rib anomaly, T13 or L6 and no numbering method (p. 1815, PDF 2).",
+    "(b) SD and TD correspond to Panjabi's EPD and EPW but are rim-to-rim chords on single sections (TD on the coronal plane through Cm, about 57% of SD behind the anterior rim). Inference (sibling notes): Panjabi's EPD at the matching endplates (31.6 to about 35 mm) runs 4 to 6 mm above this paper's male SD (27.2 to 29.4); Panjabi's widths agree at T10 inf and T11 sup, are 1.0 to 1.4 mm higher at T11 inf and T12 sup, and 2.8 to 4.5 mm higher at L1 sup and T12 inf; Panjabi pooled 8 men and 4 women. Do not pool without an offset or a common definition.",
+    "(b) A mask's maximum body width will run above this TD (p. 1819, PDF 6); take the chord at the coronal section through Cm to match.",
+    "(b) Candidate additions (Inference from Tables 1, 3, 5): SCA, CCA, LCR as shape checks; derived sagittal depth about 2 mm; inferior/superior TD ratio about 1.10 at T11, L1, L2 and 0.99 to 1.01 at T12; superior-minus-inferior CCA; TD/SD ratio 1.23 to 1.52, rising overall from T10 to L2 and larger at the inferior endplate except at T12.",
+    "(b) Coverage only T10 inf to L3 sup; nothing for C3 to T9, T10 sup, L3 inf, L4, L5.",
+    "(c) Error: no observer error; CT-cadaver mean differences 0.3 deg (SCA) and 0.3 mm (SD), alpha 0.82 and 0.88 (Table 4, p. 1818, PDF 5); 0.625 mm reformat floor; Inference: 6 to 8 deg per mm of depth error for mask angles. Between-subject spread: SD 1.8-3.1 mm, TD 2.4-4.0 mm within sex, SCA 3.7-4.9 deg, CCA 3.1-4.8 deg, LCR 5-7%.",
+    "(d) Covariates: women 0.88 x men for SD and TD; no sex effect on SCA, LCR, CCA; no age effect 21-65 (dichotomy at 40); no height, weight or BMD; population a Chongqing hospital (Inference: Chinese); cadavers unknown."
+  ],
+  "gaps": [
+    "No concavity depth in mm; position of Cs along RL not reported (Inference from Fig. 3: about 55% from R).",
+    "No test of CCA across levels; abstract's 'constantly larger in superior endplate' includes T11, where the 0.6 deg difference is not significant (P = 0.346).",
+    "Table 2 vs Table 5 at L3: female aSD 25.7 vs L3 sup 25.6, male SD 2.8 vs 2.7, though only L3 sup was measured.",
+    "Groups A1-B2 not mapped; no group values; age only as a dichotomy at 40, range to 65.",
+    "No observer reliability, no limits of agreement, CCA, TD and LCR unvalidated, no cadaver demographics.",
+    "Level counting method and whether reformats followed each vertebra's axes not stated; in-plane pixel not stated.",
+    "The test for sex comparisons is not named; Table 2's n = 430/400 are endplate counts carried over (Inference).",
+    "Inference: the 45-75% endplate strength figure cites Rockoff 1969, whose title concerns trabecular vs cortical bone.",
+    "Van der Houwen (Table 5): SD agrees within about 1 mm; TD from L1 inf to L3 sup runs 2.2-3.4 mm (men) and 1.7-5.6 mm (women) above his, though the authors call the results consistent; his women show L2 inf narrower than L2 sup.",
+    "Inference (sibling note vanderhouwen2009.md): implied sagittal depth here (about 1.8-2.1 mm at L1 sup) is about twice van der Houwen's superior middle-point depth (0.83 at L1 sup) and he found inferior endplates 1.7-1.9 x deeper and a 0.01 mm/yr age trend, neither seen in this paper's SCA.",
+    "Inference (sibling note panjabi1991t.md): Panjabi's T12 lower width exceeds the upper by about 3 mm (42.1 vs 39.0), where this paper finds them equal."
+  ]
+}

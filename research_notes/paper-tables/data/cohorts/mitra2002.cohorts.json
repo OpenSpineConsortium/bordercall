@@ -1,0 +1,405 @@
+{
+ "paper": "mitra2002",
+ "cohorts": [
+  {
+   "cohort": "nagpur_cadavers20",
+   "labels": [
+    "all / ",
+    "female / ",
+    "female / CT",
+    "female / Direct",
+    "female / Roentgenogram",
+    "male / ",
+    "male / CT",
+    "male / Direct",
+    "male / Roentgenogram",
+    "not stated / ",
+    "not stated / CT",
+    "not stated / Direct",
+    "not stated / Roentgenogram",
+    "not stated / recommendation",
+    "not stated / roentgenograms"
+   ],
+   "tables": [
+    "Table 1",
+    "Table 2",
+    "Text: Abstract",
+    "Text: Discussion",
+    "Text: Methods",
+    "Text: Results"
+   ],
+   "subjects": "Cadavers from the Department of Anatomy, Government Medical College and Hospital, Nagpur, India; the title calls them the Indian population (no finer ethnicity given). Excluded: cadavers with obvious deformity of the spine or a fractured spine. Dissected by a midline posterior approach from T12 to the sacrum; the L1-to-sacrum segment was removed and its pedicles L1 to L5 measured. Stature, weight and cause of death not given. The two female cadavers were not compared with earlier studies. The recommendation rows (screw sizes) are drawn from these measurements.",
+   "n_people": 20,
+   "n_units": "L1 to L5 of 20 cadavers (Inference: 100 vertebrae); whether one or both pedicles of a level were measured is not stated",
+   "ages": "males 20 to 70 years; the two females 55 and 60 years",
+   "sexes": "18 male, 2 female",
+   "page": "p. 453 (PDF 1); p. 454 (PDF 2); Tables 1 and 2 p. 455 (PDF 3)"
+  },
+  {
+   "cohort": "kim_korean",
+   "labels": [
+    "female / Direct / source: Kim et al [8]",
+    "male / Direct / source: Kim et al [8]",
+    "male / Korean / source: Kim et al [8]"
+   ],
+   "tables": [
+    "Table 1",
+    "Text: Discussion"
+   ],
+   "subjects": "Not measured here: Korean subjects of Kim et al [8] (Morphometric study of the pedicles of thoracic and lumbar vertebrae in Koreans, Spine 1994), whose direct transverse diameters by sex Table 1 and Figure 5 quote; who they were is not described in this paper.",
+   "n_people": null,
+   "n_units": "printed as M(42) and F(31); what the numbers count is not stated",
+   "ages": "not stated in this paper",
+   "sexes": "42 male and 31 female as printed",
+   "page": "Table 1 p. 455 (PDF 3); p. 457 (PDF 5)"
+  },
+  {
+   "cohort": "hou_chinese",
+   "labels": [
+    "female / Direct / source: Hou et al [7]",
+    "male / Chinese / source: Hou et al [7]",
+    "male / Direct / source: Hou et al [7]"
+   ],
+   "tables": [
+    "Table 1",
+    "Table 2",
+    "Text: Discussion"
+   ],
+   "subjects": "Not measured here: Chinese subjects of Hou et al [7] (Pedicle morphology of the lower thoracic and lumbar spine in a Chinese population, Spine 1993; hou1993), whose direct transverse diameter, chord length and sagittal diameter by sex Tables 1 and 2 and Figure 5 quote.",
+   "n_people": null,
+   "n_units": "printed as M(25) and F(15); what the numbers count is not stated",
+   "ages": "not stated in this paper",
+   "sexes": "25 male and 15 female as printed",
+   "page": "Tables 1 and 2 p. 455 (PDF 3); p. 457 (PDF 5)"
+  },
+  {
+   "cohort": "olsewski_direct",
+   "labels": [
+    "female / Direct / source: Olsewski et al [18]",
+    "male / Direct / source: Olsewski et al [18]",
+    "not stated / Direct / source: Olsewski et al [18]"
+   ],
+   "tables": [
+    "Table 1",
+    "Table 2",
+    "Text: Discussion"
+   ],
+   "subjects": "Not measured here: the white subjects of Olsewski et al [18] (Morphometry of the lumbar spine, J Bone Joint Surg Am 1990; olsewski1990) whose direct values by sex Tables 1 and 2 and Figures 4 to 6 quote, and the L5 sagittal angle range the Discussion quotes. Inference from olsewski1990: his Part 1 cadavers (24 + 25 = 49).",
+   "n_people": null,
+   "n_units": "printed as M(24) and F(25); what the numbers count is not stated",
+   "ages": "not stated in this paper",
+   "sexes": "24 male and 25 female as printed",
+   "page": "Tables 1 and 2 p. 455 (PDF 3); pp. 456-458 (PDF 4-6)"
+  },
+  {
+   "cohort": "olsewski_51",
+   "labels": [
+    "not stated / CT / source: Olsewski et al [18]"
+   ],
+   "tables": [
+    "Table 1"
+   ],
+   "subjects": "Not measured here: Olsewski et al [18] values in Table 1 rows labelled CT with (51), transverse angle and chord length. Inference from olsewski1990: the values are his Table II radiographs of 21 Part 2 cadavers, and 51 is the count of his living patients, not of these values.",
+   "n_people": null,
+   "n_units": "printed as (51); what it counts is not stated",
+   "ages": "not stated in this paper",
+   "sexes": "not stated (sexes pooled as printed)",
+   "page": "Table 1 p. 455 (PDF 3)"
+  },
+  {
+   "cohort": "olsewski_49",
+   "labels": [
+    "not stated / Roentgenogram / source: Olsewski et al [18]"
+   ],
+   "tables": [
+    "Table 2",
+    "Text: Discussion"
+   ],
+   "subjects": "Not measured here: Olsewski et al [18] values in Table 2 rows labelled Roentgenogram with (49), sagittal diameter and sagittal angle (L5 split as 7(30), -10(12)), and the L5 radiographic sagittal angle range of -10 to 8 deg the Discussion quotes. Inference from olsewski1990: the values are his Table II radiographs of 21 Part 2 cadavers, and 49 is the count of his Part 1 cadavers.",
+   "n_people": null,
+   "n_units": "printed as (49); the L5 brackets 30 and 12 count pedicles (Inference)",
+   "ages": "not stated in this paper",
+   "sexes": "not stated (sexes pooled as printed)",
+   "page": "Table 2 p. 455 (PDF 3); p. 458 (PDF 6)"
+  },
+  {
+   "cohort": "zindrick_85",
+   "labels": [
+    "not stated / CT / source: Zindrick et al [27]",
+    "not stated / Roentgenogram / source: Zindrick et al [27]"
+   ],
+   "tables": [
+    "Table 1",
+    "Table 2"
+   ],
+   "subjects": "Not measured here: values credited to Zindrick et al [27] (a biomechanical study of interpedicular screw fixation, Clin Orthop 1986) in Table 1 rows labelled CT and Table 2 rows labelled Roentgenogram, (85). Inference: every value matches Zindrick 1987 Spine (reference 26, zindrick1987), which pooled specimen films and CT; its chord lengths are depths parallel to the midline.",
+   "n_people": null,
+   "n_units": "printed as (85); what it counts is not stated",
+   "ages": "not stated in this paper",
+   "sexes": "not stated in this paper",
+   "page": "Tables 1 and 2 p. 455 (PDF 3)"
+  },
+  {
+   "cohort": "bs_unidentified",
+   "labels": [
+    "not stated / Direct / source: B&S"
+   ],
+   "tables": [
+    "Table 2"
+   ],
+   "subjects": "Not measured here: a Table 2 comparator row of direct sagittal diameter labelled B&S, (30); neither the text nor the references say what study B&S is. Inference: its five values equal Berry et al 1987's pedicle heights (reference 1, Spine 1987;12:362-7, not in this set) as hou1993 quotes them (15.6, 15.4, 14.6, 13.0, 13.8), and Berry's authors include Steffee, so B&S is probably that study; its subjects are not described here.",
+   "n_people": null,
+   "n_units": "printed as (30); what it counts is not stated",
+   "ages": "not stated in this paper",
+   "sexes": "not stated in this paper",
+   "page": "Table 2 p. 455 (PDF 3)"
+  },
+  {
+   "cohort": "roy_saillant_cited",
+   "labels": [
+    "not stated /  / source: Roy et al [19,20]",
+    "not stated /  / source: Roy et al [19,20]; Saillant [21]",
+    "not stated /  / source: Roycamille et al [19,20]"
+   ],
+   "tables": [
+    "Text: Discussion",
+    "Text: Methods"
+   ],
+   "subjects": "Not measured here: figures quoted from Roy-Camille et al [19,20] (constant 26 mm interpedicular distance, 30 deg inclination at L5, an entry point 1 mm below the facet joint) and Saillant [21] (30 deg at L5); their subjects are not described in this paper.",
+   "n_people": null,
+   "n_units": "not stated in this paper",
+   "ages": "not stated in this paper",
+   "sexes": "not stated in this paper",
+   "page": "p. 454 (PDF 2); p. 456 (PDF 4); p. 457 (PDF 5); p. 458 (PDF 6)"
+  },
+  {
+   "cohort": "cited_implants",
+   "labels": [
+    "not stated / implant / source: Roy et al [19,20]",
+    "not stated / implant / source: Steffee et al [23]"
+   ],
+   "tables": [
+    "Text: Discussion"
+   ],
+   "subjects": "No subjects: plate dimensions of the implants of Roy-Camille et al [19,20] (holes every 1.3 cm, screws 2.6 cm apart) and Steffee et al [23] (slots 2.6 cm apart), quoted to compare with the interpedicular distance.",
+   "n_people": null,
+   "n_units": "not applicable",
+   "ages": "not applicable",
+   "sexes": "not applicable",
+   "page": "p. 458 (PDF 6)"
+  },
+  {
+   "cohort": "pooled_chord_range",
+   "labels": [
+    "not stated /  / source: this paper and the studies of Table 1"
+   ],
+   "tables": [
+    "Text: Discussion"
+   ],
+   "subjects": "Not one set of subjects: the range 41.2 to 50.7 mm spans the direct chord-length means of this paper and the Table 1 studies (Olsewski, Hou); the ends equal this paper's female L1 and Hou's male L1.",
+   "n_people": null,
+   "n_units": "the means of Table 1's direct chord-length rows",
+   "ages": "not applicable",
+   "sexes": "both, by study",
+   "page": "p. 457 (PDF 5)"
+  }
+ ],
+ "techniques": [
+  {
+   "technique": "direct_intact_column",
+   "cohorts": [
+    "nagpur_cadavers20"
+   ],
+   "modality": "other",
+   "instrument": "Vernier caliper (resolution 0.1 mm) for distances, goniometer (resolution 1 deg) for angles, on the dissected cadaver column (not stated to be macerated dry bone)",
+   "how": "First, on the intact L1 to L5 column: interpedicular distance, sagittal diameter (pedicle height, Figure 2 draws it across the pedicle between the notches) and sagittal angle (one line along the pedicle axis, one along the superior border of the body, after Olsewski; positive cephalad, negative caudad). The interpedicular distance is not defined in words; Inference from p. 456 and p. 458: between pedicles of adjacent vertebrae, L1 standing for L1-L2.",
+   "magnification": "not applicable",
+   "observers": "not stated",
+   "page": "p. 453 (PDF 1); Figure 2 p. 454 (PDF 2)"
+  },
+  {
+   "technique": "specimen_roentgenogram",
+   "cohorts": [
+    "nagpur_cadavers20"
+   ],
+   "modality": "lateral radiograph",
+   "instrument": "roentgenograms of the excised column; goniometer (1 deg) for the angles; distances presumably with the Vernier caliper, since all diameters and distances were (Inference)",
+   "how": "Roentgenograms of the vertebral column for sagittal diameter, sagittal angle and interpedicular distance, taken after the direct measurements; the angles were read on lateral roentgenograms; the projection for the two distances is not stated (Inference: lateral, since the authors blame overlap of left and right pedicles for the larger radiographic interpedicular distance).",
+   "magnification": "tube to cassette 100 cm (printed as about 33 inches); a metal measuring guide gave a magnifying factor reported as 0, so no correction is described",
+   "observers": "not stated",
+   "page": "p. 453 (PDF 1); p. 458 (PDF 6)"
+  },
+  {
+   "technique": "ct_axial_midpedicle",
+   "cohorts": [
+    "nagpur_cadavers20"
+   ],
+   "modality": "CT axial",
+   "instrument": "CT (called computerized roentgenogram), scanner not named; hard-copy films read with computer software for distances and a goniometer for angles",
+   "how": "5-mm-thick axial slices cut at the pedicle isthmus (midpedicle cut), the plane chosen on the sagittal view; transverse diameter, transverse angle, chord length and medial and lateral cortical thickness measured on the films. Whether the excised segment or the whole cadaver was scanned is not stated.",
+   "magnification": "not stated (lengths read with software from the films)",
+   "observers": "not stated",
+   "page": "p. 454 (PDF 2)"
+  },
+  {
+   "technique": "direct_sectioned",
+   "cohorts": [
+    "nagpur_cadavers20"
+   ],
+   "modality": "other",
+   "instrument": "oscillating fret hacksaw; Vernier caliper (0.1 mm) and goniometer (1 deg)",
+   "how": "Vertebrae cut at the midpedicle level after CT; transverse diameter (mediolateral width at the narrowest part, Figure 1), transverse angle (pedicle axis against the midline, Figure 1) and chord length (labelled along the pedicle axis in Figure 1; posterior start not defined) measured on the cut surface.",
+   "magnification": "not applicable",
+   "observers": "not stated",
+   "page": "p. 454 (PDF 2), Figure 1"
+  },
+  {
+   "technique": "entrance_point_visual",
+   "cohorts": [
+    "nagpur_cadavers20"
+   ],
+   "modality": "other",
+   "instrument": "visual examination, Hou's method",
+   "how": "In the lateral plane the pedicle centre was placed against the transverse process (top, upper half, midpoint or lower half) and against the superior facet divided by vertical lines into segments 1 to 4, the fourth lateral to the facet (Figure 3).",
+   "magnification": "not applicable",
+   "observers": "not stated",
+   "page": "p. 454 (PDF 2); Figure 3 p. 457 (PDF 5)"
+  },
+  {
+   "technique": "cited_direct",
+   "cohorts": [
+    "kim_korean",
+    "hou_chinese",
+    "olsewski_direct",
+    "bs_unidentified"
+   ],
+   "modality": "other",
+   "instrument": "not stated in this paper",
+   "how": "values the tables label Direct, quoted from the cited studies; their methods are not described here",
+   "magnification": "not applicable",
+   "observers": "not stated in this paper",
+   "page": "Tables 1 and 2 p. 455 (PDF 3)"
+  },
+  {
+   "technique": "cited_labelled_ct",
+   "cohorts": [
+    "olsewski_51",
+    "zindrick_85"
+   ],
+   "modality": "other",
+   "instrument": "not stated in this paper",
+   "how": "values Table 1 labels CT, quoted from the cited studies; methods not described here. Inference: Olsewski's are radiographs of disarticulated vertebrae and Zindrick's pool specimen films and CT, so the label is only partly right",
+   "magnification": "not stated in this paper",
+   "observers": "not stated in this paper",
+   "page": "Table 1 p. 455 (PDF 3)"
+  },
+  {
+   "technique": "cited_roentgenogram",
+   "cohorts": [
+    "olsewski_49",
+    "zindrick_85"
+   ],
+   "modality": "other",
+   "instrument": "not stated in this paper",
+   "how": "values Table 2 labels Roentgenogram, quoted from the cited studies; projection and method not described here",
+   "magnification": "not stated in this paper",
+   "observers": "not stated in this paper",
+   "page": "Table 2 p. 455 (PDF 3); p. 458 (PDF 6)"
+  },
+  {
+   "technique": "cited_text_figures",
+   "cohorts": [
+    "roy_saillant_cited",
+    "cited_implants",
+    "pooled_chord_range"
+   ],
+   "modality": "other",
+   "instrument": "not stated in this paper",
+   "how": "single figures quoted in the text from the cited studies, or a range across the compared studies",
+   "magnification": "not applicable",
+   "observers": "not stated in this paper",
+   "page": "pp. 454-458 (PDF 2-6)"
+  }
+ ],
+ "shared": [
+  {
+   "with": "Olsewski et al [18], J Bone Joint Surg Am 1990: olsewski1990",
+   "what": "method",
+   "evidence": "sagittal angle drawn along the pedicle axis and the superior border of the body, as Olsewski described",
+   "page": "p. 453 (PDF 1)"
+  },
+  {
+   "with": "Olsewski et al [18] (olsewski1990), Saillant [21], Zindrick et al [27] (Inference: zindrick1987)",
+   "what": "method",
+   "evidence": "the roentgenographic parameters (sagittal diameter, sagittal angle, interpedicular distance) are cited to these three",
+   "page": "p. 453 (PDF 1)"
+  },
+  {
+   "with": "Kothe et al [10], Spine 1996 (not in the list)",
+   "what": "method",
+   "evidence": "the CT parameters, including medial and lateral cortical thickness, are cited to Kothe",
+   "page": "p. 454 (PDF 2)"
+  },
+  {
+   "with": "Hou et al [7] (hou1993), Roy-Camille et al [19,20], Weinstein et al [25] (not in the list)",
+   "what": "method",
+   "evidence": "the parameters measured on the sectioned vertebrae are cited to these studies",
+   "page": "p. 454 (PDF 2)"
+  },
+  {
+   "with": "Hou et al [7], Spine 1993: hou1993",
+   "what": "method",
+   "evidence": "the pedicle entrance point was found by the method Hou et al described",
+   "page": "p. 454 (PDF 2); p. 457 (PDF 5)"
+  },
+  {
+   "with": "Kim et al [8], Spine 1994 (not in the list)",
+   "what": "values quoted",
+   "evidence": "Table 1 quotes Kim's direct transverse diameters by sex; the text quotes 18.9 mm at L5 for males; Figure 5 plots Kim's males",
+   "page": "Table 1 p. 455 (PDF 3); p. 457 (PDF 5); Figure 5 p. 458 (PDF 6)"
+  },
+  {
+   "with": "Hou et al [7], Spine 1993: hou1993",
+   "what": "values quoted",
+   "evidence": "Tables 1 and 2 quote Hou's direct transverse diameter, chord length and sagittal diameter by sex; text quotes 12.8 mm at L5; Figure 5 plots Hou's males. Inference: Hou's female L3 chord is 48.9 in hou1993, quoted as 46.3",
+   "page": "Tables 1 and 2 p. 455 (PDF 3); p. 457 (PDF 5); Figure 5 p. 458 (PDF 6)"
+  },
+  {
+   "with": "Olsewski et al [18], J Bone Joint Surg Am 1990: olsewski1990",
+   "what": "values quoted",
+   "evidence": "Tables 1 and 2 quote Olsewski's direct rows by sex and rows labelled CT (51) and Roentgenogram (49); text quotes 21.1 mm and 17 deg at L5 and L5 sagittal angle ranges; Figures 4 to 6 plot his values",
+   "page": "Tables 1 and 2 p. 455 (PDF 3); pp. 456-458 (PDF 4-6)"
+  },
+  {
+   "with": "Zindrick et al [27], Clin Orthop 1986; Inference: the values are those of Zindrick et al [26], Spine 1987: zindrick1987",
+   "what": "values quoted",
+   "evidence": "Table 1 rows labelled CT and Table 2 rows labelled Roentgenogram, (85), credited to Zindrick [27]; Inference: they match zindrick1987, except L5 sagittal angle 1.8 where zindrick1987 gives -1.8",
+   "page": "Tables 1 and 2 p. 455 (PDF 3)"
+  },
+  {
+   "with": "B&S (not identified in the paper; Inference: Berry et al [1], Spine 1987, not in the list)",
+   "what": "values quoted",
+   "evidence": "a direct sagittal diameter row labelled B&S (30) in Table 2; Inference: its values equal Berry's pedicle heights as hou1993 quotes them",
+   "page": "Table 2 p. 455 (PDF 3)"
+  },
+  {
+   "with": "Roy-Camille et al [19,20] (not in the list)",
+   "what": "values quoted",
+   "evidence": "interpedicular distance constant at 26 mm, 30 deg at L5, plate holes every 1.3 cm, entry 1 mm below the facet",
+   "page": "p. 454 (PDF 2); p. 456 (PDF 4); p. 457 (PDF 5); p. 458 (PDF 6)"
+  },
+  {
+   "with": "Saillant [21] (not in the list)",
+   "what": "values quoted",
+   "evidence": "a 30 deg inclination at L5",
+   "page": "p. 456 (PDF 4)"
+  },
+  {
+   "with": "Steffee et al [23] (not in the list)",
+   "what": "values quoted",
+   "evidence": "plate slots 2.6 cm apart",
+   "page": "p. 458 (PDF 6)"
+  }
+ ],
+ "within_paper": "One set of subjects for all this paper's own values: the same 20 cadavers' L1 to L5 were measured four ways in sequence, directly on the intact column (interpedicular distance, sagittal diameter, sagittal angle), on roentgenograms (the same three), on CT (transverse diameter, transverse angle, chord length, cortical thickness) and directly after sawing at midpedicle (transverse diameter, transverse angle, chord length, entrance point), pp. 453-454 (PDF 1-2). So each Direct row and its Roentgenogram or CT row in Tables 1 and 2 are the same pedicles by two methods. The M(18) and F(2) rows split the 20 cadavers; the cortical thickness rows name no sex (Inference: all 20). The values in the Abstract, Results and Discussion repeat table values. Of the comparators, the Olsewski rows (M(24), F(25), (51), (49)) all come from one study, olsewski1990 (Inference: Part 1 cadavers and Part 2 radiographs), and the Zindrick (85) rows of both tables from one."
+}

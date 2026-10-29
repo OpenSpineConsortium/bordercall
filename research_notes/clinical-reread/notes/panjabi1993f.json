@@ -1,0 +1,453 @@
+{
+  "id": "panjabi1993f",
+  "citation": "Panjabi MM, Oxland T, Takata K, Goel V, Duranceau J, Krag M. Articular Facets of the Human Spine: Quantitative Three-Dimensional Anatomy. Spine 1993;18(10):1298-1310 (J. B. Lippincott Company; accepted March 16, 1992; NIH grant AR39209 and CEHIC grant R49/CCR103551). Copy read: bordercall archive/bordercall/reference/papers/Panjabi_1993_Facets_Spine_18-10_1298-1310.pdf, sha256 begins 2b22fe5e6c14d228; 13 PDF pages, printed p. 1298 = PDF 1 to p. 1310 = PDF 13. Source: thread \"Reread every paper for clinical detail\", project symphony_4, 2026-10-28.",
+  "population": "12 fresh autopsy spines, axis (C2) to the last lumbar vertebra, no sacrum, disarticulated into 276 vertebrae (12 spines x 23 levels, C2-C7, T1-T12, L1-L5); n = 12 per level and side. 8 men and 4 women, age mean 46.3 y (19-59), weight mean 67.8 kg (54-85 printed; 54-84 in the thoracic paper's Table 1), height mean 167.8 cm (157-178) (p. 1299, PDF 2). Country, ethnicity and cause of death not stated in this paper; Inference: a US autopsy source (Yale). The thoracic paper's Table 1 (ref 25, p. 889), which lists the same summary, gives six of twelve deaths from malignancy (Inference that they are the same twelve). Dry bone, all soft tissue removed.",
+  "modality": "Dry-bone three-dimensional morphometry: a purpose-built morphometer (ref 22; one linear and two rotational transducers meeting at a point, spherical coordinates) digitised each facet surface as a set of points and three pin markers per vertebra; a least-squares plane per facet; a vertebral frame from four posterior-wall corner points (frontal plane) with origin at the centre of the upper end-plate, +X left (p. 1300), Z anterior (named in ref 25, p. 889). AP and lateral radiographs only located the pins and screened for abnormalities (pp. 1298-1299, PDF 1-2). Means and SEM (Tables 2-7), card angles as means only (Table 8). Accuracy under 5% on a Plexiglas pseudovertebra (p. 1300, PDF 3).",
+  "levels_covered": "C2 to L5, superior and inferior facets, right and left (92 facet cells per facet measure; 23 levels per interfacet measure). C1, the occipital condyles and S1 were not measured; abstract ranges are stated for C3-L5 without the superior C2 facet (p. 1298, PDF 1).",
+  "anomalies": [
+    {
+      "variant": "Lumbosacral transitional vertebra, sacralisation, lumbarisation, L6, T13, rib-count variants, cervical ribs, block vertebrae",
+      "finding": "None reported. 276 vertebrae = 12 x 23 means every spine was counted as C2-C7, T1-T12, L1-L5; how levels were identified is not said, and with no sacrum kept a sacralised L5 or lumbarised S1 could not be seen on the specimen. Inference: read as 0 of 12, the one-sided 95% upper bound is about 22%, so no prior can be drawn.",
+      "page": "p. 1298 (PDF 1); p. 1299 (PDF 2)",
+      "population": "12 fresh autopsy spines, 8 men and 4 women, 19-59 y",
+      "how_identified": "Specimens radiographed to identify any significant abnormalities; the findings are not reported."
+    },
+    {
+      "variant": "Thoracolumbar facet orientation switch (normal transition)",
+      "finding": "On average at the T12-L1 joint: inferior T12 |S| 139.7/138.8 and superior L1 139.1/134.2 against superior T12 72.5/67.4 and inferior T11 72.2/70.5. S SEMs are 0.9-2.8 deg at every facet T1-T10, 4.7-5.5 at the T11-T12 joint and 8.2-9.5 at the T12-L1 joint (SD about 16-33 deg). Inference: the switch may fall one joint off in some spines, or junctional facets are partly transitional or poorly fitted; the paper gives no per-spine count. The paper uses the switch to identify T12.",
+      "page": "p. 1304 (PDF 7); p. 1307 (PDF 10); Tables 6, 7 p. 1303 (PDF 6)",
+      "population": "the same 12 spines",
+      "how_identified": "Plane fit to digitised facet surfaces; angle to the vertebra's sagittal plane."
+    },
+    {
+      "variant": "T12 facet type in another sample (comparison)",
+      "finding": "Malmivaara's dissection sample puts the superior T12 facet at 98 deg from the sagittal plane against Panjabi's 70 (T11 73 against 75; L1 117 against 137), so the level of the switch or the T12 facet type differs between samples.",
+      "page": "Table 10, p. 1308 (PDF 11)",
+      "population": "Malmivaara 1987 (ref 20), gross dissection, Helsinki",
+      "how_identified": "As reported by Malmivaara; method not given here."
+    }
+  ],
+  "measures": [
+    {
+      "name": "Vertebral frame and facet plane (reference for every measure)",
+      "definition": "Four digitised points at the left and right, upper and lower edges of the posterior wall of the body define, by least squares, the frontal (XY), transverse (XZ) and sagittal (YZ) planes; origin the digitised centre of the upper end-plate (p. 1299). +X is the vertebra's left (left facet S positive 'in the direction of the positive X-axis', p. 1300). Z anterior is drawn in the thoracic paper (ref 25, p. 889, Figure 1). Each facet is a least-squares best-fit plane through its digitised surface points (p. 1300, Figure 2A); the facets are in fact curved, especially lumbar (pp. 1306-1307).",
+      "projection": "dry bone, morphometer; frame from the body's posterior wall",
+      "page": "p. 1299 (PDF 2), Figure 1; p. 1300 (PDF 3), Figure 2; pp. 1306-1307 (PDF 9-10)",
+      "levels": "C2-L5",
+      "ct_mask_recipe": "Inference: fit a plane to the posterior-wall voxels of the body facing the canal; normal away from the canal = +Z; Y from caudal to cranial edge midpoints of the wall; X = Y x Z (left); origin at the upper end-plate centroid; rotate the instance into this frame. Facet surface = boundary voxels of the articular process (SPINEPS subregions where given) within about 2-3 mm of the partner process of the neighbouring instance; fit by PCA, normal = least-variance axis, oriented up and back. C2 superior needs C1, L5 inferior needs S1 in the segmentation.",
+      "radiograph_recipe": "The paper: angles to the transverse plane are read accurately on lateral radiographs only where S is near 90 (cervical, thoracic); CT angles to the sagittal plane only where T is near 90 (lumbar) (p. 1309, PDF 12).",
+      "level_pattern": "Every angle is to the vertebra's own posterior-wall frame, so lordosis, kyphosis and scoliosis do not enter (Inference).",
+      "covariates": "None given: 8 men and 4 women, 19-59 y, pooled; no subgroup, no scaling with height or weight (p. 1299, PDF 2).",
+      "error": "Plexiglas pseudovertebra (faces 30, 45, 60 deg; graph paper shapes): error under 5% for linear, area and angular values (p. 1300, PDF 3); ref 25 gives +/-0.5 mm point-location error; no observer study."
+    },
+    {
+      "name": "FCW: facet width (FCWsr, FCWsl, FCWir, FCWil)",
+      "definition": "In-plane dimension of the facet seen along its normal, drawn across the facet (horizontal in Figure 1, 'Facet oriented to provide normal view'); software computed 'major and minor linear dimensions' (p. 1299), but width exceeds height at C5-T1 and elsewhere, so width is not always the minor one. Inference: roughly the mediolateral in-plane extent.",
+      "projection": "dry bone, 3D digitised, in the facet plane",
+      "page": "Figure 1 p. 1299 (PDF 2); Tables 2, 3 p. 1301 (PDF 4); Fig 3 p. 1305 (PDF 8); text p. 1300-1301 (PDF 3-4)",
+      "levels": "C2-L5, four facets",
+      "ct_mask_recipe": "Inference: project the facet surface points onto the fitted plane; extent along the in-plane direction nearest the vertebra's X axis. Never measure along X before laying the facet flat (cosine foreshortening).",
+      "radiograph_recipe": "Inference: not reliably; on a lateral view the cervical and thoracic facet is edge-on and its width lies along the beam.",
+      "level_pattern": "Superior: largest at C2 (16.8/16.0), then L4-L5; sharp fall C2 to C3 (11.4/10.8); C3-T1 larger than mid-thoracic, local peak T1 (13.3/14.0); smallest T6-T7 (9.6 right); slight rise to the thoracolumbar junction; large rise L3-L5 (L5 16.3/14.9). Inferior: same pattern; C2 inferior (11.4/10.4) the size of the levels below; column minimum inferior right T12 (9.5) against 12.4 at L1.",
+      "covariates": "None given: 8 men and 4 women, 19-59 y, pooled; no subgroup, no scaling with height or weight (p. 1299, PDF 2).",
+      "error": "SEM 0.2-1.0 mm (SD 0.7-3.5 mm), Tables 2, 3."
+    },
+    {
+      "name": "FCH: facet height (FCHsr, FCHsl, FCHir, FCHil)",
+      "definition": "The facet's other in-plane dimension, drawn along it (vertical in Figure 1); same caveats as FCW.",
+      "projection": "dry bone, 3D digitised, in the facet plane",
+      "page": "Figure 1 p. 1299 (PDF 2); Tables 2, 3 p. 1301 (PDF 4); Fig 3 p. 1305 (PDF 8)",
+      "levels": "C2-L5, four facets",
+      "ct_mask_recipe": "Inference: extent of the in-plane projected surface along the in-plane direction nearest Y. A craniocaudal extent along Y understates FCH by about sin T (about 0.7 at T near 45 deg, C3-C6).",
+      "radiograph_recipe": "Inference: on a true lateral view of the cervical and thoracic spine the joint is near edge-on and the joint line length approximates FCH (times magnification); not readable in the lumbar spine.",
+      "level_pattern": "Superior: C2 18.0/17.7 (largest); C3-C7 10.2-12.5; T1-T11 10.8-13.0; T12 13.4/12.5; L1 12.7/12.2; jump at L2 (14.6/14.6) to L5 17.4/17.5. Inferior: C2 13.0/11.8; C3-C7 10.8-13.9; T2-T8 10.3-11.8; T9-T12 11.7-13.3; jump at L1 (15.3/15.7) to L5 18.4/17.3. Inference: by size the lumbar-type joint starts at L1-L2, by orientation at T12-L1.",
+      "covariates": "None given: 8 men and 4 women, 19-59 y, pooled; no subgroup, no scaling with height or weight (p. 1299, PDF 2).",
+      "error": "SEM 0.2-1.2 mm (SD 0.7-4.2), largest at superior right C4, superior left T1, inferior left C3."
+    },
+    {
+      "name": "FCW/FCH: facet width to height ratio",
+      "definition": "Ratio printed per facet and side.",
+      "projection": "derived",
+      "page": "Tables 2, 3 p. 1301 (PDF 4); Fig 3C p. 1305 (PDF 8); p. 1301-1302 (PDF 4-5); p. 1307 (PDF 10)",
+      "levels": "C2-L5",
+      "ct_mask_recipe": "Inference: ratio of the two in-plane extents; size-free.",
+      "radiograph_recipe": "Inference: not possible; the facet is never seen face-on.",
+      "level_pattern": "Rises C2 to C7, falls to T7, rises to T10, falls into the lumbar region, same for superior and inferior; above 1 at C5-T1 (superior right C6 1.14, superior left C7 1.20); lowest inferior left L1 0.68, superior right L2 0.76. The average of superior and inferior is smallest at C2, about equal at C3-C4, higher at C5-C7 (used to split the cervical spine).",
+      "covariates": "None; as a ratio it should not scale with size (Inference).",
+      "error": "No spread printed. Superior right C4 (0.96) and C5 (1.04) cannot be reproduced from their own means even allowing rounding; all other printed ratios can (bordercall provenance and this check)."
+    },
+    {
+      "name": "FCA: facet surface area",
+      "definition": "The digitised outline is projected onto the frontal, sagittal and transverse planes; total area = square root of the sum of squares of the three projected areas ('euclidean sum'). Inference: the vector area, exact for a flat facet and below the curved area for a curved one. An ellipse pi x FCW x FCH / 4 was also drawn and 'slightly overestimated' the measured area.",
+      "projection": "dry bone, 3D digitised",
+      "page": "p. 1299 (PDF 2); Table 4 p. 1302 (PDF 5); Fig 4 p. 1305 (PDF 8); pp. 1302-1303 (PDF 5-6); p. 1309 (PDF 12)",
+      "levels": "C2-L5, four facets",
+      "ct_mask_recipe": "Inference: vector area of the triangulated facet surface (length of the summed triangle area vectors) or the area of the outline projected onto the fitted plane; not the scalar mesh area on curved lumbar facets.",
+      "radiograph_recipe": "Inference: not possible from one projection.",
+      "level_pattern": "Superior largest at C2 (211.3/205.1) and in the lumbar spine (L5 211.9/199.1); remarkably constant C3-T12 (superior about 73-115); local superior peak T1 (102.9/114.8); superior lumbar rise at L2 (138.0/148.2 against 96.7/99.2 at L1); inferior rise at L1 (127.9/125.9 against 90.8/90.0 at T12); inferior C2 (94.6/85.0) like the lower cervical levels.",
+      "covariates": "None; Inference: scales with size squared.",
+      "error": "SEM 2.0-21.8 mm2 (SD 7-76); cervical noisiest (CV about 35-73%). Inference, computed: the ellipse exceeds the measured area at 90 of 92 cells, median about 17% (IQR 10-21%), up to 46% (superior right C7), and falls short at superior L2 (-8%, -12%)."
+    },
+    {
+      "name": "IFWs, IFWi: interfacet width, superior and inferior",
+      "definition": "Distance between the centroids of the two superior facets (IFWs) and of the two inferior facets (IFWi), 'the lateral distance between superior or inferior facets'; whether full 3D distance or X component is not said.",
+      "projection": "dry bone, 3D digitised",
+      "page": "p. 1300 (PDF 3); pp. 1303-1304 (PDF 6-7); Table 5 p. 1302 (PDF 5); Fig 5A p. 1305 (PDF 8)",
+      "levels": "C2-L5",
+      "ct_mask_recipe": "Inference: distance between the centroids of the left and right fitted facet surfaces.",
+      "radiograph_recipe": "Inference: on an AP view (beam along Z) the X separation of the facet centres, times magnification.",
+      "level_pattern": "Largest in the neck (IFWs 39.9 at C6, IFWi 40.5 at C5); falls sharply through the upper thoracic spine to a minimum at T5 (20.8 both); rises gradually to L1 and more steeply to L5 (IFWs 35.0, IFWi 40.6, the column's largest). C2 IFWs 30.3 below C3's 35.9. Inference: IFWi of level k matches IFWs of k+1 within 0.6 mm from C2-C3 to T10-T11, parts by 1.3-2.3 mm from T11-T12 to L3-L4 (lower IFWs larger), agrees again at L4-L5.",
+      "covariates": "None; Inference: scales with size.",
+      "error": "SEM 0.4-2.1 mm (smallest IFWi T12, largest L3-L5)."
+    },
+    {
+      "name": "IFH (IFHr, IFHl): interfacet height",
+      "definition": "Distance between the superior and inferior facets of one side, 'the vertical distance between left or right facets'; Inference: centroid to centroid; full distance or Y component not said.",
+      "projection": "dry bone, 3D digitised",
+      "page": "p. 1300 (PDF 3); pp. 1303-1304 (PDF 6-7); Table 5 p. 1302 (PDF 5); Fig 5A p. 1305 (PDF 8)",
+      "levels": "C2-L5",
+      "ct_mask_recipe": "Inference: distance (or Y component) from the superior to the inferior facet surface centroid on one side.",
+      "radiograph_recipe": "Inference: on a lateral view the vertical distance between the centres of the upper and lower joints of one articular column (left and right superimpose); on AP the same along each facet column; magnification applies.",
+      "level_pattern": "Lowest in the neck (C3 12.2/13.0, C5 13.3/12.7), C2 high (20.1/20.2); rises gradually through the thoracic and upper lumbar spine to a peak at L2 (33.0/32.4); falls at L4 (28.5/28.3) and L5 (26.1/26.4). C4 out of line (15.8/15.9, SEM 3.6/3.3).",
+      "covariates": "None; Inference: scales with size.",
+      "error": "SEM 0.4-1.8 mm except C4 (3.6/3.3; Inference: one aberrant spine or misdigitised facet)."
+    },
+    {
+      "name": "IFWs/IFWi and IFW/IFH: interfacet ratios",
+      "definition": "IFWs/IFWi; IFW/IFH = mean of IFWs and IFWi over mean of IFHr and IFHl (text and Table 5; Figure 5C's caption says left and right widths).",
+      "projection": "derived",
+      "page": "p. 1304 (PDF 7); Table 5 p. 1302 (PDF 5); Fig 5B, 5C p. 1305 (PDF 8); p. 1307-1308 (PDF 10-11)",
+      "levels": "C2-L5",
+      "ct_mask_recipe": "Inference: ratios of the centroid distances; need all four facet surfaces of the instance.",
+      "radiograph_recipe": "Inference: both are magnification-free on an AP view; IFW/IFH the most usable facet number for fluoroscopy.",
+      "level_pattern": "IFWs/IFWi: 0.84 at C2, below 1 at C3-C5, above 1 from C6 (1.03), C7 1.15, peak T1 1.18, falls to 0.93 at T8-T9, rises to L1 1.06, falls to L5 0.86. IFW/IFH: 1.5-3 in the neck (C2 1.64, C3 2.93, C5 3.04, C7 2.09), T1 1.68, T2 1.25, about 1 in the thoracic and lumbar spine (lowest L1 0.79), rising at L4 (1.16) and L5 (1.44). Above 1.5 is 'almost certainly' cervical per the paper, but T1 passes too.",
+      "covariates": "None; Inference: ratios should not scale with size.",
+      "error": "No spread printed; IFW/IFH at T4 (1.04 against 1.054) cannot be reproduced from its means; every other interfacet ratio can."
+    },
+    {
+      "name": "T (Tsr, Tsl, Tir, Til): facet angle to the transverse plane",
+      "definition": "Angle between the facet's best-fit plane and the vertebra's transverse (XZ) plane; positive on both sides. Inference: T = arccos(|n_y|) for the unit facet normal; CAX = -T.",
+      "projection": "dry bone, 3D digitised; frame-relative",
+      "page": "p. 1300 (PDF 3), Figure 2A; Tables 6, 7 p. 1303 (PDF 6); Fig 6B p. 1306 (PDF 9); p. 1304 (PDF 7); p. 1307 (PDF 10); p. 1309 (PDF 12)",
+      "levels": "C2-L5",
+      "ct_mask_recipe": "Inference: arccos(|n_y|) after rotating into the posterior-wall frame.",
+      "radiograph_recipe": "Lateral radiograph: accurate only where S is near 90 (cervical, thoracic) (p. 1309). Inference: read the joint line against the perpendicular to the posterior body line; the lateral-view angle is arccos(cos T / sin S_acute): within 2 deg of T from C3 to T12 (superior), 0.6-3.7 deg low in the lumbar superior facets, about 10 deg low at C2 superior (27 against 37), 4.4 low at C2 inferior, 1.4-10.7 low for inferior T12-L5.",
+      "level_pattern": "Rises from about 35 at C2 to 75 at T4, about constant T4-T12, about 80 in the lumbar spine (Table 6 lumbar superior mean 83.3). Superior: C2 40.7/33.5, C3-C6 45-55, C7 59.4/51.6, T1 62.2/57.7, T4-T12 72.7-78.2, L1-L5 81.2-86.0. Inferior: C2 31.4/36.1 (column minimum), C3-C7 41-55, T1 66.3/62.2, T3-T12 72.7-78.4, L1-L2 78.7-82.8, L3 75.6/77.8, L4 70.5/80.3, L5 71.0/81.6. Separates cervical from thoracic well, thoracic from lumbar by only a few degrees.",
+      "covariates": "None; angles should not scale with size (Inference).",
+      "error": "SEM 0.4-6.7 deg (largest inferior right L4 6.7, inferior right C3 6.5; smallest superior right T9 0.4)."
+    },
+    {
+      "name": "S (Ssr, Ssl, Sir, Sil): facet angle to the sagittal plane",
+      "definition": "Angle between the facet plane and the vertebra's sagittal (YZ) plane, signed positive toward +X, so left facets positive and right negative; printed on a 0-180 scale (about 67-86 in the cervical and thoracic spine, 113-155 in the lumbar spine from T12's inferior facet, and 114.1/118.5 at C2's superior facet). Inference (checked at 89 of 92 cells within 0.1 deg): from the C4-C5 joint down |S| = arccos(n_lat), above it 180 minus that; the safe pair is the acute angle min(|S|, 180-|S|) and the facing (lateral or medial) given by the sign of CAY.",
+      "projection": "dry bone, 3D digitised; frame-relative",
+      "page": "p. 1300 (PDF 3); Tables 6, 7 p. 1303 (PDF 6); Fig 6A p. 1306 (PDF 9); p. 1304 (PDF 7); p. 1307 (PDF 10); p. 1309 (PDF 12)",
+      "levels": "C2-L5",
+      "ct_mask_recipe": "Inference: acute angle = arccos(|n_x|); facing lateral when n_x points to the facet's own side (n_x < 0 right, > 0 left). Score acute angle and facing, not printed S.",
+      "radiograph_recipe": "Axial CT gives S accurately only where T is near 90, the lumbar spine (p. 1309). Inference: the CT trace angle falls short of the true acute angle by 0.1-0.6 deg for lumbar superior facets, 0.3-1.4 thoracic superior, 1.5-6.3 at C3-C7, about 15 at C2 inferior and 21 at C2 superior. Not readable on a plain AP or lateral view.",
+      "level_pattern": "Superior (means of absolute values): about 116 at C2, 75 at C3, rising to about 80 at C7 (82.9 by the table), 70-75 from T2 to T11, dramatic change at the inferior facets of T12 and superior facets of L1 (about 70 at T12 to 137 at L1), then falling to 118 at L5 (acute angle rising 43 to 61). Inferior: C2-C7 70.8-83.1, T1-T11 70.5-76.8, T12 139.7/138.8, L1 152.1/154.8 (column maximum), L2 142.5/136.7, L3 130.6/123.3, L4 112.7/114.7, L5 127.6/125.1 (the L5-S1 facets more sagittal than L4-L5; Inference). Acute superior: C2 64, C3-C7 74-85, T1-T12 70-86, L1 43, L2 42, L3 48, L4 58, L5 61.",
+      "covariates": "None (Inference: angles do not scale with size).",
+      "error": "SEM 0.9-9.5 deg: 0.9-2.8 T1-T10, up to 5.3 in the neck, 4.7-5.5 at the T11-T12 joint, 8.2-9.5 at the T12-L1 joint, 2.9-9.2 in the lumbar spine."
+    },
+    {
+      "name": "Frontal-plane angle (not printed)",
+      "definition": "Not presented; said to be complementary to T in the cervical and thoracic regions and to S in the lumbar region. Inference: cos F = sqrt(1 - cos^2 S - cos^2 T).",
+      "projection": "derived",
+      "page": "p. 1304 (PDF 7)",
+      "levels": "C2-L5",
+      "ct_mask_recipe": "Inference: arccos(|n_z|).",
+      "radiograph_recipe": "Inference: none.",
+      "level_pattern": "Not given.",
+      "covariates": "None.",
+      "error": "Not given."
+    },
+    {
+      "name": "CAX, CAY: card angles",
+      "definition": "A flat card in the transverse plane is rotated about the X axis by CAX, then about the (fixed) Y axis by CAY, to lie in the facet plane; computed from the average plane angles, not per specimen, so no SEM. By mirror symmetry CAX should be about equal on both sides, CAY equal and opposite. Inference (checked): normal n = (sin CAX sin CAY, cos CAX, sin CAX cos CAY); CAX = -T at 91 of 92 cells (superior left T1 misprinted -47.7 for -57.7); |cos S| = sin T |sin CAY|; the sign of CAY gives the facing (lateral at superior C2 and C5-T12, medial at C3-C4 and L1-L5).",
+      "projection": "derived from plane angles",
+      "page": "p. 1300 (PDF 3), Figure 2B; Table 8 p. 1304 (PDF 7); pp. 1304-1306 (PDF 7-9); Fig 7 p. 1306 (PDF 9); Fig 8 p. 1307 (PDF 10); pp. 1307-1308 (PDF 10-11)",
+      "levels": "C2-L5",
+      "ct_mask_recipe": "Inference: with the unit normal oriented up and back, CAX = -arccos(n_y), CAY = atan2(-n_x, -n_z). Store the unit normal and derive T, S and cards from it.",
+      "radiograph_recipe": "Not directly.",
+      "level_pattern": "Superior CAX nearly linear from about -41 (right) at C2 to -86 at L5. CAY reverses at C2-C3, C4-C5 and T12-L1: superior right +38.9 C2, -17.6 C3, -8.4 C4, +9.2 C5, positive and slowly rising C5-T12 with a dip at T1 (+4.1), +18.0 T12, -50.5 L1, shrinking to -27.7 at L5. Thoracic CAY about 16 deg. Inferior cards equal the superior cards of the level below (inferior right C6 -55.0/10.3, superior right C7 -59.4/11.4), except C2 superior and L5 inferior. Figure 8 draws C5 (+9.8 label, table 9.2), T6 (+18.2, -73.5), L3 (-42.0, -81.9).",
+      "covariates": "None.",
+      "error": "None printed (means only)."
+    }
+  ],
+  "level_details": [
+    {
+      "level": "C2",
+      "detail": "Superior facets the largest of the column (width 16.8/16.0, height 18.0/17.7, area 211.3/205.1) and oriented unlike any other cervical facet (S 114.1/118.5, T 40.7/33.5); inferior facets the size of the lower cervical ones; IFWs 30.3 < IFWi 35.9 (ratio 0.84, column minimum); IFH 20.1/20.2; IFW/IFH 1.64; its own cervical subregion; superior CAY 38.9 right against -59.9 left, the largest card asymmetry.",
+      "page": "Tables 2, 4, 5, 6, 8 pp. 1301-1304 (PDF 4-7); pp. 1301-1303 (PDF 4-6); p. 1307 (PDF 10)"
+    },
+    {
+      "level": "C2/C3",
+      "detail": "Superior facet size falls sharply; superior S falls from about 116 to 75; superior CAY changes sign; IFH falls from 20 to 12-13; IFW/IFH rises 1.64 to 2.93.",
+      "page": "p. 1300 (PDF 3); p. 1304 (PDF 7); p. 1305 (PDF 8); Table 5 p. 1302 (PDF 5)"
+    },
+    {
+      "level": "C3-C4 against C5-C7",
+      "detail": "CAY sign change between C4 and C5 (superior right -8.4 to +9.2) and a higher FCW/FCH at C5-C7 define three cervical subregions C2, C3-C4, C5-C7. Inference: superior facets face medially at C3-C4 and laterally at C5-C7; at C4, C5, left C7 and T1 the normal leans only 4-7 deg sideways, so the facing is fragile.",
+      "page": "p. 1307 (PDF 10); Table 8 p. 1304 (PDF 7); Table 6 p. 1303 (PDF 6)"
+    },
+    {
+      "level": "C7/T1",
+      "detail": "Superior T rises (C7 59.4/51.6, T1 62.2/57.7, T2 66.5/66.6); IFWs falls (38.6, 33.2, 28.2); IFWs/IFWi peaks (1.15, 1.18, 1.16); IFW/IFH falls (2.09, 1.68, 1.25); IFH 17.6/17.0 to 18.0/18.6; superior right CAY dips at T1 (+4.1). Inference: the paper's cervical rule (IFW/IFH > 1.5) also admits T1; its cut falls between T1 and T2. Inferior C7 T (49.8/49.1) differs from superior T1 (62.2/57.7) by up to 12 deg.",
+      "page": "Tables 5, 6, 7, 8 pp. 1302-1304 (PDF 5-7); p. 1306 (PDF 9)"
+    },
+    {
+      "level": "Mid-thoracic T3-T8",
+      "detail": "Smallest facets and interfacet widths (T5 IFW 20.8 both); nearly uniform linear and areal dimensions, so single thoracic levels are hard to tell apart; the most level-specific cue is IFWs/IFWi (1.18 at T1 to 0.93 at T8-T9; the discussion says 1.15 to 0.95). CAX (= -T) part of a near-linear trend C2-L5; CAY about 16 deg.",
+      "page": "p. 1307 (PDF 10); Table 5 p. 1302 (PDF 5)"
+    },
+    {
+      "level": "T12/L1",
+      "detail": "The orientation switch at the inferior facets of T12 and superior facets of L1: superior S 72.5/67.4 at T12 against 139.1/134.2 at L1; inferior S 72.2/70.5 at T11 against 139.7/138.8 at T12. T12 easily identified by the abrupt change of S and CAY between its superior and inferior facets. By size the joint is still small (inferior T12 width 9.5/9.8, area 90.8/90.0); IFW/IFH lowest at T12-L2 (0.79-0.81). S SEM 8.2-9.5 at this joint.",
+      "page": "p. 1304 (PDF 7); p. 1307 (PDF 10); Tables 3-7 pp. 1301-1303 (PDF 4-6)"
+    },
+    {
+      "level": "L1-L2",
+      "detail": "Size jump: inferior L1 and superior L2 height and area jump (inferior L1 FCH 15.3/15.7, FCA 127.9/125.9; superior L2 FCH 14.6/14.6, FCA 138.0/148.2). IFWs/IFWi above 1 at L1 (1.06) only. Inferior L1 has the column's largest S (152.1/154.8), 15-17 deg off superior L2 (135.4/139.7).",
+      "page": "Tables 2-5, 6, 7 pp. 1301-1303 (PDF 4-6)"
+    },
+    {
+      "level": "L3-L5",
+      "detail": "Fawcett's frontal-plane outline of the facet tips: upright rectangle at L3, square at L4, horizontal rectangle at L5; Panjabi's IFW/IFH 0.90, 1.16, 1.44 offered as support; IFWs/IFWi falls L1 to L5 (Fawcett: falls to L3, then constant). Superior acute sagittal angle rises 48, 58, 61 deg. Superior right CAY shrinks from about 50 at L1 to 28 at L5; CAX about 90 for all lumbar levels.",
+      "page": "pp. 1307-1308 (PDF 10-11); Table 5 p. 1302 (PDF 5); Table 6 p. 1303 (PDF 6)"
+    },
+    {
+      "level": "L5/S1",
+      "detail": "L5's inferior facets articulate with the sacrum and copy no measured superior facet; L5 has the largest IFWi (40.6) and superior area 211.9 like C2's; IFH falls at L4 and L5. The L5 inferior facets are more sagittal than L4's (|S| 127.6/125.1 against 112.7/114.7; acute about 54 against 66, Inference), and inferior L4 and L5 carry the largest right-left T gap (70.5/80.3, 71.0/81.6). S1 not measured.",
+      "page": "p. 1306 (PDF 9); Tables 5, 7 pp. 1302-1303 (PDF 5-6)"
+    }
+  ],
+  "errors": [
+    {
+      "what": "Accuracy on a Plexiglas pseudovertebra (faces 30, 45, 60 deg; graph-paper shapes; same protocol and programs), linear, area and angular",
+      "value": "under 5% in all cases",
+      "page": "p. 1300 (PDF 3)"
+    },
+    {
+      "what": "Morphometer point-location error (from the thoracic paper the method refers to, ref 25)",
+      "value": "+/-0.5 mm largest",
+      "page": "ref 25 p. 889 (not this paper)"
+    },
+    {
+      "what": "Observer reliability (intra, inter), repeat digitising, facet margin rule",
+      "value": "not reported",
+      "page": "pp. 1299-1300 (PDF 2-3)"
+    },
+    {
+      "what": "Between-specimen spread, facet width SEM",
+      "value": "0.2-1.0 mm (SD = 3.46 x SEM, 0.7-3.5 mm)",
+      "page": "Tables 2, 3 p. 1301 (PDF 4)"
+    },
+    {
+      "what": "Facet height SEM",
+      "value": "0.2-1.2 mm (SD 0.7-4.2)",
+      "page": "Tables 2, 3 p. 1301 (PDF 4)"
+    },
+    {
+      "what": "Facet area SEM",
+      "value": "2.0-21.8 mm2 (SD 7-76); cervical CV about 35-73%",
+      "page": "Table 4 p. 1302 (PDF 5)"
+    },
+    {
+      "what": "Interfacet width SEM; interfacet height SEM",
+      "value": "IFW 0.4-2.1 mm; IFH 0.4-1.8 mm except C4 3.6/3.3",
+      "page": "Table 5 p. 1302 (PDF 5)"
+    },
+    {
+      "what": "Transverse-plane angle T SEM",
+      "value": "0.4-6.7 deg",
+      "page": "Tables 6, 7 p. 1303 (PDF 6)"
+    },
+    {
+      "what": "Sagittal-plane angle S SEM",
+      "value": "0.9-9.5 deg; 0.9-2.8 at T1-T10, 8.2-9.5 at the T12-L1 joint, 2.9-9.2 lumbar",
+      "page": "Tables 6, 7 p. 1303 (PDF 6)"
+    },
+    {
+      "what": "Card angles",
+      "value": "means only, computed from mean plane angles; no spread",
+      "page": "p. 1304 (PDF 7); Table 8"
+    },
+    {
+      "what": "Planar model of curved facets",
+      "value": "acknowledged, especially lumbar; not quantified",
+      "page": "pp. 1306-1307 (PDF 9-10)"
+    },
+    {
+      "what": "Elliptical area approximation pi W H / 4",
+      "value": "'slightly overestimated' the measured area; Inference: +17% median (IQR 10-21%), up to +46%, -8 to -12% at superior L2",
+      "page": "p. 1309 (PDF 12); Tables 2-4"
+    },
+    {
+      "what": "Internal consistency (Inference, computed)",
+      "value": "CAX = -T at 91 of 92 cells within 0.1 deg; card normal reproduces |S| within 0.1 at 89 of 92; printed ratios reproducible from their means except FCW/FCHsr C4, C5 and IFW/IFH T4",
+      "page": "Tables 2-8 pp. 1301-1304 (PDF 4-7)"
+    }
+  ],
+  "pearls_pitfalls": [
+    {
+      "text": "Facets have been proposed as a frequent source of low back pain (refs 4, 21, 29), their orientation as a cause of lumbar rotational coupling (ref 9); spinal instability and trauma may benefit from the data, and models built on them can predict effects of surgery and injury.",
+      "page": "p. 1298 (PDF 1); p. 1306 (PDF 9); p. 1309 (PDF 12)"
+    },
+    {
+      "text": "No stenosis threshold, syndrome, implant sizing, safe zone or tropism threshold is given.",
+      "page": "whole paper"
+    },
+    {
+      "text": "Regional signature: cervical facets at small angles to the transverse plane (stated 30-50 deg; table up to 59.4) and large to the sagittal; thoracic facets uniform; lumbar facets 120-150 deg from the sagittal plane (60-90 for cervical and thoracic), CAX about 90 at every lumbar level, large facets; lumbar levels need a combination of parameters.",
+      "page": "pp. 1307-1308 (PDF 10-11)"
+    },
+    {
+      "text": "Pitfall, angle definitions: earlier CT angles are trace angles in the axial slice, equal to the true dihedral angle only when T is near 90 (lumbar) and smaller otherwise; lateral-radiograph T is accurate only where S is near 90 (cervical, thoracic). Inference: at lumbar T 81-86 the trace error is 0.1-0.6 deg, so it cannot explain the 11-21 deg gaps to the CT studies; in the neck CT trace angles run 1.5-6.3 deg short at C3-C7, about 15 at C2 inferior and 21 at C2 superior.",
+      "page": "p. 1309 (PDF 12)"
+    },
+    {
+      "text": "Pitfall, sign and range of S: right facets negative, S passes 90 at the thoracolumbar switch and at C2's superior facet; averaging right and left without mirroring gives zero; the 0-180 branch is not one rule over the column (Inference: changes at C4-C5), so compare acute angle and facing.",
+      "page": "p. 1300 (PDF 3); Tables 6-8"
+    },
+    {
+      "text": "Pitfall, curvature: facets are curved, especially lumbar; Inference: plane fit, area and angle depend on how much surface is taken.",
+      "page": "pp. 1306-1307 (PDF 9-10)"
+    },
+    {
+      "text": "Pitfall, assumed symmetry: the cards assume mirror symmetry, but the means break it most at C2's superior facet (CAY +38.9 against -59.9); tropism is never discussed.",
+      "page": "p. 1300 (PDF 3); Table 8 p. 1304 (PDF 7)"
+    },
+    {
+      "text": "Pitfall, C2: by S alone (over 90) C2's superior facet looks lumbar; its T (33-41) does not.",
+      "page": "Table 6 p. 1303 (PDF 6)"
+    },
+    {
+      "text": "Pitfall, ellipse areas: pi W H / 4 overestimates by a median of about 17% and up to 46% and underestimates at superior L2 (Inference, computed).",
+      "page": "p. 1309 (PDF 12); Tables 2-4"
+    },
+    {
+      "text": "Skipor et al: lumbar inferior facets tilt forward 18 deg on average (range -28 to 53); Panjabi observed 19.5 to 8.7. Inference: tilt = 90 - T of the inferior facets; Table 7 gives 7.2 at inferior right L2, outside the quoted range.",
+      "page": "p. 1309 (PDF 12); Table 7"
+    },
+    {
+      "text": "The abstract says plane angles resemble traditional radiograph and CT angles; the discussion narrows this to lateral views of the cervical and thoracic spine and axial CT of the lumbar spine.",
+      "page": "p. 1298 (PDF 1); p. 1309 (PDF 12)"
+    },
+    {
+      "text": "Indication: spine models' geometric input is of much lower quality than their mathematics.",
+      "page": "p. 1298 (PDF 1)"
+    }
+  ],
+  "instructions": [
+    {
+      "text": "Build each vertebra's frame from the posterior wall of its body (least-squares plane of its four corner points) and the centre of its upper end-plate, +X left, Y cranial, Z anterior (Z named in ref 25); never use scanner or image axes.",
+      "page": "p. 1299 (PDF 2); p. 1300 (PDF 3); ref 25 p. 889"
+    },
+    {
+      "text": "Take each facet as the joint face of its articular process, fit a least-squares plane, orient its normal up and back, and compute T = arccos(n_y), the acute sagittal angle arccos(|n_x|) and the facing; compare with Tables 6-7 as min(|S|, 180-|S|) and with Table 8's CAY sign as facing, never with S as printed (Inference for the conversion).",
+      "page": "p. 1300 (PDF 3); Tables 6-8"
+    },
+    {
+      "text": "Measure facet width and height in the facet's own plane, laid flat, not along the vertebra's axes.",
+      "page": "Figure 1 p. 1299 (PDF 2)"
+    },
+    {
+      "text": "Compute facet area as the vector area (root sum of squares of the three projected areas), not a curved mesh area and not an ellipse.",
+      "page": "p. 1299 (PDF 2); p. 1309 (PDF 12)"
+    },
+    {
+      "text": "Treat IFW/IFH above 1.5 as cervical, but know T1 (1.68) passes and C2 (1.64) only just; the cut falls between T1 and T2 (Inference). Separate C7 from T1 with IFWs (38.6 against 33.2), IFW/IFH (2.09 against 1.68) and superior T (weak), and better with the first rib (Inference, not this paper).",
+      "page": "p. 1307 (PDF 10); Tables 5, 6"
+    },
+    {
+      "text": "Name C2 by its superior facets: the largest of the column, S above 90 but T only 33-41 deg; its inferior facets are ordinary.",
+      "page": "Tables 2, 4, 6; pp. 1300-1303 (PDF 3-6)"
+    },
+    {
+      "text": "Split the cervical spine into C2, C3-C4 and C5-C7 by the sign of superior CAY (facing lateral at C2 and C5-C7, medial at C3-C4; facing is Inference) and by FCW/FCH rising at C5-C7; where the facet stands 83-86 deg from the sagittal plane (C4, C5, left C7, T1) a 4-7 deg fit error flips the facing.",
+      "page": "p. 1307 (PDF 10); Tables 6, 8"
+    },
+    {
+      "text": "Find the thoracolumbar switch: superior facets thoracic-type (S about 67-77) and inferior facets lumbar-type (S about 139) mark T12 on average; do not hard-code it, since S spreads widely from T11-T12 down and Malmivaara put T12 superior at 98 deg; check against rib and lumbar counts (Inference).",
+      "page": "p. 1304 (PDF 7); p. 1307 (PDF 10); Tables 6, 7, 10"
+    },
+    {
+      "text": "Expect lumbar-sized facets to begin one joint below the orientation switch, at L1-L2 (inferior L1 and superior L2 jump in height and area).",
+      "page": "Tables 2-4"
+    },
+    {
+      "text": "Within the thoracic spine use IFWs/IFWi (1.18 at T1 to 0.93 at T8-T9, 1.04 at T12) as the most level-specific facet cue; expect the rest nearly flat T3-T9.",
+      "page": "p. 1307 (PDF 10); Table 5"
+    },
+    {
+      "text": "Within the lumbar spine use the AP outline of the facet tips: IFWs > IFWi only at L1 (1.06); IFW/IFH 0.90 at L3, 1.16 at L4, 1.44 at L5; with superior S falling from about 137 at L1-L2 to 118-122 at L4-L5.",
+      "page": "p. 1308 (PDF 11); Tables 5, 6"
+    },
+    {
+      "text": "On a lateral radiograph or fluoroscopic frame read facet inclination only in the cervical and thoracic spine, against the perpendicular to the posterior body line (Inference); expect T about 41-55 deg at C3-C6, 49-66 at C7-T1, 72-78 at T4-T12; at C2 expect about 27 (superior) and 29 (inferior) on the image though the true T is 31-41 (Inference, projection).",
+      "page": "p. 1309 (PDF 12); Tables 6, 7"
+    },
+    {
+      "text": "On axial CT read the lumbar facet-to-sagittal angle and compare with 180 - |S| (42-61 deg superior L1-L5), knowing the CT studies of Table 10 sit 11-21 deg more sagittal and Horwitz and Smith 3-18 deg more; expect the angle to grow toward L5.",
+      "page": "Table 10 p. 1308 (PDF 11); p. 1309 (PDF 12)"
+    },
+    {
+      "text": "Use joint congruence as a sequence check: inferior facets and IFWi of k should match superior facets and IFWs of k+1, except C2 superior and L5 inferior; allow about 12 deg at C7-T1, 15-17 deg at L1-L2 and L4-L5, and about 2.5 mm of IFW mismatch from T11-T12 to L3-L4 (Inference).",
+      "page": "p. 1306 (PDF 9); Tables 5-7"
+    },
+    {
+      "text": "Use T (equivalently CAX) as a regional cue: superior T 33-59 at C2-C7, 58-78 at T1-T12, 81-86 at L1-L5; it separates cervical from thoracic well, thoracic from lumbar by only a few degrees.",
+      "page": "p. 1307 (PDF 10); Table 6"
+    },
+    {
+      "text": "Call a vertebra lumbar when its facets stand 120-150 deg from the sagittal plane on Panjabi's scale (acute 30-60) with large facets; tell lumbar levels apart by a combination of parameters.",
+      "page": "pp. 1307-1308 (PDF 10-11)"
+    },
+    {
+      "text": "Weight down interfacet height at C4 and every lumbar and junctional S, which are noisy.",
+      "page": "Tables 5-7"
+    },
+    {
+      "text": "Never treat the abstract's ranges as bounds: they cover C3-L5 without C2's superior facet, and the tables go below them (width 9.5, area 69.4, Y-card 4.1).",
+      "page": "p. 1298 (PDF 1); Tables 3, 4, 8"
+    },
+    {
+      "text": "Do not extrapolate the lumbar inferior-facet trend to L5-S1: L5's inferior facets are more sagittal than L4's and S1 was not measured; measure L5 against the sacrum directly (Inference).",
+      "page": "Table 7 p. 1303 (PDF 6)"
+    }
+  ],
+  "bordercall": [
+    "(a) Anomaly priors: none. All 12 spines counted C2-L5 (23 levels); 0 of 12 gives a one-sided 95% upper bound of about 22% (Inference). The thoracolumbar switch is at T12-L1 on average with wide S spread from T11-T12 down (Inference: may be one joint off in some spines); use it as a feature with its own level uncertainty, not as the T12 label.",
+    "(b) Measures: the generator holds FCW, FCH, FCA (superior and inferior), IFWs, IFWi, IFH, T and S and leaves the card angles out for want of a spread; their magnitudes add nothing (CAX = -T; |cos S| = sin T |sin CAY|, Inference checked); the sign of CAY (facing) is the one new item and could enter as a per-level category (lateral at C2 and C5-T12, medial at C3-C4 and L1-L5) with an error rate at C4, C5, left C7 and T1.",
+    "(b) Frame bias: angles are to the posterior-wall frame; scanner or principal-axes frames tilt T and S by the vertebra's rotation (Inference).",
+    "(b) Width and height are in-plane; schwingcheck's mnemonics call FCWs a 'transverse extent' and FCHs a 'craniocaudal extent', so a mask measurer following those words would read FCH low by up to 30% at C3-C6 (Inference, sin T near 45 deg).",
+    "(b) Area is the vector (flat) area; a CT mesh's scalar area of a curved lumbar facet exceeds it (Inference).",
+    "(b) Facet surface: Panjabi digitised cleaned bone; a mask face includes subchondral bone and partial volume; at 1 mm voxels a 10-16 mm facet carries about a voxel of error and the 1-2 mm joint gap may be bridged (Inference).",
+    "(b) S scale: the printed S changes branch at C4-C5 (Inference); draw and score the acute angle (mirrored) and the facing separately; thoracic (70-86) and lumbar (42-61) superior acute angles still separate well.",
+    "(b) IFW full distance or X component and IFH full distance or Y component are unstated; they should agree within about a millimetre except IFH in the lumbar spine (Inference).",
+    "(b) Table 9's restated present-study FCHs C4-C7 and FCWs C4, C7 are not the means of Table 2's sides; draw from Tables 2-8 only.",
+    "(c) Error: only the instrument's under-5% (and ref 25's +/-0.5 mm). The generator's kind errors (1 mm, sqrt(pi A / 2) mm2, 3 deg) are of the right order for CT masks and above the morphometer's (Inference). Use SD = 3.46 x SEM. C4 IFH (SEM 3.6/3.3) is probably one outlier and already drives the generator's floor hits; lumbar and junctional S (SEM 2.9-9.5, SD 10-33) against level steps of 1-14 deg are weakly informative for lumbar level.",
+    "(d) Covariates: none. 8 men and 4 women, 19-59 y, 157-178 cm, 54-85 kg pooled; no scaling by size or sex given. Inference: lengths scale with size, areas with its square, angles not at all; the four Panjabi papers very likely share one sample, so values could be correlated, but no correlation is published."
+  ],
+  "gaps": [
+    "Not given: points per facet; whether cartilage was removed; the width/height algorithm ('major and minor' conflicts with ratios above 1); whether IFW and IFH are full distances or components; how the 0-180 branch of S is chosen (Inference: changes at C4-C5); the Z direction (only in ref 25); per-specimen tropism and switch location; any test behind 'significant' (ref 25 used ANOVA with Scheffe); ethnicity and origin.",
+    "Tropism: never compared per spine; largest mean right-left gaps: inferior T at L5 (71.0/81.6) and L4 (70.5/80.3), superior T at C7 and C2, inferior S at L3 (130.6/123.3), superior CAY at C2 (+38.9/-59.9), areas inferior C7 (94.3/114.6), superior C5, inferior C4, superior C3, inferior C7 height (11.4/13.9), inferior L1 width (12.4/10.7). Inference: differences of means are not tropism.",
+    "Abstract against tables: minimum width 9.6 against 9.5 (inferior right T12); minimum area 72.3 against 69.4 (inferior right T6); minimum Y-card 5.8 against 4.1 (superior right T1) (p. 1298; Tables 3, 4, 8).",
+    "Table 8 CAXsl T1 -47.7 against Tsl 57.7; Inference: misprint in Table 8, since CAYsl -5.6 reproduces Ssl 85.3 only with 57.7 and Figure 6B agrees with Table 6.",
+    "Figure 8 labels C5 superior right CAY +9.8; Table 8 and p. 1306 give +9.2.",
+    "Text quotes CAX at C2 as about -41 (right only; left -33.5) (p. 1305).",
+    "Wrong cross-references: card angles from 'Tables 5A and 5B' (should be 6 and 7, p. 1304); Figure 4 caption 'Tables 2A and 2B' (2 and 3); areas said to support 'width and depth' (height meant, p. 1302); Malmivaara misspelt (p. 1298).",
+    "Anatomical slips: C2 superior facets said to articulate with the occiput (they meet C1); L5 inferior facets said to be part of the sacrum (they articulate with it) (p. 1306).",
+    "Lumbar S trend: results say S decreases 137 to 118 from L1 to L5 (p. 1304), discussion that all five studies saw an increase (p. 1309); true on different scales (printed falls, acute rises 43 to 61). Supports reading S as acute angle plus facing (Inference).",
+    "Discussion's thoracic IFWs/IFWi 1.15 (T1) to 0.95 (T9) against Table 5's 1.18 and 0.93.",
+    "Fawcett: IFWs/IFWi should fall L1-L3 then stay constant, but Panjabi's keeps falling to L5 (0.98, 0.90, 0.86); the larger superior width holds at L1 (1.06) not L2 (0.99); L4's 'square' is 1.16; all still called support (p. 1308).",
+    "Figure 5C's caption says average of left and right widths; text and table use superior and inferior.",
+    "Inferior right T6: CAY 18.4 with T 77.8 gives acute 72.0 against printed S -73.5 (Inference: CAY possibly copied from T5).",
+    "Table 10 present-study column = rounded mean of absolute S with slips (T11 75 against 74.3, L2 137 against 137.6, L5 118 against 118.7); S1 not measured.",
+    "Results say T relatively constant T4-T12 and about 80 lumbar (Table 6: 83.3); discussion calls it part of a uniform increase 35 to 80 at L5 (85.6 by Table 6) and CAX nearly linear; results' 80 for superior S at C7 is 82.9; cervical T '30-50' exceeded (to 59.4); lumbar '120-150' exceeded by inferior L1 (154.8) and undershot by superior L5 and inferior L4.",
+    "Card wording: CAY 'first changes signs' at T12-L1 though it reverses at C2-C3 and C4-C5 too; thoracic CAY of about 16 called similar to C5-C7's, which averages about 11 (Inference).",
+    "Table 10 text calls CT angles 'somewhat less' though larger on the printed 0-180 scale; Inference: the trace-angle explanation accounts for under 1 deg at lumbar T, not 11-21 deg. Taylor and Twomey saw the lumbar trend qualitatively (ref 32).",
+    "Table 9: restated FCHs C4-C7 and FCWs C4, C7 not means of Table 2's sides (C7 width 13.4 against 12.55); Francis within 0.2-1.1 mm, his widths larger at every level and heights smaller at C3-C7; Cotterill's interfacet values smaller by 1.5-3.4 mm at all six cells; both called favourable.",
+    "Weight range 54-85 kg here against 54-84 in ref 25's Table 1 (confirmed on that page image).",
+    "Inference (from memory and Table 10): other studies put upper lumbar facets nearer the sagittal plane (25-35 deg) than Panjabi's 42-48; the C3-C4 medial facing implied by the cards fits later cervical studies recalled from memory, not citable from this set."
+  ]
+}

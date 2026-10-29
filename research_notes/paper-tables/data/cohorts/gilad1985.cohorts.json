@@ -1,0 +1,86 @@
+{
+  "paper": "gilad1985",
+  "cohorts": [
+    {
+      "cohort": "haifa_transport_men",
+      "labels": [
+        "male",
+        "male / cervical region",
+        "male / lumbar region"
+      ],
+      "tables": [
+        "Table 1",
+        "Table 2",
+        "Text: Methods",
+        "Text: Observations",
+        "Text: Discussion",
+        "Text: Summary"
+      ],
+      "subjects": "Living healthy working men, employees of a major transportation cooperative that held general body check-ups every few years; lateral radiographs of the cervical and lumbar spine taken under identical conditions (same apparatus, same film). Excluded: any subject with bone tissue degeneration or any other known disease or abnormality; plates chosen so that only defined vertebrae were examined. C1 hidden by the skull on every film; thoracic spine not evaluated (rib overlap); about 10 percent of C2 not clearly defined and about 10 percent of C7 obscured by clavicle, humerus and ribs. Country not printed; Inference: Israel, from the authors' Technion, Haifa affiliation. Ethnicity not printed.",
+      "n_people": 157,
+      "n_units": "radiographs of 141 cervical spines and 157 lumbar spines; per-level n C2 130, C3-C5 141, C6 140, C7 126, L1 154, L2-L4 157, L5 156; Inference (sum): 819 cervical and 781 lumbar vertebra measurements",
+      "ages": "20 to 38 years, mean 26.8 (no SD printed)",
+      "sexes": "men only; mean height 174.7 cm (no SD); weight not printed",
+      "page": "p. 115 (PDF 1); p. 117 (PDF 3); p. 118 (PDF 4); p. 120 (PDF 6)"
+    }
+  ],
+  "techniques": [
+    {
+      "technique": "lateral_cervical_film_caliper",
+      "cohorts": [
+        "haifa_transport_men"
+      ],
+      "modality": "lateral radiograph",
+      "instrument": "lateral cervical radiograph, subject standing, tube to film 150 cm, tube centred on C4; calipers (and compass) on the film, read to 0.1 mm",
+      "how": "Standing straight in neutral relaxed posture after Meschan (1968), facing a fixed point so the neck does not rotate, shoulders relaxed, arms down. Levels C2-C7. Five reference points marked on each vertebra on the lateral film before measuring: the four corners of the body (supero-anterior, supero-posterior, infero-anterior, infero-posterior) and the most posterior point of the spinous process, taken on a line parallel to the anterior wall b. Measured point to point on the film with calipers to 0.1 mm: a (inferior body width, i.e. lower end-plate depth, P3-P4), b (anterior body height), c (superior body width, upper end-plate depth), d (posterior body height), k (body diagonal), e and f (distances from the posterior body corners to the spinous tip). Computed by trigonometry from these: alpha (inclination of the spinous process) and L (overall vertebral length); VBH and VBW are averages of the two body heights and the two body widths. 'Width' here is antero-posterior depth seen in lateral view.",
+      "magnification": "Corrected: parallax corrected mathematically, assuming the vertebral mid-sagittal plane parallel to the film, with trigonometric factors set by the distance from the mid-sagittal plane to the X-ray source; object-to-film distance not printed. Tables 1 and 2 are after correction (p. 117). Method error stated as under +/-0.5 mm (caliper and compass) plus at most +/-1.0 mm from the parallax correction (p. 119).",
+      "observers": "not stated; no repeatability statistic reported",
+      "page": "p. 115 (PDF 1); p. 117 (PDF 3); Fig. 1 p. 116 (PDF 2); p. 119 (PDF 5)"
+    },
+    {
+      "technique": "lateral_lumbar_film_caliper",
+      "cohorts": [
+        "haifa_transport_men"
+      ],
+      "modality": "lateral radiograph",
+      "instrument": "lateral lumbar radiograph, subject lying on the side, tube to film 100 cm, tube centred on L3; calipers (and compass) on the film, read to 0.1 mm",
+      "how": "Lying on the side, knees in easy flexion, hands out of the field, stabilised against hip rotation. Levels L1-L5. Five reference points marked on each vertebra on the lateral film before measuring: the four corners of the body (supero-anterior, supero-posterior, infero-anterior, infero-posterior) and the most posterior point of the spinous process, taken on a line parallel to the anterior wall b. Measured point to point on the film with calipers to 0.1 mm: a (inferior body width, i.e. lower end-plate depth, P3-P4), b (anterior body height), c (superior body width, upper end-plate depth), d (posterior body height), k (body diagonal), e and f (distances from the posterior body corners to the spinous tip). Computed by trigonometry from these: alpha (inclination of the spinous process) and L (overall vertebral length); VBH and VBW are averages of the two body heights and the two body widths. 'Width' here is antero-posterior depth seen in lateral view.",
+      "magnification": "Corrected: parallax corrected mathematically, assuming the vertebral mid-sagittal plane parallel to the film, with trigonometric factors set by the distance from the mid-sagittal plane to the X-ray source; object-to-film distance not printed. Tables 1 and 2 are after correction (p. 117). Method error stated as under +/-0.5 mm (caliper and compass) plus at most +/-1.0 mm from the parallax correction (p. 119).",
+      "observers": "not stated; no repeatability statistic reported",
+      "page": "pp. 115 and 117 (PDF 1 and 3); Fig. 1 p. 116 (PDF 2); p. 119 (PDF 5)"
+    }
+  ],
+  "shared": [
+    {
+      "with": "Gilad & Nissan (1982), Technion technical report HEIS 82-14/A & B (not in the list)",
+      "what": "subjects",
+      "evidence": "The paper says the complete study was published as that technical report, which adds distributions, correlations with height, weight and age, and intervertebral spacings; this paper presents part of the same survey.",
+      "page": "p. 115 (PDF 1); p. 119 (PDF 5); reference p. 120 (PDF 6)"
+    },
+    {
+      "with": "Gilad & Nissan (1982), Technion technical report HEIS 82-14/A & B (not in the list)",
+      "what": "method",
+      "evidence": "Same survey as the report (complete study published there); the two-dimensional model and data are offered jointly with it as a data base.",
+      "page": "p. 115 (PDF 1); p. 119 (PDF 5)"
+    },
+    {
+      "with": "Meschan (1968), Radiographic Positioning and Related Anatomy (not in the list)",
+      "what": "method",
+      "evidence": "Cervical films positioned by the procedures of Meschan (1968).",
+      "page": "p. 115 (PDF 1)"
+    },
+    {
+      "with": "Nissan & Gilad (1984), The cervical and lumbar vertebrae: an anthropometric model, Eng Med 13:111-114 (not in the list); quoted as Nissan and Gilad by panjabi1991c Table 7 and by tang2016 Table 6",
+      "what": "subjects",
+      "evidence": "Not stated in this paper. Inference from the quoting papers: Panjabi's Nissan (1984) column equals Table 1's a at C2-C7 and d at C3-C7 to the digit, and Tang's Table 6 prints 157 men, mean age 26.8, height 174.7 cm, with lower end-plate depths equal to a at L3-L5; so those quoted rows are this cohort, not an independent one.",
+      "page": "panjabi1991c p. 868 (PDF 8) Table 7 and ref. 10 p. 869 (PDF 9); tang2016 Table 6 p. 4125 (PDF 10)"
+    },
+    {
+      "with": "Nissan & Gilad (1984), The cervical and lumbar vertebrae: an anthropometric model, Eng Med 13:111-114 (not in the list); quoted as Nissan and Gilad by panjabi1991c Table 7 and by tang2016 Table 6",
+      "what": "method",
+      "evidence": "Not stated in this paper. Inference: identical values imply the same caliper readings on the same lateral films; Panjabi describes the 1984 data as calipers on lateral radiographs of 157 living subjects.",
+      "page": "panjabi1991c p. 868 (PDF 8) Table 7 and ref. 10 p. 869 (PDF 9); tang2016 Table 6 p. 4125 (PDF 10)"
+    }
+  ],
+  "within_paper": "One cohort. The cervical and lumbar films are of the same pool of healthy working men (Methods, p. 115, PDF 1), and the Summary speaks of radiographs of 157 men (p. 120, PDF 6); whether the 141 cervical spines belong to men among the 157 is not stated (Inference: a subset). Table 2's calculated dimensions come from the same films and measurements as Table 1 (p. 117, PDF 3), with the same n at every level (p. 118, PDF 4), so Tables 1 and 2 share subjects and specimens."
+}

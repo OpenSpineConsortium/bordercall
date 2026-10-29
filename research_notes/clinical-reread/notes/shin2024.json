@@ -1,0 +1,293 @@
+{
+  "id": "shin2024",
+  "citation": "David Shin, Ethan Vyhmeister, Daniel Im, Andrew Fay, Owen Faehner, Andrew Cabrera, Alexander Bouterse, Lauren Seo, Derran Bedward, Mei Carter, Davis Carter, Jacob Razzouk, Omar Ramos, Nathaniel Wycliffe, Wayne Cheng, Olumide Danisa. Lumbar disc space height in relation to neural foraminal dimensions and patient characteristics: A morphometric analysis from L1-S1 using computed tomography. Brain and Spine 5 (2025) 104162 (article number; no issue printed; six pages, printed pp. 1-6 = PDF pp. 1-6). doi:10.1016/j.bas.2024.104162. Received 13 June 2024, revised 20 October 2024, accepted 9 December 2024, available online 10 December 2024; open access CC BY 4.0. Copy read: PMC open-access Cloud Service (pmc-oa-opendata), PMC11700277.1, fetched 2026-10-28; sha256 begins 4ae7e5642192d34e. Source: thread \"Reread every paper for clinical detail\", project symphony_4, 2026-10-28.",
+  "population": "USA, single institution (authors at Loma Linda University and Loma Linda University Health, with Duke and others; Inference: Loma Linda, Southern California). Living patients aged 18-35 who had an abdomen-pelvis CT or a lumbar CT on a GE Discovery 750 HD 64-slice scanner, February 2018 to March 2023; charts reviewed consecutively in date order, men and women alternately. 809 screened, 109 excluded (41 poor or insufficient imaging, 37 previous spinal surgery, 11 scoliosis > 10 deg, 7 congenital lumbar stenosis, 6 spondylolisthesis, 7 lumbar vertebral fracture), 700 included: 350 men (age 27.31 +/- 5.21 y, BMI 28.37 +/- 7.20, height 1.76 +/- .08 m, weight 88.52 +/- 24.79 kg) and 350 women (28.53 +/- 5.06 y, BMI 28.94 +/- 7.84, 1.63 +/- .09 m, 76.69 +/- 21.76 kg); age p .005, BMI p .336, height and weight p < .001. Ethnicity 297 Hispanic (42.43%), 261 Caucasian/White (37.29%), 70 African-American/Black (10.00%), 60 Asian (8.57%), 11 other (1.57%), which sum to 699 not 700. Excluded by criteria: degenerative disc disease, scoliosis, congenital lumbar stenosis (any L2-L5 pedicle length below Singh et al. 2005's thresholds), spondylolisthesis, spinal trauma, neoplasm, spinal hardware, CT done for back pain, previous spinal surgery. p. 2-3 (PDF 2-3), Table 1.",
+  "modality": "CT (GE Discovery 750 HD, 64-slice), read in the IMPAX6 PACS (printed \"Agfa-Gavaert\") with a bone window (width 2000 HU, level 500 HU); caliper distances on sagittal (DSH, sagittal AP width, NFH, area by freeform tracing) and axial (axial AP width) views; four medical students trained by a board-certified neuroradiologist; one overall ICC .842; Excel 16.58, SPSS 28. Slice thickness, kernel, reformat orientation and which sagittal slice are not reported. p. 2-3, 5 (PDF 2-3, 5).",
+  "levels_covered": "The five lumbar interspaces L1-L2, L2-L3, L3-L4, L4-L5 and L5-S1: three DSH per interspace and four foraminal dimensions per side per interspace, 55 values per patient, 38,500 in all. How levels were identified or counted is not stated; no landmark, rib count or field-of-view rule; transitional segments neither excluded nor reported. No thoracic, cervical, T12/L1, C2/C3 or C7/T1 data. p. 1-3 (PDF 1-3).",
+  "anomalies": [
+    {
+      "variant": "lumbosacral transitional vertebra, sacralisation, lumbarisation, L6, T13, rib-count anomaly, block vertebra",
+      "finding": "Not mentioned anywhere: no prevalence, no exclusion rule, no numbering rule. Inference: any transitional segments present are inside the L5-S1 row (or counted as L5-S1), which may contribute to its low middle and posterior DSH and larger SDs; the paper cannot separate this.",
+      "page": "whole paper; methods p. 2 (PDF 2)",
+      "population": "700 US patients aged 18-35",
+      "how_identified": "not identified"
+    },
+    {
+      "variant": "congenital lumbar stenosis (exclusion only)",
+      "finding": "7 of 809 screened patients excluded for CLS, called when any L2-L5 pedicle length fell below Singh et al. 2005's thresholds (thresholds not given). An exclusion count, not a population prevalence.",
+      "page": "p. 2-3 (PDF 2-3)",
+      "population": "809 screened US patients aged 18-35 with abdomen-pelvis or lumbar CT",
+      "how_identified": "CT pedicle length at L2-L5 against Singh et al. 2005"
+    },
+    {
+      "variant": "scoliosis > 10 deg, spondylolisthesis, lumbar vertebral fracture (exclusions only)",
+      "finding": "11 scoliosis (coronal deformity > 10 deg), 6 spondylolisthesis and 7 lumbar vertebral fractures among 809 screened; exclusion counts only, order of exclusion rules not described, not usable as prevalences.",
+      "page": "p. 3 (PDF 3)",
+      "population": "809 screened US patients aged 18-35",
+      "how_identified": "chart and CT review; method not described"
+    }
+  ],
+  "measures": [
+    {
+      "name": "Anterior disc space height (DSH_ant)",
+      "definition": "On the sagittal view, the \"shortest distances between the planes of the anterior and posterior endplates\" after Harianja et al. 2023 (ambiguous sentence; Inference: shortest bone-to-bone distance between the upper body's inferior endplate and the lower body's superior endplate at the anterior margin of the interspace, as Fig. 1 draws it). Pooled over levels 7.98 mm (n = 3,500 = 700 x 5).",
+      "projection": "CT sagittal view, bone window 2000/500 HU; slice not stated. Inference from Fig. 1: the illustrated slice shows a dark foramen-like oval behind the posterior arrow, so it may be parasagittal rather than midsagittal.",
+      "page": "p. 2 (PDF 2), Fig. 1; p. 3 (PDF 3), Table 2",
+      "levels": "L1-L2 to L5-S1",
+      "level_pattern": "Table 2 mean (SD) mm: L1-L2 5.68 (1.86), L2-L3 6.53 (1.90), L3-L4 7.72 (1.94), L4-L5 9.27 (2.17), L5-S1 10.76 (2.72); monotone rise to L5-S1, every pairwise difference significant (Table 3: adjacent -.83, -1.2, -1.47, -1.56 mm). Inference: adjacent separations only about 0.45-0.75 pooled SD, an ordering cue not a per-level label.",
+      "covariates": "Men larger at every level, p < .001 (Table 4): 6.48 vs 4.89, 7.23 vs 5.83, 8.32 vs 7.12, 9.82 vs 8.69, 11.14 vs 10.38 mm (gap 1.59 falling to 0.76 mm). Ethnicity (Table 5) White/Hispanic/Black/Asian: L1-2 5.80/5.48/5.67/6.48 (p .003), L2-3 6.48/6.49/6.21/7.31 (.008), L3-4 7.78/7.62/7.50/8.41 (.032), L4-5 9.31/9.21/9.22/9.44 (.022), L5-S1 10.68/10.70/10.46/11.64 (.036); Asian largest. Table 7: height r .000-.040, weight .130-.354 (all significant, max L1-2), BMI .105-.206. Ages 18-35 only.",
+      "error": "One overall ICC .842 for all measurements (p. 5, PDF 5); no model, rater split or per-measure value. Inference: error SD about 0.76 mm if the ICC applies within level.",
+      "ct_mask_recipe": "Inference: from two consecutive body instances, in the segment's midsagittal plane (record the plane; optionally also a parasagittal plane through the pedicles), the minimum distance between the upper body's inferior endplate contour and the lower body's superior endplate contour within the anterior few mm, body subregion only, excluding osteophytes.",
+      "radiograph_recipe": "Inference: lateral radiograph with the beam parallel to the disc (single-line endplates), magnification corrected; not obtainable on AP. The paper gives no radiographic recipe."
+    },
+    {
+      "name": "Middle disc space height (DSH_mid)",
+      "definition": "Disc height measured \"at the center of each interspace\" after Harianja et al.; whether shortest or perpendicular distance not stated. Pooled over levels 8.16 mm (n = 3,500).",
+      "projection": "CT sagittal view, slice not stated (see DSH_ant).",
+      "page": "p. 2 (PDF 2), Fig. 1; p. 3 (PDF 3), Table 2",
+      "levels": "L1-L2 to L5-S1",
+      "level_pattern": "Table 2: L1-L2 6.61 (1.39), L2-L3 7.90 (1.59), L3-L4 8.83 (1.56), L4-L5 9.31 (1.75), L5-S1 8.14 (1.90); peaks at L4-L5, falls at L5-S1 (L4-L5 minus L5-S1 1.17, CI .92 to 1.42); L2-L3 vs L5-S1 not separable (-.24, p .062). Inference: exceeds DSH_ant at L1-L4, equals it at L4-L5, 2.62 mm below it at L5-S1.",
+      "covariates": "Men larger L1-2 to L4-5 (p < .001): 6.86 vs 6.36, 8.19 vs 7.61, 9.13 vs 8.53, 9.62 vs 8.99 (gap 0.50-0.63 mm); L5-S1 8.21 vs 8.07, p .311. No ethnic difference at any level (Table 5 p .310, .278, .365, .836, .158). Table 7: weight r .050-.219 (L5-S1 .050 not significant), height .010-.050, BMI .040-.148. The authors explain the absent caudal rise by the more elliptical middle cross-section of the disc (p. 4-5).",
+      "error": "Overall ICC .842 only. Inference: error SD about 0.64 mm if within level.",
+      "ct_mask_recipe": "Inference: at the AP midpoint of the endplates in the same plane, distance between the two endplate surfaces perpendicular to the mean endplate direction; includes the central concavity, so smoothed or hole-filled masks read low; bone-to-bone gap, not a disc label's thickness.",
+      "radiograph_recipe": "Inference: lateral radiograph, beam parallel to disc; a projection average of the concave endplate, may differ from one CT slice; not on AP."
+    },
+    {
+      "name": "Posterior disc space height (DSH_post)",
+      "definition": "Same sentence as DSH_ant, at the posterior margin of the interspace (Fig. 1: arrow at the posterior rim, just in front of the dark foraminal oval). Pooled over levels 4.09 mm (n = 3,500).",
+      "projection": "CT sagittal view, slice not stated.",
+      "page": "p. 2 (PDF 2), Fig. 1; p. 3 (PDF 3), Table 2",
+      "levels": "L1-L2 to L5-S1",
+      "level_pattern": "Table 2: L1-L2 3.11 (1.15), L2-L3 4.02 (1.24), L3-L4 4.66 (1.38), L4-L5 4.88 (1.45), L5-S1 3.80 (1.41); peaks at L4-L5; L3-L4 vs L4-L5 not separable (-.17, p .174); L5-S1 lies between L1-L2 and L2-L3.",
+      "covariates": "Men larger L1-2 to L4-5 (p < .001; .004 at L4-5): 3.25 vs 2.98, 4.21 vs 3.82, 4.88 vs 4.44, 5.04 vs 4.73 (gap 0.27-0.44 mm); L5-S1 3.83 vs 3.77, p .606. Asian largest at every level (Table 5): 3.64, 4.69, 5.29, 5.09, 4.24 vs White 3.09, 3.80, 4.40, 4.70, 3.61 (p .007, < .001, < .001, .036, .002); text says White, Hispanic and Black did not differ (Asian vs others p .014). Table 7: weight r .128-.307, height .000-.030, BMI .060-.251.",
+      "error": "Overall ICC .842 only. Inference: error SD about 0.52 mm if within level.",
+      "ct_mask_recipe": "Inference: as DSH_ant at the posterior rim of the two body endplates, just anterior to the canal, body subregion only, excluding posterior osteophytes and ring apophysis irregularity.",
+      "radiograph_recipe": "Inference: lateral radiograph, beam parallel to disc; posterior corners partly overlapped by pedicles and facets, larger error; not on AP."
+    },
+    {
+      "name": "Sagittal AP foraminal width",
+      "definition": "Maximal distance from the posterior margin of the upper (superior) vertebral body to the anterior margin of the inferior articular facet, Fig. 2 line CD (drawn at about disc level across the foramen).",
+      "projection": "CT sagittal view through the foramen; exact parasagittal position not stated.",
+      "page": "p. 2 (PDF 2), Fig. 2; p. 5 (PDF 5), Table 6",
+      "levels": "L1-L2 to L5-S1, left and right",
+      "level_pattern": "Table 6 left/right mm: L1-L2 9.52 (2.12)/9.69 (2.06), L2-L3 9.24/9.43, L3-L4 9.18/9.20, L4-L5 8.68/8.68, L5-S1 8.81 (2.52)/9.03 (2.44); narrows to L4-L5, slight rise at L5-S1 (the text says it steadily decreased to L5-S1).",
+      "covariates": "Correlation with DSH at most .191 left, .184 right (both L4-5 anterior DSH), Table 7. No sex or ethnicity breakdown.",
+      "error": "Overall ICC .842 only.",
+      "ct_mask_recipe": "Inference: in a parasagittal plane through the foramen, longest AP chord from the posterior surface of the upper body instance to the anterior surface of the facet region; state whether the inferior articular process of the upper or the superior articular process of the lower vertebra is used.",
+      "radiograph_recipe": "Inference: lateral radiograph superimposes both foramina; approximate only; not on AP."
+    },
+    {
+      "name": "Axial AP foraminal width",
+      "definition": "As the sagittal AP width (posterior margin of the upper body to anterior margin of the inferior articular facet, maximal distance) but on the axial view; which axial slice is not stated.",
+      "projection": "CT axial view.",
+      "page": "p. 2 (PDF 2), Fig. 2 caption; p. 5 (PDF 5), Table 6",
+      "levels": "L1-L2 to L5-S1, left and right",
+      "level_pattern": "Table 6 left/right: L1-L2 9.34 (2.21)/9.30 (2.21), L2-L3 9.28/9.31, L3-L4 8.99/9.07, L4-L5 8.58 (2.22)/8.60 (2.27), L5-S1 8.72 (2.60)/8.97 (2.53); narrowest at L4-L5, slight rise at L5-S1.",
+      "covariates": "Correlation with DSH at most .199 left, .194 right (both L4-5 anterior), Table 7.",
+      "error": "Overall ICC .842 only.",
+      "ct_mask_recipe": "Inference: in the axial plane through the foramen, per side, the longest AP distance from the posterior body margin to the anterior facet margin.",
+      "radiograph_recipe": "Not possible (axial plane)."
+    },
+    {
+      "name": "Neuroforaminal height (NFH)",
+      "definition": "Maximum distance from the inferior notch of the pedicle of the upper vertebra to the superior notch of the pedicle of the lower vertebra, Fig. 2 line AB.",
+      "projection": "CT sagittal view through the foramen.",
+      "page": "p. 2 (PDF 2), Fig. 2; p. 5 (PDF 5), Table 6",
+      "levels": "L1-L2 to L5-S1, left and right",
+      "level_pattern": "Table 6 left/right mm: L1-L2 17.31 (2.41)/17.26 (2.27), L2-L3 18.38 (2.26)/18.77 (3.68), L3-L4 18.42 (2.48)/18.49 (3.90), L4-L5 17.81 (2.61)/17.64 (2.40), L5-S1 15.33 (2.26)/15.14 (2.41); unimodal, peak L3-L4 left and L2-L3 right, lowest at L5-S1 (about 2.5 mm below L4-L5).",
+      "covariates": "The only NFD weakly but significantly tied to all three DSH (p. 3): left r .060-.301, right .010-.308; strongest with L4-5 posterior DSH (.301/.308); weakest left at L5-S1 anterior (.060), right at L2-3 middle (.010). All < .4 (weak).",
+      "error": "Overall ICC .842 only; right L2-L3 and L3-L4 SDs (3.68, 3.90) unusually large.",
+      "ct_mask_recipe": "Inference: in a parasagittal plane through the pedicles, longest craniocaudal distance between the inferior surface of the upper instance's pedicle and the superior surface of the lower instance's pedicle, per side; needs a pedicle region of the posterior-element subregion.",
+      "radiograph_recipe": "Inference: lateral radiograph, pedicle-to-pedicle gap with both sides superimposed, magnification corrected; not on AP."
+    },
+    {
+      "name": "Neuroforaminal area",
+      "definition": "Area of the foramen traced with the IMPAX6 freeform tracing tool, Fig. 2 region inside the hatched line.",
+      "projection": "CT sagittal view through the foramen.",
+      "page": "p. 2 (PDF 2), Fig. 2; p. 5 (PDF 5), Table 6",
+      "levels": "L1-L2 to L5-S1, left and right",
+      "level_pattern": "Table 6 left/right (caption unit mm; Inference: mm2): L1-L2 132.47 (35.18)/132.04 (34.20), L2-L3 140.54/142.53, L3-L4 143.83 (40.16)/143.89 (41.09), L4-L5 138.03/137.10, L5-S1 124.38 (36.95)/124.93 (34.03); peak L3-L4, smallest L5-S1, L1-L2 second smallest.",
+      "covariates": "Correlation with DSH .000-.251, Table 7.",
+      "error": "Overall ICC .842 only.",
+      "ct_mask_recipe": "Inference: area of the background region enclosed by the two pedicles, posterior body margins and disc gap, and facet region in a fixed parasagittal plane, stated, since the paper does not give the plane.",
+      "radiograph_recipe": "Inference: only roughly on a lateral film, both sides superimposed."
+    },
+    {
+      "name": "Pedicle length (exclusion screen only)",
+      "definition": "L2-L5 pedicle length against Singh et al. 2005's congenital lumbar stenosis thresholds; no values or thresholds given.",
+      "projection": "CT (view not stated)",
+      "page": "p. 2-3 (PDF 2-3)",
+      "levels": "L2-L5",
+      "level_pattern": "Not reported.",
+      "covariates": "Not reported.",
+      "error": "Not reported.",
+      "ct_mask_recipe": "Not applicable (not reported).",
+      "radiograph_recipe": "Not applicable."
+    }
+  ],
+  "level_details": [
+    {
+      "level": "L1-L2",
+      "detail": "Smallest DSH on all three heights (5.68/6.61/3.11 mm); widest sagittal AP foramen (9.52/9.69); second-lowest NFH and area; largest sex gap in anterior DSH (6.48 vs 4.89 mm); strongest DSH-weight correlation (.354, anterior). Nothing on T12/L1.",
+      "page": "pp. 3-5 (PDF 3-5), Tables 2, 4, 6, 7"
+    },
+    {
+      "level": "L2-L3",
+      "detail": "DSH 6.53/7.90/4.02 mm; right NFH peaks here (18.77, SD 3.68); middle DSH not separable from L5-S1 (p .062).",
+      "page": "pp. 3-5 (PDF 3-5), Tables 2, 3, 6"
+    },
+    {
+      "level": "L3-L4",
+      "detail": "Foraminal peak (area 143.83/143.89, left NFH 18.42); DSH 7.72/8.83/4.66; posterior DSH not separable from L4-L5 (p .174).",
+      "page": "p. 1 (PDF 1); pp. 3-5 (PDF 3-5), Tables 2, 3, 6"
+    },
+    {
+      "level": "L4-L5",
+      "detail": "Tallest middle (9.31) and posterior (4.88) DSH, which the authors tie to greater mobility here (Tibrewal and Pearcy 1985, Demir 2018); narrowest AP foraminal widths (sagittal 8.68/8.68, axial 8.58/8.60); strongest NFH-DSH correlations (about .30).",
+      "page": "p. 4 (PDF 4); Tables 2, 6, 7, pp. 3-5 (PDF 3-5)"
+    },
+    {
+      "level": "L5-S1 (lumbosacral junction)",
+      "detail": "Tallest anterior DSH (10.76) but middle and posterior drop (8.14, 3.80): the most wedge-shaped disc (Inference: anterior minus posterior 6.96 vs 4.39 mm at L4-L5). Authors attribute the drop to disc shape, the sacral interface and greater sustained axial loads (Humzah and Soames 1988, Urquhart 2014, Schmitt 2004, Ozturk 2008). Smallest NFH (15.33/15.14) and area (124.38/124.93); AP widths rise slightly over L4-L5. No sex difference in middle (p .311) or posterior (p .606) DSH. DSH-NFD correlations near zero except right NFH vs posterior DSH (.236).",
+      "page": "p. 4 (PDF 4); Tables 2, 4, 6, 7, pp. 3-5 (PDF 3-5)"
+    },
+    {
+      "level": "C2/C3, C7/T1, T12/L1",
+      "detail": "Not studied.",
+      "page": "whole paper"
+    }
+  ],
+  "errors": [
+    {
+      "what": "Overall reliability of all measurements (one ICC; model, raters, sample size and intra versus inter split not stated)",
+      "value": "ICC .842, called acceptable",
+      "page": "p. 5 (PDF 5)"
+    },
+    {
+      "what": "Raters",
+      "value": "four medical students trained by one board-certified neuroradiologist; reviewer subjectivity named as a limitation",
+      "page": "p. 2, p. 5 (PDF 2, 5)"
+    },
+    {
+      "what": "Implied DSH measurement error SD (Inference: SD x sqrt(1 - .842), if the ICC holds within level; larger if the ICC was pooled across measures and levels)",
+      "value": "about 0.76 mm anterior, 0.64 mm middle, 0.52 mm posterior",
+      "page": "p. 5 (PDF 5); Table 2, p. 3 (PDF 3)"
+    },
+    {
+      "what": "Instrument",
+      "value": "PACS calipers and freeform tracing on CT, bone window 2000/500 HU; slice thickness, kernel and reformat orientation not reported",
+      "page": "p. 2 (PDF 2)"
+    }
+  ],
+  "pearls_pitfalls": [
+    {
+      "text": "Normative DSH and NFD are meant for device design, direct and indirect decompression, sagittal and coronal balance correction, disc height restoration and interbody cage selection that avoids distractive or compressive endplate loads; the literature on implant size selection is sparse.",
+      "page": "p. 1-2 (PDF 1-2); p. 5 (PDF 5)"
+    },
+    {
+      "text": "DSH is at most weakly related to any foraminal dimension (all r < .4), NFH the only one weakly related; foraminal size is shaped more by pedicle length and width, facet orientation, ligaments and dynamic change, so restoring disc height should not be assumed to open the foramen proportionally. The authors found the absence of even a moderate association surprising.",
+      "page": "p. 3-4 (PDF 3-4); p. 2 (PDF 2)"
+    },
+    {
+      "text": "DSH differs by sex (men larger, chiefly anteriorly and in the upper lumbar spine) and ethnicity (Asian taller anterior and posterior DSH); use the values as frames of reference adjusted to the patient. The discussion says height and weight are not associated with DSH, while the results give weight a weak consistent correlation.",
+      "page": "p. 3, p. 5 (PDF 3, 5)"
+    },
+    {
+      "text": "The middle DSH does not rise caudally like the anterior and posterior heights, explained by the more elliptical middle cross-section of the disc against the more rectangular anterior and posterior ones.",
+      "page": "p. 4-5 (PDF 4-5)"
+    },
+    {
+      "text": "Male excess in anterior DSH agrees with Bach et al. 2018 (240 CT scans) but second- and third-decade values differ, put down to this study's confounder adjustment and larger sample; first DSH and NFD data in Hispanic and African-American cohorts (earlier work in Korean, Pakistani, Nepalese and Iranian groups).",
+      "page": "p. 5 (PDF 5)"
+    },
+    {
+      "text": "CT shows bone sharply without MRI's ligament signal and perineural fat, but cannot show disc herniation or ligamentous infiltration of the foramen; judged a minor concern in this young sample.",
+      "page": "p. 5 (PDF 5)"
+    },
+    {
+      "text": "Limitations: single institution; ages 18-35 only; normal defined from charts and imaging, so undocumented asymptomatic pathology may be included (no questionnaires); reviewer subjectivity. Conclusions apply only to young asymptomatic patients; older and symptomatic patients are planned.",
+      "page": "p. 5-6 (PDF 5-6)"
+    },
+    {
+      "text": "Congenital lumbar stenosis screened by short L2-L5 pedicle length (Singh 2005); 7 of 809 excluded.",
+      "page": "p. 2-3 (PDF 2-3)"
+    }
+  ],
+  "instructions": [
+    {
+      "text": "Measure DSH between the bony endplates of two consecutive bodies on a sagittal plane at the anterior rim, AP midpoint and posterior rim, using the body part of each instance mask only; the paper does not name the slice (Fig. 1 may be parasagittal), so (Inference) use the segment's midsagittal plane and record the plane with the value.",
+      "page": "p. 2 (PDF 2), Fig. 1"
+    },
+    {
+      "text": "Expect anterior DSH to rise at every step from L1-L2 (about 5.7 mm) to L5-S1 (about 10.8 mm); use the monotone rise as an ordering cue along the chain, not a per-level label, since adjacent levels overlap by most of a SD.",
+      "page": "p. 3-4 (PDF 3-4), Tables 2, 3"
+    },
+    {
+      "text": "Find the lumbosacral interspace as the disc with the largest anterior DSH and the largest anterior minus posterior difference (about 7 mm vs 4.4 at L4-L5, Inference from Table 2), with middle and posterior DSH below L4-L5's; weigh it in the chain decoder rather than thresholding one disc (Inference), since transitional handling is unknown.",
+      "page": "p. 3 (PDF 3), Table 2"
+    },
+    {
+      "text": "Do not separate L3-L4 from L4-L5 by posterior DSH (.17 mm, p .174) nor L2-L3 from L5-S1 by middle DSH (p .062).",
+      "page": "p. 4 (PDF 4), Table 3"
+    },
+    {
+      "text": "Condition on sex before comparing with the norms: women's anterior DSH about 1.6 mm lower at L1-2 shrinking to 0.8 mm at L5-S1; middle and posterior gaps about 0.5 and 0.3 mm, vanishing at L5-S1.",
+      "page": "p. 4 (PDF 4), Table 4"
+    },
+    {
+      "text": "Where ethnicity is known, allow taller anterior and posterior DSH (up to about 1 mm over White) for the Asian group (60 US patients of unstated origin); do not adjust middle DSH for ethnicity.",
+      "page": "p. 3-4 (PDF 3-4), Table 5"
+    },
+    {
+      "text": "Within one sex, do not scale DSH by stature (r <= .05); a weak scaling with weight is allowed (r up to .35 at L1-2 anterior). Inference: across sexes stature and DSH still move together through sex.",
+      "page": "p. 5 (PDF 5), Table 7; p. 3 (PDF 3), Table 1"
+    },
+    {
+      "text": "Read NFH on the sagittal view through the foramen from the inferior notch of the upper pedicle to the superior notch of the lower; expect about 17-19 mm at L1-L2 to L4-L5 and about 15 mm at L5-S1. Inference: the 2.5 mm drop at the last mobile level is a weak per-patient cue (SD 2.3-2.6 mm).",
+      "page": "p. 2 (PDF 2), Fig. 2; p. 5 (PDF 5), Table 6"
+    },
+    {
+      "text": "Do not infer foraminal size or foraminal stenosis from disc height alone.",
+      "page": "p. 3-5 (PDF 3-5), Table 7"
+    },
+    {
+      "text": "Treat these as supine CT norms of 18-35-year-olds; for older patients, standing films or degenerated discs do not use these SDs unchanged (the standing versus supine point is Inference).",
+      "page": "p. 5-6 (PDF 5-6)"
+    },
+    {
+      "text": "Inference: on a lateral radiograph or fluoroscopy frame take DSH only where both endplates project as single lines, after magnification correction; the paper gives no radiographic recipe.",
+      "page": "none (Inference)"
+    },
+    {
+      "text": "Inference: record how levels were counted beside every DSH reading, since this paper's L5-S1 row may contain unidentified transitional segments.",
+      "page": "p. 2 (PDF 2) (silence)"
+    }
+  ],
+  "bordercall": [
+    "(a) Anomaly priors: none. No prevalence of LSTV, L6, T13, rib variants or block vertebrae and no numbering rule; exclusion counts among 809 screened 18-35-year-olds (CLS 7, scoliosis 11, spondylolisthesis 6, fracture 7) are not priors. p. 3 (PDF 3).",
+    "(b) Measures: DSH is a between-instance quantity Panjabi's papers do not hold (Inference from memory); the generator could add DSH_ant, DSH_mid and DSH_post per interspace L1-L2 to L5-S1 with sex means and SDs from Table 4 and ethnic means from Table 5 (p. 4, PDF 4). Mask bias: middle DSH includes the central endplate concavity (smoothed or filled masks read low); anterior and posterior are shortest distances near the rims (osteophytes, ring apophysis and an off-midline slice change them); the paper's slice is unknown and Fig. 1 may be parasagittal, so a midsagittal mask value may be offset (Inference). A segmenter's disc label is soft tissue, not this bone-to-bone gap. NFH needs a pedicle region; the AP width's posterior landmark (inferior articular facet) must be stated in a mask recipe.",
+    "(c) Measurement error: one ICC .842 (p. 5, PDF 5). Inference: error SD about 0.5-0.8 mm for DSH if within level, larger if the ICC was pooled; no figure for the foraminal area; slice thickness not reported.",
+    "(d) Covariates: sex (Table 4; gap shrinking caudally, vanishing for middle and posterior at L5-S1); ethnicity (Table 5; Asian larger anterior and posterior, no middle effect); stature none within sex (r <= .05), weight weak (.05-.35), BMI weak (.04-.25) (Table 7). Inference: carry sex, not a stature-tied size factor, for DSH. Age 18-35 only and not a covariate (women 1.2 y older, p .005). Population: one US institution, 42% Hispanic."
+  ],
+  "gaps": [
+    "Level counting rule, LSTV handling, CT field of view, slice thickness, reformat orientation and which sagittal slice are not reported; nor endplate irregularity, Schmorl nodes or vacuum phenomena, per-measure reliability, SDs of pooled DSH, within-patient correlations across levels, or NFD by sex or ethnicity.",
+    "Ethnicity counts sum to 699 (99.86%), not 700; Table 5 silently omits the 11 other-ethnicity patients; the text says Caucasian and African-American, Table 5 White and Black. p. 3-4 (PDF 3-4).",
+    "Abstract says DSH rose linearly from L1-L2 to L5-S1; Table 2 and the results show middle and posterior DSH falling at L5-S1; the conclusion says L1-L5. p. 1, 3, 6 (PDF 1, 3, 6).",
+    "Results say all DSH rose significantly L1-L2 to L4-L5; Table 3 gives posterior L3-L4 vs L4-L5 p .174. p. 3-4 (PDF 3-4).",
+    "Abstract and results say men larger at all levels L1-S1; Table 4 shows no sex difference in middle (p .311) or posterior (p .606) DSH at L5-S1. p. 1, 3-4 (PDF 1, 3-4).",
+    "Abstract says Asian patients had taller DSH at all levels; Table 5 shows no ethnic difference in middle DSH; the text's p .014 for Asian vs others is not in Table 5. p. 1, 3-4 (PDF 1, 3-4).",
+    "Discussion says height and weight are not associated with DSH; results and Table 7 report a consistent weak weight correlation (up to .354). p. 3, 5 (PDF 3, 5).",
+    "Discussion calls L4-L5 the tallest disc; anterior DSH is tallest at L5-S1. p. 4 (PDF 4).",
+    "Results say foraminal widths steadily decreased to L5-S1; Table 6 shows a slight rise at L5-S1. Abstract and results put the smallest NFD at L1-L2 and L5-S1; in Table 6 L1-L2 is second smallest for NFH and area and the smallest AP widths are at L4-L5; right NFH peaks at L2-L3, not L3-L4. p. 1, 3, 5 (PDF 1, 3, 5).",
+    "Table 6 gives area in mm (Inference: mm2). p. 5 (PDF 5).",
+    "Table 4, captioned as adjusted, averages to Table 2 within rounding (at most 0.015 mm; Inference: raw means); Table 5 may be raw too (weighted anterior L1-2 about 5.71 vs 5.68). p. 3-4 (PDF 3-4).",
+    "Table 5 anterior L4-5 p .022 with group means within 0.23 mm (Inference: impossible for raw means; misprint or different means tested). p. 4 (PDF 4).",
+    "Table 3 differences disagree with Table 2 by up to 0.08-0.09 mm, the larger mismatches in anterior and posterior comparisons involving L4-L5 (implied L4-L5 means about 9.19-9.20 and 4.80-4.83 mm vs 9.27 and 4.88), middle heights consistent; anterior L1-L2 vs L5-S1 p .003 beside CI -5.36 to -4.75 (Inference: misprint). p. 3-4 (PDF 3-4).",
+    "Table 7's caption says correlations account for height, weight and BMI yet the table has columns for those same factors (Inference: unclear what was partialled); bold for p < .05 is inconsistent (.080 not bold, .075 and .081 bold); no signs shown. p. 5 (PDF 5).",
+    "Power analyses reuse observed Table 5 L1-2 anterior means with an assumed SD of 1.0 against observed 1.6-1.9 (Inference: post hoc and optimistic). p. 3 (PDF 3).",
+    "Exclusion breakdown lists poor imaging (not a stated criterion) and gives no counts for degenerative disc disease, neoplasm, hardware or back-pain indication. p. 2-3 (PDF 2-3).",
+    "Age not among the covariates of Tables 4 and 5 though women were 1.2 years older (p .005). p. 3-4 (PDF 3-4).",
+    "Author spellings differ between byline (Fay, Alexander Bouterse) and financial support (Fey, Alex Bouterse); Fig. 2 caption repeats an incomplete NFH sentence. p. 2, 6 (PDF 2, 6).",
+    "Against other work: tallest L4-L5 disc agrees with Hong 2010 and Onishi 2019 and the lower L5-S1 with several populations, per the authors (p. 4); Bach 2018 also found men larger but values differ in the second and third decades (p. 5). Inference from memory: Panjabi gives body heights, not disc heights, so no direct conflict with the generator's measures."
+  ]
+}

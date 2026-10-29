@@ -1,0 +1,290 @@
+{
+  "paper": "abbas2021",
+  "cohorts": [
+    {
+      "cohort": "dlss",
+      "labels": [
+        "male stenosis",
+        "female stenosis",
+        "all stenosis",
+        "male control vs stenosis",
+        "female control vs stenosis",
+        "male stenosis vs control",
+        "female stenosis vs control",
+        "all (study-wide CT and criteria rows, both groups)"
+      ],
+      "tables": [
+        "Table 1",
+        "Table 2",
+        "Table 3",
+        "Table 4",
+        "Table 5",
+        "Text: Abstract",
+        "Text: Methods",
+        "Text: Results",
+        "Text: Discussion"
+      ],
+      "subjects": "Living patients with symptomatic degenerative lumbar spinal stenosis (DLSS), enrolled 2008 to 2012 following the authors' earlier project (Abbas et al. 2020 [16]); each had stenosis at one or more levels, a dural sac cross-section area under 100 mm2 (after Schonstrom [8]), from degeneration of the segment; diagnosis from clinical symptoms and signs with CT; clinical inclusion criteria after SPORT [17, 18], applied by a spine surgeon co-author (KH). Israel; the ethics committee of Carmel Medical Center, Haifa approved the study; where these patients were scanned is not stated. Ethnicity not stated. Excluded: age under 40 years; congenital stenosis (bony canal AP under 12 mm, after Verbiest [19]); fractures; spondylolysis; tumors; Paget's disease; steroid treatment; severe lumbar scoliosis over 20 deg; iatrogenic conditions. The level of each patient's stenosis is not given. Mean age 66.2 +/- 11 (men) and 62 +/- 8 (women); BMI 28.9 +/- 4 and 31.4 +/- 5 (Table 1).",
+      "n_people": 165,
+      "n_units": "L1 to L5 of 165 patients (Inference: up to 825 vertebrae; per-level n not printed)",
+      "ages": "40 to 88 years; mean 66.2 +/- 11 men, 62 +/- 8 women (Table 1)",
+      "sexes": "80 men, 85 women",
+      "page": "p. 2 (PDF 2); Table 1 p. 4 (PDF 4)"
+    },
+    {
+      "cohort": "control",
+      "labels": [
+        "male control",
+        "female control",
+        "all control",
+        "male control vs stenosis",
+        "female control vs stenosis",
+        "male stenosis vs control",
+        "female stenosis vs control",
+        "all (study-wide CT and criteria rows, both groups)"
+      ],
+      "tables": [
+        "Table 1",
+        "Table 2",
+        "Table 3",
+        "Table 4",
+        "Table 5",
+        "Text: Abstract",
+        "Text: Methods",
+        "Text: Results",
+        "Text: Discussion"
+      ],
+      "subjects": "Living patients without spinal stenosis symptoms referred to the Department of Radiology, Carmel Medical Center, Haifa, Israel, for abdominal CT for renal colic symptoms or abdominal pain; the abstract calls them individuals from the general population. Ethnicity not stated. The exclusions are printed after the stenosis group's description as exclusions from the study; Inference: the controls' minimum age of 40 and Table 3's lowest control band (12.1-14 mm) suggest the age and canal exclusions applied to them too. Mean age 62.8 +/- 12 (men) and 62 +/- 12 (women); BMI 27.3 +/- 4 and 27.6 +/- 5 (Table 1).",
+      "n_people": 180,
+      "n_units": "L1 to L5 of 180 patients (Inference: up to 900 vertebrae; per-level n not printed)",
+      "ages": "40 to 99 years; mean 62.8 +/- 12 men, 62 +/- 12 women (Table 1)",
+      "sexes": "90 men, 90 women",
+      "page": "p. 2 (PDF 2); Table 1 p. 4 (PDF 4)"
+    },
+    {
+      "cohort": "reliability20",
+      "labels": [
+        "not stated",
+        "not stated intratester"
+      ],
+      "tables": [
+        "Text: Methods",
+        "Text: Results"
+      ],
+      "subjects": "Repeated measurements of 20 individuals for intra- and intertester ICCs; which group they came from is not stated. Inference: a subset of the 345 study patients.",
+      "n_people": 20,
+      "n_units": "20 individuals; levels and measures remeasured not stated",
+      "ages": "not stated",
+      "sexes": "not stated",
+      "page": "p. 2 (PDF 2), sections 2.7 and 3"
+    },
+    {
+      "cohort": "schonstrom_cited",
+      "labels": [
+        "not stated patients after lumbar decompression",
+        "not stated stenosis"
+      ],
+      "tables": [
+        "Text: Discussion"
+      ],
+      "subjects": "Patients of Schonstrom et al. [8] (CT of the lumbar spine), quoted in the Discussion: people who had undergone lumbar decompression, and the critical dural sac area; not this paper's subjects.",
+      "n_people": null,
+      "n_units": "not stated",
+      "ages": "not stated",
+      "sexes": "not stated",
+      "page": "p. 4 (PDF 4)"
+    },
+    {
+      "cohort": "literature_norms_cited",
+      "labels": [
+        "not stated normal",
+        "not stated congenital stenosis",
+        "not stated acquired degenerative stenosis"
+      ],
+      "tables": [
+        "Text: Introduction",
+        "Text: Discussion"
+      ],
+      "subjects": "Values quoted from other studies, not this paper's subjects: the normal AP or midsagittal canal diameter above 12 mm from dried-bone and CT studies [8, 22-24, 27, 28], and the usual ages of congenital (30 to 40) and degenerative (50s to 60s) stenosis [2, 3].",
+      "n_people": null,
+      "n_units": "not stated",
+      "ages": "not stated",
+      "sexes": "not stated",
+      "page": "p. 1 (PDF 1); p. 3 and p. 4 (PDF 3 and 4)"
+    }
+  ],
+  "techniques": [
+    {
+      "technique": "ct_axial_body",
+      "cohorts": [
+        "dlss",
+        "control"
+      ],
+      "modality": "CT axial",
+      "instrument": "Philips Brilliance 64 CT, 120 kV, 150-570 mA, slice thickness 0.9-3 mm, processed in all planes; supine with knees extended; bone window",
+      "how": "Vertebral body length (VL): longest line joining the anterior and posterior body borders; width (VW): longest line joining the right and left body borders; both on the axial slice at mid vertebral height, L1 to L5. Method after Berry et al. 1987 [20] (printed Perry), adapted to CT.",
+      "magnification": "not applicable (CT); pixel size and measuring software not stated",
+      "observers": "Intratester: one author (JA) measured twice 3-5 days apart; intertester: JA and KH within an hour; both blinded; 20 individuals; ICC 0.782 to 0.985 intra and 0.721 to 0.980 inter, all measures pooled. Who measured the full sample is not stated (Inference: JA)",
+      "page": "p. 2 (PDF 2), section 2.2; Figure 1a p. 3"
+    },
+    {
+      "technique": "ct_axial_canal",
+      "cohorts": [
+        "dlss",
+        "control"
+      ],
+      "modality": "CT axial",
+      "instrument": "Philips Brilliance 64 CT, 120 kV, 150-570 mA, slice thickness 0.9-3 mm, processed in all planes; supine with knees extended; bone window",
+      "how": "On the axial slice at mid vertebral body, at the basivertebral foramen: AP, longest line from the posterior body border to the posterior canal border; ML, longest line between the medial borders of the two pedicles; CSA, area of the bony canal bounded by the posterior body cortex, the medial pedicle borders and the anterior border of the neural arch. L1 to L5. Table 3 bins the same AP values into bands.",
+      "magnification": "not applicable (CT); pixel size and measuring software not stated",
+      "observers": "Intratester: one author (JA) measured twice 3-5 days apart; intertester: JA and KH within an hour; both blinded; 20 individuals; ICC 0.782 to 0.985 intra and 0.721 to 0.980 inter, all measures pooled. Who measured the full sample is not stated (Inference: JA)",
+      "page": "p. 2 (PDF 2), section 2.4; Figure 2 p. 3"
+    },
+    {
+      "technique": "ct_axial_interlaminar_angle",
+      "cohorts": [
+        "dlss",
+        "control"
+      ],
+      "modality": "CT axial",
+      "instrument": "Philips Brilliance 64 CT, 120 kV, 150-570 mA, slice thickness 0.9-3 mm, processed in all planes; supine with knees extended; bone window",
+      "how": "Interlaminar angle (ILA): on the axial slice through the upper third of the laminae, the angle between the long axes of the two laminae. L1 to L5.",
+      "magnification": "not applicable (CT); pixel size and measuring software not stated",
+      "observers": "Intratester: one author (JA) measured twice 3-5 days apart; intertester: JA and KH within an hour; both blinded; 20 individuals; ICC 0.782 to 0.985 intra and 0.721 to 0.980 inter, all measures pooled. Who measured the full sample is not stated (Inference: JA)",
+      "page": "p. 2 (PDF 2), section 2.5; Figure 3 p. 3"
+    },
+    {
+      "technique": "ct_parasagittal_laminar_inclination",
+      "cohorts": [
+        "dlss",
+        "control"
+      ],
+      "modality": "CT MPR",
+      "instrument": "Philips Brilliance 64 CT, 120 kV, 150-570 mA, slice thickness 0.9-3 mm, processed in all planes; supine with knees extended; bone window",
+      "how": "Laminar inclination (LI): on a parasagittal reformat through the middle of the lamina, the angle between the long axis of the mid lamina and the posterior cortex of the same body; Xu et al. 1999 [21] modified, whose reference was the horizontal plane of the body. Which side, or whether sides were averaged, not stated. L1 to L5.",
+      "magnification": "not applicable (CT); pixel size and measuring software not stated",
+      "observers": "Intratester: one author (JA) measured twice 3-5 days apart; intertester: JA and KH within an hour; both blinded; 20 individuals; ICC 0.782 to 0.985 intra and 0.721 to 0.980 inter, all measures pooled. Who measured the full sample is not stated (Inference: JA)",
+      "page": "p. 2 (PDF 2), section 2.6; Figure 4 p. 4; p. 6 (PDF 6)"
+    },
+    {
+      "technique": "ct_midsagittal_beveling",
+      "cohorts": [
+        "dlss",
+        "control"
+      ],
+      "modality": "CT MPR",
+      "instrument": "Philips Brilliance 64 CT, 120 kV, 150-570 mA, slice thickness 0.9-3 mm, processed in all planes; supine with knees extended; bone window",
+      "how": "Anterior height (AH, anterosuperior to anteroinferior corner) and posterior height (pH, posterosuperior to posteroinferior corner) of the body on the midsagittal plane; beveling ratio AH/pH x 100. Plotted only, as group means by level in Figures 5 and 6 with no printed data labels, and entered in Table 5 (beveling L2, L4); no values in the reading.",
+      "magnification": "not applicable (CT); pixel size and measuring software not stated",
+      "observers": "Intratester: one author (JA) measured twice 3-5 days apart; intertester: JA and KH within an hour; both blinded; 20 individuals; ICC 0.782 to 0.985 intra and 0.721 to 0.980 inter, all measures pooled. Who measured the full sample is not stated (Inference: JA)",
+      "page": "p. 2 (PDF 2), section 2.3; Figure 1b p. 3; Figures 5 and 6 pp. 4 and 5"
+    },
+    {
+      "technique": "cited_literature",
+      "cohorts": [
+        "schonstrom_cited",
+        "literature_norms_cited"
+      ],
+      "modality": "other",
+      "instrument": "not stated (CT for Schonstrom [8]; dried bone and CT for the cited normal ranges)",
+      "how": "values quoted from other studies in the Introduction and Discussion; methods not described here",
+      "magnification": "not stated",
+      "observers": "not stated",
+      "page": "p. 1, p. 3, p. 4 (PDF 1, 3, 4)"
+    },
+    {
+      "technique": "dural_sac_criterion",
+      "cohorts": [
+        "dlss"
+      ],
+      "modality": "CT axial (Inference: the diagnosis combined clinical signs with CT findings)",
+      "instrument": "not stated; the study CT was a Philips Brilliance 64",
+      "how": "Stenosis inclusion criterion: dural sac cross-sectional area under 100 mm2 at one or more levels, after Schonstrom [8]. On which slice, in which window, by whom and with what tool the dural sac was outlined is not stated; no measured dural sac value is reported.",
+      "magnification": "not applicable (CT)",
+      "observers": "not stated",
+      "page": "p. 2 (PDF 2), section 2.1"
+    },
+    {
+      "technique": "scoliosis_criterion",
+      "cohorts": [
+        "dlss",
+        "control"
+      ],
+      "modality": "not stated",
+      "instrument": "not stated",
+      "how": "Exclusion criterion: severe lumbar scoliosis over 20 deg. The angle (Inference: a Cobb angle), the images it was read on and the reader are not stated. It is printed with the stenosis group's exclusions as exclusions from the study; Inference: applied to the controls too.",
+      "magnification": "not stated",
+      "observers": "not stated",
+      "page": "p. 2 (PDF 2), section 2.1"
+    }
+  ],
+  "shared": [
+    {
+      "with": "Abbas, Peled, Hershkovitz and Hamoud 2020 [16], spinous process inclination in DLSS (not in the list)",
+      "what": "subjects",
+      "evidence": "participants enrolled 2008 to 2012 'following the project of Abbas et al., 2020'; Inference: the same patient pool",
+      "page": "p. 2 (PDF 2)"
+    },
+    {
+      "with": "Berry, Moran, Berg and Steffee 1987 [20] (printed 'Perry el al. (1987)'; not in the list)",
+      "what": "method",
+      "evidence": "vertebral body and canal measures based on this study and adapted to CT",
+      "page": "p. 2 (PDF 2)"
+    },
+    {
+      "with": "Xu, Burgar, Ebraheim and Yeasting 1999 [21] (not in the list)",
+      "what": "method",
+      "evidence": "laminar inclination is Xu's method modified: posterior body cortex as reference axis",
+      "page": "p. 2 (PDF 2); p. 6 (PDF 6)"
+    },
+    {
+      "with": "Schonstrom, Bolender and Spengler 1985 [8] (not in the list)",
+      "what": "method",
+      "evidence": "stenosis defined as dural sac cross-section area under 100 mm2, citing [8]",
+      "page": "p. 2 (PDF 2)"
+    },
+    {
+      "with": "Schonstrom, Bolender and Spengler 1985 [8] (not in the list)",
+      "what": "values quoted",
+      "evidence": "normal AP 14.1 mm after decompression and critical dural sac area below 100 mm2 quoted",
+      "page": "p. 4 (PDF 4)"
+    },
+    {
+      "with": "Verbiest 1975 [19] (not in the list)",
+      "what": "method",
+      "evidence": "congenital stenosis exclusion defined as bony canal AP under 12 mm, citing [19]",
+      "page": "p. 2 (PDF 2)"
+    },
+    {
+      "with": "SPORT design and trial papers, Birkmeyer 2002 [17] and Weinstein 2008 [18] (not in the list)",
+      "what": "method",
+      "evidence": "clinical inclusion criteria based on the Spine Patient Outcomes Research Trial",
+      "page": "p. 2 (PDF 2)"
+    },
+    {
+      "with": "Eisenstein 1977 [27] (eisenstein1977), with Schonstrom [8], Eisenstein 1983 [22], Gouzien 1990 [23], Karantanas 1998 [24] (printed 1988), Eisenstein 1980 [28]",
+      "what": "values quoted",
+      "evidence": "normal lumbar midsagittal diameter greater than 12 mm, from dried-bone and CT studies",
+      "page": "p. 4 (PDF 4); the same 12 mm threshold citing [8, 22-24] on p. 3 (PDF 3)"
+    },
+    {
+      "with": "Eisenstein 1983 [22], Eisenstein 1977 [27] (eisenstein1977), Fang 1994 [39], Schonstrom and Willen 2001 [40]",
+      "what": "values quoted",
+      "evidence": "cited for lumbar vertebral size depending on age, gender, race and level; no numbers quoted",
+      "page": "p. 7 (PDF 7)"
+    },
+    {
+      "with": "Morgan and Young 1980 [2], Arbit and Pannullo 2001 [3] (not in the list)",
+      "what": "values quoted",
+      "evidence": "ages of congenital (30 to 40) and degenerative (50s to 60s) stenosis quoted",
+      "page": "p. 1 (PDF 1)"
+    },
+    {
+      "with": "Abbas, Hamoud, May et al. 2010 [10] and Abbas, Peled, Hershkovitz and Hamoud 2020 [11] (not in the list)",
+      "what": "values quoted",
+      "evidence": "earlier DLSS findings (larger bodies L3 to L5; wider pedicles) cited without numbers; Inference: same group and hospital, possible overlapping patients, not stated",
+      "page": "p. 6 (PDF 6)"
+    }
+  ],
+  "within_paper": "The DLSS (165) and control (180) groups are different people (p. 2, PDF 2). Every table measure (VL, VW, AP, ML, CSA, ILA, LI, beveling) was taken on the same CT scans of the same 345 patients, so Tables 1 to 5 and Figures 5 and 6 share subjects; Table 3 bins the AP diameters of Table 2's subjects with the sexes pooled, and Table 5's regression uses the same patients (pp. 2 to 6). The 20 individuals of the reliability study are of unstated group (p. 2); Inference: drawn from the 345. The abstract's numbers restate Tables 1, 2 and 5 (p. 1)."
+}
