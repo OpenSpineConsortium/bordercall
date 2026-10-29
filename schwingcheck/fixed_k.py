@@ -2,7 +2,7 @@
 answered in its two parts, each claim backed by a run of this module.
 
     python -m schwingcheck.fixed_k run        # records/fixed-k-2026-10-29/fixed_k.json
-    python -m schwingcheck.fixed_k table --table known|free|sharp|tail|spread
+    python -m schwingcheck.fixed_k table --table known|free|sharp|tail|spread|categorical
     python -m schwingcheck.fixed_k figures    # into records/fixed-k-2026-10-29/figures/
     python -m schwingcheck.fixed_k check      # whether the README carries the record's tables
 
@@ -16,13 +16,20 @@ every measure of the pool for the same patients and cut to the seven SPINEPS mea
   body, a Categorical over the places with a uniform prior; PyMC samples it with a compound step,
   NUTS on the size and the offsets and CategoricalGibbsMetropolis on the place, with PyMC's default
   proposal, uniform, and with the proportional one, which proposes a place other than the current
-  one by its conditional probability and accepts it by Metropolis's rule (Liu's Metropolised Gibbs).
+  one by its conditional probability, as Liu's Metropolised Gibbs does, but accepts it with a ratio
+  computed from that probability renormalised over the other places, where Liu's takes it whole.
 - marginal: free_level with the place summed out by pymc-extras' marginalize, so that NUTS samples
   the size and the offsets alone, and the place given back afterwards, by pymc-extras' recover,
   which draws it from its conditional at each draw, and by the average of that conditional over
   the draws (place_posterior), the Rao-Blackwellised estimate.
 - exact: rule.py's posterior over the places, the offsets integrated in closed form and the size
   on the trapezoid's nodes (rule.trapezoid), the truth each of the others is held to.
+
+The proposal on a bare place: the same two proposals on a Categorical alone, its probabilities
+fixed (run_categorical), sampled by PyMC and set beside the stationary law of each proposal's
+transition matrix written out (proposal_kernel): PyMC's proportional proposal leaves a law other
+than the place's own stationary, or none, and Liu's, accepted by the whole probabilities, leaves the
+place's own.
 
 The far tail: the naming model's estimate of a place's posterior below 0.001 tends to run low
 (README, The naming model). The same estimator, model.hypothesis_posterior's average over the
@@ -66,12 +73,15 @@ FREE = {"bodies": {"seven": 3, "all": 5}, "fields": 3, "second": 0.1}
 SHARP = {"bodies": 9, "fields": 4, "set": "all"}
 TAIL = {"bodies": 3, "set": "seven", "fields": 2, "runs": 16, "long_runs": 4, "long_draws": 20000,
         "draws": 2000, "tune": 1000, "chains": 4, "batches": 20, "low": 1e-6, "high": 1e-3}
+CATEGORICAL = {"probs": ((0.89, 0.11), (0.889, 0.11, 0.001), (0.6, 0.3, 0.1), (0.5, 0.5)),
+               "draws": 4000, "tune": 500, "chains": 4, "seed": 13, "batches": 10}
 SAMPLER_STEP = 0.0005                 # the grid exact_draws draws log s from, finer than the rule's
 WITHIN = (5.0, 1e-3)                  # an estimate is the exact one within five MC errors plus 0.001
 QUICK = {"columns": 8, "sampling": {"draws": 100, "tune": 100, "chains": 2, "seed": 7, "batches": 5},
          "known": {"bodies": 3, "fields": 2}, "free": {"bodies": {"seven": 3, "all": 3}, "fields": 1, "second": 0.0},
          "sharp": {"bodies": 9, "fields": 1, "set": "all"},
-         "tail": dict(TAIL, fields=1, runs=2, long_runs=1, long_draws=200, draws=100, tune=100, chains=2, batches=5)}
+         "tail": dict(TAIL, fields=1, runs=2, long_runs=1, long_draws=200, draws=100, tune=100, chains=2, batches=5),
+         "categorical": dict(CATEGORICAL, draws=1000, tune=100, chains=2, batches=5)}
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 RECORD_DIR = os.path.join(ROOT, "records", "fixed-k-2026-10-29")
 RECORD = os.path.join(RECORD_DIR, "fixed_k.json")
@@ -412,6 +422,83 @@ def run_sharp(n_columns: int, spec: dict, sampling: dict) -> List[dict]:
     return out
 
 
+# ---- the proposal on a bare place --------------------------------------------------------------
+
+def proposal_kernel(p: Sequence[float], how: str) -> np.ndarray:
+    """The transition matrix of one step of CategoricalGibbsMetropolis on a place whose probabilities
+    are p, held fixed. 'uniform', PyMC's default (astep_unif), proposes one of the other places
+    uniformly and accepts it with min(1, p_j / p_i). 'proportional' proposes another place j with
+    p_j / (1 - p_i) and accepts it with min(1, r), r = (1 - p_i) / (1 - p_j / (1 - p_i)), the ratio
+    PyMC 6.3.2's metropolis_proportional computes from the renormalised probabilities, in floating
+    point as it does, so that the move is refused where r is not finite or not above 0. 'liu' is
+    Liu's Metropolised Gibbs (1996): the same proposal, accepted with min(1, (1 - p_i) / (1 - p_j)),
+    which leaves p stationary. With two places the proportional proposal offers the other place
+    with probability 1, and r divides by 1 less that, which is 0 or a rounding error of either sign,
+    so the chain never moves or moves at every step, as the rounding falls; this matrix takes the
+    rounding of its own arithmetic, which need not be PyMC's."""
+    p = np.asarray(p, float)
+    p = p / p.sum()                   # as PyMC's softmax of the places' log densities gives them
+    k = len(p)
+    T = np.zeros((k, k))
+    for i in range(k):
+        for j in range(k):
+            if j == i:
+                continue
+            if how == "uniform":
+                q, ratio = 1.0 / (k - 1), p[j] / p[i]
+            else:
+                q = p[j] / (1.0 - p[i])
+                with np.errstate(divide="ignore", invalid="ignore"):
+                    ratio = (1.0 - p[i]) / (1.0 - (q if how == "proportional" else p[j]))
+            T[i, j] = q * (min(1.0, ratio) if np.isfinite(ratio) and ratio > 0 else 0.0)
+        T[i, i] = 1.0 - T[i].sum()
+    return T
+
+
+def stationary(T: np.ndarray) -> Optional[np.ndarray]:
+    """The one law pi with pi T = pi, or None where there is more than one, as there is when the
+    chain cannot leave some places."""
+    w, v = np.linalg.eig(T.T)
+    ones = np.flatnonzero(np.abs(w - 1.0) < 1e-9)
+    if len(ones) != 1:
+        return None
+    pi = np.real(v[:, ones[0]])
+    return pi / pi.sum()
+
+
+def sample_categorical(p: Sequence[float], how: str, spec: dict) -> np.ndarray:
+    """A bare Categorical of probabilities p sampled by CategoricalGibbsMetropolis with the proposal
+    given, alone: the draws, (chains, draws)."""
+    import pymc as pm
+    with pm.Model():
+        place = pm.Categorical("place", p=np.asarray(p, float))
+        step = pm.CategoricalGibbsMetropolis([place], proposal=how)
+        idata = pm.sample(draws=spec["draws"], tune=spec["tune"], chains=spec["chains"], cores=1, step=step,
+                          random_seed=spec["seed"], progressbar=False, compute_convergence_checks=False)
+    return np.asarray(idata.posterior["place"].values, int)
+
+
+def run_categorical(spec: dict) -> List[dict]:
+    """Each proposal on each bare place: the share of the draws at each place with its Monte Carlo
+    error, each chain's share at the first place, how often the place changes, and the stationary
+    laws of PyMC's kernel and of Liu's."""
+    out = []
+    for p in spec["probs"]:
+        p = list(p)
+        for how in ("uniform", "proportional"):
+            with warnings.catch_warnings():
+                warnings.simplefilter("ignore")
+                labels = sample_categorical(p, how, spec)
+            share, se = counted_posterior(labels, len(p), spec["batches"])
+            pi = stationary(proposal_kernel(p, how))
+            out.append({"probs": p, "how": how, "share": share.tolist(), "share_se": se.tolist(),
+                        "chain_first": (labels == 0).mean(1).tolist(),
+                        "switch": float((np.diff(labels, axis=1) != 0).mean()),
+                        "kernel_stationary": None if pi is None else pi.tolist(),
+                        "liu_stationary": stationary(proposal_kernel(p, "liu")).tolist()})
+    return out
+
+
 # ---- the far tail ----------------------------------------------------------------------------
 
 def tail_fields(n_columns: int, spec: dict):
@@ -535,15 +622,18 @@ def run(n_columns: int = N_COLUMNS, quick: bool = False, log=print):
             log("fixed-k: sharp in %.0f s" % (time.time() - t0))
             tail = run_tail(n_columns, q["tail"] if q else TAIL)
             log("fixed-k: tail in %.0f s" % (time.time() - t0))
+            categorical = run_categorical(q["categorical"] if q else CATEGORICAL)
+            log("fixed-k: categorical in %.0f s" % (time.time() - t0))
     finally:
         log_.setLevel(level)
     return {"command": "python -m schwingcheck.fixed_k run" + (" --quick" if quick else ""),
             "columns": n_columns, "seeds": [SEED, EXTRA_SEED], "sampling": sampling, "within": list(WITHIN),
             "known_spec": q["known"] if q else KNOWN, "free_spec": q["free"] if q else FREE,
             "sharp_spec": q["sharp"] if q else SHARP, "tail_spec": q["tail"] if q else TAIL,
+            "categorical_spec": q["categorical"] if q else CATEGORICAL,
             "sampler_step": SAMPLER_STEP, "machine": CV.machine(), "versions": versions(),
             "made_by": made_by, "changed_during_run": CV.changed_during(made_by, CV.code_state()),
-            "known": known, "free": free, "sharp": sharp, "tail": tail}, draws
+            "known": known, "free": free, "sharp": sharp, "tail": tail, "categorical": categorical}, draws
 
 
 def versions() -> dict:
@@ -677,8 +767,9 @@ def sharp_table(record: dict) -> str:
     spec = record["sharp_spec"]
     measures = record["sharp"][0]["measures"] if record["sharp"] else 0
     out += ["", "All %d measures at %d bodies, fields drawn at random: the place all but certain. The proportional "
-            "proposal divides by one less the current place's conditional probability, which is 0 in floating point "
-            "here." % (measures, spec["bodies"])]
+            "proposal divides the other places' probabilities by one less the current place's, which in floating point "
+            "is 0, giving NaN, or a rounding error far above what the other places hold, giving probabilities that "
+            "do not sum to one." % (measures, spec["bodies"])]
     return "\n".join(out) + "\n"
 
 
@@ -746,10 +837,35 @@ def spread_table(record: dict, top: int = 4) -> str:
     return "\n".join(out) + "\n"
 
 
+def _law(x: Optional[Sequence[float]]) -> str:
+    return "not one" if x is None else ", ".join("%.3f" % v for v in x)
+
+
+def categorical_table(record: dict) -> str:
+    head = ["Probabilities", "Proposal", "Share at each place (MC error)", "Each chain's share at the first place",
+            "Place changes a draw", "Stationary: PyMC's kernel", "Stationary: Liu's"]
+    out = ["| " + " | ".join(head) + " |", "|---|---|---|---|---:|---|---|"]
+    for r in record["categorical"]:
+        out.append("| %s | %s | %s | %s | %.3f | %s | %s |" % (
+            ", ".join("%g" % v for v in r["probs"]), r["how"],
+            ", ".join("%.3f (%.3f)" % (m, e) for m, e in zip(r["share"], r["share_se"])),
+            " ".join("%.2f" % v for v in r["chain_first"]), r["switch"], _law(r["kernel_stationary"]),
+            _law(r["liu_stationary"])))
+    spec = record["categorical_spec"]
+    out += ["", "A Categorical alone, its probabilities fixed, sampled by CategoricalGibbsMetropolis with each proposal: "
+            "%d chains of %d draws after %d tuning steps, seed %d, errors by batch means, %d batches a chain. Beside it "
+            "the stationary law of the proposal's transition matrix written out (proposal_kernel), PyMC's as its code "
+            "computes the acceptance and Liu's Metropolised Gibbs; not one where the chain cannot leave some places, as on "
+            "two places, where PyMC's chain never moves or moves at every draw, by the rounding of its ratio."
+            % (spec["chains"], spec["draws"], spec["tune"], spec["seed"], spec["batches"])]
+    return "\n".join(out) + "\n"
+
+
 def tables(path: str = RECORD) -> Dict[str, str]:
     record = load(path)
     return {"fixed_k:known": known_table(record), "fixed_k:free": free_table(record), "fixed_k:sharp": sharp_table(record),
-            "fixed_k:tail": tail_table(record), "fixed_k:spread": spread_table(record)}
+            "fixed_k:tail": tail_table(record), "fixed_k:spread": spread_table(record),
+            "fixed_k:categorical": categorical_table(record)}
 
 
 def check(readme: str = README, path: str = RECORD) -> List[str]:
@@ -955,7 +1071,7 @@ def draw_figures(outdir: str = FIGURE_DIR, path: str = RECORD, figures_md: bool 
 def main(argv=None) -> int:
     ap = argparse.ArgumentParser(prog="python -m schwingcheck.fixed_k")
     ap.add_argument("what", choices=("run", "table", "figures", "check"))
-    ap.add_argument("--table", choices=("known", "free", "sharp", "tail", "spread"), default="known")
+    ap.add_argument("--table", choices=("known", "free", "sharp", "tail", "spread", "categorical"), default="known")
     ap.add_argument("--out", default=RECORD, help="the record run writes, and the one table, figures and check read")
     ap.add_argument("--quick", action="store_true", help="every count shrunk, for the tests")
     a = ap.parse_args(argv)

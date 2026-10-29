@@ -9,8 +9,11 @@ give a share and its error as a hand count does, and the Rao-Blackwellised poste
 the place's conditional. Draws of log s made independently from its exact posterior have its mean
 and SD, and the spread rows' posteriors are the exact posterior. A quick run gives every row its
 tables read, the proportional proposal stops on a place all but certain and says why, the summed-out
-model's averaged posterior is the exact one within its errors, check finds a stale or missing
-table, and the figures drawn twice are the same files. The committed record: the README carries its
+model's averaged posterior is the exact one within its errors, each proposal on a bare place gives
+the law its transition matrix leaves stationary, check finds a stale or missing table, and the
+figures drawn twice are the same files. Liu's Metropolised Gibbs and the uniform proposal leave a
+place's law stationary, and PyMC's proportional proposal, as its code computes the acceptance,
+another law, or none on two places, where it never moves. The committed record: the README carries its
 tables, it was made by committed code that did not change while it ran, and every claim the README
 makes of it holds on its rows.
 """
@@ -33,6 +36,10 @@ from schwingcheck import LEVELS                                   # noqa: E402
 from schwingcheck import compiled as K                            # noqa: E402
 from schwingcheck import fixed_k as FK                            # noqa: E402
 from schwingcheck import rule as R                                # noqa: E402
+
+# numpy's two ways of refusing the proportional proposal's weights where the current place is all but
+# certain: 1 less its probability is 0 (NaN) or a rounding error far above the others' sum
+PROPORTIONAL_STOPS = ("Probabilities contain NaN", "Probabilities do not sum to 1")
 
 
 def quiet(*args):
@@ -112,6 +119,24 @@ class Helpers(unittest.TestCase):
         self.assertAlmostEqual(post.sum(), 1.0, places=12)
 
 
+class Kernels(unittest.TestCase):
+    def test_liu_and_the_uniform_proposal_leave_the_places_law_stationary(self):
+        rng = np.random.default_rng(4)
+        for k in (2, 3, 5):
+            p = rng.dirichlet(np.ones(k))
+            for how in ("uniform", "liu"):
+                T = FK.proposal_kernel(p, how)
+                np.testing.assert_allclose(T.sum(1), 1.0, atol=1e-12)
+                np.testing.assert_allclose(FK.stationary(T), p, atol=1e-9)
+
+    def test_pymcs_proportional_proposal_leaves_another_law_or_none(self):
+        np.testing.assert_allclose(FK.proposal_kernel((0.89, 0.11), "proportional"), np.eye(2))
+        self.assertIsNone(FK.stationary(FK.proposal_kernel((0.89, 0.11), "proportional")))
+        pi = FK.stationary(FK.proposal_kernel((0.6, 0.3, 0.1), "proportional"))
+        self.assertGreater(np.abs(pi - (0.6, 0.3, 0.1)).max(), 0.1)
+        self.assertTrue(np.all(FK.proposal_kernel((0.889, 0.11, 0.001), "proportional") >= 0))
+
+
 class ExactDraws(unittest.TestCase):
     def test_they_have_the_exact_posteriors_mean_and_sd(self):
         x, truth, mu, sd, noise, power = field()
@@ -182,9 +207,23 @@ class Quick(unittest.TestCase):
         for row in self.record["sharp"]:
             runs = {x["how"]: x for x in row["runs"]}
             self.assertGreater(row["exact_top"], 1 - 1e-9)
-            self.assertIn("NaN", runs["proportional"]["error"])
+            self.assertTrue(runs["proportional"]["error"].startswith(PROPORTIONAL_STOPS), runs["proportional"]["error"])
             self.assertNotIn("error", runs["uniform"])
             self.assertTrue(runs["marginal"]["rb_within"])
+
+    def test_the_bare_place_rows_are_the_samplers_and_the_kernels(self):
+        rows = self.record["categorical"]
+        self.assertEqual([(tuple(r["probs"]), r["how"]) for r in rows],
+                         [(tuple(p), how) for p in FK.QUICK["categorical"]["probs"] for how in ("uniform", "proportional")])
+        for r in rows:
+            share, se = np.array(r["share"]), np.array(r["share_se"])
+            self.assertAlmostEqual(share.sum(), 1.0)
+            np.testing.assert_allclose(r["liu_stationary"], r["probs"], atol=1e-9)
+            law = r["probs"] if r["how"] == "uniform" else r["kernel_stationary"]
+            if law is not None:
+                self.assertTrue(np.all(np.abs(share - law) <= 5 * se + 0.05), (r["probs"], r["how"], share))
+            else:
+                self.assertIn(r["switch"], (0.0, 1.0), r["probs"])
 
     def test_the_averaged_posterior_is_exact_within_its_errors(self):
         for row in self.record["free"]:
@@ -194,7 +233,8 @@ class Quick(unittest.TestCase):
             self.assertAlmostEqual(sum(row["exact"]), 1.0, places=9)
 
     def test_the_tables_read_the_rows(self):
-        self.assertEqual(sorted(self.tables), sorted("fixed_k:" + n for n in ("known", "free", "sharp", "tail", "spread")))
+        self.assertEqual(sorted(self.tables),
+                         sorted("fixed_k:" + n for n in ("known", "free", "sharp", "tail", "spread", "categorical")))
         known = self.tables["fixed_k:known"].splitlines()
         rows = [x for x in known if x.startswith("| the seven") or x.startswith("| all ")]
         self.assertEqual(len(rows), sum(len(k["fields"]) for k in self.record["known"]))
@@ -205,6 +245,9 @@ class Quick(unittest.TestCase):
         self.assertIn("stopped: Probabilities contain NaN", self.tables["fixed_k:sharp"])
         tail = [x for x in self.tables["fixed_k:tail"].splitlines() if x.startswith("| example") or x.startswith("| column")]
         self.assertEqual(len(tail), len(self.record["tail"]) * len(FK.METHODS))
+        bare = [x for x in self.tables["fixed_k:categorical"].splitlines()[2:] if x.startswith("| ")]
+        self.assertEqual(len(bare), len(self.record["categorical"]))
+        self.assertIn("| 0.5, 0.5 | proportional |", self.tables["fixed_k:categorical"])
 
     def test_check_finds_a_stale_and_a_missing_table(self):
         text = "".join("<!-- %s -->\n%s<!-- /%s -->\n\n" % (k, v, k) for k, v in self.tables.items())
@@ -266,10 +309,24 @@ class CommittedRecord(unittest.TestCase):
         rhat = [x["rhat_top"] for row in self.record["free"] for x in row["runs"] if x["how"] == "uniform"]
         self.assertTrue(any(r > 1.1 for r in rhat if np.isfinite(r)))
 
+    def test_on_a_bare_place_pymcs_proportional_proposal_samples_its_kernels_law_and_not_the_places(self):
+        rows = self.record["categorical"]
+        for r in rows:
+            share, se = np.array(r["share"]), np.array(r["share_se"])
+            if r["how"] == "uniform":
+                self.assertTrue(np.all(np.abs(share - r["probs"]) <= 5 * se + 0.01), (r["probs"], share))
+            elif r["kernel_stationary"] is None:
+                self.assertIn(r["switch"], (0.0, 1.0), r["probs"])
+                if r["switch"] == 0.0:
+                    self.assertTrue(all(c in (0.0, 1.0) for c in r["chain_first"]), r["probs"])
+            else:
+                self.assertTrue(np.all(np.abs(share - r["kernel_stationary"]) <= 5 * se + 0.01), (r["probs"], share))
+                self.assertGreater(np.abs(share - r["probs"]).max(), 0.1, r["probs"])
+
     def test_the_proportional_proposal_stopped_on_every_sharp_field(self):
         for row in self.record["sharp"]:
             p = [x for x in row["runs"] if x["how"] == "proportional"][0]
-            self.assertIn("NaN", p.get("error", ""), row["field"])
+            self.assertTrue(p.get("error", "").startswith(PROPORTIONAL_STOPS), (row["field"], p.get("error")))
 
 
 if __name__ == "__main__":
