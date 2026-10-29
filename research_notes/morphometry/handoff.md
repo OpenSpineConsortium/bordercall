@@ -34,13 +34,32 @@ vertebra's own axis and the VerSe record.
   to 26 mm, the transverse process's root fused to the pedicle in every row); C5 read nothing
   sensible (the foramen transversarium is not closed in the mask), which the guard now refuses;
   T1 read 49 degrees across, where 25 to 35 is expected.
-- NOT verified: the fourth pass as pushed, the row cleaning (OUTLIER_SHARE, CORNER_MM), the
-  wall-line extension, the level limits and the guards. Its traces were started at 23:04 UTC in
-  the container and were lost with it. The test suite was last green before the pedicle rewrite
-  and has not been run on it. The probe of 2026-10-29 (morphometry/tests/probe_axis.py on 0004)
-  showed the medial wall is the one surface read the same in every row: the sections' middles
-  read L4 converging 27 to 42 degrees where the walls read 15, the transverse process's root
-  joining the lateral surface in the lower layers two rows behind the isthmus.
+- Verified by trace, fourth pass (the code as pushed, run at 23:04 UTC): the straight phantom
+  reads width 9.08 against 9, height 15.06 against 15, transverse angle 0.3 against 0, sagittal
+  1.2 against 0, chord 49.9 against 49.9, interpedicular 21.8 against 22 and its greatest 23.3
+  against 23.2; the shapes column width 9.09, height 14.84, transverse 12.3 against 12, sagittal
+  9.3 against 6 (the raster: on a baseline of 7.5 mm the settled middles step by one layer of 1.24
+  mm, so the sagittal angle is quantised to about 9 degrees; the Shapes test's 1.5 degrees will
+  fail on it until the sagittal angle is read from the pedicle's top and bottom surfaces fitted
+  as planes, or the test states the raster's bound), chord 51.3 against 51.1; the lateral-mass
+  column width 9.6, height 15.2, interpedicular 21.8 and 23.3, its transverse angle -5.9 against
+  0 and one sagittal angle not read (the free pedicle 4.0 mm). On study 0004: L3 widths 10.8 and
+  8.7, heights 15.0, transverse -2.3 and 3.8, interpedicular 23.3 and 25.1; L4 widths 11.7 and
+  13.5, heights 14.7 and 12.5, transverse 9.8 and -6.5, interpedicular 23.3 and 28.1; T8 widths
+  6.9 and 6.0, heights 14.0 and 15.1, transverse -2.9 and 2.9, interpedicular 15.5 and 16.4; T1
+  right 8.0 by 12.7 at 47 degrees, left 12.3 by 13.2 with no axis (too few rows after the
+  cleaning; the 12.3 is likely the lateral mass's edge), interpedicular 16.4 and 19.5; L5 flagged
+  on both sides (sections 27 and 22 mm, the transverse process's root); C5 refused by the foramen
+  guard. So the widths, heights and interpedicular distances read plausibly at L3, L4 and T8; the
+  transverse angle is not trustworthy (L4's left -6.5, T1's right 47, L3 near 0 where Zindrick
+  has about 10): it is the canal wall's angle over a few rows and it needs either a longer
+  baseline or another construction; the sagittal angle is read on no real level of 0004.
+- Not run on the fourth pass: the test suite (last green before the pedicle rewrite), the
+  measure and render of 0004, the 229-spine sweep. One fix came after the traces, in
+  axis_rows: a row beyond the isthmus rows takes its wall over the isthmus row's layers, as the
+  docstring says, where the pushed trace took the row's own layers for a row the cleaning had
+  dropped and so stopped the extension there; the shapes trace was running again on it when
+  this was written.
 
 ## What to do next, in order
 

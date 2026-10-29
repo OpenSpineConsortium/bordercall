@@ -355,7 +355,7 @@ def axis_rows(m: SideMap, rows: List[dict], near: List[int], k: int, sec: float,
     for step in (-1, 1):
         i = (min(near) if step < 0 else max(near)) + step
         while 0 <= i < len(rows):
-            wall = walls[i] if i in walls else medial_wall(m, rows[i]["y"], layers)
+            wall = walls[i] if i in near else medial_wall(m, rows[i]["y"], layers)
             if not np.isfinite(wall) or wall < floor or abs(wall - np.polyval(line, rows[i]["y"])) > WALL_FIT_MM:
                 break
             taken.append(i)
