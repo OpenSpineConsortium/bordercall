@@ -1,0 +1,67 @@
+width,setting,rule,exact,exact_se,columns
+1,generator,generator's rule,0.474848,0.00655271,300
+1,scale_sd=0.035,generator's rule,0.502424,0.00630002,300
+1,scale_sd=0.1,generator's rule,0.441667,0.00742412,300
+1,rho=0.25,generator's rule,0.469697,0.00632469,300
+1,rho=0.9,generator's rule,0.472727,0.00776247,300
+1,phi=0.6,generator's rule,0.466667,0.00673733,300
+1,r_between=0.4,generator's rule,0.474697,0.00662593,300
+1,error_scale=2.0,generator's rule,0.391061,0.00600166,300
+1,sd_mode=size_removed,generator's rule,0.568788,0.00696308,300
+1,sd_scale=0.7,generator's rule,0.51197,0.00704734,300
+1,nearest the papers,generator's rule,0.573636,0.0057325,300
+1,generator,rule matched,0.474848,0.00655271,300
+1,scale_sd=0.035,rule matched,0.519242,0.00666613,300
+1,scale_sd=0.1,rule matched,0.44697,0.00616797,300
+1,rho=0.25,rule matched,0.469697,0.00632469,300
+1,rho=0.9,rule matched,0.472727,0.00776247,300
+1,phi=0.6,rule matched,0.466667,0.00673733,300
+1,r_between=0.4,rule matched,0.474697,0.00662593,300
+1,error_scale=2.0,rule matched,0.403182,0.00630511,300
+1,sd_mode=size_removed,rule matched,0.600303,0.00649098,300
+1,sd_scale=0.7,rule matched,0.531061,0.00646917,300
+1,nearest the papers,rule matched,0.597576,0.00817515,300
+3,generator,generator's rule,0.728333,0.00851529,300
+3,scale_sd=0.035,generator's rule,0.7425,0.00798593,300
+3,scale_sd=0.1,generator's rule,0.706667,0.00902534,300
+3,rho=0.25,generator's rule,0.729,0.00820766,300
+3,rho=0.9,generator's rule,0.744833,0.00820208,300
+3,phi=0.6,generator's rule,0.736333,0.00779043,300
+3,r_between=0.4,generator's rule,0.735,0.0083656,300
+3,error_scale=2.0,generator's rule,0.618333,0.00886488,300
+3,sd_mode=size_removed,generator's rule,0.841667,0.00649944,300
+3,sd_scale=0.7,generator's rule,0.7615,0.00776453,300
+3,nearest the papers,generator's rule,0.799167,0.00661262,300
+3,generator,rule matched,0.728333,0.00851529,300
+3,scale_sd=0.035,rule matched,0.769167,0.00834879,300
+3,scale_sd=0.1,rule matched,0.710167,0.00830474,300
+3,rho=0.25,rule matched,0.735833,0.00810487,300
+3,rho=0.9,rule matched,0.8085,0.00676144,300
+3,phi=0.6,rule matched,0.736333,0.00779043,300
+3,r_between=0.4,rule matched,0.735,0.0083656,300
+3,error_scale=2.0,rule matched,0.6395,0.0090085,300
+3,sd_mode=size_removed,rule matched,0.877667,0.00562223,300
+3,sd_scale=0.7,rule matched,0.778833,0.00761979,300
+3,nearest the papers,rule matched,0.819833,0.00747683,300
+9,generator,generator's rule,0.95619,0.00573945,300
+9,scale_sd=0.035,generator's rule,0.959524,0.00549915,300
+9,scale_sd=0.1,generator's rule,0.95381,0.00581525,300
+9,rho=0.25,generator's rule,0.953095,0.00584983,300
+9,rho=0.9,generator's rule,0.983333,0.00342025,300
+9,phi=0.6,generator's rule,0.963333,0.0047874,300
+9,r_between=0.4,generator's rule,0.958571,0.00549611,300
+9,error_scale=2.0,generator's rule,0.889048,0.00898757,300
+9,sd_mode=size_removed,generator's rule,0.990952,0.00239904,300
+9,sd_scale=0.7,generator's rule,0.973571,0.00439714,300
+9,nearest the papers,generator's rule,0.98381,0.00329247,300
+9,generator,rule matched,0.95619,0.00573945,300
+9,scale_sd=0.035,rule matched,0.961905,0.00548361,300
+9,scale_sd=0.1,rule matched,0.955,0.00578281,300
+9,rho=0.25,rule matched,0.958333,0.00585604,300
+9,rho=0.9,rule matched,0.994286,0.00150987,300
+9,phi=0.6,rule matched,0.963333,0.0047874,300
+9,r_between=0.4,rule matched,0.958571,0.00549611,300
+9,error_scale=2.0,rule matched,0.903095,0.00797022,300
+9,sd_mode=size_removed,rule matched,0.997381,0.000846454,300
+9,sd_scale=0.7,rule matched,0.977619,0.00416201,300
+9,nearest the papers,rule matched,0.985714,0.00301673,300

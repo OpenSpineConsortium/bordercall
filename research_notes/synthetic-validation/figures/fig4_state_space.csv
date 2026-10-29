@@ -1,0 +1,70 @@
+axis,value,series,y,scale_sd,sd_scale,distance,rho,r_between
+scale_sd,0,true values,1.48578,,,,,
+scale_sd,0.035,true values,1.50507,,,,,
+scale_sd,0.05,true values,1.58421,,,,,
+scale_sd,0.07,true values,1.65626,,,,,
+scale_sd,0.1,true values,1.83326,,,,,
+scale_sd,0,as a CT reads them,1.64415,,,,,
+scale_sd,0.035,as a CT reads them,1.7063,,,,,
+scale_sd,0.05,as a CT reads them,1.72586,,,,,
+scale_sd,0.07,as a CT reads them,1.80024,,,,,
+scale_sd,0.1,as a CT reads them,1.99395,,,,,
+sd_scale,0.7,true values,1.27722,,,,,
+sd_scale,0.85,true values,1.46468,,,,,
+sd_scale,1,true values,1.65626,,,,,
+sd_scale,0.7,as a CT reads them,1.47054,,,,,
+sd_scale,0.85,as a CT reads them,1.62989,,,,,
+sd_scale,1,as a CT reads them,1.80024,,,,,
+rho,0,"rho, between levels",0.200897,,,,,
+rho,0.25,"rho, between levels",0.244796,,,,,
+rho,0.5,"rho, between levels",0.391537,,,,,
+rho,0.75,"rho, between levels",0.644627,,,,,
+rho,0.9,"rho, between levels",0.842652,,,,,
+phi,0,"phi, along the column",0.391537,,,,,
+phi,0.3,"phi, along the column",0.572383,,,,,
+phi,0.6,"phi, along the column",0.75341,,,,,
+phi,0.9,"phi, along the column",0.934356,,,,,
+r_between,0,canal area with body area,0.586221,,,,,
+r_between,0.2,canal area with body area,0.633831,,,,,
+r_between,0.4,canal area with body area,0.682502,,,,,
+r_between,0,canal w with body area,0.576645,,,,,
+r_between,0.2,canal w with body area,0.621263,,,,,
+r_between,0.4,canal w with body area,0.668718,,,,,
+r_between,0,canal ap with body area,0.543855,,,,,
+r_between,0.2,canal ap with body area,0.590685,,,,,
+r_between,0.4,canal ap with body area,0.641011,,,,,
+r_between,0,canal ap with canal w,0.494201,,,,,
+r_between,0.2,canal ap with canal w,0.546963,,,,,
+r_between,0.4,canal ap with canal w,0.601028,,,,,
+sd_scale,0.7,any,16.1534,,,,,
+sd_scale,0.85,any,28.6705,,,,,
+sd_scale,1,any,41.8773,,,,,
+sd_scale,0.7,box,13.0091,,,,,
+sd_scale,0.85,box,22.1807,,,,,
+sd_scale,1,box,31.9648,,,,,
+sd_scale,0.7,convex,2.6875,,,,,
+sd_scale,0.85,convex,6.20795,,,,,
+sd_scale,1,convex,10.6068,,,,,
+sd_scale,0.7,sign,0.294318,,,,,
+sd_scale,0.85,sign,0.9625,,,,,
+sd_scale,1,sign,2.19432,,,,,
+grid,,,,0.02,0.6,0.0368407,0.75,0.4
+grid,,,,0.02,0.7,0.0248158,0.75,0.4
+grid,,,,0.02,0.8,0.0522688,0.75,0.4
+grid,,,,0.02,0.9,0.106228,0.75,0.4
+grid,,,,0.02,1,0.178103,0.75,0.4
+grid,,,,0.035,0.6,0.0529004,0.75,0.4
+grid,,,,0.035,0.7,0.0507849,0.75,0.4
+grid,,,,0.035,0.8,0.0737111,0.75,0.4
+grid,,,,0.035,0.9,0.123716,0.75,0.4
+grid,,,,0.035,1,0.191047,0.75,0.4
+grid,,,,0.05,0.6,0.105053,0.75,0.4
+grid,,,,0.05,0.7,0.102518,0.75,0.4
+grid,,,,0.05,0.8,0.132561,0.75,0.4
+grid,,,,0.05,0.9,0.187085,0.75,0.4
+grid,,,,0.05,1,0.25459,0.75,0.4
+grid,,,,0.07,0.6,0.196203,0.75,0.4
+grid,,,,0.07,0.7,0.203375,0.75,0.4
+grid,,,,0.07,0.8,0.231848,0.75,0.4
+grid,,,,0.07,0.9,0.286853,0.75,0.4
+grid,,,,0.07,1,0.334519,0.75,0.4

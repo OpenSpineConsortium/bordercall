@@ -1,0 +1,54 @@
+{
+ "bordercall_commit": "391571a1c65bf542e2c09cd68abd7c564df9f408",
+ "code": {
+  "run.py": "7c420de3ef9ca85f7b664cd76e597f5d63fbd07c64e464db003cbfaee98e0def",
+  "synthval/house.py": "699b7216f9f1806779833429e7dae14d608d1eb107e4f068c40399e04c598b17",
+  "synthval/literature.py": "f7d62a680315ecfbebbea1ad100398624747c1745c698ca60d3d2f5e663c07d0",
+  "synthval/naming.py": "b9416b1c743ea68011699dc268f6208f1ebedefb2a84716349e8e3a354430db9",
+  "synthval/pooling.py": "292c34f8de6eadb40681f68143d35943eaf6c61130df2f5b778a40e2e0763df0",
+  "synthval/population.py": "86ef1ca9e61fd165ef8368e9bba02c07b8e5b87108bc2c1bd86743daede1e4fe",
+  "synthval/power.py": "4a5941be7807a6fac56dd2eb8ebd0d22ef02430e44394c438d084a3e85cc2b23",
+  "synthval/qi.py": "2ba8b36aa8e0fa15359c89a65b57ea0f36de332bdf0a5ab092b1687038c9d561",
+  "synthval/references.py": "bdb3a7c975b72d6235f6e4e26054b538f767ce84dfa140ff5fbb8c461fefa3d5",
+  "synthval/structure.py": "9e031e081a00dd3a8245e0ac015519953e2c3d60dd29f883ce51473bfcd79c31",
+  "synthval/sweep.py": "3d43b35eea20a1c3a79ae29eb0c6189cf7ecc55fb43c722749d179d3dd23132a",
+  "synthval/validate.py": "4ae354db4c2997bd5c5a39d0d2dd158b17f690659f6a6b5adf8773c29e87abbc"
+ },
+ "command": "python3 -I run.py --out records",
+ "files": {
+  "grid.csv": "56d168bbc128fa2d69eb3c8cc624763c7268115864c41fdec749ac70bedec74a",
+  "naming.csv": "056de14af28ce4dd7292f2ce57381c96ee6326f2ac0ee29367346d79d3b3a5a0",
+  "power.json": "3cbc54a4da17d5c3a1ca131c2860e384fcbd41eb45c43dfd7f7c583e1a1c3445",
+  "power_cells.csv": "6b4e5b5e0020ddb18deffc3e3728bb9846397945771fc391028fc0f370566248",
+  "power_naming.csv": "2516ec683468f0fa3069f1db156ee5da5b1de80f1ce7482f59a8475b8713a80b",
+  "qi.json": "ebe56cedd956c1fe28f5f1d2e98ec44f3a1c1a1ed7d406c1532abd4ff2c8922f",
+  "references.json": "9ba5f8362ac0fa44400091f01263c1fa9dbf10d8e6f2a82d9052c6f4ea73d17d",
+  "selection.json": "4161f030a59b8183500c5deeb60cfc04c9f35581c0bccf38d58a3161950ac7f4",
+  "series.csv": "554dd5284af85177a91d202cf43fb81c6687cb83f1c5ac3645f498d9548b4082",
+  "state_space.csv": "210ec52ae2887a4513ec7b35ee328aab2afbb89e4568cff52bca6c9583c57775",
+  "structure.json": "14f996c1098d3681c0b1162fc943d33f882f76eba25185de90dc3f2ed3164dcd",
+  "validation_cells.csv": "b254ebc1cecf9125f75975d62e9ad0a3c9f41888fd5eb09385668c4c949466ce",
+  "validation_summary.json": "93094024376d1b06ef914879d356eee272926c39ef522839ebb36f1a5caabcec"
+ },
+ "numpy": "2.5.4",
+ "python": "3.13.17",
+ "schwingcheck_changed_since_commit": false,
+ "seconds": 464,
+ "seeds": {
+  "naming_columns": 4101,
+  "population": 2026,
+  "power_columns": 4101,
+  "power_tables": 4102,
+  "sweep": 11
+ },
+ "sizes": {
+  "naming_columns": 300,
+  "population": 20000,
+  "power_tables": 4
+ },
+ "snapshot": {
+  "branch": "claude/project-thread-adplcz",
+  "commit": "45130acb7beb58e1293c1ca71e4f00f8c0af3d91",
+  "sha256": "ea7eb5fc73752c756b4f69f71d0cc0d5e4289b3a30858f44c1986590eea85117"
+ }
+}

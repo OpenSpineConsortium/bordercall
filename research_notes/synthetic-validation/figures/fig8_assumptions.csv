@@ -1,0 +1,14 @@
+panel,high,low,modality,source,unit,what,chain_weight,generator_share,papers,state
+A,0.65,0.3,CT,"duman2026, 50 scans read again after 4 weeks; error.md L53",mm,body heights,,,,
+A,0.55,0.2,CT,duman2026; error.md L63,mm,pedicle width and height,,,,
+A,1.2,0.4,CT,"griffith2016, by level L1-L5; error.md L60",mm,canal width and depth,,,,
+A,0.9,0.5,MRI,"tang2016, between observers; error.md L58",mm,disc and end-plate diameters,,,,
+A,0.95,0.35,"bone, caliper",yu2015; error.md L65,mm,pedicle width and height,,,,
+A,0.27,0.27,film,"hinck1966, 89 duplicate readings; error.md L61",mm,interpedicular distance,,,,
+A,0.22,0.22,CT,"vanderhouwen2009, a pig vertebra; error.md L57",mm,"one vertebra, CT against caliper",,,,
+B,0.0439,0.0139,,"eisenstein1977 p. 177, 11 / 443 dry skeletons (2 true L6, 9 lumbarised S1); anomaly-priors.md",,,0.05,0.166667,0.0248,six lumbar-type segments (L6 or lumbarised S1)
+B,0.0163,0.0012,,"eisenstein1977 p. 177, 2 / 443; anomaly-priors.md",,,,,0.0045,of which a true L6
+B,0.0352,0.0092,,"eisenstein1977 p. 177, 8 / 443; sacralisation undefined, so a ceiling; anomaly-priors.md",,,,0.166667,0.0181,"four lumbar segments (sacralised L5), a ceiling"
+B,,,,no count and no bound in the 43 papers; any value is a modelling choice; anomaly-priors.md,,,0.05,0.166667,,a thirteenth rib-bearing body (T13)
+B,0.0401,0.0133,,"duman2026 Table 5 p. 10, 12 / 517 chest CTs; anomaly-priors.md",,,,0.166667,0.0232,a rib on the first lumbar-type body
+B,0.0636,0.0283,,"duman2026 Table 5 p. 10, 22 / 517; a ceiling for bilateral absence, laterality never reported; anomaly-priors.md",,,,0.166667,0.0426,"no twelfth rib, one side or both"
