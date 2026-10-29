@@ -1,6 +1,8 @@
 # Every measure, as a recipe for a CT mask and a radiograph
 
-Source: the 43 notes of the thread "Reread every paper for clinical detail" (project symphony_4, 2026-10-28), kept in bordercall's research_notes/clinical-reread/notes/, with their extracts; schwingcheck/measures.py and schwingcheck/mnemonics.py for the generator's keys; archive/bordercall/spineps_map.py for the archive's measurer. Written 2026-10-28 as one part of a synthesis. Every statement cites a note by its id and the paper's printed page, as (eisenstein1977 p. 175). A statement drawn from a note's own reasoning, not from its paper, says "Inference:" and gives its arithmetic or its source. A statement about bordercall's code cites the file.
+Source: thread "Finish the clinical reread", project symphony_4, 2026-10-29: the synthesis of the 43 checked notes in ../notes/, drafted by one writer, read by an accuracy critic and four completeness critics, fixed and checked again.
+
+Every statement cites a note by its id and the paper's printed page, as (eisenstein1977 p. 175); each id is the note ../notes/<id>.md, linked from the table of section 1. A statement drawn from a note's own reasoning, not from its paper, says "Inference:" and gives its arithmetic or its source. The generator's keys come from schwingcheck/measures.py and schwingcheck/mnemonics.py, and the archive's measurer is archive/bordercall/spineps_map.py; a statement about that code cites the file.
 
 ## How to read this part
 
@@ -37,62 +39,62 @@ The prevalence of anomalies, the junction criteria and the decoder's priors are 
 
 | id | Who, and how many | Living, cadaver or dry bone | Modality | Levels |
 |---|---|---|---|---|
-| abbas2021 | Israel; 165 with degenerative stenosis (80 M, 85 F) and 180 controls (90 M, 90 F), aged 40 and over (abbas2021 p. 2) | living | CT, axial and midsagittal reformats | L1-L5 |
-| ahmed2019 | India (Telangana); 80 adults with back pain (36 M, 44 F), 20-70 y (ahmed2019 p. 22) | living | MRI 1.5 T, 4 mm slices | L1-L5 |
-| ahn2001 | USA; 32 adults with Marfan syndrome (18 F, 14 M), compared with Hinck's normals (ahn2001 p. 68) | living | AP and lateral radiographs | L1-L5 |
-| alonge2021 | Nigeria (Lagos); 120 abdominal CTs (66 F, 54 M) (alonge2021 p. 71) | living | CT | L1-L5 |
-| amonookuofi1982 | Nigeria (Ilorin); 290 AP films (150 M, 140 F), 20-45 y (amonookuofi1982 p. 226) | living | AP film at 100 cm, not corrected | L1-L5 |
-| amonookuofi1985 | Nigeria (Ibadan); lumbar sets of 122 adults (79 M, 43 F), 23-60 y (amonookuofi1985 p. 69) | dry bone | vernier caliper | L1-L5 |
-| arockiaraj2025 | Saudi Arabia (Riyadh); 300 adults (150 M, 150 F), 18-60 y (arockiaraj2025 p. 314) | living | CT, 2.5 mm axial | L1-L5 |
-| bach2019 | USA (Tampa); 240 abdominal CTs (131 F, 109 M), 10-80 y (bach2019 p. e107) | living | CT, 3D models | discs T12/L1-L5/S1 |
-| bonczar2024 | 1481 people summed over 18 published studies, 1076 of them Asian (bonczar2024 p. 3 Table 1) | mixed | random-effects meta-analysis | L1-L5 |
-| busscher2010 | Netherlands; 6 male cadaver spines, mean 72 y, 182 cm, 132 vertebrae (busscher2010 p. 1105) | fresh-frozen cadaver, discs intact | CT, 1 mm | C3-L5 |
-| chaudhary2015 | India (Haryana); 300 AP films (150 M, 150 F), 25-40 y (chaudhary2015 p. 34) | living | AP film, not corrected | L1-L5 |
-| chen2011 | 83 CT patients (Inference: 43 M, 40 F), 21-65 y, 830 end plates; a check on 10 cadaver spines (chen2011 p. 1815) | living and cadaver | CT, 0.625 mm reformats | T10 inf to L3 sup |
-| cizmic2023 | Bosnia (Sarajevo); 200 CTs (100 M, 100 F) with lumbar pain (cizmic2023 p. 201) | living | CT, 2 mm | L1-L5 |
-| duman2026 | Turkey (Izmir); 517 adults (277 M, 240 F) (duman2026 p. 3) | living | CT, 0.625 mm | T11-L2, 12th rib |
-| eisenstein1977 | South Africa; 443 skeletons (113 Caucasoid, 162 Zulu, 168 Sotho), 2,166 lumbar vertebrae; film substudy 55 vertebrae of 11 skeletons (eisenstein1977 p. 173) | dry bone | caliper, calibration films | L1-L5 |
-| frontphys2026 | China; 100 adults (46 M, 54 F by Table 1), 20-70 y (frontphys2026 p. 3) | living | CT | L1-L5 bodies |
-| gilad1985 | Healthy working men 20-38 y (Inference: Israel); 141 cervical and 157 lumbar lateral films (gilad1985 p. 115) | living | lateral film, magnification corrected | C2-C7, L1-L5 |
-| griffith2016 | Hong Kong; 1,080 adults (540 M, 540 F), 21-80 y (griffith2016 p. 672) | living | CT, mid-pedicle axial | L1-L5 |
-| hinck1966 | USA (Portland); 474 AP films, 121 of adults (hinck1966 p. 141) | living | AP film at 40 in, not corrected | C3-L5 |
-| hou1993 | China (Xian); 40 T9-L5 columns (25 M, 15 F) (hou1993 p. 1851) | dry bone | caliper | T9-L5 |
-| italianmri | Italy; 604 adults (302 M, 302 F), 20-45 y, transitional vertebrae excluded (italianmri p. 2) | living | MRI 1.5 T | L1-S1 |
-| krag1988 | USA (Vermont); 41 patients (27 M, 14 F), 91 vertebrae, 182 pedicles (krag1988 p. 27) | living | CT, 4 mm | T9-L5 |
-| kunkel2011 | 72 thoracic motion segments from 30 donors (15 F, 15 M), mean 57 y (kunkel2011 p. 375) | cadaver | contact films and sections | C7-T12 |
-| lien2007 | Taiwan; 15 dry T1-L5 sets (8 M, 7 F); 6 cadavers for T11-L5 (lien2007 p. 1216) | dry bone and cadaver | caliper, goniometer | T1-L5 |
-| makino2012 | Japan; 50 preoperative patients (23 M, 27 F), 52-85 y (makino2012 p. 1516) | living | CT, 1.25 mm | L1-L5 |
-| masharawi2021 | Israel; 100 CTs, 50 spondylolisthesis and 50 controls (25 M, 25 F each), 50-80 y (masharawi2021 p. 3) | living | CT | L1-L5 |
-| mitra2002 | India (Nagpur); 20 cadavers (18 M, 2 F) (mitra2002 p. 453) | cadaver | direct, CT 5 mm, films | L1-L5 |
-| moncadahabib2025 | Mexico; 37 patients (Inference: 20 M, 17 F), 185 vertebrae (moncadahabib2025 p. 2) | living | CT, 1 mm | L1-L5 |
-| olsewski1990 | USA (Buffalo); 49 embalmed cadavers (24 M, 25 F), 60-98 y; 21 also filmed and scanned (olsewski1990 p. 542) | embalmed cadaver | direct, AP film, CT | L1-L5 |
-| otsuki2021 | USA; 6 fresh-frozen spines (3 M, 3 F), 50-67 y, 60 pedicles; first author Irie (otsuki2021 p. 2) | cadaver | micro-CT, 34.4 um | L1-L5 |
-| panjabi1991c, panjabi1991t, panjabi1992, panjabi1993f | 12 fresh autopsy spines, 8 M, 4 F, mean 46.3 y (panjabi1992 p. 299) | dry bone | 3D morphometer | C2-L5 |
-| robertson2000 | 10 dry lumbosacral spines; 100 lumbar and 20 S1 pedicles (robertson2000 p. 709) | dry bone | wire-marked films | L1-L5, S1 |
-| shin2024 | USA (Loma Linda); 700 adults (350 M, 350 F), 18-35 y (shin2024 p. 2) | living | CT | discs L1/2-L5/S1 |
-| tan2004 | Singapore; 10 Chinese cadavers, sex not reported, mean 65.7 y, 220 vertebrae (tan2004 p. 137) | dry bone | 3D digitiser | C3-L5 |
-| tang2016 | USA (Utah); 109 adults (55 F, 54 M), 20-40 y, 318 discs (tang2016 p. 4117) | living | MRI 1.5 T | L3-S1 discs and end plates |
-| twomey1985 | 204 cadaver lumbar blocks (Inference: Western Australia) (twomey1985 p. 496) | cadaver | dissection, calipers | discs L1/2-L5/S1 |
-| vanderhouwen2009 | Netherlands; 77 patients (46 M, 31 F), 21-86 y, 25 end plates per position (vanderhouwen2009 p. 34) | living | CT, 0.75 mm | T12 inf to S1 sup |
-| yadav2020 | India (Inference: Lucknow); 302 adults (174 M, 128 F), 20-40 y (yadav2020 p. 176) | living | CT | T12-S1 |
-| yu2015 | USA (Hamann-Todd collection); 503 skeletons (404 M, 99 F), 17-93 y (yu2015 p. 1640) | dry bone | digital caliper | L1-L5 |
-| zindrick1987 | USA; specimens and clinical CTs of unstated number; 2,905 measurements (zindrick1987 p. 160) | cadaver films and living CT | axial films, CT | T1-L5 |
+| [abbas2021](../notes/abbas2021.md) | Israel; 165 with degenerative stenosis (80 M, 85 F) and 180 controls (90 M, 90 F), aged 40 and over (abbas2021 p. 2) | living | CT, axial and midsagittal reformats | L1-L5 |
+| [ahmed2019](../notes/ahmed2019.md) | India (Telangana); 80 adults with back pain (36 M, 44 F), 20-70 y (ahmed2019 p. 22) | living | MRI 1.5 T, 4 mm slices | L1-L5 |
+| [ahn2001](../notes/ahn2001.md) | USA; 32 adults with Marfan syndrome (18 F, 14 M), compared with Hinck's normals (ahn2001 p. 68) | living | AP and lateral radiographs | L1-L5 |
+| [alonge2021](../notes/alonge2021.md) | Nigeria (Lagos); 120 abdominal CTs (66 F, 54 M) (alonge2021 p. 71) | living | CT | L1-L5 |
+| [amonookuofi1982](../notes/amonookuofi1982.md) | Nigeria (Ilorin); 290 AP films (150 M, 140 F), 20-45 y (amonookuofi1982 p. 226) | living | AP film at 100 cm, not corrected | L1-L5 |
+| [amonookuofi1985](../notes/amonookuofi1985.md) | Nigeria (Ibadan); lumbar sets of 122 adults (79 M, 43 F), 23-60 y (amonookuofi1985 p. 69) | dry bone | vernier caliper | L1-L5 |
+| [arockiaraj2025](../notes/arockiaraj2025.md) | Saudi Arabia (Riyadh); 300 adults (150 M, 150 F), 18-60 y (arockiaraj2025 p. 314) | living | CT, 2.5 mm axial | L1-L5 |
+| [bach2019](../notes/bach2019.md) | USA (Tampa); 240 abdominal CTs (131 F, 109 M), 10-80 y (bach2019 p. e107) | living | CT, 3D models | discs T12/L1-L5/S1 |
+| [bonczar2024](../notes/bonczar2024.md) | 1481 people summed over 18 published studies, 1076 of them Asian (bonczar2024 p. 3 Table 1) | mixed | random-effects meta-analysis | L1-L5 |
+| [busscher2010](../notes/busscher2010.md) | Netherlands; 6 male cadaver spines, mean 72 y, 182 cm, 132 vertebrae (busscher2010 p. 1105) | fresh-frozen cadaver, discs intact | CT, 1 mm | C3-L5 |
+| [chaudhary2015](../notes/chaudhary2015.md) | India (Haryana); 300 AP films (150 M, 150 F), 25-40 y (chaudhary2015 p. 34) | living | AP film, not corrected | L1-L5 |
+| [chen2011](../notes/chen2011.md) | 83 CT patients (Inference: 43 M, 40 F), 21-65 y, 830 end plates; a check on 10 cadaver spines (chen2011 p. 1815) | living and cadaver | CT, 0.625 mm reformats | T10 inf to L3 sup |
+| [cizmic2023](../notes/cizmic2023.md) | Bosnia (Sarajevo); 200 CTs (100 M, 100 F) with lumbar pain (cizmic2023 p. 201) | living | CT, 2 mm | L1-L5 |
+| [duman2026](../notes/duman2026.md) | Turkey (Izmir); 517 adults (277 M, 240 F) (duman2026 p. 3) | living | CT, 0.625 mm | T11-L2, 12th rib |
+| [eisenstein1977](../notes/eisenstein1977.md) | South Africa; 443 skeletons (113 Caucasoid, 162 Zulu, 168 Sotho), 2,166 lumbar vertebrae; film substudy 55 vertebrae of 11 skeletons (eisenstein1977 p. 173) | dry bone | caliper, calibration films | L1-L5 |
+| [frontphys2026](../notes/frontphys2026.md) | China; 100 adults (46 M, 54 F by Table 1), 20-70 y (frontphys2026 p. 3) | living | CT | L1-L5 bodies |
+| [gilad1985](../notes/gilad1985.md) | Healthy working men 20-38 y (Inference: Israel); 141 cervical and 157 lumbar lateral films (gilad1985 p. 115) | living | lateral film, magnification corrected | C2-C7, L1-L5 |
+| [griffith2016](../notes/griffith2016.md) | Hong Kong; 1,080 adults (540 M, 540 F), 21-80 y (griffith2016 p. 672) | living | CT, mid-pedicle axial | L1-L5 |
+| [hinck1966](../notes/hinck1966.md) | USA (Portland); 474 AP films, 121 of adults (hinck1966 p. 141) | living | AP film at 40 in, not corrected | C3-L5 |
+| [hou1993](../notes/hou1993.md) | China (Xian); 40 T9-L5 columns (25 M, 15 F) (hou1993 p. 1851) | dry bone | caliper | T9-L5 |
+| [italianmri](../notes/italianmri.md) | Italy; 604 adults (302 M, 302 F), 20-45 y, transitional vertebrae excluded (italianmri p. 2) | living | MRI 1.5 T | L1-S1 |
+| [krag1988](../notes/krag1988.md) | USA (Vermont); 41 patients (27 M, 14 F), 91 vertebrae, 182 pedicles (krag1988 p. 27) | living | CT, 4 mm | T9-L5 |
+| [kunkel2011](../notes/kunkel2011.md) | 72 thoracic motion segments from 30 donors (15 F, 15 M), mean 57 y (kunkel2011 p. 375) | cadaver | contact films and sections | C7-T12 |
+| [lien2007](../notes/lien2007.md) | Taiwan; 15 dry T1-L5 sets (8 M, 7 F); 6 cadavers for T11-L5 (lien2007 p. 1216) | dry bone and cadaver | caliper, goniometer | T1-L5 |
+| [makino2012](../notes/makino2012.md) | Japan; 50 preoperative patients (23 M, 27 F), 52-85 y (makino2012 p. 1516) | living | CT, 1.25 mm | L1-L5 |
+| [masharawi2021](../notes/masharawi2021.md) | Israel; 100 CTs, 50 spondylolisthesis and 50 controls (25 M, 25 F each), 50-80 y (masharawi2021 p. 2) | living | CT | L1-L5 |
+| [mitra2002](../notes/mitra2002.md) | India (Nagpur); 20 cadavers (18 M, 2 F) (mitra2002 p. 453) | cadaver | direct, CT 5 mm, films | L1-L5 |
+| [moncadahabib2025](../notes/moncadahabib2025.md) | Mexico; 37 patients (Inference: 20 M, 17 F), 185 vertebrae (moncadahabib2025 p. 2) | living | CT, 1 mm | L1-L5 |
+| [olsewski1990](../notes/olsewski1990.md) | USA (Buffalo); 49 embalmed cadavers (24 M, 25 F), 60-98 y; 21 also filmed and scanned (olsewski1990 p. 542) | embalmed cadaver | direct, AP film, CT | L1-L5 |
+| [otsuki2021](../notes/otsuki2021.md) | USA; 6 fresh-frozen spines (3 M, 3 F), 50-67 y, 60 pedicles; first author Irie (otsuki2021 p. 2) | cadaver | micro-CT, 34.4 um | L1-L5 |
+| [panjabi1991c](../notes/panjabi1991c.md), [panjabi1991t](../notes/panjabi1991t.md), [panjabi1992](../notes/panjabi1992.md), [panjabi1993f](../notes/panjabi1993f.md) | 12 fresh autopsy spines, 8 M, 4 F, mean 46.3 y (panjabi1992 p. 299) | dry bone | 3D morphometer | C2-L5 |
+| [robertson2000](../notes/robertson2000.md) | 10 dry lumbosacral spines; 100 lumbar and 20 S1 pedicles (robertson2000 p. 709) | dry bone | wire-marked films | L1-L5, S1 |
+| [shin2024](../notes/shin2024.md) | USA (Loma Linda); 700 adults (350 M, 350 F), 18-35 y (shin2024 p. 2) | living | CT | discs L1/2-L5/S1 |
+| [tan2004](../notes/tan2004.md) | Singapore; 10 Chinese cadavers, sex not reported, mean 65.7 y, 220 vertebrae (tan2004 p. 137) | dry bone | 3D digitiser | C3-L5 |
+| [tang2016](../notes/tang2016.md) | USA (Utah); 109 adults (55 F, 54 M), 20-40 y, 318 discs (tang2016 p. 4117) | living | MRI 1.5 T | L3-S1 discs and end plates |
+| [twomey1985](../notes/twomey1985.md) | 204 cadaver lumbar blocks (Inference: Western Australia) (twomey1985 p. 496) | cadaver | dissection, calipers | discs L1/2-L5/S1 |
+| [vanderhouwen2009](../notes/vanderhouwen2009.md) | Netherlands; 77 patients (46 M, 31 F), 21-86 y, 25 end plates per position (vanderhouwen2009 p. 34) | living | CT, 0.75 mm | T12 inf to S1 sup |
+| [yadav2020](../notes/yadav2020.md) | India (Inference: Lucknow); 302 adults (174 M, 128 F), 20-40 y (yadav2020 p. 176) | living | CT | T12-S1 |
+| [yu2015](../notes/yu2015.md) | USA (Hamann-Todd collection); 503 skeletons (404 M, 99 F), 17-93 y (yu2015 p. 1640) | dry bone | digital caliper | L1-L5 |
+| [zindrick1987](../notes/zindrick1987.md) | USA; specimens and clinical CTs of unstated number; 2,905 measurements (zindrick1987 p. 160) | cadaver films and living CT | axial films, CT | T1-L5 |
 
 ## 2. The frame, the labels and the operations every recipe uses
 
 ### 2.1 Panjabi's frame
 
-Panjabi set each vertebra in its own frame before measuring anything. Four points digitised at the left and right, upper and lower corners of the posterior wall of the body define, by least squares, the frontal plane; the transverse and sagittal planes are perpendicular to it; X runs to the vertebra's left, Y cranially and Z anteriorly; the origin is the centre of the upper end plate (panjabi1993f p. 1299; panjabi1991t p. 889; panjabi1992 p. 299). tan2004 built the same frame from the posterior wall because that wall changed least with osteophytes (tan2004 p. 139). Every area is the root-sum-square of the three projected areas, which is the vector area of the outline (panjabi1993f p. 1300; panjabi1992 p. 300). Method accuracy on a Plexiglas phantom was under 5% for lengths, angles and areas, and the point-location error +/-0.5 mm (panjabi1992 p. 300; panjabi1991t p. 889).
+Panjabi set each vertebra in its own frame before measuring anything. Four points digitised at the left and right, upper and lower corners of the posterior wall of the body define, by least squares, the frontal plane; the transverse and sagittal planes are perpendicular to it; X runs to the vertebra's left, Y cranially and Z anteriorly; the origin is the centre of the upper end plate (panjabi1993f p. 1299; panjabi1991t p. 889; panjabi1992 p. 299). tan2004 built the same frame from the posterior wall because that wall changed least with osteophytes (tan2004 p. 139). Every area is the root-sum-square of the three projected areas, which is the vector area of the outline (panjabi1993f p. 1300; panjabi1992 p. 300). Method accuracy on a Plexiglas phantom was under 5% for lengths, angles and areas, and the point-location error +/-0.5 mm (panjabi1992 p. 300; panjabi1991t p. 889). A naming pitfall for whoever transcribes the thoracic tables: in panjabi1991t the suffix l means lower in the end-plate rows (Table 2 p. 890) and left in the pedicle, costotransverse and pars rows (Tables 5 to 7 pp. 894 to 895), and CVAll is lower-left (panjabi1991t note).
 
 Why it matters for a mask: a width or a depth taken along scanner axes mixes lordosis, kyphosis and scoliosis into the value; at L4 and L5, lordotic tilt inflates end-plate depth and posterior height (panjabi1992 note, generator section). The archive measurer takes every extent along RAS scanner axes after canonicalising the image (archive/bordercall/spineps_map.py, measure_vertebra and axes_from), so all of its values carry this bias.
 
 ### 2.2 Recipe F: build the vertebral frame from an instance mask
 
-Inference throughout (panjabi1993f note, frame section; tan2004 note, common frame):
+Inference throughout, after Panjabi's construction (panjabi1991t p. 889; panjabi1991t note, frame; panjabi1993f note, frame section; tan2004 note, common frame):
 
 1. Take the body subregion of the instance. In SPINEPS that is label 49 (Vertebra_Corpus_border) with the end-plate labels 52 and 53 (archive/bordercall/spineps_map.py, label table).
 2. Find the dorsal surface of the body: body voxels that border the canal side, between the pedicle roots. Fit a plane to them by least squares (PCA, least-variance axis). Its normal pointing away from the canal is +Z.
-3. Set Y as the direction from the midpoint of the caudal edge of that wall to the midpoint of its cranial edge, made orthogonal to Z. Set X = Y x Z, which points to the vertebra's left.
+3. Set X parallel to the line through the two cranial (superior) corners of that wall, right to left, projected into the wall's plane, as Panjabi set it through his points A and B (panjabi1991t p. 889). Set Y = Z x X, which points cranially. A Y taken from the midpoints of the wall's caudal and cranial edges differs from this by the wall's in-plane skew, which changes the frontal and sagittal parts of every angle (EPIt, PDI, facet T and S, UJI); if that construction is kept for robustness, store both and report the angle between the two X axes.
 4. Set the origin at the centroid of the cranial end-plate surface voxels.
 5. Rotate the instance into this frame and measure every quantity below in it. Store the rotation, so that a fluoroscopic view angle can later be expressed against the same frame.
 
@@ -142,7 +144,7 @@ Inference: a structure at distance OFD from the film, with source-to-image dista
 | yadav2020 | UVW, LVW: lateral borders of the body "in the plane of" the upper or lower end plate, axial CT; the example slice looks mid-body (yadav2020 p. 176 Fig 1C) | DIFFERS in plane: a slab inside the plate, not the rim; lower than upper at L5 in men, unlike Panjabi (yadav2020 note, LVW) |
 | vanderhouwen2009 | T: rim-to-rim chord between the right and left rim points in the frontal plane through the widest body points (vanderhouwen2009 p. 35) | DIFFERS: rim to rim, about 5 mm below an outer extent (vanderhouwen2009 note, T); reads low |
 | chen2011 | TD: rim-to-rim chord on the coronal section through the deepest point of the end plate (chen2011 p. 1815, p. 1819) | DIFFERS: not the maximum width (chen2011 p. 1819); reads low |
-| frontphys2026 | Outermost lateral edges of the end plate; plane ambiguous, values fit a mid-coronal width (frontphys2026 note, EPWu) | about SAME in value at L1-L5; its SDs of 0.6 to 1.0 mm are implausibly small (frontphys2026 note) |
+| frontphys2026 | Outermost lateral edges of the end plate; plane ambiguous, values fit a mid-coronal width (frontphys2026 note, EPWu) | SAME in kind; within about 0.2 to 1.8 mm of Panjabi at L1-L4, but 3.4 mm above at L5 for the upper plate and 3.0 for the lower (Inference: 50.7 - 47.3 and 52.4 - 49.4, frontphys2026 p. 5 Table 2); its SDs of 0.6 to 1.0 mm are implausibly small (frontphys2026 note) |
 | bonczar2024 | Pooled mediolateral extent; its Fig 2 swaps the width and depth labels (bonczar2024 p. 4 Fig 2) | pooled from mixed definitions |
 | tang2016 | FD: lateral side of the bounding rectangle of one oblique MRI slice at the end plate (tang2016 p. 4119 Table 1) | DIFFERS: MRI soft-tissue edge, one 3 to 4.5 mm slice |
 | abbas2021 VW, eisenstein1977 Body T.V., amonookuofi1982 B, moncadahabib2025 CW | Waist widths at mid-height, axial CT or dry bone or AP film (abbas2021 p. 2; eisenstein1977 p. 173; amonookuofi1982 p. 226; moncadahabib2025 p. 2 Fig 1) | DIFFERS: a waist is narrower than a plate; never feed these to the generator |
@@ -199,14 +201,14 @@ tan2004's upper widths at T2 and T3 are not in its note; it says the upper width
 
 Where it peaks, bottoms out and separates:
 
-- Cervical: rises from C3 to C7; the upper width jumps 3.3 mm from C6 to C7, and C7 differs significantly from C3 to C6 (panjabi1991c p. 863 Table 2). tan2004 has the same step (+3.2 mm C6 to C7) and a larger one into T1 (+5.7 mm) (tan2004 note, EPW).
-- C7 to T1: +2.7 mm upper, +4.4 mm lower in Panjabi (computed from the two tables). Inference: with a Panjabi SD of about 2 to 3 mm (SEM 0.58 to 0.85 x 3.46) this is a separation of about one SD, weaker than the transverse-process step (section 9.2).
+- Cervical: EPWu rises from C3 to C7; it jumps 3.3 mm from C6 to C7, and C7 differs significantly from C3 to C6 (panjabi1991c p. 863 Table 2). EPWl does not rise from C3: it is flat from C2 to C4 (17.5, 17.2, 17.0), then rises +2.4 mm at C4/C5 (1.56 SD) and +2.6 at C5/C6 (1.31 SD); EPWl C6 differs from C2 to C4 and C7 from C2 to C5, and the paper places the greatest lower-width increase at C6 (panjabi1991c p. 863 Table 2; panjabi1991c note, EPW; the SD multiples are Inference from the long table). tan2004 has the same upper step (+3.2 mm C6 to C7) and a larger one into T1 (+5.7 mm) (tan2004 note, EPW).
+- C7 to T1: +2.7 mm upper, +4.4 mm lower in Panjabi (computed from the two tables). Inference: +2.7 mm upper is 1.03 SD and +4.4 mm lower is 1.57 SD (SEM 0.64 to 0.98 x 3.46, mean SD 2.6 and 2.8 mm), so the lower plate separates C7 from T1 and the upper only just does; both are weaker than the transverse-process step (section 9.2).
 - T1 to T5: flat, 24.5 to 24.9 mm (panjabi1991t p. 892 Table 3); EPWl even dips to 25.9 at T3. Fails to separate any pair in T1 to T5.
 - T5 to T12: rises 1.1 to 4.1 mm per level, steepest T10 to T12 (+3.0, +4.1). Inference: each step from T5 to T10 is under one SD (SEM 0.67 to 1.06, SD 2.3 to 3.7 mm).
-- L1 to L5: rises about 14% (panjabi1992 p. 301); only L4 and L5 differ from L1, and no adjacent pair differs (panjabi1992 p. 301 Table 2). The lower width plateaus at L4-L5 (49.5, 49.4).
+- L1 to L5: rises about 14% (panjabi1992 p. 301); only L4 and L5 differ from L1, and no adjacent pair differs (panjabi1992 p. 301 Table 2). The lower width plateaus at L4-L5 (49.5, 49.4). Living CT does not share the plateau: frontphys2026's EPWl rises +1.1 mm from L4 to L5 against Panjabi's -0.1 (frontphys2026 p. 5 Table 2).
 - S1: the superior S1 plate is narrower than the L5 inferior plate on CT rim chords (41.24 against 44.10, vanderhouwen2009 p. 37 Fig 2) and yadav2020's S1 lower width collapses to 30.78 mm because its "lower plate" is the fused S1-S2 junction (yadav2020 note, LVW).
-- Within a vertebra the lower plate is wider than the upper at every thoracic and lumbar level of Panjabi, by 1.0 (T8) to 4.2 mm (T11) and 1.4 to 3.9 mm in the lumbar spine (computed from panjabi1991t p. 892 and panjabi1992 p. 301). busscher2010 disagrees in the neck: its lower width is below the upper at C3-C4 and 5 to 8 mm above it at T1-T5 (busscher2010 p. 1109 Fig 3). yadav2020 disagrees at L5 in living men: lower below upper by 1.9 mm (yadav2020 note, LVW).
-- Width over depth, a size-free ratio: cervical lower 1.12 (C2), 1.10, 1.07, 1.08, 1.19, 1.39 (C7) (panjabi1991c p. 863 Table 2); thoracic 1.3 to 1.4 at T1, 1.0 from T4 to T10, 1.2 to 1.3 at T12 (panjabi1991t p. 892 Table 3); lumbar lower 1.23, 1.30, 1.38, 1.46, 1.49 (panjabi1992 p. 301 Table 2). Inference: the lower ratio rises 0.07 to 0.08 per level from L1 to L4, the most regular gradient among the body measures (panjabi1992 note), and the C6 to C7 rise (1.19 to 1.39) marks C7.
+- Within a vertebra the lower plate is wider than the upper at every thoracic and lumbar level of Panjabi, by 1.0 (T8) to 4.2 mm (T11) in the thorax and 2.1 (L1, L5) to 3.9 mm (L3) in the lumbar spine (computed from panjabi1991t p. 892 and panjabi1992 p. 301). busscher2010 disagrees in the neck: its lower width is below the upper at C3-C4 and 5 to 8 mm above it at T1-T5 (busscher2010 p. 1109 Fig 3). yadav2020 disagrees at L5 in living men: lower below upper by 1.9 mm (yadav2020 note, LVW). chen2011 disagrees at T12 on living CT (83 patients, rim-to-rim chords): T12's superior and inferior widths do not differ, 38.0 against 37.6 mm in men (P 0.674) and 32.9 against 33.1 in women (P 0.848), while at T11, L1 and L2 the superior is about 91% of the inferior (all P < 0.008) (chen2011 p. 1817; Table 3 p. 1818). Panjabi has T12's lower plate 3.1 mm wider (42.1 against 39.0).
+- Width over depth, a size-free ratio: cervical lower 1.12 (C2), 1.10, 1.07, 1.08, 1.19, 1.39 (C7) (panjabi1991c p. 863 Table 2); thoracic 1.3 (upper) and 1.4 (lower) at T1, near 1.0 for the upper plate from T4 to T10 and for the lower only from T5 to T8, rising to 1.12 at T10 and 1.2 to 1.3 at T12 (panjabi1991t p. 890, p. 892 Table 3; the T10 lower ratio is Inference from the means, panjabi1991t note); lumbar lower 1.23, 1.30, 1.38, 1.46, 1.49 (panjabi1992 p. 301 Table 2). Inference: the lower ratio rises 0.07 to 0.08 per level from L1 to L4, the most regular gradient among the body measures (panjabi1992 note), and the C6 to C7 rise (1.19 to 1.39) marks C7.
 
 (e) Covariates
 
@@ -227,7 +229,7 @@ Where it peaks, bottoms out and separates:
 | yadav2020 | UVD, LVD: anterior to posterior ends of the body in the plane of the plate, midline, stopping at the canal (yadav2020 p. 176 Fig 1C) | DIFFERS: 2 to 6 mm below Panjabi (yadav2020 note, UVD) |
 | vanderhouwen2009 | S: rim to rim on the sagittal tangent line, points 1 and 5 (vanderhouwen2009 p. 35) | DIFFERS: rim to rim; an outer mask extent runs 6 to 8 mm larger (vanderhouwen2009 note, S) |
 | chen2011 | SD: rim to rim on the midsagittal plane (chen2011 p. 1815) | DIFFERS: reads low |
-| tang2016 | APD: anteroposterior side of the bounding rectangle; MSD: the midline chord, which stops at the posterior notch (tang2016 p. 4119 Table 1) | APD close to an outer extent; MSD reads low |
+| tang2016 | APD: anteroposterior side of the bounding rectangle; MSD: the midline chord, which stops at the posterior notch (tang2016 p. 4119 Table 1) | APD close to an outer extent; MSD reads low by an amount that depends on level. Inference (tang2016 note, MSD, from Table 4 p. 4120): MSD/APD is 0.88 to 0.90 at L3/L4, 0.91 to 0.93 at L4/L5 and 0.99 at L5/S1, a ratio of means with no per-subject spread; so a midline depth reads 2.7 to 4.5 mm short above L5/S1 (the notch, APD - MSD) and about equal at L5/S1 (0.4 to 0.5 mm). That is a soft L5/S1 shape cue, but the notch is about one between-subject SD, so never use it alone (tang2016 note, instruction 3) |
 | bonczar2024 | Pooled anteroposterior extent (bonczar2024 p. 4 Fig 2, labels swapped) | pooled |
 | eisenstein1977, amonookuofi1985, abbas2021 VL, krag1988, italianmri VBD, moncadahabib2025 CL, alonge2021 VAPD | Mid-height or mid-waist body depth (eisenstein1977 p. 173; amonookuofi1985 p. 72; abbas2021 p. 2; krag1988 p. 28; italianmri p. 2; moncadahabib2025 p. 2; alonge2021 p. 71) | DIFFERS: a waist depth is 1 to 5 mm below an end-plate depth; never feed these to the generator |
 | archive measurer | Anteroposterior extent of label 52 (53) along the scanner axis (archive/bordercall/spineps_map.py) | DIFFERS in frame: lordotic tilt inflates depth at L4-L5 (panjabi1992 note, generator section) |
@@ -278,7 +280,8 @@ Rim-to-rim series: chen2011 SD, men 27.6 to 29.4 mm and women 23.8 to 26.0 mm fr
 
 Where it peaks, bottoms out and separates:
 
-- Cervical: nearly flat C2 to C6; EPDu rises at C6-C7 while EPDl falls at C7 (18.5 to 16.8), which the authors read as the transition to the thoracic spine (panjabi1991c p. 867). tan2004 is flat from C3 to T1 and cannot separate the cervical levels or C7 from T1 (tan2004 note, EPD).
+- Cervical: EPDu is flat from C3 to C5 (15.0 to 15.3) and rises at C6 and C7; C7 differs from C3 to C5 (panjabi1991c p. 863 Table 2). EPDl is not flat: it rises +2.0 mm at C4/C5 (1.28 SD, Inference from the long table), the largest lower-depth step by the paper, to a peak at C6 (18.5, which differs from C2 to C4), then falls at C7 (16.8), which the authors read as the transition to the thoracic spine (panjabi1991c p. 863, p. 867; panjabi1991c note, EPD). tan2004 is flat from C3 to T1 and cannot separate the cervical levels or C7 from T1 (tan2004 note, EPD).
+- C7 to T1: EPDl +2.9 mm (16.8 to 19.7), 1.99 SD, the strongest end-plate depth step in Panjabi's series; EPDu +0.4 mm (0.16 SD); EPDl T1/T2 adds +1.9 mm (0.95 SD) (Inference from the long table, across panjabi1991c p. 863 and panjabi1991t p. 892, so it joins two papers' tables). The lower depth separates C7 from T1; the upper does not.
 - Thoracic: the most nearly linear measure, about +1.3 mm per level (panjabi1991t p. 892 Table 3; tan2004 p. 139). Inference: with SD 1.4 to 4.2 mm (SEM 0.41 to 1.21 x 3.46), only T2 to T3 (+3.1 mm upper) is a one-SD step; the rest order the column but separate no adjacent pair.
 - T12 to L1: +1.3 mm upper, +1.9 mm lower (Panjabi). chen2011 puts the step in rim-to-rim depth between T12 and L1 (vertebral mean 27.6 at T10-T12 against 29.3 at L1-L3 in men, chen2011 p. 1819 Table 5).
 - Lumbar: flat, 34.1 to 35.5 upper, 35.3 falling to 33.2 lower, no level difference significant (panjabi1992 p. 301). Depth alone does not separate lumbar levels.
@@ -302,7 +305,7 @@ Where it peaks, bottoms out and separates:
 | busscher2010 | SI height at the posterior margin, lateral view of a CT reformat (busscher2010 p. 1105 Fig 1) | SAME in kind; 3 to 6 mm above Panjabi in six tall men |
 | gilad1985 | d: posterior corners P2 to P4 on a corrected lateral film (gilad1985 p. 117) | DIFFERS: a projected height; 3 to 5 mm above Panjabi in the lumbar spine (panjabi1992 p. 304, p. 305 Table 6) |
 | kunkel2011 | VBHP: Farfan's posterior superior and inferior corners on a contact film, magnification corrected (kunkel2011 p. 377) | 0.2 to 2 mm above Panjabi (kunkel2011 note) |
-| frontphys2026, duman2026, moncadahabib2025, abbas2021, bonczar2024 | Posterior edge of the upper plate to posterior edge of the lower, midsagittal CT (frontphys2026 p. 5; duman2026 p. 4; abbas2021 p. 2) | about SAME; 2 to 4 mm above Panjabi at L1-L4 |
+| frontphys2026, duman2026, moncadahabib2025, abbas2021, bonczar2024 | Posterior edge of the upper plate to posterior edge of the lower, midsagittal CT (frontphys2026 p. 5; duman2026 p. 4; abbas2021 p. 2) | SAME in kind, but most run above Panjabi. Inference, from the tables in (d): frontphys2026 1.7 to 3.8 mm above at L1-L5; moncadahabib2025 -0.4 to +3.1; bonczar2024 pooled 1.2 to 2.9; duman2026 men 1.8 to 2.8 at T11-L2. abbas2021 prints no height, only the ratio's plot (abbas2021 note) |
 | panjabi1991c, own check | A lateral view of the cervical body reads 1.8 to 3.0 mm higher than the midsagittal height, because the uncovertebral region projects above the midline (panjabi1991c p. 868 Table 7) | lateral views bias h_post high at C3-C7 |
 | archive measurer | Median column height along the scanner's SI axis in the posterior 20% of label 49 (archive/bordercall/spineps_map.py, _posterior_height) | DIFFERS in frame: columns along the scanner axis in a body tilted by b read h / cos b; at b = 20 deg that is 6.4% high, about +1.5 mm on 24 mm (Inference) |
 
@@ -367,16 +370,18 @@ The anterior over posterior height ratio, magnification-free (computed from each
 | L4 | 1.00 | 0.99 | 1.01 | 1.05 | 1.02 | about 1.03 |
 | L5 | 1.10 | 1.18 | 1.10 | 1.13 | 1.16 | about 1.17 |
 
-(tan2004 p. 139 Table 1; busscher2010 p. 1107 Table 3; gilad1985 p. 118 Table 1; frontphys2026 p. 5 Table 2; moncadahabib2025 p. 4 Table 1; abbas2021 pp. 4 to 5 Figs 5 and 6, read from figures.) Inference: every series agrees that only L5 is taller in front by 10% or more, so this ratio is the strongest single body marker of L5 in the set, and it is free of magnification and patient size. It needs the anterior height the generator does not hold.
+(tan2004 p. 139 Table 1; busscher2010 p. 1107 Table 3; gilad1985 p. 118 Table 1; frontphys2026 p. 5 Table 2; moncadahabib2025 p. 4 Table 1; abbas2021 pp. 4 to 5 Figs 5 and 6, read from figures.) duman2026 covers only T11 to L2: ACH/PCH 0.929, 0.951, 0.955 and 0.970 in 277 men and 0.924, 0.950, 0.957 and 0.966 in 240 women at T11, T12, L1 and L2 (Inference: ratios of the means of duman2026 Table 1 p. 7; duman2026 note), so anterior wedging lessens down the junction, most from T11 to T12. Inference: every series agrees that only L5 is taller in front by 10% or more, so this ratio is the strongest single body marker of L5 in the set, and it is free of magnification and patient size. It needs the anterior height the generator does not hold.
 
-Middle (central) height: busscher2010 VBHc C3 12.6, C5 12.1, C7 14.3, T1 16.1, T6 18.1, T12 25.5, L1 24.5, L2 24.7, L3 25.5, L4 24.1, L5 25.3 mm (busscher2010 p. 1107 Table 3); frontphys2026 VBHm 23.5, 24.3, 24.4, 23.7, 23.0 (frontphys2026 p. 5 Table 2). It falls with age as the plates bow (twomey1985 p. 498 Fig 2). It belongs to end-plate concavity (section 4).
+Middle (central) height: busscher2010 VBHc C3 12.6, C5 12.1, C7 14.3, T1 16.1, T6 18.1, T12 25.5, L1 24.5, L2 24.7, L3 25.5, L4 24.1, L5 25.3 mm (busscher2010 p. 1107 Table 3); frontphys2026 VBHm 23.5, 24.3, 24.4, 23.7, 23.0 (frontphys2026 p. 5 Table 2). It falls with age as the plates bow (twomey1985 p. 498 Fig 2). It belongs to end-plate concavity (section 4). duman2026's MCH lies between ACH and PCH at every level of its Table 1, against its own Fig 2A example of 27.0 / 24.2 / 27.3 mm with the middle lowest, so its printed MCH is not a mid-height that carries the concavity; do not use it as one (duman2026 p. 5, p. 7 Table 1; duman2026 note, gaps).
+
+Two more size-free cues from frontphys2026 (100 living Chinese adults, CT). Inference (frontphys2026 note, from Table 2 p. 5): VBHm/VBHa is 0.94, 0.92, 0.90, 0.86 and 0.83 at L1 to L5, falling steadily; with VBHa/VBHp it is that paper's best L4/L5 separator; and with Panjabi's upper end-plate depths the anterior-minus-posterior height difference corresponds to a body wedge of about -3.5 deg at L1 (taller behind) and +5.1 deg at L5 (taller in front), so the wedge changes sign across the lumbar spine.
 
 (e) Covariates
 
 - Sex: men's posterior height 9 to 12% above women's at T11 to L2 (duman2026 p. 7 Table 1; 277 men, 240 women).
 - Population: tan2004's factors 0.98 / 0.97 / 0.92 (tan2004 note, generator section).
 - Age and degeneration: kunkel2011 chose only mildly to moderately degenerated segments and did not analyse age or sex (kunkel2011 p. 375); central height falls with age (twomey1985 p. 498).
-- Stenosis: abbas2021's beveling ratio enters its stenosis models only through its L1 terms (abbas2021 note).
+- Stenosis: abbas2021's beveling ratio (AH / pH x 100) is lower in men with degenerative stenosis at L1 to L5 (Fig 5) and in women at L4 only (Fig 6). It entered the men's adjusted model at L2 (OR 0.919, 95% CI 0.852-0.991) and at L4 (OR 0.930, 0.873-0.990) (abbas2021 Table 5 p. 6; pp. 4 to 5 Figs 5 and 6).
 
 ### 3.4 End-plate area: endplate_area (EPAu), endplate_lower_area (EPAl)
 
@@ -391,16 +396,25 @@ Middle (central) height: busscher2010 VBHc C3 12.6, C5 12.1, C7 14.3, T1 16.1, T
 
 (b) Mask recipe: take the plate surface by O1, compute its vector area by O2 (or, equivalently, the area enclosed by the plate's outline projected onto its fitted plane, panjabi1992 note EPA). At C3 to C7 exclude the unci as in 3.1 step 4.
 
-(c) Radiograph: not measurable. An ellipse on the AP width and the lateral depth, pi x EPW x EPD / 4, overestimates the lumbar area by 1.7 to 7.5% (panjabi1992 p. 305; computed from its Table 2), the cervical by 7 to 14% (panjabi1991c p. 864), the thoracic by 11 to 19% at T1 to T5 and is within 10% below that (panjabi1991t p. 900). On MRI an ellipse on APD and FD came within 2% of the traced area (tang2016 p. 4119).
+(c) Radiograph: not measurable. An ellipse on the AP width and the lateral depth, pi x EPW x EPD / 4, stands in for the area. What each paper says and what its own table gives, side by side:
+
+- Lumbar: under 10% over (panjabi1992 p. 305). Inference, from its Table 2: 1.7 to 7.5% over (panjabi1992 note, EPA).
+- Cervical: about 10% over at every level (panjabi1991c pp. 864, 868). Inference, from its Table 2: 7 to 14% over, the measured area being 0.69 to 0.74 of W x D (panjabi1991c note, EPA).
+- Thoracic: within 10% at all levels (panjabi1991t p. 900). Inference, from its Table 3: 11 to 19% over at T1 to T5 and 3 to 8% over from about T6 or T7 down, so the paper's claim fails in the upper thorax (panjabi1991t note, EPA).
+- tan2004 points the other way. Its EPAu / (EPWu x EPDu) is 0.77 to 0.94 (cervical 0.77 to 0.91, thoracic 0.83 to 0.92, lumbar 0.89 to 0.94), so the ellipse's 0.785 reads about 12 to 17% low on its lumbar plates (Inference: 0.785 / 0.89 = 0.88 and 0.785 / 0.94 = 0.84; tan2004 note, EPA, from Table 1 pp. 140 to 141), the opposite sign to Panjabi's. Apply neither factor to tan2004's cervical lower plates, whose areas exceed width x depth (tan2004 note, EPA).
+- MRI: the APD x FD ellipse was 2% low at L3/L4 and L4/L5 and 3% high at L5/S1, with no result for the L5/S1 caudal plate; the MSD x FD ellipse was 10% low at the upper two levels (tang2016 pp. 4119, 4122).
 
 (d) Course, mm2: cervical EPAu 169.4, 183.0, 182.9, 221.2, 278.3 (C3 to C7) and EPAl 194.4, 190.7, 199.2, 246.2, 289.9, 280.3 (C2 to C7) (panjabi1991c p. 863 Table 2); thoracic EPAu 300, 333, 373, 381, 426, 483, 547, 605, 678, 727, 842, 954 and EPAl 376, 398, 412, 444, 495, 552, 603, 664, 755, 834, 945, 1024 (panjabi1991t p. 892 Table 3); lumbar EPAu 1057, 1136, 1194, 1239, 1237 and EPAl 1117, 1197, 1290, 1273, 1218 (panjabi1992 p. 301 Table 2). tan2004 EPAu runs 154.7 (C3) to 1151.8 (L4) and 1127.3 (L5); its L3 lower area is misprinted 172.0, likely 1,172 (tan2004 note, EPA). MRI, cm2: inferior plates of L3, L4, L5 13.85, 13.75, 13.08; superior plates of L4, L5, S1 15.13, 15.15, 14.63 (tang2016 p. 4120 Table 4; tang2016 note, structures). Pooled upper area 932, 1018, 1132, 1151, 1183 (bonczar2024 pp. 5 to 9).
 
-- The area grows steadily from C3 to L4 and holds or falls at L5 in every series (panjabi1992 p. 301; tan2004 p. 143). Inference: it orders the column well but adjacent steps of 30 to 115 mm2 sit against SDs of 30 to 220 mm2 (SEM 8.8 to 64 x 3.46), so it separates no adjacent pair alone. C6 to C7 (+57 mm2 upper, C7 differs from C3 to C6, panjabi1991c p. 863) is the clearest cervical step.
-- Across one disc, Panjabi's upper vertebra's lower plate is larger than the next vertebra's upper plate (for example L3 lower 1290 against L4 upper 1239, panjabi1992 p. 301). tang2016's MRI disagrees: the superior plate of the vertebra below is larger than the inferior plate above at all three lumbar discs, by 9% (men) and 4% (women) less than the disc against 17 to 18% (tang2016 note, CSA). Populations: 12 dry spines against 109 living adults aged 20 to 40 on MRI.
+- The upper area grows from C3 to L4, flat at C4/C5 (183.0 to 182.9), and holds at L5 (1239 to 1237) (panjabi1991c p. 863; panjabi1992 p. 301); tan2004's upper area rises to L4 (1151.8) and falls a little at L5 (1127.3) (tan2004 Table 1 pp. 140 to 141; p. 143). The lower area is not monotone. Panjabi's EPAl falls from C2 to C3 (194.4 to 190.7), peaks at C6 (289.9) and falls at C7 (280.3) (panjabi1991c p. 863; panjabi1991c note, EPA); in the lumbar spine it peaks at L3 (1290) and falls to 1273 at L4 and 1218 at L5, with no level difference significant (panjabi1992 p. 301 Table 2; panjabi1992 note, EPA). tan2004's EPAl dips at T3 (387.1 against 399.2 at T2) and peaks at L4 (1199.3) (tan2004 Table 1 pp. 140 to 141).
+- Inference, from Panjabi's long table over C3 to L5: adjacent steps run -55 to +115 mm2 (EPAu -2.0 to +115, EPAl -55 to +111) against SDs of about 20 to 223 mm2 (SEM 5.74 to 64.35 x 3.46). Four steps exceed one SD: EPAu C5/C6 +38.3 (1.44 SD), EPAu C6/C7 +57.1 (1.60 SD; C7 differs from C3 to C6, panjabi1991c p. 863), EPAl C4/C5 +47.0 (1.40 SD) and EPAl C7/T1 +95.7 (1.96 SD, a step that joins the cervical and thoracic tables). No step from T1/T2 to L4/L5 reaches 0.9 SD (largest EPAu T11/T12, 0.86). So the area orders the column and marks the lower neck and C7/T1, but separates no thoracic or lumbar pair alone.
+- Across one disc, Panjabi's upper vertebra's lower plate is larger than the next vertebra's upper plate (for example L3 lower 1290 against L4 upper 1239, panjabi1992 p. 301). tang2016's MRI disagrees: at each disc the superior plate of the vertebra below exceeds the inferior plate of the vertebra above, by 12% in women and 9% in men, P < 0.001 (tang2016 p. 4119). Populations: 12 dry spines against 109 living adults aged 20 to 40 on MRI. The series tang2016 compiles split three ways: Brinckmann's caudal plates are larger, as in Tang; Panjabi's and Tan's cranial plates are larger in area and width and Zhou's in depth and width; Seidel, Wang, Berry and van der Houwen are mixed (tang2016 Tables 6 and 7 pp. 4125 to 4128; tang2016 note, instruction 5).
 
 (e) Covariates: women's plate areas are 83 to 86% of men's on MRI (tang2016 p. 4120 Table 4; computed). Body section area rises with age in women and with height (r 0.331 men, 0.264 women) (griffith2016 p. 675 Table 5). Population: tan2004's factors 0.92 / 0.92 / 0.90 upper, 1.16 / 0.91 / 0.91 lower (tan2004 note, generator section).
 
 ### 3.5 End-plate inclination and wedge: endplate_incl (EPItu), endplate_lower_incl (EPItl), endplate_wedge (EPIt)
+
+Left out of the pool for now: endplate_incl and endplate_lower_incl, because Panjabi's lumbar L1 to L5 rows of these two angles reprint his cervical C3 to C7 rows, so his lumbar paper most probably prints no lumbar value of either ([panjabi-endplate-inclination.md](../../panjabi-endplate-inclination.md), sections 1 and 3). As the code stands, measures.pool still takes both (the pool of 32); that note's section 3 gives the exclusion list that would drop them, and endplate_wedge is outside the pool already (no spread).
 
 (a) Definitions
 
@@ -415,9 +429,9 @@ Bias of a mask value: a signed sagittal angle, or one taken against the scanner,
 
 (c) Radiograph: lateral view, the angle between each plate line and the perpendicular to the posterior body line gives the sagittal part only (panjabi1992 note, EPIt radiograph). On ten lateral films the mean angle between the two plates was 3.9 deg against 3.8 deg on bone (panjabi1991t p. 890, p. 898), with no per-level agreement statistic. No magnification correction is needed.
 
-(d) Course, deg: cervical EPItu 2.7, 3.5, 1.7, 4.7, 2.2 (C3 to C7) and EPItl 4.2, 4.0, 2.1, 2.7, 2.7, 1.8 (C2 to C7), no level different (panjabi1991c p. 863 Table 2); thoracic EPItu 1.8, 1.7, 2.4, 1.5, 2.1, 2.1, 1.6, 1.3, 0.9, 0.5, 2.3, 2.2 and EPItl 3.9, 1.9, 2.1, 2.3, 2.0, 1.8, 2.2, 2.3, 1.2, 1.2, 2.2, 1.8, EPIt 5.7, 3.6, 4.5, 3.8, 4.1, 3.9, 3.8, 3.6, 2.1, 1.7, 4.5, 4.0, summing to 45.3 deg (panjabi1991t p. 892 Table 3); lumbar EPItu 2.7, 3.5, 1.7, 4.7, 2.2 and EPItl 4.0, 2.1, 2.7, 2.7, 1.8 (panjabi1992 p. 301 Table 2). tan2004, signed: the lower plate's sign changes at C7/T1 (+5.1 to -2.9) and its L5 value is +10.5 deg (tan2004 p. 143 Table 1).
+(d) Course, deg: cervical EPItu 2.7, 3.5, 1.7, 4.7, 2.2 (C3 to C7) and EPItl 4.2, 4.0, 2.1, 2.7, 2.7, 1.8 (C2 to C7), no level different (panjabi1991c p. 863 Table 2); thoracic EPItu 1.8, 1.7, 2.4, 1.5, 2.1, 2.1, 1.6, 1.3, 0.9, 0.5, 2.3, 2.2 and EPItl 3.9, 1.9, 2.1, 2.3, 2.0, 1.8, 2.2, 2.3, 1.2, 1.2, 2.2, 1.8, EPIt 5.7, 3.6, 4.5, 3.8, 4.1, 3.9, 3.8, 3.6, 2.1, 1.7, 4.5, 4.0, summing to 45.3 deg (panjabi1991t p. 892 Table 3); lumbar EPItu 2.7, 3.5, 1.7, 4.7, 2.2 and EPItl 4.0, 2.1, 2.7, 2.7, 1.8 as printed, a reprint of the cervical C3 to C7 rows (panjabi1992 p. 301 Table 2; below). tan2004, signed: the lower plate's sign changes at C7/T1 (+5.1 to -2.9) and its L5 value is +10.5 deg (tan2004 p. 143 Table 1).
 
-- Inference, a copy in the source: Panjabi's cervical upper inclinations at C3 to C7 and lower inclinations at C3 to C7 are, mean and SEM alike, the lumbar paper's L1 to L5 rows (2.7 +/- 0.77, 3.5 +/- 1.5, 1.7 +/- 0.43, 4.7 +/- 1.1, 2.2 +/- 0.54 upper; 4.0 +/- 0.84, 2.1 +/- 0.4, 2.7 +/- 1.1, 2.7 +/- 0.69, 1.8 +/- 0.42 lower) (panjabi1991c p. 863 Table 2; panjabi1992 p. 301 Table 2, both read on the page images). One table probably carries the other's numbers; the generator should not lean on either set.
+- A copy in the source: the cervical Table 2 at C3 to C7 and the lumbar Table 2 at L1 to L5 carry the same 20 numbers in the same order, mean and SEM alike (2.7 +/- 0.77, 3.5 +/- 1.5, 1.7 +/- 0.43, 4.7 +/- 1.1, 2.2 +/- 0.54 upper; 4.0 +/- 0.84, 2.1 +/- 0.4, 2.7 +/- 1.1, 2.7 +/- 0.69, 1.8 +/- 0.42 lower) (panjabi1991c p. 863 Table 2; panjabi1992 p. 301 Table 2, both read on the page images). That one set is printed twice is near certain; which paper holds the original is probable but not proven, most probably the cervical, whose text describes the row (panjabi1991c p. 864) while no lumbar text names it. If so, the lumbar rows are cervical numbers. The two same-definition lumbar series in reach put the L5 lower plate far from the printed 1.8: tan2004 at 10.5 deg, and Tan 2002 at about 12 by a back-out from bonczar2024's pool ([panjabi-endplate-inclination.md](../../panjabi-endplate-inclination.md), sections 1 and 2.2). Hence both angles are left out of the pool for now, at C3 to C7 as well, since the pool runs over C3 to L5 (that note, section 3).
 - None of these angles separates adjacent levels; the lumbar values have no trend (panjabi1992 note, EPIt). The thoracic wedge falls to 2.1 and 1.7 deg at T9 and T10 and rises again at T11 (panjabi1991t p. 892).
 
 (e) Covariates: none reported; Panjabi pooled.
@@ -431,9 +445,10 @@ These are not plate measures and enter no generator key; they are listed so they
 | abbas2021 (p. 4 Table 1) | 90 control men, axial CT at mid-height | 39.7, 40.9, 42.8, 44.7, 49.1 | 29.9, 31.1, 32.6, 32.8, 32.9 |
 | abbas2021 (p. 4 Table 1) | 90 control women | 35, 36.8, 38.8, 40.8, 45 | - |
 | amonookuofi1982 (p. 231 Table 4) | 150 men, AP film at 100 cm, not corrected, narrowest waist | 41.3, 42.9, 45.8, 49.6, 52.8 | - |
+| amonookuofi1982 (p. 231 Table 4) | 140 women, as above | 37.5, 39.7, 42.5, 45.7, 50.5 | - |
 | eisenstein1977 (p. 174 Table I) | Caucasoid men, dry bone | 39, 40, 43, 44, 46 | 31, 32, 33, 34, 33 |
 | amonookuofi1985 (p. 74 Table 4) | 79 men, dry bone, mid-waist | - | 29.2, 30.6, 32.2, 34.0, 32.2 |
-| moncadahabib2025 (p. 4 Table 1) | 37 patients, CT | 40.3, 42.2, 44.0, 45.5, 49.5 | 29.4, 30.8, 31.7, 31.8, 32.4 |
+| moncadahabib2025 (p. 4 Table 1) | 37 patients, CT; what CW and CL are is inferred from Fig 1, whose labels do not match its drawn lines, so take the values from Table 1 only (moncadahabib2025 p. 2; its note, instruction 14) | 40.3, 42.2, 44.0, 45.5, 49.5 | 29.4, 30.8, 31.7, 31.8, 32.4 |
 | griffith2016 (p. 675 Table 5) | 540 men, body section area at mid-pedicle, mm2 | 1201, 1273, 1399, 1512, 1711 | - |
 
 Inference: waist widths run 1 to 5 mm below Panjabi's end-plate widths at the same level, and mid-height depths 2 to 5 mm below his end-plate depths. A waist width is what an AP radiograph shows most clearly, so a radiograph pipeline should measure the plate lines, not the waist, or carry a separate waist reference.
@@ -460,20 +475,27 @@ Inference: waist widths run 1 to 5 mm below Panjabi's end-plate widths at the sa
 
 (e) Covariates: no sex effect; superior depth +0.01 mm per year of age at all points (vanderhouwen2009 p. 36, p. 38), so 21 to 86 years spans about 0.65 mm (its note). chen2011 grouped by age over or under 40 and by sex (chen2011 p. 1815). Plate cortex 0.8 mm anteriorly and 0.9 to 1.0 mm posteriorly, at the CT resolution limit (frontphys2026 p. 5; frontphys2026 note).
 
+(f) Modality: vanderhouwen2009's CT depths run about 1 to 1.7 mm deeper than Eijkelkamp's MRI and X-ray depths at the caudal plates of T12, L1, L4 and L5 (for example L4 inferior posterior about 2.6 against 0.95), and S1 superior is 1.2 to 1.6 mm against about 0; the superior plates L1 to L5 agree within about 0.4 mm (vanderhouwen2009 Fig 5 p. 39, bars read approximately; Table 1 p. 34; p. 38). The gap between modalities is larger than the between-subject SD, so compare a concavity only with values of the same modality and method (vanderhouwen2009 note, instruction 15).
+
 ## 5. Disc heights (no generator key; needs two instances)
 
 (a) Definitions
 
 - bach2019: anterior, middle and posterior heights between the facing plates at the anterior edge, centre and posterior edge, midsagittal, CT 3D models; its Table 6 row called Average is (A + P) / 2 (bach2019 p. e107; bach2019 note).
-- shin2024: shortest distances between the plates at the anterior and posterior margins and at the centre of the interspace, sagittal CT (shin2024 p. 2).
+- shin2024: shortest distances between the plates at the anterior and posterior margins and at the centre of the interspace, sagittal CT (shin2024 p. 2). Which sagittal slice is not stated, and its Fig 1 may show a parasagittal slice through the foramen (shin2024 p. 2; Inference in its note), so record the plane with every value.
 - busscher2010 IDH: disc height at the central midpoint, one value per vertebra, the disc below (busscher2010 p. 1105).
 - kunkel2011: anatomical heights on the midsagittal section including cartilaginous plates, and radiographic heights between body corners (kunkel2011 p. 377).
 - twomey1985: true average disc height, the midsagittal disc area over its AP length; convexity index M / (A + P) (twomey1985 p. 496 to 497).
-- yadav2020 IVDH and vanderhouwen2009 IDH: not defined (yadav2020 p. 176; vanderhouwen2009 p. 35).
+- vanderhouwen2009 IDH: the distance between points of the same number on the two plates facing a disc (vanderhouwen2009 p. 35); no IDH value is reported anywhere in the paper (vanderhouwen2009 note).
+- yadav2020 IVDH: not defined (yadav2020 p. 176).
 
 (b) Mask recipe (Inference): it needs two instances. In the frame of the upper vertebra, project the caudal plate of the upper body and the cranial plate of the lower body on the midsagittal line; take the distance at the anterior rim, the centre and the posterior rim, and the mean gap over the overlapping plate area (twomey1985's area over length, in 3D).
 
-(c) Radiograph: lateral view between corresponding body corners, divided by the magnification. Films read anterior height 9% short and posterior 37% short against sections, and the middle height cannot be read on film (kunkel2011 p. 375).
+(c) Radiograph: lateral view between corresponding body corners, divided by the magnification. Films read anterior height 9% short and posterior 37% short against sections (kunkel2011 p. 375), and the middle height cannot be read on film (kunkel2011 p. 383, citing Edmondston 1999).
+
+- For a film's posterior height, predict it from the film's anterior height with the ADH-to-PDH equation of Table 4 rather than measure it: the prediction runs 13 to 17% low, against 29 to 50% low for a measured film PDH (kunkel2011 Fig 9a p. 386; Table 4 p. 382; p. 375).
+- Do not use Table 4's cubics in VBHA or VBHP as printed: their three-decimal coefficients do not reproduce the paper's own means (Inference in the kunkel2011 note, by evaluating them at the table means). Never take any of them outside the fitted range, VBHA 13.9 to 20.8 mm and VBHP 14.4 to 23.1 mm (kunkel2011 note, instruction 12; Fig 9b p. 386).
+- The wedging index I3 = ADH/PDH reads larger on film, about 1.2 to 1.8 (Inference in the kunkel2011 note, from Table 1's radiographic means), because film PDH is short; compare a film I3 only with a film I3.
 
 (d) Course, mm
 
@@ -486,13 +508,22 @@ Inference: waist widths run 1 to 5 mm below Panjabi's end-plate widths at the sa
 | L4/L5 | 10.94 / 10.64 / 6.05 | 9.82 / 9.70 / 5.98 | 9.27 / 9.31 / 4.88 | 12.7 (L4) |
 | L5/S1 | 11.92 / 9.34 / 5.27 | 11.36 / 9.13 / 5.23 | 10.76 / 8.14 / 3.80 | 8.8 (L5) |
 
-(bach2019 p. e113 Table 6, 240 living patients; shin2024 p. 3 Table 2, 700 living adults 18 to 35; busscher2010 p. 1107 Table 3, 6 cadaver men.) busscher2010's central height runs 6.1 at C3, a minimum of 4.4 at C6 and 4.5 to 5.3 from T2 to T9 (busscher2010 p. 1107 Table 3). Thoracic anatomical heights from C7-T1 to T11-T12: anterior 4.5, 4.5, 3.4, 3.3, 3.0, 3.5, 4.1, 4.2, 5.6, 5.4, 7.2, 6.0; posterior 4.5, 4.3, 3.5, 3.2, 3.3, 3.6, 4.1, 3.6, 5.0, 4.2, 5.8, 4.8; middle 5.6, 5.7, 5.8, 4.4, 5.0, 4.7, 5.5, 5.3, 6.1, 5.5, 6.7, 6.5 (kunkel2011 p. 378 Table 1). yadav2020's undefined heights rise to 10.60 mm at L4 in men and fall to 3.55 at S1 (yadav2020 p. 178 Table 3).
+(bach2019 p. e113 Table 6, 240 living patients; shin2024 p. 3 Table 2, 700 living adults 18 to 35; busscher2010 p. 1107 Table 3, 6 cadaver men.) busscher2010's central height runs 6.1 at C3, a minimum of 4.4 at C6 and 4.5 to 5.3 from T2 to T9 (busscher2010 p. 1107 Table 3). Thoracic anatomical heights from C7-T1 to T11-T12: anterior 4.5, 4.5, 3.4, 3.3, 3.0, 3.5, 4.1, 4.2, 5.6, 5.4, 7.2, 6.0; posterior 4.5, 4.3, 3.5, 3.2, 3.3, 3.6, 4.1, 3.6, 5.0, 4.2, 5.8, 4.8; middle 5.6, 5.7, 5.8, 4.4, 5.0, 4.7, 5.5, 5.3, 6.1, 5.5, 6.7, 6.5 (kunkel2011 p. 378 Table 1). yadav2020's undefined heights rise to 10.60 mm at L4 in men and fall to 3.55 at S1 (yadav2020 p. 178 Table 3). twomey1985's true average height, area over length, in mm from L1-2 to L5-S1: men 20 to 35 9.2, 9.8, 10.3, 11.3, 10.6; men 60+ 9.2, 10.9, 11.0, 12.2, 11.2; women 20 to 35 6.1, 8.0, 8.2, 8.5, 8.1; women 60+ 7.9, 8.5, 8.5, 9.2, 8.8; SD 1.0 to 2.9 (twomey1985 p. 497 Table 2; 204 cadavers, of which the young adult and 60+ groups only, n per cell not printed, likely 24 per sex per group, its note). These are unloaded cadaver discs, and area over length takes in the part of the disc sunk into concave plates, so a mask gap compared with them must run to the plate surfaces, not to the rims (Inference, twomey1985 note).
 
-- The middle height peaks at L3/L4 to L4/L5 and falls at L5/S1 in every lumbar series (bach2019, shin2024, busscher2010 above; twomey1985 p. 497 for the true average height, which peaks at L4-5). The anterior height keeps rising to L5/S1 (bach2019, shin2024), so L5/S1 is the one lumbar disc whose anterior height exceeds its middle height. Inference: anterior over middle height is above 1 only at L5/S1 in both CT series (men 1.28, women 1.24, shin2024 1.32), which marks the lumbosacral disc.
-- The convexity index is lowest at L5-S1 (0.43 in young men, 0.49 in young women), the only disc below 0.5 (twomey1985 p. 497 Table 3; 204 cadavers).
-- Inference: adjacent lumbar steps of 0.5 to 1.6 mm against SDs of 0.8 to 2.9 mm (bach2019 p. e113) make disc height a sequence shape, not a single-level discriminator (twomey1985 note).
+- The middle height peaks at L3/L4 to L4/L5 and falls at L5/S1 in every lumbar series (bach2019, shin2024, busscher2010 above; twomey1985 p. 497 for the true average height, which peaks at L4-5). The anterior height keeps rising to L5/S1 (bach2019, shin2024). Inference, ratios of the table's means: in shin2024 anterior over middle height is above 1 only at L5/S1 (10.76/8.14 = 1.32; L4/L5 9.27/9.31 = 1.00); in bach2019 it already exceeds 1 at L4/L5 (men 1.03, women 1.01; bach2019 note) and is largest at L5/S1 (men 1.28, women 1.24). The size of the ratio, not where it crosses 1, marks the lumbosacral disc.
+- shin2024 does not separate L3/L4 from L4/L5 by posterior height (-.17 mm, p .174) or L2/L3 from L5/S1 by middle height (p .062) (shin2024 Table 3 p. 4).
+- The convexity index is lowest at L5-S1 in young adults (0.43 men, 0.49 women), the only values below 0.5 apart from old women's 0.48 there; in the old L4-5 and L5-S1 are both low (men 0.56, 0.53; women 0.54, 0.48), and young women's L4-5 is low too (0.54). The index marks the lowest two discs as a pair and separates them only in young men (0.58 against 0.43) (twomey1985 p. 497 Table 3; its note). Table 3 covers only men 20 to 35 and 60+ and women 18 to 35 and 60+ of the 204 cadavers, n per cell not printed, likely 24 per sex per group (twomey1985 note).
+- Wedge between the facing rim planes, supine CT, read from the bars: T12-L1 about 5, L1-L2 6.7, L2-L3 6, L3-L4 7, L4-L5 9.5, L5-S1 15.4 deg; SD about 1.7 to 3.8 deg, about 5 at L5-S1; one negative L4-L5 angle was dropped, leaving 24 there (vanderhouwen2009 Fig 3 p. 39; p. 38). Eijkelkamp (MRI and X-ray) about 5 to 13.2 deg and Nissan (X-ray) about 3.7 to 15.4 deg from the same figure. Inference (vanderhouwen2009 note): only L4-L5 and L5-S1 stand out, and they overlap within one SD; on standing or intraoperative images use the order, not the degrees.
+- Wedging index I3 = ADH/PDH, thoracic, on sections: 1.00 at C7-T1, 0.89 to 1.06 at T1-2 to T6-7, 1.13 to 1.29 at T7-8 to T11-12 (kunkel2011 Table 3 p. 379; p. 380), a size-free regional marker; for film see (c).
+- Inference, each source on its own: bach2019's adjacent steps run 0.15 to 1.71 mm in size against SDs of 0.82 to 2.94 mm, at most about 1.2 SD (computed from bach2019 p. e113 Table 6); twomey1985's run 0.0 to 1.9 mm against SDs of 1.0 to 2.9 mm (twomey1985 note, from Table 2). Disc height is a sequence shape, not a single-level discriminator.
 
-(e) Covariates: men's discs taller by about 0.5 to 1.5 mm (bach2019 p. e113 Table 6); a linear trend with stature at every level and both sexes, slope not printed (twomey1985 p. 497); heights increase from young adult to over 60 at most levels in cadavers (twomey1985 p. 497 Table 2). One ICC of .842 covers all of shin2024's measures (shin2024 p. 5).
+(e) Covariates
+
+- Sex: bach2019 men up to 1.67 mm taller anteriorly (L1/2); no sex difference at L5/S1 in any height (P 0.123, 0.444, 0.851), nor in posterior height at L3/4 to L5/S1 (P 0.079, 0.705, 0.851) (bach2019 Table 6 p. e113; differences computed in its note). shin2024 anterior gap 1.59, 1.40, 1.20, 1.13, 0.76 mm from L1-2 to L5-S1, middle 0.50 to 0.63 and posterior 0.27 to 0.44 mm to L4-5, none at L5-S1 (p .311, .606) (shin2024 Table 4 p. 4; differences computed in its note).
+- Stature and weight, side by side: twomey1985 (cadavers, all ages) finds a linear trend with stature at every level in both sexes, slope not printed (twomey1985 p. 497); shin2024 (living, 18 to 35) finds r .000 to .050 with height within sex and r .05 to .35 with weight (shin2024 Table 7 p. 5). Keep both; do not average them.
+- Age: heights increase from young adult to over 60 at most levels in cadavers (twomey1985 p. 497 Table 2).
+- Ethnicity: shin2024's Asian group has anterior and posterior heights up to about 1 mm above White, no middle effect (shin2024 Table 5 p. 4; 60 patients).
+- One ICC of .842 covers all of shin2024's measures (shin2024 p. 5).
 
 ## 6. The canal
 
@@ -515,7 +546,7 @@ Recipe C, the bony foramen of one instance (Inference, used by 6.1 to 6.4):
 | tan2004 | Panjabi's landmarks, digitiser on dry bone (tan2004 note, SCD) | SAME landmarks; 31.8% below Panjabi on average, 43.1% at C6 (tan2004 note, computed from p. 144 Table 2); its note suspects a landmark difference as much as anatomy |
 | busscher2010 | Midline depth from the posterior body wall to the inner posterior arch, the vertical arm of a crosshair on a CT transverse reformat; slice height not stated (busscher2010 p. 1105) | SAME in kind |
 | griffith2016 | Posterior body margin to the cortex of the arch at the base of the spinous process, on the mid-pedicle axial reformat (griffith2016 p. 673 Fig 1B) | SAME in kind, mid-pedicle; 3.3 to 3.6 mm below Panjabi in men at L1-L4, equal at L5 (griffith2016 note) |
-| masharawi2021 VCL, cizmic2023 MSG | Posterior body wall to the inner arch where the spinous process leaves it, on an axial slice through the pedicles (masharawi2021 p. 3 Fig 1; cizmic2023 p. 201 Fig 1) | SAME in kind; cizmic2023 within 0.8 to 1.9 mm of Panjabi (cizmic2023 note); masharawi2021 2.6 to 4.0 mm below (computed: 19.0 - 16.42 at L1, 17.5 - 13.49 at L3) |
+| masharawi2021 VCL, cizmic2023 MSG | Posterior body wall to the inner arch where the spinous process leaves it, on an axial slice through the pedicles (masharawi2021 p. 3 Fig 1; cizmic2023 p. 201 Fig 1) | SAME in kind; cizmic2023 within 0.8 to 1.9 mm of Panjabi (cizmic2023 note); masharawi2021 2.6 to 5.3 mm below (computed: 19.0 - 16.42 at L1 to 19.7 - 14.39 at L5; masharawi2021 note) |
 | abbas2021 AP | Longest line from the posterior body border to the posterior canal border on the mid-body axial slice at the basivertebral foramen (abbas2021 p. 2) | DIFFERS in height: mid-body, not mid-pedicle; agrees with Panjabi within about 1 mm (abbas2021 note) |
 | eisenstein1977, amonookuofi1985 | The MINIMUM midline chord, near the canal's cranial end, opposite a slight anterior bulge of the posterior wall; caliper on dry bone (eisenstein1977 p. 173; amonookuofi1985 p. 72) | DIFFERS: a minimum reads low against a mid-pedicle or median value; Caucasoid men 1.0 to 2.6 mm below Panjabi (eisenstein1977 note) |
 | alonge2021 APD | Perpendicular from the posterior body border to the lamina on the midsagittal CT, about mid-body height (alonge2021 p. 71 Fig 1) | DIFFERS slightly; 2.4 to 3.4 mm below Panjabi (alonge2021 note) |
@@ -593,14 +624,14 @@ Where it peaks, bottoms out and separates:
 - C2 is deepest (21.0) and differs from C3 and C7; C3 to C6 is a plateau; C7 is shallowest (15.2) (panjabi1991c p. 864 Table 3, its note). busscher2010 and tan2004 show no C7 drop, so the C6/C7 step is not reproduced.
 - T1 to T11: flat at 15.3 to 16.5 mm, mean 16.2 (panjabi1991t p. 893 Table 4); flat in tan2004 and busscher2010 too. Fails to separate any thoracic pair.
 - T11 to T12: +2.1 mm in Panjabi, and busscher2010 rises from T9 to T12. The T12 rise is the only thoracic signal, and the text and table disagree on its significance (panjabi1991t note).
-- L1 to L5: a shallow U with its floor at L3 or L4 in every series above (panjabi1992 p. 302; abbas2021 p. 5; griffith2016 p. 675; eisenstein1977 p. 179, "venturi tube"). Adjacent steps of 0.7 to 1.2 mm against SDs of 1.4 to 2.2 mm (abbas2021 note) fail to separate. L1 and L5 are equal or within 1 mm in every eisenstein1977 group (eisenstein1977 note). The one exception is griffith2016's L4 to L5 rise in men, +4.3 mm. Inference: 4.33 / mean(2.99, 3.76) = 1.3 SD.
+- L1 to L5: a shallow U with its floor at L3 or L4 in every series above (panjabi1992 p. 302; abbas2021 p. 5; griffith2016 p. 675; eisenstein1977 p. 179, "venturi tube"). Adjacent steps of 0.7 to 1.2 mm against SDs of 1.4 to 2.2 mm (abbas2021 note) fail to separate. L1 and L5 are equal or within 1 mm in every eisenstein1977 group (eisenstein1977 note). The one exception is griffith2016's L4 to L5 rise, in both sexes: +4.3 mm in men and +3.09 mm in women. Inference: 4.33 / mean(2.99, 3.76) = 1.3 SD in men, and 1.02 SD in women (griffith2016 note). Kumar's Telangana CT women show no L5 rebound (14.5 to 14.25 mm; yadav2020 p. 179 Table 4), so the U is not universal: weigh the L5 rebound lightly. yadav2020's S1 SD in women (4.73 mm on a mean of 11.19) puts mean - 2 SD near 1.7 mm, so its S1 row gives no usable lower limit (yadav2020 note).
 - L5 to S1: -2.4 mm on MRI, about 1 SD (italianmri note); -3.7 mm in yadav2020 men, about 1.2 SD (yadav2020 note). The fall into the sacral canal is the cue for S1.
-- Size-free: canal depth over body depth falls 0.70, 0.64, 0.58, 0.58, 0.58 (alonge2021 p. 73), so it separates L1, L2 and L3 but not L3 to L5; yadav2020's SCD/UVD falls 0.60 to 0.42 from T12 to L4 in men (yadav2020 note).
+- Size-free: canal depth over body depth falls 0.70, 0.64, 0.58, 0.58, 0.58 (alonge2021 p. 73), so it separates L1, L2 and L3 but not L3 to L5; yadav2020's SCD/UVD falls 0.60 to 0.42 from T12 to L4 in men (yadav2020 note). On Nigerian dry bone the paper states 0.6 at L1 and 0.5 at L2 to L5 (amonookuofi1985 p. 74 Table 4); to two decimals about 0.57 (men) and 0.61 (women) at L1, 0.52 and 0.55 at L2, and 0.45 to 0.50 at L3 to L5, with women higher at L1 to L3, so the ratio is not wholly sex-free (Inference, amonookuofi1985 note). On MRI, with a mid-body body depth, SCD/VBD from L1 to S1 is men 0.66, 0.60, 0.55, 0.54, 0.56, 0.64 and women 0.76, 0.70, 0.63, 0.61, 0.61, 0.70, a U with its floor at L4 (Inference, ratios of the table means in the italianmri note, from Tables 2 and 3 p. 4); a lateral film can give it. Each is a ratio of group means with no SD; do not pool them.
 
 (e) Covariates
 
-- Sex: none in controls (abbas2021 p. 5; yadav2020 p. 177); women equal or 0 to 1 mm deeper on dry bone (eisenstein1977 note) and deeper at L1-L4 on CT (cizmic2023 p. 202); men deeper only at L5 and S1 on MRI (italianmri note).
-- Stature and age: no correlation with height or weight (italianmri note, R squared < 0.1; masharawi2021 note); the midsagittal diameter is fixed early in life (abbas2021 note, refs 32 and 33).
+- Sex, side by side: none in controls (abbas2021 p. 5; yadav2020 p. 177) and none on Indian MRI (ahmed2019 p. 22 Table 1); women equal or 0 to 1 mm deeper on South African dry bone (eisenstein1977 note) and deeper at L1-L4 on CT (cizmic2023 p. 202); women narrower at every level on Nigerian dry bone, by at most 0.8 mm at L1-L3 and about 1.5 mm at L4-L5 (amonookuofi1985 p. 73; Table 1 p. 71; per level 0.8, 0.7, 0.7, 1.5, 1.4 mm is the note's Inference); griffith2016 unadjusted, women deeper at L2 and men at L5, and after adjustment for height and weight women deeper at L1-L3 (griffith2016 p. 675; Table 3); men deeper only at L5 and S1 on MRI (italianmri note). The series disagree; do not pool them.
+- Stature and age: no correlation with height or weight (italianmri note, R squared < 0.1; masharawi2021 note); griffith2016 (living Hong Kong CT) finds a weak correlation with height, r 0.163 in men and 0.255 in women (P < 0.001), and a slight fall with age in women only (r -0.102) (griffith2016 Table 1 p. 674), weak and of a size consistent with italianmri's R squared < 0.1; the midsagittal diameter is fixed early in life (abbas2021 note, refs 32 and 33).
 - Population: African skeletons 0 to 2 mm shallower than Caucasoid (eisenstein1977 p. 174 Table I); Chinese dry bone about one third below Panjabi (tan2004 note).
 - Disease: degenerative stenosis 0.9 to 2.9 mm shallower at every level (abbas2021 p. 5 Table 2).
 
@@ -633,6 +664,7 @@ Biases a mask value carries (Inference unless cited):
 1. Build recipe C.
 2. In every closed section, take the X extent of the foramen between the medial pedicle surfaces.
 3. Report the greatest over the closed sections as canal_w (panjabi1991t's widest; eisenstein1977's greatest). Store the mid-pedicle value too, to compare with griffith2016.
+4. Film-equivalent IPD, stored beside the section value: project the pedicle voxels of both sides along the frame's AP axis onto the coronal plane and take, over the rows that cross both pedicles, the smallest gap between the most medial voxels of the two projected pedicles (chaudhary2015 note recipe; its definition p. 34). It is true size: multiply by the film's magnification before comparing with film tables, or compare ratios between levels, which cancel it (chaudhary2015 note).
 
 (c) Radiograph
 
@@ -676,10 +708,11 @@ Lumbar series, mm, L1 to L5:
 | griffith2016 | 540 men, living CT, mid-pedicle (p. 675 Table 4) | 20.87, 21.19, 22.13, 24.55, 29.55 |
 | cizmic2023 | 100 men, living CT, widest (p. 202 Table 5) | 25.01, 25.32, 26.22, 27.81, 32.69 |
 | masharawi2021 VCW | 25 control men, living CT (p. 9 Table 4) | 22.68, 22.59, 22.47, 22.59, 25.23 |
-| alonge2021 | 120 living CT, pooled (alonge2021 note, from p. 73 Table 2) | 22.46, 22.93, 24.37, 27.00, 32.36 |
+| alonge2021 | 120 living CT, pooled (alonge2021 note, pooled from p. 74 Table 4) | 22.46, 22.93, 24.37, 27.00, 32.36 |
 | ahmed2019 | 80 adults, MRI (p. 24 Table 2) | 22.42, 22.64, 23.45, 24.52, 27.68 |
 | abbas2021 ML | 90 control men, living CT, mid-body (p. 5 Table 2) | 25.5, 26, 27, 28.6, 34.9 |
 | amonookuofi1982 | 150 men, AP film, uncorrected (p. 228 Table 1) | 22.6, 22.7, 24.5, 26.0, 28.7 |
+| amonookuofi1982 | 140 women, AP film, uncorrected (p. 228 Table 1) | 21.3, 22.5, 23.7, 25.4, 28.4 |
 | chaudhary2015 | 150 men, AP film, uncorrected (p. 34 Table I) | 24.06, 24.73, 26.01, 27.15, 31.34 |
 | bonczar2024 | pooled studies | 22.04, 22.15, 22.62, 23.19, 26.46 |
 
@@ -690,16 +723,17 @@ Where it peaks, bottoms out and separates:
 - T4 to T10: flat, the column's minimum (Panjabi 17.0 to 18.2; Hinck 17.3 to 18.7, lowest at T6). Fails to separate any pair.
 - T11 to T12: +2.8 mm in Panjabi; +3.0 mm on film, 1.6 SD (hinck1966 note). Separates.
 - T12 to L1: +1.5 mm in Panjabi, +1.8 on film, under 1 SD (hinck1966 note). Weak.
-- L1 to L3: nearly flat in every series. Fails.
-- L4 to L5: +1.7 mm in Panjabi and +2.8 on film, under 1 SD (hinck1966 note); +5.0 mm in griffith2016 men and +4.9 in cizmic2023 men. Inference: 5.0 / mean(3.24, 4.25) = 1.3 SD and 4.88 / mean(3.06, 4.18) = 1.3 SD. Living CT separates L4 from L5 better than the dry-bone series does.
-- Width over depth, a size-free shape: 1.17 at C2, 1.40 to 1.43 at C3-C6, 1.61 at C7, which Panjabi names a marker of the cervicothoracic transition (panjabi1991c p. 864 Table 3, p. 867); 1.3 at T1-T2, 1.0 to 1.1 at T4-T9, 1.2 at T10-T12 (panjabi1991t p. 893 Table 4); 1.25, 1.31, 1.39, 1.37, 1.38 at L1-L5 (panjabi1992 p. 302 Table 3). In living CT the ratio rises further caudally: 1.30, 1.39, 1.55, 1.63, 1.79 (cizmic2023 note, from p. 202 Tables 3 to 4).
+- L1 to L3: nearly flat in every series; alonge2021 L1/L2 +0.5 mm (about 0.2 SD) and L2/L3 +1.4 (about 0.7 SD) (Inference in its note, from Table 4 p. 74). Fails.
+- L4 to L5: +1.7 mm in Panjabi and +2.8 on film, under 1 SD (hinck1966 note); +5.0 mm in griffith2016 men and +4.9 in cizmic2023 men; alonge2021 pooled +5.4 mm, about 1.4 SD, with L3/L4 +2.6 mm, about 1 SD (Inference in its note, from Table 4 p. 74); on Indian MRI +2.66 mm in men and +3.57 in women, 1.03 and 1.72 SD (ahmed2019 p. 24 Table 2; the SD multiples are the note's Inference). Inference: 5.0 / mean(3.24, 4.25) = 1.3 SD and 4.88 / mean(3.06, 4.18) = 1.3 SD. Living CT and MRI separate L4 from L5 better than the dry-bone series do.
+- Width over depth, a size-free shape: 1.17 at C2, 1.40 to 1.43 at C3-C6, 1.61 at C7, which Panjabi names a marker of the cervicothoracic transition (panjabi1991c p. 864 Table 3, p. 867); 1.3 at T1-T2, 1.0 to 1.1 at T4-T9, 1.2 at T10-T12 (panjabi1991t p. 893 Table 4); 1.25, 1.31, 1.39, 1.37, 1.38 at L1-L5 (panjabi1992 p. 302 Table 3). In living CT the ratio rises further caudally: 1.30, 1.39, 1.55, 1.63, 1.79 (cizmic2023 note, from p. 202 Tables 3 to 4). On Indian MRI, transverse over midsagittal diameter is 1.56, 1.69, 1.90, 1.93, 2.03 at L1 to L5, both sexes (men 1.63 to 2.01, women 1.51 to 2.05), steepest from L1 to L3 (Inference: ratios of the means of ahmed2019 Tables 1 and 2, pp. 22 and 24; its note).
 
 (e) Covariates
 
-- Sex: men about 1 mm wider (hinck1966 note: 0.4 to 2.2 mm, mean 1.25, computed); men wider at every level, all P < 0.0001, still after adjusting for height and weight (griffith2016 p. 675 Table 4, Table S3).
+- Sex: men about 1 mm wider (hinck1966 note: 0.4 to 2.2 mm, mean 1.25, computed); men wider at every level, all P < 0.0001, still after adjusting for height and weight (griffith2016 p. 675 Table 4, Table S3); on Indian films men 1.42 to 2.42 mm wider at L1 to L5, a female/male ratio of 0.90 to 0.95, p < 0.001 at every level (chaudhary2015 Table I p. 34; differences computed); on Nigerian films only 0.2 to 1.3 mm (amonookuofi1982 Table 1 p. 228).
 - Stature: r 0.126 in men and 0.143 in women (griffith2016 note).
 - Age: grows 4.5 to 5.2 mm in the lumbar spine from 3-5 y to adult, mostly before 9-10 y (hinck1966 note).
-- Population: African skeletons 1 to 3 mm narrower than Caucasoid (eisenstein1977 p. 174 Table I); Chinese dry bone about 0.8 of Panjabi (tan2004 note).
+- Population: African skeletons 1 to 3 mm narrower than Caucasoid at L1 to L4 and 0 to 1 mm at L5 (eisenstein1977 p. 174 Table I; its note), confounded with age, the Caucasoid groups being 17 to 25 years older (eisenstein1977 note, Table IV p. 176); Chinese dry bone about 0.8 of Panjabi (tan2004 note).
+- Normal limits on film: amonookuofi1982's 95% limits of IPD on AP film, uncorrected, L1 to L5, mm: men 18.8-26.4, 19.3-26.1, 21.5-27.5, 22.6-29.4, 24.1-33.3; women 17.3-25.3, 18.5-26.5, 20.1-27.3, 22.2-28.6, 24.4-32.4 (amonookuofi1982 Table 2 p. 229; each is the Table 1 mean +/- 2 SD, Inference in its note). A carefully measured value outside them should raise suspicion of pathology or anomaly, while a value inside them does not clear the canal (amonookuofi1982 p. 228).
 - Disease: Marfan syndrome widens the lumbar interpedicular distance to 29.5 to 39.6 mm on film (ahn2001 p. 68); degenerative stenosis leaves it unchanged (abbas2021 p. 5, P 0.064 to 0.725).
 
 ### 6.3 Canal area: canal_area (SCA)
@@ -714,7 +748,14 @@ Where it peaks, bottoms out and separates:
 
 (b) Mask recipe: recipe C; the area of the foramen in the mid-pedicle section; store the minimum over closed sections too. A transverse section of frame F is planar, so its vector area is its plain area (O2).
 
-(c) Radiograph: not measurable. From the two diameters: pi x SCW x SCD / 4 overestimates by 10 to 30% and SCW x SCD / 2 underestimates by 20 to 30% (panjabi1992 p. 305). In tan2004 the ratio SCA / (SCW x SCD) is 0.70 to 0.90, 0.78 typical (tan2004 note, computed from Table 1); use 0.78 x SCW x SCD, a little high at L4-L5.
+(c) Radiograph: not measurable. From the two diameters: pi x SCW x SCD / 4 overestimates by 10 to 30% and SCW x SCD / 2 underestimates by 20 to 30% (panjabi1992 p. 305). In the neck use the ellipse at C2-C3 and the triangle at C4-C7 (panjabi1991c p. 866, p. 868); SCA/(SCW x SCD) is 0.73 at C2 and 0.57 to 0.60 at C5-C7 (Inference, panjabi1991c note).
+
+The factor SCA/(SCW x SCD), by series and level, not pooled:
+
+- Panjabi lumbar: about 0.71 at L1 falling to about 0.61 to 0.62 at L4-L5 (Inference: 0.785/1.105 and 0.785/1.27 to 1.28, from the ellipse's 10.5% and 27 to 28% excess in the panjabi1992 note, Table 3 p. 302).
+- tan2004: cervical 0.76 to 0.80, thoracic 0.80 to 0.90, L1-L3 0.77 to 0.82, L4 0.72, L5 0.70 (tan2004 note, computed from Table 1).
+
+A single factor of 0.78 at L4-L5 would read about 26% over Panjabi's areas (Inference: 0.78/0.62). Use the factor of the series whose definition the mask copies.
 
 (d) Course, mm2
 
@@ -724,11 +765,12 @@ Where it peaks, bottoms out and separates:
 | T1 to T12 | 213, 200, 180, 192, 201, 206, 199, 194, 200, 202, 220, 280 (panjabi1991t p. 893 Table 4) | tan2004 minimum 140.1 at T4 (tan2004 note) |
 | L1 to L5 | 320, 281, 280, 290, 330 (panjabi1992 p. 302 Table 3) | griffith2016 men 273.7, 256.3, 247.8, 276.3, 338.3; women 264.8, 252.7, 241.8, 258.1, 296.9 (p. 675 Table 2); abbas2021 control men 296, 283, 279, 305, 370 (p. 5 Table 2); bonczar2024 251, 227, 214, 215, 245; tan2004 L1 200.0, L4 163.8, L5 186.6 (tan2004 note) |
 
-- C2 is largest and only C2 against C7 is significant (panjabi1991c note); a step of -126 mm2 from C2 to C3.
+- C2 is largest and only C2 against C7 is significant (panjabi1991c note); a step of -126 mm2 from C2 to C3. The cervical SCA SEMs imply SDs of 45 to 126 mm2, a CV up to 56% at C7, far larger than SCW and SCD imply; take no likelihood width from them (panjabi1991c note).
 - T2 to T10: flat at about 198 (panjabi1991t note); fails.
 - T11 to T12: +60 mm2; the large thoracolumbar enlargement (panjabi1991t note), though no level is marked significant.
 - L1 to L2 falls, L2 to L4 is flat, L4 to L5 rises (panjabi1992 p. 301); griffith2016 men L4 to L5 +62 mm2. Inference: 62.0 / mean(64.4, 82.6) = 0.84 SD.
 - Shape: the ellipse overestimates by 10.5% at L1 and 27 to 28% at L4-L5 (panjabi1992 note, computed from Table 3), so the canal turns from oval to triangular caudally.
+- Canal over body area: griffith2016's canal CSA over body CSA is men 0.23, 0.20, 0.18, 0.18, 0.20 and women 0.28, 0.25, 0.21, 0.21, 0.21 at L1 to L5, nearly flat from L3 down; relative to the body, women's canals are larger, also after adjustment (griffith2016 Table 6 p. 676). To tell L1, L2 and L3 apart use the body CSA, which rises about 70 to 125 mm2 a level, not canal size (griffith2016 Table 5 p. 675; its note, instruction 12).
 
 (e) Covariates: men larger at L1, L3, L4 and L5 (griffith2016 p. 675 Table 2); height r 0.186 in men and 0.298 in women (griffith2016 note); degenerative stenosis 22 to 60 mm2 smaller (abbas2021 p. 5 Table 2, computed); Chinese dry bone about one third smaller (tan2004 note).
 
@@ -776,6 +818,7 @@ The inferior vertebral notch, N (one instance):
 - Course, mm, L1 to L5: men 8.8, 8.4, 7.5, 7.6, 7.0; women 8.1, 7.8, 7.5, 7.4, 7.3 (amonookuofi1985 p. 74 Table 5). It falls slightly and not strictly from L1 to L5. Steps of 0.1 to 0.9 mm against SDs of 0.7 to 1.3 mm separate no adjacent pair (amonookuofi1985 note).
 - Mask recipe (Inference, amonookuofi1985 note): in the parasagittal plane through each pedicle, below the pedicle, take the largest gap along Z between the back of the body (label 49) and the front of the arch (label 41 or 47/48). Report each side and their mean.
 - Radiograph (Inference): lateral view, the width of the foramen's upper bay below the pedicle, divided by the magnification.
+- Notch over body depth, magnification-free: printed 0.3 at L1-L2 and 0.2 at L3-L5 in men, and the same in women except 0.3 at L3 (amonookuofi1985 p. 75 Table 6). To two decimals (Inference, its note) men 0.30, 0.27, 0.23, 0.22, 0.20-0.22 and women 0.31, 0.28, 0.26, 0.24, 0.23, a steadier fall than canal over body, which flattens below L3. The author offers these ratios for lateral films, where magnification cancels (p. 75). Ratios of group means with no SD; N alone separates no adjacent pair, and whether the ratio does is not known.
 
 Pedicle-to-pedicle spacing between neighbours, mitra2002's "IPD" (two instances):
 
@@ -788,12 +831,12 @@ Pedicle-to-pedicle spacing between neighbours, mitra2002's "IPD" (two instances)
 
 Every pedicle measure shares one trap: SPINEPS has no pedicle label. The pedicle lies inside label 41 with the laminae and the bases of the processes, so an extent of label 41 is not a pedicle dimension, and the archive measurer refuses pedicle width and height for that reason (archive/bordercall/spineps_map.py, MAPPING). Cut the pedicle out geometrically by recipe P. No paper in the set measured a pedicle on a segmentation mask; every recipe below is Inference unless a page is cited.
 
-A second trap is which section and which diameter. Panjabi took the width and height of a section perpendicular to the pedicle axis, horizontal and vertical as drawn (panjabi1991t p. 891 Fig 3C, p. 893; panjabi1991c p. 862, p. 866), and none of his three papers says the section was the narrowest (panjabi1992 p. 301; panjabi1991c p. 862). otsuki2021 and robertson2000 report the minor and major axes of the section's best-fit ellipse instead (otsuki2021 p. 4 Fig 2A; robertson2000 p. 710). At L4 and L5 the section's long axis rolls 39 to 52 deg away from the vertical (makino2012 p. 1518 Table 1; robertson2000 p. 711 Table 1), so its minor axis is far smaller than its horizontal extent there. Inference, arithmetic: an ellipse with otsuki2021's L5 axes, 24.2 by 11.8 mm (otsuki2021 p. 6 Table 2), rolled 51.8 deg (makino2012 p. 1518 Table 1), is 2 x sqrt(5.9^2 cos^2 51.8 + 12.1^2 sin^2 51.8) = 20.4 mm wide horizontally and 17.6 mm tall vertically. Panjabi's L5 width and height are 18.6 and 19.6 mm (panjabi1992 p. 302 Table 4). The same arithmetic gives 7.2, 7.4, 10.2, 14.4 and 20.4 mm horizontally at L1 to L5, against Panjabi's 8.6, 8.2, 10.1, 14.1 and 18.6. So Panjabi's width is the horizontal extent of a rolled section, not its minor axis. The two series are different samples; the agreement supports the reading but does not prove it.
+A second trap is which section and which diameter. Panjabi took the width and height of a section perpendicular to the pedicle axis, horizontal and vertical as drawn (panjabi1991t p. 891 Fig 3C, p. 893; panjabi1991c p. 862, p. 866), and none of his three papers says the section was the narrowest (panjabi1992 p. 301; panjabi1991c p. 862). otsuki2021 and robertson2000 report the minor and major axes of the section's best-fit ellipse instead (otsuki2021 p. 4 Fig 2A; robertson2000 p. 710). At L4 and L5 the section's long axis rolls 39 to 52 deg away from the vertical on CT sections (makino2012 p. 1518 Table 1). On coaxial radiographs of dry bone, a different method, the ellipse tilts 31.0/33.5 deg at L4 (SD 17.1/20.8) and 55.0/50.3 deg at L5 (SD 8.8/7.4), left/right, against -2.4 to 7.5 deg at L1 to L3 (robertson2000 p. 711 Table 1). Either way its minor axis is far smaller than its horizontal extent there. Inference, arithmetic: an ellipse with otsuki2021's L5 axes, 24.2 by 11.8 mm (otsuki2021 p. 6 Table 2), rolled 51.8 deg (makino2012 p. 1518 Table 1), is 2 x sqrt(5.9^2 cos^2 51.8 + 12.1^2 sin^2 51.8) = 20.4 mm wide horizontally and 17.6 mm tall vertically. Panjabi's L5 width and height are 18.6 and 19.6 mm (panjabi1992 p. 302 Table 4). The same arithmetic gives 7.2, 7.4, 10.2, 14.4 and 20.4 mm horizontally at L1 to L5, against Panjabi's 8.6, 8.2, 10.1, 14.1 and 18.6. So Panjabi's width is the horizontal extent of a rolled section, not its minor axis. The two series are different samples; the agreement supports the reading but does not prove it.
 
 Recipe P, the pedicle of one instance on one side (Inference, after otsuki2021 p. 3, whose isthmus method was built for clinical CT):
 
 1. Build frame F (section 2.2).
-2. Take the label-41 voxels on that side of X = 0. Keep those between the dorsal surface of the body (label 49) and the most anterior voxel of the superior articular process (label 45 or 46) or the transverse process (label 43 or 44), whichever is more anterior at that height.
+2. Take the label-41 voxels on that side of X = 0. Keep those between the dorsal surface of the body (label 49) and the most anterior voxel of the superior articular process (label 45 or 46) or the transverse process (label 43 or 44), whichever is more anterior at that height. At T1 to T10 do not bound the pedicle by the body's lateral wall, and at T1 to T6 not by the upper end plate: there the pedicle cortex projects beyond the body outline, laterally and cranially; from T11 to L5 it lies inside the outline (lien2007 Fig 2 caption p. 1217; p. 1220; its note, instruction 8).
 3. Fit the axis by O3: section centroids at the anterior and posterior thirds of that bridge, and the line through them. Reslice perpendicular to the axis every 0.5 mm.
 4. In each section, fit a second-moment ellipse. Call the section with the shortest minor axis the isthmus (otsuki2021 p. 3).
 5. In the isthmus section, let v be frame Y projected onto the section plane and normalised, and u = v x axis. Record the extent of the section along u (the width), the extent along v (the height), the section's area, the ellipse's minor and major axes, and the roll of the major axis from v.
@@ -811,10 +854,10 @@ The mask's outer boundary is the outer (periosteal) cortex. That matches Panjabi
 | tan2004 | Panjabi's drawings; position not stated (tan2004 p. 138) | SAME landmarks; 25.7% below Panjabi on average, about 41% at T4 and L5 (tan2004 p. 144) |
 | zindrick1987 TW | Narrowest dimension in the transverse plane, on axial films of single vertebrae and on clinical CT (zindrick1987 p. 160, p. 161 Fig 1) | SAME in kind (isthmus, horizontal); mixed modality and unknown sample |
 | olsewski1990, yu2015, lien2007, hou1993 A, mitra2002 TD | Narrowest mediolateral dimension, outer cortex to outer cortex, caliper on bone (olsewski1990 p. 542 Fig 1; yu2015 p. 1640, p. 1641 Fig 1B; lien2007 p. 1217 Fig 1; hou1993 p. 1851 Fig 1; mitra2002 p. 454 Fig 1) | SAME in kind |
-| arockiaraj2025, duman2026, moncadahabib2025, masharawi2021 PW | Width across the pedicle on axial CT, outer cortex where stated; at the isthmus in the first two, position not stated in the last two (arockiaraj2025 p. 313 Fig 1; duman2026 p. 4, p. 5 Fig 2E; moncadahabib2025 p. 2 Fig 1A, p. 3 Fig 2B; masharawi2021 p. 3 Fig 1) | SAME in kind; living CT |
+| arockiaraj2025, duman2026, moncadahabib2025, masharawi2021 PW | Width across the pedicle on axial CT, outer cortex where stated; at the isthmus in the first two, position not stated in the last two (arockiaraj2025 p. 313 Fig 1; duman2026 p. 4, p. 5 Fig 2E; moncadahabib2025 p. 2 Fig 1A, p. 3 Fig 2B; masharawi2021 p. 3 Fig 1). moncadahabib2025's Figure 1 labels do not match its drawn lines (moncadahabib2025 p. 2; its note, Gaps): take its definition from Figure 2 and its values from Tables 1 and 2 only | SAME in kind; living CT |
 | krag1988 | Width perpendicular to the pedicle axis on the mid-pedicle CT cut, and two corridor widths at 0 and 15 deg (krag1988 p. 28 Figs 1B, 1D) | SAME for the perpendicular width |
 | otsuki2021, robertson2000 isthmus diameter | Minor axis of the isthmus ellipse (otsuki2021 p. 4 Fig 2A; robertson2000 p. 710) | DIFFERS: reads low at L4-L5 where the section rolls (above) |
-| robertson2000 coaxial width | Medial to lateral extent within the wire marking the outer cortex, on a coaxial radiograph (robertson2000 p. 710) | SAME in kind |
+| robertson2000 coaxial width | Medial to lateral extent within the wire marking the outer cortex, on a coaxial radiograph (robertson2000 p. 710) | DIFFERS: the bounding width of a tilted ellipse; at L5 about 3 mm above the horizontal chord through the centre (about 18.3) and about 8 mm above the minor axis (13.2/14.0) (robertson2000 Table 1 p. 711; its note, internal consistency) |
 | makino2012 TPW | Minimum inner-cortex width perpendicular to the axis, on the axial plane parallel to the upper end plate (makino2012 p. 1517, p. 1518 Fig 1a) | DIFFERS: endosteal, reads about two cortices low |
 | busscher2010 PedW | Pedicle width on CT of dissected spines (busscher2010 p. 1105) | SAME in kind |
 | amonookuofi1982 C | Width of the right pedicle ring on an AP film (amonookuofi1982 pp. 226 to 227 Fig 2) | DIFFERS: projection, magnified |
@@ -826,6 +869,7 @@ Biases a mask value carries (Inference unless cited):
 - Minor axis instead of horizontal extent: low at L4 and L5 by 4 to 7 mm (the arithmetic above).
 - Label 41 extent: not a pedicle at all (archive/bordercall/spineps_map.py).
 - Section position: a minimum over sections reads at or below any single section; Panjabi's position is not stated, so the size of this bias is not known.
+- Four width quantities are in play and differ at L4 and L5: the bounding width of the section (robertson2000's coaxial width), the horizontal chord through its centre (an axial CT cut), the minor axis of its ellipse (otsuki2021, robertson2000's isthmus), and Panjabi's horizontal extent of the section perpendicular to the axis (a bounding width by the arithmetic above, of a section cut another way than robertson2000's projection). Say which one a value is.
 
 (b) Mask recipe
 
@@ -892,8 +936,8 @@ Where it peaks, bottoms out and separates (steps over the mean SD of the two lev
 - C2 is widest (8.0) and C3 to C6 flat at 5.4 to 5.9 (panjabi1991c p. 864). The C2/C3 step reads -2.0 SD, but the C2 left SEM of 0.07 is implausibly small (panjabi1991c note), so the size of that separation is not trusted.
 - C7/T1: +1.9 mm, 1.26 SD. Separates.
 - T3 to T8: the narrowest stretch in every series. The minimum is T5 in zindrick1987 (4.5, p. 161), T4 in lien2007 (3.5, p. 1218) and busscher2010 (4.3), and T7 in Panjabi (5.8). No pair from T3 to T8 separates (0.02 to 0.44 SD).
-- T11/T12 and T12/L1: widths fall at T12 in Panjabi and zindrick1987, and fall again at L1 in lien2007 (7.55 to 6.45), hou1993 (8.3 to 7.0), tan2004 (7.55 to 5.55) and krag1988's T12 (6.8). The T12/L1 step is -0.03 SD in Panjabi. Width does not mark the thoracolumbar junction. tan2004's note calls its T12/L1 drop sample-specific, since the Panjabi widths implied by its Table 2 show none (tan2004 note).
-- L2/L3 0.86, L3/L4 2.45 and L4/L5 1.95 SD in Panjabi. Every lumbar series rises from L2 to L5, and the L4/L5 step is the largest pedicle-width step in most series (olsewski1990 men 2.1 SD, its note; zindrick1987 1.6 SD, its note; makino2012 1.74, its note). L1/L2 never separates (0.04 to 0.2 SD in olsewski1990, zindrick1987 and makino2012 notes).
+- T11/T12 and T12/L1: widths fall at T12 in Panjabi and zindrick1987, and fall again at L1 in lien2007 (7.55 to 6.45), hou1993 (8.3 to 7.0), tan2004 (7.55 to 5.55) and krag1988's T12 (6.8). The T12/L1 step is -0.03 SD in Panjabi's means, a between-spine step that does not test a dip within one spine. Within a spine, L1 was narrower than both T12 and L2 in every one of 40 Chinese columns (hou1993 p. 1851; Table 1 p. 1852: 8.3, 7.0, 7.4 mm). Use the within-spine dip at L1 as a junction cue, not the absolute width. tan2004's note calls its T12/L1 drop sample-specific, since the Panjabi widths implied by its Table 2 show none (tan2004 note).
+- L2/L3 0.86, L3/L4 2.45 and L4/L5 1.95 SD in Panjabi. Every lumbar series rises from L2 to L5, and the L4/L5 step is the largest pedicle-width step in most series (olsewski1990 men 2.1 SD, its note; zindrick1987 1.6 SD, its note; makino2012 1.74, its note; arockiaraj2025 +3.80 mm, about 2.8 pooled SD, against 0.6 at L1/L2, its note; mitra2002 men +2.59 mm at L3/L4 and +4.59 at L4/L5, no SD printed, its note). L1/L2 never separates (0.04 to 0.2 SD in olsewski1990, zindrick1987 and makino2012 notes).
 
 (e) Covariates
 
@@ -952,15 +996,15 @@ Lateral view, the narrowest vertical dimension of the pedicle between the notche
 
 (Panjabi: the same tables as 7.1; zindrick1987 p. 162 Table 2; lien2007 p. 1218 Table 1; tan2004 pp. 140 to 141 Table 1.)
 
-Lumbar series, mm, L1 to L5: yu2015 15.75, 15.06, 14.59, 13.81, 13.67 (503 skeletons, p. 1645 Table 5); olsewski1990 cadaver men 17.0, 16.0, 16.1, 16.4, 17.4 (p. 544 Table I); mitra2002 men direct 15.68, 15.27, 15.03, 14.79, 15.67 (p. 455 Table 2); masharawi2021 control men left 12.68, 12.07, 11.85, 10.91, 9.50 (p. 11 Table 5); moncadahabib2025 left 12.8, 12.3, 12.1, 11.3, 10.2 (p. 5 Table 2); arockiaraj2025 9.75, 9.32, 9.11, 8.71, 8.3 (p. 316 Table 2); makino2012 SPW 11.89, 10.44, 10.23, 9.36, 8.95 (p. 1518 Table 1); otsuki2021 major axis 17.0, 15.8, 15.8, 18.8, 24.2 (p. 6 Table 2); robertson2000 coaxial heights, flat at 17.4 to 19.9 (its note); duman2026 men T11 14.17, T12 14.65, L1 15.21, L2 16.24 (p. 8 Table 2).
+Lumbar series, mm, L1 to L5: yu2015 15.75, 15.06, 14.59, 13.81, 13.67 (503 skeletons, p. 1645 Table 5); olsewski1990 cadaver men 17.0, 16.0, 16.1, 16.4, 17.4 (p. 544 Table I); mitra2002 men direct 15.68, 15.27, 15.03, 14.79, 15.67 (p. 455 Table 2); masharawi2021 control men left 12.68, 12.07, 11.85, 10.91, 9.50 (p. 11 Table 5); moncadahabib2025 left 12.8, 12.3, 12.1, 11.3, 10.2 (p. 5 Table 2); arockiaraj2025 9.75, 9.32, 9.11, 8.71, 8.3 (p. 316 Table 2); makino2012 SPW 11.89, 10.44, 10.23, 9.36, 8.95 (p. 1518 Table 1); hou1993 15.8, 15.1, 14.7, 15.0, 19.8 (40 Chinese dry columns, p. 1852 Table 2); otsuki2021 major axis 17.0, 15.8, 15.8, 18.8, 24.2 (p. 6 Table 2); robertson2000 coaxial heights, flat at 17.4 to 19.9 (its note); duman2026 men T11 14.17, T12 14.65, L1 15.21, L2 16.24 (p. 8 Table 2).
 
 Where it peaks and separates:
 
 - C2/C3 -2.33 SD (inflated by C2's small left SEM, as for width); C3 to C7 flat.
 - C7/T1 +1.57 and T1/T2 +1.20 SD: height marks the cervicothoracic junction in Panjabi, and T1 is the shortest thoracic pedicle in zindrick1987 (9.9) and lien2007 (8.65).
-- T10/T11 +1.91 SD: T11 is the peak in Panjabi (17.4) and zindrick1987 (17.4); lien2007 ties T11 and T12 (15.1).
-- L1 to L4: under 0.5 SD a step; height separates no lumbar pair but L4/L5 in Panjabi (+1.72 SD).
-- Disagreement at L5. Panjabi rises to 19.6 and olsewski1990 and mitra2002 rise a little. zindrick1987 (14.0), yu2015 (13.67), lien2007 (12.5), masharawi2021, moncadahabib2025, arockiaraj2025 and makino2012 all fall to L5. Panjabi's own text records that Berry and Zindrick found a fall where his series and Scoles found a rise (panjabi1992 p. 305). Inference from the ellipse arithmetic above: the vertical extent of a section rolled 50 deg is about 18 mm at L5, near Panjabi's, while a caliper laid craniocaudally across the narrowest part reads less; the direction of the L5 step depends on how the section is cut.
+- T10/T11 +1.91 SD: T11 is the peak in Panjabi (17.4) and zindrick1987 (17.4); lien2007 ties T11 and T12 (15.1); hou1993 T9 12.9, T10 14.3, T11 16.2, T12 16.6 (p. 1852 Table 2).
+- L1 to L4: 0.28 to 0.53 SD a step (-0.40, -0.28 and +0.53 SD, Inference from the long table); height separates no lumbar pair but L4/L5 in Panjabi (+1.72 SD).
+- Disagreement at L5. Panjabi rises to 19.6 and hou1993 to 19.8 (p. 1852 Table 2); olsewski1990 and mitra2002 rise a little. zindrick1987 (14.0), yu2015 (13.67), lien2007 (12.5), masharawi2021, moncadahabib2025, arockiaraj2025 and makino2012 all fall to L5. Panjabi's own text records that Berry and Zindrick found a fall where his series and Scoles found a rise (panjabi1992 p. 305). Inference from the ellipse arithmetic above: the vertical extent of a section rolled 50 deg is about 18 mm at L5, near Panjabi's, while a caliper laid craniocaudally across the narrowest part reads less; the direction of the L5 step depends on how the section is cut.
 - Disagreement at T11 to L2. duman2026 rises from T11 to L2 in men (14.17 to 16.24) while Panjabi, zindrick1987 and lien2007 fall from T11 or T12 to L2. duman2026's levels are not defined by any counting rule (duman2026 note), so the cause is not known.
 
 (e) Covariates: men larger by 1.07 to 1.47 mm, and +4.97 to +5.68 mm per metre of height, adjusted (yu2015 p. 1643 Table 4, p. 1641 Table 2); women smaller in cadavers and the living (olsewski1990 p. 544); men taller at every level on CT (arockiaraj2025 p. 316 Table 2); Chinese dry bone 16.1% below Panjabi (tan2004 p. 144).
@@ -980,7 +1024,7 @@ Biases (Inference): a mask section's plain area equals Panjabi's projected area 
 
 (b) Mask recipe: recipe P, the area of the isthmus section (a planar section, so its plain area is its vector area, O2). Also store H/W from 7.1 and 7.2, the ellipse roll, and MPD as twice the distance from the axis point to the nearest boundary voxel, which the outer mask boundary makes an outer-cortex MPD, not makino2012's.
 
-(c) Radiograph: area is not measurable on a film (panjabi1992 note). Shape estimates from AP width and lateral height: the triangle W x H / 2 matched the section well at T2 to T12 (panjabi1991t p. 900) and came closest in the neck (panjabi1991c p. 866, p. 868); in the lumbar spine the ellipse fits best at L1 and L2 and the triangle at L4 and L5 (panjabi1992 p. 305). tan2004's PDA / (PDH x PDW) is 0.77 to 1.05 (tan2004 note), nearer an ellipse's 0.785 than a triangle's 0.5 at most levels. Inference: the shape rule is level-dependent; do not use one shape factor for all levels. The H/W ratio is the radiograph-ready shape measure: magnification-free on one AP ring.
+(c) Radiograph: area is not measurable on a film (panjabi1992 note). Shape estimates from AP width and lateral height: the triangle W x H / 2 matched the section well at T2 to T12 (panjabi1991t p. 900; Inference in its note, from Table 5: within about 11% at T2 to T9, 18% over on the left at T10, and 16 to 26% under at T11 and T12) and came closest in the neck (panjabi1991c p. 866, p. 868); in the lumbar spine the ellipse fits best at L1 and L2 and the triangle at L4 and L5 (panjabi1992 p. 305). At L5, though, Panjabi's areas (143.9 right, 158.7 left) are below even the triangle W x H / 2 (176 and 187, computed), so no convex section has his L5 width, height and area at once; a mask can match at most two of them there, and the L5 area should be treated as a source inconsistency (panjabi1992 Table 4 p. 302; its note, generator section). tan2004's PDA / (PDH x PDW) is 0.77 to 1.05 (tan2004 note), nearer an ellipse's 0.785 than a triangle's 0.5 at most levels. Inference: the shape rule is level-dependent; do not use one shape factor for all levels. The H/W ratio is the radiograph-ready shape measure: magnification-free on one AP ring.
 
 (d) Course
 
@@ -993,8 +1037,8 @@ Biases (Inference): a mask section's plain area equals Panjabi's projected area 
 | C6 | 26.2 | 1.22 | 31.2 |
 | C7 | 29.1 | 1.13 | 32.9 |
 | T1 | 53.3 | 1.14 | 56.5 |
-| T5 | 32.4 (minimum) | 1.88 | 33.6 |
-| T10 | 63.2 | 1.64 | 73.0 |
+| T5 | 32.4 (minimum) | 1.90 | 33.6 |
+| T10 | 63.2 | 1.65 | 73.0 |
 | T11 | 93.3 | 1.78 | 93.1 |
 | T12 | 94.0 | 1.91 | 95.6 |
 | L1 | 87.5 | 1.86 | 68.2 |
@@ -1007,10 +1051,14 @@ Biases (Inference): a mask section's plain area equals Panjabi's projected area 
 
 - otsuki2021 whole isthmus area, L1 to L5: 95.7, 92.5, 113.7, 152.4, 204.2 mm2; cavity 53.2, 43.3, 56.3, 83.2, 118.7 (otsuki2021 p. 6 Table 2). It runs 8 to 53 mm2 above Panjabi's lumbar areas (Inference: 95.7 - 87.5 and 204.2 - 151.3). The cause is not known: the samples differ, and Panjabi's section position is not stated.
 - makino2012 MPD, L1 to L5: 5.09, 5.39, 6.52, 6.83, 7.36 mm; it falls 5.5 mm short of TPW at L5 (makino2012 p. 1518 Table 1, its note). robertson2000's isthmus diameter plateaus at 12 to 14 mm from L3 down while the width keeps rising (robertson2000 p. 711).
-- H/W crosses 1 only at L5 in most series. Ratios at L5 of 1.09 and 1.02 by side (panjabi1992 p. 302); W/H 1.21 in men and 1.14 in women at L5 (olsewski1990 note); TPW/SPW 1.44 at L5 (makino2012 note); W/H about 1.1 to 1.2 at L5 (robertson2000 note); TW/SW over 1 only at L5 (zindrick1987 note). In the thorax H/W is 1.1 at T1 and 1.8 to 2.0 from T5 to T12 (panjabi1991t p. 893), a strong T1 marker.
+- H/W crosses 1 only at L5 in most series. Ratios at L5 of 1.09 and 1.02 by side (panjabi1992 p. 302); W/H 1.21 in men and 1.14 in women at L5 (olsewski1990 note); TPW/SPW 1.44 at L5 (makino2012 note); W/H about 1.1 to 1.2 at L5 (robertson2000 note); TW/SW over 1 only at L5 (zindrick1987 note). W/H is 1.34 at L5 and 0.96 at L4 in yu2015 (Table 5 p. 1645; Inference in its note), 1.41 and 0.93 in lien2007 (Table 1 p. 1218; Inference in its note), and 1.16 to 1.22 and 0.82 in moncadahabib2025 (Table 2 p. 5; Inference in its note), so L4 comes near 1 in two series. In the thorax the text gives H/W 1.1 at T1 and near 1.8 to 2.0 from T5 to T12 (panjabi1991t p. 893); Table 5's side means run 1.65 (T10) to 2.05 (T7), with T11 1.78 (Inference, computed). lien2007's dry bone is steeper: W/H 0.88 at T1, 0.53 at T2 and 0.34 to 0.50 from T3 to T12, H/W about 2.0 to 2.9 below T2 (Inference from Table 1 p. 1218, its note). Both series put T1 apart as the marker.
+- duman2026 TPD/SPD, width over height, 0.53, 0.57, 0.61, 0.63 at T11 to L2 (Inference from Table 2 p. 8, its note), rising steadily with no step at T12/L1; free of scale and magnification.
+- Roll of the isthmus section (recipe P step 5) is makino2012's cephalocaudal inclination CI, the long axis against the normal to the upper end plate: 3.47, 5.01, 18.04, 39.06, 51.81 deg at L1 to L5 (SD 4.75, 7.60, 9.39, 8.36, 5.18; makino2012 p. 1518 Table 1). Adjacent separations about 0.24, 1.53, 2.36 and 1.83 SD (Inference, its note): the best single L3, L4 and L5 cue in that paper, blind at L1/L2. Its sign is not stated, and it is not defined for a near-round section.
 - Separations of area: C2/C3 -2.99 SD (C2's suspect SEM again), C7/T1 +1.73, T10/T11 +1.49, L4/L5 +1.46 SD; nothing else above 0.7 SD.
 
 (e) Covariates: none in Panjabi (sexes pooled, panjabi1992 p. 299). Area follows width and height (7.1, 7.2). Wall thickness by level is in 7.6.
+
+Second moments: if pedicle second moments are used, compute pi H^3 W / 64 and pi H W^3 / 64 from H and W (panjabi1991t p. 893); Figure 6E's plotted values are 16 times larger (Inference, panjabi1991t note: T11 left plotted about 47,000 mm4 against about 2,960 from the printed formula; Fig 6E p. 897).
 
 ### 7.4 Pedicle angles: pedicle_incl_sag (PDIs) and pedicle_incl_trans (PDIt)
 
@@ -1021,7 +1069,7 @@ Panjabi's names are the reverse of the clinical ones. PDIs, the inclination to t
 | Paper | Definition | Against the generator |
 |---|---|---|
 | panjabi1991c, panjabi1991t, panjabi1992 | Angle of the pedicle centre line, normal to its section, to the vertebra's sagittal plane (panjabi1992 p. 302; panjabi1991t p. 891 Fig 3C, p. 893; panjabi1991c p. 862) | SAME; the generator. No divergent value was found (panjabi1991t p. 898) |
-| tan2004 | Panjabi's drawing, after Zindrick's definition (tan2004 p. 138) | SAME; signed; divergent at T8 to T12 (tan2004 pp. 140 to 141 Table 1) |
+| tan2004 | Panjabi's drawing, after Zindrick's definition (tan2004 p. 138) | SAME; signed; T8 to T12 reversed, possibly a sign error (tan2004 pp. 140 to 141 Table 1; its note, Gaps) |
 | zindrick1987 TA | Line perpendicular to the transverse isthmus against a line parallel to the midline; positive medial (zindrick1987 p. 163 Fig 3) | SAME in kind; signed |
 | krag1988 | Visually fitted pedicle axis against the sagittal plane on the mid-pedicle CT cut; anteromedial positive (krag1988 p. 28 Fig 1B) | SAME in kind |
 | olsewski1990, lien2007, hou1993, mitra2002, arockiaraj2025, duman2026 | Pedicle axis against the midline or a line parallel to it, in the transverse plane (olsewski1990 pp. 542 to 543 Fig 4; lien2007 p. 1217 Fig 1a; hou1993 p. 1851; mitra2002 p. 454 Fig 1; arockiaraj2025 p. 313 Fig 2; duman2026 p. 5 Fig 2D) | SAME in kind; references to the image's vertical in arockiaraj2025 (its note) carry the vertebra's axial rotation |
@@ -1034,7 +1082,7 @@ Biases (Inference): a midline taken from the image rather than frame F adds the 
 
 | Paper | Definition | Against the generator |
 |---|---|---|
-| panjabi1991c, panjabi1991t, panjabi1992 | Angle of the centre line to the vertebra's transverse plane; drawn with the posterior end higher in all three papers; signed in the neck (negative "below") and thorax, unsigned in the lumbar paper (panjabi1991c p. 862, p. 866; panjabi1991t p. 891 Fig 3B; panjabi1992 p. 302, p. 300 Fig 1) | SAME; the generator |
+| panjabi1991c, panjabi1991t, panjabi1992 | Angle of the centre line to the vertebra's transverse plane; drawn with the posterior end higher in all three papers; signed in the neck (negative "below") and thorax; the lumbar paper states no sign convention (panjabi1992 p. 302), and Inference: its values are unsigned (panjabi1992 note, PDI) (panjabi1991c p. 862, p. 866; panjabi1991t p. 891 Fig 3B; panjabi1992 p. 300 Fig 1) | SAME; the generator |
 | zindrick1987 SA | Deviation of the axis from the perpendicular to the posterior body wall, positive cephalad, which end not stated (zindrick1987 p. 164 Fig 4) | SAME reference plane (the posterior wall, as frame F); sign unclear |
 | olsewski1990, mitra2002 | Axis against the superior end plate; positive when the anterior end is higher (olsewski1990 p. 543 Fig 5; mitra2002 p. 454 Fig 2) | DIFFERS: end-plate reference, so it differs from PDIt by the end-plate inclination EPItu (section 3.5); the sign may be opposite to Panjabi's drawing |
 | lien2007 SA | Axis against the superior border of the body (lien2007 p. 1217 Fig 1b) | DIFFERS: end-plate reference |
@@ -1047,7 +1095,7 @@ Biases (Inference): a midline taken from the image rather than frame F adds the 
 3. PDIt = the angle between the axis and the XZ plane: arcsin(|a_y|). Store the sign as positive when the posterior end is cranial, Panjabi's drawing.
 4. Report side means for pedicle_incl_sag:mean and pedicle_incl_trans:mean; store the right-left difference.
 
-(c) Radiograph: PDIs needs an axial image; it cannot be read on an AP or a lateral film (panjabi1992 note; panjabi1991t note). PDIt can be approximated on a lateral film as the pedicle's tilt from the perpendicular to the posterior body line, where the pedicle outline shows (panjabi1992 note); in the neck the pedicle overlaps the lateral mass (panjabi1991c note). Lateral films read the end-plate-referenced sagittal angle 3.4 to 6.1 deg low in men (mitra2002 p. 455 Table 2). Radiographs of disarticulated vertebrae read the transverse angle higher than direct at L3 to L5 (13, 16, 29 against 7, 11, 22 deg; olsewski1990 p. 544 Table II).
+(c) Radiograph: PDIs needs an axial image; it cannot be read on an AP or a lateral film (panjabi1992 note; panjabi1991t note). PDIt can be approximated on a lateral film as the pedicle's tilt from the perpendicular to the posterior body line, where the pedicle outline shows (panjabi1992 note); in the neck the pedicle overlaps the lateral mass (panjabi1991c note). Lateral films read the end-plate-referenced sagittal angle 3.4 to 6.1 deg low in men (mitra2002 p. 455 Table 2). Axial radiographs of disarticulated vertebrae read the transverse angle higher than direct at L2 to L5 (8, 13, 16, 29 against 6, 7, 11, 22 deg; olsewski1990 Table II p. 544; p. 545); no clinical AP or lateral film gives this angle.
 
 (d) Course, PDIs, deg
 
@@ -1084,7 +1132,7 @@ Where it separates:
 
 - C5/C6: -8.4 deg (0.71 SD); convergence falls through the lower neck (panjabi1991c p. 866).
 - T2/T3: about 9 deg, the largest thoracic step in Panjabi (panjabi1991t note), but T2's SD is 25.5 deg and the step is 0.53 SD.
-- T11 to L1: the series disagree. Panjabi stays convergent (9.8 at T12) and steps up 4.7 deg at L1 (0.51 SD). zindrick1987 goes divergent at T12 (-4.2) and steps 15.1 deg to L1, 2.2 SD by its note; krag1988 steps about 12 deg, about 3 SD by its note; hou1993 steps T12/L1 1.1 SD (its note). lien2007 stays flat, T11, T12 and L1 within 0.1 to 0.3 SD (its note); tan2004 reverses sign from T8 to T12 (tan2004 note). The populations are 12 autopsy spines (Panjabi), specimens and CTs of unknown number (zindrick1987), 41 living patients (krag1988), 40 Chinese dry columns with 10 for angles (hou1993), 15 Taiwanese dry sets (lien2007) and 10 Chinese cadavers (tan2004). Inference: in four of six series the thoracolumbar pedicles are near-parallel or divergent at T11 and T12 and converge again at L1; treat a near-zero convergence as a T11/T12 cue with a wide error, and do not draw it from Panjabi alone.
+- T11 to L1: the series disagree. Panjabi stays convergent (9.8 at T12) and steps up 4.7 deg at L1 (0.51 SD). zindrick1987 goes divergent at T12 (-4.2) and steps 15.1 deg to L1, 2.2 SD by its note; krag1988 steps about 12 deg, about 3 SD by its note; hou1993 steps T12/L1 1.1 SD (its note). lien2007 stays flat, T11, T12 and L1 within 0.1 to 0.3 SD (its note); tan2004 reverses sign from T8 to T12 (tan2004 note). That reversal is abrupt and uniform (right +8.6 at T7 to -7.6 at T8; left -5.2 to +9.6), both sides flip back at L1, and with the sign flipped T8 to T12 would join T7 and L1 smoothly, which suggests a sign or handedness error; against that, its Table 3 implies Zindrick's own T12 value is slightly negative (tan2004 Table 1 pp. 140 to 141; Table 3 p. 144; its note, Gaps and instruction 9). Do not use tan2004's sign as a level marker until CT confirms it. The populations are 12 autopsy spines (Panjabi), specimens and CTs of unknown number (zindrick1987), 41 living patients (krag1988), 40 Chinese dry columns with 10 for angles (hou1993), 15 Taiwanese dry sets (lien2007) and 10 Chinese cadavers (tan2004). Inference: in four of six series the thoracolumbar pedicles are near-parallel or divergent at T11 and T12 and converge again at L1; treat a near-zero convergence as a T11/T12 cue with a wide error, and do not draw it from Panjabi alone.
 - L4/L5: +8.0 deg, 1.15 SD in Panjabi; +12.1 in zindrick1987 (2.1 SD, its note), +10.76 in arockiaraj2025 (about 3 pooled SD, its note), +14.6 in mitra2002 men. The one lumbar step every series shows.
 
 (d) Course, PDIt, deg
@@ -1110,7 +1158,7 @@ Where it separates:
 - Lumbar: Panjabi rises from 2.5 to 5.5; zindrick1987 falls to -1.8 and tan2004 to -7.05. Olsewski's end-plate-referenced angle is flat at +5 to +7 cephalad at L1 to L4, with L5 bimodal: caudad in 12 of 83 cadaver pedicles and 2 of 94 living ones (olsewski1990 p. 544 Table I; pp. 545 to 547). The lumbar sign is not settled across conventions; score the lumbar magnitude only.
 - T2: 17.9 deg with SD 30.7 in Panjabi, an outlier (panjabi1991t note).
 
-(e) Covariates: sex significant only at L1 and L2 and below 1 deg (arockiaraj2025 p. 316 Table 2); none in duman2026 (p. 8 Table 2) or moncadahabib2025 (p. 6 Table 3), where age correlates weakly, rho -0.16 to -0.19 (p. 6 Table 4); women 1 to 2 deg smaller at L1 and L2 in cadavers (olsewski1990 p. 547). Population: Indian men converge 29.3 deg at L5 against 17 in olsewski1990's white series (mitra2002 p. 456); tan2004 offers its T8 to T12 divergence as an ethnic difference (tan2004 p. 145). Right exceeds left by 4.0 to 9.2 deg at T3 to T10 in Panjabi, which may be a frame yaw (panjabi1991t note).
+(e) Covariates: sex significant only at L1 and L2 and below 1 deg (arockiaraj2025 p. 316 Table 2); none in duman2026 (p. 8 Table 2) or moncadahabib2025 (p. 6 Table 3), where age correlates weakly, rho -0.16 to -0.19 (p. 6 Table 4); women 1 to 2 deg smaller at L1 and L2 in cadavers (olsewski1990 p. 547). Population: Indian men converge 29.3 deg at L5 against 17 in olsewski1990's white series (mitra2002 p. 456); tan2004 offers its T8 to T12 divergence as an ethnic difference (tan2004 p. 145), but its note suspects a sign error (above), so do not use it as an ethnic factor until CT confirms it. Right exceeds left by 4.0 to 9.2 deg at T3 to T10 in Panjabi, which may be a frame yaw (panjabi1991t note).
 
 ### 7.5 Pedicle length and chord length (no generator key)
 
@@ -1118,23 +1166,24 @@ These are not generator keys. They are listed because the screw-path chord steps
 
 | Paper | Definition | L1 to L5 (and junction) |
 |---|---|---|
-| krag1988 CL0, CL15 | Chord from the posterior cortex through the pedicle axis to the anterior cortex, at 0 and 15 deg to the axis (krag1988 p. 28 Fig 1C) | CL0 42.8, 44.4, 40.7, 39.8, 36.0; T12 40.9; means 42 at 0 deg and 50 at 15 deg (krag1988 p. 28 Fig 2, p. 29) |
+| krag1988 CL0, CL15 | Chord from line B (the posterior lamina surface; methods p. 28, chosen so that facet anatomy does not enter; the Fig 1C caption and p. 32 say posterior cortex, so the paper contradicts itself) through the isthmus centre to the anterior cortex, at 0 and 15 deg to the AP midline axis (krag1988 p. 28 Fig 1C; its note) | CL0 42.8, 44.4, 40.7, 39.8, 36.0; T12 40.9; means 42 at 0 deg and 50 at 15 deg (krag1988 p. 28 Fig 2, p. 29) |
 | zindrick1987 Dpa | From the most posterior aspect of the transverse process to the anterior cortex along the transverse pedicle angle (zindrick1987 p. 165 Fig 5) | 50.7, 51.9, 51.9, 49.7, 51.0; T12 38.6, a 1.45 SD step at T12/L1 by its note (zindrick1987 p. 165 Table 5) |
 | zindrick1987 Dma | Same start, parallel to the midline (zindrick1987 p. 165) | 44.7, 45.5, 44.4, 40.7, 33.7 |
 | olsewski1990 | Posterior laminar cortex to anterior body cortex through the pedicle middle (olsewski1990 pp. 542 to 543 Fig 6) | men 45.0, 46.8, 49.0, 50.4, 46.2 (olsewski1990 p. 544 Table I) |
 | tan2004 PL | Facet cortex to anterior body cortex along PDIs (tan2004 p. 145) | 41.4, 43.8, 42.2, 39.7, 39.2; T12 31.5, a +9.9 mm step (tan2004 pp. 140 to 141) |
 | arockiaraj2025 CL, mitra2002 CL, moncadahabib2025 PL, duman2026 PL | Screw-path chords on CT or bone (arockiaraj2025 p. 313 Fig 1; mitra2002 p. 454 Fig 1; moncadahabib2025 p. 3 Fig 2C; duman2026 p. 5 Fig 2B) | arockiaraj2025 49.18 to 47.63 (p. 316 Table 2); mitra2002 about 46; moncadahabib2025 about 40; duman2026 T11 41.2 (their notes) |
-| krag1988 A-B, masharawi2021 PL, arockiaraj2025 PL | Short anatomical pedicle lengths (krag1988 p. 28 Fig 1A; masharawi2021 p. 3 Fig 1; arockiaraj2025 p. 313 Fig 2) | defined differently from the chords; not comparable |
+| krag1988 A-B | Line A (tangent to the most anterior point of the canal) to line B (the posterior lamina surface) along the AP axis; in effect canal depth plus lamina thickness, not a pedicle length (krag1988 p. 28 Fig 1A; its note) | T9 20.18, T12 18.06, L5 15.00 (text means, krag1988 p. 29); the clear steps are T9/T10 about -2.4 and L4/L5 about -2 mm (read from Fig 3 p. 29, its note) |
+| masharawi2021 PL, arockiaraj2025 PL | Short anatomical pedicle lengths (masharawi2021 p. 3 Fig 1; arockiaraj2025 p. 313 Fig 2) | defined differently from the chords; not comparable |
 
-Mask recipe (Inference): cast a ray (O5) along recipe P's axis from the first bone voxel behind the pedicle to the last anterior body voxel; that is the 0-deg chord. Radiograph: on a lateral film, CL0 is about 1.32 x the mid-body AP depth and CL15 about 1.60 x (krag1988 p. 29), with about +/-3 to 4 mm of scatter and no magnification correction in the paper (krag1988 note). Separates: T12/L1 in zindrick1987 and tan2004; hou1993's length LI steps 1.5 SD at T12/L1 (hou1993 note). Covariates: women 2.5 to 4.5 mm shorter in cadavers and 3.6 to 6.3 mm on CT (olsewski1990 p. 544, p. 545).
+Mask recipe (Inference): cast a ray (O5) along recipe P's axis from the first bone voxel behind the pedicle to the last anterior body voxel; that is the 0-deg chord. Radiograph: on a lateral film, CL0 is about 1.32 x the mid-body AP depth and CL15 about 1.60 x (krag1988 p. 29), with about +/-3 to 4 mm of scatter and no magnification correction in the paper (krag1988 note). Separates: T12/L1 in zindrick1987 and tan2004; hou1993's length LI steps 1.5 SD at T12/L1 (hou1993 note). L4/L5: olsewski1990 about -1.0 SD in each sex (men 50.4 to 46.2, women 45.9 to 42.3 mm); zindrick1987 Dma 40.7 to 33.7, -1.4 SD; arockiaraj2025 PL -2.25 mm, about 1.8 SD; krag1988's CL0 is shortest at L5 (36.0) (their notes). zindrick1987's Dpa minus Dma tracks the transverse angle, 17.3 mm at L5, about 0 at T11 and -4.6 at T12 (Inference in its note, from Table 5 p. 165); use it as a consistency check on a measured angle. Covariates: women 2.5 to 4.5 mm shorter in cadavers and 3.6 to 6.3 mm on CT (olsewski1990 p. 544, p. 545).
 
 ### 7.6 Cortical wall, entry zones and safe zones (no generator key)
 
 - Wall thickness at the lumbar isthmus, L1 to L5: medial 0.8, 0.8, 0.8, 1.3, 1.3 mm; lateral 0.6, 0.7, 0.9, 1.1, 1.7; cranial 3.1, 3.5, 3.9, 3.2, 4.0; caudal 2.6, 3.2, 2.8, 2.5, 2.9 (otsuki2021 p. 6 Table 2, micro-CT of 60 cadaver pedicles). Its note warns these include porous shell bone, not strictly cortex. mitra2002 gives lateral 0.55 to 1.25 and medial 1.07 to 1.37 mm (mitra2002 p. 455 Table 2). A mask cannot give a wall thickness; it needs the CT intensities. Inference: the thin lateral and medial walls are why an outer-cortex mask width and an endosteal width differ by about 1.5 to 3 mm (makino2012 TPW against the outer widths in 7.1).
 - Radiographic ring: the densest image lies 1 to 3 mm inside the outer cortex; at S1 the medial line of the ring is trabecular bone, not cortex (robertson2000 p. 711, pp. 712 to 714).
 - Entry point: the pedicle centre lies at the upper edge of the transverse process at T9 to T11 and at its middle at L3 to L5, moving laterally down the column; at L5 it lies 4.9 mm lateral to the facet (hou1993 p. 1852, p. 1854 Fig 6). mitra2002 places it at the middle of the transverse process, lateral to the facet at L5 (mitra2002 p. 457 Fig 3).
-- Safe zones and nerve distances: lien2007 gives safe-zone widths and heights and the pedicle-to-root and pedicle-to-dura distances at T11 to L5 (lien2007 p. 1218 Table 1, p. 1219 Table 4); the transverse root angle falls from 70.6 to 75.2 deg at T11 to 28.6 to 29.0 at L5 (lien2007 p. 1218 Table 3).
-- Pedicle index on the AP film, men, L1 to L5: 173.1, 175.6, 190.0, 207.7, 234.6, the product of ring width and height (amonookuofi1982 p. 230 Table 3); 290 Nigerian patients, film at 100 cm, not corrected. Its note finds adjacent separations of 0.07 to 0.78 SD, a weak cue.
+- Safe zones and nerve distances: lien2007 gives safe-zone widths and heights and the pedicle-to-root and pedicle-to-dura distances at T11 to L5 (lien2007 p. 1218 Table 1, p. 1219 Table 4); the transverse root angle falls from 70.6 to 75.2 deg at T11 to 28.6 to 29.0 at L5 (lien2007 p. 1218 Table 3). Safe-zone width (medial pedicle wall to lateral body wall, side means) T11 7.4, T12 8.35, L1 8.4, L2 9.9, L3 10.15, L4 12.5, L5 17.7 mm, 0.1 to 2.7 mm above the pedicle width, most at L1-L2; safe-zone height exceeds the pedicle height by 0.75 to 2.55 mm from T11 to L5 (Inference in its note, from Table 1 p. 1218). At T1 to T10 the measured safe zone was smaller than the pedicle, so the authors set it equal to the pedicle: those columns of Table 1 copy the pedicle values and are not measurements (lien2007 p. 1216; p. 1220). The width can be read on an AP view, medial pedicle edge to lateral body edge, which the authors call practicable in fluoroscopy-guided surgery (lien2007 p. 1220). A mask should record the raw value, without the T1 to T10 rule (lien2007 note).
+- Pedicle index on the AP film, men, L1 to L5: 173.1, 175.6, 190.0, 207.7, 234.6, the product of ring width and height (amonookuofi1982 p. 230 Table 3); 290 Nigerian patients, film at 100 cm, not corrected. Its note finds adjacent separations of 0.07 to 0.64 SD in men (the women's reach 0.78), a weak cue.
 
 ## 8. The facets
 
@@ -1203,7 +1252,7 @@ Where it peaks and separates (Inference from the long table):
 - T3 to T8 are the smallest and nearly uniform (panjabi1993f p. 1307); no thoracic pair separates by width or height (0.0 to 0.98 SD).
 - T12/L1: the inferior height jumps +2.9 mm (1.34 SD) and the inferior width +1.9 (0.88 SD). The right inferior width of T12, 9.5 mm, is the smallest of the column (panjabi1993f p. 1301 Table 3).
 - L1/L2: the superior height jumps +2.2 mm (1.08 SD). By size, the lumbar-type joint starts at L1-L2; by orientation it starts at T12-L1 (panjabi1993f note, Inference from Tables 2, 3, 6 and 7).
-- L2 to L5: rising, steps under 0.95 SD; FCW/FCH is lowest at L1-L2 (inferior left L1 0.68, superior right L2 0.76; panjabi1993f p. 1301).
+- L2 to L5: widths and superior heights rising, the inferior height flat to L4 (16.2, 16.1, 15.9) and up at L5 (17.9); steps under 0.95 SD; FCW/FCH is lowest at L1-L2 (inferior left L1 0.68, superior right L2 0.76; panjabi1993f p. 1301).
 
 (e) Covariates: none in Panjabi, 8 men and 4 women pooled (panjabi1993f p. 1299). masharawi2021: men wider at left L1 to L3 and right L1 and L3, by 1.4 to 2.4 mm; women with degenerative spondylolisthesis wider at right L4 and at L5 (masharawi2021 p. 6 Table 2, its note).
 
@@ -1240,7 +1289,7 @@ Bias (Inference): the scalar area of a meshed curved lumbar facet exceeds the ve
 | yadav2020 IFD | Between the anteromedial points of the facet joints across the back of the canal (yadav2020 p. 176 Fig 1D) | DIFFERS; section 6.4 |
 | schwingcheck mnemonics | IFWs centre to centre; IFH centre of superior to centre of inferior facet of one side (schwingcheck/mnemonics.py) | SAME |
 
-Inference, a bridge between the two: the midpoint of masharawi2021's two ends, (SIFW + IIFW) / 2, in control men at L1 to L5 is 24.0, 23.8, 24.5, 27.2 and 35.7 mm (from 16.12 and 31.92, 16.58 and 31.08, 15.56 and 33.51, 17.13 and 37.19, 22.74 and 48.56; masharawi2021 p. 6 Table 2). Panjabi's IFWs is 26.2, 26.4, 28.6, 31.4 and 35.0 (panjabi1993f p. 1302 Table 5). They agree within 2.6 to 4.2 mm at L1 to L4 and 0.7 mm at L5; the joint-line midpoint is not the facet centroid, so do not expect equality.
+Inference, a bridge between the two: the midpoint of masharawi2021's two ends, (SIFW + IIFW) / 2, in control men at L1 to L5 is 24.0, 23.8, 24.5, 27.2 and 35.7 mm (from 16.12 and 31.92, 16.58 and 31.08, 15.56 and 33.51, 17.13 and 37.19, 22.74 and 48.56; masharawi2021 p. 6 Table 2). Panjabi's IFWs is 26.2, 26.4, 28.6, 31.4 and 35.0 (panjabi1993f p. 1302 Table 5). They agree within 2.2 to 4.2 mm at L1 to L4 and 0.7 mm at L5; the joint-line midpoint is not the facet centroid, so do not expect equality.
 
 (b) Mask recipe
 
@@ -1290,7 +1339,7 @@ Where it separates (Inference from the long table):
 - Cervicothoracic: the strongest facet signal of the column. IFWs falls C7/T1 -1.73, T1/T2 -1.92 and T2/T3 -1.73 SD; IFWi falls C6/C7 -1.88, C7/T1 -2.23 and T1/T2 -1.88 SD. The minimum is T5, 20.8 for both (panjabi1993f p. 1304).
 - C2/C3: IFWs +2.69 SD; IFH -3.35 SD.
 - IFH: C6/C7 +1.26, T1/T2 +1.18, T10/T11 +1.36 and L3/L4 -1.07 SD; peak at L2 (32.7). C4's IFH (15.9 with SD about 12 mm) is an outlier, probably one aberrant spine (panjabi1993f note); do not trust its spread.
-- Lumbar: IFWi L3/L4 +1.03 SD; IFWs steps are 0.56 to 0.67 SD. No interfacet measure separates T12/L1 (0.05 to 0.22 SD).
+- Lumbar: IFWi L3/L4 +1.03 SD; IFWs steps are 0.08 (L1/L2) and 0.56 to 0.67 SD (L2/L3 to L4/L5). No interfacet measure separates T12/L1 (0.05 to 0.22 SD).
 
 (e) Covariates: none in Panjabi (panjabi1993f p. 1299). masharawi2021: men wider at L1, L2 and L5 (SIFW) and at L1 and L2 (IIFW); degenerative spondylolisthesis widens SIFW at L3 and L4 (masharawi2021 p. 6 Table 2, its note). Ratios should not scale with size (Inference).
 
@@ -1302,7 +1351,7 @@ Where it separates (Inference from the long table):
 |---|---|---|
 | panjabi1993f T | Angle between the facet's best-fit plane and the vertebra's transverse plane; all values positive (panjabi1993f p. 1300 Fig 2A, p. 1303 Tables 6 and 7) | SAME; the generator. Inference: T = arccos(abs(n_y)) (panjabi1993f note) |
 | panjabi1993f S | Angle to the vertebra's sagittal plane, left positive and right negative, on a 0 to 180 scale (panjabi1993f p. 1300, p. 1303) | SAME; the generator holds the mirrored mean. Inference from Tables 6 to 8: the printed magnitude is arccos(n_lat) from the C4-C5 joint down and 180 minus that above it, n_lat being the normal's component toward the facet's own side (panjabi1993f note) |
-| panjabi1993f CAX, CAY | Rotations of a card from the transverse plane, first about X, then about Y, into the facet plane; computed from the mean planar angles, no SEM (panjabi1993f p. 1300 Fig 2B, p. 1304 Table 8, pp. 1304 to 1305) | SAME. Inference, checked at 87 of 92 cells: CAX = -T; and abs(cos S) = sin T x abs(sin CAY) at 89 of 92; the sign of CAY alone carries something new, the facet's lateral or medial facing (panjabi1993f note) |
+| panjabi1993f CAX, CAY | Rotations of a card from the transverse plane, first about X, then about Y, into the facet plane; computed from the mean planar angles, no SEM (panjabi1993f p. 1300 Fig 2B, p. 1304 Table 8, pp. 1304 to 1305) | SAME. Inference: CAX = -T exactly in 87 of 92 cells and within 0.1 deg in 91; the one exception, superior left T1, is a misprint in CAX (panjabi1993f note, CAX); and abs(cos S) = sin T x abs(sin CAY) at 89 of 92; the sign of CAY alone carries something new, the facet's lateral or medial facing (panjabi1993f note) |
 | masharawi2021 TFA | Angle on an axial CT slice between one facet joint line and the midsagittal line drawn from a midline apex in the body to the spinous tip; smaller is more sagittal (masharawi2021 p. 3 Fig 1) | DIFFERS: a joint-line trace in one slice, against an image midline; compare with the acute S |
 | masharawi2021 TIFA | Angle between the left and right joint lines (masharawi2021 p. 3 Fig 1) | DIFFERS; Inference: within 0.6 to 5.5 deg of the sum of the two TFAs at L1 to L4, 14 to 20 deg less at L5 (masharawi2021 note) |
 
@@ -1311,7 +1360,7 @@ Biases (Inference unless cited):
 - Frame: Panjabi's angles are to the vertebra's own posterior-wall frame. Angles from scanner axes or from a principal-axes frame of the whole instance tilt T and S by the vertebra's sagittal and axial rotation (panjabi1993f note, generator section).
 - Curvature: a plane fitted to the convex and to the concave side of one curved joint differ, so the inferior L4 and superior L5 means differ (70.5 and 80.3 against 86.0 and 85.1 for T; panjabi1993f note). Do not demand exact congruence across a joint.
 - The S branch: the generator draws S on Panjabi's 0 to 180 scale; a mask extractor computes the same number only once it knows whether the level lies above the C4-C5 joint. Score in the frame below.
-- Axial-slice traces: an axial CT trace of the joint falls short of the true acute angle to the sagittal plane by 0.1 to 1.4 deg in the lumbar and thoracic spine, 1.5 to 6.3 deg at C3 to C7, and 15 to 21 deg at C2 (panjabi1993f note, computed from Tables 6 and 7).
+- Axial-slice traces: an axial CT trace of the joint falls short of the true acute angle to the sagittal plane by 0.1 to 1.8 deg in the lumbar and thoracic spine (lumbar superior 0.1 to 0.6, lumbar inferior 0.8 to 1.3, thoracic superior 0.3 to 1.4, thoracic inferior 0.3 to 1.8), 1.5 to 6.3 deg at C3 to C7, and 15 to 21 deg at C2 (panjabi1993f note, computed from Tables 6 and 7).
 
 (b) Mask recipe
 
@@ -1353,7 +1402,7 @@ Biases (Inference unless cited):
 
 (panjabi1993f p. 1303 Tables 6 and 7, side means from the long table, with S mirrored as (left - right) / 2; acute S = min(S, 180 - S); Inference for the derived columns.)
 
-masharawi2021 TFA, control men, left, L1 to L5: 33.10, 29.13, 31.58, 37.70, 46.58 deg; right 31.38, 29.71, 33.08, 36.22, 44.17 (masharawi2021 p. 6 Table 2). The two sources disagree: masharawi2021's living CT traces run about 10 to 15 deg below Panjabi's acute superior S (43, 42, 48, 58, 61) and between Panjabi's superior and inferior acute values at L1 and L2. The joint a vertebra's value belongs to is not stated in masharawi2021 (its note), and the definitions differ (above); do not pool them.
+masharawi2021 TFA, control men, left, L1 to L5: 33.10, 29.13, 31.58, 37.70, 46.58 deg; right 31.38, 29.71, 33.08, 36.22, 44.17 (masharawi2021 p. 6 Table 2). The two sources disagree: masharawi2021's living CT traces run about 10 to 22 deg below Panjabi's acute superior S (43.4, 42.5, 47.7, 57.8, 61.3): left 10.3, 13.3, 16.1, 20.1, 14.7 and right 12.0, 12.7, 14.6, 21.6, 17.1 at L1 to L5 (Inference by subtraction; the masharawi2021 note gives 8 to 22) and between Panjabi's superior and inferior acute values at L1 and L2. The joint a vertebra's value belongs to is not stated in masharawi2021 (its note), and the definitions differ (above); do not pool them.
 
 Where it separates (Inference from the long table, steps over the mean SD):
 
@@ -1362,7 +1411,7 @@ Where it separates (Inference from the long table, steps over the mean SD):
 - C3/C4: superior S +1.01 SD; and the superior CAY changes sign again between C4 and C5, making C2, C3-C4 and C5-C7 three cervical subregions (panjabi1993f p. 1305, p. 1307).
 - T1/T2: superior S -2.10 SD. C7/T1: inferior T +1.27 SD.
 - T8/T9: superior T +1.15 SD. Otherwise T rises gradually from about 35 deg at C2 to about 75 at T4 and about 80 in the lumbar spine (panjabi1993f p. 1304).
-- Lumbar: S falls from L1 to L5 (acute superior 43 to 61 deg); adjacent steps 0.03 to 0.71 SD on spreads of 10 to 32 deg; weak for telling one lumbar level from the next (panjabi1993f note). masharawi2021's TFA likewise rises 12 to 17 deg from L2 to L5 with SDs of 7 to 13 deg (masharawi2021 note).
+- Lumbar: superior S falls from L2 to L5 (acute 42.5 to 61.3 deg; L1 43.4); inferior S falls from L1 to L4 and rises at L5 (+12.7 deg); adjacent steps 0.03 to 0.71 SD on spreads of 10 to 32 deg; weak for telling one lumbar level from the next (panjabi1993f note). masharawi2021's TFA likewise rises 12 to 17 deg from L2 to L5 with SDs of 7 to 13 deg (masharawi2021 note).
 - Cards: superior CAX runs almost linearly from about -41 at C2 to -86 at L5 (panjabi1993f p. 1305); superior right CAY is +38.9 at C2, -17.6 at C3, -8.4 at C4, +9.2 at C5, about +16 through the thorax with a dip at T1 (+4.1), +18.0 at T12, -50.5 at L1 and -27.7 at L5 (panjabi1993f p. 1304 Table 8, p. 1306). By the facing reading, superior facets face laterally at C2 and C5 to T12 and medially at C3 to C4 and L1 to L5 (panjabi1993f note). Inference: the facing is a categorical feature with three switches, C2/C3, C4/C5 and T12/L1; near-sagittal normals at C4, C5, left C7 and T1 tilt only 4 to 7 deg, so expect errors there (panjabi1993f note).
 
 (e) Covariates: none in Panjabi (panjabi1993f p. 1299). masharawi2021: no sex difference in TFA; women with degenerative spondylolisthesis are more sagittal at left L4 (33.25 against 41.25 deg) and right L1 and L4 (masharawi2021 p. 6 Table 2). Arthrosis: Pathria grade 3 in controls is highest at L5-S1 in every group, 57.7 to 66.7% (masharawi2021 p. 8 Table 3); a degenerate joint's surface is a worse plane (Inference).
@@ -1377,7 +1426,7 @@ Where it separates (Inference from the long table, steps over the mean SD):
 
 These six keys are not in the pool, since they are printed at C2 or C3 to C7 only (schwingcheck/measures.py, left_out).
 
-(a) Definitions: panjabi1991c only. UJA: area of the uncovertebral articulating surfaces, upper on the uncinate process and lower on the inferolateral body margin, up to 20 points each (panjabi1991c p. 861, p. 866). UJI: angles of each surface's least-squares plane to the frontal and sagittal planes; one value per level, sides combined in a way not stated; values above 90 deg mean an oriented angle from an undefined reference direction (panjabi1991c p. 862, p. 867 Fig 6).
+(a) Definitions: panjabi1991c only. UJA: area of the uncovertebral articulating surfaces, upper and lower, up to 20 points each (panjabi1991c p. 861, p. 866); Inference for which surface each name means, upper on the uncinate process and lower on the inferolateral body margin, following from C2 having only a lower surface (panjabi1991c note, UJA). UJI: angles of each surface's least-squares plane to the frontal and sagittal planes; one value per level, sides combined in a way not stated; values above 90 deg mean an oriented angle from an undefined reference direction (panjabi1991c p. 862, p. 867 Fig 6).
 
 (b) Mask recipe (Inference, panjabi1991c note): the upper surface is the patch of instance k's body surface (label 49 or 52) on the uncinate process within 3 mm of instance k-1; the lower is the patch on the inferolateral body of k within 3 mm of the uncus of k+1. Vector area by O2; plane by PCA; the angles of the plane to frame F's XY and YZ planes. Which branch above 90 deg is not defined in the paper; record the normal and compare magnitudes with care.
 
@@ -1529,7 +1578,7 @@ AP view, tip to tip, divided by the AP magnification (1.14 at 110 cm, eisenstein
 
 Where it peaks, bottoms out and separates (Panjabi steps over the mean SD, Inference):
 
-- C2 to C6 slightly falling, then C6/C7 +17.1 mm, 3.05 SD; C7 differs from C2 to C6 (panjabi1991c p. 866). tan2004 has only +5.4 mm there and busscher2010 about +11.
+- C2 to C5 slightly falling (52.6 to 46.4), C6 49.5 (+3.1 mm, 0.35 SD), then C6/C7 +17.1 mm, 3.05 SD; C7 differs from C2 to C6 (panjabi1991c p. 866). tan2004 has only +5.4 mm there and busscher2010 about +11.
 - C7/T1 +8.7 mm, 1.75 SD; tan2004 +10.0, busscher2010 about +6.5. T1 has the widest transverse processes of the thorax in all three series, and T1 differs from T3 to T12 (panjabi1991t p. 895 Table 7).
 - T1/T2 -1.29 and T2/T3 -2.03 SD; T3 to T10 flat (0.03 to 0.43 SD), and TPW fails there.
 - T10/T11 -1.30 and T11/T12 -0.98 SD. T12 is the column's minimum in tan2004 and busscher2010 and the thoracolumbar minimum in Panjabi.
@@ -1616,14 +1665,14 @@ Inference: a rib seen or missed on an image enters the rule nowhere today. The p
 Recipe R, the rib articulations of one thoracic instance k (Inference, from the panjabi1991t note and the duman2026 note):
 
 1. Build frame F (section 2.2).
-2. Take the rib arm's segmentation as one connected component per rib per side. By the authors' rule, rib n meets the upper part of Tn and the lower part of Tn-1 (panjabi1991t p. 893). So name a rib by the instance whose upper body surface its head touches, and keep the name the count from C2 gives that instance.
+2. Take the rib arm's segmentation as one connected component per rib per side. By the authors' rule, rib n meets the upper part of Tn and the lower part of Tn-1 (panjabi1991t p. 893). So name a rib by the instance whose upper body surface its head touches, and keep the name the count from C2 gives that instance. Caveat (panjabi1991t note, Gaps): the rule is loosely stated. By it, T10's lower facet (30.0 right, 26.9 left mm2) would be rib 11's, which the authors call uniarticular on T11, and rib 1 would reach C7. Classical anatomy has rib 1 on T1 alone and rib 10 often on T10 alone, which the paper neither confirms nor counts. Treat T10's lower facet as present or absent, not as rib 11's.
 3. Head contact: take the body-surface voxels of instance k (the boundary of labels 49, 52 and 53) within 2 mm of a rib-head voxel. Inference on 2 mm: it spans a joint gap and a voxel of partial volume, since no paper gives a joint-space width. Split the patch at the body's mid-height along Y: the cranial part is the upper facet (rib k), the caudal part the lower facet (rib k+1).
 4. Tubercle contact: take the voxels of label 43 (left) or 44 (right) of instance k within 2 mm of the rib of that side. That is the costotransverse facet, on the anterior face of the process tip (panjabi1991t note).
 5. Areas: take the vector area (O2) of each patch, per side.
    - costovertebral_area is the mean of the two upper areas plus the mean of the two lower areas, as Panjabi's total is built (panjabi1991t note, by arithmetic).
    - rib_articulation_area is that total plus the side mean of the costotransverse area.
 6. Presence, per side: whether a rib touches the body, whether there is a lower facet, whether there is a costotransverse facet, and the rib's length (10.3). Store presence as a state, not as an area of zero.
-7. Without a rib segmentation, do not attempt the areas. Inference: Panjabi's facets measure 12.1 to 71.9 mm2 (panjabi1991t p. 895 Table 6). On a 1 mm instance mask that is a few dozen surface voxels, in a shallow cortical hollow with no edge any label marks, so the vertebra alone cannot give its outline.
+7. Without a rib segmentation, do not attempt the areas. Inference: Panjabi's facets measure 11.7 (CTA T11 left) to 71.9 mm2 (CVAu T11 right) (panjabi1991t p. 895 Table 6). On a 1 mm instance mask that is a few dozen surface voxels, in a shallow cortical hollow with no edge any label marks, so the vertebra alone cannot give its outline.
 
 Biases common to the rib areas (Inference unless cited):
 
@@ -1780,7 +1829,7 @@ How to read a row:
 
 - A per-side measure is extracted on each side under its plain key and enters the pool as its side mean, key:mean.
 - For the four mirrored keys, facet_sag_sup, facet_sag_inf, facet_card_y_sup and facet_card_y_inf, the generator's mean is (left - right) / 2 (schwingcheck/measures.py).
-- "Pool" says whether the key is among the 32 the rule scores over C3 to L5. Where it is not, the reason is the one measures.py's left_out gives.
+- "Pool" says whether the key is among the 32 the rule scores over C3 to L5 as the code stands. Where it is not, the reason is the one measures.py's left_out gives. Two of the 32, endplate_incl and endplate_lower_incl, are marked left out for now (3.5), which would leave 30.
 - Every mask algorithm is Inference, since no paper in the set measured a mask (section 2).
 - "Same definition" names the papers whose landmarks match Panjabi's. Their values may still differ for population, age or modality; the section cited gives the offsets.
 - The common steps are frame F (2.2), recipe C (6), recipe P (7), recipe J (8) and recipe R (10), and the operations O1 to O5 (2.4).
@@ -1800,11 +1849,11 @@ Rules for the extractor that hold for every row (Inference):
 | endplate_depth (EPDu) | length mm; C3-L5; pool; mask and lateral | O1 cranial plate; the extent along Z in the band abs(X) <= 3 mm, rim to rim with the ring apophysis (3.2) | Panjabi's three; tan2004 (15.6% lower); busscher2010; gilad1985 (lumbar within 1 mm) | Lordotic tilt in scanner axes inflates L4-L5; the whole body's maximum Z reads high (lobes, osteophytes); waist depths read 1-5 mm low |
 | endplate_lower (EPWl) | length mm; C2-L5; pool; mask and AP | As endplate, on label 53 or the bottom 2 mm | As endplate | As endplate; at T1 a mask may include rib heads (busscher2010 note; 10) |
 | endplate_lower_depth (EPDl) | length mm; C2-L5; pool; mask and lateral | As endplate_depth, on the caudal plate | As endplate_depth | As endplate_depth |
-| h_post (VBHp) | length mm; C3-L5; pool; mask and lateral | Body voxels (49, 52, 53) within 2 mm in front of the posterior wall, in the band abs(X) <= 3 mm; the median Y extent of the columns (3.3) | Panjabi's three; tan2004 (4% lower); busscher2010; living CT about equal (frontphys2026, duman2026, moncadahabib2025, abbas2021) | The archive measurer takes label 49 only along scanner SI, reading h / cos b (+1.5 mm at 20 deg tilt). Inference: where labels 52 and 53 lie outside 49 it also drops the plates and reads low; check on one mask. A lateral view reads 1.8-3.0 mm high at C3-C7 (panjabi1991c p. 868). The ap regime lists h_post, though an AP view does not show the posterior wall (schwingcheck/measures.py) |
-| endplate_area (EPAu) | area mm2; C3-L5; pool; mask | O1 + O2: the vector area of the cranial plate; drop the unci at C3-C7 (3.4) | Panjabi's three; tan2004 in kind | The scalar area of a concave mesh reads high; the ellipse from width and depth reads 1.7-19% high (3.4); never substitute it |
+| h_post (VBHp) | length mm; C3-L5; pool; mask and lateral | Body voxels (49, 52, 53) within 2 mm in front of the posterior wall, in the band abs(X) <= 3 mm; the median Y extent of the columns (3.3) | Panjabi's three; tan2004 (4% lower); busscher2010; in kind the living CT series, which mostly run above Panjabi: frontphys2026 1.7 to 3.8 mm at L1-L5, moncadahabib2025 -0.4 to +3.1, duman2026 men 1.8 to 2.8 at T11-L2 (3.3); abbas2021 prints no height | The archive measurer takes label 49 only along scanner SI, reading h / cos b (+1.5 mm at 20 deg tilt). Inference: where labels 52 and 53 lie outside 49 it also drops the plates and reads low; check on one mask. A lateral view reads 1.8-3.0 mm high at C3-C7 (panjabi1991c p. 868). The ap regime lists h_post, though an AP view does not show the posterior wall (schwingcheck/measures.py) |
+| endplate_area (EPAu) | area mm2; C3-L5; pool; mask | O1 + O2: the vector area of the cranial plate; drop the unci at C3-C7 (3.4) | Panjabi's three; tan2004 in kind | The scalar area of a concave mesh reads high; the ellipse from width and depth reads 1.7-19% high against Panjabi's areas and about 12-17% low against tan2004's lumbar plates, opposite signs (3.4); never substitute it |
 | endplate_lower_area (EPAl) | area mm2; C2-L5; pool; mask | As endplate_area, caudal plate | As endplate_area | As endplate_area |
-| endplate_incl (EPItu) | angle deg; C3-L5; pool; mask and lateral | Plane fit to the cranial plate; the unsigned angle of its normal to frame Y; store the signed sagittal and coronal parts too (3.5) | Panjabi only | Signed or sagittal-only angles (tan2004) differ; a mean of magnitudes near zero is biased upward; the cervical rows copy the lumbar rows (3.5), so the generator should not lean on either set |
-| endplate_lower_incl (EPItl) | angle deg; C2-L5; pool; mask and lateral | As endplate_incl, caudal plate | Panjabi only | As endplate_incl |
+| endplate_incl (EPItu) | angle deg; C3-L5; left out of the pool for now, because Panjabi's lumbar L1-L5 rows reprint his cervical C3-C7 rows (3.5; [panjabi-endplate-inclination.md](../../panjabi-endplate-inclination.md)); the code's pool of 32 still holds it until that note's exclusion list is built; mask and lateral | Plane fit to the cranial plate; the unsigned angle of its normal to frame Y; store the signed sagittal and coronal parts too (3.5) | Panjabi only | Signed or sagittal-only angles (tan2004) differ; a mean of magnitudes near zero is biased upward; the lumbar rows reprint the cervical rows, so no lumbar value of Panjabi's exists to score against |
+| endplate_lower_incl (EPItl) | angle deg; C2-L5; left out of the pool for now, for the same reprint (3.5; [panjabi-endplate-inclination.md](../../panjabi-endplate-inclination.md)); mask and lateral | As endplate_incl, caudal plate | Panjabi only | As endplate_incl; at L5 the same-definition series read about 10.5 to 12 deg against the printed 1.8 (3.5) |
 | endplate_wedge (EPIt) | angle deg; T1-T12; not in pool (no spread); mask and lateral | The sum of the two unsigned inclinations, as printed; store the frame-free angle between the two plates (3.5) | panjabi1991t only | Unsigned sum, not a signed wedge; no spread printed |
 
 ### 11.2 The canal
@@ -1869,19 +1918,21 @@ Rules for the extractor that hold for every row (Inference):
 | interfacet_h, pool interfacet_h:mean (IFH) | length mm; C2-L5; pool; mask and lateral | Per side, the distance between the superior and inferior facet centroids (8.3) | panjabi1993f | Whether Panjabi took the 3D distance or its Y component is unstated; for lumbar IFH the centroids also differ in Z, so the two readings differ (panjabi1993f note); store both |
 | facet_trans_sup, pool facet_trans_sup:mean (Ts) | angle deg; C2-L5; pool; mask | Recipe J normal, oriented up and back; T = arccos(abs(n_y)) (8.4) | panjabi1993f only | Scanner or principal-axes frames tilt T; the convex and concave sides of one joint differ (inferior L4 against superior L5) |
 | facet_trans_inf, pool facet_trans_inf:mean (Ti) | angle deg; C2-L5; pool; mask | As above, inferior facet | panjabi1993f only | As above |
-| facet_sag_sup, pool facet_sag_sup:mean (Ss), mirrored | angle deg; C2-L5; pool; mask | s = arccos(n_lat); compare 180 - s for a hypothesis at C2, C3 or C4 superior; apply the branch in the likelihood, not in the extractor (8.4) | panjabi1993f only | The 0-180 branch; an axial-slice trace (masharawi2021 TFA) falls short of the acute angle by 0.1-1.4 deg in the lumbar and thoracic spine, 1.5-6.3 deg at C3-C7 and 15-21 deg at C2 |
+| facet_sag_sup, pool facet_sag_sup:mean (Ss), mirrored | angle deg; C2-L5; pool; mask | s = arccos(n_lat); compare 180 - s for a hypothesis at C2, C3 or C4 superior; apply the branch in the likelihood, not in the extractor (8.4) | panjabi1993f only | The 0-180 branch; an axial-slice trace (masharawi2021 TFA) falls short of the acute angle by 0.1-1.8 deg in the lumbar and thoracic spine, 1.5-6.3 deg at C3-C7 and 15-21 deg at C2 (8.4) |
 | facet_sag_inf, pool facet_sag_inf:mean (Si), mirrored | angle deg; C2-L5; pool; mask | As above; 180 - s for C2 and C3 inferior | panjabi1993f only | As above |
-| facet_card_x_sup (CAXs) | angle deg; C2-L5; not in pool (no spread); mask | CAX = -arccos(n_y); store only (8.4) | panjabi1993f only | It is the negative of T within 0.1 deg in 91 of 92 cells (schwingcheck/README.md); never a second feature |
+| facet_card_x_sup (CAXs) | angle deg; C2-L5; not in pool (no spread); mask | CAX = -arccos(n_y); store only (8.4) | panjabi1993f only | CAX = -T exactly in 87 of 92 cells and within 0.1 deg in 91; the one exception, superior left T1, is a misprint (panjabi1993f note, CAX; 8.4); never a second feature |
 | facet_card_x_inf (CAXi) | angle deg; C2-L5; not in pool; mask | As above | panjabi1993f only | As above |
 | facet_card_y_sup (CAYs), mirrored | angle deg; C2-L5; not in pool; mask | CAY = atan2(-n_x, -n_z); store; enter only its sign, the facing, as a categorical feature (8.4) | panjabi1993f only | Its magnitude repeats T and S |
 | facet_card_y_inf (CAYi), mirrored | angle deg; C2-L5; not in pool; mask | As above | panjabi1993f only | As above |
 
 ### 11.8 Corrections the generator's own text needs
 
-- spinous_length: mnemonics.py defines SPL from the canal's posterior wall, and measures.py's comment says the same. The three papers start it at the upper end-plate centre, the frame's origin (panjabi1992 p. 302; panjabi1991t p. 893; panjabi1991c p. 866; section 9.1). The archive's start at the body centroid is the nearer of the two wrong starts.
+- spinous_length: mnemonics.py defines SPL from the canal's posterior wall, and measures.py's comment says the same. The lumbar and thoracic papers start it at the upper end-plate centre, the frame's origin (panjabi1992 p. 302; panjabi1991t p. 893). The cervical text starts it at the body centroid while its Fig 1 draws the end-plate centre (panjabi1991c p. 866, p. 862; section 9.1). The archive's body-centroid start matches the cervical text; for T1 to L5 it is the wrong start, about half a body height from the end-plate centre (panjabi1991c note; 9.1).
 - costovertebral_area_upper and costovertebral_area_lower: "demifacet" holds only at T2 to T10. costovertebral_area and rib_articulation_area are per side for one vertebra, not per rib (section 10).
-- endplate_incl and endplate_lower_incl: the cervical rows repeat the lumbar rows, mean and SEM, in the papers themselves (section 3.5).
+- endplate_incl and endplate_lower_incl: the lumbar L1 to L5 rows reprint the cervical C3 to C7 rows, mean and SEM, in the papers themselves, the cervical most probably being the original; leave both out of the pool for now, by one exclusion list that measures.pool, measures.left_out and measures.select all read (section 3.5; [panjabi-endplate-inclination.md](../../panjabi-endplate-inclination.md), section 3).
 - h_post: the ap regime takes a measure that an AP view does not show (schwingcheck/measures.py, REGIMES; section 3.3).
+- SPINEPS_MAPPING.md calls Panjabi's spines embalmed; they were fresh autopsy specimens, boiled, bleached and cleaned to dry bone (panjabi1992 p. 299; panjabi1991t p. 888; panjabi1992 note).
+- pedicle_w, pedicle_h, pedicle_area: mnemonics.py calls them the smallest diameters and the area at its narrowest; the papers give the pedicle section with no isthmus claim (panjabi1992 p. 299, p. 301; panjabi1992 note, generator section).
 
 ### 11.9 Features the set supports that the generator lacks (Inference)
 
@@ -1898,6 +1949,13 @@ Rules for the extractor that hold for every row (Inference):
 | Facet facing (sign of CAY) | 8.4 | A categorical state from the normal already stored |
 | TPW / EPWu and SPL / EPDu | 9.1, 9.2 | Ratios a single view gives without magnification |
 | Rib states: rib present, lower facet, costotransverse facet, lowest-rib length | 10.4 | The only T10/T11/T12 evidence that does not change smoothly |
+| End-plate concavity | 4 | The caudal plate is deeper than the cranial plate across every lumbar disc, an orientation check; inferior middle depth 1.46 to 2.96 mm from L1 to L5 (vanderhouwen2009 Fig 2 p. 37) |
+| Disc wedge angle (two instances) | 5 | L5-S1 largest, about 15 deg supine, then L4-L5, overlapping within one SD (vanderhouwen2009 Fig 3 p. 39) |
+| Transverse over sagittal rim-chord ratio | 3.1, 4 | About 1.29 to 1.36 at T12 to L3 against 1.52 to 1.67 at L4 inferior to L5 inferior (Inference in the vanderhouwen2009 note, from Fig 2); rim-to-rim chords, not poolable with Panjabi's EPW/EPD |
+| Disc anterior over posterior height (two instances) | 5 | bach2019 1.4 to 1.8 at T12/L1 to L4/5 and 2.2 to 2.3 at L5/S1 (computed from Table 6 p. e113); shin2024 1.62 to 1.90 and 2.83 (its note, from Table 2 p. 3); ratios of means |
+| Pedicle ellipse tilt and isthmus minor axis | 7, 7.1, 7.3 | Tilt -2.4 to 7.5 deg at L1-L3, 31 to 34 at L4, 50 to 55 at L5 on coaxial views (robertson2000 Table 1 p. 711); makino2012's CI on CT sections (7.3) |
+| Body ACH/PCH; pedicle TPD/SPD | 3.3, 7.3 | duman2026, T11 to L2 (Tables 1 and 2 pp. 7 to 8); both size-free |
+| CT attenuation (HU), not a level feature | 3 | Order L1 > L2 > L5 > L3 > L4, but adjacent gaps of 1.5 to 9.2 HU sit against SDs of 8.4 to 30.4 HU (frontphys2026 Tables 3 to 6 pp. 5 to 7; its note, instruction 9). At most a weak within-patient tie-breaker, on non-contrast CT only |
 
 ## 12. What the set does not give
 
@@ -1910,4 +1968,4 @@ Rules for the extractor that hold for every row (Inference):
 - The set has no laminar thickness and no laminar height or length (9.4). It has no distribution of rib length, no laterality of rib anomalies, and no rib facet measured on CT (10).
 - No paper reports per-person facet tropism, so its spread is not known (8.5).
 - The steps at C7/T1 and T12/L1 compare values from two different Panjabi papers. The spines are the same, but the tables were made separately. Check each such step against a single series that spans the junction: SPL at T12/L1 does not reproduce in tan2004 or busscher2010, while TPW at T12/L1 does (9.1, 9.2).
-- The cervical end-plate inclination rows repeat the lumbar rows (3.5). The thoracic CTA has two doubtful SEMs (10.2). gilad1985's alpha does not recompute at C2 and L2 (9.5). Each is a source error to fix or fence off before any likelihood uses those cells.
+- Panjabi's lumbar end-plate inclination rows reprint his cervical rows (3.5), so the set has no lumbar inclination of his; both angles are left out of the pool for now. The thoracic CTA has two doubtful SEMs (10.2). gilad1985's alpha does not recompute at C2 and L2 (9.5). Each is a source error to fix or fence off before any likelihood uses those cells.
