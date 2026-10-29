@@ -1,6 +1,6 @@
 # schwingcheck: the exact rule as a package and as PyMC models
 
-Steps c and d of item P ([TODO.md](../TODO.md)), and the first rung of step e, 27 October 2026. Step c lifted the archive's exact Bayes rule ([archive/bordercall/exact.py](../archive/bordercall/exact.py)), its column generator ([panjabi.py](../archive/bordercall/panjabi.py), [neighbour.py](../archive/bordercall/neighbour.py)) and its scores into one package whose data is shaped for the PyMC rewrite of step d: the checked table as one long CSV loaded into an xarray Dataset with named dimensions; columns and fields as arrays with NaN for a missing value and integer offsets for gaps; every result as ArviZ InferenceData in NetCDF with the command, the seeds and the digests in its attributes; the code vectorised, with no loop per body or per field. It is the same rule: the tests hold the log likelihoods and the posterior to the archive's within 1e-10 on contiguous complete fields of six widths, from one body to the whole column of 22, the generator to the archive's bit for bit, and the rescoring of seed 97's 2,000 columns to every rate [exact.json](../archive/records/exact-2026-10-26/exact.json) records for the three regimes at 1, 3 and 9 bodies. Items 1 and 2 of TODO.md are done by it. It also carries the twelve specimens Panjabi measured (the thoracic paper's Table 1: age, sex, weight, height), for the covariates the owner asked for on 27 October 2026. Step d rewrote the rule and the generator in PyMC beside the NumPy code, which stays the reference ([The PyMC models](#the-pymc-models)): the level of every body is summed out exactly and only the patient's size is sampled, so no sampler ever moves a discrete level; the rule is also one compiled PyTensor function, which rescores the record as the NumPy code does; the generator is a forward model whose columns match the NumPy generator's in distribution; height enters the size prior and weight, age and sex enter through hooks at zero; and each model's graph is drawn from PyMC's own analysis of it, beside a plate diagram. Step e's first rung gave each kind of measure its own power of the patient's size, a length s, an area s^2 and an angle none, in the rule, the compiled rule, the PyMC models and the generator alike, with each measure's own error by its kind, so every measure the four papers print with a spread at all of C3 to L5, 32 in all, can be scored ([The measures](#the-measures)); a selection of lengths alone is still the rule from before step e to the bit, and so the archive's within 1e-10. The first of step e's methods, the column as a chain of levels with a missed body and an L6 or a T13 summed out exactly, was added on 28 October 2026 and scored against step d's rule ([The chain of levels](#the-chain-of-levels)).
+Steps c and d of item P ([TODO.md](../TODO.md)), and the first rung of step e, 27 October 2026. Step c lifted the archive's exact Bayes rule ([archive/bordercall/exact.py](../archive/bordercall/exact.py)), its column generator ([panjabi.py](../archive/bordercall/panjabi.py), [neighbour.py](../archive/bordercall/neighbour.py)) and its scores into one package whose data is shaped for the PyMC rewrite of step d: the checked table as one long CSV loaded into an xarray Dataset with named dimensions; columns and fields as arrays with NaN for a missing value and integer offsets for gaps; every result as ArviZ InferenceData in NetCDF with the command, the seeds and the digests in its attributes; the code vectorised, with no loop per body or per field. It is the same rule: the tests hold the log likelihoods and the posterior to the archive's within 1e-10 on contiguous complete fields of six widths, from one body to the whole column of 22, the generator to the archive's bit for bit, and the rescoring of seed 97's 2,000 columns to every rate [exact.json](../archive/records/exact-2026-10-26/exact.json) records for the three regimes at 1, 3 and 9 bodies. Items 1 and 2 of TODO.md are done by it. It also carries the twelve specimens Panjabi measured (the thoracic paper's Table 1: age, sex, weight, height), for the covariates the owner asked for on 27 October 2026. Step d rewrote the rule and the generator in PyMC beside the NumPy code, which stays the reference ([The PyMC models](#the-pymc-models)): the level of every body is summed out exactly and only the patient's size is sampled, so no sampler ever moves a discrete level; the rule is also one compiled PyTensor function, which rescores the record as the NumPy code does; the generator is a forward model whose columns match the NumPy generator's in distribution; height enters the size prior and weight, age and sex enter through hooks at zero; and each model's graph is drawn from PyMC's own analysis of it, beside a plate diagram. Step e's first rung gave each kind of measure its own power of the patient's size, a length s, an area s^2 and an angle none, in the rule, the compiled rule, the PyMC models and the generator alike, with each measure's own error by its kind, so every measure the four papers print with a spread at all of C3 to L5, 32 in all, can be scored ([The measures](#the-measures)); a selection of lengths alone is still the rule from before step e to the bit, and so the archive's within 1e-10. The first of step e's methods, the column as a chain of levels with a missed body and an L6 or a T13 summed out exactly, was added on 28 October 2026 and scored against step d's rule ([The chain of levels](#the-chain-of-levels)), and what a lone body tells, as a C-arm shot of one vertebra would, on 29 October ([The one-vertebra evaluation](#the-one-vertebra-evaluation)).
 
 ## Install
 
@@ -54,6 +54,8 @@ The archive's example in [README.md](../README.md) prints the same three leading
 
 `python -m schwingcheck.chain_study` scores the column as a chain of levels against step d's rule and checks this README's tables of it, and `python -m schwingcheck.chain_figures` draws its figures ([The chain of levels](#the-chain-of-levels)).
 
+`python -m schwingcheck.one_body` scores a lone body, the one-vertebra evaluation, draws its figures and checks this README's tables of it ([The one-vertebra evaluation](#the-one-vertebra-evaluation)).
+
 ## Layout
 
 - [`__init__.py`](__init__.py): the levels (C2 to L5, and the rule's C3 to L5), the sides, the kinds and the planes.
@@ -76,10 +78,11 @@ The archive's example in [README.md](../README.md) prints the same three leading
 - [`chain_pymc.py`](chain_pymc.py): the chain as two PyMC models, the offsets sampled with the chain left to pymc-extras' forward algorithm, and a marginalisation of the model's own that gives each body's level back through `recover()`.
 - [`chain_study.py`](chain_study.py): the chain scored against step d's rule, the papers' type weights, the data axis, the times and the two PyMC models against the exact answer, written as four records, with this README's tables of them and the check.
 - [`chain_figures.py`](chain_figures.py): the chain study's figures, from its three records.
+- [`one_body.py`](one_body.py): the one-vertebra evaluation: every body of the chain's three column types a field of one body, scored level by level, by measure set, along the build-up study's order, on the coarse study's claims, under four rules for the patient's size and at the papers' type weights, written as one record, with its tables, its figures and the check.
 - [`graphs/`](graphs/): the three models' graphs, generated; do not edit them by hand.
 - [`__main__.py`](__main__.py): the commands above.
-- [`examples/`](examples/): the field above; [quadrature_check.py](examples/quadrature_check.py), which prints how well the two quadratures integrate the size with every measure of the pool ([The rule](#the-rule)); [floor_check.py](examples/floor_check.py), how often the generator's floor binds and how far it moves the posterior ([The measures](#the-measures)); and [anomalous_check.py](examples/anomalous_check.py), which fields the rule names wrong at 0.99 on the anomalous spines of the build-up study ([What it found](#what-it-found)).
-- Tests in [tests/](../tests/): `test_schwingcheck_table.py`, `test_schwingcheck_rule.py`, `test_schwingcheck_columns.py`, `test_schwingcheck_record.py`, `test_schwingcheck_cli.py`, `test_schwingcheck_model.py`, `test_schwingcheck_curve.py`, `test_schwingcheck_chain.py`, `test_schwingcheck_chain_study.py`, `test_schwingcheck_chain_figures.py`.
+- [`examples/`](examples/): the field above; [quadrature_check.py](examples/quadrature_check.py), which prints how well the two quadratures integrate the size with every measure of the pool ([The rule](#the-rule)); [floor_check.py](examples/floor_check.py), how often the generator's floor binds and how far it moves the posterior ([The measures](#the-measures)); [anomalous_check.py](examples/anomalous_check.py), which fields the rule names wrong at 0.99 on the anomalous spines of the build-up study ([What it found](#what-it-found)); and [lone_body_check.py](examples/lone_body_check.py), how far a lone L6 or T13 lies from the names it is taken for ([The one-vertebra evaluation](#the-one-vertebra-evaluation)).
+- Tests in [tests/](../tests/): `test_schwingcheck_table.py`, `test_schwingcheck_rule.py`, `test_schwingcheck_columns.py`, `test_schwingcheck_record.py`, `test_schwingcheck_cli.py`, `test_schwingcheck_model.py`, `test_schwingcheck_curve.py`, `test_schwingcheck_chain.py`, `test_schwingcheck_chain_study.py`, `test_schwingcheck_chain_figures.py`, `test_schwingcheck_one_body.py`.
 
 ## The table
 
@@ -919,9 +922,252 @@ Fields within are those whose every name is within five Monte Carlo errors plus 
 - **On that field one chain of four sat in a mode the exact posterior gives no weight, and R-hat said so where the error did not.** On the fifth typical field with all 32 measures (column 4, a T1 in the middle), one of model (b)'s four chains started at log s -0.78, about 11 SDs of the prior out, where PyMC's start put it, and within six tuning steps fell into a mode at -0.34, where it stayed to its end, while the other three sat at 0.03; the prior SD of log s is 0.07, so that chain sat almost five SDs out, where the field reads as another path, and it gave the true name almost none of its weight, so the model's posterior for the T1 is 0.750 where the exact one is 1.000. R-hat is 1.54 there, every other sampling's 1.015 or less, yet the field counts as within five errors plus 0.001, since the stuck chain made the batch-means error 0.069, and only the naming test, which holds R-hat below 1.02 too, fails it (made again with the same seed outside the record, keeping the tuning draws, its four chains' means of log s are -0.341, 0.030, 0.028 and 0.033). PyMC's default start moves every variable by up to 1 on its own scale (`jitter+adapt_diag`), as much as 14 SDs of log s, and in its 1,000 steps NUTS on log s alone did not cross from that mode to the one that holds the mass. So a model that samples the size is read with its R-hat as well as against the exact answer, and the exact rule, which integrates the size on fixed nodes, has no such failure.
 - **NUTS takes seconds where the exact rule takes milliseconds.** Model (b) takes 6.3 to 6.6 s of NUTS a field with the seven and 14.5 to 15.3 s with all 32, about 2 leapfrog steps a draw; model (a), which samples an offset for each measure, 68.6 to 75.0 s and 111.8 to 119.1 s, 6 to 7 steps a draw. The exact rule names the same three-body fields in 1.12 and 2.39 ms (Time to name a field). Only three bodies and six fields a cell are sampled; the models' agreement at other widths is the tests' (model (b)'s density given the size equal to the exact answer's within 1e-10), not this record's.
 
+## The one-vertebra evaluation
+
+Item 1 of the owner's queue of 27 October 2026, 09:44 UTC, "evaluate the Panjabi synthetic data fully for 1-vertebra prediction" (TODO.md), given to the thread finishing the chain on 28 October 2026 at 23:03 UTC and done on 29 October. A C-arm shot that shows one vertebra is named from that body's measures alone: no neighbour shares its patient's size and no step down the column says which name comes next. [one_body.py](one_body.py) scores that case level by level, measure set by measure set and column type by column type, with the coarse claims a lone body can decide where it cannot be named, the type weights, the data axis and a known height, the first covariate; its docstring states each rule it takes.
+
+```
+python -m schwingcheck.one_body run --processes 3              # records/one-body-2026-10-29/one_body.json
+python -m schwingcheck.one_body table --table sets             # a table: sets, levels, buildup, coarse, size, weights, axis, axis-seven
+python -m schwingcheck.one_body figures                        # the figures and FIGURES.md, into records/one-body-2026-10-29/figures/
+python -m schwingcheck.one_body check                          # whether this README carries the record's tables
+PYTHONPATH=. python schwingcheck/examples/lone_body_check.py   # how far a lone L6 or T13 lies from the names it is taken for
+```
+
+**The fields.** Every body of 500 columns of each of the chain's three types is a field of its own. The columns are the generator's, every measure of the pool drawn for the same patients (curve.draw_pool, seeds 801 and 901 plus the type's index), so there are 11,000 typical fields (22 bodies a column, C3 to L5) and 11,500 each on six-lumbar columns and columns with a T13 (23 bodies), and every level is scored on 500 fields. The chain's own law at one body takes a body of its column uniformly (chain.draw_fields), so a type's rates over these fields are the rates that law gives; chain_study's one-body rows estimate the same rates on 200 fields a cell, 86.5% named exactly on typical columns with all 32 where this record has 86.8%, and 40.5% with the seven where it has 46.2%, 1.7 of the smaller sample's standard errors apart.
+
+**The rule.** At one body the chain takes no step, so a body's likelihood depends on its name alone, and the posterior over the 24 names, C3 to L5, the L6 and the T13, is rule.py's at offsets (0,) on chain.extended_table, under a prior that spreads each type's weight evenly over that type's names and sums them (one_body.prior_over_names); the tests hold it to chain.logev at one body. The priors are `typical`, the typical column alone, which is step d's rule at one body and has no name for an L6 or a T13; `chain`, the stated weights 0.9, 0.05 and 0.05; and the clinical reread's two sets of weights, papers high and low ([The type weights](#the-type-weights)). Unless a table says otherwise the prior is the chain's and the size is unknown, log s ~ N(0, 0.07^2), integrated on the trapezoid's nodes.
+
+**The measures.** The seven, all 32, the four each of the lateral view (h_post, endplate_depth, endplate_lower_depth, canal_ap) and the AP view (h_post, endplate, endplate_lower, canal_w), as measures.REGIMES and the archive's regimes take them, and every prefix of the build-up study's greedy order, read from its record ([records/curve-2026-10-28/](../records/curve-2026-10-28/figures/FIGURES.md)), whose first seven are not the seven.
+
+**The size.** Four rules take a lone body's size four ways, on the same fields: unknown, as above; height, model, the patient's height taken as covariates.CovariateModel takes it, isometric scaling with its coefficient's prior integrated, which overstates the spread of size once the height is known; height, generator, the same height with the spread of size about it that the generator drew; and size given, the patient's own size, the most that anything which tells the size could give. Panjabi's twelve spines cannot tie size to height (covariates.py), so each column's patient has a height drawn log-normal about the twelve specimens' mean with the spread of their log heights, 0.041, and a size isometric with it plus a residual of SD 0.057, so that log s ~ N(0, 0.07^2) as before and the height accounts for a third of the variance of log size. That tie is an assumption made for this test, the covariate model's prior mean taken as the truth, and no measurement.
+
+**The coarse claims.** A lone body that cannot be named may still say on which side of a border it lies. Each of the coarse study's six claims (coarse/study.py) is the posterior mass on the names it holds, decided when that mass reaches 0.99 either way, as coarse.score_claims decides it. An L6 is below every border, and a T13, between T12 and L1, is below C7 and T5, not at or above T6, not below T12 nor below L2, and within T11 to L2.
+
+**The record.** one_body.json in [records/one-body-2026-10-29/](../records/one-body-2026-10-29/figures/FIGURES.md), with the command, the seeds, the machine, the versions, the digests and the git state taken when it began (`made_by`), was made from commit 74dfa05 on 29 October 2026, after the review's fixes, on a cloud machine with 4 CPUs in Python 3.12.3, its log evidence in 6 minutes on 3 processes (the command and a field of the record say so) with other work sharing the machine; nothing changed while it ran, and its rows, levels, claims and confusion counts are the first record's, made from 67e400e before the review, number for number. The data axis at one body is chain_study's own record, axis.json, read at one body: its tables re-estimated from 12 to 2,000 people, on its 200 fields a cell ([The data axis at one body](#the-data-axis-at-one-body)).
+
+Every number below comes from synthetic columns drawn from Panjabi's tables, where the generator is the truth; nothing here is a patient. As in the chain's study, the fields are drawn type by type, while the chain's posterior is calibrated over the mix its type weights describe.
+
+### What it found at one body
+
+- **All 32 measures name a lone body more than four times in five, the seven fewer than one time in two, and the seven almost never answer at 0.99.** On typical columns all 32 name 86.8% of lone bodies exactly and 96.9% within one level, with a 99 per cent set of 2.19 names on average, and answer 42.1% of them at 0.99, right 99.85% of the time (4,622 of 4,629). The seven name 46.2% exactly and 75.3% within one, with a set of 6.38 names, and answer 0.6% at 0.99, all 71 right and every one a body from C3 to T1. Each view's four name fewer: the lateral four 30.0% and the AP four 34.9%, with sets of 10.00 and 7.77 names, and of the 34,000 lone bodies of the three types the two views answer one at 0.99. The other two types are named within 3 points of the typical: 84.0% and 85.7% with all 32, 45.0% and 44.7% with the seven.
+- **The middle of the thoracic column is where a lone body is named least.** With all 32 the chain names C7 and T1 exactly 99.8% of the time and T12 and L5 98.4%, and T5, T6, T7 and T4 63.4%, 64.4%, 65.4% and 67.2%, though every level is named within one 88.6% of the time or more, the least T6. With the seven no level is named exactly more than 74.4% of the time (T1), T5 23.8% and T6 26.4%, and every level is most often taken for a neighbour. Summed over the 32, T5's mean lies 2.84 squared standard deviations from T6's, 1.40 once the size may move, against 51.84 for T12 from L1 and 24.70 for L5 from L4, and a body at T5 gains 2.24 in log likelihood on average over T6 with the size given, against 28.18 and 16.74 ([examples/lone_body_check.py](examples/lone_body_check.py)).
+- **The build-up study's order names more than the seven from its fourth measure on.** At one body the order's first measure names 17.0% of typical bodies exactly, its first four 50.4%, its first seven 64.8% and all 32 86.8%, against 46.2% for the seven; its answers at 0.99 begin at three measures and rise to 42.1% of bodies. On typical columns they are right 99.72% of the time or more at every count, the least 8 wrong of 2,891 at 18 measures; on the other two types they fall below 99% at a few counts, the least 97.33% on six-lumbar columns at four measures (2 wrong of 75) and 98.43% on columns with a T13 at six (10 wrong of 636).
+- **A lone body decides a coarse claim far more often than it is named, and its decisions are right.** With the seven, which name 46.2% of typical bodies exactly and answer 0.6% at 0.99, a lone body is decided as below C7 or not 90.6% of the time, below T12 or not 70.1%, below L2 or not 70.9%, and within T11 to L2 or not 57.8%; with all 32 each claim is decided on 83.9% to 99.8% of typical bodies, below C7 on 99.8% and below T12 on 99.3%. Every claim, measure set and type is right 99.86% of the time or more where it is decided, the least 6,347 of 6,356 (at or above T6, the lateral four, six-lumbar columns), and along the build-up study's order 99.47% or more, the least at one measure (8 wrong of 1,516, at or above T6). The order's first seven decide below C7 on 95.4% of typical bodies and below T12 on 96.2%, where the seven decide 90.6% and 70.1%.
+- **The patient's size adds 9.5 points with the seven and 2.9 with all 32, and a known height about a fifth of that with the seven and about a twentieth with all 32.** With the seven, the size given names 55.7% of typical bodies exactly against 46.2% with it unknown, and a known height 48.4% with the generator's spread of size about it and 48.1% with the covariate model's; with all 32, 89.8% against 86.8%, and 87.0% for both height rules, 0.1 and 0.2 points of the 2.9. The covariate model's wider spread makes its 99 per cent set larger than with no height at all with the seven, 6.44 names against 6.38, though it names more exactly, so its prior of the coefficient costs a lone body something the generator's residual does not. The size given triples the answers at 0.99 with the seven, from 0.6% to 1.8% of bodies, and lifts them from 42.1% to 48.3% with all 32; a known height moves them by half a point or less. The height accounts for a third of the variance of log size here by assumption, so these gains are as large as that assumption makes them.
+- **A lone L6 is named one time in eight and a lone T13 about half the time, and the chain's answers at 0.99 on them are wrong.** With all 32 at the stated weights the chain names 63 of the 500 lone L6 bodies and takes the other 437 for L5, and names 237 of the 500 T13 bodies, taking 130 for T12 and 121 for L1; the 11 L6 and 8 T13 bodies it answers at 0.99 are every one named wrong. The size given lifts them to 18.4% and 63.2%, and 16 of its 17 answers at 0.99 on L6 bodies and 9 of its 19 on T13 bodies are still wrong. With the seven neither is ever named. Summed over the 32, the L6's mean lies 2.99 squared standard deviations from the L5's, and since the L6 takes the L5's SD half of that, 1.50, is what a body at the L6 gains in log likelihood on average over the L5 with the size given, less than the prior's log odds of 3.04 for the L5 (21 to 1); the T13's lies 11.87 from the T12's and 12.96 from the L1's, a mean gain of 6.63 and 7.04, about twice those odds ([examples/lone_body_check.py](examples/lone_body_check.py)). The typical rule, which has no name for either, answers 497 of the 500 L6 bodies at 0.99, all as L5, and 181 of the T13 ones, so on six-lumbar columns its answers at 0.99 are right 90.87% of the time (506 wrong of 5,540) where the chain's are right 99.57% (20 wrong of 4,666), and on columns with a T13 96.35% (189 wrong of 5,184) against 99.68% (15 wrong of 4,619).
+- **The papers' type weights move the share named by under a point, and make a lone L6 rarer still.** With all 32 at the clinical reread's weights the chain names 86.9% of typical lone bodies, 83.7% and 83.6% of six-lumbar ones and 85.0% of T13 ones, against 86.8%, 84.0% and 85.7% at the stated weights, and with the seven nothing moves. The L6 and the T13 move: at the high weights the chain names 5.4% of lone L6 bodies and 31.8% of T13 ones, and at the low weights, an L6 in 0.45% of people, 1.4% of L6 bodies, while it answers 198 of the 500 at 0.99, every one wrong. That breaks no promise by itself, since at those weights an L6 is about one lone body in 5,000 of the mix the posterior is calibrated over; it is what a lone body of a rare column costs where the prior decides.
+- **Tables from twelve people cost a lone body 7 to 11 points with all 32 and its answers at 0.99 their promise; from 50 people on they keep it.** On chain_study's axis at one body, the chain with all 32 on tables from 12 people taken as exact names 75.6% of typical lone bodies against 86.5% on the printed table, and its answers at 0.99 are right 95.70% of the time (29 wrong of 674 over the 8 tables), 96.90% with each SD widened to a new person's spread (18 wrong of 580); on six-lumbar columns and columns with a T13, 96.79% and 97.05% (26 wrong of 810, 22 of 745), and 97.53% and 98.60% widened. From 50 people its answers are right 99.51% of the time or more on every type, 2 wrong of 409 at the most, and from 200 the share named with all 32 is within 1.25 points of the printed table's, with the seven within 3.25. With the seven, tables from 12 people name 35.0% of typical lone bodies against 40.5%, 5.5 points fewer, and answer too few at 0.99 to read: 1 of the 1,600 typical fields, and 13 and 19 on the other two types.
+
+### Level by level
+
+<img src="../records/one-body-2026-10-29/figures/one_body_levels.png" alt="Three panels against the true level, C3 to L5, of lone bodies of typical columns: the share named exactly, the size of the 99 per cent set and the share named at 0.99, one line for each of the seven, the lateral four, the AP four and all 32" width="760">
+
+<!-- one_body:levels -->
+| Level | The seven: exact | 99% set | Answered / right | Most often taken for | All 32: exact | 99% set | Answered / right |
+|---|---:|---:|---:|---|---:|---:|---:|
+| C3 | 60.4 | 3.67 | 4.4 / 100.00 (22 of 22) | C4 (24.6) | 93.4 | 1.51 | 63.0 / 100.00 (315 of 315) |
+| C4 | 68.4 | 4.13 | 0.0 / - (0 of 0) | C5 (12.4) | 92.0 | 1.52 | 64.2 / 100.00 (321 of 321) |
+| C5 | 56.0 | 4.25 | 0.0 / - (0 of 0) | C6 (18.0) | 93.4 | 1.80 | 45.2 / 99.56 (225 of 226) |
+| C6 | 65.6 | 3.70 | 1.0 / 100.00 (5 of 5) | C5 (17.6) | 97.0 | 1.33 | 74.2 / 99.73 (370 of 371) |
+| C7 | 71.4 | 3.64 | 7.6 / 100.00 (38 of 38) | C6 (8.4) | 99.8 | 1.05 | 95.2 / 100.00 (476 of 476) |
+| T1 | 74.4 | 4.29 | 1.2 / 100.00 (6 of 6) | T2 (12.0) | 99.8 | 1.05 | 95.2 / 100.00 (476 of 476) |
+| T2 | 70.8 | 5.48 | 0.0 / - (0 of 0) | T1 (14.2) | 97.6 | 1.17 | 86.2 / 100.00 (431 of 431) |
+| T3 | 38.6 | 6.56 | 0.0 / - (0 of 0) | T4 (23.0) | 82.2 | 2.80 | 8.8 / 97.73 (43 of 44) |
+| T4 | 33.4 | 6.71 | 0.0 / - (0 of 0) | T3 (22.0) | 67.2 | 3.28 | 11.4 / 100.00 (57 of 57) |
+| T5 | 23.8 | 7.00 | 0.0 / - (0 of 0) | T4 (20.6) | 63.4 | 3.97 | 0.0 / - (0 of 0) |
+| T6 | 26.4 | 7.28 | 0.0 / - (0 of 0) | T5 (16.8) | 64.4 | 4.12 | 0.2 / 100.00 (1 of 1) |
+| T7 | 28.4 | 7.47 | 0.0 / - (0 of 0) | T8 (24.2) | 65.4 | 3.95 | 0.8 / 100.00 (4 of 4) |
+| T8 | 40.4 | 7.86 | 0.0 / - (0 of 0) | T7 (17.8) | 70.0 | 3.85 | 0.2 / 0.00 (0 of 1) |
+| T9 | 34.0 | 7.63 | 0.0 / - (0 of 0) | T10 (17.8) | 77.0 | 3.00 | 13.2 / 98.48 (65 of 66) |
+| T10 | 38.4 | 7.94 | 0.0 / - (0 of 0) | T11 (20.2) | 88.4 | 2.28 | 28.8 / 100.00 (144 of 144) |
+| T11 | 54.4 | 8.66 | 0.0 / - (0 of 0) | T10 (13.2) | 97.2 | 1.41 | 68.4 / 100.00 (342 of 342) |
+| T12 | 35.0 | 8.60 | 0.0 / - (0 of 0) | T11 (19.6) | 98.4 | 1.18 | 82.8 / 99.76 (413 of 414) |
+| L1 | 33.4 | 8.14 | 0.0 / - (0 of 0) | T12 (18.4) | 93.8 | 1.66 | 45.0 / 100.00 (225 of 225) |
+| L2 | 35.0 | 7.71 | 0.0 / - (0 of 0) | L3 (16.8) | 86.8 | 2.07 | 21.2 / 100.00 (106 of 106) |
+| L3 | 32.2 | 6.88 | 0.0 / - (0 of 0) | L2 (20.0) | 90.6 | 1.85 | 34.2 / 100.00 (171 of 171) |
+| L4 | 41.6 | 6.38 | 0.0 / - (0 of 0) | L5 (20.8) | 94.4 | 1.53 | 58.0 / 100.00 (290 of 290) |
+| L5 | 54.2 | 6.28 | 0.0 / - (0 of 0) | L4 (21.2) | 98.4 | 1.73 | 29.6 / 99.32 (147 of 148) |
+| L6 (six-lumbar) | 0.0 | 6.14 | 0.0 / - (0 of 0) | L5 (67.6) | 12.6 | 1.98 | 2.2 / 0.00 (0 of 11) |
+| T13 (t13) | 0.0 | 8.53 | 0.0 / - (0 of 0) | T12 (29.8) | 47.4 | 2.62 | 1.6 / 0.00 (0 of 8) |
+
+The chain at its stated weights, the size unknown, 500 lone bodies a level: C3 to L5 on the typical columns, the L6 and the T13 on their own. For the seven and for all 32, the per cent named exactly, the mean size of the 99 per cent set in names, and the per cent answered at 0.99 / right of those (count right of count answered); and, with the seven, the name a lone body of the level is most often taken for, with the per cent of the level's bodies taken for it.
+<!-- /one_body:levels -->
+
+### The measure sets and the rules
+
+<!-- one_body:sets -->
+| Column | Measures | Rule | Exact (SE) | Within one | 99% set | Answered at 0.99 / right |
+|---|---|---|---:|---:|---:|---:|
+| typical | the seven | typical | 46.2 (0.5) | 75.3 | 6.09 | 0.7 / 100.00 (73 of 73) |
+| typical | the seven | chain | 46.2 (0.5) | 75.3 | 6.38 | 0.6 / 100.00 (71 of 71) |
+| typical | lateral 4 | typical | 30.0 (0.5) | 55.6 | 9.53 | 0.0 / - (0 of 0) |
+| typical | lateral 4 | chain | 30.0 (0.5) | 55.6 | 10.00 | 0.0 / - (0 of 0) |
+| typical | AP 4 | typical | 34.9 (0.5) | 67.4 | 7.43 | 0.0 / 100.00 (1 of 1) |
+| typical | AP 4 | chain | 34.9 (0.5) | 67.4 | 7.77 | 0.0 / - (0 of 0) |
+| typical | all 32 | typical | 86.9 (0.3) | 96.9 | 2.15 | 45.6 / 99.86 (5013 of 5020) |
+| typical | all 32 | chain | 86.8 (0.3) | 96.9 | 2.19 | 42.1 / 99.85 (4622 of 4629) |
+| six-lumbar | the seven | typical | 45.0 (0.5) | 75.8 | 6.07 | 0.6 / 98.57 (69 of 70) |
+| six-lumbar | the seven | chain | 45.0 (0.5) | 75.8 | 6.38 | 0.6 / 100.00 (67 of 67) |
+| six-lumbar | lateral 4 | typical | 28.5 (0.5) | 55.5 | 9.59 | 0.0 / - (0 of 0) |
+| six-lumbar | lateral 4 | chain | 28.5 (0.5) | 55.5 | 10.09 | 0.0 / - (0 of 0) |
+| six-lumbar | AP 4 | typical | 34.1 (0.5) | 68.2 | 7.39 | 0.0 / - (0 of 0) |
+| six-lumbar | AP 4 | chain | 34.1 (0.5) | 68.2 | 7.75 | 0.0 / - (0 of 0) |
+| six-lumbar | all 32 | typical | 83.5 (0.3) | 97.2 | 2.09 | 48.2 / 90.87 (5034 of 5540) |
+| six-lumbar | all 32 | chain | 84.0 (0.3) | 97.2 | 2.18 | 40.6 / 99.57 (4646 of 4666) |
+| t13 | the seven | typical | 44.7 (0.5) | 75.6 | 6.18 | 0.5 / 100.00 (61 of 61) |
+| t13 | the seven | chain | 44.7 (0.5) | 75.6 | 6.49 | 0.5 / 100.00 (60 of 60) |
+| t13 | lateral 4 | typical | 28.1 (0.5) | 54.2 | 9.58 | 0.0 / 100.00 (1 of 1) |
+| t13 | lateral 4 | chain | 28.1 (0.5) | 54.2 | 10.07 | 0.0 / 100.00 (1 of 1) |
+| t13 | AP 4 | typical | 35.2 (0.5) | 68.1 | 7.48 | 0.0 / - (0 of 0) |
+| t13 | AP 4 | chain | 35.2 (0.5) | 68.1 | 7.84 | 0.0 / - (0 of 0) |
+| t13 | all 32 | typical | 83.6 (0.3) | 97.3 | 2.13 | 45.1 / 96.35 (4995 of 5184) |
+| t13 | all 32 | chain | 85.7 (0.3) | 97.3 | 2.21 | 40.2 / 99.68 (4604 of 4619) |
+
+Every body of 500 columns of each type a field, 11,000 typical, 11,500 six-lumbar and 11,500 with a T13, the size unknown, under the typical rule and the chain at its stated weights: the per cent named exactly (standard error, clustered by column), within one level on the half-step scale, the mean size of the 99 per cent set, and the per cent answered at 0.99 / right of those (count right of count answered).
+<!-- /one_body:sets -->
+
+### The build-up study's order
+
+<img src="../records/one-body-2026-10-29/figures/one_body_buildup.png" alt="Three panels against the number of measures, 1 to 32, added in the build-up study's order, at one body: the share named exactly, the share named at 0.99 and the share within one level, one line for each column type" width="760">
+
+<!-- one_body:buildup -->
+| Measures | Last added | typical: exact / answered / right | six-lumbar: exact / answered / right | t13: exact / answered / right |
+|---|---|---:|---:|---:|
+| first 1 | spinous_length | 17.0 / 0.0 / - | 16.7 / 0.0 / - | 17.5 / 0.0 / - |
+| first 2 | endplate_lower_area | 30.5 / 0.0 / - | 29.6 / 0.0 / - | 30.2 / 0.0 / 100.00 |
+| first 3 | transverse_width | 41.9 / 0.3 / 100.00 | 40.6 / 0.1 / 100.00 | 41.3 / 0.2 / 100.00 |
+| first 4 | interfacet_w_sup | 50.4 / 0.9 / 100.00 | 48.5 / 0.7 / 97.33 | 48.7 / 0.8 / 98.86 |
+| first 5 | interfacet_h:mean | 56.5 / 3.1 / 100.00 | 54.7 / 2.7 / 99.02 | 54.3 / 2.8 / 99.38 |
+| first 7 | pedicle_w:mean | 64.8 / 6.5 / 99.86 | 62.5 / 5.6 / 99.38 | 62.4 / 6.3 / 98.63 |
+| first 10 | facet_area_inf:mean | 70.2 / 12.6 / 99.93 | 67.9 / 11.4 / 99.85 | 68.0 / 12.1 / 99.21 |
+| first 13 | endplate_lower_depth | 74.7 / 15.7 / 99.83 | 72.0 / 14.9 / 99.77 | 71.4 / 15.4 / 98.98 |
+| first 16 | facet_w_sup:mean | 78.2 / 20.1 / 99.82 | 75.4 / 19.1 / 99.68 | 75.1 / 19.5 / 99.28 |
+| first 20 | endplate | 81.4 / 28.5 / 99.81 | 78.5 / 27.2 / 99.46 | 78.6 / 27.1 / 99.36 |
+| first 24 | endplate_incl | 83.9 / 35.8 / 99.87 | 81.3 / 33.6 / 99.66 | 83.0 / 33.9 / 99.62 |
+| first 28 | pedicle_area:mean | 85.7 / 39.9 / 99.86 | 82.9 / 37.7 / 99.61 | 84.4 / 37.6 / 99.56 |
+| first 32 | facet_h_sup:mean | 86.8 / 42.1 / 99.85 | 84.0 / 40.6 / 99.57 | 85.7 / 40.2 / 99.68 |
+| the seven | - | 46.2 / 0.6 / 100.00 | 45.0 / 0.6 / 100.00 | 44.7 / 0.5 / 100.00 |
+
+The chain at its stated weights, the size unknown, with the first measures of the build-up study's order (its record, records/curve-2026-10-28/curve.nc) at the counts shown, beside the seven; each cell the per cent named exactly / answered at 0.99 / right of those. The record holds every count from 1 to 32.
+<!-- /one_body:buildup -->
+
+### The coarse claims
+
+<img src="../records/one-body-2026-10-29/figures/one_body_coarse.png" alt="Two panels against the number of measures added in the build-up study's order, lone bodies of typical columns: left, the share on which each of the six coarse claims is decided at 0.99 either way; right, the share of those right, with a dotted line at 99 per cent" width="760">
+
+<!-- one_body:coarse -->
+| Claim | Measures | typical: decided / right | six-lumbar: decided / right | t13: decided / right |
+|---|---|---:|---:|---:|
+| below C7 | the seven | 90.6 / 99.97 (9968 of 9971) | 90.9 / 99.98 (10450 of 10452) | 91.0 / 99.99 (10462 of 10463) |
+| below C7 | lateral 4 | 71.3 / 99.96 (7836 of 7839) | 72.9 / 99.93 (8380 of 8386) | 72.9 / 99.94 (8380 of 8385) |
+| below C7 | AP 4 | 84.5 / 99.94 (9290 of 9296) | 84.8 / 99.93 (9744 of 9751) | 85.1 / 99.95 (9782 of 9787) |
+| below C7 | all 32 | 99.8 / 100.00 (10983 of 10983) | 99.7 / 100.00 (11469 of 11469) | 99.8 / 100.00 (11477 of 11477) |
+| below T5 | the seven | 67.3 / 99.96 (7403 of 7406) | 68.8 / 99.97 (7910 of 7912) | 68.6 / 99.99 (7892 of 7893) |
+| below T5 | lateral 4 | 58.9 / 99.89 (6471 of 6478) | 59.1 / 99.90 (6793 of 6800) | 60.4 / 99.94 (6944 of 6948) |
+| below T5 | AP 4 | 56.6 / 99.89 (6222 of 6229) | 58.5 / 99.93 (6727 of 6732) | 58.0 / 99.99 (6674 of 6675) |
+| below T5 | all 32 | 83.9 / 99.99 (9225 of 9226) | 85.2 / 99.96 (9794 of 9798) | 85.1 / 99.99 (9784 of 9785) |
+| at or above T6 | the seven | 67.4 / 99.96 (7412 of 7415) | 69.0 / 99.96 (7934 of 7937) | 68.7 / 99.95 (7894 of 7898) |
+| at or above T6 | lateral 4 | 55.8 / 99.92 (6137 of 6142) | 55.3 / 99.86 (6347 of 6356) | 56.7 / 99.97 (6515 of 6517) |
+| at or above T6 | AP 4 | 56.2 / 99.94 (6174 of 6178) | 57.7 / 99.95 (6635 of 6638) | 57.7 / 100.00 (6636 of 6636) |
+| at or above T6 | all 32 | 84.7 / 99.95 (9314 of 9319) | 85.4 / 99.98 (9816 of 9818) | 85.3 / 99.96 (9801 of 9805) |
+| below T12 | the seven | 70.1 / 99.96 (7705 of 7708) | 69.7 / 99.96 (8018 of 8021) | 67.1 / 99.96 (7715 of 7718) |
+| below T12 | lateral 4 | 46.6 / 99.96 (5119 of 5121) | 44.6 / 99.90 (5123 of 5128) | 44.3 / 99.90 (5094 of 5099) |
+| below T12 | AP 4 | 68.4 / 99.97 (7524 of 7526) | 67.2 / 99.96 (7727 of 7730) | 65.2 / 99.95 (7496 of 7500) |
+| below T12 | all 32 | 99.3 / 100.00 (10918 of 10918) | 99.3 / 100.00 (11420 of 11420) | 96.5 / 99.89 (11081 of 11093) |
+| below L2 | the seven | 70.9 / 99.96 (7798 of 7801) | 67.9 / 99.97 (7805 of 7807) | 68.3 / 99.97 (7850 of 7852) |
+| below L2 | lateral 4 | 49.0 / 99.96 (5389 of 5391) | 46.8 / 99.89 (5378 of 5384) | 46.7 / 99.91 (5364 of 5369) |
+| below L2 | AP 4 | 69.4 / 99.96 (7627 of 7630) | 66.4 / 99.99 (7634 of 7635) | 67.0 / 99.96 (7705 of 7708) |
+| below L2 | all 32 | 95.2 / 100.00 (10470 of 10470) | 95.1 / 99.98 (10929 of 10931) | 94.9 / 99.98 (10916 of 10918) |
+| within the thoracolumbar junction, T11 to L2 | the seven | 57.8 / 99.97 (6355 of 6357) | 55.0 / 99.97 (6324 of 6326) | 54.8 / 99.94 (6294 of 6298) |
+| within the thoracolumbar junction, T11 to L2 | lateral 4 | 43.4 / 99.92 (4772 of 4776) | 41.7 / 99.92 (4796 of 4800) | 41.7 / 99.87 (4788 of 4794) |
+| within the thoracolumbar junction, T11 to L2 | AP 4 | 55.2 / 99.93 (6065 of 6069) | 52.5 / 99.95 (6037 of 6040) | 52.6 / 99.95 (6044 of 6047) |
+| within the thoracolumbar junction, T11 to L2 | all 32 | 93.5 / 100.00 (10281 of 10281) | 93.2 / 99.98 (10721 of 10723) | 93.1 / 99.98 (10699 of 10701) |
+
+Each of the coarse study's six claims, the chain at its stated weights, the size unknown: the per cent of lone bodies on which the claim is decided at 0.99 either way / the per cent of those right (count right of count decided). The figure draws the claims on typical columns along the build-up study's order.
+<!-- /one_body:coarse -->
+
+### The size
+
+<img src="../records/one-body-2026-10-29/figures/one_body_size.png" alt="Two panels across the four size rules, from size unknown through a known height to the size given, lone bodies of typical columns: the share named exactly and the share named at 0.99, one line for each measure set" width="760">
+
+<!-- one_body:size -->
+| Column | Measures | unknown | height, model | height, generator | size given |
+|---|---|---:|---:|---:|---:|
+| typical | the seven | 46.2 (0.5); 6.38; 0.6 / 100.00 | 48.1 (0.5); 6.44; 0.6 / 100.00 | 48.4 (0.5); 6.00; 0.7 / 100.00 | 55.7 (0.5); 4.65; 1.8 / 99.49 |
+| typical | lateral 4 | 30.0 (0.5); 10.00; 0.0 / - | 31.0 (0.5); 10.16; 0.0 / 100.00 | 31.1 (0.5); 9.39; 0.0 / - | 36.3 (0.5); 7.71; 0.0 / 100.00 |
+| typical | AP 4 | 34.9 (0.5); 7.77; 0.0 / - | 36.6 (0.5); 7.86; 0.0 / - | 36.8 (0.5); 7.33; 0.0 / - | 43.8 (0.5); 6.01; 0.0 / - |
+| typical | all 32 | 86.8 (0.3); 2.19; 42.1 / 99.85 | 87.0 (0.3); 2.18; 42.2 / 99.87 | 87.0 (0.3); 2.15; 42.6 / 99.87 | 89.8 (0.3); 1.84; 48.3 / 99.91 |
+| six-lumbar | the seven | 45.0 (0.5); 6.38; 0.6 / 100.00 | 46.2 (0.5); 6.43; 0.5 / 100.00 | 46.9 (0.5); 6.00; 0.7 / 100.00 | 53.9 (0.4); 4.66; 1.7 / 100.00 |
+| six-lumbar | lateral 4 | 28.5 (0.5); 10.09; 0.0 / - | 29.5 (0.5); 10.25; 0.0 / - | 30.0 (0.5); 9.49; 0.0 / - | 35.1 (0.5); 7.78; 0.0 / - |
+| six-lumbar | AP 4 | 34.1 (0.5); 7.75; 0.0 / - | 35.5 (0.5); 7.83; 0.0 / - | 35.7 (0.5); 7.30; 0.0 / - | 42.0 (0.4); 5.98; 0.0 / 100.00 |
+| six-lumbar | all 32 | 84.0 (0.3); 2.18; 40.6 / 99.57 | 84.3 (0.3); 2.18; 40.5 / 99.59 | 84.2 (0.3); 2.14; 40.9 / 99.55 | 87.3 (0.3); 1.83; 46.9 / 99.63 |
+| t13 | the seven | 44.7 (0.5); 6.49; 0.5 / 100.00 | 45.9 (0.5); 6.56; 0.5 / 100.00 | 46.4 (0.5); 6.10; 0.7 / 98.78 | 54.4 (0.4); 4.73; 1.4 / 98.18 |
+| t13 | lateral 4 | 28.1 (0.5); 10.07; 0.0 / 100.00 | 29.7 (0.4); 10.23; 0.0 / 100.00 | 29.6 (0.5); 9.48; 0.0 / 100.00 | 34.7 (0.4); 7.81; 0.0 / 100.00 |
+| t13 | AP 4 | 35.2 (0.5); 7.84; 0.0 / - | 36.6 (0.5); 7.92; 0.0 / - | 36.7 (0.5); 7.39; 0.0 / - | 43.1 (0.4); 6.05; 0.0 / 100.00 |
+| t13 | all 32 | 85.7 (0.3); 2.21; 40.2 / 99.68 | 85.9 (0.3); 2.21; 40.2 / 99.70 | 85.7 (0.3); 2.17; 40.5 / 99.68 | 89.3 (0.3); 1.84; 46.6 / 99.72 |
+
+The chain at its stated weights on each type's lone bodies under the four size rules: in each cell the per cent named exactly (standard error, clustered by column); the mean size of the 99 per cent set; and the per cent answered at 0.99 / right of those.
+<!-- /one_body:size -->
+
+### The type weights at one body
+
+<!-- one_body:weights -->
+| Measures | Prior | Six-lumbar, t13 | typical: exact | six-lumbar: exact | t13: exact | L6: exact / answered | T13: exact / answered |
+|---|---|---|---:|---:|---:|---:|---:|
+| the seven | typical | 0, 0 | 46.2 (0.5) | 45.0 (0.5) | 44.7 (0.5) | 0.0 / 0.2 | 0.0 / 0.0 |
+| the seven | chain | 0.05, 0.05 | 46.2 (0.5) | 45.0 (0.5) | 44.7 (0.5) | 0.0 / 0.0 | 0.0 / 0.0 |
+| the seven | papers, high | 0.02483, 0.02321 | 46.2 (0.5) | 45.0 (0.5) | 44.7 (0.5) | 0.0 / 0.0 | 0.0 / 0.0 |
+| the seven | papers, low | 0.004515, 0.02321 | 46.2 (0.5) | 45.0 (0.5) | 44.7 (0.5) | 0.0 / 0.0 | 0.0 / 0.0 |
+| all 32 | typical | 0, 0 | 86.9 (0.3) | 83.5 (0.3) | 83.6 (0.3) | 0.0 / 99.4 | 0.0 / 36.2 |
+| all 32 | chain | 0.05, 0.05 | 86.8 (0.3) | 84.0 (0.3) | 85.7 (0.3) | 12.6 / 2.2 | 47.4 / 1.6 |
+| all 32 | papers, high | 0.02483, 0.02321 | 86.9 (0.3) | 83.7 (0.3) | 85.0 (0.3) | 5.4 / 7.0 | 31.8 / 3.8 |
+| all 32 | papers, low | 0.004515, 0.02321 | 86.9 (0.3) | 83.6 (0.3) | 85.0 (0.3) | 1.4 / 39.6 | 31.8 / 3.8 |
+
+The typical rule, and the chain at its stated weights and at the papers' (chain_study.WEIGHT_SETS), the size unknown: each type's per cent named exactly (standard error, clustered by column), and the per cent of the lone L6 and T13 bodies named exactly / answered at 0.99, on their own columns. Under every prior and measure set the answers at 0.99 on the L6 and the T13 are all wrong; the record holds the counts.
+<!-- /one_body:weights -->
+
+### The data axis at one body
+
+All 32 measures, one body:
+
+<!-- one_body:axis -->
+| People | Rule | Tables | Chain, typical | Chain, six-lumbar | Chain, t13 | Chain, right at 0.99 (typical / six-lumbar / t13) | Consecutive, typical |
+|---:|---|---:|---:|---:|---:|---:|---:|
+| as printed | - | 1 | 86.5 (2.2) | 85.0 (2.5) | 84.0 (2.7) | 100.00 / 100.00 / 100.00 | 86.5 (2.2) |
+| 12 | nominal | 8 | 75.6 (2.1 / 2.1), -10.9 | 77.5 (2.2 / 2.2), -7.5 | 76.7 (2.2 / 2.2), -7.3 | 95.70 / 96.79 / 97.05 | 75.7 (2.1 / 2.1), -10.8 |
+| 12 | predictive | 8 | 75.2 (2.1 / 2.1), -11.3 | 77.5 (2.3 / 2.3), -7.5 | 76.4 (2.2 / 2.2), -7.6 | 96.90 / 97.53 / 98.60 | 75.2 (2.1 / 2.1), -11.3 |
+| 50 | nominal | 4 | 81.5 (2.3 / 2.3), -5.0 | 86.0 (2.1 / 2.1), +1.0 | 82.5 (2.3 / 2.3), -1.5 | 100.00 / 99.51 / 99.73 | 81.5 (2.3 / 2.3), -5.0 |
+| 50 | predictive | 4 | 81.2 (2.3 / 2.4), -5.2 | 85.8 (2.1 / 2.1), +0.8 | 82.4 (2.3 / 2.3), -1.6 | 100.00 / 99.75 / 99.72 | 81.2 (2.3 / 2.4), -5.2 |
+| 200 | nominal | 2 | 86.0 (2.3 / 2.9), -0.5 | 86.0 (2.2 / 2.8), +1.0 | 82.8 (2.7 / 2.7), -1.2 | 100.00 / 100.00 / 100.00 | 86.0 (2.3 / 2.9), -0.5 |
+| 200 | predictive | 2 | 86.2 (2.3 / 2.8), -0.2 | 86.0 (2.2 / 2.8), +1.0 | 82.8 (2.7 / 2.7), -1.2 | 100.00 / 100.00 / 100.00 | 86.2 (2.3 / 2.8), -0.2 |
+| 2,000 | nominal | 2 | 86.8 (2.2 / 2.2), +0.3 | 85.0 (2.5 / 2.5), +0.0 | 83.8 (2.7 / 2.7), -0.2 | 100.00 / 100.00 / 100.00 | 86.8 (2.2 / 2.2), +0.3 |
+| 2,000 | predictive | 2 | 86.8 (2.2 / 2.2), +0.3 | 85.0 (2.5 / 2.5), +0.0 | 83.8 (2.7 / 2.7), -0.2 | 100.00 / 100.00 / 100.00 | 86.8 (2.2 / 2.2), +0.3 |
+
+chain_study's axis record at one body ([records/chain-2026-10-28/axis.json](../records/chain-2026-10-28/axis.json)): the per cent of the 200 lone bodies of each type named exactly by the chain with all 32, on tables re-estimated from that many people and pooled over the tables; in brackets the standard error clustered by column with the tables held fixed / counting the variation between tables too; then the difference from the table as printed on the same fields. Right at 0.99 is the per cent of the chain's answers at 0.99 that are right on each type, and the last column step d's consecutive rule on the typical fields, on the same tables ([the chain's tables from fewer people](#tables-from-fewer-people-1)).
+<!-- /one_body:axis -->
+
+The seven, one body:
+
+<!-- one_body:axis-seven -->
+| People | Rule | Tables | Chain, typical | Chain, six-lumbar | Chain, t13 | Chain, right at 0.99 (typical / six-lumbar / t13) | Consecutive, typical |
+|---:|---|---:|---:|---:|---:|---:|---:|
+| as printed | - | 1 | 40.5 (3.3) | 51.0 (3.4) | 48.0 (3.7) | - / 100.00 / 100.00 | 40.5 (3.3) |
+| 12 | nominal | 8 | 35.0 (2.1 / 2.2), -5.5 | 42.1 (2.5 / 2.6), -8.9 | 37.5 (2.6 / 2.6), -10.5 | 100.00 / 92.31 / 89.47 | 35.0 (2.1 / 2.2), -5.5 |
+| 12 | predictive | 8 | 34.4 (2.1 / 2.1), -6.1 | 41.9 (2.4 / 2.5), -9.1 | 38.0 (2.6 / 2.6), -10.0 | - / 90.91 / 100.00 | 34.4 (2.1 / 2.1), -6.1 |
+| 50 | nominal | 4 | 37.6 (2.8 / 2.8), -2.9 | 49.2 (3.1 / 3.1), -1.8 | 42.6 (3.3 / 3.3), -5.4 | - / 100.00 / 100.00 | 37.6 (2.8 / 2.8), -2.9 |
+| 50 | predictive | 4 | 37.5 (2.8 / 2.8), -3.0 | 49.0 (3.1 / 3.1), -2.0 | 42.0 (3.3 / 3.3), -6.0 | - / 100.00 / 100.00 | 37.5 (2.8 / 2.8), -3.0 |
+| 200 | nominal | 2 | 38.8 (3.2 / 3.2), -1.8 | 51.0 (3.4 / 3.4), +0.0 | 45.0 (3.6 / 3.6), -3.0 | - / 100.00 / 100.00 | 38.8 (3.2 / 3.2), -1.8 |
+| 200 | predictive | 2 | 38.2 (3.2 / 3.2), -2.3 | 51.0 (3.4 / 3.4), +0.0 | 44.8 (3.6 / 3.6), -3.2 | - / 100.00 / 100.00 | 38.2 (3.2 / 3.2), -2.3 |
+| 2,000 | nominal | 2 | 40.2 (3.2 / 3.2), -0.3 | 49.8 (3.3 / 3.3), -1.3 | 47.5 (3.7 / 3.7), -0.5 | - / 100.00 / 100.00 | 40.2 (3.2 / 3.2), -0.3 |
+| 2,000 | predictive | 2 | 40.2 (3.2 / 3.2), -0.3 | 49.8 (3.3 / 3.3), -1.3 | 47.5 (3.7 / 3.7), -0.5 | - / 100.00 / 100.00 | 40.2 (3.2 / 3.2), -0.3 |
+
+The same, with the seven SPINEPS measures.
+<!-- /one_body:axis-seven -->
+
 ## Tests
 
-200 tests, whose full run in the pinned environment on Python 3.12.3 took 1,059 s on 29 October 2026, run as `python -m unittest tests/test_schwingcheck_*.py` with no other job sharing the CPU (the 177 at the checkpoint of 29 October 2026, 00:40 UTC were not timed, the 146 before the chain took 566 s, the 143 before the build-up study's final review 764 s, the 135 before its full run's record 563 s, the 132 before its second review 554 s, the 92 before the build-up study 1,114 s with other jobs sharing the CPU, and the 90 before the review's third check 460 s), the slowest the record test, which rescores the record twice, and the NUTS runs:
+229 tests, whose full run in the pinned environment on Python 3.12.3 took 959 s on 29 October 2026, run as `python -m unittest tests/test_schwingcheck_*.py` with no other job sharing the CPU (the 200 before the one-vertebra evaluation took 1,059 s on 29 October 2026, the 177 at the checkpoint of 29 October 2026, 00:40 UTC were not timed, the 146 before the chain took 566 s, the 143 before the build-up study's final review 764 s, the 135 before its full run's record 563 s, the 132 before its second review 554 s, the 92 before the build-up study 1,114 s with other jobs sharing the CPU, and the 90 before the review's third check 460 s), the slowest the record test, which rescores the record twice, and the NUTS runs:
 
 - `test_schwingcheck_table.py` (21): the long CSV is what `write` writes, to the byte, and the check catches a header line, the columns' order, one value, CRLF and the last newline; every row is a cell read twice, Table 3's from page 892; the archive's CSV agrees in all 592 values, none of them missing; the Dataset's dimensions and coordinates; the archive's shape of the reference; every registered measure scored, or with no table row, the 15 entries printed with no spread; each kind's own error and power; the pool of 32, 18 lengths, 6 areas and 8 angles, each once in the papers' order, a pair as its mean, and the 17 left out, each with its reason; a mirrored pair has opposite signs at every level, each of the other 22 pairs one sign, and the mirrored mean negates the right; the seven in the archive's order; the checked and the archive's table are one; each measure carries its table rows with their cells, its mnemonics, its measurers and its correlations; the rule reads each measure's own error; a measure enters once and a pair as one side or its mean; the specimens CSV is Table 1 cell for cell, its Dataset, and the other papers' summaries agree but for the heaviest weight and are what both prose passes of the provenance record read.
 - `test_schwingcheck_rule.py` (12): the archive's log likelihoods and posteriors to 1e-10 at widths 1, 2, 3, 5, 9 and 22 under every regime; whatever the chunk and the block; the archive's quadrature; gapped and missing-value fields equal to a dense normal from scipy to 1e-9, with lengths alone and with mixed kinds, an angle's likelihood the same at every size; every power given as 1 is no power given to the bit, and the archive's rule to 1e-10; the trapezoid rule over log s agrees with a grid twice as fine with every measure of the pool at 1, 3 and 9 bodies, and names the seven within 1e-9 of the Gauss-Hermite rule; a measure missing on every body adds a constant; a field with nothing gets the prior back; a missing last body is the shorter field's marginal; offsets are checked; names given at 0.99 are right at least 99 per cent of the time on fresh columns.
@@ -933,6 +1179,7 @@ Fields within are those whose every name is within five Monte Carlo errors plus 
 - `test_schwingcheck_chain.py` (11): the chain's start and rows are laws, block diagonal by type, and its support paths every path of positive probability, summing to one; with one step and the typical type alone its prior is step d's and its posterior rule.name's within 1e-12; with uniform steps every fitting pattern and place is equally likely, counted by brute force; forward-backward equals enumeration; the extended table is the generator's to the bit; path_logev is a dense normal from scipy integrated on the same nodes, within 1e-9 on six paths of three bodies; the sum along the paths' shared beginnings is path_logev's within 1e-9, on whole fields and on fields with values not read, of every type, at 1, 3 and 5 bodies and two subsets of the seven at once; model (b)'s density given the size is the dense normal summed over the paths within 1e-10, model (a)'s its emissions enumerated given the offsets with a finite gradient, and recover() draws the middle body's level as often as the posterior says.
 - `test_schwingcheck_chain_study.py` (36): a name within one level is read on the half-step scale, so a T13 is within one of T12 and of L1 and an L6 of L5 alone; the data axis's tables are the build-up study's to the bit, and the printed table scores on the axis as `run` scores it; a quick run, axis and speed give every row, the main and axis tables read the rows they name, at one body the consecutive and the gaps rules are one rule, the weights' rows carry the papers' weights on the stated chain's fields and are the chain's posterior at those weights computed again, the claims and speed tables' cells are their rows', every table takes its labels from its record, each measure set is timed as a rule cut to it, and every record names the code it was made by; a quick `pymc` gives every row its table reads with each field's own within, holds each model to the cut rule's exact posterior on `run`'s fields and names pymc-extras' version; a field passes the naming test only where it passes all three of the naming model's NUTS test's checks, and a record that keeps no field's own within is read only where every field is within; a rule cut to the seven names as the rule for all 32 with the rest masked out, within 1e-12; the axis's rows are the same to the bit whatever order its jobs finish in; load_loops, first in a fresh process, leaves every pool at one thread while the speed's work runs inside the limit and compiles every layout the speed times, and without it a pool escapes the limit; `run`, `axis` on two processes, `speed` and `pymc`, each alone in a fresh process, record every pool at one thread, and each of the four fails when its command no longer compiles before the limit; `check` finds a table stale, missing, written twice, followed by rows of its own or by text with no blank line, or with no record, and records that do not read the same columns, fields a column and seeds; the committed records' tables are this README's, they hold 9 bodies, one commit, unchanged while they ran, made the four, they read the same fields, the speed timed each measure set on its own measures with every pool at one thread, and the PyMC record ran with every pool at one thread against chain.py's exact posteriors on `run`'s fields.
 - `test_schwingcheck_chain_figures.py` (7): the build-up study's figures and the chain's are drawn in one format, figures.py's; the chain's four figures drawn twice are the same files; every caption is under sixty words; each CSV holds the records' numbers, and a share right on fewer than 50 answers is not drawn; the committed figures' CSVs and captions are what the code as it stands draws from the committed records, to the byte, FIGURES.md names records and code by sha256, and this README shows each figure.
+- `test_schwingcheck_one_body.py` (29): the one-body rule is the chain at one body, its posterior over the names under every prior chain.logev's within 1e-12, a value not read among them, and with the typical prior step d's rule (rule.name) at one body, nothing on the L6 or the T13; the prior over the names sums to one and gives an L6 and a T13 nothing for the typical column; a prefix of the whole build-up order is all 32, and its first measure is rule.py's on that measure alone; the heights are centred on the specimens' mean with their spread and the sizes on the heights with the residual, keeping the generator's spread of size whole, each size rule takes the mean and SD it says, and each rule's nodes hold its prior's mean and spread where the height puts it; every body is a field of its own under its own name, each type is drawn at its patients' sizes, and a given size multiplies every length by its power; a coarse claim holds an L6 and a T13 by their places and C3 to L5 as the coarse study does, and its rates count what it says; a quick run makes every body of its columns a field and gives every row, level and claim its tables read, a row is its own rule scored afresh on its own fields (the size given, the first five of the order, a height rule, the papers' low weights, every type), its levels add up to their type's rows and its confusion counts to the levels, the typical rule never names an L6 or a T13, one cell of each table is its rows', `check` finds the README's tables and a changed one, the figures drawn twice are the same files, every caption is under sixty words and says the columns are synthetic, the CSVs hold the record's numbers, and the record names its code and the build-up order it read; the committed record's tables are this README's, it was made by committed code that did not change while it ran, its figures, images included, are byte for byte what the code draws from it, and the README shows each figure.
 
 ## What step e takes from here
 
