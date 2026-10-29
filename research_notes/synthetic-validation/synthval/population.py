@@ -89,6 +89,8 @@ class Population:
     seed: int
     clipped: int = 0          # level cells where size_removed left only MIN_RESIDUAL of the SD
     size_passes: int = 0      # of them, the cells where the size's variance alone passes the printed SD
+    kinds: Tuple[str, ...] = ()   # each measure's kind, where the population was drawn from a table that names them
+    table: str = ""               # the table it was drawn from, where not the generator's
 
     def level_index(self, level: str) -> int:
         return self.levels.index(level)
@@ -176,6 +178,43 @@ def draw(settings: Settings, n: int, seed: int, measures: Optional[Sequence[MS.M
     return Population(true=true, measured=measured, scale=s, levels=list(levels), keys=keys, power=power,
                       error=error, phenotype=phenotype, settings=settings, seed=seed, clipped=clipped,
                       size_passes=passes)
+
+
+def draw_table(table, settings: Settings, n: int, seed: int) -> Population:
+    """n typical people drawn from any (measures, levels) table of means and SDs (papers_table.Table),
+    by the same model and in the same order of draws as `draw`, a cell the table leaves empty
+    (NaN) drawn as NaN: a measure's true and measured values are missing at the levels no paper
+    prints, and every reader of the population (the indicators, the correlations, the rule) skips
+    them. A ratio has no size (power 0) and no modelled error. The table's own SDs stand where
+    `draw` takes Panjabi's, so sd_mode "size_removed" gives the true anatomy the table's printed
+    mean and SD at every cell, as it does for his."""
+    mu, sd = np.asarray(table.mu, float), np.asarray(table.sd, float)
+    power = table.power
+    size_power = power * np.array([settings.loading(k) for k in table.keys])
+    error = table.error * settings.error_scale
+    with np.errstate(invalid="ignore"):
+        passes = size_passes(mu, sd * settings.sd_scale, size_power, settings)
+        mu, sd, clipped = calibrated(mu, sd * settings.sd_scale, size_power, settings)
+    M, W = mu.shape
+    rng = np.random.default_rng(seed)
+    s = np.exp(rng.normal(0.0, settings.scale_sd, size=n)) if settings.scale_sd > 0 else np.ones(n)
+    z = rng.normal(size=(n, M))
+    if abs(settings.r_between) >= 1e-12:
+        z = z @ C.offset_factor(M, settings.r_between).T
+    a = ar1(rng, M, n, W, settings.phi)
+    noise = rng.normal(size=(n, W, M))
+    g = s[:, None] ** size_power[None, :]
+    rho = settings.rho
+    dev = rho * z[:, None, :] + math.sqrt(1.0 - rho * rho) * a
+    true = g[:, None, :] * (mu.T[None] + sd.T[None] * dev)
+    measured = true + error[None, None, :] * noise
+    if settings.floor:
+        with np.errstate(invalid="ignore"):
+            measured = np.where((power > 0)[None, None, :], np.fmax(measured, FLOOR), measured)
+            measured = np.where(np.isnan(true), np.nan, measured)
+    return Population(true=true, measured=measured, scale=s, levels=list(table.levels), keys=list(table.keys),
+                      power=power, error=error, phenotype="typical", settings=settings, seed=seed, clipped=clipped,
+                      size_passes=passes, kinds=tuple(table.kinds), table=table.name)
 
 
 def moments(pop: Population, which: str = "true") -> Dict[str, np.ndarray]:

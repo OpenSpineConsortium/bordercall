@@ -1,0 +1,11 @@
+{
+ "branch": "main",
+ "cohorts_path": "research_notes/paper-tables/data/cohorts",
+ "commit": "6409164c62138a1fab30e638a1de38ad2f6c45a4",
+ "path": "research_notes/paper-tables/data/series.csv",
+ "rows": 4357,
+ "sha256": "5bd5b8b867e58214b0b12059bd922e004034765db8f17010a14405076a9c40b5",
+ "snapshot_sha256": "24ce47909aaefdb64f7930ea03cdf6df14307c044748b9ba91aefbd390bd9f62",
+ "vocabulary_path": "research_notes/paper-tables/tools/vocabulary.csv",
+ "vocabulary_sha256": "ea06d37bd52619a8c6dd55423ca6c6e685501ec6fe64d2d4a79560f6286f65bd"
+}
