@@ -46,25 +46,41 @@ HU_RANGE = (-1000.0, 3000.0)        # the CT is clipped here and divided by HU_S
 HU_SCALE = 1000.0
 
 
+NORMALISE = ("clip", "clip-zscore")
+
+
 @dataclass(frozen=True)
 class Config:
     """The network's sizes: the measurements it places (their landmarks are its outputs), the
-    encoders' widths at the three scales (a half, a quarter and an eighth of the crop), and the
-    crop it reads (crops.SHAPE at crops.SPACING_MM unless given)."""
+    encoders' widths at the three scales (a half, a quarter and an eighth of the crop), the crop
+    it reads (crops.SHAPE at crops.SPACING_MM unless given), group norm's groups, and how the CT
+    channel is scaled (normalise: clip, the HU clipped to HU_RANGE over HU_SCALE; clip-zscore,
+    the same then standardised crop by crop; blocks.py's normalise)."""
     keys: Tuple[str, ...] = tuple(SEVEN)
     widths: Tuple[int, int, int] = (16, 32, 64)
     shape: Tuple[int, int, int] = crops.SHAPE
     spacing: float = crops.SPACING_MM
     groups: int = 8
+    normalise: str = "clip"
+
+    def __post_init__(self):
+        if self.normalise not in NORMALISE:
+            raise ValueError("normalise takes %s, not %r" % (" or ".join(NORMALISE), self.normalise))
 
     @property
     def n_landmarks(self) -> int:
         return len(landmarks(self.keys))
 
 
-def ct_input(hu):
-    """The CT channel as the encoder reads it: (batch, X, Y, Z, 1) in HU to a unit scale."""
-    return jnp.clip(hu, *HU_RANGE) / HU_SCALE
+def ct_input(hu, normalise: str = "clip"):
+    """The CT channel as the encoder reads it: (batch, X, Y, Z, 1) in HU to a unit scale, clipped;
+    under clip-zscore each crop is then standardised to mean 0 and spread 1."""
+    c = jnp.clip(hu, *HU_RANGE) / HU_SCALE
+    if normalise == "clip-zscore":
+        mean = jnp.mean(c, axis=(1, 2, 3), keepdims=True)
+        sd = jnp.std(c, axis=(1, 2, 3), keepdims=True)
+        c = (c - mean) / (sd + 1e-3)
+    return c
 
 
 class Block(nnx.Module):
@@ -163,7 +179,7 @@ class Model(nnx.Module):
         self.decoder = Decoder(cfg.widths, cfg.n_landmarks, cfg.groups, rngs)
 
     def features(self, hu, masks) -> Tuple[List[jnp.ndarray], List[jnp.ndarray]]:
-        return self.ct(ct_input(hu)), self.mask(masks)
+        return self.ct(ct_input(hu, self.cfg.normalise)), self.mask(masks)
 
     def read(self, logits) -> Dict[str, jnp.ndarray]:
         """Landmarks, their covariances, the values and their deltas from the heatmap logits."""
@@ -184,4 +200,4 @@ class Model(nnx.Module):
     def ct_only(self, hu) -> Dict[str, jnp.ndarray]:
         """The test-time path: the CT alone, E_ct and the decoder, which is the fused pass at w 0
         without computing the mask's branch."""
-        return self.read(self.decoder(self.ct(ct_input(hu))))
+        return self.read(self.decoder(self.ct(ct_input(hu, self.cfg.normalise))))

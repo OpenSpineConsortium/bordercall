@@ -32,7 +32,12 @@ The losses, each named in the returned record:
   the measures' own with each value's delta-method spread added, its gradient stopped so the
   network cannot lower the loss by claiming more doubt.
 
-The weights of the terms (LOSS_WEIGHTS) are this module's choices.
+The weights of the terms (LOSS_WEIGHTS), the knee and the floor are this module's choices and the
+defaults; losses, landmark_terms and make_step take others as arguments (blocks.py's w_*, knee and
+spread_floor, which session.py passes), with the ladder's settings (rungs, ladder.degrade's keyword
+arguments) and, under the key "input" of a batch, an augmented CT for the encoder to read in place
+of the HU, which the ladder still thresholds unaugmented. With nothing passed, every number here
+is the smoke run's.
 """
 from __future__ import annotations
 
@@ -46,7 +51,7 @@ import numpy as np
 import optax
 from flax import nnx
 
-from . import crops, ladder, naming, phantom
+from . import calibrate, crops, ladder, naming, phantom
 from .model import Config, Model
 from .oracle import ChordOracle
 
@@ -134,14 +139,14 @@ def masked_mean(x, ok):
     return jnp.sum(x * ok) / jnp.maximum(jnp.sum(ok), 1.0)
 
 
-def landmark_terms(out, targets):
+def landmark_terms(out, targets, knee: float = HUBER_KNEE_MM, floor: float = SPREAD_FLOOR_MM):
     """The landmark and spread terms, and the mean distance in millimetres, over the points given."""
     ok = jnp.all(jnp.isfinite(targets), -1)                                   # (B, K)
     t = jnp.where(ok[..., None], targets, 0.0)
     d2 = jnp.sum((out["points"] - t) ** 2, -1)
-    var = jnp.trace(out["cov"], axis1=-2, axis2=-1) / 3.0 + SPREAD_FLOOR_MM ** 2
+    var = jnp.trace(out["cov"], axis1=-2, axis2=-1) / 3.0 + floor ** 2
     nll = jax.lax.stop_gradient(d2) / (2.0 * var) + 1.5 * jnp.log(var)
-    return masked_mean(pseudo_huber(d2), ok), masked_mean(nll, ok), masked_mean(jnp.sqrt(d2 + 1e-12), ok)
+    return masked_mean(pseudo_huber(d2, knee), ok), masked_mean(nll, ok), masked_mean(jnp.sqrt(d2 + 1e-12), ok)
 
 
 def feature_term(out):
@@ -158,11 +163,13 @@ def naming_term(nm: naming.Naming, out, batch, fields: int):
 
 
 def losses(model: Model, batch, w, lam, nm: Optional[naming.Naming] = None, fields: int = 0,
-           weights: Dict[str, float] = LOSS_WEIGHTS):
-    """The total loss and its terms for one batch at fusion weight w and ladder rung lam."""
-    masks = ladder.degrade(batch["masks"], batch["hu"], lam, spacing_mm=model.cfg.spacing)
-    out = model(batch["hu"], masks, w)
-    lm, spread, dist = landmark_terms(out, batch["targets"])
+           weights: Dict[str, float] = LOSS_WEIGHTS, knee: float = HUBER_KNEE_MM, floor: float = SPREAD_FLOOR_MM,
+           rungs: Optional[Dict[str, float]] = None):
+    """The total loss and its terms for one batch at fusion weight w and ladder rung lam; the
+    encoder reads batch["input"] where the batch carries one, the ladder always batch["hu"]."""
+    masks = ladder.degrade(batch["masks"], batch["hu"], lam, spacing_mm=model.cfg.spacing, **(rungs or {}))
+    out = model(batch.get("input", batch["hu"]), masks, w)
+    lm, spread, dist = landmark_terms(out, batch["targets"], knee, floor)
     ok = jnp.isfinite(batch["values"])
     value = masked_mean(jnp.abs(out["values"] - jnp.where(ok, batch["values"], 0.0)), ok)
     terms = {"landmark": lm, "spread": spread, "value": value, "feature": feature_term(out)}
@@ -172,12 +179,14 @@ def losses(model: Model, batch, w, lam, nm: Optional[naming.Naming] = None, fiel
     return total, dict(terms, distance_mm=dist)
 
 
-def make_step(nm: Optional[naming.Naming], fields: int):
-    """One jitted step of AdamW on the total loss, w and lambda traced so that changing them does
-    not compile again."""
+def make_step(nm: Optional[naming.Naming], fields: int, weights: Dict[str, float] = LOSS_WEIGHTS,
+              knee: float = HUBER_KNEE_MM, floor: float = SPREAD_FLOOR_MM, rungs: Optional[Dict[str, float]] = None):
+    """One jitted step of the optimizer it is given on the total loss, w and lambda traced so that
+    changing them does not compile again."""
     @nnx.jit
     def step(model, opt, batch, w, lam):
-        (total, terms), grads = nnx.value_and_grad(lambda m: losses(m, batch, w, lam, nm, fields), has_aux=True)(model)
+        (total, terms), grads = nnx.value_and_grad(
+            lambda m: losses(m, batch, w, lam, nm, fields, weights, knee, floor, rungs), has_aux=True)(model)
         opt.update(model, grads)
         return total, terms
     return step
@@ -221,27 +230,43 @@ def train(ex: Examples, cfg: Config, steps: int, spines_per_batch: int = 2, lr: 
     return Run(model=model, schedule=schedule, record=record)
 
 
-def evaluate(model: Model, ex: Examples, use_naming: bool = True) -> Dict[str, object]:
+def predict(model: Model, hu: np.ndarray, batch: int = 16) -> Dict[str, np.ndarray]:
+    """The CT-only path on every crop given, in batches, as numpy arrays."""
+    f = nnx.jit(lambda m, hu: m.ct_only(hu))
+    parts = [f(model, jnp.asarray(hu[i:i + batch])) for i in range(0, len(hu), batch)]
+    return {k: np.concatenate([np.asarray(p[k]) for p in parts]) for k in parts[0]}
+
+
+def evaluate(model: Model, ex: Examples, use_naming: bool = True, calibration=None) -> Dict[str, object]:
     """The CT-only path on every crop: the mean landmark distance in millimetres, each value's mean
-    absolute error, the mean delta-method spread of the values, and, where the phantoms make
-    fields, the naming layer's share of bodies named right from the predicted values, twice: with
-    each value's spread added to the measure's error, as train.py's loss adds it, and from the
-    values alone, with the measures' own errors, beside the share the oracle's own values name
+    absolute error, the mean delta-method spread of the values and, given a calibration (the
+    factors calibrate.fit returns, one per measure), the mean calibrated spread and the coverage at
+    one and two calibrated spreads; and, where the phantoms make fields, the naming layer's share
+    of bodies named right from the predicted values, twice: with each value's spread added to the
+    measure's error, as train.py's loss adds it, the calibrated spread where there is one, and from
+    the values alone, with the measures' own errors, beside the share the oracle's own values name
     right. An untrained or briefly trained spread is wide and uncalibrated, and a wide spread
     flattens each body's posterior over the neighbouring levels, short of the prior, so the two
     shares can differ widely."""
-    out = nnx.jit(lambda m, hu: m.ct_only(hu))(model, jnp.asarray(ex.hu))
-    _, _, dist = landmark_terms(out, jnp.asarray(ex.targets))
-    err = np.abs(np.asarray(out["values"]) - ex.values)
+    out = predict(model, ex.hu)
+    _, _, dist = landmark_terms(jax.tree.map(jnp.asarray, out), jnp.asarray(ex.targets))
+    signed = out["values"] - ex.values
+    err = np.abs(signed)
     res = {"distance_mm": float(dist), "value_mae": dict(zip(model.cfg.keys, np.nanmean(err, 0).round(3).tolist())),
-           "sigma_mm": float(np.mean(np.asarray(out["sigma"])))}
+           "sigma_mm": float(np.mean(out["sigma"]))}
+    spread = out["sigma"]
+    if calibration is not None:
+        spread = calibrate.apply(out["sigma"], calibration)
+        res["calibrated_sigma_mm"] = float(np.mean(spread))
+        res["coverage_at_1"] = calibrate.coverage_at(signed, spread, 1.0)
+        res["coverage_at_2"] = calibrate.coverage_at(signed, spread, 2.0)
     groups = ex.spines()
     if use_naming and len({len(g) for g in groups}) == 1:
         B = len(groups[0])
         nm = naming.prepare(model.cfg.keys, n_bodies=B)
         order = np.concatenate(groups)
         X = np.transpose(np.asarray(out["values"])[order].reshape(len(groups), B, -1), (0, 2, 1))
-        s = np.transpose(np.asarray(out["sigma"])[order].reshape(len(groups), B, -1), (0, 2, 1))
+        s = np.transpose(np.asarray(spread)[order].reshape(len(groups), B, -1), (0, 2, 1))
         noise = np.sqrt(nm.noise[None, :, None] ** 2 + s ** 2)
         truth = ex.names[order].reshape(len(groups), B)
         oracle_X = np.transpose(ex.values[order].reshape(len(groups), B, -1), (0, 2, 1))
