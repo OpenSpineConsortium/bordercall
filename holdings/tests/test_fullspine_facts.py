@@ -77,6 +77,47 @@ class Field(unittest.TestCase):
         self.assertEqual(F.faces_touched(np.array([[1, 1, 0]]), (4, 8, 10), flipped), ["S"])
 
 
+class Slabs(unittest.TestCase):
+    """A mask read a slab at a time gives the points a whole read gives, in the same order."""
+
+    def whole(self, img):
+        saved = F.SLAB_VOXELS
+        F.SLAB_VOXELS = 1 << 40
+        try:
+            return F.voxel_points(img)
+        finally:
+            F.SLAB_VOXELS = saved
+
+    def sliced(self, img):
+        saved = F.SLAB_VOXELS
+        F.SLAB_VOXELS = 7
+        try:
+            return F.voxel_points(img)
+        finally:
+            F.SLAB_VOXELS = saved
+
+    def assert_same(self, img):
+        whole, sliced = self.whole(img), self.sliced(img)
+        self.assertEqual(list(whole), list(sliced))
+        for label in whole:
+            np.testing.assert_array_equal(whole[label], sliced[label])
+
+    def test_a_float_mask_from_its_file(self):
+        mask = verse_column(T.labels(T.C1, T.L5)).astype(np.float64)
+        self.assert_same(F.image_of(nifti_bytes(mask, T.affine_for())))
+
+    def test_an_integer_mask_from_its_file_and_from_an_array(self):
+        mask = verse_column(T.labels(T.C1, T.L5)).astype(np.uint8)
+        self.assert_same(F.image_of(nifti_bytes(mask, T.affine_for())))
+        self.assert_same(nib.Nifti1Image(np.ascontiguousarray(mask), T.affine_for()))
+
+    def test_the_slabs_cover_the_volume_once(self):
+        spans = [(start, stop) for _, start, stop in F.slabs((4, 5, 11), "F")]
+        self.assertEqual(spans[0][0], 0)
+        self.assertEqual(spans[-1][1], 11)
+        self.assertTrue(all(a[1] == b[0] for a, b in zip(spans, spans[1:])))
+
+
 class Ribs(unittest.TestCase):
     def test_the_nearest_level_leads_and_a_tie_goes_to_the_head(self):
         self.assertEqual(F.lead_of({"T12": 4.0, "L1": 9.5}), ("T12", 5.5, False))
@@ -209,6 +250,18 @@ class TotalSegmentator(unittest.TestCase):
             self.assertEqual(F.main(["totalsegmentator", self.tmp.name, out, "--workers", "1"]), 0)
         rows = [json.loads(line) for line in open(out)]
         self.assertEqual([r["id"] for r in rows], ["s0001"])
+
+
+    def test_a_run_cut_short_reads_only_what_it_has_not_written(self):
+        out = os.path.join(self.tmp.name, "facts.jsonl")
+        kept = {"id": "s0001", "member": "totalsegmentator", "kept": True}
+        with open(out + ".part", "w") as handle:
+            handle.write(json.dumps(kept) + "\n" + '{"id": "s00')
+        with redirect_stdout(io.StringIO()), redirect_stderr(io.StringIO()):
+            self.assertEqual(F.main(["totalsegmentator", self.tmp.name, out, "--workers", "1"]), 0)
+        rows = [json.loads(line) for line in open(out)]
+        self.assertEqual(rows, [kept])
+        self.assertFalse(os.path.exists(out + ".part"))
 
 
 if __name__ == "__main__":

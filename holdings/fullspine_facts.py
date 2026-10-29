@@ -16,6 +16,9 @@ from the mask's header is the CT's field; no CT is read.
     python -m holdings.fullspine_facts totalsegmentator SPANS OUT.jsonl [--workers N]
     python -m holdings.fullspine_facts verse MASKDIR OUT.jsonl [--workers N]
 
+Each row is written to OUT.part as it comes; a run cut short is started again with the same command
+and reads only the studies it has not written.
+
 SPANS is a folder of byte ranges of TotalSegmentator's release zip, one file <subject>.span per
 subject, with index.json beside them giving each span's first byte and the zip entries inside it
 (the central directory's name, method, sizes and offset). MASKDIR holds VerSe's release masks as
@@ -61,7 +64,7 @@ import re
 import struct
 import sys
 import zlib
-from multiprocessing import Pool
+from concurrent.futures import ProcessPoolExecutor, as_completed
 
 import nibabel as nib
 import numpy as np
@@ -92,6 +95,8 @@ TS_RIB_FILE = re.compile(r"^rib_(left|right)_(\d+)\.nii\.gz$")
 
 # Two processes unless told otherwise: the container's CPUs and memory are shared with other work.
 WORKERS = 2
+# A mask is read a slab of about 16 million voxels at a time (voxel_points), 128 MB as float64.
+SLAB_VOXELS = 1 << 24
 
 
 # ---------------------------------------------------------------- numbers
@@ -275,25 +280,56 @@ def image_of(data: bytes):
     return nib.Nifti1Image.from_bytes(raw)
 
 
+def memory_order(dataobj) -> str:
+    """The order a mask's voxels lie in: a NIfTI file's proxy says (Fortran's), an array its flags."""
+    order = getattr(dataobj, "order", None)
+    if order in ("F", "C"):
+        return order
+    return "F" if dataobj.flags.f_contiguous and not dataobj.flags.c_contiguous else "C"
+
+
+def slabs(shape, order: str):
+    """(axis, start, stop) of the slabs a volume is read in, along its slowest axis in memory, each of
+    at most SLAB_VOXELS voxels or one plane."""
+    axis = 2 if order == "F" else 0
+    plane = max(1, int(np.prod(shape)) // max(1, shape[axis]))
+    step = max(1, SLAB_VOXELS // plane)
+    for start in range(0, shape[axis], step):
+        yield axis, start, min(start + step, shape[axis])
+
+
+def slab_points(dataobj, order: str, axis: int, start: int, stop: int):
+    """(values, indices) of one slab's labelled voxels, its indices in the whole volume."""
+    index = [slice(None)] * 3
+    index[axis] = slice(start, stop)
+    slab = np.asanyarray(dataobj[tuple(index)])
+    if slab.ndim > 3:
+        slab = slab.reshape(slab.shape[:3])
+    if slab.dtype.kind == "f":
+        slab = np.rint(slab).astype(np.int32)
+    flat = slab.ravel(order=order)
+    where = np.flatnonzero(flat)
+    points = np.stack(np.unravel_index(where, slab.shape, order=order), axis=1).astype(np.int32)
+    points[:, axis] += start
+    return flat[where], points
+
+
 def voxel_points(img, labels=None) -> dict:
     """The voxel indices of each label in a mask: {label: (n, 3) array}; a binary mask is label 1.
-    The array is walked in its memory order (a NIfTI's is Fortran's), which is several times faster
-    than numpy's nonzero over a Fortran-ordered volume."""
-    data = np.asanyarray(img.dataobj)
-    if data.dtype.kind == "f":
-        data = np.rint(data).astype(np.int32)
-    order = "F" if data.flags.f_contiguous and not data.flags.c_contiguous else "C"
-    flat = data.ravel(order=order)
-    where = np.flatnonzero(flat)
-    if not len(where):
-        return {}
-    values = flat[where]
-    points = np.stack(np.unravel_index(where, data.shape, order=order), axis=1).astype(np.int32)
-    out = {}
-    for label in np.unique(values):
-        if labels is None or int(label) in labels:
-            out[int(label)] = points[values == label]
-    return out
+    The volume is walked in its memory order (a NIfTI's is Fortran's), which is several times faster
+    than numpy's nonzero over a Fortran-ordered volume, a slab at a time along its slowest axis: 462
+    of VerSe's 473 masks are stored as float64, and the largest, 512 x 512 x 2023, read whole took
+    12 GB and was killed. The points come out in the same order as a whole read, so the facts are the
+    same to the bit."""
+    shape = tuple(int(n) for n in img.shape[:3])
+    order = memory_order(img.dataobj)
+    parts = {}
+    for axis, start, stop in slabs(shape, order):
+        values, points = slab_points(img.dataobj, order, axis, start, stop)
+        for label in np.unique(values):
+            if labels is None or int(label) in labels:
+                parts.setdefault(int(label), []).append(points[values == label])
+    return {label: np.concatenate(chunks) for label, chunks in sorted(parts.items())}
 
 
 def study_row(member: str, sid: str, files: dict, grid_img, levels: dict, context: dict, ribs: dict) -> dict:
@@ -387,13 +423,13 @@ def label_voxels(found: dict) -> dict:
     return {VERSE_NAMES[label]: int(len(points)) for label, points in found.items() if label in VERSE_NAMES}
 
 
-def other_release(release: str, path: str, img) -> dict:
-    """What a series' copy in the release not chosen holds beside the chosen copy: the same grid,
-    the same levels and the levels whose voxel counts differ, so a correction between releases is
-    seen rather than lost."""
+def other_release(release: str, path: str, img, found: dict) -> dict:
+    """What a series' copy in the release not chosen holds beside the chosen copy (img, whose labels
+    are found): the same grid, the same levels and the levels whose voxel counts differ, so a
+    correction between releases is seen rather than lost."""
     data = open(path, "rb").read()
     other = image_of(data)
-    mine, theirs = label_voxels(voxel_points(img)), label_voxels(voxel_points(other))
+    mine, theirs = label_voxels(found), label_voxels(voxel_points(other))
     return {"release": release, "file": {os.path.basename(path): file_record(data)},
             "same_grid": bool(same_grid(img, other)), "same_levels": sorted(mine) == sorted(theirs),
             "voxels_differ": sorted(name for name in set(mine) | set(theirs) if mine.get(name) != theirs.get(name))}
@@ -410,7 +446,8 @@ def verse_row(job) -> dict:
     row = study_row("verse", sid, {os.path.basename(path): data}, img, levels, {}, {})
     row["release"] = release
     row["patient_in_name"] = patient
-    others = [other_release(name, copies[name], img) for name in VERSE_RELEASES if name in copies and name != release]
+    others = [other_release(name, copies[name], img, found) for name in VERSE_RELEASES
+              if name in copies and name != release]
     if others:
         row["other_release"] = others[0]
     outside = sorted(label for label in found if label not in VERSE_NAMES)
@@ -459,23 +496,51 @@ def verse_safe(job):
     return safe(verse_row)(job)
 
 
+def row_line(row: dict) -> str:
+    return json.dumps(row, sort_keys=True, separators=(",", ":")) + "\n"
+
+
 def write_rows(rows, out: str) -> int:
     rows = sorted(rows, key=lambda row: row["id"])
     with open(out + ".tmp", "w", encoding="ascii", newline="\n") as f:
         for row in rows:
-            f.write(json.dumps(row, sort_keys=True, separators=(",", ":")) + "\n")
+            f.write(row_line(row))
     os.replace(out + ".tmp", out)
     return len(rows)
 
 
+def rows_written(part: str) -> list:
+    """The rows a run cut short wrote whole to OUT.part, a line each; a line cut off is read again."""
+    if not os.path.exists(part):
+        return []
+    with open(part, encoding="ascii") as f:
+        return [json.loads(line) for line in f if line.endswith("\n")]
+
+
 def run(function, jobs, out: str, workers: int) -> int:
-    rows = []
-    with Pool(workers, maxtasksperchild=25) as pool:
-        for n, row in enumerate(pool.imap_unordered(function, jobs, chunksize=1), 1):
-            rows.append(row)
-            if n % 100 == 0:
-                print(n, file=sys.stderr, flush=True)
-    return write_rows(rows, out)
+    """Each study's row, written to OUT.part as it comes and sorted into OUT at the end, so a run cut
+    short (a worker killed for its memory, a container stopped) loses no row and a second run reads
+    only the studies the first did not write. A worker that dies stops the run with an error rather
+    than leaving it waiting: on 2026-10-29 the multiprocessing pool this replaced waited more than
+    20 minutes for a VerSe worker the kernel had killed."""
+    part = out + ".part"
+    rows = rows_written(part)
+    done = {row["id"] for row in rows}
+    todo = [job for job in jobs if job[0] not in done]
+    with open(part, "w", encoding="ascii", newline="\n") as f:
+        f.writelines(row_line(row) for row in rows)
+        with ProcessPoolExecutor(workers) as pool:
+            futures = [pool.submit(function, job) for job in todo]
+            for n, future in enumerate(as_completed(futures), len(rows) + 1):
+                row = future.result()
+                f.write(row_line(row))
+                f.flush()
+                rows.append(row)
+                if n % 100 == 0:
+                    print(n, file=sys.stderr, flush=True)
+    count = write_rows(rows, out)
+    os.remove(part)
+    return count
 
 
 def main(argv=None) -> int:
