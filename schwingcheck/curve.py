@@ -235,14 +235,17 @@ def _keys(measures: Sequence[MS.Measure]) -> List[str]:
 
 
 def draw_pool(pool: Sequence[MS.Measure], phenotype: str, seed: int, extra_seed: int, n: int,
-              error_scale: float = 1.0) -> C.Columns:
+              error_scale: float = 1.0, scale: Optional[np.ndarray] = None) -> C.Columns:
     """n columns of one phenotype with every measure of the pool, in the pool's order: the seven
     from `seed` exactly as the archive draws them, the rest from `extra_seed` for the same patients;
-    the meta's powers and errors are the pool's, in its order, so that columns.floor_hits reads them."""
+    the meta's powers and errors are the pool's, in its order, so that columns.floor_hits reads them.
+    `scale`, one size a column, gives the patients' sizes in place of drawing them
+    (columns.draw_columns); the stream then draws no sizes, so the seven come from the same law but
+    are no longer the archive's draws from `seed`."""
     seven = MS.select(MS.SPINEPS_7)
     rest = [m for m in pool if m.key not in MS.SPINEPS_7]
     first = C.draw_columns(MS.reference(seven), [phenotype], seed, n, _keys(seven),
-                           noise_mm=MS.errors(seven) * error_scale, power=MS.powers(seven))
+                           noise_mm=MS.errors(seven) * error_scale, power=MS.powers(seven), scale=scale)
     more = C.draw_columns(MS.reference(rest), [phenotype], extra_seed, n, _keys(rest),
                           noise_mm=MS.errors(rest) * error_scale, power=MS.powers(rest), scale=first.scale)
     if first.levels != more.levels:

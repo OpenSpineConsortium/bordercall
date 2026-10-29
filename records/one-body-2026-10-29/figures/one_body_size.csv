@@ -1,0 +1,33 @@
+panel,measures,size,stat,percent
+A,seven,unknown,exact,46.1909
+A,seven,"height, model",exact,48.1091
+A,seven,"height, generator",exact,48.3636
+A,seven,size given,exact,55.6909
+A,lateral,unknown,exact,29.9636
+A,lateral,"height, model",exact,31.0364
+A,lateral,"height, generator",exact,31.1091
+A,lateral,size given,exact,36.3455
+A,ap,unknown,exact,34.9091
+A,ap,"height, model",exact,36.5636
+A,ap,"height, generator",exact,36.8182
+A,ap,size given,exact,43.7727
+A,all,unknown,exact,86.8455
+A,all,"height, model",exact,86.9545
+A,all,"height, generator",exact,87.0091
+A,all,size given,exact,89.7909
+B,seven,unknown,answered,0.645455
+B,seven,"height, model",answered,0.618182
+B,seven,"height, generator",answered,0.745455
+B,seven,size given,answered,1.77273
+B,lateral,unknown,answered,0
+B,lateral,"height, model",answered,0.00909091
+B,lateral,"height, generator",answered,0
+B,lateral,size given,answered,0.0181818
+B,ap,unknown,answered,0
+B,ap,"height, model",answered,0
+B,ap,"height, generator",answered,0
+B,ap,size given,answered,0
+B,all,unknown,answered,42.0818
+B,all,"height, model",answered,42.2091
+B,all,"height, generator",answered,42.5818
+B,all,size given,answered,48.2818
