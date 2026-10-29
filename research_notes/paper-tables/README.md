@@ -60,9 +60,11 @@ paper's mapping against its Methods.
   printed with an SD of 13.0 mm where every other is 2.5 to 3.9. Two rounds of independent readers checked
   series.py, cross_naming.py and results.py against the pages and the records, and each fault they found was fixed
   and checked again (tools/code_review.js, code_fix.js and code_fix_2.js, Workflow scripts).
+- [review/](review/README.md): what the two review rounds found, and round 2's findings with the refuters'
+  verdicts; the round 2 findings that change data/series.csv or the record come in the next pull request.
 - data/cross_naming.json and results/: the comparison with Panjabi (step 5) at 200 fields a setting, seed 2026, with
   all 32 of Panjabi's measures scored as printed, the owner's choice of 2026-10-29 though the two end-plate
-  inclinations' lumbar row reprints the cervical one (../panjabi-endplate-inclination.md), and the evaluation written
+  inclinations' lumbar row repeats the cervical one (../panjabi-endplate-inclination.md), and the evaluation written
   from it by tools/results.py, its tables, figures and CSVs; [results/README.md](results/README.md) is the page to
   read and ends with the commands that remake it. A pool member with an SD of 0 (Tan 2004's SEM of 0.0 for the upper
   end-plate width at C6) is left out of the pools, and cross_naming.py refuses to write a record holding NaN or an

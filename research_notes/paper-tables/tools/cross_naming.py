@@ -21,7 +21,7 @@ kept out of every pool that holds the source it took in, so no spine is counted 
 carry the sources it holds. A cohort whose cohorts entry names a species other than human (the pig
 spines two papers measured beside people's) is left out of everything, since Panjabi's rule names
 people's vertebrae. A measure named by --leave-out is left out of everything too. The end-plate
-inclinations, whose L1 to L5 row in Panjabi's lumbar paper reprints his cervical C3 to C7 row
+inclinations, whose L1 to L5 row in Panjabi's lumbar paper repeats his cervical C3 to C7 row
 (research_notes/panjabi-endplate-inclination.md), were left out this way until the owner chose on
 2026-10-29 to keep all 32 measures as printed; the record's run passes no --leave-out since.
 

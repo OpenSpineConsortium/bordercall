@@ -176,7 +176,7 @@ How to read it:
    run the build-up study both ways (measures.md 9.1). Hold every C7/T1 and T12/L1 step as an upper bound until a
    single series spanning the junction confirms it (atlas.md, "How to read this part"; measures.md 12).
 
-8. **The two end-plate inclinations reprint the cervical row; the owner keeps them as printed.** The owner chose on
+8. **The two end-plate inclinations repeat the cervical row; the owner keeps them as printed.** The owner chose on
    2026-10-29 09:01 UTC to keep all 32 measures as printed, so nothing is rerun on 30 and every study states the
    reprint (bordercall TODO.md step b, pull request 31); the paper-tables comparison scores them as printed too. The
    case below for dropping them is what was weighed. Panjabi's lumbar Table 2 prints at L1 to L5 the same 20 numbers

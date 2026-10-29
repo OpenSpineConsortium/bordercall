@@ -9,8 +9,8 @@ Each paper counts as its own people measured its own way, unless its text says i
 method (the owner, 2026-10-28). Pig spines are left out of every comparison (7 cohorts of Busscher 2010 and
 van der Houwen 2009).
 The two end-plate angles are scored as printed, by the owner's choice of 2026-10-29 to keep all 32
-of Panjabi's measures, though the L1 to L5 row of his lumbar paper reprints his cervical C3 to C7
-row (../../panjabi-endplate-inclination.md).
+of Panjabi's measures, though the L1 to L5 row of his lumbar paper prints the same 20 numbers as his
+cervical C3 to C7 row, most probably the cervical row printed twice (../../panjabi-endplate-inclination.md).
 
 ## The papers read
 
@@ -82,7 +82,7 @@ A paper that pools Panjabi's spines (Bonczar 2024's meta-analysis, which takes i
 Robertson 2000) is kept out of every pool that holds a source it took in. A method row says only that the text
 cites the other paper on its method; no number here merges two papers' techniques on it, so every paper stays
 its own technique. Of the four that cite Panjabi so, only Tan 2004 says its definitions are similar to his
-(p. 138); Chen 2011 cites his border-to-border widths as a contrast to its own rim-to-rim lengths (p. 1814),
+(p. 138); Chen 2011 cites his border-to-border widths as a contrast to its own rim-to-rim lengths (p. 1819),
 Kunkel 2011 cites him for its three thoracic regions (p. 381), and Tang 2016 credits him with an ellipse area
 formula his tables do not use (p. 4118). Where these papers differ from him, the method may differ as well as
 the people.
