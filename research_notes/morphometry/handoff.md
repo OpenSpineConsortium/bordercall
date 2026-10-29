@@ -67,6 +67,30 @@ vertebra's own axis and the VerSe record.
   carries `eh` again (the frame's z, along which the height is read). The 0004 measure and
   the test suite were started again on it as this was written.
 
+## The 0004 measure on the pushed code (23:20 UTC)
+
+`python -m morphometry measure` on study 0004 runs through (1,972 rows). Beside the pedicle
+readings above, what the rows show that the next session should look at first:
+
+- The facets: "no pair of superior articular processes found" at C5, T1, L3 and L4, four of the
+  six levels looked at, so the facet measures are missing on most levels of this study; the
+  posterior module's pairing is the next failure to trace.
+- The discs: L3-L4 reads 7.1 mm in front, 5.7 at the middle and 1.6 behind; T8-T9 1.0 in front,
+  3.1 at the middle, 2.5 behind; C4-C5 1.5, 2.3 and 1.1. A lumbar disc 1.6 mm behind and a
+  thoracic one 1.0 in front are not the discs the CT shows: the bands at the posterior and
+  anterior corners catch a rim's lip or the neighbour's, to be seen on the renders.
+- C5's upper end-plate depth reads 9.8 mm against 16.7 below, as the second pass's render showed.
+- L5's interpedicular distance stands in from the hole's middle (24.2 and 30.3, flagged), since
+  no pedicle is free of the transverse process's root there.
+
+## For the account that continues
+
+Start from bordercall PR 44 (branch claude/project-thread-e89pjg, head dd69c23 plus this commit): the
+code, the probes and this handoff are all there, and nothing of this work is in SchwingNet except
+the grid word and the pinned engine of the 229 run (SchwingNet main, grid/bordercall/). The masks
+of the 229 thin-slice studies and the rows of the runs are in the project's files under gold3-ct/,
+never in git. Take the steps below in order, the test suite first.
+
 ## What to do next, in order
 
 1. `PYTHONPATH=. python -m unittest morphometry.tests.test_morphometry` (about ten minutes on four
@@ -99,8 +123,10 @@ vertebra's own axis and the VerSe record.
 The owner's count of 2026-10-29 15:19 UTC is two CPU jobs, `morphometry enhance` and `morphometry
 verse`, through symphony-template's grid-accounts.yml (action job, job schwingnet-morphometry-<set>).
 Enhance was accepted at 22:47 UTC ("morphometry ok"); verse was refused at 22:51 with exit 75
-because the gate runs one morphometry job at a time: send it again once enhance ends (a scheduled
-check at 02:05 UTC does so if this session is still alive). Both run the engine pinned in SchwingNet
+because the gate runs one morphometry job at a time: send it again once enhance ends. The check
+scheduled at 02:05 UTC for that belonged to the session that wrote this and dies with it, so the
+next account sends `schwingnet-morphometry-verse` by hand through grid-accounts.yml (action job,
+any request name) once `schwingnet-status` shows the enhance job gone. Both run the engine pinned in SchwingNet
 main, the engine of the 229 run of 13:10 UTC, without the pedicle rework; the rework reaches the
 grid only with a later run on the owner's count.
 
