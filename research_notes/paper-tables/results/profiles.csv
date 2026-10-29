@@ -77,11 +77,11 @@ pedicle_w,L2,paper,moncadahabib2025,mexico_ct37,7,1.55,37
 pedicle_w,L3,paper,moncadahabib2025,mexico_ct37,7.85,1.9,37
 pedicle_w,L4,paper,moncadahabib2025,mexico_ct37,9.1,1.85,37
 pedicle_w,L5,paper,moncadahabib2025,mexico_ct37,12.1,2.75,37
-pedicle_w,L1,paper,olsewski1990,"part3_patients, Part 3 living patients, AP radiographs",7.512,2.05,49
-pedicle_w,L2,paper,olsewski1990,"part3_patients, Part 3 living patients, AP radiographs",8.388,2.163,50
+pedicle_w,L1,paper,olsewski1990,"part3_patients, Part 3 living patients, AP radiographs",7.512,2.052,49
+pedicle_w,L2,paper,olsewski1990,"part3_patients, Part 3 living patients, AP radiographs",8.388,2.166,50
 pedicle_w,L3,paper,olsewski1990,"part3_patients, Part 3 living patients, AP radiographs",9.856,2.474,50
 pedicle_w,L4,paper,olsewski1990,"part3_patients, Part 3 living patients, AP radiographs",11.702,2.608,50
-pedicle_w,L5,paper,olsewski1990,"part3_patients, Part 3 living patients, AP radiographs",14.905,2.616,41
+pedicle_w,L5,paper,olsewski1990,"part3_patients, Part 3 living patients, AP radiographs",14.905,2.62,41
 pedicle_w,L1,paper,otsuki2021,rush_cadaver_6,7.1,2.4,6
 pedicle_w,L2,paper,otsuki2021,rush_cadaver_6,7.3,2.4,6
 pedicle_w,L3,paper,otsuki2021,rush_cadaver_6,9.4,2,6
@@ -213,11 +213,11 @@ pedicle_h,L2,paper,moncadahabib2025,mexico_ct37,12.4,1.7,37
 pedicle_h,L3,paper,moncadahabib2025,mexico_ct37,12.05,1.85,37
 pedicle_h,L4,paper,moncadahabib2025,mexico_ct37,11.1,1.55,37
 pedicle_h,L5,paper,moncadahabib2025,mexico_ct37,10.2,1.5,37
-pedicle_h,L1,paper,olsewski1990,"part3_patients, Part 3 living patients, AP radiographs",15.984,1.752,49
-pedicle_h,L2,paper,olsewski1990,"part3_patients, Part 3 living patients, AP radiographs",15.867,2.116,51
-pedicle_h,L3,paper,olsewski1990,"part3_patients, Part 3 living patients, AP radiographs",15.992,2.326,51
-pedicle_h,L4,paper,olsewski1990,"part3_patients, Part 3 living patients, AP radiographs",15.147,2.106,51
-pedicle_h,L5,paper,olsewski1990,"part3_patients, Part 3 living patients, AP radiographs",13.891,2.134,44
+pedicle_h,L1,paper,olsewski1990,"part3_patients, Part 3 living patients, AP radiographs",15.984,1.759,49
+pedicle_h,L2,paper,olsewski1990,"part3_patients, Part 3 living patients, AP radiographs",15.867,2.125,51
+pedicle_h,L3,paper,olsewski1990,"part3_patients, Part 3 living patients, AP radiographs",16.002,2.339,51
+pedicle_h,L4,paper,olsewski1990,"part3_patients, Part 3 living patients, AP radiographs",15.136,2.109,51
+pedicle_h,L5,paper,olsewski1990,"part3_patients, Part 3 living patients, AP radiographs",13.891,2.143,44
 pedicle_h,L1,paper,otsuki2021,rush_cadaver_6,17,2.7,6
 pedicle_h,L2,paper,otsuki2021,rush_cadaver_6,15.8,1.7,6
 pedicle_h,L3,paper,otsuki2021,rush_cadaver_6,15.8,1.7,6
@@ -335,11 +335,11 @@ pedicle_incl_sag,L2,paper,moncadahabib2025,mexico_ct37,16.45,2.15,37
 pedicle_incl_sag,L3,paper,moncadahabib2025,mexico_ct37,17,2.5,37
 pedicle_incl_sag,L4,paper,moncadahabib2025,mexico_ct37,18.6,1.9,37
 pedicle_incl_sag,L5,paper,moncadahabib2025,mexico_ct37,21.9,2.65,37
-pedicle_incl_sag,L1,paper,olsewski1990,"part1_cadavers, Part 1 cadavers, direct",6.118,2.212,34
-pedicle_incl_sag,L2,paper,olsewski1990,"part1_cadavers, Part 1 cadavers, direct",6.545,2.032,33
-pedicle_incl_sag,L3,paper,olsewski1990,"part1_cadavers, Part 1 cadavers, direct",7.553,2.036,38
-pedicle_incl_sag,L4,paper,olsewski1990,"part1_cadavers, Part 1 cadavers, direct",10.55,3.98,40
-pedicle_incl_sag,L5,paper,olsewski1990,"part1_cadavers, Part 1 cadavers, direct",17.452,7.392,42
+pedicle_incl_sag,L1,paper,olsewski1990,"part1_cadavers, Part 1 cadavers, direct",6.121,2.222,33
+pedicle_incl_sag,L2,paper,olsewski1990,"part1_cadavers, Part 1 cadavers, direct",6.547,2.047,32
+pedicle_incl_sag,L3,paper,olsewski1990,"part1_cadavers, Part 1 cadavers, direct",7.56,2.048,38
+pedicle_incl_sag,L4,paper,olsewski1990,"part1_cadavers, Part 1 cadavers, direct",10.55,4.006,40
+pedicle_incl_sag,L5,paper,olsewski1990,"part1_cadavers, Part 1 cadavers, direct",17.451,7.437,41
 pedicle_incl_sag,C3,paper,tan2004,sg_chinese_cadavers10,41.25,3.162,10
 pedicle_incl_sag,C4,paper,tan2004,sg_chinese_cadavers10,41.45,3.795,10
 pedicle_incl_sag,C5,paper,tan2004,sg_chinese_cadavers10,42.2,4.111,10

@@ -15894,9 +15894,9 @@
    "panjabi_mean": 15.850000000000001,
    "panjabi_sd": 2.68467875173176,
    "panjabi_step_per_level": 0.8499999999999996,
-   "pool_i2": 0.9975892294412182,
+   "pool_i2": 0.9975889229975543,
    "pool_k": 13,
-   "pool_mean": 14.719624299616552,
+   "pool_mean": 14.719628197644965,
    "pool_papers": [
     "panjabi",
     "arockiaraj2025",
@@ -15912,7 +15912,7 @@
     "yu2015",
     "zindrick1987"
    ],
-   "pool_tau": 2.964092262430407,
+   "pool_tau": 2.9643330286999627,
    "sources": [
     {
      "cohort": "saudi_ct",
@@ -16088,14 +16088,14 @@
     },
     {
      "cohort": "part1_cadavers",
-     "d_levels": 0.4387058823529388,
-     "d_panjabi_sd": 0.13889930024568398,
+     "d_levels": 0.45435294117646935,
+     "d_panjabi_sd": 0.14385333803937597,
      "group": "Part 1 cadavers, direct",
      "holds_subjects_of": [],
-     "mean": 16.2229,
+     "mean": 16.2362,
      "n": 35.0,
      "paper": "olsewski1990",
-     "sd": 2.00823,
+     "sd": 2.01564,
      "sex": "all",
      "technique": "direct_caliper_microscope",
      "vs_panjabi": "close"
@@ -16137,7 +16137,7 @@
      "mean": 15.9837,
      "n": 49.0,
      "paper": "olsewski1990",
-     "sd": 1.75153,
+     "sd": 1.75888,
      "sex": "all",
      "technique": "patient_ap_radiograph",
      "vs_panjabi": "close"
@@ -16416,9 +16416,9 @@
    "panjabi_mean": 14.95,
    "panjabi_sd": 1.8359738560230099,
    "panjabi_step_per_level": 0.7250000000000014,
-   "pool_i2": 0.997939268765748,
+   "pool_i2": 0.9979390602440374,
    "pool_k": 13,
-   "pool_mean": 14.33111709407633,
+   "pool_mean": 14.331112094062274,
    "pool_papers": [
     "panjabi",
     "arockiaraj2025",
@@ -16434,7 +16434,7 @@
     "yu2015",
     "zindrick1987"
    ],
-   "pool_tau": 3.2267343262763184,
+   "pool_tau": 3.226887812572983,
    "sources": [
     {
      "cohort": "saudi_ct",
@@ -16610,14 +16610,14 @@
     },
     {
      "cohort": "part1_cadavers",
-     "d_levels": 1.0191724137931029,
-     "d_panjabi_sd": 0.40245671123039156,
+     "d_levels": 1.013103448275861,
+     "d_panjabi_sd": 0.40006016294318913,
      "group": "Part 1 cadavers, direct",
      "holds_subjects_of": [],
-     "mean": 15.6889,
+     "mean": 15.6845,
      "n": 36.0,
      "paper": "olsewski1990",
-     "sd": 2.11333,
+     "sd": 2.12648,
      "sex": "all",
      "technique": "direct_caliper_microscope",
      "vs_panjabi": "close"
@@ -16659,7 +16659,7 @@
      "mean": 15.8667,
      "n": 51.0,
      "paper": "olsewski1990",
-     "sd": 2.11643,
+     "sd": 2.12467,
      "sex": "all",
      "technique": "patient_ap_radiograph",
      "vs_panjabi": "close"
@@ -16938,9 +16938,9 @@
    "panjabi_mean": 14.399999999999999,
    "panjabi_sd": 2.1477430013854075,
    "panjabi_step_per_level": 0.8000000000000007,
-   "pool_i2": 0.9975133088035418,
+   "pool_i2": 0.9975129223479536,
    "pool_k": 12,
-   "pool_mean": 14.035153559467497,
+   "pool_mean": 14.035967151246565,
    "pool_papers": [
     "panjabi",
     "arockiaraj2025",
@@ -16955,7 +16955,7 @@
     "yu2015",
     "zindrick1987"
    ],
-   "pool_tau": 3.508900325331988,
+   "pool_tau": 3.509295761832315,
    "sources": [
     {
      "cohort": "saudi_ct",
@@ -17117,14 +17117,14 @@
     },
     {
      "cohort": "part1_cadavers",
-     "d_levels": 1.5098750000000014,
-     "d_panjabi_sd": 0.5624043468985084,
+     "d_levels": 1.52,
+     "d_panjabi_sd": 0.5661757478504723,
      "group": "Part 1 cadavers, direct",
      "holds_subjects_of": [],
-     "mean": 15.6079,
+     "mean": 15.616,
      "n": 38.0,
      "paper": "olsewski1990",
-     "sd": 1.91416,
+     "sd": 1.92835,
      "sex": "all",
      "technique": "direct_caliper_microscope",
      "vs_panjabi": "close"
@@ -17159,14 +17159,14 @@
     },
     {
      "cohort": "part3_patients",
-     "d_levels": 1.9902500000000005,
-     "d_panjabi_sd": 0.7413363698417124,
+     "d_levels": 2.0024999999999986,
+     "d_panjabi_sd": 0.7458992993885329,
      "group": "Part 3 living patients, AP radiographs",
      "holds_subjects_of": [],
-     "mean": 15.9922,
+     "mean": 16.002,
      "n": 51.0,
      "paper": "olsewski1990",
-     "sd": 2.32631,
+     "sd": 2.33867,
      "sex": "all",
      "technique": "patient_ap_radiograph",
      "vs_panjabi": "close"
@@ -17445,9 +17445,9 @@
    "panjabi_mean": 15.45,
    "panjabi_sd": 1.7840123317959435,
    "panjabi_step_per_level": 2.575000000000001,
-   "pool_i2": 0.9973813350580325,
+   "pool_i2": 0.9973803786401892,
    "pool_k": 12,
-   "pool_mean": 13.909960774074433,
+   "pool_mean": 13.908983766836544,
    "pool_papers": [
     "panjabi",
     "arockiaraj2025",
@@ -17462,7 +17462,7 @@
     "yu2015",
     "zindrick1987"
    ],
-   "pool_tau": 3.3690942216673663,
+   "pool_tau": 3.3687247292109705,
    "sources": [
     {
      "cohort": "saudi_ct",
@@ -17631,7 +17631,7 @@
      "mean": 15.7077,
      "n": 39.0,
      "paper": "olsewski1990",
-     "sd": 2.20679,
+     "sd": 2.21745,
      "sex": "all",
      "technique": "direct_caliper_microscope",
      "vs_panjabi": "close"
@@ -17666,14 +17666,14 @@
     },
     {
      "cohort": "part3_patients",
-     "d_levels": -0.11763106796116472,
-     "d_panjabi_sd": -0.1697858218811041,
+     "d_levels": -0.12209708737864039,
+     "d_panjabi_sd": -0.1762319656633183,
      "group": "Part 3 living patients, AP radiographs",
      "holds_subjects_of": [],
-     "mean": 15.1471,
+     "mean": 15.1356,
      "n": 51.0,
      "paper": "olsewski1990",
-     "sd": 2.10579,
+     "sd": 2.10946,
      "sex": "all",
      "technique": "patient_ap_radiograph",
      "vs_panjabi": "close"
@@ -17952,9 +17952,9 @@
    "panjabi_mean": 19.55,
    "panjabi_sd": 2.9964478970941575,
    "panjabi_step_per_level": 4.100000000000001,
-   "pool_i2": 0.9976332756421793,
+   "pool_i2": 0.9975773564920963,
    "pool_k": 12,
-   "pool_mean": 15.282915526912245,
+   "pool_mean": 15.029140674340235,
    "pool_papers": [
     "panjabi",
     "arockiaraj2025",
@@ -17969,7 +17969,7 @@
     "yu2015",
     "zindrick1987"
    ],
-   "pool_tau": 3.868949449783764,
+   "pool_tau": 3.7882857947931776,
    "sources": [
     {
      "cohort": "saudi_ct",
@@ -18131,14 +18131,14 @@
     },
     {
      "cohort": "part1_cadavers",
-     "d_levels": -0.6574390243902435,
-     "d_panjabi_sd": -0.8995651159541248,
+     "d_levels": -0.6571219512195124,
+     "d_panjabi_sd": -0.8991312689310353,
      "group": "Part 1 cadavers, direct",
      "holds_subjects_of": [],
-     "mean": 16.8545,
-     "n": 44.0,
+     "mean": 16.8558,
+     "n": 43.0,
      "paper": "olsewski1990",
-     "sd": 2.85372,
+     "sd": 2.86897,
      "sex": "all",
      "technique": "direct_caliper_microscope",
      "vs_panjabi": "close"
@@ -18180,7 +18180,7 @@
      "mean": 13.8909,
      "n": 44.0,
      "paper": "olsewski1990",
-     "sd": 2.13398,
+     "sd": 2.14252,
      "sex": "all",
      "technique": "patient_ap_radiograph",
      "vs_panjabi": "close"
@@ -19436,9 +19436,9 @@
    "panjabi_mean": 14.45,
    "panjabi_sd": 11.933830064149562,
    "panjabi_step_per_level": 2.499999999999999,
-   "pool_i2": 0.9979942225025026,
+   "pool_i2": 0.9979814128356264,
    "pool_k": 8,
-   "pool_mean": 12.418858552318866,
+   "pool_mean": 12.419363351150427,
    "pool_papers": [
     "panjabi",
     "arockiaraj2025",
@@ -19449,7 +19449,7 @@
     "tan2004",
     "zindrick1987"
    ],
-   "pool_tau": 7.39834106371048,
+   "pool_tau": 7.392837658480816,
    "sources": [
     {
      "cohort": "saudi_ct",
@@ -19583,14 +19583,14 @@
     },
     {
      "cohort": "part1_cadavers",
-     "d_levels": -3.3329400000000002,
-     "d_panjabi_sd": -0.6982125566737559,
+     "d_levels": -3.331516000000001,
+     "d_panjabi_sd": -0.6979142450687756,
      "group": "Part 1 cadavers, direct",
      "holds_subjects_of": [],
-     "mean": 6.11765,
-     "n": 34.0,
+     "mean": 6.12121,
+     "n": 33.0,
      "paper": "olsewski1990",
-     "sd": 2.21243,
+     "sd": 2.22237,
      "sex": "all",
      "technique": "direct_caliper_microscope",
      "vs_panjabi": "close"
@@ -19659,9 +19659,9 @@
    "panjabi_mean": 14.15,
    "panjabi_sd": 9.993933159672421,
    "panjabi_step_per_level": 2.3000000000000007,
-   "pool_i2": 0.9981679399897189,
+   "pool_i2": 0.9981538148253073,
    "pool_k": 8,
-   "pool_mean": 13.726634476461134,
+   "pool_mean": 13.726903486991738,
    "pool_papers": [
     "panjabi",
     "arockiaraj2025",
@@ -19672,7 +19672,7 @@
     "tan2004",
     "zindrick1987"
    ],
-   "pool_tau": 7.98936268900914,
+   "pool_tau": 7.987393479421616,
    "sources": [
     {
      "cohort": "saudi_ct",
@@ -19806,14 +19806,14 @@
     },
     {
      "cohort": "part1_cadavers",
-     "d_levels": -3.306326086956521,
-     "d_panjabi_sd": -0.760916635973305,
+     "d_levels": -3.305704347826086,
+     "d_panjabi_sd": -0.7607735491648229,
      "group": "Part 1 cadavers, direct",
      "holds_subjects_of": [],
-     "mean": 6.54545,
-     "n": 33.0,
+     "mean": 6.54688,
+     "n": 32.0,
      "paper": "olsewski1990",
-     "sd": 2.03241,
+     "sd": 2.04652,
      "sex": "all",
      "technique": "direct_caliper_microscope",
      "vs_panjabi": "close"
@@ -19848,29 +19848,15 @@
     },
     {
      "cohort": "part3_patients",
-     "d_levels": -1.804347826086956,
-     "d_panjabi_sd": -0.4152519267135091,
+     "d_levels": -1.9130434782608692,
+     "d_panjabi_sd": -0.44026710302155175,
      "group": "Part 3 living patients, CT",
      "holds_subjects_of": [],
-     "mean": 10.0,
-     "n": 3.0,
+     "mean": 9.75,
+     "n": 4.0,
      "paper": "olsewski1990",
-     "sd": 1.0,
-     "sex": "female",
-     "technique": "patient_ct",
-     "vs_panjabi": "close"
-    },
-    {
-     "cohort": "part3_patients",
-     "d_levels": -2.239130434782608,
-     "d_panjabi_sd": -0.5153126319456799,
-     "group": "Part 3 living patients, CT",
-     "holds_subjects_of": [],
-     "mean": 9.0,
-     "n": 1.0,
-     "paper": "olsewski1990",
-     "sd": 1.0,
-     "sex": "male",
+     "sd": 1.0351,
+     "sex": "all",
      "technique": "patient_ct",
      "vs_panjabi": "close"
     },
@@ -19910,9 +19896,9 @@
    "panjabi_mean": 18.450000000000003,
    "panjabi_sd": 6.737677641442932,
    "panjabi_step_per_level": 3.100000000000004,
-   "pool_i2": 0.9887695627550328,
+   "pool_i2": 0.9886357790170556,
    "pool_k": 7,
-   "pool_mean": 14.526230779824694,
+   "pool_mean": 14.526667104729887,
    "pool_papers": [
     "panjabi",
     "arockiaraj2025",
@@ -19922,7 +19908,7 @@
     "tan2004",
     "zindrick1987"
    ],
-   "pool_tau": 3.8642420624118934,
+   "pool_tau": 3.8488085950409814,
    "sources": [
     {
      "cohort": "saudi_ct",
@@ -20056,14 +20042,14 @@
     },
     {
      "cohort": "part1_cadavers",
-     "d_levels": -3.5152806451612864,
-     "d_panjabi_sd": -1.6173777642568004,
+     "d_levels": -3.5129032258064483,
+     "d_panjabi_sd": -1.6162839155462796,
      "group": "Part 1 cadavers, direct",
      "holds_subjects_of": [],
-     "mean": 7.55263,
+     "mean": 7.56,
      "n": 38.0,
      "paper": "olsewski1990",
-     "sd": 2.03612,
+     "sd": 2.04833,
      "sex": "all",
      "technique": "direct_caliper_microscope",
      "vs_panjabi": "close"
@@ -20098,14 +20084,14 @@
     },
     {
      "cohort": "part3_patients",
-     "d_levels": -2.19448387096774,
-     "d_panjabi_sd": -1.0096802432570968,
+     "d_levels": -2.196193548387095,
+     "d_panjabi_sd": -1.0104668644464811,
      "group": "Part 3 living patients, CT",
      "holds_subjects_of": [],
-     "mean": 11.6471,
+     "mean": 11.6418,
      "n": 34.0,
      "paper": "olsewski1990",
-     "sd": 2.70109,
+     "sd": 2.71193,
      "sex": "all",
      "technique": "patient_ct",
      "vs_panjabi": "close"
@@ -20146,9 +20132,9 @@
    "panjabi_mean": 16.549999999999997,
    "panjabi_sd": 6.616434084913111,
    "panjabi_step_per_level": 4.950000000000003,
-   "pool_i2": 0.9658354950230553,
+   "pool_i2": 0.9655516421189415,
    "pool_k": 7,
-   "pool_mean": 15.875271146943973,
+   "pool_mean": 15.87618795413273,
    "pool_papers": [
     "panjabi",
     "arockiaraj2025",
@@ -20158,7 +20144,7 @@
     "tan2004",
     "zindrick1987"
    ],
-   "pool_tau": 2.5281815467291264,
+   "pool_tau": 2.519377146035364,
    "sources": [
     {
      "cohort": "saudi_ct",
@@ -20285,7 +20271,7 @@
      "mean": 10.55,
      "n": 40.0,
      "paper": "olsewski1990",
-     "sd": 3.9804,
+     "sd": 4.00601,
      "sex": "all",
      "technique": "direct_caliper_microscope",
      "vs_panjabi": "close"
@@ -20327,7 +20313,7 @@
      "mean": 13.0,
      "n": 40.0,
      "paper": "olsewski1990",
-     "sd": 3.56622,
+     "sd": 3.58795,
      "sex": "all",
      "technique": "patient_ct",
      "vs_panjabi": "close"
@@ -20368,9 +20354,9 @@
    "panjabi_mean": 24.549999999999997,
    "panjabi_sd": 7.3438954240920395,
    "panjabi_step_per_level": 8.0,
-   "pool_i2": 0.9805237402585799,
+   "pool_i2": 0.9803816725068271,
    "pool_k": 7,
-   "pool_mean": 23.774599526359104,
+   "pool_mean": 23.776708974976593,
    "pool_papers": [
     "panjabi",
     "arockiaraj2025",
@@ -20380,7 +20366,7 @@
     "tan2004",
     "zindrick1987"
    ],
-   "pool_tau": 4.3893116657875675,
+   "pool_tau": 4.3785402859709865,
    "sources": [
     {
      "cohort": "saudi_ct",
@@ -20500,14 +20486,14 @@
     },
     {
      "cohort": "part1_cadavers",
-     "d_levels": -0.8871999999999995,
-     "d_panjabi_sd": -0.9664625638208221,
+     "d_levels": -0.8873499999999996,
+     "d_panjabi_sd": -0.9666259648404042,
      "group": "Part 1 cadavers, direct",
      "holds_subjects_of": [],
-     "mean": 17.4524,
-     "n": 42.0,
+     "mean": 17.4512,
+     "n": 41.0,
      "paper": "olsewski1990",
-     "sd": 7.39216,
+     "sd": 7.43723,
      "sex": "all",
      "technique": "direct_caliper_microscope",
      "vs_panjabi": "close"
@@ -20549,7 +20535,7 @@
      "mean": 23.0,
      "n": 40.0,
      "paper": "olsewski1990",
-     "sd": 6.35287,
+     "sd": 6.40115,
      "sex": "all",
      "technique": "patient_ct",
      "vs_panjabi": "close"
@@ -21607,118 +21593,6 @@
      "vs_panjabi": "differs"
     },
     {
-     "cohort": "part1_cadavers",
-     "d_levels": -4.943396226415094,
-     "d_panjabi_sd": -2.6820172079376228,
-     "group": "Part 1 cadavers, direct, caudad",
-     "holds_subjects_of": [],
-     "mean": -4.0,
-     "n": 8.0,
-     "paper": "olsewski1990",
-     "sd": null,
-     "sex": "male",
-     "technique": "direct_caliper_microscope",
-     "vs_panjabi": "differs"
-    },
-    {
-     "cohort": "part1_cadavers",
-     "d_levels": 2.1655471698113202,
-     "d_panjabi_sd": 1.1749077978008882,
-     "group": "Part 1 cadavers, direct, cephalad",
-     "holds_subjects_of": [],
-     "mean": 5.41935,
-     "n": 31.0,
-     "paper": "olsewski1990",
-     "sd": 1.55508,
-     "sex": "all",
-     "technique": "direct_caliper_microscope",
-     "vs_panjabi": "differs"
-    },
-    {
-     "cohort": "part2_cadavers",
-     "d_levels": 3.3584905660377355,
-     "d_panjabi_sd": 1.8221338282934996,
-     "group": "Part 2 cadavers, lateral radiographs, cephalad",
-     "holds_subjects_of": [],
-     "mean": 7.0,
-     "n": 19.0,
-     "paper": "olsewski1990",
-     "sd": 3.0,
-     "sex": "all",
-     "technique": "cadaver_lateral_radiograph",
-     "vs_panjabi": "differs"
-    },
-    {
-     "cohort": "part2_cadavers",
-     "d_levels": -5.698113207547169,
-     "d_panjabi_sd": -3.091485483958634,
-     "group": "Part 2 cadavers, lateral radiographs, caudad",
-     "holds_subjects_of": [],
-     "mean": -5.0,
-     "n": 21.0,
-     "paper": "olsewski1990",
-     "sd": null,
-     "sex": "not stated",
-     "technique": "cadaver_lateral_radiograph",
-     "vs_panjabi": "differs"
-    },
-    {
-     "cohort": "part2_cadavers",
-     "d_levels": 2.6037735849056602,
-     "d_panjabi_sd": 1.4126655522724885,
-     "group": "Part 2 cadavers, direct, cephalad",
-     "holds_subjects_of": [],
-     "mean": 6.0,
-     "n": 21.0,
-     "paper": "olsewski1990",
-     "sd": 2.0,
-     "sex": "all",
-     "technique": "direct_caliper_microscope",
-     "vs_panjabi": "differs"
-    },
-    {
-     "cohort": "part2_cadavers",
-     "d_levels": -4.943396226415094,
-     "d_panjabi_sd": -2.6820172079376228,
-     "group": "Part 2 cadavers, direct, caudad",
-     "holds_subjects_of": [],
-     "mean": -4.0,
-     "n": 21.0,
-     "paper": "olsewski1990",
-     "sd": null,
-     "sex": "not stated",
-     "technique": "direct_caliper_microscope",
-     "vs_panjabi": "differs"
-    },
-    {
-     "cohort": "part3_patients",
-     "d_levels": -4.188679245283018,
-     "d_panjabi_sd": -2.272548931916612,
-     "group": "Part 3 living patients, lateral radiographs, caudad",
-     "holds_subjects_of": [],
-     "mean": -3.0,
-     "n": 51.0,
-     "paper": "olsewski1990",
-     "sd": null,
-     "sex": "not stated",
-     "technique": "patient_lateral_radiograph",
-     "vs_panjabi": "differs"
-    },
-    {
-     "cohort": "part3_patients",
-     "d_levels": 2.9639773584905655,
-     "d_panjabi_sd": 1.6080924763690365,
-     "group": "Part 3 living patients, lateral radiographs, cephalad",
-     "holds_subjects_of": [],
-     "mean": 6.47727,
-     "n": 44.0,
-     "paper": "olsewski1990",
-     "sd": 2.04016,
-     "sex": "all",
-     "technique": "patient_lateral_radiograph",
-     "vs_panjabi": "differs"
-    },
-    {
      "cohort": "sg_chinese_cadavers10",
      "d_levels": -3.169811320754716,
      "d_panjabi_sd": -1.7197667592882466,
@@ -21851,104 +21725,6 @@
      "sd": null,
      "sex": "male",
      "technique": "specimen_roentgenogram",
-     "vs_panjabi": "differs"
-    },
-    {
-     "cohort": "part1_cadavers",
-     "d_levels": -56.99999999999982,
-     "d_panjabi_sd": -2.5121347590693643,
-     "group": "Part 1 cadavers, direct, caudad",
-     "holds_subjects_of": [],
-     "mean": -3.0,
-     "n": 4.0,
-     "paper": "olsewski1990",
-     "sd": null,
-     "sex": "female",
-     "technique": "direct_caliper_microscope",
-     "vs_panjabi": "differs"
-    },
-    {
-     "cohort": "part1_cadavers",
-     "d_levels": 28.624999999999908,
-     "d_panjabi_sd": 1.2615764469887816,
-     "group": "Part 1 cadavers, direct, cephalad",
-     "holds_subjects_of": [],
-     "mean": 5.5625,
-     "n": 32.0,
-     "paper": "olsewski1990",
-     "sd": 2.03101,
-     "sex": "all",
-     "technique": "direct_caliper_microscope",
-     "vs_panjabi": "differs"
-    },
-    {
-     "cohort": "part2_cadavers",
-     "d_levels": 32.99999999999989,
-     "d_panjabi_sd": 1.4543938078822634,
-     "group": "Part 2 cadavers, lateral radiographs, cephalad",
-     "holds_subjects_of": [],
-     "mean": 6.0,
-     "n": 19.0,
-     "paper": "olsewski1990",
-     "sd": 2.0,
-     "sex": "all",
-     "technique": "cadaver_lateral_radiograph",
-     "vs_panjabi": "differs"
-    },
-    {
-     "cohort": "part2_cadavers",
-     "d_levels": -86.99999999999972,
-     "d_panjabi_sd": -3.83431094805324,
-     "group": "Part 2 cadavers, lateral radiographs, caudad",
-     "holds_subjects_of": [],
-     "mean": -6.0,
-     "n": 21.0,
-     "paper": "olsewski1990",
-     "sd": null,
-     "sex": "not stated",
-     "technique": "cadaver_lateral_radiograph",
-     "vs_panjabi": "differs"
-    },
-    {
-     "cohort": "part2_cadavers",
-     "d_levels": 32.99999999999989,
-     "d_panjabi_sd": 1.4543938078822634,
-     "group": "Part 2 cadavers, direct, cephalad",
-     "holds_subjects_of": [],
-     "mean": 6.0,
-     "n": 21.0,
-     "paper": "olsewski1990",
-     "sd": 2.0,
-     "sex": "all",
-     "technique": "direct_caliper_microscope",
-     "vs_panjabi": "differs"
-    },
-    {
-     "cohort": "part2_cadavers",
-     "d_levels": -56.99999999999982,
-     "d_panjabi_sd": -2.5121347590693643,
-     "group": "Part 2 cadavers, direct, caudad",
-     "holds_subjects_of": [],
-     "mean": -3.0,
-     "n": 21.0,
-     "paper": "olsewski1990",
-     "sd": null,
-     "sex": "not stated",
-     "technique": "direct_caliper_microscope",
-     "vs_panjabi": "differs"
-    },
-    {
-     "cohort": "part3_patients",
-     "d_levels": 32.99999999999989,
-     "d_panjabi_sd": 1.4543938078822634,
-     "group": "Part 3 living patients, lateral radiographs, cephalad",
-     "holds_subjects_of": [],
-     "mean": 6.0,
-     "n": 47.0,
-     "paper": "olsewski1990",
-     "sd": 1.97814,
-     "sex": "all",
-     "technique": "patient_lateral_radiograph",
      "vs_panjabi": "differs"
     },
     {
@@ -22101,118 +21877,6 @@
      "vs_panjabi": "differs"
     },
     {
-     "cohort": "part1_cadavers",
-     "d_levels": -10.23076923076923,
-     "d_panjabi_sd": -2.219294387347406,
-     "group": "Part 1 cadavers, direct, caudad",
-     "holds_subjects_of": [],
-     "mean": -4.0,
-     "n": 4.0,
-     "paper": "olsewski1990",
-     "sd": null,
-     "sex": "female",
-     "technique": "direct_caliper_microscope",
-     "vs_panjabi": "differs"
-    },
-    {
-     "cohort": "part1_cadavers",
-     "d_levels": -16.384615384615383,
-     "d_panjabi_sd": -3.554208304548853,
-     "group": "Part 1 cadavers, direct, caudad",
-     "holds_subjects_of": [],
-     "mean": -8.0,
-     "n": 8.0,
-     "paper": "olsewski1990",
-     "sd": null,
-     "sex": "male",
-     "technique": "direct_caliper_microscope",
-     "vs_panjabi": "differs"
-    },
-    {
-     "cohort": "part1_cadavers",
-     "d_levels": 5.153846153846153,
-     "d_panjabi_sd": 1.1179904056562118,
-     "group": "Part 1 cadavers, direct, cephalad",
-     "holds_subjects_of": [],
-     "mean": 6.0,
-     "n": 37.0,
-     "paper": "olsewski1990",
-     "sd": 1.97203,
-     "sex": "all",
-     "technique": "direct_caliper_microscope",
-     "vs_panjabi": "differs"
-    },
-    {
-     "cohort": "part2_cadavers",
-     "d_levels": 6.692307692307691,
-     "d_panjabi_sd": 1.4517188849565734,
-     "group": "Part 2 cadavers, lateral radiographs, cephalad",
-     "holds_subjects_of": [],
-     "mean": 7.0,
-     "n": 19.0,
-     "paper": "olsewski1990",
-     "sd": 3.0,
-     "sex": "all",
-     "technique": "cadaver_lateral_radiograph",
-     "vs_panjabi": "differs"
-    },
-    {
-     "cohort": "part2_cadavers",
-     "d_levels": -13.307692307692305,
-     "d_panjabi_sd": -2.886751345948129,
-     "group": "Part 2 cadavers, lateral radiographs, caudad",
-     "holds_subjects_of": [],
-     "mean": -6.0,
-     "n": 21.0,
-     "paper": "olsewski1990",
-     "sd": null,
-     "sex": "not stated",
-     "technique": "cadaver_lateral_radiograph",
-     "vs_panjabi": "differs"
-    },
-    {
-     "cohort": "part2_cadavers",
-     "d_levels": 5.153846153846153,
-     "d_panjabi_sd": 1.1179904056562118,
-     "group": "Part 2 cadavers, direct, cephalad",
-     "holds_subjects_of": [],
-     "mean": 6.0,
-     "n": 21.0,
-     "paper": "olsewski1990",
-     "sd": 2.0,
-     "sex": "all",
-     "technique": "direct_caliper_microscope",
-     "vs_panjabi": "differs"
-    },
-    {
-     "cohort": "part2_cadavers",
-     "d_levels": -10.23076923076923,
-     "d_panjabi_sd": -2.219294387347406,
-     "group": "Part 2 cadavers, direct, caudad",
-     "holds_subjects_of": [],
-     "mean": -4.0,
-     "n": 21.0,
-     "paper": "olsewski1990",
-     "sd": null,
-     "sex": "not stated",
-     "technique": "direct_caliper_microscope",
-     "vs_panjabi": "differs"
-    },
-    {
-     "cohort": "part3_patients",
-     "d_levels": 5.8739846153846145,
-     "d_panjabi_sd": 1.2742053695319182,
-     "group": "Part 3 living patients, lateral radiographs, cephalad",
-     "holds_subjects_of": [],
-     "mean": 6.46809,
-     "n": 47.0,
-     "paper": "olsewski1990",
-     "sd": 2.6031,
-     "sex": "all",
-     "technique": "patient_lateral_radiograph",
-     "vs_panjabi": "differs"
-    },
-    {
      "cohort": "sg_chinese_cadavers10",
      "d_levels": -9.92307692307692,
      "d_panjabi_sd": -2.152548691487333,
@@ -22348,62 +22012,6 @@
      "vs_panjabi": "differs"
     },
     {
-     "cohort": "part1_cadavers",
-     "d_levels": 1.8214285714285714,
-     "d_panjabi_sd": 0.6601987383110072,
-     "group": "Part 1 cadavers, direct, cephalad",
-     "holds_subjects_of": [],
-     "mean": 6.45,
-     "n": 40.0,
-     "paper": "olsewski1990",
-     "sd": 2.03747,
-     "sex": "all",
-     "technique": "direct_caliper_microscope",
-     "vs_panjabi": "differs"
-    },
-    {
-     "cohort": "part2_cadavers",
-     "d_levels": 2.928571428571428,
-     "d_panjabi_sd": 1.0614960106176976,
-     "group": "Part 2 cadavers, lateral radiographs, cephalad",
-     "holds_subjects_of": [],
-     "mean": 8.0,
-     "n": 21.0,
-     "paper": "olsewski1990",
-     "sd": 3.0,
-     "sex": "all",
-     "technique": "cadaver_lateral_radiograph",
-     "vs_panjabi": "differs"
-    },
-    {
-     "cohort": "part2_cadavers",
-     "d_levels": 2.214285714285714,
-     "d_panjabi_sd": 0.8025945446133811,
-     "group": "Part 2 cadavers, direct, cephalad",
-     "holds_subjects_of": [],
-     "mean": 7.0,
-     "n": 21.0,
-     "paper": "olsewski1990",
-     "sd": 2.0,
-     "sex": "all",
-     "technique": "direct_caliper_microscope",
-     "vs_panjabi": "differs"
-    },
-    {
-     "cohort": "part3_patients",
-     "d_levels": 1.83435,
-     "d_panjabi_sd": 0.6648822658310252,
-     "group": "Part 3 living patients, lateral radiographs, cephalad",
-     "holds_subjects_of": [],
-     "mean": 6.46809,
-     "n": 47.0,
-     "paper": "olsewski1990",
-     "sd": 3.00977,
-     "sex": "all",
-     "technique": "patient_lateral_radiograph",
-     "vs_panjabi": "differs"
-    },
-    {
      "cohort": "sg_chinese_cadavers10",
      "d_levels": -7.6428571428571415,
      "d_panjabi_sd": -2.770245686246186,
@@ -22536,118 +22144,6 @@
      "sd": null,
      "sex": "male",
      "technique": "specimen_roentgenogram",
-     "vs_panjabi": "differs"
-    },
-    {
-     "cohort": "part1_cadavers",
-     "d_levels": -8.892470967741934,
-     "d_panjabi_sd": -2.4261613676309284,
-     "group": "Part 1 cadavers, direct, caudad",
-     "holds_subjects_of": [],
-     "mean": -8.33333,
-     "n": 6.0,
-     "paper": "olsewski1990",
-     "sd": 4.50185,
-     "sex": "all",
-     "technique": "direct_caliper_microscope",
-     "vs_panjabi": "differs"
-    },
-    {
-     "cohort": "part1_cadavers",
-     "d_levels": 0.6236580645161287,
-     "d_panjabi_sd": 0.17015462948705348,
-     "group": "Part 1 cadavers, direct, cephalad",
-     "holds_subjects_of": [],
-     "mean": 6.41667,
-     "n": 36.0,
-     "paper": "olsewski1990",
-     "sd": 2.9118,
-     "sex": "all",
-     "technique": "direct_caliper_microscope",
-     "vs_panjabi": "differs"
-    },
-    {
-     "cohort": "part2_cadavers",
-     "d_levels": -9.967741935483868,
-     "d_panjabi_sd": -2.7195309935913774,
-     "group": "Part 2 cadavers, lateral radiographs, caudad",
-     "holds_subjects_of": [],
-     "mean": -10.0,
-     "n": 6.0,
-     "paper": "olsewski1990",
-     "sd": 5.0,
-     "sex": "all",
-     "technique": "cadaver_lateral_radiograph",
-     "vs_panjabi": "differs"
-    },
-    {
-     "cohort": "part2_cadavers",
-     "d_levels": 0.9999999999999997,
-     "d_panjabi_sd": 0.2728332064768048,
-     "group": "Part 2 cadavers, lateral radiographs, cephalad",
-     "holds_subjects_of": [],
-     "mean": 7.0,
-     "n": 15.0,
-     "paper": "olsewski1990",
-     "sd": 4.0,
-     "sex": "all",
-     "technique": "cadaver_lateral_radiograph",
-     "vs_panjabi": "differs"
-    },
-    {
-     "cohort": "part2_cadavers",
-     "d_levels": -9.322580645161288,
-     "d_panjabi_sd": -2.543509570057955,
-     "group": "Part 2 cadavers, direct, caudad",
-     "holds_subjects_of": [],
-     "mean": -9.0,
-     "n": 6.0,
-     "paper": "olsewski1990",
-     "sd": 5.0,
-     "sex": "all",
-     "technique": "direct_caliper_microscope",
-     "vs_panjabi": "differs"
-    },
-    {
-     "cohort": "part2_cadavers",
-     "d_levels": 0.9999999999999997,
-     "d_panjabi_sd": 0.2728332064768048,
-     "group": "Part 2 cadavers, direct, cephalad",
-     "holds_subjects_of": [],
-     "mean": 7.0,
-     "n": 15.0,
-     "paper": "olsewski1990",
-     "sd": 4.0,
-     "sex": "all",
-     "technique": "direct_caliper_microscope",
-     "vs_panjabi": "differs"
-    },
-    {
-     "cohort": "part3_patients",
-     "d_levels": -13.193548387096772,
-     "d_panjabi_sd": -3.59963811125849,
-     "group": "Part 3 living patients, lateral radiographs, caudad",
-     "holds_subjects_of": [],
-     "mean": -15.0,
-     "n": 51.0,
-     "paper": "olsewski1990",
-     "sd": null,
-     "sex": "not stated",
-     "technique": "patient_lateral_radiograph",
-     "vs_panjabi": "differs"
-    },
-    {
-     "cohort": "part3_patients",
-     "d_levels": 0.2987354838709673,
-     "d_panjabi_sd": 0.08150495995291586,
-     "group": "Part 3 living patients, lateral radiographs, cephalad",
-     "holds_subjects_of": [],
-     "mean": 5.91304,
-     "n": 46.0,
-     "paper": "olsewski1990",
-     "sd": 4.28344,
-     "sex": "all",
-     "technique": "patient_lateral_radiograph",
      "vs_panjabi": "differs"
     },
     {
@@ -23573,9 +23069,9 @@
    "panjabi_mean": 8.6,
    "panjabi_sd": 3.1696529778510456,
    "panjabi_step_per_level": 0.22499999999999964,
-   "pool_i2": 0.9928279704560117,
+   "pool_i2": 0.9928279684411451,
    "pool_k": 13,
-   "pool_mean": 7.542794071863803,
+   "pool_mean": 7.54279595293919,
    "pool_papers": [
     "panjabi",
     "arockiaraj2025",
@@ -23591,7 +23087,7 @@
     "yu2015",
     "zindrick1987"
    ],
-   "pool_tau": 1.8130329531421314,
+   "pool_tau": 1.813086845111242,
    "sources": [
     {
      "cohort": "saudi_ct",
@@ -23851,14 +23347,14 @@
     },
     {
      "cohort": "part1_cadavers",
-     "d_levels": 0.32431111111111055,
-     "d_panjabi_sd": 0.02302144761899828,
+     "d_levels": 0.27395555555555856,
+     "d_panjabi_sd": 0.01944692382122889,
      "group": "Part 1 cadavers, direct",
      "holds_subjects_of": [],
-     "mean": 8.67297,
+     "mean": 8.66164,
      "n": 37.0,
      "paper": "olsewski1990",
-     "sd": 2.62108,
+     "sd": 2.6288,
      "sex": "all",
      "technique": "direct_caliper_microscope",
      "vs_panjabi": "close"
@@ -23900,7 +23396,7 @@
      "mean": 7.51224,
      "n": 49.0,
      "paper": "olsewski1990",
-     "sd": 2.04951,
+     "sd": 2.05164,
      "sex": "all",
      "technique": "patient_ap_radiograph",
      "vs_panjabi": "close"
@@ -24179,9 +23675,9 @@
    "panjabi_mean": 8.25,
    "panjabi_sd": 2.3382685902179845,
    "panjabi_step_per_level": 1.1249999999999991,
-   "pool_i2": 0.9925949858614431,
+   "pool_i2": 0.9925949479351586,
    "pool_k": 13,
-   "pool_mean": 7.955174768385316,
+   "pool_mean": 7.95517353870488,
    "pool_papers": [
     "panjabi",
     "arockiaraj2025",
@@ -24197,7 +23693,7 @@
     "yu2015",
     "zindrick1987"
    ],
-   "pool_tau": 1.7546146227349586,
+   "pool_tau": 1.7546592986935199,
    "sources": [
     {
      "cohort": "saudi_ct",
@@ -24457,14 +23953,14 @@
     },
     {
      "cohort": "part1_cadavers",
-     "d_levels": 0.5057066666666673,
-     "d_panjabi_sd": 0.24330823344249042,
+     "d_levels": 0.516897777777778,
+     "d_panjabi_sd": 0.24869255928626602,
      "group": "Part 1 cadavers, direct",
      "holds_subjects_of": [],
-     "mean": 8.81892,
+     "mean": 8.83151,
      "n": 37.0,
      "paper": "olsewski1990",
-     "sd": 2.21282,
+     "sd": 2.22529,
      "sex": "all",
      "technique": "direct_caliper_microscope",
      "vs_panjabi": "close"
@@ -24506,7 +24002,7 @@
      "mean": 8.388,
      "n": 50.0,
      "paper": "olsewski1990",
-     "sd": 2.1633,
+     "sd": 2.16565,
      "sex": "all",
      "technique": "patient_ap_radiograph",
      "vs_panjabi": "close"
@@ -24785,9 +24281,9 @@
    "panjabi_mean": 10.149999999999999,
    "panjabi_sd": 2.078460969082653,
    "panjabi_step_per_level": 2.9000000000000004,
-   "pool_i2": 0.9811937732729673,
+   "pool_i2": 0.9811938353979897,
    "pool_k": 12,
-   "pool_mean": 9.438912445242355,
+   "pool_mean": 9.438912589697104,
    "pool_papers": [
     "panjabi",
     "arockiaraj2025",
@@ -24802,7 +24298,7 @@
     "yu2015",
     "zindrick1987"
    ],
-   "pool_tau": 1.3986654625043364,
+   "pool_tau": 1.3986608761407169,
    "sources": [
     {
      "cohort": "saudi_ct",
@@ -24985,7 +24481,7 @@
      "mean": 10.7351,
      "n": 37.0,
      "paper": "olsewski1990",
-     "sd": 2.64278,
+     "sd": 2.65577,
      "sex": "all",
      "technique": "direct_caliper_microscope",
      "vs_panjabi": "close"
@@ -25027,7 +24523,7 @@
      "mean": 9.856,
      "n": 50.0,
      "paper": "olsewski1990",
-     "sd": 2.47404,
+     "sd": 2.47371,
      "sex": "all",
      "technique": "patient_ap_radiograph",
      "vs_panjabi": "close"
@@ -25306,9 +24802,9 @@
    "panjabi_mean": 14.05,
    "panjabi_sd": 1.1085125168440815,
    "panjabi_step_per_level": 4.225000000000001,
-   "pool_i2": 0.9901175070556375,
+   "pool_i2": 0.9901175038064862,
    "pool_k": 12,
-   "pool_mean": 11.528198204363012,
+   "pool_mean": 11.528198480478434,
    "pool_papers": [
     "panjabi",
     "arockiaraj2025",
@@ -25323,7 +24819,7 @@
     "yu2015",
     "zindrick1987"
    ],
-   "pool_tau": 2.0597256864658346,
+   "pool_tau": 2.059730680346584,
    "sources": [
     {
      "cohort": "saudi_ct",
@@ -25492,7 +24988,7 @@
      "mean": 13.71,
      "n": 40.0,
      "paper": "olsewski1990",
-     "sd": 2.73128,
+     "sd": 2.74312,
      "sex": "all",
      "technique": "direct_caliper_microscope",
      "vs_panjabi": "close"
@@ -25534,7 +25030,7 @@
      "mean": 11.702,
      "n": 50.0,
      "paper": "olsewski1990",
-     "sd": 2.60756,
+     "sd": 2.60774,
      "sex": "all",
      "technique": "patient_ap_radiograph",
      "vs_panjabi": "close"
@@ -25813,9 +25309,9 @@
    "panjabi_mean": 18.6,
    "panjabi_sd": 3.568024663591887,
    "panjabi_step_per_level": 4.550000000000001,
-   "pool_i2": 0.9925465122473238,
+   "pool_i2": 0.9925364728018033,
    "pool_k": 12,
-   "pool_mean": 15.756118769119286,
+   "pool_mean": 15.755990891189334,
    "pool_papers": [
     "panjabi",
     "arockiaraj2025",
@@ -25830,7 +25326,7 @@
     "yu2015",
     "zindrick1987"
    ],
-   "pool_tau": 3.1422066147640417,
+   "pool_tau": 3.1415354864971783,
    "sources": [
     {
      "cohort": "saudi_ct",
@@ -26006,14 +25502,14 @@
     },
     {
      "cohort": "part1_cadavers",
-     "d_levels": 0.27971428571428497,
-     "d_panjabi_sd": 0.3566959648532208,
+     "d_levels": 0.28035164835164766,
+     "d_panjabi_sd": 0.35750873950402184,
      "group": "Part 1 cadavers, direct",
      "holds_subjects_of": [],
-     "mean": 19.8727,
-     "n": 44.0,
+     "mean": 19.8756,
+     "n": 43.0,
      "paper": "olsewski1990",
-     "sd": 3.70934,
+     "sd": 3.7253,
      "sex": "all",
      "technique": "direct_caliper_microscope",
      "vs_panjabi": "close"
@@ -26055,7 +25551,7 @@
      "mean": 14.9049,
      "n": 41.0,
      "paper": "olsewski1990",
-     "sd": 2.61572,
+     "sd": 2.62043,
      "sex": "all",
      "technique": "patient_ap_radiograph",
      "vs_panjabi": "close"
@@ -29971,7 +29467,7 @@
     "fields": 1000,
     "named": 0,
     "named_right": 0,
-    "within_one": 485
+    "within_one": 486
    },
    "widened_spread": {
     "pedicle_incl_sag": 5.5218391822703605,
@@ -30018,7 +29514,7 @@
     "fields": 600,
     "named": 0,
     "named_right": 0,
-    "within_one": 428
+    "within_one": 429
    },
    "widened_spread": {
     "pedicle_incl_sag": 5.5218391822703605,
@@ -30114,7 +29610,7 @@
     "within_one": 0
    },
    "widened_spread": {
-    "pedicle_h": 0.10668175862787141
+    "pedicle_h": 0.10663812272509038
    },
    "width": 1
   },
@@ -30159,7 +29655,7 @@
     "within_one": 0
    },
    "widened_spread": {
-    "pedicle_h": 0.10668175862787141
+    "pedicle_h": 0.10663812272509038
    },
    "width": 3
   },
@@ -30204,7 +29700,7 @@
     "within_one": 0
    },
    "widened_spread": {
-    "pedicle_h": 0.10668175862787141
+    "pedicle_h": 0.10663812272509038
    },
    "width": 5
   },
@@ -30630,7 +30126,7 @@
   {
    "cohort": "izmir-mdct-517",
    "fields_per_place": 200,
-   "group": "18-35",
+   "group": "",
    "holds_subjects_of": [],
    "levels": [
     "T11",
@@ -30639,42 +30135,42 @@
     "L2"
    ],
    "measures": [
-    "pedicle_w"
+    "h_post"
    ],
    "panjabi": {
-    "exact": 0,
+    "exact": 132,
     "fields": 800,
     "named": 0,
     "named_right": 0,
-    "within_one": 43
+    "within_one": 305
    },
    "paper": "duman2026",
    "places": 4,
-   "sex": "female",
+   "sex": "all",
    "source": {
-    "exact": 0,
+    "exact": 176,
     "fields": 800,
     "named": 0,
     "named_right": 0,
-    "within_one": 77
+    "within_one": 412
    },
-   "technique": "mdct-axial-pedicle",
+   "technique": "mdct-sagittal-corpus-heights",
    "widened_source": {
-    "exact": 0,
+    "exact": 187,
     "fields": 800,
     "named": 0,
     "named_right": 0,
-    "within_one": 37
+    "within_one": 455
    },
    "widened_spread": {
-    "pedicle_w": 0.13072155556817203
+    "h_post": 0.10535358231899145
    },
    "width": 1
   },
   {
    "cohort": "izmir-mdct-517",
    "fields_per_place": 200,
-   "group": "18-35",
+   "group": "",
    "holds_subjects_of": [],
    "levels": [
     "T11",
@@ -30683,42 +30179,42 @@
     "L2"
    ],
    "measures": [
-    "pedicle_w"
+    "h_post"
    ],
    "panjabi": {
-    "exact": 27,
+    "exact": 47,
     "fields": 400,
     "named": 0,
     "named_right": 0,
-    "within_one": 89
+    "within_one": 158
    },
    "paper": "duman2026",
    "places": 2,
-   "sex": "female",
+   "sex": "all",
    "source": {
-    "exact": 2,
+    "exact": 60,
     "fields": 400,
     "named": 0,
     "named_right": 0,
-    "within_one": 36
+    "within_one": 188
    },
-   "technique": "mdct-axial-pedicle",
+   "technique": "mdct-sagittal-corpus-heights",
    "widened_source": {
-    "exact": 13,
+    "exact": 24,
     "fields": 400,
     "named": 0,
     "named_right": 0,
-    "within_one": 57
+    "within_one": 129
    },
    "widened_spread": {
-    "pedicle_w": 0.13072155556817203
+    "h_post": 0.10535358231899145
    },
    "width": 3
   },
   {
    "cohort": "izmir-mdct-517",
    "fields_per_place": 200,
-   "group": "36-55",
+   "group": "",
    "holds_subjects_of": [],
    "levels": [
     "T11",
@@ -30727,42 +30223,42 @@
     "L2"
    ],
    "measures": [
-    "pedicle_w"
+    "pedicle_h"
    ],
    "panjabi": {
-    "exact": 0,
+    "exact": 108,
     "fields": 800,
     "named": 0,
     "named_right": 0,
-    "within_one": 56
+    "within_one": 225
    },
    "paper": "duman2026",
    "places": 4,
-   "sex": "female",
+   "sex": "all",
    "source": {
-    "exact": 0,
+    "exact": 30,
     "fields": 800,
     "named": 0,
     "named_right": 0,
-    "within_one": 63
+    "within_one": 176
    },
-   "technique": "mdct-axial-pedicle",
+   "technique": "mdct-sagittal-pedicle-height",
    "widened_source": {
-    "exact": 0,
+    "exact": 59,
     "fields": 800,
     "named": 0,
     "named_right": 0,
-    "within_one": 33
+    "within_one": 237
    },
    "widened_spread": {
-    "pedicle_w": 0.13072155556817203
+    "pedicle_h": 0.13023135299131786
    },
    "width": 1
   },
   {
    "cohort": "izmir-mdct-517",
    "fields_per_place": 200,
-   "group": "36-55",
+   "group": "",
    "holds_subjects_of": [],
    "levels": [
     "T11",
@@ -30771,560 +30267,32 @@
     "L2"
    ],
    "measures": [
-    "pedicle_w"
+    "pedicle_h"
    ],
    "panjabi": {
-    "exact": 17,
+    "exact": 117,
     "fields": 400,
-    "named": 1,
+    "named": 0,
     "named_right": 0,
-    "within_one": 79
+    "within_one": 235
    },
    "paper": "duman2026",
    "places": 2,
-   "sex": "female",
+   "sex": "all",
    "source": {
-    "exact": 3,
+    "exact": 14,
     "fields": 400,
     "named": 0,
     "named_right": 0,
-    "within_one": 49
+    "within_one": 84
    },
-   "technique": "mdct-axial-pedicle",
-   "widened_source": {
-    "exact": 17,
-    "fields": 400,
-    "named": 0,
-    "named_right": 0,
-    "within_one": 62
-   },
-   "widened_spread": {
-    "pedicle_w": 0.13072155556817203
-   },
-   "width": 3
-  },
-  {
-   "cohort": "izmir-mdct-517",
-   "fields_per_place": 200,
-   "group": ">55",
-   "holds_subjects_of": [],
-   "levels": [
-    "T11",
-    "T12",
-    "L1",
-    "L2"
-   ],
-   "measures": [
-    "pedicle_w"
-   ],
-   "panjabi": {
-    "exact": 0,
-    "fields": 800,
-    "named": 0,
-    "named_right": 0,
-    "within_one": 42
-   },
-   "paper": "duman2026",
-   "places": 4,
-   "sex": "female",
-   "source": {
-    "exact": 0,
-    "fields": 800,
-    "named": 0,
-    "named_right": 0,
-    "within_one": 71
-   },
-   "technique": "mdct-axial-pedicle",
-   "widened_source": {
-    "exact": 0,
-    "fields": 800,
-    "named": 0,
-    "named_right": 0,
-    "within_one": 35
-   },
-   "widened_spread": {
-    "pedicle_w": 0.13072155556817203
-   },
-   "width": 1
-  },
-  {
-   "cohort": "izmir-mdct-517",
-   "fields_per_place": 200,
-   "group": ">55",
-   "holds_subjects_of": [],
-   "levels": [
-    "T11",
-    "T12",
-    "L1",
-    "L2"
-   ],
-   "measures": [
-    "pedicle_w"
-   ],
-   "panjabi": {
-    "exact": 17,
-    "fields": 400,
-    "named": 0,
-    "named_right": 0,
-    "within_one": 72
-   },
-   "paper": "duman2026",
-   "places": 2,
-   "sex": "female",
-   "source": {
-    "exact": 1,
-    "fields": 400,
-    "named": 0,
-    "named_right": 0,
-    "within_one": 51
-   },
-   "technique": "mdct-axial-pedicle",
-   "widened_source": {
-    "exact": 11,
-    "fields": 400,
-    "named": 0,
-    "named_right": 0,
-    "within_one": 68
-   },
-   "widened_spread": {
-    "pedicle_w": 0.13072155556817203
-   },
-   "width": 3
-  },
-  {
-   "cohort": "izmir-mdct-517",
-   "fields_per_place": 200,
-   "group": "18-35",
-   "holds_subjects_of": [],
-   "levels": [
-    "T11",
-    "T12",
-    "L1",
-    "L2"
-   ],
-   "measures": [
-    "pedicle_w"
-   ],
-   "panjabi": {
-    "exact": 0,
-    "fields": 800,
-    "named": 0,
-    "named_right": 0,
-    "within_one": 41
-   },
-   "paper": "duman2026",
-   "places": 4,
-   "sex": "male",
-   "source": {
-    "exact": 0,
-    "fields": 800,
-    "named": 0,
-    "named_right": 0,
-    "within_one": 87
-   },
-   "technique": "mdct-axial-pedicle",
-   "widened_source": {
-    "exact": 0,
-    "fields": 800,
-    "named": 0,
-    "named_right": 0,
-    "within_one": 41
-   },
-   "widened_spread": {
-    "pedicle_w": 0.13072155556817203
-   },
-   "width": 1
-  },
-  {
-   "cohort": "izmir-mdct-517",
-   "fields_per_place": 200,
-   "group": "18-35",
-   "holds_subjects_of": [],
-   "levels": [
-    "T11",
-    "T12",
-    "L1",
-    "L2"
-   ],
-   "measures": [
-    "pedicle_w"
-   ],
-   "panjabi": {
-    "exact": 15,
-    "fields": 400,
-    "named": 0,
-    "named_right": 0,
-    "within_one": 80
-   },
-   "paper": "duman2026",
-   "places": 2,
-   "sex": "male",
-   "source": {
-    "exact": 6,
-    "fields": 400,
-    "named": 0,
-    "named_right": 0,
-    "within_one": 45
-   },
-   "technique": "mdct-axial-pedicle",
-   "widened_source": {
-    "exact": 12,
-    "fields": 400,
-    "named": 0,
-    "named_right": 0,
-    "within_one": 52
-   },
-   "widened_spread": {
-    "pedicle_w": 0.13072155556817203
-   },
-   "width": 3
-  },
-  {
-   "cohort": "izmir-mdct-517",
-   "fields_per_place": 200,
-   "group": "36-55",
-   "holds_subjects_of": [],
-   "levels": [
-    "T11",
-    "T12",
-    "L1",
-    "L2"
-   ],
-   "measures": [
-    "pedicle_w"
-   ],
-   "panjabi": {
-    "exact": 0,
-    "fields": 800,
-    "named": 0,
-    "named_right": 0,
-    "within_one": 49
-   },
-   "paper": "duman2026",
-   "places": 4,
-   "sex": "male",
-   "source": {
-    "exact": 0,
-    "fields": 800,
-    "named": 0,
-    "named_right": 0,
-    "within_one": 73
-   },
-   "technique": "mdct-axial-pedicle",
-   "widened_source": {
-    "exact": 0,
-    "fields": 800,
-    "named": 0,
-    "named_right": 0,
-    "within_one": 36
-   },
-   "widened_spread": {
-    "pedicle_w": 0.13072155556817203
-   },
-   "width": 1
-  },
-  {
-   "cohort": "izmir-mdct-517",
-   "fields_per_place": 200,
-   "group": "36-55",
-   "holds_subjects_of": [],
-   "levels": [
-    "T11",
-    "T12",
-    "L1",
-    "L2"
-   ],
-   "measures": [
-    "pedicle_w"
-   ],
-   "panjabi": {
-    "exact": 10,
-    "fields": 400,
-    "named": 0,
-    "named_right": 0,
-    "within_one": 67
-   },
-   "paper": "duman2026",
-   "places": 2,
-   "sex": "male",
-   "source": {
-    "exact": 3,
-    "fields": 400,
-    "named": 0,
-    "named_right": 0,
-    "within_one": 37
-   },
-   "technique": "mdct-axial-pedicle",
-   "widened_source": {
-    "exact": 20,
-    "fields": 400,
-    "named": 0,
-    "named_right": 0,
-    "within_one": 59
-   },
-   "widened_spread": {
-    "pedicle_w": 0.13072155556817203
-   },
-   "width": 3
-  },
-  {
-   "cohort": "izmir-mdct-517",
-   "fields_per_place": 200,
-   "group": ">55",
-   "holds_subjects_of": [],
-   "levels": [
-    "T11",
-    "T12",
-    "L1",
-    "L2"
-   ],
-   "measures": [
-    "pedicle_w"
-   ],
-   "panjabi": {
-    "exact": 0,
-    "fields": 800,
-    "named": 0,
-    "named_right": 0,
-    "within_one": 43
-   },
-   "paper": "duman2026",
-   "places": 4,
-   "sex": "male",
-   "source": {
-    "exact": 0,
-    "fields": 800,
-    "named": 0,
-    "named_right": 0,
-    "within_one": 81
-   },
-   "technique": "mdct-axial-pedicle",
-   "widened_source": {
-    "exact": 0,
-    "fields": 800,
-    "named": 0,
-    "named_right": 0,
-    "within_one": 34
-   },
-   "widened_spread": {
-    "pedicle_w": 0.13072155556817203
-   },
-   "width": 1
-  },
-  {
-   "cohort": "izmir-mdct-517",
-   "fields_per_place": 200,
-   "group": ">55",
-   "holds_subjects_of": [],
-   "levels": [
-    "T11",
-    "T12",
-    "L1",
-    "L2"
-   ],
-   "measures": [
-    "pedicle_w"
-   ],
-   "panjabi": {
-    "exact": 19,
-    "fields": 400,
-    "named": 0,
-    "named_right": 0,
-    "within_one": 80
-   },
-   "paper": "duman2026",
-   "places": 2,
-   "sex": "male",
-   "source": {
-    "exact": 6,
-    "fields": 400,
-    "named": 0,
-    "named_right": 0,
-    "within_one": 54
-   },
-   "technique": "mdct-axial-pedicle",
+   "technique": "mdct-sagittal-pedicle-height",
    "widened_source": {
     "exact": 29,
     "fields": 400,
     "named": 0,
     "named_right": 0,
-    "within_one": 69
-   },
-   "widened_spread": {
-    "pedicle_w": 0.13072155556817203
-   },
-   "width": 3
-  },
-  {
-   "cohort": "izmir-mdct-517",
-   "fields_per_place": 200,
-   "group": "",
-   "holds_subjects_of": [],
-   "levels": [
-    "T11",
-    "T12",
-    "L1",
-    "L2"
-   ],
-   "measures": [
-    "h_post"
-   ],
-   "panjabi": {
-    "exact": 111,
-    "fields": 800,
-    "named": 0,
-    "named_right": 0,
-    "within_one": 304
-   },
-   "paper": "duman2026",
-   "places": 4,
-   "sex": "all",
-   "source": {
-    "exact": 167,
-    "fields": 800,
-    "named": 0,
-    "named_right": 0,
-    "within_one": 381
-   },
-   "technique": "mdct-sagittal-corpus-heights",
-   "widened_source": {
-    "exact": 159,
-    "fields": 800,
-    "named": 0,
-    "named_right": 0,
-    "within_one": 434
-   },
-   "widened_spread": {
-    "h_post": 0.10535358231899145
-   },
-   "width": 1
-  },
-  {
-   "cohort": "izmir-mdct-517",
-   "fields_per_place": 200,
-   "group": "",
-   "holds_subjects_of": [],
-   "levels": [
-    "T11",
-    "T12",
-    "L1",
-    "L2"
-   ],
-   "measures": [
-    "h_post"
-   ],
-   "panjabi": {
-    "exact": 58,
-    "fields": 400,
-    "named": 0,
-    "named_right": 0,
-    "within_one": 156
-   },
-   "paper": "duman2026",
-   "places": 2,
-   "sex": "all",
-   "source": {
-    "exact": 64,
-    "fields": 400,
-    "named": 0,
-    "named_right": 0,
-    "within_one": 194
-   },
-   "technique": "mdct-sagittal-corpus-heights",
-   "widened_source": {
-    "exact": 21,
-    "fields": 400,
-    "named": 0,
-    "named_right": 0,
-    "within_one": 134
-   },
-   "widened_spread": {
-    "h_post": 0.10535358231899145
-   },
-   "width": 3
-  },
-  {
-   "cohort": "izmir-mdct-517",
-   "fields_per_place": 200,
-   "group": "",
-   "holds_subjects_of": [],
-   "levels": [
-    "T11",
-    "T12",
-    "L1",
-    "L2"
-   ],
-   "measures": [
-    "pedicle_h"
-   ],
-   "panjabi": {
-    "exact": 107,
-    "fields": 800,
-    "named": 0,
-    "named_right": 0,
-    "within_one": 241
-   },
-   "paper": "duman2026",
-   "places": 4,
-   "sex": "all",
-   "source": {
-    "exact": 38,
-    "fields": 800,
-    "named": 0,
-    "named_right": 0,
-    "within_one": 166
-   },
-   "technique": "mdct-sagittal-pedicle-height",
-   "widened_source": {
-    "exact": 57,
-    "fields": 800,
-    "named": 0,
-    "named_right": 0,
-    "within_one": 229
-   },
-   "widened_spread": {
-    "pedicle_h": 0.13023135299131786
-   },
-   "width": 1
-  },
-  {
-   "cohort": "izmir-mdct-517",
-   "fields_per_place": 200,
-   "group": "",
-   "holds_subjects_of": [],
-   "levels": [
-    "T11",
-    "T12",
-    "L1",
-    "L2"
-   ],
-   "measures": [
-    "pedicle_h"
-   ],
-   "panjabi": {
-    "exact": 106,
-    "fields": 400,
-    "named": 0,
-    "named_right": 0,
-    "within_one": 236
-   },
-   "paper": "duman2026",
-   "places": 2,
-   "sex": "all",
-   "source": {
-    "exact": 13,
-    "fields": 400,
-    "named": 0,
-    "named_right": 0,
-    "within_one": 86
-   },
-   "technique": "mdct-sagittal-pedicle-height",
-   "widened_source": {
-    "exact": 26,
-    "fields": 400,
-    "named": 0,
-    "named_right": 0,
-    "within_one": 143
+    "within_one": 115
    },
    "widened_spread": {
     "pedicle_h": 0.13023135299131786
@@ -31349,29 +30317,29 @@
     "h_post"
    ],
    "panjabi": {
-    "exact": 256,
+    "exact": 257,
     "fields": 1000,
     "named": 0,
     "named_right": 0,
-    "within_one": 605
+    "within_one": 611
    },
    "paper": "frontphys2026",
    "places": 5,
    "sex": "all",
    "source": {
-    "exact": 371,
+    "exact": 350,
     "fields": 1000,
     "named": 0,
     "named_right": 0,
-    "within_one": 820
+    "within_one": 816
    },
    "technique": "ct_mpr_morphometry",
    "widened_source": {
-    "exact": 418,
+    "exact": 441,
     "fields": 1000,
     "named": 0,
     "named_right": 0,
-    "within_one": 858
+    "within_one": 891
    },
    "widened_spread": {
     "endplate": 0.05079887072595869,
@@ -31398,29 +30366,29 @@
     "h_post"
    ],
    "panjabi": {
-    "exact": 271,
+    "exact": 283,
     "fields": 600,
     "named": 0,
     "named_right": 0,
-    "within_one": 473
+    "within_one": 455
    },
    "paper": "frontphys2026",
    "places": 3,
    "sex": "all",
    "source": {
-    "exact": 141,
+    "exact": 149,
     "fields": 600,
     "named": 0,
     "named_right": 0,
-    "within_one": 506
+    "within_one": 500
    },
    "technique": "ct_mpr_morphometry",
    "widened_source": {
-    "exact": 297,
+    "exact": 307,
     "fields": 600,
     "named": 0,
     "named_right": 0,
-    "within_one": 581
+    "within_one": 578
    },
    "widened_spread": {
     "endplate": 0.05079887072595869,
@@ -31447,29 +30415,29 @@
     "h_post"
    ],
    "panjabi": {
-    "exact": 143,
+    "exact": 138,
     "fields": 200,
     "named": 3,
     "named_right": 3,
-    "within_one": 184
+    "within_one": 183
    },
    "paper": "frontphys2026",
    "places": 1,
    "sex": "all",
    "source": {
-    "exact": 72,
+    "exact": 64,
+    "fields": 200,
+    "named": 0,
+    "named_right": 0,
+    "within_one": 185
+   },
+   "technique": "ct_mpr_morphometry",
+   "widened_source": {
+    "exact": 135,
     "fields": 200,
     "named": 0,
     "named_right": 0,
     "within_one": 194
-   },
-   "technique": "ct_mpr_morphometry",
-   "widened_source": {
-    "exact": 144,
-    "fields": 200,
-    "named": 0,
-    "named_right": 0,
-    "within_one": 195
    },
    "widened_spread": {
     "endplate": 0.05079887072595869,
@@ -31495,29 +30463,29 @@
     "endplate_lower_depth"
    ],
    "panjabi": {
-    "exact": 329,
+    "exact": 362,
     "fields": 1000,
     "named": 0,
     "named_right": 0,
-    "within_one": 604
+    "within_one": 648
    },
    "paper": "gilad1985",
    "places": 5,
    "sex": "male",
    "source": {
-    "exact": 228,
+    "exact": 236,
     "fields": 1000,
     "named": 0,
     "named_right": 0,
-    "within_one": 510
+    "within_one": 526
    },
    "technique": "lateral_cervical_film_caliper",
    "widened_source": {
-    "exact": 217,
+    "exact": 212,
     "fields": 1000,
     "named": 0,
     "named_right": 0,
-    "within_one": 479
+    "within_one": 486
    },
    "widened_spread": {
     "endplate_depth": 0.05105870218166017,
@@ -31542,124 +30510,124 @@
     "endplate_lower_depth"
    ],
    "panjabi": {
-    "exact": 364,
+    "exact": 357,
     "fields": 600,
-    "named": 0,
-    "named_right": 0,
-    "within_one": 484
+    "named": 1,
+    "named_right": 1,
+    "within_one": 485
    },
    "paper": "gilad1985",
    "places": 3,
    "sex": "male",
    "source": {
-    "exact": 209,
+    "exact": 191,
     "fields": 600,
+    "named": 0,
+    "named_right": 0,
+    "within_one": 401
+   },
+   "technique": "lateral_cervical_film_caliper",
+   "widened_source": {
+    "exact": 159,
+    "fields": 600,
+    "named": 0,
+    "named_right": 0,
+    "within_one": 335
+   },
+   "widened_spread": {
+    "endplate_depth": 0.05105870218166017,
+    "endplate_lower_depth": 0.07388034177730826
+   },
+   "width": 3
+  },
+  {
+   "cohort": "haifa_transport_men",
+   "fields_per_place": 200,
+   "group": "",
+   "holds_subjects_of": [],
+   "levels": [
+    "C3",
+    "C4",
+    "C5",
+    "C6",
+    "C7"
+   ],
+   "measures": [
+    "endplate_depth",
+    "endplate_lower_depth"
+   ],
+   "panjabi": {
+    "exact": 167,
+    "fields": 200,
+    "named": 17,
+    "named_right": 17,
+    "within_one": 188
+   },
+   "paper": "gilad1985",
+   "places": 1,
+   "sex": "male",
+   "source": {
+    "exact": 135,
+    "fields": 200,
+    "named": 3,
+    "named_right": 3,
+    "within_one": 171
+   },
+   "technique": "lateral_cervical_film_caliper",
+   "widened_source": {
+    "exact": 110,
+    "fields": 200,
+    "named": 0,
+    "named_right": 0,
+    "within_one": 151
+   },
+   "widened_spread": {
+    "endplate_depth": 0.05105870218166017,
+    "endplate_lower_depth": 0.07388034177730826
+   },
+   "width": 5
+  },
+  {
+   "cohort": "haifa_transport_men",
+   "fields_per_place": 200,
+   "group": "",
+   "holds_subjects_of": [],
+   "levels": [
+    "L1",
+    "L2",
+    "L3",
+    "L4",
+    "L5"
+   ],
+   "measures": [
+    "endplate_depth",
+    "endplate_lower_depth",
+    "h_post"
+   ],
+   "panjabi": {
+    "exact": 213,
+    "fields": 1000,
     "named": 0,
     "named_right": 0,
     "within_one": 426
    },
-   "technique": "lateral_cervical_film_caliper",
-   "widened_source": {
-    "exact": 180,
-    "fields": 600,
-    "named": 0,
-    "named_right": 0,
-    "within_one": 364
-   },
-   "widened_spread": {
-    "endplate_depth": 0.05105870218166017,
-    "endplate_lower_depth": 0.07388034177730826
-   },
-   "width": 3
-  },
-  {
-   "cohort": "haifa_transport_men",
-   "fields_per_place": 200,
-   "group": "",
-   "holds_subjects_of": [],
-   "levels": [
-    "C3",
-    "C4",
-    "C5",
-    "C6",
-    "C7"
-   ],
-   "measures": [
-    "endplate_depth",
-    "endplate_lower_depth"
-   ],
-   "panjabi": {
-    "exact": 174,
-    "fields": 200,
-    "named": 17,
-    "named_right": 17,
-    "within_one": 184
-   },
-   "paper": "gilad1985",
-   "places": 1,
-   "sex": "male",
-   "source": {
-    "exact": 123,
-    "fields": 200,
-    "named": 1,
-    "named_right": 1,
-    "within_one": 174
-   },
-   "technique": "lateral_cervical_film_caliper",
-   "widened_source": {
-    "exact": 98,
-    "fields": 200,
-    "named": 0,
-    "named_right": 0,
-    "within_one": 144
-   },
-   "widened_spread": {
-    "endplate_depth": 0.05105870218166017,
-    "endplate_lower_depth": 0.07388034177730826
-   },
-   "width": 5
-  },
-  {
-   "cohort": "haifa_transport_men",
-   "fields_per_place": 200,
-   "group": "",
-   "holds_subjects_of": [],
-   "levels": [
-    "L1",
-    "L2",
-    "L3",
-    "L4",
-    "L5"
-   ],
-   "measures": [
-    "endplate_depth",
-    "endplate_lower_depth",
-    "h_post"
-   ],
-   "panjabi": {
-    "exact": 193,
-    "fields": 1000,
-    "named": 0,
-    "named_right": 0,
-    "within_one": 396
-   },
    "paper": "gilad1985",
    "places": 5,
    "sex": "male",
    "source": {
-    "exact": 156,
+    "exact": 154,
     "fields": 1000,
     "named": 0,
     "named_right": 0,
-    "within_one": 489
+    "within_one": 471
    },
    "technique": "lateral_lumbar_film_caliper",
    "widened_source": {
-    "exact": 214,
+    "exact": 180,
     "fields": 1000,
     "named": 0,
     "named_right": 0,
-    "within_one": 551
+    "within_one": 514
    },
    "widened_spread": {
     "endplate_depth": 0.05105870218166017,
@@ -31686,29 +30654,29 @@
     "h_post"
    ],
    "panjabi": {
-    "exact": 244,
+    "exact": 208,
     "fields": 600,
     "named": 0,
     "named_right": 0,
-    "within_one": 357
+    "within_one": 360
    },
    "paper": "gilad1985",
    "places": 3,
    "sex": "male",
    "source": {
-    "exact": 167,
+    "exact": 177,
     "fields": 600,
     "named": 0,
     "named_right": 0,
-    "within_one": 457
+    "within_one": 431
    },
    "technique": "lateral_lumbar_film_caliper",
    "widened_source": {
-    "exact": 193,
+    "exact": 219,
     "fields": 600,
     "named": 0,
     "named_right": 0,
-    "within_one": 470
+    "within_one": 452
    },
    "widened_spread": {
     "endplate_depth": 0.05105870218166017,
@@ -31735,29 +30703,29 @@
     "h_post"
    ],
    "panjabi": {
-    "exact": 134,
+    "exact": 139,
     "fields": 200,
-    "named": 11,
-    "named_right": 11,
-    "within_one": 165
+    "named": 9,
+    "named_right": 9,
+    "within_one": 179
    },
    "paper": "gilad1985",
    "places": 1,
    "sex": "male",
    "source": {
-    "exact": 102,
+    "exact": 114,
     "fields": 200,
     "named": 0,
     "named_right": 0,
-    "within_one": 172
+    "within_one": 177
    },
    "technique": "lateral_lumbar_film_caliper",
    "widened_source": {
-    "exact": 130,
+    "exact": 129,
     "fields": 200,
     "named": 0,
     "named_right": 0,
-    "within_one": 157
+    "within_one": 167
    },
    "widened_spread": {
     "endplate_depth": 0.05105870218166017,
@@ -31784,29 +30752,29 @@
     "canal_w"
    ],
    "panjabi": {
-    "exact": 258,
+    "exact": 249,
     "fields": 1000,
     "named": 0,
     "named_right": 0,
-    "within_one": 504
+    "within_one": 451
    },
    "paper": "griffith2016",
    "places": 5,
    "sex": "all",
    "source": {
-    "exact": 132,
+    "exact": 126,
     "fields": 1000,
     "named": 0,
     "named_right": 0,
-    "within_one": 277
+    "within_one": 281
    },
    "technique": "ct_midpedicle_semiauto",
    "widened_source": {
-    "exact": 245,
+    "exact": 253,
     "fields": 1000,
     "named": 0,
     "named_right": 0,
-    "within_one": 474
+    "within_one": 485
    },
    "widened_spread": {
     "canal_ap": 0.12433279903685926,
@@ -31833,29 +30801,29 @@
     "canal_w"
    ],
    "panjabi": {
-    "exact": 305,
+    "exact": 294,
     "fields": 600,
     "named": 0,
     "named_right": 0,
-    "within_one": 436
+    "within_one": 443
    },
    "paper": "griffith2016",
    "places": 3,
    "sex": "all",
    "source": {
-    "exact": 113,
+    "exact": 96,
     "fields": 600,
     "named": 0,
     "named_right": 0,
-    "within_one": 185
+    "within_one": 170
    },
    "technique": "ct_midpedicle_semiauto",
    "widened_source": {
     "exact": 236,
     "fields": 600,
-    "named": 1,
-    "named_right": 1,
-    "within_one": 396
+    "named": 0,
+    "named_right": 0,
+    "within_one": 375
    },
    "widened_spread": {
     "canal_ap": 0.12433279903685926,
@@ -31882,29 +30850,29 @@
     "canal_w"
    ],
    "panjabi": {
-    "exact": 150,
+    "exact": 153,
     "fields": 200,
-    "named": 3,
-    "named_right": 3,
-    "within_one": 174
+    "named": 6,
+    "named_right": 6,
+    "within_one": 171
    },
    "paper": "griffith2016",
    "places": 1,
    "sex": "all",
    "source": {
-    "exact": 51,
+    "exact": 44,
     "fields": 200,
-    "named": 1,
+    "named": 0,
     "named_right": 0,
-    "within_one": 58
+    "within_one": 48
    },
    "technique": "ct_midpedicle_semiauto",
    "widened_source": {
-    "exact": 115,
+    "exact": 113,
     "fields": 200,
-    "named": 2,
-    "named_right": 2,
-    "within_one": 134
+    "named": 0,
+    "named_right": 0,
+    "within_one": 133
    },
    "widened_spread": {
     "canal_ap": 0.12433279903685926,
@@ -31934,29 +30902,29 @@
     "pedicle_w"
    ],
    "panjabi": {
-    "exact": 559,
+    "exact": 547,
     "fields": 1800,
-    "named": 64,
-    "named_right": 64,
-    "within_one": 912
+    "named": 56,
+    "named_right": 56,
+    "within_one": 905
    },
    "paper": "hou1993",
    "places": 9,
    "sex": "all",
    "source": {
-    "exact": 292,
+    "exact": 308,
     "fields": 1800,
-    "named": 2,
-    "named_right": 2,
-    "within_one": 661
+    "named": 4,
+    "named_right": 4,
+    "within_one": 682
    },
    "technique": "vernier_caliper_dry_bone",
    "widened_source": {
-    "exact": 361,
+    "exact": 375,
     "fields": 1800,
-    "named": 1,
-    "named_right": 1,
-    "within_one": 830
+    "named": 0,
+    "named_right": 0,
+    "within_one": 855
    },
    "widened_spread": {
     "pedicle_h": 0.13023135299131786,
@@ -31985,29 +30953,29 @@
     "pedicle_w"
    ],
    "panjabi": {
-    "exact": 717,
+    "exact": 739,
     "fields": 1400,
-    "named": 94,
-    "named_right": 94,
-    "within_one": 986
+    "named": 77,
+    "named_right": 77,
+    "within_one": 991
    },
    "paper": "hou1993",
    "places": 7,
    "sex": "all",
    "source": {
-    "exact": 333,
+    "exact": 376,
     "fields": 1400,
-    "named": 3,
-    "named_right": 3,
-    "within_one": 748
+    "named": 8,
+    "named_right": 8,
+    "within_one": 784
    },
    "technique": "vernier_caliper_dry_bone",
    "widened_source": {
-    "exact": 410,
+    "exact": 438,
     "fields": 1400,
-    "named": 1,
-    "named_right": 1,
-    "within_one": 817
+    "named": 0,
+    "named_right": 0,
+    "within_one": 831
    },
    "widened_spread": {
     "pedicle_h": 0.13023135299131786,
@@ -32036,29 +31004,29 @@
     "pedicle_w"
    ],
    "panjabi": {
-    "exact": 742,
+    "exact": 741,
     "fields": 1000,
-    "named": 121,
-    "named_right": 121,
-    "within_one": 865
+    "named": 118,
+    "named_right": 118,
+    "within_one": 902
    },
    "paper": "hou1993",
    "places": 5,
    "sex": "all",
    "source": {
-    "exact": 393,
+    "exact": 369,
     "fields": 1000,
-    "named": 15,
-    "named_right": 13,
-    "within_one": 725
+    "named": 7,
+    "named_right": 7,
+    "within_one": 719
    },
    "technique": "vernier_caliper_dry_bone",
    "widened_source": {
-    "exact": 396,
+    "exact": 368,
     "fields": 1000,
     "named": 0,
     "named_right": 0,
-    "within_one": 740
+    "within_one": 726
    },
    "widened_spread": {
     "pedicle_h": 0.13023135299131786,
@@ -32082,29 +31050,29 @@
     "canal_ap"
    ],
    "panjabi": {
-    "exact": 122,
+    "exact": 120,
     "fields": 1000,
     "named": 0,
     "named_right": 0,
-    "within_one": 209
+    "within_one": 205
    },
    "paper": "italianmri",
    "places": 5,
    "sex": "all",
    "source": {
-    "exact": 63,
+    "exact": 59,
     "fields": 1000,
     "named": 0,
     "named_right": 0,
-    "within_one": 109
+    "within_one": 101
    },
    "technique": "sagittal_mri",
    "widened_source": {
-    "exact": 188,
+    "exact": 190,
     "fields": 1000,
     "named": 0,
     "named_right": 0,
-    "within_one": 403
+    "within_one": 408
    },
    "widened_spread": {
     "canal_ap": 0.11338587853799025
@@ -32127,29 +31095,29 @@
     "canal_ap"
    ],
    "panjabi": {
-    "exact": 132,
+    "exact": 118,
     "fields": 600,
     "named": 0,
     "named_right": 0,
-    "within_one": 239
+    "within_one": 233
    },
    "paper": "italianmri",
    "places": 3,
    "sex": "all",
    "source": {
-    "exact": 76,
+    "exact": 80,
     "fields": 600,
     "named": 0,
     "named_right": 0,
-    "within_one": 157
+    "within_one": 177
    },
    "technique": "sagittal_mri",
    "widened_source": {
-    "exact": 118,
+    "exact": 125,
     "fields": 600,
     "named": 0,
     "named_right": 0,
-    "within_one": 320
+    "within_one": 335
    },
    "widened_spread": {
     "canal_ap": 0.11338587853799025
@@ -32172,29 +31140,29 @@
     "canal_ap"
    ],
    "panjabi": {
-    "exact": 90,
+    "exact": 95,
     "fields": 200,
     "named": 0,
     "named_right": 0,
-    "within_one": 121
+    "within_one": 111
    },
    "paper": "italianmri",
    "places": 1,
    "sex": "all",
    "source": {
-    "exact": 40,
+    "exact": 44,
     "fields": 200,
     "named": 0,
     "named_right": 0,
-    "within_one": 62
+    "within_one": 70
    },
    "technique": "sagittal_mri",
    "widened_source": {
-    "exact": 95,
+    "exact": 79,
     "fields": 200,
     "named": 0,
     "named_right": 0,
-    "within_one": 156
+    "within_one": 154
    },
    "widened_spread": {
     "canal_ap": 0.11338587853799025
@@ -32225,29 +31193,29 @@
     "h_post"
    ],
    "panjabi": {
-    "exact": 336,
+    "exact": 325,
     "fields": 2600,
     "named": 0,
     "named_right": 0,
-    "within_one": 960
+    "within_one": 928
    },
    "paper": "kunkel2011",
    "places": 13,
    "sex": "all",
    "source": {
-    "exact": 329,
+    "exact": 324,
     "fields": 2600,
     "named": 0,
     "named_right": 0,
-    "within_one": 905
+    "within_one": 864
    },
    "technique": "lateral_contact_radiograph",
    "widened_source": {
-    "exact": 342,
+    "exact": 350,
     "fields": 2600,
     "named": 0,
     "named_right": 0,
-    "within_one": 934
+    "within_one": 936
    },
    "widened_spread": {
     "h_post": 0.12116413512817006
@@ -32278,29 +31246,29 @@
     "h_post"
    ],
    "panjabi": {
-    "exact": 490,
+    "exact": 459,
     "fields": 2200,
     "named": 0,
     "named_right": 0,
-    "within_one": 1013
+    "within_one": 1010
    },
    "paper": "kunkel2011",
    "places": 11,
    "sex": "all",
    "source": {
-    "exact": 360,
-    "fields": 2200,
-    "named": 0,
-    "named_right": 0,
-    "within_one": 900
-   },
-   "technique": "lateral_contact_radiograph",
-   "widened_source": {
-    "exact": 330,
+    "exact": 365,
     "fields": 2200,
     "named": 0,
     "named_right": 0,
     "within_one": 940
+   },
+   "technique": "lateral_contact_radiograph",
+   "widened_source": {
+    "exact": 329,
+    "fields": 2200,
+    "named": 0,
+    "named_right": 0,
+    "within_one": 941
    },
    "widened_spread": {
     "h_post": 0.12116413512817006
@@ -32331,29 +31299,29 @@
     "h_post"
    ],
    "panjabi": {
-    "exact": 413,
+    "exact": 484,
     "fields": 1800,
     "named": 0,
     "named_right": 0,
-    "within_one": 879
+    "within_one": 958
    },
    "paper": "kunkel2011",
    "places": 9,
    "sex": "all",
    "source": {
-    "exact": 346,
+    "exact": 313,
     "fields": 1800,
     "named": 0,
     "named_right": 0,
-    "within_one": 809
+    "within_one": 721
    },
    "technique": "lateral_contact_radiograph",
    "widened_source": {
-    "exact": 297,
+    "exact": 324,
     "fields": 1800,
     "named": 0,
     "named_right": 0,
-    "within_one": 870
+    "within_one": 843
    },
    "widened_spread": {
     "h_post": 0.12116413512817006
@@ -32389,29 +31357,29 @@
     "pedicle_w"
    ],
    "panjabi": {
-    "exact": 837,
+    "exact": 875,
     "fields": 3400,
-    "named": 55,
-    "named_right": 55,
-    "within_one": 1521
+    "named": 71,
+    "named_right": 71,
+    "within_one": 1533
    },
    "paper": "lien2007",
    "places": 17,
    "sex": "all",
    "source": {
-    "exact": 472,
+    "exact": 496,
     "fields": 3400,
-    "named": 8,
-    "named_right": 8,
-    "within_one": 1154
+    "named": 11,
+    "named_right": 11,
+    "within_one": 1180
    },
    "technique": "dry_caliper",
    "widened_source": {
-    "exact": 758,
+    "exact": 713,
     "fields": 3400,
-    "named": 6,
-    "named_right": 6,
-    "within_one": 1598
+    "named": 12,
+    "named_right": 12,
+    "within_one": 1546
    },
    "widened_spread": {
     "pedicle_h": 0.14389993427841286,
@@ -32448,29 +31416,29 @@
     "pedicle_w"
    ],
    "panjabi": {
-    "exact": 1202,
+    "exact": 1180,
     "fields": 3000,
-    "named": 85,
-    "named_right": 85,
-    "within_one": 1885
+    "named": 80,
+    "named_right": 80,
+    "within_one": 1838
    },
    "paper": "lien2007",
    "places": 15,
    "sex": "all",
    "source": {
-    "exact": 631,
+    "exact": 541,
     "fields": 3000,
-    "named": 23,
-    "named_right": 22,
-    "within_one": 1413
+    "named": 26,
+    "named_right": 26,
+    "within_one": 1348
    },
    "technique": "dry_caliper",
    "widened_source": {
-    "exact": 905,
+    "exact": 899,
     "fields": 3000,
-    "named": 20,
-    "named_right": 20,
-    "within_one": 1835
+    "named": 18,
+    "named_right": 18,
+    "within_one": 1821
    },
    "widened_spread": {
     "pedicle_h": 0.14389993427841286,
@@ -32507,29 +31475,29 @@
     "pedicle_w"
    ],
    "panjabi": {
-    "exact": 1467,
+    "exact": 1545,
     "fields": 2600,
-    "named": 115,
-    "named_right": 114,
-    "within_one": 2045
+    "named": 111,
+    "named_right": 111,
+    "within_one": 2061
    },
    "paper": "lien2007",
    "places": 13,
    "sex": "all",
    "source": {
-    "exact": 796,
+    "exact": 741,
     "fields": 2600,
-    "named": 42,
-    "named_right": 41,
-    "within_one": 1632
+    "named": 44,
+    "named_right": 44,
+    "within_one": 1580
    },
    "technique": "dry_caliper",
    "widened_source": {
-    "exact": 1052,
+    "exact": 1027,
     "fields": 2600,
-    "named": 27,
-    "named_right": 26,
-    "within_one": 1977
+    "named": 23,
+    "named_right": 23,
+    "within_one": 2002
    },
    "widened_spread": {
     "pedicle_h": 0.14389993427841286,
@@ -32566,32 +31534,32 @@
     "pedicle_incl_trans"
    ],
    "panjabi": {
-    "exact": 562,
+    "exact": 485,
     "fields": 3400,
-    "named": 68,
-    "named_right": 68,
-    "within_one": 1080
+    "named": 59,
+    "named_right": 59,
+    "within_one": 977
    },
    "paper": "lien2007",
    "places": 17,
    "sex": "all",
    "source": {
-    "exact": 468,
+    "exact": 458,
     "fields": 3400,
     "named": 0,
     "named_right": 0,
-    "within_one": 1326
+    "within_one": 1288
    },
    "technique": "dry_goniometer",
    "widened_source": {
-    "exact": 432,
+    "exact": 442,
     "fields": 3400,
     "named": 0,
     "named_right": 0,
-    "within_one": 947
+    "within_one": 1003
    },
    "widened_spread": {
-    "pedicle_incl_sag": 3.96872885431048,
+    "pedicle_incl_sag": 3.9534752559358397,
     "pedicle_incl_trans": 5.4310060995170195
    },
    "width": 1
@@ -32625,32 +31593,32 @@
     "pedicle_incl_trans"
    ],
    "panjabi": {
-    "exact": 1013,
+    "exact": 1058,
     "fields": 3000,
-    "named": 162,
-    "named_right": 162,
-    "within_one": 1575
+    "named": 155,
+    "named_right": 155,
+    "within_one": 1556
    },
    "paper": "lien2007",
    "places": 15,
    "sex": "all",
    "source": {
-    "exact": 443,
+    "exact": 498,
     "fields": 3000,
     "named": 0,
     "named_right": 0,
-    "within_one": 1237
+    "within_one": 1300
    },
    "technique": "dry_goniometer",
    "widened_source": {
-    "exact": 477,
+    "exact": 474,
     "fields": 3000,
     "named": 0,
     "named_right": 0,
-    "within_one": 986
+    "within_one": 1011
    },
    "widened_spread": {
-    "pedicle_incl_sag": 3.96872885431048,
+    "pedicle_incl_sag": 3.9534752559358397,
     "pedicle_incl_trans": 5.4310060995170195
    },
    "width": 3
@@ -32684,32 +31652,32 @@
     "pedicle_incl_trans"
    ],
    "panjabi": {
-    "exact": 1336,
+    "exact": 1271,
     "fields": 2600,
-    "named": 154,
-    "named_right": 153,
-    "within_one": 1832
+    "named": 166,
+    "named_right": 166,
+    "within_one": 1762
    },
    "paper": "lien2007",
    "places": 13,
    "sex": "all",
    "source": {
-    "exact": 524,
+    "exact": 492,
     "fields": 2600,
     "named": 0,
     "named_right": 0,
-    "within_one": 1328
+    "within_one": 1252
    },
    "technique": "dry_goniometer",
    "widened_source": {
-    "exact": 636,
+    "exact": 596,
     "fields": 2600,
     "named": 0,
     "named_right": 0,
-    "within_one": 1212
+    "within_one": 1119
    },
    "widened_spread": {
-    "pedicle_incl_sag": 3.96872885431048,
+    "pedicle_incl_sag": 3.9534752559358397,
     "pedicle_incl_trans": 5.4310060995170195
    },
    "width": 5
@@ -32733,29 +31701,29 @@
     "pedicle_w"
    ],
    "panjabi": {
-    "exact": 418,
+    "exact": 419,
     "fields": 1000,
-    "named": 67,
-    "named_right": 67,
-    "within_one": 622
+    "named": 56,
+    "named_right": 56,
+    "within_one": 603
    },
    "paper": "masharawi2021",
    "places": 5,
    "sex": "all",
    "source": {
-    "exact": 108,
+    "exact": 94,
     "fields": 1000,
-    "named": 10,
-    "named_right": 10,
-    "within_one": 272
+    "named": 12,
+    "named_right": 9,
+    "within_one": 250
    },
    "technique": "ct_axial_2d",
    "widened_source": {
-    "exact": 207,
+    "exact": 170,
     "fields": 1000,
-    "named": 9,
-    "named_right": 9,
-    "within_one": 428
+    "named": 11,
+    "named_right": 11,
+    "within_one": 411
    },
    "widened_spread": {
     "canal_ap": 0.11790442662539778,
@@ -32784,29 +31752,29 @@
     "pedicle_w"
    ],
    "panjabi": {
-    "exact": 410,
+    "exact": 453,
     "fields": 600,
-    "named": 84,
-    "named_right": 84,
-    "within_one": 512
+    "named": 83,
+    "named_right": 83,
+    "within_one": 511
    },
    "paper": "masharawi2021",
    "places": 3,
    "sex": "all",
    "source": {
-    "exact": 121,
+    "exact": 142,
     "fields": 600,
-    "named": 31,
-    "named_right": 14,
-    "within_one": 239
+    "named": 22,
+    "named_right": 17,
+    "within_one": 264
    },
    "technique": "ct_axial_2d",
    "widened_source": {
-    "exact": 207,
+    "exact": 212,
     "fields": 600,
-    "named": 14,
-    "named_right": 14,
-    "within_one": 390
+    "named": 16,
+    "named_right": 16,
+    "within_one": 396
    },
    "widened_spread": {
     "canal_ap": 0.11790442662539778,
@@ -32835,28 +31803,28 @@
     "pedicle_w"
    ],
    "panjabi": {
-    "exact": 190,
+    "exact": 184,
     "fields": 200,
-    "named": 125,
-    "named_right": 125,
-    "within_one": 197
+    "named": 104,
+    "named_right": 104,
+    "within_one": 195
    },
    "paper": "masharawi2021",
    "places": 1,
    "sex": "all",
    "source": {
-    "exact": 67,
+    "exact": 72,
     "fields": 200,
-    "named": 23,
-    "named_right": 14,
-    "within_one": 108
+    "named": 26,
+    "named_right": 19,
+    "within_one": 117
    },
    "technique": "ct_axial_2d",
    "widened_source": {
-    "exact": 117,
+    "exact": 124,
     "fields": 200,
-    "named": 17,
-    "named_right": 17,
+    "named": 23,
+    "named_right": 22,
     "within_one": 153
    },
    "widened_spread": {
@@ -32883,29 +31851,29 @@
     "pedicle_h"
    ],
    "panjabi": {
-    "exact": 101,
+    "exact": 117,
     "fields": 1000,
     "named": 0,
     "named_right": 0,
-    "within_one": 111
+    "within_one": 126
    },
    "paper": "masharawi2021",
    "places": 5,
    "sex": "all",
    "source": {
-    "exact": 0,
+    "exact": 1,
     "fields": 1000,
     "named": 0,
     "named_right": 0,
-    "within_one": 3
+    "within_one": 1
    },
    "technique": "ct_parasagittal_2d",
    "widened_source": {
-    "exact": 0,
+    "exact": 1,
     "fields": 1000,
     "named": 0,
     "named_right": 0,
-    "within_one": 3
+    "within_one": 2
    },
    "widened_spread": {
     "pedicle_h": 0.13023135299131786
@@ -32928,29 +31896,29 @@
     "pedicle_h"
    ],
    "panjabi": {
-    "exact": 152,
+    "exact": 178,
     "fields": 600,
-    "named": 2,
-    "named_right": 2,
-    "within_one": 218
+    "named": 0,
+    "named_right": 0,
+    "within_one": 241
    },
    "paper": "masharawi2021",
    "places": 3,
    "sex": "all",
    "source": {
-    "exact": 25,
+    "exact": 29,
     "fields": 600,
     "named": 0,
     "named_right": 0,
-    "within_one": 69
+    "within_one": 57
    },
    "technique": "ct_parasagittal_2d",
    "widened_source": {
-    "exact": 8,
+    "exact": 10,
     "fields": 600,
     "named": 0,
     "named_right": 0,
-    "within_one": 33
+    "within_one": 36
    },
    "widened_spread": {
     "pedicle_h": 0.13023135299131786
@@ -32973,29 +31941,29 @@
     "pedicle_h"
    ],
    "panjabi": {
-    "exact": 110,
+    "exact": 101,
     "fields": 200,
-    "named": 5,
-    "named_right": 5,
-    "within_one": 132
+    "named": 9,
+    "named_right": 9,
+    "within_one": 119
    },
    "paper": "masharawi2021",
    "places": 1,
    "sex": "all",
    "source": {
-    "exact": 0,
+    "exact": 3,
     "fields": 200,
     "named": 0,
     "named_right": 0,
-    "within_one": 13
+    "within_one": 12
    },
    "technique": "ct_parasagittal_2d",
    "widened_source": {
-    "exact": 9,
+    "exact": 5,
     "fields": 200,
     "named": 0,
     "named_right": 0,
-    "within_one": 32
+    "within_one": 27
    },
    "widened_spread": {
     "pedicle_h": 0.13023135299131786
@@ -33023,27 +31991,27 @@
    "panjabi": {
     "exact": 430,
     "fields": 1000,
-    "named": 62,
-    "named_right": 62,
-    "within_one": 617
+    "named": 65,
+    "named_right": 65,
+    "within_one": 627
    },
    "paper": "masharawi2021",
    "places": 5,
    "sex": "all",
    "source": {
-    "exact": 160,
+    "exact": 174,
     "fields": 1000,
-    "named": 6,
+    "named": 7,
     "named_right": 5,
-    "within_one": 351
+    "within_one": 383
    },
    "technique": "ct_axial_2d",
    "widened_source": {
-    "exact": 229,
+    "exact": 272,
     "fields": 1000,
-    "named": 4,
-    "named_right": 4,
-    "within_one": 494
+    "named": 6,
+    "named_right": 6,
+    "within_one": 521
    },
    "widened_spread": {
     "canal_ap": 0.11790442662539778,
@@ -33072,28 +32040,28 @@
     "pedicle_w"
    ],
    "panjabi": {
-    "exact": 445,
+    "exact": 452,
     "fields": 600,
-    "named": 83,
-    "named_right": 83,
-    "within_one": 523
+    "named": 85,
+    "named_right": 85,
+    "within_one": 533
    },
    "paper": "masharawi2021",
    "places": 3,
    "sex": "all",
    "source": {
-    "exact": 159,
+    "exact": 147,
     "fields": 600,
-    "named": 34,
-    "named_right": 17,
-    "within_one": 312
+    "named": 35,
+    "named_right": 20,
+    "within_one": 276
    },
    "technique": "ct_axial_2d",
    "widened_source": {
-    "exact": 217,
+    "exact": 213,
     "fields": 600,
-    "named": 14,
-    "named_right": 13,
+    "named": 12,
+    "named_right": 12,
     "within_one": 431
    },
    "widened_spread": {
@@ -33123,29 +32091,29 @@
     "pedicle_w"
    ],
    "panjabi": {
-    "exact": 183,
+    "exact": 182,
     "fields": 200,
-    "named": 107,
-    "named_right": 107,
-    "within_one": 198
+    "named": 106,
+    "named_right": 106,
+    "within_one": 194
    },
    "paper": "masharawi2021",
    "places": 1,
    "sex": "all",
    "source": {
-    "exact": 78,
+    "exact": 62,
     "fields": 200,
-    "named": 44,
-    "named_right": 28,
-    "within_one": 149
+    "named": 32,
+    "named_right": 17,
+    "within_one": 128
    },
    "technique": "ct_axial_2d",
    "widened_source": {
-    "exact": 122,
+    "exact": 112,
     "fields": 200,
-    "named": 18,
-    "named_right": 18,
-    "within_one": 180
+    "named": 17,
+    "named_right": 15,
+    "within_one": 163
    },
    "widened_spread": {
     "canal_ap": 0.11790442662539778,
@@ -33171,21 +32139,21 @@
     "pedicle_h"
    ],
    "panjabi": {
-    "exact": 109,
+    "exact": 99,
     "fields": 1000,
     "named": 0,
     "named_right": 0,
-    "within_one": 117
+    "within_one": 106
    },
    "paper": "masharawi2021",
    "places": 5,
    "sex": "all",
    "source": {
-    "exact": 0,
+    "exact": 1,
     "fields": 1000,
     "named": 0,
     "named_right": 0,
-    "within_one": 3
+    "within_one": 4
    },
    "technique": "ct_parasagittal_2d",
    "widened_source": {
@@ -33193,7 +32161,7 @@
     "fields": 1000,
     "named": 0,
     "named_right": 0,
-    "within_one": 4
+    "within_one": 6
    },
    "widened_spread": {
     "pedicle_h": 0.13023135299131786
@@ -33216,29 +32184,29 @@
     "pedicle_h"
    ],
    "panjabi": {
-    "exact": 139,
+    "exact": 157,
     "fields": 600,
     "named": 2,
     "named_right": 2,
-    "within_one": 233
+    "within_one": 225
    },
    "paper": "masharawi2021",
    "places": 3,
    "sex": "all",
    "source": {
-    "exact": 30,
+    "exact": 34,
     "fields": 600,
     "named": 0,
     "named_right": 0,
-    "within_one": 87
+    "within_one": 83
    },
    "technique": "ct_parasagittal_2d",
    "widened_source": {
-    "exact": 6,
+    "exact": 12,
     "fields": 600,
     "named": 0,
     "named_right": 0,
-    "within_one": 32
+    "within_one": 34
    },
    "widened_spread": {
     "pedicle_h": 0.13023135299131786
@@ -33261,29 +32229,29 @@
     "pedicle_h"
    ],
    "panjabi": {
-    "exact": 110,
+    "exact": 108,
     "fields": 200,
-    "named": 12,
-    "named_right": 12,
-    "within_one": 126
+    "named": 6,
+    "named_right": 6,
+    "within_one": 123
    },
    "paper": "masharawi2021",
    "places": 1,
    "sex": "all",
    "source": {
-    "exact": 0,
-    "fields": 200,
-    "named": 0,
-    "named_right": 0,
-    "within_one": 8
-   },
-   "technique": "ct_parasagittal_2d",
-   "widened_source": {
     "exact": 2,
     "fields": 200,
     "named": 0,
     "named_right": 0,
-    "within_one": 20
+    "within_one": 16
+   },
+   "technique": "ct_parasagittal_2d",
+   "widened_source": {
+    "exact": 5,
+    "fields": 200,
+    "named": 0,
+    "named_right": 0,
+    "within_one": 22
    },
    "widened_spread": {
     "pedicle_h": 0.13023135299131786
@@ -33309,80 +32277,80 @@
     "pedicle_w"
    ],
    "panjabi": {
-    "exact": 472,
+    "exact": 480,
     "fields": 1000,
-    "named": 91,
-    "named_right": 91,
-    "within_one": 684
+    "named": 86,
+    "named_right": 86,
+    "within_one": 691
    },
    "paper": "moncadahabib2025",
    "places": 5,
    "sex": "all",
    "source": {
-    "exact": 238,
+    "exact": 226,
     "fields": 1000,
     "named": 0,
     "named_right": 0,
-    "within_one": 686
+    "within_one": 666
+   },
+   "technique": "ct_mpr_pacs_calipers",
+   "widened_source": {
+    "exact": 278,
+    "fields": 1000,
+    "named": 0,
+    "named_right": 0,
+    "within_one": 652
+   },
+   "widened_spread": {
+    "h_post": 0.1039424179763809,
+    "pedicle_h": 0.13023135299131786,
+    "pedicle_incl_sag": 5.5218391822703605,
+    "pedicle_w": 0.13072155556817203
+   },
+   "width": 1
+  },
+  {
+   "cohort": "mexico_ct37",
+   "fields_per_place": 200,
+   "group": "",
+   "holds_subjects_of": [],
+   "levels": [
+    "L1",
+    "L2",
+    "L3",
+    "L4",
+    "L5"
+   ],
+   "measures": [
+    "h_post",
+    "pedicle_h",
+    "pedicle_incl_sag",
+    "pedicle_w"
+   ],
+   "panjabi": {
+    "exact": 453,
+    "fields": 600,
+    "named": 111,
+    "named_right": 111,
+    "within_one": 532
+   },
+   "paper": "moncadahabib2025",
+   "places": 3,
+   "sex": "all",
+   "source": {
+    "exact": 167,
+    "fields": 600,
+    "named": 0,
+    "named_right": 0,
+    "within_one": 472
    },
    "technique": "ct_mpr_pacs_calipers",
    "widened_source": {
     "exact": 271,
-    "fields": 1000,
-    "named": 0,
-    "named_right": 0,
-    "within_one": 667
-   },
-   "widened_spread": {
-    "h_post": 0.1039424179763809,
-    "pedicle_h": 0.13023135299131786,
-    "pedicle_incl_sag": 5.5218391822703605,
-    "pedicle_w": 0.13072155556817203
-   },
-   "width": 1
-  },
-  {
-   "cohort": "mexico_ct37",
-   "fields_per_place": 200,
-   "group": "",
-   "holds_subjects_of": [],
-   "levels": [
-    "L1",
-    "L2",
-    "L3",
-    "L4",
-    "L5"
-   ],
-   "measures": [
-    "h_post",
-    "pedicle_h",
-    "pedicle_incl_sag",
-    "pedicle_w"
-   ],
-   "panjabi": {
-    "exact": 450,
-    "fields": 600,
-    "named": 118,
-    "named_right": 118,
-    "within_one": 537
-   },
-   "paper": "moncadahabib2025",
-   "places": 3,
-   "sex": "all",
-   "source": {
-    "exact": 179,
     "fields": 600,
     "named": 0,
     "named_right": 0,
-    "within_one": 463
-   },
-   "technique": "ct_mpr_pacs_calipers",
-   "widened_source": {
-    "exact": 256,
-    "fields": 600,
-    "named": 0,
-    "named_right": 0,
-    "within_one": 492
+    "within_one": 519
    },
    "widened_spread": {
     "h_post": 0.1039424179763809,
@@ -33413,27 +32381,27 @@
    "panjabi": {
     "exact": 182,
     "fields": 200,
-    "named": 144,
-    "named_right": 143,
-    "within_one": 197
+    "named": 139,
+    "named_right": 139,
+    "within_one": 194
    },
    "paper": "moncadahabib2025",
    "places": 1,
    "sex": "all",
    "source": {
-    "exact": 18,
+    "exact": 26,
     "fields": 200,
     "named": 32,
-    "named_right": 3,
-    "within_one": 156
+    "named_right": 1,
+    "within_one": 161
    },
    "technique": "ct_mpr_pacs_calipers",
    "widened_source": {
-    "exact": 113,
+    "exact": 119,
     "fields": 200,
     "named": 2,
     "named_right": 2,
-    "within_one": 189
+    "within_one": 187
    },
    "widened_spread": {
     "h_post": 0.1039424179763809,
@@ -33461,29 +32429,29 @@
     "pedicle_w"
    ],
    "panjabi": {
-    "exact": 386,
+    "exact": 397,
     "fields": 1000,
-    "named": 76,
-    "named_right": 74,
-    "within_one": 531
+    "named": 66,
+    "named_right": 66,
+    "within_one": 548
    },
    "paper": "olsewski1990",
    "places": 5,
    "sex": "all",
    "source": {
-    "exact": 288,
+    "exact": 252,
     "fields": 1000,
-    "named": 70,
-    "named_right": 70,
-    "within_one": 460
+    "named": 56,
+    "named_right": 53,
+    "within_one": 437
    },
    "technique": "direct_caliper_microscope",
    "widened_source": {
-    "exact": 315,
+    "exact": 324,
     "fields": 1000,
-    "named": 59,
-    "named_right": 59,
-    "within_one": 516
+    "named": 44,
+    "named_right": 44,
+    "within_one": 497
    },
    "widened_spread": {
     "pedicle_h": 0.13023135299131786,
@@ -33510,29 +32478,29 @@
     "pedicle_w"
    ],
    "panjabi": {
-    "exact": 398,
+    "exact": 426,
     "fields": 600,
-    "named": 107,
-    "named_right": 107,
-    "within_one": 477
+    "named": 108,
+    "named_right": 108,
+    "within_one": 498
    },
    "paper": "olsewski1990",
    "places": 3,
    "sex": "all",
    "source": {
-    "exact": 224,
+    "exact": 245,
     "fields": 600,
-    "named": 73,
-    "named_right": 71,
-    "within_one": 338
+    "named": 74,
+    "named_right": 74,
+    "within_one": 350
    },
    "technique": "direct_caliper_microscope",
    "widened_source": {
-    "exact": 284,
+    "exact": 297,
     "fields": 600,
-    "named": 64,
+    "named": 62,
     "named_right": 62,
-    "within_one": 397
+    "within_one": 409
    },
    "widened_spread": {
     "pedicle_h": 0.13023135299131786,
@@ -33559,29 +32527,29 @@
     "pedicle_w"
    ],
    "panjabi": {
-    "exact": 194,
+    "exact": 190,
     "fields": 200,
-    "named": 138,
-    "named_right": 138,
-    "within_one": 199
+    "named": 137,
+    "named_right": 137,
+    "within_one": 196
    },
    "paper": "olsewski1990",
    "places": 1,
    "sex": "all",
    "source": {
-    "exact": 160,
+    "exact": 156,
     "fields": 200,
-    "named": 81,
-    "named_right": 80,
-    "within_one": 193
+    "named": 88,
+    "named_right": 87,
+    "within_one": 185
    },
    "technique": "direct_caliper_microscope",
    "widened_source": {
-    "exact": 182,
+    "exact": 183,
     "fields": 200,
-    "named": 56,
-    "named_right": 56,
-    "within_one": 193
+    "named": 65,
+    "named_right": 65,
+    "within_one": 190
    },
    "widened_spread": {
     "pedicle_h": 0.13023135299131786,
@@ -33607,29 +32575,29 @@
     "pedicle_w"
    ],
    "panjabi": {
-    "exact": 376,
+    "exact": 378,
     "fields": 1000,
-    "named": 56,
-    "named_right": 56,
-    "within_one": 533
+    "named": 76,
+    "named_right": 76,
+    "within_one": 546
    },
    "paper": "olsewski1990",
    "places": 5,
    "sex": "all",
    "source": {
-    "exact": 220,
-    "fields": 1000,
-    "named": 8,
-    "named_right": 8,
-    "within_one": 465
-   },
-   "technique": "cadaver_ap_radiograph",
-   "widened_source": {
-    "exact": 256,
+    "exact": 213,
     "fields": 1000,
     "named": 6,
     "named_right": 6,
-    "within_one": 484
+    "within_one": 437
+   },
+   "technique": "cadaver_ap_radiograph",
+   "widened_source": {
+    "exact": 277,
+    "fields": 1000,
+    "named": 4,
+    "named_right": 4,
+    "within_one": 502
    },
    "widened_spread": {
     "pedicle_h": 0.13023135299131786,
@@ -33654,29 +32622,29 @@
     "pedicle_w"
    ],
    "panjabi": {
-    "exact": 382,
+    "exact": 383,
     "fields": 600,
-    "named": 94,
-    "named_right": 94,
-    "within_one": 457
+    "named": 83,
+    "named_right": 83,
+    "within_one": 467
    },
    "paper": "olsewski1990",
    "places": 3,
    "sex": "all",
    "source": {
-    "exact": 191,
+    "exact": 185,
     "fields": 600,
-    "named": 8,
-    "named_right": 8,
-    "within_one": 382
+    "named": 12,
+    "named_right": 12,
+    "within_one": 388
    },
    "technique": "cadaver_ap_radiograph",
    "widened_source": {
-    "exact": 231,
+    "exact": 250,
     "fields": 600,
-    "named": 4,
-    "named_right": 4,
-    "within_one": 386
+    "named": 5,
+    "named_right": 5,
+    "within_one": 393
    },
    "widened_spread": {
     "pedicle_h": 0.13023135299131786,
@@ -33703,27 +32671,27 @@
    "panjabi": {
     "exact": 176,
     "fields": 200,
-    "named": 100,
-    "named_right": 100,
-    "within_one": 188
+    "named": 104,
+    "named_right": 104,
+    "within_one": 187
    },
    "paper": "olsewski1990",
    "places": 1,
    "sex": "all",
    "source": {
-    "exact": 56,
+    "exact": 67,
     "fields": 200,
-    "named": 7,
-    "named_right": 7,
-    "within_one": 176
+    "named": 17,
+    "named_right": 17,
+    "within_one": 184
    },
    "technique": "cadaver_ap_radiograph",
    "widened_source": {
-    "exact": 143,
+    "exact": 140,
     "fields": 200,
-    "named": 4,
-    "named_right": 4,
-    "within_one": 182
+    "named": 7,
+    "named_right": 7,
+    "within_one": 186
    },
    "widened_spread": {
     "pedicle_h": 0.13023135299131786,
@@ -33747,29 +32715,29 @@
     "pedicle_incl_sag"
    ],
    "panjabi": {
-    "exact": 87,
+    "exact": 105,
     "fields": 1000,
     "named": 0,
     "named_right": 0,
-    "within_one": 269
+    "within_one": 301
    },
    "paper": "olsewski1990",
    "places": 5,
    "sex": "all",
    "source": {
-    "exact": 70,
+    "exact": 84,
     "fields": 1000,
     "named": 0,
     "named_right": 0,
-    "within_one": 339
+    "within_one": 353
    },
    "technique": "cadaver_transverse_radiograph",
    "widened_source": {
-    "exact": 165,
+    "exact": 175,
     "fields": 1000,
     "named": 0,
     "named_right": 0,
-    "within_one": 407
+    "within_one": 422
    },
    "widened_spread": {
     "pedicle_incl_sag": 5.5218391822703605
@@ -33792,29 +32760,29 @@
     "pedicle_incl_sag"
    ],
    "panjabi": {
-    "exact": 179,
+    "exact": 171,
     "fields": 600,
     "named": 0,
     "named_right": 0,
-    "within_one": 292
+    "within_one": 269
    },
    "paper": "olsewski1990",
    "places": 3,
    "sex": "all",
    "source": {
-    "exact": 192,
+    "exact": 194,
     "fields": 600,
     "named": 0,
     "named_right": 0,
-    "within_one": 249
+    "within_one": 279
    },
    "technique": "cadaver_transverse_radiograph",
    "widened_source": {
-    "exact": 329,
+    "exact": 318,
     "fields": 600,
     "named": 0,
     "named_right": 0,
-    "within_one": 498
+    "within_one": 487
    },
    "widened_spread": {
     "pedicle_incl_sag": 5.5218391822703605
@@ -33837,29 +32805,29 @@
     "pedicle_incl_sag"
    ],
    "panjabi": {
-    "exact": 80,
+    "exact": 99,
     "fields": 200,
     "named": 0,
     "named_right": 0,
-    "within_one": 108
+    "within_one": 124
    },
    "paper": "olsewski1990",
    "places": 1,
    "sex": "all",
    "source": {
-    "exact": 133,
+    "exact": 121,
     "fields": 200,
     "named": 0,
     "named_right": 0,
-    "within_one": 152
+    "within_one": 136
    },
    "technique": "cadaver_transverse_radiograph",
    "widened_source": {
-    "exact": 179,
+    "exact": 175,
     "fields": 200,
     "named": 0,
     "named_right": 0,
-    "within_one": 189
+    "within_one": 183
    },
    "widened_spread": {
     "pedicle_incl_sag": 5.5218391822703605
@@ -33884,29 +32852,29 @@
     "pedicle_w"
    ],
    "panjabi": {
-    "exact": 409,
+    "exact": 387,
     "fields": 1000,
-    "named": 63,
-    "named_right": 63,
-    "within_one": 580
+    "named": 64,
+    "named_right": 64,
+    "within_one": 559
    },
    "paper": "olsewski1990",
    "places": 5,
    "sex": "all",
    "source": {
-    "exact": 268,
+    "exact": 282,
     "fields": 1000,
-    "named": 69,
-    "named_right": 68,
-    "within_one": 446
+    "named": 58,
+    "named_right": 58,
+    "within_one": 440
    },
    "technique": "direct_caliper_microscope",
    "widened_source": {
-    "exact": 329,
+    "exact": 339,
     "fields": 1000,
-    "named": 67,
-    "named_right": 67,
-    "within_one": 473
+    "named": 55,
+    "named_right": 55,
+    "within_one": 470
    },
    "widened_spread": {
     "pedicle_h": 0.13023135299131786,
@@ -33933,29 +32901,29 @@
     "pedicle_w"
    ],
    "panjabi": {
-    "exact": 413,
+    "exact": 409,
     "fields": 600,
-    "named": 104,
-    "named_right": 104,
-    "within_one": 500
+    "named": 99,
+    "named_right": 99,
+    "within_one": 477
    },
    "paper": "olsewski1990",
    "places": 3,
    "sex": "all",
    "source": {
-    "exact": 238,
+    "exact": 233,
     "fields": 600,
-    "named": 70,
-    "named_right": 70,
-    "within_one": 359
+    "named": 82,
+    "named_right": 82,
+    "within_one": 346
    },
    "technique": "direct_caliper_microscope",
    "widened_source": {
-    "exact": 284,
+    "exact": 274,
     "fields": 600,
-    "named": 61,
-    "named_right": 61,
-    "within_one": 379
+    "named": 75,
+    "named_right": 75,
+    "within_one": 372
    },
    "widened_spread": {
     "pedicle_h": 0.13023135299131786,
@@ -33984,27 +32952,27 @@
    "panjabi": {
     "exact": 188,
     "fields": 200,
-    "named": 129,
-    "named_right": 129,
-    "within_one": 197
+    "named": 118,
+    "named_right": 118,
+    "within_one": 194
    },
    "paper": "olsewski1990",
    "places": 1,
    "sex": "all",
    "source": {
-    "exact": 152,
+    "exact": 160,
     "fields": 200,
-    "named": 85,
-    "named_right": 85,
-    "within_one": 194
+    "named": 95,
+    "named_right": 95,
+    "within_one": 192
    },
    "technique": "direct_caliper_microscope",
    "widened_source": {
-    "exact": 184,
+    "exact": 188,
     "fields": 200,
-    "named": 61,
-    "named_right": 61,
-    "within_one": 191
+    "named": 75,
+    "named_right": 75,
+    "within_one": 194
    },
    "widened_spread": {
     "pedicle_h": 0.13023135299131786,
@@ -34032,27 +33000,27 @@
    "panjabi": {
     "exact": 376,
     "fields": 1000,
-    "named": 67,
-    "named_right": 67,
-    "within_one": 545
+    "named": 64,
+    "named_right": 64,
+    "within_one": 527
    },
    "paper": "olsewski1990",
    "places": 5,
    "sex": "all",
    "source": {
-    "exact": 167,
-    "fields": 1000,
-    "named": 1,
-    "named_right": 1,
-    "within_one": 410
-   },
-   "technique": "patient_ap_radiograph",
-   "widened_source": {
-    "exact": 211,
+    "exact": 175,
     "fields": 1000,
     "named": 2,
     "named_right": 2,
-    "within_one": 430
+    "within_one": 415
+   },
+   "technique": "patient_ap_radiograph",
+   "widened_source": {
+    "exact": 204,
+    "fields": 1000,
+    "named": 0,
+    "named_right": 0,
+    "within_one": 425
    },
    "widened_spread": {
     "pedicle_h": 0.13023135299131786,
@@ -34064,462 +33032,6 @@
    "cohort": "part3_patients",
    "fields_per_place": 200,
    "group": "Part 3 living patients, AP radiographs",
-   "holds_subjects_of": [],
-   "levels": [
-    "L1",
-    "L2",
-    "L3",
-    "L4",
-    "L5"
-   ],
-   "measures": [
-    "pedicle_h",
-    "pedicle_w"
-   ],
-   "panjabi": {
-    "exact": 419,
-    "fields": 600,
-    "named": 87,
-    "named_right": 87,
-    "within_one": 476
-   },
-   "paper": "olsewski1990",
-   "places": 3,
-   "sex": "all",
-   "source": {
-    "exact": 115,
-    "fields": 600,
-    "named": 2,
-    "named_right": 2,
-    "within_one": 308
-   },
-   "technique": "patient_ap_radiograph",
-   "widened_source": {
-    "exact": 179,
-    "fields": 600,
-    "named": 0,
-    "named_right": 0,
-    "within_one": 337
-   },
-   "widened_spread": {
-    "pedicle_h": 0.13023135299131786,
-    "pedicle_w": 0.13072155556817203
-   },
-   "width": 3
-  },
-  {
-   "cohort": "part3_patients",
-   "fields_per_place": 200,
-   "group": "Part 3 living patients, AP radiographs",
-   "holds_subjects_of": [],
-   "levels": [
-    "L1",
-    "L2",
-    "L3",
-    "L4",
-    "L5"
-   ],
-   "measures": [
-    "pedicle_h",
-    "pedicle_w"
-   ],
-   "panjabi": {
-    "exact": 167,
-    "fields": 200,
-    "named": 96,
-    "named_right": 96,
-    "within_one": 187
-   },
-   "paper": "olsewski1990",
-   "places": 1,
-   "sex": "all",
-   "source": {
-    "exact": 36,
-    "fields": 200,
-    "named": 4,
-    "named_right": 4,
-    "within_one": 137
-   },
-   "technique": "patient_ap_radiograph",
-   "widened_source": {
-    "exact": 83,
-    "fields": 200,
-    "named": 2,
-    "named_right": 2,
-    "within_one": 147
-   },
-   "widened_spread": {
-    "pedicle_h": 0.13023135299131786,
-    "pedicle_w": 0.13072155556817203
-   },
-   "width": 5
-  },
-  {
-   "cohort": "part3_patients",
-   "fields_per_place": 200,
-   "group": "Part 3 living patients, CT",
-   "holds_subjects_of": [],
-   "levels": [
-    "L3",
-    "L4",
-    "L5"
-   ],
-   "measures": [
-    "pedicle_incl_sag"
-   ],
-   "panjabi": {
-    "exact": 106,
-    "fields": 600,
-    "named": 0,
-    "named_right": 0,
-    "within_one": 201
-   },
-   "paper": "olsewski1990",
-   "places": 3,
-   "sex": "all",
-   "source": {
-    "exact": 75,
-    "fields": 600,
-    "named": 0,
-    "named_right": 0,
-    "within_one": 129
-   },
-   "technique": "patient_ct",
-   "widened_source": {
-    "exact": 181,
-    "fields": 600,
-    "named": 0,
-    "named_right": 0,
-    "within_one": 370
-   },
-   "widened_spread": {
-    "pedicle_incl_sag": 5.5218391822703605
-   },
-   "width": 1
-  },
-  {
-   "cohort": "part3_patients",
-   "fields_per_place": 200,
-   "group": "Part 3 living patients, CT",
-   "holds_subjects_of": [],
-   "levels": [
-    "L3",
-    "L4",
-    "L5"
-   ],
-   "measures": [
-    "pedicle_incl_sag"
-   ],
-   "panjabi": {
-    "exact": 93,
-    "fields": 200,
-    "named": 0,
-    "named_right": 0,
-    "within_one": 116
-   },
-   "paper": "olsewski1990",
-   "places": 1,
-   "sex": "all",
-   "source": {
-    "exact": 94,
-    "fields": 200,
-    "named": 0,
-    "named_right": 0,
-    "within_one": 120
-   },
-   "technique": "patient_ct",
-   "widened_source": {
-    "exact": 152,
-    "fields": 200,
-    "named": 0,
-    "named_right": 0,
-    "within_one": 190
-   },
-   "widened_spread": {
-    "pedicle_incl_sag": 5.5218391822703605
-   },
-   "width": 3
-  },
-  {
-   "cohort": "part3_patients",
-   "fields_per_place": 200,
-   "group": "Part 3 living patients, CT",
-   "holds_subjects_of": [],
-   "levels": [
-    "L2"
-   ],
-   "measures": [
-    "pedicle_incl_sag"
-   ],
-   "panjabi": {
-    "exact": 0,
-    "fields": 200,
-    "named": 0,
-    "named_right": 0,
-    "within_one": 37
-   },
-   "paper": "olsewski1990",
-   "places": 1,
-   "sex": "female",
-   "source": {
-    "exact": 0,
-    "fields": 200,
-    "named": 0,
-    "named_right": 0,
-    "within_one": 3
-   },
-   "technique": "patient_ct",
-   "widened_source": {
-    "exact": 0,
-    "fields": 200,
-    "named": 0,
-    "named_right": 0,
-    "within_one": 145
-   },
-   "widened_spread": {
-    "pedicle_incl_sag": 5.5218391822703605
-   },
-   "width": 1
-  },
-  {
-   "cohort": "part3_patients",
-   "fields_per_place": 200,
-   "group": "Part 3 living patients, CT",
-   "holds_subjects_of": [],
-   "levels": [
-    "L2"
-   ],
-   "measures": [
-    "pedicle_incl_sag"
-   ],
-   "panjabi": {
-    "exact": 0,
-    "fields": 200,
-    "named": 0,
-    "named_right": 0,
-    "within_one": 31
-   },
-   "paper": "olsewski1990",
-   "places": 1,
-   "sex": "male",
-   "source": {
-    "exact": 0,
-    "fields": 200,
-    "named": 0,
-    "named_right": 0,
-    "within_one": 0
-   },
-   "technique": "patient_ct",
-   "widened_source": {
-    "exact": 0,
-    "fields": 200,
-    "named": 0,
-    "named_right": 0,
-    "within_one": 112
-   },
-   "widened_spread": {
-    "pedicle_incl_sag": 5.5218391822703605
-   },
-   "width": 1
-  },
-  {
-   "cohort": "rush_cadaver_6",
-   "fields_per_place": 200,
-   "group": "",
-   "holds_subjects_of": [],
-   "levels": [
-    "L1",
-    "L2",
-    "L3",
-    "L4",
-    "L5"
-   ],
-   "measures": [
-    "pedicle_area",
-    "pedicle_h",
-    "pedicle_w"
-   ],
-   "panjabi": {
-    "exact": 389,
-    "fields": 1000,
-    "named": 61,
-    "named_right": 61,
-    "within_one": 595
-   },
-   "paper": "otsuki2021",
-   "places": 5,
-   "sex": "all",
-   "source": {
-    "exact": 220,
-    "fields": 1000,
-    "named": 2,
-    "named_right": 2,
-    "within_one": 449
-   },
-   "technique": "microct_isthmus_dimensions",
-   "widened_source": {
-    "exact": 226,
-    "fields": 1000,
-    "named": 1,
-    "named_right": 1,
-    "within_one": 411
-   },
-   "widened_spread": {
-    "pedicle_area": null,
-    "pedicle_h": 0.13023135299131786,
-    "pedicle_w": 0.13072155556817203
-   },
-   "width": 1
-  },
-  {
-   "cohort": "rush_cadaver_6",
-   "fields_per_place": 200,
-   "group": "",
-   "holds_subjects_of": [],
-   "levels": [
-    "L1",
-    "L2",
-    "L3",
-    "L4",
-    "L5"
-   ],
-   "measures": [
-    "pedicle_area",
-    "pedicle_h",
-    "pedicle_w"
-   ],
-   "panjabi": {
-    "exact": 430,
-    "fields": 600,
-    "named": 94,
-    "named_right": 94,
-    "within_one": 508
-   },
-   "paper": "otsuki2021",
-   "places": 3,
-   "sex": "all",
-   "source": {
-    "exact": 169,
-    "fields": 600,
-    "named": 5,
-    "named_right": 5,
-    "within_one": 277
-   },
-   "technique": "microct_isthmus_dimensions",
-   "widened_source": {
-    "exact": 190,
-    "fields": 600,
-    "named": 0,
-    "named_right": 0,
-    "within_one": 304
-   },
-   "widened_spread": {
-    "pedicle_area": null,
-    "pedicle_h": 0.13023135299131786,
-    "pedicle_w": 0.13072155556817203
-   },
-   "width": 3
-  },
-  {
-   "cohort": "rush_cadaver_6",
-   "fields_per_place": 200,
-   "group": "",
-   "holds_subjects_of": [],
-   "levels": [
-    "L1",
-    "L2",
-    "L3",
-    "L4",
-    "L5"
-   ],
-   "measures": [
-    "pedicle_area",
-    "pedicle_h",
-    "pedicle_w"
-   ],
-   "panjabi": {
-    "exact": 183,
-    "fields": 200,
-    "named": 127,
-    "named_right": 127,
-    "within_one": 195
-   },
-   "paper": "otsuki2021",
-   "places": 1,
-   "sex": "all",
-   "source": {
-    "exact": 111,
-    "fields": 200,
-    "named": 33,
-    "named_right": 32,
-    "within_one": 115
-   },
-   "technique": "microct_isthmus_dimensions",
-   "widened_source": {
-    "exact": 135,
-    "fields": 200,
-    "named": 12,
-    "named_right": 12,
-    "within_one": 142
-   },
-   "widened_spread": {
-    "pedicle_area": null,
-    "pedicle_h": 0.13023135299131786,
-    "pedicle_w": 0.13072155556817203
-   },
-   "width": 5
-  },
-  {
-   "cohort": "auckland_drybone",
-   "fields_per_place": 200,
-   "group": "",
-   "holds_subjects_of": [],
-   "levels": [
-    "L1",
-    "L2",
-    "L3",
-    "L4",
-    "L5"
-   ],
-   "measures": [
-    "pedicle_h",
-    "pedicle_w"
-   ],
-   "panjabi": {
-    "exact": 375,
-    "fields": 1000,
-    "named": 58,
-    "named_right": 58,
-    "within_one": 549
-   },
-   "paper": "robertson2000",
-   "places": 5,
-   "sex": "not stated",
-   "source": {
-    "exact": 242,
-    "fields": 1000,
-    "named": 156,
-    "named_right": 114,
-    "within_one": 522
-   },
-   "technique": "coaxial_radiograph_wire",
-   "widened_source": {
-    "exact": 255,
-    "fields": 1000,
-    "named": 131,
-    "named_right": 102,
-    "within_one": 531
-   },
-   "widened_spread": {
-    "pedicle_h": 0.13023135299131786,
-    "pedicle_w": 0.13072155556817203
-   },
-   "width": 1
-  },
-  {
-   "cohort": "auckland_drybone",
-   "fields_per_place": 200,
-   "group": "",
    "holds_subjects_of": [],
    "levels": [
     "L1",
@@ -34535,27 +33047,403 @@
    "panjabi": {
     "exact": 385,
     "fields": 600,
-    "named": 85,
-    "named_right": 85,
-    "within_one": 476
+    "named": 80,
+    "named_right": 80,
+    "within_one": 463
+   },
+   "paper": "olsewski1990",
+   "places": 3,
+   "sex": "all",
+   "source": {
+    "exact": 125,
+    "fields": 600,
+    "named": 1,
+    "named_right": 1,
+    "within_one": 282
+   },
+   "technique": "patient_ap_radiograph",
+   "widened_source": {
+    "exact": 166,
+    "fields": 600,
+    "named": 0,
+    "named_right": 0,
+    "within_one": 328
+   },
+   "widened_spread": {
+    "pedicle_h": 0.13023135299131786,
+    "pedicle_w": 0.13072155556817203
+   },
+   "width": 3
+  },
+  {
+   "cohort": "part3_patients",
+   "fields_per_place": 200,
+   "group": "Part 3 living patients, AP radiographs",
+   "holds_subjects_of": [],
+   "levels": [
+    "L1",
+    "L2",
+    "L3",
+    "L4",
+    "L5"
+   ],
+   "measures": [
+    "pedicle_h",
+    "pedicle_w"
+   ],
+   "panjabi": {
+    "exact": 179,
+    "fields": 200,
+    "named": 102,
+    "named_right": 102,
+    "within_one": 186
+   },
+   "paper": "olsewski1990",
+   "places": 1,
+   "sex": "all",
+   "source": {
+    "exact": 40,
+    "fields": 200,
+    "named": 2,
+    "named_right": 2,
+    "within_one": 134
+   },
+   "technique": "patient_ap_radiograph",
+   "widened_source": {
+    "exact": 103,
+    "fields": 200,
+    "named": 0,
+    "named_right": 0,
+    "within_one": 150
+   },
+   "widened_spread": {
+    "pedicle_h": 0.13023135299131786,
+    "pedicle_w": 0.13072155556817203
+   },
+   "width": 5
+  },
+  {
+   "cohort": "part3_patients",
+   "fields_per_place": 200,
+   "group": "Part 3 living patients, CT",
+   "holds_subjects_of": [],
+   "levels": [
+    "L2",
+    "L3",
+    "L4",
+    "L5"
+   ],
+   "measures": [
+    "pedicle_incl_sag"
+   ],
+   "panjabi": {
+    "exact": 101,
+    "fields": 800,
+    "named": 0,
+    "named_right": 0,
+    "within_one": 235
+   },
+   "paper": "olsewski1990",
+   "places": 4,
+   "sex": "all",
+   "source": {
+    "exact": 70,
+    "fields": 800,
+    "named": 0,
+    "named_right": 0,
+    "within_one": 137
+   },
+   "technique": "patient_ct",
+   "widened_source": {
+    "exact": 180,
+    "fields": 800,
+    "named": 0,
+    "named_right": 0,
+    "within_one": 500
+   },
+   "widened_spread": {
+    "pedicle_incl_sag": 5.5218391822703605
+   },
+   "width": 1
+  },
+  {
+   "cohort": "part3_patients",
+   "fields_per_place": 200,
+   "group": "Part 3 living patients, CT",
+   "holds_subjects_of": [],
+   "levels": [
+    "L2",
+    "L3",
+    "L4",
+    "L5"
+   ],
+   "measures": [
+    "pedicle_incl_sag"
+   ],
+   "panjabi": {
+    "exact": 154,
+    "fields": 400,
+    "named": 0,
+    "named_right": 0,
+    "within_one": 220
+   },
+   "paper": "olsewski1990",
+   "places": 2,
+   "sex": "all",
+   "source": {
+    "exact": 96,
+    "fields": 400,
+    "named": 0,
+    "named_right": 0,
+    "within_one": 129
+   },
+   "technique": "patient_ct",
+   "widened_source": {
+    "exact": 296,
+    "fields": 400,
+    "named": 0,
+    "named_right": 0,
+    "within_one": 372
+   },
+   "widened_spread": {
+    "pedicle_incl_sag": 5.5218391822703605
+   },
+   "width": 3
+  },
+  {
+   "cohort": "rush_cadaver_6",
+   "fields_per_place": 200,
+   "group": "",
+   "holds_subjects_of": [],
+   "levels": [
+    "L1",
+    "L2",
+    "L3",
+    "L4",
+    "L5"
+   ],
+   "measures": [
+    "pedicle_area",
+    "pedicle_h",
+    "pedicle_w"
+   ],
+   "panjabi": {
+    "exact": 390,
+    "fields": 1000,
+    "named": 63,
+    "named_right": 61,
+    "within_one": 568
+   },
+   "paper": "otsuki2021",
+   "places": 5,
+   "sex": "all",
+   "source": {
+    "exact": 251,
+    "fields": 1000,
+    "named": 2,
+    "named_right": 2,
+    "within_one": 449
+   },
+   "technique": "microct_isthmus_dimensions",
+   "widened_source": {
+    "exact": 236,
+    "fields": 1000,
+    "named": 2,
+    "named_right": 2,
+    "within_one": 452
+   },
+   "widened_spread": {
+    "pedicle_area": null,
+    "pedicle_h": 0.13023135299131786,
+    "pedicle_w": 0.13072155556817203
+   },
+   "width": 1
+  },
+  {
+   "cohort": "rush_cadaver_6",
+   "fields_per_place": 200,
+   "group": "",
+   "holds_subjects_of": [],
+   "levels": [
+    "L1",
+    "L2",
+    "L3",
+    "L4",
+    "L5"
+   ],
+   "measures": [
+    "pedicle_area",
+    "pedicle_h",
+    "pedicle_w"
+   ],
+   "panjabi": {
+    "exact": 408,
+    "fields": 600,
+    "named": 103,
+    "named_right": 103,
+    "within_one": 500
+   },
+   "paper": "otsuki2021",
+   "places": 3,
+   "sex": "all",
+   "source": {
+    "exact": 171,
+    "fields": 600,
+    "named": 8,
+    "named_right": 5,
+    "within_one": 302
+   },
+   "technique": "microct_isthmus_dimensions",
+   "widened_source": {
+    "exact": 182,
+    "fields": 600,
+    "named": 2,
+    "named_right": 2,
+    "within_one": 309
+   },
+   "widened_spread": {
+    "pedicle_area": null,
+    "pedicle_h": 0.13023135299131786,
+    "pedicle_w": 0.13072155556817203
+   },
+   "width": 3
+  },
+  {
+   "cohort": "rush_cadaver_6",
+   "fields_per_place": 200,
+   "group": "",
+   "holds_subjects_of": [],
+   "levels": [
+    "L1",
+    "L2",
+    "L3",
+    "L4",
+    "L5"
+   ],
+   "measures": [
+    "pedicle_area",
+    "pedicle_h",
+    "pedicle_w"
+   ],
+   "panjabi": {
+    "exact": 188,
+    "fields": 200,
+    "named": 133,
+    "named_right": 133,
+    "within_one": 196
+   },
+   "paper": "otsuki2021",
+   "places": 1,
+   "sex": "all",
+   "source": {
+    "exact": 112,
+    "fields": 200,
+    "named": 46,
+    "named_right": 42,
+    "within_one": 117
+   },
+   "technique": "microct_isthmus_dimensions",
+   "widened_source": {
+    "exact": 144,
+    "fields": 200,
+    "named": 10,
+    "named_right": 10,
+    "within_one": 149
+   },
+   "widened_spread": {
+    "pedicle_area": null,
+    "pedicle_h": 0.13023135299131786,
+    "pedicle_w": 0.13072155556817203
+   },
+   "width": 5
+  },
+  {
+   "cohort": "auckland_drybone",
+   "fields_per_place": 200,
+   "group": "",
+   "holds_subjects_of": [],
+   "levels": [
+    "L1",
+    "L2",
+    "L3",
+    "L4",
+    "L5"
+   ],
+   "measures": [
+    "pedicle_h",
+    "pedicle_w"
+   ],
+   "panjabi": {
+    "exact": 376,
+    "fields": 1000,
+    "named": 56,
+    "named_right": 56,
+    "within_one": 533
+   },
+   "paper": "robertson2000",
+   "places": 5,
+   "sex": "not stated",
+   "source": {
+    "exact": 234,
+    "fields": 1000,
+    "named": 139,
+    "named_right": 109,
+    "within_one": 499
+   },
+   "technique": "coaxial_radiograph_wire",
+   "widened_source": {
+    "exact": 239,
+    "fields": 1000,
+    "named": 119,
+    "named_right": 97,
+    "within_one": 516
+   },
+   "widened_spread": {
+    "pedicle_h": 0.13023135299131786,
+    "pedicle_w": 0.13072155556817203
+   },
+   "width": 1
+  },
+  {
+   "cohort": "auckland_drybone",
+   "fields_per_place": 200,
+   "group": "",
+   "holds_subjects_of": [],
+   "levels": [
+    "L1",
+    "L2",
+    "L3",
+    "L4",
+    "L5"
+   ],
+   "measures": [
+    "pedicle_h",
+    "pedicle_w"
+   ],
+   "panjabi": {
+    "exact": 382,
+    "fields": 600,
+    "named": 94,
+    "named_right": 94,
+    "within_one": 457
    },
    "paper": "robertson2000",
    "places": 3,
    "sex": "not stated",
    "source": {
-    "exact": 225,
+    "exact": 229,
     "fields": 600,
-    "named": 89,
-    "named_right": 75,
-    "within_one": 403
+    "named": 93,
+    "named_right": 76,
+    "within_one": 388
    },
    "technique": "coaxial_radiograph_wire",
    "widened_source": {
-    "exact": 252,
+    "exact": 226,
     "fields": 600,
-    "named": 86,
-    "named_right": 71,
-    "within_one": 456
+    "named": 97,
+    "named_right": 84,
+    "within_one": 458
    },
    "widened_spread": {
     "pedicle_h": 0.13023135299131786,
@@ -34580,29 +33468,29 @@
     "pedicle_w"
    ],
    "panjabi": {
-    "exact": 178,
+    "exact": 176,
     "fields": 200,
-    "named": 113,
-    "named_right": 113,
+    "named": 100,
+    "named_right": 100,
     "within_one": 188
    },
    "paper": "robertson2000",
    "places": 1,
    "sex": "not stated",
    "source": {
-    "exact": 153,
-    "fields": 200,
-    "named": 92,
-    "named_right": 90,
-    "within_one": 190
-   },
-   "technique": "coaxial_radiograph_wire",
-   "widened_source": {
-    "exact": 188,
+    "exact": 145,
     "fields": 200,
     "named": 83,
     "named_right": 83,
-    "within_one": 194
+    "within_one": 179
+   },
+   "technique": "coaxial_radiograph_wire",
+   "widened_source": {
+    "exact": 181,
+    "fields": 200,
+    "named": 75,
+    "named_right": 75,
+    "within_one": 189
    },
    "widened_spread": {
     "pedicle_h": 0.13023135299131786,
@@ -34654,29 +33542,29 @@
     "endplate_lower_area"
    ],
    "panjabi": {
-    "exact": 2229,
+    "exact": 2206,
     "fields": 3000,
-    "named": 539,
-    "named_right": 539,
-    "within_one": 2762
+    "named": 531,
+    "named_right": 531,
+    "within_one": 2750
    },
    "paper": "tan2004",
    "places": 15,
    "sex": "not stated",
    "source": {
-    "exact": 1219,
+    "exact": 1215,
     "fields": 3000,
-    "named": 59,
-    "named_right": 52,
-    "within_one": 2492
+    "named": 70,
+    "named_right": 60,
+    "within_one": 2487
    },
    "technique": "direct_contact_3d_digitiser",
    "widened_source": {
-    "exact": 1166,
+    "exact": 1162,
     "fields": 3000,
-    "named": 17,
+    "named": 13,
     "named_right": 6,
-    "within_one": 2469
+    "within_one": 2463
    },
    "widened_spread": {
     "canal_ap": 0.10653757552638136,
@@ -34693,7 +33581,7 @@
     "h_post": 0.09722270060397477,
     "pedicle_area": null,
     "pedicle_h": 0.08869096907688506,
-    "pedicle_incl_sag": 4.240183573071818,
+    "pedicle_incl_sag": 4.226391656349174,
     "pedicle_incl_trans": 2.482580117307015,
     "pedicle_w": 0.1508419666547751,
     "spinous_length": null,
@@ -34745,29 +33633,29 @@
     "endplate_lower_area"
    ],
    "panjabi": {
-    "exact": 2427,
+    "exact": 2450,
     "fields": 2600,
-    "named": 1642,
-    "named_right": 1642,
-    "within_one": 2579
+    "named": 1622,
+    "named_right": 1622,
+    "within_one": 2563
    },
    "paper": "tan2004",
    "places": 13,
    "sex": "not stated",
    "source": {
-    "exact": 1408,
+    "exact": 1405,
     "fields": 2600,
-    "named": 382,
-    "named_right": 345,
-    "within_one": 2401
+    "named": 401,
+    "named_right": 365,
+    "within_one": 2409
    },
    "technique": "direct_contact_3d_digitiser",
    "widened_source": {
-    "exact": 1450,
+    "exact": 1416,
     "fields": 2600,
-    "named": 361,
-    "named_right": 334,
-    "within_one": 2365
+    "named": 385,
+    "named_right": 357,
+    "within_one": 2358
    },
    "widened_spread": {
     "canal_ap": 0.10653757552638136,
@@ -34784,7 +33672,7 @@
     "h_post": 0.09722270060397477,
     "pedicle_area": null,
     "pedicle_h": 0.08869096907688506,
-    "pedicle_incl_sag": 4.240183573071818,
+    "pedicle_incl_sag": 4.226391656349174,
     "pedicle_incl_trans": 2.482580117307015,
     "pedicle_w": 0.1508419666547751,
     "spinous_length": null,
@@ -34836,29 +33724,29 @@
     "endplate_lower_area"
    ],
    "panjabi": {
-    "exact": 2145,
+    "exact": 2171,
     "fields": 2200,
-    "named": 1898,
-    "named_right": 1896,
-    "within_one": 2197
+    "named": 1895,
+    "named_right": 1895,
+    "within_one": 2198
    },
    "paper": "tan2004",
    "places": 11,
    "sex": "not stated",
    "source": {
-    "exact": 1431,
+    "exact": 1435,
     "fields": 2200,
-    "named": 558,
-    "named_right": 503,
-    "within_one": 2122
+    "named": 551,
+    "named_right": 492,
+    "within_one": 2155
    },
    "technique": "direct_contact_3d_digitiser",
    "widened_source": {
-    "exact": 1477,
+    "exact": 1486,
     "fields": 2200,
-    "named": 555,
-    "named_right": 525,
-    "within_one": 2110
+    "named": 529,
+    "named_right": 497,
+    "within_one": 2155
    },
    "widened_spread": {
     "canal_ap": 0.10653757552638136,
@@ -34875,7 +33763,7 @@
     "h_post": 0.09722270060397477,
     "pedicle_area": null,
     "pedicle_h": 0.08869096907688506,
-    "pedicle_incl_sag": 4.240183573071818,
+    "pedicle_incl_sag": 4.226391656349174,
     "pedicle_incl_trans": 2.482580117307015,
     "pedicle_w": 0.1508419666547751,
     "spinous_length": null,
@@ -34901,29 +33789,29 @@
     "endplate_depth"
    ],
    "panjabi": {
-    "exact": 160,
+    "exact": 138,
     "fields": 400,
     "named": 0,
     "named_right": 0,
-    "within_one": 292
+    "within_one": 279
    },
    "paper": "tang2016",
    "places": 2,
    "sex": "all",
    "source": {
-    "exact": 185,
+    "exact": 178,
     "fields": 400,
     "named": 0,
     "named_right": 0,
-    "within_one": 338
+    "within_one": 318
    },
    "technique": "mri_t2_oblique_transverse",
    "widened_source": {
-    "exact": 184,
+    "exact": 177,
     "fields": 400,
     "named": 0,
     "named_right": 0,
-    "within_one": 365
+    "within_one": 341
    },
    "widened_spread": {
     "endplate": 0.05923260532236321,
@@ -34951,29 +33839,29 @@
     "endplate_lower_depth"
    ],
    "panjabi": {
-    "exact": 126,
+    "exact": 131,
     "fields": 200,
-    "named": 3,
-    "named_right": 3,
-    "within_one": 164
+    "named": 4,
+    "named_right": 4,
+    "within_one": 171
    },
    "paper": "tang2016",
    "places": 1,
    "sex": "all",
    "source": {
-    "exact": 98,
+    "exact": 99,
     "fields": 200,
     "named": 0,
     "named_right": 0,
-    "within_one": 165
+    "within_one": 148
    },
    "technique": "mri_t2_oblique_transverse",
    "widened_source": {
-    "exact": 103,
+    "exact": 108,
     "fields": 200,
     "named": 0,
     "named_right": 0,
-    "within_one": 170
+    "within_one": 160
    },
    "widened_spread": {
     "endplate_lower": 0.06120896473144266,
@@ -35003,29 +33891,29 @@
     "endplate_lower_depth"
    ],
    "panjabi": {
-    "exact": 452,
+    "exact": 473,
     "fields": 1200,
     "named": 0,
     "named_right": 0,
-    "within_one": 826
+    "within_one": 837
    },
    "paper": "yadav2020",
    "places": 6,
    "sex": "all",
    "source": {
-    "exact": 311,
+    "exact": 281,
     "fields": 1200,
     "named": 1,
     "named_right": 0,
-    "within_one": 712
+    "within_one": 731
    },
    "technique": "yadav-ct-axial-fig1",
    "widened_source": {
-    "exact": 342,
+    "exact": 357,
     "fields": 1200,
     "named": 0,
     "named_right": 0,
-    "within_one": 755
+    "within_one": 800
    },
    "widened_spread": {
     "canal_ap": 0.11730211014658302,
@@ -35057,29 +33945,29 @@
     "endplate_lower_depth"
    ],
    "panjabi": {
-    "exact": 499,
+    "exact": 539,
     "fields": 800,
-    "named": 20,
-    "named_right": 20,
-    "within_one": 671
+    "named": 8,
+    "named_right": 8,
+    "within_one": 700
    },
    "paper": "yadav2020",
    "places": 4,
    "sex": "all",
    "source": {
-    "exact": 296,
+    "exact": 308,
     "fields": 800,
-    "named": 15,
-    "named_right": 10,
-    "within_one": 618
+    "named": 11,
+    "named_right": 6,
+    "within_one": 637
    },
    "technique": "yadav-ct-axial-fig1",
    "widened_source": {
-    "exact": 342,
+    "exact": 320,
     "fields": 800,
     "named": 0,
     "named_right": 0,
-    "within_one": 642
+    "within_one": 653
    },
    "widened_spread": {
     "canal_ap": 0.11730211014658302,
@@ -35111,28 +33999,28 @@
     "endplate_lower_depth"
    ],
    "panjabi": {
-    "exact": 321,
+    "exact": 343,
     "fields": 400,
-    "named": 51,
-    "named_right": 51,
-    "within_one": 382
+    "named": 71,
+    "named_right": 70,
+    "within_one": 394
    },
    "paper": "yadav2020",
    "places": 2,
    "sex": "all",
    "source": {
-    "exact": 224,
+    "exact": 222,
     "fields": 400,
-    "named": 22,
-    "named_right": 18,
-    "within_one": 373
+    "named": 37,
+    "named_right": 31,
+    "within_one": 364
    },
    "technique": "yadav-ct-axial-fig1",
    "widened_source": {
-    "exact": 233,
+    "exact": 240,
     "fields": 400,
-    "named": 0,
-    "named_right": 0,
+    "named": 2,
+    "named_right": 2,
     "within_one": 370
    },
    "widened_spread": {
@@ -35161,29 +34049,29 @@
     "pedicle_w"
    ],
    "panjabi": {
-    "exact": 363,
+    "exact": 370,
     "fields": 1000,
-    "named": 68,
-    "named_right": 68,
-    "within_one": 530
+    "named": 57,
+    "named_right": 57,
+    "within_one": 544
    },
    "paper": "yu2015",
    "places": 5,
    "sex": "all",
    "source": {
-    "exact": 313,
+    "exact": 299,
     "fields": 1000,
-    "named": 14,
-    "named_right": 14,
-    "within_one": 505
+    "named": 15,
+    "named_right": 15,
+    "within_one": 516
    },
    "technique": "direct_caliper",
    "widened_source": {
-    "exact": 309,
+    "exact": 312,
     "fields": 1000,
-    "named": 20,
-    "named_right": 20,
-    "within_one": 508
+    "named": 22,
+    "named_right": 21,
+    "within_one": 507
    },
    "widened_spread": {
     "pedicle_h": 0.13023135299131786,
@@ -35195,6 +34083,1134 @@
    "cohort": "hamann_todd_503",
    "fields_per_place": 200,
    "group": "",
+   "holds_subjects_of": [],
+   "levels": [
+    "L1",
+    "L2",
+    "L3",
+    "L4",
+    "L5"
+   ],
+   "measures": [
+    "pedicle_h",
+    "pedicle_w"
+   ],
+   "panjabi": {
+    "exact": 409,
+    "fields": 600,
+    "named": 92,
+    "named_right": 92,
+    "within_one": 482
+   },
+   "paper": "yu2015",
+   "places": 3,
+   "sex": "all",
+   "source": {
+    "exact": 326,
+    "fields": 600,
+    "named": 40,
+    "named_right": 38,
+    "within_one": 470
+   },
+   "technique": "direct_caliper",
+   "widened_source": {
+    "exact": 268,
+    "fields": 600,
+    "named": 32,
+    "named_right": 31,
+    "within_one": 430
+   },
+   "widened_spread": {
+    "pedicle_h": 0.13023135299131786,
+    "pedicle_w": 0.1199053900209957
+   },
+   "width": 3
+  },
+  {
+   "cohort": "hamann_todd_503",
+   "fields_per_place": 200,
+   "group": "",
+   "holds_subjects_of": [],
+   "levels": [
+    "L1",
+    "L2",
+    "L3",
+    "L4",
+    "L5"
+   ],
+   "measures": [
+    "pedicle_h",
+    "pedicle_w"
+   ],
+   "panjabi": {
+    "exact": 185,
+    "fields": 200,
+    "named": 113,
+    "named_right": 113,
+    "within_one": 196
+   },
+   "paper": "yu2015",
+   "places": 1,
+   "sex": "all",
+   "source": {
+    "exact": 135,
+    "fields": 200,
+    "named": 45,
+    "named_right": 44,
+    "within_one": 195
+   },
+   "technique": "direct_caliper",
+   "widened_source": {
+    "exact": 184,
+    "fields": 200,
+    "named": 18,
+    "named_right": 18,
+    "within_one": 189
+   },
+   "widened_spread": {
+    "pedicle_h": 0.13023135299131786,
+    "pedicle_w": 0.1199053900209957
+   },
+   "width": 5
+  },
+  {
+   "cohort": "hamann_todd_503",
+   "fields_per_place": 200,
+   "group": "African American",
+   "holds_subjects_of": [],
+   "levels": [
+    "L1",
+    "L2",
+    "L3",
+    "L4",
+    "L5"
+   ],
+   "measures": [
+    "pedicle_h",
+    "pedicle_w"
+   ],
+   "panjabi": {
+    "exact": 369,
+    "fields": 1000,
+    "named": 60,
+    "named_right": 59,
+    "within_one": 547
+   },
+   "paper": "yu2015",
+   "places": 5,
+   "sex": "all",
+   "source": {
+    "exact": 295,
+    "fields": 1000,
+    "named": 15,
+    "named_right": 15,
+    "within_one": 530
+   },
+   "technique": "direct_caliper",
+   "widened_source": {
+    "exact": 308,
+    "fields": 1000,
+    "named": 20,
+    "named_right": 19,
+    "within_one": 514
+   },
+   "widened_spread": {
+    "pedicle_h": 0.13023135299131786,
+    "pedicle_w": 0.1199053900209957
+   },
+   "width": 1
+  },
+  {
+   "cohort": "hamann_todd_503",
+   "fields_per_place": 200,
+   "group": "African American",
+   "holds_subjects_of": [],
+   "levels": [
+    "L1",
+    "L2",
+    "L3",
+    "L4",
+    "L5"
+   ],
+   "measures": [
+    "pedicle_h",
+    "pedicle_w"
+   ],
+   "panjabi": {
+    "exact": 379,
+    "fields": 600,
+    "named": 73,
+    "named_right": 72,
+    "within_one": 451
+   },
+   "paper": "yu2015",
+   "places": 3,
+   "sex": "all",
+   "source": {
+    "exact": 285,
+    "fields": 600,
+    "named": 27,
+    "named_right": 27,
+    "within_one": 444
+   },
+   "technique": "direct_caliper",
+   "widened_source": {
+    "exact": 263,
+    "fields": 600,
+    "named": 19,
+    "named_right": 19,
+    "within_one": 412
+   },
+   "widened_spread": {
+    "pedicle_h": 0.13023135299131786,
+    "pedicle_w": 0.1199053900209957
+   },
+   "width": 3
+  },
+  {
+   "cohort": "hamann_todd_503",
+   "fields_per_place": 200,
+   "group": "African American",
+   "holds_subjects_of": [],
+   "levels": [
+    "L1",
+    "L2",
+    "L3",
+    "L4",
+    "L5"
+   ],
+   "measures": [
+    "pedicle_h",
+    "pedicle_w"
+   ],
+   "panjabi": {
+    "exact": 184,
+    "fields": 200,
+    "named": 107,
+    "named_right": 107,
+    "within_one": 191
+   },
+   "paper": "yu2015",
+   "places": 1,
+   "sex": "all",
+   "source": {
+    "exact": 131,
+    "fields": 200,
+    "named": 42,
+    "named_right": 42,
+    "within_one": 193
+   },
+   "technique": "direct_caliper",
+   "widened_source": {
+    "exact": 187,
+    "fields": 200,
+    "named": 17,
+    "named_right": 17,
+    "within_one": 193
+   },
+   "widened_spread": {
+    "pedicle_h": 0.13023135299131786,
+    "pedicle_w": 0.1199053900209957
+   },
+   "width": 5
+  },
+  {
+   "cohort": "hamann_todd_503",
+   "fields_per_place": 200,
+   "group": "Caucasian",
+   "holds_subjects_of": [],
+   "levels": [
+    "L1",
+    "L2",
+    "L3",
+    "L4",
+    "L5"
+   ],
+   "measures": [
+    "pedicle_h",
+    "pedicle_w"
+   ],
+   "panjabi": {
+    "exact": 373,
+    "fields": 1000,
+    "named": 62,
+    "named_right": 62,
+    "within_one": 535
+   },
+   "paper": "yu2015",
+   "places": 5,
+   "sex": "all",
+   "source": {
+    "exact": 321,
+    "fields": 1000,
+    "named": 18,
+    "named_right": 18,
+    "within_one": 502
+   },
+   "technique": "direct_caliper",
+   "widened_source": {
+    "exact": 323,
+    "fields": 1000,
+    "named": 30,
+    "named_right": 30,
+    "within_one": 492
+   },
+   "widened_spread": {
+    "pedicle_h": 0.13023135299131786,
+    "pedicle_w": 0.1199053900209957
+   },
+   "width": 1
+  },
+  {
+   "cohort": "hamann_todd_503",
+   "fields_per_place": 200,
+   "group": "Caucasian",
+   "holds_subjects_of": [],
+   "levels": [
+    "L1",
+    "L2",
+    "L3",
+    "L4",
+    "L5"
+   ],
+   "measures": [
+    "pedicle_h",
+    "pedicle_w"
+   ],
+   "panjabi": {
+    "exact": 397,
+    "fields": 600,
+    "named": 92,
+    "named_right": 92,
+    "within_one": 482
+   },
+   "paper": "yu2015",
+   "places": 3,
+   "sex": "all",
+   "source": {
+    "exact": 345,
+    "fields": 600,
+    "named": 49,
+    "named_right": 48,
+    "within_one": 485
+   },
+   "technique": "direct_caliper",
+   "widened_source": {
+    "exact": 274,
+    "fields": 600,
+    "named": 39,
+    "named_right": 39,
+    "within_one": 422
+   },
+   "widened_spread": {
+    "pedicle_h": 0.13023135299131786,
+    "pedicle_w": 0.1199053900209957
+   },
+   "width": 3
+  },
+  {
+   "cohort": "hamann_todd_503",
+   "fields_per_place": 200,
+   "group": "Caucasian",
+   "holds_subjects_of": [],
+   "levels": [
+    "L1",
+    "L2",
+    "L3",
+    "L4",
+    "L5"
+   ],
+   "measures": [
+    "pedicle_h",
+    "pedicle_w"
+   ],
+   "panjabi": {
+    "exact": 185,
+    "fields": 200,
+    "named": 110,
+    "named_right": 110,
+    "within_one": 196
+   },
+   "paper": "yu2015",
+   "places": 1,
+   "sex": "all",
+   "source": {
+    "exact": 142,
+    "fields": 200,
+    "named": 57,
+    "named_right": 57,
+    "within_one": 197
+   },
+   "technique": "direct_caliper",
+   "widened_source": {
+    "exact": 186,
+    "fields": 200,
+    "named": 27,
+    "named_right": 27,
+    "within_one": 194
+   },
+   "widened_spread": {
+    "pedicle_h": 0.13023135299131786,
+    "pedicle_w": 0.1199053900209957
+   },
+   "width": 5
+  },
+  {
+   "cohort": "hamann_todd_503",
+   "fields_per_place": 200,
+   "group": "age 31-49 yr",
+   "holds_subjects_of": [],
+   "levels": [
+    "L1",
+    "L2",
+    "L3",
+    "L4",
+    "L5"
+   ],
+   "measures": [
+    "pedicle_h",
+    "pedicle_w"
+   ],
+   "panjabi": {
+    "exact": 381,
+    "fields": 1000,
+    "named": 54,
+    "named_right": 54,
+    "within_one": 529
+   },
+   "paper": "yu2015",
+   "places": 5,
+   "sex": "all",
+   "source": {
+    "exact": 301,
+    "fields": 1000,
+    "named": 12,
+    "named_right": 12,
+    "within_one": 506
+   },
+   "technique": "direct_caliper",
+   "widened_source": {
+    "exact": 313,
+    "fields": 1000,
+    "named": 14,
+    "named_right": 14,
+    "within_one": 494
+   },
+   "widened_spread": {
+    "pedicle_h": 0.13023135299131786,
+    "pedicle_w": 0.1199053900209957
+   },
+   "width": 1
+  },
+  {
+   "cohort": "hamann_todd_503",
+   "fields_per_place": 200,
+   "group": "age 31-49 yr",
+   "holds_subjects_of": [],
+   "levels": [
+    "L1",
+    "L2",
+    "L3",
+    "L4",
+    "L5"
+   ],
+   "measures": [
+    "pedicle_h",
+    "pedicle_w"
+   ],
+   "panjabi": {
+    "exact": 391,
+    "fields": 600,
+    "named": 81,
+    "named_right": 81,
+    "within_one": 466
+   },
+   "paper": "yu2015",
+   "places": 3,
+   "sex": "all",
+   "source": {
+    "exact": 316,
+    "fields": 600,
+    "named": 29,
+    "named_right": 29,
+    "within_one": 461
+   },
+   "technique": "direct_caliper",
+   "widened_source": {
+    "exact": 281,
+    "fields": 600,
+    "named": 22,
+    "named_right": 22,
+    "within_one": 400
+   },
+   "widened_spread": {
+    "pedicle_h": 0.13023135299131786,
+    "pedicle_w": 0.1199053900209957
+   },
+   "width": 3
+  },
+  {
+   "cohort": "hamann_todd_503",
+   "fields_per_place": 200,
+   "group": "age 31-49 yr",
+   "holds_subjects_of": [],
+   "levels": [
+    "L1",
+    "L2",
+    "L3",
+    "L4",
+    "L5"
+   ],
+   "measures": [
+    "pedicle_h",
+    "pedicle_w"
+   ],
+   "panjabi": {
+    "exact": 172,
+    "fields": 200,
+    "named": 113,
+    "named_right": 113,
+    "within_one": 187
+   },
+   "paper": "yu2015",
+   "places": 1,
+   "sex": "all",
+   "source": {
+    "exact": 144,
+    "fields": 200,
+    "named": 45,
+    "named_right": 45,
+    "within_one": 196
+   },
+   "technique": "direct_caliper",
+   "widened_source": {
+    "exact": 185,
+    "fields": 200,
+    "named": 22,
+    "named_right": 22,
+    "within_one": 195
+   },
+   "widened_spread": {
+    "pedicle_h": 0.13023135299131786,
+    "pedicle_w": 0.1199053900209957
+   },
+   "width": 5
+  },
+  {
+   "cohort": "hamann_todd_503",
+   "fields_per_place": 200,
+   "group": "age 50-69 yr",
+   "holds_subjects_of": [],
+   "levels": [
+    "L1",
+    "L2",
+    "L3",
+    "L4",
+    "L5"
+   ],
+   "measures": [
+    "pedicle_h",
+    "pedicle_w"
+   ],
+   "panjabi": {
+    "exact": 375,
+    "fields": 1000,
+    "named": 58,
+    "named_right": 58,
+    "within_one": 549
+   },
+   "paper": "yu2015",
+   "places": 5,
+   "sex": "all",
+   "source": {
+    "exact": 320,
+    "fields": 1000,
+    "named": 28,
+    "named_right": 28,
+    "within_one": 537
+   },
+   "technique": "direct_caliper",
+   "widened_source": {
+    "exact": 292,
+    "fields": 1000,
+    "named": 38,
+    "named_right": 38,
+    "within_one": 511
+   },
+   "widened_spread": {
+    "pedicle_h": 0.13023135299131786,
+    "pedicle_w": 0.1199053900209957
+   },
+   "width": 1
+  },
+  {
+   "cohort": "hamann_todd_503",
+   "fields_per_place": 200,
+   "group": "age 50-69 yr",
+   "holds_subjects_of": [],
+   "levels": [
+    "L1",
+    "L2",
+    "L3",
+    "L4",
+    "L5"
+   ],
+   "measures": [
+    "pedicle_h",
+    "pedicle_w"
+   ],
+   "panjabi": {
+    "exact": 385,
+    "fields": 600,
+    "named": 85,
+    "named_right": 85,
+    "within_one": 476
+   },
+   "paper": "yu2015",
+   "places": 3,
+   "sex": "all",
+   "source": {
+    "exact": 304,
+    "fields": 600,
+    "named": 48,
+    "named_right": 47,
+    "within_one": 486
+   },
+   "technique": "direct_caliper",
+   "widened_source": {
+    "exact": 259,
+    "fields": 600,
+    "named": 33,
+    "named_right": 33,
+    "within_one": 417
+   },
+   "widened_spread": {
+    "pedicle_h": 0.13023135299131786,
+    "pedicle_w": 0.1199053900209957
+   },
+   "width": 3
+  },
+  {
+   "cohort": "hamann_todd_503",
+   "fields_per_place": 200,
+   "group": "age 50-69 yr",
+   "holds_subjects_of": [],
+   "levels": [
+    "L1",
+    "L2",
+    "L3",
+    "L4",
+    "L5"
+   ],
+   "measures": [
+    "pedicle_h",
+    "pedicle_w"
+   ],
+   "panjabi": {
+    "exact": 178,
+    "fields": 200,
+    "named": 113,
+    "named_right": 113,
+    "within_one": 188
+   },
+   "paper": "yu2015",
+   "places": 1,
+   "sex": "all",
+   "source": {
+    "exact": 156,
+    "fields": 200,
+    "named": 63,
+    "named_right": 63,
+    "within_one": 199
+   },
+   "technique": "direct_caliper",
+   "widened_source": {
+    "exact": 188,
+    "fields": 200,
+    "named": 27,
+    "named_right": 27,
+    "within_one": 196
+   },
+   "widened_spread": {
+    "pedicle_h": 0.13023135299131786,
+    "pedicle_w": 0.1199053900209957
+   },
+   "width": 5
+  },
+  {
+   "cohort": "hamann_todd_503",
+   "fields_per_place": 200,
+   "group": "age <=30 yr",
+   "holds_subjects_of": [],
+   "levels": [
+    "L1",
+    "L2",
+    "L3",
+    "L4",
+    "L5"
+   ],
+   "measures": [
+    "pedicle_h",
+    "pedicle_w"
+   ],
+   "panjabi": {
+    "exact": 379,
+    "fields": 1000,
+    "named": 62,
+    "named_right": 62,
+    "within_one": 547
+   },
+   "paper": "yu2015",
+   "places": 5,
+   "sex": "all",
+   "source": {
+    "exact": 253,
+    "fields": 1000,
+    "named": 7,
+    "named_right": 7,
+    "within_one": 489
+   },
+   "technique": "direct_caliper",
+   "widened_source": {
+    "exact": 299,
+    "fields": 1000,
+    "named": 12,
+    "named_right": 12,
+    "within_one": 494
+   },
+   "widened_spread": {
+    "pedicle_h": 0.13023135299131786,
+    "pedicle_w": 0.1199053900209957
+   },
+   "width": 1
+  },
+  {
+   "cohort": "hamann_todd_503",
+   "fields_per_place": 200,
+   "group": "age <=30 yr",
+   "holds_subjects_of": [],
+   "levels": [
+    "L1",
+    "L2",
+    "L3",
+    "L4",
+    "L5"
+   ],
+   "measures": [
+    "pedicle_h",
+    "pedicle_w"
+   ],
+   "panjabi": {
+    "exact": 374,
+    "fields": 600,
+    "named": 73,
+    "named_right": 73,
+    "within_one": 453
+   },
+   "paper": "yu2015",
+   "places": 3,
+   "sex": "all",
+   "source": {
+    "exact": 279,
+    "fields": 600,
+    "named": 22,
+    "named_right": 22,
+    "within_one": 455
+   },
+   "technique": "direct_caliper",
+   "widened_source": {
+    "exact": 276,
+    "fields": 600,
+    "named": 19,
+    "named_right": 19,
+    "within_one": 397
+   },
+   "widened_spread": {
+    "pedicle_h": 0.13023135299131786,
+    "pedicle_w": 0.1199053900209957
+   },
+   "width": 3
+  },
+  {
+   "cohort": "hamann_todd_503",
+   "fields_per_place": 200,
+   "group": "age <=30 yr",
+   "holds_subjects_of": [],
+   "levels": [
+    "L1",
+    "L2",
+    "L3",
+    "L4",
+    "L5"
+   ],
+   "measures": [
+    "pedicle_h",
+    "pedicle_w"
+   ],
+   "panjabi": {
+    "exact": 179,
+    "fields": 200,
+    "named": 106,
+    "named_right": 106,
+    "within_one": 190
+   },
+   "paper": "yu2015",
+   "places": 1,
+   "sex": "all",
+   "source": {
+    "exact": 113,
+    "fields": 200,
+    "named": 29,
+    "named_right": 29,
+    "within_one": 188
+   },
+   "technique": "direct_caliper",
+   "widened_source": {
+    "exact": 186,
+    "fields": 200,
+    "named": 5,
+    "named_right": 5,
+    "within_one": 196
+   },
+   "widened_spread": {
+    "pedicle_h": 0.13023135299131786,
+    "pedicle_w": 0.1199053900209957
+   },
+   "width": 5
+  },
+  {
+   "cohort": "hamann_todd_503",
+   "fields_per_place": 200,
+   "group": "age >=70 yr",
+   "holds_subjects_of": [],
+   "levels": [
+    "L1",
+    "L2",
+    "L3",
+    "L4",
+    "L5"
+   ],
+   "measures": [
+    "pedicle_h",
+    "pedicle_w"
+   ],
+   "panjabi": {
+    "exact": 388,
+    "fields": 1000,
+    "named": 56,
+    "named_right": 56,
+    "within_one": 539
+   },
+   "paper": "yu2015",
+   "places": 5,
+   "sex": "all",
+   "source": {
+    "exact": 321,
+    "fields": 1000,
+    "named": 35,
+    "named_right": 34,
+    "within_one": 521
+   },
+   "technique": "direct_caliper",
+   "widened_source": {
+    "exact": 299,
+    "fields": 1000,
+    "named": 42,
+    "named_right": 41,
+    "within_one": 485
+   },
+   "widened_spread": {
+    "pedicle_h": 0.13023135299131786,
+    "pedicle_w": 0.1199053900209957
+   },
+   "width": 1
+  },
+  {
+   "cohort": "hamann_todd_503",
+   "fields_per_place": 200,
+   "group": "age >=70 yr",
+   "holds_subjects_of": [],
+   "levels": [
+    "L1",
+    "L2",
+    "L3",
+    "L4",
+    "L5"
+   ],
+   "measures": [
+    "pedicle_h",
+    "pedicle_w"
+   ],
+   "panjabi": {
+    "exact": 390,
+    "fields": 600,
+    "named": 95,
+    "named_right": 95,
+    "within_one": 469
+   },
+   "paper": "yu2015",
+   "places": 3,
+   "sex": "all",
+   "source": {
+    "exact": 328,
+    "fields": 600,
+    "named": 54,
+    "named_right": 54,
+    "within_one": 470
+   },
+   "technique": "direct_caliper",
+   "widened_source": {
+    "exact": 265,
+    "fields": 600,
+    "named": 41,
+    "named_right": 41,
+    "within_one": 417
+   },
+   "widened_spread": {
+    "pedicle_h": 0.13023135299131786,
+    "pedicle_w": 0.1199053900209957
+   },
+   "width": 3
+  },
+  {
+   "cohort": "hamann_todd_503",
+   "fields_per_place": 200,
+   "group": "age >=70 yr",
+   "holds_subjects_of": [],
+   "levels": [
+    "L1",
+    "L2",
+    "L3",
+    "L4",
+    "L5"
+   ],
+   "measures": [
+    "pedicle_h",
+    "pedicle_w"
+   ],
+   "panjabi": {
+    "exact": 181,
+    "fields": 200,
+    "named": 111,
+    "named_right": 111,
+    "within_one": 189
+   },
+   "paper": "yu2015",
+   "places": 1,
+   "sex": "all",
+   "source": {
+    "exact": 159,
+    "fields": 200,
+    "named": 76,
+    "named_right": 76,
+    "within_one": 196
+   },
+   "technique": "direct_caliper",
+   "widened_source": {
+    "exact": 188,
+    "fields": 200,
+    "named": 44,
+    "named_right": 44,
+    "within_one": 192
+   },
+   "widened_spread": {
+    "pedicle_h": 0.13023135299131786,
+    "pedicle_w": 0.1199053900209957
+   },
+   "width": 5
+  },
+  {
+   "cohort": "hamann_todd_503",
+   "fields_per_place": 200,
+   "group": "body height 1601-1699 mm",
+   "holds_subjects_of": [],
+   "levels": [
+    "L1",
+    "L2",
+    "L3",
+    "L4",
+    "L5"
+   ],
+   "measures": [
+    "pedicle_h",
+    "pedicle_w"
+   ],
+   "panjabi": {
+    "exact": 373,
+    "fields": 1000,
+    "named": 41,
+    "named_right": 41,
+    "within_one": 531
+   },
+   "paper": "yu2015",
+   "places": 5,
+   "sex": "all",
+   "source": {
+    "exact": 279,
+    "fields": 1000,
+    "named": 10,
+    "named_right": 10,
+    "within_one": 473
+   },
+   "technique": "direct_caliper",
+   "widened_source": {
+    "exact": 316,
+    "fields": 1000,
+    "named": 15,
+    "named_right": 15,
+    "within_one": 496
+   },
+   "widened_spread": {
+    "pedicle_h": 0.13023135299131786,
+    "pedicle_w": 0.1199053900209957
+   },
+   "width": 1
+  },
+  {
+   "cohort": "hamann_todd_503",
+   "fields_per_place": 200,
+   "group": "body height 1601-1699 mm",
+   "holds_subjects_of": [],
+   "levels": [
+    "L1",
+    "L2",
+    "L3",
+    "L4",
+    "L5"
+   ],
+   "measures": [
+    "pedicle_h",
+    "pedicle_w"
+   ],
+   "panjabi": {
+    "exact": 377,
+    "fields": 600,
+    "named": 83,
+    "named_right": 83,
+    "within_one": 456
+   },
+   "paper": "yu2015",
+   "places": 3,
+   "sex": "all",
+   "source": {
+    "exact": 302,
+    "fields": 600,
+    "named": 29,
+    "named_right": 29,
+    "within_one": 448
+   },
+   "technique": "direct_caliper",
+   "widened_source": {
+    "exact": 262,
+    "fields": 600,
+    "named": 19,
+    "named_right": 19,
+    "within_one": 389
+   },
+   "widened_spread": {
+    "pedicle_h": 0.13023135299131786,
+    "pedicle_w": 0.1199053900209957
+   },
+   "width": 3
+  },
+  {
+   "cohort": "hamann_todd_503",
+   "fields_per_place": 200,
+   "group": "body height 1601-1699 mm",
+   "holds_subjects_of": [],
+   "levels": [
+    "L1",
+    "L2",
+    "L3",
+    "L4",
+    "L5"
+   ],
+   "measures": [
+    "pedicle_h",
+    "pedicle_w"
+   ],
+   "panjabi": {
+    "exact": 176,
+    "fields": 200,
+    "named": 97,
+    "named_right": 97,
+    "within_one": 189
+   },
+   "paper": "yu2015",
+   "places": 1,
+   "sex": "all",
+   "source": {
+    "exact": 146,
+    "fields": 200,
+    "named": 38,
+    "named_right": 38,
+    "within_one": 199
+   },
+   "technique": "direct_caliper",
+   "widened_source": {
+    "exact": 188,
+    "fields": 200,
+    "named": 13,
+    "named_right": 13,
+    "within_one": 196
+   },
+   "widened_spread": {
+    "pedicle_h": 0.13023135299131786,
+    "pedicle_w": 0.1199053900209957
+   },
+   "width": 5
+  },
+  {
+   "cohort": "hamann_todd_503",
+   "fields_per_place": 200,
+   "group": "body height 1700-1799 mm",
+   "holds_subjects_of": [],
+   "levels": [
+    "L1",
+    "L2",
+    "L3",
+    "L4",
+    "L5"
+   ],
+   "measures": [
+    "pedicle_h",
+    "pedicle_w"
+   ],
+   "panjabi": {
+    "exact": 363,
+    "fields": 1000,
+    "named": 68,
+    "named_right": 68,
+    "within_one": 530
+   },
+   "paper": "yu2015",
+   "places": 5,
+   "sex": "all",
+   "source": {
+    "exact": 350,
+    "fields": 1000,
+    "named": 17,
+    "named_right": 17,
+    "within_one": 524
+   },
+   "technique": "direct_caliper",
+   "widened_source": {
+    "exact": 302,
+    "fields": 1000,
+    "named": 24,
+    "named_right": 24,
+    "within_one": 527
+   },
+   "widened_spread": {
+    "pedicle_h": 0.13023135299131786,
+    "pedicle_w": 0.1199053900209957
+   },
+   "width": 1
+  },
+  {
+   "cohort": "hamann_todd_503",
+   "fields_per_place": 200,
+   "group": "body height 1700-1799 mm",
    "holds_subjects_of": [],
    "levels": [
     "L1",
@@ -35218,19 +35234,19 @@
    "places": 3,
    "sex": "all",
    "source": {
-    "exact": 282,
+    "exact": 321,
     "fields": 600,
-    "named": 34,
-    "named_right": 34,
-    "within_one": 460
+    "named": 41,
+    "named_right": 41,
+    "within_one": 483
    },
    "technique": "direct_caliper",
    "widened_source": {
-    "exact": 258,
+    "exact": 276,
     "fields": 600,
-    "named": 25,
-    "named_right": 25,
-    "within_one": 394
+    "named": 26,
+    "named_right": 26,
+    "within_one": 417
    },
    "widened_spread": {
     "pedicle_h": 0.13023135299131786,
@@ -35241,7 +35257,7 @@
   {
    "cohort": "hamann_todd_503",
    "fields_per_place": 200,
-   "group": "",
+   "group": "body height 1700-1799 mm",
    "holds_subjects_of": [],
    "levels": [
     "L1",
@@ -35265,19 +35281,19 @@
    "places": 1,
    "sex": "all",
    "source": {
-    "exact": 145,
+    "exact": 159,
     "fields": 200,
-    "named": 50,
-    "named_right": 50,
-    "within_one": 197
+    "named": 53,
+    "named_right": 53,
+    "within_one": 198
    },
    "technique": "direct_caliper",
    "widened_source": {
-    "exact": 189,
+    "exact": 195,
     "fields": 200,
-    "named": 26,
-    "named_right": 26,
-    "within_one": 195
+    "named": 27,
+    "named_right": 27,
+    "within_one": 197
    },
    "widened_spread": {
     "pedicle_h": 0.13023135299131786,
@@ -35288,7 +35304,7 @@
   {
    "cohort": "hamann_todd_503",
    "fields_per_place": 200,
-   "group": "African American",
+   "group": "body height <=1600 mm",
    "holds_subjects_of": [],
    "levels": [
     "L1",
@@ -35312,19 +35328,19 @@
    "places": 5,
    "sex": "all",
    "source": {
-    "exact": 286,
+    "exact": 213,
     "fields": 1000,
-    "named": 10,
-    "named_right": 10,
-    "within_one": 489
+    "named": 5,
+    "named_right": 5,
+    "within_one": 428
    },
    "technique": "direct_caliper",
    "widened_source": {
-    "exact": 306,
+    "exact": 305,
     "fields": 1000,
-    "named": 12,
-    "named_right": 12,
-    "within_one": 507
+    "named": 7,
+    "named_right": 7,
+    "within_one": 458
    },
    "widened_spread": {
     "pedicle_h": 0.13023135299131786,
@@ -35335,7 +35351,7 @@
   {
    "cohort": "hamann_todd_503",
    "fields_per_place": 200,
-   "group": "African American",
+   "group": "body height <=1600 mm",
    "holds_subjects_of": [],
    "levels": [
     "L1",
@@ -35359,19 +35375,19 @@
    "places": 3,
    "sex": "all",
    "source": {
-    "exact": 274,
+    "exact": 209,
     "fields": 600,
-    "named": 26,
-    "named_right": 26,
-    "within_one": 462
+    "named": 13,
+    "named_right": 13,
+    "within_one": 407
    },
    "technique": "direct_caliper",
    "widened_source": {
-    "exact": 288,
+    "exact": 258,
     "fields": 600,
-    "named": 18,
-    "named_right": 18,
-    "within_one": 428
+    "named": 12,
+    "named_right": 12,
+    "within_one": 346
    },
    "widened_spread": {
     "pedicle_h": 0.13023135299131786,
@@ -35382,7 +35398,7 @@
   {
    "cohort": "hamann_todd_503",
    "fields_per_place": 200,
-   "group": "African American",
+   "group": "body height <=1600 mm",
    "holds_subjects_of": [],
    "levels": [
     "L1",
@@ -35406,19 +35422,19 @@
    "places": 1,
    "sex": "all",
    "source": {
-    "exact": 132,
+    "exact": 110,
     "fields": 200,
-    "named": 49,
-    "named_right": 49,
-    "within_one": 194
+    "named": 33,
+    "named_right": 32,
+    "within_one": 186
    },
    "technique": "direct_caliper",
    "widened_source": {
-    "exact": 179,
+    "exact": 163,
     "fields": 200,
-    "named": 25,
-    "named_right": 25,
-    "within_one": 191
+    "named": 20,
+    "named_right": 20,
+    "within_one": 181
    },
    "widened_spread": {
     "pedicle_h": 0.13023135299131786,
@@ -35429,7 +35445,7 @@
   {
    "cohort": "hamann_todd_503",
    "fields_per_place": 200,
-   "group": "Caucasian",
+   "group": "body height >=1800 mm",
    "holds_subjects_of": [],
    "levels": [
     "L1",
@@ -35453,19 +35469,19 @@
    "places": 5,
    "sex": "all",
    "source": {
-    "exact": 314,
+    "exact": 355,
     "fields": 1000,
-    "named": 21,
-    "named_right": 20,
-    "within_one": 513
+    "named": 39,
+    "named_right": 38,
+    "within_one": 555
    },
    "technique": "direct_caliper",
    "widened_source": {
-    "exact": 305,
+    "exact": 309,
     "fields": 1000,
-    "named": 27,
-    "named_right": 27,
-    "within_one": 508
+    "named": 38,
+    "named_right": 38,
+    "within_one": 529
    },
    "widened_spread": {
     "pedicle_h": 0.13023135299131786,
@@ -35476,7 +35492,7 @@
   {
    "cohort": "hamann_todd_503",
    "fields_per_place": 200,
-   "group": "Caucasian",
+   "group": "body height >=1800 mm",
    "holds_subjects_of": [],
    "levels": [
     "L1",
@@ -35500,19 +35516,19 @@
    "places": 3,
    "sex": "all",
    "source": {
-    "exact": 344,
+    "exact": 360,
     "fields": 600,
-    "named": 53,
-    "named_right": 53,
-    "within_one": 486
+    "named": 62,
+    "named_right": 62,
+    "within_one": 491
    },
    "technique": "direct_caliper",
    "widened_source": {
-    "exact": 277,
+    "exact": 274,
     "fields": 600,
-    "named": 37,
-    "named_right": 37,
-    "within_one": 405
+    "named": 43,
+    "named_right": 43,
+    "within_one": 447
    },
    "widened_spread": {
     "pedicle_h": 0.13023135299131786,
@@ -35523,7 +35539,7 @@
   {
    "cohort": "hamann_todd_503",
    "fields_per_place": 200,
-   "group": "Caucasian",
+   "group": "body height >=1800 mm",
    "holds_subjects_of": [],
    "levels": [
     "L1",
@@ -35547,19 +35563,19 @@
    "places": 1,
    "sex": "all",
    "source": {
-    "exact": 150,
+    "exact": 156,
     "fields": 200,
-    "named": 64,
-    "named_right": 64,
+    "named": 72,
+    "named_right": 72,
     "within_one": 196
    },
    "technique": "direct_caliper",
    "widened_source": {
-    "exact": 184,
+    "exact": 189,
     "fields": 200,
-    "named": 30,
-    "named_right": 30,
-    "within_one": 191
+    "named": 32,
+    "named_right": 32,
+    "within_one": 193
    },
    "widened_spread": {
     "pedicle_h": 0.13023135299131786,
@@ -35570,7 +35586,7 @@
   {
    "cohort": "hamann_todd_503",
    "fields_per_place": 200,
-   "group": "age 31-49 yr",
+   "group": "body weight 46-54 kg",
    "holds_subjects_of": [],
    "levels": [
     "L1",
@@ -35594,19 +35610,19 @@
    "places": 5,
    "sex": "all",
    "source": {
-    "exact": 284,
+    "exact": 285,
     "fields": 1000,
-    "named": 10,
-    "named_right": 10,
-    "within_one": 479
+    "named": 9,
+    "named_right": 9,
+    "within_one": 488
    },
    "technique": "direct_caliper",
    "widened_source": {
-    "exact": 325,
+    "exact": 324,
     "fields": 1000,
-    "named": 19,
-    "named_right": 19,
-    "within_one": 504
+    "named": 13,
+    "named_right": 13,
+    "within_one": 501
    },
    "widened_spread": {
     "pedicle_h": 0.13023135299131786,
@@ -35617,7 +35633,7 @@
   {
    "cohort": "hamann_todd_503",
    "fields_per_place": 200,
-   "group": "age 31-49 yr",
+   "group": "body weight 46-54 kg",
    "holds_subjects_of": [],
    "levels": [
     "L1",
@@ -35641,19 +35657,19 @@
    "places": 3,
    "sex": "all",
    "source": {
-    "exact": 347,
+    "exact": 343,
     "fields": 600,
-    "named": 33,
-    "named_right": 33,
-    "within_one": 482
+    "named": 28,
+    "named_right": 28,
+    "within_one": 478
    },
    "technique": "direct_caliper",
    "widened_source": {
-    "exact": 281,
+    "exact": 274,
     "fields": 600,
-    "named": 26,
-    "named_right": 26,
-    "within_one": 420
+    "named": 24,
+    "named_right": 24,
+    "within_one": 404
    },
    "widened_spread": {
     "pedicle_h": 0.13023135299131786,
@@ -35664,7 +35680,7 @@
   {
    "cohort": "hamann_todd_503",
    "fields_per_place": 200,
-   "group": "age 31-49 yr",
+   "group": "body weight 46-54 kg",
    "holds_subjects_of": [],
    "levels": [
     "L1",
@@ -35688,19 +35704,19 @@
    "places": 1,
    "sex": "all",
    "source": {
-    "exact": 135,
+    "exact": 132,
     "fields": 200,
-    "named": 53,
-    "named_right": 53,
-    "within_one": 194
+    "named": 47,
+    "named_right": 47,
+    "within_one": 193
    },
    "technique": "direct_caliper",
    "widened_source": {
     "exact": 183,
     "fields": 200,
-    "named": 24,
-    "named_right": 24,
-    "within_one": 191
+    "named": 22,
+    "named_right": 22,
+    "within_one": 192
    },
    "widened_spread": {
     "pedicle_h": 0.13023135299131786,
@@ -35711,7 +35727,7 @@
   {
    "cohort": "hamann_todd_503",
    "fields_per_place": 200,
-   "group": "age 50-69 yr",
+   "group": "body weight 55-63 kg",
    "holds_subjects_of": [],
    "levels": [
     "L1",
@@ -35735,19 +35751,19 @@
    "places": 5,
    "sex": "all",
    "source": {
-    "exact": 306,
+    "exact": 302,
     "fields": 1000,
-    "named": 26,
-    "named_right": 26,
-    "within_one": 536
+    "named": 23,
+    "named_right": 23,
+    "within_one": 527
    },
    "technique": "direct_caliper",
    "widened_source": {
-    "exact": 314,
+    "exact": 321,
     "fields": 1000,
-    "named": 34,
-    "named_right": 34,
-    "within_one": 509
+    "named": 33,
+    "named_right": 33,
+    "within_one": 517
    },
    "widened_spread": {
     "pedicle_h": 0.13023135299131786,
@@ -35758,7 +35774,7 @@
   {
    "cohort": "hamann_todd_503",
    "fields_per_place": 200,
-   "group": "age 50-69 yr",
+   "group": "body weight 55-63 kg",
    "holds_subjects_of": [],
    "levels": [
     "L1",
@@ -35782,19 +35798,19 @@
    "places": 3,
    "sex": "all",
    "source": {
-    "exact": 318,
+    "exact": 325,
     "fields": 600,
-    "named": 52,
-    "named_right": 51,
+    "named": 47,
+    "named_right": 47,
     "within_one": 477
    },
    "technique": "direct_caliper",
    "widened_source": {
-    "exact": 265,
+    "exact": 269,
     "fields": 600,
     "named": 31,
     "named_right": 31,
-    "within_one": 416
+    "within_one": 427
    },
    "widened_spread": {
     "pedicle_h": 0.13023135299131786,
@@ -35805,7 +35821,7 @@
   {
    "cohort": "hamann_todd_503",
    "fields_per_place": 200,
-   "group": "age 50-69 yr",
+   "group": "body weight 55-63 kg",
    "holds_subjects_of": [],
    "levels": [
     "L1",
@@ -35831,17 +35847,17 @@
    "source": {
     "exact": 143,
     "fields": 200,
-    "named": 75,
-    "named_right": 75,
-    "within_one": 196
+    "named": 72,
+    "named_right": 72,
+    "within_one": 195
    },
    "technique": "direct_caliper",
    "widened_source": {
-    "exact": 187,
+    "exact": 189,
     "fields": 200,
     "named": 32,
     "named_right": 32,
-    "within_one": 197
+    "within_one": 198
    },
    "widened_spread": {
     "pedicle_h": 0.13023135299131786,
@@ -35852,7 +35868,7 @@
   {
    "cohort": "hamann_todd_503",
    "fields_per_place": 200,
-   "group": "age <=30 yr",
+   "group": "body weight <=45 kg",
    "holds_subjects_of": [],
    "levels": [
     "L1",
@@ -35876,19 +35892,19 @@
    "places": 5,
    "sex": "all",
    "source": {
-    "exact": 240,
+    "exact": 237,
     "fields": 1000,
-    "named": 4,
-    "named_right": 4,
-    "within_one": 445
+    "named": 6,
+    "named_right": 6,
+    "within_one": 433
    },
    "technique": "direct_caliper",
    "widened_source": {
-    "exact": 293,
+    "exact": 290,
     "fields": 1000,
-    "named": 7,
-    "named_right": 7,
-    "within_one": 480
+    "named": 11,
+    "named_right": 11,
+    "within_one": 460
    },
    "widened_spread": {
     "pedicle_h": 0.13023135299131786,
@@ -35899,7 +35915,7 @@
   {
    "cohort": "hamann_todd_503",
    "fields_per_place": 200,
-   "group": "age <=30 yr",
+   "group": "body weight <=45 kg",
    "holds_subjects_of": [],
    "levels": [
     "L1",
@@ -35923,19 +35939,19 @@
    "places": 3,
    "sex": "all",
    "source": {
-    "exact": 267,
+    "exact": 269,
     "fields": 600,
-    "named": 21,
-    "named_right": 21,
-    "within_one": 443
+    "named": 23,
+    "named_right": 23,
+    "within_one": 440
    },
    "technique": "direct_caliper",
    "widened_source": {
-    "exact": 275,
+    "exact": 273,
     "fields": 600,
-    "named": 16,
-    "named_right": 16,
-    "within_one": 389
+    "named": 21,
+    "named_right": 21,
+    "within_one": 378
    },
    "widened_spread": {
     "pedicle_h": 0.13023135299131786,
@@ -35946,7 +35962,7 @@
   {
    "cohort": "hamann_todd_503",
    "fields_per_place": 200,
-   "group": "age <=30 yr",
+   "group": "body weight <=45 kg",
    "holds_subjects_of": [],
    "levels": [
     "L1",
@@ -35970,19 +35986,19 @@
    "places": 1,
    "sex": "all",
    "source": {
-    "exact": 114,
+    "exact": 118,
     "fields": 200,
-    "named": 26,
-    "named_right": 26,
-    "within_one": 193
+    "named": 30,
+    "named_right": 30,
+    "within_one": 194
    },
    "technique": "direct_caliper",
    "widened_source": {
-    "exact": 176,
+    "exact": 178,
     "fields": 200,
-    "named": 13,
-    "named_right": 13,
-    "within_one": 187
+    "named": 16,
+    "named_right": 16,
+    "within_one": 186
    },
    "widened_spread": {
     "pedicle_h": 0.13023135299131786,
@@ -35993,7 +36009,7 @@
   {
    "cohort": "hamann_todd_503",
    "fields_per_place": 200,
-   "group": "age >=70 yr",
+   "group": "body weight >=64 kg",
    "holds_subjects_of": [],
    "levels": [
     "L1",
@@ -36017,19 +36033,19 @@
    "places": 5,
    "sex": "all",
    "source": {
-    "exact": 317,
+    "exact": 309,
     "fields": 1000,
-    "named": 29,
-    "named_right": 29,
-    "within_one": 526
+    "named": 21,
+    "named_right": 21,
+    "within_one": 515
    },
    "technique": "direct_caliper",
    "widened_source": {
-    "exact": 303,
+    "exact": 301,
     "fields": 1000,
-    "named": 26,
-    "named_right": 26,
-    "within_one": 503
+    "named": 25,
+    "named_right": 25,
+    "within_one": 515
    },
    "widened_spread": {
     "pedicle_h": 0.13023135299131786,
@@ -36040,7 +36056,7 @@
   {
    "cohort": "hamann_todd_503",
    "fields_per_place": 200,
-   "group": "age >=70 yr",
+   "group": "body weight >=64 kg",
    "holds_subjects_of": [],
    "levels": [
     "L1",
@@ -36064,19 +36080,19 @@
    "places": 3,
    "sex": "all",
    "source": {
-    "exact": 343,
+    "exact": 355,
     "fields": 600,
-    "named": 54,
-    "named_right": 54,
-    "within_one": 486
+    "named": 45,
+    "named_right": 45,
+    "within_one": 496
    },
    "technique": "direct_caliper",
    "widened_source": {
-    "exact": 287,
+    "exact": 285,
     "fields": 600,
-    "named": 40,
-    "named_right": 40,
-    "within_one": 418
+    "named": 36,
+    "named_right": 36,
+    "within_one": 443
    },
    "widened_spread": {
     "pedicle_h": 0.13023135299131786,
@@ -36087,7 +36103,7 @@
   {
    "cohort": "hamann_todd_503",
    "fields_per_place": 200,
-   "group": "age >=70 yr",
+   "group": "body weight >=64 kg",
    "holds_subjects_of": [],
    "levels": [
     "L1",
@@ -36111,1147 +36127,19 @@
    "places": 1,
    "sex": "all",
    "source": {
-    "exact": 170,
-    "fields": 200,
-    "named": 88,
-    "named_right": 88,
-    "within_one": 198
-   },
-   "technique": "direct_caliper",
-   "widened_source": {
-    "exact": 194,
-    "fields": 200,
-    "named": 47,
-    "named_right": 47,
-    "within_one": 196
-   },
-   "widened_spread": {
-    "pedicle_h": 0.13023135299131786,
-    "pedicle_w": 0.1199053900209957
-   },
-   "width": 5
-  },
-  {
-   "cohort": "hamann_todd_503",
-   "fields_per_place": 200,
-   "group": "body height 1601-1699 mm",
-   "holds_subjects_of": [],
-   "levels": [
-    "L1",
-    "L2",
-    "L3",
-    "L4",
-    "L5"
-   ],
-   "measures": [
-    "pedicle_h",
-    "pedicle_w"
-   ],
-   "panjabi": {
-    "exact": 384,
-    "fields": 1000,
-    "named": 59,
-    "named_right": 59,
-    "within_one": 545
-   },
-   "paper": "yu2015",
-   "places": 5,
-   "sex": "all",
-   "source": {
-    "exact": 301,
-    "fields": 1000,
-    "named": 21,
-    "named_right": 20,
-    "within_one": 510
-   },
-   "technique": "direct_caliper",
-   "widened_source": {
-    "exact": 320,
-    "fields": 1000,
-    "named": 23,
-    "named_right": 23,
-    "within_one": 513
-   },
-   "widened_spread": {
-    "pedicle_h": 0.13023135299131786,
-    "pedicle_w": 0.1199053900209957
-   },
-   "width": 1
-  },
-  {
-   "cohort": "hamann_todd_503",
-   "fields_per_place": 200,
-   "group": "body height 1601-1699 mm",
-   "holds_subjects_of": [],
-   "levels": [
-    "L1",
-    "L2",
-    "L3",
-    "L4",
-    "L5"
-   ],
-   "measures": [
-    "pedicle_h",
-    "pedicle_w"
-   ],
-   "panjabi": {
-    "exact": 386,
-    "fields": 600,
-    "named": 85,
-    "named_right": 85,
-    "within_one": 473
-   },
-   "paper": "yu2015",
-   "places": 3,
-   "sex": "all",
-   "source": {
-    "exact": 287,
-    "fields": 600,
-    "named": 35,
-    "named_right": 35,
-    "within_one": 459
-   },
-   "technique": "direct_caliper",
-   "widened_source": {
-    "exact": 270,
-    "fields": 600,
-    "named": 27,
-    "named_right": 27,
-    "within_one": 395
-   },
-   "widened_spread": {
-    "pedicle_h": 0.13023135299131786,
-    "pedicle_w": 0.1199053900209957
-   },
-   "width": 3
-  },
-  {
-   "cohort": "hamann_todd_503",
-   "fields_per_place": 200,
-   "group": "body height 1601-1699 mm",
-   "holds_subjects_of": [],
-   "levels": [
-    "L1",
-    "L2",
-    "L3",
-    "L4",
-    "L5"
-   ],
-   "measures": [
-    "pedicle_h",
-    "pedicle_w"
-   ],
-   "panjabi": {
-    "exact": 181,
-    "fields": 200,
-    "named": 108,
-    "named_right": 108,
-    "within_one": 191
-   },
-   "paper": "yu2015",
-   "places": 1,
-   "sex": "all",
-   "source": {
-    "exact": 135,
-    "fields": 200,
-    "named": 62,
-    "named_right": 62,
-    "within_one": 196
-   },
-   "technique": "direct_caliper",
-   "widened_source": {
-    "exact": 186,
-    "fields": 200,
-    "named": 15,
-    "named_right": 15,
-    "within_one": 191
-   },
-   "widened_spread": {
-    "pedicle_h": 0.13023135299131786,
-    "pedicle_w": 0.1199053900209957
-   },
-   "width": 5
-  },
-  {
-   "cohort": "hamann_todd_503",
-   "fields_per_place": 200,
-   "group": "body height 1700-1799 mm",
-   "holds_subjects_of": [],
-   "levels": [
-    "L1",
-    "L2",
-    "L3",
-    "L4",
-    "L5"
-   ],
-   "measures": [
-    "pedicle_h",
-    "pedicle_w"
-   ],
-   "panjabi": {
-    "exact": 382,
-    "fields": 1000,
-    "named": 60,
-    "named_right": 60,
-    "within_one": 545
-   },
-   "paper": "yu2015",
-   "places": 5,
-   "sex": "all",
-   "source": {
-    "exact": 335,
-    "fields": 1000,
-    "named": 21,
-    "named_right": 21,
-    "within_one": 526
-   },
-   "technique": "direct_caliper",
-   "widened_source": {
-    "exact": 312,
-    "fields": 1000,
-    "named": 28,
-    "named_right": 28,
-    "within_one": 520
-   },
-   "widened_spread": {
-    "pedicle_h": 0.13023135299131786,
-    "pedicle_w": 0.1199053900209957
-   },
-   "width": 1
-  },
-  {
-   "cohort": "hamann_todd_503",
-   "fields_per_place": 200,
-   "group": "body height 1700-1799 mm",
-   "holds_subjects_of": [],
-   "levels": [
-    "L1",
-    "L2",
-    "L3",
-    "L4",
-    "L5"
-   ],
-   "measures": [
-    "pedicle_h",
-    "pedicle_w"
-   ],
-   "panjabi": {
-    "exact": 376,
-    "fields": 600,
-    "named": 87,
-    "named_right": 87,
-    "within_one": 454
-   },
-   "paper": "yu2015",
-   "places": 3,
-   "sex": "all",
-   "source": {
-    "exact": 331,
-    "fields": 600,
-    "named": 46,
-    "named_right": 46,
-    "within_one": 482
-   },
-   "technique": "direct_caliper",
-   "widened_source": {
-    "exact": 274,
-    "fields": 600,
-    "named": 30,
-    "named_right": 30,
-    "within_one": 433
-   },
-   "widened_spread": {
-    "pedicle_h": 0.13023135299131786,
-    "pedicle_w": 0.1199053900209957
-   },
-   "width": 3
-  },
-  {
-   "cohort": "hamann_todd_503",
-   "fields_per_place": 200,
-   "group": "body height 1700-1799 mm",
-   "holds_subjects_of": [],
-   "levels": [
-    "L1",
-    "L2",
-    "L3",
-    "L4",
-    "L5"
-   ],
-   "measures": [
-    "pedicle_h",
-    "pedicle_w"
-   ],
-   "panjabi": {
-    "exact": 187,
-    "fields": 200,
-    "named": 112,
-    "named_right": 112,
-    "within_one": 193
-   },
-   "paper": "yu2015",
-   "places": 1,
-   "sex": "all",
-   "source": {
-    "exact": 141,
-    "fields": 200,
-    "named": 49,
-    "named_right": 49,
-    "within_one": 196
-   },
-   "technique": "direct_caliper",
-   "widened_source": {
-    "exact": 175,
-    "fields": 200,
-    "named": 21,
-    "named_right": 21,
-    "within_one": 185
-   },
-   "widened_spread": {
-    "pedicle_h": 0.13023135299131786,
-    "pedicle_w": 0.1199053900209957
-   },
-   "width": 5
-  },
-  {
-   "cohort": "hamann_todd_503",
-   "fields_per_place": 200,
-   "group": "body height <=1600 mm",
-   "holds_subjects_of": [],
-   "levels": [
-    "L1",
-    "L2",
-    "L3",
-    "L4",
-    "L5"
-   ],
-   "measures": [
-    "pedicle_h",
-    "pedicle_w"
-   ],
-   "panjabi": {
-    "exact": 356,
-    "fields": 1000,
-    "named": 57,
-    "named_right": 57,
-    "within_one": 521
-   },
-   "paper": "yu2015",
-   "places": 5,
-   "sex": "all",
-   "source": {
-    "exact": 196,
-    "fields": 1000,
-    "named": 2,
-    "named_right": 2,
-    "within_one": 397
-   },
-   "technique": "direct_caliper",
-   "widened_source": {
-    "exact": 283,
-    "fields": 1000,
-    "named": 5,
-    "named_right": 5,
-    "within_one": 435
-   },
-   "widened_spread": {
-    "pedicle_h": 0.13023135299131786,
-    "pedicle_w": 0.1199053900209957
-   },
-   "width": 1
-  },
-  {
-   "cohort": "hamann_todd_503",
-   "fields_per_place": 200,
-   "group": "body height <=1600 mm",
-   "holds_subjects_of": [],
-   "levels": [
-    "L1",
-    "L2",
-    "L3",
-    "L4",
-    "L5"
-   ],
-   "measures": [
-    "pedicle_h",
-    "pedicle_w"
-   ],
-   "panjabi": {
-    "exact": 388,
-    "fields": 600,
-    "named": 90,
-    "named_right": 90,
-    "within_one": 472
-   },
-   "paper": "yu2015",
-   "places": 3,
-   "sex": "all",
-   "source": {
-    "exact": 217,
-    "fields": 600,
-    "named": 12,
-    "named_right": 12,
-    "within_one": 393
-   },
-   "technique": "direct_caliper",
-   "widened_source": {
-    "exact": 251,
-    "fields": 600,
-    "named": 12,
-    "named_right": 12,
-    "within_one": 351
-   },
-   "widened_spread": {
-    "pedicle_h": 0.13023135299131786,
-    "pedicle_w": 0.1199053900209957
-   },
-   "width": 3
-  },
-  {
-   "cohort": "hamann_todd_503",
-   "fields_per_place": 200,
-   "group": "body height <=1600 mm",
-   "holds_subjects_of": [],
-   "levels": [
-    "L1",
-    "L2",
-    "L3",
-    "L4",
-    "L5"
-   ],
-   "measures": [
-    "pedicle_h",
-    "pedicle_w"
-   ],
-   "panjabi": {
-    "exact": 181,
-    "fields": 200,
-    "named": 111,
-    "named_right": 111,
-    "within_one": 188
-   },
-   "paper": "yu2015",
-   "places": 1,
-   "sex": "all",
-   "source": {
-    "exact": 100,
-    "fields": 200,
-    "named": 20,
-    "named_right": 20,
-    "within_one": 186
-   },
-   "technique": "direct_caliper",
-   "widened_source": {
     "exact": 161,
-    "fields": 200,
-    "named": 7,
-    "named_right": 7,
-    "within_one": 180
-   },
-   "widened_spread": {
-    "pedicle_h": 0.13023135299131786,
-    "pedicle_w": 0.1199053900209957
-   },
-   "width": 5
-  },
-  {
-   "cohort": "hamann_todd_503",
-   "fields_per_place": 200,
-   "group": "body height >=1800 mm",
-   "holds_subjects_of": [],
-   "levels": [
-    "L1",
-    "L2",
-    "L3",
-    "L4",
-    "L5"
-   ],
-   "measures": [
-    "pedicle_h",
-    "pedicle_w"
-   ],
-   "panjabi": {
-    "exact": 386,
-    "fields": 1000,
-    "named": 54,
-    "named_right": 54,
-    "within_one": 522
-   },
-   "paper": "yu2015",
-   "places": 5,
-   "sex": "all",
-   "source": {
-    "exact": 335,
-    "fields": 1000,
-    "named": 34,
-    "named_right": 34,
-    "within_one": 536
-   },
-   "technique": "direct_caliper",
-   "widened_source": {
-    "exact": 314,
-    "fields": 1000,
-    "named": 34,
-    "named_right": 34,
-    "within_one": 526
-   },
-   "widened_spread": {
-    "pedicle_h": 0.13023135299131786,
-    "pedicle_w": 0.1199053900209957
-   },
-   "width": 1
-  },
-  {
-   "cohort": "hamann_todd_503",
-   "fields_per_place": 200,
-   "group": "body height >=1800 mm",
-   "holds_subjects_of": [],
-   "levels": [
-    "L1",
-    "L2",
-    "L3",
-    "L4",
-    "L5"
-   ],
-   "measures": [
-    "pedicle_h",
-    "pedicle_w"
-   ],
-   "panjabi": {
-    "exact": 387,
-    "fields": 600,
-    "named": 90,
-    "named_right": 90,
-    "within_one": 485
-   },
-   "paper": "yu2015",
-   "places": 3,
-   "sex": "all",
-   "source": {
-    "exact": 333,
-    "fields": 600,
-    "named": 55,
-    "named_right": 54,
-    "within_one": 468
-   },
-   "technique": "direct_caliper",
-   "widened_source": {
-    "exact": 267,
-    "fields": 600,
-    "named": 31,
-    "named_right": 31,
-    "within_one": 442
-   },
-   "widened_spread": {
-    "pedicle_h": 0.13023135299131786,
-    "pedicle_w": 0.1199053900209957
-   },
-   "width": 3
-  },
-  {
-   "cohort": "hamann_todd_503",
-   "fields_per_place": 200,
-   "group": "body height >=1800 mm",
-   "holds_subjects_of": [],
-   "levels": [
-    "L1",
-    "L2",
-    "L3",
-    "L4",
-    "L5"
-   ],
-   "measures": [
-    "pedicle_h",
-    "pedicle_w"
-   ],
-   "panjabi": {
-    "exact": 181,
-    "fields": 200,
-    "named": 101,
-    "named_right": 101,
-    "within_one": 191
-   },
-   "paper": "yu2015",
-   "places": 1,
-   "sex": "all",
-   "source": {
-    "exact": 163,
     "fields": 200,
     "named": 71,
     "named_right": 71,
-    "within_one": 199
-   },
-   "technique": "direct_caliper",
-   "widened_source": {
-    "exact": 195,
-    "fields": 200,
-    "named": 32,
-    "named_right": 32,
-    "within_one": 197
-   },
-   "widened_spread": {
-    "pedicle_h": 0.13023135299131786,
-    "pedicle_w": 0.1199053900209957
-   },
-   "width": 5
-  },
-  {
-   "cohort": "hamann_todd_503",
-   "fields_per_place": 200,
-   "group": "body weight 46-54 kg",
-   "holds_subjects_of": [],
-   "levels": [
-    "L1",
-    "L2",
-    "L3",
-    "L4",
-    "L5"
-   ],
-   "measures": [
-    "pedicle_h",
-    "pedicle_w"
-   ],
-   "panjabi": {
-    "exact": 372,
-    "fields": 1000,
-    "named": 58,
-    "named_right": 58,
-    "within_one": 527
-   },
-   "paper": "yu2015",
-   "places": 5,
-   "sex": "all",
-   "source": {
-    "exact": 298,
-    "fields": 1000,
-    "named": 16,
-    "named_right": 16,
-    "within_one": 503
-   },
-   "technique": "direct_caliper",
-   "widened_source": {
-    "exact": 334,
-    "fields": 1000,
-    "named": 16,
-    "named_right": 16,
-    "within_one": 493
-   },
-   "widened_spread": {
-    "pedicle_h": 0.13023135299131786,
-    "pedicle_w": 0.1199053900209957
-   },
-   "width": 1
-  },
-  {
-   "cohort": "hamann_todd_503",
-   "fields_per_place": 200,
-   "group": "body weight 46-54 kg",
-   "holds_subjects_of": [],
-   "levels": [
-    "L1",
-    "L2",
-    "L3",
-    "L4",
-    "L5"
-   ],
-   "measures": [
-    "pedicle_h",
-    "pedicle_w"
-   ],
-   "panjabi": {
-    "exact": 402,
-    "fields": 600,
-    "named": 95,
-    "named_right": 95,
-    "within_one": 463
-   },
-   "paper": "yu2015",
-   "places": 3,
-   "sex": "all",
-   "source": {
-    "exact": 295,
-    "fields": 600,
-    "named": 27,
-    "named_right": 27,
-    "within_one": 456
-   },
-   "technique": "direct_caliper",
-   "widened_source": {
-    "exact": 271,
-    "fields": 600,
-    "named": 21,
-    "named_right": 21,
-    "within_one": 394
-   },
-   "widened_spread": {
-    "pedicle_h": 0.13023135299131786,
-    "pedicle_w": 0.1199053900209957
-   },
-   "width": 3
-  },
-  {
-   "cohort": "hamann_todd_503",
-   "fields_per_place": 200,
-   "group": "body weight 46-54 kg",
-   "holds_subjects_of": [],
-   "levels": [
-    "L1",
-    "L2",
-    "L3",
-    "L4",
-    "L5"
-   ],
-   "measures": [
-    "pedicle_h",
-    "pedicle_w"
-   ],
-   "panjabi": {
-    "exact": 183,
-    "fields": 200,
-    "named": 105,
-    "named_right": 105,
-    "within_one": 189
-   },
-   "paper": "yu2015",
-   "places": 1,
-   "sex": "all",
-   "source": {
-    "exact": 139,
-    "fields": 200,
-    "named": 49,
-    "named_right": 49,
-    "within_one": 192
-   },
-   "technique": "direct_caliper",
-   "widened_source": {
-    "exact": 188,
-    "fields": 200,
-    "named": 16,
-    "named_right": 16,
-    "within_one": 194
-   },
-   "widened_spread": {
-    "pedicle_h": 0.13023135299131786,
-    "pedicle_w": 0.1199053900209957
-   },
-   "width": 5
-  },
-  {
-   "cohort": "hamann_todd_503",
-   "fields_per_place": 200,
-   "group": "body weight 55-63 kg",
-   "holds_subjects_of": [],
-   "levels": [
-    "L1",
-    "L2",
-    "L3",
-    "L4",
-    "L5"
-   ],
-   "measures": [
-    "pedicle_h",
-    "pedicle_w"
-   ],
-   "panjabi": {
-    "exact": 365,
-    "fields": 1000,
-    "named": 55,
-    "named_right": 54,
-    "within_one": 504
-   },
-   "paper": "yu2015",
-   "places": 5,
-   "sex": "all",
-   "source": {
-    "exact": 303,
-    "fields": 1000,
-    "named": 18,
-    "named_right": 18,
-    "within_one": 516
-   },
-   "technique": "direct_caliper",
-   "widened_source": {
-    "exact": 305,
-    "fields": 1000,
-    "named": 24,
-    "named_right": 24,
-    "within_one": 492
-   },
-   "widened_spread": {
-    "pedicle_h": 0.13023135299131786,
-    "pedicle_w": 0.1199053900209957
-   },
-   "width": 1
-  },
-  {
-   "cohort": "hamann_todd_503",
-   "fields_per_place": 200,
-   "group": "body weight 55-63 kg",
-   "holds_subjects_of": [],
-   "levels": [
-    "L1",
-    "L2",
-    "L3",
-    "L4",
-    "L5"
-   ],
-   "measures": [
-    "pedicle_h",
-    "pedicle_w"
-   ],
-   "panjabi": {
-    "exact": 392,
-    "fields": 600,
-    "named": 77,
-    "named_right": 77,
-    "within_one": 460
-   },
-   "paper": "yu2015",
-   "places": 3,
-   "sex": "all",
-   "source": {
-    "exact": 320,
-    "fields": 600,
-    "named": 46,
-    "named_right": 46,
-    "within_one": 464
-   },
-   "technique": "direct_caliper",
-   "widened_source": {
-    "exact": 265,
-    "fields": 600,
-    "named": 29,
-    "named_right": 29,
-    "within_one": 405
-   },
-   "widened_spread": {
-    "pedicle_h": 0.13023135299131786,
-    "pedicle_w": 0.1199053900209957
-   },
-   "width": 3
-  },
-  {
-   "cohort": "hamann_todd_503",
-   "fields_per_place": 200,
-   "group": "body weight 55-63 kg",
-   "holds_subjects_of": [],
-   "levels": [
-    "L1",
-    "L2",
-    "L3",
-    "L4",
-    "L5"
-   ],
-   "measures": [
-    "pedicle_h",
-    "pedicle_w"
-   ],
-   "panjabi": {
-    "exact": 178,
-    "fields": 200,
-    "named": 102,
-    "named_right": 102,
-    "within_one": 185
-   },
-   "paper": "yu2015",
-   "places": 1,
-   "sex": "all",
-   "source": {
-    "exact": 141,
-    "fields": 200,
-    "named": 46,
-    "named_right": 46,
-    "within_one": 192
-   },
-   "technique": "direct_caliper",
-   "widened_source": {
-    "exact": 180,
-    "fields": 200,
-    "named": 22,
-    "named_right": 22,
-    "within_one": 186
-   },
-   "widened_spread": {
-    "pedicle_h": 0.13023135299131786,
-    "pedicle_w": 0.1199053900209957
-   },
-   "width": 5
-  },
-  {
-   "cohort": "hamann_todd_503",
-   "fields_per_place": 200,
-   "group": "body weight <=45 kg",
-   "holds_subjects_of": [],
-   "levels": [
-    "L1",
-    "L2",
-    "L3",
-    "L4",
-    "L5"
-   ],
-   "measures": [
-    "pedicle_h",
-    "pedicle_w"
-   ],
-   "panjabi": {
-    "exact": 382,
-    "fields": 1000,
-    "named": 49,
-    "named_right": 49,
-    "within_one": 524
-   },
-   "paper": "yu2015",
-   "places": 5,
-   "sex": "all",
-   "source": {
-    "exact": 265,
-    "fields": 1000,
-    "named": 9,
-    "named_right": 9,
-    "within_one": 497
-   },
-   "technique": "direct_caliper",
-   "widened_source": {
-    "exact": 312,
-    "fields": 1000,
-    "named": 14,
-    "named_right": 14,
-    "within_one": 462
-   },
-   "widened_spread": {
-    "pedicle_h": 0.13023135299131786,
-    "pedicle_w": 0.1199053900209957
-   },
-   "width": 1
-  },
-  {
-   "cohort": "hamann_todd_503",
-   "fields_per_place": 200,
-   "group": "body weight <=45 kg",
-   "holds_subjects_of": [],
-   "levels": [
-    "L1",
-    "L2",
-    "L3",
-    "L4",
-    "L5"
-   ],
-   "measures": [
-    "pedicle_h",
-    "pedicle_w"
-   ],
-   "panjabi": {
-    "exact": 385,
-    "fields": 600,
-    "named": 92,
-    "named_right": 92,
-    "within_one": 460
-   },
-   "paper": "yu2015",
-   "places": 3,
-   "sex": "all",
-   "source": {
-    "exact": 259,
-    "fields": 600,
-    "named": 23,
-    "named_right": 23,
-    "within_one": 427
-   },
-   "technique": "direct_caliper",
-   "widened_source": {
-    "exact": 256,
-    "fields": 600,
-    "named": 12,
-    "named_right": 12,
-    "within_one": 368
-   },
-   "widened_spread": {
-    "pedicle_h": 0.13023135299131786,
-    "pedicle_w": 0.1199053900209957
-   },
-   "width": 3
-  },
-  {
-   "cohort": "hamann_todd_503",
-   "fields_per_place": 200,
-   "group": "body weight <=45 kg",
-   "holds_subjects_of": [],
-   "levels": [
-    "L1",
-    "L2",
-    "L3",
-    "L4",
-    "L5"
-   ],
-   "measures": [
-    "pedicle_h",
-    "pedicle_w"
-   ],
-   "panjabi": {
-    "exact": 175,
-    "fields": 200,
-    "named": 100,
-    "named_right": 100,
-    "within_one": 189
-   },
-   "paper": "yu2015",
-   "places": 1,
-   "sex": "all",
-   "source": {
-    "exact": 124,
-    "fields": 200,
-    "named": 41,
-    "named_right": 41,
-    "within_one": 188
-   },
-   "technique": "direct_caliper",
-   "widened_source": {
-    "exact": 173,
-    "fields": 200,
-    "named": 17,
-    "named_right": 17,
-    "within_one": 185
-   },
-   "widened_spread": {
-    "pedicle_h": 0.13023135299131786,
-    "pedicle_w": 0.1199053900209957
-   },
-   "width": 5
-  },
-  {
-   "cohort": "hamann_todd_503",
-   "fields_per_place": 200,
-   "group": "body weight >=64 kg",
-   "holds_subjects_of": [],
-   "levels": [
-    "L1",
-    "L2",
-    "L3",
-    "L4",
-    "L5"
-   ],
-   "measures": [
-    "pedicle_h",
-    "pedicle_w"
-   ],
-   "panjabi": {
-    "exact": 360,
-    "fields": 1000,
-    "named": 45,
-    "named_right": 45,
-    "within_one": 526
-   },
-   "paper": "yu2015",
-   "places": 5,
-   "sex": "all",
-   "source": {
-    "exact": 336,
-    "fields": 1000,
-    "named": 19,
-    "named_right": 19,
-    "within_one": 510
-   },
-   "technique": "direct_caliper",
-   "widened_source": {
-    "exact": 308,
-    "fields": 1000,
-    "named": 25,
-    "named_right": 25,
-    "within_one": 512
-   },
-   "widened_spread": {
-    "pedicle_h": 0.13023135299131786,
-    "pedicle_w": 0.1199053900209957
-   },
-   "width": 1
-  },
-  {
-   "cohort": "hamann_todd_503",
-   "fields_per_place": 200,
-   "group": "body weight >=64 kg",
-   "holds_subjects_of": [],
-   "levels": [
-    "L1",
-    "L2",
-    "L3",
-    "L4",
-    "L5"
-   ],
-   "measures": [
-    "pedicle_h",
-    "pedicle_w"
-   ],
-   "panjabi": {
-    "exact": 399,
-    "fields": 600,
-    "named": 82,
-    "named_right": 82,
-    "within_one": 468
-   },
-   "paper": "yu2015",
-   "places": 3,
-   "sex": "all",
-   "source": {
-    "exact": 344,
-    "fields": 600,
-    "named": 47,
-    "named_right": 47,
-    "within_one": 476
-   },
-   "technique": "direct_caliper",
-   "widened_source": {
-    "exact": 285,
-    "fields": 600,
-    "named": 32,
-    "named_right": 32,
-    "within_one": 445
-   },
-   "widened_spread": {
-    "pedicle_h": 0.13023135299131786,
-    "pedicle_w": 0.1199053900209957
-   },
-   "width": 3
-  },
-  {
-   "cohort": "hamann_todd_503",
-   "fields_per_place": 200,
-   "group": "body weight >=64 kg",
-   "holds_subjects_of": [],
-   "levels": [
-    "L1",
-    "L2",
-    "L3",
-    "L4",
-    "L5"
-   ],
-   "measures": [
-    "pedicle_h",
-    "pedicle_w"
-   ],
-   "panjabi": {
-    "exact": 181,
-    "fields": 200,
-    "named": 114,
-    "named_right": 114,
-    "within_one": 194
-   },
-   "paper": "yu2015",
-   "places": 1,
-   "sex": "all",
-   "source": {
-    "exact": 139,
-    "fields": 200,
-    "named": 73,
-    "named_right": 72,
     "within_one": 196
    },
    "technique": "direct_caliper",
    "widened_source": {
-    "exact": 183,
+    "exact": 192,
     "fields": 200,
-    "named": 35,
-    "named_right": 35,
-    "within_one": 186
+    "named": 44,
+    "named_right": 44,
+    "within_one": 195
    },
    "widened_spread": {
     "pedicle_h": 0.13023135299131786,
@@ -37290,29 +36178,29 @@
     "pedicle_w"
    ],
    "panjabi": {
-    "exact": 1137,
+    "exact": 1191,
     "fields": 3400,
-    "named": 147,
-    "named_right": 147,
-    "within_one": 1803
+    "named": 153,
+    "named_right": 153,
+    "within_one": 1841
    },
    "paper": "zindrick1987",
    "places": 17,
    "sex": "not stated",
    "source": {
-    "exact": 788,
+    "exact": 721,
     "fields": 3400,
     "named": 42,
     "named_right": 41,
-    "within_one": 1738
+    "within_one": 1658
    },
    "technique": "pooled_film_and_ct",
    "widened_source": {
-    "exact": 886,
+    "exact": 824,
     "fields": 3400,
-    "named": 51,
-    "named_right": 51,
-    "within_one": 1786
+    "named": 45,
+    "named_right": 45,
+    "within_one": 1779
    },
    "widened_spread": {
     "pedicle_h": 0.10821441744979414,
@@ -37353,29 +36241,29 @@
     "pedicle_w"
    ],
    "panjabi": {
-    "exact": 1849,
+    "exact": 1835,
     "fields": 3000,
-    "named": 324,
-    "named_right": 324,
-    "within_one": 2386
+    "named": 313,
+    "named_right": 312,
+    "within_one": 2339
    },
    "paper": "zindrick1987",
    "places": 15,
    "sex": "not stated",
    "source": {
-    "exact": 799,
+    "exact": 788,
     "fields": 3000,
-    "named": 67,
-    "named_right": 65,
-    "within_one": 1639
+    "named": 56,
+    "named_right": 55,
+    "within_one": 1611
    },
    "technique": "pooled_film_and_ct",
    "widened_source": {
-    "exact": 952,
+    "exact": 956,
     "fields": 3000,
-    "named": 65,
-    "named_right": 65,
-    "within_one": 1882
+    "named": 54,
+    "named_right": 54,
+    "within_one": 1885
    },
    "widened_spread": {
     "pedicle_h": 0.10821441744979414,
@@ -37416,29 +36304,29 @@
     "pedicle_w"
    ],
    "panjabi": {
-    "exact": 2039,
+    "exact": 1977,
     "fields": 2600,
-    "named": 558,
-    "named_right": 558,
-    "within_one": 2409
+    "named": 517,
+    "named_right": 515,
+    "within_one": 2353
    },
    "paper": "zindrick1987",
    "places": 13,
    "sex": "not stated",
    "source": {
-    "exact": 891,
+    "exact": 921,
     "fields": 2600,
-    "named": 87,
-    "named_right": 80,
-    "within_one": 1715
+    "named": 98,
+    "named_right": 82,
+    "within_one": 1708
    },
    "technique": "pooled_film_and_ct",
    "widened_source": {
-    "exact": 1200,
+    "exact": 1130,
     "fields": 2600,
-    "named": 81,
-    "named_right": 80,
-    "within_one": 2108
+    "named": 70,
+    "named_right": 70,
+    "within_one": 1991
    },
    "widened_spread": {
     "pedicle_h": 0.10821441744979414,

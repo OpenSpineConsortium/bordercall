@@ -21,6 +21,9 @@ Of round 2, these were fixed in pull request 26 by hand, each checked against th
 probably the original, rather than "reprints"), prose-numbers 2, 3 and 4 (measures.md 3.5, HANDOFF.md and the
 end-plate note's status line no longer say the angles are left out). The rest changed data/series.csv or the
 record and were fixed in pull request 39, each finding's `resolution` in round-2-findings.json saying where, the
-series remade (4,116) and the comparison rerun; the old series reproduced the old record byte for byte first, so
+series remade and the comparison rerun; the old series reproduced the old record byte for byte first, so
 every moved number is the fixes' own. One fix reached a paper no finding named: Chen 2011's counts of 830, 430
 and 400 are end-plates over ten levels, read now as 83 patients, 43 men and 40 women.
+- Round 3 ([round-3.md](round-3.md)), four readers over the fixed series and record: no fix refuted, seven small
+  faults fixed (Olsewski 1990's pedicle counts pooled before halving, the transport asking a count of two, a
+  measure's n at one level standing for another), the series remade (4,077) and the comparison rerun again.

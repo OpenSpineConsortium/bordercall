@@ -28,20 +28,21 @@ series.csv changes once more at step 1 below.
   the comparison with the papers included, scores them as printed.
 - [../paper-tables/](../paper-tables/README.md): every table of the 39 papers besides Panjabi's, read twice blind,
   reconciled on the page image and mapped to 106 measures (tools/vocabulary.csv): 23,918 cells on 60 measures;
-  data/series.csv, 4,116 series since pull request 39 (4,357 before it), 49 measures over 209 paper-measure pairs; the comparison with Panjabi's rule at
+  data/series.csv, 4,077 series since pull request 39 (4,357 before it), 49 measures over 209 paper-measure pairs; the comparison with Panjabi's rule at
   200 fields a setting (data/cross_naming.json) and its page, [results/README.md](../paper-tables/results/README.md).
 - The paper-tables tools were reviewed twice by independent readers. The first round's 27 faults and 10 wording
   findings were fixed and checked again. The second round's findings are in
-  ../paper-tables/review/round-2-findings.json, each with the refuters' verdicts; its wording findings are fixed,
-  and its data findings wait for the next step.
+  ../paper-tables/review/round-2-findings.json, each with the refuters' verdicts; its wording findings were fixed in pull
+  request 26 and its data findings in pull request 39, each with its `resolution` in that file.
 
 ## Next, in order
 
 Step 1 below was done on 2026-10-29 in pull request 39 (thread "Plan clinical reread next steps", project
-symphony_2): the sixteen findings fixed, data/series.csv remade (4,116 series), the comparison and the page rerun in
-a cloud session on 4 CPUs, no grid job, and SYNTHESIS.md's points 5 and 7 brought to the new numbers; the old series
-reproduced the old record first. The papers' data are printed tables, not images, so nothing of this step can leak
-into a test set of the auto-anatomist. The further review round it asks for, and steps 2 to 4, remain.
+symphony_2): the sixteen findings fixed, data/series.csv remade, the comparison and the page rerun in a cloud
+session on 4 CPUs, no grid job, and SYNTHESIS.md's points 5 and 7 brought to the new numbers; the old series
+reproduced the old record first. A third review round then read the result (../paper-tables/review/round-3.md):
+nothing refuted, seven small faults fixed, 4,077 series, the comparison rerun once more. The papers' data are printed tables, not images, so nothing of this step can leak
+into a test set of the auto-anatomist. Steps 2 to 4 remain.
 
 1. **Fix the second review's data findings and rerun.** (Done, above; kept as the record of what was asked.) Take each finding of
    ../paper-tables/review/round-2-findings.json that both refuters confirmed, or that is unverified, reproduce it,

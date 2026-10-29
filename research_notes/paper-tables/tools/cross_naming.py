@@ -108,12 +108,15 @@ def series_id(r: dict) -> Tuple[str, ...]:
 
 def tables_of(series: Sequence[dict], base: Sequence[str], allowed=SAME) -> Dict[tuple, Dict[str, Dict[str, tuple]]]:
     """{series id: {key: {level: (mean, sd, n)}}} for this paper's own subjects, on Panjabi's
-    measures, at the rule's levels, where the definition is allowed and an SD above zero is known;
-    a second value for one cell stops the run (ValueError) instead of replacing the first."""
+    measures, at the rule's levels, where the definition is allowed, an SD above zero is known and
+    the count is two or more, as one_per_paper asks of a pool member, since a series of one person
+    or of no stated count is no population to draw fields from (Olsewski 1990's L2 CT cell held two
+    pedicles of one man; Duman 2026's age bands print no n); a second value for one cell stops the
+    run (ValueError) instead of replacing the first."""
     out: Dict[tuple, Dict[str, Dict[str, tuple]]] = {}
     for r in series:
         if (r["source_of_values"] != "this paper" or r["key"] not in base or r["level"] not in LEVELS
-                or r["sd"] is None or r["sd"] <= 0 or r["vs_panjabi"] not in allowed):
+                or r["sd"] is None or r["sd"] <= 0 or not r["n"] or r["n"] < 2 or r["vs_panjabi"] not in allowed):
             continue
         cells = out.setdefault(series_id(r), {}).setdefault(r["key"], {})
         # series.py writes a cell either for both sexes or pooled from them, never both. people()

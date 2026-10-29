@@ -17,12 +17,16 @@ level of each set of subjects, so this file decides, in code that can be read, h
 - the count is the n printed for that cell; else the n the text states for that measure, level
   and sex where no table prints one (STATED_COUNTS); else the n a table prints for every measure of that
   level (Gilad 1985's and Zindrick 1987's rows of n), from the table the mean comes from; else the
-  n printed for that measure and subgroup elsewhere in the paper, at no level or one, never an n
-  over a range of levels; else the n printed for the
+  n printed for that measure and subgroup elsewhere in the paper, at that level or at none, never
+  an n printed at another level or over a range of levels; else the n printed for the
   subgroup as a whole, an n before a count where both are printed, since a count may count
-  something else (Busscher 2010's vertebrae per spine); else the cohort's number of people from
-  its cohorts file; and the series says which (n_from). A paper's printed n that counts the pedicles
-  of both sides is halved (PEDICLES_COUNTED);
+  something else (Busscher 2010's vertebrae per spine); else, for a series of both sexes, the
+  cohort's number of people from its cohorts file, while a series of one sex with no printed count
+  has none, since the cohort's people are not its (Duman 2026's sex and age bands); and the series
+  says which (n_from). A paper's printed n that counts pedicles,
+  both sides of each person, is kept as printed while the sexes and sides are pooled, since its
+  SDs are over pedicles too, and the series written carries half of it, rounded up
+  (PEDICLES_COUNTED);
 - the sides: a value printed for both sides or their mean is taken as it is; a right and a left
   only are averaged, mean with mean and SD with SD (sides "averaged"). Where a paper prints the
   two sides of one angle with opposite signs, its left is negated first (MIRRORED_LEFT), as its
@@ -145,6 +149,15 @@ NOT_POPULATIONS = {
     ("griffith2016", "25% smallest"):
         "Table 7's quartiles are the patients whose canal was smallest, chosen by the measure itself",
 }
+# Olsewski 1990 prints its transverse pedicle angle apart for the pedicles that point cephalad and
+# the pedicles that point caudad (Tables I to III, pp. 544 to 545, PDF 4 to 5; the Results, p. 545):
+# groups chosen by the measure's own sign, neither a mean over all pedicles, so no population.
+NOT_POPULATIONS.update({
+    ("olsewski1990", "%s, %s" % (part, direction)):
+        "the pedicles of one sign of the angle, a group chosen by the measure itself (pp. 544 to 545)"
+    for part in ("Part 1 cadavers, direct", "Part 2 cadavers, direct", "Part 2 cadavers, lateral radiographs",
+                 "Part 3 living patients, lateral radiographs")
+    for direction in ("cephalad", "caudad")})
 # (paper, source_of_values) of a work a paper's tables quote whose subjects are the paper's own: its
 # values repeat the paper's own series, so they make no series of their own.
 REPRINTED_SOURCES = {
@@ -182,12 +195,14 @@ REGROUPED = {
 # (paper, cohort) whose text states, or whose counts over a range of levels give, how many were
 # measured at each level where no table prints an n for it:
 # the count for a measure, level and sex, and why. Kunkel 2011 tested 72 motion segments of 30 spines,
-# six a disc level from C7-T1 to T11-T12 (p. 377, PDF 3), each segment giving its disc and both
-# bodies: six a disc, twelve a body from T1 to T11 and six at C7 and T12.
+# six a disc level from C7-T1 to T11-T12 (p. 377, PDF 3), so six a disc is stated; that each segment
+# gave both its bodies, twelve a body from T1 to T11 and six at C7 and T12, is an inference from
+# Fig. 1a, which marks the corners of both vertebrae of a segment, since Table 2 prints no n.
 STATED_COUNTS = {
     ("kunkel2011", "ulm_thoracic_segments"):
         (lambda key, level, sex: 6 if "-" in level or level in ("C7", "T12") else 12,
-         "six motion segments a disc level (p. 377, PDF 3): six a disc, twelve a body, six at C7 and T12"),
+         "six motion segments a disc level (p. 377, PDF 3): six a disc; twelve a body and six at C7 and T12 "
+         "by inference, both bodies of each segment measured (Fig. 1a)"),
     # Chen 2011 prints its counts for the ten end-plates from T10 inferior to L3 superior together:
     # 830 for its 83 patients (Table 1), 430 and 400 by sex (Tables 2 and 3), so 43 men and 40 women.
     ("chen2011", "chongqing_ct83"):
@@ -196,12 +211,13 @@ STATED_COUNTS = {
          "PDF 4 to 5) 430 and 400 by sex, ten a person: 43 men and 40 women"),
 }
 # Papers whose cell n, printed for both sides together, counts pedicles and not people: the people
-# are taken as half the pedicles, rounded up, as one person gives two. Olsewski 1990's footnotes call
-# the n "the numbers of examples" (p. 544, PDF 4), 47 at the men's L5 width for 24 men.
+# are taken as half the pedicles, rounded up, as one person gives two. Olsewski 1990's footnotes to
+# Tables I and II (p. 544, PDF 4) and III (p. 545, PDF 5) call the n "the numbers of examples", 47 at
+# the men's L5 width for 24 men.
 PEDICLES_COUNTED = {"olsewski1990"}
 # (paper, key) whose mean is signed where Panjabi prints a magnitude; the mapping note says to compare
 # magnitudes, so the series takes the mean's magnitude. Tan 2004 prints its end-plate angles signed,
-# the thoracic lower angles negative (Table 1, p. 141, PDF 5), Panjabi unsigned.
+# the thoracic lower angles negative (Table 1, pp. 140 to 141, PDF 4 to 5), Panjabi unsigned.
 MAGNITUDES = {("tan2004", "endplate_incl"), ("tan2004", "endplate_lower_incl")}
 NOT_MEASURES = {"subject_age", "subject_height", "subject_weight", "subject_bmi", "subject_count", "prevalence",
                 "reliability", "other"}
@@ -311,8 +327,9 @@ def described(rows):
 def printed_counts(rows):
     """The n a paper prints outside a cell, to stand in for a cell that prints none: "level",
     {(paper, cohort, table, level, sex, group): n} for an n a table prints for every measure of one
-    level; "measure", {(paper, cohort, key, sex, group): n} where one n is printed for a measure and
-    subgroup; "group", {(paper, cohort, sex, group): n} for a count printed for the subgroup as a
+    level; "measure", {(paper, cohort, key, level, sex, group): n} where one n is printed for a
+    measure and subgroup, at that level or at none, since an n printed at one level says nothing of
+    another (Olsewski 1990's caudad angles count 8 and 4 pedicles at L5 alone); "group", {(paper, cohort, sex, group): n} for a count printed for the subgroup as a
     whole, where one n, else one n or count, is printed. A count printed for a range of levels is
     none of these, since it counts each level's people again (Shin 2024's 3,500 interspaces of 700
     patients, Chen 2011's 430 end-plates of 43 men)."""
@@ -330,8 +347,10 @@ def printed_counts(rows):
                 group_n[(row["paper"], row["cohort"], row["sex"], group)].add(value)
                 if VERTEBRA.match(row["level"]):
                     by_level[(row["paper"], row["cohort"], row["table"], row["level"], row["sex"], group)].add(value)
-        elif row["key"] not in NOT_MEASURES:
-            by_measure[(row["paper"], row["cohort"], row["key"], row["sex"], group)].add(value)
+        elif row["key"] not in NOT_MEASURES and row["statistic"] == "n":
+            # An n alone: a count printed for a measure may count something else (Krag 1988's Table 2
+            # counts the pedicles of each 1-mm bin of width).
+            by_measure[(row["paper"], row["cohort"], row["key"], row["level"], row["sex"], group)].add(value)
     single = lambda d: {k: next(iter(v)) for k, v in d.items() if len(v) == 1}
     return {"level": single(by_level), "measure": single(by_measure), "group": {**single(by_group), **single(group_n)}}
 
@@ -347,13 +366,11 @@ def count_of(k, stats, table, people, counts):
     candidates = ((first(stats.get("n", [])), "cell"),
                   (stated[0](key, level, sex) if stated else None, "stated"),
                   (counts["level"].get((paper, cohort, table, level, sex, group)), "level"),
-                  (counts["measure"].get((paper, cohort, key, sex, group)), "measure"),
+                  (counts["measure"].get((paper, cohort, key, level, sex, group)), "measure"),
+                  (counts["measure"].get((paper, cohort, key, "", sex, group)), "measure"),
                   (counts["group"].get((paper, cohort, sex, group)), "subgroup"),
                   (people.get((paper, cohort)) if sex in ("all", "not stated") else None, "cohort"))
-    n, n_from = next(((n, n_from) for n, n_from in candidates if n is not None), (None, ""))
-    if paper in PEDICLES_COUNTED and n_from in ("cell", "level", "measure") and k[8] == "both":
-        n, n_from = math.ceil(n / 2), n_from + ", pedicles halved"
-    return n, n_from
+    return next(((n, n_from) for n, n_from in candidates if n is not None), (None, ""))
 
 
 def one_series(k, stats, description, people, counts):
@@ -363,6 +380,9 @@ def one_series(k, stats, description, people, counts):
     if mean is None:
         return None
     n, n_from = count_of(k, stats, description["table"], people, counts)
+    # A printed count of pedicles stays as printed while the sexes and sides are pooled, since the
+    # paper's SDs are over pedicles too, and is halved once the series is written (halve_pedicles).
+    pedicles = k[0] in PEDICLES_COUNTED and n_from in ("cell", "level", "measure")
     sd, sd_from = first(stats.get("sd", [])), "sd"
     if sd is None and stats.get("sem") and n and technique not in POOLED_MEANS:
         sd, sd_from = stats["sem"][0] * math.sqrt(n), "sem x root n"
@@ -370,7 +390,7 @@ def one_series(k, stats, description, people, counts):
         sd, sd_from = math.sqrt(stats["variance"][0]), "root of variance"
     if sd is None:
         sd_from = ""
-    return {"mean": mean, "sd": sd, "n": n, "sd_from": sd_from, "n_from": n_from}
+    return {"mean": mean, "sd": sd, "n": n, "sd_from": sd_from, "n_from": n_from, "pedicles": pedicles}
 
 
 def plain_stands(plain, pair_has_sd):
@@ -405,6 +425,14 @@ def merge_sides(found, mirrored=False):
         return "averaged", average_sides(found["right"], found["left"], mirrored)
     side = sorted(found)[0]
     return side, found[side]
+
+
+def halve_pedicles(s):
+    """A series whose count is the paper's count of pedicles, both sides of each person, written
+    with the people: half the pedicles, rounded up."""
+    if s.get("pedicles") and s["n"]:
+        return dict(s, n=math.ceil(s["n"] / 2), n_from=s["n_from"] + ", pedicles halved")
+    return s
 
 
 def pool_sexes(m, f):
@@ -453,6 +481,7 @@ def build(rows, people):
     for k, found in sexes.items():
         paper, cohort, technique, source, key, level, group = k
         for sex, (side, s) in pick_sexes(found):
+            s = halve_pedicles(s)
             out.append({"paper": paper, "cohort": cohort, "technique": technique, "source_of_values": source,
                         "key": key, "level": level, "sex": sex, "group": group, "side": side,
                         "mean": s["mean"], "sd": s["sd"], "n": s["n"], "sd_from": s["sd_from"], "n_from": s["n_from"],

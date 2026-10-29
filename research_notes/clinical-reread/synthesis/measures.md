@@ -414,7 +414,7 @@ Two more size-free cues from frontphys2026 (100 living Chinese adults, CT). Infe
 
 ### 3.5 End-plate inclination and wedge: endplate_incl (EPItu), endplate_lower_incl (EPItl), endplate_wedge (EPIt)
 
-In the pool as printed, by the owner's choice of 2026-10-29 09:01 UTC to keep all 32 measures (bordercall TODO.md step b), though this part recommended leaving out endplate_incl and endplate_lower_incl, because Panjabi's lumbar L1 to L5 rows of these two angles reprint his cervical C3 to C7 rows, so his lumbar paper most probably prints no lumbar value of either ([panjabi-endplate-inclination.md](../../panjabi-endplate-inclination.md), sections 1 and 3). As the code stands, measures.pool still takes both (the pool of 32); that note's section 3 gives the exclusion list that would drop them, and endplate_wedge is outside the pool already (no spread).
+In the pool as printed, by the owner's choice of 2026-10-29 09:01 UTC to keep all 32 measures (bordercall TODO.md step b), though this part recommended leaving out endplate_incl and endplate_lower_incl, because Panjabi's lumbar L1 to L5 rows of these two angles print the same 20 numbers as his cervical C3 to C7 rows, most probably the cervical row printed twice, so his lumbar paper most probably prints no lumbar value of either ([panjabi-endplate-inclination.md](../../panjabi-endplate-inclination.md), sections 1 and 3). As the code stands, measures.pool still takes both (the pool of 32); that note's section 3 gives the exclusion list that would drop them, and endplate_wedge is outside the pool already (no spread).
 
 (a) Definitions
 

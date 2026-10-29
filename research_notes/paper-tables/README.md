@@ -55,7 +55,7 @@ paper's mapping against its Methods.
 - data/cohorts/<id>.cohorts.json: its cohorts, techniques and every stated or inferred sharing, with the page. A
   cohort that is not human carries "species" (Busscher 2010's and van der Houwen 2009's pig spines), and
   tools/cross_naming.py leaves it out of everything.
-- data/series.csv: tools/series.py over all 39, 4,116 series. Three misprints are left out: Tan 2004's L3 lower
+- data/series.csv: tools/series.py over all 39, 4,077 series. Three misprints are left out: Tan 2004's L3 lower
   end-plate area, printed 172.0 mm2 between 1,090.9 and 1,199.3, Robertson 2000's left L3 pedicle height,
   printed with an SD of 13.0 mm where every other is 2.5 to 3.9, and Hou 1993's T9 cumulative pedicle height,
   12.9 mm outside its sexes' 12.2 and 12.5. Griffith 2016's model-adjusted estimates and its quartiles chosen by
@@ -68,7 +68,7 @@ paper's mapping against its Methods.
   (../clinical-reread/HANDOFF.md, step 2); not run yet.
 - [review/](review/README.md): what the two review rounds found, and round 2's findings with the refuters'
   verdicts and, for each fixed, its resolution; the data findings were fixed on 2026-10-29 and the comparison
-  rerun (pull request 39).
+  rerun, then a third round read the result (pull request 39).
 - data/cross_naming.json and results/: the comparison with Panjabi (step 5) at 200 fields a setting, seed 2026, with
   all 32 of Panjabi's measures scored as printed, the owner's choice of 2026-10-29 though the two end-plate
   inclinations' lumbar row repeats the cervical one (../panjabi-endplate-inclination.md), and the evaluation written
