@@ -2,8 +2,7 @@
 
 Source: thread "Plan clinical reread next steps", project symphony_2, 2026-10-29, on the branch of pull request 39
 at ed111b5, for the owner's ask of 2026-10-29 15:15 UTC that the measures and their data be shown to be of good
-quality (../../clinical-reread/HANDOFF.md, step 2, parts a and b; part c, the mapping audit, is not in this folder
-yet). Confidential, like the rest of this repository. Everything here ran in a cloud session on the page images;
+quality (../../clinical-reread/HANDOFF.md, step 2, parts a, b and c). Confidential, like the rest of this repository. Everything here ran in a cloud session on the page images;
 no grid job, nothing fetched.
 
 ## The blind re-read (step 2a)
@@ -59,9 +58,60 @@ Shin 2024's quoted comparators), and each reversal a step the paper prints and o
 
 Rerun: `python3 -I tools/plausibility.py data/series.csv data/cohorts tools/vocabulary.csv validation/flags.csv`.
 
+## The mapping audit (step 2c)
+
+The question: is each number mapped to what the paper measured? mapping_sheet.csv is the unit of audit: every
+distinct (measure_label, key, factor, technique) a paper's own values carry, 765 over the 39 papers, with the
+vocabulary's definition, the reading's own definition of the paper's measure, the units and canonical units,
+the technique and vs_panjabi. Ten auditors, three or four papers each, read each row against the paper's
+methods, figures and table headings (the PDF's text, the page rendered where a figure mattered, the paper's note)
+and judged the key, the level and side conventions, the units and factor, the technique and vs_panjabi; a flag was
+anything a second reader should look at. They flagged 109 rows of 765 (63 on the key, 29 on vs_panjabi, 10 on the
+level, 6 on units, 1 on technique) and found 656 to fit.
+
+Five refuters, each a share of the flagged papers, then tried to show each flag wrong from the paper's own
+words (mapping_audit.csv, one row a flag with the verdict, the fix and the reason): 51 refuted, 41 judgement
+(the paper settles neither reading; what each rests on is written), 17 held. The 17 were fixed in the readings
+on 2026-10-29, each cell's note saying so:
+
+- Otsuki 2021's "longitudinal diameter (major axis of isthmus)" is the longest diameter of the isthmus section
+  perpendicular to the pedicle axis (pp. 3 to 4, Fig. 2), oblique at a lumbar pedicle (L5 24.2 mm against
+  Panjabi's PDH 19.6), so its pedicle_h rows are differs, not close: five series leave the comparison, the one
+  fix that reaches it.
+- Bach 2019's "maximum height of the interbody space" is printed L4/5 but is Figure 8's L5/S1 (8.900 and 8.566;
+  the Results give L5/S1 women 8.6 +/- 1.8): level L5-S1. Hou 1993's Discussion "pedicle depth parallel to the
+  midline" prints L1 but 50.3 and 48.6 are Table 3's L2 means: level L2.
+- Eisenstein 1977's 20 mm lower limit of normal is the dry-bone 18 mm greatest interpedicular distance times the
+  film's magnification 1.14 (p. 175): keyed canal_w with the paper's other greatest-interpedicular rows, not
+  interpedicular.
+- Kunkel 2011's percent-of-average-disc-height rows (Table 3's column, the Abstract's and Results' 22.7, 40, 21.25
+  and 21 percent) take factor 0.01 to the ratio disc_index's unit is, as the Figure 3 cells already did.
+- Masharawi 2021's "DS more sagittal than control" 10 deg is Table 2's L4 inter-facet difference, the angle between
+  the two joint lines: keyed other with the TIFA rows, not facet_angle_axial.
+- Yu 2015's two "PH difference" cells name their level (L1 for 2.07 mm, L2 for 0.94) in the note; Abbas 2021's
+  note that the Results and the Discussion assigned the shares to opposite groups was wrong; Alonge 2021's
+  Table 3 and 4 notes already said one reading per patient at the level, so nothing changed there.
+
+The 41 judgements stand as mapped, each with what the other reading would rest on, and these reach the comparison
+if read the other way: Chen 2011's end-plate sagittal diameter (differs by the authors' own words setting it
+apart from Panjabi, p. 1819; close by its landmarks, the rims on the midsagittal plane, where Busscher 2010's
+same chord is graded same); Alonge 2021's canal AP diameter (same, where Abbas 2021's and Ahmed 2019's are close);
+Olsewski 1990's sagittal pedicle angle (differs, since Panjabi's PDIt is drawn from the plane square to the
+posterior wall and Olsewski's from the end-plate line in the opposite sense; close if Panjabi's drawing is read as
+schematic); Arockiaraj 2025's pedicle height (close by "superior and inferior cortex at the isthmus", or the inner
+height by its values, 4 to 8 mm under every CT series it quotes); Busscher 2010's pedicle angle (its line is
+pinned at the anterior body midline, not the pedicle axis); Amonoo-Kuofi 1985's body AP diameter (maximum or
+mid-waist, the Methods say both). The owner's word settles these; none was changed. Two findings outside the
+readings: the vocabulary's own definition of spinous_length ("from the posterior wall of the canal") matches
+neither Panjabi nor Tan 2004, and Bonczar 2024's Figure 2 swaps the words of its end-plate width and depth, where
+the readings key by value (31 to 34 mm cannot be a lumbar end-plate's mediolateral span).
+
+Rerun: the sheet is built from data/readings/ (one row per distinct measure_label, key, factor and technique of
+the paper's own values, subject and summary keys left out); the audits and refutations are readers' work.
+
 ## What this does and does not show
 
-The numbers in the readings are the numbers on the pages, to within one cell in 120 at worst, and no value a
-rule finds implausible is a misread. What it does not show: whether each number was mapped to the right measure,
-level, side, sex and units (step 2c, the mapping audit, one reader a paper and a refuter a flag, not done), and
+The numbers in the readings are the numbers on the pages, to within one cell in 120 at worst; no value a rule
+finds implausible is a misread; and of 765 mappings, 17 were wrong in a way the paper settles, one of them
+reaching the comparison, with 41 open to a second reading that the owner settles. What it does not show is
 whether a paper's own number is right, which no re-read of its page can tell.

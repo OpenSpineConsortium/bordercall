@@ -97,13 +97,13 @@ griffith2016,Griffith 2016,hk_ct_patients,3,L1 to L5,5,source,200,25.0,30.5,0.0,
 griffith2016,Griffith 2016,hk_ct_patients,3,L1 to L5,5,widened_source,200,50.0,63.5,0.5,1,1,0
 hou1993,Hou 1993,xian_dry_bone,2,T9 to L5,1,panjabi,1800,28.833,48.222,3.889,70,70,0
 hou1993,Hou 1993,xian_dry_bone,2,T9 to L5,1,source,1800,15.389,37.389,0.056,1,1,0
-hou1993,Hou 1993,xian_dry_bone,2,T9 to L5,1,widened_source,1800,20.833,49.5,0.0,0,0,0
+hou1993,Hou 1993,xian_dry_bone,2,T9 to L5,1,widened_source,1800,20.444,48.778,0.0,0,0,0
 hou1993,Hou 1993,xian_dry_bone,2,T9 to L5,3,panjabi,1400,50.0,69.571,6.286,88,88,0
 hou1993,Hou 1993,xian_dry_bone,2,T9 to L5,3,source,1400,28.0,56.643,0.5,7,7,0
-hou1993,Hou 1993,xian_dry_bone,2,T9 to L5,3,widened_source,1400,33.143,61.143,0.071,1,1,0
+hou1993,Hou 1993,xian_dry_bone,2,T9 to L5,3,widened_source,1400,33.071,60.714,0.0,0,0,0
 hou1993,Hou 1993,xian_dry_bone,2,T9 to L5,5,panjabi,1000,74.1,88.3,11.0,110,110,0
 hou1993,Hou 1993,xian_dry_bone,2,T9 to L5,5,source,1000,38.0,72.3,2.2,22,22,0
-hou1993,Hou 1993,xian_dry_bone,2,T9 to L5,5,widened_source,1000,36.1,71.6,0.1,1,1,0
+hou1993,Hou 1993,xian_dry_bone,2,T9 to L5,5,widened_source,1000,35.6,70.1,0.1,1,1,0
 italianmri,Pierro 2017,campobasso_604,1,L1 to L5,1,panjabi,1000,12.5,20.8,0.0,0,0,0
 italianmri,Pierro 2017,campobasso_604,1,L1 to L5,1,source,1000,6.2,11.9,0.0,0,0,0
 italianmri,Pierro 2017,campobasso_604,1,L1 to L5,1,widened_source,1000,18.6,42.2,0.0,0,0,0
@@ -142,49 +142,49 @@ masharawi2021,Abu-Leil 2021,"ds, DS",4,L1 to L5,5,source,200,38.0,73.0,16.0,23,3
 masharawi2021,Abu-Leil 2021,"ds, DS",4,L1 to L5,5,widened_source,200,59.5,87.5,7.0,13,14,0
 moncadahabib2025,Moncada-Habib 2025,mexico_ct37,4,L1 to L5,1,panjabi,1000,45.8,67.5,7.8,78,78,0
 moncadahabib2025,Moncada-Habib 2025,mexico_ct37,4,L1 to L5,1,source,1000,23.9,68.9,0.0,0,0,0
-moncadahabib2025,Moncada-Habib 2025,mexico_ct37,4,L1 to L5,1,widened_source,1000,27.6,65.0,0.0,0,0,0
+moncadahabib2025,Moncada-Habib 2025,mexico_ct37,4,L1 to L5,1,widened_source,1000,28.2,65.3,0.0,0,0,0
 moncadahabib2025,Moncada-Habib 2025,mexico_ct37,4,L1 to L5,3,panjabi,600,78.167,90.0,20.5,123,123,0
 moncadahabib2025,Moncada-Habib 2025,mexico_ct37,4,L1 to L5,3,source,600,28.5,77.333,0.0,0,0,0
-moncadahabib2025,Moncada-Habib 2025,mexico_ct37,4,L1 to L5,3,widened_source,600,44.667,84.5,0.167,1,1,0
+moncadahabib2025,Moncada-Habib 2025,mexico_ct37,4,L1 to L5,3,widened_source,600,45.5,84.833,0.167,1,1,0
 moncadahabib2025,Moncada-Habib 2025,mexico_ct37,4,L1 to L5,5,panjabi,200,95.0,98.5,73.0,146,146,0
 moncadahabib2025,Moncada-Habib 2025,mexico_ct37,4,L1 to L5,5,source,200,11.5,83.0,8.5,0,17,0
-moncadahabib2025,Moncada-Habib 2025,mexico_ct37,4,L1 to L5,5,widened_source,200,61.0,97.0,1.5,3,3,0
+moncadahabib2025,Moncada-Habib 2025,mexico_ct37,4,L1 to L5,5,widened_source,200,63.5,97.5,1.5,3,3,0
 olsewski1990,Olsewski 1990,"part1_cadavers, Part 1 cadavers, direct",3,L1 to L5,1,panjabi,1000,40.8,57.0,7.9,79,79,0
 olsewski1990,Olsewski 1990,"part1_cadavers, Part 1 cadavers, direct",3,L1 to L5,1,source,1000,25.4,42.8,7.0,70,70,0
-olsewski1990,Olsewski 1990,"part1_cadavers, Part 1 cadavers, direct",3,L1 to L5,1,widened_source,1000,31.4,48.5,5.3,53,53,0
+olsewski1990,Olsewski 1990,"part1_cadavers, Part 1 cadavers, direct",3,L1 to L5,1,widened_source,1000,31.5,48.2,5.2,52,52,0
 olsewski1990,Olsewski 1990,"part1_cadavers, Part 1 cadavers, direct",3,L1 to L5,3,panjabi,600,68.167,79.667,16.333,98,98,0
 olsewski1990,Olsewski 1990,"part1_cadavers, Part 1 cadavers, direct",3,L1 to L5,3,source,600,39.167,57.167,12.0,72,72,0
-olsewski1990,Olsewski 1990,"part1_cadavers, Part 1 cadavers, direct",3,L1 to L5,3,widened_source,600,48.5,70.833,11.5,69,69,0
+olsewski1990,Olsewski 1990,"part1_cadavers, Part 1 cadavers, direct",3,L1 to L5,3,widened_source,600,47.833,69.167,11.333,68,68,0
 olsewski1990,Olsewski 1990,"part1_cadavers, Part 1 cadavers, direct",3,L1 to L5,5,panjabi,200,93.5,99.0,67.0,134,134,0
 olsewski1990,Olsewski 1990,"part1_cadavers, Part 1 cadavers, direct",3,L1 to L5,5,source,200,77.0,94.0,40.0,80,80,0
-olsewski1990,Olsewski 1990,"part1_cadavers, Part 1 cadavers, direct",3,L1 to L5,5,widened_source,200,92.0,97.0,28.0,56,56,0
-otsuki2021,Irie 2021,rush_cadaver_6,3,L1 to L5,1,panjabi,1000,42.0,60.7,7.0,70,70,0
-otsuki2021,Irie 2021,rush_cadaver_6,3,L1 to L5,1,source,1000,25.5,44.9,0.6,6,6,0
-otsuki2021,Irie 2021,rush_cadaver_6,3,L1 to L5,1,widened_source,1000,23.4,41.2,0.3,3,3,0
-otsuki2021,Irie 2021,rush_cadaver_6,3,L1 to L5,3,panjabi,600,69.667,82.667,15.833,95,95,0
-otsuki2021,Irie 2021,rush_cadaver_6,3,L1 to L5,3,source,600,29.0,48.167,1.333,5,8,0
-otsuki2021,Irie 2021,rush_cadaver_6,3,L1 to L5,3,widened_source,600,31.833,51.333,0.167,1,1,0
-otsuki2021,Irie 2021,rush_cadaver_6,3,L1 to L5,5,panjabi,200,93.0,97.0,65.5,131,131,0
-otsuki2021,Irie 2021,rush_cadaver_6,3,L1 to L5,5,source,200,56.0,58.5,17.0,34,34,0
-otsuki2021,Irie 2021,rush_cadaver_6,3,L1 to L5,5,widened_source,200,69.5,73.0,3.5,7,7,0
+olsewski1990,Olsewski 1990,"part1_cadavers, Part 1 cadavers, direct",3,L1 to L5,5,widened_source,200,92.0,97.0,27.0,54,54,0
+otsuki2021,Irie 2021,rush_cadaver_6,2,L1 to L5,1,panjabi,1000,36.1,54.2,6.4,64,64,0
+otsuki2021,Irie 2021,rush_cadaver_6,2,L1 to L5,1,source,1000,17.4,41.4,0.0,0,0,0
+otsuki2021,Irie 2021,rush_cadaver_6,2,L1 to L5,1,widened_source,1000,23.9,45.0,0.2,2,2,0
+otsuki2021,Irie 2021,rush_cadaver_6,2,L1 to L5,3,panjabi,600,63.167,79.333,12.167,73,73,0
+otsuki2021,Irie 2021,rush_cadaver_6,2,L1 to L5,3,source,600,17.167,40.5,0.0,0,0,0
+otsuki2021,Irie 2021,rush_cadaver_6,2,L1 to L5,3,widened_source,600,38.333,67.5,0.333,2,2,0
+otsuki2021,Irie 2021,rush_cadaver_6,2,L1 to L5,5,panjabi,200,86.5,96.5,51.0,102,102,0
+otsuki2021,Irie 2021,rush_cadaver_6,2,L1 to L5,5,source,200,33.5,42.5,3.0,6,6,0
+otsuki2021,Irie 2021,rush_cadaver_6,2,L1 to L5,5,widened_source,200,74.0,80.0,7.5,15,15,0
 robertson2000,Robertson 2000,auckland_drybone,2,L1 to L5,1,panjabi,1000,35.7,50.2,5.4,54,54,0
 robertson2000,Robertson 2000,auckland_drybone,2,L1 to L5,1,source,1000,25.5,53.5,14.0,109,140,0
-robertson2000,Robertson 2000,auckland_drybone,2,L1 to L5,1,widened_source,1000,25.2,52.3,11.9,97,119,0
+robertson2000,Robertson 2000,auckland_drybone,2,L1 to L5,1,widened_source,1000,25.3,52.4,11.9,97,119,0
 robertson2000,Robertson 2000,auckland_drybone,2,L1 to L5,3,panjabi,600,65.0,78.833,15.333,91,92,0
 robertson2000,Robertson 2000,auckland_drybone,2,L1 to L5,3,source,600,37.5,64.833,13.167,69,79,0
-robertson2000,Robertson 2000,auckland_drybone,2,L1 to L5,3,widened_source,600,40.5,77.0,13.0,69,78,0
+robertson2000,Robertson 2000,auckland_drybone,2,L1 to L5,3,widened_source,600,40.167,75.667,13.0,69,78,0
 robertson2000,Robertson 2000,auckland_drybone,2,L1 to L5,5,panjabi,200,90.0,94.0,60.0,120,120,0
 robertson2000,Robertson 2000,auckland_drybone,2,L1 to L5,5,source,200,69.5,91.5,35.0,69,70,0
-robertson2000,Robertson 2000,auckland_drybone,2,L1 to L5,5,widened_source,200,93.5,97.0,35.5,71,71,0
+robertson2000,Robertson 2000,auckland_drybone,2,L1 to L5,5,widened_source,200,93.0,96.0,35.5,71,71,0
 tan2004,Tan 2004,sg_chinese_cadavers10,19,C7 to L2,1,panjabi,3000,73.4,92.367,17.267,517,518,0
 tan2004,Tan 2004,sg_chinese_cadavers10,19,C7 to L2,1,source,3000,42.133,84.267,2.833,76,85,0
-tan2004,Tan 2004,sg_chinese_cadavers10,19,C7 to L2,1,widened_source,3000,40.567,83.267,0.667,13,20,0
+tan2004,Tan 2004,sg_chinese_cadavers10,19,C7 to L2,1,widened_source,3000,40.567,83.333,0.667,13,20,0
 tan2004,Tan 2004,sg_chinese_cadavers10,19,C7 to L2,3,panjabi,2600,93.038,99.038,63.846,1654,1660,0
 tan2004,Tan 2004,sg_chinese_cadavers10,19,C7 to L2,3,source,2600,52.769,92.769,15.115,334,393,0
-tan2004,Tan 2004,sg_chinese_cadavers10,19,C7 to L2,3,widened_source,2600,54.808,91.731,13.308,306,346,0
+tan2004,Tan 2004,sg_chinese_cadavers10,19,C7 to L2,3,widened_source,2600,54.808,91.731,13.346,307,347,0
 tan2004,Tan 2004,sg_chinese_cadavers10,19,C7 to L2,5,panjabi,2200,98.682,99.909,87.727,1930,1930,0
 tan2004,Tan 2004,sg_chinese_cadavers10,19,C7 to L2,5,source,2200,64.591,98.136,26.091,514,574,0
-tan2004,Tan 2004,sg_chinese_cadavers10,19,C7 to L2,5,widened_source,2200,65.591,97.864,24.091,501,530,0
+tan2004,Tan 2004,sg_chinese_cadavers10,19,C7 to L2,5,widened_source,2200,65.545,97.864,24.091,501,530,0
 tang2016,Tang 2016,utah_mri,6,L4 to L5,1,panjabi,400,37.0,70.0,0.0,0,0,0
 tang2016,Tang 2016,utah_mri,6,L4 to L5,1,source,400,51.0,85.25,0.0,0,0,0
 tang2016,Tang 2016,utah_mri,6,L4 to L5,1,widened_source,400,52.5,90.0,0.0,0,0,0
@@ -202,19 +202,19 @@ yadav2020,Yadav 2020,yadav-ct,5,T12 to L5,5,source,400,56.0,96.75,7.75,23,31,0
 yadav2020,Yadav 2020,yadav-ct,5,T12 to L5,5,widened_source,400,60.5,97.25,0.75,3,3,0
 yu2015,Yu 2015,hamann_todd_503,2,L1 to L5,1,panjabi,1000,37.6,52.2,5.8,58,58,0
 yu2015,Yu 2015,hamann_todd_503,2,L1 to L5,1,source,1000,30.8,50.2,1.6,16,16,0
-yu2015,Yu 2015,hamann_todd_503,2,L1 to L5,1,widened_source,1000,30.3,50.4,2.6,26,26,0
+yu2015,Yu 2015,hamann_todd_503,2,L1 to L5,1,widened_source,1000,30.3,50.4,2.8,28,28,0
 yu2015,Yu 2015,hamann_todd_503,2,L1 to L5,3,panjabi,600,67.167,79.833,15.167,91,91,0
 yu2015,Yu 2015,hamann_todd_503,2,L1 to L5,3,source,600,53.5,78.0,5.0,30,30,0
-yu2015,Yu 2015,hamann_todd_503,2,L1 to L5,3,widened_source,600,47.0,71.333,3.0,18,18,0
+yu2015,Yu 2015,hamann_todd_503,2,L1 to L5,3,widened_source,600,47.167,71.5,3.167,19,19,0
 yu2015,Yu 2015,hamann_todd_503,2,L1 to L5,5,panjabi,200,90.5,96.0,51.0,102,102,0
 yu2015,Yu 2015,hamann_todd_503,2,L1 to L5,5,source,200,67.0,97.5,25.0,50,50,0
-yu2015,Yu 2015,hamann_todd_503,2,L1 to L5,5,widened_source,200,91.0,96.5,9.0,18,18,0
+yu2015,Yu 2015,hamann_todd_503,2,L1 to L5,5,widened_source,200,91.0,96.5,10.0,20,20,0
 zindrick1987,Zindrick 1987,pooled_specimens_and_ct,4,T1 to L5,1,panjabi,3400,35.912,53.676,4.294,146,146,0
 zindrick1987,Zindrick 1987,pooled_specimens_and_ct,4,T1 to L5,1,source,3400,23.588,52.206,1.412,46,48,0
-zindrick1987,Zindrick 1987,pooled_specimens_and_ct,4,T1 to L5,1,widened_source,3400,26.618,54.059,1.382,47,47,0
+zindrick1987,Zindrick 1987,pooled_specimens_and_ct,4,T1 to L5,1,widened_source,3400,26.529,53.971,1.353,46,46,0
 zindrick1987,Zindrick 1987,pooled_specimens_and_ct,4,T1 to L5,3,panjabi,3000,58.233,77.367,11.367,340,341,0
 zindrick1987,Zindrick 1987,pooled_specimens_and_ct,4,T1 to L5,3,source,3000,27.5,54.533,2.067,62,62,0
-zindrick1987,Zindrick 1987,pooled_specimens_and_ct,4,T1 to L5,3,widened_source,3000,32.733,64.133,2.167,65,65,0
+zindrick1987,Zindrick 1987,pooled_specimens_and_ct,4,T1 to L5,3,widened_source,3000,32.7,64.2,2.167,65,65,0
 zindrick1987,Zindrick 1987,pooled_specimens_and_ct,4,T1 to L5,5,panjabi,2600,77.808,91.269,20.0,519,520,0
 zindrick1987,Zindrick 1987,pooled_specimens_and_ct,4,T1 to L5,5,source,2600,32.692,64.462,4.154,91,108,0
-zindrick1987,Zindrick 1987,pooled_specimens_and_ct,4,T1 to L5,5,widened_source,2600,44.346,79.615,2.692,70,70,0
+zindrick1987,Zindrick 1987,pooled_specimens_and_ct,4,T1 to L5,5,widened_source,2600,44.231,79.692,2.731,71,71,0

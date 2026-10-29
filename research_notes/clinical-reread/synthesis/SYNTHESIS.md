@@ -122,11 +122,11 @@ How to read it:
    most of it down to definition, but no comparison in the set separates definition from population (error.md 1.7,
    4). tan2004's factors against Panjabi run from 0.60 to 1.16, so no single population scale fits (error.md 2.4,
    3.6). On fields drawn from 25 papers' own printed means and SDs (one series per paper, 200 fields per place), the
-   rule built on Panjabi's table named three bodies exactly in 24.2% of fields against 47.0% on fields drawn from his
-   own table, and was right on 86.5% of the 697 fields it named at 0.99 against 99.7% of 2,937; widened by the
-   papers' spread it was right on 91.7% of 591; at one body it was right on 88.7% of 371 as built and 89.2% of 269
+   rule built on Panjabi's table named three bodies exactly in 24.0% of fields against 46.8% on fields drawn from his
+   own table, and was right on 86.8% of the 689 fields it named at 0.99 against 99.7% of 2,915; widened by the
+   papers' spread it was right on 91.7% of 592; at one body it was right on 88.5% of 365 as built and 89.2% of 268
    widened ([paper-tables results](../../paper-tables/results/README.md), "Naming the papers' fields with Panjabi's
-   rule"). Inference: widening gains 5.2 points at three bodies (91.7 - 86.5) and 0.5 at one (89.2 - 88.7), so it
+   rule"). Inference: widening gains 4.9 points at three bodies (91.7 - 86.8) and 0.7 at one (89.2 - 88.5), so it
    does not restore the promise; until masks of real spines calibrate the rule, a posterior of 0.99 means about 0.9
    right, at one body or three, on another series' tables. Over 11 papers, canal depth sits a median 1.48 of
    Panjabi's SDs from his means (same page, "How far the papers sit from Panjabi"). These are draws from printed
@@ -134,7 +134,7 @@ How to read it:
    and definition offsets apart from them, by running one mask pipeline over each population's images; name the rest
    as a known gap, never folding it into sigma (error.md 3.1, 3.6). Inference, from the widened arm of the
    paper-tables results: widen the rule by the between-paper spread until masks of real spines can calibrate it,
-   knowing that it buys half a point to 5 points of the promise at one and three bodies (7.2 at five, 96.2 - 89.0).
+   knowing that it buys one point to 5 points of the promise at one and three bodies (7.6 at five, 96.3 - 88.7).
 
 6. **Set each error term from its bracket, never below it, and give the canal heavy tails.** Of the 43 papers, 16
    measured their own error, 5 checked only an instrument and 22 nothing; none measured an automated mask
