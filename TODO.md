@@ -113,7 +113,7 @@ Still synthetic: this item says how much more Panjabi's tables could name, not w
   - The bordercall grid pilot has the owner's word: two CPU jobs, still unsent.
   - Nothing else for bordercall on the grid has it.
 - **Truth comes from full-spine CTs only.** Only full-spine CTs from C2 to the pelvis count as truth, because a level's name is a count from C2. The 802 CTSpinoPelvic1K columns are not used for any reported result.
-- **SPINEPS masks are reused.** Use the existing SPINEPS masks on the grid. Never re-run SPINEPS, and never use TotalSegmentator, for this work.
+- **SPINEPS masks are reused.** Use the existing SPINEPS masks on the grid. Never re-run SPINEPS, and never run TotalSegmentator, for this work. Masks that another segmenter's authors released with their data, TotalSegmentator's 142 columns and ENHANCE.PET's 1,557 MOOSE columns, may feed a second arm, never pooled with the SPINEPS one: decision 2 above, which the owner agreed to on 28 October 2026 at 20:40 UTC, and the project's instructions of 29 October 2026 say the same.
 - **Numbers and figures.**
   - Every number carries its file: the record and the key it comes from.
   - Figures follow the style of Benzel's textbooks and are drawn by committed code from a record.

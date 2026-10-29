@@ -14,8 +14,9 @@ beginnings (prepare, logev) is path_logev's within 1e-9, on fields with values n
 whole ones, of every type, at 1, 3 and 5 bodies and two subsets at once. Model (b)'s log density
 given the size is that dense normal summed over the chain's paths, within 1e-10, so integrated on
 the nodes it is path_logev's; model (a)'s is the enumeration of its emissions given the offsets,
-with a finite gradient; and recover() through (b) draws the middle body's level as often as (b)'s
-posterior says.
+with a finite gradient; recover() through (b) draws the middle body's level as often as (b)'s
+posterior says; and (b)'s posterior over the names, sampled by NUTS, is path_logev's within five
+Monte Carlo errors, from ten batches of the draws, plus 0.001.
 """
 from __future__ import annotations
 

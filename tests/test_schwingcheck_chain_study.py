@@ -7,13 +7,24 @@ scale, so a T13 is within one of T12 and of L1, and an L6 of L5 alone. The data 
 the build-up study's (curve.make_arms at its quick counts) to the bit, the predictive ones widened
 by curve.predictive_factor, and a table that is the printed one scores on the axis as `run` scores
 the printed one, so every row of the axis is read against `run` on the same fields. A quick run,
-axis and speed give every row, the main and axis tables read the rows they name, at one body the
-consecutive rule and the gaps rule are one rule, the weights' rows carry the papers' weights on the
-stated chain's fields, the speed is timed with every thread pool at one thread, and every record
-names the code it was made by. check finds a table that is stale, missing, written twice, followed
-by rows of its own or by text with no blank line, or with no record. The committed records: the
-README carries their tables, they hold 9 bodies, and each was made by committed code that did not
-change while it ran, one commit for the three.
+axis, speed and PyMC comparison give every row, the main and axis tables read the rows they name,
+at one body the consecutive rule and the gaps rule are one rule, the weights' rows carry the papers'
+weights on the stated chain's fields and are the chain's posterior at those weights, computed again,
+the claims and speed tables' cells are their rows', every table takes its labels (widths, weights,
+rules) from its record, the speed is timed with every thread pool at one thread and each measure
+set as a rule cut to it, and every record names the code it was made by. A rule cut to the seven
+names as the rule for all 32 with the rest masked out, within 1e-12. The axis's rows are the same to
+the bit whatever order its jobs finish in. load_loops, run first in a fresh process, leaves every
+pool at one thread while the speed's own work runs inside the limit and compiles every layout of
+the loops the speed times, while without it that work loads a pool the limit does not hold. check finds a table that is stale, missing, written
+twice, followed by rows of its own or by text with no blank line, or with no record, and records
+that do not read the same columns, fields a column and seeds. The committed records: the README
+carries their tables, they hold 9 bodies, each was made by committed code that did not change while
+it ran, one commit for the four, they read the same fields, the speed timed each measure set on
+its own measures with every pool at one thread, and the exact posteriors the PyMC models were set
+against are chain.py's on `run`'s fields, with every thread pool at one thread. `pymc` at QUICK's
+sampling gives every row its table reads, holds each model to the cut rule's exact posterior on
+`run`'s fields, runs with every thread pool at one thread and names pymc-extras' version.
 """
 from __future__ import annotations
 
@@ -259,6 +270,49 @@ class QuickStudy(unittest.TestCase):
             self.assertEqual(record["changed_during_run"], {})
 
 
+class QuickPyMC(unittest.TestCase):
+    """`pymc` at QUICK's sampling, on the seven, two fields of each type, each sampled alone, in
+    this process."""
+
+    @classmethod
+    def setUpClass(cls):
+        cls.record = CS.pymc_compare(Q["columns"], Q["pymc"], processes=1, subsets=("seven",), log=quiet)
+
+    def test_every_row_is_there_and_the_table_reads_it(self):
+        rows = {(r["type"], r["bodies"], r["subset"], r["model"]) for r in self.record["rows"]}
+        want = {(k, B, "seven", m) for k in CH.TYPES for B in Q["pymc"]["widths"] for m in CS.PYMC_MODELS}
+        self.assertEqual(rows, want)
+        lines = CS.pymc_table(self.record).splitlines()
+        self.assertEqual(len(lines), 2 + len(want))
+        for r in self.record["rows"]:
+            F = Q["pymc"]["fields"]
+            for key in ("gap", "gap_mcse", "gap_in_errors", "same_name", "exact_top", "model_top", "rhat", "steps"):
+                self.assertEqual(len(r[key]), F, key)
+            self.assertTrue(all(s >= 1 for s in r["steps"]), r["steps"])
+            self.assertTrue(np.all(np.isfinite(r["gap"])) and np.all(np.isfinite(r["rhat"])))
+            self.assertTrue(np.all(np.asarray(r["gap_mcse"]) >= 0))
+            self.assertLessEqual(r["fields_within"], F)
+
+    def test_the_exact_posteriors_are_the_cut_rules(self):
+        pool, subsets, mu, sd, noise, power, nodes = CS.setting()
+        mu_e, sd_e = CH.extended_table(mu, sd)
+        drawn = CS.draw_all(pool, Q["columns"], Q["pymc"]["widths"])
+        for r in self.record["rows"]:
+            X, _, col = CS.pymc_fields(drawn, r["type"], r["bodies"], Q["pymc"]["fields"])
+            self.assertEqual(col.tolist(), r["columns"])
+            rule = CH.prepare(CH.paths_of(CS.chains(r["bodies"])["chain"]), mu_e, sd_e, subsets, noise, power, nodes)
+            exact = CS.name_middle(rule, X, CS.S.target_offset(r["bodies"]))["seven"]
+            np.testing.assert_allclose(exact.max(1), r["exact_top"], rtol=0, atol=1e-12)
+
+    def test_every_pool_was_at_one_thread_and_pymc_extras_is_named(self):
+        self.assertEqual(len(self.record["threads"]), len(CH.TYPES) * len(Q["pymc"]["widths"]))
+        for job in self.record["threads"]:
+            self.assertTrue(job["pools"], job)
+            for pool in job["pools"]:
+                self.assertEqual(pool["threads"], 1, (job["type"], pool))
+        self.assertNotEqual(self.record["versions"]["pymc-extras"], "not installed")
+
+
 class CutRule(unittest.TestCase):
     def test_a_rule_cut_to_the_seven_names_as_the_mask_does(self):
         pool, subsets, mu, sd, noise, power, nodes = CS.setting()
@@ -279,13 +333,16 @@ class CutRule(unittest.TestCase):
 class AxisOrder(unittest.TestCase):
     def test_the_rows_do_not_depend_on_the_order_the_jobs_finish(self):
         """axis_rows sorts the jobs' results first, so that the log loss, a sum over the fields in
-        the order they are pooled, is the same to the bit whatever order the processes finish in."""
+        the order they are pooled, is the same to the bit whatever order the processes finish in.
+        Three tables on three columns: at two tables on two columns, numpy's pairwise sum adds
+        the same two halves last in either order, and the rows came out the same with no sort,
+        while here, without it, reversing the results changed the log loss in 32 cells."""
         pool = MS.pool()
-        worlds = {12: 2}
+        worlds = {12: 3}
         tables = CS.axis_tables(pool, worlds)
         CS._AXIS.clear()
         _, subsets, _, _, noise, power, nodes = CS.setting()
-        CS._AXIS.update({"tables": tables, "drawn": CS.draw_all(pool, 2, (3,)), "subsets": subsets, "noise": noise,
+        CS._AXIS.update({"tables": tables, "drawn": CS.draw_all(pool, 3, (3,)), "subsets": subsets, "noise": noise,
                          "power": power, "nodes": nodes})
         jobs = [(i, rule, 3) for i in range(len(tables)) for rule in CS.RULES]
         results = [CS.axis_job(j) for j in jobs]
@@ -302,6 +359,8 @@ class AxisOrder(unittest.TestCase):
 
 
 class LoadLoops(unittest.TestCase):
+    THREADS = ("OMP_NUM_THREADS", "OPENBLAS_NUM_THREADS", "GOTO_NUM_THREADS", "MKL_NUM_THREADS",
+               "BLIS_NUM_THREADS", "VECLIB_MAXIMUM_THREADS", "NUMEXPR_NUM_THREADS", "NUMBA_NUM_THREADS")
     SCRIPT = """
 import json, sys
 sys.path.insert(0, %r)
@@ -310,31 +369,56 @@ from schwingcheck import chain as CH, chain_study as CS, curve as CV
 pool, subsets, mu, sd, noise, power, nodes = CS.setting()
 mu_e, sd_e = CH.extended_table(mu, sd)
 X = CS.draw_all(pool, 2, (1,))["typical", 1][0]
+
+def name_with_every_rule(B, X):
+    for sub in CS.SUBSETS:
+        table, Xs = CS.cut(sub, subsets[sub], mu_e, sd_e, noise, power), X[:, subsets[sub], :]
+        for rule in [CH.prepare(CH.paths_of(ch), *table, nodes) for ch in CS.chains(B).values()]:
+            CS.name_middle(rule, Xs[:1], 0)
+            CS.name_middle(rule, Xs, 0)
 if sys.argv[1] == "first":
     CS.load_loops(subsets, mu_e, sd_e, noise, power, nodes, X)
+if sys.argv[1] == "layouts":
+    CS.load_loops(subsets, mu_e, sd_e, noise, power, nodes, X)
+    before = [len(k.signatures) for k in CH._kernels()]
+    for B in (1, 3):
+        name_with_every_rule(B, CS.draw_all(pool, 2, (B,))["typical", B][0])
+    print(json.dumps([before, [len(k.signatures) for k in CH._kernels()]]))
+    raise SystemExit
 with threadpool_limits(1):
-    if sys.argv[1] == "inside":
-        CS.load_loops(subsets, mu_e, sd_e, noise, power, nodes, X)
+    name_with_every_rule(1, X)
     print(json.dumps(CV.pools()))
 """
 
     def pools(self, when):
         import json
         import subprocess
-        out = subprocess.run([sys.executable, "-c", self.SCRIPT % ROOT, when], capture_output=True, text=True, check=True)
+        env = {k: v for k, v in os.environ.items() if k not in self.THREADS}     # each pool at its own default
+        out = subprocess.run([sys.executable, "-c", self.SCRIPT % ROOT, when], capture_output=True, text=True, check=True,
+                             env=env)
         return json.loads(out.stdout.strip().splitlines()[-1])
 
     def test_compiled_first_every_pool_is_at_one_thread_in_a_fresh_process(self):
+        """speed's own work, every rule it times naming one field and a batch, done inside the
+        limit after load_loops, leaves every pool at one thread."""
         pools = self.pools("first")
         self.assertTrue(pools)
         for pool in pools:
             self.assertEqual(pool["threads"], 1, pool)
 
-    @unittest.skipIf((os.cpu_count() or 1) < 2, "one CPU: every pool has one thread whenever it loads")
-    def test_compiled_inside_the_limit_a_pool_escapes_it(self):
-        """The reason load_loops runs first: compiled inside the limit, a pool loaded by the
-        compile is not held by it."""
-        self.assertTrue(any(pool["threads"] > 1 for pool in self.pools("inside")))
+    def test_it_compiles_every_layout_the_speed_times(self):
+        """A rule cut to one measure set hands the loops arrays of another layout than the rule of
+        both sets, and Numba compiles a loop once a layout: after load_loops, naming one field and
+        a batch with every rule `speed` times compiles nothing more, so no compile falls inside
+        the thread limit."""
+        before, after = self.pools("layouts")
+        self.assertEqual(before, after)
+
+    @unittest.skipIf(len(os.sched_getaffinity(0)) < 2, "one usable CPU: every pool has one thread whenever it loads")
+    def test_without_load_loops_a_pool_escapes_the_limit(self):
+        """The reason load_loops runs first: the same work with nothing compiled before the limit
+        loads a pool the limit does not hold."""
+        self.assertTrue(any(pool["threads"] > 1 for pool in self.pools("none")))
 
 
 class Check(unittest.TestCase):
@@ -345,7 +429,7 @@ class Check(unittest.TestCase):
             readme = os.path.join(tmp, "README.md")
             with open(readme, "w") as fh:
                 fh.write("# A README\n\n" + text + "More prose.\n")
-            self.assertEqual(CS.check(readme), [])
+            self.assertEqual(CS.check(readme, records=False), [])
             first, second, third, fourth = list(want)[:4]
             stale = text.replace(want[first], want[first].replace("|", "| ", 1), 1)
             stale = stale.replace("<!-- %s -->" % second, "<!-- chain:gone -->", 1)
@@ -354,13 +438,14 @@ class Check(unittest.TestCase):
             stale = stale.replace(want[fourth], want[fourth] + "| a row | left over |\n\nA note.\n", 1)
             with open(readme, "w") as fh:
                 fh.write(stale)
-            problems = CS.check(readme)
+            problems = CS.check(readme, records=False)
             with open(readme, "w") as fh:          # a note below a table is the table's, as the README's are
                 fh.write("# A README\n\n" + text.replace(want[first], want[first] + "\nA note.\n", 1))
-            self.assertEqual(CS.check(readme), [])
+            self.assertEqual(CS.check(readme, records=False), [])
             with open(readme, "w") as fh:          # with no blank line GitHub draws the note as a row
                 fh.write("# A README\n\n" + text.replace(want[first], want[first] + "A note.\n", 1))
-            self.assertEqual(CS.check(readme), ["the README's %s has text right after the record's table" % first])
+            self.assertEqual(CS.check(readme, records=False),
+                             ["the README's %s has text right after the record's table" % first])
         self.assertIn("the README's %s is not the record's" % first, problems)
         self.assertIn("the README has no block %s" % second, problems)
         self.assertIn("the README writes %s more than once" % third, problems)
@@ -410,9 +495,18 @@ class CommittedRecords(unittest.TestCase):
 
     def test_the_speed_ran_with_every_pool_at_one_thread_and_cut(self):
         record = self.records["speed"]
-        self.assertTrue(record["cut"])
+        want = {"seven": len(MS.SPINEPS_7), "all": len(MS.pool())}
+        for r in record["rows"]:
+            self.assertEqual(r["measures"], want[r["subset"]], (r["engine"], r["arm"], r["subset"], r["bodies"]))
         for pool in record["threads"]:
             self.assertEqual(pool["threads"], 1, pool)
+
+    def test_the_pymc_record_ran_with_every_pool_at_one_thread(self):
+        record = self.records["pymc"]
+        self.assertIn("pymc-extras", record["versions"])
+        for job in record["threads"]:
+            for pool in job["pools"]:
+                self.assertEqual(pool["threads"], 1, (job["type"], pool))
 
     def test_the_pymc_records_exact_posteriors_are_runs(self):
         """The exact posteriors the PyMC models were set against are chain.py's on `run`'s fields."""
