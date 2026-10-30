@@ -89,14 +89,29 @@ degrees; the centres on both sides of a surface bracket it wherever the layers c
 phase, and under the columns of a tilted grid they do. The rows beyond the isthmus are not taken
 for the climb: under them the pillar's and the body's corner's bone stands about the surface and
 no one surface parts it (on the straight phantom the margin went negative and the climb read 10
-degrees), and a surface the lattice does not part, more than VIOLATED_SHARE of its centres lying
-across the best one, is not read. The sagittal angle is the climb's angle to the transverse
-plane, positive where the posterior end is higher, taken against the plane square to the body's
-posterior wall (wall_slope), read where the columns span SAGITTAL_SPAN_MM front to back: the
-borders of so short a pedicle curve with the notch and the process, and their climb is theirs,
-not the pedicle's (study 0004's thoracic pedicles span 4.5 to 5.3 mm and climbed 40 to 50
-degrees); the chord then takes the axis level, and where the rows are too few for an axis at all
-the chord and the transverse angle are not read. The chord is the length of
+degrees). The climb is not read (climb, which lists every reason) under fewer than MIN_COLUMNS
+columns or with fewer than MIN_PARTED centres of bone or of air about a surface; where the lattice
+does not part a surface, more than VIOLATED_SHARE of its centres lying across the best one or one
+lying further across than SURFACE_LAYERS layers; where the surfaces that still part the lattice
+leave the climb free over more than FREEDOM_DEG (slope_range), as on 2.5 mm slices, whose layers
+the surfaces cross too rarely over the span to pin them and where the widest margin lies parallel
+to the layers and reads the vertebra's tilt in the scanner (on the thick phantoms the ranges ran
+10.6 to 33 degrees and the readings up to 9.7 off, on the 1 mm ones 0.2 to 7.7 and within 1.8, but
+for the grids aligned with the frame, below, and one reading of the overhang phantom at 2.1); and where
+the top's and the bottom's climbs lie more than APART_DEG apart (on the 1 mm phantoms at most 3.2).
+The sagittal angle is the climb's angle in the sagittal projection, atan2(d[2], -d[1]) for the
+axis d, as Zindrick read it on a sagittal cut and as the phantom draws it, positive where the
+posterior end is higher, taken against the plane square to the body's posterior wall
+(wall_slope), read where the columns span SAGITTAL_SPAN_MM front to back, the rows' own width of
+half a pixel counted: the borders of so short a pedicle curve with the notch and the process, and
+their climb is theirs, not the pedicle's (study 0004's thoracic pedicles spanned 4.5 to 5.3 mm
+between the rows' places, a fifth of a millimetre or so less than this span counts, and climbed 40
+to 50 degrees); the chord then takes the axis level, and where the rows are too few for an axis at
+all the chord and the transverse angle are not read. Where the grid lies within a few degrees of
+the vertebra's own frame, as on most supine lumbar studies, the posterior wall's slope reads 1.8 to
+4.2 degrees off on the phantoms' vertical walls (body.posterior_wall_slope), and the sagittal
+angle takes that error with it (2.5 to 3.4 degrees high on the pitched phantoms at a tilt of 2
+degrees); that reading of the wall is the next to be traced. The chord is the length of
 bone the axis line through the isthmus crosses, from where it enters the posterior elements to
 where it leaves the body's anterior cortex, read by marching along the line voxel by voxel
 (Zindrick's screw path).
@@ -141,9 +156,11 @@ SURFACE_LAYERS = 1.5          # a surface is parted from the voxel centres withi
 MIN_COLUMNS = 6               # the surfaces are parted under no fewer columns
 MIN_PARTED = 4                # a surface is parted from at least this many centres of bone and as many of air
 VIOLATED_SHARE = 0.1          # a surface more of whose centres than this share lie across the best one is not read
+FREEDOM_DEG = 9.0             # the climb is not read where the lattice leaves its angle free over more than this
+APART_DEG = 5.0               # nor where the top's and the bottom's climbs lie further apart than this
 WALL_FIT_MM = 1.0             # the axis takes a row whose medial wall lies within this of the line through the isthmus rows' walls
 AXIS_SPAN_MM = 2.0            # the transverse angle needs the walls to span this front to back
-SAGITTAL_SPAN_MM = 5.5
+SAGITTAL_SPAN_MM = 5.5        # the sagittal angle needs the columns to span this front to back, the rows' own width counted
 PEDICLE_MAX_MM = {"C": 12.0, "T": 16.0, "L": 20.0}   # a section wider than the level's is the pedicle with what joins it laterally
 MARCH_MM = 0.25
 GAP_VOXELS = 2.0              # a step between voxel centres wider than this many voxels is a gap
@@ -379,10 +396,14 @@ def axis_rows(m: SideMap, rows: List[dict], near: List[int], k: int,
 
 
 def columns(m: SideMap, rows: List[dict], near: List[int], sec: float, hgt: float) -> np.ndarray:
-    """The columns the pedicle's surfaces are read under: across the middle half of each
-    isthmus row's section, a pixel apart, those whose run through the row's middle is the
-    pedicle's, within HEIGHT_SHARE of the isthmus's height, as (x, y, bottom, top); the others
-    stand under the articular process or the body's corner, whose bone joins the pedicle's run."""
+    """The columns the pedicle's surfaces are read under: in each isthmus row, from the row's
+    own wall out over the middle half of the isthmus's median section, sec, a pixel apart, those
+    whose run through the row's middle is the pedicle's, within HEIGHT_SHARE of the isthmus's
+    height, as (x, y, bottom, top); the others stand under the articular process or the body's
+    corner, whose bone joins the pedicle's run. The median section and not the row's own is taken
+    so that the columns and x' in lattice_under, which runs from the wall line out by half of sec,
+    share one middle, and so that a row the cleaning kept at a quarter wider or narrower than the
+    rest puts its columns where the others' are."""
     v = m.v
     out = []
     for i in near:
@@ -425,10 +446,18 @@ def lattice_under(m: SideMap, cols: np.ndarray, line: np.ndarray, sec: float,
 def parting(y: np.ndarray, across: np.ndarray, z: np.ndarray, bone: np.ndarray, top: bool) -> Optional[dict]:
     """The surface z = a + b y + c x' + d x'^2 that parts the bone from the air with the widest
     margin, bone below it and air above for the top and the other way for the bottom, as a
-    linear program over the margin; where no such surface parts them, the margin being
-    negative, the one with the least total crossing instead (a linear program over the
-    crossings), with how many centres lie across it. Returns the coefficients, the margin and
-    the count of centres across, or None where the programs find no surface."""
+    linear program over the margin; where no such surface parts them, the widest margin being
+    negative, the surface with the least total crossing instead (a linear program over the
+    crossings), and how many centres lie across it. Returns the coefficients of the surface
+    taken, the widest-margin program's margin (negative where the coefficients are the
+    least-crossing program's), the count of centres across, and the range of slopes b of every
+    surface that parts the centres the surface taken parts (freedom), or None where the programs
+    find no surface, as for a set whose bone and air are told apart without z. That range is
+    what says whether the lattice pins the climb: where the layers cut the surface at several
+    phases across the columns it is narrow; where the surface lies between two layers over the
+    whole span, as on 2.5 mm slices whose layers run within about 20 degrees of it, every surface
+    between them parts the lattice and the widest-margin one lies parallel to the layers, so its
+    slope is the vertebra's tilt in the scanner, with a positive margin and nothing across."""
     F = np.column_stack([np.ones_like(y), y, across, across ** 2])
     sign = np.where(bone, -1.0, 1.0) if top else np.where(bone, 1.0, -1.0)
     n = len(y)
@@ -437,25 +466,53 @@ def parting(y: np.ndarray, across: np.ndarray, z: np.ndarray, bone: np.ndarray, 
     if not res.success:
         return None
     coef, margin = np.asarray(res.x[:4], float), float(res.x[4])
-    if margin >= 0.0:
-        return {"coefficients": coef, "margin": margin, "across": 0}
-    res = linprog(c=np.concatenate([np.zeros(4), np.ones(n)]),
-                  A_ub=np.column_stack([sign[:, None] * F, -np.eye(n)]), b_ub=sign * z,
-                  bounds=[(None, None)] * 4 + [(0.0, None)] * n, method="highs")
-    if not res.success:
-        return None
-    crossing = np.asarray(res.x[4:], float)
-    return {"coefficients": np.asarray(res.x[:4], float), "margin": margin, "across": int((crossing > 1e-9).sum())}
+    parted = np.ones(n, bool)
+    across_n = 0
+    if margin < 0.0:
+        res = linprog(c=np.concatenate([np.zeros(4), np.ones(n)]),
+                      A_ub=np.column_stack([sign[:, None] * F, -np.eye(n)]), b_ub=sign * z,
+                      bounds=[(None, None)] * 4 + [(0.0, None)] * n, method="highs")
+        if not res.success:
+            return None
+        coef = np.asarray(res.x[:4], float)
+        crossing = np.asarray(res.x[4:], float)
+        parted = crossing <= 1e-9
+        across_n = int((~parted).sum())
+    return {"coefficients": coef, "margin": margin, "across": across_n,
+            "freedom": slope_range(F[parted], sign[parted], z[parted])}
+
+
+def slope_range(F: np.ndarray, sign: np.ndarray, z: np.ndarray) -> Tuple[float, float]:
+    """The least and the greatest slope b of a surface that parts these centres, two linear
+    programs over the same constraints as parting's with no margin; an end the lattice does not
+    bound is infinite."""
+    ends = []
+    for c, unbounded in (([0.0, 1.0, 0.0, 0.0], -math.inf), ([0.0, -1.0, 0.0, 0.0], math.inf)):
+        res = linprog(c=c, A_ub=sign[:, None] * F, b_ub=sign * z, bounds=[(None, None)] * 4, method="highs")
+        ends.append(float(res.x[1]) if res.success else unbounded)
+    return ends[0], ends[1]
+
+
+def climb_angle(b: float) -> float:
+    """The angle in degrees of a climb dz per mm of y, positive where the posterior end is
+    higher, as the sagittal angle is read before the wall's tilt is taken off."""
+    return -math.degrees(math.atan(b))
 
 
 def climb(m: SideMap, rows: List[dict], near: List[int], walls: Dict[int, float], sec: float,
           hgt: float) -> Tuple[float, str, dict]:
     """The pedicle's climb front to back along its centre line, dz per mm of y, the mean of
-    its top and bottom surfaces' (parting); NAN with a note where it is not read: too few
-    columns, columns spanning less than SAGITTAL_SPAN_MM, too few centres about a surface, or
-    a surface more of whose centres than VIOLATED_SHARE lie across the best one. The record
-    carries the columns, their span and each surface's coefficients, margin and counts, for
-    the trace."""
+    its top and bottom surfaces' (parting); NAN with a note where it is not read: fewer than
+    MIN_COLUMNS columns, columns spanning less than SAGITTAL_SPAN_MM, fewer than MIN_PARTED
+    centres of bone or of air about a surface, no surface found, a surface more of whose
+    centres than VIOLATED_SHARE lie across the best one or whose worst centre lies further
+    across than SURFACE_LAYERS layers (another structure's bone in the box, since a surface the
+    layers cut at another phase is bracketed within a layer), a lattice that leaves the angle
+    free over more than FREEDOM_DEG (the mean of the two surfaces' ranges, slope_range), or two
+    surfaces whose climbs lie more than APART_DEG apart, since over the isthmus rows the
+    pedicle's top and bottom run nearly parallel and two that do not have been read off
+    different things. The record carries the columns, their span and each surface's
+    coefficients, margin, counts and range, for the trace."""
     v = m.v
     cols = columns(m, rows, near, sec, hgt)
     record: dict = {"columns": cols, "span": float(np.ptp(cols[:, 1])) + 0.5 * v.pixel if len(cols) else 0.0}
@@ -464,7 +521,7 @@ def climb(m: SideMap, rows: List[dict], near: List[int], walls: Dict[int, float]
     if record["span"] < SAGITTAL_SPAN_MM:
         return NAN, "the free pedicle spans %.1f mm front to back: its sagittal angle is not read" % record["span"], record
     line = wall_line(rows, near, walls)
-    slopes = []
+    slopes, widths = [], []
     for top, name in ((True, "top"), (False, "bottom")):
         q, across, bone = lattice_under(m, cols, line, sec, top)
         n_bone, n_air = int(bone.sum()), int((~bone).sum())
@@ -479,7 +536,21 @@ def climb(m: SideMap, rows: List[dict], near: List[int], walls: Dict[int, float]
         if got["across"] > VIOLATED_SHARE * len(q):
             return NAN, ("the bone and the air about the pedicle's %s are not parted by one surface: %d of %d centres "
                          "lie across the best" % (name, got["across"], len(q))), record
+        if got["margin"] < -SURFACE_LAYERS * v.fz:
+            return NAN, ("a centre about the pedicle's %s lies %.1f mm across the surface that parts it best, more "
+                         "than %.1f layers: another structure's bone stands there" % (name, -got["margin"], SURFACE_LAYERS)), record
+        lo, hi = got["freedom"]
+        widths.append(abs(climb_angle(lo) - climb_angle(hi)) if math.isfinite(lo) and math.isfinite(hi) else math.inf)
         slopes.append(float(got["coefficients"][1]))
+    freedom = 0.5 * (widths[0] + widths[1])
+    apart = abs(climb_angle(slopes[0]) - climb_angle(slopes[1]))
+    record["freedom_deg"], record["apart_deg"] = freedom, apart
+    if freedom > FREEDOM_DEG:
+        return NAN, ("the lattice leaves the pedicle's climb free over %.0f degrees, more than %.0f: the layers do not "
+                     "cut its surfaces at phases enough to pin it" % (freedom, FREEDOM_DEG)), record
+    if apart > APART_DEG:
+        return NAN, ("the pedicle's top climbs %.1f degrees and its bottom %.1f, more than %.0f apart: not read"
+                     % (climb_angle(slopes[0]), climb_angle(slopes[1]), APART_DEG)), record
     return 0.5 * (slopes[0] + slopes[1]), "", record
 
 
@@ -558,12 +629,18 @@ def one_side(v: Vertebra, side: int, zb: Tuple[float, float]) -> Tuple[Dict[str,
     if reads == "transverse":
         note = why
     level = np.array([d[0], d[1], 0.0]) / np.linalg.norm(d[:2])
-    pitch = math.hypot(d[0], d[1])       # the cosine of the sagittal angle, d being a unit vector
+    # A column up the frame's z crosses the pedicle's elliptic cylinder on the slant of the axis's
+    # elevation, so the height is the run times its cosine, hypot(d[0], d[1]) for the unit axis;
+    # the sagittal angle, as Zindrick and the papers read it on a sagittal cut and as the phantom
+    # draws it, is the climb in the sagittal projection, atan2(d[2], -d[1]), a little steeper
+    # than the elevation where the pedicles converge (6.00 against 5.87 degrees at 12 degrees of
+    # convergence, 15 against 13.1 at 30).
+    pitch = math.hypot(d[0], d[1])
     width = sec * abs(level[1])
     height = hgt * (pitch if reads == "both" else 1.0)
     out = {"pedicle_w": width, "pedicle_h": height, "pedicle_area": math.pi * width * height / 4.0,
            "pedicle_angle_transverse": math.degrees(math.atan2(side * d[0], -d[1])),
-           "pedicle_angle_sagittal": math.degrees(math.atan2(d[2], pitch)) - math.degrees(math.atan(wall_slope(v)))}
+           "pedicle_angle_sagittal": math.degrees(math.atan2(d[2], -d[1])) - math.degrees(math.atan(wall_slope(v)))}
     c0 = np.array([rows[k]["x"], rows[k]["y"], rows[k]["z"]])
     out["pedicle_chord"] = chord(v, c0, d)
     if reads != "both":

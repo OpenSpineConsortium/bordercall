@@ -129,6 +129,54 @@ class Shapes(unittest.TestCase):
         self.assertLessEqual(abs(got - self.v.facet), 2 * TOL_DEG, "facet %.2f" % got)
 
 
+class PitchedDown(unittest.TestCase):
+    """Pedicles whose posterior end stands lower, pitched -8 degrees and converging 8: the sign
+    of the climb against the wall's correction, which a level pedicle and one pitched up could
+    pass by cancelling."""
+
+    @classmethod
+    def setUpClass(cls):
+        cls.v = P.lumbar(ped_s=-8.0, ped_t=8.0)
+        cls.rows = measured(P.straight(LUMBAR, cls.v), LUMBAR)
+        cls.truth = P.truth(cls.v)
+
+    def near(self, key, tol):
+        got, want = self.rows["L3"][key], self.truth[key]
+        self.assertTrue(np.isfinite(got), "%s is not finite" % key)
+        self.assertLessEqual(abs(got - want), tol, "%s: %.2f against %.2f" % (key, got, want))
+
+    def test_pedicle_angles_and_size(self):
+        for k in ("pedicle_angle_transverse", "pedicle_angle_sagittal"):
+            self.near(k, TOL_DEG)
+        for k in ("pedicle_w", "pedicle_h"):
+            self.near(k, TOL_MM)
+
+
+class Overhang(unittest.TestCase):
+    """A thin superior articular process drawn sagittal over the outer half of the pedicle's top
+    along the whole isthmus, so that the outer columns of the middle half in every isthmus row run
+    up into the process while the middle column stays free: only the columns' admission by height
+    (pedicle.columns, HEIGHT_SHARE) keeps the process's bone out of the top surface's band, and
+    with it switched off the left top is refused and the angle is not read."""
+
+    @classmethod
+    def setUpClass(cls):
+        cls.v = P.lumbar(sap_x=19.0, sap_y=-10.0, facet=0.0, sap_thk=3.5, sap_len=14.0)
+        cls.rows = measured(P.straight(LUMBAR, cls.v), LUMBAR)
+        cls.truth = P.truth(cls.v)
+
+    def near(self, key, tol):
+        got, want = self.rows["L3"][key], self.truth[key]
+        self.assertTrue(np.isfinite(got), "%s is not finite" % key)
+        self.assertLessEqual(abs(got - want), tol, "%s: %.2f against %.2f" % (key, got, want))
+
+    def test_pedicle_under_the_process(self):
+        for k in ("pedicle_angle_transverse", "pedicle_angle_sagittal"):
+            self.near(k, TOL_DEG)
+        for k in ("pedicle_w", "pedicle_h"):
+            self.near(k, TOL_MM)
+
+
 class LateralMass(unittest.TestCase):
     """Pedicles that swell away from their isthmus, each with a block 8 mm wide and 24 mm tall
     against its side, as the lateral mass stands against a cervical pedicle, pierced by a
@@ -159,6 +207,11 @@ class LateralMass(unittest.TestCase):
     def test_interpedicular_at_the_isthmus(self):
         for k in ("interpedicular", "interpedicular_max"):
             self.near(k, TOL_MM)
+
+    def test_a_short_free_pedicle_reads_no_sagittal_angle(self):
+        """The foramen leaves the pedicle free over 4 mm front to back, under SAGITTAL_SPAN_MM."""
+        self.assertFalse(np.isfinite(self.rows["L3"]["pedicle_angle_sagittal"]))
+        self.assertTrue(self.rows["L3"]["flag:pedicle_right"].startswith("the free pedicle spans"))
 
 
 class Joints(unittest.TestCase):
@@ -241,6 +294,13 @@ class ThickSlices(unittest.TestCase):
             self.assertLessEqual(abs(self.rows["L3"][k] - self.truth[k]), THICK_MM, k)
         for k in ("disc_h_ant", "disc_h_mid", "disc_h_post"):
             self.assertLessEqual(abs(self.rows["L2-L3"][k] - 10.0), THICK_MM, k)
+
+    def test_pedicle_sagittal_angle_is_refused_or_right(self):
+        """On 2.5 mm layers the pedicle's surfaces cross too few layers over its span to pin its
+        climb, and the widest-margin surface lies parallel to them: the angle must be refused
+        (pedicle.FREEDOM_DEG), not read as the column's tilt in the scanner, here 20 degrees."""
+        got = self.rows["L3"]["pedicle_angle_sagittal"]
+        self.assertTrue(not np.isfinite(got) or abs(got - self.truth["pedicle_angle_sagittal"]) <= 2 * TOL_DEG, got)
 
 
 THICK_MM = 2.6
