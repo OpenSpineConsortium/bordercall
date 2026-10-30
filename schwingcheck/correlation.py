@@ -216,6 +216,22 @@ def measure_block(p: Prior, measures: Sequence[str]) -> np.ndarray:
     return p.r_measure[np.ix_(at, at)]
 
 
+def widen(p: Prior, measures: Sequence[str]) -> Prior:
+    """The prior over these measures: the fitted ones keep their correlation, and each measure it
+    was not fitted on is uncorrelated with every other measure but moves across levels by the
+    fitted level correlation. That is an assumption, stated so a reader sees it: the level
+    structure is taken as the anatomy's, shared by every measure, and nothing is claimed about how
+    an unfitted measure moves with the fitted ones."""
+    names = list(p.measures) + [m for m in measures if m not in p.measures]
+    r = np.eye(len(names))
+    k = len(p.measures)
+    r[:k, :k] = p.r_measure
+    extra = names[k:]
+    note = p.note + ("; widened to %s, uncorrelated with the fitted measures" % ", ".join(extra) if extra else "")
+    return Prior(levels=list(p.levels), measures=names, r_level=p.r_level, r_measure=r, n=p.n,
+                 shrink=p.shrink, note=note)
+
+
 def draw_field(rng: np.random.Generator, p: Prior, levels: Sequence[str], measures: Sequence[str]) -> np.ndarray:
     """One column's standardised deviations, (measures, levels), from the matrix normal."""
     al = np.linalg.cholesky(level_block(p, levels))
