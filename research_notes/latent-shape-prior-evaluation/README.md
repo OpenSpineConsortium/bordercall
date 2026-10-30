@@ -335,10 +335,12 @@ written into the record after, never claimed before:
 | 4 | a step is a batch of three-body windows, 3 crops each; an epoch ceil(windows / batch) steps in expectation | a fifth of the training persons is about 230 columns and about 4,600 three-body windows; at the smoke's batch of 2, about 2,300 steps an epoch and 115,000 steps in 50 epochs, about 690,000 crops a trial; at the smoke's CPU time that is 67 hours, so the GPU time a crop decides whether a trial is hours or a day; the eight or nine trials run side by side, so the screen's wall time is one trial's | smoke.json (spines_per_batch 2, count 3, 0.35 s a crop on CPU); the subset share and the window length are the plan's |
 | 5 | the same, over the whole training part | about 1,158 columns (at most), about 25,500 vertebrae and 23,000 windows; 50 epochs about 575,000 steps a trial, five times the screen's, and at most twenty-one trials where F is kept, side by side | the screen's measured time a crop; the epoch count is the plan's |
 
-The total ask, in the owner's units: 1 to 2 CPU jobs (stages 1 and 2), 2 GPU jobs for the screen (an array and its
-merge) and 2 for the full run, with stage 3 folded into a plan another thread is already writing or one CPU job more,
-and one short gpu-class smoke where the step time is to be measured before the screen. Every one waits for his word
-and count, and the size rule applies to nothing here, since no fetch is made.
+The total ask, in the owner's units: 2 CPU jobs (stages 1 and 2), 2 GPU jobs for the screen (an array and its
+merge) and 2 for the full run, with stage 3 folded into a plan another thread is already writing, and one short
+gpu-class smoke where the step time is to be measured before the screen. greg gave that word and count on 2026-10-30
+at 03:20 UTC: "2 CPU 2 GPU 2 Full run plus 1 short GPU smoke is fine". The count is for these jobs as this note
+describes them; nothing is submitted until the pieces of section 10 exist and the PREREG is frozen, and a job that
+grows beyond its line here needs a new count. The size rule applies to nothing here, since no fetch is made.
 
 ## 10. How it fits the swappable-block design and the launched flow
 
@@ -500,12 +502,15 @@ Risks the design answers, and how:
   the keep list is a dated record before the full run's plan is frozen (section 8).
 
 What greg was asked, once, so the PREREG can be frozen, and what he answered at 02:46 UTC: "i have no idea", with the
-rule quoted at the top. So the plan decides, and each decision below stands until he says otherwise:
+rule quoted at the top, and at 03:20 UTC the counts of item 1. So the plan decides the rest, and each decision below
+stands until he says otherwise. The interactive page switchboard.html beside this note, published as a private
+artifact for greg on 2026-10-30 (https://claude.ai/artifact/8mfLZEEQupfs1wnGFKrASc), draws the blocks, the stages
+and these decisions in plain words.
 
-1. Counts and classes (section 9): one CPU job for stage 1 (none if the export rides in the two counted morphometry
-   jobs), one CPU job for stage 2 on the grid, stage 3 folded into phantom_smoke (else one CPU job of this evaluation's
-   kind), two GPU jobs for the screen (the array and its merge), two for the full run, and one short gpu-class smoke
-   where the step time is to be measured before the screen. None is sent without his word and number for it.
+1. Counts and classes (section 9), the one decision greg took himself, at 03:20 UTC: two CPU jobs (stages 1 and 2),
+   two GPU jobs for the screen (the array and its merge), two for the full run, and one short gpu-class smoke where
+   the step time is to be measured before the screen; stage 3 folded into phantom_smoke. A job that grows beyond its
+   line in section 9 needs a new count.
 2. The bars, two decisions apart: for the features (B against A) and for the head (C against A, with C0 and D telling
    why), at least 0.3 mm of value MAE over the seven chords and a naming gain on three-body fields whose points stage 2
    sets from the within-column correlation (3 points is underpowered at a test fifth under the lower-bound rule,

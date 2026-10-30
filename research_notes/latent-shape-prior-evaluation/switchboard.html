@@ -1,0 +1,466 @@
+<title>Auto-anatomist Switchboard</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Fraunces:opsz,wght@9..144,500;9..144,600&display=swap">
+<style>
+/* Layout: one column of instrument panels, a switchboard first, then a ladder, then decision cards; cockpit greys with one amber warning hue. */
+:root {
+  --bg: #f3f1ec;
+  --panel: #ffffff;
+  --panel-2: #e9e6df;
+  --fg: #1d1c19;
+  --muted: #5f5c54;
+  --line: #cfcbc1;
+  --accent: #0d5c63;
+  --accent-ink: #ffffff;
+  --amber: #b8641a;
+  --amber-bg: #fbeedd;
+  --good: #2a6f3b;
+  --display: "Fraunces", Georgia, "Times New Roman", serif;
+  --body: "IBM Plex Sans", "Helvetica Neue", Arial, sans-serif;
+  --mono: "IBM Plex Mono", "SFMono-Regular", Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #161716; --panel: #1f201f; --panel-2: #2a2b29; --fg: #ecebe6; --muted: #a7a49b; --line: #3d3e3b;
+    --accent: #5fc3c9; --accent-ink: #0f1a1b; --amber: #e9a35a; --amber-bg: #3a2a16; --good: #7fc78f; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #161716; --panel: #1f201f; --panel-2: #2a2b29; --fg: #ecebe6; --muted: #a7a49b; --line: #3d3e3b;
+  --accent: #5fc3c9; --accent-ink: #0f1a1b; --amber: #e9a35a; --amber-bg: #3a2a16; --good: #7fc78f; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--fg); font-family: var(--body); font-size: 15px; line-height: 1.5;
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); padding-block: 24px 48px; }
+main { max-width: 980px; margin: 0 auto; display: grid; gap: 28px; }
+h1 { font-family: var(--display); font-weight: 600; font-size: clamp(28px, 4vw, 40px); line-height: 1.1; margin: 0 0 6px; text-wrap: balance; }
+h2 { font-family: var(--display); font-weight: 500; font-size: 22px; margin: 0 0 4px; text-wrap: balance; }
+h3 { font-size: 15px; font-weight: 600; margin: 0 0 4px; }
+p { margin: 0; max-width: 68ch; }
+.lede { color: var(--muted); max-width: 70ch; }
+.eyebrow { font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+section { display: grid; gap: 12px; }
+.panel { background: var(--panel); border: 1px solid var(--line); border-radius: 6px; padding: 16px; min-width: 0; }
+.row { display: flex; flex-wrap: wrap; gap: 12px; }
+.row > * { min-width: 0; }
+.muted { color: var(--muted); }
+.mono { font-family: var(--mono); font-size: 13px; }
+.tabular { font-variant-numeric: tabular-nums; }
+a { color: var(--accent); }
+button { font: inherit; cursor: pointer; }
+button:focus-visible, select:focus-visible, summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+/* presets */
+.presets { display: flex; flex-wrap: wrap; gap: 8px; }
+.preset { border: 1px solid var(--line); background: var(--panel-2); color: var(--fg); border-radius: 999px; padding: 6px 12px; font-size: 13px; }
+.preset[aria-pressed="true"] { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
+
+/* switches */
+.switches { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 10px; }
+.switch { border: 1px solid var(--line); border-radius: 6px; padding: 10px 12px; background: var(--panel-2); display: grid; gap: 6px; }
+.switch label { font-family: var(--mono); font-size: 12px; color: var(--muted); }
+.switch select { width: 100%; font: inherit; font-size: 14px; padding: 6px 8px; border-radius: 4px; border: 1px solid var(--line); background: var(--panel); color: var(--fg); }
+.switch .hint { font-size: 12px; color: var(--muted); }
+
+/* readout */
+.readout { display: grid; grid-template-columns: 1fr; gap: 12px; }
+@media (min-width: 720px) { .readout { grid-template-columns: 1.2fr 1fr; } }
+.arm-name { font-family: var(--display); font-size: 26px; font-weight: 600; line-height: 1.15; }
+.path { display: grid; gap: 6px; margin-top: 8px; }
+.step { display: grid; grid-template-columns: 60px 1fr; gap: 10px; align-items: start; padding: 8px 10px; border-left: 3px solid var(--line); background: var(--panel-2); border-radius: 0 4px 4px 0; }
+.step.on { border-left-color: var(--accent); }
+.step.warn { border-left-color: var(--amber); background: var(--amber-bg); }
+.step .k { font-family: var(--mono); font-size: 12px; color: var(--muted); padding-top: 3px; }
+.facts { display: grid; gap: 8px; align-content: start; }
+.fact { display: grid; grid-template-columns: 130px 1fr; gap: 8px; padding: 6px 0; border-bottom: 1px dashed var(--line); font-size: 14px; }
+.fact .k { color: var(--muted); }
+.pill { display: inline-block; padding: 1px 8px; border-radius: 999px; font-size: 12px; font-family: var(--mono); border: 1px solid var(--line); }
+.pill.good { color: var(--good); border-color: var(--good); }
+.pill.amber { color: var(--amber); border-color: var(--amber); }
+
+/* ladder */
+.ladder { display: grid; gap: 8px; }
+.rung { border: 1px solid var(--line); border-radius: 6px; background: var(--panel); overflow: hidden; }
+.rung summary { list-style: none; cursor: pointer; display: grid; grid-template-columns: 36px 1fr auto; gap: 12px; align-items: center; padding: 10px 12px; }
+.rung summary::-webkit-details-marker { display: none; }
+.rung .n { font-family: var(--display); font-size: 22px; color: var(--accent); text-align: center; }
+.rung .t { font-weight: 600; }
+.rung .sub { font-size: 13px; color: var(--muted); }
+.rung .body { padding: 0 12px 14px 60px; display: grid; gap: 8px; }
+@media (max-width: 520px) { .rung .body { padding-left: 12px; } }
+.jobs { display: inline-flex; gap: 4px; align-items: center; font-family: var(--mono); font-size: 12px; }
+.jobs i { display: inline-block; width: 12px; height: 12px; border: 1px solid var(--fg); border-radius: 2px; }
+.jobs i.cpu { background: var(--fg); }
+.jobs i.gpu { background: var(--amber); border-color: var(--amber); }
+.kv { display: grid; grid-template-columns: 110px 1fr; gap: 6px 10px; font-size: 14px; }
+.kv .k { color: var(--muted); }
+
+/* decisions */
+.cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 10px; }
+.card { border: 1px solid var(--line); border-radius: 6px; background: var(--panel); padding: 12px; display: grid; gap: 6px; align-content: start; }
+.card .who { font-family: var(--mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; }
+.card .who.greg { color: var(--good); }
+.card .who.plan { color: var(--amber); }
+.card details summary { cursor: pointer; color: var(--accent); font-size: 13px; }
+.card details p { font-size: 13px; margin-top: 4px; }
+.filters { display: flex; gap: 8px; flex-wrap: wrap; }
+.filters button { border: 1px solid var(--line); background: var(--panel-2); color: var(--fg); border-radius: 4px; padding: 4px 10px; font-size: 13px; }
+.filters button[aria-pressed="true"] { background: var(--fg); color: var(--bg); border-color: var(--fg); }
+
+/* score grid */
+.grid-wrap { overflow-x: auto; }
+table { border-collapse: collapse; font-size: 13px; min-width: 620px; }
+th, td { padding: 6px 8px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+th { font-weight: 600; }
+td.c { text-align: center; }
+.sq { display: inline-block; width: 12px; height: 12px; border: 1.5px solid var(--fg); border-radius: 2px; vertical-align: middle; }
+.sq.f { background: var(--fg); }
+
+/* numbers */
+.nums { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px; }
+.num { border: 1px solid var(--line); border-radius: 6px; padding: 10px; background: var(--panel-2); }
+.num b { display: block; font-family: var(--display); font-size: 24px; font-weight: 600; line-height: 1.1; }
+.num span { font-size: 12px; color: var(--muted); }
+footer { font-size: 12px; color: var(--muted); max-width: 80ch; }
+@media (prefers-reduced-motion: no-preference) { .step, .preset, .card { transition: background 120ms ease, border-color 120ms ease; } }
+</style>
+
+<main>
+  <header>
+    <div class="eyebrow">bordercall / research_notes / latent-shape-prior-evaluation, 2026-10-30</div>
+    <h1>Auto-anatomist Switchboard</h1>
+    <p class="lede">One network names vertebrae on a CT crop. Every part of it is a switch. Flip the switches below to see which arm of the evaluation you have built, what the network outputs, what the naming rule reads, and whether a person can still draw the answer on the image. Below that: the six stages with the jobs you approved, and every decision with who made it.</p>
+  </header>
+
+  <section id="switchboard">
+    <div>
+      <div class="eyebrow">Panel A</div>
+      <h2>The switchboard: one network, many arms</h2>
+      <p class="muted">Pick a preset arm or set the switches yourself. Nothing here trains anything.</p>
+    </div>
+    <div class="presets" id="presets"></div>
+    <div class="switches" id="switches"></div>
+    <div class="panel readout">
+      <div>
+        <div class="eyebrow">What you built</div>
+        <div class="arm-name" id="armName">Arm A, the rules as they stand</div>
+        <p class="muted" id="armWhy"></p>
+        <div class="path" id="path"></div>
+      </div>
+      <div class="facts" id="facts"></div>
+    </div>
+  </section>
+
+  <section id="stages">
+    <div>
+      <div class="eyebrow">Panel B</div>
+      <h2>The six stages, with the jobs you approved</h2>
+      <p class="muted">Click a stage. <span class="jobs"><i class="cpu"></i> one CPU job</span> <span class="jobs"><i class="gpu"></i> one GPU job</span>. greg's count of 03:20 UTC: 2 CPU, 2 GPU for the screen, 2 for the full run, plus 1 short GPU smoke. Nothing is sent until the pieces exist and the pre-registration is frozen.</p>
+    </div>
+    <div class="ladder" id="ladder"></div>
+  </section>
+
+  <section id="decisions">
+    <div>
+      <div class="eyebrow">Panel C</div>
+      <h2>Every decision, and who made it</h2>
+      <p class="muted">Green: greg's own words. Amber: decided by the plan in his place after "i have no idea" at 02:46 UTC; any of these is his to overturn.</p>
+    </div>
+    <div class="filters" id="filters">
+      <button type="button" data-f="all" aria-pressed="true">All</button>
+      <button type="button" data-f="greg" aria-pressed="false">greg decided</button>
+      <button type="button" data-f="plan" aria-pressed="false">The plan decided</button>
+    </div>
+    <div class="cards" id="cards"></div>
+  </section>
+
+  <section id="scores">
+    <div>
+      <div class="eyebrow">Panel D</div>
+      <h2>What each arm is scored on</h2>
+      <p class="muted">Filled: a primary endpoint or a gate. Open: reported beside them as the price or the diagnosis. Blank: does not exist for that arm.</p>
+    </div>
+    <div class="panel grid-wrap"><table id="scoreTable"></table></div>
+  </section>
+
+  <section id="numbers">
+    <div>
+      <div class="eyebrow">Panel E</div>
+      <h2>The numbers the plan rests on</h2>
+    </div>
+    <div class="nums" id="nums"></div>
+  </section>
+
+  <footer>Source: the note README.md beside this page and its prior-art.md; the counts name their records there. Confidential with the repository; nothing here is a result, and no job has been sent.</footer>
+</main>
+
+<script>
+(function () {
+  "use strict";
+
+  // ---- the switches: each key, its values, and a plain explanation of each value ----
+  var KEYS = [
+    { key: "objective", label: "objective", hint: "what the decoder is asked to give back",
+      values: { landmarks: "landmarks: a point per named landmark", mask: "mask: the vertebra masks themselves (the other thread's run)" } },
+    { key: "head", label: "head", hint: "how the landmarks come out of the network",
+      values: { heatmap: "heatmap: the network paints a heat map per landmark; its brightest spot is the point",
+                latent: "latent: the network gives K shape numbers; a fixed linear map turns them into every landmark",
+                hybrid: "hybrid: the latent head, with the named measurements still in the loss",
+                "latent-noprior": "latent, no prior: the latent head with nothing pulling it to typical shape",
+                "heatmap-pdm": "heatmap with the shape prior as a penalty",
+                values: "values: the named measurements straight out, no landmarks at all" } },
+    { key: "measures", label: "measures", hint: "the named measurements the readout computes; the landmark channels follow from it",
+      values: { seven: "seven: the seven chords the specs draw today", pool: "pool: the 32 Panjabi measures", "pool-ratios": "pool and ratios: the 32 plus the size-free ratios" } },
+    { key: "emission", label: "emission", hint: "what the naming rule reads",
+      values: { measures: "measures: the named measurements", latent: "latent: the K shape numbers" } },
+    { key: "prior", label: "prior", hint: "the model behind the naming rule",
+      values: { exact: "exact: the enumeration over every name path, as now", "pymc:sampled": "pymc, sampled: chain_pymc's model (a), translated to JAX for the loss", "pymc:enumerated": "pymc, enumerated: chain_pymc's model (b), translated to JAX for the loss" } },
+    { key: "w_prior", label: "w_prior", hint: "the weight of the shape prior's pull; 1 means it counts as a likelihood",
+      values: { "1": "1: the shape prior counts as a likelihood", "0": "0: no pull toward typical shape" } },
+    { key: "pdm_k", label: "pdm_k", hint: "how many shape numbers K; chosen on validation, never fixed in advance",
+      values: { "curve": "chosen on validation (a curve)", "10": "10 (the transcript's guess, to be measured)" } }
+  ];
+
+  var PRESETS = [
+    { name: "A rules (as now)", set: { objective: "landmarks", head: "heatmap", measures: "seven", emission: "measures", prior: "exact", w_prior: "1", pdm_k: "curve" } },
+    { name: "B latent", set: { objective: "landmarks", head: "latent", measures: "seven", emission: "latent", prior: "exact", w_prior: "1", pdm_k: "curve" } },
+    { name: "C hybrid", set: { objective: "landmarks", head: "hybrid", measures: "seven", emission: "measures", prior: "exact", w_prior: "1", pdm_k: "curve" } },
+    { name: "C0 latent, no prior", set: { objective: "landmarks", head: "latent-noprior", measures: "seven", emission: "measures", prior: "exact", w_prior: "0", pdm_k: "curve" } },
+    { name: "D heatmap + prior", set: { objective: "landmarks", head: "heatmap-pdm", measures: "seven", emission: "measures", prior: "exact", w_prior: "1", pdm_k: "curve" } },
+    { name: "E values direct", set: { objective: "landmarks", head: "values", measures: "seven", emission: "measures", prior: "exact", w_prior: "1", pdm_k: "curve" } },
+    { name: "F mask (other thread)", set: { objective: "mask", head: "heatmap", measures: "seven", emission: "latent", prior: "exact", w_prior: "1", pdm_k: "curve" } }
+  ];
+
+  var state = {};
+  var presetsEl = document.getElementById("presets");
+  var switchesEl = document.getElementById("switches");
+
+  PRESETS.forEach(function (p, i) {
+    var b = document.createElement("button");
+    b.type = "button"; b.className = "preset"; b.textContent = p.name; b.setAttribute("aria-pressed", i === 0 ? "true" : "false");
+    b.addEventListener("click", function () { Object.keys(p.set).forEach(function (k) { state[k] = p.set[k]; }); syncSelects(); render(); });
+    presetsEl.appendChild(b);
+  });
+
+  KEYS.forEach(function (k) {
+    var box = document.createElement("div"); box.className = "switch";
+    var lab = document.createElement("label"); lab.textContent = k.label; lab.htmlFor = "sw-" + k.key;
+    var sel = document.createElement("select"); sel.id = "sw-" + k.key;
+    Object.keys(k.values).forEach(function (v) { var o = document.createElement("option"); o.value = v; o.textContent = v; sel.appendChild(o); });
+    sel.addEventListener("change", function () { state[k.key] = sel.value; render(); });
+    var hint = document.createElement("div"); hint.className = "hint"; hint.id = "hint-" + k.key;
+    box.appendChild(lab); box.appendChild(sel); box.appendChild(hint);
+    switchesEl.appendChild(box);
+  });
+
+  function syncSelects() {
+    KEYS.forEach(function (k) { var sel = document.getElementById("sw-" + k.key); if (sel && state[k.key] !== undefined) sel.value = state[k.key]; });
+  }
+
+  function armOf(s) {
+    if (s.objective === "mask") return { name: "Arm F, the mask objective (the other thread's run)", why: "No oracle, no measurement: the decoder must give the masks back, and a small head names the level from the network's own bottleneck. Joins the screen when that thread has it ready." };
+    var latentRead = s.emission === "latent";
+    switch (s.head) {
+      case "heatmap": return { name: latentRead ? "A with a latent emission (not an arm of the plan)" : "Arm A, the rules as they stand", why: latentRead ? "A heatmap head has no shape numbers for the rule to read unless its landmarks are projected onto the shape model; the plan reports that projection for A, it does not train on it." : "Heat maps, the named measurements from the points, Panjabi's rule over them. The baseline every other arm is compared with." };
+      case "latent": return latentRead ? { name: "Arm B, the pure latent", why: "The transcript's proposal: the rule reads shape numbers, not named measurements. The named values are computed afterwards for the record only." } : { name: s.w_prior === "0" ? "Arm C0 (latent head, rules, no prior)" : "Arm C, the hybrid", why: s.w_prior === "0" ? "The latent head by itself: shows what the head does without the prior's pull." : "The latent head inside, the named measurements outside, the shape prior pulling toward typical anatomy. The transcript's recommended form; the plan's primary contrast against A." };
+      case "hybrid": return { name: "Arm C, the hybrid", why: "The latent head inside, the named measurements outside, the shape prior pulling toward typical anatomy. The transcript's recommended form; the plan's primary contrast against A." };
+      case "latent-noprior": return { name: "Arm C0 (latent head, rules, no prior)", why: "The latent head by itself, with no pull toward typical shape: C against C0 tells what the prior does, C0 against A what the head does." };
+      case "heatmap-pdm": return { name: "Arm D, heatmap with the shape prior", why: "The heat maps as in A, with the shape prior added as a penalty on the points. D against A tells what the prior does on the heatmap head." };
+      case "values": return { name: "Arm E, the named values straight out", why: "No landmarks, no lines: the network gives the seven (or 32) numbers and their uncertainty. Tells what the landmarks cost or buy." };
+    }
+    return { name: "An arm the plan does not run", why: "" };
+  }
+
+  function render() {
+    var s = state;
+    KEYS.forEach(function (k) { var h = document.getElementById("hint-" + k.key); if (h) h.textContent = k.values[s[k.key]] || ""; });
+    var arm = armOf(s);
+    document.getElementById("armName").textContent = arm.name;
+    document.getElementById("armWhy").textContent = arm.why;
+    presetsEl.querySelectorAll(".preset").forEach(function (b) {
+      var p = PRESETS.filter(function (q) { return q.name === b.textContent; })[0];
+      var same = p && Object.keys(p.set).every(function (k) { return p.set[k] === s[k]; });
+      b.setAttribute("aria-pressed", same ? "true" : "false");
+    });
+
+    var nMeas = { seven: 7, pool: 32, "pool-ratios": 37 }[s.measures] || 7;
+    var nPts = { seven: 14, pool: "the union of the points the 32 need", "pool-ratios": "the union of the points the 32 need" }[s.measures];
+    var steps = [];
+    steps.push({ k: "crop", t: "A 48 x 56 x 32 voxel crop of the CT at 2 mm, one vertebra with its neighbours' edges; in training the mask is faded out over the run (the degradation ladder).", on: true });
+    if (s.objective === "mask") {
+      steps.push({ k: "network", t: "Two encoders fused; the decoder gives the vertebra masks back. The bottleneck is the latent.", on: true });
+      steps.push({ k: "name", t: "A small head on the bottleneck names the level (cross-entropy against the gold level). No measurement, no lines.", on: true, warn: true });
+    } else {
+      if (s.head === "values") {
+        steps.push({ k: "network", t: "Two encoders fused; the head gives 2 x " + nMeas + " numbers: each named value and its log-spread. No landmarks.", on: true });
+      } else if (s.head === "heatmap" || s.head === "heatmap-pdm") {
+        steps.push({ k: "network", t: "Two encoders fused; the decoder paints one heat map per landmark (" + nPts + " for " + s.measures + "); the point is the map's soft centre, its spread the map's width.", on: true });
+      } else {
+        steps.push({ k: "network", t: "Two encoders fused; a dense layer gives K shape numbers plus a pose (3 shifts, 3 turns, a scale). Landmarks = pose(mean + P x b), with P the shape model fit on the real masks' line ends.", on: true });
+      }
+      if (s.head !== "values") {
+        steps.push({ k: "values", t: "The named measurements (" + nMeas + ") are computed from the points by the same smooth rules (a length, an angle, an area), with their uncertainty by the delta method. Any set of measurements is one switch; the network does not change.", on: true });
+      }
+      var priorT = "";
+      if (s.head === "latent" || s.head === "hybrid") priorT = "The shape prior: the shape numbers are pulled toward typical anatomy with weight " + s.w_prior + " (the model's own negative log-likelihood).";
+      else if (s.head === "latent-noprior") priorT = "No shape prior: the shape numbers are free.";
+      else if (s.head === "heatmap-pdm") priorT = "The shape prior as a penalty: the heat-map points are projected onto the shape model and pulled toward it with weight " + s.w_prior + ".";
+      else priorT = "No shape prior on the points; only the naming rule's pull, as now.";
+      steps.push({ k: "prior", t: priorT, on: s.head !== "heatmap" && s.head !== "values" });
+      var readT = s.emission === "latent" ? "The naming rule reads the K shape numbers under a per-level Gaussian (size shared across the field, as the rule shares it)." : "The naming rule reads the " + nMeas + " named measurements under a table re-estimated from the training persons (Panjabi's printed table reported beside it).";
+      steps.push({ k: "rule", t: readT + " " + (s.prior === "exact" ? "The rule is the exact enumeration over every name path." : "The rule is a PyMC model (" + s.prior.split(":")[1] + "), its log-density translated to JAX so the loss can differentiate it; sampled at evaluation."), on: true });
+      steps.push({ k: "names", t: "Out: a posterior over the level of each body (C3 to L5, L6, T13) and the column's type (typical, four or six lumbar, T13).", on: true });
+    }
+    var pathEl = document.getElementById("path"); pathEl.innerHTML = "";
+    steps.forEach(function (st) {
+      var d = document.createElement("div"); d.className = "step" + (st.on ? " on" : "") + (st.warn ? " warn" : "");
+      var k = document.createElement("div"); k.className = "k"; k.textContent = st.k;
+      var t = document.createElement("div"); t.textContent = st.t;
+      d.appendChild(k); d.appendChild(t); pathEl.appendChild(d);
+    });
+
+    var drawable = s.objective !== "mask" && s.head !== "values";
+    var readsNamed = s.objective !== "mask" && s.emission === "measures";
+    var facts = [
+      ["networks", "one, whatever the switches say"],
+      ["lines on the image", drawable ? "yes: every value has two points a person can see" : "no"],
+      ["rule reads", s.objective === "mask" ? "nothing: a classifier on the bottleneck" : (readsNamed ? "named measurements (human-readable)" : "K shape numbers (not human-readable; the plan measures how nameable each is)")],
+      ["shape prior", s.objective === "mask" ? "none" : (s.head === "heatmap" || s.head === "values" ? "none" : (s.head === "latent-noprior" || s.w_prior === "0" ? "none" : "the point-distribution model, weight " + s.w_prior))],
+      ["in the screen", s.objective === "mask" ? "yes, when the other thread has it ready" : "yes, one seed (arm A: three seeds)"],
+      ["what it tests", s.objective === "mask" ? "a learnt latent with no measurement at all" : (s.head === "heatmap" ? "the baseline" : s.head === "latent" && s.emission === "latent" ? "the feature space: shape numbers against named measurements" : s.head === "values" ? "what the landmarks cost or buy" : s.head === "heatmap-pdm" ? "the prior alone, on the heatmap head" : s.head === "latent-noprior" ? "the head alone" : "the head and the prior together (the primary contrast)")]
+    ];
+    var fEl = document.getElementById("facts"); fEl.innerHTML = "";
+    facts.forEach(function (f) {
+      var d = document.createElement("div"); d.className = "fact";
+      var k = document.createElement("div"); k.className = "k"; k.textContent = f[0];
+      var v = document.createElement("div"); v.textContent = f[1];
+      d.appendChild(k); d.appendChild(v); fEl.appendChild(d);
+    });
+  }
+
+  Object.keys(PRESETS[0].set).forEach(function (k) { state[k] = PRESETS[0].set[k]; });
+  syncSelects(); render();
+
+  // ---- the ladder ----
+  var STAGES = [
+    { n: 1, t: "Export the truth", sub: "the engine over every gold tier 3 mask, with the two ends of every line", jobs: "cpu",
+      what: "The morphometry engine reads all 1,733 masks in the vertebra's own frame and writes, beside each value, the two points it was measured between. Those points are the shape model's data and every network's targets. It also measures how far apart the three frames are (the engine's, the oracle's, the mask-free one).",
+      needs: "The export flag on the engine's branch (PR 44); the engine re-vendored on the grid; the CTs landed; the autoPET person match.",
+      learn: "The truth table exists; the shape model can be fit; the frame gaps are numbers." },
+    { n: 2, t: "Features, no network", sub: "do named measurements name as well as shape numbers?", jobs: "cpu",
+      what: "On the engine's own rows, with no network: the naming rule with the seven chords, with the 32, with the ratios, and with the shape numbers; a plain classifier over the same features; leave persons out, five folds; per rib class.",
+      needs: "Stage 1.",
+      learn: "Whether a latent is worth training at all; how many shape numbers K; how correlated naming errors are within a column, which sets the naming bar." },
+    { n: 3, t: "Smoke the heads", sub: "every arm end to end on the phantoms, nothing read as a result", jobs: "none",
+      what: "The six arms run a few hundred steps on the synthetic phantoms so the code path from the mask to the named bodies works for every head. Rides in the other thread's phantom_smoke plan if the head block lands before its pre-registration is frozen.",
+      needs: "The head block, the measures switch and the shape-model asset built; probe_smoke first, as you asked.",
+      learn: "That every arm runs; the CPU step time of each. A short GPU smoke (your 1) measures the GPU time no record holds." },
+    { n: 4, t: "The screen", sub: "every arm side by side, 50 epochs on a fifth of the training persons", jobs: "gpu gpu",
+      what: "Your rule: as many in parallel as possible on short runs. One plan; each arm one seed (arm A three seeds); each trial a Slurm array task on its own GPU; a merge job after the array gathers them. Read on the validation persons only, never on test. An arm is dropped only for a numbered failure: it does not train, its spread is twice A's, or it names more than 6 points worse than the engine's own values.",
+      needs: "Stages 1 to 3; the flow kind of its own, the volume rows with a person key, the windows for the naming term, the frozen pre-registration.",
+      learn: "Which arms train, calibrate and name on real spines at all, and their order. The keep list for the full run, written down before the full run's plan is frozen." },
+    { n: 5, t: "The full run", sub: "what the screen keeps, three seeds, the whole training part", jobs: "gpu gpu",
+      what: "The kept arms at three seeds on all the training persons, 50 epochs (fewer if the screen's curves settled earlier). The merge reads the test persons once for every trial. A is always in; C is in unless it failed the screen, in which case D against A is the pre-registered contrast.",
+      needs: "Stage 4's keep record.",
+      learn: "The primary endpoints with intervals: value error and bodies named right; the calibration gate; the explainability indices." },
+    { n: 6, t: "The report", sub: "plots with short notes", jobs: "none",
+      what: "The figures of section 7 and the CLAIM report, drawn from the run folders; paired differences with person-bootstrap intervals.",
+      needs: "Stages 4 and 5.",
+      learn: "Your decision on the head and the features, against the bars." }
+  ];
+  var ladder = document.getElementById("ladder");
+  STAGES.forEach(function (st) {
+    var d = document.createElement("details"); d.className = "rung"; if (st.n === 4) d.open = true;
+    var sm = document.createElement("summary");
+    var n = document.createElement("div"); n.className = "n"; n.textContent = st.n;
+    var tt = document.createElement("div"); var t = document.createElement("div"); t.className = "t"; t.textContent = st.t; var sub = document.createElement("div"); sub.className = "sub"; sub.textContent = st.sub; tt.appendChild(t); tt.appendChild(sub);
+    var j = document.createElement("div"); j.className = "jobs";
+    if (st.jobs === "none") { j.textContent = "no job"; } else { st.jobs.split(" ").forEach(function (c) { var i = document.createElement("i"); i.className = c; j.appendChild(i); }); }
+    sm.appendChild(n); sm.appendChild(tt); sm.appendChild(j);
+    var body = document.createElement("div"); body.className = "body";
+    var kv = document.createElement("div"); kv.className = "kv";
+    [["what runs", st.what], ["needs first", st.needs], ["we learn", st.learn]].forEach(function (pair) {
+      var k = document.createElement("div"); k.className = "k"; k.textContent = pair[0]; var v = document.createElement("div"); v.textContent = pair[1]; kv.appendChild(k); kv.appendChild(v);
+    });
+    body.appendChild(kv); d.appendChild(sm); d.appendChild(body); ladder.appendChild(d);
+  });
+
+  // ---- the decisions ----
+  var DECISIONS = [
+    { who: "greg", t: "Evaluate on real spines; phantoms deferred", why: "Morphometry phantoms are deferred (his rule of 2026-10-29). Truth is the engine's reading of the gold tier 3 masks.", flip: "Phantoms serve only the smoke test of the code path." },
+    { who: "greg", t: "Fit the block-style Metaflow pipeline; screen many arms in parallel on short 50-epoch runs", why: "His words at 02:46 UTC. The screen (stage 4) is that rule made concrete.", flip: "The screen's length (50 epochs) and its subset (a fifth of the training persons) are the plan's; the parallel form is his." },
+    { who: "greg", t: "One network for every measure set; the prior accepts PyMC code", why: "His words at 02:49 UTC: encapsulated, swappable, no two networks for the seven and the 32. The measures switch sizes the landmark channels; the prior switch takes a PyMC model translated to JAX.", flip: "The names of the switches are the plan's and the other thread's; the rule is his." },
+    { who: "greg", t: "Job counts: 2 CPU, 2 GPU for the screen, 2 for the full run, plus 1 short GPU smoke", why: "His word and count at 03:20 UTC. It is the number every grid job needs.", flip: "A job that grows beyond its line in the note needs a new count. Nothing is sent before the flow pieces and the frozen pre-registration exist." },
+    { who: "greg", t: "2-D landmarks: forward 3-D to 2-D, backward 2-D to the label, never into 3-D", why: "His direction of 02:33 to 02:41 UTC; section 14 of the note. Not part of these stages.", flip: "Needs project.py's camera and the stage 1 export keeping every point's name and label." },
+    { who: "plan", t: "The screen reads validation only; the test persons are read once, by the full run", why: "Reading test many times and then choosing arms would make the final numbers a selection, not a measurement. The keep list is written down before the full run's plan is frozen.", flip: "If you want test numbers from the screen, they can be read but must then be called a ranking, not the decision." },
+    { who: "plan", t: "Arm A always goes to the full run; C unless it fails the screen; then D against A is the contrast", why: "Otherwise the screen could drop the baseline every bar is measured against, or the primary contrast itself.", flip: "You may name another primary contrast; it must be named before the pre-registration is frozen." },
+    { who: "plan", t: "The screen drops an arm only for three numbered failures", why: "Does not train (error not halved); not sharp (spread twice A's at the same coverage, or two-spread coverage outside 0.90 to 0.98); names more than 6 points worse than the engine's own values. Anything closer is a tie and both go on.", flip: "Loosen or tighten the three numbers; they go into the pre-registration." },
+    { who: "plan", t: "The bars: at least 0.3 mm of value error; a naming bar set from stage 2", why: "3 points of naming is underpowered at a test fifth under the lower-bound rule (the design finds the bar plus 2.8 standard errors, about 9 points). Stage 2 measures the within-column correlation and the bar follows.", flip: "Set any bar you like; or change the rule to the interval excluding zero with the estimate above the bar." },
+    { who: "plan", t: "Split by person: validation 0.1, test 0.2; a listed test set drawn by anomaly class", why: "A hash cannot stratify, and at 0.2 the L4-on-sacrum stratum would have about 8 test columns, under 10. The test persons are listed from the start; every other person keeps the hash's part.", flip: "0.3 (about 500 test columns) if the naming bar stage 2 gives is wider than 3 points." },
+    { who: "plan", t: "The reference named feature set is the 32-measure pool with the ratios; the seven reported beside it", why: "The seven are what the specs draw today; the pool is what the rule can score. One network serves both.", flip: "Say 'seven' and the pool becomes the reported one." },
+    { who: "plan", t: "The reference table is re-estimated from the training persons; Panjabi's printed table reported beside it", why: "A table from 12 cadavers names 13 points fewer three-body fields than the printed one; a latent fit on 1,100 persons would beat it by sample size alone.", flip: "Keep the printed table as the reference and the comparison is unfair by construction." },
+    { who: "plan", t: "The shape model is per vertebra, size divided out, with a pose on every latent head", why: "A column-wide model has no slot for an L6, a T13 or a missing L5. The crops are in a different frame from the engine's (up to 18 degrees at L5), so without a pose the latent would have to absorb a rigid misalignment as shape.", flip: "A column-wide model (Meng 2020) is a later run." },
+    { who: "plan", t: "The prior's weight is 1 and not searched; C0 has 0", why: "At 1 the prior is the model's own likelihood, not a tuned knob; a weight chosen on validation (96 percent typical anatomy) would pick the value that hurts the anomalies.", flip: "A sweep of w_prior and K is a later run, with the anomaly strata in its objective." },
+    { who: "plan", t: "The truth name on anomaly columns comes from the ribs", why: "The masks' names and the chain's types disagree on exactly those columns: 14 of the 67 L6 columns bear thirteen ribs (a T13 column by the chain), 8 of the 39 L4-on-sacrum bear eleven.", flip: "Score by the masks' names instead and the strata test the convention, not the arm." },
+    { who: "plan", t: "The evaluation runs as a flow kind of its own, a thin subclass of the auto-anatomist flow", why: "One flow kind is held to one frozen pre-registration, and the other thread's asks a different question with no bars.", flip: "Fold into their kind only if their pre-registration takes these plans before it is frozen." },
+    { who: "plan", t: "Stage 2 runs on the grid; only aggregates leave", why: "The engine's rows stay on the grid under the morphometry rule.", flip: "Carry the ends and values off as a per-study table (no image, no mask) and stage 2 can run in a container." },
+    { who: "plan", t: "All six arms are in the screen, and F when the other thread has it ready", why: "Your rule: as many in parallel as possible.", flip: "Drop any arm from the screen's plan." }
+  ];
+  var cards = document.getElementById("cards");
+  function drawCards(filter) {
+    cards.innerHTML = "";
+    DECISIONS.filter(function (d) { return filter === "all" || d.who === filter; }).forEach(function (d) {
+      var c = document.createElement("div"); c.className = "card";
+      var who = document.createElement("div"); who.className = "who " + d.who; who.textContent = d.who === "greg" ? "greg decided" : "the plan decided, in his place";
+      var t = document.createElement("h3"); t.textContent = d.t;
+      var det = document.createElement("details"); var sm = document.createElement("summary"); sm.textContent = "why, and what flipping it changes";
+      var why = document.createElement("p"); why.textContent = d.why; var flip = document.createElement("p"); flip.textContent = "Flip it: " + d.flip;
+      det.appendChild(sm); det.appendChild(why); det.appendChild(flip);
+      c.appendChild(who); c.appendChild(t); c.appendChild(det); cards.appendChild(c);
+    });
+  }
+  drawCards("all");
+  document.getElementById("filters").addEventListener("click", function (e) {
+    var b = e.target.closest("button"); if (!b) return;
+    document.querySelectorAll("#filters button").forEach(function (x) { x.setAttribute("aria-pressed", x === b ? "true" : "false"); });
+    drawCards(b.getAttribute("data-f"));
+  });
+
+  // ---- the score grid ----
+  var ARMS = ["A rules", "B latent", "C hybrid", "C0 no prior", "D heatmap+prior", "E values"];
+  var METRICS = ["value error and limits of agreement", "naming on 3-body fields", "coverage at 1 and 2 spreads (gate)", "sharpness (gate)", "landmark distance and tail", "drawability E1", "attributability E2", "mode nameability E3", "transparency E4", "spread by step", "latency a crop"];
+  var SCORED = { "value error and limits of agreement": 1, "naming on 3-body fields": 1, "coverage at 1 and 2 spreads (gate)": 1, "sharpness (gate)": 1 };
+  var BLANK = { "E values": { "landmark distance and tail": 1, "drawability E1": 1, "mode nameability E3": 1 } };
+  var table = document.getElementById("scoreTable");
+  var thead = document.createElement("thead"); var hr = document.createElement("tr"); var h0 = document.createElement("th"); h0.textContent = "arm"; hr.appendChild(h0);
+  METRICS.forEach(function (m) { var th = document.createElement("th"); th.textContent = m; hr.appendChild(th); }); thead.appendChild(hr); table.appendChild(thead);
+  var tbody = document.createElement("tbody");
+  ARMS.forEach(function (a) {
+    var tr = document.createElement("tr"); var td0 = document.createElement("td"); td0.textContent = a; tr.appendChild(td0);
+    METRICS.forEach(function (m) {
+      var td = document.createElement("td"); td.className = "c";
+      if (!(BLANK[a] && BLANK[a][m])) { var sq = document.createElement("span"); sq.className = "sq" + (SCORED[m] ? " f" : ""); sq.setAttribute("title", SCORED[m] ? "scored" : "reported"); td.appendChild(sq); }
+      tr.appendChild(td);
+    });
+    tbody.appendChild(tr);
+  });
+  table.appendChild(tbody);
+
+  // ---- the numbers ----
+  var NUMS = [
+    ["1,733", "gold tier 3 studies with masks (ENHANCE.PET 1,558, VerSe 21, TotalSegmentator 154)"],
+    ["1,654", "persons at most (1,040 at least): autoPET's persons are not matched yet"],
+    ["165 / 331 / 1,158", "validation / test / training persons at shares 0.1 and 0.2"],
+    ["229", "thin-slice studies (1.25 mm or finer), the first arm of every comparison"],
+    ["67 + 39", "L6 columns and L4-on-sacrum columns; 14 and 8 of them re-named by their ribs"],
+    ["24", "names the chain can give: C3 to L5, L6, T13"],
+    ["50", "epochs a screen trial, over a fifth of the training persons; an epoch is a pass in expectation"],
+    ["6 + 1", "arms in the screen, plus F when the other thread is ready; arm A at three seeds"],
+    ["0.3 mm", "the value-error bar; the naming bar waits on stage 2"],
+    ["2 + 2 + 2 + 1", "your job count: CPU, GPU screen, GPU full run, short GPU smoke"],
+    ["0", "jobs sent so far"]
+  ];
+  var nums = document.getElementById("nums");
+  NUMS.forEach(function (n) { var d = document.createElement("div"); d.className = "num"; var b = document.createElement("b"); b.className = "tabular"; b.textContent = n[0]; var sp = document.createElement("span"); sp.textContent = n[1]; d.appendChild(b); d.appendChild(sp); nums.appendChild(d); });
+})();
+</script>
