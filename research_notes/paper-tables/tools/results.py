@@ -30,10 +30,13 @@ import sys
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", ".."))
 sys.path.insert(0, ROOT)
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 from schwingcheck import LEVELS  # noqa: E402
 from schwingcheck import measures as MS  # noqa: E402
 from schwingcheck.curve_report import INK, letter, save, style, write_csv  # noqa: E402
+# One parser of a shared entry's "with" for the record's pools and this page's sharing table.
+from cross_naming import RULED_OUT, named_in  # noqa: E402,F401
 
 ARMS = ("panjabi", "source", "widened_source")
 ARM_NAME = {"panjabi": "Panjabi's fields", "source": "the papers' fields, rule as built",
@@ -113,13 +116,15 @@ def kinds(rows):
 
 
 def table_read(read, called):
-    """One row a paper: its cells by how they were settled, and Panjabi's measures its own values give."""
+    """One row a paper: its cells by how they were settled, and Panjabi's measures its own values give,
+    counting only rows that hold a value: Busscher 2010's Tables 4 and 5 print only C or NC, human
+    against pig, for measures whose values its figures plot and the reading did not take."""
     out = []
     for paper, rows in read.items():
         checks = [r["check"] for r in rows]
         same, differs = set(), set()
         for r in rows:
-            if r["source_of_values"] == "this paper" and r["vs_panjabi"] != "none":
+            if r["source_of_values"] == "this paper" and r["vs_panjabi"] != "none" and r["canonical_value"].strip():
                 (same if r["vs_panjabi"] in SAME else differs).add(r["key"])
         who, what = called.get(paper, (paper, ""))
         out.append(dict(paper=paper, name=who, what=what, read=kinds(rows), cells=len(rows),
@@ -129,23 +134,10 @@ def table_read(read, called):
     return out
 
 
-# The clauses of a shared entry's "with" that name a paper of the list only to rule it out, or as
-# the readers' guess: "not krag1988" (Robertson 2000, p. 709: its Krag et al [24] is Spine 1989),
-# "not gilad1985 by its year" (Chen 2011, p. 1814), "not amonookuofi1982 or amonookuofi1985" and
-# "not twomey1985" (Kunkel 2011, p. 377: the 1991 and 1987 papers), and "(Inference: zindrick1987)"
-# (Mitra 2002, p. 453). A clause runs to the next semicolon or parenthesis.
-RULED_OUT = re.compile(r"\(\s*inference\b[^)]*\)|\binference\b[^;()]*|\bnot\b[^;()]*", re.I)
-
-
-def named_in(text, ids):
-    """The ids a shared entry's "with" names as the paper's own word, each as a whole word."""
-    kept = RULED_OUT.sub(" ", text)
-    return sorted(p for p in ids if re.search(r"\b%s\b" % re.escape(p), kept))
-
-
 def sharing(coh, papers):
     """Every stated sharing of subjects, pooled data or a method between two papers of the list; a
-    paper an entry names only to rule it out, or as its readers' guess, is not one (RULED_OUT)."""
+    paper an entry names only to rule it out, or as its readers' guess, is not one (cross_naming's
+    RULED_OUT, the parser the record's pools read the same field with)."""
     on_list = set(papers) | {"panjabi1991c", "panjabi1991t", "panjabi1992", "panjabi1993f"}
     found = {}
     for paper, record in coh.items():
@@ -417,6 +409,9 @@ def endplate_lines(left_out):
 def page(record, read_rows, share, dis, summary, by_paper, cross_path):
     cells = {k: sum(r[k] for r in read_rows) for k in ("cells", "agreed", "resolved", "once")}
     left = record.get("left_out_not_human", [])
+    if not left:
+        # The page says the pig spines are out; a record made without the cohorts files let them in.
+        raise SystemExit("the record leaves no animal cohort out: remake it with cross_naming.py --cohorts")
     lines = ["# The evaluation with every paper's tables", "",
              "Source: thread \"Finish the clinical reread\", project symphony_4, 2026-10-29, for the owner's ask of 2026-10-28",
              "22:10 UTC. Written by tools/results.py from data/ and the cross_naming record (%s); the numbers the figures" % os.path.basename(cross_path),
@@ -429,7 +424,8 @@ def page(record, read_rows, share, dis, summary, by_paper, cross_path):
              "%d papers, %s cells: the two blind readings agreed on %s, a third reader settled %s on the page image, and %s"
              % (len(read_rows), num(cells["cells"]), num(cells["agreed"]), num(cells["resolved"]), num(cells["once"])),
              "were read by one reader and checked on the page. The last two columns count Panjabi's measures among the",
-             "paper's own values (not values it quotes), by whether its definition is his or close to it, or differs.", ""]
+             "paper's own values read (not values it quotes, nor codes that hold no value), by whether its definition",
+             "is his or close to it, or differs.", ""]
     lines += md_table(["Paper", "What it is", "Read", "Cells", "Agreed", "Resolved", "Read once", "Panjabi's, same or close", "Differs"],
                       "lllrrrrrr",
                       [[r["name"], r["what"], r["read"], num(r["cells"]), num(r["agreed"]), num(r["resolved"]), num(r["once"]),
@@ -476,7 +472,11 @@ def page(record, read_rows, share, dis, summary, by_paper, cross_path):
                         pct(r["named"]), "%s of %s" % (pct(r["right_of_named"]), num(r["answered"])) if r["answered"] else "none named"]
                        for r in summary])
     lines += ["", "<img src=\"transport.png\" alt=\"Three panels against the bodies in view: share named exactly, within one level and at 0.99, for Panjabi's fields and the papers' with the rule as built and widened\" width=\"720\">", "",
-              open(os.path.join(OUT, "transport.caption.txt")).read().strip(), "", "By paper, three bodies:", ""]
+              open(os.path.join(OUT, "transport.caption.txt")).read().strip(), "",
+              "By paper, three bodies. A row is one series at %s fields a place, so it carries sampling noise of several"
+              % num(record["transport"][0]["fields_per_place"]),
+              "points: the same series redrawn under another seed moved by up to six points at three bodies (review/round-4.md),",
+              "which is why one paper's row is read against the summary above, not against another paper's.", ""]
     three = [r for r in by_paper if r["bodies"] == 3]
     # By year, then name, as the papers read: a set of papers sorted on the year alone kept the
     # order of one year's papers from the hash seed, so the page changed from run to run.

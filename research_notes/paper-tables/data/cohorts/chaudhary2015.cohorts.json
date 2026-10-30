@@ -197,6 +197,18 @@
       "what": "method",
       "evidence": "named among studies of lumbar canal dimensions by the radiographic method (Spanish); no values quoted. Inference: a shared approach, not an identical protocol",
       "page": "p. 34 (PDF 2)"
+    },
+    {
+      "with": "Eisenstein S. 1977, J Bone Joint Surg 59-B (reference 2), eisenstein1977",
+      "what": "method",
+      "evidence": "named, with Hinck 1966, among workers who used plain radiography to study canal dimensions, and again among studies by the radiographic method; its values are quoted too (the entry above). Inference: a statement of a shared approach, not of an identical protocol, and Eisenstein's own Methods measured dry bone by caliper",
+      "page": "p. 33-34 (PDF 1-2)"
+    },
+    {
+      "with": "Amonoo Kuofi H. S. 1982, J Anat 135 (reference 6), amonookuofi1982",
+      "what": "method",
+      "evidence": "named among studies of lumbar canal dimensions by the radiographic method; its values are quoted too (the entry above). Inference: a statement of a shared approach, not of an identical protocol",
+      "page": "p. 34 (PDF 2)"
     }
   ],
   "within_paper": "One set of subjects: every value of this paper's own comes from the same 300 AP radiographs (p. 34, PDF 2); the 'Present study (sonepat District)' rows of Table II repeat the Table I means (p. 35, PDF 3), and the Abstract and Conclusion counts restate the Methods sample (p. 33, PDF 1; p. 35, PDF 3). The five quoted series of Table II are other studies' subjects, distinct from this paper's; the paper states no overlap among them. The two Eisenstein rows are two groups of one study."

@@ -414,7 +414,7 @@ Two more size-free cues from frontphys2026 (100 living Chinese adults, CT). Infe
 
 ### 3.5 End-plate inclination and wedge: endplate_incl (EPItu), endplate_lower_incl (EPItl), endplate_wedge (EPIt)
 
-In the pool as printed, by the owner's choice of 2026-10-29 09:01 UTC to keep all 32 measures (bordercall TODO.md step b), though this part recommended leaving out endplate_incl and endplate_lower_incl, because Panjabi's lumbar L1 to L5 rows of these two angles reprint his cervical C3 to C7 rows, so his lumbar paper most probably prints no lumbar value of either ([panjabi-endplate-inclination.md](../../panjabi-endplate-inclination.md), sections 1 and 3). As the code stands, measures.pool still takes both (the pool of 32); that note's section 3 gives the exclusion list that would drop them, and endplate_wedge is outside the pool already (no spread).
+In the pool as printed, by the owner's choice of 2026-10-29 09:01 UTC to keep all 32 measures (bordercall TODO.md step b), though this part recommended leaving out endplate_incl and endplate_lower_incl, because Panjabi's lumbar L1 to L5 rows of these two angles print the same 20 numbers as his cervical C3 to C7 rows, most probably the cervical row printed twice, so his lumbar paper most probably prints no lumbar value of either ([panjabi-endplate-inclination.md](../../panjabi-endplate-inclination.md), sections 1 and 3). As the code stands, measures.pool still takes both (the pool of 32); that note's section 3 gives the exclusion list that would drop them, and endplate_wedge is outside the pool already (no spread).
 
 (a) Definitions
 
@@ -1074,7 +1074,7 @@ Panjabi's names are the reverse of the clinical ones. PDIs, the inclination to t
 | krag1988 | Visually fitted pedicle axis against the sagittal plane on the mid-pedicle CT cut; anteromedial positive (krag1988 p. 28 Fig 1B) | SAME in kind |
 | olsewski1990, lien2007, hou1993, mitra2002, arockiaraj2025, duman2026 | Pedicle axis against the midline or a line parallel to it, in the transverse plane (olsewski1990 pp. 542 to 543 Fig 4; lien2007 p. 1217 Fig 1a; hou1993 p. 1851; mitra2002 p. 454 Fig 1; arockiaraj2025 p. 313 Fig 2; duman2026 p. 5 Fig 2D) | SAME in kind; references to the image's vertical in arockiaraj2025 (its note) carry the vertebra's axial rotation |
 | moncadahabib2025 | Vertex on the midline at the anterior body cortex (moncadahabib2025 p. 3 Fig 2D) | DIFFERS: its note finds the range compressed by this convention |
-| busscher2010 PedA | From the anterior midline point of the body through the pedicle (busscher2010 p. 1105 Fig 1, by its note) | DIFFERS in the same way |
+| busscher2010 PedA | The pedicle axis against the midline, drawn through the anterior midline point of the body (busscher2010 p. 1105 Fig 1); its 0 to 3 deg at T10 to T12 rule out a line pinned at that point (p. 1112 Fig 8b; its note, corrected 2026-10-30) | SAME in kind; graded close in the readings (paper-tables validation, Decided on 2026-10-30) |
 
 Biases (Inference): a midline taken from the image rather than frame F adds the vertebra's axial rotation to one side and subtracts it from the other; the side mean cancels it (panjabi1991t note). A centre line fitted to the whole label-41 bridge, rather than normal to the isthmus section, follows the bridge's curve.
 

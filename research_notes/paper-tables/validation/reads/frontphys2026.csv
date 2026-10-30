@@ -1,0 +1,13 @@
+cell,read_value,legibility,note
+frontphys2026:260,25.2,poor,"Figure 1 panel A: the dotted line label at the top left of the image reads 25.2 mm; read at 300 dpi; if 'top left segment' means the left-hand vertical height segment instead the label is 8.8 mm (two candidates)"
+frontphys2026:281,126,poor,"Figure 3 panel A, middle ROI block reads Mean: 126 at 300 dpi; the embedded screenshot is blurry, 126 is the best reading"
+frontphys2026:306,50,poor,"Figure 3 panel B third image, overlay line (Chinese label for perimeter) reads 50mm; blurry embedded screenshot"
+frontphys2026:312,50,poor,"Figure 3 panel B fourth image, overlay perimeter line reads 50mm; blurry embedded screenshot"
+frontphys2026:390,50,clear,"'comprising 50 males and 50 females'"
+frontphys2026:391,20,clear,"'aged 20 to 70 years'"
+frontphys2026:69,2.1,clear,"printed 26.3 +/- 2.1"
+frontphys2026:71,0.8,clear,"printed 47.7 +/- 0.8"
+frontphys2026:116,158.7,clear,"printed 158.7 +/- 24.2"
+frontphys2026:244,156.5,clear,"data label on the upper (blue) line at L3"
+frontphys2026:253,172.3,clear,"data label on the lower (yellow) line at L2"
+frontphys2026:426,0.8,clear,"Discussion 4.3 sentence: 'thinner anterior endplate cortex (0.8 mm vs. 0.9 - 1.0 mm posteriorly, a 10 - 20% difference)'; several candidates for min: 0.8 (anterior), 0.9 (posterior range low end), 10 (percent difference low end); 0.8 recorded as the anterior value"

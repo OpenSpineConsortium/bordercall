@@ -28,16 +28,62 @@ series.csv changes once more at step 1 below.
   the comparison with the papers included, scores them as printed.
 - [../paper-tables/](../paper-tables/README.md): every table of the 39 papers besides Panjabi's, read twice blind,
   reconciled on the page image and mapped to 106 measures (tools/vocabulary.csv): 23,918 cells on 60 measures;
-  data/series.csv, 4,357 series, 49 measures over 209 paper-measure pairs; the comparison with Panjabi's rule at
+  data/series.csv, 3,760 series since pull request 39 (4,357 before it), 49 measures over 208 paper-measure pairs; the comparison with Panjabi's rule at
   200 fields a setting (data/cross_naming.json) and its page, [results/README.md](../paper-tables/results/README.md).
 - The paper-tables tools were reviewed twice by independent readers. The first round's 27 faults and 10 wording
   findings were fixed and checked again. The second round's findings are in
-  ../paper-tables/review/round-2-findings.json, each with the refuters' verdicts; its wording findings are fixed,
-  and its data findings wait for the next step.
+  ../paper-tables/review/round-2-findings.json, each with the refuters' verdicts; its wording findings were fixed in pull
+  request 26 and its data findings in pull request 39, each with its `resolution` in that file.
 
 ## Next, in order
 
-1. **Fix the second review's data findings and rerun.** Take each finding of
+Step 1 below was done on 2026-10-29 in pull request 39 (thread "Plan clinical reread next steps", project
+symphony_2): the sixteen findings fixed, data/series.csv remade, the comparison and the page rerun in a cloud
+session on 4 CPUs, no grid job, and SYNTHESIS.md's points 5 and 7 brought to the new numbers; the old series
+reproduced the old record first. A third review round then read the result (../paper-tables/review/round-3.md):
+nothing refuted, seven small faults fixed, 4,077 series, the comparison rerun once more; a fourth round
+(../paper-tables/review/round-4.md) found eight more, one in the record's seeding, 3,760 series, rerun again. The papers' data are printed tables, not images, so nothing of this step can leak
+into a test set of the auto-anatomist. Step 2's parts a and b were done the same day in the same pull request
+(../paper-tables/validation/README.md): the blind re-read of the 468 cells found 0 record faults (Wilson 0.0 to 0.8
+percent), and the 116 plausibility flags were each the paper's own printed number; part c, the mapping audit, read
+all 765 distinct mappings, fixed the 17 that held (Otsuki 2021's pedicle_h to differs, which reaches the comparison)
+and lists 41 judgements for the owner. Step 3 was done the same day: ../prior-art-measurement/README.md with
+all nine family notes, landed one commit each as the readers finished (the first four at the owner's ask of
+23:05 UTC, the rest by 23:15); each note ends with what its reader could not read or did not reach, and the README
+collects those gaps. Step 4 was done twice as series.csv changed (the four auto-anatomist threads told of the
+3,760 count and of Otsuki 2021's vs_panjabi change); nothing changed it after that.
+
+Handoff of 2026-10-29 23:15 UTC, at the owner's word to checkpoint everything: all four steps are on the branch of
+pull request 39, which is marked ready and waits only for the owner's merge; nothing is unfinished in this thread.
+What the next account would take up, none of it started: the 41 mapping judgements and the round-4 open items,
+which the owner settles (../paper-tables/validation/README.md, ../paper-tables/review/round-4.md); the prior-art
+gaps the README lists, if the owner wants them read; and a further review round over the validation and prior-art
+folders themselves, which no round has read.
+
+Review of 2026-10-30 (thread "Finish the clinical reread", project symphony_5), on the same pull request: the
+further review round and the prior-art gaps are done (../prior-art-measurement/review/README.md, with a figure).
+Second readers checked 2,109 claims of the nine notes and the validation folder at their sources; refuters held 131
+of 143 findings, all applied, and refuted 12; a second sweep ran every search the README said a budget had not
+reached and added 75 rows or entries to the notes, each read again by a verifier. The paper Otsuki 2021 is Irie 2021
+(the file name stays otsuki2021). What is left is the owner's: the 41 mapping judgements and the round-4 open items,
+as before; four items the validation review found (Abbas 2021's seven cells that still carry the old note, Bach
+2019's map_note at the printed level, Mitra 2002's L5 female pedicle height 18.5, a new flag on today's series that
+no checker has read on the page, and Robertson 2000's pedicle axis near vertical at L1 to L3, which bears on reading
+all five of Irie 2021's pedicle_h series as differs), listed at the top of ../paper-tables/validation/README.md; and
+the merge. No grid job ran and nothing was fetched into git.
+
+Decisions of 2026-10-30 (same thread), on the owner's "Can you decide?": the 41 mapping judgements and the four
+validation items are decided and applied by one rule, each consequential one read on the page by a judge and checked
+by a refuter (../paper-tables/validation/README.md, Decided on 2026-10-30; the fix column of
+../paper-tables/validation/mapping_audit.csv). Masharawi 2021's facet widths moved from close to differs (89 cells,
+ten series out of the comparison); Irie 2021's pedicle heights are close at L1 to L3 and its pedicle widths differ at
+L4 and L5; the rest stood as read, with notes corrected for Busscher 2010, Arockiaraj 2025, Abbas 2021 and Bach 2019,
+and Mitra 2002's 18.5 read on the page as printed. data/series.csv, the comparison record and the results page were
+remade in a throwaway environment from requirements-schwingcheck.txt, no grid job. The three round-4 open items were
+decided too (../paper-tables/review/round-4.md). Left for the owner: the merge, and where to correct the archive's
+"embalmed" (below).
+
+1. **Fix the second review's data findings and rerun.** (Done, above; kept as the record of what was asked.) Take each finding of
    ../paper-tables/review/round-2-findings.json that both refuters confirmed, or that is unverified, reproduce it,
    fix tools/series.py or the cohorts file, then remake data/series.csv
    (`python3 -I tools/series.py data/readings data/cohorts data/series.csv` in ../paper-tables), the comparison and

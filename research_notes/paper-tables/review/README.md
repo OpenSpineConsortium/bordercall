@@ -3,7 +3,7 @@
 Source: thread "Finish the clinical reread", project symphony_4, 2026-10-29. Confidential, like the rest of this
 repository.
 
-Two rounds of independent readers reviewed tools/series.py, tools/cross_naming.py, tools/results.py, the series and
+Four rounds of independent readers reviewed tools/series.py, tools/cross_naming.py, tools/results.py, the series and
 the record they write, the results page and the notes that quote it. Each finder reported only defects it had
 reproduced, and each finding was then given to refuters told to show it wrong.
 
@@ -19,5 +19,16 @@ reproduced, and each finding was then given to refuters told to show it wrong.
 Of round 2, these were fixed in pull request 26 by hand, each checked against the page or the file it names: page 2
 (Chen 2011's contrast is on p. 1819), page 3 (the two end-plate rows print the same numbers, the cervical most
 probably the original, rather than "reprints"), prose-numbers 2, 3 and 4 (measures.md 3.5, HANDOFF.md and the
-end-plate note's status line no longer say the angles are left out). The rest change data/series.csv or the
-record and come in the next pull request, with the comparison rerun.
+end-plate note's status line no longer say the angles are left out). The rest changed data/series.csv or the
+record and were fixed in pull request 39, each finding's `resolution` in round-2-findings.json saying where, the
+series remade and the comparison rerun; the old series reproduced the old record byte for byte first, so
+every moved number is the fixes' own. One fix reached a paper no finding named: Chen 2011's counts of 830, 430
+and 400 are end-plates over ten levels, read now as 83 patients, 43 men and 40 women.
+- Round 3 ([round-3.md](round-3.md)), four readers over the fixed series and record: no fix refuted, seven small
+  faults fixed (Olsewski 1990's pedicle counts pooled before halving, the transport asking a count of two, a
+  measure's n at one level standing for another), the series remade (4,077) and the comparison rerun again.
+- Round 4 ([round-4.md](round-4.md)), two readers over round 3's result: nothing refuted, eight small faults fixed,
+  one in the record (the transport seeded each series by its place in the list, so a dropped series redrew every
+  series after it; a digest of the series' id now) and the rest in the series (Bach 2019's and Twomey 1985's
+  counts reaching their age groups, Shin 2024's adjusted tables out as no populations), the series remade (3,760)
+  and the comparison rerun again.
