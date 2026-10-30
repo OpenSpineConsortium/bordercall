@@ -61,6 +61,14 @@ and what holds it; in brief:
   (the earlier harness lived in the container and is gone); an adversarial review of this diff.
 - morphometry's own suite was not run again; nothing under morphometry/ changed, and
   flexray_record.placed only reads its phantom's placed frames.
+- Found after the push: bordercall's main moved to a87e0b3 and now holds
+  autoanatomist/project.py (e751cbc, another thread's), which projects readings and lines onto
+  FluXray's detector under nanoDRR 0.1.7's convention, read from its source, with FluXray's 90
+  poses; morphoview/projection.py copies FleXray 1.0.2 on nanoDRR 0.1.5 and is held to renders
+  FleXray itself made. Which nanoDRR SchwingNet's renders run on, and whether the two
+  conventions agree, is not checked, and flexray_check warns on another FleXray, not on another
+  nanoDRR. The two are to become one camera, held to one record, before either is trusted on a
+  render. This branch merges with that main without a conflict (git merge-tree).
 
 ## What is left, in order
 
