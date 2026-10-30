@@ -1,7 +1,7 @@
 """The annealing demo (autoanatomist/demo.py) on the sizes the model tests use: a crop of 16 by 20
 by 12 voxels and two phantoms of three levels.
 
-    python -m unittest tests.test_autoanatomist_demo -v        # from the repository's root, in the venv
+    python -m unittest tests.test_anneal_demo -v        # from the repository's root, in the venv
 
 The demo's network is train.train's for its one measurement with the naming layer off, every
 weight to the bit (the smoke run itself trains all seven measurements with the naming layer on).
@@ -9,22 +9,31 @@ Its snapshots fall before the first step, every few steps and after the last, ea
 schedule's w and lambda of the step just taken, the ladder's own input to the mask branch at that
 lambda (the target vertebra's own mask before the first step) and the CT-only path's reading by the
 network after that many steps, with each width the length between its points. demo.run reads the
-held-out crops against the oracle and puts the display crop's CT under the mask input, its figure
-has one frame per snapshot, a slider over them, each snapshot's dots on the schedule's curves and
-the oracle's line where the oracle put it (where plotly is installed, as it is in Colab), and its
-command says before it trains that it needs plotly.
+held-out crops against the oracle and puts the display crop's CT under the mask input. Its figure,
+frame by frame, draws the shown vertebra's own CT as the surface, the mask input at the opacity w
+(whole at the start), the schedule's dots on its curves, the width line up to the slider's step
+for the shown vertebra and the title's numbers for it, with one frame per snapshot and a slider
+over them (where plotly is installed, as it is in Colab). The command says before it trains that
+it needs plotly, and writes the page and, asked to, the run's record.
 
 The notebook that runs it in Colab (notebooks/anneal_demo.ipynb) is kept with no outputs and asks
-Colab for a T4, and its setup cell, run against a stand-in for Colab's modules, reads a missing
-secret as none, hands git the token through a credential helper and nowhere else, unpacks a ZIP as
-GitHub makes one, installs the four packages bordercall pins and, where nvidia-smi lists a GPU, the
-GPU build of the same jaxlib for the CUDA version whose build the image carries, taking the other
-versions' builds out first, installs nothing when they are there, stops with the words to restart
-Colab's session when pip replaced a package the session had imported, trains on the CPU and says
-why when JAX does not start on the GPU in a child process, and asks for plotly before training.
+Colab for a T4. Its setup cell's functions, run against a stand-in for Colab's modules, read a
+missing secret as none, sign in with GitHub's device flow (the code shown, the token returned and
+never printed, a refusal or a decline falling back to the ZIP), hand git the token through a
+credential helper and nowhere else, unpack a ZIP as GitHub makes one and install the four packages
+bordercall pins; and prepare(), the one call the cell makes before it imports JAX, run on stand-ins
+for Colab's GPU and CPU images, installs the GPU build of the pinned jaxlib for the CUDA version
+whose build the image carries after taking the other versions' builds out, installs nothing when
+the pins are there, stops with the words to restart Colab's session when pip replaced a package the
+session had imported, asks for plotly before anything slow, and leaves JAX on the CPU, saying why,
+when JAX does not start on the GPU in a child process.
 """
 from __future__ import annotations
 
+import argparse
+import ast
+import functools
+import importlib.machinery
 import io
 import json
 import os
@@ -33,7 +42,10 @@ import sys
 import tempfile
 import types
 import unittest
+import urllib.error
+import urllib.parse
 import zipfile
+from contextlib import redirect_stdout
 from unittest import mock
 
 import numpy as np
@@ -70,6 +82,16 @@ def tiny_examples(cfg):
     ex = T.make_examples(cfg, n_spines=2, count=3, seed=1, spacing_mm=2.0)
     held = T.make_examples(cfg, n_spines=1, count=3, seed=2, spacing_mm=2.0)
     return ex, held
+
+
+@functools.lru_cache(maxsize=None)
+def tiny_demo():
+    """One run of demo.run on the tiny sizes, which the figure's tests and the command's share."""
+    from autoanatomist import demo as D
+    cfg = tiny_config()
+    ex, held = tiny_examples(cfg)
+    with mock.patch.object(D, "examples", lambda c: (ex, held)):
+        return cfg, ex, held, D.run(STEPS, EVERY, cfg, log_every=0)
 
 
 @unittest.skipUnless(HAVE_JAX, "jax and flax are not installed")
@@ -143,13 +165,12 @@ class TheAnnealedRun(unittest.TestCase):
 
 @unittest.skipUnless(HAVE_JAX and HAVE_PLOTLY, "jax, flax and plotly are not all installed")
 class TheFigure(unittest.TestCase):
+    """The figure of vertebra 1, so that a figure drawn from vertebra 0's numbers shows."""
+
     @classmethod
     def setUpClass(cls):
         from autoanatomist import demo as D
-        cls.cfg = tiny_config()
-        cls.ex, cls.held = tiny_examples(cls.cfg)
-        with mock.patch.object(D, "examples", lambda cfg: (cls.ex, cls.held)):
-            cls.demo = D.run(STEPS, EVERY, cls.cfg, log_every=0)
+        cls.cfg, cls.ex, cls.held, cls.demo = tiny_demo()
         cls.fig = D.figure(cls.demo, vertebra=1)
 
     def test_the_run_reads_the_held_out_crops_against_the_oracle_and_keeps_the_display_crops_ct(self):
@@ -188,11 +209,48 @@ class TheFigure(unittest.TestCase):
         self.assertEqual(kinds, ["scatter3d", "heatmap", "scatter", "scatter"])
         self.assertEqual(self.fig.data[0].type, "isosurface")
         self.assertEqual(self.fig.data[3].type, "heatmap")
-        last = self.fig.frames[-1]
-        np.testing.assert_allclose(np.column_stack([last.data[0].x, last.data[0].y, last.data[0].z]),
-                                   self.demo.snapshots[-1].points[1])
-        self.assertAlmostEqual(last.data[1].opacity, max(self.demo.snapshots[-1].w, 0.0))
-        self.assertIn("After %d of %d steps" % (STEPS, STEPS), last.layout.title.text)
+        for frame, snap in zip(self.fig.frames, self.demo.snapshots):
+            line = frame.data[0]
+            np.testing.assert_allclose(np.column_stack([line.x, line.y, line.z]), snap.points[1])
+
+    def test_the_surface_is_the_shown_vertebras_own_ct_at_the_bone_level(self):
+        from scipy import ndimage
+        from autoanatomist import gates
+        iso = self.fig.data[0]
+        self.assertFalse(np.allclose(self.demo.hu[0], self.demo.hu[1]))   # so another vertebra's CT would show
+        smoothed = ndimage.gaussian_filter(np.asarray(self.demo.hu[1], np.float32), 1.0)
+        np.testing.assert_array_equal(np.asarray(iso.value), smoothed.ravel())
+        self.assertEqual((iso.isomin, iso.isomax), (gates.BONE_HU, gates.BONE_HU))
+        for axis, ticks in zip((iso.x, iso.y, iso.z), np.meshgrid(*self.demo.ticks, indexing="ij")):
+            np.testing.assert_array_equal(np.asarray(axis), ticks.ravel())
+
+    def test_every_frame_draws_the_mask_input_at_its_weight_whole_at_the_start(self):
+        weights = [snap.w for snap in self.demo.snapshots]
+        self.assertEqual(weights[0], 1.0)
+        self.assertTrue(any(0.0 < w < 1.0 for w in weights))   # so a weight between the ends is drawn as it is
+        self.assertEqual(self.fig.data[4].opacity, 1.0)
+        for frame, snap in zip(self.fig.frames, self.demo.snapshots):
+            self.assertEqual(frame.data[1].opacity, max(snap.w, 0.0))
+            np.testing.assert_array_equal(np.asarray(frame.data[1].z), snap.given.T)
+
+    def test_every_frames_width_line_runs_to_its_step_for_the_shown_vertebra(self):
+        snaps = self.demo.snapshots
+        self.assertFalse(np.allclose([s.widths[0] for s in snaps], [s.widths[1] for s in snaps]))
+        lines = [(0, self.fig.data[9])] + [(k, frame.data[3]) for k, frame in enumerate(self.fig.frames)]
+        for k, line in lines:
+            self.assertEqual(list(line.x), [s.step for s in snaps[:k + 1]])
+            np.testing.assert_allclose(list(line.y), [s.widths[1] for s in snaps[:k + 1]])
+
+    def test_every_frames_title_gives_the_shown_vertebras_numbers_at_its_step(self):
+        levels, refs = self.demo.levels, self.demo.reference_widths
+        self.assertNotEqual(levels[0], levels[1])
+        for frame, snap in zip(self.fig.frames, self.demo.snapshots):
+            text = frame.layout.title.text
+            self.assertIn("After %d of %d steps: λ %.2f, w %.2f." % (snap.step, STEPS, snap.lam, snap.w), text)
+            self.assertIn("%s's end-plate width %.1f mm from the CT alone" % (levels[1], snap.widths[1]), text)
+            self.assertIn("the reference %.1f mm" % refs[1], text)
+            self.assertTrue(text.endswith("held-out vertebrae %.1f mm" % np.mean(np.abs(snap.widths - refs))))
+        self.assertEqual(self.fig.layout.title.text, self.fig.frames[0].layout.title.text)
 
     def test_the_oracles_line_is_drawn_where_the_oracle_put_it(self):
         ref = self.fig.data[1]
@@ -225,6 +283,41 @@ class TheCommand(unittest.TestCase):
         run.assert_not_called()
         self.assertIn("pip install plotly", said.getvalue())
 
+    def test_the_widths_are_three_positive_numbers(self):
+        from autoanatomist import demo as D
+        self.assertEqual(D.widths_of("8,16,32"), (8, 16, 32))
+        for wrong in ("8,16", "8,16,32,64", "0,16,32", "8,x,32"):
+            with self.assertRaises((argparse.ArgumentTypeError, ValueError)):
+                D.widths_of(wrong)
+
+    @unittest.skipUnless(HAVE_PLOTLY, "plotly is not installed")
+    def test_it_trains_as_told_and_writes_the_page_and_the_runs_record(self):
+        from autoanatomist import demo as D
+        _, _, _, demo = tiny_demo()
+        with tempfile.TemporaryDirectory() as out, mock.patch.object(D, "run", return_value=demo) as run, \
+                redirect_stdout(io.StringIO()):
+            page, kept = os.path.join(out, "demo.html"), os.path.join(out, "demo.json")
+            self.assertEqual(D.main(["demo", page, "--steps", "7", "--widths", "4,8,8", "--record", kept]), 0)
+            self.assertGreater(os.path.getsize(page), 0)
+            with open(kept) as f:
+                record = json.load(f)
+        (steps, every, cfg), _ = run.call_args
+        self.assertEqual((steps, every, cfg.widths, cfg.keys), (7, D.EVERY, (4, 8, 8), (D.KEY,)))
+        self.assertEqual((record["measurement"], record["steps"], record["widths"]), (D.KEY, STEPS, [4, 8, 8]))
+        self.assertEqual([(s["step"], s["w"], s["lambda"]) for s in record["snapshots"]],
+                         [(s.step, s.w, s.lam) for s in demo.snapshots])
+        np.testing.assert_allclose([s["mean_error_mm"] for s in record["snapshots"]],
+                                   [np.mean(np.abs(s.widths - demo.reference_widths)) for s in demo.snapshots],
+                                   rtol=1e-6)
+        last, held = demo.snapshots[-1], record["held_out"]
+        self.assertEqual([h["level"] for h in held], demo.levels)
+        np.testing.assert_allclose([h["reference_mm"] for h in held], demo.reference_widths)
+        np.testing.assert_allclose([h["read_mm"] for h in held], last.widths)
+        np.testing.assert_allclose([h["error_mm"] for h in held], np.abs(last.widths - demo.reference_widths),
+                                   rtol=1e-6)
+        self.assertEqual((record["shown"], record["seconds"]), (demo.typical(), demo.seconds))
+        self.assertEqual(record["ran_on"]["jax"], jax.__version__)
+
 
 def notebook():
     with open(NOTEBOOK) as f:
@@ -235,18 +328,24 @@ def notebook_cells():
     return notebook()["cells"]
 
 
-def setup_definitions() -> str:
-    """The notebook's setup cell up to the lines that act: its imports, constants and functions."""
+ACTS = "\nROOT, CUDA, WHY_CPU = prepare()"
+
+
+def setup_source() -> str:
     code = [c for c in notebook_cells() if c["cell_type"] == "code"]
-    head, sep, _ = "".join(code[0]["source"]).partition("\nROOT = ")
-    assert sep, "the setup cell no longer ends by setting ROOT"
+    return "".join(code[0]["source"])
+
+
+def setup_definitions() -> str:
+    """The notebook's setup cell up to the line that acts: its imports, constants and functions."""
+    head, sep, _ = setup_source().partition(ACTS)
+    assert sep, "the setup cell no longer acts by calling prepare()"
     return head
 
 
 def setup_namespace(base: str) -> dict:
     ns = {}
-    with mock.patch.dict(os.environ):                 # the cell sets JAX_PLATFORMS for the session
-        exec(setup_definitions(), ns)
+    exec(setup_definitions(), ns)
     ns["BASE"], ns["CLONE"] = base, os.path.join(base, "bordercall")
     return ns
 
@@ -279,6 +378,84 @@ def colab_stand_in(secret=None, upload=None) -> dict:
     return {"google": google, "google.colab": colab, "google.colab.userdata": userdata, "google.colab.files": files}
 
 
+LISTING = "GPU 0: Tesla T4 (UUID: GPU-00000000-0000-0000-0000-000000000000)\n"
+HEADER = "| NVIDIA-SMI 580.82.07    Driver Version: 580.82.07    CUDA Version: 13.0 |\n"
+FAILED = ("Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n"
+          "RuntimeError: Unable to initialize backend 'cuda': CUDA_ERROR_SYSTEM_DRIVER_MISMATCH (you may "
+          "need to uninstall the failing plugin package, or set JAX_PLATFORMS=cpu to skip this backend.)\n")
+# Colab's images of October 2026 (googlecolab/backend-info), as far as the setup cell reads them.
+COLAB_CPU = {"jax": "0.11.1", "jaxlib": "0.11.1", "flax": "0.11.2", "optax": "0.2.8"}
+COLAB_GPU = dict(COLAB_CPU, **{"jax-cuda13-plugin": "0.11.1", "jax-cuda13-pjrt": "0.11.1"})
+
+
+class Runtime:
+    """A stand-in for a Colab runtime as the setup cell's commands meet it: nvidia-smi, pip, which
+    changes what is installed, and the child that starts JAX, every command kept in the order run."""
+
+    def __init__(self, image, gpu=True, child=(0, "gpu\n", "")):
+        self.packages, self.gpu, self.child, self.commands = dict(image), gpu, child, []
+
+    def installed(self, name):
+        return self.packages.get(name)
+
+    def run(self, argv, **kw):
+        self.commands.append(list(argv))
+        if argv[0] == "nvidia-smi":
+            if not self.gpu:
+                raise FileNotFoundError("nvidia-smi")
+            return subprocess.CompletedProcess(argv, 0, stdout=LISTING if "-L" in argv else HEADER, stderr="")
+        if argv[1:3] == ["-m", "pip"]:
+            for name in self.named(argv):
+                package, _, version = name.partition("==")
+                if argv[3] == "uninstall":
+                    self.packages.pop(package, None)
+                else:
+                    self.packages[package.split("[")[0]] = version or "the newest"
+            return subprocess.CompletedProcess(argv, 0, stdout="", stderr="")
+        if argv[1] == "-c":
+            code, out, err = self.child
+            return subprocess.CompletedProcess(argv, code, stdout=out, stderr=err)
+        raise AssertionError("the cell ran %r" % (argv,))
+
+    @staticmethod
+    def named(argv):
+        return [word for word in argv[4:] if not word.startswith("-")]
+
+    def steps(self):
+        """What ran beside nvidia-smi, in order: pip's uninstall and install, and the child."""
+        return [argv[3] if argv[1:3] == ["-m", "pip"] else "child" for argv in self.commands if argv[0] != "nvidia-smi"]
+
+    def asked(self, verb):
+        """The packages each pip command of one verb named."""
+        return [self.named(argv) for argv in self.commands if argv[1:4] == ["-m", "pip", verb]]
+
+
+STARTED = {"device_code": "the-device-code", "user_code": "WDJB-MJHT",
+           "verification_uri": "https://github.com/login/device", "expires_in": 900, "interval": 5}
+
+
+class GitHubStandIn:
+    """GitHub's sign-in service as urllib's urlopen meets it: each post answered in turn, with a
+    status and a body (JSON unless given as bytes) or by raising, every request kept."""
+
+    def __init__(self, *answers):
+        self.answers, self.requests = list(answers), []
+
+    def urlopen(self, request, timeout=None):
+        self.requests.append(request)
+        answer = self.answers.pop(0)
+        if isinstance(answer, BaseException):
+            raise answer
+        status, body = answer
+        data = io.BytesIO(body if isinstance(body, bytes) else json.dumps(body).encode())
+        if status != 200:
+            raise urllib.error.HTTPError(request.full_url, status, "refused", {}, data)
+        return data
+
+    def fields(self, k):
+        return dict(urllib.parse.parse_qsl(self.requests[k].data.decode()))
+
+
 class TheNotebook(unittest.TestCase):
     def setUp(self):
         self.scratch = tempfile.TemporaryDirectory()
@@ -294,6 +471,11 @@ class TheNotebook(unittest.TestCase):
                 self.assertEqual(cell["outputs"], [])
                 self.assertIsNone(cell["execution_count"])
                 compile("".join(cell["source"]), NOTEBOOK, "exec")
+
+    def test_it_asks_colab_for_a_t4(self):
+        meta = notebook()["metadata"]
+        self.assertEqual(meta["accelerator"], "GPU")
+        self.assertEqual(meta["colab"]["gpuType"], "T4")
 
     def test_a_missing_secret_reads_as_none_and_a_secret_as_itself(self):
         with mock.patch.dict(sys.modules, colab_stand_in()):
@@ -318,7 +500,64 @@ class TheNotebook(unittest.TestCase):
         self.assertIn("username=x-access-token\n", out)
         self.assertIn("password=not-a-token\n", out)
 
-    def test_with_no_secret_it_unpacks_a_zip_as_github_makes_one_and_keeps_it(self):
+    def fetch(self, github, secret=None):
+        """fetch() with no clone yet, the secret in Colab's Secrets, the stand-in for GitHub's sign-in,
+        a clone that only records what it was given and a ZIP that is never asked for in earnest:
+        what fetch returned and printed, the clones and the waits between polls."""
+        clones, waits, said = [], [], io.StringIO()
+
+        def clone(secret, ref):
+            clones.append((secret, ref))
+            os.makedirs(os.path.join(self.ns["CLONE"], "autoanatomist"), exist_ok=True)
+            open(os.path.join(self.ns["CLONE"], "autoanatomist", "demo.py"), "w").close()
+        with mock.patch.dict(sys.modules, colab_stand_in(secret=secret)), \
+                mock.patch.dict(self.ns, clone=clone, unpack_upload=lambda: "the ZIP"), \
+                mock.patch.object(self.ns["urllib"].request, "urlopen", github.urlopen), \
+                mock.patch.object(self.ns["time"], "sleep", waits.append), redirect_stdout(said):
+            got = self.ns["fetch"]()
+        return got, said.getvalue(), clones, waits
+
+    def test_with_no_secret_it_signs_in_with_github_and_clones_with_what_github_grants(self):
+        github = GitHubStandIn((200, STARTED), (200, {"error": "authorization_pending"}),
+                               (200, {"error": "slow_down", "interval": 10}),
+                               (200, {"access_token": "not-a-token", "token_type": "bearer"}))
+        got, said, clones, waits = self.fetch(github)
+        self.assertEqual((got, clones), (self.ns["CLONE"], [("not-a-token", self.ns["REFS"][0])]))
+        self.assertIn("open https://github.com/login/device and enter the code WDJB-MJHT", said)
+        self.assertNotIn("not-a-token", said)
+        self.assertNotIn("the-device-code", said)
+        self.assertEqual(waits, [5, 5, 10])
+        app = "Iv23liTkIRov2FYN83wD"                                  # SymphonyBoard's client ID
+        self.assertEqual([r.full_url for r in github.requests],
+                         ["https://github.com/login/device/code"] + ["https://github.com/login/oauth/access_token"] * 3)
+        self.assertEqual(github.fields(0), {"client_id": app})
+        for k in (1, 2, 3):
+            self.assertEqual(github.fields(k), {"client_id": app, "device_code": "the-device-code",
+                                                "grant_type": "urn:ietf:params:oauth:grant-type:device_code"})
+        for request in github.requests:
+            self.assertEqual((request.get_method(), request.get_header("Accept")), ("POST", "application/json"))
+
+    def test_a_sign_in_refused_declined_or_let_expire_falls_back_to_the_zip_saying_why(self):
+        disabled = (400, {"error": "device_flow_disabled",
+                          "error_description": "Device Flow must be explicitly enabled for this App"})
+        denied = (200, {"error": "access_denied", "error_description": "The authorization request was denied."})
+        for answers, why in (((disabled,), "Device Flow must be explicitly enabled for this App"),
+                             (((200, STARTED), denied), "The authorization request was denied."),
+                             (((200, dict(STARTED, expires_in=0)),), "The sign-in code expired."),
+                             ((urllib.error.URLError("no route to host"),), "no route to host"),
+                             (((502, b"<html>Bad gateway</html>"),), "GitHub answered 502"),
+                             (((200, b"[]"),), "GitHub answered 200")):
+            github = GitHubStandIn(*answers)
+            got, said, clones, _ = self.fetch(github)
+            self.assertEqual((got, clones, github.answers), ("the ZIP", [], []))
+            self.assertIn(why, said)
+
+    def test_a_token_in_colabs_secrets_comes_before_signing_in(self):
+        github = GitHubStandIn()                     # a post to GitHub's sign-in would find no answer
+        got, _, clones, _ = self.fetch(github, secret="from-secrets")
+        self.assertEqual((got, clones, github.requests), (self.ns["CLONE"], [("from-secrets", "main")], []))
+
+    def test_with_no_secret_and_no_sign_in_it_unpacks_a_zip_as_github_makes_one_and_keeps_it(self):
         top = "bordercall-claude-project-thread-5hj0q5"
         upload = os.path.join(self.base, top + ".zip")
         with zipfile.ZipFile(upload, "w") as z:
@@ -327,7 +566,8 @@ class TheNotebook(unittest.TestCase):
         here = os.getcwd()
         os.chdir(self.base)
         try:
-            with mock.patch.dict(sys.modules, colab_stand_in(upload=upload)):
+            with mock.patch.dict(sys.modules, colab_stand_in(upload=upload)), \
+                    mock.patch.dict(self.ns, sign_in=lambda: None), redirect_stdout(io.StringIO()):
                 root = self.ns["fetch"]()
                 self.assertEqual(self.ns["fetch"](), root)
         finally:
@@ -344,11 +584,6 @@ class TheNotebook(unittest.TestCase):
                     wanted[name] = version
         self.assertEqual(self.ns["pins"](ROOT), wanted)
         self.assertEqual(len(wanted), 4)
-
-    def test_it_asks_colab_for_a_t4(self):
-        meta = notebook()["metadata"]
-        self.assertEqual(meta["accelerator"], "GPU")
-        self.assertEqual(meta["colab"]["gpuType"], "T4")
 
     def test_on_a_gpu_it_adds_the_gpu_build_of_the_same_jaxlib_with_nvidias_libraries(self):
         cpu, spec = self.ns["pins"](ROOT), self.ns["spec"]
@@ -370,8 +605,7 @@ class TheNotebook(unittest.TestCase):
     def test_the_gpu_build_is_for_the_cuda_version_whose_build_the_image_carries(self):
         def nvidia_smi(text):
             return lambda *a, **k: subprocess.CompletedProcess(a, 0, stdout=text, stderr="")
-        new = "| NVIDIA-SMI 580.82.07    Driver Version: 580.82.07    CUDA Version: 13.0 |\n"
-        old = new.replace("13.0", "12.4")
+        new, old = HEADER, HEADER.replace("13.0", "12.4")
         colab = {"jax-cuda13-plugin": "0.11.1", "jax-cuda13-pjrt": "0.11.1"}     # Colab's GPU image of October 2026
         for carried, header, major in ((colab, old, "13"), ({"jax-cuda12-plugin": "0.5.1"}, new, "12"),
                                        ({}, new, "13"), ({}, old, "12"), ({}, "", "12")):
@@ -403,11 +637,8 @@ class TheNotebook(unittest.TestCase):
     def test_a_gpu_jax_does_not_start_on_leaves_the_session_on_the_cpu_saying_why(self):
         def child(code, out="", err=""):
             return lambda *a, **k: subprocess.CompletedProcess(a, code, stdout=out, stderr=err)
-        failed = ("Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n"
-                  "RuntimeError: Unable to initialize backend 'cuda': CUDA_ERROR_SYSTEM_DRIVER_MISMATCH (you may "
-                  "need to uninstall the failing plugin package, or set JAX_PLATFORMS=cpu to skip this backend.)\n")
         for answer, why in ((child(0, "gpu\n"), None), (child(0, "cpu\n"), "JAX chose its cpu backend"),
-                            (child(1, err=failed), failed.splitlines()[-1])):
+                            (child(1, err=FAILED), FAILED.splitlines()[-1])):
             with mock.patch.object(self.ns["subprocess"], "run", answer):
                 self.assertEqual(self.ns["why_no_gpu"](), why)
         for why, platform in ((None, None), ("JAX chose its cpu backend", "cpu")):
@@ -435,11 +666,15 @@ class TheNotebook(unittest.TestCase):
     def test_the_child_starts_jax_on_the_backend_this_session_has(self):
         with mock.patch.dict(os.environ):
             os.environ.pop("JAX_PLATFORMS", None)
-            backend = subprocess.run([sys.executable, "-c", "import jax; print(jax.default_backend())"],
-                                     capture_output=True, text=True, check=True).stdout.split()[-1]
+            child = subprocess.run([sys.executable, "-c", "import jax; print(jax.default_backend())"],
+                                   capture_output=True, text=True, check=True)
             why = self.ns["why_no_gpu"]()
+        backend = child.stdout.split()[-1]
         self.assertEqual(why is None, backend == "gpu")
-        if why is not None:
+        said = [line.strip() for line in child.stderr.splitlines() if line.strip()]
+        if why is not None and said:                   # JAX's own words, a warning about the GPU most often
+            self.assertIn(why, said)
+        elif why is not None:
             self.assertEqual(why, "JAX chose its %s backend" % backend)
 
     def test_without_plotly_it_stops_before_training_or_installs_it_in_colab(self):
@@ -464,8 +699,7 @@ class TheNotebook(unittest.TestCase):
 
         def missing(*a, **k):
             raise FileNotFoundError("nvidia-smi")
-        listing = "GPU 0: Tesla T4 (UUID: GPU-00000000-0000-0000-0000-000000000000)\n"
-        for run, expected in ((lists(listing), True), (lists(""), False), (missing, False)):
+        for run, expected in ((lists(LISTING), True), (lists(""), False), (missing, False)):
             with mock.patch.object(self.ns["subprocess"], "run", run):
                 self.assertIs(self.ns["has_gpu"](), expected)
 
@@ -500,6 +734,86 @@ class TheNotebook(unittest.TestCase):
                 mock.patch.object(self.ns["subprocess"], "run", pip):
             self.ns["install"]({"jax": "9.9"})
         self.assertEqual(versions["jax"], "9.9")
+
+    def prepare(self, runtime, colab=True, plotly=True):
+        """prepare() on a stand-in runtime, bordercall fetched already and plotly there or not: what it
+        returned and JAX_PLATFORMS after it."""
+        found = types.ModuleType("plotly")
+        found.__spec__ = importlib.machinery.ModuleSpec("plotly", None)
+        with mock.patch.dict(self.ns, in_colab=lambda: colab, fetch=lambda: ROOT, repository_root=lambda: ROOT,
+                             installed=runtime.installed), \
+                mock.patch.object(self.ns["subprocess"], "run", runtime.run), \
+                mock.patch.object(self.ns["importlib"].metadata, "packages_distributions", lambda: {}), \
+                mock.patch.dict(sys.modules, {"plotly": found if plotly else None}), mock.patch.dict(os.environ):
+            os.environ.pop("JAX_PLATFORMS", None)
+            return self.ns["prepare"](), os.environ.get("JAX_PLATFORMS")
+
+    def test_on_colabs_gpu_image_it_installs_the_pins_with_the_build_the_image_carries_and_uses_the_gpu(self):
+        runtime = Runtime(COLAB_GPU)
+        got, platform = self.prepare(runtime)
+        self.assertEqual((got, platform), ((ROOT, "13", None), None))
+        self.assertEqual(runtime.steps(), ["install", "child"])
+        pinned = self.ns["pins"](ROOT)
+        lacking = {"%s==%s" % (name, version) for name, version in pinned.items() if COLAB_GPU[name] != version}
+        cuda13 = {"jax-cuda13-plugin[with-cuda]==" + pinned["jaxlib"], "jax-cuda13-pjrt==" + pinned["jaxlib"]}
+        self.assertEqual(set(runtime.asked("install")[0]), lacking | cuda13)
+        for name in ("jaxlib", "jax-cuda13-plugin", "jax-cuda13-pjrt"):
+            self.assertEqual(runtime.packages[name], pinned["jaxlib"])
+
+    def test_on_a_gpu_image_with_a_second_cuda_build_it_takes_that_one_out_first(self):
+        runtime = Runtime(dict(COLAB_GPU, **{"jax-cuda12-plugin": "0.5.1", "jax-cuda12-pjrt": "0.5.1"}))
+        (_, cuda, why), _ = self.prepare(runtime)
+        self.assertEqual((cuda, why), ("13", None))
+        self.assertEqual(runtime.steps(), ["uninstall", "install", "child"])
+        self.assertEqual(runtime.asked("uninstall"), [["jax-cuda12-plugin", "jax-cuda12-pjrt"]])
+        self.assertEqual([name for name in runtime.packages if "cuda12" in name], [])
+
+    def test_where_jax_does_not_start_on_the_gpu_it_trains_on_the_cpu_and_says_why(self):
+        runtime = Runtime(COLAB_GPU, child=(1, "", FAILED))
+        (_, cuda, why), platform = self.prepare(runtime)
+        self.assertEqual((cuda, why, platform), ("13", FAILED.splitlines()[-1], "cpu"))
+        self.assertEqual(runtime.steps(), ["install", "child"])
+
+    def test_on_colabs_cpu_image_it_installs_no_gpu_build_and_tries_no_gpu(self):
+        runtime = Runtime(COLAB_CPU, gpu=False)
+        (_, cuda, why), platform = self.prepare(runtime)
+        self.assertEqual((cuda, why, platform), (None, "this session has no GPU", "cpu"))
+        self.assertEqual(runtime.steps(), ["install"])
+        self.assertEqual([name for name in runtime.packages if name.startswith("jax-cuda")], [])
+
+    def test_with_the_pins_in_place_it_runs_no_pip(self):
+        runtime = Runtime(dict(COLAB_GPU, **self.ns["pins"](ROOT, "13")))
+        (_, cuda, why), _ = self.prepare(runtime)
+        self.assertEqual((cuda, why, runtime.steps()), ("13", None, ["child"]))
+
+    def test_without_plotly_it_stops_outside_colab_before_anything_slow_and_installs_it_in_colab(self):
+        runtime = Runtime(COLAB_GPU)
+        with self.assertRaises(SystemExit) as stop:
+            self.prepare(runtime, colab=False, plotly=False)
+        self.assertIn("pip install plotly", str(stop.exception))
+        self.assertEqual(runtime.steps(), [])
+        runtime = Runtime(COLAB_GPU)
+        self.prepare(runtime, plotly=False)
+        self.assertEqual(runtime.steps(), ["install", "install", "child"])
+        self.assertEqual(runtime.asked("install")[1], ["plotly"])
+
+    def test_the_cell_settles_all_of_it_before_this_session_imports_jax(self):
+        def imports(node):
+            if isinstance(node, ast.Import):
+                return {alias.name.split(".")[0] for alias in node.names}
+            if isinstance(node, ast.ImportFrom):
+                return {(node.module or "").split(".")[0]}
+            return set()
+        late = {"jax", "autoanatomist"}
+        body = ast.parse(setup_source()).body
+        acts = [i for i, node in enumerate(body) if isinstance(node, ast.Assign) and isinstance(node.value, ast.Call)
+                and getattr(node.value.func, "id", None) == "prepare"]
+        jax_at = [i for i, node in enumerate(body) if imports(node) & late]
+        self.assertEqual(len(acts), 1)
+        self.assertTrue(jax_at)
+        self.assertLess(acts[0], min(jax_at))
+        inside = [node for f in body if isinstance(f, ast.FunctionDef) for node in ast.walk(f) if imports(node) & late]
+        self.assertEqual(inside, [])
 
 
 if __name__ == "__main__":

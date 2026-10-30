@@ -3,13 +3,13 @@ every few steps of what its mask branch is given and of the width it measures on
 the CT alone, drawn as one figure with a slider over the steps (notebooks/anneal_demo.ipynb runs it
 in Colab).
 
-    python -m autoanatomist.demo demo.html        # from bordercall's root; needs plotly, which no requirements file pins
+    python -m autoanatomist.demo demo.html --record demo.json    # from bordercall's root; needs plotly, which no requirements file pins
 
 The run takes smoke.py's phantoms, seeds, learning rate, batches and schedule (lambda from 0 to 1
 over steps 23 to 82 of 150, then w from 1 to 0 over steps 68 to 127), but trains one measurement,
 the upper end-plate's width (Panjabi's EPWu), with the naming layer off, where smoke.py trains all
 seven with it on; its network is train.train's to the bit for that measurement with the naming
-layer off (tests/test_autoanatomist_demo.py). Each snapshot holds the last step's lambda and w, what the
+layer off (tests/test_anneal_demo.py). Each snapshot holds the last step's lambda and w, what the
 mask branch was given at that lambda (ladder.degrade on one training crop: the target vertebra's
 mask fading into every vertebra's, blurring and giving way to a soft threshold of the CT), and the
 network's two end-plate landmarks and its width on every held-out crop, read by model.ct_only, the
@@ -22,7 +22,12 @@ random; placing a crop from the CT alone (crops.from_found) is not measured yet.
 """
 from __future__ import annotations
 
+import argparse
+import importlib.metadata
 import importlib.util
+import json
+import os
+import platform
 import sys
 import time
 from dataclasses import dataclass
@@ -335,16 +340,60 @@ def buttons() -> dict:
                 yanchor="top", pad=dict(t=30, r=10), showactive=False)
 
 
+def versions() -> dict:
+    """What ran a demo: Python, the packages its numbers depend on, JAX's device and the CPUs it may use."""
+    import jax
+    found = {"python": platform.python_version(), "device": str(jax.devices()[0]),
+             "cpus": len(os.sched_getaffinity(0)) if hasattr(os, "sched_getaffinity") else os.cpu_count()}
+    for name in ("jax", "jaxlib", "flax", "optax", "numpy", "scipy"):
+        found[name] = importlib.metadata.version(name)
+    return found
+
+
+def record(demo: Demo, cfg: Config) -> dict:
+    """A run's numbers for its record file: the settings, each snapshot's lambda, w and mean error over
+    the held-out vertebrae, each held-out vertebra's reference and its reading after the last step,
+    the vertebra the figure shows unless told otherwise, the seconds from making the phantoms to the
+    last snapshot, and what ran it."""
+    last = demo.snapshots[-1]
+    return {"measurement": KEY, "steps": demo.steps, "widths": list(cfg.widths), "crop": list(cfg.shape),
+            "spacing_mm": cfg.spacing, "learning_rate": smoke.LR, "seeds": dict(smoke.SEEDS),
+            "snapshots": [{"step": s.step, "w": s.w, "lambda": s.lam, "mean_error_mm": demo.error_mm(k)}
+                          for k, s in enumerate(demo.snapshots)],
+            "held_out": [{"level": level, "reference_mm": float(ref), "read_mm": float(read),
+                          "error_mm": float(abs(read - ref))}
+                         for level, ref, read in zip(demo.levels, demo.reference_widths, last.widths)],
+            "shown": demo.typical(), "seconds": demo.seconds, "ran_on": versions()}
+
+
+def widths_of(text: str) -> Tuple[int, ...]:
+    """--widths 8,16,32: the encoders' channels at each of the three scales."""
+    widths = tuple(int(part) for part in text.split(","))
+    if len(widths) != 3 or min(widths) < 1:
+        raise argparse.ArgumentTypeError("three positive widths, as 8,16,32")
+    return widths
+
+
 def main(argv: List[str]) -> int:
-    if len(argv) not in (2, 3):
-        print("usage: python -m autoanatomist.demo OUT.html [STEPS]", file=sys.stderr)
-        return 2
+    parser = argparse.ArgumentParser(prog="python -m autoanatomist.demo",
+                                     description="Train the demo's network and draw its anneal as an HTML page.")
+    parser.add_argument("page", help="the HTML page to write")
+    parser.add_argument("--steps", type=int, default=smoke.STEPS, help="training steps (%(default)s, the smoke run's)")
+    parser.add_argument("--widths", type=widths_of, default=Config(keys=(KEY,)).widths,
+                        help="the encoders' widths (16,32,64, the smoke run's)")
+    parser.add_argument("--record", help="also write the run's numbers here as JSON")
+    args = parser.parse_args(argv[1:])
     if importlib.util.find_spec("plotly") is None:      # said before the minutes of training, not after
         print("the figure needs plotly, which no requirements file pins: pip install plotly", file=sys.stderr)
         return 2
-    demo = run(int(argv[2]) if len(argv) == 3 else smoke.STEPS)
-    figure(demo).write_html(argv[1], include_plotlyjs=True, auto_play=False)
-    print("%s: %d snapshots over %d steps in %.0f s" % (argv[1], len(demo.snapshots), demo.steps, demo.seconds))
+    cfg = Config(keys=(KEY,), widths=args.widths)
+    demo = run(args.steps, EVERY, cfg)
+    figure(demo).write_html(args.page, include_plotlyjs=True, auto_play=False)
+    if args.record:
+        with open(args.record, "w") as f:
+            json.dump(record(demo, cfg), f, indent=1)
+            f.write("\n")
+    print("%s: %d snapshots over %d steps in %.0f s" % (args.page, len(demo.snapshots), demo.steps, demo.seconds))
     return 0
 
 
