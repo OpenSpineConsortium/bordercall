@@ -80,5 +80,6 @@ repository files are not listed, since their bytes are in the repositories.
 
 ## Before PR 49 merges
 
-This folder rides on PR 49's branch in a commit of its own. Revert that commit before the
-merge if main should not carry it; the owner decides.
+This folder rides on PR 49's branch in commits that change nothing outside it (b1103d0,
+2a80945, 6dc87bb and the one that wrote this line). Delete the folder in one more commit
+before the merge if main should not carry it; the owner decides.
