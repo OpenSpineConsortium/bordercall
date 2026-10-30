@@ -52,6 +52,64 @@ job is gone. Everything below is pushed to bordercall's branch claude/project-th
   margin, centres across and slope) in place of the middles; morphometry/tests/probe_axis.py called
   isthmus with two arguments where it takes three since the fourth pass, and runs again.
 
+## The adversarial review of this pass (01:15 UTC), and what it leaves open
+
+Four reviewers read the pushed commit 0e847cd by geometry, robustness, the words against the code
+and the tests; each finding of the first two lenses was put to two skeptics, and the skeptics of
+the last two lenses did not run (the session's plan ran out), so their findings below are the
+reviewers' alone, checked by hand where this says so. None is fixed in this commit, which records
+them on the owner's word of 01:16 UTC to push every result now; the fixes come next, in this order.
+
+Confirmed by both skeptics:
+
+1. The sagittal angle is now the axis's elevation, atan(tan s cos t), not the sagittal projection
+   atan2(d[2], -d[1]) that the phantom's truth, the transverse angle and the papers' lateral-view
+   readings use; it under-reads by 0.13 degrees on the Shapes phantom (t 12, s 6) and by 1.3 to
+   1.9 at L5-like convergence (t 30, s 10 to 15). The fourth pass's formula was the projection and
+   was not the source of its errors. Fix: report the projection again, keep hypot(d[0], d[1]) for
+   the height's correction, which is right for it, and say why the two differ.
+2. On 2.5 mm slices the widest-margin surface can snap to the scan's own layers: where a 7 mm span
+   crosses no layer gap (a surface within about 20 degrees of the axial planes), every surface
+   between two layers parts bone from air and the widest is parallel to the lattice, so the angle
+   reads the vertebra's tilt in the scanner with a positive margin and nothing across, which no
+   rule refuses; where it crosses one gap it threads the step at 25 to 40 degrees. The phantom
+   sweep covered 1 mm slices only and ThickSlices tests no pedicle angle. Fix: compute the
+   interval of slopes that still part the lattice (two more linear programs, min and max b) and
+   refuse the angle where it is wider than a bound set on thin and thick phantoms; add a
+   ThickSlices pedicle assertion (not read, or within its bound); qualify the 1.8 degree claim as
+   holding at 1 mm slices.
+3. The two surfaces' climbs are averaged with no check that they agree. Fix: refuse where they
+   differ by more than a bound set on the phantoms, both kept in the record for the trace.
+
+The reviewers' alone (the words and the tests), to fix with the above:
+
+4. The research note's line 7 still counts three reworked measures; the sagittal angle is a fourth,
+   and its row in the comparison table is the old construction's (run229), with no caveat.
+5. "Five phantoms" should read four phantoms over five tilts (straight, shapes, pitched, pitched
+   down; the lateral-mass column's columns span 4.0 mm and give no reading); two numbers here
+   differ from the prototype log (the old reading of the pitched-down column ran -0.5 to -9.5, not
+   -1.5; the formulas' difference is 0.13 degrees, not under 0.1, and goes with finding 1).
+6. columns' docstring says each row's section where the code takes the isthmus's median section;
+   parting returns the first program's margin beside the second program's coefficients; climb's
+   docstring omits the reason "no surface parts"; MIN_COLUMNS, MIN_PARTED and SAGITTAL_SPAN_MM want
+   their words; the span now counts half a pixel more than the 0004 numbers the docstring quotes.
+7. The suite does not exercise the per-column HEIGHT_SHARE admission (switching it off leaves the
+   tests green); a phantom with a thin sagittal superior articular process over the isthmus's
+   outer columns, P.lumbar(sap_x=19, sap_y=-10, facet=0, sap_thk=3.5, sap_len=14), makes it decide
+   the reading; a pedicle pitched down, P.lumbar(ped_s=-8, ped_t=8), tests the sign. Both are to
+   be added as tests, with their expected values measured on the fixed code; LateralMass can assert
+   that its angle is not read, with the span's flag.
+8. A surface crossed far, not by many, passes the VIOLATED_SHARE rule (a margin of -4.8 mm with 5.5
+   per cent across was accepted on the overhang phantom with the admission off); refuse a margin
+   below -SURFACE_LAYERS layers as well.
+
+Refuted by the skeptics: an unbounded margin program reported as no surface (real in isolation,
+not reachable from the band lattice_under builds); the 1e-9 crossing threshold against HiGHS's
+tolerance (the slacks of a basic solution are exact zeros); VIOLATED_SHARE as a share of all
+centres (no band of that composition arises). Verified by the tests' reviewer: the two red tests
+now take the new path, LateralMass and the cut-volume case hold, and no caller reads the removed
+key mids.
+
 ## The grid
 
 The owner's rule of 23:41 UTC: the measuring runs on the grid, never in the cloud; no mask comes into a
