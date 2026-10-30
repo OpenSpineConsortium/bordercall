@@ -60,6 +60,18 @@ which the owner settles (../paper-tables/validation/README.md, ../paper-tables/r
 gaps the README lists, if the owner wants them read; and a further review round over the validation and prior-art
 folders themselves, which no round has read.
 
+Review of 2026-10-30 (thread "Finish the clinical reread", project symphony_5), on the same pull request: the
+further review round and the prior-art gaps are done (../prior-art-measurement/review/README.md, with a figure).
+Second readers checked 2,109 claims of the nine notes and the validation folder at their sources; refuters held 131
+of 143 findings, all applied, and refuted 12; a second sweep ran every search the README said a budget had not
+reached and added 75 rows or entries to the notes, each read again by a verifier. The paper Otsuki 2021 is Irie 2021
+(the file name stays otsuki2021). What is left is the owner's: the 41 mapping judgements and the round-4 open items,
+as before; four items the validation review found (Abbas 2021's seven cells that still carry the old note, Bach
+2019's map_note at the printed level, Mitra 2002's L5 female pedicle height 18.5, a new flag on today's series that
+no checker has read on the page, and Robertson 2000's pedicle axis near vertical at L1 to L3, which bears on reading
+all five of Irie 2021's pedicle_h series as differs), listed at the top of ../paper-tables/validation/README.md; and
+the merge. No grid job ran and nothing was fetched into git.
+
 1. **Fix the second review's data findings and rerun.** (Done, above; kept as the record of what was asked.) Take each finding of
    ../paper-tables/review/round-2-findings.json that both refuters confirmed, or that is unverified, reproduce it,
    fix tools/series.py or the cohorts file, then remake data/series.csv

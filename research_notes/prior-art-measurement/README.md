@@ -10,10 +10,11 @@ readers finished.
 
 Reviewed on 2026-10-30 (thread "Finish the clinical reread", project symphony_5): a second reader a family checked
 1,954 of the notes' claims at their sources and found 124 wrong, unsupported or imprecise; a refuter a family held
-110 and refuted 14, and the held ones are corrected in the notes, five of them in this table. A second sweep ran
-every search the Gaps paragraph below said a reader's budget had not reached and added 71 table rows to the notes,
-each read again at its source by a verifier, so the counts below are the notes' after that round. Each note opens
-with its own account of the round, and the record is [review/](review/README.md).
+112 and refuted 12, and the held ones are corrected in the notes, five of them in this table (one refuter, run again
+when the review resumed, judged two of its held findings defensible as first written; the corrected text covers both
+readings). A second sweep ran every search the Gaps paragraph below said a reader's budget had not reached and added
+71 table rows to the notes, each read again at its source by a verifier, so the counts below are the notes' after
+that round. Each note opens with its own account of the round, and the record is [review/](review/README.md).
 
 Starting points, read first by every reader so nothing already found was searched again: SchwingNet's
 docs/research/morphometry-beyond-the-42-papers.md, benchmarks-to-beat.md and
