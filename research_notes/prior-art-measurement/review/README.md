@@ -21,7 +21,8 @@ from the searches the first readers' budgets had not reached; the two validation
 - 75 rows or prose entries added, each read again at its source; three proposed rows or facts were refused by a
   verifier and are not in any note.
 - What the round left for the owner is at the top of ../../paper-tables/validation/README.md and in
-  ../../clinical-reread/HANDOFF.md.
+  ../../clinical-reread/HANDOFF.md; the owner left it to the session on 2026-10-30, and it was decided that day
+  (../../paper-tables/validation/README.md, Decided on 2026-10-30).
 
 The files: [round-1-findings.json](round-1-findings.json), every finding with the claim, the source's own words cut
 to twelve words, the reader's verdict, the refuter's verdict and replacement, and `applied_in`, the file it was

@@ -69,8 +69,9 @@ paper's mapping against its Methods.
   record faults in 468, Wilson interval 0.0 to 0.8 percent. tools/plausibility.py flags outliers and level
   reversals against the other papers (116 flags, every one the paper's own number on its page). The mapping audit
   (step 2c) read all 765 distinct mappings against the papers: 109 flagged, 17 held and fixed (Otsuki 2021's
-  isthmus major axis is not Panjabi's pedicle height, the one fix that reaches the comparison), 41 left to the
-  owner's judgement.
+  isthmus major axis is not Panjabi's pedicle height, the one fix that reaches the comparison), and 41 judgements
+  the papers leave open, decided on 2026-10-30 by one rule (validation/README.md): Masharawi 2021's facet widths
+  leave the comparison and Irie 2021's (filed as otsuki2021) pedicle heights at L1 to L3 rejoin it.
 - [review/](review/README.md): what the four review rounds found, and round 2's findings with the refuters'
   verdicts and, for each fixed, its resolution; the data findings were fixed on 2026-10-29 and the comparison
   rerun, then a third and a fourth round read the result (pull request 39).
