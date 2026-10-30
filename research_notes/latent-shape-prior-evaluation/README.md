@@ -503,9 +503,9 @@ Risks the design answers, and how:
 
 What greg was asked, once, so the PREREG can be frozen, and what he answered at 02:46 UTC: "i have no idea", with the
 rule quoted at the top, and at 03:20 UTC the counts of item 1. So the plan decides the rest, and each decision below
-stands until he says otherwise. The interactive page switchboard.html beside this note, published as a private
-artifact for greg on 2026-10-30 (https://claude.ai/artifact/8mfLZEEQupfs1wnGFKrASc), draws the blocks, the stages
-and these decisions in plain words.
+stands until he says otherwise. The interactive page pipeline.html beside this note, published as a private
+artifact for greg on 2026-10-30 (https://claude.ai/artifact/8mfLZEEQupfs1wnGFKrASc), draws the stages as a
+Metaflow-style flowchart with what each step does, the network inside a trial switched per arm, and these decisions.
 
 1. Counts and classes (section 9), the one decision greg took himself, at 03:20 UTC: two CPU jobs (stages 1 and 2),
    two GPU jobs for the screen (the array and its merge), two for the full run, and one short gpu-class smoke where
