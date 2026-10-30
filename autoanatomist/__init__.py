@@ -37,11 +37,22 @@ The pieces, in the order the data meets them:
   F = (1 - w) F_ct + w F_mask, landmark heatmaps read by soft-argmax, and the measurements
   computed from the landmarks by specs.py's rules.
 - train.py: the losses, one training step, the schedules and the error as a function of lambda.
+- project.py: nanodrr's camera to the bit, FluXray's poses, any reading projected onto the
+  detector with each measurement's 2-D value by the same rule, and a view's readability.
+- blocks.py: every training part as a KEY=VALUE block, parsed and refused in words, spelled
+  canonically and digested; no block named is the smoke run.
+- calibrate.py: the spread's calibration, a factor per measure fit on validation (scale or
+  quantile) and applied unchanged.
+- rows.py: examples from rows (a phantom by its seeds, or a CT with its labels), each rendered by
+  its own generator and cached by its digest, so adding data is appending rows.
+- session.py: a session built from blocks that trains from its step, saves itself as plain arrays
+  and is restored to the bit, continues its anneal and carries its calibration, for a search's
+  trial, a continued run and a run on more data alike.
 
 What is built is code and its tests. No network has been trained beyond a minutes-long smoke run on
 phantoms, no weight is kept, nothing ran on the grid and no WSU data was read (the owner's hold
-of 28 October 2026).
+of 28 October 2026, lifted on 29 October at 17:05 UTC for work that waits for his word and count).
 """
 from __future__ import annotations
 
-__version__ = "0.1.0"
+__version__ = "0.2.0"
