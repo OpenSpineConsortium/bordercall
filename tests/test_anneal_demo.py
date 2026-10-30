@@ -1139,7 +1139,12 @@ class TheNotebook(unittest.TestCase):
             self.run_demo(1, ["Traceback (most recent call last):", "ValueError: no such run"])
         self.assertEqual(str(stop.exception), "the demo stopped with exit 1: ValueError: no such run")
 
-    GPU_STOP = ["step 0 of 150", "jax.errors.JaxRuntimeError: INTERNAL: Failed to get configs for: 46 out of 218 instructions"]
+    GPU_ERROR = "jax.errors.JaxRuntimeError: INTERNAL: Failed to get configs for: 46 out of 218 instructions"
+    # As JAX ends its report: the error, then its note on the frames it took out.
+    GPU_STOP = ["step 0 of 150", "Traceback (most recent call last):", '  File "train.py", line 1, in <module>',
+                GPU_ERROR, "--------------------",
+                "For simplicity, JAX has removed its internal frames from the traceback of the following exception. "
+                "Set JAX_TRACEBACK_FILTERING=off to include these."]
 
     def run_children(self, children, platforms=None):
         """run_demo's run-cell words to stand-in children, started one after another, each with its
@@ -1178,9 +1183,34 @@ class TheNotebook(unittest.TestCase):
         self.assertEqual(started, [(["page.html", "--widths", "16,32,64", "--save", "kept.pkl"], None),
                                    (["page.html", "--widths", "8,16,32", "--save", "kept.pkl"], "cpu")])
         self.assertEqual(after, "cpu")                 # so every child after it runs on the CPU too
-        self.assertIn("The GPU could not run the network (jax.errors.JaxRuntimeError: INTERNAL: Failed to get "
-                      "configs for: 46 out of 218 instructions), so the demo starts again on the CPU.", printed)
+        self.assertIn("The GPU could not run the network (%s), so the demo starts again on the CPU." % self.GPU_ERROR,
+                      printed)
         self.assertTrue(printed.endswith("page.html: 31 snapshots\n"))
+        self.assertEqual(self.ns["WHY_CPU"], "the GPU could not run the network (%s)" % self.GPU_ERROR)
+
+    def test_after_a_fallback_setup_run_again_stays_on_the_cpu_and_the_run_cell_takes_its_widths(self):
+        self.ns["WHY_CPU"] = None
+        self.run_children([(1, self.GPU_STOP), (0, ["page.html: 31 snapshots"])])
+        with mock.patch.dict(os.environ, JAX_PLATFORMS="cpu"), \
+                mock.patch.dict(self.ns, why_no_gpu=lambda: self.fail("the GPU is not asked again")):
+            self.assertIn("set to the CPU already", self.ns["settle_platform"]("13"))
+            self.assertEqual(os.environ["JAX_PLATFORMS"], "cpu")
+        calls = []
+        exec(self.cell("run"), dict(os=os, OUT=self.base, CUDA="13", WHY_CPU=self.ns["WHY_CPU"],
+                                    run_demo=lambda *words: calls.append(words)))
+        self.assertEqual(calls[0][1:3], ("--widths", "8,16,32"))
+
+    def test_only_the_last_traceback_of_a_child_that_exited_says_the_gpu_failed(self):
+        failure = self.ns["gpu_failure"]
+        warned = ["W external/xla/xla/service/gpu/autotuner.cc: CUDA warning, falling back"]
+        self.assertEqual(failure(1, self.GPU_STOP), self.GPU_ERROR)
+        self.assertIsNone(failure(-9, self.GPU_STOP))                       # killed by a signal
+        self.assertIsNone(failure(1, warned + ["Killed"]))                  # a warning, then no traceback
+        self.assertIsNone(failure(1, warned + ["Traceback (most recent call last):", "ValueError: no such run"]))
+        self.assertIsNone(failure(1, self.GPU_STOP + ["Traceback (most recent call last):", "MemoryError"]))
+        self.assertIsNone(failure(0, self.GPU_STOP))
+        started, _, stopped, _ = self.run_children([(-9, warned + self.GPU_STOP[:1])])
+        self.assertEqual((len(started), stopped), (1, "the demo stopped with exit -9: " + self.GPU_STOP[0]))
 
     def test_a_child_that_stops_for_another_reason_or_on_the_cpu_is_not_started_again(self):
         started, _, stopped, after = self.run_children([(1, ["Traceback (most recent call last):", "ValueError: no such run"])])
