@@ -462,6 +462,21 @@ class OnTheRender(unittest.TestCase):
             self.assertAlmostEqual(got / (patch.area() * math.cos(t)), 1.0, places=12)
             self.assertAlmostEqual(plane.seen_at_deg(cam), 90.0 - tilt, places=9)
 
+    def test_a_pixel_centre_on_an_edge_two_triangles_share_is_covered(self):
+        # the line from the centre of the pixel in row 17, column 1 to that of row 24, column 37,
+        # drawn longer both ways as the edge two triangles share; rounding puts each centre a
+        # hair outside both triangles' side tests, which the slack takes in, as the rule takes in
+        # a centre on an edge at all
+        a, b = [-30.749953060200916, 11.229175793849821], [69.74995306020091, 30.77082420615018]
+        c, d = [9.428873130522767, 72.79436675731147], [25.464379170196402, -9.673950018152947]
+        quad = SH.Surface2D(np.array([a, b, c, d]), np.ones(4), np.ones(4, bool), np.array([[0, 1, 2], [1, 0, 3]]))
+        got = quad.silhouette(48, 48)
+        self.assertTrue(bool(got[17, 1]) and bool(got[24, 37]))
+        # a square's two halves and its own outline: every centre on the diagonal and the sides
+        square = SH.Surface2D(np.array([[0.5, 0.5], [3.5, 0.5], [3.5, 3.5], [0.5, 3.5]]), np.ones(4), np.ones(4, bool),
+                              np.array([[0, 1, 2], [0, 2, 3]]))
+        self.assertTrue(bool(square.silhouette(5, 5)[:4, :4].all()))
+
 
 class Surfaces(unittest.TestCase):
     def test_a_grids_triangles_turn_about_rows_crossed_with_columns(self):
@@ -515,6 +530,40 @@ class Surfaces(unittest.TestCase):
                 SH.Surface.over(plane, height, bad, 12.0)
         with self.assertRaises(ValueError):
             SH.Surface.over(plane, lambda u, v: np.where(u > 0.0, math.nan, 0.0), 20.0, 12.0)
+
+    def test_a_saddle_is_refined_by_its_diagonals(self):
+        # a saddle, h = k u v, is straight along u and along v and bends only across a cell's
+        # diagonal, so only the diagonal's test refines it
+        plane = SH.Plane([4.0, -2.0, 7.0], [0.2, -0.5, 0.8])
+        e1, e2 = plane.axes([1.0, 0.0, 0.0])
+        surface = SH.Surface.over(plane, lambda u, v: 0.01 * u * v, 20.0, 12.0, toward=[1.0, 0.0, 0.0])
+        d = surface.vertices - plane.point
+        u, v = d @ e1, d @ e2
+        tri = surface.triangles
+        for i, j in ((0, 1), (1, 2), (2, 0)):
+            mu, mv = 0.5 * (u[tri[:, i]] + u[tri[:, j]]), 0.5 * (v[tri[:, i]] + v[tri[:, j]])
+            true = plane.point + mu[:, None] * e1 + mv[:, None] * e2 + (0.01 * mu * mv)[:, None] * plane.normal
+            chord = 0.5 * (surface.vertices[tri[:, i]] + surface.vertices[tri[:, j]])
+            self.assertLessEqual(float(np.linalg.norm(true - chord, axis=1).max()), TOL)
+
+    def test_a_surface_bent_one_way_is_refined_that_way_alone(self):
+        # h = k u2 bends along u and lies straight along v, so the grid keeps its four cells along v
+        plane = SH.Plane([4.0, -2.0, 7.0], [0.2, -0.5, 0.8])
+        e1, e2 = plane.axes([1.0, 0.0, 0.0])
+        surface = SH.Surface.over(plane, lambda u, v: 0.02 * u * u, 20.0, 12.0, toward=[1.0, 0.0, 0.0])
+        d = surface.vertices - plane.point
+        self.assertGreater(len(np.unique(np.round(d @ e1, 9))), 5)
+        self.assertEqual(len(np.unique(np.round(d @ e2, 9))), 5)
+
+    def test_a_quadric_is_fitted_the_same_whatever_the_unit(self):
+        # the same quadric given in units a hundred thousand and ten million times smaller fits as
+        # exactly, its terms put on a unit scale before their rank is read
+        rng = np.random.default_rng(3)
+        for scale in (1e-5, 1e-7):
+            half = rng.uniform(-1.0, 1.0, (100, 2)) * scale
+            uv = np.vstack([half, -half])
+            h = (0.5 * uv[:, 0] ** 2 + 0.3 * uv[:, 1] ** 2 - 0.2 * uv[:, 0] * uv[:, 1]) / scale
+            self.assertLess(SH.Surface.fit(np.column_stack([uv, h]))[1] / scale, 1e-13, msg=scale)
 
     def test_a_quadric_fitted_to_points_on_one_is_that_quadric(self):
         # points in pairs either side of the quadric's own point, so the plane fitted to them is

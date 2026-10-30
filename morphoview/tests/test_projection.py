@@ -178,6 +178,14 @@ class FlexraysCamera(unittest.TestCase):
             a, b = cam.rays(outside)
             self.assertFalse(cam.project(0.5 * (a + b)).in_beam.any(), name)
 
+    def test_the_far_edges_of_the_detector_are_off_it(self):
+        # pixel c covers c <= u < c + 1, so u = width and v = height fall on no pixel
+        cam = PJ.Camera(PJ.View(rot_deg=(0, 0, 0), xyz_mm=(0, 0, 0), isocentre_mm=(0, 0, 0), sdd=1000.0, delx=1.0,
+                                height=4, width=4, orthographic=True, orientation=None))
+        got = cam.project(np.array([[-2.0, 0.0, 500.0], [0.0, -2.0, 500.0], [2.0, 2.0, 500.0]]))
+        np.testing.assert_array_equal(got.uv, [[4.0, 2.0], [2.0, 4.0], [0.0, 0.0]])
+        self.assertEqual(got.in_beam.tolist(), [False, False, True])
+
     def test_beads_land_where_flexray_rendered_them(self):
         beads = np.array(RECORD["beads"]["centroids_mm"])
         for name, cam, v in recorded_views():
@@ -836,8 +844,10 @@ class Realism(unittest.TestCase):
         os.makedirs(os.path.join(cls.edits, "edited"))
         os.makedirs(cls.filter)
         with open(os.path.join(cls.edits, "edits.jsonl"), "w", encoding="ascii") as fh:
-            for sample, arm in ((cls.SAMPLE, 0), (cls.SAMPLE, 1), ("s0002_p001", 0), (cls.SAMPLE, 2), (cls.SAMPLE, 3)):
-                fh.write(json.dumps({"sample_id": sample, "arm": arm, "seed": 100 + arm, "seconds": 1.0}) + "\n")
+            # arm 1 edited twice, the run cut and taken up again: its last row is the edit on disk
+            for sample, arm, seed in ((cls.SAMPLE, 1, 999), (cls.SAMPLE, 0, 100), (cls.SAMPLE, 1, 101),
+                                      ("s0002_p001", 0, 100), (cls.SAMPLE, 2, 102), (cls.SAMPLE, 3, 103)):
+                fh.write(json.dumps({"sample_id": sample, "arm": arm, "seed": seed, "seconds": 1.0}) + "\n")
             fh.write('{"sample_id": "%s", "arm"' % cls.SAMPLE)
         for arm, image in ((0, moved), (1, nudged), (2, np.zeros((128, 128)))):
             np.save(os.path.join(cls.edits, "edited", "%s__a%d.npy" % (cls.SAMPLE, arm)), image.astype(np.float16))
@@ -907,6 +917,12 @@ class Realism(unittest.TestCase):
         self.assertEqual([e["shift_px"] for e in rec["edits"][2:]], [None, None])
         self.assertIn("4 edits of the render, 2 holding its pixels, moved %.2f px at most on FleXray's canvas, 1 kept "
                       "by the filter" % rec["edits"][0]["shift_canvas_px"], said)
+        # on a canvas of another side the shift is scaled as the render is onto it
+        _, small, _ = self.project(self.folder, "--ct", self.ct, "--edits", self.edits, "--canvas", "128")
+        scale = PJ.canvas_geometry(256, 256, 128)[0]
+        self.assertNotEqual(scale, 1.0)
+        for edit, big in zip(small["edits"][:2], rec["edits"][:2]):
+            self.assertAlmostEqual(edit["shift_canvas_px"], big["shift_canvas_px"] * scale, places=12)
         _, rec, said = self.project(self.folder, "--ct", self.ct, "--edits", self.edits)
         self.assertEqual({e["filter"] for e in rec["edits"]}, {"not given"})
         self.assertNotIn("kept by the filter", said)

@@ -243,7 +243,7 @@ class Camera:
                 scale = 1.0 / depth
         with np.errstate(invalid="ignore"):
             uv = np.stack([self.fx * cam[:, 0] * scale + self.cx, self.fy * cam[:, 1] * scale + self.cy], axis=1)
-            on = (uv[:, 0] >= 0) & (uv[:, 0] <= self.view.width) & (uv[:, 1] >= 0) & (uv[:, 1] <= self.view.height)
+            on = (uv[:, 0] >= 0) & (uv[:, 0] < self.view.width) & (uv[:, 1] >= 0) & (uv[:, 1] < self.view.height)
         return Projected(uv=uv, depth=depth, in_beam=(depth > 0) & (depth < self.view.sdd) & on)
 
     def magnification(self, depth) -> np.ndarray:
