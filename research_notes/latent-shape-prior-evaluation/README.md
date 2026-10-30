@@ -175,8 +175,11 @@ through the re-estimated table.
 - Per vertebra, not per column: a column-wide vector over C3 to L5 has no slot for an L6, a T13 or a missing L5, which
   are the cases the owner keeps (section 2), and a crop shows one body with its neighbours' edges. The emission's
   alphabet is the chain's 24 names (schwingcheck's DRAW_LEVELS: C3 to L5, L6 and T13): one mean per name and one shared
-  P in one fit, a P per name in another, both measured; L6 takes a mean of its own fit from the L6 columns among the training persons (about 47 of the 67
-  at the shares of section 8, Bookstein's case, so its covariance is the pooled one of the shared-P fit); T13 has no label in ENHANCE.PET's scheme and of VerSe's four T13 persons one is in the anomaly holdout and one in doubt (section 8),
+  P in one fit, a P per name in another, both measured; in the first run, which sees normal spines alone (section 8),
+  L6 is built as T13 is below and never fit; in the full run L6 takes a mean of its own fit from the six lumbar columns
+  of the anomaly train part (38 at 0.2, TotalSegmentator's two by names left out, Bookstein's case, so its covariance
+  is the pooled one of the shared-P fit);
+  T13 has no label in ENHANCE.PET's scheme and of VerSe's four T13 persons one is in the anomaly holdout and one in doubt (section 8),
   so its Gaussian is built as chain.extended_table builds the table's row, half-way between T12 and L1, and never
   fit; C2's ends are exported and in the PDM's point fit, not in the emission, since the rule has no C2. Meng 2020's
   full-spine PPCA (section 11) is the published way to a column model and stays out of version 1.
@@ -244,24 +247,49 @@ runs are fixed by the screen's dated keep record before its plan is frozen (sect
   - the unit is a person as far as the records tell: a group of one patient's repeat scans (next bullet), else one
     study; a unit is hashed by its group's lowest study key, counts once in its stratum, and its studies always share
     a part, and any fallback to the hash draws by that unit key, never by a row's own person key;
+  - every class belongs to one of greg's families (his rule of 2026-10-30 09:43 UTC), ribs first, as the truth name
+    below is: thirteen rib-bearing bodies are a T13 (l6_thirteen_ribs, thirteen_ribs, VerSe's t13); eleven, or eleven
+    on one side and twelve on the other, are a thoracic rib anomaly (eleven_ribs, asymmetric_ribs); twelve go by the
+    column's length, an L6 below an L5 a six lumbar column (l6_twelve_ribs) and L4 on the sacrum a four lumbar one
+    (four_lumbar_twelve_ribs); VerSe draws no ribs, so its readers' l6 and four_lumbar go by the read (verse581's,
+    7/11/6/5, is a rib anomaly by its ribs, but it is a held fold person in no part), and TotalSegmentator's ribs are
+    not read against its levels, so the l6 its masks name is a family of its own, six lumbar by names, reported apart
+    and never pooled with six lumbar until its ribs are counted;
+  - the first run, the smoke and the screen of section 9, trains, validates and tests on normal spines alone, as greg
+    asked: the store's class normal confirmed by the masks (status confirmed_by_masks: twelve rib pairs, C2 to L5
+    named, every structural check passed), the set the annealer screen takes too, and two of the three VerSe holdout
+    persons its readers read normal, verse759 and verse809, who are test; the third, verse573, is test but read by no
+    counted number, since its masks leave a fused, sacralised L5 undrawn (admission.json's flag no_l5); the 251
+    class-normal studies the masks do not confirm and the 166 unread keep their part for a later run and are read by
+    none of the counted ones;
   - a plain unit (class normal or unread) is validation below 0.1 and test in the band 0.1 to 0.1 plus the share;
   - each anomaly stratum (the member, the store's class and the call by names, so the eleven-rib columns with L4 on the
-    sacrum are a stratum apart from those with L5) takes as test the first min(n, max(ceil(share x n), min(10,
-    floor(n / 2)))) of its n units in a second salted rank (spelled out in the docstring), the rest validation by the
-    hash or else train;
+    sacrum are a stratum apart from those with L5) lies inside one family and takes as test the first min(n,
+    max(ceil(share x n), min(10, floor(n / 2)))) of its n units in a second salted rank (spelled out in the
+    docstring), the rest train: the anomalies are split across test and train alone, each family cell by cell, a
+    cell of one unit wholly test (ENHANCE.PET's asymmetric ribs with L4 on the sacrum), and a run's choices are made
+    on the normal validation part;
   - a study in doubt is in no part until a person has looked: the store's classes look, open, labelling_error and
     not_whole, anomaly-holdout.json's disputed persons, and, for every member, a study whose release masks lack a level
     from C2 to L5 (admission.json's complete list), since a segmenter's level is never pooled with the release's;
     doubt comes before every other branch, so a holdout study in doubt is held;
-  - anomaly-holdout.json's five holdout persons are test at every share and never trained on; its three fold persons,
+  - anomaly-holdout.json's five holdout persons are test at every share and never trained on, count in no stratum and
+    carry no weight in a number pooled over strata; its three fold persons,
     which the route's other fine-tunes train on, are in no part.
   At SchwingNet 3abc2fa (export sha256 ac95c7c1...) the 1,738 studies are 1,620 units: at 0.2, 327 test (353
-  studies), 173 validation and 1,085 train, with 32 units (35 studies) in doubt and 3 held; at 0.3, 495 test (533
-  studies), 172 validation and 918 train. The strata, as units and test units at 0.2 (at 0.3 where it differs):
+  studies), 167 validation and 1,091 train, with 32 units (35 studies) in doubt and 3 held; at 0.3, 495 test (533
+  studies), 167 validation and 923 train. The first run's normal spines are 1,060 units (1,157 studies): at 0.2, 732
+  train, 124 validation and 204 test (223 studies); at 0.3, 611, 124 and 325 (356 studies). The anomalies by family,
+  as drawn units test and train at 0.2: four lumbar 10 and 16, six lumbar 10 and 36 (and VerSe's three fold persons
+  held), six lumbar by names 1 and 2, T13 8 and 9, thoracic rib anomalies 16 and 19; 45 test units and 82 train in
+  all, the same at 0.3 but for six lumbar, 14 and 32; two holdout persons, verse549 (four lumbar) and verse547 (T13),
+  are test beside them in no stratum. The strata, as units and test units at 0.2 (at 0.3 where it differs):
   ENHANCE.PET l6_twelve_ribs 46 and 10 (14), l6_thirteen_ribs 13 and 6, four_lumbar_twelve_ribs 26 and 10, eleven_ribs with L5 23 and 10, eleven_ribs with L4 on the sacrum 8 and
   4, asymmetric_ribs with L5 3 and 1 and with L4 1 and 1, thirteen_ribs 2 and 1; TotalSegmentator l6 3 and 1; VerSe
-  t13 2 and 1. A pooled endpoint weights each stratum by N_h / n_h, its units over its test units, and the person
-  bootstrap resamples within strata, so the drawn strata never tilt a pooled number toward the anomalies.
+  t13 2 and 1. The anomaly families are read apart and never pooled with the normal part; a number that pools the strata of
+  one family weights each stratum by N_h / n_h, its units over its test units, a holdout person weighing nothing in
+  it, and the person bootstrap resamples within strata, so the drawn strata never tilt it toward the cells drawn
+  hardest.
 - The reserve, latent-prior-test-reserve.json (584 studies at 3abc2fa, sha256 cd9ddfed...), with
   latent-prior-repeat-groups.json beside it (the 85 units of more than one study, by the export's person keys, sha256
   a45797c3...) and a report that pins every input and both files by sha256: every unit not held that is test at 0.3
@@ -303,8 +331,13 @@ runs are fixed by the screen's dated keep record before its plan is frozen (sect
 - Fields for naming: every window of 1, 3 and 5 consecutive bodies of each test column, so a column of 22 bodies gives
   22, 20 and 18 fields; the share named right is over fields, its interval by a bootstrap over persons, since fields of
   one column are not independent, and a column's size estimate and type are shared by all its fields, so naming
-  errors come in runs and the effective sample is nearer the test columns (about 330) than the fields (about 6,600).
-- Pairing and the decision rule, in the full run (stage 5): every arm is read on the same test vertebrae, so the
+  errors come in runs and the effective sample is nearer the test columns (the first run's 223 normal ones at 0.2)
+  than its three-body fields (about 4,500).
+- Pairing and the decision rule, in the full run (stage 5): the full run trains on the first run's training part
+  and the anomaly train part (greg's choice of 2026-10-30 10:03 UTC, over keeping every counted run on normal
+  spines and giving the anomalies a later run of their own), its choices made on the normal validation part,
+  and reads the normal test part, where the contrasts below are decided, and the anomaly test part by family beside
+  it. Every arm is read on the same test vertebrae, so the
   comparison of two arms is a paired difference per vertebra (or per field), its 95 per cent interval by the person
   bootstrap at fixed seeds; three seeds an arm, the seed-to-seed spread reported and required to be smaller than the
   bar, the arms compared on the seed means. One primary contrast, C against A on three-body fields with the calibrated
@@ -313,31 +346,33 @@ runs are fixed by the screen's dated keep record before its plan is frozen (sect
   run whatever the screen shows, and C too unless it fails the screen's numbered rule, in which case that failure is
   the head question's answer and the full run's primary contrast is D against A, pre-registered as the alternative.
 - The screen (stage 4), on greg's rule: every arm side by side, one seed each and arm A at three seeds, on a fifth of
-  the training persons by the same hash, for 50 epochs, read on the validation persons alone and never on test. It
+  the first run's training persons by the same hash, for 50 epochs, read on the validation persons alone and never on test. It
   ranks, and drops an arm only on three numbered failures, written in the PREREG before it is sent: it does not train
   (the validation landmark distance, or arm E's value MAE, at the end not below half of its value at the start, or
   the loss not falling over the last ten epochs); it does not calibrate (sharpness, since the quantile fit puts
   one-spread coverage at 0.68 on validation by construction: the calibrated spread more than twice arm A's at the same
   validation coverage, or coverage at two spreads outside 0.90 to 0.98, which the one-quantile fit does not fix); or it
-  names worse than the engine's values on three-body fields by more than 6 points, twice the screen's standard error.
-  What the screen can resolve: on about 165 validation persons with naming errors clustered by column, one standard
-  error of a paired naming difference is about 3 points and of the value MAE about 0.07 mm, so arms within twice that
+  names worse than the engine's values on three-body fields by more than 7 points, twice the screen's standard error.
+  What the screen can resolve: on the first run's 124 validation units with naming errors clustered by column, one
+  standard error of a paired naming difference is about 3.5 points and of the value MAE about 0.08 mm, so arms within twice that
   are ties and both go on; arm A's three seeds give the seed spread on validation as a number, and every drop margin
-  sits above it. The anomaly strata (about 7 L6 and 4 L4-on-sacrum columns in the validation tenth) are not read in the
-  screen. The keep list, with each arm's validation numbers, is written as a dated record in this folder before the
+  sits above it. The screen trains, validates and reads normal spines alone, the first run's set above; no anomaly
+  column is in it. The keep list, with each arm's validation numbers, is written as a dated record in this folder before the
   stage 5 plan file's bytes enter the PREREG's Covers line, so the full run's test read follows no choice.
-- Power, under the rule as written: the test part at 0.2 is 327 units (353 columns) and about 7,000 vertebrae. A paired MAE
-  difference of 0.3 mm against a paired SD of about 2 mm a vertebra is told from zero at 80 per cent power with about
-  350 vertebrae, about 1,750 after a design effect of 5 for clustering within a person; but the rule asks the interval's
-  lower bound to clear the bar, so the true gain the design finds at 80 per cent power is the bar plus 2.8 standard
-  errors: about 0.45 mm of value MAE (a standard error near 0.05 mm at 7,000 vertebrae under the design effect) and,
-  for naming with the column as the cluster (about 330 columns, two arms discordant on 15 per cent of fields, a
-  standard error near 2 points), about 9 points on three-body fields against the 3-point bar first proposed. The
+- Power, under the rule as written: the primary contrast is read on the first run's normal test part, at 0.2 204
+  units (223 columns) and about 4,500 vertebrae. A paired MAE difference of 0.3 mm against a paired SD of about 2 mm a
+  vertebra is told from zero at 80 per cent power with about 350 vertebrae, about 1,750 after a design effect of 5 for
+  clustering within a person; but the rule asks the interval's lower bound to clear the bar, so the true gain the
+  design finds at 80 per cent power is the bar plus 2.8 standard errors: about 0.5 mm of value MAE (a standard error
+  near 0.065 mm at 4,500 vertebrae under the design effect) and, for naming with the column as the cluster (223
+  columns, two arms discordant on 15 per cent of fields, a standard error near 2.5 points), about 10 points on
+  three-body fields against the 3-point bar first proposed. The
   within-column correlation is measured in stage 2 from the engine's rows, and the naming bar is set from it before the
-  PREREG is frozen; the share stays 0.2 (decision 7), and 0.3 (495 units) is the alternative decision 7 names
-  if the bar stage 2 gives is wider than three points. The anomaly strata are small even listed (17 L6 and 15
-  L4-on-sacrum test units at 0.2), so they are cross-fitted at stage 2 and reported with Wilson intervals at stage 5,
-  not tested.
+  PREREG is frozen; the share stays 0.2 (decision 7), and 0.3 (325 normal test units) is the alternative decision 7
+  names if the bar stage 2 gives is wider than three points. The anomaly families are small even listed (10 four
+  lumbar, 10 six lumbar, 8 T13 and 16 rib-anomaly test units drawn at 0.2), so they are cross-fitted at stage 2 and
+  reported by family and stratum with Wilson intervals at stage 5, never tested and never pooled with the normal
+  part.
 - Nothing from CTSpinoPelvic1K (dropped for good), nothing from the morphometry phantoms (deferred); the
   autoanatomist phantoms serve stage 3 only, as a smoke test of the code path.
 
@@ -351,8 +386,8 @@ later stage waits for the one before it. No job is sent by this plan.
 | 1 export | the engine over every gold 3 mask in the new frame, with each measure's two line ends and the vertebra's frame written beside the value (a `--lines` output of `python -m morphometry run`, to add on the engine's branch) and, on the CTs, the mask-free frame (crops.from_found) and the oracle's beside the engine's; aggregates in the report, rows on the grid | grid, CPU | 0 only if the `--lines` output and morphoview reach the pinned copy under SchwingNet's grid/bordercall/ (tools/bordercall_vendor.py copy, VENDORED) before `morphometry enhance` and `morphometry verse`, the two jobs the owner counted on 2026-10-29 15:19 UTC, are sent; else 1, or a re-run that needs a new count | the export flag on PR 44's branch; the re-vendor; the morphometry re-run in the new frame; the CTs landed; the autoPET person match | the truth table and the PDM's points exist; the three frame gaps are numbers |
 | 2 features, no network | on the engine's rows: the exact rule with the seven chords, with the 32-measure pool, with the pool and the ratios, with a per-level Gaussian over b (the two PDMs, K on a curve), and with b beside the seven, under the re-estimated table and the printed one; a discriminative classifier over the same feature sets; leave-persons-out, five folds; naming by field length and rib class; the within-column correlation for the power of section 8; E3 nameability | grid, CPU; the rows stay on the grid under SchwingNet's morphometry rule and only the report's aggregates leave (decision 3) | 1 | stage 1 | whether named measurements name as well as a latent at the feature level; how many named measures the latent is worth; K; the naming bar's power; whether arm B is worth training at all |
 | 3 smoke of the heads | the six arms on the existing autoanatomist phantoms, a few hundred steps each, the code path from the oracle to the named bodies for every head, and the CPU step time of each head; the latent arms on a PDM fit on the phantoms' oracle ends (the minimal 14-end set, kept with its digest) | grid, CPU, batch class, on the launched autoanatomist flow; a batch-class job measures no GPU time | 0 if the head block and its keys (section 10) land on PR 40, the search copy under SchwingNet's grid/autoanatomist/ is vendored again, and grid/searches/phantom_smoke.json names them in its space before docs/research/autoanatomist-search/PREREG.md is frozen, since its Covers line holds that plan by its bytes and neither file changes after; else 1, a plan of this evaluation's own flow kind under its own PREREG (section 10), a third part in its Covers line | the head block built; the phantom PDM; probe_smoke first, as the owner asked | the arms run end to end; nothing is read as a result |
-| 4 screen | greg's rule: every arm in parallel on a short run. One plan: the six arms, and F where the auto-anatomist thread's objective=mask is ready, one seed each and arm A at three seeds (eight or nine trials), each trial a Slurm array task starting a launcher run of its own on a card of its own (the DRR study's form, section 2), 50 epochs, an epoch ceil(training windows / batch) steps in expectation, since the session draws its batch with replacement (section 10), over a fifth of the training persons by the same hash, three-body windows at the smoke's batch of 2 (6 crops a step), calibrate=quantile at coverage 0.68, naming on, every other block at the smoke run's, w_prior 1; each trial calibrates on the validation persons and evaluates there in its own step, as the search's trial step does, writing section 7's quantities to its ledger entry; a merge run afterany the array gathers them; no test read | grid, GPU, the launched flow of this evaluation's kind under its frozen PREREG (section 10) | 2 (the array, then the merge); 1 where the trials share one card in series inside one job, the wall time then their sum | stages 1 to 3; flows/<kind>.py with its screen mode, the volume row kind with a person key, the windowing and this evaluation's PREREG, none of them landed | which arms train, calibrate and name on real spines at all, by the numbered rule of section 8, and their order on validation; the keep list for the full run, as a dated record |
-| 5 full run | the arms the screen keeps, three seeds each, every trial on the whole training part for 50 epochs (five times the screen's steps; fewer if the screen's curves settled earlier, the count written in the plan), calibration on validation in the trial step, the merge reading the test persons once for every finished trial | grid, GPU, the same flow and PREREG, a second plan | 2 (the array, then the merge with the test read); the minimal form, A against C with two seeds, is 2 as well, the array smaller | stage 4's keep record | the primary endpoints per arm with intervals; the calibration gate; the explainability indices |
+| 4 screen | greg's rule: every arm in parallel on a short run. One plan: the six arms, and F where the auto-anatomist thread's objective=mask is ready, one seed each and arm A at three seeds (eight or nine trials), each trial a Slurm array task starting a launcher run of its own on a card of its own (the DRR study's form, section 2), 50 epochs, an epoch ceil(training windows / batch) steps in expectation, since the session draws its batch with replacement (section 10), over a fifth of the first run's training persons (normal spines alone) by the same hash, three-body windows at the smoke's batch of 2 (6 crops a step), calibrate=quantile at coverage 0.68, naming on, every other block at the smoke run's, w_prior 1; each trial calibrates on the validation persons and evaluates there in its own step, as the search's trial step does, writing section 7's quantities to its ledger entry; a merge run afterany the array gathers them; no test read | grid, GPU, the launched flow of this evaluation's kind under its frozen PREREG (section 10) | 2 (the array, then the merge); 1 where the trials share one card in series inside one job, the wall time then their sum | stages 1 to 3; flows/<kind>.py with its screen mode, the volume row kind with a person key, the windowing and this evaluation's PREREG, none of them landed | which arms train, calibrate and name on real spines at all, by the numbered rule of section 8, and their order on validation; the keep list for the full run, as a dated record |
+| 5 full run | the arms the screen keeps, three seeds each, every trial on the first run's whole training part and the anomaly train part (greg's choice of 10:03 UTC) for 50 epochs (five and a half times the screen's steps; fewer if the screen's curves settled earlier, the count written in the plan), calibration on validation in the trial step, the merge reading the test persons once for every finished trial, the normal part and the anomaly families apart | grid, GPU, the same flow and PREREG, a second plan | 2 (the array, then the merge with the test read); the minimal form, A against C with two seeds, is 2 as well, the array smaller | stage 4's keep record | the primary endpoints per arm with intervals; the calibration gate; the explainability indices |
 | 6 report | the figures of section 7 and the CLAIM report, from the run folders; the paired differences and the bootstrap | the flow's end step, or a container from the records | 0 | stages 4 and 5 | greg's decision on the head and the features, against the bars |
 
 The search flow as PR 483 designs it retires half the trials at each rung on the validation reward and reads the test
@@ -361,8 +396,8 @@ function of landmark distance, which arm E has none of. The screen and the full 
 flow kind (section 10), whose trials run one per array task on a card each, as greg's "as many in parallel as
 possible" asks and as the DRR study already runs; a foreach inside one gpu-class job would run them on that job's one
 card, in series or sharing it. The search's halving and controller are for a later sweep of w_prior and K, with the
-anomaly strata in its objective, since a weight chosen on a validation part that is 96 per cent typical anatomy would
-pick the value that hurts the strata.
+anomaly families in its objective, since a weight chosen on a validation part of normal spines alone would pick the
+value that hurts the families.
 
 The cost, with its basis. No record holds a GPU step time: the smoke's 2 s a step was 6 crops on 4 CPUs, 0.35 s a
 crop, and stage 3's batch-class job measures CPU time only, so the hours of stages 4 and 5 are a formula with one
@@ -374,8 +409,8 @@ written into the record after, never claimed before:
 | 1 | the engine over 1,738 masks | the whole set is the 32-CPU, 24-hour job SchwingNet's grid/morphometry.sbatch already is; the 229 thin studies took one morning in a container | PR 44 README; the morphometry memory |
 | 2 | the rule and the classifier over the rows, five folds | minutes once the rows exist | item P's data axis timings |
 | 3 | six arms, a few hundred steps each, on 4 CPUs | the smoke's 150 steps on 6 crops a step took 313 s | smoke.json |
-| 4 | a step is a batch of three-body windows, 3 crops each; an epoch ceil(windows / batch) steps in expectation | a fifth of the training persons is about 230 columns and about 4,600 three-body windows; at the smoke's batch of 2, about 2,300 steps an epoch and 115,000 steps in 50 epochs, about 690,000 crops a trial; at the smoke's CPU time that is 67 hours, so the GPU time a crop decides whether a trial is hours or a day; the eight or nine trials run side by side, so the screen's wall time is one trial's | smoke.json (spines_per_batch 2, count 3, 0.35 s a crop on CPU); the subset share and the window length are the plan's |
-| 5 | the same, over the whole training part | about 1,158 columns (at most), about 25,500 vertebrae and 23,000 windows; 50 epochs about 575,000 steps a trial, five times the screen's, and at most twenty-one trials where F is kept, side by side | the screen's measured time a crop; the epoch count is the plan's |
+| 4 | a step is a batch of three-body windows, 3 crops each; an epoch ceil(windows / batch) steps in expectation | a fifth of the first run's training persons (795 normal columns at 0.2) is about 160 columns and about 3,200 three-body windows; at the smoke's batch of 2, about 1,600 steps an epoch and 80,000 steps in 50 epochs, about 480,000 crops a trial; at the smoke's CPU time that is 47 hours, so the GPU time a crop decides whether a trial is hours or a day; the eight or nine trials run side by side, so the screen's wall time is one trial's | smoke.json (spines_per_batch 2, count 3, 0.35 s a crop on CPU); the subset share and the window length are the plan's |
+| 5 | the same, over the first run's whole training part and the anomaly train part | 882 columns at 0.2 (795 normal and 87 anomalous), about 19,400 vertebrae and 17,500 windows; 50 epochs about 440,000 steps a trial, five and a half times the screen's, and at most twenty-one trials where F is kept, side by side | the screen's measured time a crop; the epoch count is the plan's |
 
 The total ask, in the owner's units: 2 CPU jobs (stages 1 and 2), 2 GPU jobs for the screen (an array and its
 merge) and 2 for the full run, with stage 3 folded into a plan another thread is already writing, and one short
@@ -449,7 +484,7 @@ latent-prior-test-reserve.json, section 8, and the interface is in section 10).
   search module's row check (it takes phantom rows only today) with a person field copied verbatim from the export
   (enhance_pet:0001, colon and padding included; a gold 3 row without one is refused, and the id stands in for
   phantoms alone), a split that takes listed parts (the parts file draw_test_reserve.py writes at the frozen share names
-  every study's part and unit, and wins over the hash for every row it names, a fourth split input beside the salt and
+  every study's part, unit, family and whether the first run reads it, and wins over the hash for every row it names, a fourth split input beside the salt and
   the two shares, which the module lacks today), and the windowing of a volume row into fixed-length fields (section
   8), each window a row with its column's person, so that the naming term's equal-count rule holds and the windows of
   one unit land in one part.
@@ -458,8 +493,11 @@ latent-prior-test-reserve.json, section 8, and the interface is in section 10).
   alike, comparing the export's person field by exact string, and keep each unit of latent-prior-repeat-groups.json in
   one part (leaving out a member whose frozen part differs from its unit's); before training the run checks its
   validation part against the export's hash, that every reserved normal ENHANCE.PET person was matched (424 at
-  3abc2fa, leaving 982 in its pool) and that none is in its manifest, and records both files' sha256 and the matched
-  count beside RUN.json. Arm F starts from that
+  3abc2fa, 354 of them confirmed by the masks, leaving 801 in its pool of 1,155 confirmed normal ENHANCE.PET
+  persons) and that none is in its manifest, and records both files' sha256 and the matched
+  count beside RUN.json. Its screen takes ENHANCE.PET rows of class normal confirmed by the masks, the first run's
+  normal spines here, so greg's rule of 2026-10-30 09:43 UTC holds on both sides; the anomaly-aware rule left both
+  files byte for byte as they were and moved no normal person. Arm F starts from that
   run's checkpoint only where the recorded sha256 is this file's and no test person of this evaluation is in that
   manifest; otherwise arm F trains from scratch.
 - The screen mode of the flow. None of it is in PR 483 at d8cadc3: flows/autoanatomist.py does not exist,
@@ -605,6 +643,10 @@ thread's decisions marked as its own, and it carries a glossary of the words it 
    points; the test set is a listed one from the start (draw_test_reserve.py, section 8): anomaly strata drawn by rank,
    plain units by the hash, one patient's probable repeat scans one unit, studies in doubt in no part, the holdout tested;
    the reserve covers both shares and the hash's own draw as the fallback, and the screen never reads the test persons.
+   greg set the anomaly rule himself on 2026-10-30 09:43 UTC (normal spines alone in the first run; four lumbar, six
+   lumbar and T13 split across test and train); the families are read ribs first, so a column with thirteen
+   rib-bearing bodies is a T13 though its names end at L6, and an eleven-rib column is a thoracic rib anomaly though its
+   names end at L4, and the first run's normal spines are the ones the masks confirm, as the annealer screen's are.
 
 ## 13. What this plan does not do
 

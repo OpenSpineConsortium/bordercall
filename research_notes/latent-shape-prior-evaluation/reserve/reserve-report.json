@@ -1,5 +1,5 @@
 {
- "schwingnet_commit": "3abc2fa1f046bba124326392685c8d51cc33209d",
+ "schwingnet_commit": "3abc2fa",
  "inputs_sha256": {
   "export": "ac95c7c19f8283b9872d477bc1ec9eae6eec3c5f58211f387d86088430a6e031",
   "calls": "f0da0399dc956432fe20e91c2dc213759dc4a9c63c507c60c50626413d8ea2ba",
@@ -32,7 +32,25 @@
   "repeat_min_spacings": 12,
   "repeat_ribs": 0.04,
   "repeat_min_ribs": 16,
-  "repeat_min_rib_voxels": 500
+  "repeat_min_rib_voxels": 500,
+  "families": {
+   "normal": "normal",
+   "unread": "unread",
+   "l6_twelve_ribs": "six_lumbar",
+   "l6": "six_lumbar",
+   "four_lumbar_twelve_ribs": "four_lumbar",
+   "four_lumbar": "four_lumbar",
+   "l6_thirteen_ribs": "t13",
+   "thirteen_ribs": "t13",
+   "t13": "t13",
+   "eleven_ribs": "rib_anomaly",
+   "asymmetric_ribs": "rib_anomaly"
+  },
+  "family_by_member": {
+   "totalsegmentator:l6": "six_lumbar_by_names"
+  },
+  "anomalies": "drawn test or train by stratum, never validation; anomaly-holdout.json's holdout persons test in no stratum; training_allowed 0 persons held",
+  "first_run": "class normal with status confirmed_by_masks, or VerSe's readers' normal whose masks draw its L5 (no admission.json flag no_l5), in ['test', 'train', 'validation']"
  },
  "rows": 1738,
  "units": 1620,
@@ -219,7 +237,11 @@
   "fallback_tests_inside_reserve": true,
   "no_unit_split_by_reserve": true,
   "no_held_study_reserved": true,
-  "no_doubt_study_tested": true
+  "no_doubt_study_tested": true,
+  "no_anomaly_validated": true,
+  "anomalies_in_strata": true,
+  "every_family_drawn_into_test_and_train": true,
+  "first_run_normal_only": true
  },
  "counts": {
   "0.2": {
@@ -227,15 +249,48 @@
     "doubt": 32,
     "held": 3,
     "test": 327,
-    "train": 1085,
-    "validation": 173
+    "train": 1091,
+    "validation": 167
    },
    "studies_by_part": {
     "doubt": 35,
     "held": 3,
     "test": 353,
-    "train": 1156,
-    "validation": 191
+    "train": 1164,
+    "validation": 183
+   },
+   "families_units_by_part": {
+    "doubt|doubt": 32,
+    "four_lumbar|holdout": 1,
+    "four_lumbar|test": 10,
+    "four_lumbar|train": 16,
+    "normal|holdout": 3,
+    "normal|test": 245,
+    "normal|train": 908,
+    "normal|validation": 147,
+    "rib_anomaly|test": 16,
+    "rib_anomaly|train": 19,
+    "six_lumbar|held": 3,
+    "six_lumbar|test": 10,
+    "six_lumbar|train": 36,
+    "six_lumbar_by_names|test": 1,
+    "six_lumbar_by_names|train": 2,
+    "t13|holdout": 1,
+    "t13|test": 8,
+    "t13|train": 9,
+    "unread|test": 32,
+    "unread|train": 101,
+    "unread|validation": 20
+   },
+   "first_run_units_by_part": {
+    "test": 204,
+    "train": 732,
+    "validation": 124
+   },
+   "first_run_studies_by_part": {
+    "test": 223,
+    "train": 795,
+    "validation": 139
    },
    "strata_units_N_h_n_h": {
     "enhance_pet:asymmetric_ribs:T12L4": [
@@ -283,16 +338,13 @@
     "enhance_pet|asymmetric_ribs|test": 2,
     "enhance_pet|asymmetric_ribs|train": 2,
     "enhance_pet|eleven_ribs|test": 14,
-    "enhance_pet|eleven_ribs|train": 16,
-    "enhance_pet|eleven_ribs|validation": 3,
+    "enhance_pet|eleven_ribs|train": 19,
     "enhance_pet|four_lumbar_twelve_ribs|test": 12,
     "enhance_pet|four_lumbar_twelve_ribs|train": 16,
     "enhance_pet|l6_thirteen_ribs|test": 6,
-    "enhance_pet|l6_thirteen_ribs|train": 5,
-    "enhance_pet|l6_thirteen_ribs|validation": 3,
+    "enhance_pet|l6_thirteen_ribs|train": 8,
     "enhance_pet|l6_twelve_ribs|test": 12,
-    "enhance_pet|l6_twelve_ribs|train": 36,
-    "enhance_pet|l6_twelve_ribs|validation": 2,
+    "enhance_pet|l6_twelve_ribs|train": 38,
     "enhance_pet|labelling_error|doubt": 3,
     "enhance_pet|look|doubt": 15,
     "enhance_pet|normal|test": 267,
@@ -324,15 +376,48 @@
     "doubt": 32,
     "held": 3,
     "test": 495,
-    "train": 918,
-    "validation": 172
+    "train": 923,
+    "validation": 167
    },
    "studies_by_part": {
     "doubt": 35,
     "held": 3,
     "test": 533,
-    "train": 977,
-    "validation": 190
+    "train": 984,
+    "validation": 183
+   },
+   "families_units_by_part": {
+    "doubt|doubt": 32,
+    "four_lumbar|holdout": 1,
+    "four_lumbar|test": 10,
+    "four_lumbar|train": 16,
+    "normal|holdout": 3,
+    "normal|test": 390,
+    "normal|train": 763,
+    "normal|validation": 147,
+    "rib_anomaly|test": 16,
+    "rib_anomaly|train": 19,
+    "six_lumbar|held": 3,
+    "six_lumbar|test": 14,
+    "six_lumbar|train": 32,
+    "six_lumbar_by_names|test": 1,
+    "six_lumbar_by_names|train": 2,
+    "t13|holdout": 1,
+    "t13|test": 8,
+    "t13|train": 9,
+    "unread|test": 51,
+    "unread|train": 82,
+    "unread|validation": 20
+   },
+   "first_run_units_by_part": {
+    "test": 325,
+    "train": 611,
+    "validation": 124
+   },
+   "first_run_studies_by_part": {
+    "test": 356,
+    "train": 662,
+    "validation": 139
    },
    "strata_units_N_h_n_h": {
     "enhance_pet:asymmetric_ribs:T12L4": [
@@ -380,16 +465,13 @@
     "enhance_pet|asymmetric_ribs|test": 2,
     "enhance_pet|asymmetric_ribs|train": 2,
     "enhance_pet|eleven_ribs|test": 14,
-    "enhance_pet|eleven_ribs|train": 16,
-    "enhance_pet|eleven_ribs|validation": 3,
+    "enhance_pet|eleven_ribs|train": 19,
     "enhance_pet|four_lumbar_twelve_ribs|test": 12,
     "enhance_pet|four_lumbar_twelve_ribs|train": 16,
     "enhance_pet|l6_thirteen_ribs|test": 6,
-    "enhance_pet|l6_thirteen_ribs|train": 5,
-    "enhance_pet|l6_thirteen_ribs|validation": 3,
+    "enhance_pet|l6_thirteen_ribs|train": 8,
     "enhance_pet|l6_twelve_ribs|test": 16,
-    "enhance_pet|l6_twelve_ribs|train": 33,
-    "enhance_pet|l6_twelve_ribs|validation": 1,
+    "enhance_pet|l6_twelve_ribs|train": 34,
     "enhance_pet|labelling_error|doubt": 3,
     "enhance_pet|look|doubt": 15,
     "enhance_pet|normal|test": 424,

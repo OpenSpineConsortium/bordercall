@@ -12,17 +12,33 @@ evaluation may start from ever trains on them.
         --schwingnet-commit SHA --out latent-prior-test-reserve.json --groups-out latent-prior-repeat-groups.json \
         --report reserve-report.json [--test-share 0.2 --parts-out parts.jsonl]
 
-The reserve is a JSON list in data/splits/test-persons.json's form ("person", "why", and "class"), sorted by person,
-which the auto-anatomist flow reads beside that file and leaves out of every part it trains or validates on. The
+The reserve is a JSON list in data/splits/test-persons.json's form ("person", "why") with a third key, "class": the
+store's class, or "outside_export" for a study outside the export (SchwingNet's catalog.load_split, whose rows forbid
+an extra key, does not read it as it is). It is sorted by person, and the auto-anatomist flow reads it beside that
+file and leaves out of every part it trains or validates on. The
 groups file lists every unit of more than one study by the export's person keys, so that a run keeps each in one part.
 The report pins every input and both outputs by sha256 and gives the counts by stratum and part, in units and in
 studies, at both test shares section 8 allows (0.2, and 0.3 if the naming bar of stage 2 is wider than three points).
-With --parts-out it also writes every study's part and unit at the share the PREREG freezes, which is the
-evaluation's split: the evaluation reads its test part from that file and this reserve and never draws it again from
-a later export, so a person not listed here is never test, and any fallback to the hash draws by the unit column of
-that file, never by a row's own person key.
+With --parts-out it also writes every study's part, unit, family and whether the first run reads it, at the share the
+PREREG freezes, which is the evaluation's split: the evaluation reads its test part from that file and this reserve
+and never draws it again from a later export, so a person not listed here is never test, and any fallback to the hash
+draws by the unit column of that file, never by a row's own person key.
 
-The rule, section 8 and decision 7 of the README:
+The rule, section 8 and decision 7 of the README, with greg's rule of 2026-10-30 09:43 UTC on the anomalies:
+
+- Every class belongs to one family, ribs first, as section 8's truth is: thirteen rib-bearing bodies are a T13
+  (l6_thirteen_ribs, thirteen_ribs, VerSe's t13); eleven, or eleven on one side and twelve on the other, are a
+  thoracic rib anomaly (eleven_ribs, asymmetric_ribs); twelve go by the column's length, an L6 below an L5 a six
+  lumbar column (l6_twelve_ribs) and L4 on the sacrum a four lumbar one (four_lumbar_twelve_ribs). VerSe draws no
+  ribs, so its readers' l6 and four_lumbar go to six lumbar and four lumbar by the read (verse581's read, 7/11/6/5,
+  is eleven thoracic and so a rib anomaly by its ribs, but it is a held fold person in no part). TotalSegmentator's
+  ribs are not read against its levels, so the l6 its masks name is a family of its own, six_lumbar_by_names,
+  reported apart and never pooled with six lumbar until its ribs are counted. normal and unread are families of
+  their own, and a study of a doubt class is of the family doubt.
+- The first run trains, validates and tests on normal spines alone: the store's class normal confirmed by the masks
+  (status confirmed_by_masks: twelve rib pairs, C2 to L5 named, every structural check passed), as the annealer
+  screen takes them, or read normal by VerSe's readers with an L5 its masks draw (admission.json's flag no_l5 marks
+  a fused L5 they leave undrawn, as verse573's sacralised one). Every other study waits for a later run.
 
 - A unit is hashed as data/splits/rule.json hashes a person (sha256 over 'schwingnet-split|' + salt + '|' + key, its
   first 8 bytes big-endian, over 2**64), with rule.json's salt: validation below 0.1, the test band from 0.1 to 0.1
@@ -46,23 +62,27 @@ The rule, section 8 and decision 7 of the README:
   l6_thirteen_ribs, eleven_ribs, four_lumbar_twelve_ribs, thirteen_ribs, asymmetric_ribs, l6, t13, four_lumbar) is
   not tested by the hash; holdout units count in no stratum. Its stratum is the member, the store's class and the call by
   names (member:class:call, the call 'none' where the store has none), so the eleven-rib columns with L4 on the sacrum
-  are a stratum apart from those with L5. Each stratum's units are ordered by the bytes of sha256 over
+  are a stratum apart from those with L5; each stratum lies inside one family and is drawn on its own, so every
+  family is split across test and train, though a stratum of one unit is wholly test (at 3abc2fa,
+  enhance_pet:asymmetric_ribs:T12L4). Each stratum's units are ordered by the bytes of sha256 over
   'schwingnet-latent-prior-test|2026-10-30|' + stratum + '|' + unit key, ascending, and its test units are the first
-  min(n, max(ceil(share * n), min(10, floor(n / 2)))) of n. A unit of the stratum not drawn is validation by the hash
-  or else train.
+  min(n, max(ceil(share * n), min(10, floor(n / 2)))) of n. A unit of the stratum not drawn is train: the anomalies
+  are split across test and train alone, and a run's choices are made on the normal validation part.
 - A study in doubt is in no part, neither trained nor tested here, until a person has looked: the store's classes
   look, open, labelling_error and not_whole; anomaly-holdout.json's disputed persons; and, for every member, a study
   whose release masks lack a level from C2 to L5 that a segmenter adds (admission.json, complete), since a machine-
   added level is never pooled with the release's masks. A study whose list holds only the sacrum stays. Doubt comes
   before every other branch: a held or holdout study in doubt is held.
 - anomaly-holdout.json's holdout persons are test at every share, never trained on: testing trains nothing, and
-  section 8 reports T13 as a type on them, descriptively. A study the store marks training_allowed 0 otherwise (the
+  section 8 reports T13 as a type on them, descriptively; a holdout unit counts in no stratum and carries no
+  weight in a number pooled over strata. A study the store marks training_allowed 0 otherwise (the
   holdout's fold persons, which the route's other fine-tunes train on) is held: in no part and not reserved.
 - The reserve is every unit not held that is test at 0.3, or whose hash is in the band [0.1, 0.4) whatever its
   kind, so that decision 7's fallback to the plain hash draw, and a reader's look that moves a study into or out of a
-  class, can never make a study test after a run trained on it. Studies outside the export that admission.json waits
-  on (a look, or a repaired mask not yet checked) are reserved with their unit where they are in one, else by their
-  own key's band. Every study of a reserved unit is listed, each with its own why.
+  class, can never make a study test after a run trained on it. Studies outside the export that wait on a person are
+  reserved with their unit where they are in one, else by their own key's band: those admission.json marks look,
+  and those it admits but the export leaves out, at 3abc2fa the ENHANCE.PET studies whose repaired masks
+  (facts.jsonl's rows with repaired_from) keep them out of gold 3 until a person checks them. Every study of a reserved unit is listed, each with its own why.
 
 A person is the export's person key (enhance_pet:0001, verse:..., totalsegmentator:...), compared by exact string.
 This evaluation's arm F starts from an annealer checkpoint only where the run recorded this file's sha256 and no
@@ -106,6 +126,19 @@ ANOMALY_CLASSES = frozenset({
 })
 DOUBT_CLASSES = frozenset({"look", "open", "labelling_error", "not_whole"})
 PLAIN_CLASSES = frozenset({"normal", "unread"})
+FAMILY_OF = {
+    "normal": "normal", "unread": "unread",
+    "l6_twelve_ribs": "six_lumbar", "l6": "six_lumbar",
+    "four_lumbar_twelve_ribs": "four_lumbar", "four_lumbar": "four_lumbar",
+    "l6_thirteen_ribs": "t13", "thirteen_ribs": "t13", "t13": "t13",
+    "eleven_ribs": "rib_anomaly", "asymmetric_ribs": "rib_anomaly",
+}
+ANOMALY_FAMILIES = ("four_lumbar", "six_lumbar", "t13", "rib_anomaly")
+FAMILY_BY_MEMBER = {("totalsegmentator", "l6"): "six_lumbar_by_names"}
+FIRST_RUN_STATUS = "confirmed_by_masks"
+FIRST_RUN_PARTS = frozenset({"train", "validation", "test"})
+assert {c for c, f in FAMILY_OF.items() if f in ANOMALY_FAMILIES} == ANOMALY_CLASSES
+assert set(FAMILY_OF) == ANOMALY_CLASSES | PLAIN_CLASSES
 NAMED_LEVELS = frozenset(
     [f"C{n}" for n in range(2, 8)] + [f"T{n}" for n in range(1, 13)] + [f"L{n}" for n in range(1, 6)])
 ALIAS_KEYS = frozenset({"persons", "sources"})
@@ -221,6 +254,14 @@ def waiting_studies(admission: dict, exported: set[str]) -> dict[str, dict]:
             reason = "waits for a look" if study["verdict"] == "look" else "a repaired mask not yet checked"
             out[item] = {"person": study_key(study), "item": item, "reason": reason}
     return out
+
+
+def no_l5_persons(admission: dict, rows: list[dict]) -> frozenset:
+    """The exported persons whose masks leave a fused L5 undrawn (admission.json's flag no_l5)."""
+    person_of = {row["item"]: row["person"] for row in rows}
+    flagged = (f"{study['member']}:{study['id']}" for study in admission["studies"]
+               if "no_l5" in (study.get("flags") or []))
+    return frozenset(person_of[item] for item in flagged if item in person_of)
 
 
 def holdout_roles(holdout: dict) -> tuple[frozenset, frozenset]:
@@ -421,9 +462,11 @@ def unit_part(unit: dict, share: float, drawn: dict[str, tuple[int, int]]) -> st
         return {"holdout": "test", "held": "held", "doubt": "doubt"}[unit["kind"]]
     if unit["key"] in drawn:
         return "test"
+    if unit["kind"] == "stratum":
+        return "train"
     if unit["value"] < VALIDATION_SHARE:
         return "validation"
-    if unit["kind"] == "plain" and in_band(unit["value"], share):
+    if in_band(unit["value"], share):
         return "test"
     return "train"
 
@@ -439,6 +482,35 @@ def study_parts(units, kinds, share) -> dict[str, str]:
         for person in units[key]["members"]:
             parts[person] = part if kinds[person] in ("stratum", "plain", "holdout") else kinds[person]
     return parts
+
+
+def family_of(member: str, klass: str) -> str:
+    return FAMILY_BY_MEMBER.get((member, klass)) or FAMILY_OF.get(klass, "doubt")
+
+
+def in_first_run(row: dict, part: str, no_l5: frozenset) -> bool:
+    """Whether the first run reads a study: normal spines alone, confirmed by the masks or read normal by VerSe's
+    readers with an L5 drawn, and only in a part it may train, validate or test on."""
+    if part not in FIRST_RUN_PARTS or row["class"] != "normal":
+        return False
+    if row["member"] == "verse":
+        return row["person"] not in no_l5
+    return row["status"] == FIRST_RUN_STATUS
+
+
+def unit_family(unit: dict, by_person: dict[str, dict], kinds: dict[str, str]) -> str:
+    """A unit's family: its stratum's, else the family its studies outside doubt share, else doubt."""
+    if unit["stratum"]:
+        member, klass, _ = unit["stratum"].split(":")
+        return family_of(member, klass)
+    families = {family_of(by_person[p]["member"], by_person[p]["class"]) for p in unit["members"]
+                if kinds[p] != "doubt"}
+    return families.pop() if len(families) == 1 else "doubt"
+
+
+def family_part(unit: dict, part: str) -> str:
+    """The part a unit counts under in a family's counts: a holdout unit, tested in no stratum, apart."""
+    return "holdout" if unit["kind"] == "holdout" else part
 
 
 def unit_reserved(unit: dict, drawn: dict[str, tuple[int, int]]) -> bool:
@@ -504,7 +576,7 @@ def reserve(rows, units, kinds, doubt, waiting) -> list[dict]:
 # Checks and the report
 
 
-def check(rows, units, kinds, doubt, listed, groups) -> dict:
+def check(rows, units, kinds, doubt, listed, groups, no_l5) -> dict:
     """The properties both threads rely on, each read apart from the branch that should make it hold; any one
     failing stops the files from being written."""
     reserved = {entry["person"] for entry in listed}
@@ -518,6 +590,16 @@ def check(rows, units, kinds, doubt, listed, groups) -> dict:
                 for share in SHARES}
     exported_groups = [[person_of[item] for item in group if item in person_of] for group in groups]
     whole_units = [unit["members"] + [study["person"] for study in unit["outside"]] for unit in units.values()]
+    by_person = {row["person"]: row for row in rows}
+    by_unit = {share: unit_parts(units, share) for share in SHARES}
+    family_parts = {share: collections.defaultdict(set) for share in SHARES}
+    for share in SHARES:
+        for key, part in by_unit[share].items():
+            if units[key]["members"]:
+                family_parts[share][unit_family(units[key], by_person, kinds)].add(family_part(units[key], part))
+    study_by_share = {share: study_parts(units, kinds, share) for share in SHARES}
+    first_run = [p for share in SHARES for p, part in study_by_share[share].items()
+                 if in_first_run(by_person[p], part, no_l5)]
     results = {
         "reserve_not_empty": bool(listed),
         "persons_unique": len(reserved) == len(listed),
@@ -530,6 +612,18 @@ def check(rows, units, kinds, doubt, listed, groups) -> dict:
         "no_held_study_reserved": not any(not row["training_allowed"] and row["person"] not in tests[RESERVE_SHARE]
                                           and row["person"] in reserved for row in rows),
         "no_doubt_study_tested": not any(p in doubt for share in SHARES for p in tests[share]),
+        "no_anomaly_validated": not any(by_person[p]["class"] in ANOMALY_CLASSES and part == "validation"
+                                        for share in SHARES for p, part in study_by_share[share].items()),
+        "anomalies_in_strata": all(units[unit_of[row["person"]]]["kind"] == "stratum" for row in rows
+                                   if row["class"] in ANOMALY_CLASSES
+                                   and kinds[row["person"]] not in ("doubt", "held", "holdout")),
+        "every_family_drawn_into_test_and_train": all({"test", "train"} <= family_parts[share][family]
+                                                      for share in SHARES for family in ANOMALY_FAMILIES),
+        "first_run_normal_only": all(
+            by_person[p]["class"] == "normal" and p not in doubt and p not in no_l5
+            and (by_person[p]["status"] == FIRST_RUN_STATUS if by_person[p]["member"] != "verse"
+                 else bool(by_person[p]["training_allowed"]) or kinds[p] == "holdout")
+            for p in first_run),
     }
     if not all(results.values()):
         failed = [name for name, ok in results.items() if not ok]
@@ -537,9 +631,10 @@ def check(rows, units, kinds, doubt, listed, groups) -> dict:
     return results
 
 
-def summary(rows, units, kinds) -> dict:
-    """Counts at each share: units and studies by part, each stratum's units (N_h) and test units (n_h), and studies
-    by member, class and part."""
+def summary(rows, units, kinds, no_l5) -> dict:
+    """Counts at each share: units and studies by part, units by family and part (a holdout unit apart), the first
+    run's units and studies by part, each stratum's units (N_h) and test units (n_h), and studies by member, class and
+    part."""
     out = {}
     by_person = {row["person"]: row for row in rows}
     for share in SHARES:
@@ -553,10 +648,17 @@ def summary(rows, units, kinds) -> dict:
                 strata[unit["stratum"]][1] += unit["key"] in drawn
         counts = collections.Counter((by_person[p]["member"], by_person[p]["class"], part)
                                      for p, part in parts.items())
+        families = collections.Counter((unit_family(units[key], by_person, kinds), family_part(units[key], part))
+                                       for key, part in by_unit.items() if units[key]["members"])
+        first = {p: part for p, part in parts.items() if in_first_run(by_person[p], part, no_l5)}
         out[str(share)] = {
             "units_by_part": dict(sorted(collections.Counter(
                 part for key, part in by_unit.items() if units[key]["members"]).items())),
             "studies_by_part": dict(sorted(collections.Counter(parts.values()).items())),
+            "families_units_by_part": {f"{family}|{part}": n for (family, part), n in sorted(families.items())},
+            "first_run_units_by_part": dict(sorted(collections.Counter(
+                part for key, part in by_unit.items() if any(p in first for p in units[key]["members"])).items())),
+            "first_run_studies_by_part": dict(sorted(collections.Counter(first.values()).items())),
             "strata_units_N_h_n_h": {name: pair for name, pair in sorted(strata.items())},
             "member_class_part": {f"{m}|{c}|{p}": n for (m, c, p), n in sorted(counts.items())},
         }
@@ -614,6 +716,7 @@ def main(argv: list[str] | None = None) -> int:
     rows = read_rows(args.export, args.calls)
     admission = read_json(paths["admission"])
     holdout, disputed = holdout_roles(read_json(paths["anomaly_holdout"]))
+    no_l5 = no_l5_persons(admission, rows)
     missing = missing_levels(admission)
     doubt = {row["person"]: reason for row in rows
              if (reason := doubt_reason(row, disputed, missing)) is not None}
@@ -623,7 +726,7 @@ def main(argv: list[str] | None = None) -> int:
     units = build_units(rows, kinds, groups, waiting)
     doubt_conflicts(units, kinds, doubt)
     listed = reserve(rows, units, kinds, doubt, waiting)
-    checks = check(rows, units, kinds, doubt, listed, groups)
+    checks = check(rows, units, kinds, doubt, listed, groups, no_l5)
 
     reserve_text = list_text(listed)
     groups_text = list_text(groups_listing(units))
@@ -639,7 +742,13 @@ def main(argv: list[str] | None = None) -> int:
                  "repeat_loose_volume": REPEAT_LOOSE_VOLUME, "repeat_spacing": REPEAT_SPACING,
                  "repeat_min_levels": REPEAT_MIN_LEVELS, "repeat_min_spacings": REPEAT_MIN_SPACINGS,
                  "repeat_ribs": REPEAT_RIBS, "repeat_min_ribs": REPEAT_MIN_RIBS,
-                 "repeat_min_rib_voxels": REPEAT_MIN_RIB_VOXELS},
+                 "repeat_min_rib_voxels": REPEAT_MIN_RIB_VOXELS, "families": FAMILY_OF,
+                 "family_by_member": {f"{m}:{c}": f for (m, c), f in FAMILY_BY_MEMBER.items()},
+                 "anomalies": "drawn test or train by stratum, never validation; anomaly-holdout.json's holdout "
+                              "persons test in no stratum; training_allowed 0 persons held",
+                 "first_run": f"class normal with status {FIRST_RUN_STATUS}, or VerSe's readers' normal whose masks "
+                              "draw its L5 (no admission.json flag no_l5), "
+                              f"in {sorted(FIRST_RUN_PARTS)}"},
         "rows": len(rows),
         "units": sum(1 for unit in units.values() if unit["members"]),
         "kinds": dict(sorted(collections.Counter(kinds.values()).items())),
@@ -650,7 +759,7 @@ def main(argv: list[str] | None = None) -> int:
         "reserved": len(listed),
         "reserved_by_class": dict(sorted(collections.Counter(entry["class"] for entry in listed).items())),
         "checks": checks,
-        "counts": summary(rows, units, kinds),
+        "counts": summary(rows, units, kinds, no_l5),
     }
     write_atomically(args.out, reserve_text)
     write_atomically(args.groups_out, groups_text)
@@ -658,7 +767,12 @@ def main(argv: list[str] | None = None) -> int:
     if args.parts_out:
         parts = study_parts(units, kinds, args.test_share)
         unit_key = {person: unit["key"] for unit in units.values() for person in unit["members"]}
-        lines = [json.dumps({"person": p, "part": parts[p], "unit": unit_key[p]}) for p in sorted(parts)]
+        by_person = {row["person"]: row for row in rows}
+        family_of_unit = {key: unit_family(unit, by_person, kinds) for key, unit in units.items()}
+        lines = [json.dumps({"person": p, "part": parts[p], "unit": unit_key[p],
+                             "family": family_of(by_person[p]["member"], by_person[p]["class"]),
+                             "unit_family": family_of_unit[unit_key[p]],
+                             "first_run": in_first_run(by_person[p], parts[p], no_l5)}) for p in sorted(parts)]
         write_atomically(args.parts_out, "\n".join(lines) + "\n")
     print(json.dumps({"reserved": len(listed), "reserve_sha256": report["reserve_sha256"],
                       "groups_sha256": report["groups_sha256"], "checks": checks}))
