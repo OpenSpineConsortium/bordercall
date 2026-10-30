@@ -1,0 +1,1 @@
+Choosing the rule by held-out prediction, every paper held out in turn. A and B, each candidate's log loss and accuracy on the held-out populations; C, calibration; D and E, the SD factor and the temperature swept, the inner choices as ticks; F, the winner against the plain rule, population by population.

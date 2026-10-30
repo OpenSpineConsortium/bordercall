@@ -645,13 +645,54 @@ def rec_strata(rec: str) -> str:
     return os.path.join(rec, "strata")
 
 
+def t_select(rec: str) -> str:
+    """Choosing the rule by held-out prediction: every candidate on the held-out populations
+    (records/select)."""
+    rs = os.path.join(rec, "select")
+    j = read_json(rs, "select.json")
+    summary = j["summary"]
+    widths = j["sizes"]["widths"]
+    order = ["own table"] + list(j["candidates"])
+
+    def row_of(candidate, w):
+        return next(r for r in summary if r["candidate"] == candidate and r["width"] == w)
+
+    def pm(x, se, digits=3):
+        return "%s (%s)" % (f(x, digits), f(se, digits)) if se is not None and math.isfinite(se) else f(x, digits)
+    rows = []
+    for w in widths:
+        for c in order:
+            r = row_of(c, w)
+            rows.append([c, w, pm(r["log_loss_mean"], r["log_score_se"]),
+                         "-" if c == "plain" else "%s (%s)" % (f(-r["log_score_vs_plain"], 3), f(r["log_score_vs_plain_se"], 3)) if c != "own table" else "-",
+                         "-" if c in ("plain", "own table") else "%d of %d" % (r["wins_vs_plain"], r["populations"]),
+                         pm(100 * r["exact_mean"], 100 * r["exact_se"], 1),
+                         "-" if c in ("plain", "own table") else "%s (%s)" % (f(100 * r["exact_vs_plain"], 1), f(100 * r["exact_vs_plain_se"], 1)),
+                         f(r["ece_pooled"], 3), pct(r["answered_mean"]), pct(r["precision_pooled"], 0)])
+    t1 = table(["candidate", "bodies", "log loss (SE)", "log loss minus plain (SE)", "beats plain", "accuracy % (SE)", "accuracy minus plain (SE)",
+                "calibration error", "answered at 0.99 (%)", "right (%)"], rows, right=1, text=(0,))
+    choices = read_csv(rs, "choices.csv")
+    rows = []
+    for ch in sorted(choices, key=lambda c: c["paper"]):
+        rows.append([ch["paper"], ch["n_measures"], ch["inner_folds"], f(num(ch["k"]), 2)] + [f(num(ch["t_%d" % w]), 1) for w in widths])
+    t2 = table(["paper held out", "measures", "inner folds", "SD factor k"] + ["T at %d" % w for w in widths], rows, right=1, text=(0,))
+    won = j["winner"]
+    rows = [["winner by held-out log score", won["by_log_score"]], ["winner by held-out accuracy", won["by_accuracy"]],
+            ["populations held out / columns a population / columns an inner fold",
+             "%d / %d / %d" % (j["sizes"]["populations"], j["sizes"]["columns"], j["sizes"]["inner_columns"])],
+            ["the SD factor's grid", ", ".join("%g" % k for k in j["grids"]["k"])],
+            ["the temperature's grid", ", ".join("%g" % t for t in j["grids"]["temperature"])]]
+    t3 = table(["the selection", "value"], rows)
+    return t1 + "\n\n" + t2 + "\n\n" + t3
+
+
 TABLES: Dict[str, Callable[[str], str]] = {
     "selection": t_selection, "means": t_means, "by_measure": t_by_measure, "structure": t_structure,
     "quality": t_quality, "state_space": t_state_space, "grid": t_grid, "naming": t_naming, "spread": t_spread,
     "part_c": t_part_c, "gold": t_gold, "assumptions": t_assumptions,
     "all_inventory": t_all_inventory, "all_cells": t_all_cells, "all_state_space": t_all_state_space, "all_axes": t_all_axes,
     "all_quality": t_all_quality, "all_relations": t_all_relations, "all_naming": t_all_naming, "all_spread": t_all_spread,
-    "all_measures": t_all_measures, "strata": t_strata}
+    "all_measures": t_all_measures, "strata": t_strata, "select": t_select}
 MARK = re.compile(r"(<!-- table (\w+) -->\n)(.*?)(<!-- end \2 -->)", re.S)
 
 

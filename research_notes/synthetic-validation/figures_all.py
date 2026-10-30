@@ -19,8 +19,11 @@ the first part's eight.
 """
 from __future__ import annotations
 
+import math
 import os
 from typing import Dict, List, Sequence
+
+import numpy as np
 
 from synthval import house as H
 
@@ -343,7 +346,8 @@ def fig_strata(records: str, out: str) -> List[str]:
 
     # A: every paper left out, at the widest field: its loss under each rule, and the pooled loss with the interval for one more.
     a = axes[0, 0]
-    papers = sorted({r["paper"] for r in loo},
+    # sorted by name first, so two papers with one loss keep one order whatever the set's order was
+    papers = sorted(sorted({r["paper"] for r in loo}),
                     key=lambda p: _num(next(r["loss"] for r in loo if r["paper"] == p and r["arm"] == MERGED and int(r["width"]) == w_main)))
     for j_, arm in enumerate((MERGED, PREDICTED, SD_ONLY)):
         st = H.SERIES_STYLE[j_]
@@ -438,4 +442,122 @@ def fig_strata(records: str, out: str) -> List[str]:
         "D, populations drawn from the model."))
 
 
-FIGURES_ALL = (fig_tables, fig_relations, fig_state_space_all, fig_naming_measures, fig_spread_all, fig_strata)
+# ---- choosing the rule by held-out prediction -----------------------------------------------------------
+
+CANDIDATE_LABEL = {"own table": "own table (oracle)", "plain": "plain", "widened by tau": "widened by tau", "scaled SD": "scaled SD (k inner)",
+                   "tempered": "tempered (T inner)", "mixture": "mixture"}
+CANDIDATE_TICK = {"own table": "own\n(oracle)", "plain": "plain", "widened by tau": "widened\nby tau", "scaled SD": "scaled\nSD (k)",
+                  "tempered": "tempered\n(T)", "mixture": "mixture"}
+
+
+def _select(records: str, name: str) -> str:
+    return os.path.join(records, "select", name)
+
+
+def fig_select(records: str, out: str) -> List[str]:
+    plt = H.style()
+    j = _read_json(_select(records, "select.json"))
+    summary = j["summary"]
+    scores = _read_csv(_select(records, "scores.csv"))
+    calibration = _read_csv(_select(records, "calibration.csv"))
+    k_curve = _read_csv(_select(records, "k_curve.csv"))
+    t_curve = _read_csv(_select(records, "t_curve.csv"))
+    choices = _read_csv(_select(records, "choices.csv"))
+    widths = [int(w) for w in j["sizes"]["widths"]]
+    w_main = max(widths)
+    candidates = ["own table"] + list(j["candidates"])
+    won = j["winner"]["by_log_score"]
+    fig, axes = plt.subplots(2, 3, figsize=(12.0, 7.6))
+    drawn = []
+
+    def srow(candidate, w):
+        return next(r for r in summary if r["candidate"] == candidate and r["width"] == w)
+
+    # A and B: every candidate's held-out log loss and accuracy, the mean over the populations, bars its SE.
+    for ax, key, se_key, label, letter, note in ((axes[0, 0], "log_loss_mean", "log_score_se", "held-out log loss (nats, lower is better)", "A",
+                                                   "mean over the %d held-out populations, bars one SE" % j["sizes"]["populations"]),
+                                                  (axes[0, 1], "exact_mean", "exact_se", "held-out accuracy (top-1, exact level)", "B",
+                                                   "the same populations; the oracle is the paper's own table")):
+        for wi, w in enumerate(widths):
+            st = dict(H.SERIES_STYLE[wi])
+            xs = list(range(len(candidates)))
+            ys = [srow(c, w)[key] for c in candidates]
+            es = [srow(c, w)[se_key] or 0.0 for c in candidates]
+            if key == "exact_mean":
+                ys, es = [100 * y for y in ys], [100 * e for e in es]
+            ax.errorbar([x + (wi - 1) * 0.12 for x in xs], ys, yerr=es, color=H.INK, elinewidth=0.6, label="%d bod%s" % (w, "y" if w == 1 else "ies"), **st)
+            drawn += [{"panel": letter, "candidate": c, "width": w, key: y, se_key: e} for c, y, e in zip(candidates, ys, es)]
+        ax.set_xticks(list(range(len(candidates))))
+        ax.set_xticklabels([CANDIDATE_TICK[c] for c in candidates], fontsize=6.5)
+        ax.set_ylabel(label)
+        ax.legend(loc="upper right" if key == "log_loss_mean" else "lower right", fontsize=6.5)
+        H.letter(ax, letter, note)
+
+    # C: the reliability diagram at the widest field, pooled over the populations.
+    c = axes[0, 2]
+    for ci, cand in enumerate(candidates):
+        rows = [r for r in calibration if r["candidate"] == cand and int(r["width"]) == w_main]
+        st = dict(H.SERIES_STYLE[ci % len(H.SERIES_STYLE)])
+        c.plot([_num(r["confidence"]) for r in rows], [_num(r["accuracy"]) for r in rows], color=H.INK, linewidth=0.8, markersize=3.5,
+               label="%s, ECE %.3f" % (CANDIDATE_LABEL[cand].split(" (")[0], srow(cand, w_main)["ece_pooled"]), **st)
+        drawn += [{"panel": "C", "candidate": cand, "width": w_main, "bin": r["bin"], "confidence": _num(r["confidence"]), "accuracy": _num(r["accuracy"]),
+                   "fields": r["fields"]} for r in rows]
+    c.plot([0, 1], [0, 1], color=H.INK, linewidth=0.6, linestyle=":")
+    c.set_xlim(0, 1)
+    c.set_ylim(0, 1)
+    c.set_xlabel("posterior probability of the named level (bin mean)")
+    c.set_ylabel("share of those fields named right")
+    c.legend(loc="upper left", fontsize=6)
+    H.letter(c, "C", "calibration at %d bodies, all populations pooled; the dotted line is perfect" % w_main)
+
+    # D and E: the held-out log loss along the two knobs, the inner choices as a rug.
+    for ax, rows, key, chosen_key, label, letter in ((axes[1, 0], k_curve, "k", "k", "SD factor k (1 is plain)", "D"),
+                                                     (axes[1, 1], t_curve, "temperature", "t_%d", "temperature T (1 is the exact posterior)", "E")):
+        grid = sorted({_num(r[key]) for r in rows})
+        for wi, w in enumerate(widths):
+            st = dict(H.SERIES_STYLE[wi])
+            ys, es = [], []
+            for g in grid:
+                ls = [-_num(r["log_score"]) for r in rows if int(r["width"]) == w and abs(_num(r[key]) - g) < 1e-9]
+                ys.append(float(np.mean(ls)))
+                es.append(float(np.std(ls, ddof=1) / math.sqrt(len(ls))) if len(ls) > 1 else 0.0)
+            ax.errorbar(grid, ys, yerr=es, color=H.INK, elinewidth=0.6, label="%d bod%s" % (w, "y" if w == 1 else "ies"), **st)
+            drawn += [{"panel": letter, "width": w, key: g, "log_loss_mean": y, "log_loss_se": e} for g, y, e in zip(grid, ys, es)]
+        for wi, w in enumerate(widths):
+            picks = [_num(ch[chosen_key % w if "%" in chosen_key else chosen_key]) for ch in choices]
+            if wi == 0 or "%" in chosen_key:
+                ax.plot(picks, [0.02 + 0.03 * wi] * len(picks), color=H.INK, marker="|", markersize=5, linestyle="none", alpha=0.7,
+                        transform=ax.get_xaxis_transform())
+                drawn += [{"panel": letter, "width": w, "chosen_" + key: pk} for pk in picks]
+        ax.set_xscale("log")
+        ax.set_xticks(grid)
+        ax.set_xticklabels(["%g" % g for g in grid], fontsize=6.5)
+        ax.minorticks_off()
+        ax.set_xlabel(label)
+        ax.set_ylabel("held-out log loss (nats)")
+        ax.legend(loc="upper right", fontsize=6.5)
+        H.letter(ax, letter, "the knob swept on the held-out populations; the ticks are the inner choices")
+
+    # F: the winner by log score against plain, population by population, paired, at the widest field.
+    f = axes[1, 2]
+    rows = sorted([r for r in scores if r["candidate"] == won and int(r["width"]) == w_main], key=lambda r: _num(r["log_score_vs_plain"]))
+    ys = list(range(len(rows)))
+    xs = [_num(r["log_score_vs_plain"]) for r in rows]
+    es = [1.96 * _num(r["log_score_vs_plain_se"]) for r in rows]
+    f.errorbar(xs, ys, xerr=es, color=H.INK, linestyle="none", marker="o", markerfacecolor=H.INK, markersize=3.5, elinewidth=0.6)
+    f.axvline(0, color=H.INK, linewidth=0.6, linestyle=":")
+    f.set_yticks(ys)
+    f.set_yticklabels([r["paper"] for r in rows], fontsize=6.5)
+    f.set_xlabel("log score, %s minus plain (nats, right is better)" % won)
+    drawn += [{"panel": "F", "candidate": won, "width": w_main, "paper": r["paper"], "log_score_vs_plain": x, "half_width_95": e}
+              for r, x, e in zip(rows, xs, es)]
+    H.letter(f, "F", "the winner against plain on each held-out population, %d bodies, bars 95%%" % w_main)
+    fig.tight_layout()
+    H.write_csv(out, "fig15_select", drawn)
+    return H.save(fig, out, "fig15_select", (
+        "Choosing the rule by held-out prediction, every paper held out in turn. A and B, each candidate's log loss and "
+        "accuracy on the held-out populations; C, calibration; D and E, the SD factor and the temperature swept, the inner "
+        "choices as ticks; F, the winner against the plain rule, population by population."))
+
+
+FIGURES_ALL = (fig_tables, fig_relations, fig_state_space_all, fig_naming_measures, fig_spread_all, fig_strata, fig_select)

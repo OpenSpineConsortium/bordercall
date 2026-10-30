@@ -4,11 +4,11 @@ Drawn by `python3 -I figures.py --records records --out figures` from the record
 `python3 -I run.py --out records` (bordercall 560bd00). Each figure's numbers are its CSV; its caption is its .caption.txt.
 The three renders are drawn by render.py from the generator itself, seed 2029, 4000 people.
 
-Drawn at bordercall e4d9ffe, from and by:
+Drawn at bordercall f313dd8, from and by:
 
 - records/RECORD.json, sha256 8229f63cad6bc1ddf0ecc53c9faa6602bb4d79b590165b4c4cd80f5d614c9df1
 - figures.py, sha256 df7e5d8794c0a291faf0b536769e7035a78817b03b24e7d397cda8e82db6281d
-- figures_all.py, sha256 8da03fc186b79e014b99b0e06f553d04a4adcd9a18c5fb2b878eb5a423e5f45b
+- figures_all.py, sha256 b6890f20cde88191a56df5be8ea6bce7fb548f272862e33c2364475301524476
 - render.py, sha256 d4bc0d70416d843a6d019ffefe741cb0fe01013357027395c24448c01cc3a9d9
 - synthval/house.py, sha256 396822b88fcb46e9533162f8a46b8e2443c1d58ac15d1f40e2d0eb4f5653323a
 - schwingcheck/figures.py, sha256 3908d42cc8e93c839d8ddca5bf06591af281e1490d775483e20535a0908b0576
@@ -140,6 +140,15 @@ Every paper its own population. A, the rule built on the other papers, pooled, s
 - fig14_strata.csv, sha256 6b3c562c88c66df8da85139816323193913eacd0992eff5c6f013137968c3f69
 - fig14_strata.pdf, sha256 e217a1f280e4ccda8d5381da7feca24c6d552e954ea26c92a4cc4bf958779cf8
 - fig14_strata.png, sha256 83b6790cbbaa802fcd79872d1c1da13e7dae3d673670cb804bca0c60d3537327
+
+## fig15_select
+
+Choosing the rule by held-out prediction, every paper held out in turn. A and B, each candidate's log loss and accuracy on the held-out populations; C, calibration; D and E, the SD factor and the temperature swept, the inner choices as ticks; F, the winner against the plain rule, population by population.
+
+- fig15_select.caption.txt, sha256 0130dea38ece554e3dc572f75dbd90300191919b53cf98d39cf462162d811f11
+- fig15_select.csv, sha256 cb5b3a33d11a26fd3cf4c7ca901582234c832567bfda1ccd53598bbac9e2f0ba
+- fig15_select.pdf, sha256 dc368c06dda9da5d088a777bd63bec8b19f6849ee225ee604611993ac6f19bae
+- fig15_select.png, sha256 ae8c161edbbd4ee26674ba91f14735b2d279579868e72a94507848fc895db048
 
 ## render1_axial
 

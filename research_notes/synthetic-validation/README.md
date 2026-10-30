@@ -142,6 +142,29 @@ stand; a later snapshot is cut with `python3 -I snapshot.py --write <commit>` an
    width against 86% at three bodies (least 59%). Yadav 2020, Busscher 2010 and frontphys2026 stay under
    90% right under the merged rule at three bodies, their means far from the others' and, for the first
    two, their SDs 1.4 to 2.1 times the pool's (tables strata, figure fig14_strata).
+10. **Choosing the rule by held-out prediction: tempering the plain rule's posterior, dividing its log
+   evidence by T = 2, is the best of five candidates on the held-out log loss at every width, about 0.1
+   nats below the plain rule and better on 15 to 17 of the 22 populations, with the calibration error
+   down from 0.10 to 0.02 to 0.04, and it names exactly what the plain rule names; the mixture over the
+   other papers' populations is the only candidate that names more, by half a point, within its SE; and
+   nothing closes the 9 to 12 point gap to a population's own table, which is the shift of the means.**
+   The owner's words of 2026-10-30: a statistically valid way to maximize predictive ability, not rooted
+   in biology. Each of the 22 papers is held out in turn, five rules are built on the other papers alone
+   (the plain pool, the pool widened by tau, every SD scaled by one factor, the plain rule tempered, and
+   a mixture over the other papers' tables), the factor and the temperature set by a second leave-one-out
+   nested inside the training papers, and each rule is scored on the held-out population at one, two and
+   three bodies by exact naming, the log score and the calibration error, the paper's own table beside
+   them as the ceiling. The tempered rule's log loss is 1.342, 1.127 and 0.849 nats against the plain
+   rule's 1.431, 1.243 and 0.957 (a paired 0.090, 0.116 and 0.108 below, SE 0.049 to 0.065), half of that
+   gain Yadav 2020's, without which it is 0.043 to 0.053 (SE 0.015 to 0.020) on 14 to 16 of 21; the inner
+   choice fell on T = 2 for 11 to 13 of the 22 papers and the held-out curve bottoms there at every
+   width. The widened rule is second, 0.058 to 0.076 nats below plain with no knob and a calibration
+   error of 0.03 to 0.04; the scaled rule (factor 1.45 for 14 of 22) gains 0.03 to 0.05 nats and loses 0.4
+   to 0.9 points of naming; the mixture names 0.4, 0.3 and 0.5 points more (SE 0.3) and stays as
+   overconfident as plain (calibration error 0.07 to 0.09). At 0.99 the tempered rule answers on 1.1,
+   2.2 and 3.1% of fields and is right on 99, 90 and 91% of those answers, Yadav again the floor; Yadav
+   apart it is right on 99.5 to 99.9% against plain's 95.5 to 96.6% (table select, figure fig15_select).
+
 ## What was compared
 
 **The generator.** schwingcheck draws each value as s^p (mu + sd (rho z + sqrt(1 - rho^2) e)) + error n:
@@ -987,7 +1010,7 @@ for one more population's mean), so the papers are combined as a meta-analysis c
 and C then keep only the pooled mean and the within-person SD, so a population drawn from them, and the
 rule built on them, merges every paper into one and drops tau. synthval/strata.py keeps each paper a
 population of its own, the stratum a paper (a cohort, a sex or a variable of the population register
-the owner asked for on 2026-10-29, not built yet, is the same code with another grouping), its cohorts
+the owner asked for on 2026-10-29, on pull request 43's branch, is the same code with another grouping), its cohorts
 one population with the
 mean weighted by their counts and the SD over all its people, and asks what the rule built on the
 others does on it, over the lumbar run L1 to L5 where most of the papers print, on three readings, each
@@ -1128,6 +1151,130 @@ that holds the strata themselves, a mixture over populations rather than one wid
 thing to try, and whether schwingcheck's rule should carry the widened SD is the owner's to choose; this
 note changes neither.
 
+## Choosing the rule by held-out prediction
+
+The owner's words of 2026-10-30, 02:10 UTC: "cant you figure out what works best? I just want a
+statistically valid way to maximize predictive ability that doesnt necessary have to rooted in realistic
+biology". So the rule is chosen as a model is chosen in machine learning, on populations it has never
+seen, and the strata above are the test set: each of the 22 papers of the leave-one-out is held out in
+turn, on the same columns drawn on the same seeds, five candidate rules are built on the other papers
+alone, and each is scored on the held-out population at one, two and three bodies on the same fields
+(synthval/select.py, run_select.py, records/select). The candidates: the others' random-effects pool
+with the within SD, as tables B and C hold it (plain, the merged rule above); the same with every SD
+widened by tau, sqrt(sd^2 + tau^2 + SE^2) (widened, the predicted rule above, with no knob); the same
+with every SD multiplied by one factor k (scaled); the plain rule with its log evidence divided by a
+temperature T before the posterior is taken (tempered), which moves the posterior's confidence and never
+which place wins; and a mixture, one table per other paper, the pool with that paper's own cells put in
+where it prints them, the field's evidence the equal-weight average over those tables. The two knobs are
+set by a second leave-one-out nested inside the training papers: for each held-out paper, every other
+paper that prints any of its measures is held out of the rest in turn on 150 columns, the rule built on
+the rest is scored over the grids k in 0.7 to 3 and T in 0.5 to 8, and k takes the best mean log score
+over those folds and the three widths, T the best per width; the held-out paper is dropped from the
+cells first, its stratum and its series, so nothing of it reaches the choice. Every rule is read by the
+share of fields named exactly, by the log score, the mean log posterior probability of the true place,
+whose negative is the log loss in nats and the proper score the choice is made on, by the expected
+calibration error of the top probability over ten bins, and by the promise at 0.99. The held-out paper's
+own table is scored beside them, the best any rule of this kind can do on that population. Each
+population is one fold with the same weight: a candidate's number is its mean over the 22 with the SE
+across them, and its difference from the plain rule the paired difference per population with its SE
+across them. Choosing the best of five on the same folds is a small selection; each candidate's own
+number is honest.
+
+<!-- table select -->
+| candidate | bodies | log loss (SE) | log loss minus plain (SE) | beats plain | accuracy % (SE) | accuracy minus plain (SE) | calibration error | answered at 0.99 (%) | right (%) |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| own table | 1 | 1.145 (0.056) | - | - | 48.7 (2.6) | - | 0.002 | 3.1 | 100 |
+| plain | 1 | 1.431 (0.071) | - | - | 39.8 (1.7) | - | 0.094 | 3.7 | 92 |
+| widened by tau | 1 | 1.373 (0.050) | -0.058 (0.030) | 14 of 22 | 39.8 (1.7) | 0.0 (0.6) | 0.027 | 1.5 | 94 |
+| scaled SD | 1 | 1.403 (0.066) | -0.028 (0.016) | 14 of 22 | 39.0 (1.9) | -0.8 (0.7) | 0.044 | 1.6 | 90 |
+| tempered | 1 | 1.342 (0.040) | -0.090 (0.049) | 15 of 22 | 39.8 (1.7) | 0.0 (0.0) | 0.020 | 1.1 | 99 |
+| mixture | 1 | 1.411 (0.065) | -0.021 (0.017) | 15 of 22 | 40.2 (1.8) | 0.4 (0.3) | 0.069 | 2.7 | 88 |
+| own table | 2 | 0.855 (0.060) | - | - | 60.9 (3.0) | - | 0.004 | 6.5 | 100 |
+| plain | 2 | 1.243 (0.110) | - | - | 49.0 (1.8) | - | 0.110 | 6.4 | 87 |
+| widened by tau | 2 | 1.168 (0.078) | -0.076 (0.041) | 15 of 22 | 49.0 (1.9) | -0.0 (0.7) | 0.039 | 2.7 | 86 |
+| scaled SD | 2 | 1.205 (0.103) | -0.038 (0.018) | 16 of 22 | 48.1 (2.0) | -0.9 (0.8) | 0.049 | 3.0 | 81 |
+| tempered | 2 | 1.127 (0.056) | -0.116 (0.065) | 17 of 22 | 49.0 (1.8) | 0.0 (0.0) | 0.037 | 2.2 | 90 |
+| mixture | 2 | 1.237 (0.113) | -0.007 (0.010) | 13 of 22 | 49.3 (1.8) | 0.3 (0.3) | 0.089 | 5.1 | 83 |
+| own table | 3 | 0.590 (0.052) | - | - | 72.4 (2.8) | - | 0.003 | 12.2 | 100 |
+| plain | 3 | 0.957 (0.099) | - | - | 60.2 (1.7) | - | 0.101 | 10.1 | 89 |
+| widened by tau | 3 | 0.892 (0.077) | -0.064 (0.032) | 13 of 22 | 60.4 (1.8) | 0.2 (0.8) | 0.042 | 4.7 | 88 |
+| scaled SD | 3 | 0.909 (0.095) | -0.047 (0.016) | 16 of 22 | 59.8 (1.9) | -0.4 (0.6) | 0.039 | 4.9 | 85 |
+| tempered | 3 | 0.849 (0.048) | -0.108 (0.059) | 16 of 22 | 60.2 (1.7) | 0.0 (0.0) | 0.039 | 3.1 | 91 |
+| mixture | 3 | 0.941 (0.099) | -0.016 (0.008) | 13 of 22 | 60.7 (1.8) | 0.5 (0.3) | 0.086 | 8.6 | 89 |
+
+| paper held out | measures | inner folds | SD factor k | T at 1 | T at 2 | T at 3 |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| abbas2021 | 2 | 7 | 1.75 | 2.8 | 2.8 | 2.8 |
+| alonge2021 | 2 | 7 | 1.20 | 2.0 | 1.4 | 1.4 |
+| amonookuofi1982 | 1 | 2 | 1.20 | 1.0 | 1.0 | 1.4 |
+| amonookuofi1985 | 1 | 7 | 1.45 | 2.8 | 2.0 | 1.4 |
+| arockiaraj2025 | 4 | 8 | 1.45 | 1.4 | 1.4 | 1.4 |
+| bach2019 | 4 | 2 | 1.20 | 1.4 | 1.4 | 1.4 |
+| busscher2010 | 3 | 3 | 1.00 | 2.0 | 2.0 | 2.0 |
+| chaudhary2015 | 1 | 2 | 1.45 | 2.0 | 2.0 | 2.0 |
+| cizmic2023 | 2 | 7 | 1.20 | 1.4 | 1.4 | 1.4 |
+| frontphys2026 | 5 | 4 | 3.00 | 2.8 | 5.6 | 5.6 |
+| griffith2016 | 3 | 7 | 1.45 | 2.0 | 2.0 | 2.0 |
+| hinck1966 | 1 | 2 | 1.45 | 1.4 | 2.0 | 2.0 |
+| hou1993 | 2 | 8 | 1.45 | 2.0 | 2.0 | 2.0 |
+| lien2007 | 4 | 8 | 1.45 | 1.4 | 1.4 | 1.4 |
+| masharawi2021 | 5 | 16 | 1.45 | 2.0 | 1.4 | 1.4 |
+| moncadahabib2025 | 6 | 10 | 1.45 | 2.0 | 2.0 | 2.0 |
+| olsewski1990 | 4 | 8 | 1.45 | 2.0 | 2.0 | 2.0 |
+| otsuki2021 | 3 | 8 | 1.45 | 2.0 | 2.0 | 2.0 |
+| shin2024 | 4 | 2 | 1.45 | 2.0 | 2.0 | 2.0 |
+| tan2004 | 15 | 16 | 1.45 | 2.0 | 2.0 | 2.8 |
+| yadav2020 | 5 | 8 | 1.20 | 2.8 | 2.0 | 2.0 |
+| yu2015 | 2 | 8 | 1.45 | 1.4 | 2.0 | 2.0 |
+
+| the selection | value |
+| --- | ---: |
+| winner by held-out log score | tempered |
+| winner by held-out accuracy | mixture |
+| populations held out / columns a population / columns an inner fold | 22 / 1000 / 150 |
+| the SD factor's grid | 0.7, 0.85, 1, 1.2, 1.45, 1.75, 2.1, 2.5, 3 |
+| the temperature's grid | 0.5, 0.7, 1, 1.4, 2, 2.8, 4, 5.6, 8 |
+<!-- end select -->
+
+The first table is each candidate at each width over the 22 held-out populations: the log loss (its SE
+over the populations), the paired difference from the plain rule (its SE), how many populations it beats
+the plain rule on, exact naming with the same, the calibration error over every field pooled, and the
+promise at 0.99 pooled over the answers; the second each paper's inner choice of the factor and the
+temperature with its inner folds; the third the winners, the sizes and the grids.
+
+Tempering wins on the log loss at every width: 1.342, 1.127 and 0.849 nats at one, two and three bodies
+against the plain rule's 1.431, 1.243 and 0.957, a paired 0.090, 0.116 and 0.108 below it (SE 0.049 to
+0.065), better on 15, 17 and 16 of the 22 populations, and it names exactly what the plain rule names,
+by construction. Half of the mean gain is Yadav 2020's, 1.07 to 1.28 nats on its population, whose
+people spread twice as wide as the pool; without it the gain is 0.043, 0.053 and 0.052 (SE 0.015 to
+0.020), better on 14, 16 and 15 of 21. The inner choice fell on T = 2 for 11 to 13 of the 22 papers, 1.4
+for 6 to 8 and 2.8 for 1 to 4, and the curve over T on the held-out populations bottoms at 2 at every
+width, so the nested choice sits where the held-out best is. The calibration error falls from 0.094,
+0.110 and 0.101 to 0.020, 0.037 and 0.039. The widened rule is second, 0.058, 0.076 and 0.064 nats below
+plain (SE 0.030 to 0.041) with no knob, a calibration error of 0.027, 0.039 and 0.042 and the same
+naming. The scaled rule's factor fell on 1.45 for 14 of 22 papers, where the held-out curve over k
+bottoms too, and it gains 0.028 to 0.047 nats while losing 0.4 to 0.9 points of naming, since one factor
+for every cell is wrong for the population it is scored on more often than the cell's own tau is. The
+mixture is the only candidate that names more: 0.4, 0.3 and 0.5 points over plain (SE 0.3), 5.0 on Yu
+2015 and 3.3 on Arockiaraj 2025 and Otsuki 2021 at three bodies, 1 to 2 less on Olsewski 1990 and
+Griffith 2016; its log loss sits 0.007 to 0.021 below plain and its calibration error at 0.069 to 0.089,
+as overconfident as the plain rule, since every component is as sure as the pool. The promise at 0.99
+under the tempered rule: it answers on 1.1, 2.2 and 3.1% of fields (plain 3.7, 6.4 and 10.1) and is right
+on 99, 90 and 91% of those answers taken together, Yadav 2020 again the floor, with 170 of the 178
+errors at three bodies; Yadav apart it is right on 99.9, 99.6 and 99.5% against the plain rule's 96.3,
+96.6 and 95.5% and the widened rule's 98.8 to 99.1%. No candidate closes the gap to a population's own
+table, 0.29 to 0.37 nats and 9 to 12 points of exact naming: that gap is the shift of the means between
+populations, which no SD, temperature or mixture of the populations seen undoes, and only the
+population's own data would.
+
+What this note takes from it: the rule to carry is the plain rule with its posterior tempered by T = 2
+at every width, one division before the posterior, which keeps every name and makes the 0.99 label mean
+what it says on every population but the one whose people spread twice as wide as any table; the
+widened rule does nearly as much with no knob, and the two can be combined, as can the mixture with the
+tempering, neither tried here. Whether schwingcheck's rule carries the temperature is the owner's to
+choose; this note changes nothing of it. When the population register lands, the same selection runs
+over its populations with the mixture's components the register's strata.
+
 ## Figures and renders
 
 figures/FIGURES.md lists each with its caption, its CSV, the sha256 of every file and the abbreviations
@@ -1149,6 +1296,9 @@ mnemonics.py starts it at the canal's posterior wall.
 - fig14_strata: every paper its own population, the rule built on the others scored on each, the pooled
   loss with its interval for one more population, the promise at 0.99 and the populations drawn from the
   random-effects model (figures_all.py, from records/strata).
+- fig15_select: choosing the rule by held-out prediction, each candidate's held-out log loss and accuracy,
+  the calibration curves, the SD factor and the temperature swept with the inner choices, and the winner
+  against the plain rule population by population (figures_all.py, from records/select).
 - render1_axial, render2_column, render3_solid: L3 from above, the lumbar column from in front, and the
   column as solids, Panjabi's means beside synthetic people.
 
@@ -1160,6 +1310,7 @@ From this folder, with the Python that holds bordercall's pinned packages (requi
 python3 -I run.py --out records                    # every record, about ten minutes on 4 CPUs
 python3 -I run_all.py --out records/all            # the second part, about half an hour; --quick smoke-tests it
 python3 -I run_strata.py --out records/strata      # every paper its own population, about two minutes; --quick too
+python3 -I run_select.py --out records/select      # choosing the rule by held-out prediction, about ten minutes; --quick too
 python3 -I figures.py --records records --out figures
 python3 -I tables.py --records records --write README.md --write MEASURES.md
 python3 -I tables.py --records records --check README.md --check MEASURES.md   # exit 1 when a table differs
@@ -1174,25 +1325,31 @@ part's run the same way, with the whole snapshot's digests from data/SOURCE_ALL.
 of the second part also runs as a Slurm array on the grid, one task a point, with a merge that writes the
 same records (grid/README.md). records/strata/strata.json records the strata reading the same way, with
 its own seeds and sizes; it reads the first part's records/power.json for the split's share and runs in
-about two minutes, so it is not sent to the grid. As committed on 2026-10-29 the records are a container's, and the code
+about two minutes, so it is not sent to the grid. records/select/select.json records the selection the same
+way, with its grids, its seeds and each paper's inner choice; it runs in about ten minutes. As committed on 2026-10-29 the records are a container's, and the code
 digests in RECORD.json and RECORD_ALL.json predate the last changes to run.py, run_all.py and
 synthval/all_measures.py (the array's --point and merge, no number changed); the owner's word of 23:03 UTC
 sends the final rerun to the grid, which rewrites both records.
 
 ## Files
 
-- run.py writes records/, run_all.py records/all/, run_strata.py records/strata/; figures.py,
+- run.py writes records/, run_all.py records/all/, run_strata.py records/strata/, run_select.py
+  records/select/; figures.py,
   figures_all.py and render.py draw figures/; tables.py writes the tables above and MEASURES.md;
   snapshot.py cuts and checks data/.
 - synthval/: literature.py (the selection), pooling.py, population.py, validate.py, structure.py, qi.py,
   sweep.py, naming.py, power.py, references.py (the papers' errors and prevalences), house.py; for the
   second part papers_table.py (the vocabulary, the variants, the three tables), relations.py and
-  all_measures.py; strata.py, every paper its own population and the rule predicted for one more.
+  all_measures.py; strata.py, every paper its own population and the rule predicted for one more;
+  select.py, the rule chosen by held-out prediction.
 - data/: the snapshot of the reread's series and SOURCE.json; series_all.csv, vocabulary.csv and
   SOURCE_ALL.json, the whole reread for the second part.
 - MEASURES.md: every key of the vocabulary with what became of it, written from records/all.
 - tests/test_synthval.py: 31 tests of the code against what its docstrings say; tests/test_all_measures.py:
-  25 of the second part's; tests/test_strata.py: 17 of the strata's.
+  25 of the second part's; tests/test_strata.py: 17 of the strata's; tests/test_select.py: 10 of the
+  selection's.
+- report/: build.py writes the stats page and build_ml.py the page for a machine-learning reader, each
+  from its notes file (notes.json, ml_notes.json), both ignored outputs rebuilt by one command.
 
 ## What this note does not do
 
@@ -1217,5 +1374,10 @@ sends the final rerun to the grid, which rewrites both records.
   with the pool's SD where its own is uncertain, so it reads what the papers print, not their people;
   Yadav 2020's printed SDs, 2.1 times the others' pooled SD, are read as printed and not questioned here.
   It splits by paper; the population register the owner asked for on 2026-10-29 (by author, with sex,
-  ancestry and the like for subgroup analysis), not built yet, gives strata_of another grouping, and no
-  subgroup is read here.
+  ancestry and the like for subgroup analysis) is on pull request 43's branch and not merged, so no
+  subgroup is read here; once it lands it gives strata_of another grouping.
+- The selection of the rule reads the same synthetic populations, so it chooses among rules for naming
+  people drawn from printed means and SDs, not real patients, and only on the lumbar run at 1,000
+  columns a population; five candidates were tried, and the two that could be stacked, the widening or
+  the mixture with the tempering, were not. The temperature it chooses is not put into schwingcheck's
+  rule here.
