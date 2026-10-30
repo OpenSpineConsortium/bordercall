@@ -585,43 +585,51 @@ def t_strata(rec: str) -> str:
     rs = rec_strata(rec)
     j = read_json(rs, "strata.json")
     merged, predicted = "merged: the others pooled", "predicted: the others pooled, SD widened by tau"
-    short = {merged: "merged", predicted: "predicted"}
+    sd_only = "own means, the others' SD"
     pooled = j["pooled"]
 
     def row_of(reading, arm, w):
-        return next(r for r in pooled if r["reading"] == reading and r["arm"] == arm and r["width"] == w)
+        return next((r for r in pooled if r["reading"] == reading and r["arm"] == arm and r["width"] == w), None)
 
     def interval(r):
         return "-" if r["pi_low"] is None else "%s to %s" % (f(r["pi_low"], 1), f(r["pi_high"], 1))
     rows = []
     for reading in dict.fromkeys(r["reading"] for r in pooled):
         for w in j["sizes"]["widths"]:
-            m, p = row_of(reading, merged, w), row_of(reading, predicted, w)
-            rows.append([reading, w, m["papers"], "%s (%s)" % (f(m["loss_pooled"], 1), f(m["loss_se"], 1)), interval(m), f(m["tau_between_papers"], 1),
-                         "%s (%s)" % (f(p["loss_pooled"], 1), f(p["loss_se"], 1)), interval(p), f(p["tau_between_papers"], 1)])
+            m, p, s = row_of(reading, merged, w), row_of(reading, predicted, w), row_of(reading, sd_only, w)
+            rows.append([reading, w, m["populations"], "%s (%s)" % (f(m["loss_pooled"], 1), f(m["loss_se"], 1)), interval(m), f(m["tau_between_populations"], 1),
+                         "%s (%s)" % (f(p["loss_pooled"], 1), f(p["loss_se"], 1)), interval(p), f(p["tau_between_populations"], 1),
+                         "%s (%s)" % (f(s["loss_pooled"], 1), f(s["loss_se"], 1)) if s else "-"])
     t1 = table(["reading", "bodies", "populations", "merged: loss (SE)", "one more population", "spread",
-                "predicted: loss (SE)", "one more population", "spread"], rows, right=1, text=(0,))
+                "predicted: loss (SE)", "one more population", "spread", "the others' SD alone: loss (SE)"], rows, right=1, text=(0,))
     rows = []
     for reading in dict.fromkeys(r["reading"] for r in pooled):
         for w in j["sizes"]["widths"]:
             m, p = row_of(reading, merged, w), row_of(reading, predicted, w)
-            rows.append([reading, w, pct(m["exact_mean"]), pct(m["answered_mean"]), "%s (%s)" % (pct(m["precision_mean"], 0), pct(m["precision_min"], 0)),
-                         pct(p["exact_mean"]), pct(p["answered_mean"]), "%s (%s)" % (pct(p["precision_mean"], 0), pct(p["precision_min"], 0))])
-    t2 = table(["reading", "bodies", "merged: exact (%)", "answered at 0.99 (%)", "right there, mean (least) (%)",
-                "predicted: exact (%)", "answered at 0.99 (%)", "right there, mean (least) (%)"], rows, right=1, text=(0,))
+            rows.append([reading, w, pct(m["exact_mean"]), pct(m["answered_mean"]), pct(m["precision_pooled"], 0),
+                         "%s (%s)" % (pct(m["precision_mean"], 0), pct(m["precision_min"], 0)),
+                         pct(p["exact_mean"]), pct(p["answered_mean"]), pct(p["precision_pooled"], 0),
+                         "%s (%s)" % (pct(p["precision_mean"], 0), pct(p["precision_min"], 0))])
+    t2 = table(["reading", "bodies", "merged: exact (%)", "answered at 0.99 (%)", "right, over the answers (%)", "right, mean over the populations (least) (%)",
+                "predicted: exact (%)", "answered at 0.99 (%)", "right, over the answers (%)", "right, mean over the populations (least) (%)"], rows, right=1, text=(0,))
     loo = read_csv(rs, "loo.csv")
     rows = []
     w3 = max(j["sizes"]["widths"])
-    papers = sorted({r["paper"] for r in loo}, key=lambda p: -num(next(r["loss"] for r in loo if r["paper"] == p and r["arm"] == merged and int(r["width"]) == w3)))
+    # sorted by name first, so two papers with one loss keep one order whatever the set's order was
+    papers = sorted(sorted({r["paper"] for r in loo}), key=lambda p: -num(next(r["loss"] for r in loo if r["paper"] == p and r["arm"] == merged and int(r["width"]) == w3)))
     for paper in papers:
         m = next(r for r in loo if r["paper"] == paper and r["arm"] == merged and int(r["width"]) == w3)
         p = next(r for r in loo if r["paper"] == paper and r["arm"] == predicted and int(r["width"]) == w3)
         own = next(r for r in loo if r["paper"] == paper and r["arm"] == "own table" and int(r["width"]) == w3)
+        s = next(r for r in loo if r["paper"] == paper and r["arm"] == sd_only and int(r["width"]) == w3)
         rows.append([paper, m["n_measures"], "%d of %d" % (int(m["cells_with_own_sd"]), int(m["cells"])), f(m["people"], 0),
+                     f(m["own_sd_over_pool"], 2),
                      pct(own["exact"]), "%s (%s)" % (f(m["loss"], 1), f(m["loss_se"], 1)), pct(m["answered"]), pct(m["precision"], 0),
-                     "%s (%s)" % (f(p["loss"], 1), f(p["loss_se"], 1)), pct(p["answered"]), pct(p["precision"], 0)])
-    t3 = table(["paper left out", "measures", "cells with its own SD", "people", "own table: exact (%)", "merged: loss (SE)",
-                "answered at 0.99 (%)", "right (%)", "predicted: loss (SE)", "answered at 0.99 (%)", "right (%)"], rows, right=1, text=(0, 2))
+                     "%s (%s)" % (f(p["loss"], 1), f(p["loss_se"], 1)), pct(p["answered"]), pct(p["precision"], 0),
+                     "%s (%s)" % (f(s["loss"], 1), f(s["loss_se"], 1))])
+    t3 = table(["paper left out", "measures", "cells with its own SD", "people", "its SD over the others'", "own table: exact (%)", "merged: loss (SE)",
+                "answered at 0.99 (%)", "right (%)", "predicted: loss (SE)", "answered at 0.99 (%)", "right (%)", "the others' SD alone: loss (SE)"],
+               rows, right=1, text=(0, 2))
     c = j["cells"]
     rows = [["placed cells", c["placed"]], ["  with a tau of their own (three series or more)", c["tau_from"].get("own", 0)],
             ["  taking their measure's median tau over SD", c["tau_from"].get("the measure's median", 0)],
@@ -629,7 +637,7 @@ def t_strata(rec: str) -> str:
             ["predictive SD over the within SD, quartiles", " / ".join(f(x) for x in c["predictive_over_sd_quartiles"])],
             ["share of the spread one shift through a measure carries (the first part's split)", pct(j["share_of_spread_as_one_shift"], 0) + "%"],
             ["columns drawn a population / populations drawn from the model", "%d / %d" % (j["sizes"]["columns"], j["sizes"]["tables"])]]
-    t4 = table(["the strata", "count"], rows)
+    t4 = table(["the strata", "value"], rows)
     return t1 + "\n\n" + t2 + "\n\n" + t3 + "\n\n" + t4
 
 

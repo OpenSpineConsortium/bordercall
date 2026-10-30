@@ -119,23 +119,29 @@ stand; a later snapshot is cut with `python3 -I snapshot.py --write <commit>` an
    (tables all_inventory to all_spread, figures fig9_tables to fig13_spread_all).
 
 9. **Every paper its own population: a rule built on the others loses about 9 points at one body and 12 at
-   three, and widening its SDs by tau keeps its answers at 0.99 honest but names nothing better.** The
-   owner's word of 2026-10-29: keep the populations separate and predict as a meta-analysis predicts. Each
-   of 22 papers is left out in turn and the rule built on the others' random-effects pool is scored on
-   columns drawn from that paper's own means over L1 to L5, on the measures it prints at every lumbar
-   level: it loses a pooled 8.9 points of exact naming at one body and 11.9 at three against the paper's
-   own table, with a spread between papers of 6.6 to 8.8 points, so one more population is predicted to
-   lose between nothing and about 30 (frontphys2026, Otsuki, Busscher, Yadav and Tan lose 19 to 32 points,
-   Chaudhary, Amonoo-Kuofi, Cizmic and Abbas under 3). The same rule with every SD widened for a population
-   it has not seen, sqrt(sd^2 + tau^2 + SE^2), 1.50 times the within SD at the median, loses the same
-   (a paired difference of 0.4 points, SD 3.1 over the papers), since the loss is the shift of the means
-   and no SD undoes it; what it changes is the promise: at three bodies it answers at 0.99 on 3.7% of
-   fields against 10.2% and is right on 96% of them against 94%, 77% against 60% on the worst paper, and
-   on the nine papers that print the pedicle's width and height it is right on 100% (least 98%) against 98%
-   (least 93%). On populations drawn from the random-effects model itself the merged rule's answers at
-   0.99 fall to 87 to 88% right (least 58%) and the widened rule's stay at 100%. Three real populations
-   stay under 90% under either rule (Busscher 2010, frontphys2026, Yadav 2020), their means far from the
-   others' and their SDs narrower than the pool's (tables strata, figure fig14_strata).
+   three, and widening its SDs by tau names nothing better; it answers at 0.99 half as often, and those
+   answers are right where the populations are the model's own, not on a paper whose people spread wider
+   than the pool.** The owner's word of 2026-10-29: keep the populations separate and predict as a
+   meta-analysis predicts. Each of the 22 papers that print a measure at every lumbar level another paper
+   pools is left out in turn, its cohorts one population, and the
+   rule built on the others' random-effects pool, borrowing nothing from the paper, is scored on columns
+   drawn from that paper's own means over L1 to L5, on the measures it prints at every lumbar level: it
+   loses a pooled 8.8 points of exact naming at one body and 12.2 at three against the paper's own table,
+   with a spread between papers of 6.7 to 8.4 points, so one more population is predicted to lose between
+   nothing and about 30 (at three bodies frontphys2026, Otsuki 2021, Busscher 2010, Arockiaraj 2025,
+   Tan 2004 and Yadav 2020 lose 18 to 33 points; Hinck 1966, Cizmic 2023, Chaudhary 2015, Abbas 2021 and
+   Amonoo-Kuofi 1985 3 or under). The same rule with every SD widened for a population it has not seen,
+   sqrt(sd^2 + tau^2 + SE^2) with the SE taken under that tau, 1.82 times the within SD at the median,
+   loses the same (a paired difference of 0.2 points or less, SD about 3 over the papers), since the SD
+   difference alone costs 2 to 4 of those points and the shift of the means the rest, which no SD undoes;
+   what it changes is the promise: at three bodies it
+   answers at 0.99 on 4.7% of fields against 10.1% and, over the answers, is right on 88% against 89%,
+   both floors Yadav 2020's, whose own SDs are 2.1 times the pool's; Yadav apart it is right on 99%
+   against 96%, on the nine papers that print the pedicle's width and height on 98% against 96% (least
+   paper 97 against 93%), and on populations drawn from the random-effects model itself on 100% at every
+   width against 86% at three bodies (least 59%). Yadav 2020, Busscher 2010 and frontphys2026 stay under
+   90% right under the merged rule at three bodies, their means far from the others' and, for the first
+   two, their SDs 1.4 to 2.1 times the pool's (tables strata, figure fig14_strata).
 ## What was compared
 
 **The generator.** schwingcheck draws each value as s^p (mu + sd (rho z + sqrt(1 - rho^2) e)) + error n:
@@ -981,9 +987,12 @@ for one more population's mean), so the papers are combined as a meta-analysis c
 and C then keep only the pooled mean and the within-person SD, so a population drawn from them, and the
 rule built on them, merges every paper into one and drops tau. synthval/strata.py keeps each paper a
 population of its own, the stratum a paper (a cohort, a sex or a variable of the population register
-pull request 43 builds is the same code with another grouping), and asks what the rule built on the
+the owner asked for on 2026-10-29, not built yet, is the same code with another grouping), its cohorts
+one population with the
+mean weighted by their counts and the SD over all its people, and asks what the rule built on the
 others does on it, over the lumbar run L1 to L5 where most of the papers print, on three readings, each
-paired on the same fields (run_strata.py, records/strata, 1,000 columns a population):
+paired on the same fields (run_strata.py, records/strata, 1,000 columns a population, each on a seed of
+its own):
 
 - every paper left out in turn, scored on the measures it prints at every lumbar level that the other
   papers still pool there and that carry a modelled error (22 papers, 1 to 15 measures each), on columns
@@ -996,104 +1005,128 @@ paired on the same fields (run_strata.py, records/strata, 1,000 columns a popula
   variance as one shift through the whole measure and the rest cell by cell, the split the first part
   calibrated.
 
-Each population is named by three rules on the same fields: its own table, the loss's zero; the others'
-random-effects pool with the within SD, as tables B and C hold it (merged); and the same means with every
-SD widened for a population the rule has not seen, sqrt(sd^2 + tau^2 + SE^2) (predicted). A cell with
-three series or more has a tau of its own (81 of 694); one with fewer takes its measure's median tau
-over SD from the cells that have one (205), else every cell's median, 1.07 (408), and the record says
-which. The widened SD is 1.46 to 1.53 times the within SD over the quartiles of cells. The per-paper
-losses are then combined by random effects as a meta-analysis combines studies, giving the loss one more
-population is predicted to bring and its interval.
+Each population is named by four rules on the same fields: its own table, the loss's zero; the others'
+random-effects pool with the within SD, as tables B and C hold it (merged); its own means with the others'
+SD (own means, the others' SD), whose loss is what the SD difference alone costs, the rest of the merged
+rule's being the shift of the means; and the same means with every
+SD widened for a population the rule has not seen, sqrt(sd^2 + tau^2 + SE^2) (predicted), the SE
+taken under the same tau, 1 / sum 1 / (v_i + tau^2) over the series' variances, so a cell printed by one
+series spreads by sqrt(2 tau^2 + sd^2 / n), that series being itself a population away from the grand
+mean. A cell with three series or more has a tau of its own (81 of 694); one with fewer takes its
+measure's median tau over SD from the cells that have one (205), else every cell's median, 1.07 (408),
+and the record says which. The widened SD is 1.71 to 1.84 times the within SD over the quartiles of
+cells. The medians a left-out paper's rule borrows are taken over the cells pooled without that paper,
+so nothing of it reaches the rule scored on it: without Tan 2004 the overall median is 0.77, and
+frontphys2026's end-plate measures lose their own median (loo.csv says which measures fell and the
+median without each paper). The per-paper losses are then combined by random effects as a
+meta-analysis combines studies, giving the loss one more population is predicted to bring and its
+interval.
 
 <!-- table strata -->
-| reading | bodies | populations | merged: loss (SE) | one more population | spread | predicted: loss (SE) | one more population | spread |
-| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| every measure the paper prints | 1 | 22 | 8.9 (1.4) | -5.1 to 23.0 | 6.6 | 8.7 (1.5) | -6.3 to 23.7 | 7.0 |
-| every measure the paper prints | 2 | 22 | 11.6 (1.8) | -6.0 to 29.3 | 8.3 | 12.0 (2.0) | -7.6 to 31.7 | 9.2 |
-| every measure the paper prints | 3 | 22 | 11.9 (1.9) | -6.8 to 30.6 | 8.8 | 12.3 (2.0) | -7.5 to 32.0 | 9.3 |
-| the pedicle's width and height | 1 | 9 | 8.4 (1.6) | -3.4 to 20.2 | 4.7 | 7.0 (1.3) | -2.4 to 16.3 | 3.7 |
-| the pedicle's width and height | 2 | 9 | 10.3 (2.1) | -5.6 to 26.2 | 6.4 | 8.9 (1.8) | -4.2 to 22.0 | 5.3 |
-| the pedicle's width and height | 3 | 9 | 10.8 (1.7) | -1.9 to 23.5 | 5.1 | 10.5 (2.0) | -4.6 to 25.6 | 6.1 |
-| a population drawn from the model | 1 | 8 | 23.8 (1.6) | 12.0 to 35.6 | 4.5 | 20.5 (1.8) | 7.3 to 33.6 | 5.1 |
-| a population drawn from the model | 2 | 8 | 32.4 (3.2) | 9.3 to 55.6 | 8.9 | 27.2 (2.9) | 6.0 to 48.4 | 8.2 |
-| a population drawn from the model | 3 | 8 | 28.9 (4.7) | -5.5 to 63.2 | 13.2 | 22.6 (3.1) | -0.3 to 45.6 | 8.8 |
+| reading | bodies | populations | merged: loss (SE) | one more population | spread | predicted: loss (SE) | one more population | spread | the others' SD alone: loss (SE) |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| every measure the paper prints | 1 | 22 | 8.8 (1.4) | -5.4 to 23.1 | 6.7 | 8.8 (1.4) | -5.4 to 23.1 | 6.7 | 2.2 (0.7) |
+| every measure the paper prints | 2 | 22 | 11.8 (1.7) | -5.5 to 29.1 | 8.1 | 11.9 (1.9) | -6.9 to 30.7 | 8.8 | 3.8 (1.2) |
+| every measure the paper prints | 3 | 22 | 12.2 (1.8) | -5.8 to 30.1 | 8.4 | 12.0 (1.8) | -6.0 to 29.9 | 8.4 | 4.0 (1.2) |
+| the pedicle's width and height | 1 | 9 | 8.5 (1.6) | -3.3 to 20.2 | 4.7 | 7.1 (1.4) | -3.2 to 17.4 | 4.1 | 0.7 (0.3) |
+| the pedicle's width and height | 2 | 9 | 10.4 (2.2) | -6.0 to 26.8 | 6.6 | 9.1 (1.9) | -4.8 to 23.0 | 5.6 | 0.8 (0.3) |
+| the pedicle's width and height | 3 | 9 | 11.2 (1.8) | -2.3 to 24.6 | 5.4 | 10.6 (2.2) | -6.0 to 27.2 | 6.6 | 1.0 (0.3) |
+| a population drawn from the model | 1 | 8 | 24.9 (1.7) | 12.3 to 37.5 | 4.8 | 21.5 (1.8) | 8.7 to 34.3 | 4.9 | - |
+| a population drawn from the model | 2 | 8 | 33.5 (3.2) | 10.1 to 56.8 | 9.0 | 28.1 (2.9) | 7.1 to 49.1 | 8.1 | - |
+| a population drawn from the model | 3 | 8 | 29.2 (4.7) | -5.6 to 63.9 | 13.4 | 22.9 (3.2) | -0.3 to 46.2 | 9.0 | - |
 
-| reading | bodies | merged: exact (%) | answered at 0.99 (%) | right there, mean (least) (%) | predicted: exact (%) | answered at 0.99 (%) | right there, mean (least) (%) |
-| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| every measure the paper prints | 1 | 39.7 | 3.9 | 93 (50) | 40.0 | 1.6 | 97 (73) |
-| every measure the paper prints | 2 | 49.3 | 6.4 | 94 (51) | 49.0 | 2.2 | 97 (79) |
-| every measure the paper prints | 3 | 60.8 | 10.2 | 94 (60) | 60.4 | 3.7 | 96 (77) |
-| the pedicle's width and height | 1 | 40.6 | 3.5 | 98 (90) | 42.0 | 1.8 | 100 (96) |
-| the pedicle's width and height | 2 | 51.9 | 4.6 | 98 (92) | 53.3 | 2.2 | 100 (97) |
-| the pedicle's width and height | 3 | 62.3 | 6.2 | 98 (93) | 62.6 | 2.9 | 100 (98) |
-| a population drawn from the model | 1 | 47.6 | 4.3 | 96 (84) | 51.0 | 0.2 | 100 (100) |
-| a population drawn from the model | 2 | 56.4 | 15.7 | 87 (62) | 61.5 | 0.4 | 100 (100) |
-| a population drawn from the model | 3 | 67.1 | 22.9 | 88 (58) | 73.3 | 1.4 | 100 (100) |
+| reading | bodies | merged: exact (%) | answered at 0.99 (%) | right, over the answers (%) | right, mean over the populations (least) (%) | predicted: exact (%) | answered at 0.99 (%) | right, over the answers (%) | right, mean over the populations (least) (%) |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| every measure the paper prints | 1 | 39.8 | 3.7 | 92 | 95 (55) | 39.8 | 1.5 | 94 | 97 (63) |
+| every measure the paper prints | 2 | 49.0 | 6.4 | 87 | 94 (52) | 49.0 | 2.7 | 86 | 96 (54) |
+| every measure the paper prints | 3 | 60.2 | 10.1 | 89 | 94 (63) | 60.4 | 4.7 | 88 | 95 (61) |
+| the pedicle's width and height | 1 | 40.8 | 3.4 | 94 | 98 (89) | 42.2 | 1.6 | 98 | 99 (96) |
+| the pedicle's width and height | 2 | 50.9 | 4.5 | 95 | 98 (91) | 52.2 | 2.0 | 98 | 100 (96) |
+| the pedicle's width and height | 3 | 61.2 | 6.0 | 96 | 98 (93) | 61.8 | 2.8 | 98 | 100 (97) |
+| a population drawn from the model | 1 | 47.6 | 4.4 | 98 | 94 (69) | 51.1 | 0.2 | 100 | 100 (100) |
+| a population drawn from the model | 2 | 56.2 | 16.1 | 83 | 87 (63) | 61.6 | 0.4 | 100 | 100 (100) |
+| a population drawn from the model | 3 | 67.2 | 23.6 | 86 | 88 (59) | 73.4 | 1.4 | 100 | 100 (100) |
 
-| paper left out | measures | cells with its own SD | people | own table: exact (%) | merged: loss (SE) | answered at 0.99 (%) | right (%) | predicted: loss (SE) | answered at 0.99 (%) | right (%) |
-| --- | ---: | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| frontphys2026 | 5 | 25 of 25 | 20 | 87.4 | 31.9 (1.2) | 5.6 | 86 | 32.7 (1.3) | 0.2 | 86 |
-| otsuki2021 | 3 | 15 of 15 | 6 | 88.7 | 29.5 (1.0) | 16.9 | 92 | 25.5 (0.9) | 14.9 | 96 |
-| busscher2010 | 3 | 15 of 15 | 6 | 86.6 | 24.9 (1.0) | 3.2 | 86 | 29.9 (1.1) | 1.3 | 77 |
-| yadav2020 | 5 | 25 of 25 | 302 | 70.7 | 20.0 (1.2) | 42.3 | 60 | 21.2 (1.2) | 5.1 | 77 |
-| tan2004 | 15 | 0 of 75 | 10 | 97.3 | 19.1 (0.8) | 43.1 | 94 | 18.5 (0.8) | 20.2 | 100 |
-| arockiaraj2025 | 4 | 20 of 20 | 300 | 84.7 | 16.4 (0.8) | 16.1 | 100 | 22.1 (0.8) | 2.5 | 100 |
-| moncadahabib2025 | 6 | 30 of 30 | 37 | 75.0 | 14.8 (1.1) | 9.7 | 92 | 17.0 (1.1) | 0.9 | 96 |
-| lien2007 | 4 | 20 of 20 | 15 | 83.7 | 14.2 (0.8) | 16.8 | 98 | 15.1 (1.0) | 8.2 | 99 |
-| yu2015 | 2 | 10 of 10 | 503 | 77.5 | 12.3 (1.0) | 12.4 | 99 | 7.2 (0.9) | 4.7 | 100 |
-| shin2024 | 4 | 20 of 20 | 2800 | 71.9 | 11.9 (1.0) | 1.2 | 100 | 16.1 (1.0) | 0.0 | - |
-| griffith2016 | 3 | 15 of 15 | 1080 | 72.5 | 11.6 (0.9) | 8.5 | 98 | 8.2 (0.9) | 0.0 | 100 |
-| bach2019 | 4 | 20 of 20 | 240 | 72.4 | 10.0 (0.9) | 2.6 | 100 | 6.6 (0.8) | 0.0 | 100 |
-| alonge2021 | 2 | 10 of 10 | 120 | 66.2 | 9.0 (1.0) | 5.3 | 97 | 4.4 (0.8) | 0.2 | 100 |
-| masharawi2021 | 5 | 25 of 25 | 50 | 71.5 | 8.9 (1.0) | 12.0 | 91 | 6.7 (0.9) | 5.0 | 97 |
-| olsewski1990 | 4 | 20 of 20 | 49 | 81.1 | 7.2 (0.7) | 22.9 | 98 | 10.9 (1.0) | 15.9 | 98 |
-| hou1993 | 2 | 10 of 10 | 40 | 74.0 | 5.3 (0.7) | 1.6 | 100 | 7.3 (0.8) | 0.6 | 100 |
-| amonookuofi1982 | 1 | 5 of 5 | 290 | 55.5 | 5.2 (1.0) | 0.0 | - | 4.3 (1.0) | 0.0 | - |
-| hinck1966 | 1 | 5 of 5 | 90 | 50.3 | 3.0 (0.8) | 0.4 | 92 | 3.3 (0.8) | 0.3 | 100 |
-| abbas2021 | 2 | 10 of 10 | 180 | 62.4 | 2.8 (0.8) | 0.2 | 100 | 6.0 (0.9) | 0.0 | - |
-| cizmic2023 | 2 | 10 of 10 | 200 | 64.7 | 1.7 (0.6) | 2.3 | 100 | 2.5 (0.7) | 0.2 | 100 |
-| amonookuofi1985 | 1 | 5 of 5 | 122 | 54.9 | 1.6 (0.8) | 0.0 | - | 3.4 (0.8) | 0.0 | - |
-| chaudhary2015 | 1 | 5 of 5 | 300 | 51.2 | 1.2 (0.8) | 1.3 | 95 | 1.8 (0.9) | 0.8 | 100 |
+| paper left out | measures | cells with its own SD | people | its SD over the others' | own table: exact (%) | merged: loss (SE) | answered at 0.99 (%) | right (%) | predicted: loss (SE) | answered at 0.99 (%) | right (%) | the others' SD alone: loss (SE) |
+| --- | ---: | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| frontphys2026 | 5 | 25 of 25 | 20 | 0.42 | 87.7 | 32.9 (1.2) | 7.4 | 84 | 30.2 (1.3) | 0.1 | 100 | 18.2 (1.1) |
+| otsuki2021 | 3 | 15 of 15 | 6 | 1.30 | 88.1 | 27.1 (1.1) | 16.7 | 93 | 20.0 (0.9) | 11.0 | 99 | 5.7 (0.7) |
+| busscher2010 | 3 | 15 of 15 | 6 | 1.37 | 85.7 | 23.4 (1.0) | 2.7 | 77 | 23.2 (1.0) | 0.1 | 67 | 14.9 (0.9) |
+| arockiaraj2025 | 4 | 20 of 20 | 300 | 0.62 | 86.3 | 19.6 (0.7) | 17.0 | 100 | 23.1 (0.8) | 2.8 | 100 | 2.0 (0.5) |
+| tan2004 | 15 | 0 of 75 | 10 | - | 96.6 | 19.3 (0.8) | 43.1 | 94 | 17.9 (0.7) | 25.4 | 99 | 0.0 (0.0) |
+| yadav2020 | 5 | 25 of 25 | 302 | 2.10 | 70.2 | 18.5 (1.2) | 40.9 | 63 | 20.8 (1.2) | 29.3 | 61 | 16.7 (1.1) |
+| lien2007 | 4 | 20 of 20 | 15 | 1.02 | 86.1 | 16.9 (0.8) | 17.0 | 99 | 19.7 (1.0) | 8.8 | 98 | 0.4 (0.4) |
+| moncadahabib2025 | 6 | 30 of 30 | 37 | 0.98 | 73.1 | 13.5 (1.1) | 9.3 | 92 | 15.8 (1.1) | 0.8 | 100 | 9.5 (1.0) |
+| yu2015 | 2 | 10 of 10 | 503 | 0.86 | 78.0 | 12.3 (1.0) | 12.4 | 99 | 6.8 (0.8) | 4.0 | 100 | 0.1 (0.3) |
+| bach2019 | 4 | 20 of 20 | 240 | 0.99 | 73.3 | 11.6 (0.9) | 2.2 | 97 | 6.7 (0.8) | 0.0 | - | 2.0 (0.5) |
+| shin2024 | 4 | 20 of 20 | 2800 | 1.01 | 70.8 | 11.1 (0.9) | 1.6 | 98 | 20.9 (1.0) | 0.0 | - | 1.2 (0.5) |
+| griffith2016 | 3 | 15 of 15 | 1080 | 1.15 | 70.1 | 9.6 (1.0) | 8.1 | 98 | 6.6 (0.9) | 0.0 | 100 | 2.3 (0.7) |
+| masharawi2021 | 5 | 25 of 25 | 50 | 1.20 | 71.4 | 9.2 (1.0) | 11.6 | 92 | 8.1 (1.0) | 3.4 | 98 | 3.5 (0.8) |
+| alonge2021 | 2 | 10 of 10 | 120 | 1.02 | 65.5 | 8.9 (1.0) | 4.8 | 99 | 3.9 (0.8) | 0.1 | 100 | 0.3 (0.5) |
+| olsewski1990 | 4 | 20 of 20 | 49 | 1.26 | 79.1 | 8.7 (0.8) | 21.4 | 99 | 9.5 (1.0) | 15.4 | 98 | 1.5 (0.5) |
+| amonookuofi1982 | 1 | 5 of 5 | 290 | 0.65 | 54.8 | 7.1 (1.0) | 0.0 | - | 5.2 (1.0) | 0.0 | - | 2.5 (0.8) |
+| hou1993 | 2 | 10 of 10 | 40 | 0.89 | 73.1 | 5.7 (0.8) | 1.4 | 100 | 7.4 (0.9) | 0.3 | 100 | 1.2 (0.6) |
+| amonookuofi1985 | 1 | 5 of 5 | 122 | 0.65 | 53.6 | 3.1 (0.8) | 0.0 | - | 4.6 (0.8) | 0.0 | - | 1.8 (0.7) |
+| abbas2021 | 2 | 10 of 10 | 180 | 0.87 | 62.4 | 2.8 (0.8) | 0.2 | 100 | 4.7 (0.9) | 0.0 | - | 2.0 (0.8) |
+| chaudhary2015 | 1 | 5 of 5 | 300 | 1.36 | 52.2 | 2.8 (0.8) | 0.9 | 100 | 3.2 (0.9) | 0.7 | 100 | 2.0 (0.7) |
+| cizmic2023 | 2 | 10 of 10 | 200 | 0.99 | 65.3 | 2.3 (0.6) | 2.1 | 100 | 2.6 (0.7) | 0.0 | - | -0.2 (0.5) |
+| hinck1966 | 1 | 5 of 5 | 90 | 1.11 | 49.3 | 2.1 (0.9) | 0.4 | 100 | 2.8 (0.8) | 0.0 | - | 1.8 (0.6) |
 
-| the strata | count |
+| the strata | value |
 | --- | ---: |
 | placed cells | 694 |
 |   with a tau of their own (three series or more) | 81 |
 |   taking their measure's median tau over SD | 205 |
 |   taking every cell's median, 1.07 | 408 |
-| predictive SD over the within SD, quartiles | 1.46 / 1.50 / 1.53 |
+| predictive SD over the within SD, quartiles | 1.71 / 1.82 / 1.84 |
 | share of the spread one shift through a measure carries (the first part's split) | 82% |
 | columns drawn a population / populations drawn from the model | 1000 / 8 |
 <!-- end strata -->
 
 The first table's loss is in points of fields named exactly, the pooled mean over the papers (its SE), the
-interval for one more population (Higgins's, on the spread between papers), and that spread; the second
-the promise at 0.99; the third each paper at three bodies; the fourth where the taus came from.
+interval for one more population (Higgins's, on the spread between papers), that spread, and in the last
+column the loss under the others' SD alone; the second the promise at 0.99; the third each paper at three
+bodies, its SD over the others' and the others' SD alone; the fourth where the taus came from, the
+widened SD's quartiles, the split's share and the sizes.
 
-A rule built on the other papers loses a pooled 8.9 points at one body, 11.6 at two and 11.9 at three
-against the paper's own table, a spread between papers of 6.6 to 8.8 points, so one more population is
-predicted to lose anywhere from nothing to about 30: frontphys2026, Otsuki 2021, Busscher 2010, Yadav 2020
-and Tan 2004 lose 19 to 32 points at three bodies, Chaudhary 2015, Amonoo-Kuofi 1985, Cizmic 2023 and
-Abbas 2021 under 3; the loss follows how far a paper's means sit from the others' and not how many
-measures it prints (Tan's 15 lose 19, Otsuki's 3 lose 30). Widening every SD by tau changes exact naming
-by a paired 0.4 points (SD 3.1 over the 22 papers; 1.4 points better on the pedicle pair at one body,
-within its SE): the loss is the shift of the means, and no SD undoes a shift. What the widening changes is
-the promise at 0.99. The merged rule answers at 0.99 on 3.9, 6.4 and 10.2% of fields at one, two and three
-bodies and is right on 93 to 94% of those answers, on 60% of Yadav 2020's 1,268 at three bodies; the
-widened rule answers on 1.6, 2.2 and 3.7% and is right on 96 to 97%, 77% at worst. On the pedicle pair,
-read on the same two measures for every population, it is right on 100% of its answers (least 98%)
-against 98% (least 93%). On the populations drawn from the model itself, which are what the widened SD
-assumes, the merged rule's answers fall to 87 to 88% right at two and three bodies (58% on one
-population) and the widened rule's stay at 100% at every width, while it names 3 to 6 points more of
-them exactly. Those drawn populations lose 24 to 32 points, more than any pooled reading of the real
-papers, since the seven's lumbar cells rest mostly on Tan alone and take the borrowed tau of 1.07 SD, and
-the model moves every cell by it; a real paper's loss sits inside the model's interval but near its
-bottom. Three real populations stay under 90% right under either rule, Busscher 2010 (86 and 77%),
-frontphys2026 (86 and 86%) and Yadav 2020 (60 and 77%): their means sit far from the others' and their
-own SDs are narrower than the pool's, so a field of theirs looks like a neighbouring level with
-confidence, and a wider SD cannot undo it. A rule that holds the strata themselves, a mixture over
-populations rather than one widened table, is the next thing to try, and whether schwingcheck's rule
-should carry the widened SD is the owner's to choose; this note changes neither.
+A rule built on the other papers loses a pooled 8.8 points at one body, 11.8 at two and 12.2 at three
+against the paper's own table, with a spread between papers of 6.7 to 8.4 points, so one more population
+is predicted to lose anywhere from nothing to about 30 (the interval -5 to 23 at one body, -6 to 30 at
+three): at three bodies frontphys2026, Otsuki 2021, Busscher 2010, Arockiaraj 2025, Tan 2004 and Yadav
+2020 lose 18 to 33 points, and Hinck 1966, Cizmic 2023, Chaudhary 2015, Abbas 2021 and Amonoo-Kuofi
+1985 3 or under; the loss follows how far a paper's means sit from the others' and not how many measures
+it prints (Tan's 15 lose 19, Otsuki's 3 lose 27). The SD difference alone, a paper's own means scored
+under the others' SD, costs a pooled 2.2, 3.8 and 4.0 points at one, two and three bodies, so the shift
+of the means carries about two thirds of the loss, though for the four populations whose SDs sit
+furthest from the pool's it carries half or more (frontphys2026 18 of its 33, Busscher 2010 15 of 23,
+Yadav 2020 17 of 19, Moncada-Habib 2025 10 of 14); on the pedicle pair the SD difference costs 0.7 to
+1.0 of 8.5 to 11.2. Widening every SD by tau changes exact naming by a paired 0.2 points or less at
+every width (SD 2.9 to 3.6 over the 22 papers; 0.6 to 1.3 points better on the pedicle pair, within its
+SE): no SD undoes a shift of the means. What the widening changes is the promise at 0.99. The merged rule answers at 0.99 on 3.7, 6.4 and 10.1% of fields
+at one, two and three bodies and is right on 92, 87 and 89% of those answers taken together (94 to 95%
+on a mean over the papers); the widened rule answers on 1.5, 2.7 and 4.7% and is right on 94, 86 and
+88% (95 to 97% on the mean). Both floors are Yadav 2020's: 878 of the widened rule's 3,069 answers at
+three bodies are on its population and 346 of them wrong, since its own SDs are 2.1 times the others'
+pooled SD (every end-plate cell 2.1 to 6.0), so its people spread twice as wide as any table the rule is
+built on and a widening of 1.8 is not enough. Yadav apart, the widened rule is right on 99% of its
+answers at every width against the merged rule's 96 to 97%. On the pedicle pair, read on the same two
+measures for every population, the widened rule is right on 98% of its answers at every width (least
+paper 96 to 97%) against 94 to 96% (least 89 to 93%). On the populations drawn from the model itself,
+which are what the widened SD assumes, the merged rule's answers are right on 98, 83 and 86% (the least
+population 59 to 69%) and the widened rule's on 100% at every width, answering on 0.2 to 1.4% of fields,
+while it names 3 to 6 points more of them exactly. Those drawn populations lose 25, 34 and 29 points
+under the merged rule and 22, 28 and 23 under the widened, more than any pooled reading of the real
+papers, since 25 of the seven's 35 lumbar cells carry a tau of their own, 0.9 to 3.5 within SDs, the
+ten depth cells borrow every cell's median, and the model moves every cell by it; at one and two bodies the real papers' pooled loss sits below the
+bottom of the model's interval (12 and 10 points), so the model overstates what a real paper brings, and
+only at three bodies does every real paper sit inside it. Four real populations stay under 90% right
+under one rule or the other: Yadav 2020 (63 and 61% at three bodies), Busscher 2010 (77% on 81 answers,
+and 2 of 3 under the widened rule), frontphys2026 (84% under the merged rule, where the widened rule
+answers on 0.1% of fields and is right) and, at one body, Otsuki 2021 (87 and 97%); Busscher's and
+Otsuki's six people print SDs 1.3 to 1.4 times the pool's, frontphys2026's twenty 0.42 of it. A rule
+that holds the strata themselves, a mixture over populations rather than one widened table, is the next
+thing to try, and whether schwingcheck's rule should carry the widened SD is the owner's to choose; this
+note changes neither.
 
 ## Figures and renders
 
@@ -1159,7 +1192,7 @@ sends the final rerun to the grid, which rewrites both records.
   SOURCE_ALL.json, the whole reread for the second part.
 - MEASURES.md: every key of the vocabulary with what became of it, written from records/all.
 - tests/test_synthval.py: 31 tests of the code against what its docstrings say; tests/test_all_measures.py:
-  25 of the second part's; tests/test_strata.py: 13 of the strata's.
+  25 of the second part's; tests/test_strata.py: 17 of the strata's.
 
 ## What this note does not do
 
@@ -1181,6 +1214,8 @@ sends the final rerun to the grid, which rewrites both records.
 - The strata reading is a quick lumbar run, 1,000 columns a population on 4 CPUs, not the grid search,
   which stays as it is until the owner sends it (his word of 2026-10-29: no large rerun while the
   populations move); 613 of its 694 cells borrow a tau, and a paper's population is its printed means
-  with the pool's SD where its own is uncertain, so it reads what the papers print, not their people.
-  It splits by paper; the population register of pull request 43 (country, ancestry, specimen, age, sex)
-  gives strata_of another grouping, and no subgroup is read here.
+  with the pool's SD where its own is uncertain, so it reads what the papers print, not their people;
+  Yadav 2020's printed SDs, 2.1 times the others' pooled SD, are read as printed and not questioned here.
+  It splits by paper; the population register the owner asked for on 2026-10-29 (by author, with sex,
+  ancestry and the like for subgroup analysis), not built yet, gives strata_of another grouping, and no
+  subgroup is read here.

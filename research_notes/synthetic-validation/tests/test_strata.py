@@ -75,7 +75,7 @@ class Strata(unittest.TestCase):
             self.assertEqual(c.pool.k, r["k"])
             if c.pool.k >= 2:
                 self.assertAlmostEqual(c.pool.tau, r["tau"], places=9)
-            self.assertEqual(c.pool.papers, len(r["papers"].split(";")))
+            self.assertEqual(c.pool.papers, len(r["papers"].split(";")))    # pooled_cells lists the papers
 
     def test_a_stratum_is_the_paper_unless_told_otherwise(self):
         for c in self.strata:
@@ -107,9 +107,37 @@ class Between(unittest.TestCase):
         alone = by["canal_index", "L2"]
         self.assertEqual(alone.pool.k, 1)
         self.assertEqual(alone.tau_from, ST.TAU_ALL)
-        self.assertAlmostEqual(alone.between, math.hypot(borrowed[1] * alone.pool.sd, alone.pool.se))
+        tau = borrowed[1] * alone.pool.sd
+        self.assertAlmostEqual(alone.between, math.sqrt(2 * tau * tau + alone.pool.sd ** 2 / 30.0))
+        self.assertGreater(alone.between, math.hypot(tau, alone.pool.se))
         for c in cells:
             self.assertGreaterEqual(c.predictive_sd, c.pool.sd)
+
+    def test_the_se_is_taken_under_the_tau_used(self):
+        """Two series carry a REML tau of their own, which a borrowed tau replaces in the SE too."""
+        two = ST.strata_of([series("a", "h_ant", "L1", 26.0), series("b", "h_ant", "L1", 36.0)] +
+                           [series(p, "canal_ap", lv, 17.0 + i) for p in "abc" for i, lv in enumerate(LUMBAR)])
+        borrowed = ST.set_between(two)
+        cell = ST.cells_by_key(two)["h_ant", "L1"]
+        self.assertEqual(cell.pool.k, 2)
+        self.assertGreater(cell.pool.tau, 1.0)
+        tau = borrowed[1] * cell.pool.sd
+        se = ST.se_under(cell.pool, tau)
+        self.assertAlmostEqual(se, math.sqrt(1.0 / sum(1.0 / (v + tau * tau) for v in cell.pool.v)))
+        self.assertAlmostEqual(cell.between, math.hypot(tau, se))
+        self.assertNotAlmostEqual(cell.between, math.hypot(tau, cell.pool.se))
+        own = ST.cells_by_key(two)["canal_ap", "L1"]
+        self.assertAlmostEqual(ST.se_under(own.pool, own.pool.tau), own.pool.se)
+
+    def test_a_stratum_of_cohorts_is_as_wide_as_its_people(self):
+        rows = [series("a", "h_ant", "L1", 26.0, sd=2.0, n=32.0, cohort="cadavers"),
+                series("a", "h_ant", "L1", 30.0, sd=1.0, n=4.0, cohort="patients")]
+        st = ST.strata_of(rows)[0].stratum("a")
+        self.assertAlmostEqual(st.mean, (32 * 26.0 + 4 * 30.0) / 36)
+        ss = 31 * 4.0 + 3 * 1.0 + 32 * (26.0 - st.mean) ** 2 + 4 * (30.0 - st.mean) ** 2
+        self.assertAlmostEqual(st.sd, math.sqrt(ss / 35))
+        self.assertGreater(st.sd, 2.0)
+        self.assertEqual(st.n, 36.0)
 
     def test_the_measures_median_comes_before_every_cells(self):
         rows = three_papers() + [series("a", "h_ant", "L5", 40.0, cohort="x")]
@@ -165,8 +193,8 @@ class Tables(unittest.TestCase):
 class Scoring(unittest.TestCase):
     def test_the_arms_share_their_fields_and_the_own_arm_loses_nothing(self):
         cells = ST.strata_of(three_papers(shift=(0.0, 4.0, -4.0)))
-        rows = ST.leave_one_out(cells, VOC, 20, widths=(1, 3))
-        self.assertEqual(len(rows), 3 * 2 * 3)
+        rows = ST.leave_one_out(cells, VOC, 200, widths=(1, 3))
+        self.assertEqual(len(rows), 3 * 2 * 4)
         for paper in "abc":
             for w in (1, 3):
                 mine = [r for r in rows if r["paper"] == paper and r["width"] == w]
@@ -177,6 +205,46 @@ class Scoring(unittest.TestCase):
         far = [r for r in rows if r["paper"] == "b" and r["width"] == 3 and r["arm"] == ST.MERGED][0]
         self.assertGreater(far["loss"], 0.0)
         self.assertTrue(math.isfinite(far["loss_se"]))
+        self.assertGreater(far["own_sd_over_pool"], 0.0)
+        same_sd = [r for r in rows if r["paper"] == "b" and r["width"] == 3 and r["arm"] == ST.SD_ONLY][0]
+        self.assertLess(abs(same_sd["loss"]), 1e-6)    # every paper prints one SD, so the others' SD costs nothing
+        self.assertTrue(math.isnan(far["f_overall_without"]))    # two series are left, so nothing without b gives a median
+        wide = [r for r in rows if r["paper"] == "b" and r["width"] == 3 and r["arm"] == ST.PREDICTED][0]
+        self.assertTrue(math.isfinite(wide["loss"]))
+
+    def test_leaving_a_paper_out_borrows_nothing_from_it(self):
+        """With three papers every cell has an own tau; without one, two series are left and the
+        medians must come from cells without it, so the measure's median is gone and the overall
+        median is NaN where nothing is left to take it from."""
+        cells = ST.strata_of(three_papers())
+        rest = ST.without(cells, "a")
+        self.assertEqual(len(rest), len(cells))
+        self.assertTrue(all(c.pool.k == 2 and len(c.pool.v) == 2 for c in rest))
+        self.assertTrue(all("a" in c.papers for c in rest))
+        by_measure, overall = ST.median_f(rest)
+        self.assertEqual(by_measure, {})
+        self.assertTrue(math.isnan(overall))
+        only_a = ST.strata_of(three_papers() + [series("a", "canal_index", "L1", 0.5)])
+        self.assertEqual(len(ST.without(only_a, "a")), len(cells))
+        rows = ST.leave_one_out(cells, VOC, 20, widths=(1,))
+        row = [r for r in rows if r["paper"] == "a"][0]
+        self.assertEqual(set(row["measures_tau_fell"].split(";")), {"canal_ap", "h_ant"})
+        self.assertTrue(math.isnan(row["f_overall_without"]))
+
+    def test_each_paper_draws_on_a_seed_of_its_own(self):
+        cells = ST.strata_of(three_papers())
+        seen = []
+        real = ST.draw_table
+
+        def spy(table, settings, columns, seed):
+            seen.append(seed)
+            return real(table, settings, columns, seed)
+        ST.draw_table = spy
+        try:
+            ST.leave_one_out(cells, VOC, 20, widths=(1,), seed=70)
+        finally:
+            ST.draw_table = real
+        self.assertEqual(seen, [70, 71, 72])
 
     def test_pooled_losses_pool_the_papers(self):
         rows = []
@@ -186,9 +254,9 @@ class Scoring(unittest.TestCase):
                      {"reading": "r", "paper": paper, "arm": ST.PREDICTED, "width": 3, "loss": 0.0, "loss_se": 0.0,
                       "exact": 0.55, "precision": float("nan"), "answered": 0.0}]
         got = {r["arm"]: r for r in ST.pooled_losses(rows, widths=(3,))}
-        self.assertEqual(got[ST.MERGED]["papers"], 4)
+        self.assertEqual(got[ST.MERGED]["populations"], 4)
         self.assertAlmostEqual(got[ST.MERGED]["loss_pooled"], 5.0)
-        self.assertAlmostEqual(got[ST.MERGED]["tau_between_papers"], 0.0)
+        self.assertAlmostEqual(got[ST.MERGED]["tau_between_populations"], 0.0)
         self.assertAlmostEqual(got[ST.MERGED]["loss_se"], 0.5)
         self.assertAlmostEqual(got[ST.PREDICTED]["loss_pooled"], 0.0)
         self.assertAlmostEqual(got[ST.PREDICTED]["loss_se"], ST.LOSS_SE_FLOOR / 2.0)

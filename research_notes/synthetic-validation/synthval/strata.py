@@ -23,10 +23,11 @@ does on it, on the lumbar run, where most of the papers print:
 - predictive_sd: the SD a person of a population the rule has not seen is drawn with,
   sqrt(sd^2 + tau^2 + SE^2), which is what the rule's table carries when it names such a one;
 - leave_one_out: the rule scored on fields drawn from each paper's own population, on the
-  measures the paper prints at every lumbar level and the others still pool there, built three
+  measures the paper prints at every lumbar level and the others still pool there, built four
   ways and read on the same fields, so the arms are paired: the paper's own table (the loss's
-  zero), the others' pooled table as tables B and C hold it (MERGED) and the same means with the
-  predictive SD (PREDICTED);
+  zero), the others' pooled table as tables B and C hold it (MERGED), the same means with the
+  predictive SD (PREDICTED), and the paper's own means with the others' SD (SD_ONLY), whose loss
+  is what the SD difference alone costs, the rest of MERGED's being the shift of the means;
 - pooled_losses: the per-paper losses combined by random effects (pooling.pool), the loss one
   more population is predicted to bring, with its interval: the meta-analysis of the strata;
 - new_populations: part C's reading on the papers' pooled table, populations drawn from the
@@ -41,7 +42,7 @@ is drawn with the others' pooled SD, and only its means are its own.
 from __future__ import annotations
 
 import math
-from dataclasses import dataclass, field
+from dataclasses import dataclass, field, replace
 from typing import Dict, List, Optional, Sequence, Tuple
 
 import numpy as np
@@ -61,7 +62,8 @@ from .validate import literature_at
 
 MIN_SERIES_FOR_TAU = 3
 OWN, MERGED, PREDICTED = "own table", "merged: the others pooled", "predicted: the others pooled, SD widened by tau"
-ARMS = (OWN, MERGED, PREDICTED)
+SD_ONLY = "own means, the others' SD"
+ARMS = (OWN, MERGED, PREDICTED, SD_ONLY)
 TAU_OWN, TAU_MEASURE, TAU_ALL = "own", "the measure's median", "every cell's median"
 # The papers that print the two pedicle dimensions at every lumbar level are the most that print
 # any pair there, so this pair is the common reading, every paper on the same measures.
@@ -84,6 +86,7 @@ class Pool:
     tau: float
     sd: float
     sd_from: str
+    v: List[float] = field(default_factory=list)   # each series' within variance, sd^2 / n, as the mean was pooled
 
 
 @dataclass
@@ -114,6 +117,7 @@ class Cell:
 
     @property
     def papers(self) -> List[str]:
+        """The strata's names: the papers under by_paper, else whatever the grouping named."""
         return [s.paper for s in self.strata]
 
     def stratum(self, paper: str) -> Optional[Stratum]:
@@ -133,23 +137,32 @@ def _pool(rows: Sequence[L.Series]) -> Pool:
     papers_table._sd_of gives it."""
     lit = literature_at(list(rows))
     sd, sd_from = PT._sd_of(lit, rows)
+    v = [float(s.sd * s.sd / s.n) for s in rows]
     if lit.mean:
         return Pool(k=lit.k, papers=len({s.paper for s in rows}), mean=lit.mean.mean, se=lit.mean.se, tau=lit.mean.tau,
-                    sd=sd, sd_from=sd_from)
+                    sd=sd, sd_from=sd_from, v=v)
     one = rows[0]
-    return Pool(k=1, papers=1, mean=one.mean, se=float(one.sd / math.sqrt(one.n)), tau=float("nan"), sd=sd, sd_from=sd_from)
+    return Pool(k=1, papers=1, mean=one.mean, se=float(one.sd / math.sqrt(one.n)), tau=float("nan"), sd=sd, sd_from=sd_from, v=v)
 
 
 def _stratum(paper: str, rows: Sequence[L.Series]) -> Stratum:
-    lit = literature_at(list(rows))
-    mean = lit.mean.mean if lit.mean else lit.single_mean
-    certain = [s for s in rows if not s.sd_uncertain]
+    """One population from its series: its people together, the mean weighted by their counts
+    and the SD over the whole of them, the spread between the cohorts' means included, as
+    literature._pool_sexes joins two sexes; the SD over the series whose SD is certain alone, NaN
+    where none is. A paper printing cohorts of different means is then one population as wide
+    as its people, not the REML mean of its cohorts over their within SD."""
+    n = float(sum(s.n for s in rows))
+    mean = sum(s.n * s.mean for s in rows) / n
+    certain = [s for s in rows if not s.sd_uncertain and math.isfinite(s.sd) and s.n > 0]
     sd = float("nan")
     if len(certain) == 1:
         sd = float(certain[0].sd)
     elif len(certain) >= 2:
-        sd = P.pooled_sd([s.sd for s in certain], [s.n for s in certain])
-    return Stratum(paper=paper, series=list(rows), mean=float(mean), sd=sd, n=float(sum(s.n for s in rows)))
+        nc = sum(s.n for s in certain)
+        mc = sum(s.n * s.mean for s in certain) / nc
+        ss = sum((s.n - 1) * s.sd * s.sd + s.n * (s.mean - mc) ** 2 for s in certain)
+        sd = float(math.sqrt(ss / (nc - 1)))
+    return Stratum(paper=paper, series=list(rows), mean=float(mean), sd=sd, n=n)
 
 
 def by_paper(s: L.Series) -> str:
@@ -194,6 +207,18 @@ def pooled_without(cell: Cell, paper: str) -> Optional[Pool]:
     return _pool(rest) if rest else None
 
 
+def without(cells: Sequence[Cell], paper: str) -> List[Cell]:
+    """Every cell pooled over the papers but this one, the cells only this paper prints left out:
+    what a reading that leaves the paper out may borrow its medians from, so that the tau a
+    left-out paper's rule is widened by never comes from that paper's own distance from the rest."""
+    out = []
+    for c in cells:
+        pool = pooled_without(c, paper)
+        if pool is not None:
+            out.append(replace(c, pool=pool, between=float("nan"), tau_from=""))
+    return out
+
+
 # ---- one more population -------------------------------------------------------------------------
 
 def median_f(cells: Sequence[Cell]) -> Tuple[Dict[str, float], float]:
@@ -209,9 +234,13 @@ def median_f(cells: Sequence[Cell]) -> Tuple[Dict[str, float], float]:
 
 
 def between(pool: Pool, borrowed: Tuple[Dict[str, float], float], measure: str) -> Tuple[float, str]:
-    """The SD of one more population's mean, sqrt(tau^2 + SE^2): the cell's own tau where it holds
-    MIN_SERIES_FOR_TAU series or more, else the measure's median tau over SD times this cell's
-    SD, else every cell's median; and which of the three it was."""
+    """The SD of one more population's mean, Higgins's sqrt(tau^2 + SE^2) with the SE taken under
+    the same tau, 1 / sum 1 / (v_i + tau^2) over the series' variances: the cell's own tau where
+    it holds MIN_SERIES_FOR_TAU series or more, where this is pooling.pool's SE, else the measure's
+    median tau over SD times this cell's SD, else every cell's median; and which of the three it
+    was. Under a borrowed tau the SE is not the pool's own: a one-series cell's is sqrt(v + tau^2),
+    the one series being itself a population away from the grand mean, so its between is
+    sqrt(2 tau^2 + v), and a two-series cell's drops the tau its own two series gave."""
     by_measure, overall = borrowed
     if pool.k >= MIN_SERIES_FOR_TAU and math.isfinite(pool.tau):
         tau, came = pool.tau, TAU_OWN
@@ -219,7 +248,16 @@ def between(pool: Pool, borrowed: Tuple[Dict[str, float], float], measure: str) 
         tau, came = by_measure[measure] * pool.sd, TAU_MEASURE
     else:
         tau, came = overall * pool.sd, TAU_ALL
-    return float(math.sqrt(tau * tau + pool.se * pool.se)), came
+    return float(math.sqrt(tau * tau + se_under(pool, tau) ** 2)), came
+
+
+def se_under(pool: Pool, tau: float) -> float:
+    """The random-effects SE of the pool's mean under `tau`; the pool's own SE where it carries no
+    series variances."""
+    v = [x for x in pool.v if math.isfinite(x) and x > 0]
+    if not v:
+        return pool.se
+    return float(math.sqrt(1.0 / sum(1.0 / (x + tau * tau) for x in v)))
 
 
 def predictive_sd(sd: float, between_sd: float) -> float:
@@ -241,7 +279,7 @@ def cell_rows(cells: Sequence[Cell]) -> List[dict]:
     out = []
     for c in cells:
         out.append({"measure": c.measure, "base_key": c.base_key, "level": c.level, "modality": c.modality,
-                    "k": c.pool.k, "papers": c.pool.papers, "papers_list": ";".join(c.papers),
+                    "k": c.pool.k, "papers": c.pool.papers, "strata_list": ";".join(c.papers),
                     "mean": c.pool.mean, "se": c.pool.se, "tau": c.pool.tau, "sd": c.pool.sd, "sd_from": c.pool.sd_from,
                     "tau_from": c.tau_from, "between": c.between, "predictive_sd": c.predictive_sd,
                     "predictive_over_sd": c.predictive_sd / c.pool.sd if c.pool.sd > 0 else float("nan"),
@@ -374,34 +412,68 @@ def leave_one_out(cells: Sequence[Cell], vocabulary: Dict[str, dict], columns: i
                   seed: int = SEED_COLUMNS, settings: Settings = GENERATOR, keys: Optional[Sequence[str]] = None,
                   levels: Sequence[str] = LUMBAR, reading: str = "every measure the paper prints") -> List[dict]:
     """For every paper with a measure to score (paper_measures): `columns` people drawn from its
-    own table, the three arms' tables built on the same measures, and each arm scored at each
-    width on the same fields; one row per paper, width and arm."""
-    borrowed = median_f(cells)
+    own table, the four arms' tables built on the same measures, and each arm scored at each
+    width on the same fields; one row per paper, width and arm. The arm SD_ONLY, the paper's own
+    means under the others' SD, says what the SD difference alone costs, so that MERGED's loss
+    can be read as that part and the shift of the means. The medians a cell with fewer
+    than MIN_SERIES_FOR_TAU series borrows its tau from are taken over the cells pooled without
+    the paper (`without`), so nothing of the paper reaches the rule scored on it; the row says
+    which of its measures lost their own median that way (measures_tau_fell), the overall median
+    without it (f_overall_without) and its own SD against the others' (own_sd_over_pool). Each
+    paper's columns are drawn on a seed of its own, `seed` plus its index among the papers sorted
+    by name, so that two papers' losses never share one draw's Monte Carlo error, which
+    pooled_losses pools as independent."""
+    full = median_f(cells)
+    by = cells_by_key(cells)
     out = []
-    for paper in sorted({s.paper for c in cells for s in c.strata}):
+    for i, paper in enumerate(sorted({s.paper for c in cells for s in c.strata})):
         mine = paper_measures(cells, paper, vocabulary, levels, keys)
         if not mine or (keys is not None and len(mine) < len(keys)):
             continue
+        borrowed = median_f(without(cells, paper))
+        fell = [k for k in mine if k in full[0] and k not in borrowed[0]]
+        f_without = borrowed[1]
+        if math.isnan(f_without):     # nothing left to borrow from, which only a toy pool can reach: the full pool's median
+            borrowed = (borrowed[0], full[1])
         own, own_sd = paper_table(cells, paper, mine, vocabulary, levels)
-        tables = {OWN: own, MERGED: others_table(cells, paper, mine, vocabulary, borrowed, False, levels),
-                  PREDICTED: others_table(cells, paper, mine, vocabulary, borrowed, True, levels)}
-        pop = draw_table(own, settings, columns, seed)
+        merged = others_table(cells, paper, mine, vocabulary, borrowed, False, levels)
+        sd_only = Table(name="%s's means, the others' SD" % paper, keys=list(mine), kinds=list(own.kinds), mu=own.mu.copy(),
+                        sd=merged.sd.copy(), sources=list(own.sources), levels=list(levels))
+        tables = {OWN: own, MERGED: merged, PREDICTED: others_table(cells, paper, mine, vocabulary, borrowed, True, levels),
+                  SD_ONLY: sd_only}
+        pop = draw_table(own, settings, columns, seed + i)
         for w in widths:
             for row in score_arms(pop, tables, w, settings):
                 out.append(dict(row, reading=reading, paper=paper, n_measures=len(mine), measures=";".join(mine),
                                 cells_with_own_sd=own_sd, cells=len(mine) * len(levels),
-                                people=float(np.mean([cells_by_key(cells)[k, lv].stratum(paper).n for k in mine for lv in levels]))))
+                                people=float(np.mean([by[k, lv].stratum(paper).n for k in mine for lv in levels])),
+                                own_sd_over_pool=own_sd_over_pool(by, paper, mine, levels),
+                                f_overall_without=f_without, measures_tau_fell=";".join(fell)))
     return out
+
+
+def own_sd_over_pool(by: Dict[tuple, Cell], paper: str, keys: Sequence[str], levels: Sequence[str]) -> float:
+    """The median, over the paper's cells with an SD of their own, of that SD over the others'
+    pooled SD: above 1 the paper's people are spread wider than the pool the rule is built on."""
+    ratios = []
+    for key in keys:
+        for lv in levels:
+            st = by[key, lv].stratum(paper)
+            if math.isfinite(st.sd) and st.sd > 0:
+                ratios.append(st.sd / pooled_without(by[key, lv], paper).sd)
+    return float(np.median(ratios)) if ratios else float("nan")
 
 
 def pooled_losses(rows: Sequence[dict], widths: Sequence[int] = (1, 2, 3)) -> List[dict]:
     """Per reading, arm and width: the per-paper losses combined by random effects, pooling.pool
     on each loss and its SE squared (floored at LOSS_SE_FLOOR), the pooled loss, its SE, the spread
-    between papers and the interval for one more paper's loss (three papers or more); beside it
-    the plain mean and median of the losses, the papers, and the mean precision at 0.99."""
+    between populations and the interval for one more population's loss (three or more); beside it
+    the plain mean and median of the losses, the papers, the precision at 0.99 as the mean over
+    the papers and at its least, and pooled over the answers themselves (precision_pooled: every
+    paper's answers together, so a paper that answers often weighs more)."""
     out = []
     for reading in dict.fromkeys(r["reading"] for r in rows):
-        for arm in (MERGED, PREDICTED):
+        for arm in ARMS[1:]:
             for w in widths:
                 rs = [r for r in rows if r["reading"] == reading and r["arm"] == arm and r["width"] == w]
                 if not rs:
@@ -410,15 +482,18 @@ def pooled_losses(rows: Sequence[dict], widths: Sequence[int] = (1, 2, 3)) -> Li
                 v = np.maximum(np.array([r["loss_se"] for r in rs]), LOSS_SE_FLOOR) ** 2
                 p = P.pool(y, v)
                 prec = [r["precision"] for r in rs if math.isfinite(r["precision"])]
-                out.append({"reading": reading, "arm": arm, "width": w, "papers": len(rs),
+                n_ans = sum(r.get("n_answered", 0) for r in rs)
+                errors = sum(r.get("errors", 0) for r in rs)
+                out.append({"reading": reading, "arm": arm, "width": w, "populations": len(rs),
                             "loss_pooled": p.mean if p else float(y[0]), "loss_se": p.se if p else float("nan"),
-                            "tau_between_papers": p.tau if p else float("nan"),
+                            "tau_between_populations": p.tau if p else float("nan"),
                             "pi_low": p.pi_low if p else float("nan"), "pi_high": p.pi_high if p else float("nan"),
                             "loss_mean": float(y.mean()), "loss_median": float(np.median(y)),
                             "loss_min": float(y.min()), "loss_max": float(y.max()),
                             "exact_mean": float(np.mean([r["exact"] for r in rs])),
                             "precision_mean": float(np.mean(prec)) if prec else float("nan"),
                             "precision_min": float(np.min(prec)) if prec else float("nan"),
+                            "precision_pooled": float((n_ans - errors) / n_ans) if n_ans else float("nan"),
                             "answered_mean": float(np.mean([r["answered"] for r in rs]))})
     return out
 

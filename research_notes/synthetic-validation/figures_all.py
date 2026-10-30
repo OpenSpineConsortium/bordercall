@@ -318,7 +318,8 @@ def fig_spread_all(records: str, out: str) -> List[str]:
 # ----- figure 14: every paper its own population ------------------------------------------------------
 
 MERGED, PREDICTED, OWN = "merged: the others pooled", "predicted: the others pooled, SD widened by tau", "own table"
-ARM_LABEL = {MERGED: "merged: the others pooled", PREDICTED: "predicted: widened by tau"}
+SD_ONLY = "own means, the others' SD"
+ARM_LABEL = {MERGED: "merged: the others pooled", PREDICTED: "predicted: widened by tau", SD_ONLY: "own means, the others' SD"}
 
 
 def _strata(records: str, name: str) -> str:
@@ -344,15 +345,15 @@ def fig_strata(records: str, out: str) -> List[str]:
     a = axes[0, 0]
     papers = sorted({r["paper"] for r in loo},
                     key=lambda p: _num(next(r["loss"] for r in loo if r["paper"] == p and r["arm"] == MERGED and int(r["width"]) == w_main)))
-    for j_, arm in enumerate((MERGED, PREDICTED)):
+    for j_, arm in enumerate((MERGED, PREDICTED, SD_ONLY)):
         st = H.SERIES_STYLE[j_]
         ys = list(range(len(papers)))
         xs = [_num(next(r["loss"] for r in loo if r["paper"] == p and r["arm"] == arm and int(r["width"]) == w_main)) for p in papers]
         es = [1.96 * _num(next(r["loss_se"] for r in loo if r["paper"] == p and r["arm"] == arm and int(r["width"]) == w_main)) for p in papers]
-        a.errorbar(xs, [y + (0.18 if j_ else -0.18) for y in ys], xerr=es, color=H.INK, linestyle="none", marker=st["marker"],
-                   markerfacecolor=st["markerfacecolor"], markersize=4, elinewidth=0.6, label=ARM_LABEL[arm])
+        a.errorbar(xs, [y + (-0.24, 0.24, 0.0)[j_] for y in ys], xerr=es, color=H.INK, linestyle="none", marker=st["marker"],
+                   markerfacecolor=st["markerfacecolor"], markersize=4 if j_ < 2 else 3, elinewidth=0.6, label=ARM_LABEL[arm])
         pr = pooled_row(readings[0], arm, w_main)
-        y0 = len(papers) + 0.6 + (0.3 if j_ else 0)
+        y0 = len(papers) + 0.5 + 0.3 * j_
         lo, hi = _num(pr["pi_low"]), _num(pr["pi_high"])
         a.plot([lo, hi], [y0, y0], color=H.INK, linewidth=0.6, linestyle=st["linestyle"])
         a.plot([pr["loss_pooled"]], [y0], color=H.INK, linestyle="none", marker="D", markerfacecolor=st["markerfacecolor"], markersize=5)
@@ -360,7 +361,7 @@ def fig_strata(records: str, out: str) -> List[str]:
         drawn.append({"panel": "A", "paper": "pooled, one more population", "arm": arm, "width": w_main,
                       "loss": pr["loss_pooled"], "pi_low": lo, "pi_high": hi})
     labels = ["%s (%s)" % (p, next(r["n_measures"] for r in loo if r["paper"] == p)) for p in papers] + ["one more population"]
-    a.set_yticks(list(range(len(papers))) + [len(papers) + 0.75])
+    a.set_yticks(list(range(len(papers))) + [len(papers) + 0.8])
     a.set_yticklabels(labels, fontsize=6.5)
     a.axvline(0, color=H.INK, linewidth=0.6, linestyle=":")
     a.set_xlabel("loss against the paper's own table (points named exactly, %d bodies)" % w_main)
@@ -378,7 +379,7 @@ def fig_strata(records: str, out: str) -> List[str]:
             b.errorbar(xs, [r["loss_pooled"] for r in rows], yerr=[1.96 * (r["loss_se"] or 0.0) for r in rows], color=H.INK,
                        elinewidth=0.6, label="%s, %s" % (reading, ARM_LABEL[arm].split(":")[0]), **st)
             drawn += [{"panel": "B", "reading": reading, "arm": arm, "width": w, "loss_pooled": r["loss_pooled"], "loss_se": r["loss_se"],
-                       "populations": r["papers"]} for w, r in zip(widths, rows)]
+                       "populations": r["populations"]} for w, r in zip(widths, rows)]
             k += 1
     b.set_xticks(widths)
     b.set_xlabel("bodies in the field (L1 to L5)")
@@ -432,8 +433,9 @@ def fig_strata(records: str, out: str) -> List[str]:
     H.write_csv(out, "fig14_strata", drawn)
     return H.save(fig, out, "fig14_strata", (
         "Every paper its own population. A, the rule built on the other papers, pooled, scored on each paper's "
-        "population at three bodies, the diamond's line the interval for one more population; B, the pooled loss "
-        "by field width and reading; C, whether answers at 0.99 stay right; D, populations drawn from the random-effects model."))
+        "population at three bodies, the small triangles the SD difference alone, the diamond's line the interval for "
+        "one more population; B, the pooled loss by field width and reading; C, whether answers at 0.99 stay right; "
+        "D, populations drawn from the model."))
 
 
 FIGURES_ALL = (fig_tables, fig_relations, fig_state_space_all, fig_naming_measures, fig_spread_all, fig_strata)

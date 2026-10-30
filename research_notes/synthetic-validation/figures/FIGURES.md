@@ -4,11 +4,11 @@ Drawn by `python3 -I figures.py --records records --out figures` from the record
 `python3 -I run.py --out records` (bordercall 560bd00). Each figure's numbers are its CSV; its caption is its .caption.txt.
 The three renders are drawn by render.py from the generator itself, seed 2029, 4000 people.
 
-Drawn at bordercall ad191b5, from and by:
+Drawn at bordercall e4d9ffe, from and by:
 
 - records/RECORD.json, sha256 8229f63cad6bc1ddf0ecc53c9faa6602bb4d79b590165b4c4cd80f5d614c9df1
 - figures.py, sha256 df7e5d8794c0a291faf0b536769e7035a78817b03b24e7d397cda8e82db6281d
-- figures_all.py, sha256 139f9354e2942230c4fd1ba5e0908f7fac7fef97cc464c7ce5ab576a32dd797d
+- figures_all.py, sha256 8da03fc186b79e014b99b0e06f553d04a4adcd9a18c5fb2b878eb5a423e5f45b
 - render.py, sha256 d4bc0d70416d843a6d019ffefe741cb0fe01013357027395c24448c01cc3a9d9
 - synthval/house.py, sha256 396822b88fcb46e9533162f8a46b8e2443c1d58ac15d1f40e2d0eb4f5653323a
 - schwingcheck/figures.py, sha256 3908d42cc8e93c839d8ddca5bf06591af281e1490d775483e20535a0908b0576
@@ -134,12 +134,12 @@ The spread between published series on every measure the papers pool from three 
 
 ## fig14_strata
 
-Every paper its own population. A, the rule built on the other papers, pooled, scored on each paper's population at three bodies, the diamond's line the interval for one more population; B, the pooled loss by field width and reading; C, whether answers at 0.99 stay right; D, populations drawn from the random-effects model.
+Every paper its own population. A, the rule built on the other papers, pooled, scored on each paper's population at three bodies, the small triangles the SD difference alone, the diamond's line the interval for one more population; B, the pooled loss by field width and reading; C, whether answers at 0.99 stay right; D, populations drawn from the model.
 
-- fig14_strata.caption.txt, sha256 5252cd5eb4fc2c73b12fbc4692a73ac3b415aa66b50a0db7c6d242326cd852e8
-- fig14_strata.csv, sha256 a8903fce49085f588c08f427539eb7769f3177f88867a2dea8c97c1abbb2f87d
-- fig14_strata.pdf, sha256 4cb577aff7b4bec3748217d0541b9a68971cfc62aaea72e75e5f80514bebdf00
-- fig14_strata.png, sha256 4ea475e742ec4433073e1237d623a73965c552439b448dec04281b477c02e4fc
+- fig14_strata.caption.txt, sha256 000f03e0be751aa7599728377596989799a35236501d23ebb2c5f57d569d0a22
+- fig14_strata.csv, sha256 6b3c562c88c66df8da85139816323193913eacd0992eff5c6f013137968c3f69
+- fig14_strata.pdf, sha256 e217a1f280e4ccda8d5381da7feca24c6d552e954ea26c92a4cc4bf958779cf8
+- fig14_strata.png, sha256 83b6790cbbaa802fcd79872d1c1da13e7dae3d673670cb804bca0c60d3537327
 
 ## render1_axial
 

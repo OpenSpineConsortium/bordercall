@@ -1,15 +1,23 @@
-"""Build the private report page from the note's README (its tables already checked against the
-records by tables.py --check) and its committed figures. Nothing here computes a number; the four
-tiles at the top repeat the README's answer, the first part's, and are changed by hand with it.
+"""Build the private report page as figures with reading notes (the owner's ask of 2026-10-29, 22:58
+UTC: plots with short notes on how to read them, not a wall of text). Every figure of figures/ is
+shown with its caption, two to four sentences on how to read it and two or three on what it shows,
+the numbers quoted from the README's answer; the tables stay in the README, where tables.py --check
+holds them to the records. Nothing here computes a number; the four tiles at the top repeat the
+README's answer, the first part's, and are changed by hand with it.
 
     python3 report/build.py <branch or commit>     # from the note's folder, or anywhere
 
-writes report/index.html and copies the figures beside it (both ignored by git); the page is then
-published to the owner's private artifact by a session's Artifact tool with that url, so the link
-stays the same: https://claude.ai/artifact/NQSUQ6c1Edzra7bW6CWJx2 since the second part (2026-10-29),
-published from the thread's account; the first part's https://claude.ai/artifact/H82v6B1drWmpjTJhrWrLxv
-belongs to another account, which a session of this one cannot republish, and shows the page as it was."""
+reads report/notes.json, one entry a figure (how_to_read, what_it_shows), refusing a figure of
+figures/ that has no note, writes report/index.html and copies the figures beside it (both ignored
+by git); the page is then published to the owner's private artifact by a session's Artifact tool
+with that url, so the link stays the same: https://claude.ai/artifact/VXV7NqZTv6gG1f4cXGhgd2 since
+the strata (2026-10-30), published from the symphony_3 account with the figures as its files. The
+two earlier links belong to other accounts, which a session of this one cannot republish, and show
+the page as it was: https://claude.ai/artifact/NQSUQ6c1Edzra7bW6CWJx2 (the second part, 2026-10-29,
+symphony_2) and https://claude.ai/artifact/H82v6B1drWmpjTJhrWrLxv (the first part). A session of
+another account publishes a new link and records it here."""
 import html
+import json
 import os
 import re
 import shutil
@@ -20,6 +28,7 @@ NOTE = os.path.dirname(OUT)
 COMMIT = sys.argv[1] if len(sys.argv) > 1 else "uncommitted"
 
 readme = open(os.path.join(NOTE, "README.md")).read()
+notes = json.load(open(os.path.join(OUT, "notes.json"), encoding="utf-8"))
 
 
 def sections(text):
@@ -38,62 +47,27 @@ def inline(s):
     s = html.escape(s, quote=False)
     s = re.sub(r"`([^`]+)`", r"<code>\1</code>", s)
     s = re.sub(r"\*\*(.+?)\*\*", r"<strong>\1</strong>", s)
-    s = s.replace(" - ", " &minus; ") if False else s
     return s
 
 
-NUM = re.compile(r"^[\s\-+0-9.,/%()<>=:;a-zA-Z ]*[0-9][\s\-+0-9.,/%()]*$")
-
-
-def table(lines):
-    rows = [[c.strip() for c in l.strip().strip("|").split("|")] for l in lines]
-    head, align, body = rows[0], rows[1], rows[2:]
-    right = [a.endswith(":") for a in align]
-    h = ["<div class='tbl'><table><thead><tr>"]
-    for i, c in enumerate(head):
-        h.append("<th%s>%s</th>" % (" class='n'" if right[i] else "", inline(c)))
-    h.append("</tr></thead><tbody>")
-    for r in body:
-        lead = len(r[0]) - len(r[0].lstrip()) if r else 0
-        h.append("<tr>")
-        for i, c in enumerate(r):
-            cls = "n" if i < len(right) and right[i] else ""
-            raw = lines[2 + body.index(r)].strip().strip("|").split("|")[i] if i == 0 else c
-            indent = len(raw) - len(raw.lstrip(" ")) - 1 if i == 0 else 0
-            style = " style='padding-left:%.1fem'" % (0.6 + 0.9 * (indent // 2)) if indent >= 2 else ""
-            h.append("<td%s%s>%s</td>" % (" class='%s'" % cls if cls else "", style, inline(c)))
-        h.append("</tr>")
-    h.append("</tbody></table></div>")
-    return "".join(h)
-
-
 def blocks(body):
-    """The README's markdown: paragraphs, lists, tables, code and the notes under tables."""
-    out, para, lst, code, tbl = [], [], [], None, []
-    marked = [False]
-    lines = body.split("\n")
+    """The README's markdown for the two prose sections kept: paragraphs, lists and code; a marked
+    table is left out, since the tables live in the README."""
+    out, para, lst, code = [], [], [], None
+    skip = False
 
     def flush_para():
-        # The paragraph under a marked table is its note; the first paragraph after it ends the note.
         if para:
-            cls = " class='tnote'" if marked[0] else ""
-            out.append("<p%s>%s</p>" % (cls, inline(" ".join(x.strip() for x in para))))
+            out.append("<p>%s</p>" % inline(" ".join(x.strip() for x in para)))
             para.clear()
-            marked[0] = False
 
     def flush_list():
         if lst:
             tag = "ol" if lst[0][0] == "ol" else "ul"
-            items = "".join("<li>%s</li>" % inline(t) for _, t in lst)
-            out.append("<%s>%s</%s>" % (tag, items, tag))
+            out.append("<%s>%s</%s>" % (tag, "".join("<li>%s</li>" % inline(t) for _, t in lst), tag))
             lst.clear()
 
-    def flush_tbl():
-        if tbl:
-            out.append(table(tbl))
-            tbl.clear()
-
-    for l in lines:
+    for l in body.split("\n"):
         if code is not None:
             if l.startswith("```"):
                 out.append("<pre><code>%s</code></pre>" % html.escape("\n".join(code)))
@@ -101,15 +75,14 @@ def blocks(body):
             else:
                 code.append(l)
             continue
-        if l.startswith("```"):
-            flush_para(); flush_list(); flush_tbl(); code = []; continue
-        if l.startswith("<!--"):
-            flush_para(); flush_list(); flush_tbl()
-            marked[0] = l.startswith("<!-- table")
+        if l.startswith("<!-- table"):
+            flush_para(); flush_list(); skip = True; continue
+        if l.startswith("<!-- end"):
+            skip = False; continue
+        if skip:
             continue
-        if l.startswith("|"):
-            flush_para(); flush_list(); tbl.append(l); continue
-        flush_tbl()
+        if l.startswith("```"):
+            flush_para(); flush_list(); code = []; continue
         if not l.strip():
             flush_para(); flush_list(); continue
         m = re.match(r"^(\d+)\.\s+(.*)$", l)
@@ -121,7 +94,7 @@ def blocks(body):
         if lst and l.startswith("  "):
             lst[-1] = (lst[-1][0], lst[-1][1] + " " + l.strip()); continue
         para.append(l)
-    flush_para(); flush_list(); flush_tbl()
+    flush_para(); flush_list()
     return "\n".join(out)
 
 
@@ -130,52 +103,66 @@ def caption(name):
 
 
 def figure(name, alt):
+    note = notes[name]
     return ("<figure><img src='figures/%s.png' alt='%s' loading='lazy'>"
             "<figcaption><span class='fid'>%s</span> %s</figcaption></figure>"
-            % (name, html.escape(alt, quote=True), name, inline(caption(name))))
+            "<div class='note'><p><span class='lead'>How to read it.</span> %s</p>"
+            "<p><span class='lead'>What it shows.</span> %s</p></div>"
+            % (name, html.escape(alt, quote=True), name, inline(caption(name)),
+               inline(note["how_to_read"].strip()), inline(note["what_it_shows"].strip())))
 
 
 os.makedirs(os.path.join(OUT, "figures"), exist_ok=True)
+figures_present = set()
 for f in os.listdir(os.path.join(NOTE, "figures")):
     if f.endswith(".png"):
         shutil.copy(os.path.join(NOTE, "figures", f), os.path.join(OUT, "figures", f))
-
-intro = S["_intro"]
-snapshot = re.search(r"\*\*What the snapshot is\.\*\*(.*)", intro, re.S).group(1)
+        figures_present.add(f[:-4])
 
 PAGE = [
-    ("summary", "The answer", [S["The answer"]], []),
-    ("state-space", "State space", [S["State space"]], [("fig4_state_space", "State space, one axis at a time and the grid")]),
-    ("naming", "Naming across the state space", [S["Naming across the state space"]], [("fig5_naming", "Exact naming at points of the state space")]),
-    ("quality", "Population quality and curation", [S["Quality and curation"]], [("fig7_quality", "Quality indicators by measure and level")]),
-    ("compared", "What was compared", ["**What the snapshot is.**" + snapshot, S["What was compared"]], []),
-    ("means", "Against the published means", [S["Means"]], [("fig1_means", "Panjabi's means against the pooled papers")]),
-    ("spread", "Spread", [S["Spread"]], [("fig2_spread", "The synthetic SDs against the papers'")]),
-    ("structure", "Structure", [S["Structure"]], [("fig3_structure", "Correlations and the sexes' differences")]),
-    ("power", "Power, rerun", [S["Power, rerun"]], []),
-    ("gold", "What gold persons can test", [S["What gold persons can test"]], [("fig6_power", "The spread between series, part C and the gold persons")]),
-    ("assumptions", "The assumptions beside the papers", [S["The assumptions beside the papers"]], [("fig8_assumptions", "The generator's errors and prevalences beside the papers'")]),
-    ("measures", "Every measure of the reread", [S["Every measure of the reread"]], [("fig9_tables", "Every measure of the reread and the three tables")]),
-    ("state-space-all", "The state space on every table", [S["The state space on every table"]], [("fig11_state_space_all", "The state space read on the three tables")]),
-    ("quality-all", "Quality on every table", [S["Quality on every table"]], [("fig10_relations", "Quality indicators on every measure")]),
-    ("naming-all", "Naming with more measures", [S["Naming with more measures"]], [("fig12_naming_measures", "Exact naming by the rule built on more measures")]),
-    ("spread-all", "The spread between series on every measure", [S["The spread between series on every measure"]], [("fig13_spread_all", "The spread between published series on every measure")]),
-    ("renders", "Renders", [S["Figures and renders"].split("\n- ")[0]], [("render1_axial", "L3 from above"), ("render2_column", "The lumbar column from in front"), ("render3_solid", "The column as solids")]),
-    ("limits", "What this does not do", [S["What this note does not do"]], []),
-    ("reproduce", "Reproduce", [S["Run it"]], []),
+    ("validation", "The synthetic population against the papers", [
+        ("fig1_means", "Panjabi's means against the pooled papers"),
+        ("fig2_spread", "The synthetic SDs against the papers'"),
+        ("fig3_structure", "Correlations and the sexes' differences")]),
+    ("state-space", "The state space and naming across it", [
+        ("fig4_state_space", "State space, one axis at a time and the grid"),
+        ("fig5_naming", "Exact naming at points of the state space")]),
+    ("quality", "Population quality", [("fig7_quality", "Quality indicators by measure and level")]),
+    ("power", "Power and the gold persons", [("fig6_power", "The spread between series, part C and the gold persons")]),
+    ("assumptions", "The assumptions beside the papers", [("fig8_assumptions", "The generator's errors and prevalences beside the papers'")]),
+    ("measures", "Every measure of the reread", [
+        ("fig9_tables", "Every measure of the reread and the three tables"),
+        ("fig11_state_space_all", "The state space read on the three tables"),
+        ("fig10_relations", "Quality indicators on every measure"),
+        ("fig12_naming_measures", "Exact naming by the rule built on more measures"),
+        ("fig13_spread_all", "The spread between published series on every measure")]),
+    ("strata", "Every paper its own population", [("fig14_strata", "The rule built on the other papers, scored on each")]),
+    ("renders", "Renders", [
+        ("render1_axial", "L3 from above"),
+        ("render2_column", "The lumbar column from in front"),
+        ("render3_solid", "The column as solids")]),
 ]
+PROSE = [("limits", "What this does not do", S["What this note does not do"]), ("reproduce", "Reproduce", S["Run it"])]
 
+listed = {name for _, _, figs in PAGE for name, _ in figs}
+missing = sorted(figures_present - listed)
+if missing:
+    raise SystemExit("figures with no place on the page: %s" % ", ".join(missing))
+unnoted = sorted(n for n in listed if n not in notes)
+if unnoted:
+    raise SystemExit("figures with no note in report/notes.json: %s" % ", ".join(unnoted))
 
 css = open(os.path.join(OUT, "style.css")).read()
-nav = "".join("<a href='#%s'>%s</a>" % (k, html.escape(t)) for k, t, _, _ in PAGE)
+nav = "".join("<a href='#%s'>%s</a>" % (k, html.escape(t)) for k, t, _ in PAGE) + \
+      "".join("<a href='#%s'>%s</a>" % (k, html.escape(t)) for k, t, _ in PROSE)
 body = []
-for key, title, texts, figs in PAGE:
+for key, title, figs in PAGE:
     body.append("<section id='%s'><h2>%s</h2>" % (key, html.escape(title)))
-    for t in texts:
-        body.append(blocks(t))
     for name, alt in figs:
         body.append(figure(name, alt))
     body.append("</section>")
+for key, title, text in PROSE:
+    body.append("<section id='%s'><h2>%s</h2>%s</section>" % (key, html.escape(title), blocks(text)))
 
 tiles = [
     ("SD ratio, true anatomy", "1.71", "0.98", "generator, then the nearest point; 1.00 is the papers'"),
@@ -196,14 +183,14 @@ page = """<title>SchwingCheck Population Report</title>
 <header class="top"><div class="wrap">
 <p class="eyebrow">bordercall, research_notes/synthetic-validation &middot; pull requests 29 and 38 &middot; confidential</p>
 <h1>The synthetic spines against the published populations</h1>
-<p class="lede">schwingcheck's generator draws whole spines from Panjabi's twelve cadavers. This report holds that population to the 39 papers of the clinical reread, explores the generator's state space, scores every synthetic vertebra against quality indicators drawn from the measures' own geometry, and reruns the power calculations on the papers' own series. Everything is synthetic but the papers' numbers: no grid, no WSU data, no scan, and a synthetic result raises no evidence tier.</p>
+<p class="lede">schwingcheck's generator draws whole spines from Panjabi's twelve cadavers. These figures hold that population to the 39 papers of the clinical reread, explore the generator's state space, score every synthetic vertebra against quality indicators, rerun the power calculations on the papers' own series, read every measure of the reread, and keep each paper a population of its own. Everything is synthetic but the papers' numbers: no grid, no WSU data, no scan, and a synthetic result raises no evidence tier.</p>
 <div class="tiles">%s</div>
-<p class="meta">The papers are the reread's series at its commit 401aaee; What was compared says what that snapshot fixed. The second part, Every measure of the reread, reads the whole reread at main 6409164.</p>
-<p class="meta">Every table below is the note's README on bordercall's branch or commit <code>%s</code>, which <code>tables.py --check</code> holds to the records one run writes; every figure is drawn by the note's committed code, and the page by report/build.py.</p>
+<p class="meta">Each figure carries its caption, a note on how to read it and a note on what it shows, the numbers quoted from the note's answer. The tables are in the README, held to the records by <code>tables.py --check</code>; the papers are the reread's series at its commit 401aaee, the second part reads the whole reread at main 6409164, and the strata are read on the same snapshot.</p>
+<p class="meta">Every figure is drawn by the note's committed code from the records on bordercall's branch or commit <code>%s</code>, and the page by report/build.py.</p>
 </div></header>
 <nav class="toc"><div class="wrap">%s</div></nav>
 <main class="wrap">%s</main>
-<footer class="wrap"><p>Private to the owner. bordercall's research notes stay in bordercall; this page is a view of research_notes/synthetic-validation/README.md and figures/ on the branch or commit above.</p></footer>
+<footer class="wrap"><p>Private to the owner. bordercall's research notes stay in bordercall; this page is a view of research_notes/synthetic-validation/figures/ and README.md on the branch or commit above.</p></footer>
 """ % (css, tile_html, COMMIT, nav, "\n".join(body))
 
 open(os.path.join(OUT, "index.html"), "w").write(page)
