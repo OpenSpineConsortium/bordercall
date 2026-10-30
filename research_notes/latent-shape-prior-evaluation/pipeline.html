@@ -53,6 +53,7 @@ header { display: grid; gap: 10px; }
 .job.gpu { color: var(--amber); border-color: var(--amber); background: var(--amber-bg); }
 .job.none { color: var(--muted); border-color: var(--line); border-style: dashed; }
 .job.file { color: var(--muted); border-color: var(--muted); border-style: dotted; }
+.job.phase { color: var(--muted); border-color: var(--muted); }
 
 /* layout */
 .layout { display: grid; gap: 24px; align-items: start; }
@@ -66,6 +67,10 @@ header { display: grid; gap: 10px; }
 .run-title { font-weight: 600; }
 .run-jobs { font-family: var(--mono); font-size: 12px; color: var(--muted); }
 .run.later { opacity: 0.85; }
+.run.other { border-color: var(--muted); background: var(--panel-2); }
+.run.other .node, .run.other .deck-card { background: var(--panel); }
+.run-note { font-size: 13px; color: var(--muted); margin: -4px 0 10px; }
+.owner { font-family: var(--mono); font-size: 11px; color: var(--muted); }
 
 /* step cards */
 .node { position: relative; display: grid; grid-template-columns: 112px minmax(0, 1fr) auto; gap: 12px; align-items: center; width: 100%; text-align: left;
@@ -92,6 +97,8 @@ header { display: grid; gap: 10px; }
 .edge::before { content: ""; position: absolute; left: -1px; top: 0; bottom: 6px; border-left: 2px solid var(--muted); }
 .edge::after { content: ""; position: absolute; left: -6px; bottom: 0; border-left: 6px solid transparent; border-right: 6px solid transparent; border-top: 8px solid var(--muted); }
 .edge.between { margin-left: calc(var(--stem) + 13px); }
+.edge.loose::before { border-left-style: dashed; }
+.edge.loose::after { border-top-color: var(--line); }
 
 /* two steps side by side */
 .pair { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
@@ -150,9 +157,11 @@ header { display: grid; gap: 10px; }
 .ddec { font-size: 13.5px; border-left: 3px solid var(--line); padding: 2px 0 2px 10px; }
 .ddec.greg { border-left-color: var(--good); }
 .ddec.plan { border-left-color: var(--amber); }
+.ddec.aa { border-left-color: var(--muted); }
 .who { font-family: var(--mono); font-size: 11px; letter-spacing: 0.04em; text-transform: uppercase; }
 .who.greg { color: var(--good); }
 .who.plan { color: var(--amber); }
+.who.aa { color: var(--muted); }
 .linkbtn { border: none; background: none; padding: 0; color: var(--accent); text-decoration: underline; text-underline-offset: 2px; }
 
 /* decisions */
@@ -164,6 +173,10 @@ header { display: grid; gap: 10px; }
 .where { display: flex; flex-wrap: wrap; gap: 4px 8px; font-size: 12px; color: var(--muted); align-items: center; }
 .where button { font-family: var(--mono); font-size: 11.5px; border: 1px solid var(--line); background: var(--panel-2); border-radius: 4px; padding: 0 6px; }
 footer { font-size: 12.5px; color: var(--muted); }
+.gloss summary { cursor: pointer; color: var(--accent); font-size: 13px; }
+.gloss dl { display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: 4px 14px; font-size: 13.5px; margin: 8px 0 0; max-width: 90ch; }
+.gloss dt { font-family: var(--mono); font-size: 12px; color: var(--muted); padding-top: 2px; }
+.gloss dd { margin: 0; }
 
 /* drawings: page classes so the strokes follow the theme */
 svg.g { overflow: visible; }
@@ -187,6 +200,8 @@ svg.g text { font-family: var(--mono); font-size: 11px; fill: currentColor; }
   .node .job { grid-column: 2; justify-self: start; }
   .pair { grid-template-columns: 1fr; }
   .run { padding: 10px 8px; }
+  .gloss dl { grid-template-columns: 1fr; gap: 0; }
+  .gloss dd { margin-bottom: 6px; }
 }
 </style>
 
@@ -194,14 +209,31 @@ svg.g text { font-family: var(--mono); font-size: 11px; fill: currentColor; }
   <header>
     <div class="eyebrow">bordercall / research_notes / latent-shape-prior-evaluation / 2026-10-30 / a plan: nothing has run</div>
     <h1>Auto-anatomist Pipeline</h1>
-    <p class="lede">The evaluation as Metaflow runs and steps, top to bottom. Each card is a step with a drawing of what it does; each arrow says what passes to the next. Click any card for what it reads, writes, waits on, and the decisions behind it.</p>
+    <p class="lede">The evaluation as grid jobs, top to bottom. Each dashed box is one or two jobs. In the GPU boxes a Slurm array starts one Metaflow launcher run per trial, each on its own card, and a merge run gathers them once the array ends. Each card is a step with a drawing of what it does; each arrow says what passes to the next. Click any card for what it reads, writes, waits on, and the decisions behind it.</p>
     <div class="legend">
       <span><span class="job cpu">CPU job</span></span>
       <span><span class="job gpu">GPU job</span></span>
       <span><span class="job none">no job of its own</span></span>
       <span><span class="job file">a file, not a step</span></span>
-      <span>Your count: 2 CPU, 2 GPU for the screen, 2 GPU for the full run, 1 short GPU smoke. Sent so far: 0.</span>
+      <span><span class="job phase">a phase inside a step</span></span>
+      <span>Your count: 2 CPU, 2 GPU for the screen, 2 GPU for the full run, 1 short GPU smoke (the auto-anatomist thread's, counted once). The annealer screen's 2 jobs are not counted yet. Sent so far: 0.</span>
     </div>
+    <details class="gloss">
+      <summary>Words used on this page</summary>
+      <dl>
+        <dt>the engine</dt><dd>bordercall's morphometry engine. It measures each vertebra's mask, and its values are the truth every arm is scored against.</dd>
+        <dt>spread</dt><dd>the network's own estimate of how far off a value may be, calibrated so 68 percent of true values fall within one spread.</dd>
+        <dt>the oracle</dt><dd>the crop frame used in training, a line through the neighbouring vertebrae's mask centres. A patient has no masks, so it is not there at test time.</dd>
+        <dt>three-body field</dt><dd>a view that shows three vertebrae, as a fluoroscopy shot does. Naming is scored as the share of such fields with every body named right.</dd>
+        <dt>rib class</dt><dd>how many rib-bearing vertebrae a spine has (eleven, twelve or thirteen). The anomaly spines are scored by it.</dd>
+        <dt>shape model (PDM)</dt><dd>a mean vertebra plus a few ways it varies, fit on the real masks. Its weights are the "shape numbers" a latent head gives.</dd>
+        <dt>naming rule</dt><dd>the model that reads the measurements (or shape numbers) along the spine and gives each body its name. "Exact" means it sums over every possible run of names.</dd>
+        <dt>flow kind</dt><dd>one Metaflow flow held to one frozen pre-registration; flows/launch.py starts it by that name.</dd>
+        <dt>launcher run</dt><dd>one run of a flow kind started by flows/launch.py. In an array there is one per trial.</dd>
+        <dt>afterany</dt><dd>the Slurm rule that starts a job once the jobs before it have ended, passed or failed.</dd>
+        <dt>pre-registration</dt><dd>the written rules and bars, hashed before the first job; a later change is a dated line beside it.</dd>
+      </dl>
+    </details>
   </header>
 
   <div class="layout">
@@ -238,12 +270,13 @@ svg.g text { font-family: var(--mono); font-size: 11px; fill: currentColor; }
     <div>
       <div class="eyebrow">every decision, and who made it</div>
       <h2 id="decTitle">Decisions behind the steps</h2>
-      <p class="muted">Green: your own words. Amber: the plan decided in your place after your "i have no idea" at 02:46 UTC; any of these is yours to overturn. The step names under each card open that step.</p>
+      <p class="muted">Green: your own words. Amber: the plan decided in your place after your "i have no idea" at 02:46 UTC. Grey: the auto-anatomist thread decided, for its annealer screen. Any of these is yours to overturn. The step names under each card open that step.</p>
     </div>
     <div class="filters" id="filters">
       <button type="button" class="seg" data-f="all" aria-pressed="true">All</button>
       <button type="button" class="seg" data-f="greg" aria-pressed="false">Yours</button>
       <button type="button" class="seg" data-f="plan" aria-pressed="false">The plan's</button>
+      <button type="button" class="seg" data-f="aa" aria-pressed="false">The auto-anatomist thread's</button>
     </div>
     <div class="cards" id="cards"></div>
   </section>
@@ -423,6 +456,40 @@ svg.g text { font-family: var(--mono); font-size: 11px; fill: currentColor; }
         arrow(26, 24, 34, 44) + arrow(50, 24, 42, 44) + arrow(56, 46, 78, 46, "a") +
         '<rect class="a" x="80" y="32" width="34" height="28" rx="4"/><text x="97" y="50" text-anchor="middle">JAX</text>';
     },
+    anneal: function () {
+      var id = "an" + (gid++), out = '<defs><radialGradient id="' + id + '"><stop offset="0" style="stop-color:var(--accent);stop-opacity:.8"/><stop offset="1" style="stop-color:var(--accent);stop-opacity:0"/></radialGradient></defs>';
+      out += '<rect class="m" x="6" y="2" width="24" height="24" rx="2"/><rect class="af" x="12" y="8" width="12" height="12" rx="3"/>' +
+        '<rect class="m" x="34" y="2" width="24" height="24" rx="2"/><rect class="af" x="38" y="5" width="8" height="5" rx="1"/><rect class="af" x="40" y="12" width="9" height="5" rx="1"/><rect class="af" x="42" y="19" width="9" height="5" rx="1"/>' +
+        '<rect class="m" x="62" y="2" width="24" height="24" rx="2"/><circle cx="74" cy="14" r="11" fill="url(#' + id + ')"/>' +
+        '<rect class="m" x="90" y="2" width="24" height="24" rx="2"/>' + c(96, 8, 1.4, "af") + c(104, 11, 1.4, "af") + c(99, 17, 1.4, "af") + c(108, 20, 1.4, "af") + c(94, 22, 1.4, "af") + c(106, 6, 1.4, "af");
+      // lambda rises over [a, b], w falls over [cc, d], as shares of the steps; the null is flat at lambda 1, w 0
+      [[0.15, 0.55, 0.45, 0.85], [0.15, 0.55, 0.15, 0.55], [0.45, 0.85, 0.15, 0.55], null].forEach(function (sc, i) {
+        var x0 = 6 + i * 28, W = 24, top = 38, bot = 66;
+        out += '<path class="m" d="M' + x0 + ' ' + (top - 2) + ' V' + bot + ' H' + (x0 + W) + '"/>';
+        if (!sc) { out += '<path class="a" d="M' + x0 + ' ' + top + ' H' + (x0 + W) + '"/><path class="w" d="M' + x0 + ' ' + (bot - 1) + ' H' + (x0 + W) + '"/>'; return; }
+        out += '<path class="a" d="M' + x0 + ' ' + bot + ' H' + (x0 + W * sc[0]).toFixed(1) + ' L' + (x0 + W * sc[1]).toFixed(1) + ' ' + top + ' H' + (x0 + W) + '"/>';
+        out += '<path class="w" d="M' + x0 + ' ' + top + ' H' + (x0 + W * sc[2]).toFixed(1) + ' L' + (x0 + W * sc[3]).toFixed(1) + ' ' + bot + ' H' + (x0 + W) + '"/>';
+      });
+      return out;
+    },
+    crops: function () {
+      var out = "";
+      for (var i = 0; i < 5; i++) out += '<rect class="s" x="22" y="' + (4 + i * 13.4) + '" width="26" height="10" rx="3"/>';
+      return out + '<rect class="a dash" x="16" y="28" width="38" height="22" rx="3"/>' + c(35, 39, 2.4, "af") + arrow(58, 39, 74, 39) +
+        '<rect class="s" x="78" y="26" width="26" height="26"/><path class="m" d="M78 26 L86 19 H112 V45 L104 52 M104 26 L112 19"/>';
+    },
+    overlap: function () {
+      return '<rect class="s" x="14" y="14" width="40" height="40" rx="8"/><rect class="a" x="22" y="20" width="40" height="40" rx="8"/>' +
+        '<path class="s" d="M74 62 H114"/><rect class="mf" x="78" y="50" width="7" height="12"/><rect class="af" x="88" y="22" width="7" height="40"/><rect class="mf" x="98" y="54" width="7" height="8"/>';
+    },
+    seedsRule: function () {
+      var out = '<path class="s" d="M10 6 V64 H114"/>';
+      [[26, 30, 36, "w"], [50, 22, 26, "a"], [74, 40, 46, "s"], [98, 28, 50, "s"]].forEach(function (g) {
+        var cls = g[3] === "w" ? "wf" : (g[3] === "a" ? "af" : "sf");
+        out += c(g[0] - 4, 64 - g[1], 3.2, cls) + c(g[0] + 4, 64 - g[2], 3.2, cls);
+      });
+      return out + '<line class="w dash" x1="12" y1="28" x2="112" y2="28"/>';
+    },
     names: function () {
       var h = [6, 10, 44, 8, 4, 3], out = '<path class="s" d="M8 62 H112"/>';
       h.forEach(function (v, i) { out += '<rect class="' + (i === 2 ? "af" : "mf") + '" x="' + (12 + i * 17) + '" y="' + (62 - v) + '" width="12" height="' + v + '"/>'; });
@@ -436,16 +503,16 @@ svg.g text { font-family: var(--mono); font-size: 11px; fill: currentColor; }
 
   // ---------- the steps of the pipeline ----------
   var N = {
-    export: { step: "@step export", job: ["cpu", "CPU job 1 of 2"], title: "Export the truth", glyph: "export",
+    export: { step: "CPU job: morphometry run --lines", job: ["cpu", "CPU job 1 of 2"], title: "Export the truth", glyph: "export",
       short: "The engine measures every gold CT's masks and writes each line's two end points.",
       legend: "A vertebra seen from the side, two of its measurements drawn as lines with their end points, written into the truth table.",
       does: "The morphometry engine reads every gold tier 3 mask in the vertebra's own frame. Beside each measurement it writes the two points it was measured between and the vertebra's frame. Those points are the targets every network learns and the data the shape model is fit on. It also measures how far apart the three crop frames are (the engine's, the oracle's, the mask-free one).",
       reads: "The 1,733 gold tier 3 CTs with their masks, on the grid.",
       writes: "Per vertebra: each measurement's value, its two line ends and the frame. Rows stay on the grid; only aggregates leave.",
-      waits: "The export flag (--lines) on the engine's branch, PR 44; the engine re-vendored under SchwingNet's grid/bordercall/; the CTs landed; the autoPET person match.",
-      jobnote: "1 CPU job. It costs nothing extra if the export reaches the grid's copy before the two morphometry jobs you counted on 2026-10-29 are sent, since they would then write it.",
-      nums: [["1,733", "gold tier 3 CTs: ENHANCE.PET 1,558, VerSe 21, TotalSegmentator 154"], ["229", "thin-slice studies (1.25 mm or finer), the first arm of every comparison"], ["16.7 / 18.1", "degrees between the crop frame and the engine's frame, median at C3 / at L5"]] },
-    features: { step: "@step features", job: ["cpu", "CPU job 2 of 2"], title: "Name levels from the measurements alone", glyph: "features",
+      waits: "The export flag (--lines) on the engine's branch, PR 44; the engine re-vendored under SchwingNet's grid/bordercall/ with morphoview, which the pinned copy lacks; the morphometry re-run in the vertebra's own frame, since the 228 studies were measured in the older one; the CTs landed; the autoPET person match.",
+      jobnote: "It costs nothing extra if the export reaches the grid's copy before the two morphometry jobs you counted on 2026-10-29 are sent, since they would then write it. Else it is this 1 CPU job, or, if those jobs have already run, a re-run that needs a new count.",
+      nums: [["1,733", "gold tier 3 CTs: ENHANCE.PET 1,558, VerSe 21, TotalSegmentator 154"], ["229", "thin-slice studies (1.25 mm or finer), the first arm of every comparison"], ["16.7 / 18.1", "degrees between the oracle's line and the engine's frame, median at C3 / at L5, over 228 studies"]] },
+    features: { step: "CPU job: features over the export's rows", job: ["cpu", "CPU job 2 of 2"], title: "Name levels from the measurements alone", glyph: "features",
       short: "No network: does the naming rule do as well from the 7, the 32, or shape numbers?",
       legend: "Two levels as clouds of feature values; the rule or a plain classifier draws the line between them.",
       does: "On the engine's own rows, with no network at all: the naming rule over the seven chords, over the 32 measurements, over the 32 with the size-free ratios, and over the shape model's numbers; a plain classifier over the same features. Persons left out, five folds, scored per rib class.",
@@ -454,40 +521,84 @@ svg.g text { font-family: var(--mono); font-size: 11px; fill: currentColor; }
       waits: "export.",
       learn: "Whether a latent is worth training at all; how many shape numbers K to keep; how correlated naming errors are within one spine, which sets the naming bar.",
       nums: [["5", "folds, persons left out"], ["7 / 32 / 32+", "the named feature sets compared, with the shape numbers"]] },
-    smoke: { step: "@step smoke", job: ["none", "no job of its own"], title: "Smoke every arm on phantoms", glyph: "smoke",
+    smoke: { step: "trials in the auto-anatomist flow's phantom smoke plan", job: ["none", "no job of its own, if in time"], title: "Smoke every arm on phantoms", glyph: "smoke",
       short: "A few hundred steps each on synthetic spines; checks the code runs, reads nothing.",
       legend: "A synthetic spine, and a check that every arm gets from the mask to named bodies.",
       does: "The six arms run a few hundred steps each on the existing synthetic phantoms, on CPU, so the code path from the mask to the named bodies works for every head. Nothing is read as a result. The PyMC-to-JAX path is shown working here on chain_pymc.py's enumerated model.",
       reads: "The auto-anatomist's phantoms.",
       writes: "That each arm runs, and each arm's CPU step time.",
-      waits: "The head block, the measures switch and the shape-model module landed on the auto-anatomist branch; the probe smoke first, as you asked.",
-      jobnote: "It rides the other thread's phantom smoke plan if the head block lands before that plan's pre-registration is frozen; you folded it in with your count." },
-    gpu_smoke: { step: "@step gpu_smoke", job: ["gpu", "1 short GPU job"], title: "Time one GPU step", glyph: "gpu",
-      short: "Measures the seconds a crop takes on a card, which no record holds.",
+      waits: "The head block, the measures switch and the shape-model module landed on the auto-anatomist branch; a shape model fit on the phantoms' own points, since the real one waits on the export; the probe smoke first, as you asked.",
+      jobnote: "It rides the auto-anatomist thread's phantom smoke plan if the head block lands before that plan's pre-registration is frozen. If not, it is one CPU job of this evaluation's own kind, beyond your count, and needs your word first." },
+    gpu_smoke: { step: "plan gold3_latent_smoke of the auto-anatomist flow", job: ["gpu", "1 short GPU job, shared"], title: "Time one GPU step", glyph: "gpu",
+      short: "Measures the seconds a crop takes on a card, which no record holds. Shared with the auto-anatomist thread.",
       legend: "A stopwatch: the one unknown in every GPU cost.",
-      does: "One short GPU job runs a few hundred steps and records the time a crop takes on a card. The CPU smoke took 0.35 s a crop; at that pace a screen trial would take 67 hours, so the GPU time decides whether a trial is hours or a day. The number is written into the record after it is measured, never claimed before.",
-      reads: "The same code and phantoms as the smoke.",
-      writes: "Seconds a crop on a GPU.",
-      waits: "The head block and this evaluation's flow kind.",
-      nums: [["0.35 s", "a crop on CPU, from the smoke run"], ["67 h", "a screen trial at the CPU pace"]] },
+      does: "The auto-anatomist thread's gold tier 3 smoke, plan gold3_latent_smoke: the same steps as its annealer screen below, on four CTs, two trials in series on one card (lambda then w, and the null, 300 steps each), objective=mask only. It serves as your 1 short GPU smoke, so it is counted once. Its seconds a crop cover the shared trunk and decoder; each of your trials' first hundred steps then measures its own head. PR 40's earlier phantom smoke took 0.35 s a crop on CPU; at that pace a screen trial of yours would take 67 hours, so the GPU time decides whether a trial is hours or a day. The number is written into the record after it is measured, never claimed before.",
+      reads: "Four gold tier 3 CTs.",
+      writes: "GPU seconds a crop; both trials' curves.",
+      waits: "The auto-anatomist flow (SchwingNet PR 483) merged, with this smoke in its own plan and its own pre-registration (docs/research/autoanatomist-screen/PREREG.md); its GPU environment: the grid's train-gpu is Python 3.11, so the driver installs jax 0.10.2 and flax 0.12.8 in a venv over it.",
+      nums: [["0.35 s", "a crop on CPU, from PR 40's phantom smoke"], ["67 h", "a screen trial at the CPU pace"]] },
+    aa_start: { step: "@step start", job: ["none", "inside each run"], title: "Plan and split by person", glyph: "plan", owner: "aa",
+      short: "Which CTs, which part each person is in, which trial this task is.",
+      legend: "Each dot a person: grey training, teal validation. This run never reads a test person.",
+      does: "Reads the plan file and the gold tier 3 store's ENHANCE.PET rows, each a CT with its label map. Puts each person in training, validation or test by the project's frozen hash rule, and keeps a fixed subset by a second hash. Never reads a test person.",
+      reads: "grid/screens/gold3_latent_screen.json; data/splits/rule.json; the gold tier 3 rows on the grid.",
+      writes: "RUN.json and the manifest of rows with their parts, in the run folder.",
+      waits: "SchwingNet PR 483 (the flow and the plans); this run's pre-registration (docs/research/autoanatomist-screen/PREREG.md) frozen.",
+      nums: [["96", "training CTs"], ["24", "validation CTs"], ["0", "test CTs read"]] },
+    aa_rows: { step: "inside @step work", job: ["none", "built once per trial, cached"], title: "One crop per vertebra", glyph: "crops", owner: "aa",
+      short: "A box around every vertebra, centred on its mask; no oracle.",
+      legend: "A spine; each vertebra cut out around its mask's centre into a crop.",
+      does: "Cuts one crop per labelled vertebra around its mask's centroid, top down, with no landmark oracle: 48 x 56 x 32 voxels at 2 mm. It shares the volume rows with a person key that your screen reads; its crops are whole spines, your three-body windows are yours.",
+      reads: "The CTs and label maps on the grid.", writes: "A crop cache named by each row's digest, so a rerun reads it back.",
+      waits: "bordercall PR 40 (frame=centroid), vendored at afe1952 on SchwingNet PR 483.",
+      nums: [["48 x 56 x 32", "voxels a crop"], ["2 mm", "a voxel"]] },
+    aa_fan: { step: "@step work (part trial)  one task per trial", job: ["gpu", "GPU array: 8 tasks, one card each"], title: "Four anneal schedules, two seeds each", glyph: "foreach", owner: "aa",
+      chips: [["lambda-then-w x2"], ["joint x2"], ["w-first x2"], ["null (no anneal) x2", "seed"]],
+      short: "objective=mask, your arm F; only the anneal schedule varies.",
+      legend: "One plan fans out to one task per trial.",
+      does: "objective=mask, which is your arm F: the decoder gives the privileged mask channels back and a name head reads the bottleneck, with no measurement anywhere. Only the anneal varies between arms: three schedules, and the null, which never anneals and reads the CT alone from step 0, so it is the network with no privileged information. Two seeds each, eight tasks, one GPU card each.",
+      reads: "The training crops; the trial's words (schedule, seed).", writes: "One ledger entry per trial.",
+      waits: "A GPU card, and the smoke.",
+      jobnote: "Not counted yet: these two jobs (the array and the join) need your word and count, separate from your count for the evaluation.",
+      nums: [["8", "trials, one GPU each"], ["4 x 2", "schedules x seeds"], ["2,400", "steps a trial: 48 an epoch, 50 epochs"]] },
+    aa_train: { step: "train", title: "Train while annealing", glyph: "anneal", job: ["phase", "a phase of the task's @step work"], owner: "aa",
+      short: "lambda weakens the mask input; w turns its branch off.",
+      legend: "Top: what the privileged branch sees as lambda rises: the target vertebra's mask, every vertebra's mask, both blurred, a soft threshold of the CT. Bottom, one panel per schedule: lambda rising (teal) and w, that branch's weight, falling from 1 to 0 (amber). From the left: lambda then w, joint, w first, and the null, flat at lambda 1 and w 0.",
+      does: "Fifty epochs at a batch of two whole spines (48 steps an epoch, 2,400 steps a trial); the anneal spans the whole run. lambda takes what the privileged branch sees from the target vertebra's mask, to every vertebra's mask, to both blurred, to a soft threshold of the CT; w takes that branch's weight from 1 to 0. lambda then w: lambda rises over 15 to 55 percent of the steps, w falls over 45 to 85. Joint: both over 15 to 55. w first: w over 15 to 55, lambda over 45 to 85. The null: lambda 1 and w 0 from the first step.",
+      reads: "The training crops.", writes: "The checkpoint and a per-epoch curve.", waits: "rows." },
+    aa_eval: { step: "evaluate", title: "Evaluate on validation", glyph: "overlap", job: ["phase", "a phase of the task's @step work"], owner: "aa",
+      short: "Dice, surface distance in mm, name accuracy; latents written.",
+      legend: "The predicted mask (teal) over the true one, and the name head's choice.",
+      does: "On the validation persons only: final Dice and mean surface distance in mm between the predicted and true masks, and name accuracy. The latent vector of every validation crop is written for later use.",
+      reads: "The checkpoint; the validation crops.", writes: "The trial's ledger entry and the latents.", waits: "train." },
+    aa_join: { step: "@step work (part join)", job: ["cpu", "1 CPU job, afterany the array"], title: "Compare with the null", glyph: "seedsRule", owner: "aa",
+      short: "A schedule wins when both its seeds sit below both null seeds.",
+      legend: "Final validation surface distance, lower is better, two seeds per schedule. Amber: the null. Teal: a schedule whose two seeds both sit below both null seeds.",
+      does: "Gathers the eight ledger entries. A schedule beats the null when both of its seeds' final validation surface distance sit below both null seeds'. Plots every trial's curve. A trial that failed is shown failed, never dropped.",
+      reads: "The eight trials' ledger entries.", writes: "DECISION.json, the curves, the table.", waits: "The whole array (afterany)." },
+    aa_end: { step: "@step end", job: ["none", "in the join job"], title: "Report", glyph: "report", owner: "aa",
+      short: "Plots with short notes, and the CLAIM report.",
+      legend: "Plots with short notes on how to read them.",
+      does: "Writes the CLAIM and REFORMS report from the run folders, plots first. CLAIM is the checklist for reporting imaging AI; REFORMS the one for machine-learning science.",
+      reads: "DECISION.json and the curves.", writes: "The report under the run folder.", waits: "join." },
     plan_screen: { step: "grid/searches/<kind>-screen.json", job: ["file", "a file, not a step"], title: "The screen's plan and the person split", glyph: "plan", file: true,
       short: "Names the arms, seeds and 50 epochs; splits persons, not scans.",
       legend: "Each dot a person. Grey: training. Teal: validation. Amber rings: test, listed by anomaly class from the start and read once, by the full run. Dashed box: the fifth of the training persons the screen trains on.",
       does: "One plan file names the arms, their seeds, 50 epochs and the split. Persons are split, never scans, so no person's CT is on both sides: validation 0.1, test 0.2, the rest training. The test persons are listed by anomaly class from the start. The screen trains on a fifth of the training persons and never reads test.",
       reads: "The gold tier 3 volume rows, each with a person key.",
       writes: "What every trial of the screen runs.",
-      waits: "The volume rows with a person key; the windowing of each spine into three-body windows; this evaluation's flow kind; its pre-registration, frozen before the first job.",
-      nums: [["165 / 331 / 1,158", "validation / test / training persons, at most"], ["about 230", "spines in the screen's fifth"], ["67 + 39", "L6 and L4-on-sacrum spines, the anomaly classes the test list is drawn by"]] },
-    fan_screen: { step: "@step trial  foreach arm", job: ["gpu", "GPU job 1 of 2: a Slurm array"], title: "Every arm at once", glyph: "foreach",
+      waits: "In this order: bordercall PR 40 and SchwingNet PR 483 merged; flows/autoanatomist.py on SchwingNet's main; the volume rows with a person key; the windowing of each spine into three-body windows; this evaluation's flow kind; the features step's verdict, K and the naming bar written into this plan; the pre-registration frozen with this plan in its Covers line, before the first job.",
+      nums: [["165 / 331 / 1,158", "validation / test / training persons at most; the persons number 1,040 to 1,654 until the person match is done"], ["about 230", "spines in the screen's fifth"], ["67 + 39", "L6 and L4-on-sacrum spines, the anomaly classes the test list is drawn by"]] },
+    fan_screen: { step: "Slurm array: one launcher run per trial", job: ["gpu", "GPU job 1 of 2: a Slurm array"], title: "Every arm at once", glyph: "foreach",
       chips: [["A", "seed"], ["A", "seed"], ["A", "seed"], ["B"], ["C"], ["C0"], ["D"], ["E"], ["F", "maybe"]],
       short: "One array task per trial, each its own launcher run on its own GPU, side by side.",
-      legend: "One plan fans out to one task per trial. Filled: arm A's three seeds. Dashed: F, when the other thread has it.",
-      does: "Your rule: as many in parallel as possible on short runs. A Slurm array where each task is its own launcher run of this evaluation's flow kind, on its own GPU, one trial per task: arms A, B, C, C0, D and E, plus F when the other thread's mask objective is ready, with arm A at three seeds so its own noise is measured. The tasks run side by side, so the screen takes one trial's time.",
+      legend: "One plan fans out to one task per trial. Filled: arm A's three seeds. Dashed: F, when the auto-anatomist thread has it.",
+      does: "Your rule: as many in parallel as possible on short runs. A Slurm array where each task is its own launcher run of this evaluation's flow kind, on its own GPU, one trial per task: arms A, B, C, C0, D and E, plus F when the auto-anatomist thread's mask objective is ready, with arm A at three seeds so its own noise is measured. The tasks run side by side, so the screen takes one trial's time.",
       reads: "The screen's plan.",
       writes: "One ledger entry per trial.",
-      waits: "smoke, gpu_smoke, and the plan's own needs.",
+      waits: "The smoke and the GPU smoke; everything the screen's plan waits on.",
       nums: [["8 or 9", "trials, one GPU each"], ["50", "epochs a trial"], ["3", "seeds for arm A"]] },
-    s_train: { step: "train", title: "Train", glyph: "train", job: ["gpu", "inside each task"],
+    s_train: { step: "train", title: "Train", glyph: "train", job: ["phase", "a phase of each run's @step trial"],
       short: "50 epochs, the mask fading out.",
       legend: "The loss falling over the run while the mask channel fades out, so by the end the network reads the CT alone.",
       does: "Fifty epochs over a fifth of the training persons. An epoch is ceil(windows / batch) steps with batches drawn with replacement, so a pass in expectation. A batch is two three-body windows, six crops. The mask channel fades out over the run. What the network does for each arm is drawn in the view below this pipeline.",
@@ -496,7 +607,7 @@ svg.g text { font-family: var(--mono); font-size: 11px; fill: currentColor; }
       waits: "The flow kind's screen mode.",
       inside: true,
       nums: [["about 2,300", "steps an epoch"], ["about 115,000", "steps a trial"], ["6", "crops a step"]] },
-    s_calibrate: { step: "calibrate", title: "Calibrate", glyph: "calibrate", job: ["gpu", "inside each task"],
+    s_calibrate: { step: "calibrate", title: "Calibrate", glyph: "calibrate", job: ["phase", "a phase of each run's @step trial"],
       short: "Fits the spread on validation persons.",
       legend: "A reliability curve: before calibration (faint) the spread says too much or too little; after it (teal) coverage matches what the spread claims.",
       does: "Rescales each arm's spread on the validation persons so 68 percent of true values fall within one spread (calibrate=quantile at coverage 0.68). That makes every arm's one-spread coverage land near 0.68 by construction, so the screen judges a spread by its width at that coverage, and by its coverage at two spreads.",
@@ -504,7 +615,7 @@ svg.g text { font-family: var(--mono); font-size: 11px; fill: currentColor; }
       writes: "The calibrated spread.",
       waits: "train.",
       nums: [["0.68", "coverage at one spread, by construction"], ["0.90 to 0.98", "coverage at two spreads an arm must reach"]] },
-    s_evaluate: { step: "evaluate", title: "Evaluate on validation", glyph: "evaluate", job: ["gpu", "inside each task"],
+    s_evaluate: { step: "evaluate", title: "Evaluate on validation", glyph: "evaluate", job: ["phase", "a phase of each run's @step trial"],
       short: "Scores on validation persons only; test stays shut.",
       legend: "Filled bars: what is scored (value error, naming). Outlined: what is reported as the price (the explainability indices, latency).",
       does: "On the validation persons only: each value against the engine's (mean absolute error, bias, limits of agreement), bodies named right in three-body fields, coverage at one and two spreads and the spread's width, landmark distance. Reported beside them as the price: drawability (can the value be drawn as a line on the mask), attributability (does the rule blame the right measurement when it errs), nameability (can a shape number be said in named measurements), transparency (how many of the prior's numbers carry a name and a unit), and milliseconds a crop. Arm E has no landmark distance, drawability or nameability.",
@@ -512,23 +623,23 @@ svg.g text { font-family: var(--mono); font-size: 11px; fill: currentColor; }
       writes: "The trial's ledger entry.",
       waits: "calibrate.",
       nums: [["about 3", "points: one standard error of a naming difference in the screen"], ["about 0.07 mm", "one standard error of a value-error difference"]] },
-    merge_screen: { step: "@step merge  (join)", job: ["gpu", "GPU job 2 of 2, after the array"], title: "Keep or drop each arm", glyph: "mergeScreen",
+    merge_screen: { step: "merge run, afterany the array", job: ["gpu", "GPU job 2 of 2, after the array"], title: "Keep or drop each arm", glyph: "mergeScreen",
       short: "Drops an arm only for a numbered failure; writes the keep list down, dated.",
       legend: "Each row a trial's validation score; a check keeps it, a cross drops it for a numbered failure.",
-      does: "Gathers every trial and ranks them. An arm is dropped only for one of three failures written in the pre-registration before anything is sent: (1) it does not train (its landmark distance, or arm E's value error, not halved by the end, or the loss not falling over the last ten epochs); (2) it does not calibrate (its spread more than twice arm A's at the same coverage, or two-spread coverage outside 0.90 to 0.98); (3) it names more than 6 points worse than the engine's own values on three-body fields. Anything closer is a tie and both go on. A always goes on; C goes on unless it fails. The keep list is written down, dated, before the full run's plan is frozen.",
+      does: "Gathers every trial and ranks them. An arm is dropped only for one of three failures written in the pre-registration before anything is sent: (1) it does not train (its landmark distance, or arm E's value error, not halved by the end, or the loss not falling over the last ten epochs); (2) it does not calibrate (its spread more than twice arm A's at the same coverage, or two-spread coverage outside 0.90 to 0.98); (3) it names more than 6 points worse than the engine's own values on three-body fields. Anything closer is a tie and both go on. A always goes on; C goes on unless it fails. The keep list is written down as a dated record beside the pre-registration, before the full run's plan enters it.",
       reads: "Every trial's ledger entry.",
       writes: "The dated keep list.",
-      waits: "The whole array (afterany).",
+      waits: "The whole array (afterany); the search module's score for arm E, which has no landmarks and is ranked by value error.",
       nums: [["3", "numbered ways to be dropped"], ["6", "points: twice the screen's standard error"]] },
     plan_full: { step: "grid/searches/<kind>-full.json", job: ["file", "a file, not a step"], title: "The full run's plan", glyph: "plan", file: true,
       short: "The kept arms, three seeds each, the whole training part.",
       legend: "The same person split as the screen; now every training person (grey) trains, and the test persons (amber) are read once at the end.",
-      does: "The arms the keep list names, three seeds each, on all the training persons, 50 epochs (fewer if the screen's curves settled earlier, the count written in the plan). Its bytes enter the pre-registration only after the keep list is dated, so the test read follows no choice.",
+      does: "The arms the keep list names, three seeds each, on all the training persons, 50 epochs (fewer if the screen's curves settled earlier, the count written in the plan). The screen's merge writes the keep list as a dated record; only then do this plan's bytes enter the pre-registration's Covers line, before the full run's first job, so the test read follows every choice instead of steering one.",
       reads: "The dated keep list.",
       writes: "What every trial of the full run runs.",
-      waits: "merge of the screen.",
+      waits: "The screen's merge and its dated keep list; this plan added to the pre-registration's Covers line.",
       nums: [["about 1,158", "training persons"], ["about 575,000", "steps a trial"], ["up to 21", "trials, if all seven arms are kept"]] },
-    fan_full: { step: "@step trial  foreach arm x seed", job: ["gpu", "GPU job 1 of 2: a Slurm array"], title: "Kept arms, three seeds each", glyph: "fullTrial",
+    fan_full: { step: "Slurm array: one launcher run per arm and seed", job: ["gpu", "GPU job 1 of 2: a Slurm array"], title: "Kept arms, three seeds each", glyph: "fullTrial",
       chips: [["A x3", "seed"], ["C x3"], ["the rest of the keep list x3", "maybe"]],
       short: "Each trial its own launcher run on its own GPU; trains, then calibrates on validation.",
       legend: "Three seeds of one arm, each a separate run, each with its own loss curve.",
@@ -536,27 +647,27 @@ svg.g text { font-family: var(--mono); font-size: 11px; fill: currentColor; }
       reads: "The full run's plan.",
       writes: "Calibrated weights per trial.",
       waits: "The full run's plan." },
-    s_train_full: { step: "train", title: "Train", glyph: "train", job: ["gpu", "inside each task"], short: "The whole training part.",
+    s_train_full: { step: "train", title: "Train", glyph: "train", job: ["phase", "a phase of each run's @step trial"], short: "The whole training part.",
       legend: "The same training as the screen's, on every training person.",
       does: "As in the screen, on every training person rather than a fifth. What the network does for each arm is drawn below the pipeline.",
       reads: "The full run's training windows.", writes: "The trial's weights.", waits: "The full run's plan.", inside: true },
-    s_calibrate_full: { step: "calibrate", title: "Calibrate", glyph: "calibrate", job: ["gpu", "inside each task"], short: "On validation persons.",
+    s_calibrate_full: { step: "calibrate", title: "Calibrate", glyph: "calibrate", job: ["phase", "a phase of each run's @step trial"], short: "On validation persons.",
       legend: "The same calibration as the screen's.",
       does: "As in the screen: the spread rescaled on the validation persons to 0.68 coverage at one spread.",
       reads: "The trial's weights; the validation persons.", writes: "The calibrated spread.", waits: "train." },
-    merge_full: { step: "@step merge  (join)", job: ["gpu", "GPU job 2 of 2, after the array"], title: "Read the test persons once", glyph: "mergeFull",
+    merge_full: { step: "merge run, afterany the array", job: ["gpu", "GPU job 2 of 2, after the array"], title: "Read the test persons once", glyph: "mergeFull",
       short: "Opens test once for every trial; intervals against the bars.",
       legend: "Each line an arm's paired difference from A with its 95 percent interval. Solid line: no difference. Dashed teal line: the bar. An arm passes when its whole interval sits past the bar.",
-      does: "Reads the test persons once for every finished trial, and makes no choice after that read. Every arm is read on the same test vertebrae, so arms are compared by paired differences with person-bootstrap intervals over three seeds. The primary contrast is C against A on three-body fields; B against A decides the features, D against A and C against C0 the prior, C0 against A the head. A bar is met when the interval's lower bound clears it. The calibration gate: one-spread coverage within 0.60 to 0.76, two-spread within 0.90 to 0.98, and a spread no wider than 1.2 times A's. On anomaly spines the true name comes from the ribs.",
+      does: "Reads the test persons once for every finished trial, and makes no choice after that read. Every arm is read on the same test vertebrae, so arms are compared by paired differences with person-bootstrap intervals over three seeds. The primary contrast is C against A on three-body fields; B against A decides the features, D against A and C against C0 the prior, C0 against A the head. Arms are compared on their seed means, and a bar is met only when the interval's lower bound clears it and the spread of the three seeds' estimates is smaller than the bar. The calibration gate: one-spread coverage within 0.60 to 0.76, two-spread within 0.90 to 0.98, and a spread no wider than 1.2 times A's. On anomaly spines the true name comes from the ribs.",
       reads: "Every calibrated trial; the test persons.",
       writes: "The primary endpoints with intervals, the gate, the explainability indices.",
-      waits: "The whole array (afterany).",
-      nums: [["331", "test persons, about 7,000 vertebrae"], ["0.3 mm", "the value-error bar"], ["about 0.45 mm / 9 points", "the true gains the design finds at 80 percent power"]] },
-    report: { step: "@step end", job: ["none", "no job of its own"], title: "Report", glyph: "report",
+      waits: "The whole array (afterany); the search module's test read of every finished trial.",
+      nums: [["331", "test persons at most, about 7,000 vertebrae"], ["0.3 mm", "the value-error bar, over the seven chords"], ["about 0.45 mm / 9 points", "the true gains the design finds at 80 percent power"]] },
+    report: { step: "end step of the full run's merge run", job: ["none", "no job of its own"], title: "Report", glyph: "report",
       short: "Plots with short notes, from the run folders.",
       legend: "Plots with short notes on how to read them.",
       does: "The figures of section 7 of the note and the CLAIM report, drawn from the run folders: Bland-Altman panels per measurement, named right by field length and arm, coverage and width, the explainability bars. It is the flow's end step, or a container reading the records.",
-      reads: "The merge's records.", writes: "The report.", waits: "merge of the full run." },
+      reads: "Both merges' records.", writes: "The report.", waits: "The full run's merge; the screen's ledger for the screen's figures." },
     later2d: { step: "later  (section 14)", job: ["none", "not one of these jobs"], title: "2-D landmarks that name the vertebra", glyph: "later2d",
       short: "3-D points projected onto 2-D synthetics; 2-D functions mapped to the label, never back into 3-D.",
       legend: "Named 3-D points projected onto a flat image with their labels; functions of a point and its neighbours in 2-D map straight to the vertebra's name.",
@@ -567,22 +678,28 @@ svg.g text { font-family: var(--mono); font-size: 11px; fill: currentColor; }
 
   // the order of the pipeline, top to bottom
   var PIPE = [
-    { run: "before any network", title: "The truth and the features", jobs: "2 CPU jobs", items: [["node", "export"], ["edge", "line ends + frames, per vertebra"], ["node", "features"]] },
-    { edge: "the feature verdict, K, the naming bar" },
-    { run: "smoke", title: "Does every arm run, and how fast", jobs: "no new job + 1 short GPU job", items: [["pair", ["smoke", "gpu_smoke"]]] },
-    { edge: "every arm runs; seconds a crop" },
+    { run: "before any network", title: "The truth and the features", jobs: "2 CPU jobs", items: [["node", "export"], ["edge", "values, line ends and frames, per vertebra"], ["node", "features"]] },
+    { edge: "no wait: the smoke runs on phantoms. The feature verdict, K and the naming bar go to the screen's plan", loose: true },
+    { run: "smoke: two plans of the auto-anatomist flow", title: "Does every arm run, and how fast", jobs: "no new job if in time + 1 short GPU job, shared", items: [["pair", ["smoke", "gpu_smoke"]]] },
+    { edge: "every arm runs; GPU seconds a crop" },
+    { run: "the auto-anatomist thread's run: flows/autoanatomist.py, plan gold3_latent_screen", title: "The annealer screen: can the mask be taken away?", jobs: "2 jobs: 1 GPU array (8 tasks), then 1 CPU join; not counted yet", other: true,
+      note: "The auto-anatomist thread's question, run beside your screen: it needs no export, no shape model and no head block. Its question is the anneal schedule with the head held at F; yours is the head with the schedule held. It shares the volume rows with a person key.", items: [
+      ["node", "aa_start"], ["edge", "96 training and 24 validation CTs, split by person"], ["node", "aa_rows"], ["edge", "one crop per vertebra"], ["node", "aa_fan"], ["edge", "each task runs"],
+      ["deck", { label: "one per task, each on its own GPU card, side by side", note: "8 tasks", subs: ["aa_train", "aa_eval"] }],
+      ["edge", "afterany the array: each trial's validation numbers and curve"], ["node", "aa_join"], ["edge", "the table, the curves"], ["node", "aa_end"]] },
+    { edge: "arm F joins your screen once objective=mask is ready" },
     { run: "flows/<kind>.py, plan 1 of 2", title: "The screen: every arm side by side, short", jobs: "2 GPU jobs: the array, then the merge", items: [
       ["node", "plan_screen"], ["edge", "one plan, one task per trial"], ["node", "fan_screen"], ["edge", "each task runs"],
-      ["deck", { label: "one per task, each on its own GPU, side by side", note: "8 or 9 tasks", subs: ["s_train", "s_calibrate", "s_evaluate"] }],
+      ["deck", { label: "inside each launcher run, on its own GPU: @step trial in three phases", note: "8 or 9 runs", subs: ["s_train", "s_calibrate", "s_evaluate"] }],
       ["edge", "afterany the array: every ledger entry"], ["node", "merge_screen"]] },
     { edge: "the dated keep list" },
     { run: "flows/<kind>.py, plan 2 of 2", title: "The full run: what the screen keeps, long", jobs: "2 GPU jobs: the array, then the merge", items: [
       ["node", "plan_full"], ["edge", "one task per arm and seed"], ["node", "fan_full"], ["edge", "each task runs"],
-      ["deck", { label: "one per task, each on its own GPU", note: "3 seeds an arm", subs: ["s_train_full", "s_calibrate_full"] }],
+      ["deck", { label: "inside each launcher run, on its own GPU: @step trial in two phases", note: "3 seeds an arm", subs: ["s_train_full", "s_calibrate_full"] }],
       ["edge", "afterany the array: calibrated trials"], ["node", "merge_full"]] },
     { edge: "endpoints, intervals, the gate" },
-    { run: "end", title: "The report", jobs: "no job", items: [["node", "report"]] },
-    { edge: "the same export feeds" , dashed: true },
+    { run: "end step, in the full run's merge job", title: "The report", jobs: "no job of its own", items: [["node", "report"]] },
+    { edge: "needs only the export, project.py's camera and the view=2d block", loose: true },
     { run: "later, not part of these jobs", title: "Where it leads", jobs: "no job counted", later: true, items: [["node", "later2d"]] }
   ];
 
@@ -612,12 +729,13 @@ svg.g text { font-family: var(--mono); font-size: 11px; fill: currentColor; }
 
   var pipeEl = document.getElementById("pipeline");
   PIPE.forEach(function (blk) {
-    if (blk.edge) { var e = edge(blk.edge, "between"); if (blk.dashed) e.style.opacity = "0.7"; pipeEl.appendChild(e); return; }
-    var run = el("div", "run" + (blk.later ? " later" : ""));
+    if (blk.edge) { pipeEl.appendChild(edge(blk.edge, "between" + (blk.loose ? " loose" : ""))); return; }
+    var run = el("div", "run" + (blk.later ? " later" : "") + (blk.other ? " other" : ""));
     var head = el("div", "run-head");
     var left = el("div"); left.appendChild(el("div", "run-name", blk.run)); left.appendChild(el("div", "run-title", blk.title));
     head.appendChild(left); head.appendChild(el("div", "run-jobs", blk.jobs));
     run.appendChild(head);
+    if (blk.note) run.appendChild(el("p", "run-note", blk.note));
     blk.items.forEach(function (it) {
       if (it[0] === "node") run.appendChild(nodeButton(it[1]));
       else if (it[0] === "edge") run.appendChild(edge(it[1]));
@@ -648,7 +766,7 @@ svg.g text { font-family: var(--mono); font-size: 11px; fill: currentColor; }
       why: "The heat maps as in A, with the shape prior added as a penalty on the points.", tests: "the prior alone, on the heatmap head: D against A" },
     E: { name: "Arm E: the named values straight out", head: "values", emission: "measures", prior: false,
       why: "No landmarks and no lines: the network gives the measurements and their spreads directly.", tests: "what the landmarks cost or buy" },
-    F: { name: "Arm F: the mask objective (the other thread's)", head: "mask", emission: "-", prior: false,
+    F: { name: "Arm F: the mask objective (the auto-anatomist thread's)", head: "mask", emission: "-", prior: false,
       why: "No measurement at all: the decoder must give the masks back, and a small head on the network's own bottleneck names the level. It joins the screen when that thread has it ready.", tests: "a learnt latent with no measurement at all" }
   };
   var state = { arm: "A", measures: "seven", prior: "exact" };
@@ -664,7 +782,7 @@ svg.g text { font-family: var(--mono); font-size: 11px; fill: currentColor; }
     list.push({ id: "i_crop", step: "crop", title: "A crop of the CT", glyph: "crop", on: true,
       short: "One vertebra, 48 x 56 x 32 voxels at 2 mm; the mask fades out during training.",
       legend: "A crop around one vertebra; the mask channel beside it fades over the run.",
-      does: "A 48 x 56 x 32 voxel crop of the CT at 2 mm: one vertebra with its neighbours' edges. During training the mask channel fades out over the run, so by the end the network reads the CT alone, which is all it will have on a patient." });
+      does: "A 48 x 56 x 32 voxel crop of the CT at 2 mm: one vertebra with its neighbours' edges" + (mask ? ", cut around the vertebra's mask centroid with no oracle" : "") + ". During training the mask channel fades out over the run, so by the end the network reads the CT alone, which is all it will have on a patient." + (mask ? " The auto-anatomist thread's annealer screen tests four ways of doing that fade." : "") });
     list.push({ id: "i_encoders", step: "encoders", title: "Two encoders, fused", glyph: "encoders", on: true,
       short: "CT and mask encoded and fused. The same in every arm.",
       legend: "The CT and the mask each encoded, then fused into one feature map.",
@@ -681,7 +799,7 @@ svg.g text { font-family: var(--mono); font-size: 11px; fill: currentColor; }
       does: "The head gives two numbers per measurement (" + nMeas + "): the value and its log-spread. There are no landmarks, so nothing can be drawn on the image." };
     else head = { glyph: "maskHead", title: "Mask decoder", short: "Gives the masks back; a small head on the bottleneck names the level.",
       legend: "The vertebra's mask given back, and a classifier on the bottleneck choosing a name.",
-      does: "The decoder gives the vertebra masks back. A small head on the pooled bottleneck names the level, trained against the gold level. No measurement, no lines." };
+      does: "The decoder gives the privileged mask channels back. A name head on the pooled bottleneck names the level, trained against the gold level. No measurement, no lines. The privileged input is annealed away: lambda takes it from the target mask, to every vertebra, to blurred, to a CT threshold, and w takes that branch's weight from 1 to 0." };
     list.push(Object.assign({ id: "i_head", step: "head=" + a.head, on: true }, head));
     list.push({ id: "i_points", step: "landmarks", title: "Landmarks", glyph: "points", on: heat || lat,
       short: heat || lat ? pts + ", each with a spread." : "Not in this arm: " + (vals ? "the values come straight out." : "no measurement at all."),
@@ -703,7 +821,7 @@ svg.g text { font-family: var(--mono); font-size: 11px; fill: currentColor; }
     list.push({ id: "i_rule", step: "prior=" + (pymc ? "pymc:" + s.prior : "exact") + "  emission=" + a.emission, title: pymc ? "Naming rule (PyMC in JAX)" : "Naming rule (exact)", glyph: pymc ? "rulePymc" : "ruleExact", on: !mask,
       short: mask ? "Not in this arm: the bottleneck head names directly." : "Reads " + (a.emission === "latent" ? "shape numbers." : "named measurements."),
       legend: pymc ? "A small PyMC model; its log-density translated to JAX so the training loss can differentiate it." : "Every possible run of names along the spine; the rule weighs each path and sums them exactly.",
-      does: mask ? "This arm has no naming rule." : "The rule reads " + reads + ". " + (pymc ? "Here it is a PyMC model (chain_pymc.py's " + s.prior + " model) dropped in as written: its log-density is translated to JAX (pymc.sampling.jax.get_jaxified_logp) so the training loss can differentiate it, and it is sampled at evaluation. A model that will not translate is used at evaluation only and the loss falls back to exact, which the run's record says." : "It enumerates every run of names along the spine exactly, as the rule does today.") });
+      does: mask ? "This arm has no naming rule." : "The rule reads " + reads + ". " + (pymc ? "Here it is a PyMC model (chain_pymc.py's " + s.prior + " model) dropped in as written: its log-density is translated to JAX (pymc.sampling.jax.get_jaxified_logp) so the training loss can differentiate it, and it is sampled at evaluation. A model that will not translate is used at evaluation only and the loss falls back to exact, which the run's record says. The translation has to work on the grid's jax 0.10.2 (its GPU environment is Python 3.11), shown at the smoke before the screen names it." : "It enumerates every run of names along the spine exactly, as the rule does today.") });
     list.push({ id: "i_names", step: "names", title: "Names", glyph: "names", on: true,
       short: "A posterior over each body's name and the spine's type.",
       legend: "One body's posterior over its possible names; the tall bar is the name given.",
@@ -724,7 +842,7 @@ svg.g text { font-family: var(--mono); font-size: 11px; fill: currentColor; }
   }
   function armConfig(s) {
     var a = ARMS[s.arm];
-    if (s.arm === "F") return ["objective=mask", "naming: the other thread's name head"];
+    if (s.arm === "F") return ["objective=mask", "naming: the auto-anatomist thread's name head"];
     var out = ["objective=landmarks", "head=" + a.head, "measures=" + s.measures, "emission=" + a.emission, "prior=" + (s.prior === "exact" ? "exact" : "pymc:" + s.prior)];
     if (a.head !== "heatmap" && a.head !== "values") out.push("w_prior=" + (s.arm === "C0" ? "0" : "1"));
     if (a.head === "latent" || a.head === "hybrid" || a.head === "latent-noprior" || a.head === "heatmap-pdm") out.push("pdm=<digest>", "pdm_k=chosen on validation");
@@ -774,31 +892,38 @@ svg.g text { font-family: var(--mono); font-size: 11px; fill: currentColor; }
 
   // ---------- decisions ----------
   var DECISIONS = [
-    { who: "greg", t: "Evaluate on real spines; phantoms deferred", at: ["export", "plan_screen"], why: "Morphometry phantoms are deferred (your rule of 2026-10-29). The truth is the engine's reading of the gold tier 3 masks.", flip: "Phantoms serve only the smoke test of the code path." },
-    { who: "greg", t: "Fit the block-style Metaflow pipeline; screen many arms in parallel on short 50-epoch runs", at: ["fan_screen", "s_train"], why: "Your words at 02:46 UTC. The screen is that rule made concrete.", flip: "The screen's subset (a fifth of the training persons) is the plan's; the parallel form and the 50 epochs are yours." },
-    { who: "greg", t: "One network for every measurement set; the prior accepts PyMC code", at: ["i_encoders", "i_values", "i_rule"], why: "Your words at 02:49 and 02:57 UTC: encapsulated, swappable, no two networks for the seven and the 32, PyMC translated to JAX. The measures switch sizes the landmark channels; the prior switch takes a PyMC model.", flip: "The switch names are the plan's and the other thread's; the rule is yours." },
-    { who: "greg", t: "Job counts: 2 CPU, 2 GPU for the screen, 2 for the full run, plus 1 short GPU smoke", at: ["export", "features", "gpu_smoke", "fan_screen", "merge_screen", "fan_full", "merge_full"], why: "Your word and count at 03:20 UTC, the number every grid job needs.", flip: "A job that grows beyond its line in the note needs a new count. Nothing is sent before the flow pieces and the frozen pre-registration exist." },
+    { who: "greg", t: "Evaluate on real spines; phantoms deferred", at: ["export", "plan_screen"], why: "Morphometry phantoms are deferred (your rule of 2026-10-29). The truth is the engine's reading of the gold tier 3 masks.", flip: "Scoring on phantoms gives exact truth but measures the phantom maker, not real anatomy; phantoms serve only the smoke test of the code path." },
+    { who: "greg", t: "Fit the block-style Metaflow pipeline; screen many arms in parallel on short 50-epoch runs", at: ["fan_screen", "s_train"], why: "Your words at 02:46 UTC. The screen is that rule made concrete.", flip: "The parallel form and the 50 epochs are yours. The subset (a fifth of the training persons), the window length and one seed an arm (three for A) are the plan's." },
+    { who: "greg", t: "One network for every measurement set; the prior accepts PyMC code", at: ["i_encoders", "i_values", "i_rule"], why: "Your words at 02:49 and 02:57 UTC: encapsulated, swappable, no two networks for the seven and the 32, PyMC translated to JAX. The measures switch sizes the landmark channels; the prior switch takes a PyMC model.", flip: "The switch names are the plan's and the auto-anatomist thread's; the rule is yours." },
+    { who: "greg", t: "Job counts: 2 CPU, 2 GPU for the screen, 2 for the full run, plus 1 short GPU smoke", at: ["export", "features", "gpu_smoke", "fan_screen", "merge_screen", "fan_full", "merge_full"], why: "Your word and count at 03:20 UTC, the number every grid job needs.", flip: "A job that grows beyond its line in the note needs a new count. The 1 short GPU smoke is the auto-anatomist thread's gold3_latent_smoke, counted once; its annealer screen's 2 jobs are not in this count. Nothing is sent before the flow pieces and the frozen pre-registration exist." },
     { who: "greg", t: "2-D landmarks: forward from 3-D to 2-D, backward from 2-D to the label, never into 3-D", at: ["later2d"], why: "Your direction of 02:33 to 02:41 UTC; section 14 of the note. Not one of these jobs.", flip: "It needs project.py's camera and the export keeping every point's name and label." },
-    { who: "plan", t: "The screen reads validation only; the test persons are read once, by the full run", at: ["s_evaluate", "merge_screen", "merge_full"], why: "Reading test many times and then choosing arms would make the final numbers a selection, not a measurement. The keep list is dated before the full run's plan is frozen.", flip: "Test numbers from the screen could be read, but then they are a ranking, not the decision." },
+    { who: "plan", t: "The screen reads validation only; the test persons are read once, by the full run", at: ["s_evaluate", "merge_screen", "merge_full"], why: "Reading test many times and then choosing arms would make the final numbers a selection, not a measurement. The keep list is dated before the full run's plan is frozen.", flip: "A test read in the screen makes every later test number a selection, not a measurement." },
     { who: "plan", t: "Arm A always goes to the full run; C unless it fails the screen; then D against A is the contrast", at: ["merge_screen", "fan_full", "merge_full"], why: "Otherwise the screen could drop the baseline every bar is measured against, or the primary contrast itself.", flip: "You may name another primary contrast, before the pre-registration is frozen." },
-    { who: "plan", t: "The screen drops an arm only for three numbered failures", at: ["merge_screen"], why: "It does not train; it does not calibrate (spread twice A's at the same coverage, or two-spread coverage outside 0.90 to 0.98); or it names more than 6 points worse than the engine's own values. Anything closer is a tie and both go on.", flip: "Loosen or tighten the three numbers; they go into the pre-registration." },
-    { who: "plan", t: "The bars: 0.3 mm of value error; the naming bar set from the features step", at: ["merge_full", "features"], why: "A 3-point naming bar is underpowered at a test fifth under the lower-bound rule (the design finds the bar plus 2.8 standard errors, about 9 points). The features step measures how correlated errors are within a spine, and the bar follows.", flip: "Set any bar you like, or change the rule to the interval excluding zero with the estimate above the bar." },
+    { who: "plan", t: "The screen drops an arm only for three numbered failures", at: ["merge_screen"], why: "It does not train (landmark distance, or arm E's value error, not halved by the end, or the loss not falling over the last ten epochs); it does not calibrate (spread twice A's at the same coverage, or two-spread coverage outside 0.90 to 0.98); or it names more than 6 points worse than the engine's own values. Anything closer is a tie and both go on.", flip: "Loosen or tighten the three numbers; they go into the pre-registration." },
+    { who: "plan", t: "The bars: a gain of at least 0.3 mm in value MAE over the seven chords, and a naming gain set from the features step", at: ["merge_full", "features"], why: "A bar is met only when the 95 percent interval's lower bound clears it, the seed spread is smaller than the bar, and the calibration gate holds; for B against A the shape numbers must also be nameable (each said by at most three named measurements at partial R^2 0.8). Short of any one, the named features and the heat maps stand. The naming bar waits for the features step because a 3-point bar is underpowered at a test fifth under the lower-bound rule (the design finds the bar plus 2.8 standard errors, about 9 points), and that step measures how correlated errors are within a spine.", flip: "Set any bar you like, or change the rule to the interval excluding zero with the estimate above the bar." },
+    { who: "plan", t: "One person split for both runs: this evaluation's test persons never train in the annealer screen", at: ["plan_screen", "aa_start"], why: "Arm F may start from the annealer's checkpoint. The test list overrides the hash for some persons, so a person the hash puts in training can be one of this evaluation's test persons; the annealer run reads the same list and leaves them out of its training. Asked of the auto-anatomist thread on 2026-10-30.", flip: "Keep the two splits apart, and arm F trains from scratch here." },
     { who: "plan", t: "Split by person: validation 0.1, test 0.2; the test persons listed by anomaly class", at: ["plan_screen", "plan_full"], why: "A hash cannot stratify, and at 0.2 the L4-on-sacrum class would have about 8 test spines, under 10. The test persons are listed from the start; every other person keeps the hash's part.", flip: "0.3 (about 500 test spines) if the naming bar from the features step is wider than 3 points." },
     { who: "plan", t: "The reference named set is the 32 measurements with the ratios; the seven reported beside it", at: ["i_values", "features"], why: "The seven are what the specs draw today; the 32 are what the rule can score. One network serves both.", flip: "Say 'the seven' and the 32 become the ones reported beside." },
-    { who: "plan", t: "The reference table is re-estimated from the training persons; Panjabi's printed table reported beside it", at: ["i_rule", "features"], why: "Panjabi's printed table comes from twelve cadavers; a latent fit on about 1,100 persons would beat it by sample size alone.", flip: "Keep the printed table as the reference and the comparison is unfair by construction." },
-    { who: "plan", t: "The shape model is per vertebra, size divided out, with a pose on every latent head", at: ["i_prior", "i_head", "export"], why: "A spine-wide model has no slot for an L6, a T13 or a missing L5. The crops sit in a different frame from the engine's (about 17 to 18 degrees apart in the median), so without a pose the latent would have to absorb a rigid misalignment as shape.", flip: "A spine-wide model (Meng 2020) is a later run." },
+    { who: "plan", t: "The reference table is re-estimated from the training persons; Panjabi's printed table reported beside it", at: ["i_rule", "features"], why: "Panjabi's printed table rests on 12 cadavers; a table re-estimated from 12 people names 13.2 points fewer three-body fields with the seven chords than the printed one, so a latent fit on about 1,100 persons would beat it by sample size alone.", flip: "Keep the printed table as the reference and the comparison is unfair by construction." },
+    { who: "plan", t: "The shape model is per vertebra, size divided out, with a pose on every latent head", at: ["i_prior", "i_head", "export"], why: "A spine-wide model has no slot for an L6, a T13 or a missing L5. The crops sit in a different frame from the engine's (a median of 16.7 degrees at C3 and 18.1 at L5, over 228 studies), so without a pose the latent would have to absorb a rigid misalignment as shape.", flip: "A spine-wide model (Meng 2020) is a later run." },
     { who: "plan", t: "The prior's weight is 1 and not searched; C0 has 0", at: ["i_prior"], why: "At 1 the prior is the model's own likelihood, not a tuned knob; a weight chosen on validation, which is 96 percent typical anatomy, would pick the value that hurts the anomalies.", flip: "A sweep of the weight and K is a later run, with the anomaly classes in its objective." },
     { who: "plan", t: "The true name on anomaly spines comes from the ribs", at: ["merge_full", "s_evaluate"], why: "The masks' names and the rule's types disagree on exactly those spines: 14 of the 67 L6 spines bear thirteen ribs (a T13 spine by the rule), 8 of the 39 L4-on-sacrum spines bear eleven.", flip: "Score by the masks' names and the anomaly classes test the naming convention, not the arm." },
-    { who: "plan", t: "The evaluation runs as a flow kind of its own, a thin subclass of the auto-anatomist flow", at: ["plan_screen", "fan_screen"], why: "One flow kind is held to one frozen pre-registration, and the other thread's asks a different question, with no bars.", flip: "Fold into their kind only if their pre-registration takes these plans before it is frozen." },
+    { who: "plan", t: "The evaluation runs as a flow kind of its own, a thin subclass of the auto-anatomist flow", at: ["plan_screen", "fan_screen"], why: "One flow kind is held to one frozen pre-registration, and the auto-anatomist thread's asks a different question, with no bars.", flip: "Fold into their kind only if their pre-registration takes these plans before it is frozen." },
     { who: "plan", t: "The features step runs on the grid; only aggregates leave", at: ["features"], why: "The engine's rows stay on the grid under the morphometry rule.", flip: "Carry the ends and values off as a per-study table (no image, no mask) and the step can run in a container." },
-    { who: "plan", t: "All six arms are in the screen, and F when the other thread has it ready", at: ["fan_screen"], why: "Your rule: as many in parallel as possible.", flip: "Drop any arm from the screen's plan." }
+    { who: "plan", t: "All six arms are in the screen, and F when the auto-anatomist thread has it ready", at: ["fan_screen"], why: "Your rule: as many in parallel as possible.", flip: "Drop any arm from the screen's plan." },
+    { who: "greg", t: "Start the annealer with a fully latent approach: objective=mask, no measurement in the loss", at: ["aa_fan", "i_head"], why: "Your preference of 2026-10-30: the gold tier 3 annealer is the top goal, starting fully in latent space.", flip: "The auto-anatomist thread would screen the landmarks objective instead, which needs the oracle's frame on real masks." },
+    { who: "aa", t: "The annealer screen's arms are the anneal schedules; the null never anneals", at: ["aa_fan", "aa_join"], why: "You asked to evaluate the annealer's performance; a null with no privileged information is the only fair yardstick.", flip: "Ask the auto-anatomist thread." },
+    { who: "aa", t: "Two seeds each, eight trials; a schedule wins only when both seeds beat both null seeds", at: ["aa_fan", "aa_join"], why: "Eight cards in one array; one seed cannot pass by luck.", flip: "Ask the auto-anatomist thread." },
+    { who: "aa", t: "ENHANCE.PET CTs only, 96 training and 24 validation", at: ["aa_start"], why: "One label scheme, and 1,558 of the gold tier 3 rows; a short run that answers in hours. VerSe and TotalSegmentator join the full run.", flip: "Ask the auto-anatomist thread." },
+    { who: "aa", t: "The naming term is off in the annealer screen; the name head stays on", at: ["aa_fan"], why: "The naming term needs every spine to have the same count of crops, and real spines differ; the name head reads each crop alone. Your evaluation keeps the term on by cutting spines into three-body windows.", flip: "Ask the auto-anatomist thread." },
+    { who: "aa", t: "JAX 0.10.2 and Flax 0.12.8 on the grid", at: ["gpu_smoke", "aa_train", "i_rule"], why: "The grid's GPU environment is Python 3.11, which the newest JAX does not support; bordercall's 86 auto-anatomist tests pass on these versions. Your PyMC-to-JAX prior must run on them too.", flip: "Ask the auto-anatomist thread." }
   ];
   var cardsEl = document.getElementById("cards");
   function drawCards(filter) {
     cardsEl.innerHTML = "";
     DECISIONS.filter(function (d) { return filter === "all" || d.who === filter; }).forEach(function (d) {
       var cd = el("div", "card");
-      cd.appendChild(el("div", "who " + d.who, d.who === "greg" ? "you decided" : "the plan decided, in your place"));
+      cd.appendChild(el("div", "who " + d.who, whoLabel(d.who)));
       cd.appendChild(el("h3", "", d.t));
       var det = el("details"); det.appendChild(el("summary", "", "why, and what flipping it changes"));
       det.appendChild(el("p", "", d.why)); det.appendChild(el("p", "", "Flip it: " + d.flip));
@@ -813,10 +938,12 @@ svg.g text { font-family: var(--mono); font-size: 11px; fill: currentColor; }
       cardsEl.appendChild(cd);
     });
   }
+  function whoLabel(w) { return w === "greg" ? "you decided" : (w === "aa" ? "the auto-anatomist thread decided" : "the plan decided, in your place"); }
   function stepLabel(id) {
     var names = { i_crop: "crop", i_encoders: "encoders", i_head: "head", i_points: "landmarks", i_values: "measures", i_prior: "shape prior", i_rule: "naming rule", i_names: "names",
       s_train: "train", s_calibrate: "calibrate", s_evaluate: "evaluate", plan_screen: "screen plan", plan_full: "full-run plan", fan_screen: "screen trials", fan_full: "full-run trials",
-      merge_screen: "screen merge", merge_full: "full-run merge", gpu_smoke: "gpu_smoke", later2d: "2-D landmarks" };
+      merge_screen: "screen merge", merge_full: "full-run merge", gpu_smoke: "gpu_smoke", later2d: "2-D landmarks",
+      aa_start: "annealer start", aa_fan: "annealer trials", aa_train: "annealer train", aa_join: "annealer join" };
     return names[id] || id;
   }
   document.getElementById("filters").addEventListener("click", function (e) {
@@ -839,7 +966,7 @@ svg.g text { font-family: var(--mono); font-size: 11px; fill: currentColor; }
     markCurrent();
     detail.innerHTML = "";
     var head = el("div", "dhead");
-    var ht = el("div"); ht.appendChild(el("div", "step", n.step)); ht.appendChild(el("div", "dtitle", n.title));
+    var ht = el("div"); if (n.owner === "aa") ht.appendChild(el("div", "owner", "the auto-anatomist thread's run")); ht.appendChild(el("div", "step", n.step)); ht.appendChild(el("div", "dtitle", n.title));
     head.appendChild(ht);
     var close = el("button", "sheet-close", "Close"); close.type = "button"; close.addEventListener("click", closeSheet); head.appendChild(close);
     detail.appendChild(head);
@@ -863,7 +990,7 @@ svg.g text { font-family: var(--mono); font-size: 11px; fill: currentColor; }
     var decs = DECISIONS.filter(function (d) { return d.at.indexOf(id) >= 0; });
     if (decs.length) {
       var db = el("div", "ddecs"); db.appendChild(el("div", "eyebrow", "decisions at this step"));
-      decs.forEach(function (d) { var x = el("div", "ddec " + d.who); x.appendChild(el("div", "who " + d.who, d.who === "greg" ? "you" : "the plan")); x.appendChild(document.createTextNode(d.t)); db.appendChild(x); });
+      decs.forEach(function (d) { var x = el("div", "ddec " + d.who); x.appendChild(el("div", "who " + d.who, d.who === "greg" ? "you" : (d.who === "aa" ? "the auto-anatomist thread" : "the plan"))); x.appendChild(document.createTextNode(d.t)); db.appendChild(x); });
       detail.appendChild(db);
     }
     if (userAction && !wide.matches) openSheet();

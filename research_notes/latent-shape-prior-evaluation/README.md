@@ -337,10 +337,21 @@ written into the record after, never claimed before:
 
 The total ask, in the owner's units: 2 CPU jobs (stages 1 and 2), 2 GPU jobs for the screen (an array and its
 merge) and 2 for the full run, with stage 3 folded into a plan another thread is already writing, and one short
-gpu-class smoke where the step time is to be measured before the screen. greg gave that word and count on 2026-10-30
+gpu-class smoke where the step time is to be measured before the screen. That smoke is the auto-anatomist thread's
+gold3_latent_smoke (SchwingNet PR 483: its flow, its plan and its own PREREG; objective=mask on four ENHANCE.PET CTs,
+two trials of 300 steps in series on one card), counted once for both threads: it times the shared trunk and decoder,
+and each trial's first hundred steps here then time that trial's own head. greg gave that word and count on 2026-10-30
 at 03:20 UTC: "2 CPU 2 GPU 2 Full run plus 1 short GPU smoke is fine". The count is for these jobs as this note
 describes them; nothing is submitted until the pieces of section 10 exist and the PREREG is frozen, and a job that
 grows beyond its line here needs a new count. The size rule applies to nothing here, since no fetch is made.
+
+Beside these jobs runs the auto-anatomist thread's annealer screen: plan gold3_latent_screen of its flow kind
+autoanatomist (SchwingNet PR 483, under docs/research/autoanatomist-screen/PREREG.md), four anneal schedules with two
+seeds each at objective=mask, which is arm F, on 96 training and 24 validation ENHANCE.PET CTs, as a GPU array of
+eight tasks and a CPU join afterany it. Those 2 jobs are not in greg's count above and wait for his word. Its question
+is the schedule with the head held at F; this plan's is the head with the schedule held. The two runs keep one person
+split: the persons this plan lists as test are read by the annealer run from the same list and never trained on
+there, since arm F may start from its checkpoint (asked of that thread on 2026-10-30).
 
 ## 10. How it fits the swappable-block design and the launched flow
 
@@ -376,7 +387,9 @@ grows beyond its line here needs a new count. The size rule applies to nothing h
   first two values) drops in as it is. For the training loss the PyMC model's log-density is compiled to a JAX
   function through pymc.sampling.jax.get_jaxified_logp (in PyMC 6.3.2's source, read on 2026-10-30; it gives the
   negative log-density of the model's free variables unless told otherwise; PyMC 6.3.2 and PyTensor 3.3.4 are the
-  schwingcheck requirements, JAX 0.12 the auto-anatomist's), which jax.grad differentiates; at evaluation the model
+  schwingcheck requirements, JAX 0.12 the auto-anatomist's in a container; the grid's GPU environment is Python 3.11,
+  where that thread's driver installs jax 0.10.2, flax 0.12.8 and optax 0.2.8 in a venv and bordercall's 86
+  auto-anatomist tests pass, so the compile path must hold on jax 0.10.2 too), which jax.grad differentiates; at evaluation the model
   is sampled and its posterior read beside the exact one; a model whose log-density will not jaxify is used at
   evaluation only and the loss falls back to exact, which the run's record says. That compile path is to be shown
   working at stage 3 on chain_pymc.py's enumerated model before the screen names it.
@@ -418,8 +431,10 @@ grows beyond its line here needs a new count. The size rule applies to nothing h
   background; the <KIND>_RC word; a KINDS entry with its LEFT_OUT reasons in tools/run_code.py; the gate word in
   grid/gate.sh with its refusals and its gpu class (the gate refuses a gpu-class job whose script the registry's fourth
   column does not name); the registry line; and the PREREG under SchwingNet's docs/research/latent-shape-prior-evaluation/
-  with its .sha256 and a Covers line holding both plans' bytes, to be written and frozen before the first job; a
-  departure is a dated line in its DEVIATIONS.md. The trials run as the DRR study's do: a Slurm array, each task its
+  with its .sha256 and a Covers line holding the screen's plan by its bytes, written and frozen before the first job.
+  The screen's merge writes the keep list as a dated record beside the PREREG; only then does the full run's plan
+  enter the Covers line, hashed again before the full run's first job, so the test read follows the choice of arms
+  and never steers it. A departure is a dated line in its DEVIATIONS.md. The trials run as the DRR study's do: a Slurm array, each task its
   own launcher run of the kind with a --trial word on a card of its own, and a merge run afterany the array.
 - The plan files for stages 4 and 5 are two JSONs under SchwingNet's grid/searches/, the folder the HANDOFF plans, in
   the layout of its section 4 with the keys above, the six heads as the block space, w_prior fixed, the split's salt
@@ -506,11 +521,13 @@ rule quoted at the top, and at 03:20 UTC the counts of item 1. So the plan decid
 stands until he says otherwise. The interactive page pipeline.html beside this note, published as a private
 artifact for greg on 2026-10-30 (https://claude.ai/artifact/8mfLZEEQupfs1wnGFKrASc), draws the stages as a
 Metaflow-style flowchart with what each step does, the network inside a trial switched per arm, and these decisions.
+At the coordinator's ask it also draws the auto-anatomist thread's annealer screen as a run of its own, with that
+thread's decisions marked as its own, and it carries a glossary of the words it uses.
 
 1. Counts and classes (section 9), the one decision greg took himself, at 03:20 UTC: two CPU jobs (stages 1 and 2),
    two GPU jobs for the screen (the array and its merge), two for the full run, and one short gpu-class smoke where
-   the step time is to be measured before the screen; stage 3 folded into phantom_smoke. A job that grows beyond its
-   line in section 9 needs a new count.
+   the step time is to be measured before the screen, served by the auto-anatomist thread's gold3_latent_smoke and
+   counted once; stage 3 folded into phantom_smoke. A job that grows beyond its line in section 9 needs a new count.
 2. The bars, two decisions apart: for the features (B against A) and for the head (C against A, with C0 and D telling
    why), at least 0.3 mm of value MAE over the seven chords and a naming gain on three-body fields whose points stage 2
    sets from the within-column correlation (3 points is underpowered at a test fifth under the lower-bound rule,
