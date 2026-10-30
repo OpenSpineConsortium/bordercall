@@ -1,3 +1,92 @@
+# Morphometry: the handoff of 2026-10-30, 17:10 UTC: the lines export, reviewed
+
+Source: the thread "Run morphometry on gold tier 3 masks" in the claude.ai project symphony_5, on
+the owner's word of 14:28 UTC ("yes do all these": merge PR 44, re-pin the engine in SchwingNet,
+give a count) read with the other thread's note of 14:34 UTC, which asked that PR 45's stage 1
+export ride in the morphometry jobs. This pass read no real mask or CT and queued no grid job; at
+14:45 UTC the owner held the jobs until a resynthesis.
+
+## What the export is
+
+- `python -m morphometry run --lines` writes, per study, lines/ID.csv and frames/ID.csv beside
+  rows/ID.csv and joins them as lines.csv and frames.csv; the research note says what each row
+  holds. The lines are morphoview.lines' builders run on the vertebrae measure_volume built (its
+  new `keep`) and checked against the values it wrote: 25 keys a vertebra (VERTEBRA_KEYS), 3 a
+  disc (DISC_KEYS), each end named (ENDS). The lines and frames are written before the rows, which
+  stay the commit marker, and a run with the lines has a stamp of its own, over
+  morphoview/lines.py too.
+- morphoview.lines.pedicles takes the measure's own reading of each side (side_reading), since
+  reading pedicle.one_side again took five sixths of a study's drawing on the phantoms (3.5 of
+  4.2 s of CPU on L2 to L4 at 0.8 by 0.8 by 1 mm); on a vertebra the volume's edge cuts, whose
+  values the measure blanks, it reads the side again.
+
+## The review, and what was done
+
+Four reviewers read commit 4086684 by correctness, robustness on the grid, fitness for PR 45's
+stage 1, and the tests and the words; two skeptics tried the first finding and could not refute
+it. Fixed:
+
+- Three of Panjabi's seven chords, the posterior height at the wall and the canal's width and
+  depth at the pedicles (h_post, canal_w, canal_ap), had no line, though PR 45's minimal shape
+  model is fitted on all seven. morphoview.lines draws them (panjabi_height, panjabi_canal); each
+  is a median, drawn in the cell or section nearest it, with the median as its value.
+- The words promised a line for every measure; they name the keys that have one.
+- Ends, values and frames were written to four places, so a frame read back was orthonormal only
+  to 1e-4 and failed the oracle interface's check at 1e-6; they are written whole.
+- The ends were unnamed and their order was set builder by builder; each is named (a_end, b_end).
+- A frame did not say which axis its z lies along; frames.csv adds axis and the column's line.
+- The frame tests passed with the origin at zero, x and y reversed, the frame turned 5 degrees or
+  left on the column's line. Frames now takes every line's ends into its frame on a chain whose
+  joints open, tilt, turn and slip, and holds the origin to the main piece's centroid and each end
+  to the side its name says.
+- One failing builder dropped every line of its level; each has its own guard, and the flag names
+  it.
+- After a run a dead worker cut short, the joins mixed files an older code wrote with the run's;
+  they take only the studies whose rows carry the run's stamp, and are written to a part file and
+  moved into place.
+- No test held the write order or the reset after a failed measuring; Failing kills a study at
+  each of its three writes, and fails one after its vertebrae are kept.
+
+Each test the fixes added fails with its fix taken out, or with a slip a later change could make: 28
+mutants of the export and its tests, all caught. The first round's 14 caught 13; the one that lived,
+the canal's depth read on the wrong section, led to the test that holds each median's line to the
+cell or section nearest it. The 13 were run again on the final tree, and the second round's 15 were
+caught too, the two that move an end's name run again once the end-name test read every pair either
+way round, so a wrong name fails on the geometry and not on a missing key.
+
+Left, with the reason:
+
+- A run whose pool breaks exits 0 and prints "a worker died ... run again", as every run has, with
+  the lines or without; SchwingNet's report is to read that line from the run's log.
+- A key with no line leaves no line row; VERTEBRA_KEYS and DISC_KEYS give the denominator.
+- The oracle's frame and the one found without the mask, which PR 45's stage 1 compares with the
+  engine's, need the CT and autoanatomist, which the job has not; they are a step of their own.
+
+## What SchwingNet needs before the counted jobs
+
+None of this is done in bordercall:
+
+- vendor the merged commit with morphoview/__init__.py and morphoview/lines.py
+  (tools/bordercall_vendor.py's ENGINE), since `run --lines` imports morphoview before it
+  measures;
+- pass --lines in grid/morphometry.sbatch's measure() and print code_stamp(True) in the report;
+- digest lines.csv and frames.csv, and count flag:lines and the lines per level by status, as
+  aggregates only;
+- read "a worker died" from the run's log into the report;
+- refuse the word where grid/bordercall/morphoview/lines.py is missing;
+- then the owner's count of three, enhance, verse and the covariates join, one at a time, which
+  the owner held at 14:45 UTC until a resynthesis.
+
+## Tests and timing
+
+- morphometry/tests/test_lines_export.py, 25 tests on phantoms of L2 to L4: straight at 0.8
+  by 0.8 by 1 mm, the same cut through L4's body by the volume's edge, the same on 2.5 mm slices,
+  and a chain whose joints open 8 degrees, tilt 4, turn 5 and slip 4 mm. The engine's suite,
+  75 tests, passes: test_morphometry's 39 in 769 s and the export's and morphoview's 36 in 229 s,
+  on four CPUs shared with the mutant runs.
+- On three phantom columns on one worker the drawing adds 9 per cent to the measuring of L1 to L5,
+  13 to that of C2 to C7 and 13 to that of a column from C2 to L5, and nothing to the peak memory.
+
 # Morphometry: the handoff of 2026-10-30, 14:00 UTC
 
 Source: the thread "Run morphometry on gold tier 3 masks" in the claude.ai project symphony_5, on

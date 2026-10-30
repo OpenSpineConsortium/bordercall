@@ -2,8 +2,9 @@
 
 Every line built for L3 and its two discs must give the value the measuring code gives, so all are
 drawn; each length's ends must lie on the surface it is said to end at, a step inward on one side
-of it and a step outward on the other, the step under a voxel's diagonal; a value off by more than
-the rows' rounding is withheld; and the four panels draw with one key line for each drawn line."""
+of it and a step outward on the other, the step under a voxel's diagonal; a median is drawn in the
+reading nearest it; a value off by more than the rows' rounding is withheld; and the four panels
+draw with one key line for each drawn line."""
 import math
 import os
 import tempfile
@@ -22,9 +23,13 @@ from scanimport import geometry as G
 LEVELS = ["L2", "L3", "L4"]
 STEP_MM = 0.8
 # the lines that end where bone gives way to what is outside it, and the side bone lies on
-BONE_WITHIN = ("h_ant", "h_mid", "h_post_inset", "body_d_mid", "body_w_mid", "endplate", "endplate_lower", "tp_span",
-               "pedicle_chord_right", "pedicle_chord_left")
-CANAL_WITHIN = ("canal_ap_min", "interpedicular")
+BONE_WITHIN = ("h_ant", "h_mid", "h_post_inset", "h_post", "body_d_mid", "body_w_mid", "endplate", "endplate_lower",
+               "tp_span", "pedicle_chord_right", "pedicle_chord_left")
+CANAL_WITHIN = ("canal_ap_min", "interpedicular", "canal_w", "canal_ap")
+# a median is drawn in the row, cell or section whose reading is nearest it: on this phantom the
+# canal's depth runs from 16.0 to 19.5 mm over the band it is read in and the section drawn reads
+# 0.07 mm over the median, the furthest of any median's line from its value
+MEDIAN_MM = 0.1
 
 
 class Phantom(unittest.TestCase):
@@ -72,6 +77,12 @@ class Phantom(unittest.TestCase):
             for end, inward in ((ln.a, d), (ln.b, -d)):
                 self.assertFalse(self.inside("L3", end + STEP_MM * inward), key)
                 self.assertTrue(self.inside("L3", end - STEP_MM * inward), key)
+
+    def test_a_median_is_drawn_in_the_reading_nearest_it(self):
+        medians = [ln for ln in self.lines if ln.rule == "median"]
+        self.assertTrue({"h_post", "canal_w", "canal_ap"} <= {ln.key for ln in medians})
+        for ln in medians:
+            self.assertLessEqual(abs(ln.drawn - ln.value), MEDIAN_MM, ln.key)
 
     def test_a_disc_runs_from_the_plate_below_to_the_plate_above(self):
         for up, low in (("L2", "L3"), ("L3", "L4")):

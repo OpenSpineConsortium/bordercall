@@ -42,10 +42,12 @@ TITLES = {"sagittal": "Sagittal, through the body's middle", "coronal_body": "Co
 ENDS = {"sagittal": ("A", "P", "S", "I"), "coronal_body": ("R", "L", "S", "I"),
         "coronal_pedicle": ("R", "L", "S", "I"), "axial_pedicle": ("R", "L", "A", "P")}
 NAMES = {
-    "h_ant": "anterior height", "h_mid": "middle height", "h_post_inset": "posterior height", "wedge": "wedge",
+    "h_ant": "anterior height", "h_mid": "middle height", "h_post_inset": "posterior height",
+    "h_post": "posterior height at the wall", "wedge": "wedge",
     "body_d_mid": "waist depth", "body_w_mid": "waist width", "endplate": "upper end-plate width",
     "endplate_lower": "lower end-plate width", "endplate_depth": "upper end-plate depth",
     "endplate_lower_depth": "lower end-plate depth", "canal_ap_min": "least canal depth",
+    "canal_w": "canal width", "canal_ap": "canal depth",
     "canal_ap_lateral_film": "canal depth to film line", "spinous_length": "spinous length",
     "tp_span": "transverse span", "interpedicular": "interpedicular distance", "disc_h_ant": "disc, anterior",
     "disc_h_mid": "disc, middle", "disc_h_post": "disc, posterior"}
@@ -99,7 +101,7 @@ def cut_of(v: A.Vertebra, panel: str, lines: List[Line]) -> Cut:
     """Through the lines the panel shows, or the body's middle where it shows none."""
     normal = PANELS[panel][0]
     mine = [ln for ln in lines if panel_of(ln) == panel and ln.status == "drawn"
-            and not ln.key.startswith(("canal_ap_lateral_film", "tp_span", "interpedicular"))]
+            and not ln.key.startswith(("canal_ap_lateral_film", "tp_span", "interpedicular", "canal_w"))]
     B = v.body_pts if v.body.any() else v.loc
     whole = middle_of(v, normal, mine)
     if whole is None:
