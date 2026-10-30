@@ -16,7 +16,9 @@ university record or a GitHub page, named in each row. No PDF, image or dataset 
 
 Reviewed on 2026-10-30 (thread "Finish the clinical reread", project symphony_5): a second reader checked 170
 claims at their sources and found 11 wrong, unsupported or imprecise, none of them a number in the Table; a refuter
-held all 11, which are corrected here. The record is [review/](review/README.md).
+held all 11, which are corrected here. A second sweep added five sources on the thoracolumbar
+transition (Gupta 2018, Singer 1988 and 1989, Du Plessis 2022, Forseen 2015, Pal and Routal 1999), each read
+again at its source by a verifier. The record is [review/](review/README.md).
 
 ## What the existing notes already say
 
@@ -62,6 +64,12 @@ held all 11, which are corrected here. The record is [review/](review/README.md)
   superior facets (right shorter at every level T1 to T12, by up to 2.91 mm at T1; right wider at T1 to T9, T8
   excluded, P < 0.003; right transverse and sagittal angles larger at T1 to T11, P < 0.003), none in the lumbar
   facets, independent of age.
+- Pal and Routal 1999, J Anat 195(2):199-209, PMID 10529057 [abstract, PubMed]: 44 dry adult columns, T9 to L5; the
+  change of articular process orientation at the thoracolumbar junction abrupt in 3 columns (7 percent) and gradual
+  over 2 or 3 successive vertebrae in 41 (93 percent), the reverse of Forseen 2015's 93 percent abrupt on CT and
+  more gradual than Singer 1989's 71.5 percent (59.6 over T10-11 to T12-L1, 11.4 over T11-12 to L1-2, 0.5 over
+  T9-10 to T11-12) on 630 CT-imaged spines, so the abrupt-or-gradual share depends on the definition and the
+  material and a rule cannot take one share from the literature.
 - Kunkel, Schmidt, Wilke 2011, J Anat [full, PMC3042753]: no new bone; third-order polynomials predicting 20 facet
   parameters of T1 to L4 from the posterior body height, fitted to Panjabi's 1991 to 1993 tables; sagittal angle
   errors that the discussion puts at up to -15 percent at the thoracolumbar junction (T12 to L1), where the
@@ -180,9 +188,13 @@ held all 11, which are corrected here. The record is [review/](review/README.md)
 |---|---|---|---|---|
 | Panjabi 1993 [abstract] | No. 12 cadaver spines, 276 vertebrae C2 to L5, electromechanical morphometer; means and SEM | No | Means only; no error | 12 people, no per-person data, 1990 bone, no CT or film |
 | Masharawi 2004 [abstract] | No digital set; 240 Hamann-Todd columns, 4,080 vertebrae T1 to L5, 3-D digitiser | No | Means per level; junction bimodal (80/20) | Dry bone, no images, no cervical, no transitional vertebrae stated |
-| Masharawi 2005 [abstract] | No digital set; same 240 Hamann-Todd columns, 4,080 vertebrae T1 to L5; facet width, length, ratio and interfacet distances | No | Tropism side by region and interfacet shape by level; no mm in the abstract | Dry bone, no images, thoracolumbar only |
+| Masharawi 2005 [abstract] | No digital set; same 240 Hamann-Todd columns, 4,080 vertebrae T1 to L5; facet width, length, ratio and interfacet distances | No | Tropism side by region and interfacet shape by level; no mm in the abstract | Dry bone, no images, thoracolumbar only, no angle, no transitional vertebra stated |
+| Gupta, Singla, Agnihotri, Budhiraja, Goyal, Bansal 2018, Ann Int Med Dent Res 4(4):AT29-AT33, doi 10.21276/aimdr.2018.4.4.at6, CC BY-NC [full, journal PDF read by pdftotext] | No digital set. 30 adult male dry thoracolumbar columns (GMC Amritsar), boiled and labelled T1 to L5: 510 vertebrae (360 thoracic, 150 lumbar); the sagittal angle of the superior articular facet by a protractor, a steel wire in the midsagittal plane and a bent hairpin (Patel and Singel 2003) | No | Means only, no repeat or observer figure: thoracic 112 to 120 deg (T1 R 112.5, L 114.0; T6 L 120.3), T12 R 85, L 92.1 (ranges 30-125, 36-134), L1 R 32, L 34.2, L2 29, 29.8, L3 28.8, 28.6, L4 34.1, 32.1, L5 36.9, 40.4; the text says left larger by 0.2 to 7 deg at every level but L4, not significant, though its table has L3 left smaller too and T12 left larger by 7.1; T12 under 90 deg in 14 columns (46 percent) right and 9 (30) left; the change gradual over T11-L1 in 46 percent right and 30 left, over T10-L1 in 3.33, abrupt at T12-L1 in the rest; its Table 1 sets Pal 2000 (reference 9, dated 2001 in its list) and Patel 2004 (Indian, C3 to S1) beside it, their T1 to T3 means identical | 30 men, dry bone, no images, no age or sex analysis, no cervical, one protractor angle per facet, no transitional vertebra; the abstract's "almost equal number" is about 49 gradual against 51 abrupt on the right but 33 against 67 on the left (46 and 30 over T11-L1 plus 3.33 over T10-L1) |
 | Kunkel 2011 [full] | None new; regressions on Panjabi's tables, T1 to L4 | No (equations printed) | Sagittal angle error up to -15 percent at T12-L1 (discussion); inferior sagittal about 27 percent at T11 and 5 to 20 percent lumbar (results) | Rests on 12 spines; L5 excluded; predicts from a body height, so no new information for a rule that already has the heights |
 | Van Schaik 1997 [abstract] | No. 123 patients, 212 lower lumbar levels, CT | No | Intra-observer 2.3 percent | L3-L4 to L5-S1 only, one plane, a diameter rather than an angle |
+| Singer, Breidahl, Day 1988, Surg Radiol Anat 10(4):291-295 (PMID 3145570) and 1989, Clin Biomech 4(2):80-86 (PMID 23915998) [abstract, both] | No. 1988: 214 (176 abdominal CTs, 9 thoracolumbar junction referrals, 29 cadaveric columns), scans through the superior end-plates of T11 to L2, joint angles by a computer-aided digitiser; 1989: 630 people aged 10 to 93 (551 abdominal scans, 26 junction scans, 53 cadaveric spines), joints T10-11 to L1-2 | No | 1988: coronal superior and sagittal inferior processes at T12 in 29 percent, T11 16, L1 0.5; gradual transition 54 percent; tropism over 20 deg at T11-12 21 percent, T12-L1 9. 1989: gradual over three levels (T10-11 to T12-L1) 59.6 percent; progressive T11-12 to L1-2 11.4, T9-10 to T11-12 0.5 (71.5 gradual in all); abrupt at T11-12 to T12-L1 18.1, T10-11 to T11-12 10.2, T12-L1 to L1-2 0.2; asymmetry over 10 deg at T11-12 40.8 percent, T12-L1 17.7; L1 transverse process ossification anomalies 2.06 percent | The largest CT facet-orientation series at the junction found here (630, cadaveric spines among them); four levels, no per-level means in the abstracts, no data, no inter-observer figure, 1980s scanners; the transition lies anywhere from T10-11 to L1-2, so a rule reading T12 from the facet angle meets that spread |
+| Du Plessis and others 2022, J Anat 240(6):1179-1186, doi 10.1111/joa.13619 [full, PMC9119610] | Not open (the paper says the data would be on the University of Pretoria library website in 2022; not checked). 173 adults in the abstract, 175 in the Methods, aged 18 to 80, archived CTs, Windhoek, Namibia, 2018 to 2020; T11, T12, L1 and thoracolumbar transitional vertebrae only; the superior articular facet angle on axial CT in Syngo, reflex angles computed by hand | No | Means T11 184.5 +/- 8.16 deg, T12 182.8 +/- 10.4 (table SD 10.31), L1 112.3 +/- 7.27, TLTV 136 +/- 23.18 (table SD 21.77); left and right not different at normal levels (p 0.10 to 0.246), the TLTV facets asymmetric (mean difference 36.5 +/- 13.08 deg); inter-observer r 0.978 to 0.997 on 10 repeated measurements (three observers in the Results, two in the Methods); 13 or 14 TLTV (the text disagrees), each with another anomaly (hypoplastic ribs 8, spina bifida 5, sacralisation 4, lumbar numeric variation 6, compression fractures 4) | Three levels, one plane, by hand, no abrupt-or-gradual count of its own (it quotes Forseen 2015's 227 of 244 abrupt); the TLTV angle lies between T12's and L1's with two to three times their spread, the facet signature of the one vertebra a rule must not name wrong |
+| Forseen, Bruce, Gilbert, Patel, Ramirez, Borden 2015, J Spine 4(2):222 (OMICS), doi 10.4172/2165-7939.1000222, CC BY [abstract, OpenAlex record; authors from Semantic Scholar] | No. 244 whole-spine CTs; the facet transition (flat posterolateral to curved posteromedial facets), its type (gradual or abrupt), the lowest rib-bearing segment and lumbosacral transitional anatomy read per patient; where segment 1 lies is not stated in the abstract (the lowest rib at the 19th in 92 percent implies C1 is segment 1) | No | Transition abrupt in 227 of 244 (93 percent); the transition at the 19th segment in 184 (75 percent), the 18th in 50 (20), the 20th in 10 (4); the lowest rib set at the 19th in 225 (92), the 20th 11 (5), the 18th 8 (3); lowest full disc 24-25 in 216 (88), 23-24 in 9 (4), 25-26 in 19 (8); lumbosacral transitional anatomy with eleven ribs in 5 of 7, thirteen 8 of 11, twelve 24 of 234 (10 percent), denominators that sum to 252 against 244 and disagree with the 8 and 225 above | The one study found that tests a facet feature as a T12 marker, and it concludes the transition is not reliable and that numbering must count caudally from C2; manual, no angle in degrees, no inter-reader figure, its rib counts internally inconsistent, an OMICS journal |
 | Simon 2012 [full] | No. 96 volunteers, 1,920 facet models L1/L2 to L5/S1, 1.0 mm CT, hand-traced surfaces | No (custom program) | Zone means 1.48 to 1.93 mm; no reproducibility | Lumbar only, manual tracing, no level labels, osteophytes excluded by hand |
 | Cahill 2017 [full] | No. 30 trauma CTs, subaxial cervical, 22 measures per level | No | Upper limits 1.27 to 2.0 mm (mean + 2 SD) | Cervical only, 30 people, normative limits not measurements per vertebra |
 | NFBC1966 facet tropism, Spine 2024 [full] | No (no availability statement). 1,288 participants, T2 axial MRI L3/4 to L5/S1; 430 annotated, 60 test by 3 raters | No | Dice 0.933 overall; facet inter-rater Dice 75.5; 76.8 percent of radiologist pairs within 10 degrees; no degree error | Three lumbar levels, axial MRI, slice chosen by hand, no level labels, no transitional vertebrae, one centre, one rater's truth |
@@ -205,12 +217,16 @@ Settled:
   sex, age and ancestry. That is the strongest level signal in this family, stronger than any body dimension,
   and it holds in people rather than in Panjabi's twelve. But it is dry-bone data, abstract-only here, and it
   carries no digital record, so it can be a prior, not a benchmark.
-- The thoracolumbar junction is bimodal in facet orientation (about 80 percent of columns at one orientation,
-  20 at the other, Masharawi 2004; abrupt at T12-L1 or gradual over T11-L1 in near-equal shares in the
-  510-vertebra study the search surfaced [abstract only, source page not readable]). A naming rule that reads
-  T12 versus L1 from the facet angle will meet that split, and Kunkel 2011's sagittal angle errors there (up to
-  -15 percent at T12-L1 in its discussion, about 27 percent at T11 in its results) show it in the only published
-  predictor.
+- The thoracolumbar junction is bimodal in facet orientation (about 80 percent of columns at one orientation, 20 at
+  the other, Masharawi 2004), but how the change runs depends on the definition and the material: gradual over
+  T11-L1 in 46 percent of Gupta 2018's 30 dry columns on the right and 30 on the left, with 3.33 over T10-L1 and
+  the rest abrupt at T12-L1 (so about 49 to 51 on the right and 33 to 67 on the left, not the equal split its
+  abstract gives); 93 percent abrupt on Forseen 2015's 244 CTs; 93 percent gradual on Pal and Routal 1999's 44 dry
+  columns; 71.5 percent gradual and 28.5 abrupt on Singer 1989's 630 CT-imaged spines. A naming rule that reads T12
+  versus L1 from the facet angle will meet that spread, and Kunkel 2011's sagittal angle errors there (up to -15
+  percent at T12-L1 in its discussion, about 27 percent at T11 in its results) show it in the only published
+  predictor. The thoracolumbar transitional vertebra's own superior facet angle, 136 +/- 23 deg on Du Plessis
+  2022's CTs, lies between T12's 182.8 and L1's 112.3 with two to three times their spread.
 - Automatic facet orientation and tropism has been done once, on axial MRI at three lumbar levels, with
   masks whose inter-rater Dice is 75.5 and no angle error in degrees reported (NFBC 2024). Nothing automatic
   exists on CT or on radiographs for any key of the family, and nothing exists for the facet dimensions or
@@ -228,8 +244,12 @@ Not settled:
   The only public truths touching facets are Fujiwara grades at slight agreement (kappa 0.13, Nikpasand) and
   Weishaupt grades on five cadaver spines (Leeds). Any benchmark of the family would have to be built, most
   likely by two readers on held CT.
-- No method names a level from a facet measure, and no automatic pipeline covers the cervical facets, the
-  whole column or a transitional vertebra. The one automatic tropism paper is lumbar L3/4 to L5/S1.
+- No automatic method names a level from a facet measure, and no automatic pipeline covers the cervical facets, the
+  whole column or a transitional vertebra; the one automatic tropism paper is lumbar L3/4 to L5/S1. One manual
+  method tested the idea: Forseen 2015 read the facet transition on 244 whole-spine CTs as a T12 marker and found
+  it at the 19th segment in 184 (75 percent), the 18th in 50 (20) and the 20th in 10 (4), against the lowest rib at
+  the 19th in 225 (92 percent); it concludes the transition is not reliable and that numbering must count caudally
+  from C2, the negative result a facet-based naming rule has to beat.
 - Inter-reader agreement on facet angles in degrees is not reported anywhere found; NFBC gives it as a share
   within 10 degrees (76.8 percent between two radiologists), which is coarse beside the 7 and 10 degree tropism
   thresholds themselves.
@@ -247,9 +267,14 @@ Not settled:
   the review: Kramer 2024 names its sets (6 VerSe patients, 50 artificial Sawbone lumbar spines) and links its
   code; SLD names VerSe, the artificial Sawbone set and Al-Dhamari 2019's cervical set, 57 vertebral surface
   models in all.
-- The 510-vertebra thoracolumbar facet study (360 thoracic, 150 lumbar) was seen only in a search summary and
-  its page could not be identified for a fetch; its numbers are not used above beyond the abrupt-or-gradual
-  finding.
+- The 510-vertebra study is Gupta 2018, identified through OpenAlex (doi 10.21276/aimdr.2018.4.4.at6) and the
+  journal's issue page and read in full from its PDF (CC BY-NC) in the review of 2026-10-30; its abstract says the
+  change was abrupt or gradual "in almost equal number of columns" while its text gives 46 and 30 percent gradual
+  over T11-L1 by side.
+- Forseen 2015 (OMICS), Singer 1988 and 1989, Pal and Routal 1999 and Masharawi 2005 were read as abstracts only,
+  their full texts behind OMICS, Springer, Elsevier and LWW pages this container does not read; Forseen's abstract
+  gives rib-count denominators (7, 11, 234) that sum to 252 against its 244 CTs. Du Plessis 2022's data, which the
+  paper places on the University of Pretoria library website, were not checked.
 - Chinese-language literature was searched once (one query) and gave nothing on automatic facet angles; CNKI
   itself was not searched.
 - No Grand Challenge or MICCAI task on facets was found; the SPIDER challenge has no facet class.
@@ -260,6 +285,11 @@ Not settled:
 - Masharawi 2004: https://cris.haifa.ac.il/en/publications/facet-orientation-in-the-thoracolumbar-spine-three-dimensional-an/
 - Masharawi 2005: https://pubmed.ncbi.nlm.nih.gov/15928537/ (record also at https://neomed.omeka.net/items/show/9965)
 - Masharawi 2008, facet asymmetry in growth: https://pubmed.ncbi.nlm.nih.gov/18404110/ and https://cris.haifa.ac.il/en/publications/facet-asymmetry-in-normal-vertebral-growth-characterization-and-e/
+- Gupta 2018 (the 510-vertebra study): https://doi.org/10.21276/aimdr.2018.4.4.at6
+- Pal and Routal 1999: https://pubmed.ncbi.nlm.nih.gov/10529057/
+- Singer 1988 and 1989: https://pubmed.ncbi.nlm.nih.gov/3145570/ and https://pubmed.ncbi.nlm.nih.gov/23915998/
+- Du Plessis 2022: https://pmc.ncbi.nlm.nih.gov/articles/PMC9119610/
+- Forseen 2015: https://doi.org/10.4172/2165-7939.1000222
 - Kunkel 2011: https://pmc.ncbi.nlm.nih.gov/articles/PMC3042753
 - Van Schaik 1997 record: https://scilit.com/publications/8868c2e0280e4316c53ff62e704c3f58
 - Simon 2012: https://pmc.ncbi.nlm.nih.gov/articles/PMC3685171
