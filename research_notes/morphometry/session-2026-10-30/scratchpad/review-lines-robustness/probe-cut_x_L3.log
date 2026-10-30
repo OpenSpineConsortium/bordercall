@@ -1,1 +1,0 @@
-cut_x_L3         measure+draw-volume 39 s, lines 0.3 s; verts ['L2', 'L3', 'L4']; discs []; flags []; statuses {'not measured': 39}; levels with rows but no lines []

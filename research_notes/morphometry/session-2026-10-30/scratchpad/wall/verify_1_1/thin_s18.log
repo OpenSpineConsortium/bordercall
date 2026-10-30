@@ -1,8 +1,0 @@
-thin  suite18 none          wall new -0.73 old +1.02  window -4.2..4.2 (body -7.0..7.0) on dens 0% edges on dens 0%  {'edges': 117, 'span_mm': 8.06, 'parted': False, 'free_deg': 0.74}
-thin  suite18 none          rows: endplate_lower_incl +1.03  ped_sag R +nan L +nan  spinous -0.62  flags ['flag:axis_one_plate', 'flag:dens', 'flag:interpedicular_band', 'flag:pedicle_left', 'flag:pedicle_right'] {}
-thin  suite18 flush0        wall new +1.61 old +1.75  window -2.7..14.1 (body -8.3..5.7) on dens 50% edges on dens 41%  {'edges': 187, 'span_mm': 16.51, 'parted': False, 'free_deg': 0.37}
-thin  suite18 flush0        rows: endplate_lower_incl -1.73  ped_sag R +nan L +nan  spinous +2.11  flags ['flag:axis_one_plate', 'flag:body_foramina', 'flag:dens', 'flag:facets', 'flag:interpedicular_band', 'flag:pedicle_left', 'flag:pedicle_right'] {}
-thin  suite18 rec1.5_12     wall new +2.48 old +3.24  window -2.7..14.1 (body -8.2..5.7) on dens 50% edges on dens 39%  {'edges': 160, 'span_mm': 16.35, 'parted': False, 'free_deg': 0.28}
-thin  suite18 rec1.5_12     rows: endplate_lower_incl -2.09  ped_sag R +nan L +nan  spinous +2.60  flags ['flag:axis_one_plate', 'flag:body_foramina', 'flag:dens', 'flag:facets', 'flag:interpedicular_band', 'flag:pedicle_left', 'flag:pedicle_right'] {}
-thin  suite18 flush10       wall new -2.24 old +1.51  window -2.7..14.1 (body -8.3..5.7) on dens 50% edges on dens 39%  {'edges': 177, 'span_mm': 16.43, 'parted': False, 'free_deg': 0.24}
-thin  suite18 flush10       rows: endplate_lower_incl +2.55  ped_sag R +nan L +nan  spinous -1.73  flags ['flag:axis_one_plate', 'flag:body_foramina', 'flag:dens', 'flag:facets', 'flag:interpedicular_band', 'flag:pedicle_left', 'flag:pedicle_right'] {}

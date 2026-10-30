@@ -1,5 +1,0 @@
-C5 thin x2 lean+5                        err -0.72 truth +9.89  0.016s  {'edges': 133, 'dropped': 2, 'half_band_mm': 6.0, 'span_mm': 8.24, 'parted': False, 'fitted_deg': 9.16, 'free_lo_deg': 8.88, 'free_hi_deg': 9.61, 'free_deg': 0.73, 'rms_over_step': 0.31}
-
-real	0m8.578s
-user	0m6.862s
-sys	0m1.436s

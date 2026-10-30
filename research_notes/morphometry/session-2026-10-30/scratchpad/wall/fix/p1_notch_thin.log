@@ -1,6 +1,0 @@
-thin suite notch 5,6,4                       err   -0.20 share 0.20 gate  +0.30 parted True  across 0 free   0.35 fit   -0.25 why 
-thin suite notch 5,6,4,-4                    err   -0.15 share 0.19 gate  -2.99 parted True  across 2 free   0.30 fit   -0.36 why 
-thin suite notch 5,6,4,4                     err   -0.04 share 0.21 gate  -1.18 parted True  across 0 free   0.30 fit   -0.04 why 
-thin suite notch 8,6,5                       err  -29.15 share 0.66 gate  -2.88 parted False across 0 free   0.51 fit  -29.15 why 
-thin suite notch 5,10,4                      err   -0.19 share 0.51 gate  -1.45 parted False across 0 free   0.92 fit   -0.19 why 
-thin suite notch 8,8,4                       err   +1.63 share 0.58 gate  -0.44 parted False across 0 free   0.79 fit   +1.63 why 

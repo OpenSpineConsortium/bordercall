@@ -1,8 +1,0 @@
-AssertionError: 3.050494836244511 not less than or equal to 0.5 : the wall reads -3.05 degrees off
-AssertionError: 18.170725598645774 not less than or equal to 0.5 : the wall reads -18.17 degrees off
-AssertionError: 18.045446530899792 not less than or equal to 1.5 : endplate_incl: 18.05 against -0.00
-AssertionError: 4.550595205790323 not less than or equal to 1.5 : endplate_incl: 4.55 against -0.00
-failed 4 of 4 with the old reading
-exit 0
-
-[exited with code 0]

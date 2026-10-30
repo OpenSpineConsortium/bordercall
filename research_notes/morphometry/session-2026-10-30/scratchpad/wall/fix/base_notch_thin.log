@@ -1,9 +1,0 @@
-thin suite notch 5,6,4                       err   -0.20 share 0.20 parted True  free   0.35 fit   -0.25 why 
-thin suite notch 5,6,4,-4                    err   -0.36 share 0.19 parted False free   0.36 fit   -0.36 why 
-thin suite notch 5,6,4,4                     err   -0.04 share 0.21 parted True  free   0.30 fit   -0.04 why 
-thin suite notch 8,6,5                       err  -29.15 share 0.66 parted False free   0.51 fit  -29.15 why 
-thin suite notch 5,10,4                      err   -0.19 share 0.51 parted False free   0.92 fit   -0.19 why 
-
-real	1m32.891s
-user	1m25.358s
-sys	0m6.549s

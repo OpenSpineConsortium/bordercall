@@ -1,6 +1,0 @@
-notch 5x6x4 at +0                    err -0.205 parted True across 0 free 0.3547173641814069 fitted -0.24683426957059118 lo -0.20631588006492815 hi 0.14840148411647877 why 
-   endplate_incl +0.08 lower +0.17 against -0.00 +0.00 flags [] canal line -18.74
-notch 5x6x4 at -4                    err -0.153 parted True across 2 free 0.3027608056779417 fitted -0.35955015057806256 lo -0.1540898068510532 hi 0.14867099882688853 why 
-   endplate_incl +0.04 lower +0.12 against -0.00 +0.00 flags [] canal line -6.10
-notch 5x6x4 at +4                    err -0.035 parted True across 0 free 0.30474234013503365 fitted -0.03713085371339484 lo -0.14440850843332753 hi 0.1603338317017061 why 
-   endplate_incl -0.06 lower +0.05 against -0.00 +0.00 flags [] canal line +16.96

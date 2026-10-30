@@ -1,6 +1,0 @@
-straight_lean+5_x5_thin: ends (4, 4) widest 0 margin 8.45e-08
-straight_lean+5_x5_thin: ends (4, 2) widest 0 margin 7.37e-08
-((0, 0), 0, 'margin>part') 119
-((2, 2), 0, 'margin<=part') 173
-((4, 2), 0, 'margin<=part') 1
-((4, 4), 0, 'margin<=part') 1

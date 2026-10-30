@@ -1,4 +1,0 @@
-old verse rc 0
-new verse rc 0
-old enhance rc 0
-new enhance rc 0

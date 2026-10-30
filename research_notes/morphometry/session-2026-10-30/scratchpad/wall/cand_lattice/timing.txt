@@ -1,3 +1,0 @@
-candidate              98 configs: mean 9.5 ms, median 9.3, max 24.0
-candidate, no clamp    98 configs: mean 8.8 ms, median 8.9, max 23.9
-current                98 configs: mean 0.7 ms, median 0.8, max 1.3

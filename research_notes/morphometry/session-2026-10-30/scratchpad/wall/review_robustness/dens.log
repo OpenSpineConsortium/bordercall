@@ -1,4 +1,0 @@
-C2 no dens x2                        new -0.12  old -4.63  {'edges': 125, 'span_mm': 8.1, 'parted': False, 'free_deg': 2.42}
-C2 with dens x2                      new +3.83  old +2.31  {'edges': 165, 'span_mm': 16.14, 'parted': False, 'free_deg': 0.34}
-C2 no dens suite18                   new -0.84  old +0.01  {'edges': 118, 'span_mm': 8.32, 'parted': False, 'free_deg': 1.61}
-C2 with dens suite18                 new +3.12  old +0.72  {'edges': 166, 'span_mm': 16.33, 'parted': False, 'free_deg': 0.29}

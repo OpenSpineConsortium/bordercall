@@ -1,8 +1,0 @@
-MUTANT no h_post line                           KILLED Ran 1 test in 104.649s FAILED (failures=1)
-        FAIL: test_every_one_of_panjabis_seven_chords_is_drawn (morphometry.tests.test_lines_export.RunWithLines.test_every_one_of_panjabis_seven_chords_is_drawn)
-MUTANT no canal lines                           KILLED Ran 1 test in 109.577s FAILED (failures=1)
-        FAIL: test_every_one_of_panjabis_seven_chords_is_drawn (morphometry.tests.test_lines_export.RunWithLines.test_every_one_of_panjabis_seven_chords_is_drawn)
-MUTANT widths' ends named the wrong way             KILLED Ran 1 test in 61.672s FAILED (failures=1)
-        FAIL: test_each_end_lies_where_its_name_says (morphometry.tests.test_lines_export.Frames.test_each_end_lies_where_its_name_says)
-MUTANT a and b swapped in the file                  KILLED Ran 1 test in 45.049s FAILED (failures=1)
-        FAIL: test_each_end_lies_where_its_name_says (morphometry.tests.test_lines_export.Frames.test_each_end_lies_where_its_name_says)

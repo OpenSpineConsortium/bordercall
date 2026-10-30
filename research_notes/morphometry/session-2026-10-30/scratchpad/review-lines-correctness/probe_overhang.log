@@ -1,5 +1,0 @@
-  overhang L2: 22 lines {'drawn': 22} touching=False
-  overhang L3: 22 lines {'drawn': 22} touching=False
-  overhang L4: 22 lines {'drawn': 22} touching=False
-overhang levels ['L2', 'L3', 'L4'] discs [('L2', 'L3'), ('L3', 'L4')]
-TOTAL PROBLEMS 0

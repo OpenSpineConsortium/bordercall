@@ -1,7 +1,0 @@
-  File "/tmp/claude-0/-home-user/cbdcd57f-bcf8-5a71-ab64-4f0b9fbdb74f/scratchpad/fix/morphoview/tests/flexray_record.py", line 204, in crop_record
-    "supports": {lv: pack(rendered[i] > 0) for lv, i in ids.items()}}
-                          ~~~~~~~~^^^
-IndexError: index 23 is out of bounds for axis 0 with size 23
-exit 1 in 43 s
-
-[exited with code 0]

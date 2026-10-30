@@ -1,5 +1,0 @@
-M25_extras_written_with_main_ends: Ran 13 tests in 203.837s OK | caught by: nothing (survives)
-M26_world_rotated_consistently: Ran 13 tests in 265.102s OK | caught by: nothing (survives)
-M30_value_written_as_measured: Ran 13 tests in 237.933s OK | caught by: nothing (survives)
-M31_no_interpedicular_lines: Ran 13 tests in 280.381s OK | caught by: nothing (survives)
-M32_no_pedicle_chord_lines: Ran 13 tests in 291.845s OK | caught by: nothing (survives)

@@ -1,1 +1,0 @@
-thick5           measure+draw-volume 6 s, lines 0.2 s; verts ['L2', 'L3', 'L4']; discs [('L2', 'L3'), ('L3', 'L4')]; flags []; statuses {'drawn': 65}; levels with rows but no lines []

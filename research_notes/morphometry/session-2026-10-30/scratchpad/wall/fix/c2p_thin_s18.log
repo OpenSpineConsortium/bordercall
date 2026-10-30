@@ -1,4 +1,0 @@
-thin suite18 dens none: wall -0.74 (window not bounded -0.73) free 0.53 parted False flags []
-thin suite18 dens {'dens_r': 4.5, 'dens_h': 14.0, 'dens_y': 1.5, 'dens_lean': 12.0}: wall -0.94 (window not bounded +2.48) free 0.96 parted False flags []
-thin suite18 dens {'dens_r': 4.5, 'dens_h': 14.0, 'dens_y': 1.5, 'dens_lean': 0.0}: wall -0.94 (window not bounded +8.43) free 0.97 parted False flags []
-thin suite18 dens {'dens_r': 4.5, 'dens_h': 14.0, 'dens_y': 0.0, 'dens_lean': 0.0}: wall -0.94 (window not bounded +1.61) free 0.97 parted False flags []

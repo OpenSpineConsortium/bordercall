@@ -1,1 +1,0 @@
-cervical_nomass  measure+draw-volume 27 s, lines 0.4 s; verts ['C2', 'C3', 'C4']; discs [('C2', 'C3'), ('C3', 'C4')]; flags []; statuses {'not measured': 8, 'drawn': 40}; levels with rows but no lines []

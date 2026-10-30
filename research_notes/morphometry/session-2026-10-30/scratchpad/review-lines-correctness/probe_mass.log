@@ -1,5 +1,0 @@
-  lateralmass L2: 22 lines {'drawn': 22} touching=False
-  lateralmass L3: 22 lines {'drawn': 22} touching=False
-  lateralmass L4: 22 lines {'drawn': 22} touching=False
-lateralmass levels ['L2', 'L3', 'L4'] discs [('L2', 'L3'), ('L3', 'L4')]
-TOTAL PROBLEMS 0

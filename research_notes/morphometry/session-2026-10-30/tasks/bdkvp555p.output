@@ -1,9 +1,0 @@
-=== morphometry suite
-Ran 22 tests in 279.257s
-OK
-=== morphoview
-test_a_length_is_the_distance_between_its_ends (morphoview.tests.test_lines.Phantom.test_a_length_is_the_distance_between_its_ends) ... FAIL
-Ran 10 tests in 22.422s
-FAILED (failures=1)
-
-[exited with code 0]

@@ -1,8 +1,0 @@
-thin x2       uncinates none                   new -0.02 old -6.27 free 0.74 window -5.5 to 2.9 mm
-thin x2       uncinates from 5.5 mm, 4 mm tall new +0.12 old -6.49 free 0.27 window -4.9 to 5.8 mm
-thin x2       uncinates from 5.0 mm, 5 mm tall new +0.22 old -6.49 free 0.51 window -4.8 to 6.5 mm
-thin x2       uncinates from 4.5 mm, 5 mm tall new +0.06 old -6.46 free 0.38 window -4.9 to 6.5 mm
-thin suite18  uncinates none                   new -0.59 old -0.81 free 0.93 window -4.9 to 3.8 mm
-thin suite18  uncinates from 5.5 mm, 4 mm tall new -0.17 old -0.84 free 0.48 window -4.4 to 6.5 mm
-thin suite18  uncinates from 5.0 mm, 5 mm tall new -0.01 old -1.21 free 0.47 window -4.2 to 7.4 mm
-thin suite18  uncinates from 4.5 mm, 5 mm tall new +0.09 old -1.23 free 0.39 window -4.3 to 7.3 mm

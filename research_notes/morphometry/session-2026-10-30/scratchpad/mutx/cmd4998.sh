@@ -1,1 +1,0 @@
-S=/tmp/claude-0/-home-user/cbdcd57f-bcf8-5a71-ab64-4f0b9fbdb74f/scratchpad; sed -i 's/        return name, "caught", "timed out"/        return name, "timeout", "no answer in 900 s"/' $S/mut/run_mutants.py && grep -n '"timeout"' $S/mut/run_mutants.py && grep -c '^    ("' $S/mut/run_mutants.py

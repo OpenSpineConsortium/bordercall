@@ -1,9 +1,0 @@
-thick suite notch 8,6,5: wall err +29.49, edges 25 dropped 55 free 2.10
-  endplate_incl             -29.29 truth   -0.00
-  endplate_lower_incl       -29.18 truth   +0.00
-  wedge                      +0.11 truth   +0.00
-  pedicle_angle_sagittal_right    +nan truth   +0.00
-  pedicle_angle_sagittal_left    +nan truth   +0.00
-  spinous_angle             +48.51 truth  +20.00
-  wall flags: {} spinous flag: None
-  pedicle notes: {'pedicle_right': "the lattice leaves the pedicle's climb free over 24 degrees,", 'pedicle_left': "the lattice leaves the pedicle's climb free over 23 degrees,"}

@@ -1,6 +1,0 @@
-LeanedWall   truth 4.934 clamped 4.837 (err -0.097) fitted 4.528 (err -0.406) range [4.837, 5.131] parted True free 0.294 bound 0.50
-   T.wall_error gives -0.097
-Notch        truth -0.002 clamped -0.206 (err -0.205) fitted -0.247 (err -0.245) range [-0.206, 0.148] parted True free 0.355 bound 0.50
-   T.wall_error gives -0.205
-ThickSlices  truth 0.013 clamped 0.200 (err +0.188) fitted 0.200 (err +0.188) range [-0.555, 1.030] parted True free 1.584 bound 1.50
-   T.wall_error gives +0.188

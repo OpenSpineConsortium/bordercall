@@ -1,7 +1,0 @@
-leaned clean                         err -0.097 parted True across 0 free 0.29398943450878434 fitted 4.528101606235569 lo 4.836850585516267 hi 5.130840020025051 why 
-   fit alone err -0.406
-leaned 1 specks                      err -0.097 parted True across 1 free 0.29398943450878434 fitted 4.534365876024244 lo 4.836850585516267 hi 5.130840020025051 why 
-leaned 2 specks                      err -0.097 parted True across 2 free 0.29398943450878434 fitted 4.540886815846706 lo 4.836850585516267 hi 5.130840020025051 why 
-leaned 3 specks                      err -0.097 parted True across 1 free 0.29398943450878434 fitted 4.510334458320365 lo 4.836850585516267 hi 5.130840020025051 why 
-leaned 5 specks                      err -0.097 parted True across 3 free 0.29398943450878434 fitted 4.520536358289341 lo 4.836850585516267 hi 5.130840020025051 why 
-leaned 8 specks                      err -0.445 parted False across 0 free 0.44108735232149066 fitted 4.489289174346723 lo 4.365550345214697 hi 4.806637697536187 why 

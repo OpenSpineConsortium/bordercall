@@ -1,2 +1,0 @@
-#!/bin/sh
-exec /lib64/ld-linux-x86-64.so.2 --library-path /tmp/claude-0/-home-user/cbdcd57f-bcf8-5a71-ab64-4f0b9fbdb74f/scratchpad/skeptic-tests-words/c7/lib /tmp/claude-0/-home-user/cbdcd57f-bcf8-5a71-ab64-4f0b9fbdb74f/scratchpad/skeptic-tests-words/c7/lib/sed "$@"

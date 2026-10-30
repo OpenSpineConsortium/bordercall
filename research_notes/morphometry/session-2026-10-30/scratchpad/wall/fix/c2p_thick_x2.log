@@ -1,4 +1,0 @@
-thick x2 dens none: wall +0.32 (window not bounded +0.32) free 0.94 parted True flags []
-thick x2 dens {'dens_r': 4.5, 'dens_h': 14.0, 'dens_y': 1.5, 'dens_lean': 12.0}: wall +0.12 (window not bounded +3.64) free 1.72 parted True flags []
-thick x2 dens {'dens_r': 4.5, 'dens_h': 14.0, 'dens_y': 1.5, 'dens_lean': 0.0}: wall +0.05 (window not bounded +7.77) free 1.89 parted True flags []
-thick x2 dens {'dens_r': 4.5, 'dens_h': 14.0, 'dens_y': 0.0, 'dens_lean': 0.0}: wall +0.11 (window not bounded +2.31) free 1.75 parted True flags []

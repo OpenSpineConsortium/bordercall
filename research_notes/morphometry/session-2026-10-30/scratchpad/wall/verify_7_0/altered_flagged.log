@@ -1,4 +1,0 @@
-straight_lean+0_x2_thin      ragged_0.5_4   err  +4.96 free  4.02 half  2.01 parted False range [+1.93, +5.96] truth -0.07 fitted +4.90
-   flag: {'posterior_wall_free': "the lattice leaves the posterior wall's slope free over 4.0 degrees, more than 3: the angles taken against the wall may be off by up to half that"}
-straight_lean-5_x2_thick     lip_top_1.5    err  -7.78 free  5.22 half  2.61 parted False range [-19.32, -14.10] truth -7.34 fitted -15.12
-   flag: {'posterior_wall_free': "the lattice leaves the posterior wall's slope free over 5.2 degrees, more than 3: the angles taken against the wall may be off by up to half that"}

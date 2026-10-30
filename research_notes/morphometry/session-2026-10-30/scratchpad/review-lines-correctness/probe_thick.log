@@ -1,5 +1,0 @@
-  thick L2: 22 lines {'drawn': 22} touching=False
-  thick L3: 22 lines {'drawn': 22} touching=False
-  thick L4: 22 lines {'drawn': 22} touching=False
-thick levels ['L2', 'L3', 'L4'] discs [('L2', 'L3'), ('L3', 'L4')]
-TOTAL PROBLEMS 0

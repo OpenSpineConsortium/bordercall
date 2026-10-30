@@ -1,4 +1,0 @@
-study,level,key,part,rule,panel,value,measured,drawn,status,a_end,ax,ay,az,b_end,bx,by,bz
-s,L1,body_height,,r,p,1,1,1,drawn,top,-18.0,0.0,-90.0,bottom,18.0,0.0,-70.0
-s,L3,body_height,,r,p,1,1,1,drawn,top,-18.0,0.0,36.0,bottom,-18.0,0.0,62.0
-s,L4,body_height,,r,p,1,1,1,drawn,top,-18.0,0.0,75.0,bottom,18.0,0.0,95.0

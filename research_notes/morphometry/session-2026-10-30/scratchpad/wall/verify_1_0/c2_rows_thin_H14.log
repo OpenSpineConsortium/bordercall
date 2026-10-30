@@ -1,3 +1,0 @@
-H14 thin x2 no dens                  wall -0.12  {'endplate_lower_incl': -3.37, 'spinous_angle': 0.54, 'pedicle_angle_sagittal_right': 'nan', 'pedicle_angle_sagittal_left': 'nan', 'pedicle_angle_sagittal': 'nan'}  flags ['pedicle_left', 'pedicle_right']
-H14 thin x2 dens back +1.0 lean 0    wall +5.98  {'endplate_lower_incl': -9.37, 'spinous_angle': 6.68, 'pedicle_angle_sagittal': 'nan'}  flags ['pedicle_left', 'pedicle_right']
-H14 thin x2 dens back -1.0 lean 12   wall -6.94  {'endplate_lower_incl': 3.54, 'spinous_angle': -6.23, 'pedicle_angle_sagittal': 'nan'}  flags ['pedicle_left', 'pedicle_right']

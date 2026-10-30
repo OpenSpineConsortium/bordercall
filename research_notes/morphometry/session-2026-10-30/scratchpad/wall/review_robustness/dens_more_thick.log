@@ -1,5 +1,0 @@
-no dens                                thick wall -0.41 (free 3.32) endplate_lower_incl err -2.99 flags {'posterior_wall_free': "the lattice leaves the posterior wall's "}
-dens back +0.0 mm, leaning back 0      thick wall +2.31 (free 0.69) endplate_lower_incl err -0.39 flags {}
-dens back +1.5 mm, leaning back 0      thick wall +7.77 (free 0.60) endplate_lower_incl err -5.84 flags {}
-dens back +1.5 mm, leaning back 12     thick wall +3.64 (free 0.81) endplate_lower_incl err -1.74 flags {}
-dens back +3.0 mm, leaning back 12     thick wall +8.97 (free 1.96) endplate_lower_incl err -7.04 flags {}

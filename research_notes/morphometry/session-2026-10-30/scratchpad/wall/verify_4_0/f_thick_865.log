@@ -1,1 +1,0 @@
-thick suite notch 8,6,5: wall err +29.49; endplate_incl -29.29 (truth -0.00), endplate_lower_incl -29.18 (truth +0.00); wall flags {}

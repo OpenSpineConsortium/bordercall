@@ -1,6 +1,0 @@
-study,level,key,value,note
-e002,study,flag:error,,SystemExit: /tmp/claude-0/-home-user/cbdcd57f-bcf8-5a71-ab64-4f0b9fbdb74f/scratchpad/review-lines-robustness/edge/masks/e002.nii.gz holds non-integer values; it is not a label volume
-e002,study,slice_mm,1.0000,
-e002,study,coarsest_mm,1.0000,
-e002,study,code,,1f883ac337eff417
-e002,study,seconds,0.0710,

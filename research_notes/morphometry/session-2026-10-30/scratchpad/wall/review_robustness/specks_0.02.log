@@ -1,8 +1,0 @@
-p 0.02 thin  n 147 refused 0 | new |err| max 1.36 median 0.10, unflagged > 1.5: 0 | old |err| max 4.14 median 0.40
-    straight_lean+0_x2_thin                  new +1.36 old -1.72 free 6.11
-    pitched_lean+0_x2_thin                   new +1.30 old -3.02 free 6.11
-    pitched_lean+0_x2_thin                   new +1.27 old -3.02 free 6.11
-p 0.02 thick n 147 refused 0 | new |err| max 1.22 median 0.19, unflagged > 1.5: 0 | old |err| max 5.66 median 0.39
-    straight_lean+5_x2_thick                 new -1.22 old -3.00 free 3.94
-    straight_lean-5_x2_thick                 new +1.19 old -0.71 free 1.61
-    straight_lean+5_x2_thick                 new -1.15 old -2.98 free 3.94

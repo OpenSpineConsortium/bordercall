@@ -1,6 +1,0 @@
-thick x2 notch 5,6,4                         err   -0.08 share 0.20 gate   +nan parted True  across 0 free   1.14 fit   -2.07 why 
-thick x2 notch 8,6,5                         err    +nan share 0.50 gate   +nan parted None  across None free    nan fit    +nan why 50 per cent of the band's edges lie more than a step off the fitted surface, more than 40: a notch or a lip that holds so many is not told from the wall
-thick x2 notch 5,10,4                        err    +nan share 0.46 gate   +nan parted None  across None free    nan fit    +nan why 46 per cent of the band's edges lie more than a step off the fitted surface, more than 40: a notch or a lip that holds so many is not told from the wall
-thick x2 notch 8,8,4                         err   -0.15 share 0.33 gate   +nan parted True  across 0 free   1.14 fit   -2.15 why 
-thick x2 notch 8,8,5                         err    +nan share 0.50 gate   +nan parted None  across None free    nan fit    +nan why 50 per cent of the band's edges lie more than a step off the fitted surface, more than 40: a notch or a lip that holds so many is not told from the wall
-thick x2 notch 5,6,4,-4                      err   -0.18 share 0.15 gate   +nan parted True  across 0 free   2.99 fit   -2.54 why 

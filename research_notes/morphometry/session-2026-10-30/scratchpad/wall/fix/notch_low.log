@@ -1,4 +1,0 @@
-reading -0.153 fit alone -0.358 gate reach 4.21 mm parted True across 2
-plain fit: reading +nan fit +nan parted None why 51 per cent of the band's edges lie more than a step off the fitted surface, more than 40: a notch or a lip that holds so many is not told from the wall
-C2 strict raises ValueError: 169 voxels fall in two structures: the phantom's parts collide
-C2 without the dens strict raises ValueError: 169 voxels fall in two structures: the phantom's parts collide

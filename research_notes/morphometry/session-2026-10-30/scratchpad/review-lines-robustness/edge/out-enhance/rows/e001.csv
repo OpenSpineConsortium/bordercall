@@ -1,7 +1,0 @@
-study,level,key,value,note
-e001,pelvis,flag:pelvis,,"no lowest lumbar vertebra measured, or no sacrum"
-e001,study,flag:labels,,no value in the volume names a vertebra under enhance; check the scheme
-e001,study,slice_mm,1.0000,
-e001,study,coarsest_mm,1.0000,
-e001,study,code,,1f883ac337eff417
-e001,study,seconds,0.0767,

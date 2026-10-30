@@ -1,1 +1,0 @@
-notch            measure+draw-volume 9 s, lines 0.2 s; verts ['L2', 'L3', 'L4']; discs [('L2', 'L3'), ('L3', 'L4')]; flags []; statuses {'drawn': 72}; levels with rows but no lines []
