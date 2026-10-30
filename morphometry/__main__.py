@@ -30,13 +30,18 @@ from scanimport import volume as V
 from . import measure as M
 
 FIELDS = ["study", "level", "key", "value", "note"]
-# the lines file: one row per measure's line (morphoview.lines), its two ends in the world's
-# millimetres of the mask's affine, and one row more for each further segment a line carries
-# (the wedge's lower plate, Eisenstein's apex-to-apex line), named in part, with no value of its own
+# the lines file: one row per line morphoview.lines draws, its two ends in the world's millimetres
+# of the mask's affine and what each end is (morphoview.lines.ENDS), and one row more for each
+# further segment a line carries (the wedge's lower plate, Eisenstein's apex-to-apex line), named
+# in part, with no value of its own. The ends, the construction's value and its drawn length are
+# written whole, so a reader can hold a length to its ends; measured is the row's value as the
+# rows write it, to four places
 LINE_FIELDS = ["study", "level", "key", "part", "rule", "panel", "value", "measured", "drawn", "status",
-               "ax", "ay", "az", "bx", "by", "bz"]
-# the frames file: each measured vertebra's frame, its origin and its three axes in the same world
-FRAME_FIELDS = ["study", "level", "ox", "oy", "oz", "exx", "exy", "exz", "eyx", "eyy", "eyz", "ezx", "ezy", "ezz"]
+               "a_end", "ax", "ay", "az", "b_end", "bx", "by", "bz"]
+# the frames file: each measured vertebra's frame, its origin and its three axes in the same world,
+# written whole; which axis its z lies along (axis_of); and the column's line its z was turned from
+FRAME_FIELDS = ["study", "level", "ox", "oy", "oz", "exx", "exy", "exz", "eyx", "eyy", "eyz", "ezx", "ezy", "ezz",
+                "axis", "cx", "cy", "cz"]
 # the paper-tables vocabulary's key -> ours, where the two name one measure. Panjabi's end-plate
 # wedge (endplate_wedge) is the sum of the two plates' inclinations, with its own sign, and is
 # not our wedge, the angle between the plates.
@@ -62,6 +67,12 @@ def number(v: object) -> object:
     if isinstance(v, float):
         return ("%.4f" % v) if math.isfinite(v) else ""
     return v
+
+
+def whole(v: object) -> str:
+    """A float as Python writes it back to the bit; not a number as empty."""
+    x = float(v)
+    return repr(x) if math.isfinite(x) else ""
 
 
 def write_rows(rows: Iterable[Dict[str, object]], path: str, fields: List[str] = FIELDS) -> None:
@@ -104,10 +115,15 @@ def code_stamp(lines: bool = False) -> str:
         folder = os.path.join(here, pkg)
         for name in sorted(os.listdir(folder)):
             if name.endswith(".py"):
-                h.update(name.encode() + b"\0" + open(os.path.join(folder, name), "rb").read())
+                h.update(name.encode() + b"\0" + read_bytes(os.path.join(folder, name)))
     if lines:
-        h.update(LINES_SOURCE.encode() + b"\0" + open(os.path.join(here, LINES_SOURCE), "rb").read())
+        h.update(LINES_SOURCE.encode() + b"\0" + read_bytes(os.path.join(here, LINES_SOURCE)))
     return h.hexdigest()[:16]
+
+
+def read_bytes(path: str) -> bytes:
+    with open(path, "rb") as f:
+        return f.read()
 
 
 def study_rows(study: str, path: str, stamp: str) -> List[Dict[str, object]]:
@@ -123,50 +139,71 @@ def cmd_measure(a) -> None:
     write_rows(rows, a.out)
 
 
-def line_rows(study: str, ln) -> List[Dict[str, object]]:
-    """A line as its row, and a row for each further segment it carries."""
-    def row(part: str, a: np.ndarray, b: np.ndarray, value: object, measured: object) -> Dict[str, object]:
+def line_rows(study: str, ln, ends: Dict[str, Tuple[str, str]], part_ends: Dict[str, Tuple[str, str]]
+              ) -> List[Dict[str, object]]:
+    """A line as its row, and a row for each further segment it carries; `ends` and `part_ends`
+    say what each end is, by the line's key and by the part's name."""
+    def row(part: str, a: np.ndarray, b: np.ndarray, value: object, measured: object,
+            names: Tuple[str, str]) -> Dict[str, object]:
         return {"study": study, "level": ln.level, "key": ln.key, "part": part, "rule": ln.rule, "panel": ln.panel,
-                "value": value, "measured": measured, "drawn": float(np.linalg.norm(b - a)), "status": ln.status,
-                "ax": float(a[0]), "ay": float(a[1]), "az": float(a[2]),
-                "bx": float(b[0]), "by": float(b[1]), "bz": float(b[2])}
-    out = [row("", ln.a, ln.b, float(ln.value), float(ln.measured))]
-    out += [row(name, a, b, "", "") for name, (a, b) in ln.extra.items()]
+                "value": value, "measured": measured, "drawn": whole(np.linalg.norm(b - a)), "status": ln.status,
+                "a_end": names[0], "ax": whole(a[0]), "ay": whole(a[1]), "az": whole(a[2]),
+                "b_end": names[1], "bx": whole(b[0]), "by": whole(b[1]), "bz": whole(b[2])}
+    out = [row("", ln.a, ln.b, whole(ln.value), float(ln.measured), ends.get(ln.key, ("", "")))]
+    out += [row(name, a, b, "", "", part_ends.get(name, ("", ""))) for name, (a, b) in ln.extra.items()]
     return out
 
 
-def frame_row(study: str, level: str, f: G.Frame) -> Dict[str, object]:
+def axis_of(v) -> str:
+    """Which axis the vertebra's frame has its z along (anatomy.own_axis): the end-plates'
+    bisector, which the column's line within SETTLED_DEG of it stands for; one end-plate's normal,
+    where one alone faces a neighbour; or the column's line through the neighbours, kept where no
+    end-plate faces one, where the axis read lies more than AXIS_TURN_MAX_DEG off the line or where
+    turning loses the canal, and on a vertebra the measure could not read at all."""
+    if "all" in v.flags or "axis" in v.flags:
+        return "column line"
+    return "one plate" if "axis_one_plate" in v.flags else "bisector"
+
+
+def frame_row(study: str, level: str, v) -> Dict[str, object]:
+    f = v.frame
     r: Dict[str, object] = {"study": study, "level": level}
     for name, vec in (("o", f.origin), ("ex", f.ex), ("ey", f.ey), ("ez", f.ez)):
         for axis, x in zip("xyz", vec):
-            r[name + axis] = float(x)
+            r[name + axis] = whole(x)
+    r["axis"] = axis_of(v)
+    column = v.column_ez if v.column_ez is not None else f.ez
+    for axis, x in zip("xyz", column):
+        r["c" + axis] = whole(x)
     return r
 
 
 def study_lines(study: str, kept: dict) -> Tuple[List[Dict[str, object]], List[Dict[str, object]],
                                                   List[Dict[str, object]]]:
-    """The lines of every measure the study's rows hold, on the vertebrae measure_volume built
-    and checked against the values it wrote (morphoview.lines.checked), the vertebrae's frames,
-    and a flag row for a level whose lines could not be built, so that a failure of the drawing
-    loses no row of the measuring."""
+    """The lines of the measures morphoview.lines draws, every one of scanimport's seven chords
+    among them, on the vertebrae measure_volume built and checked against the values it wrote
+    (morphoview.lines.checked), the vertebrae's frames, and a flag row naming the builder for
+    each builder whose lines could not be drawn, so that a failure of the drawing loses no row of
+    the measuring and no line of the other builders."""
     from morphoview import lines as LN
     lines, frames, flags = [], [], []
     verts = kept.get("verts", {})
 
-    def build(level: str, make) -> None:
+    def build(level: str, name: str, make) -> None:
         try:
             for ln in make():
-                lines.extend(line_rows(study, ln))
-        except Exception as e:                  # the drawing of one level must not lose the others
+                lines.extend(line_rows(study, ln, LN.ENDS, LN.PART_ENDS))
+        except Exception as e:                  # one builder's failure must not lose the others' lines
             flags.append({"study": study, "level": level, "key": "flag:lines", "value": "",
-                          "note": "%s: %s" % (type(e).__name__, e)})
+                          "note": "%s: %s: %s" % (name, type(e).__name__, e)})
 
     for lv, v in verts.items():
-        frames.append(frame_row(study, lv, v.frame))
+        frames.append(frame_row(study, lv, v))
         vals = kept["values"][lv]
-        build(lv, lambda: LN.checked(LN.vertebra_lines(v, kept["peds"][lv], vals), vals))
+        for name, draw in LN.vertebra_builders(v, kept["peds"][lv], vals):
+            build(lv, name, lambda: LN.checked(draw(), vals))
     for (a, b), vals in kept.get("discs", {}).items():
-        build("%s-%s" % (a, b), lambda: LN.checked(LN.discs(verts[a], verts[b]), vals))
+        build("%s-%s" % (a, b), "discs", lambda: LN.checked(LN.discs(verts[a], verts[b]), vals))
     return lines, frames, flags
 
 
@@ -205,6 +242,14 @@ def one_study(job: Tuple) -> Tuple[str, float, str]:
     return study, time.time() - t0, note
 
 
+def stamped(out: str, stamp: str) -> bool:
+    """Whether a study's CSV is there and was written by the code of this stamp, error or not."""
+    if not os.path.exists(out):
+        return False
+    with open(out, newline="") as fh:
+        return any(r["key"] == "code" and r["note"] == stamp for r in csv.DictReader(fh))
+
+
 def current(out: str, stamp: str, with_lines: bool = False) -> bool:
     """Whether a study's CSV was written by this code and holds no error, and with the lines
     whether its lines and frames are there too, so it need not be measured again."""
@@ -220,7 +265,10 @@ def cmd_run(a) -> None:
     """Every mask under --masks whose coarsest spacing is at most --max-slice, one CSV per study
     under --out/rows/, so a run cut short resumes where it stopped; rows.csv joins the studies
     of this run's list at the end, and only those. With --lines each study's lines and frames go
-    under --out/lines/ and --out/frames/ and are joined as lines.csv and frames.csv."""
+    under --out/lines/ and --out/frames/ and are joined as lines.csv and frames.csv, of the
+    studies this run's code wrote alone: a lines file carries no stamp of its own, and a run a
+    dead worker cut short leaves some studies' files from older code, which rows.csv tells apart
+    by each study's code row and the lines could not."""
     folders = ("rows", "lines", "frames") if a.lines else ("rows",)
     for name in folders:
         os.makedirs(os.path.join(a.out, name), exist_ok=True)
@@ -255,19 +303,23 @@ def cmd_run(a) -> None:
         print("a worker died (%s): run again to measure what is left" % e, flush=True)
     join_rows([c for c in chosen if os.path.exists(c)], os.path.join(a.out, "rows.csv"))
     if a.lines:
-        lines, frames = zip(*[side_paths(c) for c in chosen]) if chosen else ((), ())
-        join_rows([p for p in lines if os.path.exists(p)], os.path.join(a.out, "lines.csv"), LINE_FIELDS)
-        join_rows([p for p in frames if os.path.exists(p)], os.path.join(a.out, "frames.csv"), FRAME_FIELDS)
+        written = [side_paths(c) for c in chosen if stamped(c, stamp)]
+        join_rows([p for p, _ in written if os.path.exists(p)], os.path.join(a.out, "lines.csv"), LINE_FIELDS)
+        join_rows([p for _, p in written if os.path.exists(p)], os.path.join(a.out, "frames.csv"), FRAME_FIELDS)
 
 
 def join_rows(paths: List[str], path: str, fields: List[str] = FIELDS) -> None:
-    with open(path, "w", newline="") as f:
+    """The files' rows under one header, written whole or not at all, so a job killed while it
+    joins leaves the last whole join and never a cut one."""
+    tmp = path + ".part"
+    with open(tmp, "w", newline="") as f:
         w = csv.writer(f, lineterminator="\n")
         w.writerow(fields)
         for name in sorted(paths):
             with open(name, newline="") as g:
                 for row in list(csv.reader(g))[1:]:
                     w.writerow(row)
+    os.replace(tmp, path)
 
 
 # ---- the comparison with the papers -------------------------------------------------------------
@@ -474,7 +526,7 @@ def main(argv: Optional[List[str]] = None) -> None:
     r.add_argument("--studies", default="")
     r.add_argument("--limit", type=int, default=0)
     r.add_argument("--lines", action="store_true",
-                   help="also write each measure's line and each vertebra's frame (morphoview.lines)")
+                   help="also write the lines of the measures morphoview.lines draws and each vertebra's frame")
     c = sub.add_parser("compare")
     c.add_argument("--rows", required=True)
     c.add_argument("--series", required=True)
