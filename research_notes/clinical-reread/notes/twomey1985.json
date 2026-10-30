@@ -1,0 +1,273 @@
+{
+  "id": "twomey1985",
+  "citation": "Lance Twomey, James Taylor. Age changes in lumbar intervertebral discs. Acta Orthop Scand 56, 496-499, 1985 (issue number not printed; Inference: issue 6). Affiliations: Western Australian Institute of Technology, Shenton Park, and University of Western Australia, Nedlands. Copy read: publisher's free copy (Acta Orthop Scand), project files literature/synthetic_spine/twomey1985.pdf, sha256 begins 13750a89f310ef1a; printed pp. 496-499 are PDF pages 1-4.",
+  "population": "204 cadavers (post-mortem lumbar spines), block from the upper border of T12 to the lower border of S2 removed within 48 h, mostly within 24 h; country, ethnicity, cause of death and selection criteria not stated (Inference: Western Australian, from the authors' institutions). Six age groups (Table 1, p. 496, PDF 1): infants 0-1.5 n 9 and children mean 8 (1.5-12) n 28, sexes pooled; adolescents 17 males mean 16 (13-19) and 6 females mean 14 (13-17); young adults 24 males mean 25 (20-36) and 24 females mean 23 (18-35); middle-aged 24 males mean 47 (36-59) and 24 females mean 49 (36-59); old 24 males mean 68 (60+) and 24 females mean 73 (60+); 89 males, 78 females, 37 of pooled sex. Disc heights (Table 2) and convexity (Table 3) reported only for young adults and 60+ of each sex (n per cell not printed). Rolander grading (Table 4) on 140 specimens, sexes pooled: 0-1.5 n 6, 1.5-12 n 18, 13-20 n 13, 20-35 n 35, '36-39' (Inference: 36-59) n 34, 60+ n 34, five discs each (Inference: 700 discs).",
+  "modality": "Dry dissection of fresh cadaveric lumbar blocks: dial vernier calipers (accurate to 0.05 mm) for horizontal AP and transverse diameters of each intact disc; after midline sagittal sectioning, calipers for anterior, mid-disc and posterior disc heights; MOP Image Analyser to trace the disc area in median section; Rolander 1966 four-point gross grade of the cut disc. No radiographs or CT. p. 496 (PDF 1).",
+  "levels_covered": "Lumbar discs L1-2, L2-3, L3-4, L4-5, L5-S1. T12-L1 lies inside the block but is not reported. No cervical or thoracic levels. How levels were counted is not stated.",
+  "anomalies": [
+    {
+      "variant": "Transitional and numerical anomalies (LSTV, sacralisation, lumbarisation, L6, T13, rib counts, cervical ribs, block vertebrae)",
+      "finding": "Not mentioned; no prevalence given. Five lumbar discs reported per spine; no exclusion of anomalous spines and no numbering convention described. Inference: a lumbarised S1 or sacralised L5 inside the T12-S2 block would have been labelled by an unrecorded convention.",
+      "page": "p. 496 (PDF 1); Tables 1-4, pp. 496-498 (PDF 1-3)",
+      "population": "204 cadaveric lumbar spines, ages 0 to 60+",
+      "how_identified": "Not described"
+    },
+    {
+      "variant": "Disc degeneration (Rolander grades 2 and 3), not an anomaly but the paper's only prevalence data",
+      "finding": "60+ (34 spines): grade 2 or 3 at L1-2 17/34, L2-3 17/34, L3-4 18/34, L4-5 24/34, L5-S1 22/34 (98/170 discs, 58 per cent); grade 3 alone 8, 10, 8, 10, 11 of 34 (47/170, 28 per cent). 36-59 (34): grade 2 or 3 7, 4, 4, 6, 9 of 34 (30/170); grade 3 5, 1, 2, 4, 3. 20-35 (35): grade 2 or 3 2, 2, 0, 2, 5 (11 of 158 grades printed). 13-20 (13): one grade 2 at L4-5, one grade 3 at L5-S1. Under 13: none (grades 0-1 only). The text says 72 per cent of elderly discs were normal; Inference: this fits grade 3 only (123/170 = 72.4 per cent), or 72 is the count of grade 1 discs printed as a percentage.",
+      "page": "Table 4, p. 498 (PDF 3); text p. 498 (PDF 3)",
+      "population": "140 cadaveric spines, sexes pooled",
+      "how_identified": "Gross appearance of the midline-sectioned disc, Rolander 1966 four-point grade"
+    }
+  ],
+  "measures": [
+    {
+      "name": "Disc antero-posterior diameter (AP diameter)",
+      "definition": "Horizontal AP diameter of the intact disc, caliper, before sectioning; landmarks not specified beyond 'horizontal' (Inference: outer anulus front to back, midsagittal). Table 1 means (mm, no SD), L1-2..L5-S1: infants 15,17,17,17,16; children 26,28,28,29,26; adolescent M 39,39,39,40,39; adolescent F 34,36,36,36,35; young M 40,40,40,40,38; young F 35,36,37,37,35; middle M 39,40,40,40,39; middle F 35,36,37,37,36; old M 40,41,41,41,41; old F 38,40,40,40,38.",
+      "projection": "dry specimen caliper (intact disc, horizontal plane)",
+      "page": "p. 496 (PDF 1), Table 1; p. 497 (PDF 2)",
+      "levels": "L1-2 to L5-S1",
+      "ct_mask_recipe": "Inference: with a disc label, the disc's extent along the AP axis of the local vertebral frame at mid-disc height; without one, the AP depth of the adjacent end plates, which excludes the anular bulge and reads smaller; not Panjabi's end-plate depth.",
+      "radiograph_recipe": "Inference: lateral radiograph only, as bony end-plate depth (anulus not seen), magnification corrected; not from AP.",
+      "level_pattern": "Middle discs (L2-3 to L4-5) consistently larger than L1-2 and L5-S1 (p. 497, PDF 2); spread only 1-3 mm in adults; old males L5-S1 equals the middle discs (41). Inference: separates no adjacent pair.",
+      "covariates": "Males larger in every sex-split group (3-5 mm adolescents and young adults, 3-4 middle-aged, 1-3 old; Inference from Table 1); infant and child groups pooled. Grows 15-17 mm infancy to 26-29 childhood, adult size by adolescence in males. Text: rises with age 10 per cent in females, 2 per cent in males (groups not named; Inference from Table 1: about 9-11 and 3-4 per cent).",
+      "error": "Caliper accuracy 0.05 mm; caliper inter-trial r = 0.97 across all age groups (p. 496, PDF 1); no SD per cell."
+    },
+    {
+      "name": "Disc transverse diameter",
+      "definition": "Measured on every intact disc with the calipers; no value reported.",
+      "projection": "dry specimen caliper",
+      "page": "p. 496 (PDF 1)",
+      "levels": "L1-2 to L5-S1 (measured, not reported)",
+      "ct_mask_recipe": "Not given by the paper.",
+      "radiograph_recipe": "Not given by the paper.",
+      "level_pattern": "Not reported.",
+      "covariates": "Not reported.",
+      "error": "As for the calipers."
+    },
+    {
+      "name": "Anterior, mid-disc and posterior disc heights (A, M, P)",
+      "definition": "Heights of the disc on the midline sagittal section at the anterior rim (A), the centre (M) and the posterior rim (P), caliper after sectioning; Figure 1 draws them between the two end plates. Values not reported; the discussion says A and P decline by very small amounts in old age (citing Twomey and Taylor 1983b).",
+      "projection": "dry specimen caliper on midline sagittal section",
+      "page": "p. 496 (PDF 1); Figure 1, p. 497 (PDF 2); p. 498 (PDF 3)",
+      "levels": "L1-2 to L5-S1",
+      "ct_mask_recipe": "Inference: in the midsagittal plane of the motion segment, along the local spinal axis, the gap between the inferior surface of the upper body mask and the superior surface of the lower body mask at the anterior rim, the AP midpoint and the posterior rim.",
+      "radiograph_recipe": "Inference: lateral radiograph, disc-space heights at anterior corners, centre, posterior corners; magnification and beam obliquity at the rims affect absolute values.",
+      "level_pattern": "Not reported.",
+      "covariates": "A and P slightly lower in old age (p. 498, PDF 3); Figure 2.",
+      "error": "Caliper 0.05 mm, inter-trial r = 0.97."
+    },
+    {
+      "name": "True average disc height (mean disc height)",
+      "definition": "Area of the disc in median (midline sagittal) section, traced with a MOP Image Analyser, divided by its AP diameter (divisor not specified as caliper or section length); devised to avoid errors from local irregularities at the disc-vertebral interface. Table 2, mean (SD) mm, young 20-35 vs old 60+: L1-2 M 9.2 (1.0) vs 9.2 (1.3) NS, F 6.1 (2.5) vs 7.9 (1.6) p<0.05; L2-3 M 9.8 (1.2) vs 10.9 (1.9), F 8.0 (1.3) vs 8.5 (1.4), p<0.01; L3-4 M 10.3 (1.0) vs 11.0 (2.0), F 8.2 (1.2) vs 8.5 (2.3), NS; L4-5 M 11.3 (1.3) vs 12.2 (1.8), F 8.5 (1.3) vs 9.2 (1.8), p<0.05; L5-S1 M 10.6 (1.6) vs 11.2 (2.9), F 8.1 (1.2) vs 8.8 (1.7), p<0.05. Two-way ANOVA sex by age with stature ('height') as covariate; sex differs at all levels; age by sex interaction only at L1-2.",
+      "projection": "dry specimen, midline sagittal section, image analyser area",
+      "page": "p. 496 (PDF 1); Table 2 and text, p. 497 (PDF 2)",
+      "levels": "L1-2 to L5-S1",
+      "ct_mask_recipe": "Inference: in the midsagittal plane (a thin slab averaged), area between the inferior surface of the upper body mask and the superior surface of the lower body mask, between anterior and posterior rims, divided by its AP length (mean gap along the local spinal axis); use body subregions, exclude posterior elements; living loaded bony gap differs from unloaded cadaveric disc, so calibrate.",
+      "radiograph_recipe": "Inference: lateral radiograph, area of the disc-space outline divided by its AP length, magnification corrected; not from AP.",
+      "level_pattern": "Rises (never falls) from L1-2 to a peak at L4-5, then falls at L5-S1 in all four sex-age groups; L1-2 thinnest in every group. Inference: adjacent steps 0.0 to 1.9 mm (L4-5 to L5-S1 fall 0.4-1.0 mm) against SDs 1.0-2.9 mm, so a sequence shape, not a single-level discriminator.",
+      "covariates": "Males thicker at every level (young by 1.8-3.1 mm, old 1.3-3.0; Inference from Table 2). Increases from young adult to 60+ at every level except male L1-2 (Inference: males +0.6 to +1.1 mm, females +0.3 to +1.8 mm). Linear trend with stature at every level, both sexes, p<0.05, slope not printed; young adults were taller, so adjusting for stature strengthened the age increase.",
+      "error": "Between-specimen SD 1.0-2.9 mm; no error reported for the image-analyser area or the derived height; caliper r = 0.97."
+    },
+    {
+      "name": "Disc convexity index",
+      "definition": "Mid-disc height divided by the sum of anterior and posterior disc heights, M/(A + P), on midline sagittal section (Figure 1 caption prints 'M/A + P'). Inference: 0.5 for flat or straight-wedged end plates, above 0.5 biconvex. Table 3, L1-2..L5-S1: males 20-35 0.57,0.60,0.56,0.58,0.43; males 60+ 0.65,0.66,0.61,0.56,0.53; females 18-35 0.58,0.61,0.60,0.54,0.49; females 60+ 0.68,0.63,0.65,0.54,0.48. Caption t = -2.38, p<0.025; text: increase in seven of ten indices from young adult to old.",
+      "projection": "dry specimen caliper on midline sagittal section",
+      "page": "p. 496 (PDF 1); Figure 1, Table 3 and text, p. 497 (PDF 2)",
+      "levels": "L1-2 to L5-S1",
+      "ct_mask_recipe": "Inference: A, M, P as above from the midsagittal plane of the two body masks, then M/(A + P); dimensionless.",
+      "radiograph_recipe": "Inference: lateral radiograph, disc-space heights at the anterior margin, centre and posterior margin; magnification cancels; obliquity and rim osteophytes bias A and P.",
+      "level_pattern": "Young adults 0.56-0.61 at L1-2 to L3-4, lowest at L5-S1 (0.43 M, 0.49 F, both below 0.5); young female L4-5 also low (0.54), young male L4-5 not (0.58). Old: upper three 0.61-0.68, L4-5 and L5-S1 0.48-0.56.",
+      "covariates": "Rises with age at the upper three discs in both sexes; male L5-S1 rises, male L4-5 and female L5-S1 fall slightly, female L4-5 unchanged. Paralleled the vertebral concavity index; the disc-vertebral junction is a principal site of age change after maturity (p. 497, PDF 2). No SD, no size covariate.",
+      "error": "None reported. Inference: a paired t over the ten printed pairs gives about 3.1, not 2.38."
+    },
+    {
+      "name": "Disc quality (Rolander 1966 grade)",
+      "definition": "Four-point gross grade of the sectioned disc: 0 normal, nucleus and anulus white and distinct; 1 normal appearance, nucleus more fibrous, boundary still distinct; 2 less distinct boundary, white to yellowish-brown, possibly an isolated anular fissure; 3 frank degeneration with desiccation, multiple fissures and disc thinning. Pathological degeneration defined as grades 2 and 3.",
+      "projection": "dry specimen gross inspection of the midline section",
+      "page": "p. 496 (PDF 1); p. 497 (PDF 2); Table 4, p. 498 (PDF 3)",
+      "levels": "L1-2 to L5-S1",
+      "ct_mask_recipe": "Not possible from a mask; Inference: only grade 3 thinning could show.",
+      "radiograph_recipe": "Not possible; Inference: thinning as a proxy of grade 3 only.",
+      "level_pattern": "Lower discs carry the highest grades, particularly in the two oldest groups (p. 497, PDF 2); in 60+ L4-5 24/34 and L5-S1 22/34 grade 2-3 against 17-18/34 above; in 36-59 grade 3 is most frequent at L1-2 (5/34).",
+      "covariates": "Grade 0 only under 13; grades 2-3 rise with age (2/65 discs at 13-20, 11/158 at 20-35, 30/170 at 36-59, 98/170 at 60+; Inference from Table 4). Sexes pooled.",
+      "error": "No reliability reported."
+    },
+    {
+      "name": "Central vertebral height (C), drawn only",
+      "definition": "Figure 2: young (solid) against old (dotted) shape of the anterior vertebral structures; arrows mark loss of anterior disc height A, posterior disc height P and central vertebral height C (centre of upper to centre of lower end plate); old end plates bow into the body and the disc sinks into it. No values.",
+      "projection": "schematic midsagittal drawing",
+      "page": "Figure 2, p. 498 (PDF 3)",
+      "levels": "lumbar, unspecified",
+      "ct_mask_recipe": "Inference: midsagittal plane of the body mask, distance along the local spinal axis between superior and inferior end-plate surfaces at the AP midpoint; compare with anterior and posterior body heights.",
+      "radiograph_recipe": "Inference: lateral radiograph, centre of upper to centre of lower end-plate line.",
+      "level_pattern": "Not reported.",
+      "covariates": "Falls with age (end-plate collapse, osteoporosis), p. 498 (PDF 3).",
+      "error": "Not reported."
+    }
+  ],
+  "level_details": [
+    {
+      "level": "L1-2",
+      "detail": "Among the smallest AP diameters with L5-S1; thinnest mean height in every Table 2 group; only level with an age by sex interaction (males 9.2 to 9.2 NS, females 6.1 to 7.9 p<0.05); convexity rises with age (M 0.57 to 0.65, F 0.58 to 0.68); most grade 3 discs in the 36-59 group (5/34).",
+      "page": "Table 1, p. 496 (PDF 1); Tables 2-3, p. 497 (PDF 2); Table 4, p. 498 (PDF 3)"
+    },
+    {
+      "level": "L2-3",
+      "detail": "Strongest age increase in mean height (p<0.01; M 9.8 to 10.9, F 8.0 to 8.5).",
+      "page": "Table 2, p. 497 (PDF 2)"
+    },
+    {
+      "level": "L3-4",
+      "detail": "Age change in mean height not significant; the only level where all 35 young adults (20-35) were grade 1.",
+      "page": "Table 2, p. 497 (PDF 2); Table 4, p. 498 (PDF 3)"
+    },
+    {
+      "level": "L4-5",
+      "detail": "Thickest disc in both sexes and both Table 2 age groups (M 11.3, 12.2; F 8.5, 9.2); convexity does not rise with age (M 0.58 to 0.56, F 0.54 both); most grade 2-3 discs at 60+ (24/34); the one grade 2 of the 13-20 band.",
+      "page": "Tables 2-3, p. 497 (PDF 2); Table 4, p. 498 (PDF 3)"
+    },
+    {
+      "level": "L5-S1 (lumbosacral junction)",
+      "detail": "AP diameter smaller than the middle discs except in old males; mean height below L4-5 in all four groups; lowest convexity in young adults (0.43 M, 0.49 F, below 0.5); most grade 3 at 60+ (11/34), most grade 2-3 at 36-59 (9/34) and 20-35 (5/35), and the one grade 3 of the 13-20 band.",
+      "page": "Table 1, p. 496 (PDF 1); Tables 2-3, p. 497 (PDF 2); Table 4, p. 498 (PDF 3)"
+    },
+    {
+      "level": "T12-L1 (thoracolumbar junction)",
+      "detail": "Inside the removed block but no data reported.",
+      "page": "p. 496 (PDF 1)"
+    },
+    {
+      "level": "Cervical and thoracic",
+      "detail": "Not covered.",
+      "page": "p. 496 (PDF 1)"
+    }
+  ],
+  "errors": [
+    {
+      "what": "Dial vernier caliper accuracy",
+      "value": "0.05 mm",
+      "page": "p. 496 (PDF 1)"
+    },
+    {
+      "what": "Caliper inter-trial correlation across all age groups",
+      "value": "r = 0.97",
+      "page": "p. 496 (PDF 1)"
+    },
+    {
+      "what": "Between-specimen SD of true average disc height",
+      "value": "1.0 to 2.9 mm (largest at old male L5-S1, 2.9; young female L1-2, 2.5)",
+      "page": "Table 2, p. 497 (PDF 2)"
+    },
+    {
+      "what": "Image analyser area, derived mean height, convexity index, Rolander grade",
+      "value": "No error or reliability reported",
+      "page": "pp. 496-498 (PDF 1-3)"
+    }
+  ],
+  "pearls_pitfalls": [
+    {
+      "text": "Stature loss in old age comes mainly from loss of vertebral height, not disc thinning: average disc height is maintained or increased in old age.",
+      "page": "p. 496 (PDF 1); p. 498 (PDF 3)"
+    },
+    {
+      "text": "The small loss of anterior and posterior disc height is outweighed by increased disc convexity as the end plates collapse; discs 'sink' into the vertebrae; osteoporotic end-plate collapse is the most obvious and widespread lumbar age change; the abstract ties the shape change to loss of transverse trabeculae.",
+      "page": "p. 496 (PDF 1); p. 498 (PDF 3), Figure 2"
+    },
+    {
+      "text": "the junction of disc and vertebra is, for the authors, a chief site of change with age after maturity.",
+      "page": "p. 497 (PDF 2)"
+    },
+    {
+      "text": "Point disc heights are unreliable because of local irregularities at the disc-vertebral interface; use area over AP length.",
+      "page": "p. 496 (PDF 1)"
+    },
+    {
+      "text": "Pitfall: 'disc degeneration' is loosely used for thinning or for marginal osteophytes (often thought universal in old age); the authors define pathological degeneration as Rolander grades 2 and 3 and say only 'the latter' involves thinning and desiccation (Inference: grade 3, from the grade definitions); both grades may go with stiffness.",
+      "page": "p. 498 (PDF 3); p. 497 (PDF 2)"
+    },
+    {
+      "text": "72 per cent of elderly discs reported normal; Inference: fits grade 3 only (123/170) or a count of 72 grade 1 discs; under grades 2-3, 98/170 (58 per cent) of 60+ discs are degenerated.",
+      "page": "p. 498 (PDF 3), Table 4"
+    },
+    {
+      "text": "Nachemson 1979 (cited): age and degeneration not necessarily linked; degeneration not the same as thinning; the five most degenerated discs were not thin.",
+      "page": "p. 496 (PDF 1)"
+    },
+    {
+      "text": "Interspongious herniation and anular rupture lose too little volume to thin a disc; the stiffer old disc does not readily prolapse into end-plate microfractures despite their rising incidence.",
+      "page": "p. 498 (PDF 3)"
+    },
+    {
+      "text": "Hydration (Puschel 1930 as read by the authors): most water loss in childhood and adolescence, anulus steady in adult life, nucleus down only 6 per cent from early adult to old age; GAG maintained, collagen slightly up; Brown 1957 minimal bulging under extreme load; the 'underinflated tyre' simile should not describe the normal elderly disc.",
+      "page": "pp. 498-499 (PDF 3-4)"
+    },
+    {
+      "text": "No stenosis thresholds, syndromes, screw sizing or safe zones discussed.",
+      "page": "pp. 496-499 (PDF 1-4)"
+    }
+  ],
+  "instructions": [
+    {
+      "text": "Measure lumbar disc height on the midsagittal plane as area divided by AP length, not a single point height.",
+      "page": "p. 496 (PDF 1)"
+    },
+    {
+      "text": "Expect mean disc height to rise from L1-2 to a peak at L4-5 and drop at L5-S1 in both sexes, young and old; use it as a sequence shape, never to name one disc alone (adjacent steps 0.0-1.9 mm, Inference, against SDs 1.0-2.9 mm).",
+      "page": "Table 2, p. 497 (PDF 2)"
+    },
+    {
+      "text": "Score the disc convexity index M/(A + P) on the mask's midsagittal plane (Inference: also on a lateral radiograph, magnification-free); expect 0.56-0.68 at L1-2 to L3-4, lower at L4-5 and L5-S1 (except young male L4-5, 0.58), lowest at young L5-S1 (0.43 M, 0.49 F).",
+      "page": "p. 496 (PDF 1); Table 3, p. 497 (PDF 2)"
+    },
+    {
+      "text": "Adjust disc expectations for sex: male discs 1.3-3.1 mm thicker (adults) and 1-5 mm deeper than female discs at every lumbar level.",
+      "page": "Tables 1-2, pp. 496-497 (PDF 1-2)"
+    },
+    {
+      "text": "In an elderly spine expect discs of maintained or greater mean height, more convex, sunk into biconcave end plates, with reduced central vertebral height; do not read stature loss as disc collapse. Inference: compare central with anterior and posterior body heights before calling a fracture or reading a level from body height.",
+      "page": "pp. 497-498 (PDF 2-3), Figure 2"
+    },
+    {
+      "text": "Treat disc AP diameter as a weak feature: largest at L2-3 to L4-5, 1-3 mm smaller at L1-2 and L5-S1, rising somewhat with age, more in women.",
+      "page": "Table 1, p. 496 (PDF 1); p. 497 (PDF 2)"
+    },
+    {
+      "text": "Expect degenerated lower discs in the elderly: grade 2-3 in 24/34 (L4-5) and 22/34 (L5-S1) at 60+, grade 3 in 10/34 and 11/34. Inference: do not call a thin lowest disc transitional without a body-shape or rib sign.",
+      "page": "Table 4, p. 498 (PDF 3)"
+    },
+    {
+      "text": "Keep marginal osteophytes, degeneration and disc thinning as separate findings.",
+      "page": "p. 498 (PDF 3)"
+    },
+    {
+      "text": "In children expect much smaller discs (AP 15-17 mm in infancy, 26-29 mm in childhood) with grades 0 or 1; scale adult priors by age.",
+      "page": "Tables 1 and 4, pp. 496, 498 (PDF 1, 3)"
+    },
+    {
+      "text": "Condition expected disc height on stature and sex, not age alone: thickness rises linearly with stature at every level (p<0.05); slope not printed.",
+      "page": "p. 497 (PDF 2)"
+    }
+  ],
+  "bordercall": [
+    "(a) Anomaly priors: none; no transitional vertebra, L6, T13, rib count or block vertebra reported. Table 4 degeneration counts (p. 498, PDF 3) could prior a thin lower disc in older patients, not an anomaly.",
+    "(b) Measures: the Panjabi-based generator draws vertebral, not disc, dimensions; this paper offers per lumbar gap the true average disc height (Table 2), the convexity index M/(A + P) (Table 3) and the disc AP diameter (Table 1). Biases from a mask (Inference): unloaded cadaveric discs against loaded living CT gaps; caliper AP includes the anular bulge, larger than a bony end-plate depth or Panjabi's end-plate depth; mean height must be taken to the actual concave end-plate surfaces, not the rims; A and P at the anterior and posterior body margins of the midsagittal plane. Figure 2's central vertebral height C falls with age: an age covariate should lower central body height and raise disc convexity, not lower disc height.",
+    "(c) Error: none in mm; caliper r = 0.97, 0.05 mm; between-specimen SD of mean disc height 1.0-2.9 mm as within-level spread for adults. Inference: a voxel (0.5-1 mm) of mask error per height is large against the 0.0-1.9 mm level steps.",
+    "(d) Covariates: sex (males thicker and deeper at every level), stature (linear, p<0.05, slope not given), age (mean height and convexity up from young adult to 60+, AP up with age more in females, children's discs much smaller). Population unstated; Inference: Western Australian cadavers, ethnicity unrecorded."
+  ],
+  "gaps": [
+    "Not reported: transverse diameters, raw A, M and P heights, middle-aged disc heights and convexity, n per cell of Tables 2 and 3, stature values and slope, sex-effect statistics, error in mm, reliability of the image analyser and grading, T12-L1.",
+    "Population: country, ethnicity, cause of death, selection criteria not stated; sex of the 37 infants and children not given; how the 140 graded specimens were chosen from 204 not stated (graded 6/9, 18/28, 13/23, 35/48, 34/48, 34/48 by band).",
+    "Age bands disagree: young adult males 20-36 (Table 1) vs 20-35 (Tables 2-3); young adult females 18-35 (Tables 1, 3) vs 20-35 (Table 2); adolescents 13-19 and 13-17 (Table 1) vs 13-20 (Table 4); '36-39' in Table 4, Inference a misprint for 36-59.",
+    "Table 4, 20-35 (n 35): L4-5 sums to 17 (Inference: grade 1 should be 33), L2-3 sums to 36; every other column sums to its n.",
+    "Abstract says Rolander criteria recorded from 204 spines; methods and Table 4 grade 140.",
+    "Pathological degeneration called a minority of elderly discs (p. 499, PDF 4), but grades 2-3 are 98/170 (58 per cent) at 60+; holds only for grade 3 (47/170). The '72 per cent' normal fits grade 3 only or is the count 72 of grade 1 discs (Inference).",
+    "Lower discs said to have the highest grades (p. 497, PDF 2), but in 36-59 grade 3 is most frequent at L1-2 (5/34) (Table 4, p. 498, PDF 3).",
+    "AP diameter rise given as 2 per cent in males; Table 1 gives about 3-4 per cent (Inference); compared groups not named. Males said larger in all age groups, but infant and child groups are pooled.",
+    "Table 3's single t = -2.38 for ten contrasts is unexplained; a paired t over printed means gives about 3.1 (Inference).",
+    "Young female L1-2 mean height 6.1 (SD 2.5) is out of line with L2-3 (8.0) and old females (7.9).",
+    "Divisor of the true average disc height (caliper AP of the intact disc or AP length of the section) not stated.",
+    "Citations: 'Taylor & Twomey 1983a' cited but only one Taylor and Twomey 1983 listed; the vertebral concavity index credited to Twomey and Taylor 1983a, whose listed title is on sagittal movements (Inference: more likely Twomey, Taylor and Furniss 1983).",
+    "Inference from memory: radiographic studies report disc-space narrowing with age, unlike this cadaveric area-based result; consistent with the cited Nachemson 1979."
+  ]
+}

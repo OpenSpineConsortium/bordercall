@@ -84,6 +84,10 @@ PAGE = [
     ("strata", "Every paper its own population", [("fig14_strata", "The rule built on the other papers, scored on each")]),
     ("select", "Choosing the rule by held-out prediction", [("fig15_select", "Every candidate on the held-out populations, and the winner"),
                                                              ("fig16_exclusion", "Leaving a paper out, scored on the other populations")]),
+    ("tan", "Tan 2004 apart, and the populations by every variable", [
+        ("fig_tan_strata", "Tan 2004 as a stratum of his own"),
+        ("fig_subgroups", "The populations by every variable of the register")]),
+    ("covariates", "Covariates both ways", [("fig17_covariates", "Sex, age and body size on each measure, and each predicted from the other")]),
     ("renders", "Renders", [
         ("render1_axial", "L3 from above"),
         ("render2_column", "The lumbar column from in front"),

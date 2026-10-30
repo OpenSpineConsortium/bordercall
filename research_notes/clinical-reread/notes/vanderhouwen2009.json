@@ -1,0 +1,346 @@
+{
+  "id": "vanderhouwen2009",
+  "citation": "E. B. van der Houwen, P. Baron, A. G. Veldhuizen, J. G. M. Burgerhof, P. M. A. van Ooijen, and G. J. Verkerke. Geometry of the Intervertebral Volume and Vertebral Endplates of the Human Spine. Annals of Biomedical Engineering, Vol. 38, No. 1, January 2010 (c 2009), pp. 33-40. DOI 10.1007/s10439-009-9827-6 (published online 30 October 2009; open access, CC BY-NC). Source: thread \"Reread every paper for clinical detail\", project symphony_4, 2026-10-28. Copy read: PMC open-access Cloud Service (pmc-oa-opendata), PMC2803258.1, fetched 2026-10-28 by this thread; sha256 begins 493457935da4d782.",
+  "population": "The Netherlands (Groningen), living hospital patients, retrospective: 77 patients (46 men, 31 women), aged 21 to 86 years (mean 49.8), selected from PACS after a thoracic or abdominal spinal CT for varied spinal problems (hernias, fractures); only intact vertebrae above and below the problem area measured; ethnicity not stated. Goal and count of 25 endplates (25 patients) per endplate position, 12 positions, 10 points each = 3,000 coordinates; which patients gave which levels and the per-level sex split are not reported (Inference: about 4 endplates per patient). Excluded: implants, visible osteoporotic deformation, visible axial rotation, large lateral slant. Verification on pig vertebrae (one for repeatability, two for CT vs caliper). p. 34 (PDF 2); p. 35 (PDF 3); p. 36 (PDF 4)",
+  "modality": "16-detector MDCT (Siemens), supine, 120 kV, 250 mAs, 0.75 s rotation, 16 x 0.75 mm collimation, 0.75 mm slices, 0.4 mm reconstruction index, B80s sharp kernel; analysed in Vitrea2 on 3.13 mm average-intensity projections; reference planes set in oblique mode with bone viewing settings, measurements in orthogonal mode; bone edges by maximum HU drop near a manually located HU maximum (Waarsing). Statistics: linear mixed model (S-Plus LME, REML), paired t-test, Mann-Whitney for sex medians, per-endplate linear regression; p < 0.02 significant. p. 34 (PDF 2); p. 35 (PDF 3); p. 36 (PDF 4)",
+  "levels_covered": "12 endplates T12inf to S1sup (six disc spaces T12-L1 to L5-S1), coded location 1 (S1sup) to 12 (T12inf) counted upward from S1; how T12 and S1 were identified is not described. p. 34 (PDF 2); p. 35 (PDF 3)",
+  "anomalies": [
+    {
+      "variant": "any transitional or numbering anomaly (LSTV, sacralisation, lumbarisation, L6, T13, 11 or 13 ribs, cervical rib, block vertebra)",
+      "finding": "not mentioned; no prevalence; not stated whether transitional spines were excluded or how they were numbered (Inference: the T12inf to S1sup labels assume five lumbar vertebrae)",
+      "page": "whole paper; level naming p. 34-35 (PDF 2-3)",
+      "population": "77 Dutch hospital patients, 21 to 86 y",
+      "how_identified": "not described"
+    },
+    {
+      "variant": "convex endplate (shape variant, not a segmentation anomaly)",
+      "finding": "individual range of depth 5.3 mm (middle of an L4inf) to -1.3 mm (convex, anterior point of an L2sup); no count of convex endplates given",
+      "page": "p. 36 (PDF 4)",
+      "population": "25 endplates per position from 77 patients",
+      "how_identified": "CT, depth below the rim best-fit plane on sagittal and frontal sections"
+    },
+    {
+      "variant": "fracture near T12-L1 (acquired, not congenital)",
+      "finding": "no count; fractures were in the cohort and only intact vertebrae were measured, but the authors suspect fractures near T12-L1 influenced T12inf depths",
+      "page": "p. 34 (PDF 2); p. 38 (PDF 6)",
+      "population": "77 Dutch hospital patients",
+      "how_identified": "not described"
+    }
+  ],
+  "measures": [
+    {
+      "name": "Endplate depth (concavity) at points 2, 3, 4 (sagittal) and 7, 8, 9 (frontal)",
+      "definition": "Perpendicular distance from each surface point to a least-squares plane through the four rim points 1, 5, 6, 10. Sagittal plane through the most anterior body point and the \"posterior niche\"; frontal plane through the most lateral body points, crossing point 3; a line tangent to the endplate is marked at equal distances and projected onto the endplate (points 1-5 sagittal: 1 posterior rim, 2 posterior quarter, 3 middle, 4 anterior quarter, 5 anterior rim; 6-10 frontal: 6 right rim, 7 right, 8 middle, 9 left, 10 left rim). Positive = concave. Figure 2 means (mm), sagittal [4]/[3]/[2], frontal [7]/[8]/[9]: T12inf 1.18/1.59/1.82, 1.38/1.50/1.26; L1sup 0.55/0.83/1.15, 0.90/0.96/0.92; L1inf 0.85/1.46/1.75, 1.26/1.49/1.54; L2sup 0.41/1.00/0.98, 1.11/0.99/1.01; L2inf 0.99/1.86/1.89, 1.53/1.95/1.63; L3sup 0.59/1.40/1.09, 1.26/1.49/1.29; L3inf 1.56/2.32/2.03, 1.80/2.27/1.81; L4sup 0.69/1.40/1.11, 1.28/1.43/1.36; L4inf 1.76/2.61/2.39, 2.08/2.62/2.09; L5sup 0.33/1.03/1.01, 0.89/1.11/1.14; L5inf 1.77/2.96/2.64, 2.26/2.74/2.21; S1sup 1.15/1.42/1.62, 1.00/1.29/0.69 (inferior printed with a minus sign, plotted upward; magnitude = concavity). Regressions: inferior (location 2 L5inf to 12 T12inf, all p < 0.0001): [7] 2.46-0.10L, [8] 3.06-0.14L, [9] 2.36-0.08L, [4] 1.56-0.09L+0.008age, [3] 3.17-0.15L, [2] 2.75-0.09L; superior (location 1 S1sup to 11 L1sup, with age): [7] 0.46+0.0006L+0.012age, [8] 0.88-0.03L+0.010age, [9] 0.46+0.007L+0.011age, [4] 0.35-0.05L+0.010age, [3] 0.96-0.05L+0.010age, [2] 0.89-0.03L+0.010age.",
+      "projection": "CT (3.13 mm average-intensity oblique reformats), sagittal and frontal sections",
+      "page": "p. 34 (PDF 2); p. 35 (PDF 3); p. 36 (PDF 4); Fig. 2, p. 37 (PDF 5); p. 38 (PDF 6)",
+      "levels": "T12inf to S1sup (12 endplates)",
+      "level_pattern": "Smallest anteriorly, then laterally, largest in the middle or posteriorly; maximum posterior at T12inf and L1inf, middle at L3inf-L5inf (p. 36 (PDF 4)). Inferior middle depth rises L1inf 1.46 to L5inf 2.96 (about 0.3 mm per level); T12inf (1.59) above L1inf. Superior flatter, not monotonic (0.83 L1sup to 1.42 S1sup). Every inferior endplate deeper than the superior across the same disc (p. 37 (PDF 5); Inference: at all six points of all six discs). Inference (computed): inferior/superior middle ratio across a disc largest at L4-L5 (2.5) and L5-S1 (2.1), smallest at L2-L3 (1.3); caudal/cranial within a vertebra 1.7-1.9 at L1-L4, 2.9 at L5. Inference: one vertebra's value only shifts odds between upper and lower lumbar; adjacent levels overlap.",
+      "covariates": "No sex effect (p. 38 (PDF 6), p. 39 (PDF 7)). Superior depth +0.01 mm per year of age at all points (p < 0.02); no significant inferior age relation, though the inferior [4] equation carries +0.008 x age (p. 36 (PDF 4), p. 38 (PDF 6)). Inference: 21 to 86 y spans about 0.65 mm on a cranial endplate. No height or weight available (p. 39 (PDF 7)). One Dutch series, ethnicity unstated.",
+      "error": "Not measured for depth (method checks on pig linear dimensions only). Between-subject SD about 0.5 to 1.0 mm (read from Figs. 2 and 5 bars, approximate). Fig. 5 (p. 39 (PDF 7)): this study's inferior depths about 1 to 1.7 mm above Eijkelkamp's MRI/X-ray values at T12inf, L1inf, L4inf, L5inf; superior L1sup-L5sup within about 0.4 mm; S1sup about 1.4 here vs about 0 there (bars read approximately).",
+      "ct_mask_recipe": "Inference: on the vertebral-body subregion, in the body's own frame (not scanner z), set the mid-sagittal plane through the most anterior body point and the posterior-wall midline notch and the frontal plane through the widest lateral points; on the disc-facing surface take the four rim points, fit a least-squares plane, and report perpendicular distances at the quarter and middle points; average over a slab about 3 mm thick. Voxels coarser than about 1 mm or a mask that fills the dip bias depth toward zero.",
+      "radiograph_recipe": "Inference (no radiographic method in the paper): a true lateral gives the sagittal profile as the dip below the line joining the anterior and posterior rim corners, an AP the frontal profile; double contours, tilt and magnification blur 1 to 3 mm concavities. MRI/X-ray values (Eijkelkamp) run shallower than these CT values at caudal endplates."
+    },
+    {
+      "name": "Endplate sagittal diameter S (rim to rim)",
+      "definition": "Distance between points 1 and 5 (posterior and anterior rim points on the sagittal tangent line); rim-to-rim, unlike outer body dimensions. Fig. 2 means (mm): T12inf 27.20, L1sup 27.26, L1inf 27.97, L2sup 27.99, L2inf 27.89, L3sup 28.00, L3inf 27.99, L4sup 27.27, L4inf 28.85, L5sup 27.45, L5inf 26.38, S1sup 28.42. Table 2 medians F/M (mm, labelled 'median endplate depth'): T12inf 24.8/28.0, L1sup 26.6/29.0, L1inf 25.3/29.7, L2sup 27.1/28.9, L2inf 26.0/29.0, L3sup 26.3/29.7, L3inf 25.4/30.4, L4sup 26.1/28.9, L4inf 28.1/30.6, L5sup 27.7/27.6, L5inf 25.1/27.4, S1sup 28.4/29.0.",
+      "projection": "CT sagittal section",
+      "page": "p. 35 (PDF 3); Fig. 2, p. 37 (PDF 5); p. 38 (PDF 6); Table 2, p. 39 (PDF 7)",
+      "levels": "T12inf to S1sup",
+      "level_pattern": "About constant at 27 to 28 mm (p. 38 (PDF 6)); smallest L5inf 26.4, largest L4inf 28.8 (Fig. 2); the discussion's 27.1 (T12inf) to 29.1 (L4inf) does not match Fig. 2. Does not separate lumbar levels.",
+      "covariates": "Men larger at every level but L5sup (Mann-Whitney p 0.001 to 0.049; not significant at L4inf 0.101, L5sup 0.803, S1sup 0.495; under p < 0.02 also not L1sup, L2sup, L5inf). Inference (computed): female/male median ratio mean 0.91. Subgroup sizes per level not given.",
+      "error": "Pig verification of outer diameters: CT repeatability SD 0.22 mm; CT vs caliper mean difference -0.18 mm, SD 0.66 mm, limits -1.47 to 1.12 mm. Between-subject SD about 2 to 3 mm (bars, approximate).",
+      "ct_mask_recipe": "Inference: anteroposterior chord of the cranial or caudal endplate face in the mid-sagittal plane between rim edges, in the endplate plane. A mask's full extent gives an outer value about 6 to 8 mm larger, closer to Panjabi 1992 EPD (34 to 35 mm per this set's panjabi1992 note).",
+      "radiograph_recipe": "Inference: lateral radiograph, anterior to posterior endplate corners divided by magnification; valid when the beam is tangent to the endplate."
+    },
+    {
+      "name": "Endplate transverse diameter T (rim to rim)",
+      "definition": "Distance between points 6 and 10 (right and left rim points in the frontal section). Fig. 2 means (mm): T12inf 36.93, L1sup 36.28, L1inf 37.33, L2sup 36.16, L2inf 37.43, L3sup 37.18, L3inf 39.66, L4sup 40.01, L4inf 44.63, L5sup 41.73, L5inf 44.10, S1sup 41.24. Table 2 medians F/M (mm): T12inf 33.7/38.0, L1sup 32.7/38.7, L1inf 36.0/39.7, L2sup 33.0/38.1, L2inf 32.7/41.1, L3sup 34.7/40.2, L3inf 37.9/40.6, L4sup 37.7/42.4, L4inf 41.1/48.9, L5sup 38.1/43.9, L5inf 41.8/46.6, S1sup 38.6/41.6.",
+      "projection": "CT frontal section",
+      "page": "p. 35 (PDF 3); Fig. 2, p. 37 (PDF 5); p. 38 (PDF 6); Table 2, p. 39 (PDF 7)",
+      "levels": "T12inf to S1sup",
+      "level_pattern": "Increases at the L3/L4 level, general increase from thorax to lumbar (p. 38 (PDF 6)). Inference (computed): flat 36-37 mm T12inf to L3sup, about 40 at L3inf/L4sup, peak L4inf 44.6 and L5inf 44.1, S1sup 41.2 narrower than L5inf. Inferior wider than superior across the disc except L3-L4 (by 2.9 mm at L4-L5 and L5-S1); within a vertebra caudal wider by about 1 to 2.5 mm, 4.6 at L4. T/S ratio about 1.3 at T12inf-L3sup, 1.42-1.47 at L3inf-L4sup, 1.52-1.67 at L4inf-L5inf, 1.45 at S1sup.",
+      "covariates": "Men larger at all levels (p 0.000 to 0.040, except S1sup 0.125; under p < 0.02 also not L1inf 0.040, L5sup 0.020); largest gaps L2inf and L4inf. Inference (computed): female/male median ratio mean 0.88.",
+      "error": "As for S (pig outer diameters only). Between-subject SD about 2.5 to 4 mm (bars, approximate).",
+      "ct_mask_recipe": "Inference: left-right chord of the endplate face at the frontal plane through the widest body points, rim to rim; a mask's outer extent runs about 5 mm larger (Panjabi 1992 EPW, this set's panjabi1992 note).",
+      "radiograph_recipe": "Inference: AP radiograph, width between lateral endplate corners divided by magnification; not from a lateral."
+    },
+    {
+      "name": "Sagittal diameter as a linear function of transverse diameter, S = a + b T",
+      "definition": "Per-endplate regressions: S1sup 17.583+0.263T (p 0.022); L5inf 16.495+0.220T (0.04); L5sup 24.838+0.0063T (0.510); L4inf 19.151+0.222T (0.08); L4sup 9.950+0.433T (0.01); L3inf 16.207+0.297T (0.02); L3sup 11.213+0.449T (0.02); L2inf 17.200+0.286T (0.07); L2sup 7.537+0.566T (0.00); L1inf 10.993+0.092T (0.00); L1sup 13.451+0.383T (0.10); T12inf 15.180+0.323T (0.018); text says significant for 8 surfaces.",
+      "projection": "CT",
+      "page": "p. 38 (PDF 6)",
+      "levels": "T12inf to S1sup",
+      "level_pattern": "Inference: slopes 0.2 to 0.6 reflect a shared size factor; only 4 meet the paper's p < 0.02.",
+      "covariates": "none given",
+      "error": "Inference (computed): L1inf (14.4 vs mean 28.0) and L5sup (25.1 vs 27.5) do not reproduce their Fig. 2 means; likely misprinted slopes (about 0.455 and 0.063).",
+      "ct_mask_recipe": "Inference: compute S and T as above and use the ratio or the fit as a size-linked consistency check.",
+      "radiograph_recipe": "Inference: needs both a lateral (S) and an AP (T) view."
+    },
+    {
+      "name": "Wedge angle of the disc",
+      "definition": "Angle between the planes of the two endplates facing a disc, by Eijkelkamp's heights method (Inference: arctangent of anterior minus posterior disc height over sagittal diameter). Fig. 3 means read from bars (deg): T12-L1 about 5.1, L1-L2 6.7, L2-L3 6.0, L3-L4 7.1, L4-L5 9.5, L5-S1 15.4; supine. One negative L4-L5 angle beyond 2 SD dropped. Eijkelkamp about 5.1, 5.8, 6.2, 6.9, 10.1, 13.2; Nissan (derived) about 3.6, 5.1, 5.5, 11.0, 15.4 from L1-L2.",
+      "projection": "CT (supine)",
+      "page": "p. 35 (PDF 3); p. 38 (PDF 6); Fig. 3, p. 39 (PDF 7)",
+      "levels": "T12-L1 to L5-S1",
+      "level_pattern": "Generally increases from T12 to S1, steeply at L4-L5 and L5-S1; L2-L3 slightly below L1-L2; upper lumbar discs within one SD of each other.",
+      "covariates": "none reported",
+      "error": "No repeatability; agreement with literature taken as validation. Between-subject SD about 1.7 to 3.8 deg, about 5 deg at L5-S1 (bars, approximate).",
+      "ct_mask_recipe": "Inference: angle between rim planes fitted to the caudal endplate of one body and the cranial endplate of the next, projected onto the mid-sagittal plane.",
+      "radiograph_recipe": "Inference: lateral radiograph, angle between rim-corner lines of the two endplates; posture changes it, so use the order rather than the degrees."
+    },
+    {
+      "name": "Intervertebral disc height (IDH)",
+      "definition": "Distance between points of the same number on the two endplates facing a disc; no IDH value is reported. Cited: Nissan anterior IDH 7.8 (T12-L1) to 10.6 mm (L5-S1); Aharinejad 8.5 (L1-L2) to 10.3 mm (L5-S1).",
+      "projection": "CT",
+      "page": "p. 35 (PDF 3); Table 1, p. 34 (PDF 2)",
+      "levels": "defined T12-L1 to L5-S1; no values",
+      "level_pattern": "not reported",
+      "covariates": "age and sex recorded, no analysis given",
+      "error": "not reported",
+      "ct_mask_recipe": "Inference: distance between corresponding points on the facing endplates of adjacent body masks.",
+      "radiograph_recipe": "Inference: lateral radiograph, anterior and posterior disc heights between rim corners."
+    },
+    {
+      "name": "Verification dimensions (pig only)",
+      "definition": "Outer superior and inferior sagittal and transverse endplate diameters; right and left body heights (6-6, 10-10); anterior (5-5) and posterior (1-1) body heights; spinous process length printed as anterior wall of the foramen to the anterior point of the spinous process (Inference: literally a canal-spanning distance); transverse process width. Not reported for humans.",
+      "projection": "CT and vernier caliper on pig vertebrae",
+      "page": "p. 36 (PDF 4); p. 38 (PDF 6)",
+      "levels": "pig vertebrae (level not given)",
+      "level_pattern": "n/a",
+      "covariates": "n/a",
+      "error": "Repeatability SD 0.22 mm CT, 0.18 mm caliper (nine dimensions x 3, one vertebra); CT vs caliper -0.18 mm, SD 0.66, limits -1.47 to 1.12 mm (12 measurements, two vertebrae).",
+      "ct_mask_recipe": "n/a",
+      "radiograph_recipe": "n/a"
+    }
+  ],
+  "level_details": [
+    {
+      "level": "T12inf (T12-L1)",
+      "detail": "Deepest posteriorly (1.82); deeper than L1inf, breaking the caudal trend; authors suggest measurement error on a shallow endplate or nearby fractures (T12-L1 a common injury level). T 36.9, S 27.2 mm; wedge about 5 deg.",
+      "page": "p. 36 (PDF 4); p. 37 (PDF 5); p. 38 (PDF 6)"
+    },
+    {
+      "level": "L1sup",
+      "detail": "Shallowest superior endplate (middle 0.83), deepest posteriorly (1.15).",
+      "page": "Fig. 2, p. 37 (PDF 5)"
+    },
+    {
+      "level": "L1inf",
+      "detail": "Maximum posterior (1.75); frontal left 1.54 vs right 1.26 (Inference, computed).",
+      "page": "p. 36 (PDF 4); Fig. 2, p. 37 (PDF 5)"
+    },
+    {
+      "level": "L2sup",
+      "detail": "Individual minimum of the study, -1.3 mm (convex) anteriorly; mean anterior 0.41.",
+      "page": "p. 36 (PDF 4); Fig. 2, p. 37 (PDF 5)"
+    },
+    {
+      "level": "L3inf / L3-L4",
+      "detail": "Maximum in the middle; transverse diameter begins to rise (39.7); L3-L4 the one disc where the upper body's caudal endplate is not wider than the lower body's cranial endplate (39.7 vs 40.0).",
+      "page": "p. 36 (PDF 4); Fig. 2, p. 37 (PDF 5); p. 38 (PDF 6)"
+    },
+    {
+      "level": "L4inf",
+      "detail": "Deepest single value 5.3 mm (middle); mean middle 2.61, frontal middle 2.62; widest T (44.6) and S (28.8); largest within-vertebra width step (L4sup 40.0 to L4inf 44.6); sex gap in width 41.1 F vs 48.9 M.",
+      "page": "p. 36 (PDF 4); Fig. 2, p. 37 (PDF 5); Table 2, p. 39 (PDF 7)"
+    },
+    {
+      "level": "L5sup",
+      "detail": "Shallow (middle 1.03, anterior 0.33, the smallest anterior mean); no sex difference in S (27.7 F vs 27.6 M, p 0.803).",
+      "page": "Fig. 2, p. 37 (PDF 5); Table 2, p. 39 (PDF 7)"
+    },
+    {
+      "level": "L5inf",
+      "detail": "Deepest mean concavity (middle 2.96), maximum in the middle; T 44.1, smallest S 26.4.",
+      "page": "p. 36 (PDF 4); Fig. 2, p. 37 (PDF 5)"
+    },
+    {
+      "level": "S1sup (L5-S1)",
+      "detail": "Concave (middle 1.42, posterior 1.62, deepest posteriorly), against Eijkelkamp's flat S1; frontal right 1.00 vs left 0.69 (Inference, the most asymmetric); T 41.2 narrower than L5inf; no significant sex difference in S or T; largest wedge about 15 deg; Eijkelkamp found inferior-superior differences mainly at L5-S1.",
+      "page": "Table 1, p. 34 (PDF 2); Fig. 2, p. 37 (PDF 5); p. 38 (PDF 6); Table 2 and Figs. 3, 5, p. 39 (PDF 7)"
+    },
+    {
+      "level": "L4 (cited Hall)",
+      "detail": "Endplate outline printed as \"cartoid\" (Inference: cardioid) at L4, more elliptical toward S1.",
+      "page": "Table 1, p. 34 (PDF 2)"
+    }
+  ],
+  "errors": [
+    {
+      "what": "CT repeatability (one observer, three repeats, nine outer dimensions of one pig vertebra, best plane chosen each time)",
+      "value": "mean SD 0.22 mm (caliper 0.18 mm), N = 9",
+      "page": "p. 36 (PDF 4); p. 38 (PDF 6)"
+    },
+    {
+      "what": "CT vs vernier caliper (two pig vertebrae, 12 measurements: outer endplate diameters and anterior/posterior body heights)",
+      "value": "mean difference -0.18 mm, SD 0.66 mm, interval -1.47 to 1.12 mm (Inference: limits of agreement); differences about -1.2 to +0.8 on sizes about 29 to 55 mm",
+      "page": "p. 36 (PDF 4); p. 38 (PDF 6); Fig. 4, p. 39 (PDF 7)"
+    },
+    {
+      "what": "concavity depth, wedge angle, inter-observer, human repeat",
+      "value": "not measured",
+      "page": "p. 36 (PDF 4); p. 38 (PDF 6)"
+    },
+    {
+      "what": "between-subject SD (read from error bars, approximate)",
+      "value": "depth about 0.5 to 1.0 mm; diameters about 2 to 4 mm; wedge about 1.7 to 3.8 deg, about 5 deg at L5-S1",
+      "page": "Figs. 2, 3, 5, p. 37 (PDF 5), p. 39 (PDF 7)"
+    },
+    {
+      "what": "caliper accuracy",
+      "value": "+/-0.05 mm (Mitutoyo)",
+      "page": "p. 36 (PDF 4)"
+    }
+  ],
+  "pearls_pitfalls": [
+    {
+      "text": "Indication: artificial disc design; current AIDs need the endplates milled flat, weakening the shell; implants should follow native endplate shape, ultimately custom-made from pre-implant CT.",
+      "page": "p. 33 (PDF 1); p. 40 (PDF 8)"
+    },
+    {
+      "text": "Implant migration or dislocation are the main post-operative problems of AIDs, especially in osteoporotic patients.",
+      "page": "p. 33 (PDF 1)"
+    },
+    {
+      "text": "The caudal endplate of the upper body is deeper than the cranial endplate of the lower body across every disc; hard to explain biomechanically since disc pressure is equal on both; Lee (patent) found the same, Panjabi in cervical endplates.",
+      "page": "p. 38 (PDF 6)"
+    },
+    {
+      "text": "Inferior endplate transverse diameters exceed superior ones of the same disc, only partly explained by more supported body mass caudally.",
+      "page": "p. 38 (PDF 6); p. 39 (PDF 7)"
+    },
+    {
+      "text": "Depth shows no sex dependence, so concavity is partly independent of body-size (sex-linked) geometry.",
+      "page": "p. 39 (PDF 7)"
+    },
+    {
+      "text": "Pitfall: the scanner's orthogonal sagittal plane is not necessarily the true mid-sagittal section.",
+      "page": "p. 35 (PDF 3)"
+    },
+    {
+      "text": "Pitfall: rim-to-rim diameters are smaller than the outer diameters usually reported.",
+      "page": "p. 35 (PDF 3); p. 38 (PDF 6)"
+    },
+    {
+      "text": "Pitfall: endplates can be convex (to -1.3 mm at an anterior L2sup point).",
+      "page": "p. 36 (PDF 4)"
+    },
+    {
+      "text": "Pitfall: fractures near T12-L1 may bias T12inf despite excluding injured vertebrae; rotated, slanted, osteoporotic and instrumented spines were excluded.",
+      "page": "p. 34 (PDF 2); p. 38 (PDF 6)"
+    },
+    {
+      "text": "Pitfall: 'endplate depth' is concavity in the text and Fig. 2 but the anteroposterior diameter in Table 2.",
+      "page": "p. 37 (PDF 5); p. 39 (PDF 7)"
+    },
+    {
+      "text": "Pitfall: wedge angles are supine CT values; comparisons come from MRI and radiographs.",
+      "page": "Table 1, p. 34 (PDF 2); Fig. 3, p. 39 (PDF 7)"
+    },
+    {
+      "text": "Pitfall (Inference, Fig. 5): concavity differs by modality and method by up to about 1.7 mm at caudal lumbar endplates, more than the between-subject SD.",
+      "page": "p. 39 (PDF 7)"
+    },
+    {
+      "text": "Cited literature: Silva superior cortex 0.25-0.26 mm, inferior 0.29-0.52 mm; Ritzel ventral shell 0.308, dorsal 0.272 mm; Twomey concavity rises with age (and an endplate concavity index); Zhou posterior VBH L3 29.9 to L5 28.4 mm; Tan all dimensions lower in Chinese Singaporeans; Eijkelkamp mean lumbar depth 1.2 mm (-1.1 to 3.6).",
+      "page": "Table 1, p. 34 (PDF 2); p. 33 (PDF 1)"
+    }
+  ],
+  "instructions": [
+    {
+      "text": "Build each endplate's reference as a least-squares plane through four rim points (anterior, posterior, right, left) and measure concavity perpendicular to it.",
+      "page": "p. 35 (PDF 3)"
+    },
+    {
+      "text": "Set the sagittal plane through the most anterior body point and the posterior niche, the frontal plane through the widest lateral points; do not trust the scanner's orthogonal sagittal plane as mid-sagittal.",
+      "page": "p. 35 (PDF 3)"
+    },
+    {
+      "text": "Find bone edges by the steepest HU drop beside the local HU maximum, not a fixed threshold; Inference: on a mask use the disc-facing boundary of the body subregion and check against HU, since a filled dip flattens concavity.",
+      "page": "p. 35 (PDF 3)"
+    },
+    {
+      "text": "Expect the caudal endplate of the upper body to be deeper than the cranial endplate of the lower body at every lumbar disc; Inference: use it to confirm cranio-caudal orientation, not as a level marker.",
+      "page": "p. 37 (PDF 5); p. 38 (PDF 6)"
+    },
+    {
+      "text": "Expect caudal-endplate central concavity to rise from about 1.5 mm (L1inf) to about 3.0 mm (L5inf), about 0.3 mm per level; Inference: with SD 0.5-1.0 mm this only shifts odds between upper and lower lumbar; do not expect T12inf shallower than L1inf.",
+      "page": "p. 36 (PDF 4); Fig. 2, p. 37 (PDF 5); p. 38 (PDF 6)"
+    },
+    {
+      "text": "Use the transverse diameter (rising at L3/L4, peak L4inf and L5inf), not the sagittal diameter (flat at 27-28 mm), to separate upper from lower lumbar; Inference: the T/S ratio (about 1.3 upper, 1.5-1.7 at L4inf-L5inf) does it without a size factor.",
+      "page": "p. 38 (PDF 6); Fig. 2, p. 37 (PDF 5)"
+    },
+    {
+      "text": "At the lumbosacral junction expect S1sup narrower than L5inf and the largest wedge (about 15 deg supine, SD about 5); Inference: L4inf and L5inf are too close in width to tell apart, the L4-L5 wedge (9.5 +/- 2) overlaps, and transitional spines are not covered, so check ribs and sacral shape before naming L5-S1.",
+      "page": "Fig. 2, p. 37 (PDF 5); Fig. 3, p. 39 (PDF 7)"
+    },
+    {
+      "text": "Correct diameters for sex (female medians about 9 percent smaller sagittally, 12 percent transversely, computed) but not concavity.",
+      "page": "p. 38 (PDF 6); Table 2, p. 39 (PDF 7)"
+    },
+    {
+      "text": "Add about 0.01 mm per year of age to expected cranial-endplate concavity; do not age-correct the caudal endplate except perhaps its anterior point.",
+      "page": "p. 36 (PDF 4); p. 37 (PDF 5); p. 38 (PDF 6)"
+    },
+    {
+      "text": "Accept a convex endplate point down to about -1.3 mm as normal variation, not a segmentation error.",
+      "page": "p. 36 (PDF 4)"
+    },
+    {
+      "text": "Skip or down-weight fractured, osteoporotic, rotated or laterally tilted vertebrae; treat T12-L1 values with caution.",
+      "page": "p. 34 (PDF 2); p. 38 (PDF 6)"
+    },
+    {
+      "text": "Read Figure 2 magnitudes as concavity: inferior values are printed negative and plotted upward, superior printed positive and plotted downward.",
+      "page": "p. 37 (PDF 5)"
+    },
+    {
+      "text": "Check which meaning 'endplate depth' carries: concavity here, anteroposterior diameter in Table 2 and in Panjabi 1992's EPD (Inference, this set's panjabi1992 note).",
+      "page": "p. 39 (PDF 7)"
+    },
+    {
+      "text": "Inference: on a lateral radiograph take the sagittal diameter and wedge between rim-corner lines, dividing lengths by magnification; take the transverse diameter only from an AP.",
+      "page": "no radiographic method in the paper"
+    },
+    {
+      "text": "Compare a concavity only with values from the same modality and method: inferior depths here run about 1-1.7 mm above Eijkelkamp's MRI/X-ray values at T12inf, L1inf, L4inf, L5inf, and S1sup is about 1.4 here vs about 0 there (bars read approximately).",
+      "page": "Fig. 5, p. 39 (PDF 7); Table 1, p. 34 (PDF 2)"
+    },
+    {
+      "text": "Inference (computed from Fig. 2): expect each lumbar vertebra's caudal endplate to be wider than its cranial one, by about 1-2.5 mm at L1-L3 and L5 and 4.6 mm at L4.",
+      "page": "p. 37 (PDF 5)"
+    },
+    {
+      "text": "Treat wedge angles from supine CT as supine values; Inference: standing or prone positions change them, so use the order (L5-S1 largest, then L4-L5).",
+      "page": "Fig. 3, p. 39 (PDF 7)"
+    }
+  ],
+  "bordercall": [
+    "(a) Anomaly priors: none; no transitional or numbering anomaly is mentioned and level identification is not described. Junction cues without anomalies: L5-S1 wedge largest (about 15 deg supine), S1sup narrower than L5inf, T12inf deeper than L1inf (Figs. 2, 3; pp. 37, 39).",
+    "(b) Measures: Panjabi's EPW/EPD correspond to this paper's transverse/sagittal rim-to-rim chords, which run about 5 mm (width) and 6-8 mm (depth) smaller than Panjabi 1992's outer values (Inference, from this set's panjabi1992 note: EPDu 34.1-35.5, EPDl 35.3-33.2, EPWu 41.2-47.3, EPWl 43.3-49.5); patterns agree, but width/depth ratios here run about 0.04-0.18 higher. A mask's full extent sits closer to Panjabi's; do not pool without an offset.",
+    "(b) Candidate additions: cranial and caudal central concavity per level (caudal deeper, rising L1-L5), disc wedge angle T12-L1 to L5-S1, T/S ratio per endplate, within-vertebra caudal-minus-cranial width (largest at L4); S1sup values for a junction state (generator covers C3-L5). Mask concavity is voxel- and fill-sensitive; paper used 3.13 mm slabs of 0.75 mm sharp-kernel slices.",
+    "(c) Error: CT repeatability SD 0.22 mm; CT vs caliper -0.18 mm, SD 0.66, limits -1.47 to 1.12 mm (pig, outer dimensions); none for concavity or wedge (Inference: use at least 0.66 mm as a floor for a mask concavity). Between-subject SD about 0.5-1.0 mm depth, 2-4 mm diameters, 1.7-3.8 deg wedge (5 at L5-S1).",
+    "(d) Covariates: sex acts on diameters (F/M median ratio about 0.91 sagittal, 0.88 transverse; not significant at S1sup or L5sup sagittal) not on concavity; age +0.01 mm/year on cranial concavity; no height or weight; Dutch hospital patients 21-86 y, ethnicity unstated, 25 endplates per level; cited Tan: smaller dimensions in Chinese Singaporeans."
+  ],
+  "gaps": [
+    "No IDH values despite the title and a defined method; the intervertebral volume appears only as paired depth profiles.",
+    "No account of level identification; nothing on LSTV, rib counts, L6, T13 or block vertebrae.",
+    "25 endplates per position from 77 patients with no per-level patient or sex breakdown; Table 2 subgroup sizes unknown.",
+    "Location variable said to run 1-11 but 12 positions listed (p. 34-35).",
+    "Superior location trend stated for 'points [1] and [5]', which are rim points of zero depth; Inference: [2] and [4] meant (p. 36).",
+    "Superior frontal points said to show no location relation (p. 37) yet the age-and-location table prints location terms for [7], [8], [9] ([7] and [9] near zero); no coefficient p-values given (p. 38).",
+    "Inferior depth said to have no significant age relation (p. 38), yet the inferior [4] equation has +0.008 x age and the results report an age relation at [4] (p. 36).",
+    "S-on-T fits called significant for 8 surfaces, but only 4 meet the paper's p < 0.02; L1inf and L5sup equations do not reproduce their Fig. 2 means (Inference, computed).",
+    "Table 2 titled endplate diameters but labels the sagittal diameter 'depth'.",
+    "Discussion's sagittal range 27.1 (T12inf) to 29.1 (L4inf) differs from Fig. 2 (27.2, 28.8; minimum 26.4 at L5inf).",
+    "Figure 2 prints inferior depths negative and superior positive but plots them the other way.",
+    "Table 1 cites Panjabi ref. 6 (lumbar 1992) for the cervical cortex finding of ref. 7; Fig. 5 caption cites Nissan (ref. 5), whose data are not in Fig. 5; Fig. 5 spells Eijkelkamp 'Eikelkamp'; Hall's shape printed 'cartoid'; Lee's patent reference US2008046082 is dated 2003 (Inference: the number reads as a 2008 publication); Lee's data come from a patent.",
+    "Reference planes set in oblique mode but measurements in orthogonal mode; how points came off the oblique planes is unclear (p. 35).",
+    "Verification on pig bone and outer diameters only; no human, inter-observer, concavity or wedge reliability.",
+    "Spinous process length defined from the anterior wall of the foramen to the anterior point of the spinous process, literally a canal-spanning distance (p. 36); Inference: posterior tip meant.",
+    "Fig. 5's L4inf bars (about 2.7 middle, 2.6 posterior) sit 0.1-0.2 mm above Fig. 2's printed 2.61 and 2.39 (bars read approximately).",
+    "Fig. 5 shows this study's inferior depths 1-1.7 mm above Eijkelkamp's at several levels, not discussed beyond L5-S1.",
+    "Conflict: Eijkelkamp reports a flat S1, this paper a concave S1sup (about 1.4 mm middle). Inference (this set's panjabi1992 note): Panjabi 1992's outer cadaveric morphometer values run 5-8 mm larger than these rim-to-rim CT chords."
+  ]
+}

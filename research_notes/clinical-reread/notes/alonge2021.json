@@ -1,0 +1,177 @@
+{
+  "id": "alonge2021",
+  "citation": "OJ Alonge, AA Adeolu, AB Omololu and OM Atalabi. Lumbar spinal canal dimensions in Nigerians using computed tomography scan. Afr. J. Med. Med. Sci. (2021) 50, 69-76 (no issue number printed). Copy read: publisher's free copy (Afr J Med Med Sci), project files literature/synthetic_spine/alonge2021.pdf, sha256 begins 80d8ad2c4793cfca. Source: thread \"Reread every paper for clinical detail\", project symphony_4, 2026-10-28.",
+  "population": "Nigeria; living adults; 120 abdominal CT examinations from the CT database of Lagoon Hospitals, Lagos, 1 July 2017 to 30 June 2019, taken as 120 patients (Obs 120 in Tables 1-2; whether any patient had two scans is not said): 66 women (55%) and 54 men (45%); Yoruba 51%, Igbo 21%, the rest other or unknown tribes (Inference: about 61 and 25 people); age 18-65 years, mean 40.2 (SD 10.07). Inclusion: Nigerian heritage judged by one native Nigerian name. Exclusion: age < 18 or > 65, degenerative change at the bony landmarks (marginal and posterior osteophytes), spondylolisthesis, spondylodiscitis or other infection, images not clearly showing all lumbar vertebrae; screened and excluded counts not given. Recorded per patient: initials, sex, age, tribe, hospital number; no height or weight. p. 69 (PDF 1), p. 70-71 (PDF 2-3), p. 74 (PDF 6), Tables 1-4 p. 73-74 (PDF 5-6).",
+  "modality": "CT (abdominal scans, sagittal and axial reconstructions side by side with linked reference lines) on the hospital CT workstation, bone window, display magnification 4.00x, electronic cursor, values in mm to 0.1 mm per level; scanner, slice thickness, kernel and pixel size not reported (Inference: Fig. 2's overlay reads like 1.25 mm slice spacing). Apparently one measurer (only the researcher had data access); no reliability study. Statistics in Epi Info 7.2.2.6, test unnamed. p. 71 (PDF 3), p. 72 (PDF 4).",
+  "levels_covered": "L1 to L5 only, each in all 120 patients (600 level measurements per measure); nothing at T12, S1 or the sacrum; how L1 and L5 were identified is not stated.",
+  "anomalies": [
+    {
+      "variant": "lumbosacral transitional vertebra, sacralisation, lumbarisation, L6, T13, rib-count variants, cervical ribs, block vertebrae",
+      "finding": "Not mentioned anywhere. Five lumbar vertebrae are assumed in every patient; no level-counting method is given. Inference: a transitional patient was either numbered by an unstated rule or dropped as not clearly showing all lumbar vertebrae; no prior can be taken from this paper.",
+      "page": "pp. 69-76 (PDF 1-8); exclusion rule p. 70 (PDF 2)",
+      "population": "120 Nigerian adults on abdominal CT",
+      "how_identified": "not stated"
+    },
+    {
+      "variant": "spondylolisthesis",
+      "finding": "Exclusion criterion; its frequency among screened scans is not given.",
+      "page": "p. 70 (PDF 2)",
+      "population": "abdominal CT database, Lagos",
+      "how_identified": "on the CT images; criterion not stated"
+    },
+    {
+      "variant": "developmental (constitutional) lumbar canal narrowing",
+      "finding": "16 of 600 level measurements (2.67%) had APD below 12.3 mm (called 2 SD below the mean; Inference: 15.81 - 2 x 1.98 = 11.85, and 12.3 equals Table 1's minimum per-patient mean); 11 of 600 (1.83%) below Verbiest's 12 mm; none below 10 mm. Denominator is level measurements, not patients; number of patients affected not given. Inference from Table 3 minima: all values below 12 mm lie at L3-L5. Authors call 2.67% twice Eisenstein's 1.3%.",
+      "page": "p. 74 (PDF 6), p. 75 (PDF 7), Table 3 p. 73 (PDF 5)",
+      "population": "120 Nigerian adults, 600 lumbar levels",
+      "how_identified": "mid-sagittal CT APD against a threshold"
+    },
+    {
+      "variant": "canal shape oval or trefoil",
+      "finding": "Oval at L1 and L2, trefoil at L4 and L5; L3 transitional, about two thirds oval and one third trefoil; no other type seen. No counts beyond these fractions and no criterion given.",
+      "page": "p. 74 (PDF 6), p. 75 (PDF 7)",
+      "population": "120 Nigerian adults",
+      "how_identified": "axial CT outline at each level"
+    }
+  ],
+  "measures": [
+    {
+      "name": "Canal anteroposterior diameter (APD)",
+      "definition": "Bony canal midline depth: cursor drawn perpendicular from the posterior border of each vertebra to the lamina on the mid-sagittal cut, the midline confirmed on the linked axial view at each level. Inference from Fig. 1: at about the body's mid-height, not at the disc.",
+      "projection": "CT mid-sagittal reconstruction, cross-checked on axial; bone window, 4.00x display",
+      "page": "p. 71 (PDF 3), Fig. 1 p. 71 (PDF 3); Tables 1 and 3 p. 73 (PDF 5)",
+      "levels": "L1-L5",
+      "level_pattern": "Shallow V with floor at L3 in both sexes (Table 3). Women (n 66): L1 16.16 (SD 1.95), L2 15.82 (1.87), L3 15.25 (2.39), L4 16.00 (2.82), L5 16.45 (3.40). Men (n 54): L1 16.43 (1.32), L2 15.42 (1.48), L3 14.92 (1.68), L4 15.40 (2.07), L5 16.12 (2.61). Ranges: women 11.20 (L5) to 29.20 (L5), men 11.10 (L3) to 24.40 (L5). Inference: pooled means 16.28, 15.64, 15.10, 15.73, 16.30, pooled SDs 1.69, 1.71, 2.10, 2.51, 3.06; adjacent steps 0.5-0.7 mm (0.2-0.4 SD): does not separate adjacent levels. Per-patient mean of L1-L5: 15.81 (SD 1.98), range 12.30-26.5 (Table 1).",
+      "covariates": "No sex difference: women 15.94 (SD 2.28), men 15.66 (SD 1.53), p 0.4429 (Table 1); Inference: Welch t per level |t| <= 1.4. Women's SDs larger at every level. Age and size not analysed, no height or weight. 15.8 mm against Eisenstein's 16 mm for Caucasians and Togolese CT 15.41 +/- 0.55 (p. 75, PDF 7).",
+      "error": "No intra- or inter-observer data or repeat measurement; recorded to 0.1 mm per level.",
+      "ct_mask_recipe": "Inference: in the instance's mid-sagittal plane at the craniocaudal mid-height of the body subregion, the empty gap from the posterior surface of the body to the anterior surface of the posterior-element subregion (lamina or spinolaminar junction), perpendicular to the posterior wall; without subregions, the midline AP extent of the filled canal hole. Bony canal, not dural sac.",
+      "radiograph_recipe": "Not addressed by the paper. Inference: lateral radiograph, posterior body wall to the lamina or spinolaminar line, magnified by unknown geometry unless calibrated; the lumbar lamina is harder to see than the cervical."
+    },
+    {
+      "name": "Canal transverse diameter (TD)",
+      "definition": "Interpedicular distance between the inner (medial) borders of the pedicles on the axial cut at the point of maximum pedicle width.",
+      "projection": "CT axial",
+      "page": "p. 71 (PDF 3), p. 75 (PDF 7), Fig. 2 p. 72 (PDF 4); Table 2 p. 73 (PDF 5), Table 4 p. 74 (PDF 6)",
+      "levels": "L1-L5",
+      "level_pattern": "Rises monotonically from L1 (narrowest) to L5 (widest) in both sexes. Women: L1 21.75 (SD 1.88), L2 22.36 (1.86), L3 23.78 (2.10), L4 26.47 (2.99), L5 31.42 (4.00). Men: L1 23.33 (1.90), L2 23.62 (1.97), L3 25.08 (2.16), L4 27.65 (3.01), L5 33.50 (4.62). Ranges: women 17.00 (L1) to 41.40 (L5); men 19.30 (L1, L2) to 45.90 (L5). Inference: pooled 22.46, 22.93, 24.37, 27.00, 32.36 (SD 2.05, 2.01, 2.21, 3.05, 4.40); steps L1-L2 +0.5 (0.2 SD), L2-L3 +1.4 (0.7 SD), L3-L4 +2.6 (1.0 SD), L4-L5 +5.4 (1.4 SD). Per-patient mean 25.82 (SD 2.44), range 20.06-32.58 (Table 2).",
+      "covariates": "Men wider: per-patient 26.64 (SD 2.38) against 25.16 (SD 2.29), p 0.0007 (Table 2); per level +1.2 to +2.1 mm; text says significant at L1-L3 only (p. 73, PDF 5), but Inference: Welch t gives p about 0.03 at L4 and 0.01 at L5. Wider than Togolese CT 23.27 +/- 1.67 (range 13.68-33.68), attributed to the Togolese study not stating the pedicle slice (p. 75, PDF 7).",
+      "error": "None reported. The authors name the choice of pedicle slice as a source of disagreement between studies (p. 75, PDF 7). Inference: largest variation at L5.",
+      "ct_mask_recipe": "Inference: slices perpendicular to the instance's craniocaudal axis through the pedicle span; choose the slice of maximum pedicle width; measure along the left-right axis between the medial surfaces of the two pedicles (or the left-right width of the filled canal hole at that slice).",
+      "radiograph_recipe": "Not addressed by the paper. Inference: AP radiograph, interpedicular distance between medial pedicle cortices, magnified; not from a lateral."
+    },
+    {
+      "name": "Vertebral body anteroposterior diameter (VAPD)",
+      "definition": "AP depth of the vertebral body on the mid-sagittal cut at the same level as the APD. Inference from Fig. 3: anterior to posterior cortex at about mid-height.",
+      "projection": "CT mid-sagittal",
+      "page": "p. 71 (PDF 3), Fig. 3 p. 72 (PDF 4)",
+      "levels": "L1-L5",
+      "level_pattern": "No values printed. Inference: APD/Torg from pooled means gives about 23.3, 24.4, 26.0, 27.1, 28.1 mm L1-L5 (rough, ratio of means).",
+      "covariates": "Not reported.",
+      "error": "Not reported.",
+      "ct_mask_recipe": "Inference: AP extent of the body subregion in its mid-sagittal plane at mid-height between the end-plates.",
+      "radiograph_recipe": "Inference: lateral radiograph, mid-body AP depth, magnified like the APD."
+    },
+    {
+      "name": "Vertebral Torg ratio (APD/VAPD)",
+      "definition": "Canal APD divided by VAPD at the same level.",
+      "projection": "CT mid-sagittal",
+      "page": "p. 69 (PDF 1), p. 71 (PDF 3), p. 73-74 (PDF 5-6)",
+      "levels": "L1-L5",
+      "level_pattern": "Mean 0.62; L1 0.70, L2 0.64, L3 0.58, L4 0.58, L5 0.58: falls L1-L3 then flat; separates L1, L2, L3 but not L3-L5. Text says it rises after L3 while printing 0.58 throughout. No SD, sex split or table.",
+      "covariates": "Not reported.",
+      "error": "Not reported.",
+      "ct_mask_recipe": "Ratio of the APD and VAPD mask measures.",
+      "radiograph_recipe": "Inference: both terms lie in one lateral projection at one magnification, so the ratio is magnification-free on a lateral radiograph or fluoroscopic frame where the lamina is seen; the paper measured it only on CT and gives no stenosis threshold for it."
+    },
+    {
+      "name": "Canal shape (oval or trefoil)",
+      "definition": "Axial outline of the canal at each level, recorded as oval or trefoil (central canal plus two lateral recesses); no separating criterion given.",
+      "projection": "CT axial",
+      "page": "p. 70 (PDF 2), p. 71 (PDF 3), p. 74-75 (PDF 6-7)",
+      "levels": "L1-L5",
+      "level_pattern": "Oval L1-L2, trefoil L4-L5, L3 about two thirds oval and one third trefoil; only these two types seen, unlike a Turkish study with three types and sub-variants.",
+      "covariates": "Not reported.",
+      "error": "Not reported.",
+      "ct_mask_recipe": "Inference: fill the canal hole on the axial slice at the pedicle level and test for posterolateral recess lobes (three-lobed outline) against a convex oval.",
+      "radiograph_recipe": "Not possible from a radiograph (axial property). Inference."
+    },
+    {
+      "name": "VTD (labelled only)",
+      "definition": "A line labelled VTD across the posterior part of the vertebral body in the axial image of Fig. 2; never defined in the text and no value reported. Inference: vertebral body transverse diameter.",
+      "projection": "CT axial",
+      "page": "Fig. 2 p. 72 (PDF 4)",
+      "levels": "not stated",
+      "level_pattern": "No values.",
+      "covariates": "None.",
+      "error": "None.",
+      "ct_mask_recipe": "Inference: left-right width of the body subregion at the pedicle slice.",
+      "radiograph_recipe": "Inference: AP radiograph body width, magnified."
+    }
+  ],
+  "level_details": [
+    {"level": "L1", "detail": "Widest APD in men (16.43 mm; text 16.4); narrowest TD in both sexes (women 21.75, men 23.33); Torg 0.70, the highest; oval.", "page": "p. 73-74 (PDF 5-6), Tables 3-4"},
+    {"level": "L2", "detail": "APD women 15.82, men 15.42; TD women 22.36, men 23.62; Torg 0.64; oval.", "page": "Tables 3-4, p. 73-74 (PDF 5-6)"},
+    {"level": "L3", "detail": "Narrowest APD in both sexes, Table 3 women 15.25, men 14.92 (text swaps the sexes); lowest single value in the table (men 11.10); women's L3 minimum 11.90; Torg 0.58; shape mixed, about 2/3 oval, 1/3 trefoil; TD women 23.78, men 25.08.", "page": "p. 73-74 (PDF 5-6)"},
+    {"level": "L4", "detail": "APD women 16.00, men 15.40; TD women 26.47, men 27.65; Torg 0.58; trefoil. L4/L5 named the commonest site of lumbar stenosis (citing ref 8).", "page": "p. 70 (PDF 2), Tables 3-4"},
+    {"level": "L5", "detail": "Widest APD in women (16.45; text 16.5) and widest TD in both sexes (women 31.42, men 33.50); largest spread (APD women SD 3.40, range 11.20-29.20; TD SD 4.00 and 4.62, up to 45.90); Torg 0.58; trefoil.", "page": "p. 73-74 (PDF 5-6)"},
+    {"level": "L1-L5 pattern", "detail": "APD falls L1 to L3 and rises to L5, as also reported by Amonoo-Kuofi (Nigerian), Azu (South African) and Kang (Korean PET/CT); Eisenstein's dry bone (Caucasian and Negroid) narrowest at L2 and L4, Sudanese MRI decreasing L1 to L5, Indian MRI narrowest at L4.", "page": "p. 75 (PDF 7)"},
+    {"level": "T12/L1 and L5/S1 junctions", "detail": "Nothing said about either junction or the sacrum.", "page": "pp. 69-76 (PDF 1-8)"}
+  ],
+  "errors": [
+    {"what": "intra- and inter-observer reliability", "value": "not reported; apparently a single measurer (only the researcher had data access)", "page": "p. 71 (PDF 3)"},
+    {"what": "instrument resolution and display", "value": "workstation cursor, 4.00x display magnification, bone window; values to 0.1 mm per level; slice thickness and pixel size not reported", "page": "p. 71 (PDF 3), Table 3 p. 73 (PDF 5)"},
+    {"what": "definitional error in TD", "value": "authors attribute the gap to the Togolese TD (25.82 against 23.27 mm) to the unstated pedicle slice in that study", "page": "p. 75 (PDF 7)"},
+    {"what": "per-level SDs (population spread plus error, not error alone)", "value": "APD 1.32-3.40 mm, TD 1.86-4.62 mm", "page": "Tables 3-4, p. 73-74 (PDF 5-6)"}
+  ],
+  "pearls_pitfalls": [
+    {"text": "The lumbar canal holds the end of the cord and the cauda equina; oval over most of its span, trefoil in lower segments in some series; a narrow lateral recess of the trefoil canal is implicated in stenosis, though the central canal appears more involved.", "page": "p. 70 (PDF 2)"},
+    {"text": "The midline AP diameter is the most important and most commonly implicated dimension in stenosis (citing Eisenstein).", "page": "p. 70 (PDF 2)"},
+    {"text": "Stenosis is developmental (congenital, young adults, less common) or degenerative (middle and old age); the syndrome is low back ache, bilateral leg pain, numbness, weakness and neurogenic claudication, which the authors call fairly specific; commonest site L4/L5.", "page": "p. 70 (PDF 2)"},
+    {"text": "In congenital stenosis the AP and transverse diameters and canal area are smaller and so are body width and pedicle length at all lumbar levels (citing Singh 2005); such patients have more degenerative disease.", "page": "p. 70 (PDF 2)"},
+    {"text": "No agreed radiological criterion of stenosis: a systematic review found up to 10.", "page": "p. 70 (PDF 2)"},
+    {"text": "Verbiest's Caucasian-derived thresholds: APD range 15-27 mm, < 12 mm evidence of stenosis, < 10 mm definite; here 11/600 level measurements < 12 mm and none < 10 mm.", "page": "p. 70 (PDF 2), p. 74-75 (PDF 6-7)"},
+    {"text": "Reference values are largely Caucasian and the canal is marginally smaller in black people, so surgeons lack consensus on narrowing in people of black heritage; 2.67% developmental narrowing is twice Eisenstein's 1.3%.", "page": "p. 69-70 (PDF 1-2), p. 75 (PDF 7)"},
+    {"text": "Pitfall: TD depends on which pedicle slice is used; state the slice (maximum pedicle width).", "page": "p. 75 (PDF 7)"},
+    {"text": "Pitfall: abdominal CT patients may also have back pain, though few from stenosis; lumbar abnormalities including marginal and posterior osteophytes were excluded; abdominal CT has served as controls in an East African stenosis study, and closeness to the Togolese APD is taken as support for the method.", "page": "p. 74 (PDF 6)"},
+    {"text": "Pitfall: radiation limits CT normative studies on asymptomatic people (60 adults in one cited Caucasian study, 34 and 39 in two others); the Togolese study scanned 500 asymptomatic people prospectively, which the authors call an ethical concern.", "page": "p. 74 (PDF 6)"},
+    {"text": "Pitfall: sample too small to separate Nigeria's three main, phenotypically distinct ethnic groups; regional differences within a country have been reported.", "page": "p. 75 (PDF 7)"},
+    {"text": "Cohort is older (mean 40.2) and has fewer men (45%) than the Togolese CT study (mean 38, 54% men, n 500) and the Sudanese MRI study (20-28 years, 57% men, n 128).", "page": "p. 74-75 (PDF 6-7)"}
+  ],
+  "instructions": [
+    {"text": "Measure the canal AP diameter in the true mid-sagittal plane of each lumbar vertebra, confirming the midline on axial, perpendicular from the posterior border of the vertebra to the lamina, at each vertebral level (Inference from Fig. 1: at about mid-body height, not at the disc).", "page": "p. 71 (PDF 3), Fig. 1"},
+    {"text": "Measure the canal transverse diameter on the axial slice of maximum pedicle width between the medial pedicle cortices, and always record the slice rule.", "page": "p. 71 (PDF 3), p. 75 (PDF 7)"},
+    {"text": "Use the transverse diameter to place the lower lumbar levels: pooled means rise from about 22.5 mm at L1 to about 32 mm at L5 with the largest step (about 5 mm) at L4-L5; treat it as weak evidence between L1 and L2 (about 0.5 mm apart).", "page": "Table 4, p. 74 (PDF 6)"},
+    {"text": "Do not use the canal AP diameter to tell adjacent lumbar levels apart: per-level means span about 1.2 mm in women and 1.5 mm in men (floor at L3) against SDs of 1.3-3.4 mm.", "page": "Table 3, p. 73 (PDF 5)"},
+    {"text": "Use the APD/VAPD (vertebral Torg) ratio as a level cue: 0.70 L1, 0.64 L2, 0.58 L3-L5; it separates L1, L2 and L3 only, no SD given. Inference: it should carry over to lateral radiographs and fluoroscopy as a magnification-free ratio where the lamina is visible.", "page": "p. 73-74 (PDF 5-6)"},
+    {"text": "Read the axial canal outline: oval suggests L1-L2, trefoil L4-L5, L3 either (about two thirds oval).", "page": "p. 74 (PDF 6)"},
+    {"text": "Condition transverse-diameter priors on sex (men 1.2-2.1 mm wider per level); do not condition the AP diameter on sex.", "page": "Tables 2-4, p. 73-74 (PDF 5-6)"},
+    {"text": "Flag APD < 12 mm as developmental narrowing and < 10 mm as definite stenosis (Verbiest); expect about 1.8% of lumbar levels below 12 mm in Nigerian adults and none below 10 mm (Inference from Table 3 minima: only at L3-L5).", "page": "p. 70 (PDF 2), p. 74-75 (PDF 6-7)"},
+    {"text": "Do not flag a wide L5 interpedicular distance as abnormal on its own: L5 TD reached 41.4 mm in women and 45.9 mm in men (SD 4.0 and 4.6).", "page": "Table 4, p. 74 (PDF 6)"},
+    {"text": "Check for spondylolisthesis, osteophytes at the landmarks and infection before measuring; this paper excluded them, so treat such levels apart from normal anatomy.", "page": "p. 70 (PDF 2), p. 74 (PDF 6)"},
+    {"text": "Never compare a per-patient L1-L5 average (Tables 1-2) with a per-level value (Tables 3-4) or a per-level threshold.", "page": "p. 73 (PDF 5)"},
+    {"text": "Against Caucasian norms, expect a marginally smaller AP canal in Nigerian adults (mean 15.8, SD 2.0 against 16 mm); do not read 15 mm as narrow.", "page": "p. 70 (PDF 2), p. 73 (PDF 5), p. 75 (PDF 7)"},
+    {"text": "Do not take this paper's level labels as checked for transitional anatomy; confirm the count (ribs, sacrum) yourself before applying its per-level values.", "page": "p. 70-71 (PDF 2-3)"}
+  ],
+  "bordercall": [
+    "(a) Anomaly priors: none. No LSTV, L6, T13, rib-count or block-vertebra prevalence and no numbering method; spondylolisthesis excluded without a count. Counted level-dependent variants: canal shape (L1-L2 oval, L3 about 1/3 trefoil, L4-L5 trefoil) and developmental narrowing (11/600 level measurements < 12 mm, 16/600 < 12.3 mm).",
+    "(b) Canal depth: APD is bony mid-sagittal depth from the posterior body wall to the lamina at the vertebral level, living CT. Inference (this set's Panjabi 1992 note): Panjabi's SCD has the same L3 floor (19.0, 18.2, 17.5, 18.6, 19.7) but is 2.4-3.4 mm deeper at every level; check the posterior landmark and the height of the line before pooling.",
+    "(b) Canal width: TD is the interpedicular distance at the slice of maximum pedicle width. Inference: Panjabi's SCW rises only 23.7 to 27.1 mm L1-L5 against 22.5 to 32.4 here, and his width/depth ratio is 1.25-1.39 against 1.38-1.98 here (TD/APD pooled 1.38, 1.47, 1.61, 1.72, 1.98); the L4-L5 values should not enter the generator until the slice rule, cadaver against living CT and population are settled. A mask width at mid-pedicle may be smaller at L5 than this table.",
+    "(b) Candidate additions: APD/VAPD ratio (0.70, 0.64, 0.58, 0.58, 0.58) as a size-free lateral feature for radiographs and fluoroscopy (spread from elsewhere, no SD here); canal shape as a categorical feature by level; TD/APD as a CT shape index.",
+    "(c) Measurement error: none; no reliability data. Per-level SDs (APD 1.3-3.4 mm, TD 1.9-4.6 mm) are population spread plus error; recorded to 0.1 mm at 4.00x display.",
+    "(d) Covariates: sex acts on TD (+1.2 to +2.1 mm per level in men, per-patient p 0.0007) but not APD (p 0.4429); age 18-65 (mean 40.2) not analysed; no height or weight recorded, so no size factor; population Nigerian adults in Lagos (51% Yoruba, 21% Igbo), APD close to Togolese CT (15.41) and marginally below Caucasian 16 mm, TD wider than Togolese (23.27)."
+  ],
+  "gaps": [
+    "Text against table at L3: the text (p. 73, PDF 5) gives the narrowest APD as 15.3 mm in males and 14.9 mm in females; Table 3 gives women 15.2515 and men 14.9204. The table is internally consistent (totals / n give the means; per-level totals average to Table 1 exactly), so the text swaps the sexes: men are narrower at L3.",
+    "Text says TD is significantly wider in men at L1-L3 but not at L4-L5 without per-level tests; Inference: Welch t from Table 4 gives p about 0.03 at L4 and 0.01 at L5.",
+    "Torg ratio text says it rises after L3 while printing 0.58 at L3, L4 and L5; no VAPD values, no SD and no sex split for VAPD, ratio or shape, although the methods say means were cross-tabulated by sex.",
+    "The 12.3 mm cut-off is called 2 SD below the mean, but 15.81 - 2 x 1.98 = 11.85; Inference: 12.3 is Table 1's minimum per-patient mean. The 2.67% counts level measurements (16/600), not people. Inference (this set's Eisenstein 1977 note): Eisenstein's 1.3% is also per vertebra (28 vertebrae in 21 skeletons, 4.7% of skeletons) but against each group's own lower limit, so the thresholds differ.",
+    "'APD ranged from 12.3 to 26.5 mm' (p. 73, PDF 5) is the range of per-patient means; single-level values span 11.10-29.20 mm (Table 3).",
+    "Modes for continuous data in Tables 1-4 are meaningless (male TD mode equals its maximum, 32.58).",
+    "Table 4 men's L3 TD median 23.70 sits 1.4 mm below its mean 25.08 and repeats the men's L2 median; Inference: likely transcription error.",
+    "Fig. 2's VTD is never defined or reported; the methods promise pie charts that are not printed.",
+    "The authors say they lack the comparison studies' SDs yet print Togolese 15.41 +/- 0.55 and 23.27 +/- 1.67, meaning unstated.",
+    "No level-counting method, no transitional anomaly handling, no exclusion counts, no scanner or slice parameters, no reliability study, no body size, no age analysis, no criterion for oval against trefoil.",
+    "The first page has a foot folio of 88 although the running header gives pp. 69-76; pages cited by the header numbering.",
+    "Inference (this set's Hinck 1966 note): the caudal rise of the interpedicular distance matches Hinck's adult radiographic IPD in shape (L1 25.0 to L5 29.7 mm, magnified) but is steeper here (22.5 to 32.4)."
+  ]
+}

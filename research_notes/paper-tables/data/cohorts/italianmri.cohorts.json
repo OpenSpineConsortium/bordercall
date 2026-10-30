@@ -1,0 +1,310 @@
+{
+  "paper": "italianmri",
+  "cohorts": [
+    {
+      "cohort": "campobasso_604",
+      "labels": [
+        "all",
+        "male",
+        "female",
+        "not stated"
+      ],
+      "tables": [
+        "Table 1",
+        "Table 2",
+        "Table 3",
+        "Table 4",
+        "Table 5",
+        "Table 6",
+        "Text: Abstract",
+        "Text: Introduction",
+        "Text: Materials and Methods",
+        "Text: Results",
+        "Text: Discussion"
+      ],
+      "subjects": "Living adult patients whose lumbosacral MRI scans, made January 2007 to July 2012, were selected from all adults referred for lumbosacral MRI to the Department of Radiology, Fondazione di Ricerca e Cura 'Giovanni Paolo II', Universita Cattolica del Sacro Cuore, Campobasso, Italy; the abstract calls them prospectively enrolled, the methods selected. All from Central and Southern Italy and printed as of the same Caucasian race; called nonsymptomatic and free of known diseases. Excluded (Table 1): age under 20 or over 45; neurogenic claudication; severe, constant lumbosacral pain radiating to the legs; congenital diseases; oncological or haematological disease; previous spinal surgery or trauma; a lumbosacral transitional vertebra or other spinal abnormality on MRI; vertebral body scalloping; degenerative arthrosis on MRI; inflammatory, immunological or connective tissue disorders; chronic drug therapy; early menopause with osteopenia risk; any qualitative suspicion of stenosis or dural ectasia on the sagittal T1 and T2 images. Numbers screened and excluded not given. Weight and height were recorded but not reported.",
+      "n_people": 604,
+      "n_units": "604 lumbosacral MRI studies, six levels each (L1 to S1), one value per measure per level",
+      "ages": "20 to 45 years by selection; mean and distribution not reported",
+      "sexes": "302 male, 302 female",
+      "page": "p. 2 (PDF 2); Table 1 p. 2 (PDF 2); counts in the headings of Tables 2-6, p. 4-6 (PDF 4-6)"
+    },
+    {
+      "cohort": "figure2_man",
+      "labels": [
+        "Figure 2 asymptomatic man"
+      ],
+      "tables": [
+        "Figure 2"
+      ],
+      "subjects": "One asymptomatic man whose sagittal T1 MRI illustrates the three measurements; whether he is one of the 604 is not stated",
+      "n_people": 1,
+      "n_units": "1 lumbosacral MRI, six levels L1 to S1, VBD, SCD and DSD each",
+      "ages": "30 years",
+      "sexes": "male",
+      "page": "p. 3 (PDF 3)"
+    },
+    {
+      "cohort": "figure5_normal",
+      "labels": [
+        "asymptomatic patient, Figure 5a-b"
+      ],
+      "tables": [
+        "Figure 5"
+      ],
+      "subjects": "One asymptomatic patient with normal canal values, shown for comparison with the stenosis case; whether one of the 604 is not stated",
+      "n_people": 1,
+      "n_units": "1 lumbosacral MRI (T2 and T1 sagittal), SCD at six levels L1 to S1",
+      "ages": "32 years",
+      "sexes": "not stated",
+      "page": "p. 5 (PDF 5)"
+    },
+    {
+      "cohort": "figure5_stenosis",
+      "labels": [
+        "congenital stenosis patient, Figure 5c-d"
+      ],
+      "tables": [
+        "Figure 5",
+        "Text: Results"
+      ],
+      "subjects": "One patient with chronic low back pain, clinical signs of neurogenic claudication, early degenerative change and congenital stenosis of the canal. Inference: not one of the 604, since neurogenic claudication is an exclusion criterion (Table 1)",
+      "n_people": 1,
+      "n_units": "1 lumbosacral MRI (T2 and T1 sagittal), SCD at six levels L1 to S1",
+      "ages": "32 years",
+      "sexes": "not stated",
+      "page": "p. 3-5 (PDF 3-5)"
+    },
+    {
+      "cohort": "oosterhof_normals",
+      "labels": [
+        "all",
+        "male",
+        "female",
+        "not stated"
+      ],
+      "tables": [
+        "Table 6",
+        "Text: Discussion"
+      ],
+      "subjects": "Quoted from Oosterhof et al. [8]: normal subjects whose lumbosacral MRI gave DSR cutoffs; rows carry source_of_values Oosterhof et al. [8]",
+      "n_people": 44,
+      "n_units": "44 subjects",
+      "ages": "not given (the cutoffs are applied to young adults)",
+      "sexes": "29 male, 15 female",
+      "page": "p. 5-6 (PDF 5-6); Table 6 p. 6 (PDF 6)"
+    },
+    {
+      "cohort": "lundby_subjects",
+      "labels": [
+        "all",
+        "male",
+        "female",
+        "not stated",
+        "control"
+      ],
+      "tables": [
+        "Table 6",
+        "Text: Discussion"
+      ],
+      "subjects": "Quoted from Lundby et al. [25] (a case-control study of dural ectasia in Marfan syndrome, per the reference title); the 101 of Table 6 and its control group are not described further; rows carry source_of_values Lundby et al. [25]",
+      "n_people": 101,
+      "n_units": "101 subjects",
+      "ages": "not given",
+      "sexes": "64 male, 37 female",
+      "page": "p. 6 (PDF 6)"
+    },
+    {
+      "cohort": "weigang_patients",
+      "labels": [
+        "Marfan",
+        "without Marfan"
+      ],
+      "tables": [
+        "Text: Discussion"
+      ],
+      "subjects": "Quoted from Weigang et al. [26]: patients with and without Marfan syndrome",
+      "n_people": null,
+      "n_units": "not given",
+      "ages": "not given",
+      "sexes": "not given",
+      "page": "p. 6 (PDF 6)"
+    },
+    {
+      "cohort": "knirsch_children",
+      "labels": [
+        "children"
+      ],
+      "tables": [
+        "Text: Discussion"
+      ],
+      "subjects": "Quoted from ref [27] (Knirsch et al.): healthy children, source of the fall of DSR with growth",
+      "n_people": null,
+      "n_units": "not given",
+      "ages": "children; not given further",
+      "sexes": "not given",
+      "page": "p. 6 (PDF 6)"
+    },
+    {
+      "cohort": "canal_literature",
+      "labels": [
+        "not stated"
+      ],
+      "tables": [
+        "Text: Discussion"
+      ],
+      "subjects": "Quoted from refs [12-19]: anatomical specimens, X-rays, CT and MRI studies of the minimum sagittal canal diameter, and the Delphi survey of Mamisch et al. [12] for the 12 mm threshold; no subjects described",
+      "n_people": null,
+      "n_units": "not given",
+      "ages": "not given",
+      "sexes": "not given",
+      "page": "p. 5 (PDF 5)"
+    }
+  ],
+  "techniques": [
+    {
+      "technique": "sagittal_mri",
+      "cohorts": [
+        "campobasso_604",
+        "figure2_man",
+        "figure5_normal",
+        "figure5_stenosis"
+      ],
+      "modality": "MRI",
+      "instrument": "GE Signa Excite HD 1.5 T; sagittal T1-weighted (TR/TE 420/8 ms) and T2-weighted (2700/102 ms) fast spin echo; slice 4 mm, spacing 0.4 mm, matrix 384 x 224, field of view 320 x 320 mm, 4 excitations; the measuring tool is not named (Inference: on-screen electronic calipers, the figures print values to 0.01 mm with decimal commas)",
+      "how": "On sagittal images, at each level L1 to S1 at the vertebral body, not the disc: SCD perpendicular to the canal's long axis from the middle third of the posterior body wall to the front edge of the lamina at the base of the spinous process; DSD, the AP width of the dural sac, along the same line; VBD, the AP width of the body (soma) at the same height. DSR = DSD / VBD per level, and the ratio of S1 DSD to L4 DSD. T1 and T2 were read together to separate the anterior epidural fat from the ventral sac surface; at S1 the lines follow the sacral inclination (Figure 2). Normal limits are mean +/- 1.96 SD per sex and level (called a 95% CI). How levels were counted is not stated.",
+      "magnification": "not applicable: MRI distances in mm from the scanner image; no correction discussed",
+      "observers": "three radiologists (AP, EC, MC), each with more than 10 years in musculoskeletal radiology and neuroradiology; how cases were shared among them or combined is not stated, and no reliability statistic is given",
+      "page": "p. 2-3 (PDF 2-3); Figures 1-2 p. 3 (PDF 3)"
+    },
+    {
+      "technique": "oosterhof_dsr_mri",
+      "cohorts": [
+        "oosterhof_normals"
+      ],
+      "modality": "MRI",
+      "instrument": "not stated in this paper",
+      "how": "DSR on MRI of the lumbosacral spine, per-level cutoffs with the sexes pooled (Table 6)",
+      "magnification": "not applicable",
+      "observers": "not stated",
+      "page": "p. 5-6 (PDF 5-6)"
+    },
+    {
+      "technique": "lundby_dsr",
+      "cohorts": [
+        "lundby_subjects"
+      ],
+      "modality": "other",
+      "instrument": "not stated in this paper",
+      "how": "DSR criteria for dural ectasia, an S1 DSR cutoff, and the maximum S1 versus L4 sac diameter",
+      "magnification": "not stated",
+      "observers": "not stated",
+      "page": "p. 6 (PDF 6)"
+    },
+    {
+      "technique": "weigang_oosterhof_method",
+      "cohorts": [
+        "weigang_patients"
+      ],
+      "modality": "MRI",
+      "instrument": "Oosterhof's method, which this paper describes as lumbosacral MRI",
+      "how": "dural ectasia criteria by Oosterhof's DSR method",
+      "magnification": "not applicable",
+      "observers": "not stated",
+      "page": "p. 6 (PDF 6)"
+    },
+    {
+      "technique": "knirsch_mri",
+      "cohorts": [
+        "knirsch_children"
+      ],
+      "modality": "MRI",
+      "instrument": "MRI per the reference title of [27]; not described in the text",
+      "how": "sagittal diameters of vertebral body and dural sac in children, giving DSR by age",
+      "magnification": "not applicable",
+      "observers": "not stated",
+      "page": "p. 6-7 (PDF 6-7)"
+    },
+    {
+      "technique": "canal_literature_mixed",
+      "cohorts": [
+        "canal_literature"
+      ],
+      "modality": "other",
+      "instrument": "anatomical specimens, X-rays, CT and MRI across refs [12-19]; a Delphi survey for [12]",
+      "how": "minimum sagittal diameter of the bony canal; a generic 12 mm threshold for congenital stenosis",
+      "magnification": "not stated",
+      "observers": "not stated",
+      "page": "p. 5 (PDF 5)"
+    }
+  ],
+  "shared": [
+    {
+      "with": "Oosterhof et al. 2001, Radiology [8]",
+      "what": "values quoted",
+      "evidence": "Table 6 sets Oosterhof's per-level DSR cutoffs (44 subjects) beside this study's; the Discussion quotes its S1 0.57 and L3 0.47 thresholds",
+      "page": "p. 5-6 (PDF 5-6)"
+    },
+    {
+      "with": "Oosterhof et al. 2001, Radiology [8]",
+      "what": "method",
+      "evidence": "the DSR this paper computes is introduced with a citation to [8] (p. 2), and Table 6 and the Discussion set Oosterhof's per-level cutoffs against this paper's and apply them to its own subjects, flagging 30, 36, 49, 34, 30 and 18 percent at L1 to S1 (p. 6); the paper does not say its landmarks follow Oosterhof's",
+      "page": "p. 2 and p. 6 (PDF 2, 6)"
+    },
+    {
+      "with": "Lundby et al. 2009, AJNR [25]",
+      "what": "values quoted",
+      "evidence": "Table 6 quotes Lundby's S1 DSR cutoff 0.59 and sample (101); the Discussion quotes 12 and 19 percent and 5 percent of controls",
+      "page": "p. 6 (PDF 6)"
+    },
+    {
+      "with": "Weigang et al. 2006, Clin Radiol [26]",
+      "what": "values quoted",
+      "evidence": "94 percent of Marfan and 44 percent of non-Marfan patients met the criteria by Oosterhof's method",
+      "page": "p. 6 (PDF 6)"
+    },
+    {
+      "with": "Knirsch et al. 2005, Pediatr Radiol [27]",
+      "what": "values quoted",
+      "evidence": "DSR in healthy children falls about 10 percent every 3 years",
+      "page": "p. 6 (PDF 6)"
+    },
+    {
+      "with": "Habermann et al. 2005, Radiology [28]",
+      "what": "method",
+      "evidence": "the S1-wider-than-L4 sac criterion of dural ectasia is the reason for the S1/L4 DSD ratio test",
+      "page": "p. 2 and p. 6 (PDF 2, 6)"
+    },
+    {
+      "with": "Mamisch et al. 2012, Delphi survey, Radiology [12]",
+      "what": "method",
+      "evidence": "the Delphi survey recommends the AP canal diameter, the measure this paper uses; it also gives the generic 12 mm threshold",
+      "page": "p. 5 (PDF 5)"
+    },
+    {
+      "with": "Mamisch et al. 2012, Delphi survey, Radiology [12]",
+      "what": "values quoted",
+      "evidence": "a sagittal canal diameter below 12 mm defines congenital stenosis",
+      "page": "p. 5 (PDF 5)"
+    },
+    {
+      "with": "Eisenstein 1977, J Bone Joint Surg Br [13] (eisenstein1977), one of refs [12-19]",
+      "what": "values quoted",
+      "evidence": "the 8 to 15 mm range of minimum sagittal canal diameters is cited to refs 12-19, Eisenstein's among them",
+      "page": "p. 5 (PDF 5)"
+    },
+    {
+      "with": "Gepstein et al. 1991, Surg Radiol Anat [23]",
+      "what": "method",
+      "evidence": "AP diameter correlating with canal area is taken to justify the AP diameter as the size measure",
+      "page": "p. 5 (PDF 5)"
+    },
+    {
+      "with": "Mitra et al. 2002, Spine [30] (mitra2002)",
+      "what": "comparison only (no subjects, method or values shared or quoted)",
+      "evidence": "cited with Marasini [31] only to say Indian and Nepalese pedicles differ from Caucasian ones",
+      "page": "p. 6 (PDF 6)"
+    }
+  ],
+  "within_paper": "Tables 2 to 6 and the text values are all of the same 604 subjects, one sagittal MRI study each; the DSR of Table 5 is computed per subject from the DSD of Table 4 and the VBD of Table 3, and Table 6 repeats Table 5's cutoffs (p. 2, p. 4-6, PDF 2, 4-6). Whether the 30-year-old man of Figure 2 and the asymptomatic 32-year-old of Figure 5 are among the 604 is not stated (p. 3, p. 5). Inference: the Figure 5 stenosis patient is not, since neurogenic claudication excluded subjects (Table 1, p. 2). Whether any subject was measured by more than one of the three readers is not stated (p. 2)."
+}

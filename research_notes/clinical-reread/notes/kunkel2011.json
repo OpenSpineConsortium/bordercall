@@ -1,0 +1,213 @@
+{
+  "id": "kunkel2011",
+  "citation": "Maria E. Kunkel, Andrea Herkommer, Michael Reinehr, Tobias M. Boeckers and Hans-Joachim Wilke. Morphometric analysis of the relationships between intervertebral disc and vertebral body heights: an anatomical and radiographic study of the human thoracic spine. J. Anat. (2011) 219, pp375-387. doi: 10.1111/j.1469-7580.2011.01397.x (issue number not printed). Copy read: greg's upload of 2026-10-28 17:00 UTC, project files literature/synthetic_spine/kunkel2011.pdf; sha256 begins 9794806db5458849. Source: thread \"Reread every paper for clinical detail\", project symphony_4, 2026-10-28. Checked by a second reader against the whole PDF on 2026-10-28.",
+  "population": "Human body donors, country and ethnicity not stated (authors at Ulm, Germany; German Research Foundation funding). 72 isolated thoracic motion segments (two vertebrae and the disc) from 30 spines, 6 segments per disc level C7-T1 to T11-T12; 37 segments from 15 women (58.67 +/- 10.74 y, 43-80) and 35 from 15 men (56.20 +/- 11.65 y, 37-79); all 57.43 +/- 11.27 y. Only segments with mild or moderate degeneration (grades ii-iii of the authors' four-grade scheme) were selected. No stature or weight; age and sex not analysed; sex split per level and n per vertebral level not printed (p. 375, PDF 1; p. 377, PDF 3; p. 379, PDF 5).",
+  "modality": "Two methods on the same fresh-frozen segments: lateral contact radiographs (Faxitron, 60 cm film-focus, 60 s, 46.5 kV, beam centred on the disc, magnification corrected by a scale on the rig; 8 corner landmarks by Farfan's method; electronic digital caliper +/- 0.05 mm) and direct measurement on mid-sagittal saw-microtome sections (Leica SP4000, plane set by rods; vernier caliper, cartilaginous end-plates included). AP films were taken but not measured. Two observers (inter-observer), one observer repeating 10 radiographs (intra-observer). Regressions (linear and cubic) across level means (p. 376-377, PDF 2-3; Fig. 1).",
+  "levels_covered": "Vertebral bodies C7 to T12 (13 levels, Table 2) and discs C7-T1 to T11-T12 (12 levels, Tables 1 and 3). C7-T1 included on purpose for the cervicothoracic transition. No T12-L1, no lumbar or cervical level above C7. Levels identified by an unstated method; ribs sawn off; isolated segments (p. 377, PDF 3).",
+  "anomalies": [
+    {
+      "variant": "Any transitional or numbering variant (LSTV, T13, L6, 11 or 13 rib pairs, cervical rib, block vertebra)",
+      "finding": "Not mentioned. No prevalence, no counting method; the ribs were sawn off and the specimens were isolated two-vertebra segments, so no specimen could be counted from C1 or S1.",
+      "page": "p. 377 (PDF 3)",
+      "population": "30 donor spines, 72 segments",
+      "how_identified": "Not stated."
+    }
+  ],
+  "measures": [
+    {
+      "name": "VBHA, vertebral body height anterior",
+      "definition": "Distance between the anterior superior and anterior inferior corners of the body (the extreme anterior margins of its end-plates), marked by Farfan's method; cartilaginous end-plates not counted.",
+      "projection": "Lateral radiograph of the isolated segment, magnification corrected; radiographic only.",
+      "page": "Fig. 1a p. 376 (PDF 2); p. 377 (PDF 3); Table 2 p. 379 (PDF 5); p. 384 (PDF 10)",
+      "levels": "C7-T12",
+      "level_pattern": "C7 13.89, T1 14.49, T2 15.01, T3 15.65, T4 15.42, T5 15.84, T6 16.04, T7 15.94, T8 16.99, T9 18.26, T10 18.98, T11 19.60, T12 20.80 mm; smallest C7, largest T12 (+50 percent); flat T3-T7 with falls at T4 and T7; about 0.6 mm per level against SDs 1.1-2.1, so it separates regions, not neighbours (Inference). Published values (Berry, Todd and Pyle, Scoles, Cotterill; Fig. 5a, p. 382) lie about 1.5-4 mm above (read from figure).",
+      "covariates": "Not analysed (no sex, age, stature, population).",
+      "error": "Between-specimen SD 1.07 (T5) to 2.12 (T9); inter-observer CV 0.95-0.98; intra-observer 1.7-5.1 percent (p. 380, PDF 6).",
+      "ct_mask_recipe": "Inference: body subregion; local frame with cranio-caudal axis the mean end-plate normal; in a mid-sagittal slab, distance along that axis between the most anterior points of the superior and inferior end-plate rims. A lateral DRR silhouette gives the radiographic version.",
+      "radiograph_recipe": "Lateral film, corner to corner, magnification corrected; not on AP."
+    },
+    {
+      "name": "VBHP, vertebral body height posterior",
+      "definition": "Distance between the posterior superior and posterior inferior corners of the body, as VBHA.",
+      "projection": "Lateral radiograph, radiographic only.",
+      "page": "Fig. 1a p. 376 (PDF 2); Table 2 p. 379 (PDF 5)",
+      "levels": "C7-T12",
+      "level_pattern": "C7 14.38, T1 15.28, T2 16.11, T3 17.41, T4 18.15, T5 17.33, T6 18.22, T7 18.67, T8 20.05, T9 20.25, T10 20.35, T11 22.67, T12 23.12 mm; +60 percent C7 to T12; fall at T5, plateau T8-T10. VBHP > VBHA at every level; derived VBHP/VBHA 1.035 (C7) to 1.180 (T8), largest T4, T7, T8. About 0.2-2 mm above Panjabi 1991 VBHp and 1.5-3 mm below Todd and Pyle (Fig. 5b, read from figure).",
+      "covariates": "Not analysed.",
+      "error": "SD 1.12 (T3) to 2.44 (T9), 2.22 at C7; inter-observer CV 0.95-0.98; intra-observer 1.7-5.1 percent (p. 380, PDF 6).",
+      "ct_mask_recipe": "Inference: as VBHA at the posterior corners of the body subregion, excluding pedicle roots and the basivertebral notch.",
+      "radiograph_recipe": "Lateral film, corner to corner; posterior landmarks hard where shadows overlap in the upper thoracic spine (p. 383)."
+    },
+    {
+      "name": "ADH, anterior disc height",
+      "definition": "Anatomical: distance between the anterior margins of the two bony end-plates on the mid-sagittal section, cartilaginous end-plates included. Radiographic: anterior inferior corner of the upper body to anterior superior corner of the lower body.",
+      "projection": "Mid-sagittal section and lateral radiograph.",
+      "page": "Fig. 1 p. 376 (PDF 2); p. 377 (PDF 3); Table 1 p. 378 (PDF 4); p. 380 (PDF 6)",
+      "levels": "C7-T1 to T11-T12",
+      "level_pattern": "Anatomical: 4.5, 4.5, 3.4, 3.3, 3.0, 3.5, 4.1, 4.2, 5.6, 5.4, 7.2, 6.0 mm (C7-T1 to T11-T12); minimum T4-5, maximum T10-11. Radiographic: 3.96, 3.69, 3.23, 3.07, 2.85, 3.36, 3.70, 4.06, 4.52, 4.88, 5.91, 5.90.",
+      "covariates": "Not analysed. Todd and Pyle's male cadaver ADH lies lower from T2-3 to T10-11 by up to about 2.3 mm (Fig. 4a, read from figure).",
+      "error": "Anatomical SD 0.30-1.74; radiographic SD 0.22-1.03; radiographic shortfall 1.67-19.22 percent (mean 9.37), 0.10-1.29 mm; R^2 radiographic on anatomical level means 0.921; inter-observer CV 0.79-0.93 sections, 0.49-0.82 films; intra-observer 1.7-6.1 percent.",
+      "ct_mask_recipe": "Inference: gap between consecutive body masks along the local cranio-caudal axis at the anterior corners in the mid-sagittal slab; compare with the anatomical values; sub-voxel surfaces (one 1 mm voxel is 15-30 percent of the disc).",
+      "radiograph_recipe": "Lateral film, corner to corner, magnification corrected; reads about 9 percent short."
+    },
+    {
+      "name": "PDH, posterior disc height",
+      "definition": "As ADH at the posterior margins (posterior corners on film; posterior edge of the disc on the section, cartilaginous end-plates included).",
+      "projection": "Mid-sagittal section and lateral radiograph.",
+      "page": "Fig. 1 p. 376 (PDF 2); Table 1 p. 378 (PDF 4); p. 380 (PDF 6); p. 383 (PDF 9)",
+      "levels": "C7-T1 to T11-T12",
+      "level_pattern": "Anatomical: 4.5, 4.3, 3.5, 3.2, 3.3, 3.6, 4.1, 3.6, 5.0, 4.2, 5.8, 4.8 mm; minimum T3-4, maximum T10-11. Radiographic: 3.20, 3.04, 1.95, 2.09, 2.00, 2.10, 2.18, 2.47, 2.49, 2.97, 3.66, 3.23.",
+      "covariates": "Not analysed. Giles and Singer's radiographic PDH (about 3.7-5.8, Fig. 4c) is close to this study's anatomical PDH (Inference).",
+      "error": "Anatomical SD 0.45-1.26; radiographic SD 0.21-0.70; radiographic shortfall 28.91-50.12 percent (mean 37.13); R^2 0.690; inter-observer CV on film 0.49 (lowest); intra-observer 17-26.1 percent.",
+      "ct_mask_recipe": "Inference: as ADH at the posterior corners of the body subregions.",
+      "radiograph_recipe": "Lateral film but unreliable (about 37 percent short, upper thoracic corners hidden); better predicted from film ADH with the Table 4 cubic (error -13 to -17 percent, Fig. 9a)."
+    },
+    {
+      "name": "MDH, middle disc height",
+      "definition": "Distance between the mid-points of the superior and inferior end-plates bounding the disc on the mid-sagittal section, cartilaginous end-plates included.",
+      "projection": "Mid-sagittal section only; not measurable on film.",
+      "page": "p. 377 (PDF 3); Fig. 1b; Table 1 p. 378 (PDF 4); p. 383 (PDF 9)",
+      "levels": "C7-T1 to T11-T12",
+      "level_pattern": "5.6, 5.7, 5.8, 4.4, 5.0, 4.7, 5.5, 5.3, 6.1, 5.5, 6.7, 6.5 mm; minimum T3-4, maximum T10-11. On average 22.7 percent higher than the average disc height (as a share of MDH, Inference).",
+      "covariates": "Not analysed; no published MDH to compare.",
+      "error": "SD 0.45 (T6-7) to 1.18 (T10-11); no repeatability figure.",
+      "ct_mask_recipe": "Inference: gap between end-plate centres of consecutive body masks along the cranio-caudal axis in the mid-sagittal slab; includes end-plate concavity.",
+      "radiograph_recipe": "Not possible: the midline distance between the oval end-plate images cannot be identified (p. 383, citing Edmondston 1999)."
+    },
+    {
+      "name": "Average disc height and average vertebral body height",
+      "definition": "Mean of anatomical ADH and PDH per disc level; mean of VBHA and VBHP per vertebra.",
+      "projection": "Derived.",
+      "page": "Table 1 p. 378 (PDF 4); Table 2 p. 379 (PDF 5); p. 380 (PDF 6)",
+      "levels": "C7-T1 to T11-T12; C7 to T12",
+      "level_pattern": "Disc: 4.5, 4.4, 3.5, 3.3, 3.2, 3.5, 4.1, 3.9, 5.3, 4.8, 6.5, 5.4 (mean 4.3 +/- 1; thinnest T4-5). Body: 14.14, 14.88, 15.56, 16.53, 16.79, 16.59, 17.13, 17.31, 18.52, 19.26, 19.67, 21.14, 21.96; rises at every step but T4 to T5; step ratio 0.988-1.075 (Inference).",
+      "covariates": "Not analysed.",
+      "error": "No SD printed for the averages.",
+      "ct_mask_recipe": "As the components.",
+      "radiograph_recipe": "As the components."
+    },
+    {
+      "name": "I1, relative disc height index, and disc : body height ratio",
+      "definition": "I1 = (ADH + PDH)/(VBHA + VBHP), after Amonoo-Kuofi 1991; ratio = 1/I1. Anatomical disc heights over radiographic body heights of the cranial vertebra (Inference from recomputation).",
+      "projection": "Derived from section and film.",
+      "page": "Table 3 p. 379 (PDF 5); Fig. 1; Fig. 3 p. 380 (PDF 6)",
+      "levels": "C7-T1 to T11-T12",
+      "level_pattern": "I1 0.32, 0.30, 0.22, 0.20, 0.19, 0.21, 0.24, 0.23, 0.29, 0.25, 0.33, 0.26; ratio 1:3.1 to 1:5.3 (T4-5), 1:3.0 at T10-11; U shape, minimum T3-4/T4-5. Overall 1:4.1; regions 1:4.0, 1:4.7, 1:3.8 (means of per-level ratios, Inference). Radiographic version (derived) 0.144-0.253.",
+      "covariates": "Size-free; none analysed.",
+      "error": "No SD; zig-zags may be noise with n = 6 (Inference).",
+      "ct_mask_recipe": "Inference: ADH and PDH of the gap below a body over that body's VBHA + VBHP.",
+      "radiograph_recipe": "Lateral film; runs lower (about 0.14-0.25) because film disc heights are short."
+    },
+    {
+      "name": "I2, disc convexity index, and % MDH to average disc height",
+      "definition": "I2 = MDH/(ADH + PDH), after Twomey and Taylor 1987. The % column is (MDH - average)/MDH x 100 (Inference from recomputation).",
+      "projection": "Section only.",
+      "page": "Table 3 p. 379 (PDF 5); p. 380 (PDF 6); Fig. 3",
+      "levels": "C7-T1 to T11-T12",
+      "level_pattern": "I2 0.63, 0.65, 0.83, 0.67, 0.80, 0.67, 0.68, 0.68, 0.57, 0.58, 0.52, 0.60; no steady trend; most convex T2-3, least T10-11. % column 20.55, 23.11, 39.65, 25.17, 37.50, 25.58, 25.95, 26.75, 12.56, 13.74, 3.50, 16.77; region means 27.12, 29.68, 14.66 (Fig. 3, labelled disc convexity).",
+      "covariates": "None analysed.",
+      "error": "No SD.",
+      "ct_mask_recipe": "Inference: MDH and rim heights from consecutive body masks; rises with end-plate concavity.",
+      "radiograph_recipe": "Not possible (no MDH on film)."
+    },
+    {
+      "name": "I3, disc antero-posterior wedging index",
+      "definition": "I3 = ADH/PDH; above 1 the disc is taller in front, which the authors call a posterior wedge.",
+      "projection": "Section (anatomical); film version derived.",
+      "page": "Table 3 p. 379 (PDF 5); p. 380 (PDF 6)",
+      "levels": "C7-T1 to T11-T12",
+      "level_pattern": "1.00, 1.06, 0.97, 1.03, 0.89, 0.97, 1.01, 1.16, 1.13, 1.29, 1.23, 1.25; C7-T1 parallel; T1-2 to T6-7 near parallel; T7-8 to T11-12 ADH about 21 percent above PDH. Film version (derived) 1.21-1.83.",
+      "covariates": "None analysed; neutral unloaded posture.",
+      "error": "No SD.",
+      "ct_mask_recipe": "Inference: ADH/PDH of the gap between consecutive body masks.",
+      "radiograph_recipe": "Lateral film, inflated by short film PDH; never compare with anatomical I3."
+    },
+    {
+      "name": "Prediction equations (Table 4)",
+      "definition": "y = C1 + C2 x + C3 x^2 + C4 x^3 fitted to level means (12 discs, 13 bodies; Inference, P values recomputed); predictors ADH (anatomical), VBHA, VBHP (radiographic, cranial body; Inference).",
+      "projection": "Film body heights to anatomical disc heights.",
+      "page": "Table 4 p. 382 (PDF 8); Figs 6-9 pp. 383-386 (PDF 9-12); p. 385 (PDF 11)",
+      "levels": "C7-T1 to T11-T12",
+      "level_pattern": "ADH to MDH linear R^2 0.726 SE 0.37 (3.500, 0.453); ADH to PDH 0.906 SE 0.27 (-2.149, 3.067, -0.538, 0.037); VBHA to ADH 0.835 SE 0.60; VBHA to PDH 0.667 SE 0.52; VBHA to VBHP 0.953 SE 0.66; VBHP to ADH 0.780 SE 0.66; VBHP to PDH 0.659 SE 0.53; VBHP to VBHA 0.943 SE 0.58; MDH from body heights not significant (0.576, 0.571). Largest mean percent errors about 26 percent for disc heights from body heights, 15 percent for MDH from ADH, under 10 percent between body heights.",
+      "covariates": "Level means only; not a size scaling.",
+      "error": "SE 0.27-0.66 mm on level means. Inference: the printed body-height cubics fail when evaluated (C4 rounded to 3 decimals); refit coefficients in the note reproduce the printed R^2 and plotted predictions.",
+      "ct_mask_recipe": "Not applicable; use direct mask measures.",
+      "radiograph_recipe": "Predict PDH from film ADH (error -13 to -17 percent) rather than measuring PDH on film."
+    }
+  ],
+  "level_details": [
+    {"level": "C7-T1", "detail": "Included for the cervicothoracic transition; ADH = PDH = 4.5, I3 1.00, the only unwedged disc; I1 0.32 (1:3.1); C7 the smallest body (VBHA 13.89, VBHP 14.38) and least wedged (VBHP/VBHA 1.035, derived); radiographic ADH SD 0.22.", "page": "p. 377 (PDF 3); p. 380 (PDF 6); Tables 1-3"},
+    {"level": "T1-2", "detail": "ADH 4.5, PDH 4.3, MDH 5.7, I1 0.30; upper thoracic posterior corners hidden by overlapping shadows on film.", "page": "Table 1; p. 383 (PDF 9)"},
+    {"level": "T2-3", "detail": "Most convex disc, I2 0.83; MDH almost 40 percent of the average disc height (Table 3 39.65); smallest radiographic PDH 1.95.", "page": "p. 380 (PDF 6); Tables 1, 3"},
+    {"level": "T3-4", "detail": "Lowest PDH 3.2 and MDH 4.4; I1 0.20.", "page": "Tables 1, 3"},
+    {"level": "T4-5", "detail": "Thinnest disc (average 3.2, ADH 3.0), lowest I1 0.19 (1:5.3), I3 0.89; T4 VBHA below T3, T5 VBHP below T4.", "page": "Fig. 3 p. 380 (PDF 6); Tables 1-3"},
+    {"level": "Regions", "detail": "Upper C7-T1 to T3-4 (discs thinning caudally to T4-5, slight ADH excess), middle T4-5 to T6-7 (slight PDH excess), lower T7-8 to T11-12 (ADH > PDH by about 21 percent); presented as an approximation of Panjabi 1991a's regions; disc:body 1:4.0, 1:4.7, 1:3.8.", "page": "p. 381 (PDF 7); Fig. 3 p. 380 (PDF 6)"},
+    {"level": "T8-9", "detail": "Largest radiographic shortfall for ADH (19.22 percent) and PDH (50.12 percent).", "page": "Table 1 p. 378 (PDF 4)"},
+    {"level": "T10-11", "detail": "Tallest disc (ADH 7.2, average 6.5, MDH 6.7, PDH 5.8), least convex (I2 0.52), highest I1 0.33 (1:3.0).", "page": "Tables 1, 3"},
+    {"level": "T11-12 / thoracolumbar", "detail": "ADH 6.0, PDH 4.8, I3 1.25; T12 largest body (VBHA 20.80, VBHP 23.12); T12-L1 not studied.", "page": "Tables 1-3"},
+    {"level": "Lower thoracic mobility", "detail": "Larger disc:body ratio (1:3.8) linked with more sagittal motion where the rib cage constrains less; thoracic spine least mobile.", "page": "p. 384 (PDF 10)"}
+  ],
+  "errors": [
+    {"what": "Radiographic ADH shortfall against anatomical", "value": "about 9 percent (1.67-19.22 by level; 0.10-1.29 mm); R^2 0.921 on level means", "page": "p. 375 (PDF 1); Table 1 p. 378 (PDF 4); Fig. 2a p. 380 (PDF 6)"},
+    {"what": "Radiographic PDH shortfall against anatomical", "value": "about 37 percent (28.91-50.12 by level; 1.11-2.51 mm); R^2 0.690", "page": "p. 375 (PDF 1); Table 1; Fig. 2b"},
+    {"what": "Inter-observer CV (as printed; behaves like a reliability coefficient, Inference)", "value": "disc heights on sections 0.79-0.93; on films 0.49-0.82; film PDH 0.49; film VBHA, VBHP 0.95-0.98", "page": "p. 380 (PDF 6)"},
+    {"what": "Intra-observer error", "value": "ADH 1.7-6.1 percent; PDH 17-26.1 percent; VBHA, VBHP 1.7-5.1 percent; repeat radiographs generally 15 percent lower reproducibility", "page": "p. 380 (PDF 6)"},
+    {"what": "Instrument", "value": "digital caliper +/- 0.05 mm; scale on the rig for magnification; 60 cm focus-film distance; anatomical means printed to 0.1 mm", "page": "p. 377 (PDF 3); Table 1"},
+    {"what": "Between-specimen SD (n = 6 discs per level)", "value": "ADH 0.30-1.74; PDH 0.45-1.26; MDH 0.45-1.18; VBHA 1.07-2.12; VBHP 1.12-2.44 mm", "page": "Tables 1, 2 pp. 378-379 (PDF 4-5)"},
+    {"what": "Prediction errors (mean percent, largest)", "value": "disc heights from body heights about 26 percent; MDH from ADH about 15 percent; VBHA and VBHP from each other under 10 percent; PDH from film ADH -13 to -17 percent", "page": "p. 385 (PDF 11); Figs 6-9"},
+    {"what": "Table 4 SE", "value": "0.27-0.66 mm, residuals of fits to level means (Inference), not per-patient error", "page": "Table 4 p. 382 (PDF 8)"}
+  ],
+  "pearls_pitfalls": [
+    {"text": "The thoracic spine is the commonest site of deformity; disc dimensions are needed for implants and models, and disc height is used diagnostically.", "page": "pp. 375, 382, 386 (PDF 1, 8, 12)"},
+    {"text": "A disc has no single height: the bounding planes are not parallel, so ADH, MDH and PDH differ within and between regions; possibly from age or disc height loss in scoliosis or herniation; post-mortem change and degeneration may add error.", "page": "pp. 382-383 (PDF 8-9)"},
+    {"text": "Norms are for grade ii-iii discs only; grade iii bodies already have marginal osteophytes under 2 mm, grade iv over 2 mm at the anterior corners.", "page": "pp. 377-379 (PDF 3-5)"},
+    {"text": "Unloaded cadaveric discs should be slightly taller than discs on films of living people sitting or standing.", "page": "pp. 384-385 (PDF 10-11)"},
+    {"text": "MDH cannot be measured on a film; film PDH is about 37 percent short and least repeatable, worst in the upper thoracic spine.", "page": "p. 380 (PDF 6); p. 383 (PDF 9)"},
+    {"text": "Predicting PDH from film ADH gives a smaller error than measuring film PDH.", "page": "p. 375 (PDF 1); Fig. 9a and p. 386 (PDF 12)"},
+    {"text": "Errors in film body heights pass into predicted disc heights; equations valid only under the study's conditions, untested on patients.", "page": "pp. 385-386 (PDF 11-12)"},
+    {"text": "The authors attribute short film disc heights to invisible cartilaginous end-plates; Inference: doubtful, since cartilage lies within the radiographic disc space.", "page": "p. 383 (PDF 9)"},
+    {"text": "Inference: the printed Table 4 cubics in body heights fail when evaluated because C4 is rounded to three decimals; refit before use.", "page": "Table 4 p. 382 (PDF 8)"}
+  ],
+  "instructions": [
+    {"text": "On a lateral film or DRR, mark the four end-plate corners of each thoracic body (Farfan) and take VBHA and VBHP corner to corner after magnification correction.", "page": "p. 377 (PDF 3); Fig. 1a p. 376 (PDF 2)"},
+    {"text": "Expect VBHP > VBHA at every level C7-T12, ratio about 1.03 at C7 and 1.07-1.18 from T2 to T12 (derived); Inference: VBHA >= VBHP in a thoracic body suggests fracture, error or a non-thoracic body.", "page": "Table 2 p. 379 (PDF 5)"},
+    {"text": "Do not name one thoracic vertebra from body height (0.6 mm per level against SD 1-2.4 mm; means fall at T4, T5, T7); Inference: fit the trend over four or more bodies anchored to a junction.", "page": "Table 2 p. 379 (PDF 5)"},
+    {"text": "Use I1 (disc over cranial body) to place a run: 0.30-0.32 at C7-T1 and T1-2, 0.19-0.20 at T3-4 and T4-5, 0.25-0.33 from T8-9 to T11-12; anatomical values for CT masks, about 0.14-0.25 for films (derived).", "page": "Table 3 p. 379 (PDF 5)"},
+    {"text": "Use I3 regionally: C7-T1 1.00, T1-2 to T6-7 0.89-1.06, T7-8 to T11-12 1.13-1.29; film I3 is inflated (about 1.2-1.8, derived).", "page": "Table 3; p. 380 (PDF 6)"},
+    {"text": "Never measure MDH on a radiograph.", "page": "p. 383 (PDF 9)"},
+    {"text": "Treat film PDH as about 37 percent short and least repeatable; prefer ADH and body heights on films; distrust upper thoracic posterior corners.", "page": "p. 380 (PDF 6); p. 383 (PDF 9)"},
+    {"text": "Estimate film PDH from film ADH with the ADH to PDH cubic; expect it 13-17 percent low.", "page": "Fig. 9a p. 386 (PDF 12); Table 4 p. 382 (PDF 8)"},
+    {"text": "Expect the thinnest thoracic disc at T4-5 (about 3.2 mm) and the tallest at T10-11 (about 6.5 mm); Inference from other papers: a further jump at T12-L1.", "page": "Table 1 p. 378 (PDF 4); Fig. 3 p. 380 (PDF 6)"},
+    {"text": "Inference: on a CT mask, measure disc heights as gaps between consecutive body masks along the local cranio-caudal axis in the mid-sagittal slab, with sub-voxel surfaces.", "page": "p. 377 (PDF 3)"},
+    {"text": "Do not use the printed Table 4 cubics in VBHA or VBHP; evaluate at the means and use refit coefficients (Inference); never extrapolate beyond VBHA 13.9-20.8 or VBHP 14.4-23.1 mm.", "page": "Table 4 p. 382 (PDF 8); Fig. 9b p. 386 (PDF 12)"},
+    {"text": "Expect loaded living discs to be thinner and grade iv discs or bodies with anterior osteophytes over 2 mm to fall outside these norms.", "page": "pp. 379, 384-385 (PDF 5, 10-11)"},
+    {"text": "Check the beam is centred on the disc and the end-plates are edge-on before using a film disc height.", "page": "pp. 377, 383 (PDF 3, 9)"}
+  ],
+  "bordercall": [
+    "(a) Anomaly priors: none; no prevalence, no counting method (p. 377, PDF 3).",
+    "(b) VBHP matches Panjabi's VBHp in landmarks but runs about 0.2-2.0 mm (mean 1.0) above Panjabi 1991 thoracic VBHp (Inference, panjabi1991t note; Fig. 5b). VBHA (C7-T12) and VBHP/VBHA could be added to the generator.",
+    "(b) Disc heights ADH, MDH, PDH (C7-T1 to T11-T12, with SDs) and indices I1, I2, I3 are pair features between consecutive instances for HMM transition emissions; compare mask gaps with the anatomical columns, not the radiographic ones; compute I1 with the cranial body (Inference).",
+    "(c) Error: film ADH -9 percent, film PDH -37 percent; intra-observer 2-6 percent (ADH, body heights), 17-26 percent (PDH); between-specimen SDs ADH 0.30-1.74, PDH 0.45-1.26, MDH 0.45-1.18, VBHA 1.07-2.12, VBHP 1.12-2.44 mm; add a voxel term for CT (Inference).",
+    "(d) Covariates: none analysed; 15 women, 15 men, 37-80 y, origin unstated; Table 4 R^2 are across level means and are not a patient-size factor (Inference, confirmed by recomputing P from 12 or 13 points).",
+    "Refit cubic coefficients (Inference, cranial body as x): VBHA to ADH 548.547, -98.1934, 5.83833, -0.114301; VBHA to PDH 373.634, -66.2969, 3.92464, -0.0766283; VBHP to ADH 300.756, -48.3899, 2.58330, -0.0450792; VBHP to PDH 205.135, -32.6549, 1.73799, -0.0303113; VBHA to VBHP -180.498, 31.1606, -1.65174, 0.0300264; VBHP to VBHA 44.0536, -5.28208, 0.284849, -0.00434176."
+  ],
+  "gaps": [
+    "No level above C7 or below T12 (no T12-L1); n = 6 discs per level; n per vertebral level not printed; no individual data; no SD for indices; no sex, age, size or population analysis; no stature or weight; no ethnicity; no anomaly or counting information; AP films taken but not measured; no loaded or in vivo data; no CT; which observer's values were tabled not stated.",
+    "Abstract gives disc thickness 4.5-7.2 mm; Table 1 average 3.2-6.5 and results text 3.2-6.5 (p. 375 vs p. 380).",
+    "Text gives a largest wedge difference of 2.77 percent from T1-2 to T6-7, but Table 3 I3 is 0.89-1.06 (p. 380).",
+    "Fig. 3 region labels broken by T2-3 (0.97) and T6-7 (1.01); Fig. 3 inset labels caudal at top though the column runs C7 down to T12.",
+    "Methods say all five parameters on films and sections; Fig. 1 caption, Table 1 footnote and Table 4 caption say MDH anatomical only and body heights radiographic only; Figs 7c and 8c label radiographic body heights as anatomical.",
+    "Intra-observer method on 10 radiographs, but results call the measurements anatomical (pp. 377, 380).",
+    "Fig. 2 axis labels appear swapped (Inference from Table 1).",
+    "Text P < 0.005 for disc-body correlations, but Table 4 P 0.0260 and 0.0282 for the PDH equations (pp. 381-382).",
+    "Fig. 8c R^2 0.942 and P 6.52E-06 vs Table 4 0.943 and 6.5E-06; Fig. 8c marks -7.07 percent though only errors over 10 percent are to be marked.",
+    "Fig. 9a legend says this study's radiographic ADH; text and caption say Todd and Pyle's data; recomputation supports the legend (Inference).",
+    "Text says mean errors under 17 percent for Fig. 9b,c, but T12 is 17.04 percent.",
+    "Introduction says Giles and Singer gave no ADH or PDH values, yet Figs 4b, 4c plot them per level.",
+    "Todd and Pyle ADH (Fig. 4a) and published VBHA (Fig. 5a) lie largely outside this study's SD band yet are called good agreement.",
+    "Manns et al. dated 1996 in Fig. 4b, 1986 in text and references (Inference: 1996 correct).",
+    "% MDH column is relative to MDH (Inference), so 22.7 percent understates the conventional excess (about 31 percent).",
+    "Table 4 body-height cubics do not reproduce the means or plotted predictions because of rounding (Inference).",
+    "Against other notes (Inference): Busscher 2010 CT central disc heights agree with MDH; Busscher VBHa runs 3-5 mm above VBHA; Twomey and Taylor's convexity index has the same definition as I2 (Kunkel cites their 1987 paper, the set's note is 1985); Kunkel 2010 and 2011 are companion prediction papers."
+  ]
+}

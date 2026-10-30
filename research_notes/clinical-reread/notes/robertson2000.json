@@ -1,0 +1,198 @@
+{
+  "id": "robertson2000",
+  "citation": "Robertson PA, Stewart NR. The Radiologic Anatomy of the Lumbar and Lumbosacral Pedicles. Spine 2000;25(6):709-715. Copy read: greg's upload of 2026-10-28 01:02 UTC (upload id 441440ab-b531-4779-b893-89493723aff3), sha256 begins ebf86f01912f6852; journal pp. 709-715 are PDF pp. 1-7.",
+  "population": "10 dry-bone lumbosacral spine specimens giving 100 lumbar pedicles (L1 to L5, left and right; Inference: 10 x 5 x 2) and 20 S1 pedicles (10 sacra x 2). Country of origin, collection, age, sex, ethnicity, stature and pathology not stated; the authors work in Auckland, New Zealand. Each vertebra and sacrum imaged on its own (Inference from the figures: disarticulated). p. 709 (PDF 1).",
+  "modality": "Plain radiographs of dry bone. 0.4 mm tinned copper wire drawn tight round each lumbar pedicle isthmus to mark the outer cortex, 0.8 mm enamelled copper wire at S1 (the fine wire did not show at S1). Vertebra mounted on plate glass with malleable adhesive; direct PA film, then rotation about the vertebra's own long axis with repeated films until the pedicle was at its widest and wholly within the body image (coaxial view). Measurements taken directly on coaxial films and corrected for magnification against a known standard. S1 imaged PA with 10 to 15 deg rotation. No CT, MRI or lateral film. p. 709-712 (PDF 1-4).",
+  "levels_covered": "L1 to L5 measured (Table 1, p. 711, PDF 3); S1 described qualitatively; no thoracic or cervical level, no T12/L1, C2/C3 or C7/T1 data. Level assignment of the bones not described; transitional segments never mentioned.",
+  "anomalies": [
+    {
+      "variant": "Lumbosacral transitional vertebra, sacralisation, lumbarisation, L6, T13, rib-count or block-vertebra anomalies",
+      "finding": "Not mentioned anywhere; no prevalence, no exclusion criterion. 100 lumbar pedicles from 10 spines implies five lumbar vertebrae analysed per spine (Inference), so the series carries no anomaly information.",
+      "page": "whole paper; counts p. 709 (PDF 1)",
+      "population": "10 dry-bone lumbosacral spines",
+      "how_identified": "not applicable"
+    },
+    {
+      "variant": "Cortical defects at vascular foramina of the pedicle",
+      "finding": "Present in some pedicles, stopping the wire from lying on bone; most evident along the superior border of the L5 pedicle; no count or denominator given.",
+      "page": "p. 710 (PDF 2)",
+      "population": "100 lumbar pedicles of 10 dry-bone spines",
+      "how_identified": "direct inspection while applying the wire"
+    },
+    {
+      "variant": "Transverse process base offset from the pedicle's craniocaudal centre",
+      "finding": "The transverse process's craniocaudal direction varies; on some occasions the midpoint of its base did not match the pedicle centre (Figure 7: base at the lower part of the pedicle). No count given.",
+      "page": "p. 712 (PDF 4), Figure 7; p. 714 (PDF 6)",
+      "population": "lumbar vertebrae of 10 dry-bone spines",
+      "how_identified": "coaxial and PA radiographs"
+    },
+    {
+      "variant": "Variable L4 pedicle ellipse tilt",
+      "finding": "L4 coaxial ellipse tilt 31.0 deg (SD 17.1) left and 33.5 deg (SD 20.8) right, a spread several times that of other levels; Inference: a mix of upright and oblique L4 pedicles.",
+      "page": "p. 711 (PDF 3), Table 1",
+      "population": "20 L4 pedicles of 10 dry-bone spines (Inference: 10 per side)",
+      "how_identified": "coaxial radiograph"
+    },
+    {
+      "variant": "Anatomic variation of L5 entry-point landmarks",
+      "finding": "Cited from the first author's earlier work (their reference 36) as a possible cause of L5 screw misplacement; no data here.",
+      "page": "p. 713 (PDF 5)",
+      "population": "not given",
+      "how_identified": "not given"
+    }
+  ],
+  "measures": [
+    {
+      "name": "Pedicle height (coaxial)",
+      "definition": "Distance between the upper and lower extent of the pedicle cortex, taken at the inner margin of the encircling wire (outer bone surface), with the pedicle viewed perpendicular to the vertebral body's long axis on the coaxial view, which the authors say excludes lordosis.",
+      "projection": "Coaxial plain radiograph of a dry vertebra rotated about its long axis (beam in the vertebra's axial plane, along the pedicle's transverse direction); magnification corrected.",
+      "page": "p. 710 (PDF 2); values Table 1, p. 711 (PDF 3)",
+      "levels": "L1 to L5",
+      "level_pattern": "Flat: mean (SD) mm left/right L1 18.6 (3.2)/19.9 (3.9), L2 18.6 (3.0)/18.7 (3.2), L3 18.6 (13.0, likely misprint)/18.7 (2.5), L4 17.8 (3.0)/17.4 (2.5), L5 17.6 (2.9)/19.5 (3.3). No rise at L5, which the authors put down to the oblique L5 ellipse (p. 713, PDF 5). Separates no adjacent levels.",
+      "ct_mask_recipe": "Inference: in the vertebral frame (craniocaudal axis normal to end plates), cut the pedicle out of the arch, find the isthmus (least cross-section along the pedicle's axial-plane trajectory), project its outline along that trajectory (no sagittal tilt) and take the outline's extent along the craniocaudal axis. The mask is outer bone, as the wire is.",
+      "radiograph_recipe": "Coaxial (rotated AP) film or fluoroscopy: vertical extent of the pedicle ring after magnification correction; the visible dense ring is the inner cortex 1 to 3 mm inside the outer border (p. 711, PDF 3), so a value read on the ring is short. Not from a lateral film; the paper uses none.",
+      "covariates": "None reported. Left L5 values 17.6 mm agree with Olsewski's mean male L5 height of 17.4 mm from direct cadaveric measurement (p. 713, PDF 5).",
+      "error": "No intra- or inter-observer data; between-specimen SD 2.5 to 3.9 mm (13.0 at L3 left); wire 0.4 mm; magnification correction accuracy not given."
+    },
+    {
+      "name": "Pedicle width (coaxial)",
+      "definition": "Most medial to most lateral extent of the pedicle as defined by the circumferential wire on the coaxial view (which wire margin is not stated).",
+      "projection": "Coaxial plain radiograph, magnification corrected.",
+      "page": "p. 710 (PDF 2); values Table 1, p. 711 (PDF 3)",
+      "levels": "L1 to L5",
+      "level_pattern": "Rises caudally, the authors' dramatic increase L1 to L5 (p. 711, PDF 3): left/right L1 10.3 (2.5)/9.5 (2.5), L2 10.3 (3.0)/10.0 (2.9), L3 13.0 (2.6)/12.7 (2.9), L4 16.3 (3.7)/16.5 (3.8), L5 21.6 (3.9)/21.5 (4.5). Inference: L1 and L2 indistinguishable; steps +2.7, +3.5, +5.2 mm L2 to L5 against SDs of 2.5 to 4.5 mm; width/height about 0.5 at L1-L2, 0.7 at L3, 0.9 at L4, 1.1-1.2 at L5.",
+      "ct_mask_recipe": "Inference: the same projected isthmus outline as for height; width is its extent perpendicular to the craniocaudal axis (bounding width). At L4 and L5 this is not the axial-slice isthmus width, because the outline is an oblique ellipse.",
+      "radiograph_recipe": "Coaxial film: transverse extent of the pedicle ring; at L5 the lateral pedicle border lies on the lateral border of the L5 body image (p. 711, PDF 3; p. 714, PDF 6).",
+      "covariates": "None reported. Left L5 21.6 mm agrees with Olsewski's male L5 21.1 mm (p. 713, PDF 5). Authors call their dimensions consistent with Krag, Misenhimer, Olsewski, Panjabi 1992 and Zindrick 1987 without a numeric comparison (p. 713, PDF 5).",
+      "error": "No reliability data; between-specimen SD 2.5 to 4.5 mm."
+    },
+    {
+      "name": "Pedicle elliptical axis (tilt of the coaxial ellipse)",
+      "definition": "Long axis of the coaxial pedicle image approximated as an ellipse, as an angle in degrees from the vertical; sign convention not stated (L1 left -2.4 deg).",
+      "projection": "Coaxial plain radiograph.",
+      "page": "p. 710 (PDF 2); p. 711 (PDF 3), Table 1 and Figure 5",
+      "levels": "L1 to L5",
+      "level_pattern": "Near vertical L1 to L3: left/right L1 -2.4 (5.3)/1.7 (3.1), L2 0.8 (5.6)/4.0 (6.1), L3 3.5 (4.6)/7.5 (6.6); oblique at L4 31.0 (17.1)/33.5 (20.8) and L5 55.0 (8.8)/50.3 (7.4). Figure 5 draws the L4 and L5 ellipses mirror-symmetric with the upper pole toward the midline line; the long L5 boundary is inferomedial, next to the L5 root (p. 713, PDF 5). Inference: strongest pedicle cue for L5 against L1-L3; L4 spread is wide.",
+      "ct_mask_recipe": "Inference: fit an ellipse (second moments) to the projected isthmus outline; tilt is the angle of its major axis from the craniocaudal axis, signed medial-upward positive on each side.",
+      "radiograph_recipe": "Coaxial view of each pedicle. Inference: a plain AP film foreshortens the pedicle by its medial angulation, so AP tilt would differ; no AP values given.",
+      "covariates": "None reported.",
+      "error": "No reliability data; SD 3.1 to 6.6 deg at L1-L3, 17.1 to 20.8 deg at L4, 7.4 to 8.8 deg at L5."
+    },
+    {
+      "name": "Pedicle isthmus diameter (minor axis of the ellipse)",
+      "definition": "Short axis of the pedicle ellipse at the isthmus; the narrowest diameter a screw can fit within, and after Banta (their reference 1) the key parameter for screw fit. Whether read from the wire or the radiographic ring is not stated.",
+      "projection": "Coaxial plain radiograph.",
+      "page": "p. 710 (PDF 2); p. 711 (PDF 3), Table 1",
+      "levels": "L1 to L5",
+      "level_pattern": "Left/right L1 9.9 (2.5)/8.7 (2.4), L2 10.0 (3.0)/9.6 (2.8), L3 12.3 (2.1)/12.0 (2.9), L4 13.4 (2.8)/12.2 (2.1), L5 13.2 (2.4)/14.0 (2.9): rises L1-L2 to L3 then plateaus 12 to 14 mm. Inference: isthmus/width 0.92-0.97 at L1-L3, 0.74-0.82 at L4, 0.61-0.65 at L5. The extra distal width is not matched by isthmus diameter (p. 711, PDF 3; abstract p. 709, PDF 1).",
+      "ct_mask_recipe": "Inference: minor-axis length of the ellipse fitted to the isthmus cross-section perpendicular to the pedicle trajectory; most likely an outer-cortex value.",
+      "radiograph_recipe": "Coaxial view: short axis of the oblique ellipse, magnification corrected; the visible ring is inner cortex (p. 711, PDF 3).",
+      "covariates": "None reported.",
+      "error": "No reliability data; SD 2.1 to 3.0 mm."
+    },
+    {
+      "name": "Radiographic-cortical offset (qualitative)",
+      "definition": "Position of the radiographic pedicle image against the wire marking the outer cortex.",
+      "projection": "Coaxial plain radiograph (lumbar); PA with 10 to 15 deg rotation (S1).",
+      "page": "p. 711 (PDF 3); p. 712-713 (PDF 4-5); abstract p. 709 (PDF 1)",
+      "levels": "L1 to L5, S1",
+      "level_pattern": "L1 to L4: image wholly inside the wire in all cases. L5: superior, medial and inferior borders seen; lateral border superimposed on the lateral border of the L5 body image. Densest image 1 to 3 mm inside the wire (inner cortex), abstract says up to 3 mm; the wire sometimes formed a halo though touching bone. S1: superior image close to the wire; medial image lateral to the wire in all cases, often by 3 to 4 mm, more caudally, and is a trabecular line sweeping to the SI joint; no lateral cortex seen.",
+      "ct_mask_recipe": "Inference: a CT mask is the outer surface, as the wire; a radiograph read on the visible ring is smaller by the offset.",
+      "radiograph_recipe": "Place the true outer border 1 to 3 mm outside the lumbar ring; at S1 the true medial wall is medial to the visible line.",
+      "covariates": "None reported.",
+      "error": "Ranges only; no counts per offset."
+    },
+    {
+      "name": "S1 pedicle boundaries (qualitative)",
+      "definition": "Triangular S1 pedicle image with superior, medial and lateral boundaries; lateral side confluent with the ala; inferior limit the upper margin of the S1 foramen; lateral border always lateral to the S1-S2 foramen.",
+      "projection": "PA radiograph of the sacrum rotated 10 to 15 deg (marked rotation, which alone showed the lateral border, judged clinically inappropriate).",
+      "page": "p. 712-714 (PDF 4-6), Figures 8 and 9",
+      "levels": "S1",
+      "level_pattern": "S1 only; contrasts with L5's oblique ellipse whose lateral border lies on the body edge.",
+      "ct_mask_recipe": "Inference: the bone between the S1 body, the S1 superior articular process and the ala, above the first sacral foramen; no free lateral cortex, so a lumbar-style width is undefined.",
+      "radiograph_recipe": "Superior border true to cortex; medial border a trabecular line inside the true wall; inferior limit upper margin of the S1 foramen; lateral limit lateral to that foramen.",
+      "covariates": "None reported.",
+      "error": "No dimensions, no counts beyond 'in all cases' and 'often'."
+    }
+  ],
+  "level_details": [
+    {"level": "L1", "detail": "Upright ellipse (tilt -2.4/1.7 deg), width 10.3/9.5 mm, isthmus 9.9/8.7 mm (the narrowest of the series), height 18.6/19.9 mm.", "page": "p. 711 (PDF 3), Table 1"},
+    {"level": "L2", "detail": "Practically the same as L1: width 10.3/10.0, isthmus 10.0/9.6, tilt 0.8/4.0 deg, height 18.6/18.7 mm.", "page": "p. 711 (PDF 3), Table 1"},
+    {"level": "L3", "detail": "Still upright (3.5/7.5 deg); width 13.0/12.7, isthmus 12.3/12.0, height 18.6/18.7 mm.", "page": "p. 711 (PDF 3), Table 1"},
+    {"level": "L4", "detail": "Ellipse becomes oblique: 31.0/33.5 deg with SD 17.1/20.8; width 16.3/16.5, isthmus 13.4/12.2, height 17.8/17.4 mm. Figures 3 and 4 show an L4 in PA and coaxial view.", "page": "p. 711 (PDF 3), Table 1, Figure 5; p. 710 (PDF 2)"},
+    {"level": "L5", "detail": "Widest pedicle (21.6/21.5 mm) but oblique ellipse (55.0/50.3 deg), isthmus only 13.2/14.0 mm, height not raised (17.6/19.5). Lateral border projects on the lateral border of the L5 body image; long inferomedial wall against the L5 root; vascular-foramen cortical defects most along the superior border; accepted L5 dimensions are the largest in the thoracic and lumbar spine yet misplacement is often shown at L5 (authors' observation); less capacious than published measures suggest.", "page": "p. 710-714 (PDF 2-6), Table 1, Figure 5, Key Points"},
+    {"level": "L5/S1", "detail": "L5 oblique ellipse with lateral border on the body edge against S1 triangle with lateral side merging into the ala; lateral border occasionally unseen at L5 and never seen at S1 on coaxial views.", "page": "p. 711 (PDF 3); p. 713 (PDF 5)"},
+    {"level": "S1", "detail": "Medial border lumbar-like seen from above; lateral aspect joins the ala; on 10 to 15 deg rotated PA films triangular with superior and medial borders seen; medial image a trabecular line often 3 to 4 mm inside the true wall, more caudally; inferior limit upper margin of S1 foramen; lateral border always lateral to the S1-S2 foramen.", "page": "p. 712-714 (PDF 4-6), Figures 8 and 9"},
+    {"level": "Thoracic, T12/L1, C2/C3, C7/T1", "detail": "Not studied; the authors only state the received view that the coaxial pedicle is an upright ellipse through most of the thoracic and lumbar spine.", "page": "p. 711 (PDF 3)"}
+  ],
+  "errors": [
+    {"what": "Intra- and inter-observer reliability", "value": "not reported; no repeat measurement, no statistical tests", "page": "whole paper"},
+    {"what": "Magnification", "value": "corrected against a known standard dimension; accuracy of the correction not given", "page": "p. 710 (PDF 2)"},
+    {"what": "Marker wire thickness", "value": "0.4 mm lumbar, 0.8 mm S1; height read at the wire's inner margin", "page": "p. 709-710 (PDF 1-2)"},
+    {"what": "Wire contact failure", "value": "where vascular-foramen cortical defects existed, most along the superior L5 border; no count", "page": "p. 710 (PDF 2)"},
+    {"what": "Radiographic image inside true cortex (lumbar)", "value": "densest image 1 to 3 mm inside the wire; abstract up to 3 mm", "page": "p. 711 (PDF 3); p. 709 (PDF 1)"},
+    {"what": "Radiographic medial border inside true cortex (S1)", "value": "in all cases, often 3 to 4 mm, greater caudally", "page": "p. 712 (PDF 4)"},
+    {"what": "Between-specimen SD, linear measures", "value": "2.1 to 4.5 mm (L3 left height 13.0 mm, likely misprint)", "page": "p. 711 (PDF 3), Table 1"},
+    {"what": "Between-specimen SD, ellipse tilt", "value": "3.1 to 6.6 deg L1-L3, 17.1 to 20.8 deg L4, 7.4 to 8.8 deg L5", "page": "p. 711 (PDF 3), Table 1"},
+    {"what": "Coaxial rotation angle", "value": "found by repeated films until widest; angle not recorded", "page": "p. 709 (PDF 1)"}
+  ],
+  "pearls_pitfalls": [
+    {"text": "Indication: fluoroscopy-assisted lumbar and S1 pedicle screw placement; freehand placement risks misplacement and routine PA and lateral films are unreliable for judging screw position; coaxial fluoroscopy is accurate in cadavers when the pedicle is large enough (citing others).", "page": "p. 709 (PDF 1)"},
+    {"text": "The coaxial pedicle image lies inside the true cortex, so a screw kept within it has a margin of safety; no image misrepresented the true bony contour.", "page": "p. 713 (PDF 5); Key Points p. 714 (PDF 6)"},
+    {"text": "On the coaxial view the pedicle lies within the body image, below the superior end plate and medial to the lateral body wall; the spinous process turns away and the opposite pedicle narrows.", "page": "p. 710 (PDF 2), Figure 4 caption"},
+    {"text": "Pitfall: L5 is wide but oblique, so its effective screw diameter (isthmus about 13 to 14 mm) is far less than its width (about 21.5 mm).", "page": "p. 709 (PDF 1); p. 711 (PDF 3); p. 713-714 (PDF 5-6)"},
+    {"text": "Pitfall: the long inferomedial L5 pedicle wall lies against the L5 root, vulnerable to any breach.", "page": "p. 713 (PDF 5); p. 714 (PDF 6)"},
+    {"text": "Reasons offered for L5 misplacement: unrecognised elliptical shape, smaller effective diameter, greater obliquity and soft-tissue retraction needed, variable entry-point landmarks.", "page": "p. 713 (PDF 5)"},
+    {"text": "Pitfall: the transverse process base midpoint is not a reliable guide to the pedicle's vertical midpoint; it may sit low.", "page": "p. 712 (PDF 4), Figure 7; p. 714 (PDF 6)"},
+    {"text": "At L5 the lateral body image guides the lateral pedicle border; at S1 the trabecular medial line always lies within the pedicle and is a safe medial guide, the lateral border is always lateral to the S1 foramen, and the upper margin of the S1 foramen is the inferior pedicle limit.", "page": "p. 712-714 (PDF 4-6)"},
+    {"text": "Marked sacral rotation to show the S1 lateral border is clinically impractical; 10 to 15 deg is used.", "page": "p. 712 (PDF 4)"},
+    {"text": "The wire often formed a halo around the image though in contact with bone; the denser inner wall may show, separated from the marker by a less dense outer wall.", "page": "p. 711 (PDF 3); p. 713 (PDF 5)"},
+    {"text": "S1 image correlates less well with its cortex than the lumbar ones, but other reliable landmarks exist.", "page": "p. 709 (PDF 1); Key Points p. 714 (PDF 6)"},
+    {"text": "No stenosis thresholds, syndromes or screw diameters are given.", "page": "whole paper"}
+  ],
+  "instructions": [
+    {"text": "On a coaxial (rotated AP) view of a lumbar vertebra, find each pedicle as an ellipse inside the body image, below the superior end plate and medial to the lateral body wall; expect the spinous process to have turned away from the pedicle in view.", "page": "p. 710 (PDF 2), Figure 4"},
+    {"text": "Read the dense pedicle ring as the inner cortex; place the true outer border 1 to 3 mm outside it before comparing with any outer-cortex (CT mask or caliper) value.", "page": "p. 711 (PDF 3)"},
+    {"text": "Use coaxial ellipse tilt as a level cue: near vertical (within about 8 deg) L1 to L3, about 30 deg with wide spread at L4, about 50 to 55 deg at L5, upper pole toward the midline; a strongly oblique wide pedicle points to L5; never use tilt to separate L1, L2 and L3.", "page": "p. 711 (PDF 3), Table 1, Figure 5"},
+    {"text": "Use coaxial pedicle width as an ordering cue (about 10, 10, 13, 16, 21.5 mm L1 to L5); never split L1 from L2 by width.", "page": "p. 711 (PDF 3), Table 1"},
+    {"text": "Do not use coaxial pedicle height to tell lumbar levels apart (17.4 to 19.9 mm at every level).", "page": "p. 711 (PDF 3), Table 1"},
+    {"text": "At L4 and L5 report the ellipse's minor axis separately from the bounding width; at L5 about 13 to 14 mm against about 21.5 mm.", "page": "p. 711 (PDF 3), Table 1"},
+    {"text": "At L5 take the lateral pedicle border from the lateral border of the L5 body image.", "page": "p. 711 (PDF 3); p. 714 (PDF 6)"},
+    {"text": "Expect cortical gaps at vascular foramina along the superior L5 pedicle border; Inference: do not read them as fracture or mask error.", "page": "p. 710 (PDF 2)"},
+    {"text": "Never locate a pedicle's craniocaudal centre from the transverse process base midpoint.", "page": "p. 712 (PDF 4), Figure 7; p. 714 (PDF 6)"},
+    {"text": "Recognise S1 by a triangular pedicle image with clear superior and medial borders, no lateral cortex and the lateral side merging into the ala, on a view rotated only 10 to 15 deg from PA.", "page": "p. 712 (PDF 4), Figure 8"},
+    {"text": "At S1 put the true medial wall medial to the visible trabecular line (always, often by 3 to 4 mm, more caudally); take the inferior limit at the upper margin of the first sacral foramen and the lateral wall lateral to that foramen.", "page": "p. 712-713 (PDF 4-5), Figure 9"},
+    {"text": "Inference: at the lumbosacral junction use L5 (oblique ellipse, lateral border on the body edge) against S1 (triangle, no lateral cortex, ala continuous) as one feature for last lumbar against first sacral; treat an intermediate pedicle as a transitional candidate and check other cues, since no transitional spine was studied.", "page": "p. 711-713 (PDF 3-5)"},
+    {"text": "Inference: from a 3D mask take each pedicle's isthmus section perpendicular to its axial-plane trajectory, fit an ellipse and report bounding height, bounding width, tilt from the body axis and minor axis so values compare with Table 1.", "page": "p. 710 (PDF 2)"},
+    {"text": "Correct every radiographic length for magnification against a known dimension before comparing with these values.", "page": "p. 710 (PDF 2)"},
+    {"text": "Do not lean on L4 tilt alone: its SD of 17 to 21 deg lets one L4 look like L3 or L5; combine with width and neighbours.", "page": "p. 711 (PDF 3), Table 1"},
+    {"text": "Inference: on an AP film or fluoroscopy, one wide pedicle, an off-centre spinous process turned away from it and a narrowed opposite pedicle mean beam rotation toward coaxial for the wide side; correct for it before comparing widths between levels or sides.", "page": "p. 710 (PDF 2), Figure 4 caption"},
+    {"text": "Do not compare these values with measures from a plain AP or lateral film or a CT axial slice without converting: every number here is from the coaxial view.", "page": "p. 710 (PDF 2)"}
+  ],
+  "bordercall": [
+    "(a) Anomaly priors: none; no prevalence of any transitional or numbering anomaly, and the denominator (10 spines, five lumbar vertebrae analysed each) carries no anomaly information.",
+    "(b) Definition differences: Robertson's width and height are bounding extents of the isthmus outline projected along the pedicle in the axial plane. Inference from memory: Panjabi measures width in the transverse plane and height in the sagittal plane. The authors call their dimensions consistent with Panjabi 1992 and Zindrick 1987 without numbers (p. 713, PDF 5). Inference (geometry on Table 1): at L5 the bounding width (about 21.5 mm) exceeds a horizontal chord through the ellipse centre (about 18.3 mm) by about 3 mm, the minor axis (about 13.5 mm) is about 8 mm below the bounding width, and a vertical chord (15 to 16.5 mm) is 2 to 3 mm below the bounding height; the L5 row fits one ellipse within 0.2 mm, the L4 row does not (predicted height about 20.5 against 17.4 to 17.8 mm).",
+    "(b) A mask-derived pedicle width must say which it is: coaxial bounding width, horizontal chord at mid-height, fitted-ellipse minor axis, or narrowest axial-slice width; mixing them biases L4 and L5 by 3 to 8 mm.",
+    "(b) Candidate new generator measures: pedicle ellipse tilt (near 0 deg L1-L3, about 31 to 34 deg L4, 50 to 55 deg L5) and isthmus minor axis, with Table 1 means and SDs (p. 711, PDF 3); no covariances given.",
+    "(b) A CT mask is the outer surface, as the wire; radiographic values on the visible ring are smaller by 1 to 3 mm per border (lumbar, p. 711, PDF 3) and often 3 to 4 mm at the medial S1 border (p. 712, PDF 4); S1 has no lateral cortex, so a lumbar-style S1 width is undefined.",
+    "(c) Measurement error: no reliability data; use Table 1 SDs (2.1 to 4.5 mm linear; tilt 3 to 7 deg L1-L3, 17 to 21 deg L4, 7 to 9 deg L5) plus the systematic radiographic offset.",
+    "(d) Covariates: none; no sex, age, stature or ethnicity; only comparison is Olsewski's male L5 height 17.4 and width 21.1 mm (p. 713, PDF 5)."
+  ],
+  "gaps": [
+    "No demographics, source collection or pathology screen of the 10 specimens; n per Table 1 cell not printed (Inference: 10).",
+    "No CT, lateral film or AP-film dimension; only the coaxial view is quantified; PA films taken but not measured.",
+    "Level identification and transitional segments never discussed.",
+    "Table 1 L3 left height SD 13.0 mm out of line with all others (2.5 to 3.9); Inference: misprint for 3.0.",
+    "Tilt sign convention not stated; Figure 5 mirrors the two sides while Table 1 gives positive values both sides (Inference: side-relative).",
+    "Height defined at the wire's inner margin, width only as defined by the wire, isthmus diameter source (wire or ring) not stated.",
+    "Text p. 711 gives L4 31.0 and L5 55.0 deg, left-side values only.",
+    "Discussion says L5 isthmus exceeds the levels above (p. 713); Table 1 left L5 13.2 < L4 13.4 mm.",
+    "Results say L5 lateral border lay on the body edge image (p. 711); discussion says it is occasionally not seen (p. 713); no count.",
+    "Table 1 sides (specimen or reader) not defined; figures use the reader's sides.",
+    "Coaxial rotation angle (in effect the pedicle transverse angle) not recorded.",
+    "Figure 5 is a drawn schematic with a 1 cm scale bar, not traced images.",
+    "S1 foramen and S1-S2 intervertebral foramen appear to be the same first sacral foramen (Inference).",
+    "Frequent L5 misplacement is the authors' observation, not data.",
+    "Inference from memory: Zindrick 1987 and Panjabi 1992 axial-plane L5 widths are a few mm below Robertson's coaxial 21.5 mm, reconciled by the horizontal chord (about 18 mm); Robertson's coaxial heights (17 to 20 mm) look larger than sagittal heights in those papers."
+  ]
+}

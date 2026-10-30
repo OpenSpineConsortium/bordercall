@@ -1,0 +1,685 @@
+{
+  "paper": "bonczar2024",
+  "cohorts": [
+    {
+      "cohort": "pool18",
+      "labels": [
+        "sex all / no group (Tables 2 to 6)",
+        "sex all (Text: Results 1481)"
+      ],
+      "tables": [
+        "Table 2",
+        "Table 3",
+        "Table 4",
+        "Table 5",
+        "Table 6",
+        "Text: Results"
+      ],
+      "subjects": "The pooled subjects of 18 published studies (refs 1, 6, 7, 10, 15, 16, 18, 20, 22, 23, 25, 27, 30, 32-34, 36, 38): whom the paper calls patients or individuals, measured on MRI (1 study), CT (8), radiographs (5), a 3D digitiser (2; Tan [32] is a cadaver study, p. 9) and calipers (2), from Asia (14 studies), Oceania (2) and Europe (2). Inclusion: original articles with extractable data on overall lumbar anatomy; exclusion: conference reports, case reports and series, reviews, letters, patients with pathology that could distort the anatomy, and studies with no relevant or compatible data. Transitional anomalies were not considered (p. 10). Inference: each pooled cell draws on an unreported subset of the 18 studies",
+      "n_people": 1481,
+      "n_units": "1481 individuals from 18 studies (sum of Table 1 research groups); vertebrae per cell not reported",
+      "ages": "not given for the pool; study means 29 to 67 years (Table 1)",
+      "sexes": "not given for the pool",
+      "page": "p. 1, 3, 4, 10 (PDF 1, 3, 4, 10)"
+    },
+    {
+      "cohort": "pool18_male",
+      "labels": [
+        "sex male (Table 7)"
+      ],
+      "tables": [
+        "Table 7"
+      ],
+      "subjects": "The male subjects of those included studies that reported anterior body height or interpedicular distance by sex; which studies is not stated",
+      "n_people": null,
+      "n_units": "not reported",
+      "ages": "not given",
+      "sexes": "male",
+      "page": "p. 6, 10 (PDF 6, 10)"
+    },
+    {
+      "cohort": "pool18_female",
+      "labels": [
+        "sex female (Table 7)"
+      ],
+      "tables": [
+        "Table 7"
+      ],
+      "subjects": "The female subjects of those included studies that reported anterior body height or interpedicular distance by sex; which studies is not stated",
+      "n_people": null,
+      "n_units": "not reported",
+      "ages": "not given",
+      "sexes": "female",
+      "page": "p. 6, 10 (PDF 6, 10)"
+    },
+    {
+      "cohort": "pool18_asia",
+      "labels": [
+        "sex all / group Asia (Text: Discussion, p. 10)"
+      ],
+      "tables": [
+        "Text: Discussion"
+      ],
+      "subjects": "The patients of the included studies from Asia, given as a limitation (the pool may reflect Asian anatomy)",
+      "n_people": 1076,
+      "n_units": "1076 patients",
+      "ages": "not given",
+      "sexes": "not given",
+      "page": "p. 10 (PDF 10)"
+    },
+    {
+      "cohort": "naidoo2022",
+      "labels": [
+        "Table 1 row Naidoo N. 2022 (sex all / group Magnetic Resonance Imaging)"
+      ],
+      "tables": [
+        "Table 1"
+      ],
+      "subjects": "Naidoo N. 2022, one of the 18 included studies (ref 23); United Arab Emirates, Asia; method Magnetic Resonance Imaging; its reference title describes 3D models built from 2D MRI. No inclusion or exclusion of its own given",
+      "n_people": 50,
+      "n_units": "50 individuals (Table 1 research group)",
+      "ages": "not printed (dash)",
+      "sexes": "not stated",
+      "page": "p. 3 (PDF 3)"
+    },
+    {
+      "cohort": "irshad2022a",
+      "labels": [
+        "Table 1 row Irshad F. 2022 (a) (sex all / group Computed Tomography)",
+        "Table 1 row Irshad F. 2022 (a) (sex female and male, mean age)"
+      ],
+      "tables": [
+        "Table 1"
+      ],
+      "subjects": "Irshad F. 2022 (a), one of the 18 included studies (ref 15 or 16); Pakistan, Asia; method Computed Tomography; the two Irshad 2022 papers are titled as Punjab body and disc morphometry (ref 15) and canal dimensions in people with and without low back pain (ref 16); which is (a) is not stated. No inclusion or exclusion of its own given",
+      "n_people": 26,
+      "n_units": "26 individuals (Table 1 research group)",
+      "ages": "females 45 +/- 7.3, males 48 +/- 9.7",
+      "sexes": "females and males, counts not stated",
+      "page": "p. 3 (PDF 3)"
+    },
+    {
+      "cohort": "irshad2022b",
+      "labels": [
+        "Table 1 row Irshad F. 2022 (b) (sex all / group Radiograph)",
+        "Table 1 row Irshad F. 2022 (b) (sex female and male, mean age)"
+      ],
+      "tables": [
+        "Table 1"
+      ],
+      "subjects": "Irshad F. 2022 (b), one of the 18 included studies (ref 15 or 16); Pakistan, Asia; method Radiograph; the two Irshad 2022 papers are titled as Punjab body and disc morphometry (ref 15) and canal dimensions in people with and without low back pain (ref 16); which is (b) is not stated. No inclusion or exclusion of its own given",
+      "n_people": 81,
+      "n_units": "81 individuals (Table 1 research group)",
+      "ages": "females 29 +/- 6.9, males 34 +/- 7.6",
+      "sexes": "females and males, counts not stated",
+      "page": "p. 3 (PDF 3)"
+    },
+    {
+      "cohort": "cook2021",
+      "labels": [
+        "Table 1 row Cook W.H. 2021 (sex all / group Computed Tomography)"
+      ],
+      "tables": [
+        "Table 1"
+      ],
+      "subjects": "Cook W.H. 2021, one of the 18 included studies (ref 7); New Zealand, Oceania; method Computed Tomography; its reference title compares Maori and New Zealand Europeans on CT. No inclusion or exclusion of its own given",
+      "n_people": 196,
+      "n_units": "196 individuals (Table 1 research group)",
+      "ages": "42 +/- 19.5",
+      "sexes": "not stated",
+      "page": "p. 3 (PDF 3)"
+    },
+    {
+      "cohort": "singh2021",
+      "labels": [
+        "Table 1 row Singh V. 2021 (sex all / group Computed Tomography)",
+        "Text: Discussion rows Singh et al. patients (sex all / group CT, p. 7; group Indian, p. 8)"
+      ],
+      "tables": [
+        "Table 1",
+        "Text: Discussion"
+      ],
+      "subjects": "Singh V. 2021, one of the 18 included studies (ref 30 (dated 2022 there)); India, Asia; method Computed Tomography; the Discussion calls them 302 Indian patients (pp. 7, 8). No inclusion or exclusion of its own given",
+      "n_people": 302,
+      "n_units": "302 individuals (Table 1 research group)",
+      "ages": "not printed (dash)",
+      "sexes": "not stated",
+      "page": "p. 3 (PDF 3); p. 7-9 (PDF 7-9)"
+    },
+    {
+      "cohort": "morita2021",
+      "labels": [
+        "Table 1 row Morita K. 2021 (sex all / group Computed Tomography)",
+        "Table 1 row Morita K. 2021 (sex female and male, mean age)"
+      ],
+      "tables": [
+        "Table 1"
+      ],
+      "subjects": "Morita K. 2021, one of the 18 included studies (ref 22); Japan, Asia; method Computed Tomography; its reference title names thoracic and lumbar pedicles of Japanese people. No inclusion or exclusion of its own given",
+      "n_people": 227,
+      "n_units": "227 individuals (Table 1 research group)",
+      "ages": "females 66.5 +/- 15.2, males 67 +/- 13.1",
+      "sexes": "females and males, counts not stated",
+      "page": "p. 3 (PDF 3)"
+    },
+    {
+      "cohort": "agichani2018",
+      "labels": [
+        "Table 1 row Agichani S. 2018 (sex all / group Radiograph)"
+      ],
+      "tables": [
+        "Table 1"
+      ],
+      "subjects": "Agichani S. 2018, one of the 18 included studies (ref 1); India, Asia; method Radiograph; its reference title names a Central Indian population. No inclusion or exclusion of its own given",
+      "n_people": 120,
+      "n_units": "120 individuals (Table 1 research group)",
+      "ages": "not printed (dash)",
+      "sexes": "not stated",
+      "page": "p. 3 (PDF 3)"
+    },
+    {
+      "cohort": "gomezolivencia2017",
+      "labels": [
+        "Table 1 row Gomez-Olivencia A. 2017 (sex all / group Digital Callipers)"
+      ],
+      "tables": [
+        "Table 1"
+      ],
+      "subjects": "Gomez-Olivencia A. 2017, one of the 18 included studies (ref 10); Spain, Europe; method Digital Callipers; its reference title is a study of the Neandertal lumbar spine; Inference: the 73 are a modern comparison sample. No inclusion or exclusion of its own given",
+      "n_people": 73,
+      "n_units": "73 individuals (Table 1 research group)",
+      "ages": "not printed (dash)",
+      "sexes": "not stated",
+      "page": "p. 3 (PDF 3)"
+    },
+    {
+      "cohort": "wang2015",
+      "labels": [
+        "Table 1 row Wang Y. 2015 (sex all / group Computed Tomography)"
+      ],
+      "tables": [
+        "Table 1"
+      ],
+      "subjects": "Wang Y. 2015, one of the 18 included studies (ref 34); China, Asia; method Computed Tomography; its reference title compares deer and sheep lumbar spines with the human spine; Inference: the 5 are human. No inclusion or exclusion of its own given",
+      "n_people": 5,
+      "n_units": "5 individuals (Table 1 research group)",
+      "ages": "not printed (dash)",
+      "sexes": "not stated",
+      "page": "p. 3 (PDF 3)"
+    },
+    {
+      "cohort": "mahato2011",
+      "labels": [
+        "Table 1 row Mahato N.K. 2011 (sex all / group Radiograph)"
+      ],
+      "tables": [
+        "Table 1"
+      ],
+      "subjects": "Mahato N.K. 2011, one of the 18 included studies (ref 20); India, Asia; method Radiograph; its reference title names spines with L5-S1 transitions. No inclusion or exclusion of its own given",
+      "n_people": 50,
+      "n_units": "50 individuals (Table 1 research group)",
+      "ages": "32 +/- 7.82",
+      "sexes": "not stated",
+      "page": "p. 3 (PDF 3)"
+    },
+    {
+      "cohort": "been2010",
+      "labels": [
+        "Table 1 row Been E. 2010 (sex all / group Vernier Caliper)"
+      ],
+      "tables": [
+        "Table 1"
+      ],
+      "subjects": "Been E. 2010, one of the 18 included studies (ref 6); Israel, Asia; method Vernier Caliper; its reference title is the Kebara 2 Neandertal lumbar spine; Inference: the 97 are a modern comparison sample. No inclusion or exclusion of its own given",
+      "n_people": 97,
+      "n_units": "97 individuals (Table 1 research group)",
+      "ages": "not printed (dash)",
+      "sexes": "not stated",
+      "page": "p. 3 (PDF 3)"
+    },
+    {
+      "cohort": "tan2003",
+      "labels": [
+        "Table 1 row Tan S. H. 2003 (sex all / group Three-dimensional Digitiser)"
+      ],
+      "tables": [
+        "Table 1"
+      ],
+      "subjects": "Tan S. H. 2003, one of the 18 included studies (ref 33, Tan SH 2004); Singapore, Asia; method Three-dimensional Digitiser; Table 1's 10 subjects, 65.7 years, 61.6 kg and 1.66 m are the figures tan2004 in this set prints for its 10 Chinese Singaporean cadavers (tan2004 p. 137), so this row is that paper: dry-bone vertebrae C3 to L5 measured with a contact digitiser on Panjabi's landmarks, sex not reported. No inclusion or exclusion of its own given",
+      "n_people": 10,
+      "n_units": "10 individuals (Table 1 research group)",
+      "ages": "65.7; mean weight 61.6 kg, mean height 1.66 m",
+      "sexes": "not stated",
+      "page": "p. 3 (PDF 3)"
+    },
+    {
+      "cohort": "kadioglu2003",
+      "labels": [
+        "Table 1 row Kadioglu H. 2003 (sex all / group Computed Tomography)"
+      ],
+      "tables": [
+        "Table 1"
+      ],
+      "subjects": "Kadioglu H. 2003, one of the 18 included studies (ref 18); Turkey, Asia; method Computed Tomography; its reference title names lumbar pedicles of an Eastern Anatolian population. No inclusion or exclusion of its own given",
+      "n_people": 29,
+      "n_units": "29 individuals (Table 1 research group)",
+      "ages": "35",
+      "sexes": "not stated",
+      "page": "p. 3 (PDF 3)"
+    },
+    {
+      "cohort": "tan2001",
+      "labels": [
+        "Table 1 row Tan S. H. 2001 (sex all / group Three-dimensional Digitiser)",
+        "Text: Discussion rows Tan et al. vertebrae and cadavers (sex not stated / group Asian (Singaporean) cadavers, p. 9)"
+      ],
+      "tables": [
+        "Table 1",
+        "Text: Discussion"
+      ],
+      "subjects": "Tan S. H. 2001, one of the 18 included studies (Inference: ref 32 (Tan S 2002)); Singapore, Asia; method Three-dimensional Digitiser; the Discussion (p. 9) gives Tan et al. [32] 60 lumbar vertebrae from 12 Asian (Singaporean) cadavers. No inclusion or exclusion of its own given",
+      "n_people": 12,
+      "n_units": "60 lumbar vertebrae of 12 cadavers (p. 9)",
+      "ages": "67; mean weight 62 kg, mean height 1.66 m",
+      "sexes": "not stated",
+      "page": "p. 3 (PDF 3); p. 7-9 (PDF 7-9)"
+    },
+    {
+      "cohort": "wolf2001",
+      "labels": [
+        "Table 1 row Wolf A. 2001 (sex all / group Computed Tomography)"
+      ],
+      "tables": [
+        "Table 1"
+      ],
+      "subjects": "Wolf A. 2001, one of the 18 included studies (ref 36); Israel, Asia; method Computed Tomography; its reference title names operation-workspace specifications. No inclusion or exclusion of its own given",
+      "n_people": 55,
+      "n_units": "55 individuals (Table 1 research group)",
+      "ages": "57.64 +/- 17.84",
+      "sexes": "not stated",
+      "page": "p. 3 (PDF 3)"
+    },
+    {
+      "cohort": "robertson2000",
+      "labels": [
+        "Table 1 row Robertson P. 2000 (sex all / group Radiograph)"
+      ],
+      "tables": [
+        "Table 1"
+      ],
+      "subjects": "Robertson P. 2000, one of the 18 included studies (ref 27); New Zealand, Oceania; method Radiograph; its reference title names the lumbar and lumbosacral pedicles; robertson2000 in this set (p. 709) gives its 10 as dry-bone lumbosacral spines filmed one bone at a time. No inclusion or exclusion of its own given",
+      "n_people": 10,
+      "n_units": "10 individuals (Table 1 research group)",
+      "ages": "not printed (dash)",
+      "sexes": "not stated",
+      "page": "p. 3 (PDF 3)"
+    },
+    {
+      "cohort": "zhou2000",
+      "labels": [
+        "Table 1 row Zhou S. H. 2000 (sex all / group Computed Tomography)",
+        "Table 1 row Zhou S. H. 2000 (sex female and male, mean age)"
+      ],
+      "tables": [
+        "Table 1"
+      ],
+      "subjects": "Zhou S. H. 2000, one of the 18 included studies (ref 38); UK, Europe; method Computed Tomography; its reference title names the lower lumbar vertebrae from digitised CT images. No inclusion or exclusion of its own given",
+      "n_people": 126,
+      "n_units": "126 individuals (Table 1 research group)",
+      "ages": "females 49, males 50",
+      "sexes": "females and males, counts not stated",
+      "page": "p. 3 (PDF 3)"
+    },
+    {
+      "cohort": "panjabi1992",
+      "labels": [
+        "Table 1 row Panjabi M. 1992 (sex all / group Radiograph)"
+      ],
+      "tables": [
+        "Table 1"
+      ],
+      "subjects": "Panjabi M. 1992, one of the 18 included studies (ref 25); Table 1 prints Asia, India and Radiograph, but the Discussion (p. 9) calls Panjabi's subjects Caucasian, and Table 1's 12 subjects, 46.3 years, 67.8 kg and 1.678 m are panjabi1992's own figures (panjabi1992 p. 299) for 12 autopsy spines, 8 men and 4 women, cleaned to dry bone and measured with a morphometer; that paper names no country. No inclusion or exclusion of its own given",
+      "n_people": 12,
+      "n_units": "12 individuals (Table 1 research group)",
+      "ages": "46.3; mean weight 67.8 kg, mean height 1.678 m",
+      "sexes": "not stated",
+      "page": "p. 3 (PDF 3)"
+    },
+    {
+      "cohort": "arora2005",
+      "labels": [
+        "sex male and female / group cadavers (Text: Discussion, p. 7)"
+      ],
+      "tables": [
+        "Text: Discussion"
+      ],
+      "subjects": "Arora et al. [4], a cadaveric study cited for pedicle height rising L1 to L5; not among the 18 included studies; Delhi, northern India by its reference title",
+      "n_people": 55,
+      "n_units": "lumbar vertebrae of 25 males and 30 females",
+      "ages": "not given",
+      "sexes": "25 male, 30 female",
+      "page": "p. 7 (PDF 7)"
+    },
+    {
+      "cohort": "seema2016",
+      "labels": [
+        "sex not stated / group radiographs (Text: Discussion, p. 7)"
+      ],
+      "tables": [
+        "Text: Discussion"
+      ],
+      "subjects": "Seema et al. [29], cited for pedicle height rising L1 to L5; not among the 18 included studies; adult Punjabi males by its reference title",
+      "n_people": null,
+      "n_units": "lumbar vertebrae of 100 radiographs",
+      "ages": "not given",
+      "sexes": "not stated in the text; males by the reference title",
+      "page": "p. 7 (PDF 7)"
+    },
+    {
+      "cohort": "alam2014",
+      "labels": [
+        "sex all / group CT (Text: Discussion, p. 7)"
+      ],
+      "tables": [
+        "Text: Discussion"
+      ],
+      "subjects": "Alam et al. [3], a CT study cited for pedicle height falling L1 to L5 and for greater sagittal pedicle inclination in females; not among the 18 included studies; a Pakistani population by its reference title",
+      "n_people": 49,
+      "n_units": "49 patients",
+      "ages": "not given",
+      "sexes": "not stated",
+      "page": "p. 7, 9 (PDF 7, 9)"
+    },
+    {
+      "cohort": "no_subjects",
+      "labels": [
+        "sex not stated rows of Figure 1, Text: Introduction and the embryology rows of Text: Discussion; Text: Results 27 categories"
+      ],
+      "tables": [
+        "Figure 1",
+        "Text: Introduction",
+        "Text: Discussion",
+        "Text: Results"
+      ],
+      "subjects": "Not subjects: counts of literature records in the search flow, the number of measure categories, and textbook statements of lumbar anatomy and ossification timing cited to refs 3, 19, 20, 21, 35",
+      "n_people": null,
+      "n_units": "not applicable",
+      "ages": "not applicable",
+      "sexes": "not applicable",
+      "page": "p. 1, 2, 4, 7 (PDF 1, 2, 4, 7)"
+    }
+  ],
+  "techniques": [
+    {
+      "technique": "meta_pool",
+      "cohorts": [
+        "pool18",
+        "pool18_male",
+        "pool18_female"
+      ],
+      "modality": "meta-analysis",
+      "instrument": "STATISTICA 13.1, MetaXL 5.3 and Comprehensive Meta-analysis 4.0; random-effects model",
+      "how": "Means of the 18 studies pooled per level and measure into a mean, SE, variance, 95 percent limits, Z and p; heterogeneity by chi-square and I-squared (no I-squared reported); pooling across methods justified by the methods not differing (p > 0.05, no figures shown). The 27 measures are defined only by the Fig. 2 schematic (axial, lateral and frontal views); interpedicular distance and the end-plate inclinations are not drawn",
+      "magnification": "not stated; source radiograph values are pooled with no stated correction",
+      "observers": "two independent reviewers extracted the data; disagreements settled by asking the authors or a third person",
+      "page": "pp. 3-4 (PDF 3-4); Fig. 2 p. 4"
+    },
+    {
+      "technique": "ct",
+      "cohorts": [
+        "irshad2022a",
+        "cook2021",
+        "singh2021",
+        "morita2021",
+        "wang2015",
+        "kadioglu2003",
+        "wolf2001",
+        "zhou2000"
+      ],
+      "modality": "other",
+      "instrument": "computed tomography; plane, slice thickness and reconstruction not stated",
+      "how": "As printed in Table 1 only; no landmarks or plane given per study",
+      "magnification": "not stated",
+      "observers": "not stated for the source measurements; two independent reviewers extracted the data, disagreements settled by asking the authors or a third person (pp. 3-4)",
+      "page": "p. 3 (PDF 3)"
+    },
+    {
+      "technique": "radiograph",
+      "cohorts": [
+        "irshad2022b",
+        "agichani2018",
+        "mahato2011",
+        "robertson2000",
+        "panjabi1992"
+      ],
+      "modality": "other",
+      "instrument": "radiograph; projection not stated",
+      "how": "As printed in Table 1 only; projection and landmarks not given. Panjabi 1992's own paper (panjabi1992 p. 299) measured dry bone with a morphometer and used radiographs only to screen the specimens and to place its marker pins, so its Radiograph entry does not describe how its values were measured; Robertson 2000 filmed dry-bone vertebrae (robertson2000 p. 709)",
+      "magnification": "not stated",
+      "observers": "not stated for the source measurements; two independent reviewers extracted the data, disagreements settled by asking the authors or a third person (pp. 3-4)",
+      "page": "p. 3 (PDF 3)"
+    },
+    {
+      "technique": "mri",
+      "cohorts": [
+        "naidoo2022"
+      ],
+      "modality": "MRI",
+      "instrument": "magnetic resonance imaging; sequence not stated",
+      "how": "As printed in Table 1 only; the reference title speaks of 3D models from 2D MRI",
+      "magnification": "not stated",
+      "observers": "not stated for the source measurements; two independent reviewers extracted the data, disagreements settled by asking the authors or a third person (pp. 3-4)",
+      "page": "p. 3 (PDF 3)"
+    },
+    {
+      "technique": "digital_calipers",
+      "cohorts": [
+        "gomezolivencia2017"
+      ],
+      "modality": "dry bone caliper",
+      "instrument": "digital callipers",
+      "how": "As printed in Table 1 only. Inference: on skeletal specimens, by the reference title",
+      "magnification": "not stated",
+      "observers": "not stated for the source measurements; two independent reviewers extracted the data, disagreements settled by asking the authors or a third person (pp. 3-4)",
+      "page": "p. 3 (PDF 3)"
+    },
+    {
+      "technique": "vernier_caliper",
+      "cohorts": [
+        "been2010"
+      ],
+      "modality": "dry bone caliper",
+      "instrument": "Vernier caliper",
+      "how": "As printed in Table 1 only. Inference: on skeletal specimens, by the reference title",
+      "magnification": "not stated",
+      "observers": "not stated for the source measurements; two independent reviewers extracted the data, disagreements settled by asking the authors or a third person (pp. 3-4)",
+      "page": "p. 3 (PDF 3)"
+    },
+    {
+      "technique": "digitiser_3d",
+      "cohorts": [
+        "tan2003",
+        "tan2001"
+      ],
+      "modality": "3D digitiser",
+      "instrument": "three-dimensional digitiser",
+      "how": "As printed in Table 1 only; the Discussion calls Tan et al. [32] a study of cadavers",
+      "magnification": "not stated",
+      "observers": "not stated for the source measurements; two independent reviewers extracted the data, disagreements settled by asking the authors or a third person (pp. 3-4)",
+      "page": "p. 3, 9 (PDF 3, 9)"
+    },
+    {
+      "technique": "cited_not_pooled",
+      "cohorts": [
+        "arora2005",
+        "seema2016",
+        "alam2014"
+      ],
+      "modality": "other",
+      "instrument": "cadaveric study (Arora), radiographs (Seema), CT (Alam), as the Discussion names them",
+      "how": "Cited only for their findings on pedicle height and inclination; not pooled",
+      "magnification": "not stated",
+      "observers": "not stated for the source measurements; two independent reviewers extracted the data, disagreements settled by asking the authors or a third person (pp. 3-4)",
+      "page": "p. 7, 9 (PDF 7, 9)"
+    }
+  ],
+  "shared": [
+    {
+      "with": "Naidoo N. 2022, ref 23; not on the list",
+      "what": "data pooled",
+      "evidence": "one of the 18 included studies; its 50 subjects (Magnetic Resonance Imaging, United Arab Emirates) enter the pooled values",
+      "page": "p. 3, 4 (PDF 3, 4)"
+    },
+    {
+      "with": "Irshad F. 2022 (a), ref 15 or 16; not on the list",
+      "what": "data pooled",
+      "evidence": "one of the 18 included studies; its 26 subjects (Computed Tomography, Pakistan) enter the pooled values",
+      "page": "p. 3, 4 (PDF 3, 4)"
+    },
+    {
+      "with": "Irshad F. 2022 (b), ref 15 or 16; not on the list",
+      "what": "data pooled",
+      "evidence": "one of the 18 included studies; its 81 subjects (Radiograph, Pakistan) enter the pooled values",
+      "page": "p. 3, 4 (PDF 3, 4)"
+    },
+    {
+      "with": "Cook W.H. 2021, ref 7; not on the list",
+      "what": "data pooled",
+      "evidence": "one of the 18 included studies; its 196 subjects (Computed Tomography, New Zealand) enter the pooled values",
+      "page": "p. 3, 4 (PDF 3, 4)"
+    },
+    {
+      "with": "Singh V. 2021, ref 30 (dated 2022 there); not on the list",
+      "what": "data pooled",
+      "evidence": "one of the 18 included studies; its 302 subjects (Computed Tomography, India) enter the pooled values",
+      "page": "p. 3, 4 (PDF 3, 4)"
+    },
+    {
+      "with": "Morita K. 2021, ref 22; not on the list",
+      "what": "data pooled",
+      "evidence": "one of the 18 included studies; its 227 subjects (Computed Tomography, Japan) enter the pooled values",
+      "page": "p. 3, 4 (PDF 3, 4)"
+    },
+    {
+      "with": "Agichani S. 2018, ref 1; not on the list",
+      "what": "data pooled",
+      "evidence": "one of the 18 included studies; its 120 subjects (Radiograph, India) enter the pooled values",
+      "page": "p. 3, 4 (PDF 3, 4)"
+    },
+    {
+      "with": "Gomez-Olivencia A. 2017, ref 10; not on the list",
+      "what": "data pooled",
+      "evidence": "one of the 18 included studies; its 73 subjects (Digital Callipers, Spain) enter the pooled values",
+      "page": "p. 3, 4 (PDF 3, 4)"
+    },
+    {
+      "with": "Wang Y. 2015, ref 34; not on the list",
+      "what": "data pooled",
+      "evidence": "one of the 18 included studies; its 5 subjects (Computed Tomography, China) enter the pooled values",
+      "page": "p. 3, 4 (PDF 3, 4)"
+    },
+    {
+      "with": "Mahato N.K. 2011, ref 20; not on the list",
+      "what": "data pooled",
+      "evidence": "one of the 18 included studies; its 50 subjects (Radiograph, India) enter the pooled values",
+      "page": "p. 3, 4 (PDF 3, 4)"
+    },
+    {
+      "with": "Been E. 2010, ref 6; not on the list",
+      "what": "data pooled",
+      "evidence": "one of the 18 included studies; its 97 subjects (Vernier Caliper, Israel) enter the pooled values",
+      "page": "p. 3, 4 (PDF 3, 4)"
+    },
+    {
+      "with": "Tan S. H. 2003, ref 33 (Tan SH 2004); list id tan2004",
+      "what": "data pooled",
+      "evidence": "one of the 18 included studies; its 10 subjects (Three-dimensional Digitiser, Singapore) enter the pooled values; Table 1's 10 subjects, 65.7 years, 61.6 kg and 1.66 m match tan2004's own (p. 137), which ties the row to ref 33",
+      "page": "p. 3, 4 (PDF 3, 4)"
+    },
+    {
+      "with": "Kadioglu H. 2003, ref 18; not on the list",
+      "what": "data pooled",
+      "evidence": "one of the 18 included studies; its 29 subjects (Computed Tomography, Turkey) enter the pooled values",
+      "page": "p. 3, 4 (PDF 3, 4)"
+    },
+    {
+      "with": "Tan S. H. 2001, Inference: ref 32 (Tan S 2002); not on the list",
+      "what": "data pooled",
+      "evidence": "one of the 18 included studies; its 12 subjects (Three-dimensional Digitiser, Singapore) enter the pooled values",
+      "page": "p. 3, 4 (PDF 3, 4)"
+    },
+    {
+      "with": "Wolf A. 2001, ref 36; not on the list",
+      "what": "data pooled",
+      "evidence": "one of the 18 included studies; its 55 subjects (Computed Tomography, Israel) enter the pooled values",
+      "page": "p. 3, 4 (PDF 3, 4)"
+    },
+    {
+      "with": "Robertson P. 2000, ref 27; list id robertson2000",
+      "what": "data pooled",
+      "evidence": "one of the 18 included studies; its 10 subjects (Radiograph, New Zealand) enter the pooled values",
+      "page": "p. 3, 4 (PDF 3, 4)"
+    },
+    {
+      "with": "Zhou S. H. 2000, ref 38; not on the list",
+      "what": "data pooled",
+      "evidence": "one of the 18 included studies; its 126 subjects (Computed Tomography, UK) enter the pooled values",
+      "page": "p. 3, 4 (PDF 3, 4)"
+    },
+    {
+      "with": "Panjabi M. 1992, ref 25; list id panjabi1992",
+      "what": "data pooled",
+      "evidence": "one of the 18 included studies; its 12 subjects (printed Radiograph, India) enter the pooled values; Table 1's 12, 46.3 years, 67.8 kg and 1.678 m match panjabi1992's own (p. 299), a dry-bone morphometer study",
+      "page": "p. 3, 4 (PDF 3, 4)"
+    },
+    {
+      "with": "Tan S, Teo E, Chua H 2002 [32], not on the list; and Panjabi et al. 1992 [25], list id panjabi1992",
+      "what": "values quoted",
+      "evidence": "Tan [32] set its 12-cadaver results beside Panjabi's Caucasian data; Asians larger in many values",
+      "page": "p. 9 (PDF 9)"
+    },
+    {
+      "with": "Arora et al. 2005 [4], not on the list",
+      "what": "values quoted",
+      "evidence": "pedicle height rising L1 to L5 in 25 male and 30 female cadavers",
+      "page": "p. 7 (PDF 7)"
+    },
+    {
+      "with": "Seema et al. 2016 [29], not on the list",
+      "what": "values quoted",
+      "evidence": "pedicle height rising L1 to L5 on 100 radiographs",
+      "page": "p. 7 (PDF 7)"
+    },
+    {
+      "with": "Singh et al. 2022 [30] (Table 1 Singh V. 2021), not on the list",
+      "what": "values quoted",
+      "evidence": "pedicle height falling L1 to L5 in 302 patients; all measures larger in males",
+      "page": "p. 7, 8-9 (PDF 7, 8-9)"
+    },
+    {
+      "with": "Alam et al. 2014 [3], not on the list",
+      "what": "values quoted",
+      "evidence": "pedicle height falling on CT of 49 patients; sagittal pedicle inclination greater in females",
+      "page": "p. 7, 9 (PDF 7, 9)"
+    },
+    {
+      "with": "Wolf et al. 2001 [36], not on the list",
+      "what": "values quoted",
+      "evidence": "pedicle height falling to L3, then rising at L4 and L5, on CT",
+      "page": "p. 7 (PDF 7)"
+    },
+    {
+      "with": "Henry et al. 2016 [12] and the Cochrane Handbook [14], not on the list",
+      "what": "method",
+      "evidence": "heterogeneity by chi-square and I-squared with the Cochrane bands",
+      "page": "p. 4 (PDF 4)"
+    },
+    {
+      "with": "D'Antoni et al. 2022 CATAM [9] and Henry et al. 2017 AQUA [13], not on the list",
+      "what": "method",
+      "evidence": "PRISMA followed; CATAM and AQUA used for quality",
+      "page": "p. 3 (PDF 3)"
+    }
+  ],
+  "within_paper": "Tables 2 to 6 and the 1481 of the Results are one pool of the 18 included studies' subjects (pp. 3-4); Table 7's male and female values are subsets of that same pool (p. 6, 10), and the 1076 Asian patients (p. 10) are the Asian studies of Table 1. The Discussion's Singh (302, pp. 7-8) and Tan (12 cadavers, p. 9) are the same subjects as the Table 1 rows Singh V. 2021 and Tan S. H. 2001; Arora, Seema and Alam are not in the pool. The paper says nothing on whether its source studies share subjects. Inference: Irshad 2022 (a) and (b) are one group's two papers from Pakistan, Tan 2001 and 2003 one group's two Singapore cadaver series, and Been 2010 and Gomez-Olivencia 2017 share an author and Neandertal comparison material, so their subjects may overlap; within one measure, the pooled cells of different levels likely draw on different subsets of studies"
+}

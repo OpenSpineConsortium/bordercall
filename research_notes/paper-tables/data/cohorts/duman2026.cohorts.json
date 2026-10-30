@@ -1,0 +1,185 @@
+{
+  "paper": "duman2026",
+  "cohorts": [
+    {
+      "cohort": "izmir-mdct-517",
+      "labels": [
+        "male",
+        "female",
+        "all",
+        "18-35",
+        "36-55",
+        ">55",
+        "male vs female",
+        "right vs left",
+        "age groups compared",
+        "reliability subset",
+        "proposed threshold"
+      ],
+      "tables": [
+        "Table 1",
+        "Table 2",
+        "Table 3",
+        "Table 4",
+        "Table 5",
+        "Figure 1",
+        "Figure 6",
+        "Text: Methods",
+        "Text: Results",
+        "Text: Discussion"
+      ],
+      "subjects": "Living adult patients described as Turkish, scanned with thoracic or abdominal MDCT between 1 January 2021 and 31 January 2025 for non-spinal, non-oncological indications (for example interstitial lung disease, pneumoconiosis screening, pulmonary embolism) at the University of Health Sciences Dr. Suat Seren Chest Diseases and Thoracic Surgery Training and Research Hospital, Izmir, Turkey; retrospective, single centre; the flow diagram calls them consecutive. Included: age 18 years or older. Excluded: prior thoracic or spinal surgery or instrumentation, iatrogenic rib resection or rib spreading (Figure 1 only), pathological bone (tumour, myeloma, metastasis), congenital spinal deformity, major traumatic fracture, advanced degenerative disc disease, spondylolysis, spondylolisthesis, scoliosis with Cobb angle over 10 deg, motion artefact or incomplete field of view. Numbers screened and excluded are not printed. The abstract says thoracic CT only. Reliability: 50 of these scans, chosen at random, re-measured.",
+      "n_people": 517,
+      "n_units": "4 vertebrae (T11, T12, L1, L2) of each of 517 patients; pedicles right and left (Table 3); ribs of 517 patients (Table 5)",
+      "ages": "mean 48.6 +/- 16.4 years, 18 or older by the inclusion rule, the sample's minimum and maximum not printed; groups 18-35 n 198, 36-55 n 176, >55 n 143 (not split by sex)",
+      "sexes": "277 men, 240 women",
+      "page": "p. 3, 4, 6, 7 (PDF 3, 4, 6, 7)"
+    },
+    {
+      "cohort": "pilot-30",
+      "labels": [
+        "pilot sample",
+        "not stated"
+      ],
+      "tables": [
+        "Text: Methods"
+      ],
+      "subjects": "30 random scans used to rehearse and standardise the landmark protocol before data extraction, left out of the final cohort; source and selection otherwise as the main cohort is not stated; no values reported",
+      "n_people": 30,
+      "n_units": "30 CT scans",
+      "ages": "not stated",
+      "sexes": "not stated",
+      "page": "p. 4 (PDF 4)"
+    },
+    {
+      "cohort": "figure-2-examples",
+      "labels": [
+        "example image",
+        "not stated"
+      ],
+      "tables": [
+        "Figure 2"
+      ],
+      "subjects": "The representative patient or patients whose CT images illustrate the measurements in Figure 2 (panel A a sagittal reconstruction with L2 marked, panels B to D axial and sagittal images of an unnamed thoracolumbar vertebra); whether they belong to the 517 is not stated, nor whether the panels show one patient",
+      "n_people": null,
+      "n_units": "one illustrative value per label",
+      "ages": "not stated",
+      "sexes": "not stated",
+      "page": "p. 5 (PDF 5)"
+    },
+    {
+      "cohort": "cited-fracture-epidemiology",
+      "labels": [
+        "cited literature",
+        "not stated"
+      ],
+      "tables": [
+        "Text: Introduction"
+      ],
+      "subjects": "Not this paper's subjects: the share of spinal column injuries at the thoracolumbar region, cited to references 3 (Alpergin et al. 2024) and 4 (Zindrick et al. 1987) as printed",
+      "n_people": null,
+      "n_units": "not stated",
+      "ages": "not stated",
+      "sexes": "not stated",
+      "page": "p. 2 (PDF 2)"
+    }
+  ],
+  "techniques": [
+    {
+      "technique": "mdct-sagittal-corpus-heights",
+      "cohorts": [
+        "izmir-mdct-517",
+        "figure-2-examples"
+      ],
+      "modality": "CT MPR",
+      "instrument": "64-slice MDCT (Philips Brilliance CT), 120 kVp, tube current 150 to 250 mA with automatic modulation, contiguous 0.625 mm axial slices, supine; read on a PACS workstation and IntelliSpace Portal 11.1 in a bone window (W 1500 HU, L 300 HU)",
+      "how": "Anterior, middle and posterior heights of the vertebral body (ACH, MCH, PCH) in the mid-sagittal plane of a sagittal reformat, after Yerli et al. 2024 and Gulec et al. 2017; where the middle height is taken and whether endplate rims are included is not stated (Table 1, Figure 2A)",
+      "magnification": "not applicable: CT distances read in millimetres on the workstation",
+      "observers": "one radiologist with 14 years' experience; intra-observer repeat on 50 random scans after four weeks, ICC 0.912 to 0.965 over all linear measures",
+      "page": "p. 3 to 6 (PDF 3 to 6)"
+    },
+    {
+      "technique": "mdct-sagittal-pedicle-height",
+      "cohorts": [
+        "izmir-mdct-517",
+        "figure-2-examples"
+      ],
+      "modality": "CT MPR",
+      "instrument": "as above (64-slice MDCT, MPR on IntelliSpace Portal 11.1, bone window)",
+      "how": "Sagittal pedicle diameter (SPD, pedicle height): the maximum vertical height of the pedicle between the superior and inferior pedicle notches, on a sagittal image through the pedicle; the text names the end points P and Q, Figure 2E draws them as X and Y; landmark scheme after Zindrick 1987 and Kim 1994 (Table 2, Figure 2C, Figure 3)",
+      "magnification": "not applicable: CT",
+      "observers": "one radiologist; intra-observer ICC 0.912 to 0.965 over all linear measures (50 scans)",
+      "page": "p. 4 to 5 (PDF 4 to 5)"
+    },
+    {
+      "technique": "mdct-axial-pedicle",
+      "cohorts": [
+        "izmir-mdct-517",
+        "figure-2-examples"
+      ],
+      "modality": "CT MPR",
+      "instrument": "as above; the captions show axial images, and the paper says all reference points were aligned on multiplanar reformats and 3D reconstructions",
+      "how": "Transverse pedicle diameter (TPD): narrowest pedicle isthmus, outer cortex to outer cortex (text points X and Y, Figure 2E draws P and Q; Figure 2B draws the line about left-right, not square to the pedicle axis). Pedicle length (PL): posterior cortex of the articular process (R) to the anterior cortex of the body (S), drawn through the pedicle. Transverse pedicle angle (TPA): between the central pedicle axis and the mid-sagittal axis of the body, after Zindrick 1987 and Wu 2024. All on axial images; right and left measured separately (Table 3); how the sides were combined for Tables 2 and 4 is not stated (Tables 2, 3, 4; Figure 2B, 2D)",
+      "magnification": "not applicable: CT",
+      "observers": "one radiologist; intra-observer ICC 0.912 to 0.965 for the linear measures, 0.898 (95% CI 0.872 to 0.924) for TPA (50 scans)",
+      "page": "p. 4 to 6 (PDF 4 to 6)"
+    },
+    {
+      "technique": "mdct-rib-anomaly-read",
+      "cohorts": [
+        "izmir-mdct-517"
+      ],
+      "modality": "other",
+      "instrument": "the same MDCT scans, MPR and 3D reconstructions in the bone window",
+      "how": "CT read for congenital numerical and structural rib anomalies: presence, absence and length of the 12th rib; hypoplastic rib under 4 cm; supernumerary (cervical or lumbar), bifid and foramen ribs said to be recorded by incidence and laterality, but only patient counts of four types are reported, each patient in one category; how rib length was measured and how levels were counted are not stated (Table 5, Figure 6)",
+      "magnification": "not applicable: CT",
+      "observers": "the same single radiologist; no reliability given for the anomaly calls",
+      "page": "p. 5, 8 to 10 (PDF 5, 8 to 10)"
+    },
+    {
+      "technique": "cited-fracture-epidemiology-quoted",
+      "cohorts": [
+        "cited-fracture-epidemiology"
+      ],
+      "modality": "other",
+      "instrument": "not stated in this paper",
+      "how": "quoted from Alpergin et al. 2024 [3] and Zindrick et al. 1987 [4]: the share of spinal column injuries at the thoracolumbar region, as a range; how the cited studies counted injuries or bounded the region is not described here",
+      "magnification": "not applicable",
+      "observers": "not stated",
+      "page": "p. 2 (PDF 2)"
+    }
+  ],
+  "shared": [
+    {
+      "with": "Yerli et al. 2024 [1] and Gulec et al. 2017 [6]",
+      "what": "method",
+      "evidence": "corpus heights measured following their mid-sagittal protocols",
+      "page": "p. 4 (PDF 4)"
+    },
+    {
+      "with": "Zindrick et al. 1987 [4] (zindrick1987) and Kim et al. 1994 [7]",
+      "what": "method",
+      "evidence": "cortical landmarks P, Q, R, S, X, Y defined after their geometric configurations",
+      "page": "p. 4 (PDF 4)"
+    },
+    {
+      "with": "Zindrick et al. 1987 [4] (zindrick1987) and Wu et al. 2024 [8]",
+      "what": "method",
+      "evidence": "TPA measured strictly following their landmark definitions",
+      "page": "p. 4 (PDF 4)"
+    },
+    {
+      "with": "Koken et al. 2014 [12]",
+      "what": "method",
+      "evidence": "the three-group age stratification is said to be supported by this study",
+      "page": "p. 7 (PDF 7)"
+    },
+    {
+      "with": "Alpergin et al. 2024 [3] and Zindrick et al. 1987 [4] (zindrick1987)",
+      "what": "values quoted",
+      "evidence": "thoracolumbar share of spinal column injuries, 50% to 60%, cited to refs 3 and 4",
+      "page": "p. 2 (PDF 2)"
+    }
+  ],
+  "within_paper": "One cohort: every table (1 to 5), Figure 6 and the text values are of the same 517 patients, measured by one radiologist with several techniques on the same scans, so the corpus heights, pedicle measures, side comparison, age strata and rib anomalies share subjects (p. 3 to 10 (PDF 3 to 10)). The reliability subset of 50 scans is drawn from the cohort and re-measured by the same reader (p. 6). The 30 pilot scans were left out of the final cohort (p. 4), so share no subjects with it; Inference: they came from the same archive. Whether the Figure 2 example images are of cohort patients is not stated (p. 5)."
+}

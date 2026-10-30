@@ -1,0 +1,230 @@
+{
+  "paper": "ahn2001",
+  "cohorts": [
+    {
+      "cohort": "marfan_adults",
+      "labels": [
+        "Marfan adults",
+        "Marfan",
+        "Marfan with spondylolisthesis",
+        "genetics clinic records",
+        "Marfan Foundation and newsgroup volunteers",
+        "Marfan vs normal adults",
+        "Cut-off vs normal and Marfan adults"
+      ],
+      "tables": [
+        "Table",
+        "Figure",
+        "Text: Title",
+        "Text: Abstract",
+        "Text: Patients and methods",
+        "Text: Results",
+        "Text: Discussion"
+      ],
+      "subjects": "Living adult volunteers with Marfan syndrome diagnosed by the DePaepe 1996 revised criteria, confirmed by the geneticist or the authors; USA. 16 from the Johns Hopkins Hospital human genetics clinic (222 Marfan records, 83 aged 30 to 50, 51 without an exclusion, 16 available) and 16 from National Marfan Foundation chapters and a Marfan internet newsgroup (47 replied, 27 met the criteria, 16 took part). Excluded: previous back surgery, spinal tumour, lumbar scoliosis over 20 deg (the clinic screen also names spinal stenosis). Ethnicity not printed. 5 had lumbosacral transitional vertebrae and 4 spondylolisthesis; neither was excluded (Inference: every level has n 32).",
+      "n_people": 32,
+      "n_units": "32 patients, IPD at L1 to L5 (32 per level)",
+      "ages": "not reported for the 32; the clinic arm was drawn from patients aged 30 to 50 years",
+      "sexes": "18 female; 14 male by subtraction (not printed)",
+      "page": "p. 67-68 (PDF 1-2)"
+    },
+    {
+      "cohort": "hinck_normal_adults",
+      "labels": [
+        "Normal adults",
+        "Marfan vs normal adults",
+        "Cut-off vs normal and Marfan adults"
+      ],
+      "tables": [
+        "Table",
+        "Figure",
+        "Text: Abstract",
+        "Text: Results",
+        "Text: Discussion"
+      ],
+      "subjects": "Normal adult controls quoted from Hinck et al. 1966 (methods: Hinck and Clark 1966; table footnote misprints 1996); this paper describes them only as established normal adult norms on plain radiographs. The cut-off values, and the 95% specificity, are computed from their means and SDs.",
+      "n_people": null,
+      "n_units": "L1 59, L2 57, L3 53, L4 52, L5 50 normal adults per level",
+      "ages": "adults, ages not printed here",
+      "sexes": "not stated",
+      "page": "p. 68 (PDF 2), Table and Methods; p. 69 (PDF 3)"
+    },
+    {
+      "cohort": "nelson1958_cases",
+      "labels": [
+        "Marfan (Nelson 1958)"
+      ],
+      "tables": [
+        "Text: Introduction"
+      ],
+      "subjects": "4 Marfan patients reported by Nelson 1958, 2 with widened and 2 with normal IPD; nothing else said",
+      "n_people": 4,
+      "n_units": "4 patients",
+      "ages": "not stated",
+      "sexes": "not stated",
+      "page": "p. 67 (PDF 1)"
+    },
+    {
+      "cohort": "arroyo1989_case",
+      "labels": [
+        "Marfan (Arroyo and Garcia 1989)"
+      ],
+      "tables": [
+        "Text: Introduction"
+      ],
+      "subjects": "One Marfan patient (case report) with dural ectasia, anterior sacral meningocele and widened IPD",
+      "n_people": 1,
+      "n_units": "1 patient",
+      "ages": "not stated",
+      "sexes": "not stated",
+      "page": "p. 67 and p. 70 (PDF 1 and 4)"
+    },
+    {
+      "cohort": "pyeritz1988_series",
+      "labels": [
+        "Marfan (Pyeritz et al. 1988)"
+      ],
+      "tables": [
+        "Text: Discussion"
+      ],
+      "subjects": "Marfan patients of Pyeritz et al. 1988, two thirds with lumbosacral dural ectasia; size not printed",
+      "n_people": null,
+      "n_units": "not printed",
+      "ages": "not stated",
+      "sexes": "not stated",
+      "page": "p. 70 (PDF 4)"
+    },
+    {
+      "cohort": "sponseller1995_series",
+      "labels": [
+        "skeletally mature Marfan"
+      ],
+      "tables": [
+        "Text: Discussion"
+      ],
+      "subjects": "82 skeletally mature patients with Marfan syndrome of Sponseller et al. 1995, 5 with spondylolisthesis; not diagnosed by DePaepe's criteria",
+      "n_people": 82,
+      "n_units": "82 patients",
+      "ages": "youngest 16 (unit not printed)",
+      "sexes": "not stated",
+      "page": "p. 70 (PDF 4)"
+    }
+  ],
+  "techniques": [
+    {
+      "technique": "ap_radiograph_ipd",
+      "cohorts": [
+        "marfan_adults"
+      ],
+      "modality": "AP radiograph",
+      "instrument": "standard AP lumbosacral radiograph (L1-S5); measuring tool not stated",
+      "how": "Least distance between the medial walls of the two pedicles at each lumbar level L1 to L5, read on the AP film (the abstract names AP radiographs of the lumbar spine). How levels were counted is not stated.",
+      "magnification": "not corrected; film distance printed as a standard 101 mm (Inference: 101 cm, 40 in, meant)",
+      "observers": "not stated; no reliability data",
+      "page": "p. 67 abstract, p. 68 Methods (PDF 1-2)"
+    },
+    {
+      "technique": "lumbosacral_radiograph_findings",
+      "cohorts": [
+        "marfan_adults"
+      ],
+      "modality": "lateral radiograph",
+      "instrument": "standard AP and lateral lumbosacral radiographs",
+      "how": "Spondylolisthesis read on the lateral film (2 isthmic, 2 degenerative, mean slip 26%; slip method and levels not stated); lumbosacral transitional vertebrae counted, view and type not stated.",
+      "magnification": "not relevant to counts; slip in percent",
+      "observers": "not stated",
+      "page": "p. 68 (PDF 2); p. 70 (PDF 4)"
+    },
+    {
+      "technique": "hinck_norms_as_quoted",
+      "cohorts": [
+        "hinck_normal_adults"
+      ],
+      "modality": "AP radiograph",
+      "instrument": "as in Hinck et al. 1966; not described here",
+      "how": "Normal adult IPD n, mean and SD per lumbar level taken from Hinck et al. 1966; this paper says only that they are plain-radiograph norms (Inference: AP films, since IPD is a transverse distance).",
+      "magnification": "not stated here",
+      "observers": "not stated here",
+      "page": "p. 67 (PDF 1); p. 68 Table (PDF 2); p. 69 (PDF 3)"
+    },
+    {
+      "technique": "cutoff_normal_model",
+      "cohorts": [
+        "marfan_adults",
+        "hinck_normal_adults"
+      ],
+      "modality": "other",
+      "instrument": "calculation from the Table's means and SDs; unpaired t-test",
+      "how": "Cut-off per level = normal mean + 2 normal SD, called 95% specificity assuming normal controls are normally distributed; sensitivity = share of a normal curve fitted to the Marfan mean and SD lying above the cut-off, not a count of the 32; the Figure draws these fitted curves with no data labels.",
+      "magnification": "inherits both series' film values, uncorrected",
+      "observers": "not applicable",
+      "page": "p. 68 (PDF 2); Figure p. 69 (PDF 3)"
+    },
+    {
+      "technique": "cited_series_not_described",
+      "cohorts": [
+        "nelson1958_cases",
+        "arroyo1989_case",
+        "pyeritz1988_series",
+        "sponseller1995_series"
+      ],
+      "modality": "other",
+      "instrument": "not described in this paper",
+      "how": "Counts and proportions quoted from the cited studies; how they were imaged or measured is not said here.",
+      "magnification": "not stated",
+      "observers": "not stated",
+      "page": "p. 67 and p. 70 (PDF 1 and 4)"
+    }
+  ],
+  "shared": [
+    {
+      "with": "Hinck VC, Clark WM, Hopkins CE 1966, AJR 97:141 (hinck1966)",
+      "what": "values quoted",
+      "evidence": "normal adult IPD n, mean and SD per level taken from Hinck as the control group (footnote a prints the year 1996); the paper uses them for the unpaired t-test, possible because Hinck printed n and SD, and for the cut-offs, Hinck's mean + 2 SD",
+      "page": "p. 68 (PDF 2), Table caption, footnote a and Methods; p. 69 (PDF 3), Figure and Discussion"
+    },
+    {
+      "with": "Hinck VC, Clark WM, Hopkins CE 1966 (hinck1966)",
+      "what": "method (Inference only; the paper does not say it is shared)",
+      "evidence": "the paper cites Hinck for the norms, never for how its own IPD was measured. Inference: its IPD wording matches Hinck's definition, and its film distance, 101 with the unit misprinted, matches Hinck's 40 in (hinck1966 reading)",
+      "page": "p. 68 (PDF 2), Methods"
+    },
+    {
+      "with": "Eisenstein S 1977, J Bone Joint Surg Br 59:173 (eisenstein1977)",
+      "what": "cited only (no subjects, method or values shared or quoted)",
+      "evidence": "cited only as one study that checked plain-film IPD norms against CT and anatomy; no subjects, method or values taken from it",
+      "page": "p. 67 (PDF 1)"
+    },
+    {
+      "with": "DePaepe A et al. 1996, Am J Med Genet 62:417 (not in the list)",
+      "what": "method",
+      "evidence": "every patient diagnosed by DePaepe's revised criteria",
+      "page": "p. 67-68 (PDF 1-2)"
+    },
+    {
+      "with": "Nelson JD 1958, Br J Radiol 31:561 (not in the list)",
+      "what": "values quoted",
+      "evidence": "4 Marfan patients, 2 with widened and 2 with normal IPD",
+      "page": "p. 67 (PDF 1)"
+    },
+    {
+      "with": "Arroyo JF, Garcia JF 1989, Skeletal Radiol 18:614 (not in the list)",
+      "what": "values quoted",
+      "evidence": "one Marfan patient with dural ectasia, sacral meningocele and widened IPD",
+      "page": "p. 67 and p. 70 (PDF 1 and 4)"
+    },
+    {
+      "with": "Pyeritz RE et al. 1988, Am J Hum Genet 43:726 (not in the list)",
+      "what": "values quoted",
+      "evidence": "lumbosacral dural ectasia in two thirds of Marfan patients",
+      "page": "p. 70 (PDF 4)"
+    },
+    {
+      "with": "Sponseller PD et al. 1995, J Bone Joint Surg Am 77:867 (not in the list)",
+      "what": "values quoted",
+      "evidence": "5 spondylolistheses among 82 skeletally mature Marfan patients, youngest 16. Inference: Sponseller is this paper's senior author; the paper does not say whether any patient is in both series",
+      "page": "p. 70 (PDF 4)"
+    }
+  ],
+  "within_paper": "One measured cohort: the 32 Marfan adults supply every own value (Table, Results, Methods counts, the cut-off sensitivities), measured once on AP films for IPD and on the lateral for spondylolisthesis; the clinic and volunteer arms (16 each) are pooled and never reported apart (p. 68, PDF 2). The normal controls are Hinck's separate subjects, quoted (p. 68, PDF 2). The cited series (Nelson, Arroyo and Garcia, Pyeritz, Sponseller) are other people; overlap with Sponseller 1995 is not stated (p. 70, PDF 4)."
+}

@@ -1,0 +1,463 @@
+{
+  "id": "busscher2010",
+  "citation": "Iris Busscher, Joris J. W. Ploegmakers, Gijsbertus J. Verkerke, Albert G. Veldhuizen. Comparative anatomical dimensions of the complete human and porcine spine. Eur Spine J (2010) 19:1104-1114. DOI 10.1007/s00586-010-1326-9 (issue number not printed). Copy read: PMC open-access Cloud Service (pmc-oa-opendata), PMC2900026.1, fetched 2026-10-28; sha256 begins bc9975a3fa800bb9. Source: thread \"Reread every paper for clinical detail\", project symphony_4, 2026-10-28.",
+  "population": "Human: fresh frozen spines (C3-S1, ligaments and discs intact, about 3 cm of rib kept with costotransverse and costovertebral joints) of 6 male cadavers, mean age at death 72 y (55-84), mean body height 182 cm (175-192), Department of Anatomy, University Medical Center Groningen, the Netherlands; ethnicity not stated (Inference: Dutch, white European); mild degeneration on CT, otherwise normal. 6 spines x 22 vertebrae C3-L5 = 132 human vertebrae. Porcine: 6 domestic Landrace pigs, 4 months, mean 40 kg (37-44), 6 x 26 vertebrae C3-L6 = 156 (p. 1105, PDF 2; p. 1106, PDF 3).",
+  "modality": "CT of dissected specimens, Siemens scanner printed as 'Somaton Sensation 64' (sic), identical protocol both species, 1.00 mm slices, 0.39 x 0.39 mm in-plane; 16 dimensions per vertebra measured by three independent observers (IB, JP, PL = Pieter Lammers, M.D.) on 2D multiplanar views in AquariusNET (TeraRecon), each plane aligned to the vertebra's own landmarks in the other views (p. 1105, PDF 2; Fig. 2 p. 1106, PDF 3; p. 1113, PDF 10). Whether reported values are the mean of the three observers is not stated.",
+  "levels_covered": "Human C3-L5 (22 levels; C1, C2 and the sacrum below S1 absent, S1 present but not measured); porcine C3-L6 (26 levels). Human body heights and disc heights tabulated (Table 3, p. 1107, PDF 4); all other human dimensions only as plotted means with positive SD bars (Figs. 3-8, pp. 1109-1112, PDF 6-9).",
+  "anomalies": [
+    {
+      "variant": "Any numeric or transitional variant (LSTV, L6, T13, rib-count, cervical rib)",
+      "finding": "None reported: 6/6 human spines had 7 cervical, 12 thoracic, 5 lumbar vertebrae. Denominator 6 elderly Dutch men; not a prevalence estimate.",
+      "page": "p. 1105 (PDF 2)",
+      "population": "6 Dutch male cadavers, 55-84 y",
+      "how_identified": "Not stated; counts of the dissected C3-S1 specimens (Inference: by rib stumps and sacrum)."
+    },
+    {
+      "variant": "Porcine segment count (species norm, not an anomaly)",
+      "finding": "6/6 Landrace pigs had 7 cervical, 15 thoracic, 6 lumbar; extra rows T13-T15 and L6 listed separately; porcine C3-L6 length 569.5 mm with them, 471.7 mm without the 4 extra vertebrae; authors refused total-length normalisation because counts differ.",
+      "page": "p. 1105 (PDF 2); p. 1107 (PDF 4), Tables 2-3; p. 1113 (PDF 10)",
+      "population": "6 Landrace pigs, 4 months",
+      "how_identified": "Count of dissected specimens."
+    }
+  ],
+  "measures": [
+    {
+      "name": "Vertebral body height anterior (VBHa)",
+      "definition": "SI height of the body at its anterior margin, lateral view (Fig. 1 lower right sketch).",
+      "projection": "CT sagittal reformat aligned to the vertebra",
+      "page": "p. 1105 (PDF 2), Fig. 1; Table 3 p. 1107 (PDF 4)",
+      "levels": "C3-L5",
+      "level_pattern": "C3 14.2 (0.7), C4 14.5, C5 13.4 (cervical min), C6 14.0, C7 15.7, T1 17.3, T6 19.1 (3.0), T12 25.6, L1 25.5, L2 27.3, L3 28.7, L4 27.8, L5 29.5 (max). VBHa/VBHp (my computation): 0.94-1.01 C3-C7, 0.92-0.99 T1-T4, 0.88-0.92 T5-L2 (deepest T6-T8), 0.96 L3, 0.99 L4, 1.18 L5.",
+      "ct_mask_recipe": "Inference: first reslice the instance into its own frame (end-plate normal = SI axis, mid-sagittal plane through body centroid and spinous tip), as the authors aligned each plane to the vertebra's landmarks (p. 1105, PDF 2; Fig. 2 p. 1106, PDF 3). In the mid-sagittal slice of the body subregion, SI distance between superior and inferior surfaces at the anterior cortex.",
+      "radiograph_recipe": "Inference: lateral radiograph, anterior body height, magnification corrected.",
+      "covariates": "6 men, 55-84 y (mean 72), 175-192 cm (mean 182), Dutch cadavers with mild degeneration; no women, no age or size analysis (p. 1105, PDF 2; p. 1106, PDF 3)",
+      "error": "Intra-CC 0.98 (0.56-1.00), Inter-CC 0.98 (0.93-0.99), Table 1, p. 1106 (PDF 3); between-specimen SD 0.5-3.2 mm."
+    },
+    {
+      "name": "Vertebral body height central (VBHc)",
+      "definition": "SI height at the centre of the end-plates in the sagittal midline (through the concavities).",
+      "projection": "CT mid-sagittal reformat",
+      "page": "p. 1105 (PDF 2), Fig. 1; Table 3 p. 1107 (PDF 4)",
+      "levels": "C3-L5",
+      "level_pattern": "C3 12.6 (0.7), C5 12.1 (min), C7 14.3, T1 16.1, T6 18.1, T12 25.5, L1 24.5 (4.8), L2 24.7 (3.6), L3 25.5, L4 24.1 (3.4), L5 25.3; plateau from T12. Smaller than VBHa and VBHp ('saddle-shaped', p. 1108, PDF 5) except L5 (VBHc > VBHp) and T11 (VBHc = VBHa). VBHc/mean(VBHa,VBHp) about 0.85-0.88 in C3-C6 and L2-L4, 0.91-0.95 in T7-T12 (my computation).",
+      "ct_mask_recipe": "Inference: first reslice the instance into its own frame (end-plate normal = SI axis, mid-sagittal plane through body centroid and spinous tip), as the authors aligned each plane to the vertebra's landmarks (p. 1105, PDF 2; Fig. 2 p. 1106, PDF 3). Mid-sagittal SI distance at the end-plate centre on the true concave bony surface; a filled or hull mask overstates it.",
+      "radiograph_recipe": "Inference: lateral radiograph between the deepest points of the end-plate lines; blurred by beam obliquity.",
+      "covariates": "6 men, 55-84 y (mean 72), 175-192 cm (mean 182), Dutch cadavers with mild degeneration; no women, no age or size analysis (p. 1105, PDF 2; p. 1106, PDF 3)",
+      "error": "Intra-CC 0.99 (0.88-1.00), Inter-CC 0.99 (0.92-1.00), Table 1, p. 1106 (PDF 3); SD 0.4-4.8 mm."
+    },
+    {
+      "name": "Vertebral body height posterior (VBHp)",
+      "definition": "SI height of the body at its posterior margin, lateral view.",
+      "projection": "CT sagittal reformat",
+      "page": "p. 1105 (PDF 2), Fig. 1; Table 3 p. 1107 (PDF 4)",
+      "levels": "C3-L5",
+      "level_pattern": "C3 15.1, C6 13.9 (min), C7 15.9, T1 18.8, T6 21.7, T12 28.5, L1 28.5, L2 29.8, L3 29.8 (max), L4 28.0, L5 24.9 (3.8). C7->T1 +2.9 mm; T12->L1 0; L4->L5 -3.1 mm.",
+      "ct_mask_recipe": "Inference: first reslice the instance into its own frame (end-plate normal = SI axis, mid-sagittal plane through body centroid and spinous tip), as the authors aligned each plane to the vertebra's landmarks (p. 1105, PDF 2; Fig. 2 p. 1106, PDF 3). Mid-sagittal SI distance at the posterior body cortex, excluding pedicle bases.",
+      "radiograph_recipe": "Inference: lateral radiograph posterior body height.",
+      "covariates": "6 men, 55-84 y (mean 72), 175-192 cm (mean 182), Dutch cadavers with mild degeneration; no women, no age or size analysis (p. 1105, PDF 2; p. 1106, PDF 3)",
+      "error": "Intra-CC 0.99 (0.78-1.00), Inter-CC 0.98 (0.84-0.99), Table 1, p. 1106 (PDF 3)."
+    },
+    {
+      "name": "Upper end-plate width (UEPW)",
+      "definition": "Side-to-side width of the upper end-plate, horizontal arm of a crosshair with the midline depth line (Fig. 1 upper right).",
+      "projection": "CT transverse reformat aligned to the end-plate",
+      "page": "p. 1105 (PDF 2); p. 1108 (PDF 5); Fig. 3a p. 1109 (PDF 6)",
+      "levels": "C3-L5",
+      "level_pattern": "Text: 27.7 (C3) to 54.0 (L5). Approx. Fig. 3a: C3 27.6, C4 26.4, C5 27.6, C6 30.3, C7 31.5, T1 28.8, T2 26.8 (min), T3 27.2, T4 27.1, T5 29.3, T6 31.6, T7 33.7, T8 35.2, T9 38.0, T10 39.9, T11 44.1, T12 46.5, L1 48.7, L2 50.3, L3 51.8, L4 53.8, L5 53.8. Oval cervical, circular thoracic, oval lumbar (p. 1108).",
+      "ct_mask_recipe": "Inference: first reslice the instance into its own frame (end-plate normal = SI axis, mid-sagittal plane through body centroid and spinous tip), as the authors aligned each plane to the vertebra's landmarks (p. 1105, PDF 2; Fig. 2 p. 1106, PDF 3). Left-right extent of the body's superior surface layer through its centroid (not maximum width); exclude osteophytes, uncinate processes (Inference) and rib heads.",
+      "radiograph_recipe": "Inference: AP radiograph body width at the end-plate line, magnified; tilt and uncinates bias it.",
+      "covariates": "6 men, 55-84 y (mean 72), 175-192 cm (mean 182), Dutch cadavers with mild degeneration; no women, no age or size analysis (p. 1105, PDF 2; p. 1106, PDF 3); caudal widening attributed to upright loading (p. 1111, PDF 8).",
+      "error": "Intra-CC 0.99 (0.98-1.00), Inter-CC 0.99 (0.97-0.99), Table 1, p. 1106 (PDF 3); SD bars about 1-5 mm (largest T1, T9-T10, L2)."
+    },
+    {
+      "name": "Lower end-plate width (LEPW)",
+      "definition": "Side-to-side width of the lower end-plate, crosshair as for UEPW (Fig. 2 shows it on a human L3).",
+      "projection": "CT transverse reformat aligned to the end-plate",
+      "page": "Fig. 2 p. 1106 (PDF 3); Fig. 3b p. 1109 (PDF 6)",
+      "levels": "C3-L5",
+      "level_pattern": "Approx. Fig. 3b: C3 about 24, C4 about 23 (partly hidden), C5 27.6, C6 28.0, C7 30.7, T1 35.4, T2 35.0, T3 33.9, T4 33.5, T5 34.2, T6 35.0, T7 35.9, T8 38.2, T9 39.4, T10 43.3, T11 46.5, T12 48.9, L1 50.4, L2 51.2, L3 53.9, L4 53.2, L5 53.9. LEPW < UEPW at C3-C4, about equal at C7, 5-8 mm > UEPW at T1-T5, within about 2 mm in L1-L5.",
+      "ct_mask_recipe": "Inference: first reslice the instance into its own frame (end-plate normal = SI axis, mid-sagittal plane through body centroid and spinous tip), as the authors aligned each plane to the vertebra's landmarks (p. 1105, PDF 2; Fig. 2 p. 1106, PDF 3). As UEPW on the inferior surface layer; exclude rib heads at T1-T12 (ribs were kept on the specimens).",
+      "radiograph_recipe": "Inference: AP radiograph, magnified.",
+      "covariates": "6 men, 55-84 y (mean 72), 175-192 cm (mean 182), Dutch cadavers with mild degeneration; no women, no age or size analysis (p. 1105, PDF 2; p. 1106, PDF 3)",
+      "error": "Intra-CC 0.99 (0.98-1.00), Inter-CC 0.96 (0.89-0.99), Table 1, p. 1106 (PDF 3)."
+    },
+    {
+      "name": "Upper end-plate depth (UEPD)",
+      "definition": "Dorsal-to-ventral depth of the upper end-plate along the midline (vertical arm of the crosshair).",
+      "projection": "CT transverse reformat aligned to the end-plate",
+      "page": "p. 1105 (PDF 2); p. 1108 (PDF 5); Fig. 3a p. 1109 (PDF 6)",
+      "levels": "C3-L5",
+      "level_pattern": "Text: 16.5 (C3) to 36.7 (L5). Approx.: C3 16.5, C4-C5 about 17, C6 19.5, C7 19.9, T1 18.8, T2 19.9, T3 22.2, T4 24.1, T5 26.4, T6 28.7, T7 30.3, T8 32.2, T9 34.5, T10 33.7, T11 35.2, T12 35.6, L1 36.4, L2 39.1, L3 39.5 (max), L4 37.9, L5 36.7. UEPW/UEPD about 1.6 cervical, 1.1 at T6-T8, 1.3-1.45 lumbar.",
+      "ct_mask_recipe": "Inference: first reslice the instance into its own frame (end-plate normal = SI axis, mid-sagittal plane through body centroid and spinous tip), as the authors aligned each plane to the vertebra's landmarks (p. 1105, PDF 2; Fig. 2 p. 1106, PDF 3). AP extent of the superior surface layer on the mid-sagittal line; stop at the posterior body cortex.",
+      "radiograph_recipe": "Inference: lateral radiograph end-plate length, magnified.",
+      "covariates": "6 men, 55-84 y (mean 72), 175-192 cm (mean 182), Dutch cadavers with mild degeneration; no women, no age or size analysis (p. 1105, PDF 2; p. 1106, PDF 3)",
+      "error": "Intra-CC 0.97 (0.89-0.99), Inter-CC 0.95 (0.85-0.98), Table 1, p. 1106 (PDF 3)."
+    },
+    {
+      "name": "Lower end-plate depth (LEPD)",
+      "definition": "Dorsal-to-ventral depth of the lower end-plate along the midline.",
+      "projection": "CT transverse reformat aligned to the end-plate",
+      "page": "Fig. 2 p. 1106 (PDF 3); Fig. 3b p. 1109 (PDF 6)",
+      "levels": "C3-L5",
+      "level_pattern": "Approx. Fig. 3b: C3-C4 about 17-18 (hidden), C5 19.4, C6 20.4, C7 18.5, T1 20.0, T2 21.6, T3 23.5, T4 about 25.7, T5 27.6, T6 29.9, T7 31.8, T8 33.5, T9 34.2, T10 35.0, T11 35.8, T12 about 34.8, L1 36.2, L2-L3 about 37.5, L4 37.7, L5 36.2.",
+      "ct_mask_recipe": "Inference: first reslice the instance into its own frame (end-plate normal = SI axis, mid-sagittal plane through body centroid and spinous tip), as the authors aligned each plane to the vertebra's landmarks (p. 1105, PDF 2; Fig. 2 p. 1106, PDF 3). As UEPD on the inferior surface layer.",
+      "radiograph_recipe": "Inference: lateral radiograph, magnified.",
+      "covariates": "6 men, 55-84 y (mean 72), 175-192 cm (mean 182), Dutch cadavers with mild degeneration; no women, no age or size analysis (p. 1105, PDF 2; p. 1106, PDF 3)",
+      "error": "Intra-CC 0.99 (0.93-1.00), Inter-CC 0.98 (0.94-0.99), Table 1, p. 1106 (PDF 3)."
+    },
+    {
+      "name": "Intervertebral disc height (IDH)",
+      "definition": "Disc height at the central midpoint of the disc; one value per vertebra (Inference: the disc below, so C3 = C3/C4, L5 = L5/S1).",
+      "projection": "CT mid-sagittal reformat (Inference)",
+      "page": "p. 1105 (PDF 2); Table 3 p. 1107 (PDF 4); Fig. 4 p. 1109 (PDF 6)",
+      "levels": "C3/C4 to L5/S1 (Inference)",
+      "level_pattern": "C3 6.1, C4 5.8, C5 4.5, C6 4.4 (min), C7 4.7, T1 5.0, T2-T9 4.5-5.3, T10 5.9, T11 6.1, T12 9.3, L1 10.3, L2 11.5, L3 11.8, L4 12.7 (max), L5 8.8. IDH/UEPW approx. Fig. 4: 0.22 C3-C4, about 0.15 C5-C7, 0.16-0.17 T1-T6, 0.125 T9 (min), 0.20 T12, 0.21-0.235 L1-L4, 0.16 L5.",
+      "ct_mask_recipe": "Inference: pair feature; SI gap between the inferior surface of one body instance and the superior surface of the next at the end-plate centres, along the local axis.",
+      "radiograph_recipe": "Inference: lateral radiograph mid-disc height, magnified.",
+      "covariates": "6 men, 55-84 y (mean 72), 175-192 cm (mean 182), Dutch cadavers with mild degeneration; no women, no age or size analysis (p. 1105, PDF 2; p. 1106, PDF 3); Inference: age- and degeneration-sensitive.",
+      "error": "Intra-CC 0.94 (0.86-0.97), Inter-CC 0.93 (0.86-0.97), Table 1, p. 1106 (PDF 3); SD 2.1-3.2 mm T12-L5."
+    },
+    {
+      "name": "Spinal canal width (SCW)",
+      "definition": "Side-to-side width of the vertebral foramen, horizontal arm of the canal crosshair (Fig. 1 upper left); slice height not stated.",
+      "projection": "CT transverse reformat",
+      "page": "p. 1105 (PDF 2); p. 1109-1110 (PDF 6-7); Fig. 5 p. 1110 (PDF 7)",
+      "levels": "C3-L5",
+      "level_pattern": "Approx. Fig. 5a: C3 25.9, C4 27.8, C5 28.3, C6 28.3, C7 27.3, T1 23.9, T2 20.7, T3 19.2, T4-T9 about 17.7-18.3, T10 about 19.3, T11 21.5, T12 24.9, L1 26.7, L2 27.3, L3 27.5, L4 29.0, L5 31.9. SCW/UEPW: 0.94 C3, 1.0-1.04 C4-C5, 0.86 C7, about 0.48 T9-T11, 0.53-0.55 T12-L4, 0.59 L5. Shape triangular-circular-triangular (p. 1110).",
+      "ct_mask_recipe": "Inference: first reslice the instance into its own frame (end-plate normal = SI axis, mid-sagittal plane through body centroid and spinous tip), as the authors aligned each plane to the vertebra's landmarks (p. 1105, PDF 2; Fig. 2 p. 1106, PDF 3). Enclosed canal hole of the vertebral ring in axial slices; left-right extent through the canal centroid at pedicle mid-height (Inference), also report the minimum over the pedicle span.",
+      "radiograph_recipe": "Inference: AP interpedicular distance is a surrogate, not this measure.",
+      "covariates": "6 men, 55-84 y (mean 72), 175-192 cm (mean 182), Dutch cadavers with mild degeneration; no women, no age or size analysis (p. 1105, PDF 2; p. 1106, PDF 3)",
+      "error": "Intra-CC 0.90 (0.60-0.98), Inter-CC 0.91 (0.81-0.96), Table 1, p. 1106 (PDF 3)."
+    },
+    {
+      "name": "Spinal canal depth (SCD)",
+      "definition": "Dorsal-to-ventral depth of the vertebral foramen in the midline, posterior body wall to inner posterior arch (vertical arm of the canal crosshair).",
+      "projection": "CT transverse reformat",
+      "page": "p. 1105 (PDF 2); p. 1109 (PDF 6); Fig. 5 p. 1110 (PDF 7)",
+      "levels": "C3-L5",
+      "level_pattern": "Approx. Fig. 5a: C3 15.3, C4 15.0, C5 15.2, C6 16.1, C7 15.6, T1 16.1, T2 16.6, T3-T8 about 16.3-16.8, T9 16.1, T10 17.6, T11 18.4, T12 19.7, L1 19.7, L2 18.6, L3 17.1 (lumbar min), L4 17.9, L5 21.8 (SD bar to 25.7). SCD/UEPD: 0.93 C3, 0.82-0.91 C4-T2, 0.47 T9, 0.52-0.55 T10-L1, 0.43 L3 (min), 0.59 L5. SCW/SCD (my computation) about 1.7-1.85 cervical, 1.05-1.1 T4-T9, 1.35-1.6 lumbar.",
+      "ct_mask_recipe": "Inference: first reslice the instance into its own frame (end-plate normal = SI axis, mid-sagittal plane through body centroid and spinous tip), as the authors aligned each plane to the vertebra's landmarks (p. 1105, PDF 2; Fig. 2 p. 1106, PDF 3). AP extent of the canal hole on the mid-sagittal line, posterior body cortex to the spinolaminar junction (Inference on the posterior landmark).",
+      "radiograph_recipe": "Inference (standard method, not discussed in the paper): lateral radiograph, posterior body wall to spinolaminar line, magnified.",
+      "covariates": "6 men, 55-84 y (mean 72), 175-192 cm (mean 182), Dutch cadavers with mild degeneration; no women, no age or size analysis (p. 1105, PDF 2; p. 1106, PDF 3)",
+      "error": "Least reliable: Intra-CC 0.83 (0.63-0.95), Inter-CC 0.86 (0.75-0.94), Table 1, p. 1106 (PDF 3)."
+    },
+    {
+      "name": "Transverse process length (TPL)",
+      "definition": "Straight line across both transverse process tips: bilateral tip-to-tip span (Fig. 1 upper left), not one process.",
+      "projection": "CT transverse reformat",
+      "page": "p. 1105 (PDF 2); p. 1110 (PDF 7); Fig. 7 p. 1111 (PDF 8)",
+      "levels": "C3-L5",
+      "level_pattern": "Approx. Fig. 7a: C3 55.0, C4 57.8, C5 61.3, C6 63.7, C7 74.7, T1 81.2 (upper peak), T2 75.3, T3-T9 66.6-70.1, T10 63.1, T11 59.0, T12 54.2 (smallest), L1 78.8, L2 85.8, L3 94.6, L4 92.2, L5 97.6. TPL/UEPW: 2.0-2.2 C3-C5, 2.36 C7, 2.8 T1-T2 (max), 1.15 T12 (min), 1.6-1.8 L1-L5.",
+      "ct_mask_recipe": "Inference: first reslice the instance into its own frame (end-plate normal = SI axis, mid-sagittal plane through body centroid and spinous tip), as the authors aligned each plane to the vertebra's landmarks (p. 1105, PDF 2; Fig. 2 p. 1106, PDF 3). Maximum left-right extent of the posterior-element subregion; exclude rib and costotransverse voxels in the thoracic spine; include both cervical tubercles (Inference).",
+      "radiograph_recipe": "Inference: AP radiograph tip-to-tip span, magnified.",
+      "covariates": "6 men, 55-84 y (mean 72), 175-192 cm (mean 182), Dutch cadavers with mild degeneration; no women, no age or size analysis (p. 1105, PDF 2; p. 1106, PDF 3); human thoracic TPs more pronounced than porcine, related to postural muscles (p. 1111, PDF 8).",
+      "error": "Intra-CC 1.00 (0.99-1.00), Inter-CC 0.98 (0.97-0.99), Table 1, p. 1106 (PDF 3) (best)."
+    },
+    {
+      "name": "Spinous process length (SPL)",
+      "definition": "Length along the spinous process axis in the sagittal midline from the tip to its intersection with the reference line through the posterior arch (Fig. 1 lower left); Panjabi measured to the middle of the body instead (p. 1112, PDF 9).",
+      "projection": "CT mid-sagittal reformat",
+      "page": "p. 1105 (PDF 2); p. 1110 (PDF 7), Fig. 6; p. 1112 (PDF 9)",
+      "levels": "C3-L5",
+      "level_pattern": "Rises to T6, falls to fairly constant lumbar values (p. 1110). Approx. Fig. 6: C3 13.9, C4 about 13.5, C5 15.2, C6 about 22.5, C7 about 33 (outline), T1 about 35, T2 about 34, T3 hidden, T4 about 40, T5 42.1, T6 about 45 (outline, max), T7 about 43, T8 about 38, T9 about 33, T10 29.9, T11 about 27, T12 27.7, L1 32.0, L2 36.4, L3 37.8, L4 34.2, L5 about 28.5.",
+      "ct_mask_recipe": "Inference: first reslice the instance into its own frame (end-plate normal = SI axis, mid-sagittal plane through body centroid and spinous tip), as the authors aligned each plane to the vertebra's landmarks (p. 1105, PDF 2; Fig. 2 p. 1106, PDF 3). Mid-sagittal posterior-element slice, spinous tip to spinolaminar junction along the process axis (Inference on the base landmark).",
+      "radiograph_recipe": "Inference: lateral radiograph spinolaminar line to tip; thoracic overlap.",
+      "covariates": "6 men, 55-84 y (mean 72), 175-192 cm (mean 182), Dutch cadavers with mild degeneration; no women, no age or size analysis (p. 1105, PDF 2; p. 1106, PDF 3)",
+      "error": "Intra-CC 0.92 (0.81-0.97), Inter-CC 0.95 (0.90-0.98), Table 1, p. 1106 (PDF 3)."
+    },
+    {
+      "name": "Spinous process angle (SPA)",
+      "definition": "Sagittal angle between the spinous process axis and a reference line through its base drawn at right angles to a vertical line through the body (Fig. 1 lower left; Inference on the reference); positive = tip caudal.",
+      "projection": "CT mid-sagittal reformat",
+      "page": "p. 1105 (PDF 2); p. 1110 (PDF 7), Fig. 6",
+      "levels": "C3-L5",
+      "level_pattern": "Max 62.2 deg at T6 (p. 1110). Approx. Fig. 6: C3 25.3, C4 26.1, C5 28.3, C6 19.6 (local min), C7 22.5, T1 about 30, T2 about 32, T3 34.8, T4 44.7, T5 55.2, T6 62.2, T7 about 62, T8 53.6, T9 about 44, T10 37.8, T11 about 25, T12 20.4, L1 10.3, L2 13.9, L3 12.5, L4 13.9, L5 about 22.5.",
+      "ct_mask_recipe": "Inference: first reslice the instance into its own frame (end-plate normal = SI axis, mid-sagittal plane through body centroid and spinous tip), as the authors aligned each plane to the vertebra's landmarks (p. 1105, PDF 2; Fig. 2 p. 1106, PDF 3). Inference: angle between the spinous process principal axis in the mid-sagittal plane and the vertebra's AP axis.",
+      "radiograph_recipe": "Inference: lateral radiograph, process axis against own end-plate direction.",
+      "covariates": "6 men, 55-84 y (mean 72), 175-192 cm (mean 182), Dutch cadavers with mild degeneration; no women, no age or size analysis (p. 1105, PDF 2; p. 1106, PDF 3)",
+      "error": "Intra-CC 0.97 (0.94-0.99), Inter-CC 0.83 (0.59-0.94), Table 1, p. 1106 (PDF 3)."
+    },
+    {
+      "name": "Pedicle width (PedW)",
+      "definition": "Side-to-side width of the pedicle in the transverse plane, drawn at the pedicle's junction with the body (Fig. 1 upper right); mean of left and right; isthmus not stated.",
+      "projection": "CT transverse reformat",
+      "page": "p. 1105 (PDF 2); p. 1111 (PDF 8); Fig. 8a,c p. 1112 (PDF 9)",
+      "levels": "C3-L5",
+      "level_pattern": "Approx. Fig. 8a: C3 5.0, C4 4.9, C5 5.5, C7 about 6.6, T1 about 8.4, T3 5.0, T4 4.3 (min), T5 4.7, T6 5.2, T7 5.4, T8 about 6.1, T9 about 6.8, T11 about 7.6, T12 about 8.5, L1 7.3, L2 7.1, L3 about 8.4, L4 10.4, L5 14.3; C6, T2, T10 hidden (about 5.9, 6.0, 7.5 from Fig. 8c ratio, Inference). PedW/UEPW: 0.18-0.21 C3-C7, 0.29 T1, 0.22 T2, 0.15-0.19 T3-T12, 0.14-0.16 L1-L3, 0.19 L4, 0.26 L5.",
+      "ct_mask_recipe": "Inference: first reslice the instance into its own frame (end-plate normal = SI axis, mid-sagittal plane through body centroid and spinous tip), as the authors aligned each plane to the vertebra's landmarks (p. 1105, PDF 2; Fig. 2 p. 1106, PDF 3). Width across each pedicle at its junction with the posterior body wall (to match the sketch), averaged; record the isthmus minimum too (Inference).",
+      "radiograph_recipe": "Inference: AP radiograph pedicle oval width, magnified, foreshortened by transverse angle.",
+      "covariates": "6 men, 55-84 y (mean 72), 175-192 cm (mean 182), Dutch cadavers with mild degeneration; no women, no age or size analysis (p. 1105, PDF 2; p. 1106, PDF 3); pig resembles human ('remarkable resemblances', p. 1111).",
+      "error": "Intra-CC 0.97 (0.93-0.99), Inter-CC 0.94 (0.88-0.97), Table 1, p. 1106 (PDF 3)."
+    },
+    {
+      "name": "Pedicle height (PedH)",
+      "definition": "SI height of the pedicle in the lateral view, drawn just behind the posterior body wall (Fig. 1 lower right); mean of left and right.",
+      "projection": "CT sagittal (para-sagittal) reformat",
+      "page": "p. 1105 (PDF 2); p. 1111 (PDF 8); Fig. 8a,c p. 1112 (PDF 9)",
+      "levels": "C3-L5",
+      "level_pattern": "Constant cervical, rising to T12, falling lumbar (p. 1111). Approx. Fig. 8a: C3 7.3, C4 7.5, C5 about 7.2, C6 6.8, C7 7.5, T1 9.6, T2 10.0, T3 10.7, T4 11.3, T5 11.1, T6 11.7, T7 11.8, T8 12.2, T9 13.0, T10 15.2, T11 15.7, T12 16.0 (max), L1 15.1, L2 14.7, L3 hidden, L4 about 12.4, L5 10.6. PedH/VBHc: 0.52-0.60 cervical, 0.60-0.64 T1-T9, 0.69 T10, 0.62 L1, 0.52 L3-L4, 0.42 L5.",
+      "ct_mask_recipe": "Inference: first reslice the instance into its own frame (end-plate normal = SI axis, mid-sagittal plane through body centroid and spinous tip), as the authors aligned each plane to the vertebra's landmarks (p. 1105, PDF 2; Fig. 2 p. 1106, PDF 3). Inference: SI extent of each pedicle at its junction with the posterior body wall in a para-sagittal slice through the pedicle, averaged; record the minimum too.",
+      "radiograph_recipe": "Inference: lateral radiograph, both sides superimposed.",
+      "covariates": "6 men, 55-84 y (mean 72), 175-192 cm (mean 182), Dutch cadavers with mild degeneration; no women, no age or size analysis (p. 1105, PDF 2; p. 1106, PDF 3)",
+      "error": "Intra-CC 0.91 (0.70-0.98), Inter-CC 0.89 (0.54-0.96), Table 1, p. 1106 (PDF 3)."
+    },
+    {
+      "name": "Pedicle angle (PedA)",
+      "definition": "Transverse-plane angle between the midline depth line and a line from the anterior midline point of the body through the pedicle (Fig. 1 upper right; Inference from the sketch); mean of left and right; positive = convergent anteriorly (Inference).",
+      "projection": "CT transverse reformat",
+      "page": "p. 1105 (PDF 2); p. 1111 (PDF 8); Fig. 8b p. 1112 (PDF 9)",
+      "levels": "C3-L5",
+      "level_pattern": "Approx. Fig. 8b: C3 47.1, C4 52.2 (max), C5 50.5, C6 43.3, C7 about 36, T1 about 30, T2 26.0, T3 16.5, T4 11.6, T5 12.7, T6 about 10, T7 about 8.5, T8 4.9, T9 6.0, T10 2.7, T11 1.1, T12 about 0 (SD bar to about 12), L1 13.8, L2 11.6, L3 11.1, L4 14.4, L5 about 35 (hidden but for its base edge).",
+      "ct_mask_recipe": "Inference: first reslice the instance into its own frame (end-plate normal = SI axis, mid-sagittal plane through body centroid and spinous tip), as the authors aligned each plane to the vertebra's landmarks (p. 1105, PDF 2; Fig. 2 p. 1106, PDF 3). Inference: angle between the AP axis and the line from the anterior-most midline body point to each pedicle centre, averaged; also compute the pedicle principal-axis angle and note which matches.",
+      "radiograph_recipe": "Inference: not measurable on lateral or AP film.",
+      "covariates": "6 men, 55-84 y (mean 72), 175-192 cm (mean 182), Dutch cadavers with mild degeneration; no women, no age or size analysis (p. 1105, PDF 2; p. 1106, PDF 3)",
+      "error": "Intra-CC 0.92 (0.78-0.97), Inter-CC 0.89 (0.67-0.96), Table 1, p. 1106 (PDF 3)."
+    },
+    {
+      "name": "Total spine length",
+      "definition": "Sum of all central body heights and disc heights from C3 to L5 (pig L6).",
+      "projection": "CT",
+      "page": "p. 1105 (PDF 2); Table 2 p. 1107 (PDF 4)",
+      "levels": "C3-L5",
+      "level_pattern": "Human 569.4 mm (SD 17.67); porcine 569.5 (16.19), 471.7 without 4 extra vertebrae.",
+      "ct_mask_recipe": "Inference: sum of VBHc of every body plus every IDH along the chain.",
+      "radiograph_recipe": "Inference: only if C3-S1 is on one lateral film, magnification corrected.",
+      "covariates": "6 men, 55-84 y (mean 72), 175-192 cm (mean 182), Dutch cadavers with mild degeneration; no women, no age or size analysis (p. 1105, PDF 2; p. 1106, PDF 3)",
+      "error": "None given."
+    },
+    {
+      "name": "Sagittal curvatures (cervical lordosis, thoracic kyphosis, lumbar lordosis)",
+      "definition": "Angle between C3 upper and C7 lower end-plates; T1 upper and T12 lower; L1 upper and L5 lower (omits L5/S1).",
+      "projection": "CT sagittal (excised specimens)",
+      "page": "p. 1105 (PDF 2); Table 2 p. 1107 (PDF 4); p. 1112 (PDF 9)",
+      "levels": "C3-L5",
+      "level_pattern": "Human 20.1 (10.0), 34.5 (12.8), 29.2 (7.6) deg; porcine 43.8, 15.6, 7.9 deg.",
+      "ct_mask_recipe": "Inference: angle between fitted end-plate planes.",
+      "radiograph_recipe": "Inference: lateral radiograph alone suffices.",
+      "covariates": "6 men, 55-84 y (mean 72), 175-192 cm (mean 182), Dutch cadavers with mild degeneration; no women, no age or size analysis (p. 1105, PDF 2; p. 1106, PDF 3); excised specimens lose muscle tone and soft-tissue restraint (p. 1112).",
+      "error": "None given."
+    },
+    {
+      "name": "Size-normalised ratios",
+      "definition": "SCW/UEPW, SCD/UEPD, IDH/UEPW, SPL/UEPD, TPL/UEPW, PedW/UEPW, PedH/VBHc per vertebra; SPL/UEPD only as comparability codes; whether mean of ratios or ratio of means is not stated.",
+      "projection": "CT",
+      "page": "p. 1106 (PDF 3); Tables 4-5 p. 1108 (PDF 5); Figs. 4, 5b, 7b, 8c",
+      "levels": "C3-L5",
+      "level_pattern": "See each measure.",
+      "ct_mask_recipe": "Inference: divide the mask-derived dimension by the mask-derived UEPW, UEPD or VBHc of the same vertebra.",
+      "radiograph_recipe": "Inference: ratios within one film cancel magnification.",
+      "covariates": "Inference: largely size-free.",
+      "error": "Not given."
+    }
+  ],
+  "level_details": [
+    {
+      "level": "C2/C3",
+      "detail": "Not covered; specimens start at C3.",
+      "page": "p. 1105 (PDF 2)"
+    },
+    {
+      "level": "C3-C6",
+      "detail": "Low equal body heights (VBHa 13.4-14.5, VBHc 12.1-12.6); UEPW > LEPW at C3-C4; canal SCW 26-28.3, as wide as the end-plate at C4-C5; PedA 43-52 deg; SPL 13.5-15 at C3-C5, 22.5 at C6; SPA dips at C6 (about 20); C3/C4 disc 6.1 mm (Inference on which disc).",
+      "page": "Table 3 p. 1107 (PDF 4); Figs. 3-8 pp. 1109-1112 (PDF 6-9)"
+    },
+    {
+      "level": "C6/C7",
+      "detail": "TPL steps about 64 to 75 mm; SPL about 22.5 to 33 mm (Inference: vertebra prominens, a term the paper does not use).",
+      "page": "Figs. 6, 7a pp. 1110-1111 (PDF 7-8)"
+    },
+    {
+      "level": "C7/T1",
+      "detail": "VBHa +1.6, VBHc +1.8, VBHp +2.9 mm; PedH about 7.5 to 9.6; PedW and TPL peak at T1 (about 8.4, 81); SCW 27.3 to 23.9; LEPW rises 30.7 to 35.4 while UEPW falls 31.5 to 28.8.",
+      "page": "Table 3 p. 1107 (PDF 4); Figs. 3, 5, 7, 8"
+    },
+    {
+      "level": "T4-T8",
+      "detail": "Narrowest pedicles (PedW 4.3-5.4 at T4-T7), narrowest round canal (about 18 by 16.5), steepest and longest spinous processes (SPA 55-62 deg at T5-T7, SPL 40-45 at T4-T7, peaks T6), deepest kyphotic wedge VBHa/VBHp about 0.88 (my computation).",
+      "page": "p. 1110 (PDF 7); Figs. 5, 6, 8; Table 3"
+    },
+    {
+      "level": "T9/T10",
+      "detail": "PedH steps 13.0 to 15.2 mm; TPL begins its fall to T12.",
+      "page": "Figs. 7a, 8a pp. 1111-1112 (PDF 8-9)"
+    },
+    {
+      "level": "T12/L1",
+      "detail": "TPL jumps about 54 to 79 mm; PedA about 0 to 14 deg; SPA 20 to 10 deg; SCW 24.9 to 26.7; T12 disc 9.3 vs T11 6.1 mm; PedH peaks at T12; body heights unchanged; TPL/UEPW minimum 1.15 at T12.",
+      "page": "Table 3 p. 1107 (PDF 4); Figs. 5-8 pp. 1110-1112 (PDF 7-9)"
+    },
+    {
+      "level": "L4/L5",
+      "detail": "VBHp -3.1 and VBHa +1.7 mm (VBHa/VBHp 1.18 at L5); L5 disc 8.8 vs L4 12.7 mm; PedW about 10.4 to 14.3; PedA about 14 to 35 deg; SPL about 34 to 28.5; SPA about 14 to 22.5; widest canal at L5 (about 32 by 22).",
+      "page": "Table 3 p. 1107 (PDF 4); Figs. 5-8"
+    },
+    {
+      "level": "L5/S1",
+      "detail": "S1 present in the specimen but not measured; L5 disc (Inference: L5/S1) 8.8 mm.",
+      "page": "p. 1105 (PDF 2); Table 3"
+    }
+  ],
+  "errors": [
+    {
+      "what": "Intra-CC range (Table 1 intraclass column; meaning not explained, no repeat reading described)",
+      "value": "0.83 (SCD) to 1.00 (TPL), p < 0.001",
+      "page": "Table 1 p. 1106 (PDF 3); p. 1107 (PDF 4)"
+    },
+    {
+      "what": "Inter-CC range (interclass, three observers)",
+      "value": "0.83 (SPA) to 0.99 (VBHc, UEPW), p < 0.001",
+      "page": "Table 1 p. 1106 (PDF 3); p. 1107 (PDF 4)"
+    },
+    {
+      "what": "Lowest coefficients",
+      "value": "SCD Intra-CC 0.83 (0.63-0.95), Inter-CC 0.86 (0.75-0.94); SPA Inter-CC 0.83 (0.59-0.94); PedH Inter-CC 0.89 (0.54-0.96); PedA Inter-CC 0.89 (0.67-0.96); SCW Intra-CC 0.90 (0.60-0.98); VBHa Intra-CC lower CI 0.56",
+      "page": "Table 1 p. 1106 (PDF 3)"
+    },
+    {
+      "what": "Instrument resolution",
+      "value": "1.00 mm slices, 0.39 x 0.39 mm pixels",
+      "page": "p. 1105 (PDF 2)"
+    },
+    {
+      "what": "Between-specimen SD, human heights and discs",
+      "value": "0.3-4.8 mm (largest VBHc L1 4.8, VBHp L5 3.8)",
+      "page": "Table 3 p. 1107 (PDF 4)"
+    },
+    {
+      "what": "Millimetre error, Bland-Altman, ICC model",
+      "value": "Not reported",
+      "page": "Table 1 p. 1106 (PDF 3)"
+    }
+  ],
+  "pearls_pitfalls": [
+    {
+      "text": "Human cadaver spines are scarce, especially young ones, and vary in shape, size, bone density, degeneration and age; animal spines stand in, the pig being called the most representative; precise geometry also serves computational models.",
+      "page": "p. 1104 (PDF 1); p. 1105 (PDF 2); p. 1111 (PDF 8)"
+    },
+    {
+      "text": "Porcine pedicle width and height resemble human, so the pig suits pedicle-screw and fusion testing (McLain saw the same in L4 of immature 60 kg pigs).",
+      "page": "p. 1111 (PDF 8); p. 1113 (PDF 10)"
+    },
+    {
+      "text": "Pig age matters: Dath's 18-24 month pigs gave lumbar dimensions 1.3-1.5 times this study's pigs; Bozkus's 30 kg pig thoracic values agreed with this study's porcine values within 10% on average.",
+      "page": "p. 1111-1112 (PDF 8-9)"
+    },
+    {
+      "text": "The disc is the largest species difference; the pig is not the model for disc implants or procedures; size differences must be scaled.",
+      "page": "p. 1113 (PDF 10)"
+    },
+    {
+      "text": "Normalising to total spine length fails when vertebral counts differ (equal length, different counts).",
+      "page": "p. 1113 (PDF 10)"
+    },
+    {
+      "text": "Specimen lordosis and kyphosis may differ from in vivo after loss of muscle tone and soft-tissue release.",
+      "page": "p. 1112 (PDF 9)"
+    },
+    {
+      "text": "SPL here is base to tip; Panjabi's is to mid-body; patterns agree after the offset; pedicle, canal and TPL values agree with Panjabi in all regions.",
+      "page": "p. 1112 (PDF 9)"
+    },
+    {
+      "text": "Inference: ribs with costovertebral joints were kept, and T1 lower end-plate width exceeds T2 upper by 7-8 mm across one disc, so upper thoracic end-plate widths may include costal facets or rib heads.",
+      "page": "p. 1105 (PDF 2); Fig. 3 p. 1109 (PDF 6)"
+    },
+    {
+      "text": "Inference: 'significantly equal' (Mann-Whitney p > 0.05, n = 6 vs 6) is absence of evidence, not equivalence.",
+      "page": "p. 1106 (PDF 3); p. 1108 (PDF 5)"
+    },
+    {
+      "text": "No stenosis threshold, syndrome, screw size or safe zone given.",
+      "page": "whole paper"
+    },
+    {
+      "text": "Limitations: 6 per species, age gap (55-84 y vs 4-month pigs not fully grown); young human and older porcine specimens are hard to obtain.",
+      "page": "p. 1112-1113 (PDF 9-10)"
+    }
+  ],
+  "instructions": [
+    {
+      "text": "Reslice each vertebra into its own frame before measuring; never use scanner axes.",
+      "page": "p. 1105 (PDF 2); Fig. 2 p. 1106 (PDF 3)"
+    },
+    {
+      "text": "Measure VBHa, VBHc, VBHp mid-sagittally; keep VBHc on the true concave end-plate surface.",
+      "page": "p. 1108 (PDF 5); Table 3 p. 1107 (PDF 4)"
+    },
+    {
+      "text": "Use VBHa/VBHp: about 1.18 with VBHp 3 mm below the vertebra above marks L5; 0.88-0.92 marks T5-L2; 0.94-1.01 is shared by C3-C7, T3-T4 and L3-L4, so combine it with other features there (ratios computed).",
+      "page": "Table 3 p. 1107 (PDF 4)"
+    },
+    {
+      "text": "Measure TPL tip to tip excluding rib; expect about 54 at T12, 79 at L1, 64 at C6, 75 at C7, 81 at T1; the T12/L1 step is the strongest thoracolumbar marker here.",
+      "page": "Fig. 7a p. 1111 (PDF 8)"
+    },
+    {
+      "text": "Measure PedA at the anterior midline point of the body to the line through the pedicle; expect about 0 at T12, 11-15 at L1-L4, about 35 at L5, about 50 at C4-C5.",
+      "page": "Fig. 1 p. 1105 (PDF 2); Fig. 8b p. 1112 (PDF 9)"
+    },
+    {
+      "text": "Measure canal width and depth on the axial slice and record the slice; expect about 26-28 by 15-16 cervical, 18 by 16.5 mid-thoracic, 32 by 22 at L5.",
+      "page": "Fig. 5a p. 1110 (PDF 7)"
+    },
+    {
+      "text": "Lateral film: SCD (body wall to spinolaminar line), body and disc heights, PedH, SPL, SPA; AP film: end-plate width, TPL, PedW; never PedA; correct magnification (Inference).",
+      "page": "p. 1105 (PDF 2)"
+    },
+    {
+      "text": "Add the base-to-mid-body offset, or use only the pattern, when comparing SPL with Panjabi norms.",
+      "page": "p. 1112 (PDF 9)"
+    },
+    {
+      "text": "Treat IDH as a pair feature; expect a step at T12/L1 (6.1 to 9.3), maximum at L4/L5 (12.7), drop at L5/S1 (8.8), assuming the listed disc is the one below (Inference).",
+      "page": "Table 3 p. 1107 (PDF 4)"
+    },
+    {
+      "text": "Use size-free ratios when size is unknown: TPL/UEPW min 1.15 at T12, max 2.8 at T1-T2; IDH/UEPW min 0.125 at T9.",
+      "page": "Figs. 4, 5b, 7b, 8c pp. 1109-1112 (PDF 6-9)"
+    },
+    {
+      "text": "Do not trust a single reading of SPA, PedH or SCD near a boundary (lowest coefficients).",
+      "page": "Table 1 p. 1106 (PDF 3)"
+    },
+    {
+      "text": "Scale these norms down for smaller patients and women: 6 tall elderly Dutch men.",
+      "page": "p. 1105 (PDF 2); p. 1106 (PDF 3)"
+    },
+    {
+      "text": "Do not use specimen curvature angles as in vivo norms.",
+      "page": "p. 1112 (PDF 9)"
+    },
+    {
+      "text": "At T12/L1 combine the TPL jump, PedA jump, SPA fall and disc step; body heights are equal at T12 and L1.",
+      "page": "Table 3 p. 1107 (PDF 4); Figs. 6-8"
+    },
+    {
+      "text": "At C7/T1 look for LEPW rising while UEPW falls, the PedH step 7.5 to 9.6 and T1 peaks of TPL and PedW; check T1-T5 end-plate widths for rib-head contamination (Inference).",
+      "page": "Figs. 3, 7a, 8a pp. 1109-1112 (PDF 6-9)"
+    }
+  ],
+  "bordercall": [
+    "(a) Anomaly priors: none; 0/6 human anomalies is unusable; porcine 15 T and 6 L is a species norm.",
+    "(b) Same measure set as the generator over exactly C3-L5 in one cohort and protocol: UEPW, UEPD, LEPW, LEPD, VBHa, VBHc, VBHp, SCW, SCD, PedW, PedH, PedA, SPL, TPL (tip-to-tip); addable VBHc, IDH (pair feature), SPA and the size-free ratios.",
+    "(b) Definition differences: SPL base-to-tip here vs mid-body in Panjabi; PedA taken at the anterior midline point of the body (sketch) vs Panjabi's pedicle-axis angle (Inference); end-plate width through the centre, not maximum (osteophytes, uncinates, rib heads inflate a mask maximum); canal slice level unstated; PedW and PedH drawn at the junction with the posterior body wall, not stated as isthmus; TPL excludes rib, includes cervical tubercles (Inference); IDH listed per vertebra, Inference the disc below.",
+    "(b) Only VBHa, VBHc, VBHp and IDH are tabulated (Table 3); the rest are digitised from Figs. 3-8 (about +/-0.3 mm where visible, +/-1 mm where hidden).",
+    "(c) Error: only correlation coefficients 0.83-1.00; use voxel floors (0.39 mm in-plane, 1 mm SI) and inflate SCD, SPA, PedH, PedA; Table 3 SDs are between-subject spread.",
+    "(d) Covariates: men only, 55-84 y, 175-192 cm, Dutch, n = 6, no regression; C3-L5 length 569.4 mm (SD 17.67) as a tall-male size anchor; ratios to UEPW, UEPD or VBHc factor out size."
+  ],
+  "gaps": [
+    "Not stated: high/low thoracic boundary; canal slice level; pedicle isthmus or junction; disc above or below; regional handling of porcine extra vertebrae; ICC model, meaning of Intra-CC, vertebrae entering it; whether values are means of the three observers; ratio computation; level identification; degeneration grade; per-specimen ages and heights.",
+    "Methods 'majority' vs Table 4 footnote 'half or more' for comparability (p. 1106 vs p. 1108).",
+    "Text says PedH comparable in cervical and lower thoracic regions (p. 1111); Table 4 marks cervical and lumbar (p. 1108); Table 5 marks cervical and low thoracic.",
+    "Text: VBHc smaller than VBHa and VBHp in all vertebrae (p. 1108); Table 3: L5 VBHc 25.3 > VBHp 24.9; T11 VBHc = VBHa 24.2.",
+    "Text: body heights rise to L3 (p. 1107); VBHa max at L5.",
+    "Text end-plate ranges (UEPW 27.7-54.0, UEPD 16.5-36.7) are C3 and L5 values, not min and max (Fig. 3a).",
+    "Abstract: trends comparable for all dimensions except SCD and SPA (p. 1104); Table 5 marks IDH not comparable in every region (p. 1108).",
+    "Text: lumbar discs up to four times porcine (p. 1111); Table 3 L4 12.7 vs 2.7 = 4.7 times.",
+    "SPA max stated at T6 (p. 1110); T7 plots equally high in Fig. 6.",
+    "Table 5 undefined code CN; PedH/VBH in Tables 4-5 vs PedH/VBHc in Fig. 8c; coefficients called Kappa values (p. 1107).",
+    "Sums: human VBHc + IDH 569.7 vs printed 569.4; porcine 570.0 vs 569.5 and 472.1 vs 471.7 without extra vertebrae (rounding).",
+    "Inference: T1 LEPW (about 35.4) vs T2 UEPW (about 26.8) mismatch across one disc suggests rib-facet contamination.",
+    "Inference (from memory): lumbar end-plate widths at or above Panjabi's upper range (tall cohort); L1-L2 PedW about 7.1-7.3 mm is smaller than usual isthmus CT values, unexplained since a junction landmark would read wider."
+  ]
+}

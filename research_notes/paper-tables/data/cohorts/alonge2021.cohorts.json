@@ -1,0 +1,466 @@
+{
+  "paper": "alonge2021",
+  "cohorts": [
+    {
+      "cohort": "lagos_ct",
+      "labels": [
+        "all",
+        "female",
+        "male",
+        "female vs male",
+        "Yoruba",
+        "Igbo"
+      ],
+      "tables": [
+        "Table 1",
+        "Table 2",
+        "Table 3",
+        "Table 4",
+        "Text: Abstract",
+        "Text: Materials and methods",
+        "Text: Results",
+        "Text: Discussion",
+        "Text: Conclusion"
+      ],
+      "subjects": "Living adult patients of Nigerian heritage (judged by one native Nigerian name) whose abdominal CT scans of 1 July 2017 to 30 June 2019 were taken from the radiology (CT) database of Lagoon Hospitals, Lagos, Nigeria; retrospective. Ethnic group: Yoruba 51%, Igbo 21%, the rest other or unknown tribes. Excluded: age below 18 or above 65, degenerative change at the bony landmarks, spondylolisthesis, signs of spondylodiscitis or other infection, images not clearly showing all lumbar vertebrae. Taken as representative of the normal population since not known to have lumbar symptoms. Numbers screened and excluded are not given.",
+      "n_people": 120,
+      "n_units": "120 abdominal CT scans, L1 to L5 each: 600 level measurements of each of APD and TD (Inference: one scan per patient; the paper counts 120 images and 120 observations and does not say whether any patient had two scans)",
+      "ages": "18 to 65 years, mean 40.2 (SD 10.07)",
+      "sexes": "66 female (55%), 54 male (45%)",
+      "page": "p. 69-71 (PDF 1-3); sex counts in Tables 1-4, p. 73-74 (PDF 5-6)"
+    },
+    {
+      "cohort": "amadou_togo_ct",
+      "labels": [
+        "Togolese, CT",
+        "Togolese"
+      ],
+      "tables": [
+        "Text: Discussion"
+      ],
+      "subjects": "Quoted from Amadou et al. [18]: asymptomatic adults of reproductive age in Togo, scanned prospectively by CT",
+      "n_people": 500,
+      "n_units": "500 individuals",
+      "ages": "mean 38 years (reproductive age group)",
+      "sexes": "54% male",
+      "page": "p. 74-75 (PDF 6-7)"
+    },
+    {
+      "cohort": "elhassan_sudan_mri",
+      "labels": [
+        "Sudanese, MRI"
+      ],
+      "tables": [
+        "Text: Discussion"
+      ],
+      "subjects": "Quoted from Elhassan et al. [19]: asymptomatic adults in Sudan, MRI",
+      "n_people": 128,
+      "n_units": "128 individuals",
+      "ages": "20 to 28 years",
+      "sexes": "57% male",
+      "page": "p. 74-75 (PDF 6-7)"
+    },
+    {
+      "cohort": "eisenstein_caucasians",
+      "labels": [
+        "Caucasians"
+      ],
+      "tables": [
+        "Text: Discussion"
+      ],
+      "subjects": "Quoted from Eisenstein [6]: Caucasians; the paper gives no sample or method for the 16 mm APD (the reference title names 2 racial groups)",
+      "n_people": null,
+      "n_units": "not given",
+      "ages": "not given",
+      "sexes": "not given",
+      "page": "p. 75 (PDF 7)"
+    },
+    {
+      "cohort": "eisenstein_bone",
+      "labels": [
+        ""
+      ],
+      "tables": [
+        "Text: Discussion"
+      ],
+      "subjects": "Quoted from Eisenstein [3]: Caucasian and Negroid bone specimens (p. 75); South African negroes and caucasoids per the reference title; source of the 1.3% developmental stenosis prevalence",
+      "n_people": null,
+      "n_units": "not given",
+      "ages": "not given",
+      "sexes": "not given",
+      "page": "p. 75 (PDF 7)"
+    },
+    {
+      "cohort": "ullrich_ct",
+      "labels": [
+        "Caucasians, CT"
+      ],
+      "tables": [
+        "Text: Discussion"
+      ],
+      "subjects": "Quoted from Ullrich et al. [24]: Caucasian adults studied by CT; only the sample size is given here",
+      "n_people": 60,
+      "n_units": "60 adults",
+      "ages": "adults",
+      "sexes": "not given",
+      "page": "p. 74 (PDF 6)"
+    },
+    {
+      "cohort": "gouzien_ct",
+      "labels": [
+        ""
+      ],
+      "tables": [
+        "Text: Discussion"
+      ],
+      "subjects": "Quoted from Gouzien et al. [25]: asymptomatic adults; only the sample size is given here (Inference: CT, per the reference title)",
+      "n_people": 34,
+      "n_units": "34 adults",
+      "ages": "adults",
+      "sexes": "not given",
+      "page": "p. 74 (PDF 6)"
+    },
+    {
+      "cohort": "midia_ct",
+      "labels": [
+        ""
+      ],
+      "tables": [
+        "Text: Discussion"
+      ],
+      "subjects": "Quoted from Midia and Miabi [26]: asymptomatic adults; only the sample size is given here (Inference: CT, per the reference title)",
+      "n_people": 39,
+      "n_units": "39 adults",
+      "ages": "adults",
+      "sexes": "not given",
+      "page": "p. 74 (PDF 6)"
+    },
+    {
+      "cohort": "tacar_turks",
+      "labels": [
+        "Turks"
+      ],
+      "tables": [
+        "Text: Discussion"
+      ],
+      "subjects": "Quoted from Tacar et al. [31]: normal adult Turks; only the number of canal shape types",
+      "n_people": null,
+      "n_units": "not given",
+      "ages": "adults (reference title)",
+      "sexes": "not given",
+      "page": "p. 75 (PDF 7)"
+    },
+    {
+      "cohort": "verbiest_criteria",
+      "labels": [
+        ""
+      ],
+      "tables": [
+        "Text: Introduction",
+        "Text: Results"
+      ],
+      "subjects": "Quoted from Verbiest [14] (Orthop Clin North Am 1975): the normal range and stenosis cut-offs of the midline AP canal diameter; criteria, no subjects described here",
+      "n_people": null,
+      "n_units": "not applicable",
+      "ages": "not given",
+      "sexes": "not given",
+      "page": "p. 70 (PDF 2), p. 74 (PDF 6)"
+    },
+    {
+      "cohort": "uncited_prior_studies",
+      "labels": [
+        ""
+      ],
+      "tables": [
+        "Text: Abstract"
+      ],
+      "subjects": "Quoted from uncited earlier studies on bone specimens and radiographs: the average AP (16 mm) and transverse (20 mm) canal diameters; no subjects, level or method described",
+      "n_people": null,
+      "n_units": "not given",
+      "ages": "not given",
+      "sexes": "not given",
+      "page": "p. 69 (PDF 1)"
+    },
+    {
+      "cohort": "steurer_review",
+      "labels": [
+        ""
+      ],
+      "tables": [
+        "Text: Introduction"
+      ],
+      "subjects": "Quoted from Steurer et al. [11]: a systematic review of radiological criteria for diagnosing LSS; a count of criteria, no subjects described here",
+      "n_people": null,
+      "n_units": "not applicable",
+      "ages": "not applicable",
+      "sexes": "not applicable",
+      "page": "p. 70 (PDF 2)"
+    },
+    {
+      "cohort": "nigeria_context",
+      "labels": [
+        "Nigeria"
+      ],
+      "tables": [
+        "Text: Discussion"
+      ],
+      "subjects": "No subjects: two uncited context figures on Nigeria (population over 180 million, three main ethnic groups)",
+      "n_people": null,
+      "n_units": "not applicable",
+      "ages": "not applicable",
+      "sexes": "not applicable",
+      "page": "p. 75 (PDF 7)"
+    }
+  ],
+  "techniques": [
+    {
+      "technique": "ct_midsagittal_apd",
+      "cohorts": [
+        "lagos_ct"
+      ],
+      "modality": "CT MPR",
+      "instrument": "hospital CT workstation, sagittal and axial reconstructions side by side with linked reference lines, bone window, electronic cursor, values in mm",
+      "how": "Canal anteroposterior diameter (APD) on the mid-sagittal cut, the cursor drawn perpendicular from the posterior border of each vertebral body back to the lamina, the midline position checked on the linked axial view at each level L1 to L5. The vertebral body AP diameter (VAPD) at the same level on the same cut, and the vertebral Torg ratio APD/VAPD; VAPD values themselves are not reported. Inference from Fig. 1: the lines sit at about mid-height of each body, not at the disc.",
+      "magnification": "not a projection, so no film magnification; display zoomed to 4.00x on the workstation, measurements read in mm (Inference: the workstation's calibrated distance tool)",
+      "observers": "not stated; only the researcher had access to the data (Inference: one observer, one reading, no reliability figures)",
+      "page": "p. 71 (PDF 3), Fig. 1 p. 71 (PDF 3), Fig. 3 p. 72 (PDF 4)"
+    },
+    {
+      "technique": "ct_axial_td",
+      "cohorts": [
+        "lagos_ct"
+      ],
+      "modality": "CT axial",
+      "instrument": "as ct_midsagittal_apd: CT workstation, bone window, 4.00x display, cursor in mm",
+      "how": "Canal transverse diameter (TD): on the axial cut at the point of maximum pedicle width, the distance between the inner (medial) borders of the two pedicles, an interpedicular distance, at L1 to L5. Fig. 2 also labels a VTD line across the vertebral body that the text never defines or reports.",
+      "magnification": "as ct_midsagittal_apd",
+      "observers": "as ct_midsagittal_apd",
+      "page": "p. 71 (PDF 3), p. 75 (PDF 7), Fig. 2 p. 72 (PDF 4)"
+    },
+    {
+      "technique": "ct_axial_shape",
+      "cohorts": [
+        "lagos_ct"
+      ],
+      "modality": "CT axial",
+      "instrument": "as ct_midsagittal_apd",
+      "how": "Shape of the canal noted at each vertebral level as oval or trefoil, by eye; no criterion separating the two is given; proportions at L3 given only in words",
+      "magnification": "not applicable (a category)",
+      "observers": "as ct_midsagittal_apd",
+      "page": "p. 71 (PDF 3), p. 74 (PDF 6), p. 75 (PDF 7)"
+    },
+    {
+      "technique": "amadou_ct",
+      "cohorts": [
+        "amadou_togo_ct"
+      ],
+      "modality": "other",
+      "instrument": "CT, plane and details not given in this paper",
+      "how": "Quoted only; the paper says the Togolese study did not specify at what point of the pedicle its TD was taken, and gives no level for its APD or TD.",
+      "magnification": "not given",
+      "observers": "not given",
+      "page": "p. 74-75 (PDF 6-7)"
+    },
+    {
+      "technique": "elhassan_mri",
+      "cohorts": [
+        "elhassan_sudan_mri"
+      ],
+      "modality": "MRI",
+      "instrument": "MRI, details not given in this paper",
+      "how": "Quoted only; sagittal canal diameter per the reference title; no method given here",
+      "magnification": "not given",
+      "observers": "not given",
+      "page": "p. 74-75 (PDF 6-7)"
+    },
+    {
+      "technique": "eisenstein_dry_bone",
+      "cohorts": [
+        "eisenstein_bone"
+      ],
+      "modality": "dry bone caliper",
+      "instrument": "not given in this paper",
+      "how": "Quoted only; the paper calls Eisenstein's study [3] one of Caucasian and Negroid bone specimens; no landmarks or instrument given here",
+      "magnification": "not applicable",
+      "observers": "not given",
+      "page": "p. 70 (PDF 2), p. 75 (PDF 7)"
+    },
+    {
+      "technique": "eisenstein6_quoted",
+      "cohorts": [
+        "eisenstein_caucasians"
+      ],
+      "modality": "other",
+      "instrument": "not given in this paper",
+      "how": "Quoted only: the mean APD of 16 mm among Caucasians from Eisenstein [6]; this paper gives no method, level or sample. Inference: the reference title names measurements of the lumbar canal in 2 racial groups; whether on dry bone like [3] is not stated",
+      "magnification": "not given",
+      "observers": "not given",
+      "page": "p. 75 (PDF 7)"
+    },
+    {
+      "technique": "ullrich_ct_quoted",
+      "cohorts": [
+        "ullrich_ct"
+      ],
+      "modality": "other",
+      "instrument": "CT, per this paper; details not given",
+      "how": "Sample size only; no measurement of this study is quoted",
+      "magnification": "not given",
+      "observers": "not given",
+      "page": "p. 74 (PDF 6)"
+    },
+    {
+      "technique": "gouzien_quoted",
+      "cohorts": [
+        "gouzien_ct"
+      ],
+      "modality": "other",
+      "instrument": "not given in this paper",
+      "how": "Sample size only; called a similar study; Inference: CT from the reference title",
+      "magnification": "not given",
+      "observers": "not given",
+      "page": "p. 74 (PDF 6)"
+    },
+    {
+      "technique": "midia_quoted",
+      "cohorts": [
+        "midia_ct"
+      ],
+      "modality": "other",
+      "instrument": "not given in this paper",
+      "how": "Sample size only; called a similar study; Inference: CT from the reference title",
+      "magnification": "not given",
+      "observers": "not given",
+      "page": "p. 74 (PDF 6)"
+    },
+    {
+      "technique": "verbiest_quoted",
+      "cohorts": [
+        "verbiest_criteria"
+      ],
+      "modality": "other",
+      "instrument": "not given in this paper",
+      "how": "Quoted only: Verbiest's normal range (15 to 27 mm) and stenosis cut-offs (12 mm, 10 mm) for the midline AP canal diameter [14]; this paper gives no landmarks, plane or instrument",
+      "magnification": "not given",
+      "observers": "not given",
+      "page": "p. 70 (PDF 2), p. 74 (PDF 6)"
+    },
+    {
+      "technique": "uncited_prior_quoted",
+      "cohorts": [
+        "uncited_prior_studies"
+      ],
+      "modality": "other",
+      "instrument": "bone specimens and radiographs, per the abstract; no source cited",
+      "how": "Quoted only: average AP (16 mm) and transverse (20 mm) canal diameters the abstract attributes to earlier bone-specimen and radiograph studies; no method or level given",
+      "magnification": "not given",
+      "observers": "not given",
+      "page": "p. 69 (PDF 1)"
+    },
+    {
+      "technique": "tacar_quoted",
+      "cohorts": [
+        "tacar_turks"
+      ],
+      "modality": "other",
+      "instrument": "not given in this paper",
+      "how": "Quoted only: the number of main canal shape types found among Turks by Tacar et al. [31]; no method given here",
+      "magnification": "not given",
+      "observers": "not given",
+      "page": "p. 75 (PDF 7)"
+    }
+  ],
+  "shared": [
+    {
+      "with": "Verbiest [14] (Verbiest 1975, Orthop Clin North Am); not in the list",
+      "what": "values quoted",
+      "evidence": "normal APD range 15-27 mm, below 12 mm stenosis, below 10 mm definite stenosis",
+      "page": "p. 70 (PDF 2)"
+    },
+    {
+      "with": "Verbiest (criterion of the lower limit of normal); not in the list",
+      "what": "method",
+      "evidence": "Verbiest's 12 mm lower limit applied to this paper's 600 APD measurements, giving 11 (1.83%)",
+      "page": "p. 74 (PDF 6)"
+    },
+    {
+      "with": "Amadou et al. [18] (Togo, CT, Med Imaging Radiol 2017); not in the list",
+      "what": "values quoted",
+      "evidence": "sample (500), mean age 38, 54% male, APD 15.41 +/- 0.55 mm, TD 23.27 +/- 1.67 (13.68-33.68) quoted for comparison; no sex difference in APD, as in that study",
+      "page": "p. 74-75 (PDF 6-7)"
+    },
+    {
+      "with": "Elhassan et al. [19] (Sudan, MRI, Sudan Med Monit 2014); not in the list",
+      "what": "values quoted",
+      "evidence": "sample (128), ages 20-28, 57% male quoted; its L1 to L5 decreasing pattern contrasted",
+      "page": "p. 74-75 (PDF 6-7)"
+    },
+    {
+      "with": "Eisenstein [3] (J Bone Joint Surg Br 1977, South African negroes and caucasoids): eisenstein1977",
+      "what": "values quoted",
+      "evidence": "prevalence of developmental stenosis 1.3% and narrowest points at L2 and L4 quoted; also cited as an anatomical-specimen study of African populations",
+      "page": "p. 70 (PDF 2), p. 75 (PDF 7)"
+    },
+    {
+      "with": "Eisenstein [6] (Clin Orthop Relat Res, 2 racial groups); not in the list",
+      "what": "values quoted",
+      "evidence": "mean APD 16 mm among Caucasians quoted against this paper's 15.8 mm",
+      "page": "p. 75 (PDF 7)"
+    },
+    {
+      "with": "Amonoo-Kuofi [16] (sagittal diameter of the lumbar canal in normal adult Nigerians, J Anat 1985): amonookuofi1985",
+      "what": "values quoted",
+      "evidence": "no number quoted: cited as an anatomical-specimen study of Africans and as also finding mid-lumbar narrowing; same population (Nigerians), no subjects shared stated",
+      "page": "p. 70 (PDF 2), p. 75 (PDF 7)"
+    },
+    {
+      "with": "Amonoo-Kuofi [15] (interpedicular distances in normal adult Nigerians, J Anat 1982): amonookuofi1982",
+      "what": "values quoted",
+      "evidence": "no number quoted: cited only as an older radiograph-based African study; same population (Nigerians), no subjects shared stated",
+      "page": "p. 70 (PDF 2)"
+    },
+    {
+      "with": "Muthuuri [27] (East African Orthopaedic Journal 2007); not in the list",
+      "what": "method",
+      "evidence": "abdominal CT images already used to assess the lumbar canal, as controls in an LSS study",
+      "page": "p. 74 (PDF 6)"
+    },
+    {
+      "with": "Ullrich et al. [24], Gouzien et al. [25], Midia and Miabi [26]; not in the list",
+      "what": "values quoted",
+      "evidence": "their sample sizes, 60, 34 and 39 adults, quoted as small",
+      "page": "p. 74 (PDF 6)"
+    },
+    {
+      "with": "Azu [28] (South Africans) and Kang et al. [29] (Koreans, PET/CT); not in the list",
+      "what": "values quoted",
+      "evidence": "no number quoted: cited as also finding mid-lumbar APD narrowing",
+      "page": "p. 75 (PDF 7)"
+    },
+    {
+      "with": "Naik et al. [30] (Indians, MRI); not in the list",
+      "what": "values quoted",
+      "evidence": "no number quoted: narrowest point at L4 contrasted",
+      "page": "p. 75 (PDF 7)"
+    },
+    {
+      "with": "Tacar et al. [31] (normal adult Turks); not in the list",
+      "what": "values quoted",
+      "evidence": "three main canal shape types with sub-variants, against two here",
+      "page": "p. 75 (PDF 7)"
+    },
+    {
+      "with": "Steurer et al. [11] (systematic review); not in the list",
+      "what": "values quoted",
+      "evidence": "up to 10 different radiological criteria for diagnosing LSS",
+      "page": "p. 70 (PDF 2)"
+    },
+    {
+      "with": "uncited earlier bone-specimen and radiograph studies",
+      "what": "values quoted",
+      "evidence": "average diameters of 16 mm AP and 20 mm transverse",
+      "page": "p. 69 (PDF 1)"
+    }
+  ],
+  "within_paper": "One cohort only: every value of this paper's own is from the same 120 abdominal CT scans (66 women, 54 men), each measured at L1 to L5 by all three techniques on the hospital CT workstation (APD and VAPD on the mid-sagittal cut, TD and shape on the axial cut), p. 71 (PDF 3). Tables 1 and 2 are the same subjects as Tables 3 and 4: Inference from the printed totals, each sex's Total in Table 1 or 2 is the sum of its five level Totals in Table 3 or 4 divided by 5 (e.g. female APD 5259.8 / 5 = 1051.96), so Tables 1 and 2 hold each subject's mean over L1 to L5, p. 73-74 (PDF 5-6). The 600 measurements of the stenosis counts are the 120 x 5 level values of Table 3, p. 74 (PDF 6)."
+}

@@ -1,0 +1,389 @@
+{
+  "paper": "yu2015",
+  "cohorts": [
+    {
+      "cohort": "hamann_todd_503",
+      "labels": [
+        "2.0 vs 1.5 m",
+        "65 vs 55 kg",
+        "75 vs 25 yr",
+        "African American",
+        "American",
+        "Caucasian",
+        "age 15-24 yr",
+        "age 15-24 yr / African American",
+        "age 15-24 yr / Caucasian",
+        "age 25-34 yr",
+        "age 25-34 yr / African American",
+        "age 25-34 yr / Caucasian",
+        "age 31-49 yr",
+        "age 35-44 yr",
+        "age 35-44 yr / African American",
+        "age 35-44 yr / Caucasian",
+        "age 45-54 yr",
+        "age 45-54 yr / African American",
+        "age 45-54 yr / Caucasian",
+        "age 50-69 yr",
+        "age 55-64 yr",
+        "age 55-64 yr / African American",
+        "age 55-64 yr / Caucasian",
+        "age 65-74 yr",
+        "age 65-74 yr / African American",
+        "age 65-74 yr / Caucasian",
+        "age 75-84 yr",
+        "age 75-84 yr / African American",
+        "age 75-84 yr / Caucasian",
+        "age 85-94 yr",
+        "age 85-94 yr / African American",
+        "age 85-94 yr / Caucasian",
+        "age <=30 yr",
+        "age >=70 yr",
+        "age quartiles",
+        "all",
+        "body height 1601-1699 mm",
+        "body height 1700-1799 mm",
+        "body height <=1600 mm",
+        "body height >=1800 mm",
+        "body height >=1800 vs <=1600 mm",
+        "body weight 46-54 kg",
+        "body weight 46-55 kg",
+        "body weight 55-63 kg",
+        "body weight <=45 kg",
+        "body weight >=64 kg",
+        "body weight >=64 vs <=45 kg",
+        "female",
+        "height quartiles",
+        "male",
+        "weight quartiles"
+      ],
+      "tables": [
+        "Table 1",
+        "Table 2",
+        "Table 3",
+        "Table 4",
+        "Table 5",
+        "Figure 3",
+        "Text: Abstract",
+        "Text: Methods",
+        "Text: Results",
+        "Text: Discussion",
+        "Text: Conclusion"
+      ],
+      "subjects": "Dry skeletons from the Hamann-Todd Osteological Collection, Cleveland, Ohio (held by the Cleveland Museum of Natural History, per the acknowledgments): treated and dried specimens of people who died in Cleveland between 1893 and 1938, with height and weight documented at death, sex and ethnic origin; 503 chosen at random; called American in the abstract and Table 5; 281 Caucasian and 222 African American. Excluded: congenital disease such as scoliosis (number not given); medical and surgical history largely unavailable. How levels were identified and whether any spine had a transitional segment is not stated.",
+      "n_people": 503,
+      "n_units": "L1 to L5 of 503 skeletons, left and right pedicles measured and averaged (Inference: 2,515 vertebrae, 5,030 pedicles)",
+      "ages": "mean 47 yr, range 17 to 93 (text); Table 1 bands 15-24 to 85-94 yr; Table 3 bands <=30, 31-49, 50-69, >=70 yr",
+      "sexes": "404 male, 99 female",
+      "page": "p. 1640 (PDF 2)"
+    },
+    {
+      "cohort": "zindrick_american",
+      "labels": [
+        "not stated",
+        "group American with source_of_values Zindrick et al"
+      ],
+      "tables": [
+        "Table 5"
+      ],
+      "subjects": "American specimens as Table 5 quotes them from Zindrick et al (ref 2, Spine 1987); nothing more stated here",
+      "n_people": null,
+      "n_units": "N = 21-52 for PH and 26-56 for PW, varying by level",
+      "ages": "not stated in this paper",
+      "sexes": "not stated in this paper",
+      "page": "p. 1645 (PDF 7)"
+    },
+    {
+      "cohort": "zindrick_mean_values",
+      "labels": [
+        "not stated",
+        "group Mean Values with source_of_values Zindrick et al"
+      ],
+      "tables": [
+        "Table 5"
+      ],
+      "subjects": "the Zindrick et al column headed Mean Values; this paper does not say whose subjects it pools (Inference: it may include the American column's)",
+      "n_people": null,
+      "n_units": "N = 91-124, varying by level",
+      "ages": "not stated in this paper",
+      "sexes": "not stated in this paper",
+      "page": "p. 1645 (PDF 7)"
+    },
+    {
+      "cohort": "berry",
+      "labels": [
+        "not stated",
+        "group American with source_of_values Berry et al"
+      ],
+      "tables": [
+        "Table 5"
+      ],
+      "subjects": "American specimens quoted from Berry et al (ref 17, Spine 1987)",
+      "n_people": null,
+      "n_units": "N = 30",
+      "ages": "not stated in this paper",
+      "sexes": "not stated in this paper",
+      "page": "p. 1645 (PDF 7)"
+    },
+    {
+      "cohort": "olsewski",
+      "labels": [
+        "not stated",
+        "group American with source_of_values Olsewski et al"
+      ],
+      "tables": [
+        "Table 5"
+      ],
+      "subjects": "American specimens quoted from Olsewski et al (ref 20, J Bone Joint Surg Am 1990); Inference: olsewski1990's Part 2, 21 disarticulated embalmed spines",
+      "n_people": null,
+      "n_units": "N = 40-42 for PH and 41-42 for PW",
+      "ages": "not stated in this paper",
+      "sexes": "not stated in this paper",
+      "page": "p. 1645 (PDF 7)"
+    },
+    {
+      "cohort": "hou",
+      "labels": [
+        "not stated",
+        "group Chinese with source_of_values Hou et al"
+      ],
+      "tables": [
+        "Table 5"
+      ],
+      "subjects": "Chinese specimens quoted from Hou et al (ref 18, printed as Spine 1994;19:1850-5); Inference: hou1993's 40 dry specimens (25 male, 15 female)",
+      "n_people": null,
+      "n_units": "N = 40",
+      "ages": "not stated in this paper",
+      "sexes": "not stated in this paper",
+      "page": "p. 1645 (PDF 7)"
+    },
+    {
+      "cohort": "marchesi",
+      "labels": [
+        "not stated",
+        "group Swiss with source_of_values Marchesi et al [27] (PH) and Marchesi et al (PW)"
+      ],
+      "tables": [
+        "Table 5"
+      ],
+      "subjects": "Swiss specimens quoted from Marchesi et al (ref 27, Surg Radiol Anat 1988)",
+      "n_people": null,
+      "n_units": "N = 28-46 for PH and 36-46 for PW",
+      "ages": "not stated in this paper",
+      "sexes": "not stated in this paper",
+      "page": "p. 1645 (PDF 7)"
+    },
+    {
+      "cohort": "mitra",
+      "labels": [
+        "not stated",
+        "group Indian with source_of_values Mitra et al"
+      ],
+      "tables": [
+        "Table 5"
+      ],
+      "subjects": "Indian specimens quoted from Mitra et al (ref 16, Spine 2002); Inference: mitra2002's 20 cadavers (18 male, 2 female), pooled",
+      "n_people": null,
+      "n_units": "N = 20",
+      "ages": "not stated in this paper",
+      "sexes": "not stated in this paper",
+      "page": "p. 1645 (PDF 7)"
+    },
+    {
+      "cohort": "chadha",
+      "labels": [
+        "not stated",
+        "group Indian with source_of_values Chadha et al"
+      ],
+      "tables": [
+        "Table 5"
+      ],
+      "subjects": "Indian specimens quoted from Chadha et al (ref 14, Spine 2003), PW only",
+      "n_people": null,
+      "n_units": "N = 14-20, PW only",
+      "ages": "not stated in this paper",
+      "sexes": "not stated in this paper",
+      "page": "p. 1645 (PDF 7)"
+    },
+    {
+      "cohort": "krag",
+      "labels": [
+        "not stated",
+        "group American with source_of_values Krag et al"
+      ],
+      "tables": [
+        "Table 5"
+      ],
+      "subjects": "American specimens quoted from Krag et al, PW only; Table 5 gives no reference number; Inference: krag1988's 182 pedicles of 91 vertebrae on CT scans of 41 living patients in Vermont",
+      "n_people": null,
+      "n_units": "N = 14-24, PW only",
+      "ages": "not stated in this paper",
+      "sexes": "not stated in this paper",
+      "page": "p. 1645 (PDF 7)"
+    },
+    {
+      "cohort": "chaynes_10",
+      "labels": [
+        "not stated",
+        "source_of_values Chaynes et al [21]"
+      ],
+      "tables": [
+        "Text: Introduction"
+      ],
+      "subjects": "the smallest earlier sample the introduction cites, 10 specimens, from Chaynes et al (ref 21, a cadaver study by its title)",
+      "n_people": null,
+      "n_units": "10 specimens",
+      "ages": "not stated",
+      "sexes": "not stated",
+      "page": "p. 1640 (PDF 2)"
+    },
+    {
+      "cohort": "liau_180",
+      "labels": [
+        "not stated",
+        "source_of_values Liau et al [22]"
+      ],
+      "tables": [
+        "Text: Introduction"
+      ],
+      "subjects": "the largest earlier sample the introduction cites, 180 specimens, from Liau et al (ref 22, CT of thoracic pedicles in a Malaysian Malay population by its title)",
+      "n_people": null,
+      "n_units": "180 specimens",
+      "ages": "not stated",
+      "sexes": "not stated",
+      "page": "p. 1640 (PDF 2)"
+    }
+  ],
+  "techniques": [
+    {
+      "technique": "direct_caliper",
+      "cohorts": [
+        "hamann_todd_503"
+      ],
+      "modality": "dry bone caliper",
+      "instrument": "digital caliper reading to one hundredth of a millimetre (0.01 mm)",
+      "how": "PH: caliper applied from the lateral side, in the sagittal plane, at the narrowest point of the pedicle along its long axis (cranial-caudal size). PW: caliper applied from below, in the transverse plane, at the narrowest point (medial-lateral size). Left and right pedicles measured and averaged; all vertebrae of one skeleton measured before the next. Left and right differed (P < 0.05) only for PH at L1 and L2.",
+      "magnification": "not applicable, measured on the bone",
+      "observers": "one examiner (C.C.Y.) measured every specimen; inter- and intrarater coefficients of variation 5.2% (1.5-16.8%) and 4.0% (1.7-6.2%) on 21 random samples, PH and PW not separated (Inference: a second, unnamed rater measured the 21 for the inter-rater figure)",
+      "page": "p. 1640 (PDF 2); Figure 1, p. 1641 (PDF 3)"
+    },
+    {
+      "technique": "cited_direct_caliper",
+      "cohorts": [
+        "berry",
+        "olsewski",
+        "hou",
+        "marchesi",
+        "mitra"
+      ],
+      "modality": "dry bone caliper",
+      "instrument": "direct caliper, as Table 5's footnote classes these studies",
+      "how": "not described in this paper; the footnote lists Mitra et al last in the direct caliper list with no full stop before the CT list",
+      "magnification": "not applicable",
+      "observers": "not stated in this paper",
+      "page": "p. 1645 (PDF 7), Table 5 footnote"
+    },
+    {
+      "technique": "cited_ct",
+      "cohorts": [
+        "zindrick_american",
+        "zindrick_mean_values",
+        "chadha",
+        "krag",
+        "liau_180"
+      ],
+      "modality": "other",
+      "instrument": "computed tomography, plane and reconstruction not stated (Table 5 footnote; for Liau et al only its reference title)",
+      "how": "not described in this paper",
+      "magnification": "not stated",
+      "observers": "not stated in this paper",
+      "page": "p. 1645 (PDF 7), Table 5 footnote; ref 22, p. 1646 (PDF 8)"
+    },
+    {
+      "technique": "cited_cadaver_unspecified",
+      "cohorts": [
+        "chaynes_10"
+      ],
+      "modality": "other",
+      "instrument": "not stated; a cadaver study by its reference title",
+      "how": "not described in this paper; only its sample size is quoted",
+      "magnification": "not stated",
+      "observers": "not stated",
+      "page": "p. 1640 (PDF 2); ref 21, p. 1646 (PDF 8)"
+    }
+  ],
+  "shared": [
+    {
+      "with": "Zindrick et al, Spine 1987;12:160-6 (ref 2), zindrick1987",
+      "what": "values quoted",
+      "evidence": "Table 5 quotes its PH and PW means at L1 to L5 in two columns, American and Mean Values; the Discussion counts it among 3 recent American studies compared; the American column's values are zindrick1987's Table 1 (PW) and Table 2 (PH) means at L1 to L5, and its per-level n (21 to 52 for PH, 26 to 56 for PW) are the printed N ranges, checked against that reading; the Mean Values column is not in it",
+      "page": "p. 1645 (PDF 7); p. 1644 (PDF 6)"
+    },
+    {
+      "with": "Berry et al, Spine 1987;12:362-7 (ref 17), not in the list",
+      "what": "values quoted",
+      "evidence": "Table 5 quotes its PH and PW means at L1 to L5; one of the 3 American studies",
+      "page": "p. 1645 (PDF 7); p. 1644 (PDF 6)"
+    },
+    {
+      "with": "Olsewski et al, J Bone Joint Surg Am 1990;72:541-9 (ref 20), olsewski1990",
+      "what": "values quoted",
+      "evidence": "Table 5 quotes its PH and PW means at L1 to L5; one of the 3 American studies; the values are olsewski1990's Table II direct means of Part 2 (21 disarticulated spines, 42 pedicles), checked against that reading",
+      "page": "p. 1645 (PDF 7); p. 1644 (PDF 6)"
+    },
+    {
+      "with": "Hou et al, printed as Spine 1994;19:1850-5 (ref 18), hou1993 (Inference: the same title and pages as hou1993, Spine 1993;18:1850-5, so the printed year and volume are a misprint)",
+      "what": "values quoted",
+      "evidence": "Table 5 quotes its PH and PW means at L1 to L5; the values are hou1993's cumulative caliper means, checked against that reading",
+      "page": "p. 1645 (PDF 7); ref 18, p. 1646 (PDF 8)"
+    },
+    {
+      "with": "Marchesi et al, Surg Radiol Anat 1988;10:317-22 (ref 27), not in the list",
+      "what": "values quoted",
+      "evidence": "Table 5 quotes its PH and PW means at L1 to L5",
+      "page": "p. 1645 (PDF 7)"
+    },
+    {
+      "with": "Mitra et al, Spine 2002;27:453-9 (ref 16), mitra2002",
+      "what": "values quoted",
+      "evidence": "Table 5 quotes its PH and PW means at L1 to L5; Inference: the values are mitra2002's direct means pooled over its 18 male and 2 female cadavers, which (18 x male + 2 x female) / 20 reproduces to 0.01 mm at every level",
+      "page": "p. 1645 (PDF 7)"
+    },
+    {
+      "with": "Chadha et al, Spine 2003;28:744-9 (ref 14), not in the list",
+      "what": "values quoted",
+      "evidence": "Table 5 quotes its PW means at L1 to L5",
+      "page": "p. 1645 (PDF 7)"
+    },
+    {
+      "with": "Krag et al, no reference number in Table 5; the only Krag in the reference list is ref 7, Clin Orthop 1986, an internal fixator paper (Inference: the values are probably from Krag et al, Spine 1988, krag1988, a CT study, which the list omits)",
+      "what": "values quoted",
+      "evidence": "Table 5 quotes its PW means at L1 to L5; Inference strengthened: the printed N 14-24 is krag1988's pedicles per lumbar level (L2 14 to L3 and L4 24), and the five values match within 0.1 mm krag1988's widths along the 15 deg path as its note reads them from Fig. 5",
+      "page": "p. 1645 (PDF 7); ref 7, p. 1646 (PDF 8)"
+    },
+    {
+      "with": "Chaynes et al, Surg Radiol Anat 2001;23:85-90 (ref 21), not in the list",
+      "what": "values quoted",
+      "evidence": "its sample of 10 specimens is cited as the smallest",
+      "page": "p. 1640 (PDF 2)"
+    },
+    {
+      "with": "Liau et al, Spine 2006;31:E545-50 (ref 22), not in the list",
+      "what": "values quoted",
+      "evidence": "its sample of 180 specimens is cited as the largest",
+      "page": "p. 1640 (PDF 2)"
+    },
+    {
+      "with": "Yu et al, Spine 2014;39:E1201-9 (ref 23, upper thoracic T1-T6; its title names 503 cadaveric specimens), not in the list",
+      "what": "subjects | method (Inference only; the paper does not say they are shared)",
+      "evidence": "the authors say they previously described upper and lower thoracic pedicle morphometry. Inference: probably the same 503 Hamann-Todd skeletons and caliper method",
+      "page": "p. 1640 (PDF 2); ref 23, p. 1646 (PDF 8)"
+    },
+    {
+      "with": "Yu et al, Spine 2015;40:E323-31 (ref 24, lower thoracic T7-T12), not in the list",
+      "what": "subjects | method (Inference only; the paper does not say they are shared)",
+      "evidence": "same statement of earlier thoracic work by the authors. Inference: probably the same skeletons and method",
+      "page": "p. 1640 (PDF 2); ref 24, p. 1646 (PDF 8)"
+    }
+  ],
+  "within_paper": "One cohort of its own: Tables 1 to 4, the CS column of Table 5, Figure 3 and the text values are all the same 503 Hamann-Todd skeletons, cut by age, sex, race, height and weight (Table 3's age, height and weight bands each sum to 503; Table 1's age bands differ from Table 3's), p. 1640 to 1645 (PDF 2 to 7). PH and PW were measured on the same vertebrae, p. 1640 (PDF 2). The reliability figures come from 21 random samples (Inference: drawn from the 503), p. 1640 (PDF 2). The comparison columns of Table 5 are other studies' subjects, not this paper's."
+}

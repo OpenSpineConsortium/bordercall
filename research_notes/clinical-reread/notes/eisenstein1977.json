@@ -1,0 +1,422 @@
+{
+  "id": "eisenstein1977",
+  "citation": "Steve Eisenstein (Johannesburg, South Africa; Department of Orthopaedic Surgery, University of Witwatersrand). The morphometry and pathological anatomy of the lumbar spine in South African negroes and caucasoids with specific reference to spinal stenosis. The Journal of Bone and Joint Surgery, Vol. 59-B, No. 2, May 1977, pp. 173-180. Copy read: greg's upload of 2026-10-28 18:54 UTC (upload id 54665ab4-5666-4783-b1f2-159f76586ba5), literature/synthetic_spine/eisenstein1977.pdf, sha256 53338c5b7d72b6e7...",
+  "population": "South Africa, Raymond Dart Collection (Department of Anatomy), dry macerated skeletons: 443 adult skeletons (113 'white' Caucasoid: 78 M, 35 F; 162 Zulu: 108 M, 54 F; 168 Sotho: 106 M, 62 F), age at death 16-96 y, mean 50; group mean ages 66, 49, 41 (M) and 65, 47, 40 (F); 2,166 complete lumbar vertebrae measured (49 missing or damaged); radiographic substudy 55 vertebrae of 11 skeletons.",
+  "modality": "Dry bone vernier caliper (method of Jones and Thomson 1968); radiographic calibration substudy with AP and lateral films at 110 cm tube-film distance and radio-opaque canal markers; visual anatomical survey.",
+  "levels_covered": "L1-L5 measured; lumbosacral junction (S1, S2, sacro-iliac) surveyed for variants; no thoracic, cervical or sacral measures.",
+  "anomalies": [
+    {
+      "variant": "lumbarisation of S1",
+      "finding": "9/443 skeletons (2%), both races and sexes",
+      "page": "p. 177 (PDF 5)",
+      "population": "443 adult skeletons (16 to 96 y), Raymond Dart Collection, South Africa: 113 Caucasoid, 162 Zulu, 168 Sotho",
+      "how_identified": "direct inspection of dry macerated skeletons; no projection"
+    },
+    {
+      "variant": "persistent S1-S2 zygapophysial joints",
+      "finding": "16/443 skeletons (3.6%), both races and sexes; possibly the least form of lumbarisation (author)",
+      "page": "p. 177 (PDF 5)",
+      "population": "443 adult skeletons (16 to 96 y), Raymond Dart Collection, South Africa: 113 Caucasoid, 162 Zulu, 168 Sotho",
+      "how_identified": "direct inspection of dry macerated skeletons; no projection"
+    },
+    {
+      "variant": "true sixth lumbar vertebra (L6)",
+      "finding": "2/443 skeletons (Inference: 0.45%), both Sotho (Inference: 2/168 = 1.2%)",
+      "page": "p. 177 (PDF 5)",
+      "population": "443 adult skeletons (16 to 96 y), Raymond Dart Collection, South Africa: 113 Caucasoid, 162 Zulu, 168 Sotho",
+      "how_identified": "direct inspection of dry macerated skeletons; no projection"
+    },
+    {
+      "variant": "true transitional lumbosacral vertebra",
+      "finding": "1/443 skeletons (Inference: 0.23%), a Zulu (Inference: 1/162 = 0.6%)",
+      "page": "p. 177 (PDF 5)",
+      "population": "443 adult skeletons (16 to 96 y), Raymond Dart Collection, South Africa: 113 Caucasoid, 162 Zulu, 168 Sotho",
+      "how_identified": "direct inspection of dry macerated skeletons; no projection"
+    },
+    {
+      "variant": "sacralisation of L5",
+      "finding": "8/443 skeletons (1.8%); 0 of 35 Caucasoid females",
+      "page": "p. 177 (PDF 5)",
+      "population": "443 adult skeletons (16 to 96 y), Raymond Dart Collection, South Africa: 113 Caucasoid, 162 Zulu, 168 Sotho",
+      "how_identified": "direct inspection of dry macerated skeletons; no projection"
+    },
+    {
+      "variant": "all transitional variation (lumbarisation, sacralisation, transitional, L6, persistent sacral facets)",
+      "finding": "36/443 skeletons (8%); Inference: equals the plain sum 9+16+2+1+8, overlap not stated; excludes sacro-transverse joints",
+      "page": "p. 180 (PDF 8)",
+      "population": "443 adult skeletons (16 to 96 y), Raymond Dart Collection, South Africa: 113 Caucasoid, 162 Zulu, 168 Sotho",
+      "how_identified": "direct inspection of dry macerated skeletons; no projection"
+    },
+    {
+      "variant": "sacro-transverse joint, patent or ankylosed",
+      "finding": "10/443 skeletons (2.3%); in most, lumbosacral facets notably smaller on the side of the joint; side and type not given",
+      "page": "p. 177 (PDF 5)",
+      "population": "443 adult skeletons (16 to 96 y), Raymond Dart Collection, South Africa: 113 Caucasoid, 162 Zulu, 168 Sotho",
+      "how_identified": "direct inspection of dry macerated skeletons; no projection"
+    },
+    {
+      "variant": "sacro-iliac ankylosis",
+      "finding": "10/443 skeletons (2.3%), both races, all male",
+      "page": "p. 177 (PDF 5)",
+      "population": "443 adult skeletons (16 to 96 y), Raymond Dart Collection, South Africa: 113 Caucasoid, 162 Zulu, 168 Sotho",
+      "how_identified": "direct inspection of dry macerated skeletons; no projection"
+    },
+    {
+      "variant": "spondylolysis (pars stress fracture)",
+      "finding": "10/443 skeletons (2.3%), both races and sexes; L5 in 9 (all bilateral, one with a completely bifid spinous process), L4 in 1 (left only, ununited, enlarged left inferior facet)",
+      "page": "p. 177 (PDF 5); Fig. 7, p. 178 (PDF 6)",
+      "population": "443 adult skeletons (16 to 96 y), Raymond Dart Collection, South Africa: 113 Caucasoid, 162 Zulu, 168 Sotho",
+      "how_identified": "direct inspection of dry macerated skeletons; no projection"
+    },
+    {
+      "variant": "spina bifida (occulta), complete separation of the laminae",
+      "finding": "lumbar vertebrae of 7/443 skeletons (1.6%); level not given",
+      "page": "p. 177 (PDF 5); p. 180 (PDF 8)",
+      "population": "443 adult skeletons (16 to 96 y), Raymond Dart Collection, South Africa: 113 Caucasoid, 162 Zulu, 168 Sotho",
+      "how_identified": "direct inspection of dry macerated skeletons; no projection"
+    },
+    {
+      "variant": "anterior wedge compression of a lumbar body",
+      "finding": "17/443 skeletons (3.8%); none in Caucasoid females; level not given",
+      "page": "p. 177 (PDF 5)",
+      "population": "443 adult skeletons (16 to 96 y), Raymond Dart Collection, South Africa: 113 Caucasoid, 162 Zulu, 168 Sotho",
+      "how_identified": "direct inspection of dry macerated skeletons; no projection"
+    },
+    {
+      "variant": "trefoil (maple-leaf) canal from laminar bars",
+      "finding": "66/443 skeletons (15%), both races and sexes; always (p. 177) or almost invariably (p. 179) at L5, occasionally also L4; mean age 46; 15% of them stenotic vs 6.3% overall",
+      "page": "p. 177 (PDF 5); Fig. 6, p. 178 (PDF 6); p. 179-180 (PDF 7-8)",
+      "population": "443 adult skeletons (16 to 96 y), Raymond Dart Collection, South Africa: 113 Caucasoid, 162 Zulu, 168 Sotho",
+      "how_identified": "direct inspection of dry macerated skeletons; no projection"
+    },
+    {
+      "variant": "facet orientation variants (superior articular surface)",
+      "finding": "6 skeletons flat coronal, 8 flat sagittal, of 443; level not given; only one (coronal) had facet osteophytosis",
+      "page": "p. 176-177 (PDF 4-5)",
+      "population": "443 adult skeletons (16 to 96 y), Raymond Dart Collection, South Africa: 113 Caucasoid, 162 Zulu, 168 Sotho",
+      "how_identified": "direct inspection of dry macerated skeletons; no projection"
+    },
+    {
+      "variant": "T13, rib-count variants, cervical ribs, block vertebrae",
+      "finding": "not reported",
+      "page": "whole paper",
+      "population": "443 adult skeletons (16 to 96 y), Raymond Dart Collection, South Africa: 113 Caucasoid, 162 Zulu, 168 Sotho",
+      "how_identified": "not studied"
+    }
+  ],
+  "measures": [
+    {
+      "name": "Canal mid-sagittal (antero-posterior) diameter, Canal A.P.",
+      "definition": "One caliper reading per vertebra at the single point where the canal's AP dimension is least, near the canal's upper (cranial) limit, opposite a slight anterior bulge on the posterior wall of the canal in the midline; anterior end the posterior body surface in the midline (Inference: implied, not stated for the caliper). Table I values (mm, L1-L5): Caucasoid M 18 17 16 16 18; Zulu M 16 15 15 15 16; Sotho M 16 15 14 15 16; Caucasoid F 18 17 17 16 18; Zulu F 17 16 15 16 16; Sotho F 16 16 15 15 16. Group means (Table III) 17,16,15,17,16,15; overall 16 mm. Lower limit of normal 13 mm true size, 15 mm on a lateral film at 110 cm.",
+      "projection": "dry bone vernier caliper (true size), mid-sagittal; radiographic recipe for lateral radiograph at 110 cm tube-film distance",
+      "page": "p. 173 (PDF 1); Table I, p. 174 (PDF 2); Table III, p. 175 (PDF 3); p. 178-179 (PDF 6-7)",
+      "levels": "L1-L5",
+      "level_pattern": "Venturi tube: narrow waist at L2-L4, flared at both ends, consistent across race and sex (p. 179); not a truncated cone; minimum at L3 or L4 (tied with L2 in Zulu males); L1 and L5 equal or within 1 mm in every group, so it cannot tell L1 from L5 (Inference from Table I).",
+      "covariates": "Inference from Table I: no sex difference (0-1 mm, females equal or larger); African groups 0-2 mm (mostly 1-2) shallower than Caucasoid; author: 'marginally less capacious' and insignificant differences (p. 179), no test; age not analysed and confounded (Caucasoid groups 65-66 y vs African 40-49 y, Table IV).",
+      "error": "None reported; one reading per vertebra; Table I printed to whole mm (+/-0.5 mm rounding, Inference); marker positions 'reproduced consistently' in 11 skeletons, no number (p. 174).",
+      "ct_mask_recipe": "Inference: in the vertebra frame, within the mid-sagittal band of the canal, for each z slab where the arch closes, the y distance from the posterior wall of the body subregion to the anterior surface of the arch at the midline; take the MINIMUM of that profile (expected near the canal's cranial end), not a median or mid-height slab; bone only, no ligamentum flavum.",
+      "radiograph_recipe": "Lateral view only. Anterior: posterior body cortex in the midline (well demarcated, p. 178). Posterior at L1-L4: point opposite the cephalad half of the body on the line joining the apex of the superior articular process and the inverted apex of the inferior articular process of the same vertebra (p. 174-175, p. 178; Fig. 2, p. 176). At L5: just anterior to the anterior limit of the radiolucent lake of the spinous process (p. 175, p. 178). Divide the film chord by 1.23 (110 cm) for true size (p. 175). Inference from Fig. 2: chord roughly parallel to the superior end-plate across the upper half of the body."
+    },
+    {
+      "name": "Canal transverse (interpedicular) diameter, Canal I.P.",
+      "definition": "The greatest interpedicular distance, between the medial surfaces of the pedicles (p. 173). Table I (mm, L1-L5): Caucasoid M 23 24 23 24 26; Zulu M 21 22 22 23 26; Sotho M 21 21 22 23 25; Caucasoid F 22 22 23 23 25; Zulu F 20 21 21 22 24; Sotho F 20 20 21 22 24 (row mislabelled T.V.). Group means (Table II) 24,23,22,23,22,21; overall 23 mm. Lower limit 18 mm true size, 20 mm on an AP film at 110 cm.",
+      "projection": "dry bone vernier caliper (true size), transverse; AP radiograph at 110 cm",
+      "page": "p. 173 (PDF 1); Table I, p. 174 (PDF 2); Table II, p. 175 (PDF 3); p. 178-179 (PDF 6-7)",
+      "levels": "L1-L5",
+      "level_pattern": "Nearly flat L1-L4 (steps -1 to +1 mm), then 2-3 mm wider at L5; L5 exceeds L1 by 3-5 mm in every group (Table I). Text contradicts itself: 'remarkably constant' (p. 174) vs 'steady increase' (p. 179). Inference: the L4-L5 jump is an L5 cue.",
+      "covariates": "Inference from Table I: males 0-2 mm (mostly 1) wider than females, equal at L3 in Caucasoids; African groups 1-3 mm narrower than Caucasoid at L1-L4 and 0-1 mm at L5.",
+      "error": "None reported; whole-mm rounding (Inference).",
+      "ct_mask_recipe": "Inference: in axial slabs through the pedicles, the left-right distance between the medial pedicle surfaces; take the greatest over those slabs; a width through the canal middle above or below the pedicles reads smaller (most at a trefoil L5).",
+      "radiograph_recipe": "AP view only; interpedicular limits well demarcated (p. 178); divide by 1.14 at 110 cm (p. 175). Inference: on film the narrowest projected gap is read while the caliper took the greatest; the factor absorbs that only for this geometry."
+    },
+    {
+      "name": "Body mid-sagittal antero-posterior diameter, Body A.P.",
+      "definition": "Mid-sagittal AP diameter of the body measured at mid-height, to exclude discrepancies from border osteophytes (p. 173). Table I (mm, L1-L5): Caucasoid M 31 32 33 34 33; Zulu M 28 30 32 33 32; Sotho M 27 29 31 32 33; Caucasoid F 27 27 29 29 30; Zulu F 25 26 28 30 31; Sotho F 25 26 28 30 31.",
+      "projection": "dry bone vernier caliper (true size), mid-sagittal at mid-height",
+      "page": "p. 173 (PDF 1); Table I, p. 174 (PDF 2)",
+      "levels": "L1-L5",
+      "level_pattern": "Rises L1 to L4 by 0-2 mm a level, then 1 mm smaller at L5 in Caucasoid and Zulu males and 1 mm larger in the other four groups (Inference from Table I).",
+      "covariates": "Inference from Table I: males 1-5 mm deeper than females; Caucasoid males 2-4 mm deeper than African males at L1-L2, converging by L5 (0-1 mm).",
+      "error": "None reported.",
+      "ct_mask_recipe": "Inference: in the slab midway between the end-plates, within the mid-sagittal band, the AP extent of the body subregion; not Panjabi's end-plate depth (EPD), which reads larger.",
+      "radiograph_recipe": "Inference: lateral view at mid-height, divide by 1.23 at 110 cm; the paper measured no body dimension on film."
+    },
+    {
+      "name": "Body transverse diameter, Body T.V.",
+      "definition": "The greatest mid-waist distance of the body (p. 173). Table I (mm, L1-L5): Caucasoid M 39 40 43 44 46; Zulu M 39 40 42 44 45; Sotho M 38 39 41 43 44; Caucasoid F 34 35 37 39 42; Zulu F 35 37 38 41 43; Sotho F 34 36 38 40 42.",
+      "projection": "dry bone vernier caliper (true size), transverse at the waist",
+      "page": "p. 173 (PDF 1); Table I, p. 174 (PDF 2)",
+      "levels": "L1-L5",
+      "level_pattern": "Rises at every step L1 to L5 in every group by 1-3 mm (Table I); Inference: the only monotonic measure of the four.",
+      "covariates": "Inference from Table I: males 2-6 mm wider than females; groups within 0-2 mm of one another.",
+      "error": "None reported.",
+      "ct_mask_recipe": "Inference: in the mid-height slab, the greatest left-right extent of the body subregion; not Panjabi's end-plate width (EPW), which is wider.",
+      "radiograph_recipe": "Inference: AP view at mid-height, divide by 1.14 at 110 cm; not measured on film in the paper."
+    },
+    {
+      "name": "Range of normal, lower limit of normal and stenosis counts",
+      "definition": "Per group, pooled over L1-L5. Interpedicular range (Table II): Caucasoid M 19-29, Zulu M 17-28, Sotho M 19-26, Caucasoid F 18-28, Zulu F 18-26, Sotho F 18-25. Mid-sagittal range (Table III): 14-20, 12-20, 12-19, 13-21, 13-19, 12-19. Overall 'average' lower limit: skeletal 18 mm (IP) and 13 mm (AP); radiological 20 and 15 mm via factors 1.14 and 1.23. Stenotic: IP 18 vertebrae in 9 skeletons (2.0% of skeletons, 0.8% of 2,166 vertebrae); AP 28 in 21 (4.7%, 1.3%); either 46 vertebrae in 28 skeletons (6.3%), 2 skeletons in both; per-group percentages are stenotic skeletons over the group's skeleton count (e.g. AP Caucasoid M 6/78 = 7.7%). Least values in the series: AP 11 mm, IP 16 mm.",
+      "projection": "dry bone; film limits derived by magnification",
+      "page": "p. 174-175 (PDF 2-3), Tables II and III; p. 178-180 (PDF 6-8)",
+      "levels": "L1-L5 pooled",
+      "level_pattern": "AP stenoses by level (Inference, summed): L1 3, L2 2, L3 7, L4 13, L5 3; IP: L1 7, L2 2, L3 4, L4 2, L5 3.",
+      "covariates": "Per group as listed; Inference: Caucasoid males' highest AP stenosis rate despite the deepest canal suggests group-specific limits were applied, not stated.",
+      "error": "Derivation of ranges not stated; Inference: if mean +/- 2 SD, SD about 1.5-2 mm (AP) and 1.75-2.75 mm (IP), inflated by pooling levels; printed 15 and 20 mm look truncated from 12.7 x 1.23 and 18.2 x 1.14.",
+      "ct_mask_recipe": "Not applicable (thresholds).",
+      "radiograph_recipe": "Lateral film at 110 cm: AP below 15 mm; AP film: IP below 20 mm."
+    },
+    {
+      "name": "Spinal Index of Jones and Thomson",
+      "definition": "Product of the two canal diameters as a ratio of the product of the two body diameters; Jones and Thomson's lower limit 1:4.5. Applied here it would call 11% of vertebrae stenotic, many with obviously capacious canals; SD too wide for a new range; rejected.",
+      "projection": "dry bone caliper (ratio)",
+      "page": "p. 178 (PDF 6); Conclusion 2, p. 180 (PDF 8)",
+      "levels": "L1-L5",
+      "level_pattern": "not reported by level",
+      "covariates": "not reported",
+      "error": "SD 'so wide' (no value)",
+      "ct_mask_recipe": "not applicable",
+      "radiograph_recipe": "not applicable"
+    },
+    {
+      "name": "Osteophytosis grade (mild, moderate, severe)",
+      "definition": "Mild: minor projections from sharp body edges, curling at facet edges, articular surfaces unchanged. Moderate: major body-edge projections up to parrot-beaking, mid-height contour kept; facet edges overgrown and scalloped, joint lines still visible. Severe: body girth increased, osteophytes fused between bodies, facets like lettuce leaves, joint lines obscured, faceto-laminar joints, nearly always curled projections into the nerve root tunnel from the posterolateral body corners. Incidence (Table IV): Caucasoid M 50%, Zulu M 25.2%, Sotho M 43.4%, Caucasoid F 51.4%, Zulu F 55.6%, Sotho F 43.5%; mean age with osteophytosis 70, 58, 53, 70, 58, 52.",
+      "projection": "visual on dry bone (articulated skeleton for joint lines)",
+      "page": "p. 175-176 (PDF 3-4); Table IV, p. 176; Figs. 3-5, p. 177 (PDF 5); p. 179 (PDF 7)",
+      "levels": "L1-L5",
+      "level_pattern": "Worse consistently from L1 to L5 (p. 175).",
+      "covariates": "Incidence follows group age, rises with age; site distribution follows no pattern of race, sex or age; Zulu male low rate unexplained (p. 179).",
+      "error": "Subjective ('eye of the beholder'); three grades simplify Nathan's four (p. 179).",
+      "ct_mask_recipe": "not defined",
+      "radiograph_recipe": "not defined"
+    }
+  ],
+  "level_details": [
+    {
+      "level": "L1",
+      "detail": "Canal AP equal to L5 or 1 mm more (flared end); IP and both body dimensions smallest or tied smallest; 7 of 18 IP stenoses (Inference); least osteophytosis (Inference from worsening L1 to L5).",
+      "page": "Table I, p. 174 (PDF 2); Table II, p. 175 (PDF 3)"
+    },
+    {
+      "level": "L2-L4",
+      "detail": "Narrow waist of the canal AP; the narrowest lumbar levels; on a lateral film the posterior canal limit lies opposite the cephalad half of the body on the facet-apex line.",
+      "page": "p. 174-175 (PDF 2-3); p. 178-180 (PDF 6-8), Conclusion 4"
+    },
+    {
+      "level": "L4",
+      "detail": "Most frequent level of AP stenosis, 13 of 28 (Inference from Table III); trefoil canal occasionally; one unilateral left pars defect with enlarged left inferior facet.",
+      "page": "Table III, p. 175; p. 177 (PDF 5); Fig. 7, p. 178 (PDF 6)"
+    },
+    {
+      "level": "L4-L5",
+      "detail": "Fig. 3 shows severe facet osteophytosis (lettuce leaves, faceto-laminar joints) at this joint.",
+      "page": "Fig. 3, p. 177 (PDF 5)"
+    },
+    {
+      "level": "L5",
+      "detail": "Canal AP flares again; IP 2-3 mm wider than L4; trefoil canal always or almost always here (15% of skeletons); canal holds only L5 and sacral roots; 9 of 10 pars defects, all bilateral; posterior canal limit on lateral film just anterior to the radiolucent lake of the spinous process, easier and further back than usually estimated; most osteophytosis.",
+      "page": "p. 175, p. 177-180 (PDF 3, 5-8)"
+    },
+    {
+      "level": "L5/S1",
+      "detail": "Lumbarisation 2%, persistent S1-S2 facets 3.6%, true L6 2/443, transitional 1/443, sacralisation 1.8%, all 8%; sacro-transverse joint 2.3% with smaller ipsilateral lumbosacral facets; sacro-iliac ankylosis 2.3%, all male; author: a crucial spinal junction.",
+      "page": "p. 177 (PDF 5); p. 180 (PDF 8)"
+    },
+    {
+      "level": "C2/C3, C7/T1, T12/L1",
+      "detail": "Nothing reported; a stray sentence says the first cervical vertebrae were unaffected by osteophytosis though no cervical level was studied.",
+      "page": "p. 175 (PDF 3)"
+    }
+  ],
+  "errors": [
+    {
+      "what": "intra- and inter-observer error, repeatability",
+      "value": "not reported; one reading per vertebra for canal AP",
+      "page": "p. 173 (PDF 1)"
+    },
+    {
+      "what": "rounding of Table I means",
+      "value": "whole mm, up to +/-0.5 mm (Inference)",
+      "page": "Table I, p. 174 (PDF 2)"
+    },
+    {
+      "what": "lateral radiograph magnification at 110 cm tube-film",
+      "value": "1.23 (55 vertebrae of 11 skeletons; no spread); Inference: canal about 20.6 cm from film if purely geometric",
+      "page": "p. 174-175 (PDF 2-3)"
+    },
+    {
+      "what": "AP radiograph magnification at 110 cm",
+      "value": "1.14 (same substudy; no spread); Inference: about 13.5 cm object-film distance",
+      "page": "p. 175 (PDF 3)"
+    },
+    {
+      "what": "marker-based posterior canal limit",
+      "value": "'reproduced consistently' in 11 skeletons; no number; macerated bone only",
+      "page": "p. 174 (PDF 2); p. 178 (PDF 6)"
+    },
+    {
+      "what": "within-level SD",
+      "value": "not printed; Inference upper bound about 2 mm AP and 2.75 mm IP if ranges are mean +/- 2 SD",
+      "page": "Tables II and III, p. 175 (PDF 3)"
+    },
+    {
+      "what": "osteophytosis grading",
+      "value": "subjective, 'eye of the beholder'",
+      "page": "p. 179 (PDF 7)"
+    }
+  ],
+  "pearls_pitfalls": [
+    {
+      "text": "Spinal stenosis syndrome: back pain in an adult near middle age with lower-limb 'claudication' (pain, weakness, numbness) on walking, not eased by standing and resting; the patient flexes the lumbar spine (bending or crouching) for relief; possible lost tendon jerk or sensory change; more suggestive with normal peripheral circulation; developmental or degenerative causes.",
+      "page": "p. 173 (PDF 1)"
+    },
+    {
+      "text": "The deficient dimension in stenosis is the mid-sagittal, not the interpedicular.",
+      "page": "p. 177-178 (PDF 5-6); Conclusion 1"
+    },
+    {
+      "text": "Thresholds: true size AP < 13 mm, IP < 18 mm; films at 110 cm AP < 15 mm (lateral), IP < 20 mm (AP); 15 mm agrees with myelography (Epstein et al. 1962).",
+      "page": "p. 175 (PDF 3); p. 179 (PDF 7)"
+    },
+    {
+      "text": "Standard radiographs can screen for developmental stenosis using the facet-apex construction and the 1.23 factor; the author says it works on clinical films of good average quality, but validation was on macerated bone only.",
+      "page": "p. 178-179 (PDF 6-7)"
+    },
+    {
+      "text": "Stenotic vertebrae were only just subnormal (least AP 11 mm, least IP 16 mm); developmental narrowing as sole cause may be exaggerated; marginal stenosis plus minor degeneration may compress the cauda equina (Clark 1969).",
+      "page": "p. 178 (PDF 6); Conclusion 7"
+    },
+    {
+      "text": "Black South Africans rarely have the syndrome though their bony canal is marginally smaller; seek the cause in soft tissues; Zulu and Sotho may be pooled.",
+      "page": "p. 179 (PDF 7)"
+    },
+    {
+      "text": "Degenerative compression is in the nerve root tunnel, not the canal; body lipping starts laterally; wide posterior decompression works by decompressing the root tunnels.",
+      "page": "p. 176 (PDF 4); p. 179 (PDF 7); Conclusion 5"
+    },
+    {
+      "text": "Trefoil canal (laminar bars) is a developmental variant at L5, mean age 46, doubles stenosis rate (15% vs 6.3%), probably harmless without additional compressive agents.",
+      "page": "p. 177 (PDF 5); p. 179-180 (PDF 7-8)"
+    },
+    {
+      "text": "Transitional variants at the lumbosacral junction (8%) are probably harmless alone but often seen in younger adults with backache; with spina bifida occulta, abnormal facet direction and sacro-transverse joints they may mark a congenitally predisposed spine.",
+      "page": "p. 180 (PDF 8)"
+    },
+    {
+      "text": "Pitfall: no single landmark marks the posterior canal on a lateral film; transverse processes obscure it and the beam crosses up to 8 cm of bone; clinicians place it too far anterior, at L5 still more.",
+      "page": "p. 174-175 (PDF 2-3); p. 178 (PDF 6)"
+    },
+    {
+      "text": "Pitfall: lateral and AP magnifications differ (1.23 vs 1.14 at 110 cm); uncorrected film values overstate the canal by 14-23%.",
+      "page": "p. 175 (PDF 3)"
+    },
+    {
+      "text": "Pitfall: the Spinal Index (canal product over body product) misclassifies; use absolute diameters, above all the mid-sagittal.",
+      "page": "p. 178 (PDF 6)"
+    },
+    {
+      "text": "Pitfall: take body AP at mid-height to exclude border osteophytes.",
+      "page": "p. 173 (PDF 1)"
+    },
+    {
+      "text": "Pitfall: 'significant' and 'insignificant' are asserted without any test or SD; group comparisons are confounded by age (Inference from Table IV).",
+      "page": "p. 173, p. 179-180 (PDF 1, 7-8); Table IV, p. 176"
+    }
+  ],
+  "instructions": [
+    {
+      "text": "On a lateral radiograph, fluoroscopy frame or lateral DRR of L1-L4, place the posterior canal limit opposite the cephalad half of the body on the line joining the apex of the superior articular process and the inverted apex of the inferior articular process of the same vertebra; measure from the posterior body cortex in the midline to that point (Inference from Fig. 2: roughly parallel to the superior end-plate).",
+      "page": "p. 174-175 (PDF 2-3); p. 178 (PDF 6); Fig. 2, p. 176 (PDF 4)"
+    },
+    {
+      "text": "At L5 place the posterior limit just anterior to the anterior edge of the radiolucent lake of the spinous process.",
+      "page": "p. 175 (PDF 3); p. 178 (PDF 6)"
+    },
+    {
+      "text": "Divide a film chord by 1.23 (lateral) or 1.14 (AP) at 110 cm tube-film before comparing with dry-bone or CT values; recompute magnification for any other geometry (Inference).",
+      "page": "p. 175 (PDF 3)"
+    },
+    {
+      "text": "When the posterior landmark is hidden by the transverse processes, use the facet-apex construction; a guessed limit falls too far anterior.",
+      "page": "p. 174 (PDF 2); p. 178 (PDF 6)"
+    },
+    {
+      "text": "On a CT mask, take canal AP as the minimum midline chord along the arch, near the canal's cranial end, from bone only (Inference for mask steps).",
+      "page": "p. 173 (PDF 1)"
+    },
+    {
+      "text": "Take interpedicular distance as the greatest gap between medial pedicle surfaces in the pedicle slabs (CT) or between medial pedicle contours on an AP view.",
+      "page": "p. 173 (PDF 1); p. 178 (PDF 6)"
+    },
+    {
+      "text": "Take body depth and width at mid-height (waist), not at the end-plates, when matching Eisenstein (Inference: expect smaller than end-plate chords).",
+      "page": "p. 173 (PDF 1)"
+    },
+    {
+      "text": "Read canal AP as U-shaped (L1 and L5 widest, waist L2-L4); never use it alone to tell L1 from L5.",
+      "page": "Table I, p. 174 (PDF 2); p. 179 (PDF 7)"
+    },
+    {
+      "text": "Read interpedicular distance as nearly flat L1-L4 and 2-3 mm wider at L5 (Inference: use the jump as an L5 cue).",
+      "page": "Table I, p. 174 (PDF 2)"
+    },
+    {
+      "text": "Read body waist width as rising 1-3 mm at every step L1 to L5 in every group; the monotonic cue, with adjacent-level overlap.",
+      "page": "Table I, p. 174 (PDF 2)"
+    },
+    {
+      "text": "Expect male bodies 1-6 mm larger than female while canal AP is the same in both sexes (Inference: do not scale canal AP with body size).",
+      "page": "Table I, p. 174 (PDF 2)"
+    },
+    {
+      "text": "Flag canal AP < 13 mm true size (15 mm lateral film at 110 cm) or IP < 18 mm (20 mm AP film); values below 11 mm AP or 16 mm IP lie outside this series (Inference: check for measuring or segmentation error first).",
+      "page": "Tables II and III, p. 175 (PDF 3); p. 174 (PDF 2); p. 178-179 (PDF 6-7)"
+    },
+    {
+      "text": "Expect a trefoil canal (laminar bars) at L5 in about 15% of adults, occasionally at L4 (Inference: a weak L5 cue on axial CT, and anatomy, not segmentation error).",
+      "page": "p. 177 (PDF 5); Fig. 6, p. 178 (PDF 6); p. 179 (PDF 7)"
+    },
+    {
+      "text": "At the lumbosacral junction look for lumbarised S1 (2%), persistent S1-S2 facets (3.6%), L6 (0.45%), sacralised L5 (1.8%), transitional vertebra (0.23%), sacro-transverse joint (2.3%) with smaller ipsilateral L5-S1 facet (Inference: an S1 with free facets may be split off by a segmenter and miscounted as L6).",
+      "page": "p. 177 (PDF 5); p. 180 (PDF 8)"
+    },
+    {
+      "text": "Expect a pars defect most often at L5 and bilateral; at L4 it may be one-sided with an enlarged inferior facet on that side.",
+      "page": "p. 177 (PDF 5); Fig. 7, p. 178 (PDF 6)"
+    },
+    {
+      "text": "Expect anterior wedge compression of a lumbar body in about 3.8% of adults (Inference: distorts height-based level cues).",
+      "page": "p. 177 (PDF 5)"
+    },
+    {
+      "text": "Expect osteophytes to worsen L1 to L5 and with age; severe facet osteophytes enlarge the posterior elements; keep body chords at mid-height.",
+      "page": "p. 173 (PDF 1); p. 175-177 (PDF 3-5)"
+    },
+    {
+      "text": "Do not use the Spinal Index to call stenosis.",
+      "page": "p. 178 (PDF 6)"
+    }
+  ],
+  "bordercall": [
+    "(a) Decoder priors, skeletons of 443 South African adults: L6 2/443 = 0.45% (both Sotho, 2/168); lumbarised S1 9/443 = 2.0%; sacralised L5 8/443 = 1.8% (0/35 Caucasoid F); true transitional 1/443 = 0.23%; persistent S1-S2 facets 16/443 = 3.6%; any 36/443 = 8.1%; sacro-transverse joint 10/443 = 2.3%. No T13, rib or cervical prior. Inference: five-to-six lumbar transition (L6 + lumbarised S1) 11/443 = 2.5%; four-lumbar (sacralised L5) 1.8%; categories undefined.",
+    "(b) Canal depth: Eisenstein's is the MINIMUM midline chord near the canal's cranial end; bordercall scanimport/geometry.py takes the median over slabs across the middle half of the body height, so a mask value should read higher (Inference). Panjabi 1992 SCD L1-L5 19.0, 18.2, 17.5, 18.6, 19.7 (bordercall archive table) is 1.0-2.6 mm above Eisenstein's Caucasoid male 18, 17, 16, 16, 18 (Inference).",
+    "(b) Canal width: Eisenstein's is the GREATEST interpedicular distance; bordercall's is the width through the canal middle, median over mid-body slabs (Inference: equal at the pedicles, smaller off them). Panjabi SCW 23.7, 23.8, 24.3, 25.4, 27.1 lies 0.2 mm below to 1.4 mm above Eisenstein's Caucasoid male 23, 24, 23, 24, 26.",
+    "(b) Body depth at mid-height and body width at the waist (Table I by level, sex, group) could be added; they are not Panjabi's end-plate EPD and EPW, which are larger.",
+    "(b) Radiograph inputs: magnification 1.23 lateral, 1.14 AP at 110 cm tube-film; not transferable to a C-arm (Inference).",
+    "(b) Inference: pooled n per level is 394-443 vertebrae; bordercall's cadaver-power note counts a no-count series as 12 and calls this one 'Caucasoid and Zulu' with no count; the paper gives 443 skeletons in three groups.",
+    "(c) No measurement error reported; use at least +/-0.5 mm rounding; Inference: within-level SD at most about 2 mm (AP) and 2.75 mm (IP) if ranges are mean +/- 2 SD.",
+    "(d) Sex: bodies 1-6 mm larger in males, IP 0-2 mm (mostly 1) larger in males, canal AP no sex difference. Population: African canals 0-3 mm smaller than Caucasoid; bodies similar width. Age confounded (Caucasoid groups 65-66 y vs African 40-49 y). No stature or body size recorded."
+  ],
+  "gaps": [
+    "Abstract says 433 skeletons and 45 stenotic vertebrae in 27 skeletons; text and tables give 443 and 46 in 28 (tables sum to 46 vertebrae and 9 + 21 - 2 = 28 skeletons). Abstract and conclusions say two races for three groups.",
+    "Interpedicular profile called 'remarkably constant' (p. 174) and a 'steady increase' (p. 179); Table I rises 3-5 mm L1 to L5.",
+    "Trefoil canal 'always' at L5 (p. 177) vs 'almost invariably' (p. 179).",
+    "Table I mislabels the Sotho female canal second row T.V. for I.P.; Zulu F and Sotho F body AP rows identical (possible repeat, Inference).",
+    "Osteophytosis: 169 skeletons in the text vs about 187 from Table IV percentages x group sizes; Zulu male 25.2% fits no whole number of 108 (Inference).",
+    "'First cervical vertebrae' unaffected by osteophytosis though no cervical level studied (p. 175).",
+    "Radiological limits 15 and 20 mm look truncated from mean group limits x factors (Inference); 13 x 1.23 = 16.0.",
+    "Table II/III means for Zulu male AP (16 vs 15.4 from Table I) and Sotho female AP (15 vs 15.6) may be rounding, not errors.",
+    "Not stated: level numbering; handling of L6 or lumbarised S1 in the measures; definitions of the transitional categories; n per level; any SD; derivation of the ranges and whether stenosis used group or pooled limits; statistical method; caliper direction for canal AP; level of facet variants, wedge compressions and spina bifida; how magnification was computed; side of sacro-transverse joints; whether a vertebra stenotic in both diameters counts twice among the 46; derivation of the 60% second-stenosis figure.",
+    "Two dimensions only; laminar thickening may impinge on sacral roots (author, p. 180). Radiographic method validated only on 11 macerated spines, no clinical film.",
+    "Inference: Hinck 1965 and Hinck 1966 used clinical films with magnification left in, and Hinck took the shortest interpedicular distance where Eisenstein took the greatest; not directly comparable without a factor and a definition check."
+  ]
+}

@@ -1,0 +1,106 @@
+{
+  "paper": "amonookuofi1982",
+  "cohorts": [
+    {
+      "cohort": "ilorin_ap_films",
+      "labels": [
+        "male",
+        "female",
+        "all",
+        "male minus female"
+      ],
+      "tables": [
+        "Table 1",
+        "Table 2",
+        "Table 3",
+        "Table 4",
+        "Text: Materials and methods",
+        "Text: Observations",
+        "Text: Discussion"
+      ],
+      "subjects": "Living adult Nigerians whose plain AP lumbar radiographs were selected: patients who attended the casualty department of the University of Ilorin Teaching Hospital, Nigeria, for suspected recent accidental damage to the lumbar spine and in whom no bony injury was found; radiographs of patients who had attended hospital with backache were excluded; films screened for readability and first interpreted by a diagnostic radiologist. Ethnic group within Nigeria not stated.",
+      "n_people": 290,
+      "n_units": "290 AP lumbar radiographs (150 male, 140 female), L1 to L5 measured; per-level n not printed (Inference: 1,450 vertebrae if every level was measured on every film)",
+      "ages": "20 to 45 years",
+      "sexes": "150 male, 140 female",
+      "page": "p. 225-226 (PDF 1-2)"
+    },
+    {
+      "cohort": "eisenstein1977_cited",
+      "labels": [
+        "Eisenstein (1977) subjects"
+      ],
+      "tables": [
+        "Text: Discussion"
+      ],
+      "subjects": "Not measured here: black (Zulu) and white (caucasoid) South African subjects of Eisenstein (1977), whose mean interpedicular distances this paper plots beside its own (Fig. 5) and compares in the text, and whose age range it quotes; it says his normal values came from plain radiographs (p. 225) and took the greatest distance between the pedicles (p. 232)",
+      "n_people": null,
+      "n_units": "not stated in this paper",
+      "ages": "16 to 96 years (as cited)",
+      "sexes": "not stated in this paper",
+      "page": "p. 225, 229-230, 232 (PDF 1, 5-6, 8); reference p. 233 (PDF 9)"
+    },
+    {
+      "cohort": "hinck1966_cited",
+      "labels": [
+        "Hinck et al. (1966) subjects"
+      ],
+      "tables": [
+        "Text: Discussion"
+      ],
+      "subjects": "Not measured here: white American subjects of Hinck, Clark and Hopkins (1966), whose mean interpedicular distances this paper plots beside its own (Fig. 5) and compares in the text (p. 229, 231), and whose finding that the lumbar canal is distinctly narrower before 19 years it quotes (p. 232)",
+      "n_people": null,
+      "n_units": "not stated in this paper",
+      "ages": "children and adults (reference title, p. 233 (PDF 9)); not stated in the text",
+      "sexes": "not stated in this paper",
+      "page": "p. 225, 229-232 (PDF 1, 5-8); reference p. 233 (PDF 9)"
+    }
+  ],
+  "techniques": [
+    {
+      "technique": "ap_film_vernier",
+      "cohorts": [
+        "ilorin_ap_films"
+      ],
+      "modality": "AP radiograph",
+      "instrument": "vernier calipers on plain anteroposterior lumbar radiographs, read to the nearest 0.1 mm",
+      "how": "On each AP film, for each lumbar vertebra: A, the interpedicular distance, the shortest distance between the medial surfaces of the two pedicles; B, the transverse diameter (width) of the vertebral body at the narrowest part of its waist; the canal/body ratio A/B computed for each level; C and D, the outer transverse and cephalocaudal extents of the right pedicle ring, each between two parallel tangent lines (Fig. 2), multiplied to give the pedicle index (C and D themselves not reported).",
+      "magnification": "not corrected: all films taken at 100 cm anode-film distance and measured as they are; the author offers A/B as free of the magnification factor",
+      "observers": "one, the author; no repeat or second reader reported",
+      "page": "p. 226-227 (PDF 2-3), Fig. 1 and 2; p. 231 (PDF 7)"
+    },
+    {
+      "technique": "hinck1966_quoted",
+      "cohorts": [
+        "hinck1966_cited"
+      ],
+      "modality": "plain radiograph (as cited, p. 225)",
+      "instrument": "not stated in this paper",
+      "how": "quoted from Hinck, Clark and Hopkins (1966): their finding on lumbar canal width by age; their way of measuring is not described in this paper",
+      "magnification": "not stated in this paper",
+      "observers": "not stated in this paper",
+      "page": "p. 225, 232 (PDF 1, 8)"
+    }
+  ],
+  "shared": [
+    {
+      "with": "Hinck, Clark & Hopkins (1966), hinck1966",
+      "what": "values quoted",
+      "evidence": "Fig. 5 plots Hinck's mean interpedicular distances of white American subjects beside this study's, by sex and level; the Discussion quotes Hinck's finding that the canal is narrower before 19 years",
+      "page": "p. 229-232 (PDF 5-8)"
+    },
+    {
+      "with": "Eisenstein (1977), eisenstein1977",
+      "what": "values quoted",
+      "evidence": "Fig. 5 plots Eisenstein's caucasoid and Zulu mean interpedicular distances beside this study's; the Discussion quotes his ages 16 to 96 and says he measured the greatest, not the shortest, distance between the pedicles, so the method differs",
+      "page": "p. 229-230, 232 (PDF 5-6, 8)"
+    },
+    {
+      "with": "Bradford Hill (1977), A Short Textbook of Medical Statistics; not in the list",
+      "what": "method",
+      "evidence": "the 95% tolerance ranges of Table 2 use the formula Bradford Hill gives",
+      "page": "p. 228 (PDF 4)"
+    }
+  ],
+  "within_paper": "One set of subjects: the interpedicular distance, body width, canal/body ratio and pedicle index were all measured on the same 290 radiographs (p. 226 (PDF 2)); Table 2 is derived from Table 1, and Table 4 repeats Table 1's mean interpedicular distances beside the body widths (p. 228-231 (PDF 4-7)). The paper names no other study of its own on these subjects."
+}

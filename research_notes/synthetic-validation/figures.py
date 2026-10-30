@@ -700,7 +700,178 @@ def fig_assumptions(records: str, out: str) -> List[str]:
         "each anomaly, from Eisenstein's 443 skeletons and Duman's 517 CTs (the reread's checked priors)."))
 
 
-FIGURES = (fig_means, fig_spread, fig_structure, fig_state_space, fig_naming, fig_power, fig_quality, fig_assumptions) + FA.FIGURES_ALL
+# ----- Tan 2004 apart: the two strata, the rule on their tables, the prediction's coverage ------
+
+TAN_ARMS = ("before: 39 papers pooled", "after: the rest without Tan", "after: Tan's own table")
+INTERVALS = (("merged", "merged pool, t"), ("rest", "the rest alone, t"), ("mixture", "the two strata as a mixture, t"),
+             ("merged_plug", "merged pool, spread as known"), ("rest_plug", "the rest alone, spread as known"))
+
+
+def fig_tan(records: str, out: str) -> List[str]:
+    plt = H.style()
+    rec = os.path.join(records, "tan-strata")
+    cells = [r for r in read_csv(rec, "prediction_cells.csv") if r["seven"] == "True"]
+    naming = read_csv(rec, "naming.csv")
+    ts = read_json(rec, "tan_strata.json")
+    fig, axes = plt.subplots(1, 3, figsize=(10.0, 3.8))
+    drawn = []
+    a = axes[0]
+    for i, c in enumerate(cells):
+        psd, mean = num(c["panjabi_sd"]), num(c["rest_mean"])
+        rest = [(num(x) - mean) / psd for x in c["rest_means"].split(";") if x]
+        merged = [(num(c[k]) - mean) / psd for k in ("merged_low", "merged_high")]
+        own = [(num(c[k]) - mean) / psd for k in ("rest_low", "rest_high")]
+        plug = [-num(c["half_width_rest_plug_sd"]), num(c["half_width_rest_plug_sd"])]
+        tan = (num(c["tan_mean"]) - mean) / psd
+        first = i == 0
+        a.plot([i - 0.2] * 2, merged, color=H.INK, linestyle="--", linewidth=0.9, label="merged pool, t" if first else None)
+        a.plot([i] * 2, own, color=H.INK, linestyle="-", linewidth=0.9, label="the rest alone, t" if first else None)
+        a.plot([i + 0.2] * 2, plug, color=H.INK, linestyle="-", linewidth=2.4, solid_capstyle="butt",
+               label="the rest alone, spread as known" if first else None)
+        a.plot([i] * len(rest), rest, linestyle="none", marker="o", markersize=3.5, markerfacecolor="white",
+               color=H.GREY, label="the rest's series" if first else None)
+        a.plot([i], [tan], linestyle="none", marker="v", markersize=5, markerfacecolor=H.INK, color=H.INK,
+               label="Tan 2004" if first else None)
+        drawn.append({"panel": "A", "measure": c["measure"], "level": c["level"], "panjabi_sd": psd, "rest_mean": mean,
+                      "tan_sd": tan, "merged_low_sd": merged[0], "merged_high_sd": merged[1], "rest_low_sd": own[0],
+                      "rest_high_sd": own[1], "rest_plug_half_width_sd": plug[1], "k_rest": int(num(c["k_rest"]))})
+    a.axhline(0.0, color=H.INK, linewidth=0.5)
+    a.set_xticks(range(len(cells)))
+    a.set_xticklabels(["%s %s" % (SHORT.get(c["measure"], c["measure"]), c["level"]) for c in cells], rotation=90, fontsize=6.5)
+    a.set_ylabel("from the rest's pooled mean (Panjabi's SD)")
+    a.set_ylim(-8, 8)
+    a.legend(loc="upper left", fontsize=5.5, ncol=2)
+    H.letter(a, "A", "one more population, the seven's cells")
+    b = axes[1]
+    widths = sorted({int(num(r["width"])) for r in naming})
+    for j, arm in enumerate(TAN_ARMS):
+        ys = []
+        for w in widths:
+            v = [num(r["loss"]) for r in naming if r["arm"] == arm and int(num(r["width"])) == w]
+            ys.append(sum(v) / len(v) if v else float("nan"))
+            drawn.append({"panel": "B", "arm": arm, "width": w, "loss_mean": ys[-1], "tables": len(v)})
+        sty = H.SERIES_STYLE[j]
+        b.plot(range(len(widths)), ys, color=H.INK, linewidth=0.9, label=arm, **sty)
+    b.set_xticks(range(len(widths)))
+    b.set_xticklabels(["%d bod%s" % (w, "y" if w == 1 else "ies") for w in widths])
+    b.set_ylabel("points of exact naming lost")
+    b.set_ylim(0, None)
+    b.legend(loc="upper right", fontsize=6.5)
+    H.letter(b, "B", "the rule on each stratum's tables (%d columns, %d tables)" % (ts["columns"], ts["tables"]))
+    c = axes[2]
+    for j, (key, label) in enumerate(INTERVALS):
+        sty = H.SERIES_STYLE[j]
+        for group, face in (("all", H.INK), ("seven", "white")):
+            g = ts["prediction"][group]
+            x, y = g["half_width_%s_sd" % key]["median"], 100.0 * g["coverage_" + key]
+            c.plot([x], [y], linestyle="none", marker=sty["marker"], markersize=6, markerfacecolor=face, color=H.INK,
+                   label=label if group == "all" else None)
+            drawn.append({"panel": "C", "interval": key, "cells": group, "half_width_median_sd": x, "coverage": y / 100.0,
+                          "series_held_out": g["series_held_out"]})
+    c.axhline(95.0, color=H.INK, linestyle=":", linewidth=0.8)
+    c.set_xlabel("median half-width (Panjabi's SD)")
+    c.set_ylabel("held-out series covered (%)")
+    c.set_ylim(80, 101)
+    c.legend(loc="lower right", fontsize=5.5, title="filled: every matched cell; open: the seven's", title_fontsize=5.5)
+    H.letter(c, "C", "leave one series out")
+    fig.tight_layout()
+    H.write_csv(out, "fig_tan_strata", drawn)
+    return H.save(fig, out, "fig_tan_strata", (
+        "Tan 2004 as a stratum of his own. A: in the seven's matched cells, the rest's series, the prediction "
+        "interval for one more population from the merged pool, from the rest alone (t, and the spread taken "
+        "as known), and Tan's mean. B: the rule's loss on each stratum's tables, quick record. C: each "
+        "interval's leave-one-out coverage against its width."))
+
+
+# ----- the subgroups: every population variable, each paper and each value against the rest ----
+
+SUBGROUP_VALUES = ("ancestry", "specimen", "region", "modality")
+
+
+def fig_subgroups(records: str, out: str) -> List[str]:
+    plt = H.style()
+    rec = os.path.join(records, "subgroups")
+    analysis = read_csv(rec, "analysis.csv")
+    sg = read_json(rec, "subgroups.json")
+    contrasts = read_csv(rec, "contrasts.csv")
+    fig, axes = plt.subplots(2, 2, figsize=(10.0, 7.6))
+    drawn = []
+    a = axes[0, 0]
+    variables = [v for v in sg["analysis"] if sg["analysis"][v]["all"]["r2"]["cells"] >= 5]
+    labelled = set()
+    for i, v in enumerate(variables):
+        r2 = [num(r["r2"]) for r in analysis if r["variable"] == v and finite(num(r["r2"]))]
+        a.plot([i + dodge(j % 7, 7, 0.05) for j in range(len(r2))], r2, linestyle="none", marker="o", markersize=2.5,
+               markerfacecolor="white", color=H.GREY)
+        med = sg["analysis"][v]["all"]["r2"]["median"]
+        a.plot([i - 0.3, i + 0.3], [med, med], color=H.INK, linewidth=1.6, label="median, Tan 2004 in" if i == 0 else None)
+        without = sg["analysis_without_tan"].get(v, {}).get("all", {}).get("r2", {"cells": 0})
+        med_out = without["median"] if without["cells"] else float("nan")
+        if without["cells"]:
+            a.plot([i - 0.3, i + 0.3], [med_out, med_out], color=H.GREY, linewidth=1.6, linestyle="--",
+                   label=None if "out" in labelled else "median, Tan 2004 out")
+            labelled.add("out")
+        drawn.append({"panel": "A", "variable": v, "cells": len(r2), "r2_median": med, "cells_without_tan": without["cells"],
+                      "r2_median_without_tan": med_out})
+    a.set_xticks(range(len(variables)))
+    a.set_xticklabels([v.replace("_", " ") for v in variables], rotation=90, fontsize=7)
+    a.set_ylabel("share of the spread the variable accounts for")
+    a.set_ylim(-0.02, 1.02)
+    a.legend(loc="upper right", fontsize=6)
+    H.letter(a, "A", "subgroups by each variable, a dot a cell, the bars its medians")
+
+    def against(ax, items, letter, title, filled=()):
+        items = sorted(items, key=lambda kv: kv[1]["all"]["distance_sd"]["median"])
+        for i, (name, s) in enumerate(items):
+            d = s["all"]["distance_sd"]
+            ax.plot([d["q1"], d["q3"]], [i, i], color=H.INK, linewidth=0.8)
+            ax.plot([d["median"]], [i], linestyle="none", marker="o", markersize=4.5, color=H.INK,
+                    markerfacecolor=H.INK if name in filled else "white")
+            drawn.append({"panel": letter, "name": name, "cells": s["all"]["cells"], "distance_median_sd": d["median"],
+                          "q1": d["q1"], "q3": d["q3"]})
+        ax.axvline(0.0, color=H.INK, linewidth=0.5)
+        ax.set_yticks(range(len(items)))
+        ax.set_yticklabels(["%s (%d)" % (name, s["all"]["cells"]) for name, s in items], fontsize=6.5)
+        ax.set_xlabel("distance from the rest's pooled mean (Panjabi's SD), median and quartiles")
+        H.letter(ax, letter, title)
+    against(axes[0, 1], list(sg["against_rest"]["paper"].items()), "B", "each paper against the rest (cells)", filled=("tan2004",))
+    against(axes[1, 0], [("%s: %s" % (v, val), s) for v in SUBGROUP_VALUES for val, s in sg["against_rest"][v].items()],
+            "C", "each value against the rest (cells)")
+    d = axes[1, 1]
+    pairs = []
+    for r in contrasts:
+        if r["pair"] not in pairs:
+            pairs.append(r["pair"])
+    labels = []
+    for j, pair in enumerate(pairs):
+        rows = [r for r in contrasts if r["pair"] == pair]
+        xs = list(range(len(labels), len(labels) + len(rows)))
+        sty = H.SERIES_STYLE[j]
+        d.errorbar(xs, [num(r["difference_sd"]) for r in rows],
+                   yerr=[[num(r["difference_sd"]) - num(r["ci_low_sd"]) for r in rows], [num(r["ci_high_sd"]) - num(r["difference_sd"]) for r in rows]],
+                   color=H.INK, linestyle="none", marker=sty["marker"], markerfacecolor=sty["markerfacecolor"], markersize=4,
+                   label="%s (%s)" % (pair, ", ".join(sorted({w.split("/")[0] for r in rows for w in r["within"].split(";")}))))
+        labels += ["%s %s" % (SHORT.get(r["measure"], r["measure"]), r["level"]) for r in rows]
+        drawn.extend({"panel": "D", "pair": pair, "measure": r["measure"], "level": r["level"], "pairs": int(num(r["pairs"])),
+                      "difference_sd": num(r["difference_sd"]), "ci_low_sd": num(r["ci_low_sd"]), "ci_high_sd": num(r["ci_high_sd"])}
+                     for r in rows)
+    d.axhline(0.0, color=H.INK, linewidth=0.5)
+    d.set_xticks(range(len(labels)))
+    d.set_xticklabels(labels, rotation=90, fontsize=6.5)
+    d.set_ylabel("difference within a paper (Panjabi's SD), 95% interval")
+    d.legend(loc="upper right", fontsize=6)
+    H.letter(d, "D", "the contrasts a paper prints apart")
+    fig.tight_layout()
+    H.write_csv(out, "fig_subgroups", drawn)
+    return H.save(fig, out, "fig_subgroups", (
+        "The populations by every register variable. A: the share of the spread each variable accounts for, "
+        "a dot a cell, bars the median with Tan 2004 in (black) and out (grey). B, C: each paper and each "
+        "value against the rest, Tan filled. D: differences a paper prints apart: the sexes within age "
+        "bands, two ancestries of one collection."))
+
+
+FIGURES = (fig_means, fig_spread, fig_structure, fig_state_space, fig_naming, fig_power, fig_quality, fig_assumptions,
+           fig_tan, fig_subgroups) + FA.FIGURES_ALL
 
 
 def sha(path: str) -> str:

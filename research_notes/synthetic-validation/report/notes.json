@@ -70,5 +70,21 @@
  "fig15_select": {
   "how_to_read": "A and B: each candidate rule along the bottom, the paper's own table first as the ceiling; up the side the held-out log loss (A, lower is better) and exact naming (B), the mean over the 22 papers held out with bars one SE, one line per field width. C: the calibration curve at three bodies, every field of every population pooled, the posterior's top probability against the share named right; the dotted line is perfect, and ECE the expected calibration error. D and E: the held-out log loss along the SD factor and the temperature, the ticks the values the inner leave-one-out chose. F: the winner's log score minus the plain rule's on each population at three bodies, bars 95%.",
   "what_it_shows": "Tempering by T = 2 has the lowest held-out log loss at every width, 0.09 to 0.12 nats below the plain rule and better on 15 to 17 of 22 populations, with the calibration error down from 0.10 to 0.02 to 0.04, and names exactly what the plain rule names; half of its mean gain is Yadav 2020's. The widened rule is second with no knob. No candidate names more than half a point better (the mixture, within its SE), and none closes the gap to the paper's own table. The inner choices sit where the held-out curves bottom, at k = 1.45 and T = 2."
+ },
+ "fig16_exclusion": {
+  "how_to_read": "A and B: each exclusion candidate down the side, its held-out log score (A, right is better) and exact naming (B) minus the plain rule's, paired over the 22 populations, bars one SE, one marker a field width. C: each held-out population at three bodies, the three untempered candidates' log score minus plain. D: the calibration error of every candidate, all populations pooled.",
+  "what_it_shows": "Leaving Yadav 2020 out is 0.04 to 0.05 nats worse than plain and costs Front. Phys. 2026's population 0.81 nats; leaving Front. Phys. 2026 out costs Busscher, Moncada-Habib and Tan 0.16 to 0.21; one vote per population is within 0.006 of plain. Tempered, all are within 0.012 nats of the tempered plain rule, so no paper leaves the prior."
+ },
+ "fig17_covariates": {
+  "how_to_read": "A: men minus women in within-sex SDs (Hedges' g), each paper's own men against its own women, papers pooled, 95% intervals, the papers named. B: the same for age per decade and body height and weight, from each paper's own bands. C: the AUC of telling men from women by one measure at one level, one dot a printed stratum, filled in the population, open held out. D: the share of a measure's variance sex or age explains, the population's own split and held out.",
+  "what_it_shows": "Sex moves the end plate by 1.4 to 1.6 SDs (Chen 2011) and the disc heights by 0.3 to 0.8 (Bach 2019); age moves a measure by under a quarter of an SD a decade; body height moves the pedicle by 0.34 to 0.48 SD per 100 mm (Yu 2015). Held out, the direction of the sex effect transfers between Bach and Twomey and its size does not."
+ },
+ "fig_tan_strata": {
+  "how_to_read": "A: in the seven measures' matched cells, the rest's series, the interval for one more population from the merged pool and from the rest alone (t, and the spread taken as known), and Tan 2004's mean. B: the rule's loss on each stratum's tables, quick record. C: each interval's leave-one-out coverage against its width.",
+  "what_it_shows": "Tan sits a median 1.71 of Panjabi's SD below the rest; apart, the spread between populations falls from 0.87 to 0.63 SD and the rule's naming moves by under a point. The plug-in interval covers held-out series 87% of the time, Higgins' t interval 96 to 100% (the Tan thread's reading, README answer 8)."
+ },
+ "fig_subgroups": {
+  "how_to_read": "A: the share of the spread between populations each register variable accounts for, a dot a cell, bars the median with Tan 2004 in (black) and out (grey). B and C: each paper and each value against the rest, Tan filled. D: differences a paper prints apart, the sexes within age bands and two ancestries of one collection.",
+  "what_it_shows": "With Tan out the variables account for almost none of the spread between papers (decade, modality and age band 0.00, country 0.35); only the specimen holds (0.24). The within-paper contrasts are few: Duman's men 0.07 to 0.21 SD wider pedicles, Yu's ancestries -0.23 to 0.20 SD (the Tan thread's reading, README answer 9)."
  }
 }
