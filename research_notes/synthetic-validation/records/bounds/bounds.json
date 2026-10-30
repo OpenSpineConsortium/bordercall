@@ -1,5 +1,5 @@
 {
- "bordercall_commit": "480175396c144123807ae3dfd6af84dba70a56e4",
+ "bordercall_commit": "2231c89d0f6580897a2c82a364d02ef960e1b65d",
  "borrowed": {
   "age_slope_tau": {
    "by_measure": {
@@ -1429,7 +1429,7 @@
        "rate": 0.8621553884711779
       }
      },
-     "why": "fails its bar on: step"
+     "why": "fails its bar on: step; 22 of the cohort's measures are not on the card: costotransverse_area:mean, costovertebral_area_lower:mean, costovertebral_area_upper:mean, facet_area_inf:mean, facet_area_sup:mean, ..."
     }
    }
   },
@@ -1616,7 +1616,7 @@
        "rate": 0.8345864661654135
       }
      },
-     "why": "fails its bar on: step"
+     "why": "fails its bar on: step; 22 of the cohort's measures are not on the card: costotransverse_area:mean, costovertebral_area_lower:mean, costovertebral_area_upper:mean, facet_area_inf:mean, facet_area_sup:mean, ..."
     }
    }
   },
@@ -1707,7 +1707,7 @@
        "rate": 0.8345864661654135
       }
      },
-     "why": "fails its bar on: step"
+     "why": "fails its bar on: step; 22 of the cohort's measures are not on the card: costotransverse_area:mean, costovertebral_area_lower:mean, costovertebral_area_upper:mean, facet_area_inf:mean, facet_area_sup:mean, ..."
     }
    },
    "cadaver": {
@@ -2268,7 +2268,7 @@
        "rate": 0.7994987468671679
       }
      },
-     "why": "fails its bar on: step"
+     "why": "fails its bar on: step; 22 of the cohort's measures are not on the card: costotransverse_area:mean, costovertebral_area_lower:mean, costovertebral_area_upper:mean, facet_area_inf:mean, facet_area_sup:mean, ..."
     }
    }
   },
@@ -2455,7 +2455,7 @@
        "rate": 0.7543859649122807
       }
      },
-     "why": "fails its bar on: step"
+     "why": "fails its bar on: step; 22 of the cohort's measures are not on the card: costotransverse_area:mean, costovertebral_area_lower:mean, costovertebral_area_upper:mean, facet_area_inf:mean, facet_area_sup:mean, ..."
     }
    }
   },
@@ -2605,22 +2605,22 @@
  },
  "code": {
   "figures.py": "9b4b29c4b350611e82736146656ff3924a828eb2a2f915dad02acd1d68d3a0de",
-  "figures_all.py": "5a2a19b2efb23f3107efba85709ca6a541d8c2495cf126ec78207d8ad413300a",
+  "figures_all.py": "8b44c36166de6ddf66a75c96a0d2a48f7cc94c129c4e8fe06dd1568f8998fd86",
   "render.py": "d4bc0d70416d843a6d019ffefe741cb0fe01013357027395c24448c01cc3a9d9",
   "run.py": "724ce3b1e918ecfcf052b2b9e32b7b68d933db683446e8685781760653d4d87a",
   "run_all.py": "8468121efdd7994dddbb7b2ea100b15c87d7b15bdb47ccbef25df5fc58fc09be",
   "run_bounds.py": "e4790173287a1783318eb81c579ad5fc2d3c399818565d30b51d7fdaa46e6c7f",
   "run_covariates.py": "c77b7a434e66ed28e0983852640fdaca853da4113f2d63add58877c8918c2d17",
-  "run_gold3.py": "95403f34ec7c8de502f01f92c4ce82ae259b13e28b66463e6ac7640c88760e95",
+  "run_gold3.py": "6af30ddb8a349c347a88e99afd32053fdcc103153e27eb4ab0b0f868a9d74f8c",
   "run_select.py": "54b19c50c9a4dde891941f999016b5eed0c2823742e0363c77d3fda72cb3155b",
   "run_sex_naming.py": "fb25d5e5d4fc31241b01cbbab572632b360a4beb2b0092d32e5e9eebe5ae9e09",
   "run_strata.py": "99321722eff809ea70c72fd19c40084179d7e26f5fb2d0591a16ada8ebb779d2",
   "snapshot.py": "c09b0eab7e839f02b0fc6b0fd35a6e5c55f231a1cc6073110e7994fb663f2f89",
   "subgroups_run.py": "1901cf59f7106a4e3240e98fc2918c100cf91f11af2e0673d8f7fe4eb47dc64b",
   "synthval/all_measures.py": "32b83cb8e5c5bc0a4e86ba5e6cb4e6867880f79ad0e00e3dd3b175d3558ba9b0",
-  "synthval/bounds.py": "3ecd5ebaf66b2cdff46916a8528ec9a023103438819e2f20ad50b6af3f23216c",
+  "synthval/bounds.py": "d72a78bdce20c03198d6465a0315f881f8ebff5fe35901d0ec82924bc070a0dc",
   "synthval/covariates.py": "53a8bb0c90f3274bd5062d9b6f6e473cc51d1200a28477ffc4a7043ddbff0fd7",
-  "synthval/gold3.py": "9216dbabf9abb3c990426fbea2af7f70488e5c8d19b5c1d884b0cadd629771d3",
+  "synthval/gold3.py": "5720d0be3b7bc1171833f3e49484bddafa0a6b5a2c2679311217c55d5decfa64",
   "synthval/house.py": "396822b88fcb46e9533162f8a46b8e2443c1d58ac15d1f40e2d0eb4f5653323a",
   "synthval/literature.py": "daae8caf8798de4414d333cda44c681e4a601e75e5256cc5787a8f44c0795fd4",
   "synthval/naming.py": "b9416b1c743ea68011699dc268f6208f1ebedefb2a84716349e8e3a354430db9",
@@ -2643,9 +2643,9 @@
   "tables.py": "e7ac2d9237377bf658a701076c71c25606f87932986440c519e2bdf7140efbed",
   "tan_strata.py": "dc3e4408e29c23e8dc337e01f83d2344cce89790d129447847271afcdb4c3d66",
   "tests/test_all_measures.py": "10c3a1fc9b856a7de821faf756a2d5df36b860ede5165698b67c8169bef595eb",
-  "tests/test_bounds.py": "0b6db6ecea5898c331392623f9f258a4759982d7f2cde4ba4b4de58331967270",
+  "tests/test_bounds.py": "bc6339eadcec629ca41731c7cfd2c383100dd55b100e10c5e0eb3b0525ff9518",
   "tests/test_covariates.py": "80b816145ea6488fd9c9fb2c328309721f5dc49dfca331daaf19519c24415107",
-  "tests/test_gold3.py": "cd94399feaf0e2e45cda289ff06a9bc6f3987441a90292a15d9ef0649ebb2344",
+  "tests/test_gold3.py": "0e7d39f87f865857ddcaa83410aa5b7104cccf859700091cdc62032fa574cc38",
   "tests/test_select.py": "d0b640280b5759ca330eb0e83cf8c48dc7a9a8edb4540f45ed63b8efe95c0966",
   "tests/test_sex_naming.py": "12e085e61aed58f5a0b8679eace613d91a41756f49870795f1171cdfc30a7bdd",
   "tests/test_strata.py": "eb58a84d53aabb4b1db1832f55a84c81bc0e4efd822f54f5d0ef076b9a62ec63",
@@ -3400,7 +3400,7 @@
   "verdict": "a test passes at or above its bar; the cohort fails where any test with a bar fails and passes only where the step test was made and passes its bar, since naming lives on the steps; the pass rate over every test decides nothing (bounds.verdict)",
   "z": 1.96
  },
- "seconds": 178,
+ "seconds": 191,
  "seeds": {
   "centre": 4202,
   "drawn": 4201,

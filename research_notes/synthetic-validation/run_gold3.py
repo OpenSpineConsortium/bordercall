@@ -92,21 +92,26 @@ def main(argv=None) -> int:
         "not_scored": ["VerSe: the join read no person's sex (fill verse: sex 0), so its 21 persons enter no table",
                        "ENHANCE.PET's Leipzig and Careggi: their releases carry no sex or age",
                        "the age slope is a record and no test: check() makes none, the card's spread for it "
-                       "being not identified (bounds.json, covariate_borrowing)"],
+                       "being not identified (bounds.json, covariate_borrowing)",
+                       "within each member, the keys, cells and steps its summary's not_scored names, each with why: "
+                       "keys no paper of the card prints, the card's spinous_length under Panjabi's definition, the "
+                       "card's film interpedicular cells and steps and its MRI end-plate cell, and the cells whose one "
+                       "sex's mean the report withholds (withheld_cells)"],
         "readings": {
             "mean, sd": "the two sexes pooled from their moments, against the card's interval for a new population, "
                         "widened by the sampling error of reference_n people, as check() scores a cohort",
             "step": "the pooled means' difference, its sampling variance from the levels' pooled SDs and the "
                     "covariance the within-sex correlations with the level above and the sexes' shift give",
             "sex": "the sign where the card's interval for a new population's contrast clears zero (check()'s "
-                   "test); inside: g within that interval widened by its own variance, at every cell",
+                   "test); inside_card: g within that interval as the card gives it; inside: within it widened "
+                   "by g's own variance, at every cell",
             "age": "each sex's slope per decade over its SD, the sexes pooled by inverse variance; the card's "
                    "slopes are over the within-band SD, a little narrower than a sex's SD over every age"}})
     for member, rec in members.items():
         s = rec["summary"]
-        log("%s: %s; sex inside %s of %s, age inside %s of %s" % (
+        log("%s: %s; sex inside the card's interval %s of %s, age %s of %s" % (
             member, ", ".join("%s %d/%d" % (t, v["passed"], v["made"]) for t, v in s["tests"].items()),
-            rec["sex"].get("inside"), rec["sex"].get("cells"), rec["age"].get("inside"), rec["age"].get("cells")))
+            rec["sex"].get("inside_card"), rec["sex"].get("cells"), rec["age"].get("inside_card"), rec["age"].get("cells")))
     return 0
 
 

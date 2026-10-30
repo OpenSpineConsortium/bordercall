@@ -770,9 +770,9 @@ def check(rows, card: Card, kind: str = ALL, sampling: bool = True, interval: st
     papers' own median people a cell (bounds.json's reference_n_measured), and a cell where the
     cohort has fewer is left out and counted (short_cells); reference_n None scores each cell at the
     cohort's own count, for the record. A measure of the cohort the card does not hold is scored on
-    nothing and named in measures_not_on_card, and the verdict's why says so where it has none, so a
+    nothing and named in measures_not_on_card, and the verdict's why says so, so a
     cohort keyed by other names than the card's (pedicle_w:mean for the card's pedicle) is not
-    passed over in silence."""
+    passed over in silence, whether the cohort's other measures give a verdict or none."""
     cohort = Cohort.of(rows)
     cells, steps = card.of_kind(kind)
     groups = cohort.groups()
@@ -821,7 +821,7 @@ def check(rows, card: Card, kind: str = ALL, sampling: bool = True, interval: st
     summary.update(reference_n=reference_n, short_cells=short, measures_not_on_card=not_on_card)
     if short and summary["verdict"]["passed"] is None:
         summary["verdict"]["why"] += "; %d cells had fewer people than the %s a cell is scored at" % (short, reference_n)
-    if not_on_card and summary["verdict"]["passed"] is None:
+    if not_on_card:
         summary["verdict"]["why"] += "; %d of the cohort's measures are not on the card: %s" % (
             len(not_on_card), ", ".join(not_on_card[:5]) + (", ..." if len(not_on_card) > 5 else ""))
     return {"kind": kind, "cells": out_cells, "steps": out_steps, "summary": summary}

@@ -20,12 +20,27 @@ so the card's tests are made here on those moments, with bounds.py's own verdict
   against the card's interval for a new population's slope: a record, since check() makes no test
   on the age slope and the card says the slope's spread between populations is not identified.
 
-The engine's keys are the card's base keys, except that the card names pedicle_w "pedicle" and
-keeps the papers' definitions apart in brackets, of which the engine's are the three-point disc
-mean and the chord along the pedicle's axis, and its pedicle_incl_sag is the engine's
-pedicle_angle_transverse (the alias grid/bordercall/morphometry/__main__.py takes). A disc printed
-between two levels is placed at the upper, as papers_table places the papers' discs. The card's
-lower end-plate area of MRI is left out, the cohorts being CT.
+The engine's keys are the card's base keys, except that the card names pedicle_w "pedicle",
+averages a pedicle's two sides (":mean") and keeps the papers' definitions apart in brackets, of
+which the engine's are the three-point disc mean and the chord along the pedicle's axis, and its
+pedicle_incl_sag and pedicle_incl_trans are the engine's pedicle_angle_transverse and
+pedicle_angle_sagittal (the aliases grid/bordercall/morphometry/__main__.py takes). A disc printed
+between two levels is placed at the upper, as papers_table places the papers' discs.
+
+Nothing the report prints is passed over in silence; what is not scored is named, with why
+(not_scored, in each member's summary):
+
+- a card cell of film or MRI, the cohorts being CT read at true size: the card's interpedicular
+  distance is pooled from films alone (Hinck 1966, Amonoo-Kuofi 1982, Chaudhary 2015, none corrected
+  for magnification), so its cells and its steps, which rest on those papers, are left out, and so
+  is the MRI cell of the lower end-plate's area at L3;
+- a measure the card holds under another definition: the card's spinous_length is Tan 2004's SPL,
+  which is Panjabi's, from the upper end-plate's centre to the tip, where the engine's runs from the
+  canal's posterior wall (bordercall's paper-tables/validation/mapping_audit.csv; scanimport's
+  geometry.py);
+- an engine key no paper of the card prints;
+- a cell whose one sex's mean the report withholds (its disc_h_mean is shown only where its persons
+  are each of its three heights' and their means are shown), and the steps that would read it.
 """
 from __future__ import annotations
 
@@ -46,11 +61,15 @@ CARD_TO_ENGINE = {
     "endplate_lower_depth": "endplate_lower_depth", "foramen_h": "foramen_h", "h_ant": "h_ant", "h_mid": "h_mid",
     "h_post": "h_post", "interpedicular": "interpedicular", "pedicle": "pedicle_w",
     "pedicle_chord [along the axis]": "pedicle_chord", "pedicle_h": "pedicle_h",
-    "pedicle_incl_sag:mean": "pedicle_angle_transverse"}
-LEFT_OUT_MODALITY = {"endplate_lower_area": "MRI"}
+    "pedicle_incl_sag:mean": "pedicle_angle_transverse", "pedicle_area:mean": "pedicle_area",
+    "pedicle_incl_trans:mean": "pedicle_angle_sagittal", "transverse_width": "transverse_width"}
+CT = "bone and CT"
+DEFINITION_DIFFERS = {
+    "spinous_length": "the card's is Tan 2004's SPL, Panjabi's, from the upper end-plate's centre to the tip; "
+                      "the engine's runs from the canal's posterior wall"}
 BETWEEN_LEVELS = ("disc_h_", "foramen_h")
 FIELDS = 27
-FAMILIES = ("body and end plate", "disc and foramen", "pedicle and canal")
+FAMILIES = ("body and end plate", "disc and foramen", "pedicle and canal", "posterior elements")
 
 
 def family_of(key: str) -> str:
@@ -60,6 +79,8 @@ def family_of(key: str) -> str:
         return FAMILIES[2]
     if key.startswith(("disc_h", "foramen")):
         return FAMILIES[1]
+    if key.startswith(("transverse", "spinous", "lamina", "facet")):
+        return FAMILIES[3]
     return FAMILIES[0]
 
 
@@ -154,9 +175,47 @@ def age_slope(m: Moments) -> Tuple[float, float]:
 
 
 def card_cells(card: B.Card) -> List[dict]:
-    """The card's cells of every paper that the engine measures."""
+    """The card's cells of bone and CT whose measure the engine measures by the card's definition."""
     cells, _ = card.of_kind(B.ALL)
-    return [c for c in cells if c["measure"] in CARD_TO_ENGINE and LEFT_OUT_MODALITY.get(c["measure"]) != c["modality"]]
+    return [c for c in cells if c["measure"] in CARD_TO_ENGINE and c["modality"] == CT]
+
+
+def _papers(text: str) -> set:
+    return {p for p in str(text).split(";") if p}
+
+
+def card_steps(card: B.Card) -> List[dict]:
+    """The card's steps of a measure the engine measures whose every paper holds that measure in a
+    cell of bone and CT, so that no step read inside a film's papers is scored against a CT."""
+    cells, steps = card.of_kind(B.ALL)
+    ct_papers: Dict[str, set] = {}
+    for c in cells:
+        if c["modality"] == CT:
+            ct_papers.setdefault(c["measure"], set()).update(_papers(c["strata_list"]))
+    return [s for s in steps if s["measure"] in CARD_TO_ENGINE
+            and _papers(s["papers"]) and _papers(s["papers"]) <= ct_papers.get(s["measure"], set())]
+
+
+def not_scored(moments: Dict[Tuple[str, str, str], Moments], card: B.Card, member: str) -> dict:
+    """What the member's report holds that the score leaves out, each with why: engine keys no
+    paper of the card prints, measures the card holds under another definition, the card's film and
+    MRI cells at the member's levels, and the cells whose one sex's mean the report withholds."""
+    mine = {(k, lv) for m, k, lv in moments if m == member}
+    keys = {k for k, _ in mine}
+    engine_keys = set(CARD_TO_ENGINE.values())
+    cells, _ = card.of_kind(B.ALL)
+    other = {}
+    for c in cells:
+        key = CARD_TO_ENGINE.get(c["measure"])
+        if key and c["modality"] != CT and (key, c["level"]) in mine:
+            other.setdefault((c["measure"], c["modality"]), []).append(c["level"])
+    withheld = sorted("%s %s" % (k, m.level_printed) for (mb, k, lv), m in moments.items()
+                      if mb == member and k in engine_keys and lv != RANGE
+                      and not (math.isfinite(m.mean_m) and math.isfinite(m.mean_f)))
+    return {"keys_not_on_card": sorted(keys - engine_keys - set(DEFINITION_DIFFERS)),
+            "definition_differs": {k: why for k, why in DEFINITION_DIFFERS.items() if k in keys},
+            "cells_not_ct": [{"measure": m, "modality": mod, "levels": lvs} for (m, mod), lvs in sorted(other.items())],
+            "withheld_cells": withheld}
 
 
 def _cell_row(member: str, c: dict, m: Moments, at: float) -> Tuple[dict, List[dict]]:
@@ -177,7 +236,8 @@ def _cell_row(member: str, c: dict, m: Moments, at: float) -> Tuple[dict, List[d
         spread = math.sqrt(c["sex_g_between"] ** 2 + m.var_g)
         row.update(sex_g=m.g, sex_g_se=math.sqrt(m.var_g), card_sex_g=c["sex_g"], sex_g_new_low=c["sex_g_new_low"],
                    sex_g_new_high=c["sex_g_new_high"], sex_g_papers=c["sex_g_papers"], sex_z=(m.g - c["sex_g"]) / spread,
-                   sex_inside=bool(abs(m.g - c["sex_g"]) <= B.Z * spread))
+                   sex_inside=bool(abs(m.g - c["sex_g"]) <= B.Z * spread),
+                   sex_inside_card=bool(c["sex_g_new_low"] <= m.g <= c["sex_g_new_high"]))
         if B.clear_of_zero(c, "sex_g"):
             passed = bool(math.copysign(1.0, m.g) == math.copysign(1.0, c["sex_g"]))
             row.update(sex_pass=passed)
@@ -187,7 +247,8 @@ def _cell_row(member: str, c: dict, m: Moments, at: float) -> Tuple[dict, List[d
         spread = math.sqrt(c["age_slope_between"] ** 2 + se ** 2)
         row.update(age_slope=slope, age_slope_se=se, card_age_slope=c["age_slope"], age_new_low=c["age_slope_new_low"],
                    age_new_high=c["age_slope_new_high"], age_z=(slope - c["age_slope"]) / spread,
-                   age_inside=bool(abs(slope - c["age_slope"]) <= B.Z * spread))
+                   age_inside=bool(abs(slope - c["age_slope"]) <= B.Z * spread),
+                   age_inside_card=bool(c["age_slope_new_low"] <= slope <= c["age_slope_new_high"]))
     return row, verdicts
 
 
@@ -195,11 +256,16 @@ def score(moments: Dict[Tuple[str, str, str], Moments], card: B.Card, member: st
           reference_n: float = B.REFERENCE_N) -> dict:
     """One member scored on the card as check() scores a cohort: its cells, its steps and the
     summary with the verdict against the bar of every paper held out; a cell where the member has
-    fewer than reference_n people is left out and counted, as check() leaves it."""
-    rows, steps, verdicts, short = [], [], [], 0
+    fewer than reference_n people is left out and counted, as check() leaves it, a cell whose one
+    sex's mean the report withholds is left out and counted apart (withheld_cells), and what else
+    the report holds that is not scored is named (not_scored)."""
+    rows, steps, verdicts, short, withheld = [], [], [], 0, 0
     for c in card_cells(card):
         m = moments.get((member, CARD_TO_ENGINE[c["measure"]], c["level"]))
-        if m is None or not math.isfinite(m.mean_m) or not math.isfinite(m.mean_f):
+        if m is None:
+            continue
+        if not math.isfinite(m.mean_m) or not math.isfinite(m.mean_f):
+            withheld += 1
             continue
         if m.n_m + m.n_f < reference_n:
             short += 1
@@ -207,9 +273,8 @@ def score(moments: Dict[Tuple[str, str, str], Moments], card: B.Card, member: st
         row, made = _cell_row(member, c, m, reference_n)
         rows.append(row)
         verdicts += made
-    _, card_steps = card.of_kind(B.ALL)
-    for s in card_steps:
-        key = CARD_TO_ENGINE.get(s["measure"])
+    for s in card_steps(card):
+        key = CARD_TO_ENGINE[s["measure"]]
         a = moments.get((member, key, s["upper"])) if key else None
         b = moments.get((member, key, s["lower"])) if key else None
         if a is None or b is None or not all(math.isfinite(x) for x in (a.mean_m, a.mean_f, b.mean_m, b.mean_f)):
@@ -224,19 +289,23 @@ def score(moments: Dict[Tuple[str, str, str], Moments], card: B.Card, member: st
                       "step_z": v["z"], "step_pass": v["passed"]})
         verdicts.append(v)
     summary = B.summarise(verdicts, card.bar(B.ALL), bool(card.calibration))
-    summary.update(reference_n=reference_n, short_cells=short)
+    summary.update(reference_n=reference_n, short_cells=short, withheld_cells=withheld,
+                   not_scored=not_scored(moments, card, member))
     return {"member": member, "cells": rows, "steps": steps, "summary": summary}
 
 
 def covariate_record(rows: List[dict], prefix: str) -> dict:
     """How many of a member's cells carry the contrast or slope, how many lie inside the card's
-    interval for a new population widened by the member's own error, and the z-scores' mean and
-    root mean square (1 where the card's spread is right)."""
+    interval for a new population as the card gives it (inside_card) and inside it widened by the
+    member's own error (inside), and the z-scores' mean and root mean square (1 where the card's
+    spread is right)."""
     zs = [r[prefix + "_z"] for r in rows if prefix + "_z" in r and math.isfinite(r[prefix + "_z"])]
     inside = sum(bool(r[prefix + "_inside"]) for r in rows if prefix + "_inside" in r)
+    inside_card = sum(bool(r[prefix + "_inside_card"]) for r in rows if prefix + "_inside_card" in r)
     if not zs:
         return {"cells": 0}
-    return {"cells": len(zs), "inside": inside, "share_inside": inside / len(zs), "mean_z": sum(zs) / len(zs),
+    return {"cells": len(zs), "inside_card": inside_card, "share_inside_card": inside_card / len(zs),
+            "inside": inside, "share_inside": inside / len(zs), "mean_z": sum(zs) / len(zs),
             "rms_z": math.sqrt(sum(z * z for z in zs) / len(zs))}
 
 

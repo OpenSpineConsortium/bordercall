@@ -925,7 +925,7 @@ def fig_sex_naming(records: str, out: str) -> List[str]:
 
 
 GOLD3_MEMBERS = (("autopet", "autoPET", "o", None), ("totalseg", "TotalSegmentator", "s", "white"))
-GOLD3_FAMILIES = ("every family", "body and end plate", "disc and foramen", "pedicle and canal")
+GOLD3_FAMILIES = ("every family", "body and end plate", "disc and foramen", "pedicle and canal", "posterior elements")
 GOLD3_PROFILE = ("pedicle", "pedicle_w")
 
 
@@ -1005,18 +1005,19 @@ def fig_gold3(records: str, out: str) -> List[str]:
     a.set_yticks(range(len(labels)))
     a.set_yticklabels(labels, fontsize=6.0)
     a.invert_yaxis()
-    a.set_xlim(0.3, 1.02)
+    rates = [r["rate"] for r in drawn if "rate" in r]
+    a.set_xlim(min(0.3, math.floor(10 * min(rates)) / 10 - 0.05), 1.02)
     a.set_xlabel("share of the cohort's cells or steps inside the card's interval (scored at %d people)" % j["reference_n"])
     a.legend(loc="lower left", fontsize=6.0)
-    H.letter(a, "A", "real CTs pass on the body and end plates, fail the steps on discs and pedicles")
+    H.letter(a, "A", "real CTs pass the body and end-plate steps, fail the steps on discs and pedicles")
 
     b = axes[0][1]
     sex = _gold3_rows(cells, "sex_g")
     drawn += _gold3_forest(b, sex, "sex_g", "men minus women, Hedges' g (mean over levels)")
     b.legend(loc="lower right", fontsize=6.0)
     s = {m: j["members"][m]["sex"] for m, *_ in GOLD3_MEMBERS}
-    H.letter(b, "B", "sex: inside at %d of %d and %d of %d cells; the cohorts' gaps a little smaller"
-             % (s["autopet"]["inside"], s["autopet"]["cells"], s["totalseg"]["inside"], s["totalseg"]["cells"]))
+    H.letter(b, "B", "sex: inside the card's interval at %d of %d and %d of %d cells; the sign holds, the gaps smaller"
+             % (s["autopet"]["inside_card"], s["autopet"]["cells"], s["totalseg"]["inside_card"], s["totalseg"]["cells"]))
 
     c = axes[1][0]
     card = {r["level"]: r for r in _read_csv(os.path.join(records, "bounds", "bounds.csv"))
@@ -1039,14 +1040,14 @@ def fig_gold3(records: str, out: str) -> List[str]:
     c.set_xticklabels(levels, fontsize=6.5)
     c.set_ylabel("pedicle width, mm")
     c.legend(loc="upper left", fontsize=6.0)
-    H.letter(c, "C", "where the steps fail: the engine's pedicle width leaves the papers' at L3 to L5")
+    H.letter(c, "C", "the engine's pedicle width: about 2 mm wide at T10 to T12, breaking away from L3")
 
     d = axes[1][1]
     age = _gold3_rows(cells, "age_slope")
     drawn += _gold3_forest(d, age, "age_slope", "change per decade of age, in SDs")
     s = {m: j["members"][m]["age"] for m, *_ in GOLD3_MEMBERS}
-    H.letter(d, "D", "age: inside at %d of %d and %d of %d cells; the card's age spread is not identified"
-             % (s["autopet"]["inside"], s["autopet"]["cells"], s["totalseg"]["inside"], s["totalseg"]["cells"]))
+    H.letter(d, "D", "age: inside the card's interval at %d of %d and %d of %d cells; its age spread is not identified"
+             % (s["autopet"]["inside_card"], s["autopet"]["cells"], s["totalseg"]["inside_card"], s["totalseg"]["cells"]))
     fig.tight_layout()
     H.write_csv(out, "fig20_gold3", drawn)
     return H.save(fig, out, "fig20_gold3", (

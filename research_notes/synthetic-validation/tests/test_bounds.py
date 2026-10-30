@@ -217,6 +217,16 @@ class Toy(unittest.TestCase):
         self.assertEqual(got["measures_not_on_card"], sorted({m + ":mean" for m in centre.measure}))
         self.assertIn("not on the card", got["verdict"]["why"])
         self.assertEqual(B.check(centre, self.card)["summary"]["measures_not_on_card"], [])
+        # one measure renamed among measures the card holds: a verdict is given and its why still names it
+        one = sorted(set(centre.measure))[0]
+        partly = np.array([m + ":mean" if m == one else m for m in centre.measure], dtype=object)
+        rows = [{"paper": "p%d" % i, "test": t, "made": 25, "passed": 20} for i in range(8) for t in B.CALIBRATED]
+        calibrated = B.Card(cells=self.card.cells, steps=self.card.steps, calibration={B.ALL: B.bar_of(rows)})
+        got = B.check(B.Cohort(measure=partly, level=centre.level, value=centre.value, person=centre.person),
+                      calibrated)["summary"]
+        self.assertIsNotNone(got["verdict"]["passed"])
+        self.assertEqual(got["measures_not_on_card"], [one + ":mean"])
+        self.assertIn("1 of the cohort's measures are not on the card: %s:mean" % one, got["verdict"]["why"])
 
     def test_means_moved_far_off_fail_the_mean_test_and_keep_the_steps(self):
         rng = np.random.default_rng(31)

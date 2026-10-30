@@ -12,6 +12,9 @@
   off fails them, the sex sign is tested only where the card's contrast clears zero, a cell with
   fewer people than reference_n is left out and counted, and a cell the engine does not measure is
   never scored;
+- a film cell is never scored against a CT cohort, nor a step read inside film papers alone, a
+  cell whose one sex's mean the report withholds is counted apart, and what the report holds that
+  is not scored is named with why;
 - the written records are what the module makes from the committed report and card, and the report
   is the one gold3.json names by its digest.
 """
@@ -114,16 +117,19 @@ class MomentsTest(unittest.TestCase):
 
 def toy_card() -> B.Card:
     """Two measures at two levels and one step each; h_ant's contrast clears zero, canal_ap's does not."""
-    def cell(measure, level, mean, sex_g, sex_low, sex_high):
-        return {"kind": B.ALL, "measure": measure, "level": level, "modality": "bone and CT", "mean": mean,
+    def cell(measure, level, mean, sex_g, sex_low, sex_high, modality="bone and CT", papers="tan2004"):
+        return {"kind": B.ALL, "measure": measure, "level": level, "modality": modality, "strata_list": papers, "mean": mean,
                 "between": 1.0, "mean_low": mean - 1.96, "mean_high": mean + 1.96, "sd_log_centre": math.log(2.0),
                 "sd_log_between": 0.1, "sd_low": 1.6, "sd_high": 2.4, "sex_g": sex_g, "sex_g_between": 0.2,
                 "sex_g_new_low": sex_low, "sex_g_new_high": sex_high, "sex_g_papers": 2, "age_slope": float("nan")}
     cells = [cell("h_ant", "L1", 28.0, 1.0, 0.6, 1.4), cell("h_ant", "L2", 30.0, 1.0, 0.6, 1.4),
              cell("canal_ap", "L1", 15.0, 0.0, -0.4, 0.4), cell("canal_ap", "L2", 15.0, 0.0, -0.4, 0.4),
-             cell("facet_angle_axial", "L1", 40.0, 0.0, -0.4, 0.4)]
-    steps = [{"kind": B.ALL, "measure": m, "upper": "L1", "lower": "L2", "step": s, "between": 0.3,
-              "step_low": s - 0.6, "step_high": s + 0.6} for m, s in (("h_ant", 2.0), ("canal_ap", 0.0))]
+             cell("facet_angle_axial", "L1", 40.0, 0.0, -0.4, 0.4),
+             cell("interpedicular", "L1", 22.0, 0.0, -0.4, 0.4, "film", "hinck1966"),
+             cell("interpedicular", "L2", 22.0, 0.0, -0.4, 0.4, "film", "hinck1966")]
+    steps = [{"kind": B.ALL, "measure": m, "upper": "L1", "lower": "L2", "step": s, "between": 0.3, "papers": p,
+              "step_low": s - 0.6, "step_high": s + 0.6}
+             for m, s, p in (("h_ant", 2.0, "tan2004"), ("canal_ap", 0.0, "tan2004"), ("interpedicular", 0.0, "hinck1966"))]
     return B.Card(cells=cells, steps=steps)
 
 
@@ -133,7 +139,8 @@ def toy_moments(shift: float = 0.0, n=(200, 150)) -> dict:
                           r, r, float("nan"), float("nan"), float("nan"), float("nan"))
     return {("autopet", "h_ant", "L1"): m(28.0, "L1"), ("autopet", "h_ant", "L2"): m(30.0, "L2"),
             ("autopet", "canal_ap", "L1"): m(15.0, "L1"), ("autopet", "canal_ap", "L2"): m(15.0, "L2"),
-            ("autopet", "facet_angle_axial", "L1"): m(40.0, "L1")}
+            ("autopet", "facet_angle_axial", "L1"): m(40.0, "L1"),
+            ("autopet", "interpedicular", "L1"): m(20.0, "L1"), ("autopet", "interpedicular", "L2"): m(20.0, "L2")}
 
 
 class ScoreTest(unittest.TestCase):
@@ -154,11 +161,35 @@ class ScoreTest(unittest.TestCase):
         self.assertEqual(inside, {"h_ant", "canal_ap"})
         self.assertEqual(got["summary"]["tests"]["sex"]["made"], 2)
 
+    def test_film_is_left_out_and_what_is_not_scored_is_named(self):
+        moments = toy_moments()
+        moments["autopet", "wedge", "L1"] = moments["autopet", "h_ant", "L1"]
+        moments["autopet", "spinous_length", "L1"] = moments["autopet", "h_ant", "L1"]
+        got = G3.score(moments, toy_card(), "autopet")
+        self.assertNotIn("interpedicular", {r["measure"] for r in got["cells"]} | {s["measure"] for s in got["steps"]})
+        self.assertEqual({s["measure"] for s in got["steps"]}, {"h_ant", "canal_ap"})
+        left = got["summary"]["not_scored"]
+        self.assertEqual(left["keys_not_on_card"], ["facet_angle_axial", "wedge"])
+        self.assertEqual(set(left["definition_differs"]), {"spinous_length"})
+        self.assertEqual(left["cells_not_ct"], [{"measure": "interpedicular", "modality": "film", "levels": ["L1", "L2"]}])
+
+    def test_a_withheld_mean_is_counted_apart_and_named(self):
+        moments = toy_moments()
+        m = moments["autopet", "h_ant", "L2"]
+        moments["autopet", "h_ant", "L2"] = G3.Moments(m.level_printed, m.n_m, float("nan"), float("nan"), m.n_f,
+                                                       m.mean_f, m.sd_f, *[float("nan")] * 8)
+        got = G3.score(moments, toy_card(), "autopet")
+        self.assertEqual(got["summary"]["withheld_cells"], 1)
+        self.assertEqual(got["summary"]["short_cells"], 0)
+        self.assertEqual(got["summary"]["not_scored"]["withheld_cells"], ["h_ant L2"])
+        self.assertNotIn("h_ant", {s["measure"] for s in got["steps"]})
+
     def test_a_cell_short_of_reference_n_is_left_out_and_counted(self):
         got = G3.score(toy_moments(n=(20, 15)), toy_card(), "autopet")
         self.assertEqual(got["cells"], [])
         self.assertEqual(got["steps"], [])
         self.assertEqual(got["summary"]["short_cells"], 4)
+        self.assertEqual(got["summary"]["withheld_cells"], 0)
 
 
 class RecordsTest(unittest.TestCase):
