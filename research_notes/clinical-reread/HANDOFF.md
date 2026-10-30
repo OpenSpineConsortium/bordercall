@@ -80,8 +80,8 @@ ten series out of the comparison); Irie 2021's pedicle heights are close at L1 t
 L4 and L5; the rest stood as read, with notes corrected for Busscher 2010, Arockiaraj 2025, Abbas 2021 and Bach 2019,
 and Mitra 2002's 18.5 read on the page as printed. data/series.csv, the comparison record and the results page were
 remade in a throwaway environment from requirements-schwingcheck.txt, no grid job. The three round-4 open items were
-decided too (../paper-tables/review/round-4.md). Left for the owner: the merge, and where to correct the archive's
-"embalmed" (below).
+decided too (../paper-tables/review/round-4.md). The owner merged pull request 39 at 10:47 UTC.
+The archive's "embalmed" was decided the same day (below), in a pull request of its own since it came after the merge.
 
 1. **Fix the second review's data findings and rerun.** (Done, above; kept as the record of what was asked.) Take each finding of
    ../paper-tables/review/round-2-findings.json that both refuters confirmed, or that is unverified, reproduce it,
@@ -141,9 +141,10 @@ decided too (../paper-tables/review/round-4.md). Left for the owner: the merge, 
 4. Tell the chain of levels, the auto-anatomist, the gold tier 3 morphometrics and the synthetic validation
    threads when series.csv or the record changes; all four read series.csv.
 
-Waiting for the owner, unchanged: archive/bordercall/SPINEPS_MAPPING.md (line 88) and archive/bordercall/covariance.py
-(line 28) call Panjabi's specimens embalmed; his papers say fresh autopsy specimens, cleaned to dry bone
-([notes/panjabi1992.md](notes/panjabi1992.md)). The archive is kept unchanged until he says where to correct it.
+Decided 2026-10-30 (the owner left it to the session): archive/bordercall/SPINEPS_MAPPING.md (line 88) and
+archive/bordercall/covariance.py (line 28) call Panjabi's specimens embalmed; his papers say fresh autopsy specimens,
+cleaned to dry bone ([notes/panjabi1992.md](notes/panjabi1992.md)). The archive stays as it is, a record that is
+never run, and the correction lives in the reread's notes, which every newer file cites.
 
 The evaluation Claude Doc of the old account (claude.ai/artifact/RF7zs7UAEGwE4ZMaQWtn8F) is not shared with the new
 one, so it was not filled; ../paper-tables/results/README.md is the record it would have shown.
