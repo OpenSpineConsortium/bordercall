@@ -32,9 +32,10 @@ of them, so a new variable is one column of data/populations.csv and no code:
    to the same distances): in every cell where the value has a series and the rest hold three or
    more, the value's pooled mean's distance from the rest's pooled mean in Panjabi's SD, the
    spread between populations with the value pooled in and apart, their variance ratio, and
-   whether the rest's prediction interval for one more population (t on k - 2, and z with the
-   spread taken as known) holds the value's mean. each_against_rest runs it for every value of a
-   variable with enough cells.
+   whether the rest's prediction interval (t on k - 2, and z with the spread taken as known) holds
+   the value's mean, the interval for one more population where the value is one series and for
+   a mean of m populations where it is m (_inside_rest). each_against_rest runs it for every
+   value of a variable with enough cells.
 3. paired_contrast: for a variable a paper prints apart on comparable people, the sexes of one
    cohort or the ancestries of one collection, the within-paper difference (male minus female,
    one ancestry minus another) with its SE in every pair that prints both, pooled across the pairs
@@ -178,14 +179,16 @@ def _quartiles(a) -> dict:
 def analysis_summary(rows: Sequence[dict]) -> Dict[str, dict]:
     """Per variable, over all its cells and over the seven's: the cells, the series and subgroups
     a cell holds, the cells the test could be made in and those whose test is below ALPHA, the
-    cells the share could be read in and its quartiles, the spread of the whole cell and within
-    the subgroups, the widest gap."""
+    cells the share could be read in and its quartiles, the spread of the whole cell (over every
+    cell, and over the cells the spread within could be read in, so that the two stand on the
+    same cells) and within the subgroups, the widest gap."""
     out: Dict[str, dict] = {}
     for variable in dict.fromkeys(r["variable"] for r in rows):
         out[variable] = {}
         for group, rs in (("all", [r for r in rows if r["variable"] == variable]),
                           ("seven", [r for r in rows if r["variable"] == variable and r["seven"]])):
             tested = [r for r in rs if math.isfinite(r["p_between"])]
+            read = [r for r in rs if math.isfinite(r["tau2_within"])]
             out[variable][group] = {
                 "cells": len(rs), "series_per_cell": _quartiles([r["k"] for r in rs]),
                 "groups_per_cell": _quartiles([r["groups"] for r in rs]), "cells_tested": len(tested),
@@ -193,6 +196,7 @@ def analysis_summary(rows: Sequence[dict]) -> Dict[str, dict]:
                 "cells_below_alpha": int(sum(r["p_between"] < ALPHA for r in tested)),
                 "share_below_alpha": float(np.mean([r["p_between"] < ALPHA for r in tested])) if tested else float("nan"),
                 "r2": _quartiles([r["r2"] for r in rs]), "f_total": _quartiles([r["f_total"] for r in rs]),
+                "f_total_where_read": _quartiles([r["f_total"] for r in read]),
                 "f_within": _quartiles([r["f_within"] for r in rs]),
                 "widest_gap_sd": _quartiles([r["widest_gap_sd"] for r in rs])}
     return out
@@ -201,7 +205,11 @@ def analysis_summary(rows: Sequence[dict]) -> Dict[str, dict]:
 def against_rest(series: Sequence[L.Series], variable: str, value: str, register: Dict[tuple, RG.Population],
                  modality_set: str = "bone_ct", measures: Optional[Sequence[MS.Measure]] = None) -> List[dict]:
     """One value of a variable against the rest of each cell, as tan.matched_spread reads Tan:
-    every cell where the value has a series and the rest hold three or more."""
+    every cell where the value has a series and the rest hold three or more. Whether the value's
+    mean falls inside the rest's prediction interval is read against the interval for a mean of
+    as many populations as the value has series there (the rest's spread divided by that count
+    under the root, with the rest's SE), since a value pooled over m populations is m draws, not
+    one; with one series it is the interval for one more population, as Tan is read."""
     seven = set(MS.SPINEPS_7)
     out = []
     for m, key, psd, level, rows in _cells(series, modality_set, measures, 3):
@@ -210,16 +218,27 @@ def against_rest(series: Sequence[L.Series], variable: str, value: str, register
         if not own or len(rest) < 3:
             continue
         apart, pooled, mine = literature_at(rest).mean, literature_at(list(rows)).mean, pooled_or_one(own)
-        scale = math.sqrt(apart.tau2 + apart.se ** 2)
         distance = mine["mean"] - apart.mean
+        inside_t, inside_z = _inside_rest(apart, distance, len(own))
         out.append({"variable": variable, "value": value, "measure": key, "level": level, "kind": m.kind,
                     "seven": key in seven, "k_value": len(own), "k_rest": len(rest), "panjabi_sd": psd,
                     "value_mean": mine["mean"], "rest_mean": apart.mean, "distance_sd": distance / psd,
                     "f_pooled": pooled.tau / psd, "f_apart": apart.tau / psd,
                     "variance_ratio_pooled_over_apart": (pooled.tau2 / apart.tau2) if apart.tau2 > 0 else float("nan"),
-                    "inside_rest_t": bool(apart.pi_low <= mine["mean"] <= apart.pi_high),
-                    "inside_rest_z": bool(abs(distance) <= Z * scale)})
+                    "inside_rest_t": inside_t, "inside_rest_z": inside_z})
     return out
+
+
+def _inside_rest(apart, distance: float, m: int) -> Tuple[bool, bool]:
+    """Whether a mean of m populations at `distance` from the rest's pooled mean falls inside the
+    rest's prediction interval for such a mean, Higgins' t and the plug-in z: with m = 1 the
+    pool's own interval, else its t multiplier on the scale sqrt(tau^2 / m + SE^2)."""
+    one = math.sqrt(apart.tau2 + apart.se ** 2)
+    if m == 1:
+        return bool(apart.pi_low <= apart.mean + distance <= apart.pi_high), bool(abs(distance) <= Z * one)
+    scale = math.sqrt(apart.tau2 / m + apart.se ** 2)
+    t_multiplier = (apart.pi_high - apart.mean) / one
+    return bool(abs(distance) <= t_multiplier * scale), bool(abs(distance) <= Z * scale)
 
 
 def against_rest_summary(rows: Sequence[dict]) -> Dict[str, dict]:

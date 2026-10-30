@@ -45,9 +45,9 @@ def main(argv=None) -> None:
     os.makedirs(out, exist_ok=True)
     started = time.time()
     rows = L.load_rows()
-    series, _ = L.select(rows)
+    series, _ = L.select(rows, excluded=L.EXCLUDED)
     register = RG.load()
-    apart, why_apart = L.select(rows, strata=L.STRATA_APART, stratum_counts=RG.stratum_counts(register))
+    apart, why_apart = L.select(rows, strata=L.STRATA_APART, stratum_counts=RG.stratum_counts(register), excluded=L.EXCLUDED)
     problems = RG.check(series, register) + RG.check(apart, register)
     if problems:
         raise SystemExit("the register does not hold together:\n" + "\n".join(problems))
@@ -80,7 +80,8 @@ def main(argv=None) -> None:
                      "sex_apart_series": sum(1 for s in apart if s.flag.startswith("sex apart")),
                      "sex_apart_counts_from_the_register": sum(1 for s in apart if s.n_note == RG.GROUP_SHARE_NOTE),
                      "left_out_apart": why_apart, "values": values},
-        "least_cells": LEAST_CELLS, "least_df_within": SG.LEAST_DF, "analysis": SG.analysis_summary(analysis),
+        "excluded": L.EXCLUDED, "least_cells": LEAST_CELLS, "least_df_within": SG.LEAST_DF,
+        "analysis": SG.analysis_summary(analysis),
         "analysis_without_tan": SG.analysis_summary(without_tan), "against_rest": against_summary,
         "contrasts": contrast_summary, "seconds": round(time.time() - started, 1)})
 

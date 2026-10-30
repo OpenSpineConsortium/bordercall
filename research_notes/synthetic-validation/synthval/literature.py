@@ -316,10 +316,20 @@ STRATA_POOLED = "pooled"
 STRATA_APART = "apart"
 
 
+EXCLUDED: Dict[str, str] = {}
+"""Papers left out of every live run on the owner's word, paper key to the reason in his words with
+the date and the measured ground; empty until he chooses one with its held-out score on record
+(the thread "Continue Bayesian synthetic validation", 2026-10-30). The runs that take it pass it
+to select as `excluded` and write it into their record; run.py's main record does not, since the
+naming benchmark is not rerun while the synthetic populations move (the owner, 2026-10-29)."""
+
+
 def select(rows: Sequence[dict], definitions: Sequence[str] = DEFINITIONS_MAIN,
            strata: str = STRATA_POOLED,
-           stratum_counts: Optional[Dict[tuple, Tuple[float, str]]] = None) -> Tuple[List[Series], Dict[str, int]]:
-    """The validation's series and the count of rows left out by each rule. `strata` is how rules
+           stratum_counts: Optional[Dict[tuple, Tuple[float, str]]] = None,
+           excluded: Optional[Dict[str, str]] = None) -> Tuple[List[Series], Dict[str, int]]:
+    """The validation's series and the count of rows left out by each rule, the papers `excluded`
+    names (EXCLUDED, for the runs that take it) left out first and counted by name. `strata` is how rules
     5 and 6 treat what a cohort prints apart: "pooled", the validation's, one series per cohort
     and measure, the whole before its strata and the sexes pooled; or "apart", for the within-paper
     contrasts of subgroups.paired_contrast alone, every printed stratum (an age band, an ancestry,
@@ -335,7 +345,10 @@ def select(rows: Sequence[dict], definitions: Sequence[str] = DEFINITIONS_MAIN,
     kept = []
     jumps = breaks_own_series(rows)
     for r in rows:
-        w = BREAKS_OWN_SERIES if id(r) in jumps else excluded_why(r, definitions)
+        if excluded and r["paper"] in excluded:
+            w = "excluded on the owner's word: %s" % r["paper"]
+        else:
+            w = BREAKS_OWN_SERIES if id(r) in jumps else excluded_why(r, definitions)
         if w:
             why[w] = why.get(w, 0) + 1
         else:
@@ -423,8 +436,8 @@ def _sex_series(rs: List[dict], why: Dict[str, int], apart: bool,
     sex where the group prints a man's and a woman's row each with an SD and a count of its own
     (_own_count), flagged "sex apart", the whole row printed beside them dropped and counted; a
     group that prints one sex or the whole alone, or a sex with no SD or count of its own, gives
-    _one_sex's series. Of two rows of one sex the one with an SD and the most people is read, as
-    _one_sex reads the whole's rows."""
+    _one_sex's series, which counts what it leaves out itself. Of two rows of one sex the one
+    with an SD and the most people is read, as _one_sex reads the whole's rows."""
     if apart:
         scratch: Dict[str, int] = {}
         sided = _sides(list(rs), scratch)
@@ -443,8 +456,7 @@ def _sex_series(rs: List[dict], why: Dict[str, int], apart: bool,
                     why["a second row of a sex beside the one read"] = why.get("a second row of a sex beside the one read", 0) + second
                 return [_series_of(r, r["mean"], r["sd"], n, "sex apart", n_note=note)
                         for r, (n, note) in zip((male, female), got)]
-            why["a sex printed apart with no SD or count of its own"] = why.get("a sex printed apart with no SD or count of its own", 0) + 2
-    s = _one_sex(rs, why)
+    s = _one_sex(rs, why)   # a pair not read apart: _one_sex keeps one row and counts the other
     return [s] if s is not None else []
 
 

@@ -40,7 +40,7 @@ def main(argv=None) -> None:
     out = os.path.abspath(args.out)
     os.makedirs(out, exist_ok=True)
     started = time.time()
-    series, _ = L.select(L.load_rows())
+    series, _ = L.select(L.load_rows(), excluded=L.EXCLUDED)
     rest, tan = T.split(series)
 
     matched = T.matched_spread(series)
@@ -58,7 +58,7 @@ def main(argv=None) -> None:
     commit = subprocess.run(["git", "-C", REPO, "rev-parse", "HEAD"], capture_output=True, text=True).stdout.strip()
     write_json(out, "tan_strata.json", {
         "command": "python3 -I tan_strata.py --out %s%s" % (os.path.relpath(out, HERE), " --quick" if args.quick else ""),
-        "bordercall_commit": commit, "columns": args.columns, "tables": args.tables,
+        "bordercall_commit": commit, "excluded": L.EXCLUDED, "columns": args.columns, "tables": args.tables,
         "series": {"all": len(series), "rest": len(rest), "tan": len(tan)},
         "matched_spread": T.spread_summary(matched), "prediction": T.prediction_summary(prediction),
         "split": splits, "calibrated_median_f": calibrated,

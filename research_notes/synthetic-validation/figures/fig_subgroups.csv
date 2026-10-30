@@ -1,5 +1,5 @@
 panel,variable,cells,r2_median,cells_without_tan,r2_median_without_tan,name,distance_median_sd,q1,q3,pair,measure,level,pairs,difference_sd,ci_low_sd,ci_high_sd
-A,age_band,30,0.135519,25,0,,,,,,,,,,,
+A,age_band,30,0,22,0,,,,,,,,,,,
 A,ancestry,24,0.282267,19,0.160315,,,,,,,,,,,
 A,country,15,0.472686,15,0.347178,,,,,,,,,,,
 A,decade,27,0.251272,27,0,,,,,,,,,,,

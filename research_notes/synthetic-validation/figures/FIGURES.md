@@ -4,7 +4,7 @@ Drawn by `python3 -I figures.py --records records --out figures` from the record
 `python3 -I run.py --out records` (bordercall 560bd00). Each figure's numbers are its CSV; its caption is its .caption.txt.
 The three renders are drawn by render.py from the generator itself, seed 2029, 4000 people.
 
-Drawn at bordercall 49efec7, from and by:
+Drawn at bordercall c553a3d, from and by:
 
 - records/RECORD.json, sha256 8229f63cad6bc1ddf0ecc53c9faa6602bb4d79b590165b4c4cd80f5d614c9df1
 - figures.py, sha256 6fa5d552f2e00925593361301e49ada372eeb2e33cdcca1f01f631743f3c971a
@@ -100,9 +100,9 @@ Tan 2004 as a stratum of his own. A: in the seven's matched cells, the rest's se
 The populations by every register variable. A: the share of the spread each variable accounts for, a dot a cell, bars the median with Tan 2004 in (black) and out (grey). B, C: each paper and each value against the rest, Tan filled. D: differences a paper prints apart: the sexes within age bands, two ancestries of one collection.
 
 - fig_subgroups.caption.txt, sha256 7bef84f737aaa759e79b343181346cf311cd96e2dd4171acd09215819b46e62c
-- fig_subgroups.csv, sha256 26e5ba2611c0da4cb85a63ee10e6523c1cfa9c80934184d3b999249c7c63ba3a
-- fig_subgroups.pdf, sha256 ec1f2ed3ca8bef5bc67295e470859a2aaf18f0a7b7f954b3c6f7211f3d9b9718
-- fig_subgroups.png, sha256 1b32aab2a88e7cd6506770050ba05d89e33f0dae1ed0cdae3fa74394c06cf8d4
+- fig_subgroups.csv, sha256 4f371e7a351018f22cd47028aa60af24cb2dfeb52852aa1ec4dc2a2416b02a9f
+- fig_subgroups.pdf, sha256 7cbab9c6904c2df68951aed1abadc7447b386bcf09de1537eb74412f7c83f83c
+- fig_subgroups.png, sha256 57b35ed80ad613d246de5c58ae057f993d5307903e548b97308a7b3b9db68fec
 
 ## render1_axial
 

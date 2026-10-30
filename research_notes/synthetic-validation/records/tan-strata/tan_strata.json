@@ -1,5 +1,5 @@
 {
- "bordercall_commit": "49efec7fb31431e196feb6bd6fb8f34c6a825fd3",
+ "bordercall_commit": "c553a3d256c206733de2dcebfe0a6e4502326540",
  "calibrated_median_f": {
   "pooled": {
    "literature": {
@@ -40,6 +40,7 @@
  },
  "columns": 40,
  "command": "python3 -I tan_strata.py --out records/tan-strata --quick",
+ "excluded": {},
  "gold_against_tan": [
   {
    "cells": 15,
@@ -466,7 +467,7 @@
    "tan_inside_rest_plug": 5
   }
  },
- "seconds": 52.7,
+ "seconds": 51.1,
  "series": {
   "all": 954,
   "rest": 537,

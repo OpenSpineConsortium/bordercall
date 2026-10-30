@@ -39,10 +39,26 @@ def series(paper, cohort, mean, sd=2.0, n=40.0, key="h_post", level="L1", sex="a
 
 
 def population(paper, cohort, country="not stated", ancestry="not stated", specimen="living", age_mean=None,
-               n_people=None, n_men=None, n_women=None, group_counts=""):
+               n_people=None, n_men=None, n_women=None, group_counts="", year=None):
     return RG.Population(paper, cohort, country, "stated" if country != "not stated" else "not stated", ancestry,
                          ancestry, "stated" if ancestry != "not stated" else "not stated", specimen, "", age_mean,
-                         None, None, n_people, n_men, n_women, "", "", "", "", group_counts)
+                         None, None, n_people, n_men, n_women, "", "", "", "", group_counts, year)
+
+
+SNAPSHOT_HEADER = ("paper,cohort,technique,source_of_values,key,level,sex,group,side,mean,sd,n,sd_from,n_from,units,"
+                   "vs_panjabi,species,cohort_n")
+
+
+def rows_from(lines):
+    """Snapshot rows from csv lines in the snapshot's columns, through load_rows."""
+    import tempfile
+    with tempfile.NamedTemporaryFile("w", suffix=".csv", delete=False, encoding="utf-8") as fh:
+        fh.write(SNAPSHOT_HEADER + "\n" + "\n".join(lines) + "\n")
+        path = fh.name
+    try:
+        return L.load_rows(path)
+    finally:
+        os.unlink(path)
 
 
 class Register(unittest.TestCase):
@@ -107,9 +123,51 @@ class Register(unittest.TestCase):
             self.assertEqual(sexes, {"male", "female"})
         without, why = L.select(self.rows, strata=L.STRATA_APART)
         self.assertFalse(any(s.flag.startswith("sex apart") for s in without))
-        # 24 more rows left out than with the counts: Duman's; the rest print a sex with no SD
-        left = "a sex printed apart with no SD or count of its own"
-        self.assertEqual(why[left], self.why_apart[left] + 24)
+        self.assertEqual(len(self.apart) - len(without), 12)   # Duman's 12 pairs pooled in place of apart
+        # a pair not read apart is counted by _one_sex alone, so the left-out counts name no pair
+        self.assertFalse(any("printed apart" in k for k in why))
+
+    def test_a_sex_pair_printed_with_its_own_counts_is_read_apart(self):
+        male = "ptest,c,mdct-axial-pedicle,this paper,pedicle_w,L1,male,20-40,both,9.0,1.5,30,sd,,mm,close,,50"
+        female = "ptest,c,mdct-axial-pedicle,this paper,pedicle_w,L1,female,20-40,both,8.5,1.4,20,sd,,mm,close,,50"
+        got, _ = L.select(rows_from([male, female]), strata=L.STRATA_APART)
+        self.assertEqual([(s.sex, s.n, s.n_note, s.flag) for s in got],
+                         [("male", 30.0, "", "sex apart"), ("female", 20.0, "", "sex apart")])
+        # a count the cohort's people stand in for is not the row's own: not apart, pooled instead
+        got, _ = L.select(rows_from([male, female.replace(",20,sd", ",,sd")]), strata=L.STRATA_APART)
+        self.assertEqual(len(got), 1)
+        self.assertFalse(got[0].flag.startswith("sex apart"))
+
+    def test_the_registers_counts_hold_to_the_snapshot_and_to_each_other(self):
+        cohort_n = {}
+        for r in self.rows:
+            n = L._num(r.get("cohort_n", ""))
+            if math.isfinite(n):
+                cohort_n[r["paper"], r["cohort"]] = n
+        for p in self.register.values():
+            if p.n_people is not None and (p.paper, p.cohort) in cohort_n:
+                self.assertEqual(p.n_people, cohort_n[p.paper, p.cohort], (p.paper, p.cohort))
+            if None not in (p.n_people, p.n_men, p.n_women):
+                self.assertEqual(p.n_men + p.n_women, p.n_people, (p.paper, p.cohort))
+        bad = {("p", "c"): population("p", "c", n_people=10, n_men=5, n_women=6)}
+        self.assertTrue(any("5 men and 6 women" in x for x in RG.check([], bad)))
+
+    def test_the_year_column_gives_every_cohort_its_decade(self):
+        usable = [s for s in self.series if L.usable(s)]
+        self.assertFalse(any(RG.tag(s, self.register)["decade"] == RG.NOT_STATED for s in usable))
+        italian = next(s for s in usable if s.paper == "italianmri")
+        self.assertEqual(RG.tag(italian, self.register)["decade"], "2010s")
+        self.assertEqual(population("nodigits", "c", year=1999).decade, "1990s")
+        self.assertEqual(population("nodigits", "c").decade, RG.NOT_STATED)
+        self.assertEqual(population("tan2004", "c").decade, "2000s")
+
+    def test_six_cohorts_carry_the_count_weighted_mean_of_their_sexes_ages(self):
+        for key, mean in ((("abbas2021", "control"), 62.4), (("cizmic2023", "bih-sarajevo-ct"), 43.81),
+                          (("masharawi2021", "control"), 62.95), (("olsewski1990", "part1_cadavers"), 75.53),
+                          (("olsewski1990", "part3_patients"), 36.65), (("tang2016", "utah_mri"), 30.3)):
+            p = self.register[key]
+            self.assertEqual(p.age_mean, mean, key)
+            self.assertIn("count-weighted mean", p.notes, key)
 
     def test_the_apart_selection_keeps_the_whole_series_and_adds_strata(self):
         by = {(s.paper, s.cohort, s.key, s.level, s.group, s.sex): s.mean for s in self.apart}
@@ -195,6 +253,28 @@ class Subgroups(unittest.TestCase):
         self.assertEqual([(r["measure"], r["level"]) for r in got], [(r["measure"], r["level"]) for r in want])
         np.testing.assert_allclose([r["distance_sd"] for r in got], [r["tan_distance_panjabi_sd"] for r in want], rtol=1e-12)
         np.testing.assert_allclose([r["f_apart"] for r in got], [r["f_panjabi_apart"] for r in want], rtol=1e-12)
+        # and the inside flags are the prediction's, t and z
+        pred = T.prediction_by_stratum(snapshot)
+        self.assertEqual([(r["measure"], r["level"]) for r in pred], [(r["measure"], r["level"]) for r in got])
+        self.assertEqual([r["inside_rest_t"] for r in got], [bool(r["tan_inside_rest"]) for r in pred])
+        self.assertEqual([r["inside_rest_z"] for r in got], [bool(r["tan_inside_rest_plug"]) for r in pred])
+        self.assertTrue(any(not r["inside_rest_z"] for r in got) and any(r["inside_rest_t"] for r in got))
+
+    def test_a_value_of_several_series_is_held_to_the_interval_for_their_mean(self):
+        from synthval.validate import literature_at
+        rest = [series("a%d" % i, "c", 30.0 + 0.5 * i) for i in range(3)]
+        own = [series("b0", "c", 32.0), series("b1", "c", 33.5)]
+        r = SG.against_rest(rest + own, "country", "Y", self.register)[0]
+        self.assertEqual((r["k_value"], r["k_rest"]), (2, 3))
+        apart = literature_at(rest).mean
+        distance = SG.pooled_or_one(own)["mean"] - apart.mean
+        one = math.sqrt(apart.tau2 + apart.se ** 2)
+        scale = math.sqrt(apart.tau2 / 2 + apart.se ** 2)
+        self.assertLess(scale, one)
+        t_multiplier = (apart.pi_high - apart.mean) / one
+        self.assertEqual(r["inside_rest_t"], abs(distance) <= t_multiplier * scale)
+        self.assertEqual(r["inside_rest_z"], abs(distance) <= SG.Z * scale)
+        self.assertAlmostEqual(r["distance_sd"] * r["panjabi_sd"], distance, places=12)
 
     def test_a_paired_contrast_recovers_a_known_difference_within_cohorts(self):
         rows = []
@@ -211,6 +291,17 @@ class Subgroups(unittest.TestCase):
         self.assertAlmostEqual(r["difference"], 2.0, places=9)
         self.assertLess(r["p"], 0.001)
         self.assertNotIn("p9", r["within"])
+
+    def test_a_paired_contrast_takes_both_sides_variances(self):
+        reg = {("p", "c"): population("p", "c")}
+        rows = [series("p", "c", 30.0, sd=2.0, n=40.0, sex="male", group="g"),
+                series("p", "c", 27.0, sd=4.0, n=10.0, sex="female", group="g")]
+        r = SG.paired_contrast(rows, "sex", ("male", "female"), reg)[0]
+        se = math.sqrt(4.0 / 40.0 + 16.0 / 10.0)
+        self.assertAlmostEqual(r["se"], se, places=12)
+        self.assertAlmostEqual(r["z"], 3.0 / se, places=12)
+        self.assertAlmostEqual(r["ci_high_sd"] * r["panjabi_sd"], 3.0 + SG.Z * se, places=9)
+        self.assertAlmostEqual(r["p"], 2 * stats.norm.sf(3.0 / se), places=12)
 
     def test_a_paired_contrast_reads_a_cohorts_strata_before_its_whole(self):
         reg = {("p", "c"): population("p", "c")}

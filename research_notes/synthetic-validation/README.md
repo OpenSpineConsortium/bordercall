@@ -119,11 +119,12 @@ stand; a later snapshot is cut with `python3 -I snapshot.py --write <commit>` an
    merged pool's in the seven's cells with the spread taken as known (a half-width of 1.32 against 1.84
    SD) but then covers held-out series 87% of the time, under its nominal 95; Higgins' t interval, t on
    k - 2 degrees of freedom, is wider from the rest than from the merged pool in most cells (a median ratio
-   of 1.09; the medians 2.97 and 3.07 point the other way) because its multiplier is 4.3 on three series
-   and 12.7 on four against 3.2 and 4.3 with one more, and it covers held-out series 96 to 100% of the
-   time, above nominal. Neither interval is calibrated on three to seven populations, the one too wide
-   and the other too narrow, as Higgins and colleagues (2009) and the Cochrane Handbook warn (table tan,
-   figure fig_tan_strata, section Tan's population apart).
+   of 1.09; the medians 2.97 and 3.07 point the other way) because its multiplier is 12.7 on three series
+   and 4.3 on four against 4.3 and 3.2 with one more; held out it covers 96 to 100% of the series,
+   consistent with its nominal 95, so its width is what one or two degrees of freedom require with so
+   few populations, as Higgins and colleagues (2009) and the Cochrane Handbook say of a prediction
+   interval from very few studies, and only the plug-in interval falls short (table tan, figure
+   fig_tan_strata, section Tan's population apart).
 9. **Split by every variable the papers state, what the variables account for is mostly Tan 2004's
    distance under other names, and no population sits as far off as his.** Every cohort a usable series
    comes from is registered with its country, its ancestry as the paper words it, the specimen, the ages,
@@ -132,11 +133,12 @@ stand; a later snapshot is cut with `python3 -I snapshot.py --write <commit>` an
    REML, the Cochrane test for subgroup differences under that one spread, and the share of the spread
    between populations the variable accounts for, each read where the spread within has two degrees of
    freedom or more, and the share read twice, with Tan's series in and out. Over the 53 to 57 cells with
-   three series or more the test can be made in 15 to 34 a variable and falls below 0.05 in 4 to 8 of
+   three series or more the test can be made in 15 to 34 a variable and falls below 0.05 in 3 to 8 of
    them; with Tan in, the country accounts for a median 0.47 of the variance between populations, the
    stated ancestry 0.28, the decade 0.25, the specimen and the region 0.22, the modality 0.18 and the age
-   band 0.14; with Tan out, the decade's, the modality's and the age band's shares are 0.00, the region's
-   0.10, the ancestry's 0.16 and the country's 0.35, and only the specimen's holds (0.24). Against the
+   band nothing (0.00, the six cohorts that print their mean age per sex placed by the count-weighted
+   mean); with Tan out, the decade's and the modality's shares are 0.00 too, the region's 0.10, the
+   ancestry's 0.16 and the country's 0.35, and only the specimen's holds (0.24). Against the
    rest of its cells dry bone sits a median 0.82 SD below and cadavers 0.83 above, the Chinese cohorts
    0.69 below and the cohorts with no stated ancestry 0.67 above; paper by paper Tan 2004 is the farthest
    below (-0.86 over 34 cells), Abbas 2021 and Cizmic 2023 the farthest above (1.56 and 1.45); by
@@ -688,13 +690,15 @@ estimated from k populations, and in the seven's cells the rest hold three serie
 7, where t at 0.975 is 12.71 on one degree of freedom and 4.30 on two, against 4.30 and 3.18 with Tan's
 series as one more; the narrower scale (a median ratio of 0.74) does not make that up. With the spread
 taken as known (z in place of t) the rest's interval is a quarter narrower in the seven's cells (1.84 to
-1.32) and a sixth over all (1.62 to 1.35), but held out one series at a time it covers 87% of the rest's
-series against its nominal 95% (the merged pool's 97 and 91%), while the t intervals cover 96 to 100%,
-above nominal, which with 28 of the 63 held-out series facing an interval built on three series, t on
-one degree of freedom at 12.7 times the scale, is an interval that covers nearly anything rather than
-one that is right. Neither interval is calibrated on three to seven populations, as Higgins and
-colleagues (2009) and the Cochrane Handbook (section 10.10.4) warn of a prediction interval from very few
-studies. The two strata as a mixture, the prediction for a population of unknown kind, is wider than the
+1.32) and, by the cells' ratios, an eighth over all (a median ratio of 0.92; the medians, 1.62 to 1.35,
+overstate it), but held out one series at a time it covers 87% of the rest's series against its nominal
+95% (151 of 173; a binomial at 95% gives so few 3 times in 10,000), the merged pool's 91%, while the t
+intervals cover 97% of the 173 (168, which a binomial at 95% gives or betters 13% of the time) and all
+63 of the seven's, which share their cells: the t coverage is consistent with its level and only the
+plug-in interval falls short. The t interval's width is then what its one and two degrees of freedom
+require of three or four populations (28 of the 63 held-out series in the seven's cells face an interval
+built on three, t at 12.7 times the scale), as Higgins and colleagues (2009) and the Cochrane Handbook
+(section 10.10.4) say of a prediction interval from very few studies: at its level, and wide. The two strata as a mixture, the prediction for a population of unknown kind, is wider than the
 merged pool (3.40 against 3.07), Tan's component carrying his stratum's mean from one draw and one more
 draw, 2 tau^2 + v. Tan's mean falls inside the rest's t interval in 11 of the seven's 15 cells and inside
 its z interval in 5. So the stratum narrows the prediction only for a population known to be of the
@@ -721,8 +725,9 @@ register, data/populations.csv (synthval/register.py), is one row per cohort a u
 readers each, one extracting every field and a second refuting each against the file, which changed
 none: the country as the text states it or inferred from the institution and said so (23 stated, 2
 inferred, Zindrick's none), the ancestry only in the paper's own word (12 state one, 14 none), the
-specimen (6 dry bone, 4 cadaver, 15 living, 1 mixed), the ages, the counts of the sexes and of the groups
-a paper prints apart, as printed, and the page. The subgroup analysis, synthval/subgroups.py, runs for
+specimen (6 dry bone, 4 cadaver, 15 living, 1 mixed), the ages (a mean a paper prints per sex carried as
+the count-weighted mean, six cohorts, said so in notes), the counts of the sexes and of the groups a
+paper prints apart, as printed, the year, and the page. The subgroup analysis, synthval/subgroups.py, runs for
 any variable of a series (paper, cohort, the group a paper printed apart, sex, modality, technique) or
 of its cohort (country, region, ancestry, specimen, an age band, the decade), through register.tag, so a
 new variable is one column of the register and no code. Three readings (subgroups_run.py,
@@ -744,17 +749,17 @@ with no count of its own given the group's count times the cohort's share of the
 noted on the series, or left out.
 
 <!-- table subgroups -->
-| variable | cells | subgroups a cell, median | cells whose test is below 0.05, of the cells tested | share of the spread it accounts for, median (cells read) | the same with Tan 2004's series out | spread, the whole cell to within the subgroups, median | widest gap between subgroups, median (Panjabi's SD) |
+| variable | cells | subgroups a cell, median | cells whose test is below 0.05, of the cells tested | share of the spread it accounts for, median (cells read) | the same with Tan 2004's series out | spread over the cells read, the whole cell to within the subgroups, median | widest gap between subgroups, median (Panjabi's SD) |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| age_band | 57 | 3 | 4 of 30 | 0.14 (30) | 0.00 (25) | 0.83 to 0.80 | 1.09 |
-| ancestry | 57 | 3 | 5 of 24 | 0.28 (24) | 0.16 (19) | 0.83 to 0.79 | 1.21 |
-| cohort | 57 | 4 | none | none | none | 0.83 | 1.94 |
-| country | 57 | 4 | 8 of 15 | 0.47 (15) | 0.35 (15) | 0.83 to 0.79 | 1.85 |
-| decade | 57 | 3 | 6 of 27 | 0.25 (27) | 0.00 (27) | 0.83 to 0.76 | 1.49 |
-| modality | 53 | 2 | 6 of 34 | 0.18 (34) | 0.00 (20) | 0.86 to 0.67 | 1.14 |
-| paper | 57 | 4 | none | none | none | 0.83 | 1.94 |
-| region | 53 | 4 | 5 of 24 | 0.22 (24) | 0.10 (16) | 0.86 to 0.64 | 1.26 |
-| specimen | 53 | 2 | 8 of 31 | 0.22 (31) | 0.24 (22) | 0.86 to 0.69 | 1.38 |
+| age_band | 57 | 2 | 3 of 30 | 0.00 (30) | 0.00 (22) | 0.83 to 0.88 | 0.70 |
+| ancestry | 57 | 3 | 5 of 24 | 0.28 (24) | 0.16 (19) | 0.87 to 0.79 | 1.21 |
+| cohort | 57 | 4 | none | none | none | none | 1.94 |
+| country | 57 | 4 | 8 of 15 | 0.47 (15) | 0.35 (15) | 0.99 to 0.79 | 1.85 |
+| decade | 57 | 3 | 6 of 27 | 0.25 (27) | 0.00 (27) | 0.86 to 0.76 | 1.49 |
+| modality | 53 | 2 | 6 of 34 | 0.18 (34) | 0.00 (20) | 0.77 to 0.67 | 1.14 |
+| paper | 57 | 4 | none | none | none | none | 1.94 |
+| region | 53 | 4 | 5 of 24 | 0.22 (24) | 0.10 (16) | 0.75 to 0.64 | 1.26 |
+| specimen | 53 | 2 | 8 of 31 | 0.22 (31) | 0.24 (22) | 0.79 to 0.69 | 1.38 |
 
 | each paper against the rest | cells | series | distance from the rest's pooled mean (Panjabi's SD), median (quartiles) | cells above | cells inside the rest's interval, t / z | variance pooled / apart, median |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: |
@@ -779,33 +784,34 @@ noted on the series, or left out.
 
 | each value against the rest | cells | series | distance from the rest's pooled mean (Panjabi's SD), median (quartiles) | cells above | cells inside the rest's interval, t / z | variance pooled / apart, median |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: |
-| modality: bone | 30 | 85 | -0.93 (-1.27 to 0.32) | 8 | 30 / 23 | 1.56 |
-| specimen: dry bone | 30 | 70 | -0.82 (-1.27 to 0.18) | 10 | 30 / 25 | 1.13 |
+| modality: bone | 30 | 85 | -0.93 (-1.27 to 0.32) | 8 | 29 / 20 | 1.56 |
+| specimen: dry bone | 30 | 70 | -0.82 (-1.27 to 0.18) | 10 | 30 / 23 | 1.13 |
 | decade: 2000s | 30 | 45 | -0.82 (-1.65 to -0.29) | 3 | 26 / 20 | 1.19 |
-| ancestry: Chinese | 27 | 49 | -0.69 (-1.26 to -0.40) | 6 | 27 / 26 | 1.03 |
+| ancestry: Chinese | 27 | 49 | -0.69 (-1.26 to -0.40) | 6 | 27 / 21 | 1.03 |
 | ancestry: Indian | 5 | 5 | -0.63 (-0.72 to -0.47) | 0 | 5 / 5 | 0.90 |
 | region: South Asia | 5 | 5 | -0.63 (-0.72 to -0.47) | 0 | 5 / 5 | 0.90 |
-| age_band: 60 and over | 29 | 54 | -0.56 (-1.85 to -0.19) | 4 | 25 / 23 | 1.25 |
 | ancestry: Saudi | 15 | 15 | -0.53 (-2.02 to 0.01) | 4 | 12 / 11 | 1.09 |
-| region: East Asia | 27 | 64 | -0.49 (-1.09 to -0.04) | 7 | 27 / 26 | 0.92 |
-| specimen: living | 19 | 54 | -0.24 (-1.12 to 0.28) | 9 | 18 / 14 | 1.23 |
-| modality: ct | 19 | 64 | -0.24 (-0.85 to 0.28) | 9 | 19 / 16 | 1.23 |
+| region: East Asia | 27 | 64 | -0.49 (-1.09 to -0.04) | 7 | 27 / 21 | 0.92 |
+| age_band: 60 and over | 29 | 94 | -0.45 (-0.63 to -0.17) | 4 | 29 / 25 | 1.22 |
+| age_band: under 40 | 4 | 4 | -0.35 (-0.37 to -0.23) | 1 | 4 / 4 | 0.85 |
+| specimen: living | 19 | 54 | -0.24 (-1.12 to 0.28) | 9 | 16 / 12 | 1.23 |
+| modality: ct | 19 | 64 | -0.24 (-0.85 to 0.28) | 9 | 19 / 14 | 1.23 |
 | ancestry: Mexican | 20 | 20 | -0.15 (-0.71 to 0.09) | 6 | 20 / 20 | 0.92 |
 | region: Latin America | 20 | 20 | -0.15 (-0.71 to 0.09) | 6 | 20 / 20 | 0.92 |
-| region: West Asia | 31 | 52 | 0.01 (-0.85 to 0.49) | 16 | 31 / 28 | 0.96 |
-| decade: 2020s | 24 | 85 | 0.02 (-0.83 to 0.70) | 14 | 24 / 21 | 1.02 |
+| region: West Asia | 31 | 52 | 0.01 (-0.85 to 0.49) | 16 | 30 / 23 | 0.96 |
+| decade: 2020s | 24 | 85 | 0.02 (-0.83 to 0.70) | 14 | 23 / 19 | 1.02 |
 | decade: 1980s | 5 | 5 | 0.06 (0.00 to 0.08) | 4 | 5 / 5 | 0.86 |
-| age_band: 40 to 59 | 31 | 57 | 0.14 (-0.26 to 0.47) | 18 | 31 / 29 | 0.92 |
 | ancestry: Nigerian | 10 | 15 | 0.27 (0.15 to 0.82) | 8 | 10 / 10 | 0.75 |
 | region: Africa | 10 | 15 | 0.27 (0.15 to 0.82) | 8 | 10 / 10 | 0.75 |
+| age_band: not stated | 25 | 40 | 0.28 (-0.17 to 0.46) | 16 | 25 / 25 | 0.82 |
 | ancestry: Turkish | 12 | 12 | 0.29 (-0.25 to 1.09) | 8 | 10 / 8 | 1.00 |
-| age_band: not stated | 30 | 94 | 0.44 (0.06 to 0.73) | 24 | 30 / 29 | 0.81 |
+| age_band: 40 to 59 | 26 | 52 | 0.31 (-0.30 to 0.64) | 17 | 26 / 23 | 0.99 |
 | decade: 2010s | 25 | 25 | 0.46 (-0.30 to 0.89) | 17 | 25 / 25 | 0.92 |
 | decade: 1990s | 19 | 33 | 0.54 (-0.15 to 1.07) | 14 | 18 / 15 | 1.01 |
 | ancestry: Caucasian and African American | 10 | 10 | 0.66 (0.45 to 0.78) | 9 | 10 / 10 | 0.96 |
-| ancestry: not stated | 34 | 88 | 0.67 (0.06 to 1.02) | 27 | 34 / 33 | 0.92 |
-| specimen: cadaver | 20 | 30 | 0.83 (0.08 to 1.24) | 15 | 19 / 18 | 1.19 |
-| region: North America | 15 | 39 | 0.86 (-0.55 to 1.28) | 10 | 14 / 12 | 1.19 |
+| ancestry: not stated | 34 | 88 | 0.67 (0.06 to 1.02) | 27 | 34 / 30 | 0.92 |
+| specimen: cadaver | 20 | 30 | 0.83 (0.08 to 1.24) | 15 | 18 / 17 | 1.19 |
+| region: North America | 15 | 39 | 0.86 (-0.55 to 1.28) | 10 | 12 / 8 | 1.19 |
 | region: Europe | 15 | 15 | 1.22 (1.07 to 1.56) | 15 | 15 / 13 | 1.20 |
 
 | within-paper contrast | over | cells | pairs a cell, median | difference, median (quartiles), Panjabi's SD | cells above zero | cells below 0.05 | measures |
@@ -813,26 +819,30 @@ noted on the series, or left out.
 | ancestry: African American - Caucasian | every cell | 10 | 1 | -0.01 (-0.06 to 0.03) | 4 | 3 | pedicle_h, pedicle_w |
 | sex: male - female | every cell | 4 | 3 | 0.17 (0.13 to 0.19) | 4 | 3 | pedicle_w |
 
-The register holds 26 cohorts, every one a usable series names; 903 usable series under the main selection, 1067 with the strata apart (24 of them a sex printed apart, 24 of those with the count the register's group counts give, the paper counting its groups and its sexes but not the sexes within the groups). The test and the share are read where the spread within the subgroups has 2 degrees of freedom or more, and a subgroup of one series carries that common spread in the test. A value's row pools every cell where the value has a series and the rest hold three or more, and a value with fewer than 3 such cells is left out. The contrasts come from African American - Caucasian from yu2015; male - female from duman2026.
+The register holds 26 cohorts, every one a usable series names; 903 usable series under the main selection, 1067 with the strata apart (24 of them a sex printed apart, 24 of those with the count the register's group counts give, the paper counting its groups and its sexes but not the sexes within the groups). The test and the share are read where the spread within the subgroups has 2 degrees of freedom or more, and a subgroup of one series carries that common spread in the test. A value's row pools every cell where the value has a series and the rest hold three or more, and a value with fewer than 3 such cells is left out; a value with several series in a cell is held to the rest's interval for a mean of that many populations, so its inside counts read as a paper's do. The contrasts come from African American - Caucasian from yu2015; male - female from duman2026.
 <!-- end subgroups -->
 
 What it says. The test can be made where the spread within the subgroups has two degrees of freedom or
-more, in 15 of the country's 57 cells to 34 of the modality's 53, and falls below 0.05 in 4 to 8 of
-them a variable, so with three to nine series a cell it has little to say, and the share is the reading,
+more, in 15 of the country's 57 cells to 34 of the modality's 53, and falls below 0.05 in 3 to 8 of
+them a variable, so with three to ten series a cell it has little to say, and the share is the reading,
 taken twice. With Tan's series in, the country accounts for a median 0.47 of the variance between
 populations (15 cells), the stated ancestry 0.28 (24), the decade 0.25 (27), the specimen 0.22 (31), the
-region 0.22 (24), the modality 0.18 (34) and the age band 0.14 (30); with them out, the decade's, the
-modality's and the age band's shares are 0.00, since the 2000s are Tan, Lien and Robertson and Tan is
-the far member of the dry-bone, the 60-and-over and the East Asian subgroups, the region's falls to 0.10,
-the ancestry's to 0.16 (the Chinese cohorts, Tan, Hou, Griffith and the Zhengzhou CTs, being the only
-stated ancestry with more than one paper) and the country's to 0.35, and only the specimen's holds
+region 0.22 (24), the modality 0.18 (34) and the age band nothing (0.00 in 30 cells, once the six
+cohorts that print their mean age per sex, Abbas, Cizmic, Masharawi, Olsewski's two and Tang, are placed
+by the count-weighted mean, where the band of what papers left unsaid had carried 0.14); with them out,
+the decade's and the modality's shares are 0.00 too, since the 2000s are Tan, Lien and Robertson and
+Tan is the far member of the dry-bone and the East Asian subgroups, the region's falls to 0.10,
+the ancestry's to 0.16 (the Chinese cohorts, Tan, Hou, Griffith and the Zhengzhou CTs, and the two
+Nigerian ones being the only stated ancestries with more than one paper) and the country's to 0.35, and only the specimen's holds
 (0.24): what the variables account for is mostly Tan's distance under other names. Dry bone sits a
 median 0.82 of Panjabi's SD below the rest and cadavers 0.83 above, Europe's two cohorts 1.22 above;
 paper by paper Tan is the farthest below and Abbas and Cizmic the farthest above; by Higgins' t
 interval, wide as it is with three to nine series, the papers fall outside the rest's prediction in 11
 of 224 cells (Tan in 4 of 34, Arockiaraj in 3 of 15, Duman in 2 of 12, no other paper in more than one),
 and with the spread taken as known in 29 (Tan in 11, Arockiaraj and Duman in 4 each, no other in more
-than 3), so Tan is the one stratum the pool would mispredict in more than a cell in four.
+than 3): by Higgins' interval no paper is mispredicted in more than a cell in five (Arockiaraj 3 of 15, Duman 2
+of 12, Tan 4 of 34), and with the spread taken as known Tan, Duman and Arockiaraj each in about a cell
+in three, Tan in nearly three times the cells of either.
 The sex contrast comes from one paper (Duman's pedicle widths, men 0.07 to 0.21 SD wider within age
 bands, 3 of 4 cells below 0.05) on counts he does not print: he counts his bands (198, 176 and 143) and
 his sexes (277 men, 240 women) but not the sexes within the bands, so each sex of a band is given the
@@ -985,8 +995,8 @@ the same bytes in every record but RECORD.json's seconds.
   stratum of his own, and the prediction by stratum), register.py and subgroups.py (the population
   register and the subgroup meta-analysis by any variable), house.py.
 - data/: the snapshot of the reread's series and SOURCE.json; populations.csv, the register of the cohorts.
-- tests/test_synthval.py: 38 tests of the code against what its docstrings say; tests/test_subgroups.py:
-  16 of the register and the subgroups.
+- tests/test_synthval.py: 39 tests of the code against what its docstrings say; tests/test_subgroups.py:
+  22 of the register and the subgroups.
 
 ## What this note does not do
 

@@ -457,11 +457,12 @@ def t_subgroups(rec: str) -> str:
         rows.append([v, g["cells"], f(g["groups_per_cell"]["median"], 0),
                      "%d of %d" % (g["cells_below_alpha"], g["cells_tested"]) if g["cells_tested"] else "none",
                      share(g), share(out),
-                     "%s to %s" % (f(g["f_total"]["median"]), f(g["f_within"]["median"])) if g["f_within"]["cells"] else f(g["f_total"]["median"]),
+                     "%s to %s" % (f(g["f_total_where_read"]["median"]), f(g["f_within"]["median"])) if g["f_within"]["cells"] else "none",
                      f(g["widest_gap_sd"]["median"])])
     t1 = table(["variable", "cells", "subgroups a cell, median", "cells whose test is below 0.05, of the cells tested",
                 "share of the spread it accounts for, median (cells read)", "the same with Tan 2004's series out",
-                "spread, the whole cell to within the subgroups, median", "widest gap between subgroups, median (Panjabi's SD)"], rows)
+                "spread over the cells read, the whole cell to within the subgroups, median",
+                "widest gap between subgroups, median (Panjabi's SD)"], rows)
 
     def against(items):
         out = []
@@ -498,8 +499,9 @@ def t_subgroups(rec: str) -> str:
             " counts give, the paper counting its groups and its sexes but not the sexes within the groups). The test"
             " and the share are read where the spread within the subgroups has %d degrees of freedom or more, and a"
             " subgroup of one series carries that common spread in the test. A value's row pools every cell where the"
-            " value has a series and the rest hold three or more, and a value with fewer than %d such cells is left out."
-            " The contrasts come from %s." % (
+            " value has a series and the rest hold three or more, and a value with fewer than %d such cells is left out;"
+            " a value with several series in a cell is held to the rest's interval for a mean of that many populations,"
+            " so its inside counts read as a paper's do. The contrasts come from %s." % (
                 reg["cohorts"], reg["usable"], reg["apart_usable"], reg["sex_apart_series"],
                 reg["sex_apart_counts_from_the_register"], sg["least_df_within"], sg["least_cells"],
                 "; ".join("%s from %s" % (pair, " and ".join(sorted(ws))) for pair, ws in sorted(within.items()))))

@@ -390,6 +390,26 @@ class TanApart(unittest.TestCase):
                 self.assertGreater(r["half_width_%s_sd" % name], 0.0)
             self.assertEqual(r["tan_inside_rest"], r["rest_low"] <= r["tan_mean"] <= r["rest_high"])
 
+    def test_leave_one_out_coverage_is_the_hand_count(self):
+        near = [L.Series("p%d" % i, "", "t", "bone", "", "all", "h_post", "L1", 30.0 + 0.3 * i, 2.0, 40.0, "same") for i in range(4)]
+        off = L.Series("p4", "", "t", "bone", "", "all", "h_post", "L1", 40.0, 2.0, 40.0, "same")
+        far = L.Series("tan2004", "", "t", "bone", "", "all", "h_post", "L1", 24.0, 2.0, 10.0, "same")
+        rest = near + [off]
+        rows = self.T.prediction_by_stratum(rest + [far])
+        self.assertEqual(len(rows), 1)
+        r = rows[0]
+        self.assertEqual((r["k_rest"], r["held_out"]), (5, 5))
+        hand = {"merged": 0, "rest": 0, "merged_plug": 0, "rest_plug": 0}
+        for s in rest:
+            others = [x for x in rest if x is not s]
+            for name, pool in (("merged", others + [far]), ("rest", others)):
+                p = self.T._prediction(pool)
+                hand[name] += int(p["low"] <= s.mean <= p["high"])
+                hand[name + "_plug"] += int(p["plug_low"] <= s.mean <= p["plug_high"])
+        for name, count in hand.items():
+            self.assertEqual(r["covered_" + name], count, name)
+        self.assertLess(hand["rest_plug"], 5)   # the off series, held out, escapes the z interval of the near four
+
     @staticmethod
     def _five_and_a_far_one():
         rest = [L.Series("p%d" % i, "", "", "bone", "", "", "k", "L1", 30.0 + i * 0.3, 2.0, 40.0, "same") for i in range(5)]

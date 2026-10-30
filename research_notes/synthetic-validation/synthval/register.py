@@ -14,8 +14,12 @@ split", 2026-10-29). The rules: the country as the subjects text states it or, w
 only an institution or a city, inferred from that and said so in country_basis; the ancestry
 only in the paper's own word (Chinese, Caucasian, ...), never inferred from a country, so most
 rows say "not stated"; the specimen cadaver, dry bone, living or mixed; the ages and counts as
-printed, null where none; the evidence the cohort's page. A cohort file is a reading of a paper,
-so a field here is as good as that reading, and a doubt is in notes.
+printed, null where none, except that a mean age a paper prints per sex with the sexes' counts
+is carried as the count-weighted mean and said so in notes, as a count printed per sex is summed
+to n_people; the counts of the groups a paper prints apart in group_counts where it counts them;
+the paper's year as the reread's note dates it; the evidence the cohort's page. A cohort file is
+a reading of a paper, so a field here is as good as that reading, and a doubt is in notes.
+check() holds the counts to each other (the sexes to the cohort, the groups to the cohort).
 
 Two kinds of variable: the ones the snapshot carries on every series (paper, cohort, the group a
 paper printed apart, sex as the selection left it, modality, technique) and the ones the register
@@ -38,7 +42,7 @@ from . import literature as L
 POPULATIONS = os.path.join(L.DATA, "populations.csv")
 COLUMNS = ["paper", "cohort", "country", "country_basis", "ancestry", "ancestry_text", "ancestry_basis", "specimen",
            "age_text", "age_mean", "age_low", "age_high", "n_people", "n_men", "n_women", "sex_text", "selection",
-           "evidence", "notes", "group_counts"]
+           "evidence", "notes", "group_counts", "year"]
 GROUP_SHARE_NOTE = "n is the group's count times the cohort's share of the sex (the paper does not split its groups by sex)"
 VARIABLES = ("paper", "cohort", "group", "sex", "modality", "technique", "country", "region", "ancestry", "specimen",
              "age_band", "decade")
@@ -94,6 +98,7 @@ class Population:
     evidence: str
     notes: str
     group_counts: str = ""  # the people in each group the paper prints apart, "group:n;group:n", where it counts them
+    year: Optional[float] = None  # the paper's year, as the reread's note dates it; the key's digits where none
 
     @property
     def region(self) -> str:
@@ -117,13 +122,17 @@ class Population:
         return next(band for top, band in AGE_BANDS if self.age_mean < top)
 
     @property
-    def year(self) -> Optional[int]:
+    def year_or_keys(self) -> Optional[int]:
+        """The year column, else the last four digits of the paper's key (tan2004), else None."""
+        if self.year is not None:
+            return int(self.year)
         digits = "".join(ch for ch in self.paper if ch.isdigit())
         return int(digits[-4:]) if len(digits) >= 4 else None
 
     @property
     def decade(self) -> str:
-        return "%ds" % (self.year // 10 * 10) if self.year else NOT_STATED
+        year = self.year_or_keys
+        return "%ds" % (year // 10 * 10) if year else NOT_STATED
 
 
 def _number(x: str) -> Optional[float]:
@@ -143,7 +152,7 @@ def load(path: str = POPULATIONS) -> Dict[Tuple[str, str], Population]:
     return out
 
 
-NUMBERS = ("age_mean", "age_low", "age_high", "n_people", "n_men", "n_women")
+NUMBERS = ("age_mean", "age_low", "age_high", "n_people", "n_men", "n_women", "year")
 
 
 def write(path: str, rows: Sequence[dict]) -> None:
@@ -183,6 +192,10 @@ def check(series: Sequence[L.Series], register: Dict[Tuple[str, str], Population
             continue
         if groups and p.n_people is not None and sum(groups.values()) != p.n_people:
             problems.append("%s %s: the groups' counts sum to %g, not the cohort's %g" % (p.paper, p.cohort, sum(groups.values()), p.n_people))
+        if None not in (p.n_people, p.n_men, p.n_women) and p.n_men + p.n_women != p.n_people:
+            problems.append("%s %s: %g men and %g women are not the cohort's %g" % (p.paper, p.cohort, p.n_men, p.n_women, p.n_people))
+        if p.year is not None and not 1900 <= p.year <= 2100:
+            problems.append("%s %s: year %r" % (p.paper, p.cohort, p.year))
     return problems
 
 
