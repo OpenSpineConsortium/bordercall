@@ -1,0 +1,9 @@
+source,case,region,discs,read,masks_gap,ct_height,truth,median,q25,q75
+ENHANCE.PET CT,0004,cervical,5,,2.6,3.213,,-0.594,-0.674,-0.504
+ENHANCE.PET CT,0004,thoracic,6,,3,2.8265,,-0.0055,-0.121,0.137
+ENHANCE.PET CT,0004,lumbar,3,,7,6.792,,0.387,0.1615,0.43
+ENHANCE.PET CT,0006,cervical,5,,2.6,2.98,,-0.441,-1.044,-0.349
+ENHANCE.PET CT,0006,thoracic,10,,2.9,3.686,,-0.499,-0.69675,0.1885
+ENHANCE.PET CT,0006,lumbar,4,,7.45,7.366,,0.0575,-0.06325,0.1325
+ENHANCE.PET CT,0010,cervical,4,,2.7,3.3005,,-0.3725,-0.4635,-0.335
+ENHANCE.PET CT,0010,lumbar,3,,9.2,8.603,,0.462,0.413,0.484
