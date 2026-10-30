@@ -17,7 +17,11 @@
   drawing's superellipse holds the area it is asked for, its pedicles meeting the body;
 - the power tests have the power they say, the calibrated spreads read above the raw ones, as a
   correction of estimates that read low must, and Griffith's sexes taken together give the
-  mixture's correlation.
+  mixture's correlation;
+- Tan's stratum: the matched cells are the same with Tan pooled in and apart, pooling a series
+  that sits far off widens the spread and never leaves the rest's cells, Tan's table is his
+  printed means wherever he prints one, and the prediction for one more population widens with a
+  far series pooled in, holds out what it says and finds the mixture's own quantiles.
 """
 from __future__ import annotations
 
@@ -330,6 +334,109 @@ class Power(unittest.TestCase):
                          [("r_between", 0.8), ("sd_scale", 0.5), ("sd_scale", 0.55)])
         self.assertEqual([p["distance"] for p in got], sorted(p["distance"] for p in got))
         self.assertTrue(all(p["rho"] == 0.5 and p["scale_sd"] == 0.0 for p in got))
+
+
+class TanApart(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        from synthval import tan as T
+        cls.T = T
+        cls.series, _ = L.select(L.load_rows())
+        cls.rows = T.matched_spread(cls.series)
+
+    def test_split_takes_every_series_once(self):
+        rest, tan = self.T.split(self.series)
+        self.assertEqual(len(rest) + len(tan), len(self.series))
+        self.assertTrue(tan and all(s.paper == "tan2004" for s in tan))
+        self.assertFalse(any(s.paper == "tan2004" for s in rest))
+
+    def test_matched_cells_have_three_rest_series_and_tan(self):
+        self.assertTrue(self.rows)
+        self.assertTrue(all(r["k_rest"] >= 3 for r in self.rows))
+
+    def test_a_far_series_widens_the_spread(self):
+        from synthval import validate as V
+        rest = [L.Series("p%d" % i, "", "", "bone", "", "", "k", "L1", 30.0 + i * 0.1, 2.0, 40.0, "same")
+                for i in range(4)]
+        far = L.Series("tan2004", "", "", "bone", "", "", "k", "L1", 26.0, 2.0, 10.0, "same")
+        self.assertGreater(V.literature_at(rest + [far]).mean.tau, V.literature_at(rest).mean.tau)
+
+    def test_tan_table_is_his_means_where_he_prints(self):
+        seven = MS.select(MS.SPINEPS_7)
+        mu, sd, filled = self.T.tan_table(self.series, seven)
+        _, psd = MS.arrays(seven, LEVELS)
+        np.testing.assert_array_equal(sd, psd)
+        # every mean he prints, whatever its SD: the endplate at C6 prints 15.8 with an SD of 0
+        by = {(s.key, s.level): s.mean for s in self.series if s.paper == "tan2004" and math.isfinite(s.mean)}
+        self.assertEqual(by["endplate", "C6"], 15.8)
+        self.assertFalse(L.usable(next(s for s in self.series if s.paper == "tan2004" and (s.key, s.level) == ("endplate", "C6"))))
+        for j, m in enumerate(seven):
+            for i, lv in enumerate(LEVELS):
+                key = L.measure_key(m.key)
+                if (key, lv) in by:
+                    self.assertEqual(mu[j, i], by[key, lv])
+                else:
+                    self.assertIn("%s %s" % (key, lv), filled)
+        self.assertEqual(filled, [])
+
+    def test_prediction_reads_the_matched_cells_and_counts_what_it_holds_out(self):
+        rows = self.T.prediction_by_stratum(self.series)
+        self.assertEqual([(r["measure"], r["level"]) for r in rows], [(r["measure"], r["level"]) for r in self.rows])
+        for r in rows:
+            self.assertEqual(r["held_out"], r["k_rest"] if r["k_rest"] >= 4 else 0)
+            self.assertEqual(len(r["rest_means"].split(";")), r["k_rest"])
+            for name in ("merged", "rest", "mixture", "merged_plug", "rest_plug"):
+                self.assertLessEqual(r["covered_" + name], r["held_out"])
+                self.assertGreater(r["half_width_%s_sd" % name], 0.0)
+            self.assertEqual(r["tan_inside_rest"], r["rest_low"] <= r["tan_mean"] <= r["rest_high"])
+
+    def test_leave_one_out_coverage_is_the_hand_count(self):
+        near = [L.Series("p%d" % i, "", "t", "bone", "", "all", "h_post", "L1", 30.0 + 0.3 * i, 2.0, 40.0, "same") for i in range(4)]
+        off = L.Series("p4", "", "t", "bone", "", "all", "h_post", "L1", 40.0, 2.0, 40.0, "same")
+        far = L.Series("tan2004", "", "t", "bone", "", "all", "h_post", "L1", 24.0, 2.0, 10.0, "same")
+        rest = near + [off]
+        rows = self.T.prediction_by_stratum(rest + [far])
+        self.assertEqual(len(rows), 1)
+        r = rows[0]
+        self.assertEqual((r["k_rest"], r["held_out"]), (5, 5))
+        hand = {"merged": 0, "rest": 0, "merged_plug": 0, "rest_plug": 0}
+        for s in rest:
+            others = [x for x in rest if x is not s]
+            for name, pool in (("merged", others + [far]), ("rest", others)):
+                p = self.T._prediction(pool)
+                hand[name] += int(p["low"] <= s.mean <= p["high"])
+                hand[name + "_plug"] += int(p["plug_low"] <= s.mean <= p["plug_high"])
+        for name, count in hand.items():
+            self.assertEqual(r["covered_" + name], count, name)
+        self.assertLess(hand["rest_plug"], 5)   # the off series, held out, escapes the z interval of the near four
+
+    @staticmethod
+    def _five_and_a_far_one():
+        rest = [L.Series("p%d" % i, "", "", "bone", "", "", "k", "L1", 30.0 + i * 0.3, 2.0, 40.0, "same") for i in range(5)]
+        return rest, L.Series("tan2004", "", "", "bone", "", "", "k", "L1", 24.0, 2.0, 10.0, "same")
+
+    def test_a_far_series_widens_the_merged_prediction_and_sits_outside_the_rests(self):
+        rest, far = self._five_and_a_far_one()
+        apart, merged = self.T._prediction(rest), self.T._prediction(rest + [far])
+        self.assertGreater(merged["plug_high"] - merged["plug_low"], apart["plug_high"] - apart["plug_low"])
+        self.assertGreater(merged["high"] - merged["low"], apart["high"] - apart["low"])
+        self.assertFalse(apart["plug_low"] <= far.mean <= apart["plug_high"])
+        self.assertLess(apart["plug_high"] - apart["plug_low"], apart["high"] - apart["low"])
+
+    def test_the_mixture_band_holds_both_strata_at_its_own_quantiles(self):
+        from scipy import stats
+        rest, far = self._five_and_a_far_one()
+        apart = self.T._prediction(rest)
+        lo, hi = self.T.mixture_band(apart, far)
+        self.assertLess(lo, far.mean)
+        self.assertGreater(hi, apart["mean"])
+        w = 1.0 / (apart["k"] + 1)
+        scale = math.sqrt(2.0 * apart["tau2"] + far.sd ** 2 / far.n)   # the stratum's mean from one draw, and one more
+
+        def cdf(x):
+            return (1 - w) * stats.t.cdf((x - apart["mean"]) / apart["scale"], apart["k"] - 2) + w * stats.norm.cdf((x - far.mean) / scale)
+        self.assertAlmostEqual(cdf(lo), 0.025, places=6)
+        self.assertAlmostEqual(cdf(hi), 0.975, places=6)
 
 
 if __name__ == "__main__":
