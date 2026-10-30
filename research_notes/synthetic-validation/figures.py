@@ -797,18 +797,27 @@ def fig_subgroups(records: str, out: str) -> List[str]:
     drawn = []
     a = axes[0, 0]
     variables = [v for v in sg["analysis"] if sg["analysis"][v]["all"]["r2"]["cells"] >= 5]
+    labelled = set()
     for i, v in enumerate(variables):
         r2 = [num(r["r2"]) for r in analysis if r["variable"] == v and finite(num(r["r2"]))]
         a.plot([i + dodge(j % 7, 7, 0.05) for j in range(len(r2))], r2, linestyle="none", marker="o", markersize=2.5,
                markerfacecolor="white", color=H.GREY)
         med = sg["analysis"][v]["all"]["r2"]["median"]
-        a.plot([i - 0.3, i + 0.3], [med, med], color=H.INK, linewidth=1.6)
-        drawn.append({"panel": "A", "variable": v, "cells": len(r2), "r2_median": med})
+        a.plot([i - 0.3, i + 0.3], [med, med], color=H.INK, linewidth=1.6, label="median, Tan 2004 in" if i == 0 else None)
+        without = sg["analysis_without_tan"].get(v, {}).get("all", {}).get("r2", {"cells": 0})
+        med_out = without["median"] if without["cells"] else float("nan")
+        if without["cells"]:
+            a.plot([i - 0.3, i + 0.3], [med_out, med_out], color=H.GREY, linewidth=1.6, linestyle="--",
+                   label=None if "out" in labelled else "median, Tan 2004 out")
+            labelled.add("out")
+        drawn.append({"panel": "A", "variable": v, "cells": len(r2), "r2_median": med, "cells_without_tan": without["cells"],
+                      "r2_median_without_tan": med_out})
     a.set_xticks(range(len(variables)))
     a.set_xticklabels([v.replace("_", " ") for v in variables], rotation=90, fontsize=7)
     a.set_ylabel("share of the spread the variable accounts for")
     a.set_ylim(-0.02, 1.02)
-    H.letter(a, "A", "subgroups by each variable, a dot a cell, the bar its median")
+    a.legend(loc="upper right", fontsize=6)
+    H.letter(a, "A", "subgroups by each variable, a dot a cell, the bars its medians")
 
     def against(ax, items, letter, title, filled=()):
         items = sorted(items, key=lambda kv: kv[1]["all"]["distance_sd"]["median"])
@@ -854,10 +863,10 @@ def fig_subgroups(records: str, out: str) -> List[str]:
     fig.tight_layout()
     H.write_csv(out, "fig_subgroups", drawn)
     return H.save(fig, out, "fig_subgroups", (
-        "The populations by every variable of the register. A: the share of the spread between populations "
-        "each variable accounts for, a dot a cell. B, C: each paper, and each ancestry, specimen, region and "
-        "modality, against the rest, Tan 2004 filled. D: differences a paper prints apart: the sexes within "
-        "age bands, two ancestries of one collection."))
+        "The populations by every register variable. A: the share of the spread each variable accounts for, "
+        "a dot a cell, bars the median with Tan 2004 in (black) and out (grey). B, C: each paper and each "
+        "value against the rest, Tan filled. D: differences a paper prints apart: the sexes within age "
+        "bands, two ancestries of one collection."))
 
 
 FIGURES = (fig_means, fig_spread, fig_structure, fig_state_space, fig_naming, fig_power, fig_quality, fig_assumptions,

@@ -410,11 +410,12 @@ def t_tan(rec: str) -> str:
     found = next(g for g in gold if g["persons"] == 12)
     note = ("Each moved row is the mean over %d tables of the same %d columns, the before and after tables of one"
             " index drawn from the same standard draws; the rest's tables lose, paired with the pooled, %s bodies."
-            " Tan's row is his one table (%s filled where he prints no value), and the own-table row is the"
-            " generator's. Tan's median distance over the seven's %d matched cells is %s of Panjabi's SD; 12 persons"
-            " find a shift of %s in one cell, so a population as far off as Tan's shows in %s%% of those cells from"
-            " twelve gold persons." % (
-                tables, ts["columns"], paired, " and ".join(ts["tan_table_filled"]) or "nothing", found["cells"],
+            " Tan's row is his one table (%s), and the own-table row is the generator's. Tan's median distance over"
+            " the seven's %d matched cells is %s of Panjabi's SD; 12 persons find a shift of %s in one cell, so a"
+            " population as far off as Tan's shows in %s%% of those cells from twelve gold persons." % (
+                tables, ts["columns"], paired,
+                ("%s filled where he prints no value" % " and ".join(ts["tan_table_filled"])) if ts["tan_table_filled"]
+                else "every level his own printed mean", found["cells"],
                 f(abs(found["tan_median_distance"])), f(found["least_mean_shift_one_cell"]),
                 pct(found["share_of_seven_cells_found"], 0)))
     rows = []
@@ -423,12 +424,15 @@ def t_tan(rec: str) -> str:
         rows.append([label, g["cells"],
                      "%s to %s" % (f(g["half_width_merged_sd"]["median"]), f(g["half_width_rest_sd"]["median"])),
                      "%s to %s" % (f(g["half_width_merged_plug_sd"]["median"]), f(g["half_width_rest_plug_sd"]["median"])),
+                     "%s / %s" % (f(g["half_width_ratio_rest_over_merged"]["median"]),
+                                  f(g["half_width_ratio_rest_over_merged_plug"]["median"])),
                      f(g["half_width_mixture_sd"]["median"]), "%d / %d" % (g["tan_inside_rest"], g["tan_inside_rest_plug"]),
                      "%d in %d" % (g["series_held_out"], g["cells_held_out"]),
                      "%s / %s / %s" % (pct(g["coverage_merged"], 0), pct(g["coverage_rest"], 0), pct(g["coverage_mixture"], 0)),
                      "%s / %s" % (pct(g["coverage_merged_plug"], 0), pct(g["coverage_rest_plug"], 0))])
     t3 = table(["prediction for one more population, Tan pooled in to Tan apart", "cells",
                 "half-width, t on k - 2 (Panjabi's SD), median", "the same, the spread taken as known (z)",
+                "the rest's over the merged, median of the cells' ratios, t / z",
                 "the two strata as a mixture, t", "cells with Tan inside the rest's, t / z", "series held out",
                 "held-out series covered, t: merged / rest / mixture", "z: merged / rest"], rows)
     return t1 + "\n\n" + split + "\n\n" + t2 + "\n\n" + note + "\n\n" + t3
@@ -444,14 +448,19 @@ def t_subgroups(rec: str) -> str:
     within-paper contrasts."""
     sg = read_json(os.path.join(rec, "subgroups"), "subgroups.json")
     rows = []
+
+    def share(g):
+        return "%s (%d)" % (f(g["r2"]["median"]), g["r2"]["cells"]) if g["r2"]["cells"] else "none"
     for v, groups in sg["analysis"].items():
         g = groups["all"]
-        rows.append([v, g["cells"], f(g["groups_per_cell"]["median"], 0), "%d of %d" % (g["cells_below_alpha"], g["cells_tested"]),
-                     "%s (%d)" % (f(g["r2"]["median"]), g["r2"]["cells"]) if g["r2"]["cells"] else "none",
+        out = sg["analysis_without_tan"].get(v, {}).get("all", {"r2": {"cells": 0}})
+        rows.append([v, g["cells"], f(g["groups_per_cell"]["median"], 0),
+                     "%d of %d" % (g["cells_below_alpha"], g["cells_tested"]) if g["cells_tested"] else "none",
+                     share(g), share(out),
                      "%s to %s" % (f(g["f_total"]["median"]), f(g["f_within"]["median"])) if g["f_within"]["cells"] else f(g["f_total"]["median"]),
                      f(g["widest_gap_sd"]["median"])])
-    t1 = table(["variable", "cells", "subgroups a cell, median", "cells whose test is below 0.05",
-                "share of the spread it accounts for, median (cells read)",
+    t1 = table(["variable", "cells", "subgroups a cell, median", "cells whose test is below 0.05, of the cells tested",
+                "share of the spread it accounts for, median (cells read)", "the same with Tan 2004's series out",
                 "spread, the whole cell to within the subgroups, median", "widest gap between subgroups, median (Panjabi's SD)"], rows)
 
     def against(items):
@@ -485,10 +494,14 @@ def t_subgroups(rec: str) -> str:
         within.setdefault(r["pair"], set()).update(w.split("/")[0] for w in r["within"].split(";"))
     reg = sg["register"]
     note = ("The register holds %d cohorts, every one a usable series names; %d usable series under the main selection,"
-            " %d with the strata apart (%d of them a sex printed apart). A value's row pools every cell where the value"
-            " has a series and the rest hold three or more, and a value with fewer than %d such cells is left out. The"
-            " contrasts come from %s." % (
-                reg["cohorts"], reg["usable"], reg["apart_usable"], reg["sex_apart_series"], sg["least_cells"],
+            " %d with the strata apart (%d of them a sex printed apart, %d of those with the count the register's group"
+            " counts give, the paper counting its groups and its sexes but not the sexes within the groups). The test"
+            " and the share are read where the spread within the subgroups has %d degrees of freedom or more, and a"
+            " subgroup of one series carries that common spread in the test. A value's row pools every cell where the"
+            " value has a series and the rest hold three or more, and a value with fewer than %d such cells is left out."
+            " The contrasts come from %s." % (
+                reg["cohorts"], reg["usable"], reg["apart_usable"], reg["sex_apart_series"],
+                reg["sex_apart_counts_from_the_register"], sg["least_df_within"], sg["least_cells"],
                 "; ".join("%s from %s" % (pair, " and ".join(sorted(ws))) for pair, ws in sorted(within.items()))))
     return "\n\n".join((t1, t2, t3, t4, note))
 

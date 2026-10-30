@@ -111,13 +111,13 @@ def spread_summary(rows: Sequence[dict]) -> Dict[str, dict]:
 
 
 def tan_table(series: Sequence[L.Series], measures: Sequence[MS.Measure]) -> Tuple[np.ndarray, np.ndarray, List[str]]:
-    """The rule's table as Tan's population would give it: Tan's mean at every level he prints,
-    Panjabi's SD (Tan's SDs being left out as the validation leaves them out). A level Tan does not
-    print takes Panjabi's mean times Tan's ratio to Panjabi at the nearest printed levels on each
-    side, averaged, and is listed."""
+    """The rule's table as Tan's population would give it: Tan's mean at every level he prints
+    one, whatever he prints for its SD (his SDs being left out as the validation leaves them out),
+    Panjabi's SD. A level Tan does not print takes Panjabi's mean times Tan's ratio to Panjabi at
+    the nearest printed levels on each side, averaged, and is listed."""
     mu, sd = MS.arrays(list(measures), LEVELS)
     out = mu.copy()
-    by = {(s.key, s.level): s.mean for s in series if s.paper == TAN and L.usable(s)}
+    by = {(s.key, s.level): s.mean for s in series if s.paper == TAN and math.isfinite(s.mean)}
     filled = []
     for j, m in enumerate(measures):
         key = L.measure_key(m.key)
@@ -246,13 +246,16 @@ def mixture_band(rest: dict, tan: L.Series, level: float = BAND) -> Tuple[float,
     """The central band of a population of unknown kind, the two strata as a mixture with each
     population counting once: with probability k / (k + 1) it is of the rest's kind, its mean
     Student t on k - 2 degrees of freedom at the rest's pooled mean with the predictive scale, as
-    Higgins' interval has it; with probability 1 / (k + 1) of Tan's, its mean normal at Tan's with
-    the rest's spread between populations and Tan's own SE, as the pool weights him, since a
-    stratum of one population gives no spread of its own (a subgroup analysis' common tau). The
-    edges are found by bisection on the mixture's distribution function."""
+    Higgins' interval has it; with probability 1 / (k + 1) of Tan's, its mean normal at Tan's
+    with the variance 2 tau^2 + v, where tau^2 is the rest's spread between populations, taken as
+    Tan's stratum's too since a stratum of one population gives no spread of its own (a subgroup
+    analysis' common tau), and v Tan's own sampling variance: his mean estimates his stratum's
+    with the variance tau^2 + v, the weight the pool gives him, and one more population of his
+    kind adds a draw of its own, tau^2 again. The edges are found by bisection on the mixture's
+    distribution function."""
     k = rest["k"]
     w_tan = 1.0 / (k + 1)
-    tan_scale = math.sqrt(rest["tau2"] + tan.sd ** 2 / tan.n)
+    tan_scale = math.sqrt(2.0 * rest["tau2"] + tan.sd ** 2 / tan.n)
 
     def cdf(x: float) -> float:
         return ((1.0 - w_tan) * stats.t.cdf((x - rest["mean"]) / rest["scale"], k - 2)

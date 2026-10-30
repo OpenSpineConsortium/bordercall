@@ -20,15 +20,15 @@ B,,,,,,,,,,,,before: 39 papers pooled,9,13.3036,2,,,,,
 B,,,,,,,,,,,,after: the rest without Tan,1,9.71591,2,,,,,
 B,,,,,,,,,,,,after: the rest without Tan,3,19.25,2,,,,,
 B,,,,,,,,,,,,after: the rest without Tan,9,13.4821,2,,,,,
-B,,,,,,,,,,,,after: Tan's own table,1,19.0909,1,,,,,
-B,,,,,,,,,,,,after: Tan's own table,3,21.625,1,,,,,
-B,,,,,,,,,,,,after: Tan's own table,9,7.85714,1,,,,,
+B,,,,,,,,,,,,after: Tan's own table,1,18.9773,1,,,,,
+B,,,,,,,,,,,,after: Tan's own table,3,21.375,1,,,,,
+B,,,,,,,,,,,,after: Tan's own table,9,7.67857,1,,,,,
 C,,,,,,,,,,,,,,,,merged,all,2.37246,0.959538,173
 C,,,,,,,,,,,,,,,,merged,seven,3.06671,1,63
 C,,,,,,,,,,,,,,,,rest,all,2.33848,0.971098,173
 C,,,,,,,,,,,,,,,,rest,seven,2.96515,1,63
-C,,,,,,,,,,,,,,,,mixture,all,2.45471,0.971098,173
-C,,,,,,,,,,,,,,,,mixture,seven,3.27821,1,63
+C,,,,,,,,,,,,,,,,mixture,all,2.55892,0.971098,173
+C,,,,,,,,,,,,,,,,mixture,seven,3.39755,1,63
 C,,,,,,,,,,,,,,,,merged_plug,all,1.62172,0.913295,173
 C,,,,,,,,,,,,,,,,merged_plug,seven,1.83625,0.968254,63
 C,,,,,,,,,,,,,,,,rest_plug,all,1.34506,0.872832,173

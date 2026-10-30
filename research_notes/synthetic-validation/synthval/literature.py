@@ -103,6 +103,7 @@ N_BY_LEVEL = {"gilad1985": {"C2": 130, "C3": 141, "C4": 141, "C5": 141, "C6": 14
 DEFINITIONS_MAIN = ("same", "close")
 MODALITY_ORDER = ("bone", "ct", "mri", "film", "mixed")
 WHOLE_SEXES = ("all", "pooled", "not stated")
+COHORT_COUNT = "n is the cohort's people"  # load_rows' note on a row whose count is the whole cohort's
 EXCLUDED_GROUP = re.compile(r"stenosis|^DS$|marfan|25% (largest|smallest)|adjusted|example|figure|porcine", re.I)
 CHILD_BAND = re.compile(r"^age (\d+)(\s*[-,]\s*\d+)*( ?(y|yr|years))?$", re.I)
 ADULT_AGE = 18
@@ -239,7 +240,7 @@ def load_rows(path: str = SNAPSHOT) -> List[dict]:
         if not math.isfinite(r["n"]) and per_level:
             r["n"], r["n_note"] = float(per_level), "n is the paper's count at this level"
         elif not math.isfinite(r["n"]) and math.isfinite(_num(r.get("cohort_n", ""))):
-            r["n"], r["n_note"] = _num(r["cohort_n"]), "n is the cohort's people"
+            r["n"], r["n_note"] = _num(r["cohort_n"]), COHORT_COUNT
         elif math.isfinite(r["n"]) and r["paper"] in PEDICLE_COUNTS:
             r["n"], r["n_note"] = r["n"] / PEDICLE_COUNTS[r["paper"]], "n is the printed pedicles halved"
         r["group"] = r["group"] or ""
@@ -316,14 +317,18 @@ STRATA_APART = "apart"
 
 
 def select(rows: Sequence[dict], definitions: Sequence[str] = DEFINITIONS_MAIN,
-           strata: str = STRATA_POOLED) -> Tuple[List[Series], Dict[str, int]]:
+           strata: str = STRATA_POOLED,
+           stratum_counts: Optional[Dict[tuple, Tuple[float, str]]] = None) -> Tuple[List[Series], Dict[str, int]]:
     """The validation's series and the count of rows left out by each rule. `strata` is how rules
     5 and 6 treat what a cohort prints apart: "pooled", the validation's, one series per cohort
     and measure, the whole before its strata and the sexes pooled; or "apart", for the within-paper
     contrasts of subgroups.paired_contrast alone, every printed stratum (an age band, an ancestry,
     a technique's group) a series of its own beside the whole, and a man's and a woman's row each a
-    series where both carry an SD and a count, flagged "sex apart". The apart series count people
-    twice (a stratum and its whole), so nothing pools them across cohorts."""
+    series where both carry an SD and a count of their own, flagged "sex apart". A row whose count
+    load_rows took from the whole cohort has none of its own: it takes the count `stratum_counts`
+    gives its (paper, cohort, group, sex), with the note that says where it came from (the register's
+    stratum_counts), or the pair is not apart. The apart series count people twice (a stratum and
+    its whole), so nothing pools them across cohorts."""
     if strata not in (STRATA_POOLED, STRATA_APART):
         raise ValueError("strata is pooled or apart, not %r" % strata)
     why: Dict[str, int] = {}
@@ -356,7 +361,7 @@ def select(rows: Sequence[dict], definitions: Sequence[str] = DEFINITIONS_MAIN,
             groups.setdefault(r["group"], []).append(r)
         seen = set()
         for g, grs in sorted(groups.items()):
-            for s in _sex_series(grs, why, strata == STRATA_APART):
+            for s in _sex_series(grs, why, strata == STRATA_APART, stratum_counts or {}):
                 sig = (round(s.mean, 6), round(s.sd, 6) if math.isfinite(s.sd) else None, s.n, s.sex)
                 if sig in seen:
                     why["a second group with the same values"] = why.get("a second group with the same values", 0) + 1
@@ -412,25 +417,60 @@ def _sides(rs: List[dict], why: Dict[str, int]) -> List[dict]:
     return out
 
 
-def _sex_series(rs: List[dict], why: Dict[str, int], apart: bool) -> List[Series]:
+def _sex_series(rs: List[dict], why: Dict[str, int], apart: bool,
+                counts: Optional[Dict[tuple, Tuple[float, str]]] = None) -> List[Series]:
     """Rule 6's series of one group: one, the sexes pooled (_one_sex), or, with `apart`, one per
-    sex where the group prints a man's and a woman's row each with an SD and a count, flagged
-    "sex apart"; a group that prints one sex or the whole alone gives _one_sex's series."""
+    sex where the group prints a man's and a woman's row each with an SD and a count of its own
+    (_own_count), flagged "sex apart", the whole row printed beside them dropped and counted; a
+    group that prints one sex or the whole alone, or a sex with no SD or count of its own, gives
+    _one_sex's series. Of two rows of one sex the one with an SD and the most people is read, as
+    _one_sex reads the whole's rows."""
     if apart:
-        sided = _sides(list(rs), {})
-        male = [r for r in sided if r["sex"] == "male"]
-        female = [r for r in sided if r["sex"] == "female"]
-        if male and female and all(math.isfinite(r["sd"]) and r["n"] > 0 for r in (male[0], female[0])):
-            return [_series_of(r, r["mean"], r["sd"], r["n"], "sex apart") for r in (male[0], female[0])]
+        scratch: Dict[str, int] = {}
+        sided = _sides(list(rs), scratch)
+        male = _best_row([r for r in sided if r["sex"] == "male"])
+        female = _best_row([r for r in sided if r["sex"] == "female"])
+        if male and female:
+            got = [_own_count(r, counts or {}) for r in (male, female)]
+            if all(got):
+                for k, v in scratch.items():
+                    why[k] = why.get(k, 0) + v
+                whole = sum(1 for r in sided if r["sex"] in WHOLE_SEXES)
+                if whole:
+                    why["a whole printed beside its sexes apart"] = why.get("a whole printed beside its sexes apart", 0) + whole
+                second = len(sided) - whole - 2
+                if second > 0:
+                    why["a second row of a sex beside the one read"] = why.get("a second row of a sex beside the one read", 0) + second
+                return [_series_of(r, r["mean"], r["sd"], n, "sex apart", n_note=note)
+                        for r, (n, note) in zip((male, female), got)]
+            why["a sex printed apart with no SD or count of its own"] = why.get("a sex printed apart with no SD or count of its own", 0) + 2
     s = _one_sex(rs, why)
     return [s] if s is not None else []
 
 
-def _series_of(r: dict, mean: float, sd: float, n: float, flag: str) -> Series:
+def _best_row(rows: List[dict]) -> Optional[dict]:
+    """Of a sex's rows the one with an SD and then the most people, as _one_sex reads the whole's."""
+    if not rows:
+        return None
+    return max(rows, key=lambda r: (math.isfinite(r["sd"]), r["n"] if math.isfinite(r["n"]) else -1))
+
+
+def _own_count(r: dict, counts: Dict[tuple, Tuple[float, str]]) -> Optional[Tuple[float, str]]:
+    """A sex row's count with its note, for a series of its own: the row's where the paper prints
+    it (or load_rows read it at the row's level), else the one `counts` gives the row's (paper,
+    cohort, group, sex); None where it has no SD or no count of its own."""
+    if not math.isfinite(r["sd"]):
+        return None
+    if r.get("n_note", "") == COHORT_COUNT:
+        return counts.get((r["paper"], r["cohort"], r["group"], r["sex"]))
+    return (r["n"], r.get("n_note", "")) if math.isfinite(r["n"]) and r["n"] > 0 else None
+
+
+def _series_of(r: dict, mean: float, sd: float, n: float, flag: str, n_note: Optional[str] = None) -> Series:
     flag = "; ".join(f for f in (flag, r.get("side_note", "")) if f)
     return Series(paper=r["paper"], cohort=r["cohort"], technique=r["technique"], modality=r["modality"],
                   group=r["group"], sex=r["sex"], key=r["key"], level=r["level"], mean=mean, sd=sd, n=n,
-                  vs_panjabi=r["vs_panjabi"], flag=flag, n_note=r.get("n_note", ""),
+                  vs_panjabi=r["vs_panjabi"], flag=flag, n_note=r.get("n_note", "") if n_note is None else n_note,
                   sd_uncertain=r["paper"] in DISPERSION_UNCERTAIN)
 
 

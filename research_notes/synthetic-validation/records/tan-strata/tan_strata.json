@@ -1,5 +1,5 @@
 {
- "bordercall_commit": "e3008d7cbe1a5cf6c6e72b4190f52e3bf06c4da6",
+ "bordercall_commit": "49efec7fb31431e196feb6bd6fb8f34c6a825fd3",
  "calibrated_median_f": {
   "pooled": {
    "literature": {
@@ -314,8 +314,8 @@
   {
    "answered": 0.010227272727272727,
    "arm": "after: Tan's own table",
-   "exact": 0.3068181818181818,
-   "loss_mean": 19.090909090909093,
+   "exact": 0.3079545454545455,
+   "loss_mean": 18.977272727272727,
    "loss_sd_between_tables": 0.0,
    "precision": 0.7777777777777778,
    "tables": 1,
@@ -324,20 +324,20 @@
   {
    "answered": 0.08,
    "arm": "after: Tan's own table",
-   "exact": 0.545,
-   "loss_mean": 21.624999999999993,
+   "exact": 0.5475,
+   "loss_mean": 21.375,
    "loss_sd_between_tables": 0.0,
    "precision": 0.921875,
    "tables": 1,
    "width": 3
   },
   {
-   "answered": 0.5303571428571429,
+   "answered": 0.5321428571428571,
    "arm": "after: Tan's own table",
-   "exact": 0.9035714285714286,
-   "loss_mean": 7.857142857142851,
+   "exact": 0.9053571428571429,
+   "loss_mean": 7.6785714285714235,
    "loss_sd_between_tables": 0.0,
-   "precision": 0.9797979797979798,
+   "precision": 0.9798657718120806,
    "tables": 1,
    "width": 9
   }
@@ -370,9 +370,9 @@
    },
    "half_width_mixture_sd": {
     "cells": 34,
-    "median": 2.4547144472915168,
-    "q1": 1.891034687193284,
-    "q3": 3.886910890149223
+    "median": 2.5589209022171775,
+    "q1": 1.9805949019349123,
+    "q3": 4.056071060903777
    },
    "half_width_ratio_rest_over_merged": {
     "cells": 34,
@@ -431,9 +431,9 @@
    },
    "half_width_mixture_sd": {
     "cells": 15,
-    "median": 3.2782083841704814,
-    "q1": 2.3350410923030975,
-    "q3": 4.067261180437447
+    "median": 3.3975487485670732,
+    "q1": 2.4571030615443776,
+    "q3": 4.1538301001159095
    },
    "half_width_ratio_rest_over_merged": {
     "cells": 15,
@@ -466,7 +466,7 @@
    "tan_inside_rest_plug": 5
   }
  },
- "seconds": 50.9,
+ "seconds": 52.7,
  "series": {
   "all": 954,
   "rest": 537,
@@ -497,7 +497,5 @@
   }
  },
  "tables": 2,
- "tan_table_filled": [
-  "endplate C6"
- ]
+ "tan_table_filled": []
 }

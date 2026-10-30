@@ -38,7 +38,8 @@ from . import literature as L
 POPULATIONS = os.path.join(L.DATA, "populations.csv")
 COLUMNS = ["paper", "cohort", "country", "country_basis", "ancestry", "ancestry_text", "ancestry_basis", "specimen",
            "age_text", "age_mean", "age_low", "age_high", "n_people", "n_men", "n_women", "sex_text", "selection",
-           "evidence", "notes"]
+           "evidence", "notes", "group_counts"]
+GROUP_SHARE_NOTE = "n is the group's count times the cohort's share of the sex (the paper does not split its groups by sex)"
 VARIABLES = ("paper", "cohort", "group", "sex", "modality", "technique", "country", "region", "ancestry", "specimen",
              "age_band", "decade")
 COHORT_VARIABLES = ("country", "region", "ancestry", "specimen", "age_band", "decade")
@@ -92,10 +93,22 @@ class Population:
     selection: str
     evidence: str
     notes: str
+    group_counts: str = ""  # the people in each group the paper prints apart, "group:n;group:n", where it counts them
 
     @property
     def region(self) -> str:
         return REGION_OF.get(self.country, NOT_STATED)
+
+    @property
+    def people_by_group(self) -> Dict[str, float]:
+        """The count of each group the paper prints apart, from group_counts; empty where none."""
+        out: Dict[str, float] = {}
+        for item in filter(None, (x.strip() for x in self.group_counts.split(";"))):
+            group, _, n = item.rpartition(":")
+            if not group or not n.strip().isdigit():
+                raise ValueError("%s %s: group_counts %r is not group:n;group:n" % (self.paper, self.cohort, self.group_counts))
+            out[group.strip()] = float(n)
+        return out
 
     @property
     def age_band(self) -> str:
@@ -163,7 +176,31 @@ def check(series: Sequence[L.Series], register: Dict[Tuple[str, str], Population
             problems.append("%s %s: specimen %r" % (p.paper, p.cohort, p.specimen))
         if (p.country == NOT_STATED) != (p.country_basis == NOT_STATED):
             problems.append("%s %s: country %r with basis %r" % (p.paper, p.cohort, p.country, p.country_basis))
+        try:
+            groups = p.people_by_group
+        except ValueError as e:
+            problems.append(str(e))
+            continue
+        if groups and p.n_people is not None and sum(groups.values()) != p.n_people:
+            problems.append("%s %s: the groups' counts sum to %g, not the cohort's %g" % (p.paper, p.cohort, sum(groups.values()), p.n_people))
     return problems
+
+
+def stratum_counts(register: Dict[Tuple[str, str], Population]) -> Dict[tuple, Tuple[float, str]]:
+    """The count a sex of a printed group stands for where the paper counts its groups and its
+    sexes but not the sexes within the groups: the group's count times the cohort's share of the
+    sex, noted as such, by (paper, cohort, group, sex), for literature.select's strata "apart".
+    A paper that prints the count of each sex in each group needs nothing here, since the
+    snapshot carries it on the row."""
+    out: Dict[tuple, Tuple[float, str]] = {}
+    for p in register.values():
+        groups = p.people_by_group
+        if not groups or p.n_people is None or p.n_men is None or p.n_women is None or p.n_people <= 0:
+            continue
+        for group, n in groups.items():
+            for sex, people in (("male", p.n_men), ("female", p.n_women)):
+                out[p.paper, p.cohort, group, sex] = (n * people / p.n_people, GROUP_SHARE_NOTE)
+    return out
 
 
 def tag(s: L.Series, register: Dict[Tuple[str, str], Population]) -> Dict[str, str]:

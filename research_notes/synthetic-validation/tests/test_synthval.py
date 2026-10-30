@@ -366,7 +366,10 @@ class TanApart(unittest.TestCase):
         mu, sd, filled = self.T.tan_table(self.series, seven)
         _, psd = MS.arrays(seven, LEVELS)
         np.testing.assert_array_equal(sd, psd)
-        by = {(s.key, s.level): s.mean for s in self.series if s.paper == "tan2004" and L.usable(s)}
+        # every mean he prints, whatever its SD: the endplate at C6 prints 15.8 with an SD of 0
+        by = {(s.key, s.level): s.mean for s in self.series if s.paper == "tan2004" and math.isfinite(s.mean)}
+        self.assertEqual(by["endplate", "C6"], 15.8)
+        self.assertFalse(L.usable(next(s for s in self.series if s.paper == "tan2004" and (s.key, s.level) == ("endplate", "C6"))))
         for j, m in enumerate(seven):
             for i, lv in enumerate(LEVELS):
                 key = L.measure_key(m.key)
@@ -374,6 +377,7 @@ class TanApart(unittest.TestCase):
                     self.assertEqual(mu[j, i], by[key, lv])
                 else:
                     self.assertIn("%s %s" % (key, lv), filled)
+        self.assertEqual(filled, [])
 
     def test_prediction_reads_the_matched_cells_and_counts_what_it_holds_out(self):
         rows = self.T.prediction_by_stratum(self.series)
@@ -407,7 +411,7 @@ class TanApart(unittest.TestCase):
         self.assertLess(lo, far.mean)
         self.assertGreater(hi, apart["mean"])
         w = 1.0 / (apart["k"] + 1)
-        scale = math.sqrt(apart["tau2"] + far.sd ** 2 / far.n)
+        scale = math.sqrt(2.0 * apart["tau2"] + far.sd ** 2 / far.n)   # the stratum's mean from one draw, and one more
 
         def cdf(x):
             return (1 - w) * stats.t.cdf((x - apart["mean"]) / apart["scale"], apart["k"] - 2) + w * stats.norm.cdf((x - far.mean) / scale)

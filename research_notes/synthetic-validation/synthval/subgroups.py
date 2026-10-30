@@ -9,17 +9,24 @@ of them, so a new variable is one column of data/populations.csv and no code:
 
 1. analysis: in every cell with three series or more and two subgroups or more, each subgroup
    pooled by REML as the whole cell is (pooling.pool; a subgroup of one series is its mean with
-   its own SE and no spread), and the test for subgroup differences of the Cochrane Handbook
-   (section 10.11.3, Borenstein and others 2009 chapter 19): Q_between = sum of w_g (mu_g - mu)^2
-   over the subgroups, w_g = 1 / SE_g^2 with SE_g carrying its subgroup's tau^2 (random effects
-   within the subgroups, the subgroup means fixed), on G - 1 degrees of freedom against chi
-   square. Beside it the spread within the subgroups, tau^2 pooled over the subgroups with two
-   series or more on their degrees of freedom, against the whole cell's, whose complement is the
-   share of the spread between populations the variable accounts for (R^2, held at zero or above,
-   as a mixed-effects meta-regression on the variable reads it; NaN where no subgroup has two
-   series, as every subgroup of "paper" has one). With three to nine series a cell, the test
-   has little power and a subgroup of one series proves nothing; the summary says in how many
-   cells each reading could be made.
+   its own SE and no spread), the spread within the subgroups, tau^2 pooled over the subgroups
+   with two series or more on their degrees of freedom, and the test for subgroup differences of
+   the Cochrane Handbook (section 10.11.3) in the form Borenstein and others 2009 (chapter 19)
+   give for few studies a subgroup, one spread common to every subgroup: each series weighted by
+   1 / (its variance + the pooled tau^2 within), each subgroup's mean and SE on those weights
+   (common_tau_estimate), and Q_between = sum of w_g (mu_g - mu)^2 over the subgroups, w_g =
+   1 / SE_g^2, on G - 1 degrees of freedom against chi square. A subgroup of one series so
+   carries the same spread as the others, where its own SE alone would weight it as if its
+   population were the subgroup's exact mean, which with every subgroup a single series makes
+   the test the cell's own heterogeneity Q. The complement of the spread within over the whole
+   cell's is the share of the spread between populations the variable accounts for (R^2, held at
+   zero or above, as a mixed-effects meta-regression on the variable reads it). Both the test and
+   the share need the spread within, read on LEAST_DF degrees of freedom or more, so a variable
+   every subgroup of which is one series (paper, cohort) has no test and no share, and one whose
+   only pooled subgroup holds two series has none from that cell. With three to nine series a
+   cell the test has little power, and the summary says in how many cells each reading could be
+   made; a share read with one paper's series out beside the share with them in (subgroups_run.py
+   runs it with Tan 2004 out) shows how much of a variable's share is that paper's distance.
 2. against_rest: one value of a variable against the rest of the cell, as tan.py reads Tan 2004
    (Tan is the case variable "paper", value "tan2004", and test_subgroups holds the two readings
    to the same distances): in every cell where the value has a series and the rest hold three or
@@ -34,7 +41,9 @@ of them, so a new variable is one column of data/populations.csv and no code:
    by REML in every cell with one pair or more, in the measure's unit and in Panjabi's SD; a
    difference read within a paper carries none of the paper's own shift, which a subgroup analysis
    across papers confounds with it. It takes the series of literature.select(rows, strata="apart"),
-   which keeps every printed stratum and a cohort's sexes as series of their own, and only it does.
+   which keeps every printed stratum and a cohort's sexes as series of their own, and only it does;
+   where a cohort prints a pair for the whole and pairs for its strata, the strata's pairs are
+   read and the whole's dropped, since the same people would otherwise pool twice.
 
 Every reading takes the register's words as they are: a country inferred from an institution,
 an ancestry only where the paper states one, and "not stated" is a value like any other, which
@@ -59,6 +68,7 @@ from .validate import MODALITY_SETS, cells, literature_at, validated_measures
 
 Z = float(stats.norm.ppf(0.975))
 ALPHA = 0.05
+LEAST_DF = 2  # degrees of freedom the spread within the subgroups is read on at the least
 
 
 def by_value(rows: Sequence[L.Series], variable: str, register: Dict[tuple, RG.Population]) -> Dict[str, List[L.Series]]:
@@ -94,8 +104,18 @@ def _cells(series: Sequence[L.Series], modality_set: str, measures: Optional[Seq
                 yield m, key, float(sd[j, i]), level, rows
 
 
+def common_tau_estimate(rows: Sequence[L.Series], tau2: float) -> dict:
+    """A subgroup's mean and SE under a spread common to every subgroup: each series weighted by
+    1 / (its sampling variance + tau2), the SE the root of the inverse weight sum."""
+    v = np.array([s.sd ** 2 / s.n for s in rows]) + tau2
+    w = 1.0 / v
+    mu = np.array([s.mean for s in rows])
+    return {"k": len(rows), "mean": float((w * mu).sum() / w.sum()), "se": float(math.sqrt(1.0 / w.sum()))}
+
+
 def test_between(sub: Dict[str, dict]) -> Tuple[float, int, float]:
-    """The test for subgroup differences: Q_between, its degrees of freedom and p."""
+    """The test for subgroup differences on the subgroups' means and SEs: Q_between, its degrees
+    of freedom and p."""
     w = np.array([1.0 / g["se"] ** 2 for g in sub.values()])
     mu = np.array([g["mean"] for g in sub.values()])
     centre = (w * mu).sum() / w.sum()
@@ -104,23 +124,24 @@ def test_between(sub: Dict[str, dict]) -> Tuple[float, int, float]:
     return q, df, float(stats.chi2.sf(q, df)) if df > 0 else float("nan")
 
 
-def spread_within(sub: Dict[str, dict]) -> Tuple[float, int]:
-    """tau^2 pooled over the subgroups with two series or more on their degrees of freedom, and
-    how many subgroups it is read from."""
+def spread_within(sub: Dict[str, dict], least_df: int = LEAST_DF) -> Tuple[float, int, int]:
+    """tau^2 pooled over the subgroups with two series or more on their degrees of freedom, how
+    many subgroups it is read from and the degrees of freedom; NaN with fewer than `least_df`."""
     pairs = [(g["k"] - 1, g["tau2"]) for g in sub.values() if g["k"] >= 2]
-    if not pairs:
-        return float("nan"), 0
     df = sum(d for d, _ in pairs)
-    return float(sum(d * t for d, t in pairs) / df), len(pairs)
+    if df < least_df:
+        return float("nan"), len(pairs), df
+    return float(sum(d * t for d, t in pairs) / df), len(pairs), df
 
 
 def analysis(series: Sequence[L.Series], variable: str, register: Dict[tuple, RG.Population],
              modality_set: str = "bone_ct", measures: Optional[Sequence[MS.Measure]] = None,
              least_groups: int = 2) -> List[dict]:
     """One row per cell with three series or more and `least_groups` values of the variable or
-    more: the subgroups with their counts, the test for subgroup differences, the spread of the
-    whole cell and within the subgroups over Panjabi's SD, the share the variable accounts for,
-    and the widest gap between two subgroups' means in Panjabi's SD."""
+    more: the subgroups with their counts, the spread within them and the degrees of freedom it is
+    read on, the test for subgroup differences under that common spread (NaN where it cannot be
+    read), the spread of the whole cell and within the subgroups over Panjabi's SD, the share the
+    variable accounts for, and the widest gap between two subgroups' REML means in Panjabi's SD."""
     seven = set(MS.SPINEPS_7)
     out = []
     for m, key, psd, level, rows in _cells(series, modality_set, measures, 3):
@@ -129,14 +150,18 @@ def analysis(series: Sequence[L.Series], variable: str, register: Dict[tuple, RG
             continue
         total = literature_at(list(rows)).mean
         sub = {v: pooled_or_one(rs) for v, rs in groups.items()}
-        q, df, p = test_between(sub)
-        tau2_within, pooled_groups = spread_within(sub)
+        tau2_within, pooled_groups, df_within = spread_within(sub)
+        if math.isfinite(tau2_within):
+            q, df, p = test_between({v: common_tau_estimate(rs, tau2_within) for v, rs in groups.items()})
+        else:
+            q, df, p = float("nan"), len(groups) - 1, float("nan")
         r2 = (max(0.0, 1.0 - tau2_within / total.tau2) if total.tau2 > 0 and math.isfinite(tau2_within) else float("nan"))
         means = [g["mean"] for g in sub.values()]
         out.append({"variable": variable, "measure": key, "level": level, "kind": m.kind, "seven": key in seven,
                     "k": len(rows), "groups": len(groups), "values": ";".join("%s:%d" % (v, len(rs)) for v, rs in groups.items()),
-                    "groups_with_two_or_more": pooled_groups, "q_between": q, "df": df, "p_between": p,
-                    "tau2_total": total.tau2, "tau2_within": tau2_within, "f_total": math.sqrt(total.tau2) / psd,
+                    "groups_with_two_or_more": pooled_groups, "df_within": df_within, "q_between": q, "df": df,
+                    "p_between": p, "tau2_total": total.tau2, "tau2_within": tau2_within,
+                    "f_total": math.sqrt(total.tau2) / psd,
                     "f_within": math.sqrt(tau2_within) / psd if math.isfinite(tau2_within) else float("nan"), "r2": r2,
                     "widest_gap_sd": (max(means) - min(means)) / psd, "panjabi_sd": psd})
     return out
@@ -152,8 +177,9 @@ def _quartiles(a) -> dict:
 
 def analysis_summary(rows: Sequence[dict]) -> Dict[str, dict]:
     """Per variable, over all its cells and over the seven's: the cells, the series and subgroups
-    a cell holds, the cells whose test is below ALPHA, the cells the share could be read in and its
-    quartiles, the spread of the whole cell and within the subgroups, the widest gap."""
+    a cell holds, the cells the test could be made in and those whose test is below ALPHA, the
+    cells the share could be read in and its quartiles, the spread of the whole cell and within
+    the subgroups, the widest gap."""
     out: Dict[str, dict] = {}
     for variable in dict.fromkeys(r["variable"] for r in rows):
         out[variable] = {}
@@ -163,6 +189,7 @@ def analysis_summary(rows: Sequence[dict]) -> Dict[str, dict]:
             out[variable][group] = {
                 "cells": len(rs), "series_per_cell": _quartiles([r["k"] for r in rs]),
                 "groups_per_cell": _quartiles([r["groups"] for r in rs]), "cells_tested": len(tested),
+                "df_within": _quartiles([r["df_within"] for r in rs]),
                 "cells_below_alpha": int(sum(r["p_between"] < ALPHA for r in tested)),
                 "share_below_alpha": float(np.mean([r["p_between"] < ALPHA for r in tested])) if tested else float("nan"),
                 "r2": _quartiles([r["r2"] for r in rs]), "f_total": _quartiles([r["f_total"] for r in rs]),
@@ -246,7 +273,7 @@ def paired_contrast(series_apart: Sequence[L.Series], variable: str, pair: Tuple
                 continue
             same = (s.paper, s.cohort, s.technique) + ((s.group,) if variable == "sex" else (s.sex,))
             by_key.setdefault(same, {})[value] = s
-        pairs = [(k, d[pair[0]], d[pair[1]]) for k, d in by_key.items() if len(d) == 2]
+        pairs = _strata_before_whole([(k, d[pair[0]], d[pair[1]]) for k, d in by_key.items() if len(d) == 2], variable)
         if not pairs:
             continue
         diff = np.array([a.mean - b.mean for _, a, b in pairs])
@@ -266,6 +293,19 @@ def paired_contrast(series_apart: Sequence[L.Series], variable: str, pair: Tuple
                     "pi_low_sd": lo / psd if math.isfinite(lo) else float("nan"),
                     "pi_high_sd": hi / psd if math.isfinite(hi) else float("nan")})
     return out
+
+
+def _is_whole(same: tuple, variable: str) -> bool:
+    """Whether a pair's key names a cohort's whole rather than one of its strata: the group "" for
+    the sexes, a whole-sex word for any other variable."""
+    return same[3] == "" if variable == "sex" else same[3] in L.WHOLE_SEXES
+
+
+def _strata_before_whole(pairs: list, variable: str) -> list:
+    """Within one paper, cohort and technique the strata's pairs where any exist, else the whole's,
+    so that a cohort printed whole and in strata pools its people once."""
+    strata = {k[:3] for k, _, _ in pairs if not _is_whole(k, variable)}
+    return [(k, a, b) for k, a, b in pairs if not (_is_whole(k, variable) and k[:3] in strata)]
 
 
 def contrast_summary(rows: Sequence[dict]) -> Dict[str, dict]:

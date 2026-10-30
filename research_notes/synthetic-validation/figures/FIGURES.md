@@ -4,10 +4,10 @@ Drawn by `python3 -I figures.py --records records --out figures` from the record
 `python3 -I run.py --out records` (bordercall 560bd00). Each figure's numbers are its CSV; its caption is its .caption.txt.
 The three renders are drawn by render.py from the generator itself, seed 2029, 4000 people.
 
-Drawn at bordercall e3008d7, from and by:
+Drawn at bordercall 49efec7, from and by:
 
 - records/RECORD.json, sha256 8229f63cad6bc1ddf0ecc53c9faa6602bb4d79b590165b4c4cd80f5d614c9df1
-- figures.py, sha256 50f239ccafde8b29838b644707d0bf15408b998bc6ed5e1ca09e02386081400d
+- figures.py, sha256 6fa5d552f2e00925593361301e49ada372eeb2e33cdcca1f01f631743f3c971a
 - render.py, sha256 d4bc0d70416d843a6d019ffefe741cb0fe01013357027395c24448c01cc3a9d9
 - synthval/house.py, sha256 396822b88fcb46e9533162f8a46b8e2443c1d58ac15d1f40e2d0eb4f5653323a
 - schwingcheck/figures.py, sha256 3908d42cc8e93c839d8ddca5bf06591af281e1490d775483e20535a0908b0576
@@ -91,18 +91,18 @@ Two things the generator assumes, set beside the papers. A, the error of one rea
 Tan 2004 as a stratum of his own. A: in the seven's matched cells, the rest's series, the prediction interval for one more population from the merged pool, from the rest alone (t, and the spread taken as known), and Tan's mean. B: the rule's loss on each stratum's tables, quick record. C: each interval's leave-one-out coverage against its width.
 
 - fig_tan_strata.caption.txt, sha256 60a5f629706f074fa0dedc6c9a4e3bc9cfede73d19a56cbe40cfbad3889a1456
-- fig_tan_strata.csv, sha256 a5d9a097a88525b1e8574e2a331d6f54e4fbed9b8813d9704b26bee2a9594ff8
-- fig_tan_strata.pdf, sha256 ac7b48a6c94ec0728409b0134e8098531ef519933abc9a8e91d45f1b6c213691
-- fig_tan_strata.png, sha256 16d8a627d1c232d76b0e6e5878016caa2088510e28edcf33a8e602d3b6202480
+- fig_tan_strata.csv, sha256 9d4a7c0b2c56514fb5676533705a0616df06e0b19c49fc63310cfe5a72dee229
+- fig_tan_strata.pdf, sha256 79a3f169336973bc68af1c8576e24e317fc04d46d14a126f6c6bfb3ccb3a706b
+- fig_tan_strata.png, sha256 3b79b0900e2bbbd5006ea69f6135dd7a1342df3d2f311e7d9c14cabd6e0212d0
 
 ## fig_subgroups
 
-The populations by every variable of the register. A: the share of the spread between populations each variable accounts for, a dot a cell. B, C: each paper, and each ancestry, specimen, region and modality, against the rest, Tan 2004 filled. D: differences a paper prints apart: the sexes within age bands, two ancestries of one collection.
+The populations by every register variable. A: the share of the spread each variable accounts for, a dot a cell, bars the median with Tan 2004 in (black) and out (grey). B, C: each paper and each value against the rest, Tan filled. D: differences a paper prints apart: the sexes within age bands, two ancestries of one collection.
 
-- fig_subgroups.caption.txt, sha256 35a3e422999b6584ae0c1e35b2264c7a86858ee3d9cab6e7720640b82f703a2b
-- fig_subgroups.csv, sha256 b5652357ccc3e72f312ac7e29fd4a09f0b51996e018d567949d9370c7f3bcde5
-- fig_subgroups.pdf, sha256 641b3bcefe4cd3bacd16a287598626690e68a9527236ac15b952f4daa97d666f
-- fig_subgroups.png, sha256 b5831636dd152839b037926789a184ff74a4a3ecf2bd0ec361d442ed6f6c1a05
+- fig_subgroups.caption.txt, sha256 7bef84f737aaa759e79b343181346cf311cd96e2dd4171acd09215819b46e62c
+- fig_subgroups.csv, sha256 26e5ba2611c0da4cb85a63ee10e6523c1cfa9c80934184d3b999249c7c63ba3a
+- fig_subgroups.pdf, sha256 ec1f2ed3ca8bef5bc67295e470859a2aaf18f0a7b7f954b3c6f7211f3d9b9718
+- fig_subgroups.png, sha256 1b32aab2a88e7cd6506770050ba05d89e33f0dae1ed0cdae3fa74394c06cf8d4
 
 ## render1_axial
 

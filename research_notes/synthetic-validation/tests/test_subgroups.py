@@ -1,12 +1,17 @@
 """The population register and the subgroup meta-analysis against what their docstrings say:
 
 - the register holds every cohort a usable series names, under the main selection and with the
-  strata apart, places every country, and tags a series with every variable;
-- the strata-apart selection keeps the main selection's whole series and adds strata and sexes;
+  strata apart, places every country, holds a cohort's group counts to its people, and tags a
+  series with every variable;
+- the strata-apart selection keeps the main selection's whole series and adds strata and sexes,
+  a sex printed apart within a group taking the count the register's group counts give where the
+  paper prints none, and no sex-apart series without a count of its own;
 - two subgroups far apart fail the test for subgroup differences and account for the spread,
-  two alike do not; a subgroup of one series gives no spread of its own;
+  two alike do not; the test's Q and the spread within are what the hand computes under the
+  common spread; a variable whose every subgroup is one series has neither;
 - one paper against the rest reads Tan 2004 as tan.matched_spread does, to the bit;
-- a within-paper contrast recovers a known difference and pairs only within a cohort's stratum.
+- a within-paper contrast recovers a known difference, pairs only within a cohort's stratum, and
+  reads a cohort's strata before its whole.
 """
 from __future__ import annotations
 
@@ -16,6 +21,7 @@ import sys
 import unittest
 
 import numpy as np
+from scipy import stats
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 NOTE = os.path.dirname(HERE)
@@ -32,10 +38,11 @@ def series(paper, cohort, mean, sd=2.0, n=40.0, key="h_post", level="L1", sex="a
     return L.Series(paper, cohort, technique, "bone", group, sex, key, level, mean, sd, n, "same")
 
 
-def population(paper, cohort, country="not stated", ancestry="not stated", specimen="living", age_mean=None):
+def population(paper, cohort, country="not stated", ancestry="not stated", specimen="living", age_mean=None,
+               n_people=None, n_men=None, n_women=None, group_counts=""):
     return RG.Population(paper, cohort, country, "stated" if country != "not stated" else "not stated", ancestry,
                          ancestry, "stated" if ancestry != "not stated" else "not stated", specimen, "", age_mean,
-                         None, None, None, None, None, "", "", "", "")
+                         None, None, n_people, n_men, n_women, "", "", "", "", group_counts)
 
 
 class Register(unittest.TestCase):
@@ -43,8 +50,8 @@ class Register(unittest.TestCase):
     def setUpClass(cls):
         cls.rows = L.load_rows()
         cls.series, _ = L.select(cls.rows)
-        cls.apart, _ = L.select(cls.rows, strata=L.STRATA_APART)
         cls.register = RG.load()
+        cls.apart, cls.why_apart = L.select(cls.rows, strata=L.STRATA_APART, stratum_counts=RG.stratum_counts(cls.register))
 
     def test_the_register_holds_together_for_both_selections(self):
         self.assertEqual(RG.check(self.series, self.register), [])
@@ -72,6 +79,37 @@ class Register(unittest.TestCase):
     def test_check_refuses_a_country_region_of_does_not_place(self):
         bad = {("p", "c"): population("p", "c", country="Atlantis")}
         self.assertTrue(any("Atlantis" in x for x in RG.check([], bad)))
+
+    def test_check_holds_the_group_counts_to_the_cohorts_people(self):
+        self.assertEqual(RG.check([], {("p", "c"): population("p", "c", n_people=16, group_counts="a:10;b:6")}), [])
+        self.assertTrue(any("sum to 15" in x for x in RG.check([], {("p", "c"): population("p", "c", n_people=16, group_counts="a:10;b:5")})))
+        self.assertTrue(any("group:n" in x for x in RG.check([], {("p", "c"): population("p", "c", group_counts="ten")})))
+
+    def test_a_sex_printed_apart_takes_the_registers_group_counts_or_is_not_apart(self):
+        # Duman 2026 prints each sex of each age band with an SD and no count, counts the bands
+        # (198, 176, 143) and the sexes (277 men, 240 women) of its 517; nothing else prints a
+        # sex apart with an SD
+        counts = RG.stratum_counts(self.register)
+        self.assertAlmostEqual(counts["duman2026", "izmir-mdct-517", "18-35", "male"][0], 198 * 277 / 517, places=9)
+        self.assertEqual(counts["duman2026", "izmir-mdct-517", ">55", "female"][1], RG.GROUP_SHARE_NOTE)
+        sex_apart = [s for s in self.apart if s.flag.startswith("sex apart")]
+        self.assertEqual(len(sex_apart), 24)
+        self.assertEqual({(s.paper, s.group) for s in sex_apart}, {("duman2026", g) for g in ("18-35", "36-55", ">55")})
+        self.assertEqual(sum(1 for s in sex_apart if s.sex == "male"), 12)
+        for s in sex_apart:
+            self.assertEqual(s.n_note, RG.GROUP_SHARE_NOTE)
+            self.assertAlmostEqual(s.n, counts[s.paper, s.cohort, s.group, s.sex][0], places=9)
+            self.assertLess(s.n, 110.0)
+        pairs = {(s.paper, s.cohort, s.technique, s.group, s.key, s.level) for s in sex_apart}
+        self.assertEqual(len(pairs), 12)
+        for pair in pairs:
+            sexes = {s.sex for s in sex_apart if (s.paper, s.cohort, s.technique, s.group, s.key, s.level) == pair}
+            self.assertEqual(sexes, {"male", "female"})
+        without, why = L.select(self.rows, strata=L.STRATA_APART)
+        self.assertFalse(any(s.flag.startswith("sex apart") for s in without))
+        # 24 more rows left out than with the counts: Duman's; the rest print a sex with no SD
+        left = "a sex printed apart with no SD or count of its own"
+        self.assertEqual(why[left], self.why_apart[left] + 24)
 
     def test_the_apart_selection_keeps_the_whole_series_and_adds_strata(self):
         by = {(s.paper, s.cohort, s.key, s.level, s.group, s.sex): s.mean for s in self.apart}
@@ -111,10 +149,43 @@ class Subgroups(unittest.TestCase):
         one = SG.pooled_or_one([series("a0", "c", 30.0, sd=2.0, n=16.0)])
         self.assertEqual((one["k"], one["mean"], one["se"]), (1, 30.0, 0.5))
         self.assertTrue(math.isnan(one["tau2"]))
+
+    def test_a_variable_of_single_series_has_no_test_and_no_share(self):
         rows = [series("a%d" % i, "c", 30.0 + i) for i in range(4)]
         r = SG.analysis(rows, "paper", self.register | {("a3", "c"): population("a3", "c")})[0]
-        self.assertEqual(r["groups_with_two_or_more"], 0)
-        self.assertTrue(math.isnan(r["r2"]))
+        self.assertEqual((r["groups_with_two_or_more"], r["df_within"], r["df"]), (0, 0, 3))
+        self.assertTrue(math.isnan(r["r2"]) and math.isnan(r["p_between"]) and math.isnan(r["q_between"]))
+        summary = SG.analysis_summary([r])["paper"]["all"]
+        self.assertEqual((summary["cells_tested"], summary["r2"]["cells"]), (0, 0))
+        # one pooled subgroup of two series is one degree of freedom, below LEAST_DF
+        rows = [series("a0", "c", 30.0), series("a0", "d", 31.0), series("a1", "c", 36.0), series("a2", "c", 37.0)]
+        reg = self.register | {("a0", "d"): population("a0", "d", country="X")}
+        r = SG.analysis(rows, "paper", reg)[0]
+        self.assertEqual((r["groups_with_two_or_more"], r["df_within"]), (1, 1))
+        self.assertTrue(math.isnan(r["r2"]) and math.isnan(r["p_between"]))
+
+    def test_the_test_and_the_spread_within_are_what_the_hand_computes(self):
+        x = [series("a%d" % i, "c", 30.0 + i, sd=2.0, n=40.0) for i in range(3)]
+        y = [series("b0", "c", 36.0, sd=2.0, n=40.0)]
+        r = SG.analysis(x + y, "country", self.register)[0]
+        tau2 = SG.pooled_or_one(x)["tau2"]
+        self.assertEqual(r["df_within"], 2)
+        self.assertAlmostEqual(r["tau2_within"], tau2, places=12)
+        v = 4.0 / 40.0 + tau2
+        se_x2, se_y2 = v / 3.0, v
+        q = (31.0 - 36.0) ** 2 / (se_x2 + se_y2)
+        self.assertAlmostEqual(r["q_between"], q, places=9)
+        self.assertEqual(r["df"], 1)
+        self.assertAlmostEqual(r["p_between"], float(stats.chi2.sf(q, 1)), places=12)
+        self.assertAlmostEqual(r["r2"], max(0.0, 1.0 - tau2 / r["tau2_total"]), places=12)
+        g = SG.common_tau_estimate(y, tau2)
+        self.assertAlmostEqual(g["se"] ** 2, se_y2, places=12)
+        # two pooled subgroups: tau^2 within is theirs averaged on their degrees of freedom
+        z = [series("b0", "c", 36.0), series("b1", "c", 38.0)]
+        sub = {"X": SG.pooled_or_one(x), "Y": SG.pooled_or_one(z)}
+        tau2_within, groups, df = SG.spread_within(sub)
+        self.assertEqual((groups, df), (2, 3))
+        self.assertAlmostEqual(tau2_within, (2 * sub["X"]["tau2"] + sub["Y"]["tau2"]) / 3, places=12)
 
     def test_tan_against_the_rest_is_tan_py_reading(self):
         snapshot, _ = L.select(L.load_rows())
@@ -140,6 +211,31 @@ class Subgroups(unittest.TestCase):
         self.assertAlmostEqual(r["difference"], 2.0, places=9)
         self.assertLess(r["p"], 0.001)
         self.assertNotIn("p9", r["within"])
+
+    def test_a_paired_contrast_reads_a_cohorts_strata_before_its_whole(self):
+        reg = {("p", "c"): population("p", "c")}
+        whole = [series("p", "c", 30.0, n=80.0, sex="male"), series("p", "c", 28.0, n=80.0, sex="female")]
+        strata = [series("p", "c", 30.0 + i, n=40.0, sex="male", group=g) for i, g in enumerate(("young", "old"))]
+        strata += [series("p", "c", 28.0 + i, n=40.0, sex="female", group=g) for i, g in enumerate(("young", "old"))]
+        alone = SG.paired_contrast(whole, "sex", ("male", "female"), reg)[0]
+        both = SG.paired_contrast(whole + strata, "sex", ("male", "female"), reg)[0]
+        self.assertEqual((alone["pairs"], both["pairs"]), (1, 2))
+        self.assertEqual(set(both["within"].split(";")), {"p/c/t/young", "p/c/t/old"})
+        self.assertAlmostEqual(both["se"], alone["se"], places=9)   # the same 160 people, counted once
+        # the ancestries of one collection: the whole is the sex-pooled row
+        reg = {("y", "c"): population("y", "c")}
+        rows = [series("y", "c", 10.0, sex="all", group="A"), series("y", "c", 11.0, sex="all", group="B"),
+                series("y", "c", 10.0, sex="male", group="A"), series("y", "c", 11.0, sex="male", group="B"),
+                series("y", "c", 10.0, sex="female", group="A"), series("y", "c", 11.0, sex="female", group="B")]
+        tag = RG.tag
+        RG.GROUP_ANCESTRY.update({("y", "A"): "A", ("y", "B"): "B"})
+        try:
+            r = SG.paired_contrast(rows, "ancestry", ("A", "B"), reg)[0]
+        finally:
+            del RG.GROUP_ANCESTRY["y", "A"], RG.GROUP_ANCESTRY["y", "B"]
+        self.assertEqual(r["pairs"], 2)
+        self.assertEqual({w.split("/")[3] for w in r["within"].split(";")}, {"male", "female"})
+        self.assertIs(tag, RG.tag)
 
 
 if __name__ == "__main__":
