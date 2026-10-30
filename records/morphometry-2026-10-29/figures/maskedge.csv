@@ -1,0 +1,37 @@
+source,case,region,vertebrae,median,q25,q75
+phantom,exact,upper_plate,1,0.205,0.156,0.466
+phantom,exact,lower_plate,1,0.194,0.128,0.344
+phantom,exact,lateral_wall,1,0.142,0.101,0.309
+phantom,exact,anterior_wall,1,0.166,0.129,0.278
+phantom,exact,posterior_wall,1,0.168,0.126,0.313
+phantom,exact,arch,1,0.161,0.097,0.336
+phantom,grown one voxel,upper_plate,1,-0.833,-0.863,-0.349
+phantom,grown one voxel,lower_plate,1,-0.818,-0.87,-0.46
+phantom,grown one voxel,lateral_wall,1,-0.625,-0.696,-0.349
+phantom,grown one voxel,anterior_wall,1,-0.57,-0.647,-0.329
+phantom,grown one voxel,posterior_wall,1,-0.589,-0.661,-0.374
+phantom,grown one voxel,arch,1,-0.635,-0.715,-0.366
+phantom,shrunk one voxel,upper_plate,1,1.22,1.144,1.31
+phantom,shrunk one voxel,lower_plate,1,1.189,1.141,1.269
+phantom,shrunk one voxel,lateral_wall,1,0.964,0.902,1.079
+phantom,shrunk one voxel,anterior_wall,1,0.989,0.935,1.065
+phantom,shrunk one voxel,posterior_wall,1,0.99,0.936,1.101
+phantom,shrunk one voxel,arch,1,0.997,0.898,1.182
+ENHANCE.PET CT,0004,upper_plate,23,0.758,0.6925,0.9575
+ENHANCE.PET CT,0004,lower_plate,23,-0.529,-0.7665,-0.2095
+ENHANCE.PET CT,0004,lateral_wall,23,-0.293,-0.3805,-0.066
+ENHANCE.PET CT,0004,anterior_wall,23,0.053,-0.433,0.235
+ENHANCE.PET CT,0004,posterior_wall,23,-0.183,-0.3385,-0.08
+ENHANCE.PET CT,0004,arch,23,-0.347,-0.388,-0.2835
+ENHANCE.PET CT,0006,upper_plate,23,-0.58,-0.993,-0.2115
+ENHANCE.PET CT,0006,lower_plate,23,0.294,0.1745,0.476
+ENHANCE.PET CT,0006,lateral_wall,23,-0.07,-0.242,0.0335
+ENHANCE.PET CT,0006,anterior_wall,23,0.131,0.0695,0.2625
+ENHANCE.PET CT,0006,posterior_wall,23,-0.419,-0.71,-0.1365
+ENHANCE.PET CT,0006,arch,23,-0.403,-0.514,-0.3135
+ENHANCE.PET CT,0010,upper_plate,23,0.918,0.7505,1.022
+ENHANCE.PET CT,0010,lower_plate,23,-0.765,-0.9425,-0.4425
+ENHANCE.PET CT,0010,lateral_wall,23,-0.019,-0.073,0.1535
+ENHANCE.PET CT,0010,anterior_wall,23,0.149,-0.193,0.275
+ENHANCE.PET CT,0010,posterior_wall,23,-0.164,-0.3495,0.123
+ENHANCE.PET CT,0010,arch,23,-0.246,-0.327,-0.204

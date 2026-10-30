@@ -1,0 +1,13 @@
+cell,read_value,legibility,note
+cizmic2023:62,12.20,clear,"printed with decimal comma as 12,20 inside the range 17,20(12,20-21,80)"
+cizmic2023:79,17.83,clear,"printed 17,83(12,90-26,10); mean taken as the value before the parenthesis"
+cizmic2023:104,22.20,clear,"printed 26,22(22,20-34,60); min is the first number of the range"
+cizmic2023:123,41.80,clear,"printed 32,69(23,50-41,80); max is the last number of the range"
+cizmic2023:129,42.80,clear,"printed 31,94(22,10-42,80)"
+cizmic2023:166,21.60,clear,"printed 21,60 in the Minimum column of the Male L4 IPD canal row"
+cizmic2023:219,2.99731,clear,"printed 2,99731 in the Std. Deviation column of the Female L4 IPD canal row"
+cizmic2023:254,17.78,clear,"printed 17,78"
+cizmic2023:269,18.55,clear,"printed 18,55"
+cizmic2023:337,26.84,clear,"printed 26,84"
+cizmic2023:361,25.51,clear,"printed 25,51"
+cizmic2023:491,42.80,clear,"Discussion, Interpedicular (IP) diameter paragraph: largest at L5 was 31.94mm (22.10mm-42.80mm); the same max also appears as the range 20.10 to 42.80 mm for all levels"

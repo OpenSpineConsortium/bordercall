@@ -1,0 +1,117 @@
+flag,paper,cohort,technique,source_of_values,key,level,sex,group,value,reference,detail
+outlier,ahmed2019,elrakhawy_cadaveric,elrakhawy_sagittal_quoted,El-Rakhawy et al. [9],canal_ap,L4,female,Cadaveric study; Egyptian,11,"median 15.06, MAD 0.994528",4.1 scaled MADs from 33 other papers' means
+outlier,ahmed2019,piera_radiograph,piera_ipd_quoted,Piera et al. [17],interpedicular,L5,female,Plain Radiographic study normal adults; Spanish,33.39,"median 29.185, MAD 1.04879",4.0 scaled MADs from 20 other papers' means
+outlier,ahmed2019,piera_radiograph,piera_ipd_quoted,Piera et al. [17],interpedicular,L5,male,Plain Radiographic study normal adults; Spanish,34.31,"median 29.185, MAD 1.04879",4.9 scaled MADs from 20 other papers' means
+outlier,ahmed2019,tacar_radiograph,tacar_ipd_quoted,Tacar et al. [18],interpedicular,L5,male,Plain Radiographic study normal adults; Turkish,34.01,"median 29.185, MAD 1.04879",4.6 scaled MADs from 20 other papers' means
+outlier,ahn2001,marfan_adults,ap_radiograph_ipd,this paper,interpedicular,L3,all,Marfan adults,32.1,"median 24.9075, MAD 1.79024",4.0 scaled MADs from 28 other papers' means
+outlier,ahn2001,marfan_adults,ap_radiograph_ipd,this paper,interpedicular,L4,all,Marfan adults,34.8,"median 26.57, MAD 1.4826",5.6 scaled MADs from 28 other papers' means
+outlier,ahn2001,marfan_adults,ap_radiograph_ipd,this paper,interpedicular,L5,all,Marfan adults,39.6,"median 29.435, MAD 1.53449",6.6 scaled MADs from 28 other papers' means
+outlier,alonge2021,lagos_ct,ct_axial_td,this paper,canal_w,L4,pooled,,26.9975,"median 23.3925, MAD 0.90068",4.0 scaled MADs from 24 other papers' means
+outlier,arockiaraj2025,saudi_ct,ct_sagittal_pedicle_height,this paper,pedicle_h,L1,all,,9.75,"median 15.68, MAD 0.548562",10.8 scaled MADs from 57 other papers' means
+outlier,arockiaraj2025,saudi_ct,ct_sagittal_pedicle_height,this paper,pedicle_h,L2,all,,9.32,"median 15.27, MAD 0.459606",12.9 scaled MADs from 57 other papers' means
+outlier,arockiaraj2025,saudi_ct,ct_sagittal_pedicle_height,this paper,pedicle_h,L3,all,,9.11,"median 14.835, MAD 0.541149",10.6 scaled MADs from 56 other papers' means
+outlier,arockiaraj2025,saudi_ct,ct_sagittal_pedicle_height,this paper,pedicle_h,L4,all,,8.71,"median 14.515, MAD 1.18608",4.9 scaled MADs from 56 other papers' means
+outlier,arockiaraj2025,saudi_ct,ct_sagittal_pedicle_height,this paper,pedicle_h,L5,all,,8.3,"median 14, MAD 1.18608",4.8 scaled MADs from 57 other papers' means
+outlier,arockiaraj2025,dzierzanowski_europe,quoted_ct_literature,Dzierzanowski et al. [10],pedicle_incl_sag,L1,not stated,Europe,20.6,"median 7, MAD 2.9652",4.6 scaled MADs from 17 other papers' means
+outlier,busscher2010,porcine_landrace,ct_mpr_per_vertebra,this paper,h_post,L1,not stated,Porcine,23.7,"median 26.73, MAD 0.622692",4.9 scaled MADs from 6 other papers' means
+outlier,busscher2010,human_cadaver,ct_mpr_per_vertebra,this paper,h_post,L2,male,Human,29.8,"median 27, MAD 0.44478",6.3 scaled MADs from 7 other papers' means
+outlier,busscher2010,porcine_landrace,ct_mpr_per_vertebra,this paper,h_post,L2,not stated,Porcine,24,"median 27, MAD 0.44478",6.7 scaled MADs from 7 other papers' means
+outlier,chaudhary2015,chhabra1991_north_indian_quoted,chhabra1991_quoted,Sudha Chhabra et al. 1991,interpedicular,L4,male,North Indians,35.5,"median 26.71, MAD 1.64569",5.3 scaled MADs from 23 other papers' means
+outlier,chaudhary2015,chhabra1991_north_indian_quoted,chhabra1991_quoted,Sudha Chhabra et al. 1991,interpedicular,L5,male,North Indians,37.4,"median 29.6, MAD 1.55673",5.0 scaled MADs from 23 other papers' means
+outlier,cizmic2023,bih-sarajevo-ct,cizmic-ct-syngo,this paper,canal_w,L5,all,,31.94,"median 25.96, MAD 1.4233",4.2 scaled MADs from 19 other papers' means
+outlier,duman2026,izmir-mdct-517,mdct-sagittal-corpus-heights,this paper,h_post,L1,pooled,,24.8398,"median 26.89, MAD 0.474432",4.3 scaled MADs from 7 other papers' means
+outlier,duman2026,izmir-mdct-517,mdct-axial-pedicle,this paper,pedicle_incl_sag,L1,pooled,,25.4479,"median 8.725, MAD 4.04008",4.1 scaled MADs from 22 other papers' means
+outlier,duman2026,izmir-mdct-517,mdct-axial-pedicle,this paper,pedicle_incl_sag,L2,pooled,,27.5718,"median 10, MAD 3.27655",5.4 scaled MADs from 23 other papers' means
+outlier,hou1993,xian_dry_bone,vernier_caliper_dry_bone,this paper,pedicle_h,L5,all,,19.8,"median 14, MAD 1.0823",5.4 scaled MADs from 57 other papers' means
+outlier,hou1993,zindrick_comparator,zindrick_radiographic,"Zindrick et al [10,11]",pedicle_w,T12,not stated,,7.1,"median 8.29, MAD 0.192738",6.2 scaled MADs from 10 other papers' means
+outlier,italianmri,figure2_man,sagittal_mri,this paper,canal_ap,L1,male,Figure 2 asymptomatic man,20.36,"median 16.318, MAD 0.655309",6.2 scaled MADs from 39 other papers' means
+outlier,italianmri,figure5_stenosis,sagittal_mri,this paper,canal_ap,L1,not stated,"congenital stenosis patient, Figure 5c-d",12.1,"median 16.318, MAD 0.655309",6.4 scaled MADs from 39 other papers' means
+outlier,italianmri,figure2_man,sagittal_mri,this paper,canal_ap,L2,male,Figure 2 asymptomatic man,19.34,"median 15.37, MAD 0.934038",4.3 scaled MADs from 39 other papers' means
+outlier,italianmri,figure5_stenosis,sagittal_mri,this paper,canal_ap,L2,not stated,"congenital stenosis patient, Figure 5c-d",9.5,"median 15.37, MAD 0.934038",6.3 scaled MADs from 39 other papers' means
+outlier,italianmri,figure5_stenosis,sagittal_mri,this paper,canal_ap,L3,not stated,"congenital stenosis patient, Figure 5c-d",9.7,"median 14.87, MAD 1.02299",5.1 scaled MADs from 41 other papers' means
+outlier,italianmri,figure2_man,sagittal_mri,this paper,canal_ap,L4,male,Figure 2 asymptomatic man,20.21,"median 15, MAD 1.08348",4.8 scaled MADs from 43 other papers' means
+outlier,italianmri,figure5_stenosis,sagittal_mri,this paper,canal_ap,L4,not stated,"congenital stenosis patient, Figure 5c-d",9.2,"median 15, MAD 1.08348",5.4 scaled MADs from 43 other papers' means
+outlier,italianmri,figure2_man,sagittal_mri,this paper,canal_ap,L5,male,Figure 2 asymptomatic man,20.58,"median 16, MAD 1.11195",4.1 scaled MADs from 43 other papers' means
+outlier,masharawi2021,cited_olsewski,cited_radiological,Olsewski et al. [37],pedicle_h,L1,not stated,American,18.2,"median 15.68, MAD 0.489258",5.2 scaled MADs from 55 other papers' means
+outlier,masharawi2021,control,ct_parasagittal_2d,this paper,pedicle_h,L1,pooled,Control,12.735,"median 15.68, MAD 0.489258",6.0 scaled MADs from 55 other papers' means
+outlier,masharawi2021,ds,ct_parasagittal_2d,this paper,pedicle_h,L1,pooled,DS,13.0025,"median 15.68, MAD 0.489258",5.5 scaled MADs from 55 other papers' means
+outlier,masharawi2021,cited_olsewski,cited_radiological,Olsewski et al. [37],pedicle_h,L2,not stated,American,17.2,"median 15.27, MAD 0.400302",4.8 scaled MADs from 55 other papers' means
+outlier,masharawi2021,control,ct_parasagittal_2d,this paper,pedicle_h,L2,pooled,Control,11.9075,"median 15.27, MAD 0.400302",8.4 scaled MADs from 55 other papers' means
+outlier,masharawi2021,ds,ct_parasagittal_2d,this paper,pedicle_h,L2,pooled,DS,12.375,"median 15.27, MAD 0.400302",7.2 scaled MADs from 55 other papers' means
+outlier,masharawi2021,cited_olsewski,cited_radiological,Olsewski et al. [37],pedicle_h,L3,not stated,American,16.9,"median 14.835, MAD 0.481845",4.3 scaled MADs from 54 other papers' means
+outlier,masharawi2021,control,ct_parasagittal_2d,this paper,pedicle_h,L3,pooled,Control,12.035,"median 14.835, MAD 0.481845",5.8 scaled MADs from 54 other papers' means
+outlier,masharawi2021,ds,ct_parasagittal_2d,this paper,pedicle_h,L3,pooled,DS,12.4925,"median 14.835, MAD 0.481845",4.9 scaled MADs from 54 other papers' means
+outlier,masharawi2021,control,ct_parasagittal_2d,this paper,pedicle_h,L5,pooled,Control,9.4175,"median 14, MAD 1.00817",4.5 scaled MADs from 55 other papers' means
+outlier,mitra2002,nagpur_cadavers20,specimen_roentgenogram,this paper,pedicle_h,L2,female,Roentgenogram,17,"median 15.1, MAD 0.474432",4.0 scaled MADs from 51 other papers' means
+outlier,mitra2002,olsewski_49,cited_roentgenogram,Olsewski et al [18],pedicle_h,L2,not stated,Roentgenogram,17.2,"median 15.1, MAD 0.474432",4.4 scaled MADs from 51 other papers' means
+outlier,mitra2002,hou_chinese,cited_direct,Hou et al [7],pedicle_h,L5,female,Direct,18.7,"median 13.8909, MAD 1.15509",4.2 scaled MADs from 51 other papers' means
+outlier,mitra2002,hou_chinese,cited_direct,Hou et al [7],pedicle_h,L5,male,Direct,20.5,"median 13.8909, MAD 1.15509",5.7 scaled MADs from 51 other papers' means
+outlier,moncadahabib2025,mexico_ct37,ct_mpr_pacs_calipers,this paper,pedicle_h,L1,all,,12.9,"median 15.68, MAD 0.563388",4.9 scaled MADs from 61 other papers' means
+outlier,moncadahabib2025,mexico_ct37,ct_mpr_pacs_calipers,this paper,pedicle_h,L2,all,,12.4,"median 15.27, MAD 0.474432",6.0 scaled MADs from 61 other papers' means
+outlier,moncadahabib2025,mexico_ct37,ct_mpr_pacs_calipers,this paper,pedicle_h,L3,all,,12.05,"median 14.835, MAD 0.615279",4.5 scaled MADs from 60 other papers' means
+outlier,olsewski1990,part2_cadavers,cadaver_ap_radiograph,this paper,pedicle_h,L1,all,"Part 2 cadavers, AP radiographs",18.2,"median 15.6, MAD 0.459606",5.7 scaled MADs from 58 other papers' means
+outlier,olsewski1990,part2_cadavers,cadaver_ap_radiograph,this paper,pedicle_h,L2,all,"Part 2 cadavers, AP radiographs",17.2,"median 15.105, MAD 0.452193",4.6 scaled MADs from 58 other papers' means
+outlier,otsuki2021,rush_cadaver_6,microct_isthmus_dimensions,this paper,pedicle_h,L5,all,,24.2,"median 14, MAD 1.0823",9.4 scaled MADs from 61 other papers' means
+outlier,robertson2000,auckland_drybone,coaxial_radiograph_wire,this paper,pedicle_h,L1,not stated,,19.25,"median 15.68, MAD 0.563388",6.3 scaled MADs from 61 other papers' means
+outlier,robertson2000,auckland_drybone,coaxial_radiograph_wire,this paper,pedicle_h,L2,not stated,,18.65,"median 15.23, MAD 0.415128",8.2 scaled MADs from 61 other papers' means
+outlier,robertson2000,auckland_drybone,coaxial_radiograph_wire,this paper,pedicle_h,L3,not stated,,18.7,"median 14.755, MAD 0.659757",6.0 scaled MADs from 60 other papers' means
+outlier,robertson2000,auckland_drybone,coaxial_radiograph_wire,this paper,pedicle_h,L5,not stated,,18.55,"median 14, MAD 1.04523",4.4 scaled MADs from 60 other papers' means
+outlier,tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,this paper,canal_ap,L1,not stated,,12.5,"median 16.324, MAD 0.726474",5.3 scaled MADs from 42 other papers' means
+outlier,tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,this paper,canal_ap,L2,not stated,,11.7,"median 15.41, MAD 0.896973",4.1 scaled MADs from 42 other papers' means
+outlier,tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,this paper,canal_w,L3,not stated,,19.4,"median 22.49, MAD 0.756126",4.1 scaled MADs from 24 other papers' means
+outlier,tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,this paper,endplate_lower_depth,L5,not stated,,28.7,"median 33.85, MAD 0.978516",5.3 scaled MADs from 10 other papers' means
+outlier,tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,this paper,h_ant,L3,not stated,,21.4,"median 26.365, MAD 1.16384",4.3 scaled MADs from 8 other papers' means
+outlier,tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,this paper,h_ant,L5,not stated,,22,"median 27.18, MAD 1.12678",4.6 scaled MADs from 8 other papers' means
+outlier,tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,this paper,h_post,L1,not stated,,22.4,"median 26.89, MAD 0.474432",9.5 scaled MADs from 7 other papers' means
+outlier,tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,this paper,h_post,L2,not stated,,23.1,"median 27.01, MAD 0.973105",4.0 scaled MADs from 8 other papers' means
+outlier,tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,this paper,h_post,L5,not stated,,20,"median 24.75, MAD 0.659757",7.2 scaled MADs from 6 other papers' means
+outlier,tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,this paper,pedicle_h,L1,not stated,,13.1,"median 15.68, MAD 0.563388",4.6 scaled MADs from 61 other papers' means
+outlier,tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,this paper,pedicle_h,L2,not stated,,12.85,"median 15.27, MAD 0.474432",5.1 scaled MADs from 61 other papers' means
+outlier,zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,this paper,pedicle_w,T12,not stated,,7.1,"median 8.29, MAD 0.192738",6.2 scaled MADs from 12 other papers' means
+reversal,ahmed2019,elrakhawy_cadaveric,elrakhawy_sagittal_quoted,El-Rakhawy et al. [9],canal_ap,L2,male,Cadaveric study; Egyptian,+1.5 from L1 to L2,"33 of 33 other papers step down, median size 1",a step against the other papers' direction
+reversal,ahmed2019,alam_ct,alam_ct_sagittal_quoted,Alam et al [13],canal_ap,L5,female,CT study of symptomatic adults; Pakistani,-0.52 from L4 to L5,"30 of 33 other papers step up, median size 1",a step against the other papers' direction
+reversal,ahmed2019,elrakhawy_cadaveric,elrakhawy_sagittal_quoted,El-Rakhawy et al. [9],canal_ap,L5,female,Cadaveric study; Egyptian,-1.5 from L4 to L5,"30 of 33 other papers step up, median size 1",a step against the other papers' direction
+reversal,ahmed2019,elrakhawy_cadaveric,elrakhawy_sagittal_quoted,El-Rakhawy et al. [9],canal_ap,L5,male,Cadaveric study; Egyptian,-1.8 from L4 to L5,"30 of 33 other papers step up, median size 1",a step against the other papers' direction
+reversal,bonczar2024,pool18,meta_pool,this paper,pedicle_incl_sag,L4,all,,-4.89 from L3 to L4,"20 of 22 other papers step up, median size 3",a step against the other papers' direction
+reversal,busscher2010,porcine_landrace,ct_mpr_per_vertebra,this paper,h_post,L4,not stated,Porcine,+0.5 from L3 to L4,"5 of 5 other papers step down, median size 0.91",a step against the other papers' direction
+reversal,chen2011,chongqing_ct83,ct_mpr_pacs_endplate,this paper,endplate_depth,L3,pooled,superior endplate,-0.2445 from L2 to L3,"7 of 7 other papers step up, median size 0.4",a step against the other papers' direction
+reversal,chen2011,vanderhouwen_cited,vanderhouwen_quoted,van der Houwen [17],endplate_depth,L3,female,superior endplate,-0.8 from L2 to L3,"7 of 7 other papers step up, median size 0.4",a step against the other papers' direction
+reversal,chen2011,vanderhouwen_cited,vanderhouwen_quoted,van der Houwen [17],endplate_lower,L2,female,inferior endplate,-3.3 from L1 to L2,"8 of 8 other papers step up, median size 2.13755",a step against the other papers' direction
+reversal,chen2011,vanderhouwen_cited,vanderhouwen_quoted,van der Houwen [17],endplate_lower_depth,L2,male,inferior endplate,-0.7 from L1 to L2,"4 of 5 other papers step up, median size 0.64",a step against the other papers' direction
+reversal,duman2026,izmir-mdct-517,mdct-sagittal-pedicle-height,this paper,pedicle_h,T12,pooled,,+0.5218 from T11 to T12,"4 of 5 other papers step down, median size 0.4",a step against the other papers' direction
+reversal,duman2026,izmir-mdct-517,mdct-sagittal-pedicle-height,this paper,pedicle_h,L1,pooled,,+0.4764 from T12 to L1,"6 of 6 other papers step down, median size 0.9",a step against the other papers' direction
+reversal,duman2026,izmir-mdct-517,mdct-sagittal-pedicle-height,this paper,pedicle_h,L2,pooled,,+0.6958 from L1 to L2,"59 of 61 other papers step down, median size 0.63",a step against the other papers' direction
+reversal,gilad1985,haifa_transport_men,lateral_lumbar_film_caliper,this paper,h_post,L3,male,,+0.9 from L2 to L3,"5 of 6 other papers step down, median size 0.52",a step against the other papers' direction
+reversal,hou1993,zindrick_comparator,zindrick_radiographic,"Zindrick et al [10,11]",pedicle_w,T12,not stated,,-0.7 from T11 to T12,"9 of 10 other papers step up, median size 0.8375",a step against the other papers' direction
+reversal,hou1993,berry_comparator,berry_direct,Berry et al [1],pedicle_w,L1,not stated,,-0.7 from T12 to L1,"8 of 10 other papers step up, median size 1.07",a step against the other papers' direction
+reversal,hou1993,xian_dry_bone,vernier_caliper_dry_bone,this paper,pedicle_w,L1,all,,-1.3 from T12 to L1,"8 of 10 other papers step up, median size 1.07",a step against the other papers' direction
+reversal,lien2007,dry_sets,dry_caliper,this paper,pedicle_h,L2,all,dry vertebrae,+0.4 from L1 to L2,"59 of 61 other papers step down, median size 0.64",a step against the other papers' direction
+reversal,mitra2002,nagpur_cadavers20,ct_axial_midpedicle,this paper,pedicle_chord,L2,female,CT,-1.8 from L1 to L2,"13 of 14 other papers step up, median size 1.205",a step against the other papers' direction
+reversal,mitra2002,nagpur_cadavers20,ct_axial_midpedicle,this paper,pedicle_chord,L5,female,CT,+1.75 from L4 to L5,"13 of 15 other papers step down, median size 2.52",a step against the other papers' direction
+reversal,mitra2002,nagpur_cadavers20,specimen_roentgenogram,this paper,pedicle_h,L4,female,Roentgenogram,+0.5 from L3 to L4,"43 of 50 other papers step down, median size 0.7",a step against the other papers' direction
+reversal,mitra2002,olsewski_direct,cited_direct,Olsewski et al [18],pedicle_h,L4,male,Direct,+0.4 from L3 to L4,"43 of 50 other papers step down, median size 0.7",a step against the other papers' direction
+reversal,mitra2002,nagpur_cadavers20,ct_axial_midpedicle,this paper,pedicle_incl_sag,L2,male,CT,-1.5 from L1 to L2,"13 of 15 other papers step up, median size 1.1",a step against the other papers' direction
+reversal,mitra2002,nagpur_cadavers20,direct_sectioned,this paper,pedicle_incl_sag,L4,female,Direct,-2 from L3 to L4,"13 of 15 other papers step up, median size 3.25",a step against the other papers' direction
+reversal,mitra2002,nagpur_cadavers20,direct_intact_column,this paper,pedicle_incl_trans,L2,female,Direct,+2 from L1 to L2,"4 of 4 other papers step down, median size 0.55",a step against the other papers' direction
+reversal,mitra2002,nagpur_cadavers20,direct_intact_column,this paper,pedicle_incl_trans,L2,male,Direct,+0.9 from L1 to L2,"4 of 4 other papers step down, median size 0.55",a step against the other papers' direction
+reversal,mitra2002,nagpur_cadavers20,specimen_roentgenogram,this paper,pedicle_incl_trans,L2,male,Roentgenogram,+0.8 from L1 to L2,"4 of 4 other papers step down, median size 0.55",a step against the other papers' direction
+reversal,mitra2002,olsewski_direct,cited_direct,Olsewski et al [18],pedicle_incl_trans,L2,male,Direct,+1 from L1 to L2,"4 of 4 other papers step down, median size 0.55",a step against the other papers' direction
+reversal,mitra2002,nagpur_cadavers20,direct_intact_column,this paper,pedicle_incl_trans,L3,female,Direct,+2 from L2 to L3,"4 of 4 other papers step down, median size 1.4",a step against the other papers' direction
+reversal,mitra2002,nagpur_cadavers20,specimen_roentgenogram,this paper,pedicle_incl_trans,L3,female,Roentgenogram,+4 from L2 to L3,"4 of 4 other papers step down, median size 1.4",a step against the other papers' direction
+reversal,mitra2002,olsewski_49,cited_roentgenogram,Olsewski et al [18],pedicle_incl_trans,L3,not stated,Roentgenogram,+1 from L2 to L3,"4 of 4 other papers step down, median size 1.4",a step against the other papers' direction
+reversal,mitra2002,olsewski_direct,cited_direct,Olsewski et al [18],pedicle_incl_trans,L3,female,Direct,+1 from L2 to L3,"4 of 4 other papers step down, median size 1.4",a step against the other papers' direction
+reversal,mitra2002,nagpur_cadavers20,direct_intact_column,this paper,pedicle_incl_trans,L4,female,Direct,+3 from L3 to L4,"4 of 4 other papers step down, median size 1.7025",a step against the other papers' direction
+reversal,mitra2002,nagpur_cadavers20,direct_intact_column,this paper,pedicle_incl_trans,L4,male,Direct,+1 from L3 to L4,"4 of 4 other papers step down, median size 1.7025",a step against the other papers' direction
+reversal,mitra2002,nagpur_cadavers20,specimen_roentgenogram,this paper,pedicle_incl_trans,L4,female,Roentgenogram,+1.5 from L3 to L4,"4 of 4 other papers step down, median size 1.7025",a step against the other papers' direction
+reversal,mitra2002,olsewski_49,cited_roentgenogram,Olsewski et al [18],pedicle_incl_trans,L4,not stated,Roentgenogram,+1 from L3 to L4,"4 of 4 other papers step down, median size 1.7025",a step against the other papers' direction
+reversal,mitra2002,olsewski_direct,cited_direct,Olsewski et al [18],pedicle_incl_trans,L4,female,Direct,+1 from L3 to L4,"4 of 4 other papers step down, median size 1.7025",a step against the other papers' direction
+reversal,otsuki2021,rush_cadaver_6,microct_isthmus_dimensions,this paper,pedicle_h,L4,all,,+3 from L3 to L4,"51 of 60 other papers step down, median size 0.65",a step against the other papers' direction
+reversal,tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,this paper,pedicle_h,L4,not stated,,+0.7 from L3 to L4,"51 of 60 other papers step down, median size 0.65",a step against the other papers' direction
+reversal,tan2004,sg_chinese_cadavers10,direct_contact_3d_digitiser,this paper,pedicle_incl_sag,L4,not stated,,-3.25 from L3 to L4,"20 of 22 other papers step up, median size 3",a step against the other papers' direction
+reversal,tang2016,wang2012,wang_laser_scan,Wang et al. [34],endplate,L5,male,,-1.3 from L4 to L5,"9 of 10 other papers step up, median size 2.1935",a step against the other papers' direction
+reversal,tang2016,berry1987,berry_caliper_cadaver,Berry et al. [13],endplate_lower,L4,all,,-2.9 from L3 to L4,"8 of 8 other papers step up, median size 1.66",a step against the other papers' direction
+reversal,tang2016,panjabi1992,panjabi_cadaver,Panjabi et al. [27],endplate_lower_depth,L4,all,,-0.9 from L3 to L4,"5 of 5 other papers step up, median size 0.31",a step against the other papers' direction
+reversal,tang2016,wang2012,wang_laser_scan,Wang et al. [34],endplate_lower_depth,L4,male,,-0.3 from L3 to L4,"5 of 5 other papers step up, median size 0.31",a step against the other papers' direction
+reversal,tang2016,vanschaik1985,vanschaik_ct_midsagittal,van Schaik et al. [33],endplate_lower_depth,L5,all,"CT, patient, mid-sagittal",+0.7 from L4 to L5,"5 of 5 other papers step down, median size 1",a step against the other papers' direction
+reversal,yadav2020,singh-north-india-cadaver,singh-cadaver,Jaskaran et al [15],endplate_lower,L3,not stated,,-5.5 from L2 to L3,"4 of 4 other papers step up, median size 2.6135",a step against the other papers' direction
+reversal,zindrick1987,pooled_specimens_and_ct,pooled_film_and_ct,this paper,pedicle_w,T12,not stated,,-0.7 from T11 to T12,"10 of 11 other papers step up, median size 0.835",a step against the other papers' direction

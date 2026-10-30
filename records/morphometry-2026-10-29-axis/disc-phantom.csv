@@ -1,0 +1,7 @@
+source,case,region,discs,read,masks_gap,ct_height,truth,median,q25,q75
+phantom,exact,L2-L3,1,25,9.6,9.50865,10,0.19781,0.00410786,0.633061
+phantom,exact,L3-L4,1,25,9.6,9.51327,10,0.184348,-0.00874767,0.67343
+phantom,grown one voxel,L2-L3,1,25,9,9.47179,10,-0.69138,-1.01034,-0.397075
+phantom,grown one voxel,L3-L4,1,25,9,9.51802,10,-0.623914,-1.02619,-0.359439
+phantom,shrunk one voxel,L2-L3,1,25,10.6,9.49998,10,1.23362,1.08849,1.68088
+phantom,shrunk one voxel,L3-L4,1,25,10.6,9.51879,10,1.18497,1.15439,1.63695
