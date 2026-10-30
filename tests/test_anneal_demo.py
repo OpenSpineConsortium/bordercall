@@ -322,6 +322,30 @@ class TheCommand(unittest.TestCase):
             with self.assertRaises((argparse.ArgumentTypeError, ValueError)):
                 D.widths_of(wrong)
 
+    def test_blocks_reach_the_run_checked_first_and_never_go_with_a_kept_run(self):
+        from autoanatomist import demo as D
+        with mock.patch.object(D, "run") as run, redirect_stderr(io.StringIO()) as said, \
+                self.assertRaises(SystemExit) as stop:
+            D.main(["demo", "out.html", "--blocks", "schedule=nonsense"])
+        self.assertEqual(stop.exception.code, 2)
+        self.assertIn("--blocks: schedule takes", said.getvalue())
+        with mock.patch.object(D, "run") as run, redirect_stderr(io.StringIO()), self.assertRaises(SystemExit):
+            D.main(["demo", "out.html", "--load", "kept.pkl", "--blocks", "schedule=adaptive"])
+        run.assert_not_called()
+
+    def test_a_run_with_blocks_trains_as_a_session_and_says_so_in_its_record(self):
+        from autoanatomist import demo as D
+        cfg = tiny_config()
+        ex, held = tiny_examples(cfg)
+        with mock.patch.object(D, "examples", lambda c: (ex, held)):
+            demo = D.run(STEPS, EVERY, cfg, log_every=0, blocks=" schedule=adaptive  restraint=abf ")
+        self.assertEqual(demo.blocks, "schedule=adaptive restraint=abf")
+        self.assertEqual([s.step for s in demo.snapshots], [s.step for s in tiny_demo()[3].snapshots])
+        self.assertEqual((len(demo.w), len(demo.lam), len(demo.losses)), (STEPS, STEPS, STEPS))
+        self.assertTrue(np.all(np.isfinite(demo.losses)))
+        self.assertEqual(D.record(demo, cfg)["blocks"], "schedule=adaptive restraint=abf")
+        self.assertEqual(D.record(tiny_demo()[3], cfg)["blocks"], "")
+
     @unittest.skipUnless(HAVE_PLOTLY, "plotly is not installed")
     def test_it_trains_as_told_and_writes_the_page_the_runs_record_and_the_run_itself(self):
         from autoanatomist import demo as D
@@ -543,6 +567,31 @@ class TheTestOnNewPhantoms(unittest.TestCase):
                                             % (r.test.name, len(r.reference), r.error())), line)
         self.assertIn("phantoms it never saw", text)
         self.assertIn("guessing the mean", text)
+
+    def test_each_set_keeps_its_cts_and_both_pairs_of_points_and_its_median_vertebra(self):
+        from autoanatomist import demo as D
+        for r in self.results:
+            n = len(r.reference)
+            self.assertEqual((r.hu.shape[0], r.reference_points.shape, r.read_points.shape), (n, (n, 2, 3), (n, 2, 3)))
+            self.assertEqual([len(t) for t in r.ticks], list(r.hu.shape[1:]))
+        r = D.Tested(test=tiny_tests()[0], levels=["L1"] * 4, columns=np.array([0, 0, 1, 1]),
+                     reference=np.full(4, 40.0), read=np.array([40.5, 43.0, 38.0, 41.0]))
+        self.assertEqual(r.typical(), 3)            # errors 0.5, 3, 2, 1: the lower middle one is 1 mm
+
+    @unittest.skipUnless(HAVE_PLOTLY, "plotly is not installed")
+    def test_the_fits_draw_each_sets_median_vertebra_with_the_reference_and_the_networks_points(self):
+        from autoanatomist import demo as D
+        fig = D.fits_figure(self.results)
+        self.assertEqual((fig.layout.width, fig.layout.height), (D.WIDTH_PX, D.FITS_HEIGHT_PX))
+        self.assertEqual(len(fig.data), 3 * len(self.results))
+        for i, r in enumerate(self.results):
+            k = r.typical()
+            surface, reference, network = fig.data[3 * i:3 * i + 3]
+            self.assertEqual(surface.type, "isosurface")
+            np.testing.assert_allclose(np.c_[reference.x, reference.y, reference.z], r.reference_points[k], rtol=1e-6)
+            np.testing.assert_allclose(np.c_[network.x, network.y, network.z], r.read_points[k], rtol=1e-6)
+            self.assertEqual((reference.line.color, network.line.color), (D.BLUE, D.ORANGE))
+            self.assertIn("%s: %.1f mm" % (r.levels[k], r.read[k]), fig.layout.annotations[i].text)
 
     def test_test_reads_a_kept_run_alone(self):
         from autoanatomist import demo as D
@@ -1240,7 +1289,8 @@ class TheNotebook(unittest.TestCase):
                                   (None, "this session has no GPU", "8,16,32")):
             calls.clear()
             exec(self.cell("run"), dict(ns, CUDA=cuda, WHY_CPU=why))
-            self.assertEqual(calls, [("run", page, "--widths", widths, "--plotlyjs", "cdn", "--save", kept)])
+            self.assertEqual(calls, [("run", page, "--widths", widths, "--steps", "450", "--blocks",
+                                      "schedule=adaptive restraint=abf w_landmark=4", "--plotlyjs", "cdn", "--save", kept)])
         ns.update(CUDA=None, WHY_CPU="this session has no GPU")
         exec(self.cell("run"), ns)                   # the show cell reads the run cell's PAGE and KEPT
         calls.clear()
@@ -1252,6 +1302,18 @@ class TheNotebook(unittest.TestCase):
         exec(named, ns)
         other = os.path.join(self.base, "anneal_demo_3.html")
         self.assertEqual(calls, [("run", other, "--load", kept, "--vertebra", "3", "--plotlyjs", "cdn"), ("show", other)])
+
+    def test_the_settings_line_from_the_pipeline_page_sets_the_widths_the_steps_and_the_blocks(self):
+        calls = []
+        ns = dict(os=os, OUT=self.base, CUDA=None, WHY_CPU="no GPU", run_demo=lambda *words: calls.append(words))
+        for line, widths, steps, blocks in (
+                ("normalise=clip widths=16:32:64 schedule=cyclic steps=100 seed=2", "16,32,64", "100",
+                 ["--blocks", "normalise=clip schedule=cyclic seed=2"]),
+                ("widths=auto steps=50", "8,16,32", "50", [])):
+            calls.clear()
+            exec(self.cell("run").replace('SETTINGS = ""', "SETTINGS = %r" % line, 1), dict(ns))
+            self.assertEqual(calls[0][1:5], ("--widths", widths, "--steps", steps))
+            self.assertEqual(list(calls[0][5:-4]), blocks)
 
     def test_the_test_cell_tests_the_kept_run_and_shows_its_page(self):
         calls = []

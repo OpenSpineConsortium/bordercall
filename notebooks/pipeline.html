@@ -1,0 +1,200 @@
+<title>Anneal Pipeline</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<style>
+/* Layout: one row of four steps; the open step's own small pipeline unfolds in place below the row. */
+:root {
+  --bg: #ffffff;
+  --panel: #f5f6f8;
+  --line: #d9dde3;
+  --fg: #16181d;
+  --muted: #5d6470;
+  --accent: #0a66d6;
+  --accent-fg: #ffffff;
+  --chosen: #e8f0fc;
+  --sans: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #121417; --panel: #1c1f24; --line: #343a43; --fg: #eef0f3; --muted: #9aa2ad;
+  --accent: #4d9bff; --accent-fg: #0b1220; --chosen: #1a2a42; color-scheme: dark } }
+:root[data-theme="dark"] {
+  --bg: #121417; --panel: #1c1f24; --line: #343a43; --fg: #eef0f3; --muted: #9aa2ad;
+  --accent: #4d9bff; --accent-fg: #0b1220; --chosen: #1a2a42; color-scheme: dark }
+body { background: var(--bg); color: var(--fg); font-family: var(--sans); font-size: 15px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 28px 40px; }
+main { max-width: 960px; margin: 0 auto; display: grid; gap: 22px; }
+h1 { font-size: 26px; font-weight: 650; margin: 0; letter-spacing: -0.01em; text-wrap: balance; }
+.lede { color: var(--muted); margin: 6px 0 0; max-width: 62ch; line-height: 1.45; }
+.row { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
+.step { position: relative; text-align: left; font: inherit; color: inherit; cursor: pointer;
+  background: var(--panel); border: 1.5px solid var(--line); border-radius: 14px; padding: 16px 16px 14px;
+  display: grid; gap: 6px; min-width: 0; }
+.step:hover { border-color: var(--muted); }
+.step:focus-visible, button:focus-visible, select:focus-visible, input:focus-visible, a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.step[aria-expanded="true"] { border-color: var(--accent); background: var(--chosen); }
+.step .n { font-size: 12px; color: var(--muted); letter-spacing: 0.04em; text-transform: uppercase; }
+.step .name { font-size: 18px; font-weight: 600; }
+.step .sum { font-size: 13px; color: var(--muted); line-height: 1.35; overflow-wrap: anywhere; }
+.step:not(:last-child)::after { content: "\2192"; position: absolute; right: -11px; top: 50%; transform: translateY(-50%);
+  color: var(--muted); font-size: 14px; }
+.inner { border: 1.5px solid var(--accent); border-radius: 14px; padding: 18px; display: grid; gap: 14px; }
+.inner h2 { font-size: 16px; margin: 0; font-weight: 600; }
+.chain { display: flex; flex-wrap: wrap; gap: 10px; align-items: stretch; }
+.part { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 12px; display: grid;
+  gap: 8px; align-content: start; flex: 1 1 190px; min-width: 0; }
+.part .label { font-size: 13px; font-weight: 600; }
+.part .what { font-size: 12.5px; color: var(--muted); line-height: 1.35; }
+.part.fixed .value { font-size: 13px; }
+select, input { font: inherit; font-size: 14px; color: var(--fg); background: var(--bg); border: 1px solid var(--line);
+  border-radius: 8px; padding: 6px 8px; width: 100%; box-sizing: border-box; }
+.run { display: grid; gap: 10px; justify-items: start; }
+.go { display: inline-block; background: var(--accent); color: var(--accent-fg); text-decoration: none; font-weight: 600;
+  font-size: 16px; border-radius: 12px; padding: 12px 22px; }
+.go:hover { filter: brightness(1.05); }
+.settings { font-family: var(--mono); font-size: 13px; background: var(--panel); border: 1px solid var(--line);
+  border-radius: 8px; padding: 8px 10px; overflow-x: auto; max-width: 100%; box-sizing: border-box; white-space: pre; }
+.note { font-size: 13px; color: var(--muted); line-height: 1.45; max-width: 70ch; margin: 0; }
+.reset { font: inherit; font-size: 13px; background: none; border: none; color: var(--accent); cursor: pointer; padding: 0; }
+@media (max-width: 720px) { .row { grid-template-columns: repeat(2, minmax(0, 1fr)); } .step:nth-child(2)::after { content: none; } }
+@media (max-width: 420px) { .row { grid-template-columns: minmax(0, 1fr); } .step::after { content: none !important; } }
+@media (prefers-reduced-motion: no-preference) { .step { transition: border-color .15s, background .15s; } }
+</style>
+
+<main>
+  <header>
+    <h1>The anneal, as a pipeline</h1>
+    <p class="lede">Four steps. Click one to see what is inside it and change a setting. Then press Run in Colab: the notebook trains the network on phantoms, shows it on a slider, and draws its fit on test vertebrae.</p>
+  </header>
+
+  <div class="row" id="row" role="tablist" aria-label="Pipeline steps"></div>
+  <section class="inner" id="inner" hidden aria-live="polite"></section>
+
+  <section class="run">
+    <a class="go" id="go" href="https://colab.research.google.com/github/OpenSpineConsortium/bordercall/blob/main/notebooks/anneal_demo.ipynb" target="_blank" rel="noopener">Run in Colab</a>
+    <div class="settings" id="settings"></div>
+    <p class="note" id="how">Pressing Run in Colab copies this line. In Colab, paste it into the SETTINGS box of the first training cell, then choose Runtime, Run all. Left empty, the box runs these same defaults.</p>
+    <button class="reset" id="reset" type="button">Back to the defaults</button>
+  </section>
+</main>
+
+<script>
+// Each option maps to one word the notebook passes to python -m autoanatomist.demo: steps and widths
+// are its flags, every other key is a block of autoanatomist/blocks.py. Fixed parts are what the
+// demo cannot change yet, shown so the step says what it does.
+var STEPS = [
+  { id: "load", name: "Load data", parts: [
+    { label: "Phantoms", fixed: "Vertebrae drawn from Panjabi's tables, 20 HU noise" },
+    { label: "Training set", fixed: "8 columns of 3 vertebrae, T11 to L5" },
+    { label: "Held out", fixed: "4 columns of 3, read only to watch the run" },
+    { label: "Measure", fixed: "Upper end-plate width (EPWu)" } ] },
+  { id: "prep", name: "Preprocess", parts: [
+    { label: "Crop", fixed: "Around each vertebra, 2 mm voxels" },
+    { key: "normalise", label: "Scale the CT", what: "How the CT channel is scaled before the network reads it",
+      choices: [["clip", "Clip"], ["clip-zscore", "Clip, then standardise"]], def: "clip" },
+    { key: "intensity", label: "Augment", what: "Random gain, offset and noise on the CT the network reads",
+      choices: [["off", "Off"], ["gain-offset", "Gain and offset"], ["gain-offset-noise", "Gain, offset and noise"]], def: "off" },
+    { key: "ladder", label: "Mask ladder", what: "How the mask is taken away: identity, then edges, then the mask itself",
+      choices: [["in-turn", "One rung at a time"], ["overlapping", "Overlapping rungs"], ["together", "All at once"]], def: "in-turn" } ] },
+  { id: "train", name: "Train neural net", parts: [
+    { key: "architecture", label: "Network", what: "The 3-D network that reads the crop",
+      choices: [["residual-unet", "Residual U-Net"], ["plain-unet", "Plain U-Net"]], def: "residual-unet" },
+    { key: "widths", label: "Size", what: "Channels at the three scales; Auto picks the large one on a GPU",
+      choices: [["auto", "Auto"], ["8,16,32", "Small"], ["16,32,64", "Large"]], def: "auto" },
+    { key: "schedule", label: "Lambda schedule", what: "How the mask is annealed away; adaptive moves lambda by the error's own slope",
+      choices: [["adaptive", "Adaptive"], ["lambda-then-w", "Fixed ramp"], ["cyclic", "Cyclic"], ["joint", "Joint"]], def: "adaptive" },
+    { key: "restraint", label: "Biasing force", what: "Adaptive biasing force (ABF) on the measured value during the anneal",
+      choices: [["abf", "ABF on"], ["off", "Off"]], def: "abf" },
+    { key: "w_landmark", label: "Point weight", what: "How hard the loss pulls the two points onto the reference", number: true, step: "0.5", min: "0", def: "4" },
+    { key: "steps", label: "Steps", what: "More steps fit better; 450 takes about 10 minutes on a CPU", number: true, step: "50", min: "50", def: "450" },
+    { key: "seed", label: "Seed", what: "Starting weights and the order of batches", number: true, step: "1", min: "0", def: "0" } ] },
+  { id: "eval", name: "Evaluate", parts: [
+    { label: "On a slider", fixed: "One held-out vertebra after every 5 steps, the network's points against the reference" },
+    { label: "Test phantoms", fixed: "Five new sets: new patients, unseen levels, transitional spines, noisier, coarser" },
+    { label: "Fit on the bone", fixed: "One vertebra of each set drawn with both widths on it" } ] }
+];
+
+var values = {};
+var open = null;
+function reset() { STEPS.forEach(function (s) { s.parts.forEach(function (p) { if (p.key) values[p.key] = p.def; }); }); }
+reset();
+try { var kept = JSON.parse(localStorage.getItem("anneal-pipeline") || "null"); if (kept) Object.assign(values, kept); } catch (e) {}
+function save() { try { localStorage.setItem("anneal-pipeline", JSON.stringify(values)); } catch (e) {} }
+
+function partFor(key) { var hit = null; STEPS.forEach(function (s) { s.parts.forEach(function (p) { if (p.key === key) hit = p; }); }); return hit; }
+function shown(p) { if (!p.choices) return String(values[p.key]); var c = p.choices.find(function (c) { return c[0] === values[p.key]; }); return c ? c[1] : String(values[p.key]); }
+function summary(s) {
+  var set = s.parts.filter(function (p) { return p.key; });
+  if (!set.length) return s.parts.map(function (p) { return p.label; }).join(", ");
+  return set.map(function (p) { return p.label + ": " + shown(p); }).join(" \u00b7 ");
+}
+function line() {
+  var words = [];
+  Object.keys(values).forEach(function (k) {
+    var v = String(values[k]).trim();
+    if (k === "widths") { if (v !== "auto") words.push("widths=" + v.replace(/,/g, ":")); return; }
+    words.push(k + "=" + v);
+  });
+  return words.join(" ");
+}
+
+function el(tag, cls, text) { var e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; }
+
+function drawRow() {
+  var row = document.getElementById("row"); row.textContent = "";
+  STEPS.forEach(function (s, i) {
+    var b = el("button", "step"); b.type = "button"; b.id = "step-" + s.id;
+    b.setAttribute("aria-expanded", open === s.id ? "true" : "false");
+    b.appendChild(el("span", "n", "Step " + (i + 1)));
+    b.appendChild(el("span", "name", s.name));
+    b.appendChild(el("span", "sum", summary(s)));
+    b.addEventListener("click", function () { open = open === s.id ? null : s.id; draw(); });
+    row.appendChild(b);
+  });
+}
+
+function drawInner() {
+  var box = document.getElementById("inner"); box.textContent = "";
+  var s = STEPS.find(function (x) { return x.id === open; });
+  box.hidden = !s; if (!s) return;
+  box.appendChild(el("h2", null, "Inside " + s.name));
+  var chain = el("div", "chain");
+  s.parts.forEach(function (p) {
+    var part = el("div", "part" + (p.key ? "" : " fixed"));
+    part.appendChild(el("span", "label", p.label));
+    if (!p.key) { part.appendChild(el("span", "value what", p.fixed)); chain.appendChild(part); return; }
+    var id = "opt-" + p.key, input;
+    if (p.choices) {
+      input = el("select"); p.choices.forEach(function (c) { var o = el("option", null, c[1]); o.value = c[0]; input.appendChild(o); });
+    } else {
+      input = el("input"); input.type = "number"; input.step = p.step; input.min = p.min; input.inputMode = "decimal";
+    }
+    input.id = id; input.value = values[p.key]; input.setAttribute("aria-label", p.label);
+    input.addEventListener("change", function () {
+      var v = input.value.trim();
+      values[p.key] = v === "" ? p.def : v; save(); drawRow(); drawSettings();
+    });
+    part.appendChild(input);
+    part.appendChild(el("span", "what", p.what));
+    chain.appendChild(part);
+  });
+  box.appendChild(chain);
+}
+
+function drawSettings() { document.getElementById("settings").textContent = "SETTINGS = \"" + line() + "\""; }
+function draw() { drawRow(); drawInner(); drawSettings(); }
+
+document.getElementById("go").addEventListener("click", function () {
+  var text = line();
+  try { navigator.clipboard.writeText(text).then(function () { say("Copied. Paste it into SETTINGS in Colab, then Run all."); }, function () { pick(); }); }
+  catch (e) { pick(); }
+});
+function pick() {
+  var r = document.createRange(); r.selectNodeContents(document.getElementById("settings"));
+  var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+  say("Copy the selected line, paste it into SETTINGS in Colab, then Run all.");
+}
+function say(text) { document.getElementById("how").textContent = text; }
+document.getElementById("reset").addEventListener("click", function () { reset(); save(); draw(); });
+draw();
+</script>
