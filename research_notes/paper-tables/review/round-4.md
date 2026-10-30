@@ -64,6 +64,22 @@ The comparison and the page were rerun after these fixes.
   medial: a disagreement between papers the mapping calls same or close, a reader's question and not a rule's.
 - Bach 2019's decade-80 figure point and Zindrick 1987's studies as the unit stay as round 3 left them.
 
+Decided on 2026-10-30 (thread "Finish the clinical reread", project symphony_5), with the 41 mapping judgements
+(../validation/README.md, Decided on 2026-10-30):
+
+- Arockiaraj 2025: reference 11 is the misprint. The paper's list (PDF page 8) has 11 Olsewski and 23 Tall, and
+  Table 3 prints Tall et al.[23] on every row but the pedicle axis, which prints [11]; the readings already join
+  both spellings in one cohort (tall_burkina_faso), so nothing changes.
+- Tan 2004 and Zindrick 1987: a real disagreement, not a sign fault or a definition difference, so close stands and
+  the six series stay in the comparison. Each paper states the lateral sense in its own words (Tan: "a slight
+  divergence, instead of convergence", Abstract p. 137, Fig. 11 below zero, p. 144; Zindrick: "began to angle
+  laterally at T12", p. 164), and Panjabi 1991t sets Zindrick's -4.2 beside his own PDIs as a finding he did not see
+  (p. 898, Table 8). A judge and a checker agreed; the checker found two Tan text magnitudes of the reversed angle
+  (T8 8.6, p. 143; about 7 from T8 to T12, p. 145) carried as medial, and they now take factor -1, as Olsewski
+  1990's L5 cell; no series changes.
+- Bach 2019's decade-80 point and Zindrick 1987's studies as the unit stay: the papers print no other count, and the
+  Bach point is a disc height, outside Panjabi's measures.
+
 ## Checked and found clean
 
 Every series' n is at most its cohort's people; no both-sex mean lies outside its sexes' but Hou 1993's T9, which

@@ -149,7 +149,10 @@ what stays open is kept out of the comparison; like is graded like, and a grade 
 geometry does. For each of the seven a judge read the pages and a checker tried to refute any decision that changed
 the sheet or was not certain; the checker overturned one (Busscher 2010). Robertson 2000's bearing on Irie 2021, the
 one owner item that was a judgement, went through the same two steps. Each row's decision is in the fix column of
-mapping_audit.csv.
+mapping_audit.csv. The comparison, rerun in the same environment from the series as they stood before, reproduces the
+committed record byte for byte, so every change in it comes from these decisions. The three items round 4 left open
+were decided the same day (../review/round-4.md): Tan 2004's and Zindrick 1987's lateral thoracic pedicle angles are
+a real disagreement, each paper's own stated sense, and stay in the comparison.
 
 | Question | Decided | Cells |
 | --- | --- | ---: |
