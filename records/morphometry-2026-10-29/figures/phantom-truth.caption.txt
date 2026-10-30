@@ -1,0 +1,1 @@
+Each measure on the phantom, L2 to L4 drawn from shapes whose measures are known, less its truth: the median over three tilts and two grid turns, and a bar from the least to the largest, by slice thickness.
