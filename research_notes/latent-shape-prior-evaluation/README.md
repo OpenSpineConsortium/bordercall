@@ -58,7 +58,7 @@ Read from bordercall PR 40 (autoanatomist/README.md and records/autoanatomist-20
 | the prior in the loss | the naming layer: schwingcheck's exact Bayes rule over Panjabi's per-level means and SDs with a shared patient size and a per-measure offset, enumerated over every name path (chain.path_logev), four column types; nothing in the loss is an inequality bound | naming.py, train.py, schwingcheck/rule.py |
 | the smoke run | 8 synthetic phantoms trained, 4 held out, 150 steps on 4 CPUs: held-out landmark distance 2.98 mm, value MAE 1.3 to 2.6 mm, the delta spread 25 mm uncalibrated (39 untrained), named right 0 of 12 with that spread, 5 of 12 from the values alone, 9 of 12 from the oracle's values; 38 ms a crop, no latency number under the 97 ms rule | smoke.json, README.md |
 | the calibration | calibrate.py fits a factor per measure on validation (scale or quantile) so that the one-spread interval holds 0.68 of the validation errors; evaluate reports the calibrated spread, coverage at one and two spreads and the bodies named right three ways; no run has measured it | calibrate.py, train.py |
-| the real masks | 1,733 gold tier 3 studies: ENHANCE.PET 1,558 (229 at 1.25 mm or finer, most at 3 mm; MOOSE's masks checked by students and residents), VerSe 21, TotalSegmentator 154; at most 1,654 persons; 68 whole ENHANCE.PET studies name an L6 (67 below an L5) and 39 set L4 on the sacrum | gold3-ct/README.md, holdings/gold-tier-3.md, PR 44 README (the 229) |
+| the real masks | 1,738 gold tier 3 studies: ENHANCE.PET 1,558 (229 at 1.25 mm or finer, most at 3 mm; MOOSE's masks checked by students and residents), VerSe 21, TotalSegmentator 159; at most 1,659 persons, 1,620 units once probable repeat scans are joined (section 8); 68 whole ENHANCE.PET studies name an L6 (67 below an L5) and 39 set L4 on the sacrum | gold3-ct/README.md, holdings/gold-tier-3.md, PR 44 README (the 229) |
 | the truth on real masks | the engine: 81 keys a vertebra in the vertebra's own frame, each measure also a line with two world ends (morphoview.lines); 228 thin-slice studies measured on 2026-10-29 in the older frame; the frame since turned onto the vertebra's own axis, so every study is to be measured again; rows.csv carries values, not the ends; the pinned copy on the grid (SchwingNet's grid/bordercall/) carries morphometry, scanimport and screening and no morphoview | PR 44 README, morphoview/lines.py, measure.py, SchwingNet grid/bordercall/VENDORED |
 | the frames | training crops come from the oracle's frame (scanimport's column line through the neighbours' centroids), turned by up to 8 degrees and moved by up to 4 mm so the network cannot learn it; crops on a raw CT come from the mask-free mode (crops.from_found); the engine's frame is a third, the bisector of the end-plates, which over the 228 thin-slice studies lies a median 16.7 degrees off the column line at C3 and 18.1 at L5 (the run's axis_offset key; on study 0004 alone 21.7 and 16.7); none of the three gaps between the frames is measured | crops.py perturbed, oracle.py, PR 44 README (the axis section) |
 | the search flow | designed in PR 483's handoff and its module: one plan JSON (search, class, rows, split, space, fixed, seeds, rungs, keep, trials, controller, objective, latency_crops, wandb_project, every key required), successive halving on the validation reward, a REINFORCE controller, the test part read once by the best trial, a row's person its id; phantom rows only; the kept share strictly between 0 and 1; a trial with no landmark distance has no reward; the flow file flows/autoanatomist.py, its registry line and its PREREG are not on the branch yet (d8cadc3 at the time of reading) | SchwingNet HANDOFF.md section 4, src/schwingnet/autoanatomist_search.py, flows/registry.txt |
@@ -77,7 +77,7 @@ The transcript's diagnosis is right in its figures and wrong in its causes. Each
 | the Bayesian prior "relies on manually choosing which distances or angles to penalize", with "loopholes" where a ratio is missed | the prior is a generative model over named measurements, Panjabi's per-level mean and SD for each, a shared size and a per-measure offset (schwingcheck/rule.py); it penalises no bound; what it lacks is measures the table does not hold, which the wider pool (32) and the engine's keys supply |
 | naming.py is "MCMC / Prior" and "Viterbi chains" | naming.py is exact enumeration over name paths, exact at any rho, plus a temperature forward pass that is the forward algorithm at gamma 1, Viterbi as gamma goes to 0, and exact only at rho 0; it samples nothing; PyMC lives in schwingcheck/chain_pymc.py |
 | phantom.py uses "manual procedural generation rules" and "manual bone dimensions" | phantom.py sizes every level from one draw of schwingcheck's generator, Panjabi's means and SDs with the size law, the per-measure offset and the phenotypes; what is procedural is the shape primitive (an elliptic frustum, an elliptic canal, straight processes) |
-| "2000 real masks", "2000 gold-tier human masks" | 1,733 gold tier 3 studies, at most 1,654 persons; the ENHANCE.PET masks were drawn by MOOSE and checked by people, a person's annotation by the owner's rule, not hand-drawn |
+| "2000 real masks", "2000 gold-tier human masks" | 1,738 gold tier 3 studies, at most 1,659 persons; the ENHANCE.PET masks were drawn by MOOSE and checked by people, a person's annotation by the owner's rule, not hand-drawn |
 | "35 unit tests"; the oracle test "confirms sub-voxel edge gap placement (geometry.edge_gap)" | 70 tests now (35 before project.py); the oracle test holds each line end to the mask's boundary within 1.5 voxels and the values to measure_volume to the bit; edge_gap itself is tested in scanimport/tests/test_geometry.py, not by the oracle test, and no test calls its placement sub-voxel |
 | "38 ms per crop ... real-time clinical workflows" | 38 ms is the jitted network alone on the container's 4 CPUs, random input, best of three; no device of the owner's, no ONNX parity, no p95, and the mask-free frame is not in it: no latency number under SchwingNet's rule |
 | "each vertebral level possesses its own localized L-PDM sub-prior" (as a new thing) | the existing rule already holds a per-level, per-measure prior (Panjabi's table); a per-level PDM would add a prior over the points' joint configuration, which the measures' rule lacks, and duplicate the per-level means |
@@ -176,7 +176,7 @@ through the re-estimated table.
   are the cases the owner keeps (section 2), and a crop shows one body with its neighbours' edges. The emission's
   alphabet is the chain's 24 names (schwingcheck's DRAW_LEVELS: C3 to L5, L6 and T13): one mean per name and one shared
   P in one fit, a P per name in another, both measured; L6 takes a mean of its own fit from the L6 columns among the training persons (about 47 of the 67
-  at the shares of section 8, Bookstein's case, so its covariance is the pooled one of the shared-P fit); T13 has no label in ENHANCE.PET's scheme and VerSe's two T13 persons are in the anomaly holdout,
+  at the shares of section 8, Bookstein's case, so its covariance is the pooled one of the shared-P fit); T13 has no label in ENHANCE.PET's scheme and of VerSe's four T13 persons one is in the anomaly holdout and one in doubt (section 8),
   so its Gaussian is built as chain.extended_table builds the table's row, half-way between T12 and L1, and never
   fit; C2's ends are exported and in the PDM's point fit, not in the emission, since the rule has no C2. Meng 2020's
   full-spine PPCA (section 11) is the published way to a column model and stays out of version 1.
@@ -237,28 +237,69 @@ runs are fixed by the screen's dated keep record before its plan is frozen (sect
   about 26 GB for all of them, inside a 64 GB job), not the crops of its windows.
 - Splits by person, in the form of SchwingNet's data/splits/rule.json (a salted sha256 of the person id), with the
   shares set in the plan files of stages 4 and 5, as the search flow's split keys are (salt, validation_share,
-  test_share): validation 0.1 and test 0.2 (decision 7), so of at most 1,654 persons about 165 are validation, 331 test
-  and 1,158 training, each the most that part can hold, since the persons are 1,040 to 1,654. rule.json itself holds a
-  validation share only, and its test list (test-persons.json) names five C-ArmLSpine fluoroscopy persons and no CT
-  person, so without the plan file's share no gold 3 person is test; the anomaly-holdout persons (VerSe) are never
-  trained on. A hash cannot stratify, and at a test share of 0.2 the L4-on-sacrum stratum is expected at about 8 test
-  columns, under 10, so the test set is a listed one from the start, drawn by the gold3-ct store's anomaly classes in
-  test-persons.json's form and keeping the person hash's parts for every other person, with the hash's own draw as the
-  fallback; the strata's counts per part are reported either way.
-- Persons: every ENHANCE.PET study is its own person until the census's grid match (gold3-ct README section 7) assigns
-  autoPET's; Leipzig and Careggi carry no person id at all. autoPET's 979 whole studies come from 865 to 900 persons, so
-  79 to 114 are repeat studies that a hash by study could place on both sides of a split; the leak holds at all three
-  sites and no arm of the data is clean of it. The match is a dependency of stage 1; until it lands, the leak's test is
-  a near-duplicate check on the engine's own rows (two studies whose per-level measure vectors agree within
-  measurement error are one person), and repeats found go to one part, which needs the volume row to carry a person
-  key that the split hashes (section 10), since the search module hashes a row's id as its person today.
+  test_share): validation 0.1 and test 0.2 (decision 7). rule.json itself holds a validation share only, and its test
+  list (test-persons.json) names five C-ArmLSpine fluoroscopy persons and no CT person, and a hash cannot stratify (at
+  0.2 the L4-on-sacrum stratum would get about 8 test columns), so the test part is a listed one, written before any
+  run trains by draw_test_reserve.py beside this note, whose docstring is the rule of record:
+  - the unit is a person as far as the records tell: a group of one patient's repeat scans (next bullet), else one
+    study; a unit is hashed by its group's lowest study key, counts once in its stratum, and its studies always share
+    a part, and any fallback to the hash draws by that unit key, never by a row's own person key;
+  - a plain unit (class normal or unread) is validation below 0.1 and test in the band 0.1 to 0.1 plus the share;
+  - each anomaly stratum (the member, the store's class and the call by names, so the eleven-rib columns with L4 on the
+    sacrum are a stratum apart from those with L5) takes as test the first min(n, max(ceil(share x n), min(10,
+    floor(n / 2)))) of its n units in a second salted rank (spelled out in the docstring), the rest validation by the
+    hash or else train;
+  - a study in doubt is in no part until a person has looked: the store's classes look, open, labelling_error and
+    not_whole, anomaly-holdout.json's disputed persons, and, for every member, a study whose release masks lack a level
+    from C2 to L5 (admission.json's complete list), since a segmenter's level is never pooled with the release's;
+    doubt comes before every other branch, so a holdout study in doubt is held;
+  - anomaly-holdout.json's five holdout persons are test at every share and never trained on; its three fold persons,
+    which the route's other fine-tunes train on, are in no part.
+  At SchwingNet 3abc2fa (export sha256 ac95c7c1...) the 1,738 studies are 1,620 units: at 0.2, 327 test (353
+  studies), 173 validation and 1,085 train, with 32 units (35 studies) in doubt and 3 held; at 0.3, 495 test (533
+  studies), 172 validation and 918 train. The strata, as units and test units at 0.2 (at 0.3 where it differs):
+  ENHANCE.PET l6_twelve_ribs 46 and 10 (14), l6_thirteen_ribs 13 and 6, four_lumbar_twelve_ribs 26 and 10, eleven_ribs with L5 23 and 10, eleven_ribs with L4 on the sacrum 8 and
+  4, asymmetric_ribs with L5 3 and 1 and with L4 1 and 1, thirteen_ribs 2 and 1; TotalSegmentator l6 3 and 1; VerSe
+  t13 2 and 1. A pooled endpoint weights each stratum by N_h / n_h, its units over its test units, and the person
+  bootstrap resamples within strata, so the drawn strata never tilt a pooled number toward the anomalies.
+- The reserve, latent-prior-test-reserve.json (584 studies at 3abc2fa, sha256 cd9ddfed...), with
+  latent-prior-repeat-groups.json beside it (the 85 units of more than one study, by the export's person keys, sha256
+  a45797c3...) and a report that pins every input and both files by sha256: every unit not held that is test at 0.3
+  or whose hash is in the band 0.1 to 0.4 whatever its kind, every study of it listed with its own why, and the
+  studies outside the export that admission.json waits on, reserved with their unit where they have one and else by
+  their own key's band (today verse531 for a look and enhance_pet 1347 for its repaired mask). It holds the test part at either
+  share, decision 7's fallback hash draw at either share, and every study a look could move into a class or out of
+  doubt, so none of them can become test after a run trained on it. The auto-anatomist flow leaves every listed person
+  out of every part it trains or validates on (section 10). The evaluation reads its test part from the parts file the
+  generator writes at the frozen share and never draws it again from a later export: a person not listed is never test.
+- Persons: every ENHANCE.PET study is its own person in the store until the census's grid match (gold3-ct README
+  section 7) assigns autoPET's; Leipzig and Careggi carry no person id at all. autoPET's 979 whole studies come from 865
+  to 900 persons, so 79 to 114 are repeat studies; the census matched 900 CTs to 867 persons, about what one CT a
+  patient gives, so the match probably cannot name the repeats either, and the near-duplicate check is the rule
+  (facts.jsonl, repaired masks left out, every study of the facts in the export or not, joined by union-find). Two
+  autoPET studies at most 3 ids apart are linked when their vertebral volumes C3 to L4 agree to a mean absolute log
+  ratio under 0.03 over at least 15 whole levels: adjacent pairs fall under 0.03 at 127 of 3,036, against 0.05 per
+  cent of other autoPET pairs and 0.02 per cent across sites. Two studies of one site at any ids, Leipzig and Careggi
+  included, are linked when their volumes agree under 0.05 and either the distances between consecutive vertebral
+  centroids agree under 0.015 over at least 12 pairs (no pair across sites or far apart in autoPET, 0 of 1,131,744,
+  meets both) or their rib volumes agree under 0.04 over at least 16 whole ribs (0 of 503,506 autoPET pairs 11 or
+  more ids apart). That gives 88 groups in the facts and 85 units of 203 studies in the export (80 autoPET units
+  holding 113 repeat studies, inside the 79 to 114 autoPET's counts allow, and 5 Leipzig pairs); every unit holds one
+  rib class today (0702 to 0704 count once in their stratum, 1008 to 1010 once in theirs), and a unit whose studies a
+  later reading puts in two classes is in doubt as a whole until a person settles it. Two units probably join two
+  people (1000 with 1003, 0097 with 0114, by their ribs), which keeps studies together and leaks nothing.
+  aliases.json takes over once it lists anything. A repeat every link misses is the leak this plan cannot close, and
+  the PREREG says so.
 - The truth name on the anomaly columns, pre-registered by the ribs (holdings/gold-tier-3.md): the gold 3 census's rib
-  classes are the truth and the masks' names the record. Of the 67 L6 columns 51 have twelve rib pairs and 14 have
-  thirteen, the thirteenth on the label L1, which the chain names a T13 column and the scheme cannot; of the 39
-  L4-on-sacrum columns 24 have twelve rib pairs (the sacralisation candidates, which the ribs cannot tell from a
-  column one body short) and 8 have eleven, a class of their own. Naming is reported exact and within one level per
-  rib class; T13 as a type is scored only on the holdout's VerSe persons, if at all, and no emission for it is fit from
-  data (section 6).
+  classes are the truth and the masks' names the record. In the store's classes, 50 L6 columns have twelve rib pairs
+  (the holdings note's 51 counts one the store classes look) and 14 have thirteen, the thirteenth on the label L1,
+  which the chain names a T13 column and the scheme cannot; of the 39 columns named with L4 on the sacrum, 28 have
+  twelve rib pairs (the sacralisation candidates, which the ribs cannot tell from a column one body short; the holdings
+  note's 24 leaves out 0702, 0926, 1145 and 1534, classed by rib count alone), 8 have eleven, a stratum of their own, 1
+  has asymmetric ribs and 2 are in doubt. Naming is reported exact and within one level per stratum. Gold 3 holds four
+  VerSe T13 persons: verse547 is in the anomaly holdout and test here, verse588 is in doubt (its release masks lack
+  C2), and verse602 and verse631 are the listed stratum, which draws one; T13 as a type is reported descriptively on
+  those two test columns, never tested, and no emission for it is fit from data (section 6).
 - Fields for naming: every window of 1, 3 and 5 consecutive bodies of each test column, so a column of 22 bodies gives
   22, 20 and 18 fields; the share named right is over fields, its interval by a bootstrap over persons, since fields of
   one column are not independent, and a column's size estimate and type are shared by all its fields, so naming
@@ -285,7 +326,7 @@ runs are fixed by the screen's dated keep record before its plan is frozen (sect
   sits above it. The anomaly strata (about 7 L6 and 4 L4-on-sacrum columns in the validation tenth) are not read in the
   screen. The keep list, with each arm's validation numbers, is written as a dated record in this folder before the
   stage 5 plan file's bytes enter the PREREG's Covers line, so the full run's test read follows no choice.
-- Power, under the rule as written: a test fifth is about 331 persons and about 7,000 vertebrae. A paired MAE
+- Power, under the rule as written: the test part at 0.2 is 327 units (353 columns) and about 7,000 vertebrae. A paired MAE
   difference of 0.3 mm against a paired SD of about 2 mm a vertebra is told from zero at 80 per cent power with about
   350 vertebrae, about 1,750 after a design effect of 5 for clustering within a person; but the rule asks the interval's
   lower bound to clear the bar, so the true gain the design finds at 80 per cent power is the bar plus 2.8 standard
@@ -293,9 +334,10 @@ runs are fixed by the screen's dated keep record before its plan is frozen (sect
   for naming with the column as the cluster (about 330 columns, two arms discordant on 15 per cent of fields, a
   standard error near 2 points), about 9 points on three-body fields against the 3-point bar first proposed. The
   within-column correlation is measured in stage 2 from the engine's rows, and the naming bar is set from it before the
-  PREREG is frozen; the share stays 0.2 (decision 7), and 0.3 (about 500 columns) is the alternative decision 7 names
-  if the bar stage 2 gives is wider than three points. The anomaly strata are small (about 14 L6 and 8 L4-on-sacrum
-  columns in a fifth), so they are cross-fitted at stage 2 and reported with Wilson intervals at stage 5, not tested.
+  PREREG is frozen; the share stays 0.2 (decision 7), and 0.3 (495 units) is the alternative decision 7 names
+  if the bar stage 2 gives is wider than three points. The anomaly strata are small even listed (17 L6 and 15
+  L4-on-sacrum test units at 0.2), so they are cross-fitted at stage 2 and reported with Wilson intervals at stage 5,
+  not tested.
 - Nothing from CTSpinoPelvic1K (dropped for good), nothing from the morphometry phantoms (deferred); the
   autoanatomist phantoms serve stage 3 only, as a smoke test of the code path.
 
@@ -329,7 +371,7 @@ written into the record after, never claimed before:
 
 | stage | unit of work | count | basis record |
 | --- | --- | --- | --- |
-| 1 | the engine over 1,733 masks | the whole set is the 32-CPU, 24-hour job SchwingNet's grid/morphometry.sbatch already is; the 229 thin studies took one morning in a container | PR 44 README; the morphometry memory |
+| 1 | the engine over 1,738 masks | the whole set is the 32-CPU, 24-hour job SchwingNet's grid/morphometry.sbatch already is; the 229 thin studies took one morning in a container | PR 44 README; the morphometry memory |
 | 2 | the rule and the classifier over the rows, five folds | minutes once the rows exist | item P's data axis timings |
 | 3 | six arms, a few hundred steps each, on 4 CPUs | the smoke's 150 steps on 6 crops a step took 313 s | smoke.json |
 | 4 | a step is a batch of three-body windows, 3 crops each; an epoch ceil(windows / batch) steps in expectation | a fifth of the training persons is about 230 columns and about 4,600 three-body windows; at the smoke's batch of 2, about 2,300 steps an epoch and 115,000 steps in 50 epochs, about 690,000 crops a trial; at the smoke's CPU time that is 67 hours, so the GPU time a crop decides whether a trial is hours or a day; the eight or nine trials run side by side, so the screen's wall time is one trial's | smoke.json (spines_per_batch 2, count 3, 0.35 s a crop on CPU); the subset share and the window length are the plan's |
@@ -348,10 +390,11 @@ grows beyond its line here needs a new count. The size rule applies to nothing h
 Beside these jobs runs the auto-anatomist thread's annealer screen: plan gold3_latent_screen of its flow kind
 autoanatomist (SchwingNet PR 483, under docs/research/autoanatomist-screen/PREREG.md), four anneal schedules with two
 seeds each at objective=mask, which is arm F, on 96 training and 24 validation ENHANCE.PET CTs, as a GPU array of
-eight tasks and a CPU join afterany it. Those 2 jobs are not in greg's count above and wait for his word. Its question
+eight tasks and a CPU join afterany it. Those 2 jobs are outside greg's count above; he gave his word for both on 2026-10-30 at 08:56 UTC ("Yes to both"), and they wait only for that thread's frozen PREREG. Its question
 is the schedule with the head held at F; this plan's is the head with the schedule held. The two runs keep one person
 split: the persons this plan lists as test are read by the annealer run from the same list and never trained on
-there, since arm F may start from its checkpoint (asked of that thread on 2026-10-30).
+there, since arm F may start from its checkpoint (agreed with that thread on 2026-10-30; the list is
+latent-prior-test-reserve.json, section 8, and the interface is in section 10).
 
 ## 10. How it fits the swappable-block design and the launched flow
 
@@ -403,10 +446,22 @@ there, since arm F may start from its checkpoint (asked of that thread on 2026-1
 - The data: PR 40's rows.py already reads a CT and its label NIfTI as a volume row through the oracle interface and
   caches it by its digest, so no new loader is needed; what stages 4 and 5 need is the engine's export (the line ends
   of stage 1) standing behind that interface in place of the stand-in ChordOracle, the volume kind admitted by the
-  search module's row check (it takes phantom rows only today) with a person key (the gold 3 store's member and native
-  id, autoPET's once the match lands) that the split hashes where a row has one and the id otherwise, and the windowing
-  of a volume row into fixed-length fields (section 8), each window a row with its column's person, so that the naming
-  term's equal-count rule holds and the windows of one column land in one part.
+  search module's row check (it takes phantom rows only today) with a person field copied verbatim from the export
+  (enhance_pet:0001, colon and padding included; a gold 3 row without one is refused, and the id stands in for
+  phantoms alone), a split that takes listed parts (the parts file draw_test_reserve.py writes at the frozen share names
+  every study's part and unit, and wins over the hash for every row it names, a fourth split input beside the salt and
+  the two shares, which the module lacks today), and the windowing of a volume row into fixed-length fields (section
+  8), each window a row with its column's person, so that the naming term's equal-count rule holds and the windows of
+  one unit land in one part.
+- The one person split with the annealer screen (SchwingNet PR 483): its plan writer and its flow's start step read
+  latent-prior-test-reserve.json beside test-persons.json and leave every listed person out of train and validation
+  alike, comparing the export's person field by exact string, and keep each unit of latent-prior-repeat-groups.json in
+  one part (leaving out a member whose frozen part differs from its unit's); before training the run checks its
+  validation part against the export's hash, that every reserved normal ENHANCE.PET person was matched (424 at
+  3abc2fa, leaving 982 in its pool) and that none is in its manifest, and records both files' sha256 and the matched
+  count beside RUN.json. Arm F starts from that
+  run's checkpoint only where the recorded sha256 is this file's and no test person of this evaluation is in that
+  manifest; otherwise arm F trains from scratch.
 - The screen mode of the flow. None of it is in PR 483 at d8cadc3: flows/autoanatomist.py does not exist,
   flows/registry.txt names no autoanatomist kind, and autoanatomist_search.py takes phantom rows under the plan keys
   search, class, rows, split, space, fixed, seeds, rungs, keep, trials, controller, objective, latency_crops and
@@ -444,7 +499,7 @@ there, since arm F may start from its checkpoint (asked of that thread on 2026-1
 - Order of landing: the export flag on the engine's branch (PR 44's thread) and the re-vendor of bordercall under
   SchwingNet's grid/bordercall/; the measures port, the head block, pdm.py, the prior block and the windowing on the
   auto-anatomist's branch after PR 40 merges (or on a branch of this thread's own from it, once that thread's work is
-  in); the volume row kind with its person key, the score for a trial with no landmarks and the test switch in
+  in); the volume row kind with its person field, the listed parts, the score for a trial with no landmarks and the test switch in
   SchwingNet's search module, and flows/autoanatomist.py, after PR 483 merges; then this evaluation's kind, its plan
   files, its registry line and its PREREG in SchwingNet. Stage 2 asks nothing of PR 40 or PR 483 as they stand; stage 3
   asks PR 483's plan for the head block in its no-job form; stage 1 asks the export flag of PR 44's thread; stages 4
@@ -504,9 +559,10 @@ Risks the design answers, and how:
 - The engine's own biases (end-plate widths read wide against the papers, cervical pedicles not right, L5's pedicle
   fused with the process) are the truth's biases: every arm learns them alike, the report says so, and the pedicle ends
   the engine flags are missing data to the PDM and to the loss.
-- Leakage by person: every ENHANCE.PET study is its own person until the census's match assigns autoPET's, and
-  Leipzig and Careggi have no person id; the match is a dependency of stage 1, the volume rows carry a person key the
-  split hashes, and the near-duplicate check on the engine's rows is the leak's test until then (section 8).
+- Leakage by person: every ENHANCE.PET study is its own person in the store, and Leipzig and Careggi have no person
+  id; probable repeat scans are joined into units by their vertebral volumes, spacings and ribs before any part is drawn,
+  the split reads each study's part and unit from the frozen parts file, and a repeat every link misses is the leak
+  left, named in the PREREG (section 8).
 - MOOSE's masks checked by people are the annotation; nothing here raises a tier, and the maskedge offset (+0.14 to
   +0.20 mm on the phantom) is what a network trained on masks learns.
 - The latent arms may win on landmark distance and lose on the named values or the naming, as Daridon's and Choi's
@@ -545,9 +601,10 @@ thread's decisions marked as its own, and it carries a glossary of the words it 
 6. Stages 4 and 5 run as a flow kind of this evaluation's own, a thin subclass of the auto-anatomist flow with every
    piece section 10 lists, its registry line and its PREREG under SchwingNet's docs/research/latent-shape-prior-evaluation/,
    this note staying here.
-7. The test share is 0.2, and 0.3 (about 500 columns) is the alternative if the naming bar stage 2 gives is wider than
-   three points; the test set is a listed one drawn by anomaly class from the start, since the L4-on-sacrum stratum is
-   expected under 10 test columns at 0.2, with the hash's draw as the fallback; the screen never reads the test persons.
+7. The test share is 0.2, and 0.3 (495 units) is the alternative if the naming bar stage 2 gives is wider than three
+   points; the test set is a listed one from the start (draw_test_reserve.py, section 8): anomaly strata drawn by rank,
+   plain units by the hash, one patient's probable repeat scans one unit, studies in doubt in no part, the holdout tested;
+   the reserve covers both shares and the hash's own draw as the fallback, and the screen never reads the test persons.
 
 ## 13. What this plan does not do
 
