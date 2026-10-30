@@ -37,10 +37,12 @@ from __future__ import annotations
 
 import csv
 import hashlib
+import io
 import json
 import math
 import os
 import subprocess
+import types
 from dataclasses import dataclass, field
 from typing import Dict, List, Optional, Sequence, Tuple
 
@@ -148,6 +150,190 @@ def check_snapshot_all() -> List[str]:
 def load_vocabulary(path: str = VOCABULARY) -> Dict[str, dict]:
     with open(path, encoding="utf-8") as fh:
         return {r["key"]: r for r in csv.DictReader(fh)}
+
+
+# ---- the sexes the reread's series pool ---------------------------------------------------------
+#
+# The reread's tools/series.py writes one series a measure, level and group where a paper prints a
+# man's and a woman's row with an SD and a count each: the two pooled into a row of sex "pooled"
+# (sd_from "pooled from the sexes"), the two rows themselves left out of series.csv; and where the
+# paper prints the sexes together with an SD beside them, that row alone. So series.csv, and the
+# snapshot cut from it, keep no sex apart of Masharawi 2021's foramina, Chaudhary 2015's
+# interpedicular distances or a dozen other papers' tables that print the sexes with SDs. Their
+# printed rows are in the reread's readings (data/readings/<paper>.csv), which series.py reads with
+# its cohorts files; this snapshot holds every sex series series.py made from them and did not
+# write, cut by series.py itself at the commit SOURCE_ALL.json names, so that the covariates read
+# each printed sex as the reread reads it (its SD from an SE, its count, its sides averaged) and the
+# full snapshot, which every other record reads, stays as it is.
+#
+#     python3 -I -c "from synthval import papers_table as PT; PT.write_snapshot_sexes(PT.REPO_ROOT)"
+
+SEXES_APART = os.path.join(L.DATA, "series_sexes.csv")
+SOURCE_SEXES = os.path.join(L.DATA, "SOURCE_SEXES.json")
+REPO_ROOT = os.path.dirname(os.path.dirname(L.HERE))
+READINGS_PATH = "research_notes/paper-tables/data/readings"
+SERIES_TOOL_PATH = "research_notes/paper-tables/tools/series.py"
+POOLED_AWAY = "pooled into the snapshot's row of the sexes together (series.py's pool_sexes)"
+BESIDE_WHOLE = "left out beside the row of the sexes together that the snapshot keeps (series.py's pick_sexes)"
+COLUMNS_SEXES = COLUMNS_ALL + ["apart"]
+POOLED_SD_FROM = "pooled from the sexes"
+
+
+def _series_tool(repo: str, ref: str):
+    """The reread's tools/series.py as it stands at `ref`, as a module, and its bytes."""
+    source = L._git_show(repo, ref, SERIES_TOOL_PATH)
+    module = types.ModuleType("paper_tables_series")
+    exec(compile(source.decode("utf-8"), "%s:%s" % (ref[:12], SERIES_TOOL_PATH), "exec"), module.__dict__)
+    return module, source
+
+
+def _readings(repo: str, ref: str) -> List[dict]:
+    """Every paper's mapped reading at `ref`, in the order series.py's read_mapped reads them."""
+    names = subprocess.run(["git", "-C", repo, "ls-tree", "--name-only", "%s:%s" % (ref, READINGS_PATH)], check=True,
+                           capture_output=True, text=True).stdout.split()
+    rows: List[dict] = []
+    for name in sorted(n for n in names if n.endswith(".csv")):
+        rows += list(csv.DictReader(L._git_show(repo, ref, "%s/%s" % (READINGS_PATH, name)).decode("utf-8").splitlines()))
+    return rows
+
+
+def _people(repo: str, ref: str) -> Dict[Tuple[str, str], object]:
+    """Each cohort's n_people as series.py's cohort_people reads it, from the cohorts files at `ref`."""
+    names = subprocess.run(["git", "-C", repo, "ls-tree", "--name-only", "%s:%s" % (ref, L.COHORTS_PATH)], check=True,
+                           capture_output=True, text=True).stdout.split()
+    people = {}
+    for name in sorted(n for n in names if n.endswith(".cohorts.json")):
+        data = json.loads(L._git_show(repo, ref, "%s/%s" % (L.COHORTS_PATH, name)))
+        for c in data.get("cohorts", []):
+            people[(data["paper"], c.get("cohort"))] = c.get("n_people")
+    return people
+
+
+def _git_id(repo: str, ref: str, path: str) -> str:
+    return subprocess.run(["git", "-C", repo, "rev-parse", "%s:%s" % (ref, path)], check=True, capture_output=True,
+                          text=True).stdout.strip()
+
+
+def sexes_apart(tool, readings: Sequence[dict], people: Dict[Tuple[str, str], object]) -> List[dict]:
+    """The sex series series.py makes and does not write, each with why: series.py's build, step
+    for step (gather, one_series, merge_sides), with pick_sexes's choice read rather than taken."""
+    cells, meta = tool.gather(readings)
+    counts = tool.printed_counts(readings)
+    sides: Dict[tuple, dict] = {}
+    for k, stats in cells.items():
+        s = tool.one_series(k, stats, meta[k], people, counts)
+        if s is not None:
+            s.update(meta[k])
+            sides.setdefault(k[:8], {})[k[8]] = s
+    sexes: Dict[tuple, dict] = {}
+    for k, found in sides.items():
+        side, s = tool.merge_sides(found, (k[0], k[4]) in tool.MIRRORED_LEFT)
+        sexes.setdefault(k[:6] + k[7:8], {})[k[6]] = (side, s)
+    out = []
+    for k, found in sexes.items():
+        paper, cohort, technique, source, key, level, group = k
+        written = {sex for sex, _ in tool.pick_sexes(found)}
+        why = POOLED_AWAY if written == {"pooled"} else BESIDE_WHOLE
+        for sex in ("male", "female"):
+            if sex in found and sex not in written:
+                side, s = found[sex]
+                out.append({"paper": paper, "cohort": cohort, "technique": technique, "source_of_values": source,
+                            "key": key, "level": level, "sex": sex, "group": group, "side": side,
+                            **{c: tool.fmt(s[c]) for c in ("mean", "sd", "n", "sd_from", "n_from", "units", "vs_panjabi",
+                                                            "definition")}, "apart": why})
+    return sorted(out, key=lambda r: tuple(r[c] for c in ("paper", "cohort", "technique", "source_of_values", "key",
+                                                          "level", "group", "sex")))
+
+
+def write_snapshot_sexes(repo: str, ref: Optional[str] = None) -> dict:
+    """Cut the sexes series.py pools or leaves out, from the readings at the full snapshot's commit,
+    after holding series.py's own build of them to the series.csv the full snapshot was cut from."""
+    with open(SOURCE_ALL, encoding="utf-8") as fh:
+        source = json.load(fh)
+    ref = ref or source["commit"]
+    tool, code = _series_tool(repo, ref)
+    readings = _readings(repo, ref)
+    cohorts = L._cohorts(repo, ref)
+    people = _people(repo, ref)
+    buf = io.StringIO()
+    w = csv.writer(buf, lineterminator="\n")
+    w.writerow(tool.COLUMNS)
+    for s in tool.build(readings, people):
+        w.writerow([tool.fmt(s[c]) for c in tool.COLUMNS])
+    if hashlib.sha256(buf.getvalue().encode("utf-8")).hexdigest() != source["sha256"]:
+        raise ValueError("series.py at %s does not remake the series.csv SOURCE_ALL.json records" % ref)
+    rows = sexes_apart(tool, readings, people)
+    with open(SEXES_APART, "w", newline="", encoding="utf-8") as fh:
+        w = csv.DictWriter(fh, COLUMNS_SEXES, lineterminator="\n", extrasaction="ignore")
+        w.writeheader()
+        for r in rows:
+            c = cohorts.get((r["paper"], r["cohort"]), {"species": "", "n": ""})
+            w.writerow(dict(r, species=c["species"], cohort_n=c["n"]))
+    commit = subprocess.run(["git", "-C", repo, "rev-parse", ref], check=True, capture_output=True, text=True).stdout.strip()
+    info = {"commit": commit, "readings_path": READINGS_PATH, "readings_tree": _git_id(repo, ref, READINGS_PATH),
+            "cohorts_path": L.COHORTS_PATH, "cohorts_tree": _git_id(repo, ref, L.COHORTS_PATH),
+            "series_tool_path": SERIES_TOOL_PATH, "series_tool_sha256": hashlib.sha256(code).hexdigest(),
+            "series_sha256": source["sha256"], "rows": len(rows),
+            "rows_by_why": {why: sum(1 for r in rows if r["apart"] == why) for why in (POOLED_AWAY, BESIDE_WHOLE)},
+            "snapshot_sha256": L._sha(SEXES_APART)}
+    with open(SOURCE_SEXES, "w", encoding="utf-8", newline="\n") as fh:
+        json.dump(info, fh, indent=1, sort_keys=True)
+        fh.write("\n")
+    return info
+
+
+def _pooled_pair(m: dict, f: dict) -> Tuple[float, float, float]:
+    """series.py's pool_sexes on a man's and a woman's row."""
+    n = m["n"] + f["n"]
+    within = (m["n"] - 1) * m["sd"] ** 2 + (f["n"] - 1) * f["sd"] ** 2
+    between = m["n"] * f["n"] / n * (m["mean"] - f["mean"]) ** 2
+    return (m["n"] * m["mean"] + f["n"] * f["mean"]) / n, math.sqrt((within + between) / (n - 1)), n
+
+
+def check_snapshot_sexes() -> List[str]:
+    """What differs: the sexes' snapshot against SOURCE_SEXES.json, its series.csv against the full
+    snapshot's, and its rows against the full snapshot: every pair POOLED_AWAY pools, as series.py
+    pools it, to the snapshot's row of the sexes together at its cell to the six figures series.py
+    writes, and every row BESIDE_WHOLE has the row it was left out beside."""
+    with open(SOURCE_SEXES, encoding="utf-8") as fh:
+        info = json.load(fh)
+    with open(SOURCE_ALL, encoding="utf-8") as fh:
+        source = json.load(fh)
+    problems = []
+    if L._sha(SEXES_APART) != info["snapshot_sha256"]:
+        problems.append("the sexes' snapshot is not the one SOURCE_SEXES.json records")
+    if info["series_sha256"] != source["sha256"] or info["commit"] != source["commit"]:
+        problems.append("the sexes' snapshot was cut from another series.csv than the full snapshot's")
+    with open(SEXES_APART, encoding="utf-8") as fh:
+        apart = list(csv.DictReader(fh))
+    with open(SNAPSHOT_ALL, encoding="utf-8") as fh:
+        whole = list(csv.DictReader(fh))
+    cell = lambda r: tuple(r[c] for c in ("paper", "cohort", "technique", "source_of_values", "key", "level", "group"))
+    together = {}
+    for r in whole:
+        if r["sex"] in L.WHOLE_SEXES:
+            together.setdefault(cell(r), []).append(r)
+    pairs: Dict[tuple, Dict[str, dict]] = {}
+    for r in apart:
+        if r["apart"] == BESIDE_WHOLE and cell(r) not in together:
+            problems.append("%s has no row of the sexes together at %s" % (r["paper"], "/".join(cell(r)[1:])))
+        if r["apart"] == POOLED_AWAY:
+            pairs.setdefault(cell(r), {})[r["sex"]] = {k: float(r[k]) for k in ("mean", "sd", "n")}
+    for k, sexes in sorted(pairs.items()):
+        rows = [r for r in together.get(k, []) if r["sd_from"] == POOLED_SD_FROM]
+        if len(sexes) != 2 or len(rows) != 1:
+            problems.append("%s at %s is no pair pooled into one row of the snapshot" % (k[0], "/".join(k[1:])))
+            continue
+        got = _pooled_pair(sexes["male"], sexes["female"])
+        if not all(math.isclose(g, float(rows[0][c]), rel_tol=2e-5) for g, c in zip(got, ("mean", "sd", "n"))):
+            problems.append("%s's sexes at %s do not pool to the snapshot's row" % (k[0], "/".join(k[1:])))
+    return problems
+
+
+def load_rows_sexes(path: str = SEXES_APART) -> List[dict]:
+    """The sexes' snapshot as load_rows_all reads the full snapshot, each row with why it is apart
+    (its "apart"): rows for the covariates beside the full snapshot's, never for a pooled table."""
+    return load_rows_all(path)
 
 
 # ---- the series of every measure --------------------------------------------------------------

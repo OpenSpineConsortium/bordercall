@@ -1,0 +1,16 @@
+{
+ "cohorts_path": "research_notes/paper-tables/data/cohorts",
+ "cohorts_tree": "ca047461d9a4c5caddf088b6c752f39e9ea297e2",
+ "commit": "6409164c62138a1fab30e638a1de38ad2f6c45a4",
+ "readings_path": "research_notes/paper-tables/data/readings",
+ "readings_tree": "923389d324cac55991bdf2f8d83e7f3877d47995",
+ "rows": 1522,
+ "rows_by_why": {
+  "left out beside the row of the sexes together that the snapshot keeps (series.py's pick_sexes)": 616,
+  "pooled into the snapshot's row of the sexes together (series.py's pool_sexes)": 906
+ },
+ "series_sha256": "5bd5b8b867e58214b0b12059bd922e004034765db8f17010a14405076a9c40b5",
+ "series_tool_path": "research_notes/paper-tables/tools/series.py",
+ "series_tool_sha256": "c64ee57c0e9e10f197d7f2d14a489935e11cef495a8acf1450c302318c9b8d3a",
+ "snapshot_sha256": "80025cef4d5b49c5641eca00aa2f20312d94d0576cc1f89bcea8b020f571bd34"
+}

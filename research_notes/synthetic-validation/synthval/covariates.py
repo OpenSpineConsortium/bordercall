@@ -15,10 +15,67 @@ on 2026-10-29.
    series a paper prints over two or more bands of the variable gives a weighted least-squares slope
    of the band means on the bands' midpoints (weights n / sd^2), in the within-band SD per decade,
    per 100 mm or per 10 kg. A paper's strata at one cell (its age bands' sex contrasts, say) are
-   different people and are combined by inverse variance; its cells of one measure share people, so
+   different people and are combined by inverse variance, while two strata of the same people (one
+   group read as two variants of a measure, Bach 2019's mean disc height by three points and by two
+   rims) are one value, their mean with the mean variance; its cells of one measure share people, so
    a paper's value for a measure is the mean over its cells with the mean variance (no gain claimed
    for the shared people); the papers are then pooled by REML (pooling.pool), with the interval for
    the mean and, from three papers, for one more paper.
+
+   Where the sexes come from. The full snapshot is series.csv, which keeps no man's or woman's row
+   where the paper prints both with an SD and a count (the reread's series.py pools them into one
+   row of sex "pooled") or prints the sexes together with an SD beside them (that row alone), so it
+   holds no sex apart of Masharawi 2021's foramina, Chaudhary 2015's interpedicular distances,
+   Abbas 2021's, Olsewski 1990's, Yu 2015's or a dozen other papers' tables. The contrasts read
+   those rows from the sexes' snapshot beside it (papers_table.load_rows_sexes: every sex series
+   series.py made from the readings and did not write, held to pool back to the snapshot's own
+   rows), so every printed sex enters, and the full snapshot, which the selection's tables and the
+   gradients read, stays as it is.
+
+   Which strata, and their counts. A stratum is of adults: a group whose age band starts below ADULT
+   (Bach's First Decade, his 10s, which hold people of 14) is left out of the sex contrasts as it is
+   of the age gradients. One technique per cohort, measure and level, the selection's rule 4 (bone,
+   then CT, MRI, film, mixed; "same" before "close"), since a paper that measures its people twice
+   (Mitra 2002's cadavers on CT and directly) has one set of people. One set of people per cohort,
+   technique, measure and level, the selection's rule 5: where the paper prints the sexes of the
+   whole cohort (group empty), its strata's sexes are the same people again and are left out (Bach
+   2019's whole 240 by sex beside his decades by sex, Duman 2026's and Griffith 2016's whole
+   beside their age bands), as the selection takes the whole before its strata; the whole is also
+   the reading the rule's tables meet, its within-sex SD spanning every age as a sexless table's
+   does (so Chaudhary 2015's Table II, Table I's means again without the SDs under the district's
+   name, is its whole's again). Two groups printing the same men's and women's means, SDs and
+   counts are one, as in the selection's rule 5. At least MIN_PER_SEX people of each sex: a sex of fewer gives its own mean
+   to no better than sd / sqrt(n), over 0.45 within-sex SDs, the size of the effects measured, and
+   the normal approximation to g's variance that the pooling's weights rest on fails at one to
+   three degrees of freedom; Mitra 2002's two women at one level gave g = 9.7, which as one cell's
+   pooled g carried a quarter to a third of the synthetic per-cell gain. Every pair of both sexes
+   that does not enter is recorded with why (sex_strata's dropped). A row the snapshot gives the
+   cohort's whole count (literature.COHORT_COUNT: the paper printed none beside it) takes its
+   stratum's own count: the count the paper prints for that group and sex elsewhere (STRATUM_COUNTS,
+   from the reread's readings and cohort files), else the register's group count times the cohort's
+   share of the sex where the paper counts its groups and its sexes but not the one within the
+   other (register.stratum_counts), else the cohort's count split evenly over the strata it prints
+   at that cell, said in the stratum's count_from. Bach's 240 CTs are 131 women and 109 men, 8 to 25
+   a decade and sex (his Table 1), where every one of his decade-by-sex strata had carried 240.
+
+   Means alone. A paper that prints a stratum's men's and women's means and counts but no SD for
+   either (Eisenstein 1977, Amonoo-Kuofi 1985's mid-body depth; Mitra 2002's, two women a stratum,
+   fall to MIN_PER_SEX) still gives the
+   difference; its g is read against a within-sex SD made from a sexless SD: the paper's own SD
+   of the same stratum with the sexes together where it prints one, the two sexes'
+   pooling inverted exactly with their counts, since it is the same people measured the same way;
+   else the pooled within-person SD of the other papers' series at the same measure and placed level
+   in the paper's own modality class (strata._pool, as the tables pool it, the papers in `without`
+   left out too), narrowed half and half by the paper's own difference, sqrt(sd^2 - d^2 / 4), as the
+   tables are split into sexes. The second is the SD the rule's table reads, so the g moves a table
+   by the paper's own difference in its units; it takes the paper's scale to be the pool's, true
+   within a modality class to within its calibration, and a stratum whose class no other paper
+   prints (Amonoo-Kuofi 1982's body widths on film), or whose difference is wider than the pool
+   allows, gives no contrast. Near that edge the narrowed SD is small and the g large, though the
+   table it moves still moves by the paper's own difference in millimetres or degrees, and its
+   variance carries the size. Each contrast says which SD it was read against (sd_from) and carries
+   it (sd_within), with where its counts came from (count_from), so that every g is made again
+   from its record. A stratum printed with one sex's SD and not the other's gives none.
 
 2. Prediction, held out by paper. For each paper, the effect is taken from the other papers alone
    (the same cell pooled over them, else the measure pooled over its cells), and applied to the
@@ -27,7 +84,8 @@ on 2026-10-29.
    the posterior probability of male from one measure at a known level, a two-Gaussian classifier
    whose class means sit g within-sex SDs apart about the population's mean, scored on the held-out
    paper's own men and women (equal numbers): the AUC, the log loss against ln 2 for the base rate,
-   and the same for the population's own split (the ceiling). Covariate to shape: the out-of-sample
+   and the same for the population's own split (the ceiling); only a stratum that prints both its
+   SDs is scored so, since the score is over its own people's spread. Covariate to shape: the out-of-sample
    R^2 of the measure predicted from sex by the transferred effect, against the population's own
    split's R^2; for age, the band means predicted from the band's age by the transferred slope. Every
    expectation over a person is exact (Gaussian, by Gauss-Hermite quadrature), so no draw is made.
@@ -48,6 +106,7 @@ import numpy as np
 from numpy.polynomial.hermite_e import hermegauss
 from scipy import stats
 
+from . import literature as L
 from . import pooling as P
 from .literature import EXCLUDED_GROUP
 
@@ -57,19 +116,62 @@ ADULT = 18.0
 OPEN_SPAN = 15.0                   # years a band open at one end is taken to span (">55" is 55 to 70)
 NODES, WEIGHTS = hermegauss(40)
 WEIGHTS = WEIGHTS / WEIGHTS.sum()
+META_POOL = "meta_pool"            # a meta-analysis's pool of other studies, which may hold any paper here
+
+# The year a paper's ordinal decades start from where it does not mean the decade of life: Bach
+# 2019's Tables 2 to 5 name Table 1's 10s to 70s First to Seventh Decade (the reread's reading of
+# Table 1: "decade 10 is the 10-19 group (First Decade)").
+ORDINAL_DECADE_FROM = {"bach2019": 10.0}
+
+# Counts of people a paper prints for a stratum on a page the stratum's rows do not carry, which
+# the snapshot fills with the cohort's whole count (literature.COHORT_COUNT), by (paper, cohort,
+# group, sex), each with where it is printed.
+BACH_TABLE_1 = "Bach 2019 Table 1 (p. e108): people per decade and sex, as the reread reads it"
+BACH_DECADES = ("First", "Second", "Third", "Fourth", "Fifth", "Sixth", "Seventh")
+BACH_WOMEN, BACH_MEN = (8, 25, 18, 23, 25, 17, 15), (8, 19, 17, 8, 23, 22, 12)
+STRATUM_COUNTS: Dict[Tuple[str, str, str, str], Tuple[float, str]] = {
+    **{("bach2019", "usf_ct240", "%s Decade" % d, sex): (float(n), BACH_TABLE_1)
+       for sex, counts in (("female", BACH_WOMEN), ("male", BACH_MEN)) for d, n in zip(BACH_DECADES, counts)},
+    **{("chen2011", "chongqing_ct83", group, sex): (n, "Chen 2011 Tables 2 and 3: 430 and 400 end-plates, ten a person "
+                                                      "(the reread's cohort file)")
+       for group in ("superior endplate", "inferior endplate") for sex, n in (("male", 43.0), ("female", 40.0))},
+    **{("chaudhary2015", "sonepat_ap_films", "sonepat District", sex): (150.0, "Chaudhary 2015: 300 films, 150 of each sex "
+                                                                            "(the reread's cohort file)")
+       for sex in ("male", "female")},
+}
+MIN_PER_SEX = 5.0                  # people of each sex for a stratum's contrast to enter (the docstring says why)
+EVEN_SPLIT = "the cohort's count split evenly over the strata it prints at the cell (no count of the stratum's own is printed)"
+# Why a pair of both sexes gives no contrast (sex_strata's dropped).
+CHILDREN = "a stratum of children (its age band starts below ADULT)"
+ANOTHER_TECHNIQUE = "another technique on the same people (rule 4)"
+STRATUM_OF_WHOLE = "a stratum of a cohort whose whole the paper prints by sex at the cell (rule 5)"
+PRINTED_TWICE = "the same men's and women's means, SDs and counts printed again under another group"
+FEW_PER_SEX = "fewer than MIN_PER_SEX people of a sex"
+ONE_SD = "one sex's SD printed and not the other's"
+NO_SD = "means alone, and no sexless SD to read them against (none in the paper's modality class, or the difference too wide)"
+OWN_SEXLESS_SD = "the paper's own SD of the stratum, sexes together, the pooling of the sexes inverted"
+OTHERS_POOLED_SD = "the other papers' pooled SD at the cell in the paper's modality class, narrowed half and half"
+PRINTED_SD = "printed"
 
 
 # ---- the rows a contrast may be read from -------------------------------------------------------
 
-def usable(r: dict, vocabulary: Dict[str, dict]) -> bool:
-    """A row of a paper's own people, of a human, on a measure with a kind, with a mean, an SD and
-    a count of its own, in a group that is a population (not a stenosis, a size quartile or a
-    figure's example)."""
+def usable(r: dict, vocabulary: Dict[str, dict], need_sd: bool = True) -> bool:
+    """A row of a paper's own people, of a human, on a measure with a kind, with a mean, a count of
+    its own and, `need_sd`, an SD, in a group that is a population (not a stenosis, a size quartile
+    or a figure's example) and not a meta-analysis's pool."""
     kind = vocabulary.get(r["base_key"], {}).get("kind")
+    numbers = ("mean", "sd", "n") if need_sd else ("mean", "n")
     return (r["source_of_values"] == OWN_SOURCE and r["species"] != "pig" and kind in KINDS
-            and all(isinstance(r[k], float) and math.isfinite(r[k]) for k in ("mean", "sd", "n"))
-            and r["sd"] > 0 and r["n"] > 1 and not EXCLUDED_GROUP.search(r["group"] or "")
-            and not EXCLUDED_GROUP.search(r["cohort"] or ""))
+            and all(isinstance(r[k], float) and math.isfinite(r[k]) for k in numbers)
+            and (not need_sd or r["sd"] > 0) and r["n"] > 1 and not EXCLUDED_GROUP.search(r["group"] or "")
+            and not EXCLUDED_GROUP.search(r["cohort"] or "") and r.get("technique") != META_POOL)
+
+
+def adult(r: dict) -> bool:
+    """A row of adults: its group names no age band, or one that starts at ADULT or later."""
+    band = age_band(r["group"], r["paper"])
+    return band is None or band[0] >= ADULT
 
 
 def stratum_key(r: dict, *leave_out: str) -> tuple:
@@ -79,14 +181,61 @@ def stratum_key(r: dict, *leave_out: str) -> tuple:
 
 
 def largest(rows: Sequence[dict]) -> dict:
-    return max(rows, key=lambda r: r["n"])
+    """Of a sex's rows of one stratum, the one with an SD and then the most people."""
+    return max(rows, key=lambda r: (isinstance(r["sd"], float) and math.isfinite(r["sd"]), r["n"]))
+
+
+# ---- each stratum's own count ----------------------------------------------------------------------
+
+def _cell_of_row(r: dict) -> tuple:
+    return tuple(r[f] for f in ("paper", "cohort", "technique", "key", "level", "side", "definition"))
+
+
+def strata_printed(rows_at_cell: Sequence[dict]) -> int:
+    """The strata of people a paper prints at one cell: each group's two sexes, a group printed with
+    the sexes together alone, and never the cohort's whole beside its parts; where the whole cohort
+    is printed by sex, its two sexes alone, as rule 5 reads them (sex_pairs)."""
+    sexed = {(r["group"], r["sex"]) for r in rows_at_cell if r["sex"] in ("male", "female")}
+    if {("", "male"), ("", "female")} <= sexed:
+        return 2
+    groups = {g for g, _ in sexed}
+    whole = {(r["group"], "whole") for r in rows_at_cell if r["sex"] in L.WHOLE_SEXES and r["group"] and r["group"] not in groups}
+    return max(1, len(sexed | whole))
+
+
+def printed_counts() -> Dict[Tuple[str, str, str, str], Tuple[float, str]]:
+    """STRATUM_COUNTS with the register's group-by-sex shares beside them (register.stratum_counts)."""
+    from . import register as RG
+    out = dict(RG.stratum_counts(RG.load()))
+    out.update(STRATUM_COUNTS)
+    return out
+
+
+def own_counts(rows: Sequence[dict], printed: Optional[Dict[tuple, Tuple[float, str]]] = None) -> List[dict]:
+    """The rows with each one that carries its cohort's whole count given its stratum's own, as the
+    module's docstring says, and where it came from in count_from (the row's own note otherwise)."""
+    at_cell: Dict[tuple, List[dict]] = {}
+    for r in rows:
+        at_cell.setdefault(_cell_of_row(r), []).append(r)
+    out = []
+    for r in rows:
+        if r.get("n_note", "") != L.COHORT_COUNT:
+            out.append(dict(r, count_from=r.get("n_note", "")))
+            continue
+        printed = printed_counts() if printed is None else printed
+        got = printed.get((r["paper"], r["cohort"], r["group"], r["sex"]))
+        n, why = got if got else (r["n"] / strata_printed(at_cell[_cell_of_row(r)]), EVEN_SPLIT)
+        out.append(dict(r, n=float(n), count_from=why))
+    return out
 
 
 # ---- sex -------------------------------------------------------------------------------------------
 
 @dataclass
 class Contrast:
-    """Men minus women in one printed stratum."""
+    """Men minus women in one printed stratum. A stratum printed with means alone carries no SD of
+    either sex (NaN) and the within-sex SD it is read against in `within`, with where that came
+    from in sd_from; key, technique and modality name the stratum's measure as the tables do."""
     paper: str
     cohort: str
     base_key: str
@@ -98,9 +247,21 @@ class Contrast:
     mean_f: float
     sd_f: float
     n_f: float
+    within: float = float("nan")
+    sd_from: str = PRINTED_SD
+    count_from: str = ""
+    key: str = ""
+    technique: str = ""
+    modality: str = ""
+
+    @property
+    def sds_printed(self) -> bool:
+        return math.isfinite(self.sd_m) and math.isfinite(self.sd_f)
 
     @property
     def sd_within(self) -> float:
+        if not self.sds_printed:
+            return self.within
         return math.sqrt(((self.n_m - 1) * self.sd_m ** 2 + (self.n_f - 1) * self.sd_f ** 2) / (self.n_m + self.n_f - 2))
 
     @property
@@ -115,19 +276,188 @@ class Contrast:
         return n / (self.n_m * self.n_f) + self.g ** 2 / (2.0 * n)
 
 
-def sex_contrasts(rows: Sequence[dict], vocabulary: Dict[str, dict]) -> List[Contrast]:
-    """Every stratum printed for both sexes, the largest row of each sex where one is printed twice."""
+def technique_rank(r: dict) -> tuple:
+    """The selection's rule 4 order of techniques on one set of people: bone, CT, MRI, film, mixed,
+    then "same" before "close" before the rest."""
+    definitions = ("same", "close", "none", "differs")
+    return (L.MODALITY_ORDER.index(r["modality"]) if r["modality"] in L.MODALITY_ORDER else len(L.MODALITY_ORDER),
+            definitions.index(r["vs_panjabi"]) if r.get("vs_panjabi") in definitions else len(definitions))
+
+
+def has_sd(r: dict) -> bool:
+    return isinstance(r["sd"], float) and math.isfinite(r["sd"]) and r["sd"] > 0
+
+
+def one_set_of_people(pairs: Dict[tuple, Tuple[dict, dict]]) -> Tuple[Dict[tuple, Tuple[dict, dict]], List[tuple]]:
+    """Rule 5 on the pairs of one technique: per cohort, technique, measure and level, the whole
+    cohort's pair alone where it is printed; else every group's, a pair whose men's and women's
+    means, SDs and counts another group prints again counted once, as the selection's rule 5 counts
+    two such groups (two groups' means alone may agree to the 0.1 mm printed, as Eisenstein 1977's
+    Zulu and Sotho canals do, and their counts tell them apart). The pairs kept, and the rest as
+    (men's row, women's row, why)."""
+    at: Dict[tuple, List[tuple]] = {}
+    for k, (m, f) in pairs.items():
+        at.setdefault((m["paper"], m["cohort"], m["technique"], m["key"], m["level"]), []).append(k)
+    kept, dropped = {}, []
+    for cell, keys in sorted(at.items()):
+        whole = [k for k in keys if pairs[k][0]["group"] == ""]
+        seen = set()
+        order = sorted(keys, key=lambda k: (k not in whole, not all(has_sd(r) for r in pairs[k]),
+                                            -(pairs[k][0]["n"] + pairs[k][1]["n"]), k))
+        for k in order:
+            m, f = pairs[k]
+            means = tuple((round(r["mean"], 6), round(r["sd"], 6) if has_sd(r) else None, r["n"]) for r in (m, f))
+            if whole and k not in whole:
+                dropped.append((m, f, STRATUM_OF_WHOLE))
+            elif means in seen:
+                dropped.append((m, f, PRINTED_TWICE))
+            else:
+                seen.add(means)
+                kept[k] = (m, f)
+    return {k: kept[k] for k in sorted(kept)}, dropped
+
+
+def sex_pairs(rows: Sequence[dict], vocabulary: Dict[str, dict]) -> Tuple[Dict[tuple, Tuple[dict, dict]], List[tuple]]:
+    """Every stratum printed for both sexes with a mean and a count, as (men's row, women's row)
+    with each stratum's own count, the row of each sex with an SD and the most people where one is
+    printed twice; kept where it is of adults, on the best technique of its cohort, measure and
+    level (rule 4), and the only set of its people there (one_set_of_people). The pairs kept, and
+    the rest as (men's row, women's row, why)."""
     by: Dict[tuple, Dict[str, List[dict]]] = {}
-    for r in rows:
-        if r["sex"] in ("male", "female") and usable(r, vocabulary):
+    for r in own_counts(rows):
+        if r["sex"] in ("male", "female") and usable(r, vocabulary, need_sd=False):
             by.setdefault(stratum_key(r, "sex"), {}).setdefault(r["sex"], []).append(r)
-    out = []
-    for key, sexes in sorted(by.items()):
-        if "male" in sexes and "female" in sexes:
-            m, f = largest(sexes["male"]), largest(sexes["female"])
-            out.append(Contrast(m["paper"], m["cohort"], m["base_key"], m["level"], m["group"],
-                                m["mean"], m["sd"], m["n"], f["mean"], f["sd"], f["n"]))
+    pairs = {k: (largest(s["male"]), largest(s["female"])) for k, s in sorted(by.items()) if "male" in s and "female" in s}
+    dropped = [(m, f, CHILDREN) for m, f in pairs.values() if not (adult(m) and adult(f))]
+    pairs = {k: (m, f) for k, (m, f) in pairs.items() if adult(m) and adult(f)}
+    best: Dict[tuple, tuple] = {}
+    for m, _ in pairs.values():
+        cell = (m["paper"], m["cohort"], m["key"], m["level"])
+        best[cell] = min(best.get(cell, technique_rank(m)), technique_rank(m))
+    on_best = {}
+    for k, (m, f) in pairs.items():
+        if technique_rank(m) == best[m["paper"], m["cohort"], m["key"], m["level"]]:
+            on_best[k] = (m, f)
+        else:
+            dropped.append((m, f, ANOTHER_TECHNIQUE))
+    kept, same = one_set_of_people(on_best)
+    return kept, dropped + same
+
+
+def sexless_row(m: dict, rows_at_cell: Sequence[dict]) -> Optional[dict]:
+    """The paper's own row of the same stratum with the sexes together and an SD: the same group, or
+    the cohort's whole where the sexes are printed under one group alone at the cell."""
+    groups = {r["group"] for r in rows_at_cell if r["sex"] in ("male", "female")}
+    for r in rows_at_cell:
+        if (r["sex"] in L.WHOLE_SEXES and isinstance(r["sd"], float) and math.isfinite(r["sd"]) and r["sd"] > 0
+                and (r["group"] == m["group"] or (r["group"] == "" and len(groups) == 1))):
+            return r
+    return None
+
+
+def modality_class(modality: str) -> Tuple[str, ...]:
+    from . import papers_table as PT
+    for _, mods in PT.MODALITY_CLASSES:
+        if modality in mods:
+            return mods
+    return (modality,)
+
+
+def sexless_pools(rows: Sequence[dict]) -> Dict[Tuple[str, str], list]:
+    """The selection's usable series (papers_table.select_all, on the full snapshot's rows alone,
+    never the sexes' snapshot's) by measure and placed level: what a stratum printed with means
+    alone is read against where it prints no SD of its own."""
+    from . import papers_table as PT
+    out: Dict[Tuple[str, str], list] = {}
+    for s in PT.select_all([r for r in rows if not r.get("apart")])[0]:
+        at = PT.place(s.key, s.level, s.paper)
+        if L.usable(s) and at is not None:
+            out.setdefault((s.key, at), []).append(s)
     return out
+
+
+def others_pooled_sd(m: dict, pools: Dict[Tuple[str, str], list], without: Sequence[str]) -> Optional[float]:
+    """The within-person SD the tables pool at the stratum's cell over the other papers' series in
+    its modality class, the papers in `without` left out too; None where none is left."""
+    from . import papers_table as PT
+    from . import strata as ST
+    mods = modality_class(m["modality"])
+    rest = [s for s in pools.get((m["key"], PT.place(m["key"], m["level"], m["paper"])), [])
+            if s.paper != m["paper"] and s.paper not in without and s.modality in mods]
+    return ST._pool(rest).sd if rest else None
+
+
+def within_of_means(m: dict, f: dict, rows_at_cell: Sequence[dict], pools: Dict[Tuple[str, str], list],
+                    without: Sequence[str]) -> Optional[Tuple[float, str]]:
+    """The within-sex SD of a stratum printed with means alone and what it was made from: the
+    paper's own sexless SD with the two sexes' pooling inverted, ((n - 1) sd^2 - n_m n_f / n d^2) /
+    (n - 2), else the others' pooled SD narrowed half and half, sd^2 - d^2 / 4; None where neither
+    leaves a positive variance."""
+    d = m["mean"] - f["mean"]
+    whole = sexless_row(m, rows_at_cell)
+    if whole is not None:
+        n = m["n"] + f["n"]
+        var, why = ((n - 1.0) * whole["sd"] ** 2 - m["n"] * f["n"] / n * d * d) / (n - 2.0), OWN_SEXLESS_SD
+    else:
+        sd = others_pooled_sd(m, pools, without)
+        if sd is None:
+            return None
+        var, why = sd * sd - 0.25 * d * d, OTHERS_POOLED_SD
+    return (math.sqrt(var), why) if var > 0 else None
+
+
+def dropped_row(m: dict, f: dict, why: str) -> dict:
+    """A pair of both sexes that gives no contrast, for the record."""
+    return {"paper": m["paper"], "cohort": m["cohort"], "measure": m["base_key"], "key": m["key"], "level": m["level"],
+            "group": m["group"], "technique": m["technique"], "mean_male": m["mean"], "sd_male": m["sd"], "n_male": m["n"],
+            "mean_female": f["mean"], "sd_female": f["sd"], "n_female": f["n"],
+            "count_from": m["count_from"] if m["count_from"] == f["count_from"] else "%s; %s" % (m["count_from"], f["count_from"]),
+            "why": why}
+
+
+def sex_contrasts(rows: Sequence[dict], vocabulary: Dict[str, dict], without: Sequence[str] = ()) -> List[Contrast]:
+    """sex_strata's contrasts."""
+    return sex_strata(rows, vocabulary, without)[0]
+
+
+def sex_strata(rows: Sequence[dict], vocabulary: Dict[str, dict], without: Sequence[str] = ()) -> Tuple[List[Contrast], List[dict]]:
+    """Every stratum of sex_pairs with at least MIN_PER_SEX people of each sex as a contrast: read
+    against its own SDs where it prints both, else, where it prints neither, against
+    within_of_means's SD (the papers in `without` left out of any pool it reads), a stratum with one
+    sex's SD alone, or whose SD cannot be made, giving none. `rows` are the full snapshot's with the
+    sexes' snapshot's beside them (papers_table.load_rows_sexes), or any rows in their shape. The
+    contrasts, and every pair of both sexes that gives none, with why (dropped_row)."""
+    pairs, dropped = sex_pairs(rows, vocabulary)
+    dropped = [dropped_row(m, f, why) for m, f, why in dropped]
+    at_cell: Dict[tuple, List[dict]] = {}
+    for r in rows:
+        if r["source_of_values"] == OWN_SOURCE:
+            at_cell.setdefault(_cell_of_row(r), []).append(r)
+    pools = None
+    out = []
+    for m, f in pairs.values():
+        if min(m["n"], f["n"]) < MIN_PER_SEX:
+            dropped.append(dropped_row(m, f, FEW_PER_SEX))
+            continue
+        both = [has_sd(x) for x in (m, f)]
+        within, why = float("nan"), PRINTED_SD
+        if not all(both):
+            if any(both):
+                dropped.append(dropped_row(m, f, ONE_SD))
+                continue
+            pools = sexless_pools(rows) if pools is None else pools
+            got = within_of_means(m, f, at_cell.get(_cell_of_row(m), []), pools, without)
+            if got is None:
+                dropped.append(dropped_row(m, f, NO_SD))
+                continue
+            within, why = got
+        counts = m["count_from"] if m["count_from"] == f["count_from"] else "%s; %s" % (m["count_from"], f["count_from"])
+        out.append(Contrast(m["paper"], m["cohort"], m["base_key"], m["level"], m["group"],
+                            m["mean"], m["sd"] if all(both) else float("nan"), m["n"],
+                            f["mean"], f["sd"] if all(both) else float("nan"), f["n"],
+                            within=within, sd_from=why, count_from=counts, key=m["key"], technique=m["technique"],
+                            modality=m["modality"]))
+    return out, dropped
 
 
 # ---- age, body height and body weight ------------------------------------------------------------------
@@ -135,10 +465,12 @@ def sex_contrasts(rows: Sequence[dict], vocabulary: Dict[str, dict]) -> List[Con
 ORDINALS = {"first": 1, "second": 2, "third": 3, "fourth": 4, "fifth": 5, "sixth": 6, "seventh": 7, "eighth": 8, "ninth": 9}
 
 
-def age_band(group: str) -> Optional[Tuple[float, float]]:
+def age_band(group: str, paper: str = "") -> Optional[Tuple[float, float]]:
     """The years a group names, low and high, or None: "decade 20" and "Third Decade" are 20 to 29,
-    "18-35", "21-40 years", "age 31-49 yr" as written, ">55", "60+" and "age >=70 yr" open above by
-    OPEN_SPAN, "age <=30 yr" from ADULT. A group that names no age is None."""
+    an ordinal decade counted from ORDINAL_DECADE_FROM where the paper counts them otherwise (Bach's
+    "Third Decade" is 30 to 39), "18-35", "21-40 years", "age 31-49 yr" as written, ">55", "60+"
+    and "age >=70 yr" open above by OPEN_SPAN, "age <=30 yr" from ADULT. A group that names no age
+    is None."""
     g = (group or "").strip().lower()
     m = re.fullmatch(r"decade (\d+)", g)
     if m:
@@ -146,7 +478,7 @@ def age_band(group: str) -> Optional[Tuple[float, float]]:
         return lo, lo + 9.0
     m = re.fullmatch(r"(\w+) decade", g)
     if m and m.group(1) in ORDINALS:
-        lo = 10.0 * (ORDINALS[m.group(1)] - 1)
+        lo = ORDINAL_DECADE_FROM.get(paper, 0.0) + 10.0 * (ORDINALS[m.group(1)] - 1)
         return lo, lo + 9.0
     g = re.sub(r"^age\s*", "", re.sub(r"\s*(years|yr)$", "", g))
     m = re.fullmatch(r"(\d+(?:\.\d+)?)\s*-\s*(\d+(?:\.\d+)?)", g)
@@ -182,10 +514,10 @@ def size_band(group: str, what: str) -> Optional[Tuple[float, float]]:
     return None
 
 
-VARIABLES: Dict[str, Tuple[Callable[[str], Optional[Tuple[float, float]]], float, str]] = {
+VARIABLES: Dict[str, Tuple[Callable[..., Optional[Tuple[float, float]]], float, str]] = {
     "age": (age_band, 10.0, "per decade"),
-    "body height": (lambda g: size_band(g, "height"), 100.0, "per 100 mm"),
-    "body weight": (lambda g: size_band(g, "weight"), 10.0, "per 10 kg"),
+    "body height": (lambda g, paper="": size_band(g, "height"), 100.0, "per 100 mm"),
+    "body weight": (lambda g, paper="": size_band(g, "weight"), 10.0, "per 10 kg"),
 }
 
 
@@ -219,11 +551,12 @@ class Gradient:
 
 
 def gradients(rows: Sequence[dict], vocabulary: Dict[str, dict], variable: str) -> List[Gradient]:
-    """Every series printed over two or more bands of the variable, the adult bands alone for age."""
+    """Every series printed over two or more bands of the variable, the adult bands alone for age,
+    each band's count its stratum's own (own_counts)."""
     band_of = VARIABLES[variable][0]
     by: Dict[tuple, List[Tuple[Tuple[float, float], dict]]] = {}
-    for r in rows:
-        band = band_of(r["group"]) if usable(r, vocabulary) else None
+    for r in own_counts(rows):
+        band = band_of(r["group"], r["paper"]) if usable(r, vocabulary) else None
         if band is None or (variable == "age" and band[0] < ADULT):
             continue
         by.setdefault(stratum_key(r, "group"), []).append((band, r))
@@ -256,13 +589,24 @@ def effect_of(item) -> Tuple[float, float]:
     return (item.g, item.var_g) if isinstance(item, Contrast) else item.slope()
 
 
+def people_of(item) -> tuple:
+    """The people a stratum or series is of: its cohort and its group (a contrast) or its sex (a
+    gradient), whatever variant of the measure it reads."""
+    return (item.cohort, item.group) if isinstance(item, Contrast) else (item.cohort, item.sex)
+
+
 def by_paper_cell(items: Sequence) -> Dict[Tuple[str, str, str], Tuple[float, float, int]]:
-    """Per (paper, measure, level) the paper's strata there combined by inverse variance, with how
-    many strata."""
-    groups: Dict[Tuple[str, str, str], list] = {}
+    """Per (paper, measure, level) the paper's strata there, with how many strata: the strata of one
+    set of people (people_of) one value, their mean effect with their mean variance, and the sets
+    of different people combined by inverse variance."""
+    groups: Dict[Tuple[str, str, str], Dict[tuple, list]] = {}
     for it in items:
-        groups.setdefault((it.paper, it.base_key, it.level), []).append(effect_of(it))
-    return {k: inverse_variance(v) + (len(v),) for k, v in groups.items()}
+        groups.setdefault((it.paper, it.base_key, it.level), {}).setdefault(people_of(it), []).append(effect_of(it))
+    out = {}
+    for k, people in groups.items():
+        values = [(float(np.mean([e for e, _ in v])), float(np.mean([w for _, w in v]))) for v in people.values()]
+        out[k] = inverse_variance(values) + (sum(len(v) for v in people.values()),)
+    return out
 
 
 def paper_values(cells: Dict[Tuple[str, str, str], Tuple[float, float, int]], base_key: str,
@@ -374,10 +718,14 @@ def gradient_prediction(gr: Gradient, slope: float) -> dict:
 
 
 def held_out(items: Sequence, variable: str) -> List[dict]:
-    """Every stratum or series scored with the effect from the other papers alone."""
+    """Every stratum or series scored with the effect from the other papers alone, the effect read
+    from every stratum and a stratum scored only where it prints its two SDs (sds_printed), since
+    the score is over its own people's spread."""
     cells = by_paper_cell(items)
     out = []
     for it in items:
+        if isinstance(it, Contrast) and not it.sds_printed:
+            continue
         effect, scope = transfer(cells, it.paper, it.base_key, it.level)
         if scope == "none":
             continue
