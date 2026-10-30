@@ -19,8 +19,9 @@
   correction of estimates that read low must, and Griffith's sexes taken together give the
   mixture's correlation;
 - Tan's stratum: the matched cells are the same with Tan pooled in and apart, pooling a series
-  that sits far off widens the spread and never leaves the rest's cells, and Tan's table is his
-  printed means wherever he prints one.
+  that sits far off widens the spread and never leaves the rest's cells, Tan's table is his
+  printed means wherever he prints one, and the prediction for one more population widens with a
+  far series pooled in, holds out what it says and finds the mixture's own quantiles.
 """
 from __future__ import annotations
 
@@ -373,6 +374,45 @@ class TanApart(unittest.TestCase):
                     self.assertEqual(mu[j, i], by[key, lv])
                 else:
                     self.assertIn("%s %s" % (key, lv), filled)
+
+    def test_prediction_reads_the_matched_cells_and_counts_what_it_holds_out(self):
+        rows = self.T.prediction_by_stratum(self.series)
+        self.assertEqual([(r["measure"], r["level"]) for r in rows], [(r["measure"], r["level"]) for r in self.rows])
+        for r in rows:
+            self.assertEqual(r["held_out"], r["k_rest"] if r["k_rest"] >= 4 else 0)
+            self.assertEqual(len(r["rest_means"].split(";")), r["k_rest"])
+            for name in ("merged", "rest", "mixture", "merged_plug", "rest_plug"):
+                self.assertLessEqual(r["covered_" + name], r["held_out"])
+                self.assertGreater(r["half_width_%s_sd" % name], 0.0)
+            self.assertEqual(r["tan_inside_rest"], r["rest_low"] <= r["tan_mean"] <= r["rest_high"])
+
+    @staticmethod
+    def _five_and_a_far_one():
+        rest = [L.Series("p%d" % i, "", "", "bone", "", "", "k", "L1", 30.0 + i * 0.3, 2.0, 40.0, "same") for i in range(5)]
+        return rest, L.Series("tan2004", "", "", "bone", "", "", "k", "L1", 24.0, 2.0, 10.0, "same")
+
+    def test_a_far_series_widens_the_merged_prediction_and_sits_outside_the_rests(self):
+        rest, far = self._five_and_a_far_one()
+        apart, merged = self.T._prediction(rest), self.T._prediction(rest + [far])
+        self.assertGreater(merged["plug_high"] - merged["plug_low"], apart["plug_high"] - apart["plug_low"])
+        self.assertGreater(merged["high"] - merged["low"], apart["high"] - apart["low"])
+        self.assertFalse(apart["plug_low"] <= far.mean <= apart["plug_high"])
+        self.assertLess(apart["plug_high"] - apart["plug_low"], apart["high"] - apart["low"])
+
+    def test_the_mixture_band_holds_both_strata_at_its_own_quantiles(self):
+        from scipy import stats
+        rest, far = self._five_and_a_far_one()
+        apart = self.T._prediction(rest)
+        lo, hi = self.T.mixture_band(apart, far)
+        self.assertLess(lo, far.mean)
+        self.assertGreater(hi, apart["mean"])
+        w = 1.0 / (apart["k"] + 1)
+        scale = math.sqrt(apart["tau2"] + far.sd ** 2 / far.n)
+
+        def cdf(x):
+            return (1 - w) * stats.t.cdf((x - apart["mean"]) / apart["scale"], apart["k"] - 2) + w * stats.norm.cdf((x - far.mean) / scale)
+        self.assertAlmostEqual(cdf(lo), 0.025, places=6)
+        self.assertAlmostEqual(cdf(hi), 0.975, places=6)
 
 
 if __name__ == "__main__":

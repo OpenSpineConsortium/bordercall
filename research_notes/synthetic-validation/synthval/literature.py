@@ -311,8 +311,21 @@ def _pool_sexes(male: dict, female: dict) -> Optional[Tuple[float, float, float]
     return mean, math.sqrt(ss / (n - 1)), n
 
 
-def select(rows: Sequence[dict], definitions: Sequence[str] = DEFINITIONS_MAIN) -> Tuple[List[Series], Dict[str, int]]:
-    """The validation's series and the count of rows left out by each rule."""
+STRATA_POOLED = "pooled"
+STRATA_APART = "apart"
+
+
+def select(rows: Sequence[dict], definitions: Sequence[str] = DEFINITIONS_MAIN,
+           strata: str = STRATA_POOLED) -> Tuple[List[Series], Dict[str, int]]:
+    """The validation's series and the count of rows left out by each rule. `strata` is how rules
+    5 and 6 treat what a cohort prints apart: "pooled", the validation's, one series per cohort
+    and measure, the whole before its strata and the sexes pooled; or "apart", for the within-paper
+    contrasts of subgroups.paired_contrast alone, every printed stratum (an age band, an ancestry,
+    a technique's group) a series of its own beside the whole, and a man's and a woman's row each a
+    series where both carry an SD and a count, flagged "sex apart". The apart series count people
+    twice (a stratum and its whole), so nothing pools them across cohorts."""
+    if strata not in (STRATA_POOLED, STRATA_APART):
+        raise ValueError("strata is pooled or apart, not %r" % strata)
     why: Dict[str, int] = {}
     kept = []
     jumps = breaks_own_series(rows)
@@ -335,7 +348,7 @@ def select(rows: Sequence[dict], definitions: Sequence[str] = DEFINITIONS_MAIN) 
         if dropped:
             why["another technique on the same people"] = why.get("another technique on the same people", 0) + dropped
         whole = [r for r in tech if r["group"] == ""]
-        if whole and len(whole) < len(tech):
+        if whole and len(whole) < len(tech) and strata == STRATA_POOLED:
             why["a stratum of a cohort printed whole"] = why.get("a stratum of a cohort printed whole", 0) + len(tech) - len(whole)
             tech = whole
         groups: Dict[str, List[dict]] = {}
@@ -343,15 +356,13 @@ def select(rows: Sequence[dict], definitions: Sequence[str] = DEFINITIONS_MAIN) 
             groups.setdefault(r["group"], []).append(r)
         seen = set()
         for g, grs in sorted(groups.items()):
-            s = _one_sex(grs, why)
-            if s is None:
-                continue
-            sig = (round(s.mean, 6), round(s.sd, 6) if math.isfinite(s.sd) else None, s.n)
-            if sig in seen:
-                why["a second group with the same values"] = why.get("a second group with the same values", 0) + 1
-                continue
-            seen.add(sig)
-            series.append(s)
+            for s in _sex_series(grs, why, strata == STRATA_APART):
+                sig = (round(s.mean, 6), round(s.sd, 6) if math.isfinite(s.sd) else None, s.n, s.sex)
+                if sig in seen:
+                    why["a second group with the same values"] = why.get("a second group with the same values", 0) + 1
+                    continue
+                seen.add(sig)
+                series.append(s)
     return _one_set_of_people(series, why), why
 
 
@@ -399,6 +410,28 @@ def _sides(rs: List[dict], why: Dict[str, int]) -> List[dict]:
         else:
             out.append(dict((left or right)[0], side_note="one side only"))
     return out
+
+
+def _sex_series(rs: List[dict], why: Dict[str, int], apart: bool) -> List[Series]:
+    """Rule 6's series of one group: one, the sexes pooled (_one_sex), or, with `apart`, one per
+    sex where the group prints a man's and a woman's row each with an SD and a count, flagged
+    "sex apart"; a group that prints one sex or the whole alone gives _one_sex's series."""
+    if apart:
+        sided = _sides(list(rs), {})
+        male = [r for r in sided if r["sex"] == "male"]
+        female = [r for r in sided if r["sex"] == "female"]
+        if male and female and all(math.isfinite(r["sd"]) and r["n"] > 0 for r in (male[0], female[0])):
+            return [_series_of(r, r["mean"], r["sd"], r["n"], "sex apart") for r in (male[0], female[0])]
+    s = _one_sex(rs, why)
+    return [s] if s is not None else []
+
+
+def _series_of(r: dict, mean: float, sd: float, n: float, flag: str) -> Series:
+    flag = "; ".join(f for f in (flag, r.get("side_note", "")) if f)
+    return Series(paper=r["paper"], cohort=r["cohort"], technique=r["technique"], modality=r["modality"],
+                  group=r["group"], sex=r["sex"], key=r["key"], level=r["level"], mean=mean, sd=sd, n=n,
+                  vs_panjabi=r["vs_panjabi"], flag=flag, n_note=r.get("n_note", ""),
+                  sd_uncertain=r["paper"] in DISPERSION_UNCERTAIN)
 
 
 def _one_sex(rs: List[dict], why: Dict[str, int]) -> Optional[Series]:

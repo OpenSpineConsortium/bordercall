@@ -1,8 +1,10 @@
-"""Tan 2004's population apart from the rest: the spread between populations, part A's worth and
-part C's naming loss, before (pooled) and after (two strata). synthval/tan.py says what each is.
+"""Tan 2004's population apart from the rest: the spread between populations, part A's worth, the
+prediction for one more population (merged, the rest alone, the two strata as a mixture, with
+leave-one-out coverage) and part C's naming loss, before (pooled) and after (two strata).
+synthval/tan.py says what each is.
 
+    python3 -I tan_strata.py --out records/tan-strata --quick    # the record in place: few columns, about a minute
     python3 -I tan_strata.py --out records/tan-strata            # about ten minutes on 4 CPUs
-    python3 -I tan_strata.py --out /tmp/x --quick                 # the same path on few columns
 
 Everything is synthetic but the papers' own numbers, read from the snapshot run.py reads.
 """
@@ -43,6 +45,8 @@ def main(argv=None) -> None:
 
     matched = T.matched_spread(series)
     write_csv(out, "matched_cells.csv", matched)
+    prediction = T.prediction_by_stratum(series)
+    write_csv(out, "prediction_cells.csv", prediction)
     splits = {"pooled": PW.shift_split(series), "rest": PW.shift_split(rest)}
     calibrated = {name: {"panjabi": PW.calibrated_median_f(v, "panjabi"), "literature": PW.calibrated_median_f(v, "literature")}
                   for name, v in (("pooled", series), ("rest", rest))}
@@ -56,7 +60,8 @@ def main(argv=None) -> None:
         "command": "python3 -I tan_strata.py --out %s%s" % (os.path.relpath(out, HERE), " --quick" if args.quick else ""),
         "bordercall_commit": commit, "columns": args.columns, "tables": args.tables,
         "series": {"all": len(series), "rest": len(rest), "tan": len(tan)},
-        "matched_spread": T.spread_summary(matched), "split": splits, "calibrated_median_f": calibrated,
+        "matched_spread": T.spread_summary(matched), "prediction": T.prediction_summary(prediction),
+        "split": splits, "calibrated_median_f": calibrated,
         "tan_table_filled": filled, "naming": T.naming_summary(rows), "gold_against_tan": T.gold_against_tan(matched),
         "seconds": round(time.time() - started, 1)})
 
