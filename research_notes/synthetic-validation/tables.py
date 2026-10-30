@@ -369,10 +369,149 @@ def t_assumptions(rec: str) -> str:
     return "\n\n".join((t1, t2, t3))
 
 
+def t_tan(rec: str) -> str:
+    """Tan 2004 apart from the rest (synthval/tan.py; records/tan-strata, written by tan_strata.py): the
+    spread, the rule's loss by arm and the prediction for one more population."""
+    ts = read_json(os.path.join(rec, "tan-strata"), "tan_strata.json")
+    rows = []
+    for group, label in (("all", "every matched cell"), ("seven", "the seven's cells")):
+        g = ts["matched_spread"][group]
+        d = g["tan_distance_panjabi_sd"]
+        rows.append([label, g["f_panjabi_pooled"]["cells"],
+                     "%s to %s" % (f(g["f_panjabi_pooled"]["median"]), f(g["f_panjabi_apart"]["median"])),
+                     "%s to %s" % (f(g["f_literature_pooled"]["median"]), f(g["f_literature_apart"]["median"])),
+                     "%s to %s" % (f(g["worth_scans_pooled"]["median"], 1), f(g["worth_scans_apart"]["median"], 1)),
+                     f(g["variance_ratio_pooled_over_apart"]["median"]),
+                     "%s (%s to %s)" % (f(d["median"]), f(d["q1"]), f(d["q3"])), g["tan_above_rest"]])
+    t1 = table(["spread between populations, Tan pooled in to Tan apart", "cells", "tau / Panjabi's SD, median",
+                "tau / papers' SD, median", "worth in scans, the papers' SD", "variance pooled / apart, median",
+                "Tan's distance from the rest (Panjabi's SD), median (quartiles)", "cells with Tan above"], rows)
+    sp = ts["split"]
+    split = ("The calibrated split of the spread is a shift of %s and a rest of %s with Tan pooled in (%d series by"
+             " measure, %d distances), %s and %s for the rest alone (%d, %d)." % (
+                 f(sp["pooled"]["shift_sd_calibrated"]), f(sp["pooled"]["level_sd_calibrated"]), sp["pooled"]["series_measures"],
+                 sp["pooled"]["distances"], f(sp["rest"]["shift_sd_calibrated"]), f(sp["rest"]["level_sd_calibrated"]),
+                 sp["rest"]["series_measures"], sp["rest"]["distances"]))
+    out = []
+    for arm in [r["arm"] for r in ts["naming"] if r["width"] == 1]:
+        line = [arm]
+        for w in (1, 3, 9):
+            r = next(x for x in ts["naming"] if x["arm"] == arm and x["width"] == w)
+            line.append("%s (%s; %s)" % (pct(r["exact"]), f(r["loss_mean"], 1), pct(r["precision"])))
+        line.append("%s / %s / %s" % tuple(f(next(x for x in ts["naming"] if x["arm"] == arm and x["width"] == w)
+                                             ["loss_sd_between_tables"], 1) for w in (1, 3, 9)))
+        out.append(line)
+    t2 = table(["the rule's table", "1 body: exact (loss; right at 0.99)", "3 bodies", "9 bodies",
+                "SD of the loss between tables, 1 / 3 / 9"], out)
+    tables = max(r["tables"] for r in ts["naming"])
+    paired = ", ".join("%s (SE %s) at %d" % (f(r["paired_difference_mean"], 1), f(r["paired_difference_se"], 1), r["width"])
+                       for r in ts["naming"] if r["arm"] == "after: the rest without Tan")
+    gold = ts["gold_against_tan"]
+    found = next(g for g in gold if g["persons"] == 12)
+    note = ("Each moved row is the mean over %d tables of the same %d columns, the before and after tables of one"
+            " index drawn from the same standard draws; the rest's tables lose, paired with the pooled, %s bodies."
+            " Tan's row is his one table (%s), and the own-table row is the generator's. Tan's median distance over"
+            " the seven's %d matched cells is %s of Panjabi's SD; 12 persons find a shift of %s in one cell, so a"
+            " population as far off as Tan's shows in %s%% of those cells from twelve gold persons." % (
+                tables, ts["columns"], paired,
+                ("%s filled where he prints no value" % " and ".join(ts["tan_table_filled"])) if ts["tan_table_filled"]
+                else "every level his own printed mean", found["cells"],
+                f(abs(found["tan_median_distance"])), f(found["least_mean_shift_one_cell"]),
+                pct(found["share_of_seven_cells_found"], 0)))
+    rows = []
+    for group, label in (("all", "every matched cell"), ("seven", "the seven's cells")):
+        g = ts["prediction"][group]
+        rows.append([label, g["cells"],
+                     "%s to %s" % (f(g["half_width_merged_sd"]["median"]), f(g["half_width_rest_sd"]["median"])),
+                     "%s to %s" % (f(g["half_width_merged_plug_sd"]["median"]), f(g["half_width_rest_plug_sd"]["median"])),
+                     "%s / %s" % (f(g["half_width_ratio_rest_over_merged"]["median"]),
+                                  f(g["half_width_ratio_rest_over_merged_plug"]["median"])),
+                     f(g["half_width_mixture_sd"]["median"]), "%d / %d" % (g["tan_inside_rest"], g["tan_inside_rest_plug"]),
+                     "%d in %d" % (g["series_held_out"], g["cells_held_out"]),
+                     "%s / %s / %s" % (pct(g["coverage_merged"], 0), pct(g["coverage_rest"], 0), pct(g["coverage_mixture"], 0)),
+                     "%s / %s" % (pct(g["coverage_merged_plug"], 0), pct(g["coverage_rest_plug"], 0))])
+    t3 = table(["prediction for one more population, Tan pooled in to Tan apart", "cells",
+                "half-width, t on k - 2 (Panjabi's SD), median", "the same, the spread taken as known (z)",
+                "the rest's over the merged, median of the cells' ratios, t / z",
+                "the two strata as a mixture, t", "cells with Tan inside the rest's, t / z", "series held out",
+                "held-out series covered, t: merged / rest / mixture", "z: merged / rest"], rows)
+    return t1 + "\n\n" + split + "\n\n" + t2 + "\n\n" + note + "\n\n" + t3
+
+
+OTHER_VARIABLES = ("ancestry", "specimen", "region", "modality", "age_band", "decade")
+
+
+def t_subgroups(rec: str) -> str:
+    """The subgroup meta-analysis by every population variable (synthval/subgroups.py, the variables
+    of synthval/register.py and data/populations.csv; records/subgroups, written by subgroups_run.py):
+    the test and the share per variable, each paper and each value against the rest, the
+    within-paper contrasts."""
+    sg = read_json(os.path.join(rec, "subgroups"), "subgroups.json")
+    rows = []
+
+    def share(g):
+        return "%s (%d)" % (f(g["r2"]["median"]), g["r2"]["cells"]) if g["r2"]["cells"] else "none"
+    for v, groups in sg["analysis"].items():
+        g = groups["all"]
+        out = sg["analysis_without_tan"].get(v, {}).get("all", {"r2": {"cells": 0}})
+        rows.append([v, g["cells"], f(g["groups_per_cell"]["median"], 0),
+                     "%d of %d" % (g["cells_below_alpha"], g["cells_tested"]) if g["cells_tested"] else "none",
+                     share(g), share(out),
+                     "%s to %s" % (f(g["f_total_where_read"]["median"]), f(g["f_within"]["median"])) if g["f_within"]["cells"] else "none",
+                     f(g["widest_gap_sd"]["median"])])
+    t1 = table(["variable", "cells", "subgroups a cell, median", "cells whose test is below 0.05, of the cells tested",
+                "share of the spread it accounts for, median (cells read)", "the same with Tan 2004's series out",
+                "spread over the cells read, the whole cell to within the subgroups, median",
+                "widest gap between subgroups, median (Panjabi's SD)"], rows)
+
+    def against(items):
+        out = []
+        for name, s in sorted(items, key=lambda kv: kv[1]["all"]["distance_sd"]["median"]):
+            g = s["all"]
+            d = g["distance_sd"]
+            out.append([name, g["cells"], g["series"], "%s (%s to %s)" % (f(d["median"]), f(d["q1"]), f(d["q3"])), g["above_rest"],
+                        "%d / %d" % (g["inside_rest_t"], g["inside_rest_z"]), f(g["variance_ratio_pooled_over_apart"]["median"])])
+        return out
+    head = ["cells", "series", "distance from the rest's pooled mean (Panjabi's SD), median (quartiles)", "cells above",
+            "cells inside the rest's interval, t / z", "variance pooled / apart, median"]
+    t2 = table(["each paper against the rest"] + head, against(sg["against_rest"]["paper"].items()))
+    t3 = table(["each value against the rest"] + head,
+               against(("%s: %s" % (v, val), s) for v in OTHER_VARIABLES for val, s in sg["against_rest"][v].items()))
+    rows = []
+    for pair, s in sg["contrasts"].items():
+        for group, label in (("all", "every cell"), ("seven", "the seven's")):
+            g = s[group]
+            if not g["cells"]:
+                continue
+            d = g["difference_sd"]
+            rows.append([pair, label, g["cells"], f(g["pairs_per_cell"]["median"], 0),
+                         "%s (%s to %s)" % (f(d["median"]), f(d["q1"]), f(d["q3"])), g["above_zero"], g["below_alpha"],
+                         ", ".join(k for k in s if k not in ("all", "seven"))])
+    t4 = table(["within-paper contrast", "over", "cells", "pairs a cell, median", "difference, median (quartiles), Panjabi's SD",
+                "cells above zero", "cells below 0.05", "measures"], rows)
+    contrasts = read_csv(os.path.join(rec, "subgroups"), "contrasts.csv")
+    within = {}
+    for r in contrasts:
+        within.setdefault(r["pair"], set()).update(w.split("/")[0] for w in r["within"].split(";"))
+    reg = sg["register"]
+    note = ("The register holds %d cohorts, every one a usable series names; %d usable series under the main selection,"
+            " %d with the strata apart (%d of them a sex printed apart, %d of those with the count the register's group"
+            " counts give, the paper counting its groups and its sexes but not the sexes within the groups). The test"
+            " and the share are read where the spread within the subgroups has %d degrees of freedom or more, and a"
+            " subgroup of one series carries that common spread in the test. A value's row pools every cell where the"
+            " value has a series and the rest hold three or more, and a value with fewer than %d such cells is left out;"
+            " a value with several series in a cell is held to the rest's interval for a mean of that many populations,"
+            " so its inside counts read as a paper's do. The contrasts come from %s." % (
+                reg["cohorts"], reg["usable"], reg["apart_usable"], reg["sex_apart_series"],
+                reg["sex_apart_counts_from_the_register"], sg["least_df_within"], sg["least_cells"],
+                "; ".join("%s from %s" % (pair, " and ".join(sorted(ws))) for pair, ws in sorted(within.items()))))
+    return "\n\n".join((t1, t2, t3, t4, note))
+
+
 TABLES: Dict[str, Callable[[str], str]] = {
     "selection": t_selection, "means": t_means, "by_measure": t_by_measure, "structure": t_structure,
     "quality": t_quality, "state_space": t_state_space, "grid": t_grid, "naming": t_naming, "spread": t_spread,
-    "part_c": t_part_c, "gold": t_gold, "assumptions": t_assumptions}
+    "part_c": t_part_c, "gold": t_gold, "assumptions": t_assumptions, "tan": t_tan, "subgroups": t_subgroups}
 MARK = re.compile(r"(<!-- table (\w+) -->\n)(.*?)(<!-- end \2 -->)", re.S)
 
 
