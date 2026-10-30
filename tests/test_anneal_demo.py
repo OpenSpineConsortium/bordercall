@@ -6,27 +6,37 @@ by 12 voxels and two phantoms of three levels.
 The demo's network is train.train's for its one measurement with the naming layer off, every
 weight to the bit (the smoke run itself trains all seven measurements with the naming layer on).
 Its snapshots fall before the first step, every few steps and after the last, each with the
-schedule's w and lambda of the step just taken, the ladder's own input to the mask branch at that
-lambda (the target vertebra's own mask before the first step) and the CT-only path's reading by the
-network after that many steps, with each width the length between its points. demo.run reads the
-held-out crops against the oracle and puts the display crop's CT under the mask input. Its figure,
-frame by frame, draws the shown vertebra's own CT as the surface, the mask input at the opacity w
-(whole at the start), the schedule's dots on its curves, the width line up to the slider's step
-for the shown vertebra and the title's numbers for it, with one frame per snapshot and a slider
-over them (where plotly is installed, as it is in Colab). The command says before it trains that
-it needs plotly, and writes the page and, asked to, the run's record.
+schedule's w and lambda of the step just taken and the CT-only path's reading by the network after
+that many steps, with each width the length between its points. demo.run reads the held-out crops
+against the oracle and keeps their masks for the figure alone. Its figure, frame by frame, draws
+the shown vertebra's own CT as the surface and on it that vertebra's own mask taken down the ladder
+to the snapshot's lambda (ladder.degrade, pooled two voxels a side) at the opacity of w, the
+network's width with its length in the legend, the schedule's dots on its curves, the width line
+up to the slider's step and the title's numbers, at a fixed size, the vertebra on the left and two
+panels of one height stacked beside it, one frame per snapshot and a slider over them (where
+plotly is installed, as it is in Colab). The command says before it trains that it needs plotly,
+writes the page in a box of fixed width set in from the edges and, asked to, the run's record and
+the run itself with its network's weights, which --load draws again for any held-out vertebra
+without training, run as python -m autoanatomist.demo as the notebook runs it. With --test the kept
+network, restored to the reading of its last snapshot, reads test sets drawn after training (new
+draws, each differing from the training phantoms as it says) from the CT alone, and the page sets
+each vertebra against its reference and each set's mean error, with an interval that resamples
+whole columns, against always guessing the training phantoms' mean width.
 
 The notebook that runs it in Colab (notebooks/anneal_demo.ipynb) is kept with no outputs and asks
 Colab for a T4. Its setup cell's functions, run against a stand-in for Colab's modules, read a
-missing secret as none, sign in with GitHub's device flow (the code shown, the token returned and
-never printed, a refusal or a decline falling back to the ZIP), hand git the token through a
-credential helper and nowhere else, unpack a ZIP as GitHub makes one and install the four packages
-bordercall pins; and prepare(), the one call the cell makes before it imports JAX, run on stand-ins
+missing secret as none, sign in with GitHub's device flow (the code shown large beside a button
+that copies it and opens GitHub's page, the token returned and never printed, a refusal or a
+decline falling back to the ZIP), clone shallow and sparse with the token handed to git through a
+credential helper and nowhere else, the three folders it checks out being all the demo imports,
+fall back to the ZIP with git's words when no clone holds the demo, unpack a ZIP as GitHub makes
+one and install the four packages bordercall pins with no restart; and prepare(), run on stand-ins
 for Colab's GPU and CPU images, installs the GPU build of the pinned jaxlib for the CUDA version
 whose build the image carries after taking the other versions' builds out, installs nothing when
-the pins are there, stops with the words to restart Colab's session when pip replaced a package the
-session had imported, asks for plotly before anything slow, and leaves JAX on the CPU, saying why,
-when JAX does not start on the GPU in a child process.
+the pins are there, asks for plotly before anything slow, and leaves JAX on the CPU, saying why,
+when JAX does not start on the GPU in a child process. No cell imports JAX or bordercall: the run
+and show cells train and draw in a child, python -m autoanatomist.demo, which inherits the
+session's JAX_PLATFORMS, and the test cell tests the run the run cell kept.
 """
 from __future__ import annotations
 
@@ -37,6 +47,9 @@ import importlib.machinery
 import io
 import json
 import os
+import pickle
+import runpy
+import shutil
 import subprocess
 import sys
 import tempfile
@@ -44,8 +57,9 @@ import types
 import unittest
 import urllib.error
 import urllib.parse
+import warnings
 import zipfile
-from contextlib import redirect_stdout
+from contextlib import redirect_stderr, redirect_stdout
 from unittest import mock
 
 import numpy as np
@@ -69,6 +83,8 @@ except ImportError:                                               # pragma: no c
     HAVE_PLOTLY = False
 
 STEPS, EVERY = 7, 3
+# The figure's traces, in the order demo.figure adds them.
+CT, MASK, REFERENCE, NETWORK, LAMBDA, WEIGHT, DOTS, REFERENCE_WIDTH, WIDTH = range(9)
 NOTEBOOK = os.path.join(ROOT, "notebooks", "anneal_demo.ipynb")
 
 
@@ -121,25 +137,6 @@ class TheAnnealedRun(unittest.TestCase):
         for snap in self.snapshots:
             self.assertEqual((snap.w, snap.lam), schedule.at(max(snap.step - 1, 0)))
 
-    def test_every_snapshot_holds_the_ladders_input_at_its_lambda(self):
-        from autoanatomist import demo as D, ladder
-        i, middle = D.display_crop(self.ex), self.cfg.shape[0] // 2
-        self.assertGreater(len({snap.lam for snap in self.snapshots}), 2)
-        for snap in self.snapshots:
-            out = ladder.degrade(jnp.asarray(self.ex.masks[i:i + 1]), jnp.asarray(self.ex.hu[i:i + 1]),
-                                 jnp.float32(snap.lam), spacing_mm=self.cfg.spacing)
-            np.testing.assert_array_equal(snap.given, np.asarray(out[0, middle, :, :, 0]))
-            self.assertEqual(snap.given.shape, self.cfg.shape[1:])
-
-    def test_before_the_first_step_the_mask_branch_is_given_the_target_vertebras_own_mask(self):
-        from autoanatomist import demo as D
-        i, middle = D.display_crop(self.ex), self.cfg.shape[0] // 2
-        first = self.snapshots[0]
-        self.assertEqual(first.lam, 0.0)
-        target, every = self.ex.masks[i, middle, :, :, 0], self.ex.masks[i, middle, :, :, 1]
-        self.assertFalse(np.allclose(target, every))           # so the cut tells the two channels apart
-        np.testing.assert_allclose(first.given, target, atol=1e-6)
-
     def test_every_snapshots_reading_is_the_ct_only_path_of_the_network_after_its_steps(self):
         from autoanatomist import ladder, smoke, train as T
         from autoanatomist.model import Model
@@ -157,10 +154,14 @@ class TheAnnealedRun(unittest.TestCase):
             np.testing.assert_allclose(snap.widths, lengths, rtol=1e-5)
             self.assertEqual(snap.points.shape, (len(self.held), 2, 3))
 
-    def test_the_display_crop_is_the_first_phantoms_middle_vertebra(self):
+    def test_pooling_takes_means_over_blocks_of_two_voxels_a_side_and_leaves_an_odd_last_one_out(self):
         from autoanatomist import demo as D
-        first = self.ex.spines()[0]
-        self.assertEqual(D.display_crop(self.ex), int(first[1]))
+        volume = np.arange(5 * 4 * 3, dtype=np.float64).reshape(5, 4, 3)
+        pooled = D.pooled(volume)
+        self.assertEqual(pooled.shape, (2, 2, 1))
+        self.assertEqual(pooled[1, 0, 0], volume[2:4, 0:2, 0:2].mean())
+        ticks = [np.arange(5.0), np.arange(4.0) * 2.0, np.arange(3.0)]
+        self.assertEqual([list(t) for t in D.pooled_ticks(ticks)], [[0.5, 2.5], [1.0, 5.0], [0.5]])
 
 
 @unittest.skipUnless(HAVE_JAX and HAVE_PLOTLY, "jax, flax and plotly are not all installed")
@@ -173,11 +174,11 @@ class TheFigure(unittest.TestCase):
         cls.cfg, cls.ex, cls.held, cls.demo = tiny_demo()
         cls.fig = D.figure(cls.demo, vertebra=1)
 
-    def test_the_run_reads_the_held_out_crops_against_the_oracle_and_keeps_the_display_crops_ct(self):
-        from autoanatomist import demo as D, ladder
-        i = D.display_crop(self.ex)
-        np.testing.assert_array_equal(self.demo.given_ct, self.ex.hu[i, self.cfg.shape[0] // 2, :, :, 0])
+    def test_the_run_reads_the_held_out_crops_against_the_oracle_and_keeps_their_masks_for_the_figure(self):
+        from autoanatomist import ladder
         np.testing.assert_array_equal(self.demo.hu, self.held.hu[..., 0])
+        np.testing.assert_array_equal(self.demo.masks, self.held.masks)
+        self.assertEqual(self.demo.spacing, self.cfg.spacing)
         np.testing.assert_array_equal(self.demo.reference_points, self.held.targets)
         np.testing.assert_array_equal(self.demo.reference_widths, self.held.values[:, 0])
         self.assertEqual(self.demo.levels, [r.level for r in self.held.readings])
@@ -188,8 +189,25 @@ class TheFigure(unittest.TestCase):
                                       [schedule.at(s) for s in range(STEPS)])
         self.assertEqual((self.demo.steps, [s.step for s in self.demo.snapshots]), (STEPS, [0, 3, 6, 7]))
 
+    def test_the_mask_input_is_the_shown_vertebras_own_mask_down_the_ladder_at_lambda_pooled(self):
+        from autoanatomist import demo as D, ladder
+        self.assertGreater(len({snap.lam for snap in self.demo.snapshots}), 2)
+        for snap in self.demo.snapshots:
+            out = ladder.degrade(jnp.asarray(self.held.masks[1:2]), jnp.asarray(self.held.hu[1:2]),
+                                 jnp.float32(snap.lam), spacing_mm=self.cfg.spacing)
+            np.testing.assert_allclose(D.mask_values(self.demo, 1, snap.lam),
+                                       D.pooled(np.asarray(out[0, ..., 0], np.float64)), rtol=1e-6)
+
+    def test_before_the_ladder_the_mask_input_is_the_vertebras_own_mask_and_not_every_vertebras(self):
+        from autoanatomist import demo as D
+        target, every = self.held.masks[1, ..., 0], self.held.masks[1, ..., 1]
+        self.assertFalse(np.allclose(D.pooled(target), D.pooled(every)))   # so the pooling tells the two apart
+        self.assertEqual(self.demo.snapshots[0].lam, 0.0)
+        np.testing.assert_allclose(D.mask_values(self.demo, 1, 0.0), D.pooled(np.asarray(target, np.float64)),
+                                   atol=1e-6)
+
     def test_each_snapshots_dots_lie_on_the_schedules_curves(self):
-        lam_curve, w_curve = self.fig.data[5], self.fig.data[6]
+        lam_curve, w_curve = self.fig.data[LAMBDA], self.fig.data[WEIGHT]
         for k, snap in enumerate(self.demo.snapshots):
             dots = self.fig.frames[k].data[2]
             self.assertEqual(list(dots.x), [snap.step, snap.step])
@@ -202,21 +220,19 @@ class TheFigure(unittest.TestCase):
         self.assertEqual([s.label for s in steps], [str(s.step) for s in self.demo.snapshots])
         self.assertEqual([s.args[0][0] for s in steps], [f.name for f in self.fig.frames])
 
-    def test_the_frames_move_the_network_and_the_mask_branch_and_leave_the_ct_and_the_reference(self):
-        moving = list(self.fig.frames[0].traces)
-        self.assertEqual(moving, [2, 4, 7, 9])
-        kinds = [self.fig.data[i].type for i in moving]
-        self.assertEqual(kinds, ["scatter3d", "heatmap", "scatter", "scatter"])
-        self.assertEqual(self.fig.data[0].type, "isosurface")
-        self.assertEqual(self.fig.data[3].type, "heatmap")
+    def test_the_frames_move_the_mask_input_and_the_networks_width_and_leave_the_ct_and_the_reference(self):
+        self.assertEqual(list(self.fig.frames[0].traces), [MASK, NETWORK, DOTS, WIDTH])
+        self.assertEqual([trace.type for trace in self.fig.data],
+                         ["isosurface", "isosurface", "scatter3d", "scatter3d"] + ["scatter"] * 5)
         for frame, snap in zip(self.fig.frames, self.demo.snapshots):
-            line = frame.data[0]
+            line = frame.data[1]
             np.testing.assert_allclose(np.column_stack([line.x, line.y, line.z]), snap.points[1])
+            self.assertEqual(line.name, "the network, from the CT alone: %.1f mm" % snap.widths[1])
 
     def test_the_surface_is_the_shown_vertebras_own_ct_at_the_bone_level(self):
         from scipy import ndimage
         from autoanatomist import gates
-        iso = self.fig.data[0]
+        iso = self.fig.data[CT]
         self.assertFalse(np.allclose(self.demo.hu[0], self.demo.hu[1]))   # so another vertebra's CT would show
         smoothed = ndimage.gaussian_filter(np.asarray(self.demo.hu[1], np.float32), 1.0)
         np.testing.assert_array_equal(np.asarray(iso.value), smoothed.ravel())
@@ -224,19 +240,26 @@ class TheFigure(unittest.TestCase):
         for axis, ticks in zip((iso.x, iso.y, iso.z), np.meshgrid(*self.demo.ticks, indexing="ij")):
             np.testing.assert_array_equal(np.asarray(axis), ticks.ravel())
 
-    def test_every_frame_draws_the_mask_input_at_its_weight_whole_at_the_start(self):
+    def test_every_frame_draws_the_mask_input_on_the_vertebra_at_its_weight_whole_at_the_start(self):
+        from autoanatomist import demo as D
         weights = [snap.w for snap in self.demo.snapshots]
         self.assertEqual(weights[0], 1.0)
         self.assertTrue(any(0.0 < w < 1.0 for w in weights))   # so a weight between the ends is drawn as it is
-        self.assertEqual(self.fig.data[4].opacity, 1.0)
+        mask = self.fig.data[MASK]
+        self.assertEqual((mask.opacity, mask.isomin, mask.isomax), (D.MASK_OPACITY, 0.5, 0.5))
+        for axis, ticks in zip((mask.x, mask.y, mask.z), np.meshgrid(*D.pooled_ticks(self.demo.ticks), indexing="ij")):
+            np.testing.assert_array_equal(np.asarray(axis), ticks.ravel())
+        self.assertEqual(tuple(mask.value), tuple(self.fig.frames[0].data[0].value))
         for frame, snap in zip(self.fig.frames, self.demo.snapshots):
-            self.assertEqual(frame.data[1].opacity, max(snap.w, 0.0))
-            np.testing.assert_array_equal(np.asarray(frame.data[1].z), snap.given.T)
+            given = frame.data[0]
+            self.assertAlmostEqual(given.opacity, D.MASK_OPACITY * max(snap.w, 0.0))
+            np.testing.assert_allclose(np.asarray(given.value), D.mask_values(self.demo, 1, snap.lam).ravel(),
+                                       atol=0.005 + 1e-9)
 
     def test_every_frames_width_line_runs_to_its_step_for_the_shown_vertebra(self):
         snaps = self.demo.snapshots
         self.assertFalse(np.allclose([s.widths[0] for s in snaps], [s.widths[1] for s in snaps]))
-        lines = [(0, self.fig.data[9])] + [(k, frame.data[3]) for k, frame in enumerate(self.fig.frames)]
+        lines = [(0, self.fig.data[WIDTH])] + [(k, frame.data[3]) for k, frame in enumerate(self.fig.frames)]
         for k, line in lines:
             self.assertEqual(list(line.x), [s.step for s in snaps[:k + 1]])
             np.testing.assert_allclose(list(line.y), [s.widths[1] for s in snaps[:k + 1]])
@@ -246,16 +269,18 @@ class TheFigure(unittest.TestCase):
         self.assertNotEqual(levels[0], levels[1])
         for frame, snap in zip(self.fig.frames, self.demo.snapshots):
             text = frame.layout.title.text
-            self.assertIn("After %d of %d steps: λ %.2f, w %.2f." % (snap.step, STEPS, snap.lam, snap.w), text)
-            self.assertIn("%s's end-plate width %.1f mm from the CT alone" % (levels[1], snap.widths[1]), text)
-            self.assertIn("the reference %.1f mm" % refs[1], text)
-            self.assertTrue(text.endswith("held-out vertebrae %.1f mm" % np.mean(np.abs(snap.widths - refs))))
+            self.assertIn("<b>After %d of %d steps: λ %.2f, w %.2f</b>" % (snap.step, STEPS, snap.lam, snap.w), text)
+            self.assertIn("%s's end-plate width %.1f mm from the CT alone, the reference %.1f mm"
+                          % (levels[1], snap.widths[1], refs[1]), text)
+            self.assertTrue(text.endswith("mean error over the %d held-out vertebrae %.1f mm"
+                                          % (len(refs), np.mean(np.abs(snap.widths - refs)))))
         self.assertEqual(self.fig.layout.title.text, self.fig.frames[0].layout.title.text)
 
-    def test_the_oracles_line_is_drawn_where_the_oracle_put_it(self):
-        ref = self.fig.data[1]
+    def test_the_oracles_line_is_drawn_where_the_oracle_put_it_its_length_in_the_legend(self):
+        ref = self.fig.data[REFERENCE]
         np.testing.assert_allclose(np.column_stack([ref.x, ref.y, ref.z]), self.demo.reference_points[1])
-        self.assertEqual(self.fig.data[8].y[0], float(self.demo.reference_widths[1]))
+        self.assertEqual(ref.name, "the reference, from the mask: %.1f mm" % self.demo.reference_widths[1])
+        self.assertEqual(self.fig.data[REFERENCE_WIDTH].y[0], float(self.demo.reference_widths[1]))
 
     def test_unless_named_the_vertebra_shown_is_the_one_with_the_median_error_at_the_end(self):
         from autoanatomist import demo as D
@@ -263,14 +288,21 @@ class TheFigure(unittest.TestCase):
         k = self.demo.typical()
         self.assertEqual(errors[k], sorted(errors)[(len(errors) - 1) // 2])
         fig = D.figure(self.demo)
-        ref = fig.data[1]
+        ref = fig.data[REFERENCE]
         np.testing.assert_allclose(np.column_stack([ref.x, ref.y, ref.z]), self.demo.reference_points[k])
 
-    def test_the_mask_input_lies_over_the_same_crops_ct_on_the_same_cut(self):
-        under, over = self.fig.data[3], self.fig.data[4]
-        np.testing.assert_array_equal(np.asarray(under.z), self.demo.given_ct.T)
-        np.testing.assert_array_equal(np.asarray(over.z), self.demo.snapshots[0].given.T)
-        self.assertEqual(self.demo.given_ct.shape, self.demo.snapshots[0].given.shape)
+    def test_the_vertebra_is_on_the_left_and_the_two_panels_beside_it_are_stacked_of_one_height(self):
+        from autoanatomist import demo as D
+        lay = self.fig.layout
+        self.assertEqual((lay.width, lay.height, lay.autosize), (D.WIDTH_PX, D.HEIGHT_PX, False))
+        scene, top, bottom = lay.scene.domain, lay.yaxis.domain, lay.yaxis2.domain
+        self.assertEqual(tuple(scene.y), (0.0, 1.0))
+        self.assertLess(scene.x[1], lay.xaxis.domain[0])
+        self.assertEqual(tuple(lay.xaxis.domain), tuple(lay.xaxis2.domain))
+        self.assertAlmostEqual(top[1] - top[0], bottom[1] - bottom[0])
+        self.assertEqual((top[1], bottom[0]), (scene.y[1], scene.y[0]))   # level with the vertebra's panel
+        self.assertEqual({self.fig.data[i].yaxis for i in (LAMBDA, WEIGHT, DOTS)}, {"y"})
+        self.assertEqual({self.fig.data[i].yaxis for i in (REFERENCE_WIDTH, WIDTH)}, {"y2"})
 
 
 @unittest.skipUnless(HAVE_JAX, "jax and flax are not installed")
@@ -291,16 +323,19 @@ class TheCommand(unittest.TestCase):
                 D.widths_of(wrong)
 
     @unittest.skipUnless(HAVE_PLOTLY, "plotly is not installed")
-    def test_it_trains_as_told_and_writes_the_page_and_the_runs_record(self):
+    def test_it_trains_as_told_and_writes_the_page_the_runs_record_and_the_run_itself(self):
         from autoanatomist import demo as D
         _, _, _, demo = tiny_demo()
         with tempfile.TemporaryDirectory() as out, mock.patch.object(D, "run", return_value=demo) as run, \
                 redirect_stdout(io.StringIO()):
-            page, kept = os.path.join(out, "demo.html"), os.path.join(out, "demo.json")
-            self.assertEqual(D.main(["demo", page, "--steps", "7", "--widths", "4,8,8", "--record", kept]), 0)
+            page, numbers, kept = (os.path.join(out, name) for name in ("demo.html", "demo.json", "demo.pkl"))
+            self.assertEqual(D.main(["demo", page, "--steps", "7", "--widths", "4,8,8", "--record", numbers,
+                                     "--save", kept]), 0)
             self.assertGreater(os.path.getsize(page), 0)
-            with open(kept) as f:
+            with open(numbers) as f:
                 record = json.load(f)
+            with open(kept, "rb") as f:
+                again = pickle.load(f)
         (steps, every, cfg), _ = run.call_args
         self.assertEqual((steps, every, cfg.widths, cfg.keys), (7, D.EVERY, (4, 8, 8), (D.KEY,)))
         self.assertEqual((record["measurement"], record["steps"], record["widths"]), (D.KEY, STEPS, [4, 8, 8]))
@@ -317,6 +352,220 @@ class TheCommand(unittest.TestCase):
                                    rtol=1e-6)
         self.assertEqual((record["shown"], record["seconds"]), (demo.typical(), demo.seconds))
         self.assertEqual(record["ran_on"]["jax"], jax.__version__)
+        self.assertEqual(type(again).__module__, "autoanatomist.demo")
+        np.testing.assert_array_equal(again.masks, demo.masks)
+        for mine, theirs in zip(again.snapshots, demo.snapshots):
+            self.assertEqual((mine.step, mine.w, mine.lam), (theirs.step, theirs.w, theirs.lam))
+            np.testing.assert_array_equal(mine.points, theirs.points)
+
+    @unittest.skipUnless(HAVE_PLOTLY, "plotly is not installed")
+    def test_load_draws_a_kept_run_for_any_held_out_vertebra_without_training(self):
+        from autoanatomist import demo as D
+        _, _, _, demo = tiny_demo()
+        self.assertEqual(len({"%.1f" % width for width in demo.reference_widths}), len(demo.levels))
+        with tempfile.TemporaryDirectory() as out:
+            kept, page = os.path.join(out, "run.pkl"), os.path.join(out, "page.html")
+            with open(kept, "wb") as f:
+                pickle.dump(demo, f, protocol=pickle.HIGHEST_PROTOCOL)
+            with mock.patch.object(D, "run") as run, redirect_stdout(io.StringIO()) as said:
+                self.assertEqual(D.main(["demo", page, "--load", kept, "--vertebra", "2", "--plotlyjs", "cdn"]), 0)
+            run.assert_not_called()
+            self.assertIn("it shows held-out vertebra 2, %s" % demo.levels[2], said.getvalue())
+            with open(page) as f:
+                text = f.read()
+            self.assertIn("the reference, from the mask: %.1f mm" % demo.reference_widths[2], text)
+            self.assertNotIn("the reference, from the mask: %.1f mm" % demo.reference_widths[1], text)
+            with redirect_stderr(io.StringIO()), self.assertRaises(SystemExit) as stop:
+                D.main(["demo", page, "--load", kept, "--vertebra", str(len(demo.levels))])
+            self.assertEqual(stop.exception.code, 2)
+
+    def test_load_goes_with_neither_record_nor_save_and_the_vertebra_is_one_of_the_held_out(self):
+        from autoanatomist import demo as D, smoke
+        held = smoke.HELD_SPINES * smoke.COUNT
+        for words in (["--load", "k.pkl", "--record", "r.json"], ["--load", "k.pkl", "--save", "s.pkl"],
+                      ["--vertebra", str(held)], ["--vertebra", "-1"]):
+            with mock.patch.object(D, "run") as run, redirect_stderr(io.StringIO()), \
+                    self.assertRaises(SystemExit) as stop:
+                D.main(["demo", "out.html", *words])
+            self.assertEqual(stop.exception.code, 2, words)
+            run.assert_not_called()
+
+    @unittest.skipUnless(HAVE_PLOTLY, "plotly is not installed")
+    def test_the_page_holds_the_figure_at_its_fixed_size_in_a_box_set_in_from_the_edges(self):
+        from autoanatomist import demo as D
+        _, _, _, demo = tiny_demo()
+        fig = D.figure(demo, 1)
+        cdn, inline = D.page(fig, "cdn"), D.page(fig, "inline")
+        for text in (cdn, inline):
+            self.assertTrue(text.startswith("<!DOCTYPE html>"))
+            self.assertIn('<div style="width:%dpx;margin:16px auto;padding:12px;' % D.WIDTH_PX, text)
+            self.assertIn("height:%dpx; width:%dpx;" % (D.HEIGHT_PX, D.WIDTH_PX), text)
+        self.assertIn('src="https://cdn.plot.ly/', cdn)
+        self.assertNotIn('src="https://cdn.plot.ly/', inline)
+        self.assertGreater(len(inline), len(cdn) + 1_000_000)          # plotly.js itself, in the page
+
+    def test_run_as_python_minus_m_it_runs_the_modules_own_main(self):
+        """python -m runs the file as __main__, whose classes a pickle would name __main__'s: the
+        command runs main from the module autoanatomist.demo, so a kept run names that module's."""
+        from autoanatomist import demo as D
+        with mock.patch.object(D, "main", return_value=0) as main, mock.patch.object(sys, "argv", ["demo", "x.html"]), \
+                warnings.catch_warnings(), self.assertRaises(SystemExit) as stop:
+            warnings.simplefilter("ignore", RuntimeWarning)       # runpy's, on a module imported already
+            runpy.run_module("autoanatomist.demo", run_name="__main__")
+        self.assertEqual(stop.exception.code, 0)
+        main.assert_called_once_with(["demo", "x.html"])
+
+    @unittest.skipUnless(HAVE_PLOTLY, "plotly is not installed")
+    def test_as_the_notebook_runs_it_a_child_draws_a_kept_run_in_a_page(self):
+        _, _, _, demo = tiny_demo()
+        with tempfile.TemporaryDirectory() as out:
+            kept, page = os.path.join(out, "run.pkl"), os.path.join(out, "page.html")
+            with open(kept, "wb") as f:
+                pickle.dump(demo, f, protocol=pickle.HIGHEST_PROTOCOL)
+            child = subprocess.run([sys.executable, "-u", "-m", "autoanatomist.demo", page, "--load", kept,
+                                    "--vertebra", "1", "--plotlyjs", "cdn"], cwd=ROOT, capture_output=True, text=True)
+            self.assertEqual(child.returncode, 0, child.stderr)
+            self.assertIn("it shows held-out vertebra 1, %s" % demo.levels[1], child.stdout)
+            self.assertGreater(os.path.getsize(page), 0)
+
+
+# Two small test sets on the tiny sizes, at the tiny phantoms' 2 mm.
+TINY_TESTS = (("plain", {"spacing_mm": 2.0}), ("noisy", {"spacing_mm": 2.0, "noise_hu": 60.0}))
+ORDER = ["T%d" % k for k in range(1, 13)] + ["L%d" % k for k in range(1, 6)]
+
+
+def tiny_tests():
+    from autoanatomist import demo as D
+    return tuple(D.TestSet(name, "the tiny " + name, settings) for name, settings in TINY_TESTS)
+
+
+@unittest.skipUnless(HAVE_JAX, "jax and flax are not installed")
+class TheTestOnNewPhantoms(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        from autoanatomist import demo as D
+        cls.cfg, cls.ex, cls.held, cls.demo = tiny_demo()
+        cls.results = list(D.tested(cls.demo, tiny_tests(), columns=2))
+
+    def test_the_run_keeps_its_network_whose_reading_is_the_last_snapshots(self):
+        from autoanatomist import demo as D
+        self.assertEqual(self.demo.cfg, self.cfg)
+        for leaf in jax.tree.leaves(self.demo.params):
+            self.assertIsInstance(leaf, np.ndarray)
+        read = nnx.jit(lambda m, hu: m.ct_only(hu))
+        out = read(D.restored(self.demo), jnp.asarray(self.held.hu))
+        np.testing.assert_allclose(np.asarray(out["points"]), self.demo.snapshots[-1].points, rtol=1e-5, atol=1e-5)
+        self.assertEqual(self.demo.train_mean, float(np.mean(self.ex.values[:, 0])))
+
+    def test_each_set_is_drawn_after_training_and_read_from_the_ct_alone_by_the_run_network(self):
+        from autoanatomist import demo as D, smoke, train as T
+        model = D.restored(self.demo)
+        read = nnx.jit(lambda m, hu: m.ct_only(hu)["values"][:, 0])
+        for r, test in zip(self.results, tiny_tests()):
+            ex = T.make_examples(self.cfg, 2, smoke.COUNT, seed=D.TEST_SEED, **D.phantom_settings(test))
+            np.testing.assert_array_equal(r.reference, ex.values[:, 0])
+            np.testing.assert_allclose(r.read, np.asarray(read(model, jnp.asarray(ex.hu))), rtol=1e-6)
+            self.assertEqual((r.levels, list(r.columns)), ([x.level for x in ex.readings], list(ex.spine)))
+        self.assertFalse(np.allclose(self.results[0].read, self.results[1].read))   # the noise reaches the reading
+
+    def test_a_set_takes_the_held_out_phantoms_settings_but_those_it_names(self):
+        from autoanatomist import demo as D, smoke
+        held = dict(phenotypes=("typical",), starts=smoke.HELD_STARTS, **smoke.PHANTOM)
+        self.assertEqual(D.phantom_settings(D.TestSet("same", "", {})), held)
+        self.assertEqual(D.phantom_settings(D.TestSet("noisy", "", {"noise_hu": 60.0})), dict(held, noise_hu=60.0))
+
+    def test_the_test_sets_are_new_draws_and_each_differs_from_training_as_it_says(self):
+        from autoanatomist import demo as D, smoke
+        self.assertNotIn(D.TEST_SEED, smoke.SEEDS.values())
+        trained = {ORDER[ORDER.index(start) + k] for start in smoke.TRAIN_STARTS for k in range(smoke.COUNT)}
+        by_name = {t.name: t for t in D.TESTS}
+        unseen = {ORDER[ORDER.index(start) + k] for start in by_name["unseen levels"].settings["starts"]
+                  for k in range(smoke.COUNT)}
+        self.assertEqual(trained & unseen, set())
+        self.assertEqual(by_name["new patients"].settings, {})
+        self.assertGreater(by_name["noisier scanner"].settings["noise_hu"], smoke.PHANTOM["noise_hu"])
+        self.assertGreater(by_name["coarser scan"].settings["spacing_mm"], smoke.PHANTOM["spacing_mm"])
+        self.assertNotIn("typical", by_name["transitional spines"].settings["phenotypes"])
+        self.assertEqual(len(D.TEST_COLOURS), len(D.TESTS))
+
+    def test_the_error_is_the_mean_absolute_one_and_its_interval_resamples_whole_columns(self):
+        from autoanatomist import demo as D
+        r = D.Tested(test=tiny_tests()[0], levels=["L1"] * 4, columns=np.array([0, 0, 1, 1]),
+                     reference=np.array([40.0, 40.0, 40.0, 40.0]), read=np.array([41.0, 43.0, 40.0, 38.0]))
+        self.assertEqual(r.error(), 1.5)
+        self.assertEqual(r.error(np.full(4, 42.0)), 2.0)
+        low, high = r.interval()
+        self.assertEqual((low, high), r.interval())                      # the same draws every time
+        self.assertEqual((low, high), (1.0, 2.0))                       # the two columns' own means are the ends
+        one = D.Tested(test=r.test, levels=["L1"] * 2, columns=np.array([0, 0]), reference=np.array([40.0, 40.0]),
+                       read=np.array([41.0, 43.0]))
+        self.assertEqual(one.interval(), (2.0, 2.0))
+
+    @unittest.skipUnless(HAVE_PLOTLY, "plotly is not installed")
+    def test_the_figure_sets_each_vertebra_against_its_reference_and_each_sets_error_against_the_guess(self):
+        from autoanatomist import demo as D
+        fig = D.test_figure(self.results, self.demo)
+        self.assertEqual((fig.layout.width, fig.layout.height, fig.layout.autosize), (D.WIDTH_PX, D.TEST_HEIGHT_PX, False))
+        n = len(self.results)
+        diagonal, points, means, guess = fig.data[0], fig.data[1:1 + n], fig.data[1 + n:1 + 2 * n], fig.data[-1]
+        self.assertEqual(list(diagonal.x), list(diagonal.y))
+        for r, dots, mean in zip(self.results, points, means):
+            np.testing.assert_array_equal(dots.x, r.reference)
+            np.testing.assert_array_equal(dots.y, r.read)
+            self.assertEqual((dots.name, list(dots.text)), (r.test.name, r.levels))
+            low, high = r.interval()
+            self.assertEqual((list(mean.x), list(mean.y)), ([r.test.name], [r.error()]))
+            self.assertAlmostEqual(mean.error_y.array[0], high - r.error())
+            self.assertAlmostEqual(mean.error_y.arrayminus[0], r.error() - low)
+        self.assertEqual(list(guess.x), [r.test.name for r in self.results])
+        np.testing.assert_allclose(guess.y, [np.mean(np.abs(self.demo.train_mean - r.reference)) for r in self.results])
+        table = D.test_table(self.results, self.demo)
+        self.assertEqual(table.count("<tr>"), n)
+        for r in self.results:
+            self.assertIn("<td>%.1f mm [%.1f, %.1f]</td>" % ((r.error(),) + r.interval()), table)
+
+    @unittest.skipUnless(HAVE_PLOTLY, "plotly is not installed")
+    def test_the_command_tests_a_kept_run_and_says_how_it_did_on_each_set(self):
+        from autoanatomist import demo as D
+        with tempfile.TemporaryDirectory() as out:
+            kept, page = os.path.join(out, "run.pkl"), os.path.join(out, "test.html")
+            with open(kept, "wb") as f:
+                pickle.dump(self.demo, f, protocol=pickle.HIGHEST_PROTOCOL)
+            with mock.patch.object(D, "TESTS", tiny_tests()), mock.patch.object(D, "TEST_COLUMNS", 2), \
+                    mock.patch.object(D, "run") as run, redirect_stdout(io.StringIO()) as said:
+                self.assertEqual(D.main(["demo", page, "--load", kept, "--test", "--plotlyjs", "cdn"]), 0)
+            run.assert_not_called()
+            with open(page) as f:
+                text = f.read()
+        lines = said.getvalue().splitlines()
+        for r, line in zip(self.results, lines):
+            self.assertTrue(line.startswith("%s: %d vertebrae, the network's mean error %.1f mm"
+                                            % (r.test.name, len(r.reference), r.error())), line)
+        self.assertIn("phantoms it never saw", text)
+        self.assertIn("guessing the mean", text)
+
+    def test_test_reads_a_kept_run_alone(self):
+        from autoanatomist import demo as D
+        with mock.patch.object(D, "run") as run, redirect_stderr(io.StringIO()), self.assertRaises(SystemExit) as stop:
+            D.main(["demo", "out.html", "--test"])
+        self.assertEqual(stop.exception.code, 2)
+        run.assert_not_called()
+
+
+def loaded_imports(tree) -> set:
+    """The top-level names a module imports as it loads: its imports outside any function's body,
+    an import relative to its own package left out."""
+    found, todo = set(), list(tree.body)
+    while todo:
+        node = todo.pop()
+        if isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef, ast.Lambda)):
+            continue
+        if isinstance(node, ast.Import):
+            found |= {alias.name.split(".")[0] for alias in node.names}
+        elif isinstance(node, ast.ImportFrom) and node.level == 0:
+            found.add((node.module or "").split(".")[0])
+        todo.extend(ast.iter_child_nodes(node))
+    return found
 
 
 def notebook():
@@ -483,16 +732,25 @@ class TheNotebook(unittest.TestCase):
         with mock.patch.dict(sys.modules, colab_stand_in(secret="not-a-token")):
             self.assertEqual(self.ns["token"](), "not-a-token")
 
-    def test_the_token_reaches_git_through_the_credential_helper_alone(self):
-        seen = {}
+    def test_the_clone_is_shallow_and_sparse_and_the_token_reaches_git_through_the_credential_helper_alone(self):
+        calls = []
 
-        def run(argv, env=None, check=False, **kw):
-            seen["argv"], seen["env"] = argv, env
+        def run(argv, env=None, **kw):
+            calls.append((argv, env))
+            return subprocess.CompletedProcess(argv, 0, stdout="", stderr="")
         with mock.patch.object(self.ns["subprocess"], "run", run):
-            self.ns["clone"]("not-a-token", "main")
-        self.assertNotIn("not-a-token", " ".join(seen["argv"]))
-        self.assertEqual(seen["env"]["GITHUB_TOKEN"], "not-a-token")
-        helper = [a for a in seen["argv"] if a.startswith("credential.helper=")][0].split("=", 1)[1]
+            self.assertIsNone(self.ns["clone"]("not-a-token", "main"))
+        (clone, env), (sparse, _) = calls
+        for argv, _ in calls:
+            self.assertNotIn("not-a-token", " ".join(argv))
+        self.assertEqual((env["GITHUB_TOKEN"], env["GIT_TERMINAL_PROMPT"]), ("not-a-token", "0"))
+        self.assertEqual(clone[clone.index("clone"):], ["clone", "--quiet", "--depth", "1", "--filter=blob:none", "--sparse",
+                                                        "--branch", "main",
+                                                        "https://github.com/OpenSpineConsortium/bordercall.git",
+                                                        self.ns["CLONE"]])
+        self.assertEqual(sparse[sparse.index("-C"):], ["-C", self.ns["CLONE"], "sparse-checkout", "set",
+                                                       "autoanatomist", "scanimport", "schwingcheck"])
+        helper = [a for a in clone if a.startswith("credential.helper=")][0].split("=", 1)[1]
         env = dict(os.environ, GITHUB_TOKEN="not-a-token", GIT_CONFIG_GLOBAL=os.devnull, GIT_CONFIG_NOSYSTEM="1")
         out = subprocess.run(["git", "-c", "credential.helper=" + helper, "credential", "fill"], cwd=self.base,
                              input="protocol=https\nhost=github.com\n\n", capture_output=True, text=True,
@@ -500,21 +758,68 @@ class TheNotebook(unittest.TestCase):
         self.assertIn("username=x-access-token\n", out)
         self.assertIn("password=not-a-token\n", out)
 
-    def fetch(self, github, secret=None):
+    def test_a_clone_git_refuses_says_gits_last_words_and_goes_no_further(self):
+        calls = []
+
+        def run(argv, **kw):
+            calls.append(argv)
+            return subprocess.CompletedProcess(argv, 128, stdout="",
+                                               stderr="Cloning into 'bordercall'...\nremote: Repository not found.\n")
+        with mock.patch.object(self.ns["subprocess"], "run", run):
+            self.assertEqual(self.ns["clone"]("not-a-token", "main"), "remote: Repository not found.")
+        self.assertEqual(len(calls), 1)
+
+    def test_the_folders_the_clone_checks_out_hold_every_folder_of_bordercalls_the_demo_loads(self):
+        """The imports a module runs as it loads, not those inside a function, which run when it is
+        called: schwingcheck's one_body imports coarse in one, a path the demo never takes."""
+        local = {name for name in os.listdir(ROOT) if os.path.isdir(os.path.join(ROOT, name))}
+        reached, todo = set(), ["autoanatomist"]
+        while todo:
+            folder = todo.pop()
+            if folder in reached:
+                continue
+            reached.add(folder)
+            for here, _, names in os.walk(os.path.join(ROOT, folder)):
+                for name in (n for n in names if n.endswith(".py")):
+                    with open(os.path.join(here, name)) as f:
+                        todo.extend(loaded_imports(ast.parse(f.read())) & local)
+        self.assertLessEqual(reached, set(self.ns["NEEDED"]))
+        self.assertIn("scanimport", reached)
+
+    @unittest.skipUnless(HAVE_JAX, "jax is not installed")
+    def test_the_demo_loads_from_those_folders_alone(self):
+        with tempfile.TemporaryDirectory() as sparse:
+            for folder in self.ns["NEEDED"]:
+                shutil.copytree(os.path.join(ROOT, folder), os.path.join(sparse, folder),
+                                ignore=shutil.ignore_patterns("__pycache__"))
+            child = subprocess.run([sys.executable, "-I", "-c", "import sys; sys.path.insert(0, %r); "
+                                    "import autoanatomist.demo" % sparse], capture_output=True, text=True)
+        self.assertEqual(child.returncode, 0, child.stderr)
+
+    def fetch(self, github, secret=None, refused=None):
         """fetch() with no clone yet, the secret in Colab's Secrets, the stand-in for GitHub's sign-in,
-        a clone that only records what it was given and a ZIP that is never asked for in earnest:
-        what fetch returned and printed, the clones and the waits between polls."""
-        clones, waits, said = [], [], io.StringIO()
+        a clone that only records what it was given, or that git refuses with these words, and a ZIP
+        that is never asked for in earnest: what fetch returned and printed, the clones, the waits
+        between polls and why the ZIP was asked for."""
+        clones, waits, said, zips = [], [], io.StringIO(), []
 
         def clone(secret, ref):
             clones.append((secret, ref))
+            if refused:
+                return refused
             os.makedirs(os.path.join(self.ns["CLONE"], "autoanatomist"), exist_ok=True)
             open(os.path.join(self.ns["CLONE"], "autoanatomist", "demo.py"), "w").close()
+            return None
+
+        def unpack_upload(why):
+            zips.append(why)
+            return "the ZIP"
         with mock.patch.dict(sys.modules, colab_stand_in(secret=secret)), \
-                mock.patch.dict(self.ns, clone=clone, unpack_upload=lambda: "the ZIP"), \
+                mock.patch.dict(self.ns, clone=clone, unpack_upload=unpack_upload), \
                 mock.patch.object(self.ns["urllib"].request, "urlopen", github.urlopen), \
                 mock.patch.object(self.ns["time"], "sleep", waits.append), redirect_stdout(said):
             got = self.ns["fetch"]()
+        self.zips = zips
         return got, said.getvalue(), clones, waits
 
     def test_with_no_secret_it_signs_in_with_github_and_clones_with_what_github_grants(self):
@@ -551,6 +856,15 @@ class TheNotebook(unittest.TestCase):
             got, said, clones, _ = self.fetch(github)
             self.assertEqual((got, clones, github.answers), ("the ZIP", [], []))
             self.assertIn(why, said)
+            self.assertEqual(self.zips, ["No GITHUB_TOKEN in Colab's Secrets and no sign-in"])
+
+    def test_where_git_gets_the_demo_at_no_ref_it_says_why_at_each_and_asks_for_the_zip(self):
+        got, said, clones, _ = self.fetch(GitHubStandIn(), secret="from-secrets", refused="remote: Repository not found.")
+        self.assertEqual(got, "the ZIP")
+        self.assertEqual(clones, [("from-secrets", ref) for ref in self.ns["REFS"]])
+        for ref in self.ns["REFS"]:
+            self.assertIn("bordercall's %s: remote: Repository not found." % ref, said)
+        self.assertEqual(self.zips, ["Git could not get the demo with that token"])
 
     def test_a_token_in_colabs_secrets_comes_before_signing_in(self):
         github = GitHubStandIn()                     # a post to GitHub's sign-in would find no answer
@@ -628,8 +942,7 @@ class TheNotebook(unittest.TestCase):
                     carried.pop(name)
             else:
                 carried["jax"] = "9.9"
-        with mock.patch.dict(self.ns, installed=carried.get), mock.patch.object(self.ns["subprocess"], "run", pip), \
-                mock.patch.object(self.ns["importlib"].metadata, "packages_distributions", lambda: {}):
+        with mock.patch.dict(self.ns, installed=carried.get), mock.patch.object(self.ns["subprocess"], "run", pip):
             self.ns["install"]({"jax": "9.9"}, stale)
         self.assertEqual(verbs, ["uninstall", "install"])
         self.assertEqual(carried, {"jax": "9.9"})
@@ -710,30 +1023,15 @@ class TheNotebook(unittest.TestCase):
             self.ns["install"]({"jax": "1.0", "optax": "1.0"})
         self.assertEqual(calls, [])
 
-    def test_pip_replacing_an_imported_package_asks_for_a_restart(self):
+    def test_pip_replacing_a_package_this_session_imported_goes_on_with_no_restart(self):
         versions = {"jax": "0.1", "numpy": "1.0"}
 
         def pip(*a, **k):
             versions.update(jax="9.9", numpy="2.0")
-        owners = {"numpy": ["numpy"], "jax": ["jax"]}
-        with mock.patch.dict(self.ns, installed=versions.get), \
-                mock.patch.object(self.ns["importlib"].metadata, "packages_distributions", lambda: owners), \
-                mock.patch.dict(sys.modules, {"numpy": np}), mock.patch.object(self.ns["subprocess"], "run", pip):
-            with self.assertRaises(SystemExit) as stop:
-                self.ns["install"]({"jax": "9.9"})
-        self.assertIn("numpy", str(stop.exception))
-        self.assertIn("Restart session", str(stop.exception))
-
-    def test_pip_replacing_nothing_imported_goes_on(self):
-        versions = {"jax": "0.1"}
-
-        def pip(*a, **k):
-            versions.update(jax="9.9")
-        with mock.patch.dict(self.ns, installed=versions.get), \
-                mock.patch.object(self.ns["importlib"].metadata, "packages_distributions", lambda: {"numpy": ["numpy"]}), \
+        with mock.patch.dict(self.ns, installed=versions.get), mock.patch.dict(sys.modules, {"numpy": np}), \
                 mock.patch.object(self.ns["subprocess"], "run", pip):
             self.ns["install"]({"jax": "9.9"})
-        self.assertEqual(versions["jax"], "9.9")
+        self.assertEqual(versions, {"jax": "9.9", "numpy": "2.0"})
 
     def prepare(self, runtime, colab=True, plotly=True):
         """prepare() on a stand-in runtime, bordercall fetched already and plotly there or not: what it
@@ -743,7 +1041,6 @@ class TheNotebook(unittest.TestCase):
         with mock.patch.dict(self.ns, in_colab=lambda: colab, fetch=lambda: ROOT, repository_root=lambda: ROOT,
                              installed=runtime.installed), \
                 mock.patch.object(self.ns["subprocess"], "run", runtime.run), \
-                mock.patch.object(self.ns["importlib"].metadata, "packages_distributions", lambda: {}), \
                 mock.patch.dict(sys.modules, {"plotly": found if plotly else None}), mock.patch.dict(os.environ):
             os.environ.pop("JAX_PLATFORMS", None)
             return self.ns["prepare"](), os.environ.get("JAX_PLATFORMS")
@@ -797,23 +1094,111 @@ class TheNotebook(unittest.TestCase):
         self.assertEqual(runtime.steps(), ["install", "install", "child"])
         self.assertEqual(runtime.asked("install")[1], ["plotly"])
 
-    def test_the_cell_settles_all_of_it_before_this_session_imports_jax(self):
+    def test_no_cell_imports_jax_or_bordercall_so_pip_never_asks_for_a_restart(self):
         def imports(node):
             if isinstance(node, ast.Import):
                 return {alias.name.split(".")[0] for alias in node.names}
             if isinstance(node, ast.ImportFrom):
                 return {(node.module or "").split(".")[0]}
             return set()
-        late = {"jax", "autoanatomist"}
-        body = ast.parse(setup_source()).body
-        acts = [i for i, node in enumerate(body) if isinstance(node, ast.Assign) and isinstance(node.value, ast.Call)
-                and getattr(node.value.func, "id", None) == "prepare"]
-        jax_at = [i for i, node in enumerate(body) if imports(node) & late]
-        self.assertEqual(len(acts), 1)
-        self.assertTrue(jax_at)
-        self.assertLess(acts[0], min(jax_at))
-        inside = [node for f in body if isinstance(f, ast.FunctionDef) for node in ast.walk(f) if imports(node) & late]
-        self.assertEqual(inside, [])
+        late = {"jax", "jaxlib", "flax", "optax", "autoanatomist", "scanimport", "schwingcheck"}
+        code = [c for c in notebook_cells() if c["cell_type"] == "code"]
+        self.assertEqual(len(code), 4)
+        for cell in code:
+            self.assertEqual([node for node in ast.walk(ast.parse("".join(cell["source"]))) if imports(node) & late], [])
+
+    def run_demo(self, code, said):
+        """run_demo's words to a stand-in child that prints these lines and exits with this code:
+        what the child was started with and what the cell printed."""
+        seen = {}
+
+        class Child:
+            def __init__(self, argv, **kw):
+                seen.update(argv=argv, **kw)
+                self.stdout, self.returncode = io.StringIO("".join(line + "\n" for line in said)), None
+
+            def __enter__(self):
+                return self
+
+            def __exit__(self, *raised):
+                self.returncode = code
+        self.ns["ROOT"] = self.base
+        with mock.patch.object(self.ns["subprocess"], "Popen", Child), redirect_stdout(io.StringIO()) as printed:
+            self.ns["run_demo"]("page.html", "--load", "kept.pkl")
+        return seen, printed.getvalue()
+
+    def test_the_demo_trains_and_draws_in_a_child_of_this_python_its_words_shown_as_they_come(self):
+        seen, printed = self.run_demo(0, ["step 25 of 150: w 1.00", "page.html: 31 snapshots"])
+        self.assertEqual(seen["argv"], [sys.executable, "-u", "-m", "autoanatomist.demo", "page.html", "--load",
+                                        "kept.pkl"])
+        self.assertEqual(seen["cwd"], self.base)
+        self.assertNotIn("env", seen)                # this session's environment, JAX_PLATFORMS with it
+        self.assertEqual((seen["stdout"], seen["stderr"]), (subprocess.PIPE, subprocess.STDOUT))
+        self.assertEqual(printed, "step 25 of 150: w 1.00\npage.html: 31 snapshots\n")
+        with self.assertRaises(SystemExit) as stop:
+            self.run_demo(1, ["Traceback (most recent call last):", "ValueError: no such run"])
+        self.assertEqual(str(stop.exception), "the demo stopped with exit 1: ValueError: no such run")
+
+    @unittest.skipUnless(HAVE_JAX, "jax is not installed")
+    def test_the_child_finds_the_demo_from_bordercalls_root(self):
+        self.ns["ROOT"] = ROOT
+        with redirect_stdout(io.StringIO()) as printed:
+            self.ns["run_demo"]("--help")
+        self.assertIn("usage: python -m autoanatomist.demo", printed.getvalue())
+
+    def cell(self, name):
+        return "".join(next(c for c in notebook_cells() if c.get("id") == name)["source"])
+
+    def test_the_run_cell_trains_and_keeps_the_run_and_the_show_cell_draws_it_or_another_vertebra(self):
+        page, kept = os.path.join(self.base, "anneal_demo.html"), os.path.join(self.base, "anneal_demo.pkl")
+        calls = []
+        ns = dict(os=os, OUT=self.base, run_demo=lambda *words: calls.append(("run",) + words),
+                  show=lambda page: calls.append(("show", page)))
+        for cuda, why, widths in (("13", None, "16,32,64"), ("13", "no driver", "8,16,32"),
+                                  (None, "this session has no GPU", "8,16,32")):
+            calls.clear()
+            exec(self.cell("run"), dict(ns, CUDA=cuda, WHY_CPU=why))
+            self.assertEqual(calls, [("run", page, "--widths", widths, "--plotlyjs", "cdn", "--save", kept)])
+        ns.update(CUDA=None, WHY_CPU="this session has no GPU")
+        exec(self.cell("run"), ns)                   # the show cell reads the run cell's PAGE and KEPT
+        calls.clear()
+        exec(self.cell("show"), ns)
+        self.assertEqual(calls, [("show", page)])
+        calls.clear()
+        named = self.cell("show").replace("VERTEBRA = None", "VERTEBRA = 3", 1)
+        self.assertNotEqual(named, self.cell("show"))
+        exec(named, ns)
+        other = os.path.join(self.base, "anneal_demo_3.html")
+        self.assertEqual(calls, [("run", other, "--load", kept, "--vertebra", "3", "--plotlyjs", "cdn"), ("show", other)])
+
+    def test_the_test_cell_tests_the_kept_run_and_shows_its_page(self):
+        calls = []
+        kept = os.path.join(self.base, "anneal_demo.pkl")
+        exec(self.cell("test"), dict(os=os, OUT=self.base, KEPT=kept, run_demo=lambda *words: calls.append(("run",) + words),
+                                     show=lambda page: calls.append(("show", page))))
+        page = os.path.join(self.base, "anneal_test.html")
+        self.assertEqual(calls, [("run", page, "--load", kept, "--test", "--plotlyjs", "cdn"), ("show", page)])
+
+    def test_the_sign_in_shows_the_code_large_with_a_button_that_copies_it_and_opens_github(self):
+        shown = []
+        display = types.ModuleType("IPython.display")
+        display.HTML, display.display = (lambda text: text), shown.append
+        ipython = types.ModuleType("IPython")
+        ipython.display = display
+        code, link = "WDJB-</script><b>", "https://github.com/login/device"
+        with mock.patch.dict(sys.modules, {"IPython": ipython, "IPython.display": display}), \
+                redirect_stdout(io.StringIO()) as said:
+            self.ns["show_code"](link, code)
+        self.assertIn("open %s and enter the code %s" % (link, code), said.getvalue())
+        (box,) = shown
+        self.assertIn(">WDJB-&lt;/script&gt;&lt;b&gt;</div>", box)          # the code as text, not as markup
+        self.assertEqual(box.count("</script>"), 1)                          # the box's own, at its end
+        self.assertIn('var code = "WDJB-\\u003c/script>\\u003cb>", link = "%s";' % link, box)
+        self.assertIn('window.open(link, "github-sign-in", "popup,width=520,height=720")', box)
+        self.assertIn("navigator.clipboard.writeText(code)", box)
+        self.assertIn('<a href="%s" target="_blank">' % link, box)
+        button = box.split('<button id="', 1)[1].split('"', 1)[0]
+        self.assertIn('document.getElementById("%s")' % button, box)
 
 
 if __name__ == "__main__":
