@@ -3,7 +3,7 @@
 Thread "Plan evaluating latent shape priors against explainable metrics", 2026-10-30, project symphony_3, for greg's ask
 of 2026-10-29 23:58 UTC: "please start planning for evaluating these approaches alongside purely human understandable
 metrics as features", pasted with a conversation he had with another assistant that proposes a latent point-distribution
-model (PDM) under the auto-anatomist, pure or hybrid; and for his words of 2026-10-30 02:33 and 02:39 UTC on where this leads
+model (PDM) under the auto-anatomist, pure or hybrid; and for his words of 2026-10-30 02:33 to 02:41 UTC on where this leads
 (section 14). Confidential with the rest of this repository: nothing here goes to a public place before the provisional
 is filed, and the method is not shown.
 
@@ -425,43 +425,49 @@ and the search's sweep of w_prior and K are second runs, not this one.
 
 ## 14. Where this leads: 2-D landmarks that identify the vertebra bearing them
 
-greg, 2026-10-30 02:33 and 02:39 UTC: "i think eventually something id like to try would be placing landmarks on a 2d
-xray which can be operated on in 2d space with functions to estimate 3d properties, which should reach into a higher
-dimensional space and let you classify the seemingly flattened flat xrays according to higher dimensional
+greg, 2026-10-30 02:33, 02:39 and 02:41 UTC: "i think eventually something id like to try would be placing landmarks
+on a 2d xray which can be operated on in 2d space with functions to estimate 3d properties, which should reach into a
+higher dimensional space and let you classify the seemingly flattened flat xrays according to higher dimensional
 properties"; "essentially i want you to find landmarks which exist in 2d which when operated on with other nearby
-landmarks uniquely identify the vertebra bearing them".
+landmarks uniquely identify the vertebra bearing them"; "you can use those landmarks in 3d projected onto 2d
+synthetics to figure this out, like a forward backward mapping, landmarks projected from 3d to 2d and 2d landmarks
+projected from 2d to the original label, not back into 3d".
 
-So the question is identifiability: which landmarks a radiograph shows, and which functions of a landmark with its
-neighbours (on the same vertebra and on the adjacent ones), name the level, alone or in a small set, and how much of
-that naming comes through a 3-D property the function estimates. It is the feature-level question of stage 2 carried
-to the 2-D view, and the gold tier 3 set answers it with no new data: each CT gives the engine's ends in world
-coordinates (stage 1's export), project.py gives their 2-D positions under a stated camera, and the level is known,
-so every candidate function can be scored on paired examples before a single radiograph is read. The pieces this plan
-lays down for it:
+So the question is identifiability, asked as a forward and a backward map. Forward: the engine's 3-D landmarks on
+each gold tier 3 vertebra, with their names and the vertebra's label, projected onto the 2-D synthetic view by
+project.py under a stated camera, so every 2-D landmark arrives named and labelled. Backward: from the 2-D landmarks
+alone, functions of a landmark with its nearby landmarks (on the same vertebra and the adjacent ones) that map to the
+original label, the level and the column's type, and nothing is reconstructed into 3-D. The 3-D truth is used once, to
+make the labelled 2-D set; the classifier never sees it. It is the feature-level question of stage 2 carried to the
+view, and the gold tier 3 set answers it with no new data and no radiograph. The pieces this plan lays down for it:
 
-- The landmarks: the ends of the engine's lines as the view keeps them (a plate's rim, the pedicle's isthmus, the
-  spinous tip, the canal's walls where the view shows them), each with its name, so a landmark found to identify is a
-  landmark a person can point to.
-- The functions: for each landmark, every function of it with its nearby landmarks that survives projection: the
-  distances and the size-free ratios of section 5, the angles between chords, the relation to the neighbours above
-  and below (the disc's height, the plates' convergence, the pedicle-to-pedicle step), and the 3-D estimates a
-  function gives back (depth from a width and a known ratio, the pedicle's angle from its foreshortening). Each
-  function carries the name of its inputs, so the set stays human-understandable in greg's sense.
-- The search: a forward selection over the functions, scored by the share of vertebrae named right under the exact
-  rule (the re-estimated table over the chosen functions) and under the discriminative classifier of stage 2, with the
-  level as the class and leave-persons-out; the gain of each function read as named right with it against without it,
-  and the per-landmark identifiability as the best gain any function of that landmark gives. The output is a ranked
-  list of landmarks and functions, not a network.
-- The 3-D reach: a function's value is set beside the 3-D key it estimates (the engine's truth on the same vertebra),
-  so the report says whether a function names the level because it recovers a 3-D property (the canal's depth, the
-  pedicle's angle, the PDM's b) or because the 2-D quantity itself varies by level; the latent coefficients b, fit in
-  3-D, enter the same search as a candidate feature set, which is the plan's own question asked of the view.
-- The anomaly classes: the rib-class truth of section 8 gives L6, L4-on-sacrum and T13 columns in the 2-D set too, so
-  identifiability is reported per class, and a landmark that names typical levels and fails on the strata is said so.
+- The forward map: stage 1's export keeps every end in world coordinates with its vertebra's frame, its name and its
+  label, so any camera can project it; project.py's camera model (SchwingNet's handoff) gives the 2-D positions, and
+  a projected end that the view would not show (hidden behind bone, out of the field) is marked so, since a landmark
+  a radiograph cannot show is no candidate.
+- The landmarks: the projected ends of the engine's lines (a plate's rim, the pedicle's isthmus, the spinous tip, the
+  canal's walls where the view shows them), each with its name, so a landmark found to identify is one a person can
+  point to on the film.
+- The functions: for each landmark, every function of it with its nearby landmarks that lives in the 2-D plane: the
+  distances and the size-free ratios of section 5 as the view keeps them, the angles between chords, the relation to
+  the neighbours above and below (the disc's height, the plates' convergence, the pedicle-to-pedicle step, the
+  foreshortening of a width against its neighbour's). Each function carries the names of its inputs, so the set stays
+  human-understandable in greg's sense, and none of them estimates a 3-D quantity.
+- The backward map and the search: a forward selection over the functions, scored by the share of vertebrae named
+  right under the exact rule (the re-estimated table over the chosen functions) and under the discriminative
+  classifier of stage 2, with the label as the class and leave-persons-out; the gain of each function read as named
+  right with it against without it, and the per-landmark identifiability as the best gain any function of that
+  landmark gives. The output is a ranked list of 2-D landmarks and functions, not a network and not a 3-D model.
+- The latent beside it: the PDM's coefficients b, fit in 3-D and projected with the landmarks, enter the same search
+  as one more candidate feature set, which is this plan's own question asked of the view; the "higher dimensional
+  properties" a flat view classifies by are then whatever functions of the 2-D landmarks the search keeps, read
+  against the label alone.
+- The anomaly classes: the rib-class truth of section 8 labels the L6, L4-on-sacrum and T13 columns in the 2-D set too,
+  so identifiability is reported per class, and a landmark that names typical levels and fails on the strata is said
+  so.
 
 What it needs that this plan does not provide: project.py's camera model and the view=2d block landed (SchwingNet's
 handoff), FluXray's realism for the synthetic to real step (docs/research/flux-realism), and a 2-D truth of its own on
-real radiographs (C-ArmLSpine's, the film corpora) to say whether what the paired CTs teach holds on a real
-radiograph with a real detector and a real pose. It is written here so the stage 1 export keeps what it will need:
-every end in world coordinates with its vertebra's frame and its name, so that any camera can project it later and
-every function keeps its inputs' names.
+real radiographs (C-ArmLSpine's, the film corpora) to say whether the landmarks and functions the synthetics pick out
+hold on a real radiograph with a real detector and a real pose. It is written here so the stage 1 export keeps what
+the forward map will need: every end in world coordinates with its vertebra's frame, its name and its label.
