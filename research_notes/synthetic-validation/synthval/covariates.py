@@ -139,6 +139,15 @@ STRATUM_COUNTS: Dict[Tuple[str, str, str, str], Tuple[float, str]] = {
                                                                             "(the reread's cohort file)")
        for sex in ("male", "female")},
 }
+# Counts a paper prints of items, not people, on a stratum's own rows: by (paper, cohort, sex, the count
+# printed), the people it stands for and where that is printed.
+ITEM_COUNTS: Dict[Tuple[str, str, str, float], Tuple[float, str]] = {
+    ("chen2011", "chongqing_ct83", sex, items): (people, "Chen 2011 Tables 2 and 3: %d end-plates of %d %s, ten a "
+                                                         "person (the reread's cohort file)" % (items, people, who))
+    for sex, items, people, who in (("male", 430.0, 43.0, "men"), ("female", 400.0, 40.0, "women"))}
+# The definitions the selection keeps (papers_table.DEFINITIONS_ALL): Panjabi's, close to it, or a key he
+# does not print; a row whose measure differs from his is left out of the contrasts as it is of the tables.
+DEFINITIONS = ("same", "close", "none")
 MIN_PER_SEX = 5.0                  # people of each sex for a stratum's contrast to enter (the docstring says why)
 EVEN_SPLIT = "the cohort's count split evenly over the strata it prints at the cell (no count of the stratum's own is printed)"
 # Why a pair of both sexes gives no contrast (sex_strata's dropped).
@@ -157,12 +166,14 @@ PRINTED_SD = "printed"
 # ---- the rows a contrast may be read from -------------------------------------------------------
 
 def usable(r: dict, vocabulary: Dict[str, dict], need_sd: bool = True) -> bool:
-    """A row of a paper's own people, of a human, on a measure with a kind, with a mean, a count of
-    its own and, `need_sd`, an SD, in a group that is a population (not a stenosis, a size quartile
-    or a figure's example) and not a meta-analysis's pool."""
+    """A row of a paper's own people, of a human, on a measure with a kind and a definition the
+    selection keeps (DEFINITIONS), with a mean, a count of its own and, `need_sd`, an SD, in a group
+    that is a population (not a stenosis, a size quartile or a figure's example) and not a
+    meta-analysis's pool."""
     kind = vocabulary.get(r["base_key"], {}).get("kind")
     numbers = ("mean", "sd", "n") if need_sd else ("mean", "n")
     return (r["source_of_values"] == OWN_SOURCE and r["species"] != "pig" and kind in KINDS
+            and r.get("vs_panjabi") in DEFINITIONS
             and all(isinstance(r[k], float) and math.isfinite(r[k]) for k in numbers)
             and (not need_sd or r["sd"] > 0) and r["n"] > 1 and not EXCLUDED_GROUP.search(r["group"] or "")
             and not EXCLUDED_GROUP.search(r["cohort"] or "") and r.get("technique") != META_POOL)
@@ -219,6 +230,10 @@ def own_counts(rows: Sequence[dict], printed: Optional[Dict[tuple, Tuple[float, 
         at_cell.setdefault(_cell_of_row(r), []).append(r)
     out = []
     for r in rows:
+        items = ITEM_COUNTS.get((r["paper"], r["cohort"], r["sex"], r["n"]))
+        if items is not None:
+            out.append(dict(r, n=items[0], count_from=items[1]))
+            continue
         if r.get("n_note", "") != L.COHORT_COUNT:
             out.append(dict(r, count_from=r.get("n_note", "")))
             continue

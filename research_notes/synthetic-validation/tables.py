@@ -884,7 +884,9 @@ def t_covariates(rec: str) -> str:
     t2 = table(["covariate", "paper held out", "measures", "strata", "AUC held out", "AUC own split", "R^2 held out", "R^2 own split",
                 "log loss held out", "log loss own split"], rows, right=3, text=(0, 1, 2))
     c = j["counts"]
-    rows = [["sex: strata printed for both sexes with SDs (papers)", "%d (%s)" % (c["sex_contrasts"], ", ".join(c["sex_papers"]))],
+    printed = sum(1 for r in read_csv(rc, "contrasts.csv") if r["sd_from"] == "printed")
+    rows = [["sex: strata printed for both sexes, %d with each sex's SD and %d by means alone (papers)"
+             % (printed, c["sex_contrasts"] - printed), "%d (%s)" % (c["sex_contrasts"], ", ".join(c["sex_papers"]))],
             ["age: series over two or more adult bands (papers)", "%d (%s)" % (c["age_series"], ", ".join(c["age_papers"]))],
             ["body height and body weight: series over bands (papers)", "%d and %d (%s)" % (c["body_height_series"], c["body_weight_series"],
                                                                                           ", ".join(c["body_height_papers"]))],

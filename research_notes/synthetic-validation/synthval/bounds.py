@@ -168,6 +168,7 @@ STEP_R = 0.0                 # run_bounds.py's choice on STEP_R_GRID, bounds.jso
 BAR_LOW = 0.1                # the bar's low quantile of the held-out papers' rates
 MIN_BAR_ROWS = 20            # a held-out paper's rows of a test for its rate to enter that test's bar
 MIN_BAR_PAPERS = 5           # papers of MIN_BAR_ROWS rows a test's bar needs; fewer give the test no bar
+REFERENCE_N = 40             # people a cell check() scores a cohort at (the docstring of check says why)
 COVARIATES = {"sex": "sex_g", "age": "age_slope"}
 COVARIATE_RULE = RMS
 
@@ -716,21 +717,23 @@ def _verdict(test: str, distance: float, half: float) -> dict:
 
 def mean_verdict(c: dict, n: float, mean: float, sd: float, sampling: bool = True, interval: str = "z") -> dict:
     """A population's mean (n people, their SD) against a card cell's interval for a new population's
-    mean, z, or t where the cell has three series, widened by the population's own sampling error."""
+    mean, z, or t where the cell has three series, widened by the sampling error of n people."""
     between = c["between"]
     if interval == "t" and math.isfinite(c.get("mean_t_low", float("nan"))):
         between = (c["mean_t_high"] - c["mean"]) / Z
     return _verdict("mean", mean - c["mean"], Z * math.sqrt(between ** 2 + (sd * sd / n if sampling else 0.0)))
 
 
-def sd_verdict(c: dict, n: float, sd: float, sampling: bool = True) -> Optional[dict]:
+def sd_verdict(c: dict, n: float, sd: float, sampling: bool = True, at: Optional[float] = None) -> Optional[dict]:
     """A population's SD against the card cell's interval for a new population's SD, on the log
-    scale with the small-sample bias added back; None where the cell has no SD interval or the
+    scale with the small-sample bias of its n people added back and the interval widened by the
+    sampling error of `at` people (n where not given); None where the cell has no SD interval or the
     population fewer than three people."""
     if not (math.isfinite(c["sd_log_centre"]) and n >= 3 and sd > 0):
         return None
+    at = n if at is None else at
     log_sd = math.log(sd) + 1.0 / (2.0 * (n - 1))
-    half = Z * math.sqrt(c["sd_log_between"] ** 2 + (1.0 / (2.0 * (n - 1)) if sampling else 0.0))
+    half = Z * math.sqrt(c["sd_log_between"] ** 2 + (1.0 / (2.0 * (at - 1)) if sampling else 0.0))
     return _verdict("sd", log_sd - c["sd_log_centre"], half)
 
 
@@ -743,7 +746,8 @@ def step_verdict(s: dict, step: float, var: float, sampling: bool = True, interv
     return _verdict("step", step - s["step"], Z * math.sqrt(between ** 2 + (var if sampling else 0.0)))
 
 
-def check(rows, card: Card, kind: str = ALL, sampling: bool = True, interval: str = "z") -> dict:
+def check(rows, card: Card, kind: str = ALL, sampling: bool = True, interval: str = "z",
+          reference_n: Optional[float] = REFERENCE_N) -> dict:
     """Score a generated cohort against the card of one kind of population.
 
     Per cell the cohort has values at (two or more): its mean against the interval for a new
@@ -757,25 +761,38 @@ def check(rows, card: Card, kind: str = ALL, sampling: bool = True, interval: st
     that interval widened by the cohort's own error). The summary gives each test's count and pass
     rate, the pass rate over every test (a record that decides nothing), the mean square of the
     z-scores, and the verdict (verdict): each calibrated test against the bar of the kind's own
-    held-out papers, and the cohort's, which fails where the step test fails its bar."""
+    held-out papers, and the cohort's, which fails where the step test fails its bar.
+
+    The bar is the rate of real papers scored with their own few people, whose sampling error widens
+    every interval, so a cohort's rate rises as it shrinks: a flattened lumbar gradient passes with
+    six to ten people and a population the card itself draws fails the step bar at a few hundred.
+    So each cell is scored as if the cohort had reference_n people, about the median of the bar
+    papers' own median people a cell (bounds.json's reference_n_measured), and a cell where the
+    cohort has fewer is left out and counted (short_cells); reference_n None scores each cell at the
+    cohort's own count, for the record."""
     cohort = Cohort.of(rows)
     cells, steps = card.of_kind(kind)
     groups = cohort.groups()
     out_cells, out_steps, verdicts = [], [], []
     moments: Dict[Tuple[str, str], Tuple[int, float, float]] = {}
+    short = 0
     for c in cells:
         idx = groups.get((c["measure"], c["level"]))
         if idx is None or len(idx) < 2:
             continue
+        if reference_n is not None and len(idx) < reference_n:
+            short += 1
+            continue
         x = cohort.value[idx]
         n, mean, sd = len(x), float(x.mean()), float(x.std(ddof=1))
+        at = n if reference_n is None else reference_n
         moments[c["measure"], c["level"]] = (n, mean, sd)
         row = {"measure": c["measure"], "level": c["level"], "n": n, "mean": mean, "sd": sd, "card_mean": c["mean"],
                "mean_low": c["mean_low"], "mean_high": c["mean_high"], "card_sd_low": c["sd_low"], "card_sd_high": c["sd_high"]}
-        v = mean_verdict(c, n, mean, sd, sampling, interval)
+        v = mean_verdict(c, at, mean, sd, sampling, interval)
         row.update(mean_z=v["z"], mean_pass=v["passed"])
         verdicts.append(v)
-        v = sd_verdict(c, n, sd, sampling)
+        v = sd_verdict(c, n, sd, sampling, at)
         if v is not None:
             row.update(sd_z=v["z"], sd_pass=v["passed"])
             verdicts.append(v)
@@ -790,14 +807,17 @@ def check(rows, card: Card, kind: str = ALL, sampling: bool = True, interval: st
         if a is None or b is None:
             continue
         step = b[1] - a[1]
-        var = _step_sampling(cohort, groups[s["measure"], s["upper"]], groups[s["measure"], s["lower"]], a, b)
+        var = _step_sampling(cohort, groups[s["measure"], s["upper"]], groups[s["measure"], s["lower"]], a, b, reference_n)
         v = step_verdict(s, step, var, sampling, interval)
         out_steps.append({"measure": s["measure"], "upper": s["upper"], "lower": s["lower"], "step": step,
                           "card_step": s["step"], "step_low": s["step_low"], "step_high": s["step_high"],
                           "step_z": v["z"], "step_pass": v["passed"]})
         verdicts.append(v)
-    return {"kind": kind, "cells": out_cells, "steps": out_steps,
-            "summary": summarise(verdicts, card.bar(kind), bool(card.calibration))}
+    summary = summarise(verdicts, card.bar(kind), bool(card.calibration))
+    summary.update(reference_n=reference_n, short_cells=short)
+    if short and summary["verdict"]["passed"] is None:
+        summary["verdict"]["why"] += "; %d cells had fewer people than the %s a cell is scored at" % (short, reference_n)
+    return {"kind": kind, "cells": out_cells, "steps": out_steps, "summary": summary}
 
 
 def _sex_test(cohort: Cohort, idx: np.ndarray, c: dict, sampling: bool) -> Optional[Tuple[dict, dict]]:
@@ -816,15 +836,17 @@ def _sex_test(cohort: Cohort, idx: np.ndarray, c: dict, sampling: bool) -> Optio
             {"test": "sex", "z": z, "passed": passed})
 
 
-def _step_sampling(cohort: Cohort, ia: np.ndarray, ib: np.ndarray, a: tuple, b: tuple) -> float:
-    """The sampling variance of the cohort's step: from the persons at both levels where ids are
-    given and at least two persons pair, else from the two levels' own variances."""
+def _step_sampling(cohort: Cohort, ia: np.ndarray, ib: np.ndarray, a: tuple, b: tuple,
+                   at: Optional[float] = None) -> float:
+    """The sampling variance of the cohort's step with `at` people (its own where not given): from
+    the persons at both levels where ids are given and at least two persons pair, else from the two
+    levels' own variances."""
     if cohort.person is not None:
         _, ja, jb = np.intersect1d(cohort.person[ia], cohort.person[ib], return_indices=True)
         if len(ja) >= 2:
             d = cohort.value[ib[jb]] - cohort.value[ia[ja]]
-            return float(d.var(ddof=1) / len(d))
-    return a[2] ** 2 / a[0] + b[2] ** 2 / b[0]
+            return float(d.var(ddof=1) / (len(d) if at is None else at))
+    return a[2] ** 2 / (a[0] if at is None else at) + b[2] ** 2 / (b[0] if at is None else at)
 
 
 def _mean_square(verdicts: Sequence[dict]) -> float:
@@ -1054,6 +1076,22 @@ def bar_of(rows: Sequence[dict], least_rows: int = MIN_BAR_ROWS, min_papers: int
                          papers_named=";".join(sorted(r["paper"] for r in mine)))
         out[test] = entry
     return out
+
+
+def reference_n_measured(series: Sequence[L.Series], register: Dict[Tuple[str, str], RG.Population],
+                         calibration_rows: Sequence[dict], least_rows: int = MIN_BAR_ROWS) -> dict:
+    """The people a cell the bar's papers score with: each paper whose rows of the mean or step test
+    reach least_rows in every paper's calibration, its median people a stratum, and the median of
+    those, the figure REFERENCE_N stands near."""
+    people: Dict[str, List[float]] = {}
+    for c in ST.strata_of(series_of_kind(series, register, ALL)):
+        for st in c.strata:
+            people.setdefault(st.paper, []).append(float(st.n))
+    papers = sorted({r["paper"] for r in calibration_rows if (r.get("kind") or ALL) == ALL
+                     and r["test"] in ("mean", "step") and int(r["made"]) >= least_rows and r["paper"] in people})
+    medians = {p: float(np.median(people[p])) for p in papers}
+    return {"papers": medians, "median": float(np.median(list(medians.values()))) if medians else float("nan"),
+            "reference_n": REFERENCE_N}
 
 
 def choose_r(rates: Dict[float, float], nominal: float = NOMINAL) -> float:

@@ -4,11 +4,11 @@ Drawn by `python3 -I figures.py --records records --out figures` from the record
 `python3 -I run.py --out records` (bordercall 560bd00). Each figure's numbers are its CSV; its caption is its .caption.txt.
 The three renders are drawn by render.py from the generator itself, seed 2029, 4000 people.
 
-Drawn at bordercall 20ba5ef, from and by:
+Drawn at bordercall 58729db, from and by:
 
 - records/RECORD.json, sha256 8229f63cad6bc1ddf0ecc53c9faa6602bb4d79b590165b4c4cd80f5d614c9df1
 - figures.py, sha256 9b4b29c4b350611e82736146656ff3924a828eb2a2f915dad02acd1d68d3a0de
-- figures_all.py, sha256 7c2b0ad427ff7ed973a7789dd9eeff5845f57dd11f7cdb674360618511be6f21
+- figures_all.py, sha256 2eeb0079af29feebf0e8302bce06b894a6521173df012d3f5e8adfcd6f4c3c80
 - render.py, sha256 d4bc0d70416d843a6d019ffefe741cb0fe01013357027395c24448c01cc3a9d9
 - synthval/house.py, sha256 396822b88fcb46e9533162f8a46b8e2443c1d58ac15d1f40e2d0eb4f5653323a
 - schwingcheck/figures.py, sha256 3908d42cc8e93c839d8ddca5bf06591af281e1490d775483e20535a0908b0576
@@ -182,9 +182,27 @@ Leaving a paper out, scored held out. A and B, each exclusion candidate against 
 Covariates read from what the papers print apart. A, sex; B, age and body size, each within its paper and the papers pooled; C, how well one measure tells men from women; D, how much of a measure sex or age explains, in the population and held out by paper.
 
 - fig17_covariates.caption.txt, sha256 abbdf969cb55cb2973adac85a1c0b8aeba3d1ff448fc940d084fe14da85664e8
-- fig17_covariates.csv, sha256 9a59f4f62c90561946679e2ed2ed5bbf57cfcbbc1f660642124898bc537b9e79
-- fig17_covariates.pdf, sha256 874e79c944ae5929fc8dcbbdb200f2d4f94123c90d9b34d08982d41d70107129
-- fig17_covariates.png, sha256 7496ffbdffea1cc429ae81b14945f9871adb8cb51c4eeb6031c077f0aa6132c4
+- fig17_covariates.csv, sha256 358e63fc17faa9bc4d30563df509666e4c05c9b3c16a6066e8401d96caaa939d
+- fig17_covariates.pdf, sha256 82af2c59cb1c8dbf27cb72aec9102a229bb473a5ee1a0d5af360f6b0a52d88be
+- fig17_covariates.png, sha256 73bfcfe09856d05ab30f0c86547e74df8117b5c82defdfd5c2a8c560d1939d7c
+
+## fig18_sex_naming
+
+Naming a short field told the person's sex. A, synthetic populations: the gain in log score grows with the sexes' difference. B, each paper held out on its own men and women, scored at its own temperature: no width's gain is clear of zero.
+
+- fig18_sex_naming.caption.txt, sha256 9d79a16d3a160f7cd7779718b9a49f324bcc05c8782619b6f143c2e665be7daf
+- fig18_sex_naming.csv, sha256 9491cd2f77e5ea661587708bc6f47c2e764689816aebe79118bcb99157f1be83
+- fig18_sex_naming.pdf, sha256 ee4584af4b0d63d0cd55a120be6d319d9c49a84c1b7215c78d757fc36f593822
+- fig18_sex_naming.png, sha256 16ce5aaf0252d76af690c46d7590d20a618955c03de84c06ce405ea19b98144e
+
+## fig19_bounds
+
+The bounds card. A, one measure's interval for a new population's mean; a flattened or reversed lumbar gradient stays inside it. B, pass rates by test; the step test separates the broken gradients from real populations.
+
+- fig19_bounds.caption.txt, sha256 76799e849275f089979dbd19854f017347901d5f446290efc38c24afe880e879
+- fig19_bounds.csv, sha256 0468e27e4f7c9ec8d7a87ae21d9dda181b16c138f5562c39cfe046f5672eb64b
+- fig19_bounds.pdf, sha256 4bf29ee1d3eab01d36d2677db081a61c8178b214cda28c02bdbe952d0d27a5de
+- fig19_bounds.png, sha256 133ff100fb182eeb90bba28bf415cb6efef1afeee58a7fbbf238778c852a01c7
 
 ## render1_axial
 

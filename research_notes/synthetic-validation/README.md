@@ -221,29 +221,50 @@ stand; a later snapshot is cut with `python3 -I snapshot.py --write <commit>` an
    within 0.012 nats of the tempered plain rule (0.849 to 0.861 at three bodies), so no paper leaves the
    prior and the rule to carry is still the plain rule tempered by T = 2 (table exclusion, figure
    fig16_exclusion, section Leaving a paper out, scored held out).
-14. **Covariates both ways, from what the papers print apart: sex moves the end plate by 1.4 to 1.6
-   within-sex SDs and a disc height by 0.3 to 1.2, age moves a measure by under a quarter of an SD a
-   decade, and body height moves the pedicle by 0.34 to 0.48 SD per 100 mm; one end-plate measure tells
-   men from women with an AUC of 0.80 to 0.92 in its own population, but only four papers print the
-   sexes apart with SDs, so a held-out transfer can be read for one measure, and it carries the
-   direction and not the size.** The owner's words of 2026-10-30, 02:55 UTC: show the covariate
+14. **Covariates both ways, from what 22 papers print apart: men exceed women by about 1.3 within-sex
+   SDs on the vertebral body and end plate, 0.5 to 0.7 on the pedicle, 0.45 on the canal's width and
+   nothing on its depth; age moves a measure by under a fifth of an SD a decade; held out by paper, an
+   effect's sign carries to a new population (85% of strata) but its size only partly, so one measure
+   names a person's sex with an AUC of 0.63 against the population's own 0.64 and a log loss of 0.680
+   against the base rate's 0.693.** The owner's words of 2026-10-30, 02:55 UTC: show the covariate
    effects on the spine's shape and predict either from the other. Each effect is read inside one paper
    first, men against women of one stratum or a series over age or size bands, and the papers pooled
-   second, so no paper's own shift enters it. Sex: Chen 2011's end plate 1.36 to 1.57 (95% intervals
-   1.03 to 1.92), Bach 2019's disc heights 0.31 to 0.79 and foramen 0.44, Bach and Twomey 1985's mean
-   disc height 1.22 (0.14 to 2.30, the two papers 0.8 apart), Duman 2026's pedicle width 0.26. Age per
-   decade: Bach's foramen -0.23 and disc heights -0.11 to 0.03, Griffith 2016's body area 0.09, Yu
-   2015's and Duman's pedicle 0.04 to 0.07. Yu 2015's body height and weight: the pedicle 0.34 and 0.48
-   per 100 mm, 0.16 and 0.23 per 10 kg. Shape to sex, one measure at one level: the end plate's AUC is
-   0.80 to 0.92 and sex explains 0.31 to 0.38 of its variance in Chen's population, a disc height's 0.61
-   to 0.73 and 0.04 to 0.15. Held out, which only the mean disc height allows (Bach against Twomey),
-   the AUC is the population's own wherever the sign transfers (89% of strata), but the size does not:
-   Twomey's effect put on Bach's people gives a log loss of 0.774 against the base rate's 0.693 and an
-   R^2 of 0.02 against Bach's own 0.11. Age held out explains 0.00 to 0.01 of the pedicle's width.
-   One measure is the honest unit here, since a person's measures share their size and no paper prints
-   the correlation; the combination across measures, and every effect on more than one paper, waits for
-   measured people with their age and sex (table covariates, figure fig17_covariates, section
-   Covariates both ways).
+   second, so no paper's own shift enters it; the papers' own men's and women's rows, which the
+   reread's snapshot pools, are read from the sexes' snapshot (data/series_sexes.csv), and a stratum
+   printed with means alone is read against the other papers' SD. Sex, pooled: the body's sagittal
+   diameter 1.33 within-sex SDs over four papers (an interval for one more paper of 0.41 to 2.25),
+   Griffith 2016's body area 1.42, Tang 2016's end plates 1.31 to 1.56, Duman 2026's body heights 1.21
+   to 1.31, the pedicle's width 0.72 and height 0.55 over six papers each, the canal's width 0.45 over
+   six (0.32 to 0.58 for one more paper) and its depth -0.03 over ten. Age per decade: Bach 2019's
+   foramen -0.19 and disc heights -0.14 to 0.06, Griffith's body area 0.09, the pedicle 0.05 to 0.07
+   (Yu 2015, Duman). Held out over 20 papers and 357 strata (the median stratum): AUC 0.63 against the
+   population's own 0.64, R^2 0.03 against 0.06, log loss 0.680 against 0.654 own and 0.693 for the
+   base rate; Tang's end plate (0.82) and Twomey 1985's disc height (0.86) name sex best. One measure is
+   the honest unit, since no paper prints the correlation within a person; the combination waits for
+   measured people with their sex and age, the gold tier 3 join on the grid (table covariates, figure
+   fig17_covariates, section Covariates both ways).
+15. **Bounds for a generator: yes, as a card a synthetic cohort must pass, and schwingcheck's generator
+   fails it on the level steps.** The owner's question of 2026-10-30, 03:38 UTC: could these results
+   "serve as bounds for generative models making synthetic spines from ideal spines". The card holds,
+   for 694 cells of 53 measures and 635 level-to-level steps, the interval for a new population's mean,
+   SD and step, and for 222 cells the sex contrast; calibrated on 33 papers each held out, a cohort
+   passes where its mean, SD and step pass rates reach the 10th percentile of the held-out papers'
+   (0.58, 0.53 and 0.89), every cell scored as if the cohort had 40 people, the bar papers' own size.
+   The card's centre, the ideal spine, passes (every mean and SD, 98.6% of steps); the same spine with
+   its lumbar gradient flattened or reversed fails on the steps (0.87 and 0.79) while its means pass;
+   schwingcheck's generator on Panjabi's table fails on the steps (0.86, means 0.70), and so does the
+   point nearest the papers (0.80) (figure fig19_bounds, section Bounds for a generator).
+16. **Told the person's sex, naming a short field gains nothing held out, and little even where the sexes'
+   tables are a population's own.** The owner's words of 2026-10-30, 03:45 UTC: the sex of the patient
+   being imaged is known, so the rule may read it. Each of 16 papers held out on its own men and women,
+   the others' table moved by the others' sex contrast scores within 0.003 nats of the same table
+   unmoved at one, two and three bodies (SEs 0.006 to 0.009), and names 0.1 to 0.2 points more often.
+   Had the others printed the held-out paper's own contrast, the gain would be 0.007 to 0.011 nats; with
+   its own two tables in place of its own sexless one, 1.0 to 1.7 points; its own sexless table in place
+   of the others' is worth 5.9 to 8.4 points. On synthetic populations split by the papers' own
+   contrasts, the gain is 1.9 points at one body, 1.1 at two and none at three. Which population a
+   person comes from matters about five times more than the sex (figure fig18_sex_naming, section
+   Naming told the person's sex).
 
 ## What was compared
 
@@ -1719,24 +1740,48 @@ out-of-sample R^2, each beside the population's own split, every expectation exa
 <!-- table covariates -->
 | covariate | measure | effect in | pooled effect (95% interval) | interval for one more paper | papers | cells | strata | papers named |
 | --- | --- | --- | --- | --- | ---: | ---: | ---: | --- |
-| sex | endplate_lower | men minus women, within-sex SDs | 1.57 (1.23 to 1.92) | - | 1 | 5 | 5 | chen2011 |
-| sex | endplate | men minus women, within-sex SDs | 1.55 (1.20 to 1.90) | - | 1 | 5 | 5 | chen2011 |
-| sex | endplate_lower_depth | men minus women, within-sex SDs | 1.37 (1.03 to 1.71) | - | 1 | 5 | 5 | chen2011 |
-| sex | endplate_depth | men minus women, within-sex SDs | 1.36 (1.03 to 1.70) | - | 1 | 5 | 5 | chen2011 |
-| sex | disc_h_mean | men minus women, within-sex SDs | 1.22 (0.14 to 2.30) | - | 2 | 11 | 89 | bach2019, twomey1985 |
-| sex | disc_h_ant | men minus women, within-sex SDs | 0.79 (0.72 to 0.86) | - | 1 | 6 | 42 | bach2019 |
-| sex | disc_h_mid | men minus women, within-sex SDs | 0.57 (0.50 to 0.64) | - | 1 | 6 | 42 | bach2019 |
-| sex | foramen_h | men minus women, within-sex SDs | 0.44 (0.37 to 0.51) | - | 1 | 6 | 42 | bach2019 |
-| sex | disc_h_post | men minus women, within-sex SDs | 0.31 (0.25 to 0.38) | - | 1 | 6 | 42 | bach2019 |
-| sex | pedicle_w | men minus women, within-sex SDs | 0.26 (0.19 to 0.33) | - | 1 | 4 | 12 | duman2026 |
+| sex | endplate_lower_area | men minus women, within-sex SDs | 1.56 (1.10 to 2.01) | - | 1 | 3 | 3 | tang2016 |
+| sex | disc_w | men minus women, within-sex SDs | 1.55 (1.12 to 1.99) | - | 1 | 3 | 3 | tang2016 |
+| sex | disc_d | men minus women, within-sex SDs | 1.52 (1.09 to 1.96) | - | 1 | 3 | 3 | tang2016 |
+| sex | body_area | men minus women, within-sex SDs | 1.42 (1.28 to 1.55) | - | 1 | 5 | 5 | griffith2016 |
+| sex | body_d | men minus women, within-sex SDs | 1.35 (0.87 to 1.83) | - | 1 | 6 | 6 | chen2011 |
+| sex | body_d_mid | men minus women, within-sex SDs | 1.33 (1.10 to 1.55) | 0.41 to 2.25 | 4 | 21 | 31 | abbas2021, amonookuofi1985, eisenstein1977, italianmri |
+| sex | h_mid | men minus women, within-sex SDs | 1.31 (1.12 to 1.50) | - | 1 | 4 | 4 | duman2026 |
+| sex | endplate_area | men minus women, within-sex SDs | 1.31 (0.87 to 1.75) | - | 1 | 3 | 3 | tang2016 |
+| sex | body_w_mid | men minus women, within-sex SDs | 1.28 (1.06 to 1.50) | - | 2 | 10 | 20 | abbas2021, eisenstein1977 |
+| sex | h_post | men minus women, within-sex SDs | 1.26 (1.07 to 1.45) | - | 1 | 4 | 4 | duman2026 |
+| sex | h_ant | men minus women, within-sex SDs | 1.21 (1.03 to 1.40) | - | 1 | 4 | 4 | duman2026 |
+| sex | endplate_lower_depth | men minus women, within-sex SDs | 1.10 (0.21 to 2.00) | - | 2 | 9 | 9 | tang2016, yadav2020 |
+| sex | endplate | men minus women, within-sex SDs | 0.96 (0.54 to 1.39) | - | 2 | 10 | 10 | tang2016, yadav2020 |
+| sex | endplate_lower | men minus women, within-sex SDs | 0.93 (0.22 to 1.65) | - | 2 | 9 | 9 | tang2016, yadav2020 |
+| sex | endplate_depth | men minus women, within-sex SDs | 0.86 (0.43 to 1.29) | - | 2 | 10 | 10 | tang2016, yadav2020 |
+| sex | pedicle_chord | men minus women, within-sex SDs | 0.85 (0.64 to 1.06) | -0.51 to 2.21 | 3 | 19 | 22 | arockiaraj2025, hou1993, olsewski1990 |
+| sex | facet_w_sup | men minus women, within-sex SDs | 0.79 (0.21 to 1.36) | - | 1 | 5 | 5 | masharawi2021 |
+| sex | disc_h_mean | men minus women, within-sex SDs | 0.78 (-0.04 to 1.60) | -9.68 to 11.24 | 3 | 18 | 29 | bach2019, twomey1985, yadav2020 |
+| sex | lateral_recess | men minus women, within-sex SDs | 0.77 (0.54 to 1.01) | - | 1 | 7 | 7 | yadav2020 |
+| sex | pedicle_w | men minus women, within-sex SDs | 0.72 (0.39 to 1.05) | -0.37 to 1.82 | 6 | 33 | 38 | arockiaraj2025, duman2026, hou1993, masharawi2021, olsewski1990, yu2015 |
+| sex | disc_h_ant | men minus women, within-sex SDs | 0.70 (0.53 to 0.86) | - | 2 | 11 | 11 | bach2019, shin2024 |
+| sex | pedicle_h | men minus women, within-sex SDs | 0.55 (0.29 to 0.80) | -0.27 to 1.36 | 6 | 33 | 38 | arockiaraj2025, duman2026, hou1993, masharawi2021, olsewski1990, yu2015 |
+| sex | interpedicular | men minus women, within-sex SDs | 0.50 (0.21 to 0.78) | - | 2 | 10 | 10 | amonookuofi1982, chaudhary2015 |
+| sex | canal_w | men minus women, within-sex SDs | 0.45 (0.36 to 0.54) | 0.32 to 0.58 | 6 | 30 | 40 | ahmed2019, alonge2021, cizmic2023, eisenstein1977, griffith2016, masharawi2021 |
+| sex | disc_h_mid | men minus women, within-sex SDs | 0.40 (0.18 to 0.62) | - | 2 | 11 | 11 | bach2019, shin2024 |
+| sex | foramen_h | men minus women, within-sex SDs | 0.32 (0.08 to 0.55) | - | 2 | 11 | 11 | bach2019, masharawi2021 |
+| sex | disc_h_post | men minus women, within-sex SDs | 0.25 (0.12 to 0.38) | - | 2 | 11 | 11 | bach2019, shin2024 |
+| sex | canal_area | men minus women, within-sex SDs | 0.17 (-0.03 to 0.38) | - | 2 | 10 | 10 | abbas2021, griffith2016 |
+| sex | pedicle_incl_sag | men minus women, within-sex SDs | 0.11 (-0.02 to 0.25) | -0.75 to 0.98 | 3 | 14 | 17 | arockiaraj2025, duman2026, olsewski1990 |
+| sex | foramen_w | men minus women, within-sex SDs | 0.05 (-0.15 to 0.24) | - | 2 | 12 | 12 | amonookuofi1985, yadav2020 |
+| sex | pedicle_length | men minus women, within-sex SDs | -0.00 (-0.52 to 0.52) | - | 2 | 10 | 10 | arockiaraj2025, masharawi2021 |
+| sex | canal_ap | men minus women, within-sex SDs | -0.03 (-0.19 to 0.14) | -0.56 to 0.51 | 10 | 53 | 63 | abbas2021, ahmed2019, alonge2021, amonookuofi1985, cizmic2023, eisenstein1977, griffith2016, italianmri, masharawi2021, yadav2020 |
+| sex | lamina_angle | men minus women, within-sex SDs | -0.09 (-0.39 to 0.20) | - | 1 | 5 | 10 | abbas2021 |
+| sex | facet_angle_axial | men minus women, within-sex SDs | -0.22 (-0.77 to 0.34) | - | 1 | 5 | 5 | masharawi2021 |
 | age | body_area | within-band SDs per decade | 0.09 (0.05 to 0.12) | - | 1 | 5 | 5 | griffith2016 |
 | age | pedicle_h | within-band SDs per decade | 0.07 (0.02 to 0.13) | - | 1 | 5 | 5 | yu2015 |
-| age | pedicle_w | within-band SDs per decade | 0.04 (0.00 to 0.08) | - | 2 | 9 | 13 | duman2026, yu2015 |
-| age | disc_h_mid | within-band SDs per decade | 0.03 (0.00 to 0.05) | - | 1 | 6 | 12 | bach2019 |
-| age | disc_h_ant | within-band SDs per decade | -0.08 (-0.11 to -0.05) | - | 1 | 6 | 12 | bach2019 |
-| age | disc_h_mean | within-band SDs per decade | -0.09 (-0.11 to -0.07) | - | 1 | 6 | 24 | bach2019 |
-| age | disc_h_post | within-band SDs per decade | -0.11 (-0.13 to -0.08) | - | 1 | 6 | 12 | bach2019 |
-| age | foramen_h | within-band SDs per decade | -0.23 (-0.25 to -0.20) | - | 1 | 6 | 12 | bach2019 |
+| age | disc_h_mid | within-band SDs per decade | 0.06 (-0.01 to 0.14) | - | 1 | 6 | 12 | bach2019 |
+| age | pedicle_w | within-band SDs per decade | 0.05 (0.01 to 0.09) | - | 2 | 9 | 13 | duman2026, yu2015 |
+| age | disc_h_post | within-band SDs per decade | -0.09 (-0.17 to -0.02) | - | 1 | 6 | 12 | bach2019 |
+| age | disc_h_mean | within-band SDs per decade | -0.11 (-0.19 to -0.03) | - | 1 | 6 | 24 | bach2019 |
+| age | disc_h_ant | within-band SDs per decade | -0.14 (-0.22 to -0.06) | - | 1 | 6 | 12 | bach2019 |
+| age | foramen_h | within-band SDs per decade | -0.19 (-0.27 to -0.11) | - | 1 | 6 | 12 | bach2019 |
 | body height | pedicle_h | within-band SDs per 100 mm | 0.48 (0.39 to 0.58) | - | 1 | 5 | 5 | yu2015 |
 | body height | pedicle_w | within-band SDs per 100 mm | 0.34 (0.24 to 0.45) | - | 1 | 5 | 5 | yu2015 |
 | body weight | pedicle_w | within-band SDs per 10 kg | 0.23 (0.13 to 0.33) | - | 1 | 5 | 5 | yu2015 |
@@ -1746,15 +1791,33 @@ out-of-sample R^2, each beside the population's own split, every expectation exa
 | --- | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
 | age | duman2026 | pedicle_w | 8 | 0.53 | 0.53 | 0.00 | 0.00 | - | - |
 | age | yu2015 | pedicle_w | 5 | 0.57 | 0.57 | 0.01 | 0.01 | - | - |
-| sex | bach2019 | disc_h_mean | 84 | 0.69 | 0.69 | 0.02 | 0.11 | 0.774 | 0.612 |
-| sex | twomey1985 | disc_h_mean | 5 | 0.89 | 0.89 | 0.30 | 0.44 | 0.526 | 0.376 |
+| sex | abbas2021 | body_d_mid, body_w_mid, canal_ap, canal_area | 20 | 0.68 | 0.68 | 0.11 | 0.13 | 0.633 | 0.598 |
+| sex | ahmed2019 | canal_ap, canal_w | 10 | 0.56 | 0.59 | 0.01 | 0.02 | 0.689 | 0.675 |
+| sex | alonge2021 | canal_ap, canal_w | 10 | 0.59 | 0.59 | 0.02 | 0.03 | 0.681 | 0.661 |
+| sex | amonookuofi1982 | interpedicular | 5 | 0.60 | 0.60 | 0.03 | 0.03 | 0.679 | 0.676 |
+| sex | amonookuofi1985 | canal_ap, foramen_w | 10 | 0.43 | 0.68 | -0.02 | 0.10 | 0.702 | 0.632 |
+| sex | arockiaraj2025 | pedicle_chord, pedicle_h, pedicle_incl_sag, pedicle_length, pedicle_w | 25 | 0.64 | 0.64 | 0.06 | 0.06 | 0.660 | 0.656 |
+| sex | bach2019 | disc_h_ant, disc_h_mean, disc_h_mid, disc_h_post, foramen_h | 36 | 0.65 | 0.65 | 0.05 | 0.07 | 0.669 | 0.650 |
+| sex | chaudhary2015 | interpedicular | 5 | 0.67 | 0.67 | 0.05 | 0.09 | 0.670 | 0.617 |
+| sex | cizmic2023 | canal_ap, canal_w | 10 | 0.57 | 0.59 | 0.01 | 0.02 | 0.689 | 0.681 |
+| sex | duman2026 | pedicle_h, pedicle_incl_sag, pedicle_w | 12 | 0.54 | 0.54 | -0.01 | 0.01 | 0.697 | 0.685 |
+| sex | griffith2016 | canal_ap, canal_area, canal_w | 15 | 0.54 | 0.59 | 0.00 | 0.02 | 0.691 | 0.676 |
+| sex | hou1993 | pedicle_chord, pedicle_h, pedicle_w | 27 | 0.62 | 0.62 | 0.03 | 0.05 | 0.685 | 0.654 |
+| sex | italianmri | body_d_mid, canal_ap | 12 | 0.69 | 0.74 | 0.14 | 0.19 | 0.615 | 0.579 |
+| sex | masharawi2021 | canal_ap, canal_w, foramen_h, pedicle_h, pedicle_length, pedicle_w | 30 | 0.55 | 0.55 | -0.01 | 0.01 | 0.698 | 0.672 |
+| sex | olsewski1990 | pedicle_chord, pedicle_h, pedicle_incl_sag, pedicle_w | 36 | 0.73 | 0.73 | 0.15 | 0.16 | 0.614 | 0.593 |
+| sex | shin2024 | disc_h_ant, disc_h_mid, disc_h_post | 15 | 0.60 | 0.60 | 0.02 | 0.03 | 0.684 | 0.675 |
+| sex | tang2016 | endplate, endplate_depth, endplate_lower, endplate_lower_depth | 12 | 0.82 | 0.82 | 0.22 | 0.29 | 0.576 | 0.523 |
+| sex | twomey1985 | disc_h_mean | 10 | 0.86 | 0.86 | 0.24 | 0.37 | 0.565 | 0.455 |
+| sex | yadav2020 | canal_ap, disc_h_mean, endplate, endplate_depth, endplate_lower, endplate_lower_depth, foramen_w | 47 | 0.64 | 0.64 | 0.00 | 0.06 | 0.705 | 0.654 |
+| sex | yu2015 | pedicle_h, pedicle_w | 10 | 0.78 | 0.78 | 0.19 | 0.23 | 0.593 | 0.559 |
 
 | what the reread gives | value |
 | --- | ---: |
-| sex: strata printed for both sexes with SDs (papers) | 289 (bach2019, chen2011, duman2026, twomey1985) |
+| sex: strata printed for both sexes, 419 with each sex's SD and 65 by means alone (papers) | 484 (abbas2021, ahmed2019, alonge2021, amonookuofi1982, amonookuofi1985, arockiaraj2025, bach2019, chaudhary2015, chen2011, cizmic2023, duman2026, eisenstein1977, griffith2016, hou1993, italianmri, masharawi2021, olsewski1990, shin2024, tang2016, twomey1985, yadav2020, yu2015) |
 | age: series over two or more adult bands (papers) | 95 (bach2019, duman2026, griffith2016, yu2015) |
 | body height and body weight: series over bands (papers) | 10 and 10 (yu2015) |
-| strata and series scored held out | 102 |
+| strata and series scored held out | 370 |
 | log loss of the base rate (equal men and women) | 0.693 |
 <!-- end covariates -->
 
@@ -1762,36 +1825,122 @@ The first table is every effect pooled across the papers that print it, with how
 and printed strata stand behind it; the second each paper held out where another paper prints the same
 measure, the median over its strata; the third what the reread gives to read from.
 
-The effects are real where they are printed, and few are printed. Sex: Chen 2011's men exceed its women
-by 1.36 to 1.57 within-sex SDs on the end plate's width and depth, upper and lower (95% intervals 1.03
-to 1.92); Bach 2019's by 0.79, 0.57 and 0.31 on the disc's anterior, middle and posterior height and
-0.44 on the foramen's; Bach and Twomey 1985 together by 1.22 on the mean disc height (0.14 to 2.30, the
-two papers 0.8 apart); Duman 2026's by 0.26 on the pedicle's width, the contrast section The populations apart
-reads as 0.07 to 0.21 of Panjabi's SD. Age, per decade of adult life: Bach's foramen loses 0.23 SD and
-his disc heights 0.08 to 0.11 (the middle height gains 0.03), Griffith 2016's body area gains 0.09 and
-the pedicle 0.04 to 0.07 in Yu 2015 and Duman. Body size, Yu alone: the pedicle's height gains 0.48 SD
-and its width 0.34 per 100 mm of body height, and 0.16 and 0.23 per 10 kg of weight. Shape to sex: one
-end-plate measure at one level tells Chen's men from his women with an AUC of 0.80 to 0.92, sex
-explaining 0.31 to 0.38 of its variance; a disc height with 0.61 to 0.73 (the medians by measure),
-0.04 to 0.15; the pedicle's width with 0.57, 0.02. Held out, which only Bach's and Twomey's mean disc
-height allows for sex and Duman's and Yu's pedicle width for age: the AUC is the population's own
-wherever the effect's sign transfers, in 89% of the strata, but its size does not, and Twomey's larger
-effect put on Bach's people is overconfident, a log loss of 0.774 against the base rate's 0.693 and an
-R^2 of 0.02 against Bach's own 0.11 (Bach's put on Twomey's, 0.526 and 0.30 against 0.376 and 0.44);
-age held out explains 0.00 to 0.01 of the pedicle's width, as in the paper itself.
+The effects are real and most of them are of the body's size. Sex: men exceed women by 1.2 to 1.6
+within-sex SDs on the vertebral body (its sagittal diameter 1.33 over Abbas 2021, Amonoo-Kuofi 1985,
+Eisenstein 1977 and the Italian MRI series; Griffith 2016's area 1.42; Chen 2011's end-plate mean 1.35,
+its 830 end-plates read as its 83 people; Duman 2026's heights 1.21 to 1.31) and on Tang 2016's end
+plates (1.31 to 1.56); by 0.55 to 0.85 on the pedicle (height, width and chord, three to six papers
+each); by 0.45 on the canal's width, which six papers print and agree on (0.32 to 0.58 for one more
+paper), and by nothing on its depth (-0.03 over ten papers); by 0.25 to 0.78 on the disc's heights. A
+measure whose definition differs from Panjabi's is left out as the tables leave it out, so Olsewski
+1990's transverse inclination, Abbas's canal width and Amonoo-Kuofi 1982's pedicle area give no
+contrast. Age, per decade of adult life: Bach 2019's foramen loses 0.19 SD and his disc heights 0.09 to
+0.14 (the middle height gains 0.06), Griffith's body area gains 0.09 and the pedicle 0.05 to 0.07 in Yu
+2015 and Duman. Body size, Yu alone: the pedicle's height gains 0.48 SD and its width 0.34 per 100 mm of
+body height, and 0.16 and 0.23 per 10 kg.
 
-What this note takes from it: from the literature, sex is the covariate that matters, large on the end
-plate and moderate on the disc, age matters little within adults, and body height is the only other
-size the papers carry; held out, the direction of an effect travels between populations and its size
-does not, which is the same lesson as the means' shift above. One measure is the honest unit here: a
-person's measures share their size, and no paper prints the correlation within a person, so the
-evidence of two measures cannot be added. The combination across measures, the effect of sex and age
-on more than one paper per measure, and a held-out test with people rather than papers as the unit
-wait for measured spines with each person's age and sex: the gold tier 3 CTs that bordercall's
-morphometry measures on the grid (SchwingNet docs/memory/morphometry-on-the-grid.md; VerSe's 355
-patients carry age and sex in TUM's demographics table, TotalSegmentator's subjects their age in the
-release's meta.csv), where covariates.py's functions run unchanged on one row a person, any grid job
-on the owner's word and count.
+Shape to sex, held out by paper (each paper's effect taken from the others only, its sexes-pooled mean
+and SD known): over 20 papers' 357 strata the median AUC is 0.63 against the population's own split's
+0.64, the median R^2 0.03 against 0.06, and the log loss 0.680 against 0.654 own and 0.693 for the base
+rate (equal men and women); the sign transfers in 85% of strata. Where the effect is large the transfer
+is good: Tang's end plate 0.82, Twomey 1985's disc height 0.86, Yu's pedicle 0.78; where a paper's own
+contrast is far from the others' it is not (Amonoo-Kuofi 1985 0.43 against its own 0.68). Age held out
+explains 0.00 to 0.01 of the pedicle's width, as in the paper itself.
+
+What this note takes from it: sex is the covariate that matters, about one within-sex SD on the body's
+size and half that on the posterior elements, age matters little within adults, and held out the
+direction of an effect travels between populations while its size travels only partly, the same lesson
+as the means' shift above. One measure is the honest unit here: a person's measures share their size
+and no paper prints the correlation within a person, so the evidence of two measures cannot be added.
+The combination across measures and a held-out test with people as the unit wait for measured spines
+with each person's sex and age: the gold tier 3 CTs that bordercall's morphometry measures on the grid,
+joined with ENHANCE.PET's DICOM headers, VerSe's demographics table and TotalSegmentator's meta.csv by
+SchwingNet's gate word morphometry covariates (SchwingNet pull request 497), one CPU job on the owner's
+count of 2026-10-30 08:55 UTC, aggregates alone leaving the grid.
+
+## Naming told the person's sex
+
+The owner's words of 2026-10-30, 03:45 UTC: "i think its total reasonable to expect to know the sex of
+the patient you are imaging". So sex is an input the rule is given, never a thing it predicts, and the
+question is what it is worth to naming a field of one, two or three bodies at an unknown offset
+(synthval/sex_naming.py, run_sex_naming.py, records/sex_naming). This reading is exploratory: it was
+not pre-registered, and its rules are chosen here, not by the held-out selection that chose the
+temperature. Every rule names the same simulated persons on the same fields, so each difference is
+paired, its SE over persons.
+
+Two readings. Synthetic: the selection's lumbar table split into two sexes by a known shift (d within-sex
+SDs, the same at every cell or following the level profile the papers print), or by the papers' own
+pooled contrasts per measure or per cell; persons half men and half women; rule A reads the sexless
+table and rule B the table of the person's sex, both the generator's exact rule, so B minus A is what
+the information is worth and nothing else. Held out: each paper that prints a stratum's men and women
+apart is held out in turn, persons drawn from its own two tables; rule A is the others' plain table at
+the held-out paper's own temperature, chosen on the others alone as select.py chooses it, and rule B
+that table moved by the others' sex contrast, at the same temperature, so the two differ only in the
+sex. Beside them, as ceilings and never rules: A moved by the paper's own contrast, the paper's own
+sexless table, and its own two sexes' tables. Of the 18 papers scored, Amonoo-Kuofi 1985 and Eisenstein
+1977 print means alone and their persons' spread is the rule's own, so the headline pools the other 16.
+
+| held out, 16 papers, told the sex minus not | 1 body | 2 bodies | 3 bodies |
+| --- | ---: | ---: | ---: |
+| the others' contrast: log score, nats (SE) | 0.001 (0.006) | -0.003 (0.009) | -0.003 (0.008) |
+| the others' contrast: named right, points | 0.1 | 0.2 | 0.1 |
+| ceiling, the paper's own contrast: nats | 0.007 | 0.009 | 0.011 |
+| ceiling, its own tables by sex over its own sexless: points | 1.0 | 1.6 | 1.7 |
+| for scale, its own sexless table over the others': points | 5.9 | 8.4 | 8.1 |
+
+Held out, the sex buys nothing the papers can show: the others' contrast moves each paper's table by
+an amount its own sexes do not quite share, and what is gained where they agree (Yu 2015, Bach 2019,
+Shin 2024, 0.01 to 0.03 nats) is lost where they do not (Yadav 2020, whose printed SDs are twice the
+others', loses 0.08 to 0.13). Even the paper's own two tables, which no rule meets, gain under two
+points, while its own sexless table gains six to eight: the population a person comes from carries far
+more than the sex. On synthetic populations split by the papers' own contrasts per cell the gain is
+0.034 nats and 1.9 points at one body, 0.025 and 1.1 at two and 0.007 and 0.1 at three; a shift of 1.5
+SDs at every cell, about the largest contrast the papers print (the body's 1.3, Tang's end plates up to
+1.6) put on every measure at once, gives 0.053 nats and 1.9 points at one body. Sex is worth carrying in a rule as a given input, at little cost and no harm in
+expectation where the contrast is the population's own; it does not close the gap to the population's
+own table, which only target-population data or the population register's strata can.
+
+## Bounds for a generator
+
+The owner's words of 2026-10-30, 03:38 UTC: "could these at least serve as bounds for gnerateive models
+making synthetic spines from idea spines?" They can, on what the papers print, and the card is
+synthval/bounds.py, run by run_bounds.py into records/bounds (bounds.json, bounds.csv one row a cell or
+step, gradients.csv, calibration.csv). Per measure, level and kind of population (living, dry bone,
+cadaver, mixed, and every paper together) it gives the interval for a new population's mean, pooled
+plus or minus 1.96 sqrt(SE^2 + tau^2), the interval for its SD, the sex contrast and age slope that
+covariates.py reads, and the step from each level to the next read inside each paper first, so a
+paper's own shift falls out of it. Naming lives on the steps, so the steps decide: check() scores a
+generated cohort cell by cell and passes it only where its step pass rate reaches the bar and no other
+test with a bar falls short of its own; the rate over every test decides nothing.
+
+The bar is real populations held out: each of 33 papers left out in turn and scored on the card of the
+rest as a cohort is scored, the bar the 10th percentile of their own pass rates over the papers with
+20 rows or more of a test (mean 0.58 over 12 papers, SD 0.53 over 10, steps 0.89 over 7). Those papers
+measured about 40 people each (median 44), and a cohort of thousands judged at its own size would meet
+intervals they never met, so every cell is scored as if the cohort had REFERENCE_N = 40 people, its own
+sampling error replaced by theirs, and a cell with fewer than 40 is not scored and is counted
+(short_cells). The price is power: a flattened gradient fails fewer steps at 40 people than at its own
+thousand (tests/test_bounds.py states both).
+
+| cohort, scored at 40 people | means | SDs | steps | verdict |
+| --- | ---: | ---: | ---: | --- |
+| the card's centre, the ideal spine, 1,000 people | 1.00 | 1.00 | 0.99 | passes |
+| 200 populations of the card's own model, 300 people each | 0.95 | 0.96 | 0.91 | 175 pass |
+| the centre, its lumbar gradient flattened | 0.99 | 1.00 | 0.87 | fails on the steps |
+| the centre, its lumbar levels reversed | 0.95 | 0.97 | 0.79 | fails on the steps |
+| schwingcheck's generator on Panjabi's table, 2,000 people | 0.70 | 0.57 | 0.86 | fails on the steps |
+| the point nearest the papers, 2,000 people | 0.70 | 0.84 | 0.80 | fails on the steps |
+
+The 25 of the card's own populations that fail do so on steps no population can honour: at 188 of the
+635 steps the two levels' intervals differ in spread by more than the step's interval allows, and those
+steps pass 0.80 against 0.96 for the rest (bounds.json's checks.drawn). A flattened lumbar gradient
+keeps an overall rate of 0.95, which is why the steps and not the overall rate decide. A generator can
+use the card three ways: as the acceptance test above, as a loss term (the mean square of the cells'
+z-scores, about 1 for a cohort the card's model draws and 3.4 for schwingcheck's generator), and with
+each person's sex given, as a check that men and women differ in the papers' direction where the
+interval for a new population's contrast clears zero. What it cannot bound, and says so: one person's
+correlation across measures or levels (no paper prints it), the anomalies (an L6 or a T13 goes
+unscored, and a lumbar rib's L1 is held to the ordinary L1), and a population no paper sampled.
 
 ## Figures and renders
 
@@ -1827,6 +1976,12 @@ mnemonics.py starts it at the canal's posterior wall.
 - fig17_covariates: covariates both ways from what the papers print apart: the sex, age and body-size
   effects pooled within papers first, how well one measure tells men from women, and how much of a
   measure sex or age explains, in the population and held out (figures_all.py, from records/covariates).
+- fig18_sex_naming: naming a short field told the person's sex, on synthetic populations whose sexes
+  differ by a known shift and held out by paper on the papers' own men and women (figures_all.py, from
+  records/sex_naming).
+- fig19_bounds: the bounds card, one measure's interval for a new population's mean down the column with
+  a flattened and a reversed lumbar gradient, and each cohort's pass rate by test beside the step bar
+  (figures_all.py, from records/bounds).
 - render1_axial, render2_column, render3_solid: L3 from above, the lumbar column from in front, and the
   column as solids, Panjabi's means beside synthetic people.
 
@@ -1841,6 +1996,8 @@ python3 -I run_strata.py --out records/strata      # every paper its own populat
 python3 -I run_select.py --out records/select      # choosing the rule by held-out prediction, about ten minutes; --quick too
 python3 -I figures.py --records records --out figures
 python3 -I run_covariates.py --out records/covariates   # covariates both ways, seconds
+python3 -I run_bounds.py --out records/bounds           # the bounds card, about four minutes
+python3 -I run_sex_naming.py --out records/sex_naming   # naming told the sex, about half an hour; --quick too
 python3 -I tan_strata.py --out records/tan-strata --quick       # Tan's population apart, the record in place; --tables 8 is the full run, about 25 minutes
 python3 -I subgroups_run.py --out records/subgroups              # the populations apart, a few seconds
 python3 -I tables.py --records records --write README.md --write MEASURES.md
@@ -1865,7 +2022,8 @@ sends the final rerun to the grid, which rewrites both records.
 ## Files
 
 - run.py writes records/, run_all.py records/all/, run_strata.py records/strata/, run_select.py
-  records/select/, run_covariates.py records/covariates/; tan_strata.py writes records/tan-strata/ (Tan's
+  records/select/, run_covariates.py records/covariates/, run_bounds.py records/bounds/, run_sex_naming.py
+  records/sex_naming/; tan_strata.py writes records/tan-strata/ (Tan's
   population apart); subgroups_run.py writes records/subgroups/ (the populations apart); figures.py,
   figures_all.py and render.py draw figures/; tables.py writes the tables above and MEASURES.md;
   snapshot.py cuts and checks data/.
@@ -1876,18 +2034,28 @@ sends the final rerun to the grid, which rewrites both records.
   papers_table.py (the vocabulary, the variants, the three tables), relations.py and all_measures.py;
   strata.py, every paper its own population and the rule predicted for one more; select.py, the rule
   chosen by held-out prediction, a paper's exclusion among its candidates; covariates.py, sex, age and
-  body size read both ways from what the papers print apart.
+  body size read both ways from what the papers print apart; bounds.py, the card a generator's cohort is
+  scored on; sex_naming.py, naming told the person's sex.
 - data/: the snapshot of the reread's series and SOURCE.json; populations.csv, the register of the
   cohorts; series_all.csv, vocabulary.csv and SOURCE_ALL.json, the whole reread for the second part.
 - MEASURES.md: every key of the vocabulary with what became of it, written from records/all.
 - tests/test_synthval.py: the code against what its docstrings say; tests/test_subgroups.py: the register
   and the subgroups; tests/test_all_measures.py: the second part's; tests/test_strata.py: the strata's;
-  tests/test_select.py: the selection's; tests/test_covariates.py: the covariates'.
+  tests/test_select.py: the selection's; tests/test_covariates.py: the covariates'; tests/test_bounds.py:
+  the card's; tests/test_sex_naming.py: naming told the sex.
 - report/: build.py writes the stats page and build_ml.py the page for a machine-learning reader, each
   from its notes file (notes.json, ml_notes.json), both ignored outputs rebuilt by one command.
 
 ## What this note does not do
 
+- The sex-naming reading is exploratory and not pre-registered: its comparisons were set here, after the
+  covariates were read, and its synthetic split is a model of the papers' contrasts, not people. The held
+  out reading draws persons from each paper's printed tables, so it tests what the papers print, not
+  their people; the gold tier 3 join (SchwingNet's job 40878978) is the first data with each person's
+  sex beside their measures.
+- The bounds card bounds what papers of about 40 people can show: a cohort is scored as if it had 40,
+  so a break smaller than such a paper's sampling error passes, and the card cannot bound one person's
+  correlation across levels, the anomalies or a population no paper sampled.
 - It does not change the generator. The nearest point is the nearest of a grid, not a fitted model; it
   sits on two of the grid's edges, and it is held to the correlations of Griffith's two sexes by a
   population with no sex. A change to schwingcheck's defaults is the owner's to choose, and would move

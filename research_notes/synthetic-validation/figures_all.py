@@ -19,6 +19,7 @@ the first part's eight.
 """
 from __future__ import annotations
 
+import json
 import math
 import os
 from typing import Dict, List, Sequence
@@ -681,7 +682,8 @@ def fig_covariates(records: str, out: str) -> List[str]:
     a = axes[0, 0]
     a.set_label("A")
     forest(a, [r for r in effects if r["variable"] == "sex"],
-           lambda r: "%s (%s)" % (r["measure"], r["papers_named"].replace(";", ", ")), lambda r: dict(H.SERIES_STYLE[0]))
+           lambda r: "%s (%s)" % (r["measure"], r["papers_named"] if int(_num(r["papers"])) == 1 else "%d papers" % int(_num(r["papers"]))),
+           lambda r: dict(H.SERIES_STYLE[0]))
     a.set_xlabel("men minus women, in within-sex SDs (Hedges' g), 95% interval")
     H.letter(a, "A", "sex, each paper's own men against its own women, papers pooled")
 
@@ -739,6 +741,189 @@ def fig_covariates(records: str, out: str) -> List[str]:
         "the population and held out by paper."))
 
 
+LUMBAR = ("L1", "L2", "L3", "L4", "L5")
+BOUNDS_MEASURE = "h_ant"
+COHORTS = (("the papers' ideal spine", "centre"), ("SchwingCheck's generator, true", "generator, true"),
+           ("SchwingCheck's generator, measured", "generator, measured"), ("nearest the papers, true", "nearest the papers, true"),
+           ("lumbar gradient flattened", "flattened lumbar"), ("lumbar gradient reversed", "reversed lumbar"))
+
+
+def fig_bounds(records: str, out: str) -> List[str]:
+    """The bounds card (records/bounds): one measure's interval for a new population's mean along the
+    column, with the ideal spine's lumbar gradient flattened and reversed beside it; and each test's
+    pass rate for real papers held out, populations the card draws and the generators, against the
+    bar the held-out papers set."""
+    folder = os.path.join(records, "bounds")
+    if not os.path.exists(os.path.join(folder, "bounds.json")):
+        return []
+    plt = H.style()
+    j = _read_json(os.path.join(folder, "bounds.json"))
+    cells = {r["level"]: r for r in _read_csv(os.path.join(folder, "bounds.csv"))
+             if r["kind"] == "all" and r["measure"] == BOUNDS_MEASURE}
+    cal = [r for r in _read_csv(os.path.join(folder, "calibration.csv")) if (r.get("kind") or "all") == "all"]
+    bar = j["calibration"]["bar"]
+    fig, axes = plt.subplots(1, 2, figsize=(11.0, 4.6))
+    drawn = []
+
+    a = axes[0]
+    levels = [lv for lv in LEVELS if lv in cells]
+    x = np.arange(len(levels))
+    mean = np.array([_num(cells[lv]["mean"]) for lv in levels])
+    low = np.array([_num(cells[lv]["mean_low"]) for lv in levels])
+    high = np.array([_num(cells[lv]["mean_high"]) for lv in levels])
+    a.fill_between(x, low, high, color=H.INK, alpha=0.12, linewidth=0, label="95% interval for a new population's mean")
+    a.plot(x, mean, color=H.INK, linewidth=1.2, label="pooled mean")
+    lumbar = [i for i, lv in enumerate(levels) if lv in LUMBAR]
+    flat = float(np.mean(mean[lumbar]))
+    a.plot(lumbar, [flat] * len(lumbar), color=H.INK, marker="s", markerfacecolor="white", markersize=4, linestyle="--",
+           linewidth=0.8, label="lumbar gradient flattened")
+    a.plot(lumbar, mean[lumbar][::-1], color=H.INK, marker="^", markersize=4, linestyle=":", linewidth=0.8,
+           label="lumbar gradient reversed")
+    a.set_xticks(x)
+    a.set_xticklabels(levels, fontsize=6.5, rotation=90)
+    a.set_ylabel("%s, mm" % BOUNDS_MEASURE)
+    a.legend(loc="upper left", fontsize=6.5)
+    H.letter(a, "A", "one measure along the column: wide on means, so a broken gradient stays inside")
+    drawn += [{"panel": "A", "level": lv, "mean": m, "mean_low": lo, "mean_high": hi} for lv, m, lo, hi in zip(levels, mean, low, high)]
+
+    b = axes[1]
+    tests = ("mean", "sd", "step")
+    rows = []
+    for test in tests:
+        papers = [r for r in cal if r["test"] == test and int(_num(r["made"])) >= 20]
+        rows.append(("real papers held out", test, [_num(r["rate"]) for r in papers]))
+        for label, key in COHORTS:
+            got = j["checks"][key]["summary"]["tests"].get(test)
+            if got:
+                rows.append((label, test, [_num(got["rate"])]))
+    labels = ["real papers held out", "populations the card draws"] + [label for label, _ in COHORTS]
+    quartiles = [_num(v) for v in j["checks"]["drawn"]["population_rate_quartiles"]]
+    b.plot(quartiles, [1] * len(quartiles), marker="x", markersize=4, linestyle="-", linewidth=0.6, color=H.INK,
+           label="every test together (quartiles)")
+    drawn += [{"panel": "B", "cohort": "populations the card draws", "test": "every test, quartile", "rate": v} for v in quartiles]
+    for k, test in enumerate(tests):
+        for i, label in enumerate(labels):
+            got = [v for (lb, t, v) in rows if lb == label and t == test]
+            if not got:
+                continue
+            y = i + (k - 1) * 0.25
+            b.plot(got[0], [y] * len(got[0]), marker=("o", "s", "^")[k], markersize=3.5, linestyle="none", color=H.INK,
+                   markerfacecolor=("white", H.INK, "white")[k], alpha=0.8, label=test if i == 0 else None)
+            drawn += [{"panel": "B", "cohort": label, "test": test, "rate": v} for v in got[0]]
+    step_bar = bar.get("step", {})
+    if "low" in step_bar:
+        b.axvline(step_bar["low"], color=H.INK, linewidth=0.8, linestyle="--")
+        b.text(step_bar["low"], len(labels) - 0.4, " step bar %.2f" % step_bar["low"], fontsize=6.5, va="bottom")
+    b.set_yticks(range(len(labels)))
+    b.set_yticklabels(labels, fontsize=6.5)
+    b.invert_yaxis()
+    b.set_xlim(0.0, 1.02)
+    b.set_xlabel("share of a cohort's cells or steps inside the card's interval (scored at %d people a cell)"
+                 % int(j["reference_n_measured"]["reference_n"]))
+    b.legend(loc="lower left", fontsize=6.5, title="test", title_fontsize=6.5)
+    H.letter(b, "B", "pass rates against the bar real papers set; naming lives on the steps")
+    fig.tight_layout()
+    H.write_csv(out, "fig19_bounds", drawn)
+    return H.save(fig, out, "fig19_bounds", (
+        "The bounds card. A, one measure's interval for a new population's mean; a flattened or reversed lumbar "
+        "gradient stays inside it. B, pass rates by test; the step test separates the broken gradients from real "
+        "populations."))
+
+
+SEX_RULES = (("B: the person's sex's table", "A: the sexless table"),)
+
+
+SEX_HELD_B = "B: A moved by the others' g, P's inner T"
+SEX_HELD_A = "A: the others' plain table, P's inner T"
+SEX_SYNTHETIC = "synthetic, every measure the selection uses"
+SEX_HEADLINE = "the headline"
+
+
+def _gain_reads(rows: List[dict]) -> str:
+    """What the headline's 95% intervals say across the field widths, in words for a panel title."""
+    lows = [_num(r["d_log_score"]) - 1.96 * _num(r["d_log_score_se"]) for r in rows]
+    highs = [_num(r["d_log_score"]) + 1.96 * _num(r["d_log_score_se"]) for r in rows]
+    if rows and all(lo > 0 for lo in lows):
+        return "told the sex names better at every width"
+    if rows and all(hi < 0 for hi in highs):
+        return "told the sex names worse at every width"
+    return "no width's gain is clear of zero" if all(lo <= 0 <= hi for lo, hi in zip(lows, highs)) else "the gain is clear at some widths only"
+
+
+def fig_sex_naming(records: str, out: str) -> List[str]:
+    """Naming told the person's sex (records/sex_naming): the gain over the sexless table on synthetic
+    populations whose sexes differ by a known shift, and held out by paper on the papers' own men and
+    women, at one to three bodies in the field. Held out, the rule told the sex is the others' table
+    moved by the others' pooled g and the rule not told is the others' plain table, both at the held-out
+    paper's own inner temperature, so the two differ only in the sex."""
+    folder = os.path.join(records, "sex_naming")
+    if not os.path.exists(os.path.join(folder, "summary.csv")):
+        return []
+    plt = H.style()
+    summary = _read_csv(os.path.join(folder, "summary.csv"))
+    with open(os.path.join(folder, "sex_naming.json"), encoding="ascii") as fh:
+        borrowed = set(json.load(fh)["headline"]["papers_with_borrowed_sd"])
+    fig, axes = plt.subplots(1, 2, figsize=(11.0, 4.6))
+    drawn = []
+    widths = ("1", "2", "3")
+    marks = ("o", "s", "^")
+    fills = ("white", H.INK, "white")
+
+    def bodies(width: str) -> str:
+        return "%s bod%s" % (width, "y" if width == "1" else "ies")
+
+    a = axes[0]
+    syn = [r for r in summary if r["reading"] == SEX_SYNTHETIC and r["rule"].startswith("B:")
+           and r["against"] == "A: the sexless table" and r["arm"] == "the same shift at every cell"]
+    for k, width in enumerate(widths):
+        rs = sorted((r for r in syn if r["width"] == width), key=lambda r: _num(r["d"]))
+        d = [_num(r["d"]) for r in rs]
+        gain = [_num(r["d_log_score"]) for r in rs]
+        se = [_num(r["d_log_score_se"]) for r in rs]
+        a.errorbar(d, gain, yerr=[1.96 * v for v in se], marker=marks[k], markersize=3.5, linewidth=0.8,
+                   color=H.INK, markerfacecolor=fills[k], label=bodies(width))
+        drawn += [{"panel": "A", "width": int(width), "d": x, "d_log_score": g, "se": e} for x, g, e in zip(d, gain, se)]
+    a.axhline(0, color=H.INK, linewidth=0.6, linestyle=":")
+    a.set_xlabel("men minus women in the synthetic populations, within-sex SDs at every cell")
+    a.set_ylabel("log score per field, told the sex minus not told (nats)")
+    a.legend(loc="upper left", fontsize=6.5)
+    H.letter(a, "A", "synthetic: the gain grows with the sexes' difference")
+
+    b = axes[1]
+    held = [r for r in summary if r["reading"] == "held out" and r["rule"] == SEX_HELD_B and r["against"] == SEX_HELD_A]
+    headline = [r for r in held if r["paper"].startswith(SEX_HEADLINE)]
+    papers = sorted({r["paper"] for r in held if not r["paper"].startswith(("pooled", SEX_HEADLINE))})
+    rows = papers + [SEX_HEADLINE]
+    for k, width in enumerate(widths):
+        for i, paper in enumerate(rows):
+            got = [r for r in (headline if paper == SEX_HEADLINE else held) if r["width"] == width
+                   and (paper == SEX_HEADLINE or r["paper"] == paper)]
+            if not got:
+                continue
+            g, e = _num(got[0]["d_log_score"]), _num(got[0]["d_log_score_se"])
+            y = i + (0.5 if paper == SEX_HEADLINE else 0) + (k - 1) * 0.25
+            b.errorbar([g], [y], xerr=[[1.96 * e], [1.96 * e]], marker="D" if paper == SEX_HEADLINE else marks[k],
+                       markersize=4 if paper == SEX_HEADLINE else 3, linewidth=1.0 if paper == SEX_HEADLINE else 0.6,
+                       color=H.INK if paper not in borrowed else H.GREY, markerfacecolor=fills[k],
+                       label=bodies(width) if i == 0 else None)
+            drawn.append({"panel": "B", "paper": got[0]["paper"], "width": int(width), "d_log_score": g, "se": e,
+                          "persons_sd_borrowed": paper in borrowed})
+    b.axvline(0, color=H.INK, linewidth=0.6, linestyle=":")
+    b.set_yticks([i + (0.5 if p == SEX_HEADLINE else 0) for i, p in enumerate(rows)])
+    b.set_yticklabels([("%s (SD borrowed)" % p) if p in borrowed else p for p in papers]
+                      + ["pooled, papers with printed SDs"], fontsize=6.5)
+    b.invert_yaxis()
+    b.set_xlabel("log score per field, told the sex minus not told (nats), 95% interval")
+    b.legend(loc="upper left", fontsize=6.5)
+    reads = _gain_reads(headline)
+    H.letter(b, "B", "held out by paper: " + reads)
+    fig.tight_layout()
+    H.write_csv(out, "fig18_sex_naming", drawn)
+    return H.save(fig, out, "fig18_sex_naming", (
+        "Naming a short field told the person's sex. A, synthetic populations: the gain in log score grows with the "
+        "sexes' difference. B, each paper held out on its own men and women, scored at its own temperature: %s." % reads))
+
+
 def _auc(mu_a: float, sd_a: float, mu_b: float, sd_b: float) -> float:
     from scipy import stats
     z = stats.norm.cdf((mu_a - mu_b) / math.sqrt(sd_a ** 2 + sd_b ** 2))
@@ -746,4 +931,4 @@ def _auc(mu_a: float, sd_a: float, mu_b: float, sd_b: float) -> float:
 
 
 FIGURES_ALL = (fig_tables, fig_relations, fig_state_space_all, fig_naming_measures, fig_spread_all, fig_strata, fig_select,
-               fig_exclusion, fig_covariates)
+               fig_exclusion, fig_covariates, fig_sex_naming, fig_bounds)

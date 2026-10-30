@@ -1,0 +1,73 @@
+panel,level,mean,mean_low,mean_high,cohort,test,rate
+A,C3,12.095,9.37562,14.8145,,,
+A,C4,12.1792,7.13354,17.2248,,,
+A,C5,11.4787,7.21223,15.7452,,,
+A,C6,12.2067,10.2475,14.166,,,
+A,C7,13.4498,11.5025,15.3972,,,
+A,T1,15.0393,11.9382,18.1403,,,
+A,T2,16.0113,10.5835,21.439,,,
+A,T3,16.8983,13.7844,20.0121,,,
+A,T4,17.2907,14.1896,20.3918,,,
+A,T5,16.9363,4.53691,29.3357,,,
+A,T6,17.0972,5.47255,28.7219,,,
+A,T7,17.4328,13.1663,21.6993,,,
+A,T8,17.9479,7.09564,28.8002,,,
+A,T9,18.9105,12.7084,25.1127,,,
+A,T10,20.371,14.1647,26.5772,,,
+A,T11,20.6428,13.1811,28.1046,,,
+A,T12,22.2226,14.5118,29.9335,,,
+A,L1,23.7696,19.5926,27.9467,,,
+A,L2,24.9267,19.7349,30.1184,,,
+A,L3,25.6889,18.9581,32.4197,,,
+A,L4,25.5772,19.4165,31.7379,,,
+A,L5,26.3586,19.4819,33.2352,,,
+B,,,,,populations the card draws,"every test, quartile",0.932409
+B,,,,,populations the card draws,"every test, quartile",0.943385
+B,,,,,populations the card draws,"every test, quartile",0.950895
+B,,,,,real papers held out,mean,0.75
+B,,,,,real papers held out,mean,1
+B,,,,,real papers held out,mean,0.470588
+B,,,,,real papers held out,mean,0.72
+B,,,,,real papers held out,mean,1
+B,,,,,real papers held out,mean,0.75
+B,,,,,real papers held out,mean,1
+B,,,,,real papers held out,mean,1
+B,,,,,real papers held out,mean,0.85
+B,,,,,real papers held out,mean,1
+B,,,,,real papers held out,mean,0.569149
+B,,,,,real papers held out,mean,0.933333
+B,,,,,the papers' ideal spine,mean,1
+B,,,,,"SchwingCheck's generator, true",mean,0.699052
+B,,,,,"SchwingCheck's generator, measured",mean,0.701422
+B,,,,,"nearest the papers, true",mean,0.694313
+B,,,,,lumbar gradient flattened,mean,0.989914
+B,,,,,lumbar gradient reversed,mean,0.953488
+B,,,,,real papers held out,sd,0.55
+B,,,,,real papers held out,sd,1
+B,,,,,real papers held out,sd,0.761905
+B,,,,,real papers held out,sd,0.875
+B,,,,,real papers held out,sd,0.36
+B,,,,,real papers held out,sd,1
+B,,,,,real papers held out,sd,0.88
+B,,,,,real papers held out,sd,0.933333
+B,,,,,real papers held out,sd,0.95
+B,,,,,real papers held out,sd,1
+B,,,,,the papers' ideal spine,sd,1
+B,,,,,"SchwingCheck's generator, true",sd,0.680851
+B,,,,,"SchwingCheck's generator, measured",sd,0.574468
+B,,,,,"nearest the papers, true",sd,0.865248
+B,,,,,lumbar gradient flattened,sd,1
+B,,,,,lumbar gradient reversed,sd,0.969697
+B,,,,,real papers held out,step,0.979167
+B,,,,,real papers held out,step,1
+B,,,,,real papers held out,step,0.96875
+B,,,,,real papers held out,step,0.9
+B,,,,,real papers held out,step,0.875
+B,,,,,real papers held out,step,0.927711
+B,,,,,real papers held out,step,0.92
+B,,,,,the papers' ideal spine,step,0.985827
+B,,,,,"SchwingCheck's generator, true",step,0.834586
+B,,,,,"SchwingCheck's generator, measured",step,0.862155
+B,,,,,"nearest the papers, true",step,0.754386
+B,,,,,lumbar gradient flattened,step,0.869291
+B,,,,,lumbar gradient reversed,step,0.794586

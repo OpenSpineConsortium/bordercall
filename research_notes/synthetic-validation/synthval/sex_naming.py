@@ -41,8 +41,9 @@ each paired, the same simulated persons named by every rule on the same fields:
     level that the selection's cells hold and the other papers pool at every level: where P is a
     population of the selection, the measures it names P's population with (strata.paper_measures),
     on the technique P's stratum reads; where P prints the measure only apart (Eisenstein 1977,
-    Ahmed 2019's and the Campobasso MRIs' canals, Amonoo-Kuofi 1985's mid-body depth), the cells'
-    measure itself, and where some of each (Abbas 2021), both, labelled so (population_of). Half
+    Ahmed 2019's and the Campobasso MRIs' canals), the cells' measure itself, and where some of each
+    (Amonoo-Kuofi 1985, its mid-body depth beside a measure of the selection), both, labelled so
+    (population_of). Half
     and half so that every population weighs the sexes alike, as reading (a)'s split does (a table
     split by sex keeps its mean and SD only for half men and half women); P's own counts by sex
     weigh its strata within a sex where they are joined, and are recorded. Rule A is the selected
@@ -538,7 +539,7 @@ def persons_sd(scored: Sequence[CV.Contrast]) -> Tuple[str, bool]:
 def population_of(cells: Sequence[ST.Cell], paper: str, keys: Sequence[str], vocabulary: Dict[str, dict],
                   levels: Sequence[str] = LUMBAR) -> str:
     """Whether P's scored measures are those the selection names its population with, measures P
-    prints only apart, or some of each (Abbas 2021's canal depth and area beside its canal width)."""
+    prints only apart, or some of each (on the snapshot Amonoo-Kuofi 1985 alone)."""
     selection = set(ST.paper_measures(cells, paper, vocabulary, levels))
     if keys and set(keys) <= selection:
         return SELECTION_POPULATION

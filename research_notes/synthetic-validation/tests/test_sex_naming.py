@@ -364,7 +364,10 @@ class OnTheSnapshot(unittest.TestCase):
         self.assertEqual(population["chaudhary2015"], SN.SELECTION_POPULATION)
         self.assertEqual(population["masharawi2021"], SN.SELECTION_POPULATION)
         self.assertEqual(population["eisenstein1977"], SN.APART_ONLY)
-        self.assertEqual(population["abbas2021"], SN.PARTLY)
+        # Abbas 2021's canal width is measured unlike Panjabi's and gives no contrast, so its scored
+        # measures are the selection's alone; Amonoo-Kuofi 1985 prints one of its two only apart
+        self.assertEqual(population["abbas2021"], SN.SELECTION_POPULATION)
+        self.assertEqual(population["amonookuofi1985"], SN.PARTLY)
 
 
 class Pooled(unittest.TestCase):

@@ -40,10 +40,11 @@ from synthval import papers_table as PT  # noqa: E402
 VOC = {"disc": {"kind": "length"}, "ratio": {"kind": "ratio"}}
 
 
-def row(paper, sex, mean, sd=2.0, n=50.0, key="disc", level="L4", group="", source="this paper", species=""):
+def row(paper, sex, mean, sd=2.0, n=50.0, key="disc", level="L4", group="", source="this paper", species="",
+        vs_panjabi="same"):
     return {"paper": paper, "cohort": "c", "technique": "ct", "key": key, "base_key": key, "level": level, "sex": sex,
             "group": group, "side": "", "definition": "d", "modality": "ct", "mean": float(mean), "sd": float(sd), "n": float(n),
-            "source_of_values": source, "species": species}
+            "source_of_values": source, "species": species, "vs_panjabi": vs_panjabi}
 
 
 class Covariates(unittest.TestCase):
@@ -189,6 +190,19 @@ class OnTheSnapshot(unittest.TestCase):
         self.assertEqual(sorted(r["level"] for r in held if r["paper"] == "chaudhary2015"), ["L1", "L2", "L3", "L4", "L5"])
         # its Table II, the same means without SDs under the district's name, is its whole's again
         self.assertEqual({d["why"] for d in self.dropped if d["paper"] == "chaudhary2015"}, {CV.STRATUM_OF_WHOLE})
+
+    def test_a_measure_that_differs_from_panjabis_gives_no_contrast(self):
+        self.assertEqual(CV.DEFINITIONS, PT.DEFINITIONS_ALL)
+        rows = [row("a", "male", 30, vs_panjabi="differs"), row("a", "female", 28, vs_panjabi="differs")]
+        self.assertEqual(CV.sex_strata(rows, VOC)[0], [])
+        got, _ = CV.sex_strata([dict(r, vs_panjabi="close") for r in rows], VOC)
+        self.assertEqual([c.paper for c in got], ["a"])
+        self.assertFalse([c for c in self.contrasts if c.paper == "olsewski1990" and c.key.startswith("pedicle_incl_trans")])
+
+    def test_chen_2011s_end_plates_count_as_its_people(self):
+        mine = [c for c in self.contrasts if c.paper == "chen2011" and c.key.startswith("body_d")]
+        self.assertTrue(mine)
+        self.assertEqual({(c.n_m, c.n_f) for c in mine}, {(43.0, 40.0)})
 
     def test_mitra_2002s_two_women_are_dropped_by_the_count_rule(self):
         self.assertFalse([c for c in self.contrasts if c.paper == "mitra2002"])

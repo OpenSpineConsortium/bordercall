@@ -732,11 +732,16 @@ def main(argv=None) -> int:
     commit = subprocess.run(["git", "-C", REPO, "rev-parse", "HEAD"], capture_output=True, text=True).stdout.strip()
     with open(PT.SOURCE_ALL, encoding="utf-8") as fh:
         source = json.load(fh)
+    with open(PT.SOURCE_SEXES, encoding="utf-8") as fh:
+        sexes_source = json.load(fh)
     every_count = {k: counts(card, k) for k in kinds}
     write_json(out, "bounds.json", {
         "command": "python3 -I run_bounds.py --out %s%s" % (os.path.relpath(out, HERE), " --quick" if args.quick else ""),
         "bordercall_commit": commit,
         "snapshot": {"commit": source["commit"], "branch": source["branch"], "sha256": source["snapshot_sha256"]},
+        "snapshot_sexes": {"commit": sexes_source["commit"], "sha256": sexes_source["snapshot_sha256"],
+                           "rows": sexes_source["rows"]},
+        "reference_n_measured": B.reference_n_measured(series, register, cal_rows),
         "kinds": kinds, "kind_variable": "the register's specimen (data/populations.csv); every paper together is 'all'",
         "kinds_with_no_sex_or_age_cell": [k for k in kinds if not every_count[k]["cells_with_sex_contrast"]
                                           and not every_count[k]["cells_with_age_slope"]],

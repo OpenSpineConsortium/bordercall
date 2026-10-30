@@ -61,11 +61,6 @@ mitra2002,nagpur_cadavers20,pedicle_h,pedicle_h,L2,Roentgenogram,specimen_roentg
 mitra2002,nagpur_cadavers20,pedicle_h,pedicle_h,L3,Roentgenogram,specimen_roentgenogram,15.1,,18.0,16.5,,2.0,,another technique on the same people (rule 4)
 mitra2002,nagpur_cadavers20,pedicle_h,pedicle_h,L4,Roentgenogram,specimen_roentgenogram,15.1,,18.0,17.0,,2.0,,another technique on the same people (rule 4)
 mitra2002,nagpur_cadavers20,pedicle_h,pedicle_h,L5,Roentgenogram,specimen_roentgenogram,14.8,,18.0,18.5,,2.0,,another technique on the same people (rule 4)
-mitra2002,nagpur_cadavers20,pedicle_incl_trans,pedicle_incl_trans,L1,Roentgenogram,specimen_roentgenogram,5.0,,18.0,1.5,,2.0,,another technique on the same people (rule 4)
-mitra2002,nagpur_cadavers20,pedicle_incl_trans,pedicle_incl_trans,L2,Roentgenogram,specimen_roentgenogram,5.8,,18.0,0.0,,2.0,,another technique on the same people (rule 4)
-mitra2002,nagpur_cadavers20,pedicle_incl_trans,pedicle_incl_trans,L3,Roentgenogram,specimen_roentgenogram,5.9,,18.0,4.0,,2.0,,another technique on the same people (rule 4)
-mitra2002,nagpur_cadavers20,pedicle_incl_trans,pedicle_incl_trans,L4,Roentgenogram,specimen_roentgenogram,5.2,,18.0,5.5,,2.0,,another technique on the same people (rule 4)
-mitra2002,nagpur_cadavers20,pedicle_incl_trans,pedicle_incl_trans,L5,Roentgenogram,specimen_roentgenogram,0.6,,18.0,-4.5,,2.0,,another technique on the same people (rule 4)
 bach2019,usf_ct240,foramen_h,foramen_h,L1-L2,Fifth Decade,ct3d_foraminal_height,18.03,1.5,23.0,17.43,1.6,25.0,"Bach 2019 Table 1 (p. e108): people per decade and sex, as the reread reads it",a stratum of a cohort whose whole the paper prints by sex at the cell (rule 5)
 bach2019,usf_ct240,foramen_h,foramen_h,L1-L2,Second Decade,ct3d_foraminal_height,18.69,1.4,19.0,17.78,1.7,25.0,"Bach 2019 Table 1 (p. e108): people per decade and sex, as the reread reads it",a stratum of a cohort whose whole the paper prints by sex at the cell (rule 5)
 bach2019,usf_ct240,foramen_h,foramen_h,L1-L2,Sixth Decade,ct3d_foraminal_height,18.08,1.6,22.0,16.6,1.8,17.0,"Bach 2019 Table 1 (p. e108): people per decade and sex, as the reread reads it",a stratum of a cohort whose whole the paper prints by sex at the cell (rule 5)
@@ -366,11 +361,6 @@ mitra2002,nagpur_cadavers20,pedicle_h,pedicle_h,L2,Direct,direct_intact_column,1
 mitra2002,nagpur_cadavers20,pedicle_h,pedicle_h,L3,Direct,direct_intact_column,15.03,,18.0,15.4,,2.0,,fewer than MIN_PER_SEX people of a sex
 mitra2002,nagpur_cadavers20,pedicle_h,pedicle_h,L4,Direct,direct_intact_column,14.79,,18.0,14.7,,2.0,,fewer than MIN_PER_SEX people of a sex
 mitra2002,nagpur_cadavers20,pedicle_h,pedicle_h,L5,Direct,direct_intact_column,15.67,,18.0,17.0,,2.0,,fewer than MIN_PER_SEX people of a sex
-mitra2002,nagpur_cadavers20,pedicle_incl_trans,pedicle_incl_trans,L1,Direct,direct_intact_column,8.4,,18.0,4.0,,2.0,,fewer than MIN_PER_SEX people of a sex
-mitra2002,nagpur_cadavers20,pedicle_incl_trans,pedicle_incl_trans,L2,Direct,direct_intact_column,9.3,,18.0,6.0,,2.0,,fewer than MIN_PER_SEX people of a sex
-mitra2002,nagpur_cadavers20,pedicle_incl_trans,pedicle_incl_trans,L3,Direct,direct_intact_column,9.4,,18.0,8.0,,2.0,,fewer than MIN_PER_SEX people of a sex
-mitra2002,nagpur_cadavers20,pedicle_incl_trans,pedicle_incl_trans,L4,Direct,direct_intact_column,10.4,,18.0,11.0,,2.0,,fewer than MIN_PER_SEX people of a sex
-mitra2002,nagpur_cadavers20,pedicle_incl_trans,pedicle_incl_trans,L5,Direct,direct_intact_column,6.7,,18.0,7.0,,2.0,,fewer than MIN_PER_SEX people of a sex
 mitra2002,nagpur_cadavers20,pedicle_chord,pedicle_chord [along the axis],L1,Direct,direct_sectioned,46.01,,18.0,41.2,,2.0,,fewer than MIN_PER_SEX people of a sex
 mitra2002,nagpur_cadavers20,pedicle_chord,pedicle_chord [along the axis],L2,Direct,direct_sectioned,47.56,,18.0,45.8,,2.0,,fewer than MIN_PER_SEX people of a sex
 mitra2002,nagpur_cadavers20,pedicle_chord,pedicle_chord [along the axis],L3,Direct,direct_sectioned,46.9,,18.0,47.3,,2.0,,fewer than MIN_PER_SEX people of a sex
@@ -386,8 +376,6 @@ mitra2002,nagpur_cadavers20,pedicle_w,pedicle_w,L2,Direct,direct_sectioned,7.85,
 mitra2002,nagpur_cadavers20,pedicle_w,pedicle_w,L3,Direct,direct_sectioned,9.01,,18.0,7.55,,2.0,,fewer than MIN_PER_SEX people of a sex
 mitra2002,nagpur_cadavers20,pedicle_w,pedicle_w,L4,Direct,direct_sectioned,11.6,,18.0,9.25,,2.0,,fewer than MIN_PER_SEX people of a sex
 mitra2002,nagpur_cadavers20,pedicle_w,pedicle_w,L5,Direct,direct_sectioned,16.19,,18.0,12.75,,2.0,,fewer than MIN_PER_SEX people of a sex
-olsewski1990,part1_cadavers,pedicle_incl_trans,pedicle_incl_trans,L3,"Part 1 cadavers, direct, caudad",direct_caliper_microscope,-8.0,,4.0,-4.0,,2.0,n is the printed pedicles halved,fewer than MIN_PER_SEX people of a sex
-olsewski1990,part1_cadavers,pedicle_incl_trans,pedicle_incl_trans,L5,"Part 1 cadavers, direct, caudad",direct_caliper_microscope,-8.0,5.0,4.0,-9.0,5.0,2.0,n is the printed pedicles halved,fewer than MIN_PER_SEX people of a sex
 twomey1985,cadavers-204,disc_d,disc_d,L1-L2,36-59,caliper-intact-disc,39.0,,24.0,35.0,,24.0,,"means alone, and no sexless SD to read them against (none in the paper's modality class, or the difference too wide)"
 twomey1985,cadavers-204,disc_d,disc_d,L1-L2,60+,caliper-intact-disc,40.0,,24.0,38.0,,24.0,,"means alone, and no sexless SD to read them against (none in the paper's modality class, or the difference too wide)"
 twomey1985,cadavers-204,disc_d,disc_d,L2-L3,36-59,caliper-intact-disc,40.0,,24.0,36.0,,24.0,,"means alone, and no sexless SD to read them against (none in the paper's modality class, or the difference too wide)"

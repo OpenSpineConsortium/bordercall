@@ -36,6 +36,7 @@
 """
 from __future__ import annotations
 
+import csv
 import math
 import os
 import sys
@@ -144,8 +145,8 @@ class Toy(unittest.TestCase):
             rng = np.random.default_rng(17)
             for i in range(60):
                 cohort = cohort_of(population(rng), 300, np.random.default_rng(i))
-                z_results.append(B.check(cohort, card))
-                t_results.append(B.check(cohort, card, interval="t"))
+                z_results.append(B.check(cohort, card, reference_n=None))
+                t_results.append(B.check(cohort, card, interval="t", reference_n=None))
         z, t = rates(z_results), rates(t_results)
         for test in ("mean", "sd", "step"):
             self.assertGreater(z[test], 0.85, (test, z))
@@ -155,7 +156,7 @@ class Toy(unittest.TestCase):
 
     def test_cohorts_the_card_draws_pass_at_about_the_nominal_rate(self):
         rng = np.random.default_rng(23)
-        results = [B.check(B.simulate(self.card, B.ALL, 300, rng), self.card) for _ in range(150)]
+        results = [B.check(B.simulate(self.card, B.ALL, 300, rng), self.card, reference_n=None) for _ in range(150)]
         got = rates(results)
         for test in ("mean", "sd", "step"):
             self.assertGreater(got[test], 0.91, (test, got))
@@ -163,19 +164,47 @@ class Toy(unittest.TestCase):
         self.assertLess(abs(np.mean([r["summary"]["mean_square_z"] for r in results]) - 1.0), 0.25)
 
     def test_the_centre_passes_every_mean_and_a_broken_gradient_fails(self):
+        """At the cohort's own thousand people every flattened or reversed lumbar step fails; scored
+        as if it had the reference's forty, the reversed steps still all fail and the flattened ones
+        mostly do, the power a forty-person paper's sampling error leaves."""
         rng = np.random.default_rng(29)
         centre = B.simulate(self.card, B.ALL, 1000, rng, centre=True)
-        ok = B.check(centre, self.card)
-        self.assertEqual(ok["summary"]["tests"]["mean"]["rate"], 1.0)
-        self.assertEqual(ok["summary"]["tests"]["step"]["rate"], 1.0)
-        flat = B.check(B.flattened(centre, LUMBAR), self.card)
-        h_ant = [s for s in flat["steps"] if s["measure"] == "h_ant"]
-        self.assertEqual(len(h_ant), 4)
-        self.assertEqual(sum(s["step_pass"] for s in h_ant), 0)
-        self.assertLess(flat["summary"]["rate"], ok["summary"]["rate"])
-        rev = B.check(B.with_levels(centre, dict(zip(LUMBAR, LUMBAR[::-1]))), self.card)
-        self.assertEqual(sum(s["step_pass"] for s in rev["steps"] if s["measure"] == "h_ant"), 0)
-        self.assertGreater(rev["summary"]["mean_square_z"], 10 * ok["summary"]["mean_square_z"])
+        flattened, reversed_ = B.flattened(centre, LUMBAR), B.with_levels(centre, dict(zip(LUMBAR, LUMBAR[::-1])))
+        failed = {}
+        for at in (None, B.REFERENCE_N):
+            ok = B.check(centre, self.card, reference_n=at)
+            self.assertEqual(ok["summary"]["tests"]["mean"]["rate"], 1.0)
+            self.assertEqual(ok["summary"]["tests"]["step"]["rate"], 1.0)
+            flat = B.check(flattened, self.card, reference_n=at)
+            h_ant = [s for s in flat["steps"] if s["measure"] == "h_ant"]
+            self.assertEqual(len(h_ant), 4)
+            failed[at] = sum(not s["step_pass"] for s in h_ant)
+            self.assertLess(flat["summary"]["rate"], ok["summary"]["rate"])
+            rev = B.check(reversed_, self.card, reference_n=at)
+            self.assertEqual(sum(s["step_pass"] for s in rev["steps"] if s["measure"] == "h_ant"), 0)
+            self.assertGreater(rev["summary"]["mean_square_z"], 10 * ok["summary"]["mean_square_z"])
+        self.assertEqual(failed[None], 4)
+        self.assertGreaterEqual(failed[B.REFERENCE_N], 3)
+
+    def test_a_cohort_is_scored_at_the_reference_size_and_a_smaller_one_is_not_scored(self):
+        rng = np.random.default_rng(43)
+        centre = B.simulate(self.card, B.ALL, 1000, rng, centre=True)
+        flat = B.flattened(centre, LUMBAR)
+        few = B.Cohort(measure=flat.measure, level=flat.level, value=flat.value, person=flat.person)
+        keep = few.person < 8
+        few = B.Cohort(measure=few.measure[keep], level=few.level[keep], value=few.value[keep], person=few.person[keep])
+        small = B.check(few, self.card)["summary"]
+        self.assertEqual(small["made"], 0)
+        self.assertEqual(small["short_cells"], len(self.cells))
+        self.assertIsNot(small["verdict"]["passed"], True)
+        self.assertIn("fewer people than the %s a cell is scored at" % B.REFERENCE_N, small["verdict"]["why"])
+        # scored at its own few people, the flattened gradient's steps are widened past failing
+        own = B.check(few, self.card, reference_n=None)["summary"]
+        self.assertGreater(own["tests"]["step"]["rate"], B.check(flat, self.card)["summary"]["tests"]["step"]["rate"])
+        # a cohort larger than the reference is widened as if it had the reference's people, never less
+        big, ref = B.check(centre, self.card, reference_n=None), B.check(centre, self.card)
+        self.assertEqual(ref["summary"]["reference_n"], B.REFERENCE_N)
+        self.assertTrue(all(abs(a["mean_z"]) >= abs(b["mean_z"]) - 1e-12 for a, b in zip(big["cells"], ref["cells"])))
 
     def test_means_moved_far_off_fail_the_mean_test_and_keep_the_steps(self):
         rng = np.random.default_rng(31)
@@ -565,6 +594,14 @@ class Snapshot(unittest.TestCase):
         cls.voc = PT.load_vocabulary()
         cls.card = B.build(cls.series, cls.rows, cls.voc, cls.register, sex_rows=cls.sex_rows)
 
+    def test_the_reference_size_stands_near_the_bar_papers_own(self):
+        rows = []
+        with open(os.path.join(NOTE, "records", "bounds", "calibration.csv"), encoding="ascii") as fh:
+            rows = list(csv.DictReader(fh))
+        got = B.reference_n_measured(self.series, self.register, rows)
+        self.assertGreaterEqual(len(got["papers"]), B.MIN_BAR_PAPERS)
+        self.assertLess(abs(math.log(B.REFERENCE_N / got["median"])), math.log(1.5), got)
+
     def test_every_papers_card_has_strata_between(self):
         cells = ST.strata_of(self.series)
         ST.set_between(cells)
@@ -617,13 +654,20 @@ class Snapshot(unittest.TestCase):
         self.assertGreater(len(contrasts), len(CV.sex_contrasts(self.rows, self.voc)))
 
     def test_the_ideal_spine_passes_every_mean_and_its_flattened_lumbar_steps_fail(self):
+        """At its own five hundred people the flattened spine fails a third more of the lumbar steps
+        than the intact one; at the reference's forty it still fails more, by less."""
         centre = B.simulate(self.card, B.ALL, 500, np.random.default_rng(3), centre=True)
-        ok = B.check(centre, self.card)
-        self.assertEqual(ok["summary"]["tests"]["mean"]["rate"], 1.0)
-        flat = B.check(B.flattened(centre, LUMBAR), self.card)
-        lumbar = [s["step_pass"] for s in flat["steps"] if s["lower"] in LUMBAR[1:]]
-        intact = [s["step_pass"] for s in ok["steps"] if s["lower"] in LUMBAR[1:]]
-        self.assertLess(np.mean(lumbar), np.mean(intact) - 0.3)
+        drop = {}
+        for at in (None, B.REFERENCE_N):
+            ok = B.check(centre, self.card, reference_n=at)
+            self.assertEqual(ok["summary"]["tests"]["mean"]["rate"], 1.0)
+            flat = B.check(B.flattened(centre, LUMBAR), self.card, reference_n=at)
+            lumbar = [s["step_pass"] for s in flat["steps"] if s["lower"] in LUMBAR[1:]]
+            intact = [s["step_pass"] for s in ok["steps"] if s["lower"] in LUMBAR[1:]]
+            drop[at] = np.mean(intact) - np.mean(lumbar)
+        self.assertGreater(drop[None], 0.3, drop)
+        self.assertGreater(drop[B.REFERENCE_N], 0.1, drop)
+        self.assertLess(drop[B.REFERENCE_N], drop[None], drop)
 
 
 if __name__ == "__main__":
