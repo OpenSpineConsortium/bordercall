@@ -78,7 +78,8 @@ PAGE = [
     ("exclusion", "Dropping a training population, scored held out", blocks(notes["exclusion"]) +
      result_table(["plain", "tempered"] + list(select["exclusion"])) +
      figure("fig16_exclusion", "Each exclusion candidate against plain, per population, and calibration")),
-    ("project", "Where this sits in the project", blocks(notes["project"])),
+    ("project", "Covariates, and where this sits in the project", blocks(notes["project"]) +
+     figure("fig17_covariates", "Sex, age and body-size effects per measure, and each predicted from the other")),
     ("shift", "Distribution shift, measured", figure("fig14_strata", "Each paper held out: the rule built on the others, scored on it")),
     ("features", "Features and robustness", figure("fig12_naming_measures", "Accuracy against the number of measures the rule reads") +
      figure("fig5_naming", "Accuracy across the generator's hyperparameters")),
@@ -90,7 +91,7 @@ PAGE = [
     ("reproduce", "Reproduce", blocks(notes["reproduce"])),
 ]
 unnoted = [n for _, _, body in PAGE for n in [] if n not in notes["figures"]]
-for name in ("fig15_select", "fig16_exclusion", "fig14_strata", "fig12_naming_measures", "fig5_naming", "fig1_means", "fig2_spread", "fig7_quality"):
+for name in ("fig15_select", "fig16_exclusion", "fig17_covariates", "fig14_strata", "fig12_naming_measures", "fig5_naming", "fig1_means", "fig2_spread", "fig7_quality"):
     if name not in notes["figures"]:
         raise SystemExit("figure with no note in report/ml_notes.json: %s" % name)
 
