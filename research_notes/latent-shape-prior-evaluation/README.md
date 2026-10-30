@@ -3,8 +3,13 @@
 Thread "Plan evaluating latent shape priors against explainable metrics", 2026-10-30, project symphony_3, for greg's ask
 of 2026-10-29 23:58 UTC: "please start planning for evaluating these approaches alongside purely human understandable
 metrics as features", pasted with a conversation he had with another assistant that proposes a latent point-distribution
-model (PDM) under the auto-anatomist, pure or hybrid; and for his words of 2026-10-30 02:33 to 02:41 UTC on where this leads
-(section 14). Confidential with the rest of this repository: nothing here goes to a public place before the provisional
+model (PDM) under the auto-anatomist, pure or hybrid; for his words of 2026-10-30 02:33 to 02:41 UTC on where this leads
+(section 14), and for his rule of 02:46 UTC on how it runs: "whatever you do just make sure it fits into the block
+style metaflow pipeline and then you can just evaluate as many in parallel as possible on short 50 epoch runs that will
+give you some idea of the feasability of each or at least evaluate the performance"; and at 02:49 UTC: "yes just
+please build them up encapsulated and swappable, like i dont want two networks for the seven and 32 measure pool, make
+sure it just accepts pymc code like natively, and adapts to what is provided, the same for others it should be seemless
+like a fighter jet and maintain this swappable configurable easy switching". Confidential with the rest of this repository: nothing here goes to a public place before the provisional
 is filed, and the method is not shown.
 
 This is a plan. Nothing in it ran: no training, no grid job, no data read. Every number quoted names the record it was
@@ -16,8 +21,8 @@ pull request 44 (claude/project-thread-e89pjg, ae22126) and SchwingNet's search 
 docs/checkpoints/2026-10-29-autoanatomist-flow/HANDOFF.md). Another thread, "Restart the auto-anatomist probe", is
 working on those branches now; this plan touches none of them. Stage 1 needs one change on the engine's branch (the
 export of the line ends) and, to ride in the morphometry jobs already counted, a re-vendor of bordercall under
-SchwingNet's grid/bordercall/, each a pull request of its own; stages 2 and 3 need no change to PR 40 or PR 483; stage 4
-needs the pieces section 10 lists. Three adversarial reviews of the first draft (2026-10-30 02:10 to 02:33 UTC) are
+SchwingNet's grid/bordercall/, each a pull request of its own; stage 2 needs no change to PR 40 or PR 483; stage 3 asks PR 483's plan for the
+head block only in its no-job form; stages 4 and 5 need the pieces section 10 lists. Three adversarial reviews of the first draft (2026-10-30 02:10 to 02:33 UTC) are
 answered in this version; the pull request's body records what they found.
 
 ## 1. The question, and what the evaluation decides
@@ -37,7 +42,9 @@ there says which); it is not a full factorial, since the pure latent arm has no 
 | the feature set, within the named column | the seven chords the specs define; the wider pool the engine measures (32 and the size-free ratios) |
 
 Figure fig1_design (figures/) draws the arms against what each is scored on; figure fig2_stages the stages with the
-jobs each needs. Every count below is a proposal for greg's word; none is a request sent.
+jobs each needs. How it runs is greg's rule: every arm a block of the auto-anatomist, every run a plan of the launched
+Metaflow flow, and the arms screened side by side in parallel short runs of 50 epochs before any long one. Every count
+below is a proposal for greg's word; none is a request sent.
 
 ## 2. What stands today
 
@@ -51,10 +58,12 @@ Read from bordercall PR 40 (autoanatomist/README.md and records/autoanatomist-20
 | the prior in the loss | the naming layer: schwingcheck's exact Bayes rule over Panjabi's per-level means and SDs with a shared patient size and a per-measure offset, enumerated over every name path (chain.path_logev), four column types; nothing in the loss is an inequality bound | naming.py, train.py, schwingcheck/rule.py |
 | the smoke run | 8 synthetic phantoms trained, 4 held out, 150 steps on 4 CPUs: held-out landmark distance 2.98 mm, value MAE 1.3 to 2.6 mm, the delta spread 25 mm uncalibrated (39 untrained), named right 0 of 12 with that spread, 5 of 12 from the values alone, 9 of 12 from the oracle's values; 38 ms a crop, no latency number under the 97 ms rule | smoke.json, README.md |
 | the calibration | calibrate.py fits a factor per measure on validation (scale or quantile) so that the one-spread interval holds 0.68 of the validation errors; evaluate reports the calibrated spread, coverage at one and two spreads and the bodies named right three ways; no run has measured it | calibrate.py, train.py |
-| the real masks | 1,733 gold tier 3 studies: ENHANCE.PET 1,558 (229 at 1.25 mm or finer, most at 3 mm; MOOSE's masks checked by students and residents), VerSe 21, TotalSegmentator 154; at most 1,654 persons; 68 whole ENHANCE.PET studies name an L6 (67 below an L5) and 39 set L4 on the sacrum | gold3-ct/README.md, holdings/gold-tier-3.md |
+| the real masks | 1,733 gold tier 3 studies: ENHANCE.PET 1,558 (229 at 1.25 mm or finer, most at 3 mm; MOOSE's masks checked by students and residents), VerSe 21, TotalSegmentator 154; at most 1,654 persons; 68 whole ENHANCE.PET studies name an L6 (67 below an L5) and 39 set L4 on the sacrum | gold3-ct/README.md, holdings/gold-tier-3.md, PR 44 README (the 229) |
 | the truth on real masks | the engine: 81 keys a vertebra in the vertebra's own frame, each measure also a line with two world ends (morphoview.lines); 228 thin-slice studies measured on 2026-10-29 in the older frame; the frame since turned onto the vertebra's own axis, so every study is to be measured again; rows.csv carries values, not the ends; the pinned copy on the grid (SchwingNet's grid/bordercall/) carries morphometry, scanimport and screening and no morphoview | PR 44 README, morphoview/lines.py, measure.py, SchwingNet grid/bordercall/VENDORED |
-| the frames | training crops come from the oracle's frame (scanimport's column line through the neighbours' centroids), turned by up to 8 degrees and moved by up to 4 mm so the network cannot learn it; crops on a raw CT come from the mask-free mode (crops.from_found); the engine's frame is a third, the bisector of the end-plates, a median 16.7 degrees off the column line at C3 and 18.1 at L5; none of the three gaps is measured | crops.py perturbed, oracle.py, PR 44 README |
-| the search flow | one plan JSON (blocks, seeds, rungs, the split's salt and shares), successive halving on the validation reward, a REINFORCE controller, the test part read once by the best trial; phantom rows only; the kept share strictly between 0 and 1; a trial with no landmark distance has no reward | SchwingNet HANDOFF.md section 4, src/schwingnet/autoanatomist_search.py |
+| the frames | training crops come from the oracle's frame (scanimport's column line through the neighbours' centroids), turned by up to 8 degrees and moved by up to 4 mm so the network cannot learn it; crops on a raw CT come from the mask-free mode (crops.from_found); the engine's frame is a third, the bisector of the end-plates, which over the 228 thin-slice studies lies a median 16.7 degrees off the column line at C3 and 18.1 at L5 (the run's axis_offset key; on study 0004 alone 21.7 and 16.7); none of the three gaps between the frames is measured | crops.py perturbed, oracle.py, PR 44 README (the axis section) |
+| the search flow | designed in PR 483's handoff and its module: one plan JSON (search, class, rows, split, space, fixed, seeds, rungs, keep, trials, controller, objective, latency_crops, wandb_project, every key required), successive halving on the validation reward, a REINFORCE controller, the test part read once by the best trial, a row's person its id; phantom rows only; the kept share strictly between 0 and 1; a trial with no landmark distance has no reward; the flow file flows/autoanatomist.py, its registry line and its PREREG are not on the branch yet (d8cadc3 at the time of reading) | SchwingNet HANDOFF.md section 4, src/schwingnet/autoanatomist_search.py, flows/registry.txt |
+| a GPU job and its trials | a gpu-class job gets one card and a launched flow's foreach runs its tasks inside that job, one after another at --max-workers 1 or sharing the card above it; trials each on a card of their own are the DRR study's form, a Slurm array whose every task starts a launcher run of its own, and a merge job afterany the array, itself a launcher run | SchwingNet flows/README.md (drr_gap), grid/drr-gap.sbatch, grid/sweep-driver.sbatch on PR 483 |
+| the auto-anatomist's rows | rows.py already reads a CT and its label NIfTI as a volume row through the oracle interface (kind, id, ct, labels, scheme or names, seed), crops and jitters every vertebra the oracle read and caches the row by its digest; with the naming term on, every example of a batch must hold the same number of crops, and a volume row is one whole column | PR 40 rows.py, session.py, train.py |
 | the fully latent objective | the thread "Restart the auto-anatomist probe" is building, on greg's word of 02:03 to 02:25 UTC on 2026-10-30, a block objective=mask: the decoder gives the privileged masks back from the fused features, no oracle and no measurement, with a per-vertebra name head on the bottleneck; its latent is the network's own, not a PDM | that thread's note to this one, 02:28 UTC |
 
 ## 3. What the pasted conversation gets right and wrong about the code
@@ -140,8 +149,10 @@ through the re-estimated table.
 - The points: the two ends of every line the engine draws for a vertebra (morphoview.lines.vertebra_lines: the three
   heights, the wedge's two plate lines, the waist's two chords, Panjabi's four plate chords, the canal's least depth,
   Eisenstein's line at L1 to L4, the spinous length, the transverse span, the pedicles' width, height and chord each
-  side, the interpedicular distance: 21 to 25 lines a vertebra by level, 150 over study 0004's six, 42 to 50 ends,
-  some coincident, de-duplicated before the fit), or the minimal set, the 14 ends of the seven chords the specs define.
+  side, the interpedicular distance: counted by reading vertebra_lines' ten builders, about 22 lines a vertebra where
+  Eisenstein's line is drawn and fewer where a builder withholds, with the discs' lines beside them, 150 lines over
+  study 0004's six vertebrae and their discs in PR 44's README; the count per level is stage 1's export to record;
+  two ends a line, some coincident, de-duplicated before the fit), or the minimal set, the 14 ends of the seven chords the specs define.
   Two sets, two PDMs, both measured. The ends are of two kinds: true landmarks (a plate's rim, a pedicle's isthmus)
   and ends defined by an extremum that slides along the bone between specimens (the waist's narrowest point, the
   canal's least depth, the ring the interpedicular width came from), which are semi-landmarks with no point
@@ -150,7 +161,7 @@ through the re-estimated table.
   the body, x to the right), on vertebrae whose frame settled on the bisector; where the engine fell back to the
   column's line and flagged it, the axis flag is missingness. The crop is not in that frame (section 2: the oracle's
   column line in training, jittered; the mask-free frame in use; the bisector a median 16.7 degrees off the column
-  line at C3 and 18.1 at L5), so a latent head with no pose would have to absorb a rigid misalignment the PDM never
+  line at C3 and 18.1 at L5 over the 228 thin-slice studies, 21.7 and 16.7 on study 0004), so a latent head with no pose would have to absorb a rigid misalignment the PDM never
   modelled, a handicap the heatmap arms do not carry. Every latent head therefore predicts a pose T beside b (three
   translations, three rotations, a log-scale) and gives landmarks = T(mean + P b) in the crop's frame; the stated
   alternative, a PDM fit in the crop's frame with the training crops' own jitter, is kept for a second run. Stage 1
@@ -164,8 +175,8 @@ through the re-estimated table.
 - Per vertebra, not per column: a column-wide vector over C3 to L5 has no slot for an L6, a T13 or a missing L5, which
   are the cases the owner keeps (section 2), and a crop shows one body with its neighbours' edges. The emission's
   alphabet is the chain's 24 names (schwingcheck's DRAW_LEVELS: C3 to L5, L6 and T13): one mean per name and one shared
-  P in one fit, a P per name in another, both measured; L6's mean and covariance are fit from the 67 ENHANCE.PET L6
-  labels below an L5; T13 has no label in ENHANCE.PET's scheme and VerSe's two T13 persons are in the anomaly holdout,
+  P in one fit, a P per name in another, both measured; L6 takes a mean of its own fit from the L6 columns among the training persons (about 47 of the 67
+  at the shares of section 8, Bookstein's case, so its covariance is the pooled one of the shared-P fit); T13 has no label in ENHANCE.PET's scheme and VerSe's two T13 persons are in the anomaly holdout,
   so its Gaussian is built as chain.extended_table builds the table's row, half-way between T12 and L1, and never
   fit; C2's ends are exported and in the PDM's point fit, not in the emission, since the rule has no C2. Meng 2020's
   full-spine PPCA (section 11) is the published way to a column model and stays out of version 1.
@@ -177,7 +188,9 @@ through the re-estimated table.
   specimens are partly noise is the reason K is chosen on held-out persons, the modes' stability across folds is
   reported, and the count of landmark coordinates (up to 150 a vertebra) is set against the training persons (about
   1,100) before any mode is read.
-- Fit on training persons only; validation chooses K and the calibration; test persons are read once.
+- Fit on training persons only, all of them, in the screen as in the full run, while the screen's network trains on a
+  fifth of them (the same PDM and the same re-estimated table for every arm); validation chooses K and the
+  calibration; test persons are read once, by the full run.
 
 ## 7. What is measured, and how each is read
 
@@ -192,40 +205,53 @@ Each quantity is one figure in the report (plots with short notes, the owner's r
 | E1 drawability | the share of reported values whose two ends lie within 1.5 voxels of the mask's boundary (the oracle test's rule) and, on the CT, within a stated distance of maskedge's bone edge | a bar per arm |
 | E2 attributability | when the true name's posterior falls below 0.5, the per-measure (or per-mode) log-likelihood terms name what is responsible; the share of such failures where the named measure is the one the engine reads as off | a bar per arm |
 | E3 nameability | the partial R^2 of each kept mode after the seven chords and after the 32 measures, with the smallest named set (at most three measures, by a sparse regression) that explains it at 0.8 or more, so a mode is nameable when a few named measures explain it and not when all 81 keys do; and the naming accuracy lost when b is replaced by its projection onto the named measures (stage 2 fits the rule on both); a plain R^2 of a mode on all the measures is close to circular, since modes and measures are functions of the same ends, and is not reported | partial R^2 by mode; named right with b against its projection |
-| E4 transparency | the count of a prior's parameters that carry a name and a unit (Panjabi's per-level means and SDs do, eigenvectors do not) and whether an implausibility verdict can be read as a named violation ("canal depth 3 SD above L3's") | a table |
-| latency | milliseconds a crop of the CT-only path, recorded as the smoke run records it; never rewarded, never called real time without ONNX parity and a p95 on a device of the owner's | one line in the table |
+| E4 transparency | the count of a prior's parameters that carry a name and a unit (Panjabi's per-level means and SDs do, eigenvectors do not) and whether an implausibility verdict can be read as a named violation ("canal depth 3 SD above L3's") | a bar per arm, named parameters over all, with latency as a point on the same panel's right axis: the two counts with no axis of their own |
+| latency | milliseconds a crop of the CT-only path, recorded as the smoke run records it; never rewarded, never called real time without ONNX parity and a p95 on a device of the owner's | the point on E4's panel |
 | training behaviour | the spread's trajectory and the loss terms by step; whether the latent arms reach a lower raw spread before calibration, which is the transcript's claim | spread by step |
 
 What is scored and what is only reported: the primary endpoints are the value MAE averaged over the seven chords and
-the bodies named right on three-body fields with the calibrated spread, both on the test persons. The calibration gate
+the bodies named right on three-body fields with the calibrated spread, both on the test persons, which only the full
+run of stage 5 reads; the screen of stage 4 reports the same quantities on the validation persons, as feasibility and
+a ranking, never as the decision. The calibration gate
 is two-sided and pooled over the seven chords: coverage on the test persons within 0.60 to 0.76 at one spread and
 0.90 to 0.98 at two, and sharpness, the mean calibrated spread no more than 1.2 times arm A's at the same coverage;
 an arm outside either is read as miscalibrated or as uninformative whatever else it does. The explainability indices
 and the latency are reported beside them, since they are the price, not the score. Whether a latent arm's gain is
-worth its price is greg's call, which section 12 asks him to set as bars before the PREREG is frozen.
+worth its price was greg's to set as bars; he declined (02:46 UTC), so section 12, item 2, sets them in his place until
+he says otherwise. The full run reads the test persons once per trial, and no choice follows that read: the arms it
+runs are fixed by the screen's dated keep record before its plan is frozen (section 8).
 
 ## 8. Data, splits and the analysis
 
 - Data: the gold tier 3 CTs with their masks (ENHANCE.PET's CTs and labels are on the grid's data root since
-  2026-10-29; VerSe's and TotalSegmentator's masks through the carries SchwingNet's morphometry word uses). Truth is the
-  engine's reading of each mask in the new frame, with its line ends exported (stage 1). The thin-slice studies (229)
-  are the first arm of every comparison; the thick ones (3 to 5 mm) are a stratum, since heights and discs move about a
-  quarter of a slice there (PR 44 README).
+  2026-10-29; VerSe's masks through the carry and TotalSegmentator's from the Zenodo release on the data root, both
+  already under SchwingNet's morphometry word and its size rule, none a fetch of this plan's). Truth is the engine's
+  reading of each mask in the new frame, with its line ends exported (stage 1). The thin-slice studies (229, PR 44's
+  README) are the first arm of every comparison; the thick ones (3 to 5 mm) are a stratum, since heights and discs
+  move about a quarter of a slice there (PR 44 README).
+- The training example on a real column: a window of a fixed number of consecutive bodies (three, as the phantoms
+  are; five as a second value), each window a row of its own carrying the column's person, since with the naming term
+  on every example of a batch must hold the same number of crops (session.py) and whole columns hold 22 to 25. The
+  loader holds one crop per vertebra and indexes the windows into them, so the memory a trial holds is the crops of
+  its columns (about a megabyte a crop at 48 x 56 x 32 x 3 channels: about 5 GB for a fifth of the training persons,
+  about 26 GB for all of them, inside a 64 GB job), not the crops of its windows.
 - Splits by person, in the form of SchwingNet's data/splits/rule.json (a salted sha256 of the person id), with the
-  shares set in the stage 4 plan file, as the search flow's split keys are (salt, validation_share, test_share):
-  validation 0.1 and test 0.2 are the proposal, so of at most 1,654 persons about 165 are validation, 331 test and
-  1,158 training. rule.json itself holds a validation share only, and its test list (test-persons.json) names five
-  C-ArmLSpine fluoroscopy persons and no CT person, so without the plan file's share no gold 3 person is test; the
-  anomaly-holdout persons (VerSe) are never trained on. A hash cannot stratify: the L6 and L4-on-sacrum strata fall
-  in each part as the hash places them, the counts per part are reported, and if the test part holds fewer than 10
-  columns of a stratum the pre-registered alternative is a listed test set drawn by the gold3-ct store's anomaly
-  classes, in test-persons.json's form.
+  shares set in the plan files of stages 4 and 5, as the search flow's split keys are (salt, validation_share,
+  test_share): validation 0.1 and test 0.2 (decision 7), so of at most 1,654 persons about 165 are validation, 331 test
+  and 1,158 training, each the most that part can hold, since the persons are 1,040 to 1,654. rule.json itself holds a
+  validation share only, and its test list (test-persons.json) names five C-ArmLSpine fluoroscopy persons and no CT
+  person, so without the plan file's share no gold 3 person is test; the anomaly-holdout persons (VerSe) are never
+  trained on. A hash cannot stratify, and at a test share of 0.2 the L4-on-sacrum stratum is expected at about 8 test
+  columns, under 10, so the test set is a listed one from the start, drawn by the gold3-ct store's anomaly classes in
+  test-persons.json's form and keeping the person hash's parts for every other person, with the hash's own draw as the
+  fallback; the strata's counts per part are reported either way.
 - Persons: every ENHANCE.PET study is its own person until the census's grid match (gold3-ct README section 7) assigns
-  autoPET's; Leipzig and Careggi carry no person id at all. autoPET's 1,014 studies come from 865 to 900 persons, so
-  some 80 to 114 are repeat studies that a hash by study could place on both sides of a split; the leak holds at all
-  three sites and no arm of the data is clean of it. The match is a dependency of stage 1; until it lands, the leak's
-  test is a near-duplicate check on the engine's own rows (two studies whose per-level measure vectors agree within
-  measurement error are one person), and repeats found go to one part.
+  autoPET's; Leipzig and Careggi carry no person id at all. autoPET's 979 whole studies come from 865 to 900 persons, so
+  79 to 114 are repeat studies that a hash by study could place on both sides of a split; the leak holds at all three
+  sites and no arm of the data is clean of it. The match is a dependency of stage 1; until it lands, the leak's test is
+  a near-duplicate check on the engine's own rows (two studies whose per-level measure vectors agree within
+  measurement error are one person), and repeats found go to one part, which needs the volume row to carry a person
+  key that the split hashes (section 10), since the search module hashes a row's id as its person today.
 - The truth name on the anomaly columns, pre-registered by the ribs (holdings/gold-tier-3.md): the gold 3 census's rib
   classes are the truth and the masks' names the record. Of the 67 L6 columns 51 have twelve rib pairs and 14 have
   thirteen, the thirteenth on the label L1, which the chain names a T13 column and the scheme cannot; of the 39
@@ -237,21 +263,39 @@ worth its price is greg's call, which section 12 asks him to set as bars before 
   22, 20 and 18 fields; the share named right is over fields, its interval by a bootstrap over persons, since fields of
   one column are not independent, and a column's size estimate and type are shared by all its fields, so naming
   errors come in runs and the effective sample is nearer the test columns (about 330) than the fields (about 6,600).
-- Pairing and the decision rule: every arm is read on the same test vertebrae, so the comparison of two arms is a paired
-  difference per vertebra (or per field), its 95 per cent interval by the person bootstrap at fixed seeds; three seeds
-  an arm, the seed-to-seed spread reported and required to be smaller than the bar, the arms compared on the seed means.
-  One primary contrast, C against A on three-body fields with the calibrated spread; B against A decides the features,
-  D against A and C against C0 the prior, C0 against A the head; the rest are secondary, and a bar is met when the
-  lower bound of the paired difference's interval exceeds it.
-- Power, from the counts alone: a test fifth is about 331 persons and about 7,000 vertebrae. For the value endpoint a
-  paired MAE difference of 0.3 mm against a paired SD of about 2 mm a vertebra needs about 350 vertebrae at 80 per cent
-  power, about 1,750 after a design effect of 5 for clustering within a person, so the typical stratum is never the
-  limit. For the naming endpoint the column is the cluster: with about 330 columns and the two arms discordant on 15
-  per cent of fields, the standard error of a paired difference is near 2 points, so the 3-point bar section 12
-  proposes sits near 1.5 standard errors and is underpowered as it stands; the within-column correlation is measured in
-  stage 2 from the engine's rows, and the bar or the test share (0.3 would give about 500 columns) is set from it before
-  the PREREG is frozen. The anomaly strata are small (about 14 L6 and 8 L4-on-sacrum columns in a fifth), so they are
-  cross-fitted at stage 2 and reported with Wilson intervals at stage 4, not tested.
+- Pairing and the decision rule, in the full run (stage 5): every arm is read on the same test vertebrae, so the
+  comparison of two arms is a paired difference per vertebra (or per field), its 95 per cent interval by the person
+  bootstrap at fixed seeds; three seeds an arm, the seed-to-seed spread reported and required to be smaller than the
+  bar, the arms compared on the seed means. One primary contrast, C against A on three-body fields with the calibrated
+  spread; B against A decides the features, D against A and C against C0 the prior, C0 against A the head; the rest are
+  secondary, and a bar is met when the lower bound of the paired difference's interval exceeds it. A goes to the full
+  run whatever the screen shows, and C too unless it fails the screen's numbered rule, in which case that failure is
+  the head question's answer and the full run's primary contrast is D against A, pre-registered as the alternative.
+- The screen (stage 4), on greg's rule: every arm side by side, one seed each and arm A at three seeds, on a fifth of
+  the training persons by the same hash, for 50 epochs, read on the validation persons alone and never on test. It
+  ranks, and drops an arm only on three numbered failures, written in the PREREG before it is sent: it does not train
+  (the validation landmark distance, or arm E's value MAE, at the end not below half of its value at the start, or
+  the loss not falling over the last ten epochs); it does not calibrate (sharpness, since the quantile fit puts
+  one-spread coverage at 0.68 on validation by construction: the calibrated spread more than twice arm A's at the same
+  validation coverage, or coverage at two spreads outside 0.90 to 0.98, which the one-quantile fit does not fix); or it
+  names worse than the engine's values on three-body fields by more than 6 points, twice the screen's standard error.
+  What the screen can resolve: on about 165 validation persons with naming errors clustered by column, one standard
+  error of a paired naming difference is about 3 points and of the value MAE about 0.07 mm, so arms within twice that
+  are ties and both go on; arm A's three seeds give the seed spread on validation as a number, and every drop margin
+  sits above it. The anomaly strata (about 7 L6 and 4 L4-on-sacrum columns in the validation tenth) are not read in the
+  screen. The keep list, with each arm's validation numbers, is written as a dated record in this folder before the
+  stage 5 plan file's bytes enter the PREREG's Covers line, so the full run's test read follows no choice.
+- Power, under the rule as written: a test fifth is about 331 persons and about 7,000 vertebrae. A paired MAE
+  difference of 0.3 mm against a paired SD of about 2 mm a vertebra is told from zero at 80 per cent power with about
+  350 vertebrae, about 1,750 after a design effect of 5 for clustering within a person; but the rule asks the interval's
+  lower bound to clear the bar, so the true gain the design finds at 80 per cent power is the bar plus 2.8 standard
+  errors: about 0.45 mm of value MAE (a standard error near 0.05 mm at 7,000 vertebrae under the design effect) and,
+  for naming with the column as the cluster (about 330 columns, two arms discordant on 15 per cent of fields, a
+  standard error near 2 points), about 9 points on three-body fields against the 3-point bar first proposed. The
+  within-column correlation is measured in stage 2 from the engine's rows, and the naming bar is set from it before the
+  PREREG is frozen; the share stays 0.2 (decision 7), and 0.3 (about 500 columns) is the alternative decision 7 names
+  if the bar stage 2 gives is wider than three points. The anomaly strata are small (about 14 L6 and 8 L4-on-sacrum
+  columns in a fifth), so they are cross-fitted at stage 2 and reported with Wilson intervals at stage 5, not tested.
 - Nothing from CTSpinoPelvic1K (dropped for good), nothing from the morphometry phantoms (deferred); the
   autoanatomist phantoms serve stage 3 only, as a smoke test of the code path.
 
@@ -263,70 +307,131 @@ later stage waits for the one before it. No job is sent by this plan.
 | stage | what runs | where | jobs proposed | depends on | what it decides |
 | --- | --- | --- | --- | --- | --- |
 | 1 export | the engine over every gold 3 mask in the new frame, with each measure's two line ends and the vertebra's frame written beside the value (a `--lines` output of `python -m morphometry run`, to add on the engine's branch) and, on the CTs, the mask-free frame (crops.from_found) and the oracle's beside the engine's; aggregates in the report, rows on the grid | grid, CPU | 0 only if the `--lines` output and morphoview reach the pinned copy under SchwingNet's grid/bordercall/ (tools/bordercall_vendor.py copy, VENDORED) before `morphometry enhance` and `morphometry verse`, the two jobs the owner counted on 2026-10-29 15:19 UTC, are sent; else 1, or a re-run that needs a new count | the export flag on PR 44's branch; the re-vendor; the morphometry re-run in the new frame; the CTs landed; the autoPET person match | the truth table and the PDM's points exist; the three frame gaps are numbers |
-| 2 features, no network | on the engine's rows: the exact rule with the seven chords, with the 32-measure pool, with the pool and the ratios, with a per-level Gaussian over b (the two PDMs, K on a curve), and with b beside the seven, under the re-estimated table and the printed one; a discriminative classifier over the same feature sets; leave-persons-out, five folds; naming by field length and rib class; the within-column correlation for the power of section 8; E3 nameability | grid, CPU; or a container, only if the exported ends and values (no image, no mask) are carried off the grid as a per-study table, a choice for greg, since the rows stay on the grid under SchwingNet's morphometry rule | 1 | stage 1 | whether named measurements name as well as a latent at the feature level; how many named measures the latent is worth; K; the naming bar's power; whether arm B is worth training at all |
-| 3 smoke of the heads | the six arms on the existing autoanatomist phantoms, a few hundred steps each, the code path from the oracle to the named bodies for every head; the GPU step time measured, which the cost below needs | grid, CPU, batch class, on the launched autoanatomist flow | 0 if the heads join the phantom_smoke plan the auto-anatomist thread is writing (one value more of one block); else 1, as a second plan `heads_smoke` of the same flow, its bytes added to that PREREG's Covers line | the head block built (section 10); probe_smoke first, as the owner asked | the arms run end to end; nothing is read as a result |
-| 4 real spines | a fixed design on the launched flow, not the search's halving: the six arms times three seeds, eighteen trials, every trial trained for the same nine passes over the training vertebrae, every other block fixed at the smoke run's, w_prior 1; calibration on validation; the test persons read once for every finished trial | grid, GPU, the launched flow under this evaluation's own frozen PREREG (section 10) | 2 (one array of the eighteen trials, one for the calibration and the test read); the minimal form, A against C alone with two seeds, is 1 | stages 1 to 3; the flow's fixed mode and volume rows landed (section 10); the PREREG frozen | the primary endpoints per arm with intervals; the calibration gate; the explainability indices |
-| 5 report | the figures of section 7 and the CLAIM report, from the run folders; the paired differences and the bootstrap | the flow's end step, or a container from the records | 0 | stage 4 | greg's decision on the head and the features, against the bars he set |
+| 2 features, no network | on the engine's rows: the exact rule with the seven chords, with the 32-measure pool, with the pool and the ratios, with a per-level Gaussian over b (the two PDMs, K on a curve), and with b beside the seven, under the re-estimated table and the printed one; a discriminative classifier over the same feature sets; leave-persons-out, five folds; naming by field length and rib class; the within-column correlation for the power of section 8; E3 nameability | grid, CPU; the rows stay on the grid under SchwingNet's morphometry rule and only the report's aggregates leave (decision 3) | 1 | stage 1 | whether named measurements name as well as a latent at the feature level; how many named measures the latent is worth; K; the naming bar's power; whether arm B is worth training at all |
+| 3 smoke of the heads | the six arms on the existing autoanatomist phantoms, a few hundred steps each, the code path from the oracle to the named bodies for every head, and the CPU step time of each head; the latent arms on a PDM fit on the phantoms' oracle ends (the minimal 14-end set, kept with its digest) | grid, CPU, batch class, on the launched autoanatomist flow; a batch-class job measures no GPU time | 0 if the head block and its keys (section 10) land on PR 40, the search copy under SchwingNet's grid/autoanatomist/ is vendored again, and grid/searches/phantom_smoke.json names them in its space before docs/research/autoanatomist-search/PREREG.md is frozen, since its Covers line holds that plan by its bytes and neither file changes after; else 1, a plan of this evaluation's own flow kind under its own PREREG (section 10), a third part in its Covers line | the head block built; the phantom PDM; probe_smoke first, as the owner asked | the arms run end to end; nothing is read as a result |
+| 4 screen | greg's rule: every arm in parallel on a short run. One plan: the six arms, and F where the auto-anatomist thread's objective=mask is ready, one seed each and arm A at three seeds (eight or nine trials), each trial a Slurm array task starting a launcher run of its own on a card of its own (the DRR study's form, section 2), 50 epochs, an epoch ceil(training windows / batch) steps in expectation, since the session draws its batch with replacement (section 10), over a fifth of the training persons by the same hash, three-body windows at the smoke's batch of 2 (6 crops a step), calibrate=quantile at coverage 0.68, naming on, every other block at the smoke run's, w_prior 1; each trial calibrates on the validation persons and evaluates there in its own step, as the search's trial step does, writing section 7's quantities to its ledger entry; a merge run afterany the array gathers them; no test read | grid, GPU, the launched flow of this evaluation's kind under its frozen PREREG (section 10) | 2 (the array, then the merge); 1 where the trials share one card in series inside one job, the wall time then their sum | stages 1 to 3; flows/<kind>.py with its screen mode, the volume row kind with a person key, the windowing and this evaluation's PREREG, none of them landed | which arms train, calibrate and name on real spines at all, by the numbered rule of section 8, and their order on validation; the keep list for the full run, as a dated record |
+| 5 full run | the arms the screen keeps, three seeds each, every trial on the whole training part for 50 epochs (five times the screen's steps; fewer if the screen's curves settled earlier, the count written in the plan), calibration on validation in the trial step, the merge reading the test persons once for every finished trial | grid, GPU, the same flow and PREREG, a second plan | 2 (the array, then the merge with the test read); the minimal form, A against C with two seeds, is 2 as well, the array smaller | stage 4's keep record | the primary endpoints per arm with intervals; the calibration gate; the explainability indices |
+| 6 report | the figures of section 7 and the CLAIM report, from the run folders; the paired differences and the bootstrap | the flow's end step, or a container from the records | 0 | stages 4 and 5 | greg's decision on the head and the features, against the bars |
 
 The search flow as PR 483 designs it retires half the trials at each rung on the validation reward and reads the test
 part for the best trial only, so it gives one arm's test numbers and no paired comparison; its reward is also a
-function of landmark distance, which arm E has none of. Stage 4 therefore needs a fixed mode of that flow (every trial
-to the end, the test part read for every trial, a trial with no landmarks ranked on its values), listed in section 10
-as an ask of PR 483's thread; the search's halving and controller are for a later sweep of w_prior and K, with the
+function of landmark distance, which arm E has none of. The screen and the full run are therefore the plan's own
+flow kind (section 10), whose trials run one per array task on a card each, as greg's "as many in parallel as
+possible" asks and as the DRR study already runs; a foreach inside one gpu-class job would run them on that job's one
+card, in series or sharing it. The search's halving and controller are for a later sweep of w_prior and K, with the
 anomaly strata in its objective, since a weight chosen on a validation part that is 96 per cent typical anatomy would
 pick the value that hurts the strata.
 
-The cost, with its basis; the GPU step time is the smoke's to measure at stage 3 before any hours are claimed:
+The cost, with its basis. No record holds a GPU step time: the smoke's 2 s a step was 6 crops on 4 CPUs, 0.35 s a
+crop, and stage 3's batch-class job measures CPU time only, so the hours of stages 4 and 5 are a formula with one
+unknown, measured by a short gpu-class smoke that is a count of its own or by each trial's first hundred steps, and
+written into the record after, never claimed before:
 
 | stage | unit of work | count | basis record |
 | --- | --- | --- | --- |
 | 1 | the engine over 1,733 masks | the whole set is the 32-CPU, 24-hour job SchwingNet's grid/morphometry.sbatch already is; the 229 thin studies took one morning in a container | PR 44 README; the morphometry memory |
 | 2 | the rule and the classifier over the rows, five folds | minutes once the rows exist | item P's data axis timings |
-| 3 | six arms, a few hundred steps each, on 4 CPUs | the smoke's 150 steps on 6 crops a step took 313 s, 2 s a step | smoke.json |
-| 4 | one pass over about 30,000 training vertebrae at a batch of 8 | about 3,750 steps; nine passes about 34,000 steps a trial; eighteen trials about 600,000 steps; at a fifth of the smoke's step time about two hours a trial on one GPU, so an array of eighteen is a few hours and one GPU in series about a day and a half | the smoke's step time; the pass count is the plan's |
+| 3 | six arms, a few hundred steps each, on 4 CPUs | the smoke's 150 steps on 6 crops a step took 313 s | smoke.json |
+| 4 | a step is a batch of three-body windows, 3 crops each; an epoch ceil(windows / batch) steps in expectation | a fifth of the training persons is about 230 columns and about 4,600 three-body windows; at the smoke's batch of 2, about 2,300 steps an epoch and 115,000 steps in 50 epochs, about 690,000 crops a trial; at the smoke's CPU time that is 67 hours, so the GPU time a crop decides whether a trial is hours or a day; the eight or nine trials run side by side, so the screen's wall time is one trial's | smoke.json (spines_per_batch 2, count 3, 0.35 s a crop on CPU); the subset share and the window length are the plan's |
+| 5 | the same, over the whole training part | about 1,158 columns (at most), about 25,500 vertebrae and 23,000 windows; 50 epochs about 575,000 steps a trial, five times the screen's, and at most twenty-one trials where F is kept, side by side | the screen's measured time a crop; the epoch count is the plan's |
 
-The total ask, in the owner's units: 1 to 2 CPU jobs (stages 1 and 2) and 1 to 2 GPU jobs (stage 4), with stage 3
-folded into a plan another thread is already writing or one CPU job more. Every one waits for his word and count, and
-the size rule applies to nothing here, since no fetch is made.
+The total ask, in the owner's units: 1 to 2 CPU jobs (stages 1 and 2), 2 GPU jobs for the screen (an array and its
+merge) and 2 for the full run, with stage 3 folded into a plan another thread is already writing or one CPU job more,
+and one short gpu-class smoke where the step time is to be measured before the screen. Every one waits for his word
+and count, and the size rule applies to nothing here, since no fetch is made.
 
-## 10. How it fits the swappable-block design and the search flow
+## 10. How it fits the swappable-block design and the launched flow
 
-- The network is already a block (blocks.py's `architecture`, model.ARCHITECTURES). The head is the second spot the
-  model offers: a block `head` with the values heatmap (as now), latent (arm B), hybrid (C), latent-noprior (C0),
-  heatmap-pdm (D) and values (E), with `pdm` naming the fitted model's file by its digest, which needs one new kind in
-  blocks.py's table (a digest string, spelled as given; its kinds today are choice, switch, int, float, pair and
-  triple), `pdm_k` the coefficients kept, `w_prior` the prior term's weight (1 in version 1, 0 for C0) and `emission`
-  choosing what the naming layer reads, measures or latent. None of the five keys is in the table today, and
-  autoanatomist/pdm.py is a free name. The latent head is a dense layer from the fused features' pooled eighth scale
-  to K + 7 numbers (b and the pose); the hybrid differs from it only in the loss and the emission; arm E's head gives
-  2 x 7 numbers. Each head returns landmarks, values and a spread in the same shapes, so the loss terms, the
-  calibration, the naming layer, the session and the search run over any of them unchanged, as the probe does today.
-  No block named is still the smoke run to the bit.
+- The contract, greg's rule of 02:49 UTC: every part is a block, every shape follows from the configuration, and no
+  block value makes a second network. The network is already a block (blocks.py's `architecture`, model.ARCHITECTURES
+  at 7d5fecb, whose table has architecture, w_naming and naming among its thirty keys). The `objective` block
+  (landmarks or mask), its `w_name` and the refusals in blocks.problems are the auto-anatomist thread's work in flight
+  (its notes of 02:28 and 02:50 UTC), not in PR 40 at 7d5fecb; the blocks below assume they land as that note says and
+  sit under objective=landmarks, and the seven key names below are free in the table (that thread, 02:53 UTC).
+- `measures`: the named measure set the readout computes and the rule reads, seven (specs.SEVEN, as now), pool (the 32
+  Panjabi measures) or pool-ratios (the 32 with the size-free ratios). specs.py already derives everything from the
+  keys chosen (specs.select, specs.landmarks giving the union of the points the measures need, specs.index_of,
+  specs.values), so the decoder's landmark channels, the PDM's points, arm E's output width and the rule's table all
+  follow from this one block and the same network serves the seven and the 32; the flow's own plan key for the
+  measure set is dropped in its favour (that thread, 02:53 UTC). What is missing is the specs for the measures beyond
+  the nine defined today, each a smooth rule over named points as the nine are, ported from the engine's definitions
+  (morphoview.lines); that port is part of the head block's landing.
+- `head`: heatmap (as now), latent (arm B), hybrid (C), latent-noprior (C0), heatmap-pdm (D) and values (E), with
+  `pdm` naming the fitted model's file by its digest, which needs one new kind in blocks.py's table (a digest string,
+  spelled as given; its kinds today are choice, switch, int, float, pair and triple), `pdm_k` the coefficients kept and
+  `w_prior` the prior term's weight (1 in version 1, 0 for C0), beside the table's w_naming (the chain term) and the
+  auto-anatomist thread's w_name (its name head), three weights with three meanings. The latent head is a dense layer
+  from the fused features' pooled eighth scale to K + 7 numbers (b and the pose); the hybrid differs from it only in
+  the loss and the emission; arm E's head gives 2 x |measures| numbers. Each head returns landmarks, values and a
+  spread in the same shapes, so the loss terms, the calibration, the naming layer, the session and the flow run over
+  any of them unchanged, as the probe does today. No block named is still the smoke run to the bit.
+- `emission` and `prior`: `emission` chooses what the naming layer reads, measures or latent (the auto-anatomist
+  thread's name head is a classifier on the pooled bottleneck, scored as named right; emission=latent feeds the chain
+  from that latent instead, which lifts the refusal in blocks.problems that objective=mask forces naming off).
+  `prior` chooses the model behind the naming layer: exact, the enumeration of naming.py over schwingcheck's rule, as
+  now and the default; or pymc:<dotted path>, a callable that builds a PyMC model over whatever measures (or latent)
+  the blocks provide, so that a model written for schwingcheck (chain_pymc.py's sampled and enumerated models are the
+  first two values) drops in as it is. For the training loss the PyMC model's log-density is compiled to a JAX
+  function through pymc.sampling.jax.get_jaxified_logp (in PyMC 6.3.2's source, read on 2026-10-30; it gives the
+  negative log-density of the model's free variables unless told otherwise; PyMC 6.3.2 and PyTensor 3.3.4 are the
+  schwingcheck requirements, JAX 0.12 the auto-anatomist's), which jax.grad differentiates; at evaluation the model
+  is sampled and its posterior read beside the exact one; a model whose log-density will not jaxify is used at
+  evaluation only and the loss falls back to exact, which the run's record says. That compile path is to be shown
+  working at stage 3 on chain_pymc.py's enumerated model before the screen names it.
 - The PDM is an asset built by one command from the exported ends (a module `autoanatomist/pdm.py`: fit, project,
   reconstruct, the negative log-likelihood, with tests holding the round trip to 1e-6 and the gradient of the
   reconstruction to a finite difference), kept with its digest so a run names the model it used; it is never fit
-  inside training.
+  inside training. Stage 3's PDM is the same command over the phantoms' oracle ends.
 - The naming layer takes a second emission: a per-level Gaussian over the size-free b whose means and covariances the
   same asset holds, under the rule's shared size (section 6), so `posteriors` and `body_loss` run on either feature
   space; the exact enumeration is unchanged.
-- The data: the search module takes phantom rows only, and the autoanatomist's examples are rendered phantoms read by
-  the stand-in oracle; a real-CT source exists in neither branch. Stage 4 needs a volume row kind in SchwingNet's
-  autoanatomist_search.py and an examples loader in the autoanatomist that cuts crops from a landed CT and its mask
-  with the exported ends as targets, and the flow's fixed mode (section 9).
-- The plan file for stage 4 is one JSON under SchwingNet's grid/searches/, the folder the HANDOFF plans, in the layout
-  of its section 4, with the six heads as the block space, w_prior fixed, the split's salt and shares, and the data
-  source the gold 3 volume rows. The PREREG the auto-anatomist thread is writing (docs/research/autoanatomist-search/,
-  not yet there) asks which blocks give the lowest validation landmark error on phantoms, with no bars, and once
-  frozen may never change, so this evaluation's question, endpoints, gate, strata and bars cannot enter it. Stage 4
-  therefore runs as a flow kind of its own: a line in SchwingNet's flows/registry.txt and a PREREG under SchwingNet's
-  docs/research/latent-shape-prior-evaluation/, to be written and frozen before the first job, with the plan file's
-  bytes in its Covers line; a departure is a dated line in its DEVIATIONS.md.
+- The data: PR 40's rows.py already reads a CT and its label NIfTI as a volume row through the oracle interface and
+  caches it by its digest, so no new loader is needed; what stages 4 and 5 need is the engine's export (the line ends
+  of stage 1) standing behind that interface in place of the stand-in ChordOracle, the volume kind admitted by the
+  search module's row check (it takes phantom rows only today) with a person key (the gold 3 store's member and native
+  id, autoPET's once the match lands) that the split hashes where a row has one and the id otherwise, and the windowing
+  of a volume row into fixed-length fields (section 8), each window a row with its column's person, so that the naming
+  term's equal-count rule holds and the windows of one column land in one part.
+- The screen mode of the flow. None of it is in PR 483 at d8cadc3: flows/autoanatomist.py does not exist,
+  flows/registry.txt names no autoanatomist kind, and autoanatomist_search.py takes phantom rows under the plan keys
+  search, class, rows, split, space, fixed, seeds, rungs, keep, trials, controller, objective, latency_crops and
+  wandb_project, every one required and no other allowed. What follows is the auto-anatomist thread's stated design
+  (its notes of 02:50 and 02:53 UTC): flows/autoanatomist.py, one plan JSON, every trial trained for a fixed epoch
+  count with no halving and no controller, an epoch ceil(training rows / batch) steps where the session draws each
+  batch with replacement (so a pass in expectation only), the anneal over the run, the keys epochs, train_share, test
+  (on or off, off in the screen's plan) added to the HANDOFF's, trial words going straight to blocks.parse, and the
+  join's report marking the pre-registered decision numbers apart from the rest; an ENHANCE.PET row is kind, id, ct,
+  labels, scheme enhance, seed, frame. Most of the screen the HANDOFF's layout could already say (space {head: the six
+  values}, seeds the configurations, trials equal to the seeds, rungs one entry of N steps, keep near 1, rows the
+  fifth's volume rows), so what the module truly lacks is small: a score for a trial whose evaluation gives no landmark
+  distance (arm E, scored on its values and its naming), a test read of every finished trial rather than the best, the
+  volume row kind with its person key, and the windowing. Each trial calibrates and evaluates on the validation
+  persons in its own step, as the search's trial step does; the gathering is the merge run's.
+- The flow kind. One registry kind is held to one PREREG, and the auto-anatomist kind's PREREG asks which blocks give
+  the lowest validation landmark error on phantoms, with no bars; once frozen it may never change, so this evaluation's
+  question, endpoints, gate, strata and bars cannot enter it. Stages 4 and 5 (and stage 3 in its one-job form) are
+  therefore a flow kind of this evaluation's own, with every piece a kind needs: flows/<kind>.py with its FlowSpec
+  class, a thin subclass of the auto-anatomist flow's that reuses its steps, so there is one flow's code and two
+  kinds; grid/<kind>-driver.sbatch in the shape of grid/v1-driver.sbatch, starting flows/launch.py <kind> in the
+  background; the <KIND>_RC word; a KINDS entry with its LEFT_OUT reasons in tools/run_code.py; the gate word in
+  grid/gate.sh with its refusals and its gpu class (the gate refuses a gpu-class job whose script the registry's fourth
+  column does not name); the registry line; and the PREREG under SchwingNet's docs/research/latent-shape-prior-evaluation/
+  with its .sha256 and a Covers line holding both plans' bytes, to be written and frozen before the first job; a
+  departure is a dated line in its DEVIATIONS.md. The trials run as the DRR study's do: a Slurm array, each task its
+  own launcher run of the kind with a --trial word on a card of its own, and a merge run afterany the array.
+- The plan files for stages 4 and 5 are two JSONs under SchwingNet's grid/searches/, the folder the HANDOFF plans, in
+  the layout of its section 4 with the keys above, the six heads as the block space, w_prior fixed, the split's salt
+  and shares, and the data source the gold 3 volume rows; the auto-anatomist thread's own PREREG
+  (docs/research/autoanatomist-search/PREREG.md, not yet there; the folder holds that thread's prior art) covers
+  phantom_smoke alone.
 - Order of landing: the export flag on the engine's branch (PR 44's thread) and the re-vendor of bordercall under
-  SchwingNet's grid/bordercall/; the head block, pdm.py and the examples loader on the auto-anatomist's branch after
-  PR 40 merges (or on a branch of this thread's own from it, once that thread's work is in); the volume row kind and the
-  fixed mode in SchwingNet's search module after PR 483 merges; the plan file, the registry line and the PREREG in
-  SchwingNet with the flow. Stages 2 and 3 ask nothing of PR 40 or PR 483 as they stand; stage 1 asks the export flag of
-  PR 44's thread; stage 4 asks the pieces above of whoever lands them.
+  SchwingNet's grid/bordercall/; the measures port, the head block, pdm.py, the prior block and the windowing on the
+  auto-anatomist's branch after PR 40 merges (or on a branch of this thread's own from it, once that thread's work is
+  in); the volume row kind with its person key, the score for a trial with no landmarks and the test switch in
+  SchwingNet's search module, and flows/autoanatomist.py, after PR 483 merges; then this evaluation's kind, its plan
+  files, its registry line and its PREREG in SchwingNet. Stage 2 asks nothing of PR 40 or PR 483 as they stand; stage 3
+  asks PR 483's plan for the head block in its no-job form; stage 1 asks the export flag of PR 44's thread; stages 4
+  and 5 ask the pieces above of whoever lands them.
 
 ## 11. Prior art, as verified
 
@@ -365,7 +470,7 @@ Found beside them, each more use to the plan than most of the above:
 | Ansart et al. 2022 (prior-art.md) | an L2 on PCA coefficients is PPCA's regulariser, a clip its hard form | the prior term is the PPCA negative log-likelihood, not a bare L2; the clip is out |
 | VIB-DeepSSM (Adams and Elhabian 2022) | a learnt latent with a KL beat the fixed PCA basis on points error | the learnt latent is not an arm of version 1 (section 4, with the reason); arm F in a second run |
 
-## 12. Risks, and what greg is asked
+## 12. Risks, and the decisions taken in greg's place
 
 Risks the design answers, and how:
 
@@ -383,37 +488,44 @@ Risks the design answers, and how:
   fused with the process) are the truth's biases: every arm learns them alike, the report says so, and the pedicle ends
   the engine flags are missing data to the PDM and to the loss.
 - Leakage by person: every ENHANCE.PET study is its own person until the census's match assigns autoPET's, and
-  Leipzig and Careggi have no person id; the match is a dependency of stage 1 and the near-duplicate check on the
-  engine's rows is the leak's test until then (section 8).
+  Leipzig and Careggi have no person id; the match is a dependency of stage 1, the volume rows carry a person key the
+  split hashes, and the near-duplicate check on the engine's rows is the leak's test until then (section 8).
 - MOOSE's masks checked by people are the annotation; nothing here raises a tier, and the maskedge offset (+0.14 to
   +0.20 mm on the phantom) is what a network trained on masks learns.
 - The latent arms may win on landmark distance and lose on the named values or the naming, as Daridon's and Choi's
   ablations did: the endpoints are the values and the naming, not the landmarks.
-- The calibration cannot fail its own gate on validation, so the gate is read on test and carries a sharpness bound
-  (section 7).
+- The calibration cannot fail its own coverage gate on validation, so the gate is read on test and carries a sharpness
+  bound (section 7), and the screen's calibration failure is read as sharpness (section 8).
+- The screen can void a contrast: A goes to the full run whatever it shows, C unless it fails the numbered rule, and
+  the keep list is a dated record before the full run's plan is frozen (section 8).
 
-What greg is asked, once, so the PREREG can be frozen:
+What greg was asked, once, so the PREREG can be frozen, and what he answered at 02:46 UTC: "i have no idea", with the
+rule quoted at the top. So the plan decides, and each decision below stands until he says otherwise:
 
-1. The count and class per stage (section 9): 1 or 2 CPU jobs for stages 1 and 2, 1 or 2 GPU jobs for stage 4, stage 3
-   folded into the phantom_smoke plan or one more CPU job.
-2. The bars, two decisions apart: for the features (B against A), what gain in the two primary endpoints a latent
-   emission must show to displace the named measurements as the rule's features; for the head (C against A, with C0 and
-   D telling why), what gain a latent head must show to replace the heatmaps. The proposal to accept or change: at least
-   0.3 mm of value MAE over the seven chords, and on three-body fields a naming gain whose points are set from stage
-   2's within-column correlation (3 points is underpowered at a test fifth, section 8), each with the lower bound of its
-   interval above the bar and the seed spread below it; the calibration gate of section 7 met; and, for the features
-   decision alone, every kept mode nameable by at most three measures at a partial R^2 of 0.8. Short of any one, the
-   named features and the heatmaps stand.
-3. Whether stage 2 may run in a container, which means the exported ends and values (no image, no mask) leaving the
-   grid as a per-study table, or stays on the grid as one CPU job.
-4. Whether the wider pool (32 measures and the ratios) is the reference named feature set, or the seven chords alone
-   until the extractors deliver the rest with their points.
-5. Whether arms C0, D and E are in the first run or kept for a second, and whether arm F (the learnt latent, the
-   auto-anatomist thread's objective=mask) joins a second run.
-6. Whether stage 4 runs as a flow kind of its own, with its registry line and PREREG under SchwingNet's
-   docs/research/latent-shape-prior-evaluation/ as section 10 proposes, this note staying here.
-7. The test share, 0.2 as proposed or 0.3 for the naming bar's power, and whether a listed test set drawn by anomaly
-   class replaces the hash's draw where a stratum falls below 10 test columns.
+1. Counts and classes (section 9): one CPU job for stage 1 (none if the export rides in the two counted morphometry
+   jobs), one CPU job for stage 2 on the grid, stage 3 folded into phantom_smoke (else one CPU job of this evaluation's
+   kind), two GPU jobs for the screen (the array and its merge), two for the full run, and one short gpu-class smoke
+   where the step time is to be measured before the screen. None is sent without his word and number for it.
+2. The bars, two decisions apart: for the features (B against A) and for the head (C against A, with C0 and D telling
+   why), at least 0.3 mm of value MAE over the seven chords and a naming gain on three-body fields whose points stage 2
+   sets from the within-column correlation (3 points is underpowered at a test fifth under the lower-bound rule,
+   section 8), each with the lower bound of its interval above the bar and the seed spread below it; the calibration
+   gate of section 7 met; and, for the features decision alone, every kept mode nameable by at most three measures at a
+   partial R^2 of 0.8. Short of any one, the named features and the heatmaps stand. The screen sets no bar of its own:
+   it drops only on the three numbered failures of section 8 and ranks the rest.
+3. Stage 2 runs on the grid; nothing leaves it but the aggregates of the report.
+4. The reference named feature set is the 32-measure pool with the ratios, the seven chords reported beside it, since
+   the seven are what the specs draw today and the pool is what the rule can score; one network serves both
+   (section 10).
+5. All six arms are in the screen, arm A at three seeds, and F (the learnt latent, the auto-anatomist thread's
+   objective=mask) joins it where that thread has it ready; the full run takes what the screen keeps, A always and C
+   unless it fails the numbered rule.
+6. Stages 4 and 5 run as a flow kind of this evaluation's own, a thin subclass of the auto-anatomist flow with every
+   piece section 10 lists, its registry line and its PREREG under SchwingNet's docs/research/latent-shape-prior-evaluation/,
+   this note staying here.
+7. The test share is 0.2, and 0.3 (about 500 columns) is the alternative if the naming bar stage 2 gives is wider than
+   three points; the test set is a listed one drawn by anomaly class from the start, since the L4-on-sacrum stratum is
+   expected under 10 test columns at 0.2, with the hash's draw as the fallback; the screen never reads the test persons.
 
 ## 13. What this plan does not do
 
@@ -421,7 +533,7 @@ No training, no job, no data read, no change to PR 40, PR 44 or PR 483. The 2-D 
 view=2d block) is designed in SchwingNet's handoff and is not evaluated here; once the 3-D answer is in, the same
 arms project through project.py and the same figures are drawn on the detector. The morphometry phantoms stay
 deferred; the CTSpinoPelvic1K cross-check stays dropped. A column-wide model (Meng 2020), a learnt latent with a KL
-and the search's sweep of w_prior and K are second runs, not this one.
+beyond arm F and the search's sweep of w_prior and K are later runs, not these.
 
 ## 14. Where this leads: 2-D landmarks that identify the vertebra bearing them
 

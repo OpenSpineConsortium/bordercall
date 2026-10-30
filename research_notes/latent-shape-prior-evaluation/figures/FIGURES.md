@@ -9,14 +9,14 @@ The design matrix of the plan: six arms down the side (A the rules as they stand
 
 - fig1_design.caption.txt, sha256 f94bf601be323b5fcbfdbc10f2843b164413d35e18d6c7400354aa3eb2cd0520
 - fig1_design.csv, sha256 535a20cec39c4e4380ce20d5c3282afa4ab11a942bd25ff4a8278b4d0f703398
-- fig1_design.pdf, sha256 0ea36633d5c0a733138da7009f8226e1f3c9c738c0df6f933360f4277c4dc5f7
+- fig1_design.pdf, sha256 40e6337c60421bf027a5d604d1ff20354f276ad93760ca28a3ac22140d0805c9
 - fig1_design.png, sha256 cddc02651fbcfd123f52802115f1137a5feecf20c48c51787e005064684c46a9
 
 ## fig2_stages
 
-The stages in order, each bar the grid jobs it would ask for (black) or none (white, a container or the flow's own end step), with the decision it informs. Stage 1 asks for no job of its own only where the line-end export and morphoview reach SchwingNet's pinned copy of bordercall before the two morphometry jobs the owner counted on 2026-10-29 are sent; stage 3 asks for none where the heads join the phantom_smoke plan another thread is writing. Stage 4 is a fixed design, every trial read on the test persons, not the search flow's halving. Every count waits for the owner's word; none has been sent.
+The stages in order, each bar the grid jobs it would ask for (black) or none (white, a container or the flow's own end step), with the decision it informs. Stage 1 asks for no job of its own only where the line-end export and morphoview reach SchwingNet's pinned copy of bordercall before the two morphometry jobs the owner counted on 2026-10-29 are sent; stage 3 asks for none where the head block joins the phantom_smoke plan another thread is writing before its PREREG is frozen. Stage 4 is the screen greg asked for on 2026-10-30: every arm in parallel on a short run of 50 epochs, each trial an array task on a card of its own and a merge run after it, read on validation; stage 5 the full run of what it keeps, the same two jobs, every trial read once on test, in a fixed design and not the search flow's halving. Every count waits for the owner's word; none has been sent.
 
-- fig2_stages.caption.txt, sha256 687f77b49723ba52abf6071ee35f7d7485ce0130fc64f91b35d724302d0b6139
-- fig2_stages.csv, sha256 812c1d8509e520496bfdd9afb0b9932841bdff5f2faf1badf96aec6ecab14aa8
-- fig2_stages.pdf, sha256 a2283000b059c8016cf11cadef796148de0f8ded08a31e1108bfbba16f29bf96
-- fig2_stages.png, sha256 d86de595918746d460d57249169bf31c7c6ddcd6347f99e21310d62cff368d36
+- fig2_stages.caption.txt, sha256 15aeb91758cef85fb7d8ec54555eb341df5d9eb148940c3452632b1fb0a4b6e0
+- fig2_stages.csv, sha256 c464fc200d34a47514818b01463117aaea9fd34ff46b4cc22fd8560ab1dd32e6
+- fig2_stages.pdf, sha256 ff4389b755ffedeae2ec0a08a2ce5a27dbacfcca08f990ffc97610df73915a48
+- fig2_stages.png, sha256 e4416f053104568d0fe7a7cdead7cabf44bc06acd57db9e8daeb5d4d145bf7c0
