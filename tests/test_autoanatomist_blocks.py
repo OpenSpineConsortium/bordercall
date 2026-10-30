@@ -88,8 +88,9 @@ class TheBlocks(unittest.TestCase):
         self.assertIn("default adamw", text)
         self.assertIn("default 16:32:64", text)
         self.assertIn("default residual-unet", text)
-        self.assertEqual(len(B.TABLE), 31)
-        self.assertEqual(B.DEFAULTS.weights(), {"landmark": 1.0, "spread": 0.1, "value": 1.0, "feature": 1.0, "naming": 0.1})
+        self.assertEqual(len(B.TABLE), 34)                      # 31 at the first count, then w_mask, objective and w_name
+        self.assertEqual(B.DEFAULTS.weights(), {"landmark": 1.0, "spread": 0.1, "value": 1.0, "feature": 1.0, "naming": 0.1,
+                                                 "mask": 1.0, "name": 0.1})
         self.assertEqual(B.DEFAULTS.rungs(), {"bone_hu": 200.0, "width_hu": 60.0, "blur_max_mm": 4.0})
 
 
