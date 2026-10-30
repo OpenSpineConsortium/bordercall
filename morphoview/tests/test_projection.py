@@ -197,6 +197,63 @@ class FlexraysCamera(unittest.TestCase):
                 self.assertGreater(float(np.median(err)), 0.4, (name, slip))
 
 
+class OneCamera(unittest.TestCase):
+    """autoanatomist.project's Camera (bordercall PR 40) copies nanoDRR's camera too, read from
+    0.1.7, where this module copies 0.1.5; the two releases' camera code is the same (their
+    camera/ packages do not differ; 0.1.7 changes how a ray is sampled, not where it runs). Both
+    are held here to the one record FleXray made, so neither can drift from it alone. They differ
+    only in how a pixel is counted: the auto-anatomist puts pixel c's centre at u = c, this module
+    at u = c + 1/2."""
+
+    @staticmethod
+    def theirs(view: PJ.View):
+        from autoanatomist import project as AP
+        return AP.Camera(view.rot_deg, view.xyz_mm, view.isocentre_mm, view.sdd, view.delx, view.pixel_y,
+                         view.height, view.width, view.x0, view.y0, view.orthographic, view.orientation)
+
+    def records(self):
+        for v in RECORD["views"] + RECORD["orientations"]:
+            yield v.get("name", "orientation %s" % v["view"]["orientation"]), PJ.View(**v["view"]), v["camera"]
+
+    def test_the_matrix_is_flexrays(self):
+        for name, view, rec in self.records():
+            np.testing.assert_allclose(self.theirs(view).rt_inv, rec["rt_inv"], rtol=0, atol=EXACT_MM, err_msg=name)
+
+    def test_a_point_on_a_pixels_ray_lands_on_the_same_pixel(self):
+        for name, view, rec in self.records():
+            src, det = np.array(rec["source"]), np.array(rec["detector"])
+            for f in (0.05, 0.5, 0.95):
+                got = self.theirs(view).project(src + f * (det - src))
+                np.testing.assert_allclose(np.stack([got.u, got.v], axis=1) + 0.5, rec["uv"], rtol=0, atol=1e-9,
+                                           err_msg=name)
+                self.assertTrue(got.visible.all(), name)
+
+    def test_beads_land_where_flexray_rendered_them(self):
+        beads = np.array(RECORD["beads"]["centroids_mm"])
+        for name, cam, v in recorded_views():
+            got = self.theirs(cam.view).project(beads)
+            err = np.linalg.norm(np.stack([got.u, got.v], axis=1) + 0.5 - np.array(v["bead_centroids_uv"]), axis=1)
+            self.assertLessEqual(float(err.max()), BEAD_PX, name)
+
+    def test_the_two_agree_on_any_view(self):
+        # views and points neither record holds: the same places, depths and beams
+        rng = np.random.default_rng(2026)
+        for k in range(60):
+            view = PJ.View(rot_deg=tuple(rng.uniform(-180, 180, 3)),
+                           xyz_mm=(float(rng.uniform(-100, 100)), float(rng.uniform(500, 900)), float(rng.uniform(-100, 100))),
+                           isocentre_mm=tuple(rng.uniform(-200, 200, 3)), sdd=float(rng.uniform(1000, 1300)),
+                           delx=float(rng.uniform(0.3, 2)), dely=float(rng.uniform(0.3, 2)),
+                           x0=float(rng.uniform(-20, 20)), y0=float(rng.uniform(-20, 20)),
+                           height=int(rng.integers(64, 1025)), width=int(rng.integers(64, 1025)),
+                           orthographic=k % 5 == 0, orientation=sorted(PJ.ORIENTATIONS, key=str)[k % 3])
+            pts = np.array(view.isocentre_mm) + rng.normal(0, 80, (200, 3))
+            ours, got = PJ.Camera(view).project(pts), self.theirs(view).project(pts)
+            np.testing.assert_array_equal(ours.in_beam, got.visible, err_msg=str(k))
+            seen = ours.in_beam
+            np.testing.assert_allclose(np.stack([got.u, got.v], axis=1)[seen] + 0.5, ours.uv[seen], rtol=0, atol=1e-9)
+            np.testing.assert_allclose(got.depth, ours.depth, rtol=0, atol=1e-9)
+
+
 class Geometry(unittest.TestCase):
     def camera(self, **more) -> PJ.Camera:
         view = dict(rot_deg=(20.0, -10.0, 5.0), xyz_mm=(-30.0, 650.0, 20.0), isocentre_mm=(1.0, 2.0, 3.0),
