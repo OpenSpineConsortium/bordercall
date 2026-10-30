@@ -1,0 +1,5 @@
+thin x2 notch 5,6,4: err  +0.25 edges 134 dropped 36 span 13.1 free  1.11 parted True fit +1.87 canal line -25.17 deg reach 5.00 why 
+thin x2 notch 5,6,5: err  +0.33 edges 188 dropped 0 span 15.1 free  0.46 parted True fit +1.95 canal line +0.00 deg reach 4.40 why 
+thin x2 notch 5,8,4: err  +0.25 edges 131 dropped 48 span 13.1 free  1.11 parted True fit +1.87 canal line -26.88 deg reach 5.39 why 
+thin x2 notch 8,8,5: err  -0.98 edges 81 dropped 143 span 15.0 free  1.49 parted False fit +0.01 canal line +0.00 deg reach 5.61 why 
+thin x2 notch 5,10,4: err  +0.66 edges 88 dropped 96 span 13.0 free  1.29 parted True fit +0.98 canal line -24.84 deg reach 5.40 why 

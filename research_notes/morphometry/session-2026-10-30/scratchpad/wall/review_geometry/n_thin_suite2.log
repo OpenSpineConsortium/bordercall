@@ -1,0 +1,5 @@
+thin suite notch 8,6,4: err  -0.20 edges 150 dropped 67 span 15.9 free  0.35 parted True fit -0.24 canal line -18.74 deg reach 4.75 why 
+thin suite notch 8,8,5: err  +1.24 edges 71 dropped 85 span 11.4 free  1.12 parted False fit +1.24 canal line -28.82 deg reach 5.16 why 
+thin suite notch 10,4,3: err  -0.14 edges 167 dropped 53 span 15.9 free  0.21 parted False fit -0.14 canal line -0.77 deg reach 4.42 why 
+thin suite notch 3,6,4: err  -0.13 edges 187 dropped 28 span 15.7 free  0.27 parted True fit -0.28 canal line -20.20 deg reach 4.75 why 
+thin suite notch 5,4,4: err  -0.12 edges 190 dropped 21 span 15.9 free  0.32 parted False fit -0.12 canal line -0.77 deg reach 4.42 why 

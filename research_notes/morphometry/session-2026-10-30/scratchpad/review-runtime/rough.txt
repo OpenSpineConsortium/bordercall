@@ -1,0 +1,25 @@
+== old-rough rep 1: 50.7 s wall 892012 KB maxrss rc 0
+   old full_thick_rough 10.3 s
+   old full_thin_rough 25.1 s
+   old lumbar_thick_rough 4.2 s
+   old lumbar_thin_rough 10.6 s
+   error rows per study: 0 0 0 0
+== new-rough rep 1: 79.2 s wall 898732 KB maxrss rc 0
+   new full_thick_rough 17.5 s
+   new full_thin_rough 38.5 s
+   new lumbar_thick_rough 6.0 s
+   new lumbar_thin_rough 16.5 s
+   error rows per study: 0 0 0 0
+== old-rough rep 2: 54.4 s wall 891108 KB maxrss rc 0
+   old full_thick_rough 11.9 s
+   old full_thin_rough 26.8 s
+   old lumbar_thick_rough 4.8 s
+   old lumbar_thin_rough 10.5 s
+   error rows per study: 0 0 0 0
+== new-rough rep 2: 77.4 s wall 898704 KB maxrss rc 0
+   new full_thick_rough 16.7 s
+   new full_thin_rough 37.3 s
+   new lumbar_thick_rough 6.1 s
+   new lumbar_thin_rough 16.6 s
+   error rows per study: 0 0 0 0
+ROUGH DONE

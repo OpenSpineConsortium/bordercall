@@ -1,0 +1,21 @@
+== Straight (test_pedicles, test_end_plate_angles_and_areas, test_posterior_elements): wall truth -0.00, read -0.11 (err -0.11), uncut -0.11 (err -0.11), canal line err -0.02
+   now       sag_right +0.19 (tol 1.5)  sag_left +0.73 (tol 1.5)  endplate_incl -0.13 (tol 1.5)  endplate_lower_incl +0.12 (tol 1.5)  spinous +0.72 (tol 3.0)
+   uncut     sag_right +0.19 (tol 1.5)  sag_left +0.73 (tol 1.5)  endplate_incl -0.13 (tol 1.5)  endplate_lower_incl +0.12 (tol 1.5)  spinous +0.72 (tol 3.0)
+   true wall sag_right +0.08 (tol 1.5)  sag_left +0.62 (tol 1.5)  endplate_incl -0.24 (tol 1.5)  endplate_lower_incl +0.02 (tol 1.5)  spinous +0.83 (tol 3.0)
+== Shapes (test_pedicle_angles, test_processes): wall truth +0.01, read -0.39 (err -0.40), uncut +0.17 (err +0.17), canal line err -1.51
+   now       sag_right +0.54 (tol 1.5)  sag_left +0.52 (tol 1.5)  endplate_incl +0.55 (tol 1.5)  endplate_lower_incl +0.14 (tol 1.5)  spinous -0.59 (tol 3.0)
+   uncut     sag_right -0.02 (tol 1.5)  sag_left -0.05 (tol 1.5)  endplate_incl -0.02 (tol 1.5)  endplate_lower_incl -0.43 (tol 1.5)  spinous -0.03 (tol 3.0)
+   true wall sag_right +0.14 (tol 1.5)  sag_left +0.11 (tol 1.5)  endplate_incl +0.15 (tol 1.5)  endplate_lower_incl -0.27 (tol 1.5)  spinous -0.19 (tol 3.0)
+== PitchedDown (test_pedicle_angles_and_size): wall truth -0.00, read -0.81 (err -0.80), uncut -0.11 (err -0.11), canal line err -0.77
+   now       sag_right +0.15 (tol 1.5)  sag_left +1.14 (tol 1.5)  endplate_incl +0.69 (tol 1.5)  endplate_lower_incl +0.72 (tol 1.5)  spinous +0.09 (tol 3.0)
+   uncut     sag_right -0.55 (tol 1.5)  sag_left +0.44 (tol 1.5)  endplate_incl -0.00 (tol 1.5)  endplate_lower_incl +0.03 (tol 1.5)  spinous +0.78 (tol 3.0)
+   true wall sag_right -0.66 (tol 1.5)  sag_left +0.33 (tol 1.5)  endplate_incl -0.11 (tol 1.5)  endplate_lower_incl -0.08 (tol 1.5)  spinous +0.89 (tol 3.0)
+== Overhang (test_pedicle_under_the_process): wall truth -0.01, read -0.12 (err -0.12), uncut -0.12 (err -0.12), canal line err -0.80
+   now       sag_right +0.31 (tol 1.5)  sag_left -0.18 (tol 1.5)  endplate_incl -0.13 (tol 1.5)  endplate_lower_incl +0.09 (tol 1.5)  spinous +0.20 (tol 3.0)
+   uncut     sag_right +0.31 (tol 1.5)  sag_left -0.18 (tol 1.5)  endplate_incl -0.13 (tol 1.5)  endplate_lower_incl +0.09 (tol 1.5)  spinous +0.20 (tol 3.0)
+   true wall sag_right +0.19 (tol 1.5)  sag_left -0.30 (tol 1.5)  endplate_incl -0.24 (tol 1.5)  endplate_lower_incl -0.02 (tol 1.5)  spinous +0.32 (tol 3.0)
+== ThickSlices (test_pedicle_sagittal_angle_is_refused_or_right): wall truth +0.01, read -4.50 (err -4.51), uncut -2.63 (err -2.64), canal line err -3.99
+   now       endplate_incl +4.55 (tol 1.5)  endplate_lower_incl +4.69 (tol 1.5)  spinous -7.89 (tol 3.0)
+   uncut     endplate_incl +2.68 (tol 1.5)  endplate_lower_incl +2.82 (tol 1.5)  spinous -6.02 (tol 3.0)
+   true wall endplate_incl +0.04 (tol 1.5)  endplate_lower_incl +0.18 (tol 1.5)  spinous -3.38 (tol 3.0)
+   not read: sag_raw_right, sag_raw_left

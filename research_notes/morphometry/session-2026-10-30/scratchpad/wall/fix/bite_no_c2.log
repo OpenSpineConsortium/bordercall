@@ -1,0 +1,16 @@
+test_wall_below_the_dens (morphometry.tests.test_morphometry.DensAtC2.test_wall_below_the_dens) ... FAIL
+
+======================================================================
+FAIL: test_wall_below_the_dens (morphometry.tests.test_morphometry.DensAtC2.test_wall_below_the_dens)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/bordercall/morphometry/tests/test_morphometry.py", line 549, in test_wall_below_the_dens
+    self.assertLessEqual(abs(err), WALL_TOL_DEG, "the wall reads %.2f degrees off" % err)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 8.08354360875827 not less than or equal to 0.5 : the wall reads 8.08 degrees off
+
+----------------------------------------------------------------------
+Ran 1 test in 9.948s
+
+FAILED (failures=1)
+no_c2: 1 run, 1 failed, 0 errors

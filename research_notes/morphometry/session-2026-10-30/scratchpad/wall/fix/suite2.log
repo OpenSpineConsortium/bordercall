@@ -1,0 +1,53 @@
+test_end_plate_inclinations (morphometry.tests.test_morphometry.BasivertebralNotch.test_end_plate_inclinations) ... ok
+test_the_fit_leaves_the_notch_out (morphometry.tests.test_morphometry.BasivertebralNotch.test_the_fit_leaves_the_notch_out)
+The fit itself, before the clamp, which on its own could hold a fit the notch pulled ... ok
+test_wall_past_the_notch (morphometry.tests.test_morphometry.BasivertebralNotch.test_wall_past_the_notch) ... ok
+test_the_wall_is_refused (morphometry.tests.test_morphometry.DeepNotch.test_the_wall_is_refused) ... ok
+test_wall_below_the_dens (morphometry.tests.test_morphometry.DensAtC2.test_wall_below_the_dens) ... ok
+test_the_flag_where_the_label_does_not_part (morphometry.tests.test_morphometry.FreeWall.test_the_flag_where_the_label_does_not_part)
+Where the label does not part, the freedom is a clean digitisation's and bounds ... ok
+test_the_freedom_is_flagged (morphometry.tests.test_morphometry.FreeWall.test_the_freedom_is_flagged) ... ok
+test_disc_at_the_centre (morphometry.tests.test_morphometry.Joints.test_disc_at_the_centre) ... ok
+test_segment_angles (morphometry.tests.test_morphometry.Joints.test_segment_angles) ... ok
+test_slip (morphometry.tests.test_morphometry.Joints.test_slip) ... ok
+test_a_short_free_pedicle_reads_no_sagittal_angle (morphometry.tests.test_morphometry.LateralMass.test_a_short_free_pedicle_reads_no_sagittal_angle)
+The foramen leaves the pedicle free over 4 mm front to back, under SAGITTAL_SPAN_MM. ... ok
+test_interpedicular_at_the_isthmus (morphometry.tests.test_morphometry.LateralMass.test_interpedicular_at_the_isthmus) ... ok
+test_pedicle_without_the_mass (morphometry.tests.test_morphometry.LateralMass.test_pedicle_without_the_mass) ... ok
+test_a_wall_not_read_reads_no_angle_against_it (morphometry.tests.test_morphometry.LeanedWall.test_a_wall_not_read_reads_no_angle_against_it)
+Where the wall is refused, the four angles taken against it are not read, each with ... ok
+test_specks_behind_the_wall (morphometry.tests.test_morphometry.LeanedWall.test_specks_behind_the_wall)
+A speck of bone behind the wall keeps the whole label from parting; the clamp sets aside ... ok
+test_the_clamp (morphometry.tests.test_morphometry.LeanedWall.test_the_clamp)
+The label parts bone from air along the wall, so the reading is clamped into the range ... ok
+test_wall_on_the_staircase (morphometry.tests.test_morphometry.LeanedWall.test_wall_on_the_staircase) ... ok
+test_pedicle_under_the_process (morphometry.tests.test_morphometry.Overhang.test_pedicle_under_the_process) ... ok
+test_incidence_and_its_parts (morphometry.tests.test_morphometry.Pelvis.test_incidence_and_its_parts) ... ok
+test_sockets (morphometry.tests.test_morphometry.Pelvis.test_sockets) ... ok
+test_pedicle_angles_and_size (morphometry.tests.test_morphometry.PitchedDown.test_pedicle_angles_and_size) ... ok
+test_concavity_and_waist (morphometry.tests.test_morphometry.Shapes.test_concavity_and_waist) ... ok
+test_pedicle_angles (morphometry.tests.test_morphometry.Shapes.test_pedicle_angles) ... ok
+test_processes (morphometry.tests.test_morphometry.Shapes.test_processes) ... ok
+test_wedge_and_heights (morphometry.tests.test_morphometry.Shapes.test_wedge_and_heights) ... ok
+test_the_wall_is_read (morphometry.tests.test_morphometry.SpeckOnTheMargin.test_the_wall_is_read) ... ok
+test_axis_follows_the_end_plates (morphometry.tests.test_morphometry.Straight.test_axis_follows_the_end_plates) ... ok
+test_body (morphometry.tests.test_morphometry.Straight.test_body) ... ok
+test_canal (morphometry.tests.test_morphometry.Straight.test_canal) ... ok
+test_discs_and_segments (morphometry.tests.test_morphometry.Straight.test_discs_and_segments) ... ok
+test_end_plate_angles_and_areas (morphometry.tests.test_morphometry.Straight.test_end_plate_angles_and_areas) ... ok
+test_pedicles (morphometry.tests.test_morphometry.Straight.test_pedicles) ... ok
+test_posterior_elements (morphometry.tests.test_morphometry.Straight.test_posterior_elements) ... ok
+test_chords_across (morphometry.tests.test_morphometry.ThickSlices.test_chords_across) ... ok
+test_end_plate_inclinations (morphometry.tests.test_morphometry.ThickSlices.test_end_plate_inclinations)
+The plates are read rim to rim within a few tenths of a degree here; the wall they are ... ok
+test_heights_and_discs (morphometry.tests.test_morphometry.ThickSlices.test_heights_and_discs) ... ok
+test_pedicle_sagittal_angle_is_refused_or_right (morphometry.tests.test_morphometry.ThickSlices.test_pedicle_sagittal_angle_is_refused_or_right)
+On 2.5 mm layers the pedicle's surfaces cross too few layers over its span to pin its ... ok
+test_a_label_holding_half_a_neighbour (morphometry.tests.test_morphometry.WrongMasks.test_a_label_holding_half_a_neighbour) ... ok
+test_a_vertebra_cut_by_the_volume (morphometry.tests.test_morphometry.WrongMasks.test_a_vertebra_cut_by_the_volume) ... ok
+
+----------------------------------------------------------------------
+Ran 39 tests in 428.275s
+
+OK
+EXIT 0

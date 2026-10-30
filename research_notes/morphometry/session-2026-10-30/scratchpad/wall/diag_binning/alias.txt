@@ -1,0 +1,43 @@
+pitched_down_lean+0_x10_thin           {'wall': 14, 'cut': 1, 'alias': 0, 'inner': 0, 'two_layers': 3, 'bins': 15}
+pitched_down_lean+0_x2_thick           {'wall': 5, 'cut': 2, 'alias': 0, 'inner': 0, 'two_layers': 0, 'bins': 7}
+pitched_down_lean+0_x2_thin            {'wall': 12, 'cut': 4, 'alias': 0, 'inner': 0, 'two_layers': 0, 'bins': 16}
+pitched_lean+0_x10_thin                {'wall': 14, 'cut': 1, 'alias': 0, 'inner': 0, 'two_layers': 3, 'bins': 15}
+pitched_lean+0_x2_thick                {'wall': 5, 'cut': 2, 'alias': 0, 'inner': 0, 'two_layers': 0, 'bins': 7}
+pitched_lean+0_x2_thin                 {'wall': 12, 'cut': 4, 'alias': 0, 'inner': 0, 'two_layers': 0, 'bins': 16}
+shapes_lean+0_x2_thick                 {'wall': 5, 'cut': 2, 'alias': 0, 'inner': 0, 'two_layers': 0, 'bins': 7}
+shapes_lean+0_x2_thin                  {'wall': 13, 'cut': 4, 'alias': 0, 'inner': 0, 'two_layers': 0, 'bins': 17}
+shapes_lean+0_x5_thick                 {'wall': 6, 'cut': 1, 'alias': 0, 'inner': 0, 'two_layers': 0, 'bins': 7}
+shapes_lean+4_aligned_thick            {'wall': 6, 'cut': 1, 'alias': 0, 'inner': 0, 'two_layers': 0, 'bins': 7}
+shapes_lean+4_x2_thick                 {'wall': 6, 'cut': 1, 'alias': 0, 'inner': 0, 'two_layers': 0, 'bins': 7}
+shapes_lean+4_x2_thin                  {'wall': 17, 'cut': 1, 'alias': 0, 'inner': 0, 'two_layers': 0, 'bins': 18}
+straight_lean+0_x2_thick               {'wall': 5, 'cut': 2, 'alias': 0, 'inner': 0, 'two_layers': 0, 'bins': 7}
+straight_lean+0_x2_thin                {'wall': 14, 'cut': 2, 'alias': 0, 'inner': 0, 'two_layers': 0, 'bins': 16}
+straight_lean+5_x10_thin               {'wall': 14, 'cut': 1, 'alias': 0, 'inner': 0, 'two_layers': 2, 'bins': 15}
+straight_lean+5_x2_thick               {'wall': 6, 'cut': 1, 'alias': 0, 'inner': 0, 'two_layers': 0, 'bins': 7}
+straight_lean+5_x2_thin                {'wall': 14, 'cut': 2, 'alias': 0, 'inner': 0, 'two_layers': 0, 'bins': 16}
+straight_lean-5_x10_thick              {'wall': 6, 'cut': 1, 'alias': 0, 'inner': 0, 'two_layers': 0, 'bins': 7}
+straight_lean-5_x10_thin               {'wall': 14, 'cut': 1, 'alias': 0, 'inner': 0, 'two_layers': 2, 'bins': 15}
+straight_lean-5_x2_thick               {'wall': 6, 'cut': 1, 'alias': 0, 'inner': 0, 'two_layers': 0, 'bins': 7}
+all configs: {'wall': 1056, 'cut': 35, 'alias': 0, 'inner': 0, 'two_layers': 275, 'bins': 1091}
+
+max |error| (degrees) by spacing, over the configs:
+  thin  n=49  cur 4.14  cur_zp 4.24  layer 4.01  uncut 2.04  uncut_lay 2.33  oracle 0.21  canal 3.74  phase-spread max 1.05
+  thick n=49  cur 5.66  cur_zp 5.69  layer 5.69  uncut 2.19  uncut_lay 2.49  oracle 0.89  canal 7.72  phase-spread max 2.46
+
+median |error| by spacing:
+  thin  cur 0.40  cur_zp 0.38  layer 0.29  uncut 0.11  uncut_lay 0.11  oracle 0.01  canal 0.48
+  thick cur 0.39  cur_zp 0.26  layer 0.47  uncut 0.26  uncut_lay 0.44  oracle 0.03  canal 1.28
+
+by the wall's angle to the nearest lattice plane (all phantoms, both spacings):
+  rel  0.0.. 0.5 thin  n= 5  cur 0.06  layer 0.00  uncut 0.06  uncut_lay 0.00  oracle 0.06  cut-binds in 0 configs
+  rel  0.0.. 0.5 thick n= 5  cur 0.89  layer 0.00  uncut 0.89  uncut_lay 0.00  oracle 0.89  cut-binds in 0 configs
+  rel  0.5.. 3.5 thin  n= 7  cur 4.14  layer 4.01  uncut 1.30  uncut_lay 1.38  oracle 0.13  cut-binds in 6 configs
+  rel  0.5.. 3.5 thick n= 7  cur 5.66  layer 5.69  uncut 2.19  uncut_lay 2.49  oracle 0.11  cut-binds in 6 configs
+  rel  3.5.. 7.5 thin  n=16  cur 2.04  layer 2.33  uncut 2.04  uncut_lay 2.33  oracle 0.12  cut-binds in 1 configs
+  rel  3.5.. 7.5 thick n=16  cur 2.64  layer 2.70  uncut 1.05  uncut_lay 1.95  oracle 0.23  cut-binds in 3 configs
+  rel  7.5..12.5 thin  n= 6  cur 0.91  layer 1.44  uncut 0.32  uncut_lay 0.55  oracle 0.08  cut-binds in 2 configs
+  rel  7.5..12.5 thick n= 6  cur 0.29  layer 1.03  uncut 0.29  uncut_lay 1.03  oracle 0.16  cut-binds in 0 configs
+  rel 12.5..40.0 thin  n=15  cur 0.80  layer 0.80  uncut 0.38  uncut_lay 0.15  oracle 0.21  cut-binds in 1 configs
+  rel 12.5..40.0 thick n=15  cur 2.14  layer 2.21  uncut 0.79  uncut_lay 1.06  oracle 0.45  cut-binds in 1 configs
+
+|cur error - fit of the least-y points' excess over the true wall|: max 0.89 median 0.02

@@ -1,0 +1,4 @@
+lean +5 thin pitch  30.0 turn   0.0 axis 1 d [-0.005 -0.693  0.4  ] err  +0.08 edges 198 dropped 0 free  0.54 parted True fit +5.09 why  flags []
+lean +5 thin pitch  40.0 turn   0.0 axis 1 d [-0.016 -0.612  0.515] err  +0.01 edges 184 dropped 0 free  0.23 parted True fit +5.05 why  flags []
+lean +5 thin pitch  48.0 turn   0.0 axis 2 d [ 0.008 -0.743 -0.67 ] err  +0.03 edges 196 dropped 0 free  0.56 parted True fit +4.99 why  flags []
+lean +5 thin pitch  52.0 turn   0.0 axis 2 d [-0.004 -0.776 -0.631] err  -0.16 edges 206 dropped 0 free  0.37 parted True fit +3.72 why  flags []

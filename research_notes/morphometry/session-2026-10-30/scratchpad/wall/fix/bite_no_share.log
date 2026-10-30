@@ -1,0 +1,16 @@
+test_the_wall_is_refused (morphometry.tests.test_morphometry.DeepNotch.test_the_wall_is_refused) ... ERROR
+
+======================================================================
+ERROR: test_the_wall_is_refused (morphometry.tests.test_morphometry.DeepNotch.test_the_wall_is_refused)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/bordercall/morphometry/tests/test_morphometry.py", line 499, in test_the_wall_is_refused
+    self.assertIn("per cent of the band's edges", self.rows["flag:posterior_wall"])
+                                                  ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+KeyError: 'flag:posterior_wall'
+
+----------------------------------------------------------------------
+Ran 1 test in 12.302s
+
+FAILED (errors=1)
+no_share: 1 run, 0 failed, 1 errors

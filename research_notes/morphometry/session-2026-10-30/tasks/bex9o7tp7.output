@@ -1,0 +1,26 @@
+phantom digest matches record: True
+record versions: {'flexray': '1.0.2', 'nanodrr': '0.1.5', 'torch': '2.15.0+cpu'}
+bead truth equals record: 0.09531484345708918
+lateral cone bead centroids again vs record: max 1.01e-01 px, None mismatches 0
+   L2       threshold 0.5: FleXray labels vs record masks differ 0 px, vs supports differ 541 px; supports 1921 px, record masks 1380 px
+   L3       threshold 0.5: FleXray labels vs record masks differ 0 px, vs supports differ 487 px; supports 1857 px, record masks 1370 px
+   L4       threshold 0.5: FleXray labels vs record masks differ 0 px, vs supports differ 453 px; supports 1816 px, record masks 1363 px
+   L2       threshold 0.0: FleXray labels vs record masks differ 541 px, vs supports differ 0 px; supports 1921 px, record masks 1380 px
+   L3       threshold 0.0: FleXray labels vs record masks differ 487 px, vs supports differ 0 px; supports 1857 px, record masks 1370 px
+   L4       threshold 0.0: FleXray labels vs record masks differ 453 px, vs supports differ 0 px; supports 1816 px, record masks 1363 px
+oblique cone, principal point off the centre bead centroids again vs record: max 8.84e-02 px, None mismatches 0
+   L2       threshold 0.5: FleXray labels vs record masks differ 0 px, vs supports differ 1179 px; supports 3291 px, record masks 2112 px
+   L3       threshold 0.5: FleXray labels vs record masks differ 0 px, vs supports differ 1148 px; supports 3339 px, record masks 2191 px
+   L4       threshold 0.5: FleXray labels vs record masks differ 0 px, vs supports differ 1210 px; supports 3468 px, record masks 2258 px
+   L2       threshold 0.0: FleXray labels vs record masks differ 1179 px, vs supports differ 0 px; supports 3291 px, record masks 2112 px
+   L3       threshold 0.0: FleXray labels vs record masks differ 1148 px, vs supports differ 0 px; supports 3339 px, record masks 2191 px
+   L4       threshold 0.0: FleXray labels vs record masks differ 1210 px, vs supports differ 0 px; supports 3468 px, record masks 2258 px
+parallel beam from behind bead centroids again vs record: max 8.63e-02 px, None mismatches 0
+   L2       threshold 0.5: FleXray labels vs record masks differ 0 px, vs supports differ 375 px; supports 1115 px, record masks 740 px
+   L3       threshold 0.5: FleXray labels vs record masks differ 0 px, vs supports differ 386 px; supports 1125 px, record masks 739 px
+   L4       threshold 0.5: FleXray labels vs record masks differ 0 px, vs supports differ 387 px; supports 1123 px, record masks 736 px
+   L2       threshold 0.0: FleXray labels vs record masks differ 375 px, vs supports differ 0 px; supports 1115 px, record masks 740 px
+   L3       threshold 0.0: FleXray labels vs record masks differ 386 px, vs supports differ 0 px; supports 1125 px, record masks 739 px
+   L4       threshold 0.0: FleXray labels vs record masks differ 387 px, vs supports differ 0 px; supports 1123 px, record masks 736 px
+
+[exited with code 0]

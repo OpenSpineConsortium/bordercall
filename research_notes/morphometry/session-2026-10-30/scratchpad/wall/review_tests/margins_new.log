@@ -1,0 +1,25 @@
+LeanedWall L3: wall 4.837 deg, truth 4.934, error -0.097
+   parted=True, fitted_deg=4.528101606235569, free_lo_deg=4.836850585516267, free_hi_deg=5.130840020025051, free_deg=0.29398943450878434, edges=240, dropped=0
+   clamp moved the slope by +0.3087 deg
+Notch L3: wall -0.206 deg, truth -0.002, error -0.205
+   parted=True, fitted_deg=-0.24683426957059118, free_lo_deg=-0.20631588006492815, free_hi_deg=0.14840148411647877, free_deg=0.3547173641814069, edges=173, dropped=44
+   clamp moved the slope by +0.0405 deg
+   endplate_incl 0.079 against -0.000: error +0.079
+   endplate_lower_incl 0.171 against 0.000: error +0.171
+   wedge 0.091 against 0.000: error +0.091
+   body flags: []
+   canal line slope -0.3392 (-18.74 deg), wall_y0 -4.503
+ThickSlices L3: wall 0.200 deg, truth 0.013, error +0.188
+   parted=True, fitted_deg=0.20016569094899841, free_lo_deg=-0.5549361857445347, free_hi_deg=1.0295044304377163, free_deg=1.584440616182251, edges=78, dropped=0
+   clamp moved the slope by +0.0000 deg
+   endplate_incl -0.148 against -0.000: error -0.148
+   endplate_lower_incl -0.007 against 0.000: error -0.007
+   wedge 0.140 against 0.000: error +0.140
+   body flags: []
+Straight L3: wall -0.106 deg, truth -0.002, error -0.104
+   parted=True, fitted_deg=-0.1275025889257367, free_lo_deg=-0.10599890493794173, free_hi_deg=0.1482325680057638, free_deg=0.2542314729437055, edges=220, dropped=0
+   clamp moved the slope by +0.0215 deg
+   endplate_incl -0.134 against -0.000: error -0.134
+   endplate_lower_incl 0.119 against 0.000: error +0.119
+   wedge 0.254 against 0.000: error +0.254
+   body flags: []

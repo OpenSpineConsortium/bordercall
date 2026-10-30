@@ -1,0 +1,4 @@
+free lean +5 tilt 5 thick            err +0.002 parted True across 0 free 7.872605043952495 fitted 6.855538464095909 lo 2.9192275879694916 hi 10.791832631921986 why 
+   flags {'posterior_wall_free': "the lattice leaves the posterior wall's slope free over 7.9 degrees, more than 3: the angles taken against the wall may be off by up to half that"}
+free lean +4 tilt 0 thick            err -0.124 parted True across 0 free 4.538054375632984 fitted 4.068177135532492 lo 0.19266164218831983 hi 4.730716017821304 why 
+   flags {'posterior_wall_free': "the lattice leaves the posterior wall's slope free over 4.5 degrees, more than 3: the angles taken against the wall may be off by up to half that"}

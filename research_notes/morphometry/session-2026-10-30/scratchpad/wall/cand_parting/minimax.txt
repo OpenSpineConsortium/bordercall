@@ -1,0 +1,56 @@
+# minimax fallback
+straight_lean+0_x5_thin      notch 6x4 mm, 1 mm deep                        minimax err  -0.08 margin -0.49 mm (row 0.89) | candidate  +0.43 
+straight_lean+0_x5_thin      notch 6x4 mm, 2 mm deep                        minimax err  -0.08 margin -0.97 mm (row 0.89) | candidate   +nan refused
+straight_lean+0_x5_thin      notch 4x6 mm, 3 mm deep                        minimax err  -0.71 margin -1.44 mm (row 0.89) | candidate   +nan refused
+straight_lean+0_x5_thin      notch at the window's top, 6x3 mm, 2 mm deep   minimax err  +8.52 margin -0.37 mm (row 0.89) | candidate  +5.00 
+straight_lean+0_x5_thin      speck 2 mm behind                              minimax err  -0.08 margin -1.06 mm (row 0.89) | candidate   +nan refused
+straight_lean+0_x5_thin      lip 1 mm back over the window's top 3 mm       minimax err  -0.08 margin -0.49 mm (row 0.89) | candidate  -3.90 
+straight_lean+0_x5_thin      lip 2 mm back over the window's top 3 mm       minimax err  -0.08 margin -0.89 mm (row 0.89) | candidate   +nan refused
+straight_lean+0_x5_thin      concave bow 0.4 mm                             minimax err  -1.09 margin -0.08 mm (row 0.89) | candidate  +0.43 
+straight_lean+0_x5_thin      convex bow 0.4 mm                              minimax err  -0.08 margin -0.22 mm (row 0.89) | candidate  -1.52 
+straight_lean+0_x5_thin      concave bow 0.8 mm                             minimax err  +1.19 margin +0.03 mm (row 0.89) | candidate  +1.19 
+straight_lean+0_x5_thin      convex bow 0.8 mm                              minimax err  -0.08 margin -0.40 mm (row 0.89) | candidate  -1.09 
+straight_lean+5_x2_thin      notch 6x4 mm, 1 mm deep                        minimax err  +0.82 margin -0.30 mm (row 0.85) | candidate   +nan refused
+straight_lean+5_x2_thin      notch 6x4 mm, 2 mm deep                        minimax err  +0.82 margin -0.70 mm (row 0.85) | candidate  -3.00 
+straight_lean+5_x2_thin      notch 4x6 mm, 3 mm deep                        minimax err  +0.82 margin -1.44 mm (row 0.85) | candidate   +nan refused
+straight_lean+5_x2_thin      notch at the window's top, 6x3 mm, 2 mm deep   minimax err  +9.31 margin -0.70 mm (row 0.85) | candidate   +nan refused
+straight_lean+5_x2_thin      speck 2 mm behind                              minimax err  -3.00 margin -0.80 mm (row 0.85) | candidate   +nan refused
+straight_lean+5_x2_thin      lip 1 mm back over the window's top 3 mm       minimax err  -3.00 margin -0.00 mm (row 0.85) | candidate  -3.00 
+straight_lean+5_x2_thin      lip 2 mm back over the window's top 3 mm       minimax err  -6.52 margin -0.37 mm (row 0.85) | candidate  -3.00 
+straight_lean+5_x2_thin      concave bow 0.4 mm                             minimax err  +0.27 margin +0.03 mm (row 0.85) | candidate  +0.27 
+straight_lean+5_x2_thin      convex bow 0.4 mm                              minimax err  -3.00 margin -0.00 mm (row 0.85) | candidate  -3.00 
+straight_lean+5_x2_thin      concave bow 0.8 mm                             minimax err  +0.05 margin -0.24 mm (row 0.85) | candidate  -3.00 
+straight_lean+5_x2_thin      convex bow 0.8 mm                              minimax err  -3.00 margin -0.00 mm (row 0.85) | candidate  -3.00 
+pitched_lean+0_suite18_thin  notch 6x4 mm, 1 mm deep                        minimax err  +0.13 margin -0.44 mm (row 1.15) | candidate  -0.36 
+pitched_lean+0_suite18_thin  notch 6x4 mm, 2 mm deep                        minimax err  +0.00 margin -0.97 mm (row 1.15) | candidate   +nan refused
+pitched_lean+0_suite18_thin  notch 4x6 mm, 3 mm deep                        minimax err  +0.00 margin -1.47 mm (row 1.15) | candidate   +nan refused
+pitched_lean+0_suite18_thin  notch at the window's top, 6x3 mm, 2 mm deep   minimax err  +8.02 margin -0.90 mm (row 1.15) | candidate   +nan refused
+pitched_lean+0_suite18_thin  speck 2 mm behind                              minimax err  +0.01 margin -1.07 mm (row 1.15) | candidate   +nan refused
+pitched_lean+0_suite18_thin  lip 1 mm back over the window's top 3 mm       minimax err  -4.07 margin -0.39 mm (row 1.15) | candidate  -3.69 
+pitched_lean+0_suite18_thin  lip 2 mm back over the window's top 3 mm       minimax err  -8.24 margin -0.86 mm (row 1.15) | candidate   +nan refused
+pitched_lean+0_suite18_thin  concave bow 0.4 mm                             minimax err  +0.00 margin -0.14 mm (row 1.15) | candidate  +0.00 
+pitched_lean+0_suite18_thin  convex bow 0.4 mm                              minimax err  -0.48 margin -0.23 mm (row 1.15) | candidate  -0.30 
+pitched_lean+0_suite18_thin  concave bow 0.8 mm                             minimax err  +0.32 margin -0.31 mm (row 1.15) | candidate  +0.21 
+pitched_lean+0_suite18_thin  convex bow 0.8 mm                              minimax err  -0.43 margin -0.39 mm (row 1.15) | candidate  -0.63 
+straight_lean+0_x2_thick     notch 6x4 mm, 1 mm deep                        minimax err  -2.92 margin -0.22 mm (row 0.91) | candidate  -1.92 
+straight_lean+0_x2_thick     notch 6x4 mm, 2 mm deep                        minimax err  -2.92 margin -0.65 mm (row 0.91) | candidate   +nan refused
+straight_lean+0_x2_thick     notch 4x6 mm, 3 mm deep                        minimax err  -2.92 margin -1.18 mm (row 0.91) | candidate   +nan refused
+straight_lean+0_x2_thick     notch at the window's top, 6x3 mm, 2 mm deep   minimax err +11.76 margin -0.21 mm (row 0.91) | candidate +11.76 
+straight_lean+0_x2_thick     speck 2 mm behind                              minimax err  +2.00 margin -0.86 mm (row 0.91) | candidate   +nan refused
+straight_lean+0_x2_thick     lip 1 mm back over the window's top 3 mm       minimax err  +2.00 margin -0.43 mm (row 0.91) | candidate  -5.84 
+straight_lean+0_x2_thick     lip 2 mm back over the window's top 3 mm       minimax err  +2.00 margin -0.86 mm (row 0.91) | candidate   +nan refused
+straight_lean+0_x2_thick     concave bow 0.4 mm                             minimax err  -1.94 margin +0.09 mm (row 0.91) | candidate  -1.94 
+straight_lean+0_x2_thick     convex bow 0.4 mm                              minimax err  +2.00 margin -0.00 mm (row 0.91) | candidate  +2.00 
+straight_lean+0_x2_thick     concave bow 0.8 mm                             minimax err  -1.94 margin -0.17 mm (row 0.91) | candidate  -5.84 
+straight_lean+0_x2_thick     convex bow 0.8 mm                              minimax err  +2.00 margin -0.00 mm (row 0.91) | candidate  +2.00 
+straight_lean+5_y12_thick    notch 6x4 mm, 1 mm deep                        minimax err  -0.78 margin -0.43 mm (row 1.07) | candidate  -0.78 
+straight_lean+5_y12_thick    notch 6x4 mm, 2 mm deep                        minimax err  -0.78 margin -0.86 mm (row 1.07) | candidate   +nan refused
+straight_lean+5_y12_thick    notch 4x6 mm, 3 mm deep                        minimax err  -0.78 margin -1.30 mm (row 1.07) | candidate   +nan refused
+straight_lean+5_y12_thick    notch at the window's top, 6x3 mm, 2 mm deep   minimax err  +8.79 margin -0.66 mm (row 1.07) | candidate   +nan refused
+straight_lean+5_y12_thick    speck 2 mm behind                              minimax err  +1.24 margin +0.09 mm (row 1.07) | candidate  +1.24 
+straight_lean+5_y12_thick    lip 1 mm back over the window's top 3 mm       minimax err  -4.62 margin -0.35 mm (row 1.07) | candidate  -3.04 
+straight_lean+5_y12_thick    lip 2 mm back over the window's top 3 mm       minimax err  -7.92 margin -0.70 mm (row 1.07) | candidate  -5.58 
+straight_lean+5_y12_thick    concave bow 0.4 mm                             minimax err  -0.78 margin -0.00 mm (row 1.07) | candidate  -0.78 
+straight_lean+5_y12_thick    convex bow 0.4 mm                              minimax err  -0.78 margin -0.00 mm (row 1.07) | candidate  -0.78 
+straight_lean+5_y12_thick    concave bow 0.8 mm                             minimax err  -0.78 margin +0.00 mm (row 1.07) | candidate  -0.78 
+straight_lean+5_y12_thick    convex bow 0.8 mm                              minimax err  -0.78 margin -0.28 mm (row 1.07) | candidate  -0.78 

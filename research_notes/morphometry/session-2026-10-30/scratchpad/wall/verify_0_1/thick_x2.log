@@ -1,0 +1,12 @@
+thick x2 notch 8,8,5: wall err -29.73 edges 39 dropped 39 share 0.50 span 10.0 free 7.24 parted False why ''
+   endplate_incl                 +31.73 truth  -0.00
+   endplate_lower_incl           +31.73 truth  +0.00
+   wedge                          -0.00 truth  +0.00
+   pedicle_angle_sagittal_right    +nan truth  +0.00
+   pedicle_angle_sagittal_left     +nan truth  +0.00
+   spinous_angle                  -9.34 truth +20.00
+   body flags {'posterior_wall_free': "the lattice leaves the posterior wall's slope free over 7.2 "}; spinous flag None; pedicle notes {'pedicle_right': 'no bone stands beside the canal in the rows through the pedi', 'pedicle_left': "the lattice leaves the pedicle's climb free over 15 degrees,"}
+
+real	0m7.002s
+user	0m6.075s
+sys	0m0.816s

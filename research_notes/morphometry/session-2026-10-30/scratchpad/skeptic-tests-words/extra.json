@@ -1,0 +1,20 @@
+[
+ {
+  "name": "S11_least_4",
+  "file": "grid/morphometry.sbatch",
+  "old": "LEAST = 5\n",
+  "new": "LEAST = 4\n",
+  "tests": [
+   "gate"
+  ]
+ },
+ {
+  "name": "P14_previous_keyerror_in_persons",
+  "file": "tools/gold3_covariates.py",
+  "old": "        except (OSError, KeyError, ValueError, csv.Error) as error:\n            report.fail(\"previous_unreadable\", error)",
+  "new": "        except (OSError,) as error:\n            report.fail(\"previous_unreadable\", error)",
+  "tests": [
+   "join"
+  ]
+ }
+]

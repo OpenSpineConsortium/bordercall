@@ -1,0 +1,4 @@
+ped_z +2 fine x2       | cap 6: -0.46 (free 0.04, not parted) | cap 4: -0.31 (free 0.14, not parted) | cap 3: -0.01 (free 0.13, parted)
+ped_z +2 fine suite18  | cap 6: -0.44 (free 0.19, not parted) | cap 4: -0.24 (free 0.35, not parted) | cap 3: -0.11 (free 0.16, parted)
+ped_z -2 fine x2       | cap 6: +0.12 (free 0.07, not parted) | cap 4: -0.15 (free 0.11, parted) | cap 3: -0.22 (free 0.25, parted)
+ped_z -2 fine suite18  | cap 6: -0.02 (free 0.14, not parted) | cap 4: -0.30 (free 0.40, not parted) | cap 3: -0.13 (free 0.17, parted)

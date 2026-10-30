@@ -1,0 +1,10 @@
+thick suite notch 5,6,4                      err   +0.36 share 0.22 parted True  free   0.60 fit   +1.21 why 
+thick suite notch 5,6,4,-4                   err   +0.24 share 0.21 parted True  free   1.08 fit   +0.25 why 
+thick suite notch 8,6,5                      err  +29.49 share 0.69 parted False free   2.10 fit  +29.50 why 
+thick suite notch 8,8,4                      err   -4.45 share 0.52 parted False free   2.85 fit   -4.44 why 
+thick suite notch 8,8,5                      err   -2.98 share 0.43 parted False free   2.89 fit   -2.97 why 
+
+real	0m31.739s
+user	0m29.355s
+sys	0m1.992s
+thick x2 notch 8,8,5                         err  -29.73 share 0.50 parted False free   7.24 fit  -31.82 why 

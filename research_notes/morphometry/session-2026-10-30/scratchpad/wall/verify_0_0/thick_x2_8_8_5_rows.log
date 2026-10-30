@@ -1,0 +1,11 @@
+thick x2 notch 8,8,5: wall err -29.73 edges 39 dropped 39 share 0.50 free 7.24 parted False fitted -31.82 why ''
+  endplate_incl                      +31.73 truth   -0.00
+  endplate_lower_incl                +31.73 truth   +0.00
+  wedge                               -0.00 truth   +0.00
+  pedicle_angle_sagittal               +nan truth   +0.00
+  pedicle_angle_sagittal_left          +nan truth   +0.00
+  spinous_angle                       -9.34 truth  +20.00
+  flag:interpedicular_band         no pedicle found on both sides: read across the hole's middle over the middle half of the body
+  flag:pedicle_left                the lattice leaves the pedicle's climb free over 15 degrees, more than 9: the layers do not cut its surfaces a
+  flag:pedicle_right               no bone stands beside the canal in the rows through the pedicle
+  flag:posterior_wall_free         the lattice leaves the posterior wall's slope free over 7.2 degrees, more than 3: the angles taken against the

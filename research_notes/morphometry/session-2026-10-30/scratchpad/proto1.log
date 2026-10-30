@@ -1,0 +1,75 @@
+== straight tilt ((1.0, 0.3, 0.0), 18.0) turn 7.0 (23s)
+   right current   4.82  planes  -0.90 (n=67 span 13.2)  mids-plane  -0.90  near-only   0.53 (n=63 span 6.9)  truth  0.00  taken 25 near 13 fz 1.24
+   left  current   1.45  planes  -5.08 (n=66 span 13.2)  mids-plane  -5.08  near-only   0.20 (n=58 span 6.3)  truth  0.00  taken 24 near 12 fz 1.24
+== straight tilt ((1.0, 0.0, 0.0), 10.0) turn 0.0 (13s)
+   right current  -8.76  planes  -5.29 (n=102 span 14.0)  mids-plane  -5.29  near-only   2.02 (n=97 span 7.7)  truth  0.00  taken 30 near 17 fz 1.12
+   left  current   1.23  planes  -0.15 (n=98 span 11.6)  mids-plane  -0.15  near-only   1.90 (n=96 span 7.7)  truth  0.00  taken 30 near 17 fz 1.12
+== straight tilt ((1.0, 0.3, 0.0), 25.0) turn 15.0 (25s)
+   right current   3.35  planes   2.98 (n=53 span 6.6)  mids-plane   2.98  near-only   2.98 (n=53 span 6.6)  truth  0.00  taken 22 near 11 fz 1.25
+   left  current  -2.13  planes   0.70 (n=54 span 7.2)  mids-plane   0.70  near-only   1.05 (n=53 span 6.6)  truth  0.00  taken 22 near 11 fz 1.25
+== straight tilt ((0.3, 1.0, 0.0), 12.0) turn 4.0 (14s)
+   right current  -7.28  planes  -4.81 (n=78 span 14.0)  mids-plane  -4.81  near-only   1.71 (n=65 span 6.2)  truth  0.00  taken 28 near 13 fz 1.19
+   left  current   2.45  planes   2.67 (n=79 span 13.5)  mids-plane   2.67  near-only   2.73 (n=25 span 2.1)  truth  0.00  taken 28 near 5 fz 1.19
+== straight tilt ((1.0, -0.5, 0.2), 20.0) turn -9.0 (23s)
+   right current   1.04  planes  -0.97 (n=49 span 8.0)  mids-plane  -0.97  near-only   2.06 (n=47 span 6.7)  truth  0.00  taken 23 near 12 fz 1.27
+   left  current  -1.36  planes  -2.15 (n=47 span 11.6)  mids-plane  -2.15  near-only   0.98 (n=43 span 6.1)  truth  0.00  taken 23 near 11 fz 1.27
+== shapes tilt ((1.0, 0.3, 0.0), 18.0) turn 7.0 (21s)
+   right current   9.47  planes   6.89 (n=70 span 8.1)  mids-plane   6.89  near-only   7.60 (n=55 span 5.8)  truth  6.00  taken 25 near 11 fz 1.24
+   left  current   7.12  planes   4.80 (n=82 span 12.7)  mids-plane   4.80  near-only   8.17 (n=78 span 6.9)  truth  6.00  taken 25 near 13 fz 1.24
+== shapes tilt ((1.0, 0.0, 0.0), 10.0) turn 0.0 (13s)
+   right current   9.63  planes   5.85 (n=104 span 8.2)  mids-plane   5.85  near-only   5.85 (n=104 span 8.2)  truth  6.00  taken 29 near 18 fz 1.12
+   left  current  10.42  planes   8.89 (n=108 span 9.2)  mids-plane   8.89  near-only   9.62 (n=96 span 7.3)  truth  6.00  taken 30 near 16 fz 1.12
+== shapes tilt ((1.0, 0.3, 0.0), 25.0) turn 15.0 (18s)
+   right current   5.70  planes   3.80 (n=59 span 7.9)  mids-plane   3.80  near-only   5.71 (n=55 span 6.6)  truth  6.00  taken 21 near 11 fz 1.25
+   left  current   6.20  planes   5.50 (n=58 span 7.2)  mids-plane   5.50  near-only   5.53 (n=55 span 6.6)  truth  6.00  taken 21 near 11 fz 1.25
+== shapes tilt ((0.3, 1.0, 0.0), 12.0) turn 4.0 (14s)
+   right current   4.77  planes   4.81 (n=76 span 7.8)  mids-plane   4.81  near-only   5.13 (n=75 span 7.3)  truth  6.00  taken 27 near 15 fz 1.19
+   left  current  11.43  planes   4.31 (n=83 span 13.5)  mids-plane   4.31  near-only   7.38 (n=70 span 6.7)  truth  6.00  taken 27 near 14 fz 1.19
+== shapes tilt ((1.0, -0.5, 0.2), 20.0) turn -9.0 (15s)
+   right current   8.74  planes   7.19 (n=64 span 12.8)  mids-plane   7.19  near-only   4.74 (n=55 span 6.1)  truth  6.00  taken 23 near 11 fz 1.27
+   left  current   8.17  planes   7.30 (n=51 span 7.3)  mids-plane   7.30  near-only   7.37 (n=44 span 6.1)  truth  6.00  taken 22 near 11 fz 1.27
+== mass tilt ((1.0, 0.3, 0.0), 18.0) turn 7.0 (16s)
+   right current    nan  planes  -3.52 (n=47 span 4.0)  mids-plane  -3.52  near-only  -2.77 (n=42 span 3.5)  truth  0.00  taken 8 near 7 fz 1.24
+   left  current  -3.23  planes  -0.84 (n=68 span 6.3)  mids-plane  -0.84  near-only  -0.63 (n=42 span 3.5)  truth  0.00  taken 12 near 7 fz 1.24
+== mass tilt ((1.0, 0.0, 0.0), 10.0) turn 0.0 (13s)
+   right current   3.27  planes   0.37 (n=87 span 6.8)  mids-plane   0.37  near-only  -6.09 (n=48 span 3.4)  truth  0.00  taken 15 near 8 fz 1.12
+   left  current    nan  planes  -0.42 (n=60 span 4.4)  mids-plane  -0.42  near-only  -5.36 (n=42 span 2.9)  truth  0.00  taken 10 near 7 fz 1.12
+== mass tilt ((1.0, 0.3, 0.0), 25.0) turn 15.0 (18s)
+   right current    nan  planes  -0.64 (n=43 span 5.3)  mids-plane  -0.64  near-only   3.29 (n=25 span 2.6)  truth  0.00  taken 9 near 5 fz 1.25
+   left  current    nan  planes   0.71 (n=40 span 4.6)  mids-plane   0.71  near-only  -2.81 (n=25 span 2.6)  truth  0.00  taken 8 near 5 fz 1.25
+== mass tilt ((0.3, 1.0, 0.0), 12.0) turn 4.0 (14s)
+   right current    nan  planes  -1.67 (n=54 span 5.2)  mids-plane  -1.67  near-only   0.06 (n=40 span 3.6)  truth  0.00  taken 11 near 8 fz 1.19
+   left  current   2.62  planes   0.55 (n=60 span 5.7)  mids-plane   0.55  near-only   1.20 (n=40 span 3.6)  truth  0.00  taken 12 near 8 fz 1.19
+== mass tilt ((1.0, -0.5, 0.2), 20.0) turn -9.0 (16s)
+   right current   2.38  planes   1.60 (n=48 span 5.5)  mids-plane   1.60  near-only   2.00 (n=30 span 3.1)  truth  0.00  taken 10 near 6 fz 1.27
+   left  current  -1.49  planes  -0.32 (n=49 span 5.5)  mids-plane  -0.32  near-only  -1.73 (n=35 span 3.7)  truth  0.00  taken 10 near 7 fz 1.27
+== pitched tilt ((1.0, 0.3, 0.0), 18.0) turn 7.0 (15s)
+   right current  11.24  planes  12.80 (n=66 span 7.5)  mids-plane  12.80  near-only  11.42 (n=64 span 6.9)  truth 10.00  taken 25 near 13 fz 1.24
+   left  current  12.45  planes  13.90 (n=64 span 8.1)  mids-plane  13.90  near-only  13.06 (n=61 span 6.9)  truth 10.00  taken 25 near 13 fz 1.24
+== pitched tilt ((1.0, 0.0, 0.0), 10.0) turn 0.0 (12s)
+   right current  11.05  planes  10.36 (n=96 span 8.2)  mids-plane  10.36  near-only  11.02 (n=94 span 7.8)  truth 10.00  taken 31 near 17 fz 1.12
+   left  current  12.37  planes  12.46 (n=98 span 8.2)  mids-plane  12.46  near-only  12.55 (n=97 span 7.8)  truth 10.00  taken 30 near 17 fz 1.12
+== pitched tilt ((1.0, 0.3, 0.0), 25.0) turn 15.0 (18s)
+   right current  11.20  planes  10.58 (n=51 span 7.2)  mids-plane  10.58  near-only  10.40 (n=48 span 5.9)  truth 10.00  taken 21 near 10 fz 1.25
+   left  current  20.30  planes  13.89 (n=54 span 7.2)  mids-plane  13.89  near-only  11.51 (n=50 span 5.9)  truth 10.00  taken 22 near 10 fz 1.25
+== pitched tilt ((0.3, 1.0, 0.0), 12.0) turn 4.0 (13s)
+   ('right', 'no isthmus')
+   left  current  10.87  planes   6.61 (n=77 span 8.3)  mids-plane   6.61  near-only   9.03 (n=76 span 7.8)  truth 10.00  taken 28 near 16 fz 1.19
+== pitched tilt ((1.0, -0.5, 0.2), 20.0) turn -9.0 (15s)
+   right current  10.84  planes   5.21 (n=49 span 8.6)  mids-plane   5.21  near-only  10.07 (n=47 span 6.7)  truth 10.00  taken 23 near 12 fz 1.27
+   left  current  11.85  planes  12.10 (n=48 span 7.3)  mids-plane  12.10  near-only  12.27 (n=47 span 6.7)  truth 10.00  taken 23 near 12 fz 1.27
+== pitched_down tilt ((1.0, 0.3, 0.0), 18.0) turn 7.0 (15s)
+   right current  -1.52  planes  -8.10 (n=65 span 7.5)  mids-plane  -8.10  near-only  -8.33 (n=60 span 6.3)  truth -8.00  taken 25 near 12 fz 1.24
+   left  current  -3.77  planes  -7.13 (n=76 span 12.1)  mids-plane  -7.13  near-only  -4.86 (n=72 span 6.3)  truth -8.00  taken 25 near 12 fz 1.24
+== pitched_down tilt ((1.0, 0.0, 0.0), 10.0) turn 0.0 (13s)
+   right current  -7.34  planes  -7.48 (n=99 span 8.9)  mids-plane  -7.48  near-only  -7.74 (n=94 span 7.4)  truth -8.00  taken 29 near 16 fz 1.12
+   left  current  -5.02  planes  -5.21 (n=89 span 7.9)  mids-plane  -5.21  near-only  -5.10 (n=84 span 6.4)  truth -8.00  taken 29 near 14 fz 1.12
+== pitched_down tilt ((1.0, 0.3, 0.0), 25.0) turn 15.0 (31s)
+   right current    nan  planes  -6.24 (n=51 span 12.6)  mids-plane  -6.24  near-only  -8.40 (n=45 span 5.3)  truth -8.00  taken 21 near 9 fz 1.25
+   left  current  -9.45  planes  -6.34 (n=54 span 7.3)  mids-plane  -6.34  near-only  -6.15 (n=53 span 6.6)  truth -8.00  taken 22 near 11 fz 1.25
+== pitched_down tilt ((0.3, 1.0, 0.0), 12.0) turn 4.0 (15s)
+   right current  -6.44  planes -10.64 (n=76 span 14.0)  mids-plane -10.64  near-only  -6.98 (n=72 span 7.2)  truth -8.00  taken 28 near 15 fz 1.19
+   left  current  -8.06  planes  -4.40 (n=78 span 12.9)  mids-plane  -4.40  near-only  -9.70 (n=50 span 4.7)  truth -8.00  taken 28 near 10 fz 1.19
+== pitched_down tilt ((1.0, -0.5, 0.2), 20.0) turn -9.0 (23s)
+   right current  -0.48  planes  -8.60 (n=57 span 12.7)  mids-plane  -8.60  near-only  -2.12 (n=54 span 6.1)  truth -8.00  taken 22 near 11 fz 1.27
+   left  current  -3.30  planes  -6.14 (n=61 span 7.9)  mids-plane  -6.14  near-only  -6.60 (n=55 span 6.1)  truth -8.00  taken 23 near 11 fz 1.27

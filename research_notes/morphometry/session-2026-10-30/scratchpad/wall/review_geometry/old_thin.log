@@ -1,0 +1,2 @@
+thin suite notch 8,6,5: new err -29.15; old reading -22.48 (truth in frame -0.00)
+thin suite notch 5,6,4: new err -0.20; old reading -18.17 (truth in frame -0.00)

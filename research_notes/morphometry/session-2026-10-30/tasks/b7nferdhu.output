@@ -1,0 +1,50 @@
+18:06:18
+baseline                             passed   OK (skipped=2) | 
+P1 zxy order                         caught   FAILED (failures=4) | FAIL: test_a_point_on_a_pixels_ray_projects_to_the_pixels_centre; FAIL: test_beads_land_where_flexray_rendered_them; FAIL: test_the_matrices_are_flexrays; FAIL: test_the_rays_are_nanodrrs_in_nanodrrs_order
+P2 translation unturned              caught   FAILED (failures=7) | FAIL: test_a_balls_fine_path_lengths_are_its_chords_through_its_voxels; FAIL: test_flexrays_sampling_is_nanodrrs_point_by_point; FAIL: test_parallel_path_lengths_sum_to_the_volume; FAIL: test_a_point_on_a_pixels_ray_projects_to_the_pixels_centre
+P3 AP turn                           caught   FAILED (failures=4) | FAIL: test_a_point_on_a_pixels_ray_projects_to_the_pixels_centre; FAIL: test_beads_land_where_flexray_rendered_them; FAIL: test_the_matrices_are_flexrays; FAIL: test_the_rays_are_nanodrrs_in_nanodrrs_order
+P4 PA turn                           caught   FAILED (failures=4) | FAIL: test_a_point_on_a_pixels_ray_projects_to_the_pixels_centre; FAIL: test_a_point_the_render_did_not_sample_is_not_in_its_beam; FAIL: test_the_matrices_are_flexrays; FAIL: test_the_rays_are_nanodrrs_in_nanodrrs_order
+P5 no turn                           caught   FAILED (failures=3) | FAIL: test_a_point_on_a_pixels_ray_projects_to_the_pixels_centre; FAIL: test_the_matrices_are_flexrays; FAIL: test_the_rays_are_nanodrrs_in_nanodrrs_order
+P6 cx at a corner                    caught   FAILED (failures=6) | FAIL: test_a_point_on_a_pixels_ray_projects_to_the_pixels_centre; FAIL: test_beads_land_where_flexray_rendered_them; FAIL: test_the_beads_see_half_a_pixel; FAIL: test_the_matrices_are_flexrays
+P7 fy from delx                      caught   FAILED (failures=6) | FAIL: test_a_circle_seen_through_parallel_rays_encloses_the_ellipses_area; FAIL: test_a_point_on_a_pixels_ray_projects_to_the_pixels_centre; FAIL: test_beads_land_where_flexray_rendered_them; FAIL: test_the_matrices_are_flexrays
+P8 cy from delx                      caught   FAILED (failures=5) | FAIL: test_a_point_on_a_pixels_ray_projects_to_the_pixels_centre; FAIL: test_beads_land_where_flexray_rendered_them; FAIL: test_the_matrices_are_flexrays; FAIL: test_the_rays_are_nanodrrs_in_nanodrrs_order
+P9 parallel as cone                  caught   FAILED (failures=5) | FAIL: test_a_circle_seen_through_parallel_rays_encloses_the_ellipses_area; FAIL: test_a_point_on_a_pixels_ray_projects_to_the_pixels_centre; FAIL: test_beads_land_where_flexray_rendered_them; FAIL: test_a_length_across_the_beam_is_magnified_by_sdd_over_its_depth
+P10 beam beyond the detector         caught   FAILED (failures=1) | FAIL: test_a_point_the_render_did_not_sample_is_not_in_its_beam
+P11 pixels by column                 caught   FAILED (failures=2) | FAIL: test_flexrays_sampling_is_nanodrrs_point_by_point; FAIL: test_the_rays_are_nanodrrs_in_nanodrrs_order
+P12 parallel source at origin        caught   FAILED (failures=5) | FAIL: test_a_balls_fine_path_lengths_are_its_chords_through_its_voxels; FAIL: test_flexrays_sampling_is_nanodrrs_point_by_point; FAIL: test_parallel_path_lengths_sum_to_the_volume; FAIL: test_a_point_the_render_did_not_sample_is_not_in_its_beam
+P13 ray at the corner                caught   FAILED (failures=2) | FAIL: test_a_point_the_render_did_not_sample_is_not_in_its_beam; FAIL: test_the_rays_are_nanodrrs_in_nanodrrs_order
+P14 magnification inverted           caught   FAILED (failures=1) | FAIL: test_a_length_across_the_beam_is_magnified_by_sdd_over_its_depth
+P15 pads swapped                     caught   FAILED (failures=2) | FAIL: test_a_spot_lands_where_flexrays_resize_carries_it; FAIL: test_an_image_lands_where_flexrays_content_box_puts_it
+P16 pads halved                      caught   FAILED (failures=2) | FAIL: test_a_spot_lands_where_flexrays_resize_carries_it; FAIL: test_an_image_lands_where_flexrays_content_box_puts_it
+P17 pads taken off                   caught   FAILED (failures=3) | FAIL: test_a_spot_lands_where_flexrays_resize_carries_it; FAIL: test_an_image_lands_where_flexrays_content_box_puts_it; FAIL: test_the_canvas_gives_the_place_back
+P18 manifest cone only               caught   FAILED (failures=1) | FAIL: test_a_manifest_row_is_the_view_its_request_was
+P19 manifest isocentre               caught   FAILED (failures=1) | FAIL: test_a_manifest_row_is_the_view_its_request_was
+S1 nearest by floor                  caught   FAILED (failures=1) | FAIL: test_a_balls_fine_path_lengths_are_its_chords_through_its_voxels
+S2 window too narrow                 caught   FAILED (failures=2) | FAIL: test_flexrays_sampling_is_nanodrrs_point_by_point; FAIL: test_a_levels_shadow_takes_in_every_piece_of_its_label
+S3 step over n                       caught   FAILED (failures=1) | FAIL: test_flexrays_sampling_is_nanodrrs_point_by_point
+S4 arcs too coarse                   caught   FAILED (failures=3) | FAIL: test_a_circle_and_an_ellipse_keep_within_their_tolerance; FAIL: test_a_circle_seen_through_parallel_rays_encloses_the_ellipses_area; FAIL: test_an_arc_keeps_within_its_tolerance_and_turns_the_right_handed_way
+S5 no refining                       caught   FAILED (failures=1) | FAIL: test_a_spline_passes_through_its_points_within_its_tolerance
+S6 cut ring not joined               caught   FAILED (failures=1) | FAIL: test_a_curve_cut_by_the_source_plane_keeps_its_pieces_in_front
+S7 cut at the middle                 caught   FAILED (failures=1) | FAIL: test_a_curve_cut_by_the_source_plane_keeps_its_pieces_in_front
+S8 plane normal                      caught   FAILED (failures=2) | FAIL: test_a_fitted_plane_is_the_plane_its_points_lie_on; FAIL: test_a_patch_is_the_rectangle_it_is_asked_for
+S9 seen at by acos                   caught   FAILED (failures=1) | FAIL: test_how_the_render_sees_a_plane
+S10 area doubled                     caught   FAILED (failures=1) | FAIL: test_a_patch_is_the_rectangle_it_is_asked_for
+S11 first piece                      caught   FAILED (failures=1) | FAIL: test_the_largest_piece_and_the_box
+S12 footprint shrunk                 caught   FAILED (failures=1) | FAIL: test_flexrays_sampling_is_nanodrrs_point_by_point
+S13 image transposed                 caught   FAILED (failures=1) | FAIL: test_flexrays_sampling_is_nanodrrs_point_by_point
+S14 circle open                      caught   FAILED (failures=2, errors=1) | ERROR: test_a_circle_seen_through_parallel_rays_encloses_the_ellipses_area; FAIL: test_a_circle_and_an_ellipse_keep_within_their_tolerance; FAIL: test_a_curve_cut_by_the_source_plane_keeps_its_pieces_in_front
+S15 arc turned left-handed           caught   FAILED (failures=1) | FAIL: test_an_arc_keeps_within_its_tolerance_and_turns_the_right_handed_way
+C1 disc on one vertebra              caught   FAILED (failures=1, skipped=2) | FAIL: test_the_landing_is_measured_on_flexrays_shadow
+C2 pixel row and column swapped      caught   FAILED (failures=2, skipped=2) | FAIL: test_a_discs_middle_lies_in_the_disc_space_on_the_lateral_render; FAIL: test_the_landing_is_measured_on_flexrays_shadow
+C3 b end from a                      caught   FAILED (failures=2, skipped=2) | FAIL: test_the_ends_are_where_the_camera_puts_them; FAIL: test_the_landing_is_measured_on_flexrays_shadow
+C4 samples not the view's            caught   FAILED (failures=1, skipped=2) | FAIL: test_the_samples_a_ray_are_the_view_files
+C5 manifest detector                 caught   FAILED (failures=1, skipped=2) | FAIL: test_a_manifest_row_projects_as_its_view
+C6 frame axes u and v swapped        caught   FAILED (failures=1, skipped=2) | FAIL: test_the_frames_and_the_column_are_carried_too
+C7 column reversed                   caught   FAILED (failures=1, skipped=2) | FAIL: test_the_frames_and_the_column_are_carried_too
+C8 canvas of the turned image        caught   FAILED (failures=1, skipped=2) | FAIL: test_the_ends_are_where_the_camera_puts_them
+C9 shadow of the main piece          caught   FAILED (failures=1) | FAIL: test_a_levels_shadow_takes_in_every_piece_of_its_label
+C10 midpoint at a                    caught   FAILED (failures=1, skipped=2) | FAIL: test_a_discs_middle_lies_in_the_disc_space_on_the_lateral_render
+C11 record of another file           caught   FAILED (failures=1, skipped=2) | FAIL: test_the_view_record_names_what_was_projected
+C12 magnification inverted           caught   FAILED (failures=1, skipped=2) | FAIL: test_the_ends_are_where_the_camera_puts_them
+
+[exited with code 0]

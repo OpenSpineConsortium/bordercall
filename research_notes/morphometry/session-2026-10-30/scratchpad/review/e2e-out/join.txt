@@ -1,0 +1,3 @@
+new rows: rows: measuring code a56adf14a9e98b15 for every set's rows; failures []; stand-ins [('0002', 'L4')]
+kept rows: rows: measuring code 81e732f142d3aa16 for every set's rows
+new beside kept: rows: measuring code by set, ENHANCE.PET a56adf14a9e98b15; VerSe 81e732f142d3aa16; failures ['FAILED: the morphometry rows were measured by more than one version of the measuring code, within a set or between the sets, so the tables blend two engines']

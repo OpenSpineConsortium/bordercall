@@ -1,0 +1,2 @@
+thick suite notch 8,6,5: err +29.49 edges 25 dropped 55 span 9.6 free  2.10 parted False fit +29.50 canal line -14.01 deg reach 4.49 why 
+thick suite notch 7,7,5: err  +0.37 edges 55 dropped 25 span 14.0 free  0.62 parted True fit +1.03 canal line -15.25 deg reach 4.44 why 

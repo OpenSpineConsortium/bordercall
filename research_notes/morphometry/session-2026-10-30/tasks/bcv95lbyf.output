@@ -1,0 +1,11 @@
+ERROR: test_a_levels_shadow_takes_in_every_piece_of_its_label (morphoview.tests.test_projection.Pieces.test_a_levels_shadow_takes_in_every_piece_of_its_label)
+FAIL: test_a_curve_cut_by_the_source_plane_keeps_its_pieces_in_front (morphoview.tests.test_shapes.Curves.test_a_curve_cut_by_the_source_plane_keeps_its_pieces_in_front)
+FAIL: test_a_balls_fine_path_lengths_are_its_chords_through_its_voxels (morphoview.tests.test_shapes.Volumes.test_a_balls_fine_path_lengths_are_its_chords_through_its_voxels)
+FAIL: test_flexrays_sampling_is_nanodrrs_point_by_point (morphoview.tests.test_shapes.Volumes.test_flexrays_sampling_is_nanodrrs_point_by_point)
+FAIL: test_parallel_path_lengths_sum_to_the_volume (morphoview.tests.test_shapes.Volumes.test_parallel_path_lengths_sum_to_the_volume)
+Ran 46 tests in 37.945s
+FAILED (failures=4, errors=1, skipped=2)
+
+[exited with code 0]
+
+[exited with code 0]

@@ -1,0 +1,6 @@
+  cervical C2: 14 lines {'not measured': 8, 'drawn': 6} touching=False
+  cervical C3: 14 lines {'drawn': 14} touching=False
+  cervical C4: 14 lines {'drawn': 14} touching=False
+  cervical C5: 14 lines {'drawn': 14} touching=False
+cervical levels ['C2', 'C3', 'C4', 'C5'] discs [('C2', 'C3'), ('C3', 'C4'), ('C4', 'C5')]
+TOTAL PROBLEMS 0

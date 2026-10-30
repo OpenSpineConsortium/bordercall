@@ -1,0 +1,5 @@
+  pitched L2: 22 lines {'drawn': 22} touching=False
+  pitched L3: 22 lines {'drawn': 22} touching=False
+  pitched L4: 22 lines {'drawn': 22} touching=False
+pitched levels ['L2', 'L3', 'L4'] discs [('L2', 'L3'), ('L3', 'L4')]
+TOTAL PROBLEMS 0

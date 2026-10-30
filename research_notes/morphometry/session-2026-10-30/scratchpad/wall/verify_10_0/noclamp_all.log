@@ -1,0 +1,70 @@
+test_end_plate_inclinations (morphometry.tests.test_morphometry.BasivertebralNotch.test_end_plate_inclinations) ... ok
+test_wall_past_the_notch (morphometry.tests.test_morphometry.BasivertebralNotch.test_wall_past_the_notch) ... ok
+test_disc_at_the_centre (morphometry.tests.test_morphometry.Joints.test_disc_at_the_centre) ... ok
+test_segment_angles (morphometry.tests.test_morphometry.Joints.test_segment_angles) ... ok
+test_slip (morphometry.tests.test_morphometry.Joints.test_slip) ... ok
+test_a_short_free_pedicle_reads_no_sagittal_angle (morphometry.tests.test_morphometry.LateralMass.test_a_short_free_pedicle_reads_no_sagittal_angle)
+The foramen leaves the pedicle free over 4 mm front to back, under SAGITTAL_SPAN_MM. ... ok
+test_interpedicular_at_the_isthmus (morphometry.tests.test_morphometry.LateralMass.test_interpedicular_at_the_isthmus) ... ok
+test_pedicle_without_the_mass (morphometry.tests.test_morphometry.LateralMass.test_pedicle_without_the_mass) ... ok
+test_a_wall_not_read_reads_no_angle_against_it (morphometry.tests.test_morphometry.LeanedWall.test_a_wall_not_read_reads_no_angle_against_it)
+Where the wall is refused, the four angles taken against it are not read, each with ... ok
+test_wall_on_the_staircase (morphometry.tests.test_morphometry.LeanedWall.test_wall_on_the_staircase) ... ok
+test_pedicle_under_the_process (morphometry.tests.test_morphometry.Overhang.test_pedicle_under_the_process) ... ok
+test_incidence_and_its_parts (morphometry.tests.test_morphometry.Pelvis.test_incidence_and_its_parts) ... ok
+test_sockets (morphometry.tests.test_morphometry.Pelvis.test_sockets) ... ok
+test_pedicle_angles_and_size (morphometry.tests.test_morphometry.PitchedDown.test_pedicle_angles_and_size) ... ok
+test_concavity_and_waist (morphometry.tests.test_morphometry.Shapes.test_concavity_and_waist) ... ok
+test_pedicle_angles (morphometry.tests.test_morphometry.Shapes.test_pedicle_angles) ... ok
+test_processes (morphometry.tests.test_morphometry.Shapes.test_processes) ... ok
+test_wedge_and_heights (morphometry.tests.test_morphometry.Shapes.test_wedge_and_heights) ... ok
+test_axis_follows_the_end_plates (morphometry.tests.test_morphometry.Straight.test_axis_follows_the_end_plates) ... ok
+test_body (morphometry.tests.test_morphometry.Straight.test_body) ... ok
+test_canal (morphometry.tests.test_morphometry.Straight.test_canal) ... ok
+test_discs_and_segments (morphometry.tests.test_morphometry.Straight.test_discs_and_segments) ... ok
+test_end_plate_angles_and_areas (morphometry.tests.test_morphometry.Straight.test_end_plate_angles_and_areas) ... ok
+test_pedicles (morphometry.tests.test_morphometry.Straight.test_pedicles) ... ok
+test_posterior_elements (morphometry.tests.test_morphometry.Straight.test_posterior_elements) ... ok
+test_chords_across (morphometry.tests.test_morphometry.ThickSlices.test_chords_across) ... ok
+test_end_plate_inclinations (morphometry.tests.test_morphometry.ThickSlices.test_end_plate_inclinations)
+The plates are read rim to rim within a few tenths of a degree here; the wall they are ... ok
+test_heights_and_discs (morphometry.tests.test_morphometry.ThickSlices.test_heights_and_discs) ... ok
+test_pedicle_sagittal_angle_is_refused_or_right (morphometry.tests.test_morphometry.ThickSlices.test_pedicle_sagittal_angle_is_refused_or_right)
+On 2.5 mm layers the pedicle's surfaces cross too few layers over its span to pin its ... ok
+test_a_label_holding_half_a_neighbour (morphometry.tests.test_morphometry.WrongMasks.test_a_label_holding_half_a_neighbour) ... ok
+test_a_vertebra_cut_by_the_volume (morphometry.tests.test_morphometry.WrongMasks.test_a_vertebra_cut_by_the_volume) ... ok
+test_a_measure_not_taken_is_not_drawn (morphoview.tests.test_lines.Checked.test_a_measure_not_taken_is_not_drawn) ... ok
+test_a_value_off_its_row_is_withheld (morphoview.tests.test_lines.Checked.test_a_value_off_its_row_is_withheld) ... ok
+test_the_rows_rounding_is_allowed (morphoview.tests.test_lines.Checked.test_the_rows_rounding_is_allowed) ... ok
+test_a_disc_runs_from_the_plate_below_to_the_plate_above (morphoview.tests.test_lines.Phantom.test_a_disc_runs_from_the_plate_below_to_the_plate_above) ... ok
+test_a_length_is_the_distance_between_its_ends (morphoview.tests.test_lines.Phantom.test_a_length_is_the_distance_between_its_ends) ... ok
+test_bone_ends_lie_on_the_bone_surface (morphoview.tests.test_lines.Phantom.test_bone_ends_lie_on_the_bone_surface) ... ok
+test_canal_ends_lie_on_the_canal_wall (morphoview.tests.test_lines.Phantom.test_canal_ends_lie_on_the_canal_wall) ... ok
+test_every_line_gives_its_measured_value (morphoview.tests.test_lines.Phantom.test_every_line_gives_its_measured_value) ... ok
+test_four_panels_draw_with_one_key_line_each (morphoview.tests.test_lines.Phantom.test_four_panels_draw_with_one_key_line_each) ... ok
+test_the_lines_match_the_phantoms_truth_where_it_is_exact (morphoview.tests.test_lines.Phantom.test_the_lines_match_the_phantoms_truth_where_it_is_exact) ... ok
+test_a_grown_mask_reads_the_voxel_it_took (maskedge.tests.test_disc.Phantom.test_a_grown_mask_reads_the_voxel_it_took) ... ok
+test_a_shrunk_mask_reads_the_voxel_it_gave_up (maskedge.tests.test_disc.Phantom.test_a_shrunk_mask_reads_the_voxel_it_gave_up) ... ok
+test_both_discs_read_on_most_lines (maskedge.tests.test_disc.Phantom.test_both_discs_read_on_most_lines) ... ok
+test_exact_masks_leave_the_true_gap (maskedge.tests.test_disc.Phantom.test_exact_masks_leave_the_true_gap)
+A voxel is labelled where its centre lies inside, so each drawn surface lies within half a ... ok
+test_the_ct_shows_the_disc_the_exact_masks_leave (maskedge.tests.test_disc.Phantom.test_the_ct_shows_the_disc_the_exact_masks_leave)
+L2 and L4 are drawn in the CT from their labels, so the CT's disc is the labels' own gap ... ok
+test_a_step_falls_through_its_level_between_samples (maskedge.tests.test_edge.Crossing.test_a_step_falls_through_its_level_between_samples) ... ok
+test_no_fall_is_no_crossing (maskedge.tests.test_edge.Crossing.test_no_fall_is_no_crossing) ... ok
+test_a_flat_ct_shows_no_edge (maskedge.tests.test_edge.Phantom.test_a_flat_ct_shows_no_edge) ... ok
+test_a_grown_mask_reads_one_voxel_beyond_the_bone (maskedge.tests.test_edge.Phantom.test_a_grown_mask_reads_one_voxel_beyond_the_bone) ... ok
+test_a_shrunk_mask_reads_one_voxel_inside_the_bone (maskedge.tests.test_edge.Phantom.test_a_shrunk_mask_reads_one_voxel_inside_the_bone) ... ok
+test_an_exact_mask_lies_on_the_bone (maskedge.tests.test_edge.Phantom.test_an_exact_mask_lies_on_the_bone) ... ok
+test_every_region_reads_most_of_its_points (maskedge.tests.test_edge.Phantom.test_every_region_reads_most_of_its_points) ... ok
+test_what_the_offsets_make_of_each_measure (maskedge.tests.test_edge.Summary.test_what_the_offsets_make_of_each_measure) ... ok
+
+----------------------------------------------------------------------
+Ran 54 tests in 541.257s
+
+OK
+noclamp: 54 run, 0 failed, 0 errors, 30 wall readings
+
+real	9m1.964s
+user	7m59.275s
+sys	0m57.259s

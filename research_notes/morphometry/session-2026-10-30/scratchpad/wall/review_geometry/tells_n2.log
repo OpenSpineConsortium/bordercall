@@ -1,0 +1,4 @@
+thin suite notch 8,6,5   err -29.15 dropped share 0.66 stray/reach 0.48
+thin suite notch 8,8,5   err  +1.24 dropped share 0.54 stray/reach 1.22
+thin suite notch 5,6,4   err  -0.20 dropped share 0.20 stray/reach 0.98
+thin suite notch 5,10,4  err  -0.19 dropped share 0.51 stray/reach 0.79

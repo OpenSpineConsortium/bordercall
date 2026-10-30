@@ -1,0 +1,11 @@
+chain L2 one plate turn 11.624 ['flag:axis_one_plate'] ['11.6235', '0.0000']
+chain L3 bisector turn 9.032 [] ['9.0316', '0.2175']
+chain L4 one plate turn 6.837 ['flag:axis_one_plate'] ['6.8373', '0.0647']
+chain lines 87 with a margin under 1 mm or wrong: 0
+chain keys L2 25
+chain keys L2-L3 3
+chain keys L3 25
+chain keys L3-L4 3
+chain keys L4 25
+straight L3 keys 81 finite 81 drawn 25 drawn not in keys [] flags []
+straight L2-L3 keys 12 finite 12 drawn 3 drawn not in keys [] flags []

@@ -1,0 +1,389 @@
+[
+ {
+  "name": "G1_standing_part_not_previous",
+  "file": "grid/gate.sh",
+  "old": "for file in \"$LOGS/MORPHOMETRY-covariates.md\" \"$LOGS/MORPHOMETRY-covariates.md.part\" \\\n",
+  "new": "for file in \"$LOGS/MORPHOMETRY-covariates.md\" \\\n",
+  "tests": [
+   "gate"
+  ]
+ },
+ {
+  "name": "G2_keep_drops_facts_part",
+  "file": "grid/gate.sh",
+  "old": "facts.jsonl facts.jsonl.part verdicts.csv",
+  "new": "facts.jsonl verdicts.csv",
+  "tests": [
+   "gate"
+  ]
+ },
+ {
+  "name": "G3_keep_drops_whole_log",
+  "file": "grid/gate.sh",
+  "old": "steps.log facts.log whole.log facts.jsonl",
+  "new": "steps.log facts.log facts.jsonl",
+  "tests": [
+   "gate"
+  ]
+ },
+ {
+  "name": "G4_no_rerun_pending",
+  "file": "grid/gate.sh",
+  "old": "    elif morphometry_rerun_pending \"$set\"; then\n",
+  "new": "    elif false; then\n",
+  "tests": [
+   "gate"
+  ]
+ },
+ {
+  "name": "G5_no_stamp_compare",
+  "file": "grid/gate.sh",
+  "old": "[ \"$enhance_stamp\" != \"$verse_stamp\" ]; then",
+  "new": "false; then",
+  "tests": [
+   "gate"
+  ]
+ },
+ {
+  "name": "G9_set_no_gate_list_check",
+  "file": "grid/gate.sh",
+  "old": "  awk -v job=\"$queued\" -v what=\"morphometry_$id\" '$1 == job && $3 == what { found = 1 } END { exit !found }' \"$STATE\" 2>/dev/null || {",
+  "new": "  true || {",
+  "tests": [
+   "gate"
+  ]
+ },
+ {
+  "name": "G10_set_marker_unwritable_ignored",
+  "file": "grid/gate.sh",
+  "old": "> \"$sent\" 2>/dev/null || {\n    echo \"refusing: the gate cannot write logs/$(basename \"$sent\"), the marker that keeps a lost answer from queueing a second job; nothing was queued\"\n    return 1\n  }\n  queued=$(submit \"morphometry_$id\"",
+  "new": "> \"$sent\" 2>/dev/null || true\n  queued=$(submit \"morphometry_$id\"",
+  "tests": [
+   "gate"
+  ]
+ },
+ {
+  "name": "G11_rerun_word_no_spaces",
+  "file": "grid/gate.sh",
+  "old": "case \" $MORPHOMETRY_RERUNS \" in *\" $1:$2 \"*) return 0 ;; esac",
+  "new": "case \" $MORPHOMETRY_RERUNS \" in *\"$1:$2\"*) return 0 ;; esac",
+  "tests": [
+   "gate"
+  ]
+ },
+ {
+  "name": "G12_set_no_rm_sent",
+  "file": "grid/gate.sh",
+  "old": "  rm -f \"$sent\"\n  echo \"submitted the morphometry job for $id.",
+  "new": "  echo \"submitted the morphometry job for $id.",
+  "tests": [
+   "gate"
+  ]
+ },
+ {
+  "name": "G13_previous_unreadable_not_checked",
+  "file": "grid/gate.sh",
+  "old": "      [ -f \"$root/covariates/$job/joined.csv\" ] && [ -r \"$root/covariates/$job/joined.csv\" ] \\\n        || lacks",
+  "new": "      true \\\n        || lacks",
+  "tests": [
+   "gate"
+  ]
+ },
+ {
+  "name": "G14_previous_any_digits",
+  "file": "grid/gate.sh",
+  "old": "[[ $job =~ ^[0-9]{1,12}$ ]] || return 1",
+  "new": "[[ $job =~ ^[0-9]+$ ]] || return 1",
+  "tests": [
+   "gate"
+  ]
+ },
+ {
+  "name": "G15_previous_no_member_filter",
+  "file": "grid/gate.sh",
+  "old": "    grep -Eq '^- member [a-z]+: persons [0-9]+' \"$file\" || continue\n",
+  "new": "",
+  "tests": [
+   "gate"
+  ]
+ },
+ {
+  "name": "G16_keep_check_skipped",
+  "file": "grid/gate.sh",
+  "old": "  [ -z \"$keep\" ] || morphometry_keep \"$keep\" check || return\n",
+  "new": "",
+  "tests": [
+   "gate"
+  ]
+ },
+ {
+  "name": "G17_keep_even_failed",
+  "file": "grid/gate.sh",
+  "old": "      ! morphometry_ended_0 \"$report\" || keep=$job\n",
+  "new": "      keep=$job\n",
+  "tests": [
+   "gate"
+  ]
+ },
+ {
+  "name": "G18_lost_word_numbering",
+  "file": "grid/gate.sh",
+  "old": "if [ \"$spent\" -eq 0 ]; then echo lost; else echo \"lost$(( spent + 1 ))\"; fi\n}\nmorphometry_ended_0",
+  "new": "if [ \"$spent\" -eq 0 ]; then echo lost; else echo \"lost$spent\"; fi\n}\nmorphometry_ended_0",
+  "tests": [
+   "gate"
+  ]
+ },
+ {
+  "name": "G19_set_no_root_passed",
+  "file": "grid/gate.sh",
+  "old": "queued=$(submit \"morphometry_$id\" batch SET=\"$id\" DATA_ROOT=\"$DATA_ROOT\" MORPHOMETRY_ROOT=\"$(morphometry_root)\" ",
+  "new": "queued=$(submit \"morphometry_$id\" batch SET=\"$id\" DATA_ROOT=\"$DATA_ROOT\" ",
+  "tests": [
+   "gate"
+  ]
+ },
+ {
+  "name": "G20_stamp_regex_loose",
+  "file": "grid/gate.sh",
+  "old": "stamp=$(sed -n 's/^- code stamp: \\([0-9a-f]\\{16\\}\\)$/\\1/p' \"$1\" 2>/dev/null | head -n 1)",
+  "new": "stamp=$(sed -n 's/^- code stamp: \\(.*\\)$/\\1/p' \"$1\" 2>/dev/null | head -n 1)",
+  "tests": [
+   "gate"
+  ]
+ },
+ {
+  "name": "G21_part_move_dropped",
+  "file": "grid/gate.sh",
+  "old": "    mv \"$report.part\" \"$LOGS/MORPHOMETRY-$id-${part_job:-${job:-unknown}}.part\" || return 1",
+  "new": "    :",
+  "tests": [
+   "gate"
+  ]
+ },
+ {
+  "name": "S1_median_strictly_more_than_5",
+  "file": "grid/morphometry.sbatch",
+  "old": "return form % median(xs) if len(xs) >= LEAST else \"-\"",
+  "new": "return form % median(xs) if len(xs) > LEAST else \"-\"",
+  "tests": [
+   "gate"
+  ]
+ },
+ {
+  "name": "S2_least_6",
+  "file": "grid/morphometry.sbatch",
+  "old": "LEAST = 5\n",
+  "new": "LEAST = 6\n",
+  "tests": [
+   "gate"
+  ]
+ },
+ {
+  "name": "S3_no_worker_died",
+  "file": "grid/morphometry.sbatch",
+  "old": "if re.search(r\"^a worker died\", log, re.M):",
+  "new": "if False:",
+  "tests": [
+   "gate"
+  ]
+ },
+ {
+  "name": "S4_no_count_check",
+  "file": "grid/morphometry.sbatch",
+  "old": "if count and len(codes) != int(count.group(1)):",
+  "new": "if False:",
+  "tests": [
+   "gate"
+  ]
+ },
+ {
+  "name": "S5_no_foreign",
+  "file": "grid/morphometry.sbatch",
+  "old": "if foreign:\n",
+  "new": "if False:\n",
+  "tests": [
+   "gate"
+  ]
+ },
+ {
+  "name": "S6_no_stamp_vs_count",
+  "file": "grid/morphometry.sbatch",
+  "old": "elif count.group(2) != stamp:",
+  "new": "elif False:",
+  "tests": [
+   "gate"
+  ]
+ },
+ {
+  "name": "S7_no_default_whole",
+  "file": "grid/morphometry.sbatch",
+  "old": "[ -n \"$whole\" ] || whole=\"not whole: the check of the rows gave no answer\"\n",
+  "new": "",
+  "tests": [
+   "gate"
+  ]
+ },
+ {
+  "name": "S8_versions_no_scipy",
+  "file": "grid/morphometry.sbatch",
+  "old": "for name in (\"numpy\", \"scipy\", \"nibabel\"):",
+  "new": "for name in (\"numpy\", \"nibabel\"):",
+  "tests": [
+   "gate"
+  ]
+ },
+ {
+  "name": "S9_stamp_not_checked",
+  "file": "grid/morphometry.sbatch",
+  "old": "[[ $STAMP =~ ^[0-9a-f]{16}$ ]] || {",
+  "new": "[[ $STAMP =~ . ]] || {",
+  "tests": [
+   "gate"
+  ]
+ },
+ {
+  "name": "S10_not_whole_still_tabled",
+  "file": "grid/morphometry.sbatch",
+  "old": "      report \"$name rows FAILED: not a whole run (${whole#not whole: }), so they are not used\"\n      return 1 ;;",
+  "new": "      report \"$name rows FAILED: not a whole run (${whole#not whole: }), so they are not used\"\n      rc=1 ;;",
+  "tests": [
+   "gate"
+  ]
+ },
+ {
+  "name": "C1_previous_any_name",
+  "file": "grid/morphometry-covariates.sbatch",
+  "old": "[[ $job =~ ^[0-9]{1,12}$ ]] ||",
+  "new": "[[ $job =~ . ]] ||",
+  "tests": [
+   "join"
+  ]
+ },
+ {
+  "name": "C2_previous_not_passed",
+  "file": "grid/morphometry-covariates.sbatch",
+  "old": " \\\n     ${previous[@]+\"${previous[@]}\"} > \"$OUT/join.out\"",
+  "new": " > \"$OUT/join.out\"",
+  "tests": [
+   "join"
+  ]
+ },
+ {
+  "name": "P1_mean_then_strict",
+  "file": "tools/gold3_covariates.py",
+  "old": "if own[\"shown\"] and len(then[\"mean\"]) >= MIN_CELL and (",
+  "new": "if own[\"shown\"] and len(then[\"mean\"]) > MIN_CELL and (",
+  "tests": [
+   "join"
+  ]
+ },
+ {
+  "name": "P2_r_then_strict",
+  "file": "tools/gold3_covariates.py",
+  "old": "len(then[\"r\"]) >= MIN_PAIR and",
+  "new": "len(then[\"r\"]) > MIN_PAIR and",
+  "tests": [
+   "join"
+  ]
+ },
+ {
+  "name": "P3_slope_then_strict",
+  "file": "tools/gold3_covariates.py",
+  "old": "len(then[\"slope\"]) >= MIN_SLOPE and",
+  "new": "len(then[\"slope\"]) > MIN_SLOPE and",
+  "tests": [
+   "join"
+  ]
+ },
+ {
+  "name": "P4_no_partial_check",
+  "file": "tools/gold3_covariates.py",
+  "old": " or few(now[\"partial\"], then[\"partial\"], MIN_CELL)",
+  "new": "",
+  "tests": [
+   "join"
+  ]
+ },
+ {
+  "name": "P5_keyerror_not_caught",
+  "file": "tools/gold3_covariates.py",
+  "old": "except (OSError, KeyError, ValueError, csv.Error) as error:\n            report.fail(\"previous_unreadable\", error)",
+  "new": "except (OSError, ValueError, csv.Error) as error:\n            report.fail(\"previous_unreadable\", error)",
+  "tests": [
+   "join"
+  ]
+ },
+ {
+  "name": "P6_texts_two_places",
+  "file": "tools/gold3_covariates.py",
+  "old": "{place: f\"{value:.4f}\" for place, value in p.values.items()}",
+  "new": "{place: f\"{value:.1f}\" for place, value in p.values.items()}",
+  "tests": [
+   "join"
+  ]
+ },
+ {
+  "name": "P7_g_not_recomputed",
+  "file": "tools/gold3_covariates.py",
+  "old": "    for numbers in cells.values():\n        numbers[\"g\"] = g_of(numbers)\n    return [(key, level, numbers)",
+  "new": "    return [(key, level, numbers)",
+  "tests": [
+   "join"
+  ]
+ },
+ {
+  "name": "P8_few_inclusive",
+  "file": "tools/gold3_covariates.py",
+  "old": "return 0 < differing(ours, theirs) < least",
+  "new": "return 0 < differing(ours, theirs) <= least",
+  "tests": [
+   "join"
+  ]
+ },
+ {
+  "name": "P9_mixed_ge1",
+  "file": "tools/gold3_covariates.py",
+  "old": "if len(every) > 1:\n        report.fail(\"rows_code_mixed\")",
+  "new": "if len(every) > 2:\n        report.fail(\"rows_code_mixed\")",
+  "tests": [
+   "join"
+  ]
+ },
+ {
+  "name": "P10_stand_in_kept",
+  "file": "tools/gold3_covariates.py",
+  "old": "if values.get(study, {}).pop((level, STAND_IN_KEY), None) is not None:",
+  "new": "if values.get(study, {}).get((level, STAND_IN_KEY), None) is not None:",
+  "tests": [
+   "join"
+  ]
+ },
+ {
+  "name": "P11_no_blind",
+  "file": "tools/gold3_covariates.py",
+  "old": "            if unread:\n                blind(numbers)\n",
+  "new": "",
+  "tests": [
+   "join"
+  ]
+ },
+ {
+  "name": "P12_slope_ages_ignored",
+  "file": "tools/gold3_covariates.py",
+  "old": "out[\"slope\"][p.key] = (blank(p.age), reading)",
+  "new": "out[\"slope\"][p.key] = reading",
+  "tests": [
+   "join"
+  ]
+ },
+ {
+  "name": "P13_r_reading_one_side",
+  "file": "tools/gold3_covariates.py",
+  "old": "out[\"r\"][p.key] = (text[(above, key)], text[(level, key)])",
+  "new": "out[\"r\"][p.key] = text[(level, key)]",
+  "tests": [
+   "join"
+  ]
+ }
+]

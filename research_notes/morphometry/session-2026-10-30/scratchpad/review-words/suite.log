@@ -1,0 +1,55 @@
+test_a_spot_lands_where_flexrays_resize_carries_it (morphoview.tests.test_projection.Canvas.test_a_spot_lands_where_flexrays_resize_carries_it) ... ok
+test_an_image_lands_where_flexrays_content_box_puts_it (morphoview.tests.test_projection.Canvas.test_an_image_lands_where_flexrays_content_box_puts_it) ... ok
+test_the_canvas_gives_the_place_back (morphoview.tests.test_projection.Canvas.test_the_canvas_gives_the_place_back) ... ok
+test_a_point_on_a_pixels_ray_projects_to_the_pixels_centre (morphoview.tests.test_projection.FlexraysCamera.test_a_point_on_a_pixels_ray_projects_to_the_pixels_centre) ... ok
+test_a_point_the_render_did_not_sample_is_not_in_its_beam (morphoview.tests.test_projection.FlexraysCamera.test_a_point_the_render_did_not_sample_is_not_in_its_beam) ... ok
+test_beads_land_where_flexray_rendered_them (morphoview.tests.test_projection.FlexraysCamera.test_beads_land_where_flexray_rendered_them) ... ok
+test_the_beads_see_half_a_pixel (morphoview.tests.test_projection.FlexraysCamera.test_the_beads_see_half_a_pixel) ... ok
+test_the_matrices_are_flexrays (morphoview.tests.test_projection.FlexraysCamera.test_the_matrices_are_flexrays) ... ok
+test_the_rays_are_nanodrrs_in_nanodrrs_order (morphoview.tests.test_projection.FlexraysCamera.test_the_rays_are_nanodrrs_in_nanodrrs_order) ... ok
+test_the_record_holds_every_orientation (morphoview.tests.test_projection.FlexraysCamera.test_the_record_holds_every_orientation) ... ok
+test_a_length_across_the_beam_is_magnified_by_sdd_over_its_depth (morphoview.tests.test_projection.Geometry.test_a_length_across_the_beam_is_magnified_by_sdd_over_its_depth) ... ok
+test_a_length_turned_out_of_the_detector_is_foreshortened (morphoview.tests.test_projection.Geometry.test_a_length_turned_out_of_the_detector_is_foreshortened) ... ok
+test_a_manifest_row_is_the_view_its_request_was (morphoview.tests.test_projection.Geometry.test_a_manifest_row_is_the_view_its_request_was) ... ok
+test_the_beams_axis_meets_the_principal_point (morphoview.tests.test_projection.Geometry.test_the_beams_axis_meets_the_principal_point) ... ok
+test_a_discs_middle_lies_in_the_disc_space_on_the_lateral_render (morphoview.tests.test_projection.Lines.test_a_discs_middle_lies_in_the_disc_space_on_the_lateral_render) ... ok
+test_a_manifest_row_projects_as_its_view (morphoview.tests.test_projection.Lines.test_a_manifest_row_projects_as_its_view) ... ok
+test_a_vertebras_lines_have_their_middles_on_it (morphoview.tests.test_projection.Lines.test_a_vertebras_lines_have_their_middles_on_it) ... ok
+test_every_drawn_line_lands_on_its_levels_shadow (morphoview.tests.test_projection.Lines.test_every_drawn_line_lands_on_its_levels_shadow) ... ok
+test_every_line_is_carried_in_order (morphoview.tests.test_projection.Lines.test_every_line_is_carried_in_order) ... ok
+test_the_ends_are_where_the_camera_puts_them (morphoview.tests.test_projection.Lines.test_the_ends_are_where_the_camera_puts_them) ... ok
+test_the_frames_and_the_column_are_carried_too (morphoview.tests.test_projection.Lines.test_the_frames_and_the_column_are_carried_too) ... ok
+test_the_landing_is_measured_on_flexrays_shadow (morphoview.tests.test_projection.Lines.test_the_landing_is_measured_on_flexrays_shadow) ... ok
+test_the_samples_a_ray_are_the_view_files (morphoview.tests.test_projection.Lines.test_the_samples_a_ray_are_the_view_files) ... ok
+test_the_view_record_names_what_was_projected (morphoview.tests.test_projection.Lines.test_the_view_record_names_what_was_projected) ... ok
+test_beads_on_a_view_not_recorded_land_where_projected (morphoview.tests.test_projection.Live.test_beads_on_a_view_not_recorded_land_where_projected) ... skipped 'FleXray and torch are not installed here; fixtures/flexray.json stands in'
+test_flexray_renders_the_record_again (morphoview.tests.test_projection.Live.test_flexray_renders_the_record_again) ... skipped 'FleXray and torch are not installed here; fixtures/flexray.json stands in'
+test_a_levels_shadow_takes_in_every_piece_of_its_label (morphoview.tests.test_projection.Pieces.test_a_levels_shadow_takes_in_every_piece_of_its_label) ... ok
+test_flexrays_label_mask_lies_within_the_shadow_and_drops_thin_bone (morphoview.tests.test_projection.Shadows.test_flexrays_label_mask_lies_within_the_shadow_and_drops_thin_bone) ... ok
+test_our_shadows_are_flexrays (morphoview.tests.test_projection.Shadows.test_our_shadows_are_flexrays) ... ok
+test_a_circle_and_an_ellipse_keep_within_their_tolerance (morphoview.tests.test_shapes.Curves.test_a_circle_and_an_ellipse_keep_within_their_tolerance) ... ok
+test_a_circle_seen_through_parallel_rays_encloses_the_ellipses_area (morphoview.tests.test_shapes.Curves.test_a_circle_seen_through_parallel_rays_encloses_the_ellipses_area) ... ok
+test_a_curve_cut_by_the_source_plane_keeps_its_pieces_in_front (morphoview.tests.test_shapes.Curves.test_a_curve_cut_by_the_source_plane_keeps_its_pieces_in_front) ... ok
+test_a_spline_passes_through_its_points_within_its_tolerance (morphoview.tests.test_shapes.Curves.test_a_spline_passes_through_its_points_within_its_tolerance) ... ok
+test_a_straight_segment_stays_straight_on_the_render (morphoview.tests.test_shapes.Curves.test_a_straight_segment_stays_straight_on_the_render) ... ok
+test_an_arc_keeps_within_its_tolerance_and_turns_the_right_handed_way (morphoview.tests.test_shapes.Curves.test_an_arc_keeps_within_its_tolerance_and_turns_the_right_handed_way) ... ok
+test_the_spline_is_the_centripetal_one (morphoview.tests.test_shapes.Curves.test_the_spline_is_the_centripetal_one) ... ok
+test_a_fitted_plane_is_the_plane_its_points_lie_on (morphoview.tests.test_shapes.Planes.test_a_fitted_plane_is_the_plane_its_points_lie_on) ... ok
+test_a_patch_is_the_rectangle_it_is_asked_for (morphoview.tests.test_shapes.Planes.test_a_patch_is_the_rectangle_it_is_asked_for) ... ok
+test_how_the_render_sees_a_plane (morphoview.tests.test_shapes.Planes.test_how_the_render_sees_a_plane) ... ok
+test_where_a_line_meets_a_plane_and_the_angle_between_planes (morphoview.tests.test_shapes.Planes.test_where_a_line_meets_a_plane_and_the_angle_between_planes) ... ok
+test_a_points_pixel_is_the_cell_it_falls_in (morphoview.tests.test_shapes.Points.test_a_points_pixel_is_the_cell_it_falls_in) ... ok
+test_a_balls_fine_path_lengths_are_its_chords_through_its_voxels (morphoview.tests.test_shapes.Volumes.test_a_balls_fine_path_lengths_are_its_chords_through_its_voxels) ... ok
+test_a_volume_behind_the_source_is_refused (morphoview.tests.test_shapes.Volumes.test_a_volume_behind_the_source_is_refused) ... ok
+test_flexrays_sampling_is_nanodrrs_point_by_point (morphoview.tests.test_shapes.Volumes.test_flexrays_sampling_is_nanodrrs_point_by_point) ... ok
+test_parallel_path_lengths_sum_to_the_volume (morphoview.tests.test_shapes.Volumes.test_parallel_path_lengths_sum_to_the_volume) ... ok
+test_the_largest_piece_and_the_box (morphoview.tests.test_shapes.Volumes.test_the_largest_piece_and_the_box) ... ok
+
+----------------------------------------------------------------------
+Ran 46 tests in 39.923s
+
+OK (skipped=2)
+
+real	0m40.628s
+user	1m7.862s
+sys	0m7.437s

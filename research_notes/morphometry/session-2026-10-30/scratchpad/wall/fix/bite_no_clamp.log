@@ -1,0 +1,33 @@
+test_a_wall_not_read_reads_no_angle_against_it (morphometry.tests.test_morphometry.LeanedWall.test_a_wall_not_read_reads_no_angle_against_it)
+Where the wall is refused, the four angles taken against it are not read, each with ... ok
+test_specks_behind_the_wall (morphometry.tests.test_morphometry.LeanedWall.test_specks_behind_the_wall)
+A speck of bone behind the wall keeps the whole label from parting; the clamp sets aside ... FAIL
+test_the_clamp (morphometry.tests.test_morphometry.LeanedWall.test_the_clamp)
+The label parts bone from air along the wall, so the reading is clamped into the range ... FAIL
+test_wall_on_the_staircase (morphometry.tests.test_morphometry.LeanedWall.test_wall_on_the_staircase) ... ok
+
+======================================================================
+FAIL: test_specks_behind_the_wall (morphometry.tests.test_morphometry.LeanedWall.test_specks_behind_the_wall)
+A speck of bone behind the wall keeps the whole label from parting; the clamp sets aside
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/bordercall/morphometry/tests/test_morphometry.py", line 418, in test_specks_behind_the_wall
+    self.assertAlmostEqual(wall_error(two, self.placed, self.lean), clean, places=6)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: -0.3934232346032571 != -0.4062084442143954 within 6 places (0.01278520961113827 difference)
+
+======================================================================
+FAIL: test_the_clamp (morphometry.tests.test_morphometry.LeanedWall.test_the_clamp)
+The label parts bone from air along the wall, so the reading is clamped into the range
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/bordercall/morphometry/tests/test_morphometry.py", line 405, in test_the_clamp
+    self.assertTrue(info["free_lo_deg"] <= BODY.degrees_of(slope) <= info["free_hi_deg"], info)
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true : {'edges': 240, 'dropped': 0, 'half_band_mm': 5.899006839569507, 'span_mm': 14.99212559655538, 'parted': True, 'across': 0, 'fitted_deg': 4.528101606235569, 'free_lo_deg': 4.836850585516267, 'free_hi_deg': 5.130840020025051, 'free_deg': 0.29398943450878434, 'rms_over_step': 0.2889385642198189}
+
+----------------------------------------------------------------------
+Ran 4 tests in 21.391s
+
+FAILED (failures=2)
+no_clamp: 4 run, 2 failed, 0 errors

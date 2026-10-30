@@ -1,0 +1,16 @@
+MUTANT frame on the column's line               KILLED Ran 3 tests in 124.809s FAILED (failures=1)
+MUTANT frame turned 5 degrees about x           KILLED Ran 3 tests in 123.829s FAILED (failures=1)
+MUTANT origin at zero                           KILLED Ran 3 tests in 104.677s FAILED (failures=1)
+MUTANT x and y reversed                         KILLED Ran 3 tests in 128.233s FAILED (failures=1)
+MUTANT rows written first                       KILLED Ran 1 test in 44.754s FAILED (failures=2)
+MUTANT kept not reset                           KILLED Ran 1 test in 27.198s FAILED (failures=1)
+MUTANT one guard for the whole level            KILLED Ran 1 test in 35.914s FAILED (failures=1)
+MUTANT join takes every study's files           KILLED Ran 1 test in 44.786s FAILED (failures=1)
+MUTANT join written in place                    KILLED Ran 1 test in 44.464s FAILED (failures=1)
+MUTANT no reading again on a cut vertebra       KILLED Ran 1 test in 94.456s FAILED (failures=1)
+MUTANT no h_post line                           KILLED Ran 1 test in 99.280s FAILED (failures=1)
+MUTANT no canal lines                           KILLED Ran 1 test in 122.068s FAILED (failures=1)
+MUTANT canal depth on the wrong section         SURVIVED Ran 10 tests in 117.517s OK
+MUTANT h_post across the plate, not up it       KILLED Ran 3 tests in 108.084s FAILED (failures=1)
+
+[exited with code 0]

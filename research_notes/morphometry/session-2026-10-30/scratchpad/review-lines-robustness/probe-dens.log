@@ -1,0 +1,1 @@
+dens             measure+draw-volume 26 s, lines 0.5 s; verts ['C2', 'C3', 'C4']; discs [('C2', 'C3'), ('C3', 'C4')]; flags []; statuses {'not measured': 8, 'drawn': 40}; levels with rows but no lines []

@@ -1,0 +1,60 @@
+== straight tilt ((1.0, 0.3, 0.0), 18.0) turn 7.0 spacing (0.8, 0.8, 1.0) (17s)
+   right current   4.82 | LP near   0.19 (m 0.03/0.02 n 235/220 span 7.5) | LP taken   0.20 (m 0.03/0.02 n 245/229 span 13.8) | truth  0.00 fz 1.24
+   left  current   1.45 | LP near   0.35 (m 0.02/-0.02 n 202/221 span 6.9) | LP taken -10.43 (m -0.10/-1.67 n 230/250 span 13.8) | truth  0.00 fz 1.24
+== straight tilt ((1.0, 0.0, 0.0), 10.0) turn 0.0 spacing (0.8, 0.8, 1.0) (13s)
+   right current  -8.76 | LP near  -0.02 (m 0.04/0.07 n 184/183 span 8.2) | LP taken  -9.31 (m 0.04/-0.92 n 193/192 span 14.4) | truth  0.00 fz 1.12
+   left  current   1.23 | LP near   0.53 (m 0.01/0.03 n 180/183 span 8.2) | LP taken   0.53 (m 0.01/0.03 n 185/187 span 12.0) | truth  0.00 fz 1.12
+== straight tilt ((1.0, 0.3, 0.0), 25.0) turn 15.0 spacing (0.8, 0.8, 1.0) (18s)
+   right current   3.35 | LP near  -0.37 (m 0.04/0.02 n 235/228 span 7.2) | LP taken  -0.37 (m 0.04/0.02 n 235/228 span 7.2) | truth  0.00 fz 1.25
+   left  current  -2.13 | LP near  -1.53 (m 0.03/0.04 n 231/235 span 7.2) | LP taken  -1.53 (m 0.03/0.04 n 237/240 span 7.9) | truth  0.00 fz 1.25
+== straight tilt ((0.3, 1.0, 0.0), 12.0) turn 4.0 spacing (0.8, 0.8, 1.0) (15s)
+   right current  -7.28 | LP near  -0.25 (m 0.00/0.04 n 216/229 span 6.7) | LP taken -12.22 (m -0.27/-1.52 n 255/268 span 14.5) | truth  0.00 fz 1.19
+   left  current   2.45 | LP near   3.95 (m 0.26/0.06 n 80/84 span 2.6) | LP taken   0.30 (m -0.06/-0.02 n 263/274 span 14.0) | truth  0.00 fz 1.19
+== straight tilt ((1.0, -0.5, 0.2), 20.0) turn -9.0 spacing (0.8, 0.8, 1.0) (16s)
+   right current   1.04 | LP near   0.67 (m 0.05/0.05 n 200/189 span 7.3) | LP taken   0.67 (m 0.05/0.05 n 202/194 span 8.6) | truth  0.00 fz 1.27
+   left  current  -1.36 | LP near   0.26 (m 0.09/0.08 n 173/189 span 6.7) | LP taken -10.40 (m 0.04/-1.76 n 195/211 span 12.2) | truth  0.00 fz 1.27
+== shapes tilt ((1.0, 0.3, 0.0), 18.0) turn 7.0 spacing (0.8, 0.8, 1.0) (15s)
+   right current   9.47 | LP near   6.47 (m 0.00/0.05 n 215/197 span 6.3) | LP taken   6.02 (m 0.00/-0.02 n 269/252 span 8.6) | truth  6.00 fz 1.24
+   left  current   7.12 | LP near   6.36 (m 0.02/0.02 n 271/265 span 7.5) | LP taken  -0.00 (m 0.02/-0.71 n 278/273 span 13.2) | truth  6.00 fz 1.24
+== shapes tilt ((1.0, 0.0, 0.0), 10.0) turn 0.0 spacing (0.8, 0.8, 1.0) (13s)
+   right current   9.63 | LP near   6.02 (m 0.01/-0.00 n 243/239 span 8.7) | LP taken   6.02 (m 0.01/-0.00 n 243/239 span 8.7) | truth  6.00 fz 1.12
+   left  current  10.42 | LP near   6.50 (m 0.01/0.04 n 183/175 span 7.7) | LP taken  -9.32 (m 0.01/-2.36 n 211/201 span 9.7) | truth  6.00 fz 1.12
+== shapes tilt ((1.0, 0.3, 0.0), 25.0) turn 15.0 spacing (0.8, 0.8, 1.0) (18s)
+   right current   5.70 | LP near   5.42 (m -0.01/0.02 n 247/247 span 7.2) | LP taken   5.36 (m -0.01/0.00 n 271/266 span 8.5) | truth  6.00 fz 1.25
+   left  current   6.20 | LP near   5.62 (m 0.02/0.01 n 242/232 span 7.2) | LP taken   5.62 (m 0.02/0.01 n 257/246 span 7.9) | truth  6.00 fz 1.25
+== shapes tilt ((0.3, 1.0, 0.0), 12.0) turn 4.0 spacing (0.8, 0.8, 1.0) (14s)
+   right current   4.77 | LP near   5.41 (m 0.06/0.05 n 240/248 span 7.8) | LP taken   5.41 (m 0.06/0.05 n 240/248 span 7.8) | truth  6.00 fz 1.19
+   left  current  11.43 | LP near   5.15 (m 0.02/0.03 n 227/233 span 7.3) | LP taken  -7.98 (m -0.06/-2.85 n 270/273 span 14.0) | truth  6.00 fz 1.19
+== shapes tilt ((1.0, -0.5, 0.2), 20.0) turn -9.0 spacing (0.8, 0.8, 1.0) (16s)
+   right current   8.74 | LP near   5.36 (m 0.05/0.02 n 216/241 span 6.7) | LP taken   5.74 (m 0.04/0.00 n 254/279 span 13.4) | truth  6.00 fz 1.27
+   left  current   8.17 | LP near   5.82 (m 0.05/0.03 n 176/206 span 6.7) | LP taken   5.94 (m 0.05/0.03 n 203/233 span 7.9) | truth  6.00 fz 1.27
+== pitched tilt ((1.0, 0.3, 0.0), 18.0) turn 7.0 spacing (0.8, 0.8, 1.0) (15s)
+   right current  11.24 | LP near  10.04 (m -0.00/0.03 n 239/231 span 7.5) | LP taken  11.08 (m -0.00/-0.07 n 247/240 span 8.1) | truth 10.00 fz 1.24
+   left  current  12.45 | LP near  10.68 (m 0.04/0.00 n 222/235 span 7.5) | LP taken  10.68 (m 0.04/0.00 n 233/245 span 8.6) | truth 10.00 fz 1.24
+== pitched tilt ((1.0, 0.0, 0.0), 10.0) turn 0.0 spacing (0.8, 0.8, 1.0) (12s)
+   right current  11.05 | LP near  10.91 (m 0.28/0.19 n 167/173 span 8.2) | LP taken  10.91 (m 0.28/0.19 n 167/173 span 8.2) | truth 10.00 fz 1.12
+   left  current  12.37 | LP near  10.91 (m 0.28/0.19 n 181/180 span 8.2) | LP taken  10.91 (m 0.28/0.19 n 182/183 span 8.7) | truth 10.00 fz 1.12
+== pitched tilt ((1.0, 0.3, 0.0), 25.0) turn 15.0 spacing (0.8, 0.8, 1.0) (18s)
+   right current  11.20 | LP near  10.06 (m -0.02/0.03 n 221/216 span 6.6) | LP taken  10.14 (m -0.02/-0.03 n 237/237 span 7.9) | truth 10.00 fz 1.25
+   left  current  20.30 | LP near  10.34 (m 0.02/-0.01 n 231/229 span 6.6) | LP taken  10.72 (m 0.02/-0.05 n 256/251 span 7.9) | truth 10.00 fz 1.25
+== pitched tilt ((0.3, 1.0, 0.0), 12.0) turn 4.0 spacing (0.8, 0.8, 1.0) (13s)
+   right no isthmus
+   left  current  10.87 | LP near  10.23 (m 0.04/0.01 n 252/248 span 8.3) | LP taken  10.23 (m 0.04/0.01 n 252/248 span 8.3) | truth 10.00 fz 1.19
+== pitched tilt ((1.0, -0.5, 0.2), 20.0) turn -9.0 spacing (0.8, 0.8, 1.0) (16s)
+   right current  10.84 | LP near  10.06 (m 0.02/0.02 n 213/195 span 7.3) | LP taken   0.05 (m 0.02/-1.17 n 221/207 span 9.2) | truth 10.00 fz 1.27
+   left  current  11.85 | LP near   8.24 (m 0.06/0.05 n 201/216 span 7.3) | LP taken   8.24 (m 0.06/0.05 n 208/219 span 8.0) | truth 10.00 fz 1.27
+== pitched_down tilt ((1.0, 0.3, 0.0), 18.0) turn 7.0 spacing (0.8, 0.8, 1.0) (15s)
+   right current  -1.52 | LP near  -7.79 (m 0.03/0.05 n 225/209 span 6.9) | LP taken  -7.49 (m 0.01/0.05 n 239/226 span 8.1) | truth -8.00 fz 1.24
+   left  current  -3.77 | LP near  -6.78 (m 0.03/0.05 n 231/233 span 6.9) | LP taken  -9.97 (m -0.31/-0.80 n 236/239 span 12.7) | truth -8.00 fz 1.24
+== pitched_down tilt ((1.0, 0.0, 0.0), 10.0) turn 0.0 spacing (0.8, 0.8, 1.0) (13s)
+   right current  -7.34 | LP near  -7.07 (m 0.05/0.03 n 220/218 span 7.9) | LP taken  -7.22 (m 0.02/0.02 n 232/233 span 9.3) | truth -8.00 fz 1.12
+   left  current  -5.02 | LP near  -6.85 (m 0.02/-0.01 n 190/196 span 6.9) | LP taken  -6.27 (m 0.02/-0.03 n 197/204 span 8.4) | truth -8.00 fz 1.12
+== pitched_down tilt ((1.0, 0.3, 0.0), 25.0) turn 15.0 spacing (0.8, 0.8, 1.0) (21s)
+   right current    nan | LP near  -8.60 (m 0.04/0.00 n 195/193 span 5.9) | LP taken  -0.91 (m -0.49/-0.44 n 223/224 span 13.2) | truth -8.00 fz 1.25
+   left  current  -9.45 | LP near  -9.41 (m 0.06/-0.01 n 237/219 span 7.3) | LP taken  -9.41 (m 0.06/-0.01 n 237/219 span 7.3) | truth -8.00 fz 1.25
+== pitched_down tilt ((0.3, 1.0, 0.0), 12.0) turn 4.0 spacing (0.8, 0.8, 1.0) (17s)
+   right current  -6.44 | LP near  -8.04 (m 0.00/0.00 n 218/247 span 7.8) | LP taken -13.59 (m -0.27/-0.95 n 230/258 span 14.5) | truth -8.00 fz 1.19
+   left  current  -8.06 | LP near  -8.57 (m 0.04/0.06 n 174/163 span 5.2) | LP taken  -6.32 (m -0.37/0.03 n 260/262 span 13.5) | truth -8.00 fz 1.19
+== pitched_down tilt ((1.0, -0.5, 0.2), 20.0) turn -9.0 spacing (0.8, 0.8, 1.0) (48s)
+   right current  -0.48 | LP near  -7.14 (m 0.02/0.04 n 197/220 span 6.7) | LP taken -13.95 (m -0.11/-0.92 n 213/233 span 13.3) | truth -8.00 fz 1.27
+   left  current  -3.30 | LP near  -7.08 (m -0.01/0.04 n 226/220 span 6.7) | LP taken  -6.72 (m -0.01/-0.05 n 248/246 span 8.5) | truth -8.00 fz 1.27

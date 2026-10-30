@@ -1,0 +1,8 @@
+p 0.30 thin  current              max 6.49 median 0.72 mean 1.22 (49 read)
+p 0.30 thin  candidate            max 1.06 median 0.35 mean 0.40 (49 read)
+p 0.30 thin  candidate, no clamp  max 1.06 median 0.35 mean 0.40 (49 read)
+p 0.30 thin  the lattice's range found (a surface parts the edges) in 0 of 49
+p 0.30 thick current              max 9.08 median 0.97 mean 1.91 (49 read)
+p 0.30 thick candidate            max 2.35 median 0.59 mean 0.75 (49 read)
+p 0.30 thick candidate, no clamp  max 2.35 median 0.59 mean 0.75 (49 read)
+p 0.30 thick the lattice's range found (a surface parts the edges) in 0 of 49

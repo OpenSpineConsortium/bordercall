@@ -1,0 +1,11 @@
+   endplate_incl nan
+   endplate_lower_incl nan
+   wedge 0.10889480936329715
+   pedicle_angle_sagittal_right nan
+   pedicle_angle_sagittal_left nan
+   pedicle_angle_transverse_left 1.0489411091797831
+   spinous_angle nan
+   flag:pedicle_left: the lattice leaves the pedicle's climb free over 23 degrees, more than 9: the layers do not cut its surfaces at phases enough to pin it
+   flag:pedicle_right: the lattice leaves the pedicle's climb free over 24 degrees, more than 9: the layers do not cut its surfaces at phases enough to pin it
+   flag:posterior_wall: the body's posterior wall is not read, so neither end-plate's inclination is: 69 per cent of the band's edges lie more than a step off the fitted surface, more than 40: a notch or a lip that holds so many is not told from the wall
+   flag:spinous: the body's posterior wall is not read (69 per cent of the band's edges lie more than a step off the fitted surface, more than 40: a notch or a lip that holds so many is not told from the wall): the spinous process's inclination, taken against it, is not

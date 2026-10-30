@@ -1,0 +1,8 @@
+test_wall_on_the_staircase (morphometry.tests.test_morphometry.LeanedWall.test_wall_on_the_staircase) ... FAIL
+test_wall_past_the_notch (morphometry.tests.test_morphometry.BasivertebralNotch.test_wall_past_the_notch) ... FAIL
+test_end_plate_inclinations (morphometry.tests.test_morphometry.BasivertebralNotch.test_end_plate_inclinations) ... FAIL
+The plates are read rim to rim within a few tenths of a degree here; the wall they are ... FAIL
+failed 4 of 4 with the old reading
+exit 0
+
+[exited with code 0]

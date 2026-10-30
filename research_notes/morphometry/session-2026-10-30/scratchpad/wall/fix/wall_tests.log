@@ -1,0 +1,21 @@
+test_a_wall_not_read_reads_no_angle_against_it (morphometry.tests.test_morphometry.LeanedWall.test_a_wall_not_read_reads_no_angle_against_it)
+Where the wall is refused, the four angles taken against it are not read, each with ... ok
+test_specks_behind_the_wall (morphometry.tests.test_morphometry.LeanedWall.test_specks_behind_the_wall)
+A speck of bone behind the wall keeps the whole label from parting; the clamp sets aside ... ok
+test_the_clamp (morphometry.tests.test_morphometry.LeanedWall.test_the_clamp)
+The label parts bone from air along the wall, so the reading is clamped into the range ... ok
+test_wall_on_the_staircase (morphometry.tests.test_morphometry.LeanedWall.test_wall_on_the_staircase) ... ok
+test_end_plate_inclinations (morphometry.tests.test_morphometry.BasivertebralNotch.test_end_plate_inclinations) ... ok
+test_the_fit_leaves_the_notch_out (morphometry.tests.test_morphometry.BasivertebralNotch.test_the_fit_leaves_the_notch_out)
+The fit itself, before the clamp, which on its own could hold a fit the notch pulled ... ok
+test_wall_past_the_notch (morphometry.tests.test_morphometry.BasivertebralNotch.test_wall_past_the_notch) ... ok
+test_the_wall_is_refused (morphometry.tests.test_morphometry.DeepNotch.test_the_wall_is_refused) ... ok
+test_the_flag_where_the_label_does_not_part (morphometry.tests.test_morphometry.FreeWall.test_the_flag_where_the_label_does_not_part)
+Where the label does not part, the freedom is a clean digitisation's and bounds ... ok
+test_the_freedom_is_flagged (morphometry.tests.test_morphometry.FreeWall.test_the_freedom_is_flagged) ... ok
+test_wall_below_the_dens (morphometry.tests.test_morphometry.DensAtC2.test_wall_below_the_dens) ... ok
+
+----------------------------------------------------------------------
+Ran 11 tests in 57.015s
+
+OK

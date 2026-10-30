@@ -1,0 +1,14 @@
+straight_lean+0_aligned_thick          clean +0.00 | speck   +nan parted True  free  180.0 statuses [4, 4] why: the lattice leaves the wall's slope free over 180.0 degrees,
+    widest margin by highs     status 0 margin 1.3e-08 (part needs > 1e-06)
+    widest margin by highs-ds  status 0 margin 1.3e-08 (part needs > 1e-06)
+    widest margin by highs-ipm status 0 margin 1.3e-08 (part needs > 1e-06)
+    call c=(0.0, 1.0, 0.0, 0.0) status 4: The HiGHS status code was not recognized. (HiGHS Status 15: model_status is Unknown; primal_status is Infeasible)
+    call c=(0.0, -1.0, 0.0, 0.0) status 4: The HiGHS status code was not recognized. (HiGHS Status 15: model_status is Unknown; primal_status is Infeasible)
+straight_lean+0_aligned_thin           clean +0.00 | speck  -0.00 parted False free    2.2 statuses [2, 0, 0]
+straight_lean+5_x5_thin                clean -0.01 | speck   +nan parted True  free  180.0 statuses [4, 4] why: the lattice leaves the wall's slope free over 180.0 degrees,
+    widest margin by highs     status 0 margin 8.45e-08 (part needs > 1e-06)
+    widest margin by highs-ds  status 0 margin 8.45e-08 (part needs > 1e-06)
+    widest margin by highs-ipm status 0 margin 8.45e-08 (part needs > 1e-06)
+    call c=(0.0, 1.0, 0.0, 0.0) status 4: The HiGHS status code was not recognized. (HiGHS Status 15: model_status is Unknown; primal_status is Infeasible)
+    call c=(0.0, -1.0, 0.0, 0.0) status 4: The HiGHS status code was not recognized. (HiGHS Status 15: model_status is Unknown; primal_status is Infeasible)
+tally {'status4 refused': 2, 'other read': 1}

@@ -1,0 +1,36 @@
+== thin
+clean: read 49 of 49, max 0.35 median 0.07; parted 49; fit alone max 1.24 median 0.10; flagged 0
+  bow_sagittal_0.8   max  1.64 median 0.12 refused 0 of 49; parted 20 (truth inside 18), not parted 29 (truth inside 24); flagged 12, unflagged past 1.5 1
+  clean              max  0.35 median 0.07 refused 0 of 49; parted 49 (truth inside 48), not parted 0 (truth inside 0); flagged 0, unflagged past 1.5 0
+  cut_top_30         max  1.14 median 0.17 refused 0 of 49; parted 49 (truth inside 47), not parted 0 (truth inside 0); flagged 3, unflagged past 1.5 0
+  flips_0.2          max  0.92 median 0.21 refused 0 of 49; parted 0 (truth inside 0), not parted 49 (truth inside 21); flagged 2, unflagged past 1.5 0
+  holes              max  0.56 median 0.08 refused 0 of 49; parted 49 (truth inside 47), not parted 0 (truth inside 0); flagged 0, unflagged past 1.5 0
+  lip_top_1.5        max  1.61 median 0.14 refused 0 of 49; parted 49 (truth inside 48), not parted 0 (truth inside 0); flagged 1, unflagged past 1.5 2
+  notch_5x6x4        max  0.34 median 0.13 refused 0 of 49; parted 48 (truth inside 47), not parted 1 (truth inside 1); flagged 0, unflagged past 1.5 0
+  notch_6x4x2        max  0.34 median 0.08 refused 0 of 49; parted 49 (truth inside 48), not parted 0 (truth inside 0); flagged 0, unflagged past 1.5 0
+  notch_up_6x4x2     max  0.32 median 0.09 refused 0 of 49; parted 48 (truth inside 47), not parted 1 (truth inside 0); flagged 0, unflagged past 1.5 0
+  osteophyte_end_3   max  0.35 median 0.08 refused 0 of 49; parted 49 (truth inside 48), not parted 0 (truth inside 0); flagged 0, unflagged past 1.5 0
+  ragged_0.3_3       max  2.56 median 0.68 refused 0 of 49; parted 0 (truth inside 0), not parted 49 (truth inside 7); flagged 2, unflagged past 1.5 9 less the lean max 0.74
+  ragged_0.5_4       max  5.43 median 1.29 refused 0 of 49; parted 0 (truth inside 0), not parted 49 (truth inside 3); flagged 1, unflagged past 1.5 21 less the lean max 1.05
+  scallop_axial_1    max  0.43 median 0.07 refused 0 of 49; parted 5 (truth inside 5), not parted 44 (truth inside 29); flagged 6, unflagged past 1.5 0
+rank correlation of |error| with the freedom over 441 altered readings 0.18
+altered but the ragged and the lip: max 1.64 (bow_sagittal_0.8)
+largest dropped share of a reading: 0.26
+== thick
+clean: read 49 of 49, max 0.79 median 0.19; parted 49; fit alone max 1.18 median 0.19; flagged 3
+  bow_sagittal_0.8   max  3.03 median 0.27 refused 0 of 49; parted 29 (truth inside 26), not parted 20 (truth inside 15); flagged 26, unflagged past 1.5 0
+  clean              max  0.79 median 0.19 refused 0 of 49; parted 49 (truth inside 49), not parted 0 (truth inside 0); flagged 3, unflagged past 1.5 0
+  cut_top_30         max  2.51 median 0.49 refused 2 of 49; parted 47 (truth inside 47), not parted 0 (truth inside 0); flagged 21, unflagged past 1.5 0
+  flips_0.2          max  2.23 median 0.39 refused 0 of 49; parted 0 (truth inside 0), not parted 49 (truth inside 31); flagged 9, unflagged past 1.5 4
+  holes              max  0.79 median 0.21 refused 0 of 49; parted 49 (truth inside 49), not parted 0 (truth inside 0); flagged 3, unflagged past 1.5 0
+  lip_top_1.5        max 11.69 median 0.47 refused 1 of 49; parted 43 (truth inside 42), not parted 5 (truth inside 0); flagged 13, unflagged past 1.5 3
+  notch_5x6x4        max  0.65 median 0.20 refused 0 of 49; parted 49 (truth inside 48), not parted 0 (truth inside 0); flagged 3, unflagged past 1.5 0
+  notch_6x4x2        max  0.95 median 0.22 refused 0 of 49; parted 48 (truth inside 48), not parted 1 (truth inside 0); flagged 3, unflagged past 1.5 0
+  notch_up_6x4x2     max  0.79 median 0.22 refused 0 of 49; parted 49 (truth inside 48), not parted 0 (truth inside 0); flagged 9, unflagged past 1.5 0
+  osteophyte_end_3   max  0.79 median 0.19 refused 0 of 49; parted 49 (truth inside 49), not parted 0 (truth inside 0); flagged 3, unflagged past 1.5 0
+  ragged_0.3_3       max  3.97 median 0.81 refused 0 of 49; parted 2 (truth inside 2), not parted 47 (truth inside 16); flagged 5, unflagged past 1.5 9 less the lean max 1.67
+  ragged_0.5_4       max  6.97 median 1.72 refused 0 of 49; parted 3 (truth inside 2), not parted 46 (truth inside 8); flagged 5, unflagged past 1.5 25 less the lean max 2.57
+  scallop_axial_1    max  0.62 median 0.17 refused 0 of 49; parted 31 (truth inside 21), not parted 18 (truth inside 15); flagged 6, unflagged past 1.5 0
+rank correlation of |error| with the freedom over 439 altered readings 0.12
+altered but the ragged and the lip: max 3.03 (bow_sagittal_0.8)
+largest dropped share of a reading: 0.36

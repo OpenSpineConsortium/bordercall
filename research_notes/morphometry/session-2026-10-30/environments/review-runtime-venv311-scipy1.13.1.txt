@@ -1,0 +1,8 @@
+# review-runtime-venv311-scipy1.13.1, the scratchpad's review-runtime/venv311-scipy1.13.1/
+# Python 3.11.17, the distributions importlib.metadata lists (the environment has no pip)
+importlib_resources==7.1.0
+nibabel==5.4.2
+numpy==2.2.6
+packaging==26.3
+scipy==1.13.1
+typing_extensions==4.16.0

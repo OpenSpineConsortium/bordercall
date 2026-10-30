@@ -1,0 +1,5 @@
+  joints L2: 22 lines {'drawn': 22} touching=False
+  joints L3: 22 lines {'drawn': 22} touching=False
+  joints L4: 22 lines {'drawn': 22} touching=False
+joints levels ['L2', 'L3', 'L4'] discs [('L2', 'L3'), ('L3', 'L4')]
+TOTAL PROBLEMS 0

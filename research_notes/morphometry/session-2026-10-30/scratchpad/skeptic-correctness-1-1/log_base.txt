@@ -1,0 +1,90 @@
+/tmp/claude-0/-home-user/cbdcd57f-bcf8-5a71-ab64-4f0b9fbdb74f/scratchpad/skeptic-correctness-1-1/base/morphometry/__main__.py:107: ResourceWarning: unclosed file <_io.BufferedReader name='/tmp/claude-0/-home-user/cbdcd57f-bcf8-5a71-ab64-4f0b9fbdb74f/scratchpad/skeptic-correctness-1-1/base/morphometry/__init__.py'>
+  h.update(name.encode() + b"\0" + open(os.path.join(folder, name), "rb").read())
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/tmp/claude-0/-home-user/cbdcd57f-bcf8-5a71-ab64-4f0b9fbdb74f/scratchpad/skeptic-correctness-1-1/base/morphometry/__main__.py:107: ResourceWarning: unclosed file <_io.BufferedReader name='/tmp/claude-0/-home-user/cbdcd57f-bcf8-5a71-ab64-4f0b9fbdb74f/scratchpad/skeptic-correctness-1-1/base/morphometry/__main__.py'>
+  h.update(name.encode() + b"\0" + open(os.path.join(folder, name), "rb").read())
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/tmp/claude-0/-home-user/cbdcd57f-bcf8-5a71-ab64-4f0b9fbdb74f/scratchpad/skeptic-correctness-1-1/base/morphometry/__main__.py:107: ResourceWarning: unclosed file <_io.BufferedReader name='/tmp/claude-0/-home-user/cbdcd57f-bcf8-5a71-ab64-4f0b9fbdb74f/scratchpad/skeptic-correctness-1-1/base/morphometry/anatomy.py'>
+  h.update(name.encode() + b"\0" + open(os.path.join(folder, name), "rb").read())
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/tmp/claude-0/-home-user/cbdcd57f-bcf8-5a71-ab64-4f0b9fbdb74f/scratchpad/skeptic-correctness-1-1/base/morphometry/__main__.py:107: ResourceWarning: unclosed file <_io.BufferedReader name='/tmp/claude-0/-home-user/cbdcd57f-bcf8-5a71-ab64-4f0b9fbdb74f/scratchpad/skeptic-correctness-1-1/base/morphometry/body.py'>
+  h.update(name.encode() + b"\0" + open(os.path.join(folder, name), "rb").read())
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/tmp/claude-0/-home-user/cbdcd57f-bcf8-5a71-ab64-4f0b9fbdb74f/scratchpad/skeptic-correctness-1-1/base/morphometry/__main__.py:107: ResourceWarning: unclosed file <_io.BufferedReader name='/tmp/claude-0/-home-user/cbdcd57f-bcf8-5a71-ab64-4f0b9fbdb74f/scratchpad/skeptic-correctness-1-1/base/morphometry/canal.py'>
+  h.update(name.encode() + b"\0" + open(os.path.join(folder, name), "rb").read())
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/tmp/claude-0/-home-user/cbdcd57f-bcf8-5a71-ab64-4f0b9fbdb74f/scratchpad/skeptic-correctness-1-1/base/morphometry/__main__.py:107: ResourceWarning: unclosed file <_io.BufferedReader name='/tmp/claude-0/-home-user/cbdcd57f-bcf8-5a71-ab64-4f0b9fbdb74f/scratchpad/skeptic-correctness-1-1/base/morphometry/column.py'>
+  h.update(name.encode() + b"\0" + open(os.path.join(folder, name), "rb").read())
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/tmp/claude-0/-home-user/cbdcd57f-bcf8-5a71-ab64-4f0b9fbdb74f/scratchpad/skeptic-correctness-1-1/base/morphometry/__main__.py:107: ResourceWarning: unclosed file <_io.BufferedReader name='/tmp/claude-0/-home-user/cbdcd57f-bcf8-5a71-ab64-4f0b9fbdb74f/scratchpad/skeptic-correctness-1-1/base/morphometry/measure.py'>
+  h.update(name.encode() + b"\0" + open(os.path.join(folder, name), "rb").read())
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/tmp/claude-0/-home-user/cbdcd57f-bcf8-5a71-ab64-4f0b9fbdb74f/scratchpad/skeptic-correctness-1-1/base/morphometry/__main__.py:107: ResourceWarning: unclosed file <_io.BufferedReader name='/tmp/claude-0/-home-user/cbdcd57f-bcf8-5a71-ab64-4f0b9fbdb74f/scratchpad/skeptic-correctness-1-1/base/morphometry/pedicle.py'>
+  h.update(name.encode() + b"\0" + open(os.path.join(folder, name), "rb").read())
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/tmp/claude-0/-home-user/cbdcd57f-bcf8-5a71-ab64-4f0b9fbdb74f/scratchpad/skeptic-correctness-1-1/base/morphometry/__main__.py:107: ResourceWarning: unclosed file <_io.BufferedReader name='/tmp/claude-0/-home-user/cbdcd57f-bcf8-5a71-ab64-4f0b9fbdb74f/scratchpad/skeptic-correctness-1-1/base/morphometry/pelvis.py'>
+  h.update(name.encode() + b"\0" + open(os.path.join(folder, name), "rb").read())
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/tmp/claude-0/-home-user/cbdcd57f-bcf8-5a71-ab64-4f0b9fbdb74f/scratchpad/skeptic-correctness-1-1/base/morphometry/__main__.py:107: ResourceWarning: unclosed file <_io.BufferedReader name='/tmp/claude-0/-home-user/cbdcd57f-bcf8-5a71-ab64-4f0b9fbdb74f/scratchpad/skeptic-correctness-1-1/base/morphometry/posterior.py'>
+  h.update(name.encode() + b"\0" + open(os.path.join(folder, name), "rb").read())
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/tmp/claude-0/-home-user/cbdcd57f-bcf8-5a71-ab64-4f0b9fbdb74f/scratchpad/skeptic-correctness-1-1/base/morphometry/__main__.py:107: ResourceWarning: unclosed file <_io.BufferedReader name='/tmp/claude-0/-home-user/cbdcd57f-bcf8-5a71-ab64-4f0b9fbdb74f/scratchpad/skeptic-correctness-1-1/base/scanimport/__init__.py'>
+  h.update(name.encode() + b"\0" + open(os.path.join(folder, name), "rb").read())
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/tmp/claude-0/-home-user/cbdcd57f-bcf8-5a71-ab64-4f0b9fbdb74f/scratchpad/skeptic-correctness-1-1/base/morphometry/__main__.py:107: ResourceWarning: unclosed file <_io.BufferedReader name='/tmp/claude-0/-home-user/cbdcd57f-bcf8-5a71-ab64-4f0b9fbdb74f/scratchpad/skeptic-correctness-1-1/base/scanimport/__main__.py'>
+  h.update(name.encode() + b"\0" + open(os.path.join(folder, name), "rb").read())
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/tmp/claude-0/-home-user/cbdcd57f-bcf8-5a71-ab64-4f0b9fbdb74f/scratchpad/skeptic-correctness-1-1/base/morphometry/__main__.py:107: ResourceWarning: unclosed file <_io.BufferedReader name='/tmp/claude-0/-home-user/cbdcd57f-bcf8-5a71-ab64-4f0b9fbdb74f/scratchpad/skeptic-correctness-1-1/base/scanimport/bridge.py'>
+  h.update(name.encode() + b"\0" + open(os.path.join(folder, name), "rb").read())
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/tmp/claude-0/-home-user/cbdcd57f-bcf8-5a71-ab64-4f0b9fbdb74f/scratchpad/skeptic-correctness-1-1/base/morphometry/__main__.py:107: ResourceWarning: unclosed file <_io.BufferedReader name='/tmp/claude-0/-home-user/cbdcd57f-bcf8-5a71-ab64-4f0b9fbdb74f/scratchpad/skeptic-correctness-1-1/base/scanimport/column.py'>
+  h.update(name.encode() + b"\0" + open(os.path.join(folder, name), "rb").read())
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/tmp/claude-0/-home-user/cbdcd57f-bcf8-5a71-ab64-4f0b9fbdb74f/scratchpad/skeptic-correctness-1-1/base/morphometry/__main__.py:107: ResourceWarning: unclosed file <_io.BufferedReader name='/tmp/claude-0/-home-user/cbdcd57f-bcf8-5a71-ab64-4f0b9fbdb74f/scratchpad/skeptic-correctness-1-1/base/scanimport/compare.py'>
+  h.update(name.encode() + b"\0" + open(os.path.join(folder, name), "rb").read())
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/tmp/claude-0/-home-user/cbdcd57f-bcf8-5a71-ab64-4f0b9fbdb74f/scratchpad/skeptic-correctness-1-1/base/morphometry/__main__.py:107: ResourceWarning: unclosed file <_io.BufferedReader name='/tmp/claude-0/-home-user/cbdcd57f-bcf8-5a71-ab64-4f0b9fbdb74f/scratchpad/skeptic-correctness-1-1/base/scanimport/edges.py'>
+  h.update(name.encode() + b"\0" + open(os.path.join(folder, name), "rb").read())
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/tmp/claude-0/-home-user/cbdcd57f-bcf8-5a71-ab64-4f0b9fbdb74f/scratchpad/skeptic-correctness-1-1/base/morphometry/__main__.py:107: ResourceWarning: unclosed file <_io.BufferedReader name='/tmp/claude-0/-home-user/cbdcd57f-bcf8-5a71-ab64-4f0b9fbdb74f/scratchpad/skeptic-correctness-1-1/base/scanimport/film.py'>
+  h.update(name.encode() + b"\0" + open(os.path.join(folder, name), "rb").read())
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/tmp/claude-0/-home-user/cbdcd57f-bcf8-5a71-ab64-4f0b9fbdb74f/scratchpad/skeptic-correctness-1-1/base/morphometry/__main__.py:107: ResourceWarning: unclosed file <_io.BufferedReader name='/tmp/claude-0/-home-user/cbdcd57f-bcf8-5a71-ab64-4f0b9fbdb74f/scratchpad/skeptic-correctness-1-1/base/scanimport/geometry.py'>
+  h.update(name.encode() + b"\0" + open(os.path.join(folder, name), "rb").read())
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/tmp/claude-0/-home-user/cbdcd57f-bcf8-5a71-ab64-4f0b9fbdb74f/scratchpad/skeptic-correctness-1-1/base/morphometry/__main__.py:107: ResourceWarning: unclosed file <_io.BufferedReader name='/tmp/claude-0/-home-user/cbdcd57f-bcf8-5a71-ab64-4f0b9fbdb74f/scratchpad/skeptic-correctness-1-1/base/scanimport/intensity.py'>
+  h.update(name.encode() + b"\0" + open(os.path.join(folder, name), "rb").read())
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/tmp/claude-0/-home-user/cbdcd57f-bcf8-5a71-ab64-4f0b9fbdb74f/scratchpad/skeptic-correctness-1-1/base/morphometry/__main__.py:107: ResourceWarning: unclosed file <_io.BufferedReader name='/tmp/claude-0/-home-user/cbdcd57f-bcf8-5a71-ab64-4f0b9fbdb74f/scratchpad/skeptic-correctness-1-1/base/scanimport/radiograph.py'>
+  h.update(name.encode() + b"\0" + open(os.path.join(folder, name), "rb").read())
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/tmp/claude-0/-home-user/cbdcd57f-bcf8-5a71-ab64-4f0b9fbdb74f/scratchpad/skeptic-correctness-1-1/base/morphometry/__main__.py:107: ResourceWarning: unclosed file <_io.BufferedReader name='/tmp/claude-0/-home-user/cbdcd57f-bcf8-5a71-ab64-4f0b9fbdb74f/scratchpad/skeptic-correctness-1-1/base/scanimport/readers.py'>
+  h.update(name.encode() + b"\0" + open(os.path.join(folder, name), "rb").read())
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/tmp/claude-0/-home-user/cbdcd57f-bcf8-5a71-ab64-4f0b9fbdb74f/scratchpad/skeptic-correctness-1-1/base/morphometry/__main__.py:107: ResourceWarning: unclosed file <_io.BufferedReader name='/tmp/claude-0/-home-user/cbdcd57f-bcf8-5a71-ab64-4f0b9fbdb74f/scratchpad/skeptic-correctness-1-1/base/scanimport/schemes.py'>
+  h.update(name.encode() + b"\0" + open(os.path.join(folder, name), "rb").read())
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/tmp/claude-0/-home-user/cbdcd57f-bcf8-5a71-ab64-4f0b9fbdb74f/scratchpad/skeptic-correctness-1-1/base/morphometry/__main__.py:107: ResourceWarning: unclosed file <_io.BufferedReader name='/tmp/claude-0/-home-user/cbdcd57f-bcf8-5a71-ab64-4f0b9fbdb74f/scratchpad/skeptic-correctness-1-1/base/scanimport/tiers.py'>
+  h.update(name.encode() + b"\0" + open(os.path.join(folder, name), "rb").read())
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/tmp/claude-0/-home-user/cbdcd57f-bcf8-5a71-ab64-4f0b9fbdb74f/scratchpad/skeptic-correctness-1-1/base/morphometry/__main__.py:107: ResourceWarning: unclosed file <_io.BufferedReader name='/tmp/claude-0/-home-user/cbdcd57f-bcf8-5a71-ab64-4f0b9fbdb74f/scratchpad/skeptic-correctness-1-1/base/scanimport/volume.py'>
+  h.update(name.encode() + b"\0" + open(os.path.join(folder, name), "rb").read())
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/tmp/claude-0/-home-user/cbdcd57f-bcf8-5a71-ab64-4f0b9fbdb74f/scratchpad/skeptic-correctness-1-1/base/morphometry/__main__.py:109: ResourceWarning: unclosed file <_io.BufferedReader name='/tmp/claude-0/-home-user/cbdcd57f-bcf8-5a71-ab64-4f0b9fbdb74f/scratchpad/skeptic-correctness-1-1/base/morphoview/lines.py'>
+  h.update(LINES_SOURCE.encode() + b"\0" + open(os.path.join(here, LINES_SOURCE), "rb").read())
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+test_a_drawn_line_holds_the_rows_value (morphometry.tests.test_lines_export.RunWithLines.test_a_drawn_line_holds_the_rows_value) ... ok
+test_a_height_runs_up_its_frame_and_a_width_across_it (morphometry.tests.test_lines_export.RunWithLines.test_a_height_runs_up_its_frame_and_a_width_across_it) ... ok
+test_a_length_is_the_distance_between_its_ends (morphometry.tests.test_lines_export.RunWithLines.test_a_length_is_the_distance_between_its_ends) ... ok
+test_a_vertebra_the_edge_cuts_draws_nothing_its_rows_do_not_hold (morphometry.tests.test_lines_export.RunWithLines.test_a_vertebra_the_edge_cuts_draws_nothing_its_rows_do_not_hold)
+The edge runs through L4's body, whose every measure the rows leave empty: its lines say ... ok
+test_each_measured_vertebra_has_a_right_handed_frame (morphometry.tests.test_lines_export.RunWithLines.test_each_measured_vertebra_has_a_right_handed_frame) ... ok
+test_on_the_whole_column_every_line_is_drawn (morphometry.tests.test_lines_export.RunWithLines.test_on_the_whole_column_every_line_is_drawn) ... ok
+test_the_further_segments_ride_with_their_line (morphometry.tests.test_lines_export.RunWithLines.test_the_further_segments_ride_with_their_line) ... ok
+test_the_joined_files_hold_every_studys_files (morphometry.tests.test_lines_export.RunWithLines.test_the_joined_files_hold_every_studys_files) ... ok
+test_the_stamp_is_the_lines_own (morphometry.tests.test_lines_export.RunWithLines.test_the_stamp_is_the_lines_own) ... ok
+
+----------------------------------------------------------------------
+Ran 9 tests in 210.840s
+
+OK

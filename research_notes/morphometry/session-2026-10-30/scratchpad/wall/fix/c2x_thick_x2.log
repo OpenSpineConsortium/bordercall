@@ -1,0 +1,7 @@
+C2 thick x2 no dens                          err   +0.32 share 0.05 gate  -2.88 parted True  across 1 free   0.94 fit   +6.34 why 
+C2 thick x2 dens +0.0 back 0                 err   +0.11 share 0.08 gate  -3.26 parted True  across 0 free   1.75 fit   +6.74 why 
+C2 thick x2 dens +0.0 back 10                err   +0.04 share 0.08 gate  -3.21 parted True  across 0 free   1.92 fit   +6.70 why 
+C2 thick x2 dens +1.5 back 0                 err   +0.05 share 0.08 gate  -3.21 parted True  across 0 free   1.89 fit   +6.71 why 
+C2 thick x2 dens +1.5 back 12                err   +0.12 share 0.08 gate  -3.26 parted True  across 0 free   1.72 fit   +6.75 why 
+C2 thick x2 dens +3.0 back 12                err   +0.06 share 0.08 gate  -3.15 parted True  across 0 free   1.86 fit   +6.71 why 
+C2 thick x2 dens +2.0 back 10                err   +0.76 share 0.08 gate  -3.12 parted True  across 0 free   1.05 fit   +7.16 why 

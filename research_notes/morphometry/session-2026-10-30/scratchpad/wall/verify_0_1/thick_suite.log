@@ -1,0 +1,28 @@
+thick suite notch 8,6,5: wall err +29.49 edges 25 dropped 55 share 0.69 span 9.6 free 2.10 parted False why ''
+   endplate_incl                 -29.29 truth  -0.00
+   endplate_lower_incl           -29.18 truth  +0.00
+   wedge                          +0.11 truth  +0.00
+   pedicle_angle_sagittal_right    +nan truth  +0.00
+   pedicle_angle_sagittal_left     +nan truth  +0.00
+   spinous_angle                 +48.51 truth +20.00
+   body flags {}; spinous flag None; pedicle notes {'pedicle_right': "the lattice leaves the pedicle's climb free over 24 degrees,", 'pedicle_left': "the lattice leaves the pedicle's climb free over 23 degrees,"}
+thick suite notch 8,8,4: wall err -4.45 edges 32 dropped 35 share 0.52 span 11.4 free 2.85 parted False why ''
+   endplate_incl                  +5.91 truth  -0.00
+   endplate_lower_incl            +5.11 truth  +0.00
+   wedge                          -0.80 truth  +0.00
+   pedicle_angle_sagittal_right    +nan truth  +0.00
+   pedicle_angle_sagittal_left     +nan truth  +0.00
+   spinous_angle                 +14.56 truth +20.00
+   body flags {}; spinous flag None; pedicle notes {'pedicle_right': "the lattice leaves the pedicle's climb free over 16 degrees,", 'pedicle_left': 'no bone stands beside the canal in the rows through the pedi'}
+thick suite notch 5,6,4: wall err +0.36 edges 63 dropped 18 share 0.22 span 14.0 free 0.60 parted True why ''
+   endplate_incl                  -0.15 truth  -0.00
+   endplate_lower_incl            -0.53 truth  +0.00
+   wedge                          -0.38 truth  +0.00
+   pedicle_angle_sagittal_right    +nan truth  +0.00
+   pedicle_angle_sagittal_left     +nan truth  +0.00
+   spinous_angle                 +19.37 truth +20.00
+   body flags {}; spinous flag None; pedicle notes {'pedicle_right': "the lattice leaves the pedicle's climb free over 24 degrees,", 'pedicle_left': 'the free pedicle spans 1.7 mm front to back: its sagittal an'}
+
+real	0m19.625s
+user	0m18.307s
+sys	0m1.109s

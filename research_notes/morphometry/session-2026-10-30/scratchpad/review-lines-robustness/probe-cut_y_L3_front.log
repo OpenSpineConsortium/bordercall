@@ -1,0 +1,1 @@
+cut_y_L3_front   measure+draw-volume 35 s, lines 0.2 s; verts ['L2', 'L3', 'L4']; discs []; flags []; statuses {'drawn': 22, 'not measured': 28}; levels with rows but no lines []

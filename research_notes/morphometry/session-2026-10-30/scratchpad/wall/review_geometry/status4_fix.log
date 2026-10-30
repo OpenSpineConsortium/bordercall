@@ -1,0 +1,6 @@
+pitched_down_lean+0_x10_thick          clean +0.22 | speck as written  +nan (the lattice leaves the wall's slope free) | speck, status 4 as unparted +0.22 (parted False, free 0.92)
+pitched_lean+0_x10_thick               clean +0.22 | speck as written  +nan (the lattice leaves the wall's slope free) | speck, status 4 as unparted +0.22 (parted False, free 1.12)
+shapes_lean+0_aligned_thick            clean -0.00 | speck as written  +nan (the lattice leaves the wall's slope free) | speck, status 4 as unparted +0.03 (parted False, free 2.17)
+straight_lean+0_aligned_thick          clean +0.00 | speck as written  +nan (the lattice leaves the wall's slope free) | speck, status 4 as unparted +0.04 (parted False, free 2.62)
+straight_lean+0_x10_thick              clean +0.22 | speck as written  +nan (the lattice leaves the wall's slope free) | speck, status 4 as unparted +0.22 (parted False, free 1.12)
+straight_lean+5_x5_thin                clean -0.01 | speck as written  +nan (the lattice leaves the wall's slope free) | speck, status 4 as unparted -0.01 (parted False, free 1.65)

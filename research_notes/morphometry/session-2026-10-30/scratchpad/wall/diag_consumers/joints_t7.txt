@@ -1,0 +1,4 @@
+== turn 7, the column's line (no own_axis): wall truth -7.99 | canal line -4.25 (ratio 0.53, err +3.74) | posterior on cut body -5.60 (err +2.40), uncut -8.54 (err -0.55) | axis_turn 0.00, rings 9 span 9.0
+   ring excess: -4.5:-0.31 -3.4:-0.22 -2.3:-0.13 -1.1:-0.05 -0.0:+0.04 +1.1:+0.12 +2.2:+0.10 +3.3:+0.23 +4.5:+0.31
+== turn 7, the vertebra's own axis (as the run reads it): wall truth +0.94 | canal line +0.96 (ratio 1.01, err +0.01) | posterior on cut body +1.20 (err +0.26), uncut +1.20 (err +0.26) | axis_turn 9.03, rings 12 span 12.6
+   ring excess: -3.9:-0.35 -2.7:-0.31 -1.6:-0.12 -0.4:-0.05 +0.7:-0.01 +1.9:+0.07 +3.0:+0.14 +4.2:+0.20 +5.3:+0.24 +6.4:-0.37 +7.6:-0.32 +8.7:-0.26

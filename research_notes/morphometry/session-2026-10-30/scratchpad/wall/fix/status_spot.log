@@ -1,0 +1,7 @@
+clean: err -0.007
+spot 0: ends (0, 0) margin 0.107 | now +0.022 parted True across 0 | before +0.022 parted True why 
+spot 1: ends (4, 4) margin 8.45e-08 | now +0.016 parted True across 1 | before +nan parted True why the lattice leaves the wall's slope free over 180.0 degrees, more than 9
+spot 2: ends (2, 2) margin -0.0251 | now +0.001 parted True across 1 | before +0.001 parted True why 
+spot 3: ends (0, 0) margin 0.107 | now -0.013 parted True across 0 | before -0.013 parted True why 
+spot 4: ends (2, 2) margin -0.015 | now -0.030 parted True across 1 | before -0.030 parted True why 
+spot 5: ends (4, 2) margin 7.37e-08 | now -0.045 parted True across 1 | before -0.045 parted True why 

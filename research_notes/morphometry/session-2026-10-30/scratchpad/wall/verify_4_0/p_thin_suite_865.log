@@ -1,0 +1,14 @@
+thin suite notch 8,6,5: err -29.15 edges 62 dropped 118 span 11.037725775594971 free 0.51 parted False why 
+  canal line -23.56 deg y0 -3.95 at z0 +2.01; true wall -0.00 deg y0 -6.17; reach 4.82
+  window -8.1..8.1; candidates 529 (wall 152, notch 58, other 319); gated wall 113 notch 58 other 12; fit kept wall 35 notch 25 other 2 of 180
+   z  -7.1: line  +0.00 true wall  -6.17 (line-wall +6.17); wall edges  27 y~ -5.99 in gate   1; notch edges   0 y~  none in gate   0; kept wall   0 notch   0
+   z  -5.1: line  -0.87 true wall  -6.17 (line-wall +5.30); wall edges  29 y~ -5.96 in gate  16; notch edges   0 y~  none in gate   0; kept wall   0 notch   0
+   z  -3.1: line  -1.74 true wall  -6.17 (line-wall +4.42); wall edges  18 y~ -6.04 in gate  18; notch edges  12 y~ -1.33 in gate  12; kept wall   0 notch   8
+   z  -1.1: line  -2.62 true wall  -6.17 (line-wall +3.55); wall edges   7 y~ -5.90 in gate   7; notch edges  19 y~ -1.18 in gate  19; kept wall   0 notch  16
+   z  +0.9: line  -3.49 true wall  -6.17 (line-wall +2.68); wall edges   7 y~ -5.72 in gate   7; notch edges  19 y~ -1.15 in gate  19; kept wall   0 notch   1
+   z  +2.9: line  -4.36 true wall  -6.17 (line-wall +1.81); wall edges   8 y~ -5.83 in gate   8; notch edges   8 y~ -1.17 in gate   8; kept wall   0 notch   0
+   z  +4.9: line  -5.23 true wall  -6.17 (line-wall +0.94); wall edges  26 y~ -6.09 in gate  26; notch edges   0 y~  none in gate   0; kept wall   7 notch   0
+   z  +6.9: line  -6.10 true wall  -6.17 (line-wall +0.06); wall edges  25 y~ -5.92 in gate  25; notch edges   0 y~  none in gate   0; kept wall  23 notch   0
+   z  +8.9: line  -6.98 true wall  -6.17 (line-wall -0.81); wall edges   5 y~ -6.29 in gate   5; notch edges   0 y~  none in gate   0; kept wall   5 notch   0
+  gate about the true wall line: err -0.18 edges 152 dropped 13 free 0.35 parted True why 
+  gate about a level line at the canal's median front: err -0.18 edges 152 dropped 17 free 0.35 parted True why 

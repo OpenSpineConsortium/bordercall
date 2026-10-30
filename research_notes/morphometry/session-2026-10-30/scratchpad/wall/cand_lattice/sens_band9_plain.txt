@@ -1,0 +1,116 @@
+pitched_down_lean+0_aligned_thick          wall   -0.61 err  +0.00 (now  +0.00) endplate_incl -0.00 endplate_lower_incl -0.01 spinous -1.81
+pitched_down_lean+0_aligned_thin           wall   +0.00 err  +0.00 (now  +0.00) endplate_incl -0.00 endplate_lower_incl -0.00 spinous +1.04
+pitched_down_lean+0_suite18_thick          wall   +0.71 err  +0.69 (now  +0.19) endplate_incl +0.80 endplate_lower_incl -0.38 spinous -0.11
+pitched_down_lean+0_suite18_thin           wall   -0.10 err  -0.09 (now  -0.80) sag_right -0.57 sag_left +0.42 endplate_incl -0.02 endplate_lower_incl +0.01 spinous +0.80
+pitched_down_lean+0_t25_thick              wall   +0.24 err  +0.23 (now  +0.14) endplate_incl -1.29 endplate_lower_incl -1.32 spinous -1.64
+pitched_down_lean+0_t25_thin               wall   -0.03 err  -0.03 (now  +0.06) sag_right -0.56 sag_left -1.30 endplate_incl +0.47 endplate_lower_incl +0.01 spinous +0.47
+pitched_down_lean+0_x10_thick              wall   +0.05 err  +0.12 (now  +0.24) endplate_incl +0.02 endplate_lower_incl -0.34 spinous +2.41
+pitched_down_lean+0_x10_thin               wall   -0.12 err  -0.10 (now  -0.87) sag_right +0.13 sag_left +0.11 endplate_incl +0.55 endplate_lower_incl +0.27 spinous -0.71
+pitched_down_lean+0_x2_thick               wall   -2.94 err  -0.36 (now  -4.96) endplate_incl +2.36 endplate_lower_incl +2.36 spinous +0.62
+pitched_down_lean+0_x2_thin                wall   +0.53 err  +0.59 (now  -3.00) endplate_incl -0.53 endplate_lower_incl -0.58 spinous +1.52
+pitched_down_lean+0_x5_thick               wall   +1.52 err  -0.08 (now  +0.02) endplate_incl +0.04 endplate_lower_incl +0.42 spinous -2.73
+pitched_down_lean+0_x5_thin                wall   +0.18 err  +0.15 (now  -0.96) sag_right +0.37 endplate_incl -0.78 endplate_lower_incl +0.38 spinous +0.59
+pitched_down_lean+0_y12_thick              wall   +0.06 err  +0.05 (now  +0.44) endplate_incl -1.53 endplate_lower_incl -0.20 spinous +1.00
+pitched_down_lean+0_y12_thin               wall   -0.08 err  -0.09 (now  -0.06) sag_right -0.18 endplate_incl +0.03 endplate_lower_incl +0.05 spinous +0.01
+pitched_lean+0_aligned_thick               wall   -0.61 err  +0.00 (now  +0.00) endplate_incl -0.00 endplate_lower_incl -0.01 spinous -1.81
+pitched_lean+0_aligned_thin                wall   +0.00 err  +0.00 (now  +0.00) sag_right -0.40 sag_left -0.42 endplate_incl -0.00 endplate_lower_incl -0.00 spinous +0.49
+pitched_lean+0_suite18_thick               wall   +0.17 err  +0.75 (now  -0.56) endplate_incl +0.77 endplate_lower_incl -1.66 spinous -0.31
+pitched_lean+0_suite18_thin                wall   -0.09 err  -0.09 (now  -0.80) sag_right -0.64 sag_left -0.03 endplate_incl -0.17 endplate_lower_incl +0.01 spinous +0.80
+pitched_lean+0_t25_thick                   wall   +0.24 err  +0.23 (now  +0.13) endplate_incl -1.24 endplate_lower_incl -1.27 spinous -1.58
+pitched_lean+0_t25_thin                    wall   +0.00 err  -0.00 (now  +0.07) sag_right -0.08 sag_left +0.57 endplate_incl +0.43 endplate_lower_incl -0.04 spinous +0.27
+pitched_lean+0_x10_thick                   wall   +0.06 err  +0.12 (now  +0.24) endplate_incl +0.01 endplate_lower_incl -0.31 spinous +2.71
+pitched_lean+0_x10_thin                    wall   -0.11 err  -0.08 (now  -0.91) sag_right +0.08 sag_left +0.08 endplate_incl +0.52 endplate_lower_incl +0.26 spinous +0.36
+pitched_lean+0_x2_thick                    wall   -2.88 err  -0.25 (now  -4.93) endplate_incl +2.25 endplate_lower_incl +2.25 spinous +0.06
+pitched_lean+0_x2_thin                     wall   +0.53 err  +0.59 (now  -3.02) sag_right -0.79 sag_left -0.20 endplate_incl -0.53 endplate_lower_incl -0.58 spinous +1.26
+pitched_lean+0_x5_thick                    wall   +1.49 err  -0.08 (now  -0.09) endplate_incl +0.00 endplate_lower_incl +0.42 spinous -5.74
+pitched_lean+0_x5_thin                     wall   +0.14 err  +0.11 (now  -0.93) sag_right +0.10 sag_left +0.95 endplate_incl -0.66 endplate_lower_incl +0.21 spinous +0.65
+pitched_lean+0_y12_thick                   wall   -0.49 err  +0.09 (now  +0.60) endplate_incl -1.58 endplate_lower_incl -0.24 spinous +0.66
+pitched_lean+0_y12_thin                    wall   -0.08 err  -0.09 (now  -0.08) sag_left +0.24 endplate_incl +0.04 endplate_lower_incl +0.05 spinous -0.06
+shapes_lean+0_aligned_thick                wall   +0.21 err  +0.03 (now  -0.00) endplate_incl +2.50 endplate_lower_incl +2.30 spinous -0.46
+shapes_lean+0_aligned_thin                 wall   +0.00 err  +0.00 (now  -0.00) sag_right -0.56 sag_left +0.73 endplate_incl +0.58 endplate_lower_incl -0.58 spinous +0.06
+shapes_lean+0_suite18_thick                wall   +1.08 err  +0.62 (now  -0.77) endplate_incl -2.55 endplate_lower_incl -0.29 spinous +0.87
+shapes_lean+0_suite18_thin                 wall   +0.07 err  +0.07 (now  -0.40) sag_right +0.08 sag_left +0.05 endplate_incl +0.08 endplate_lower_incl -0.33 spinous -0.13
+shapes_lean+0_t25_thick                    wall   -0.03 err  -0.02 (now  +0.10) endplate_incl +0.78 endplate_lower_incl +0.68 spinous +2.24
+shapes_lean+0_t25_thin                     wall   -0.02 err  -0.01 (now  -0.09) sag_right -0.72 sag_left -0.33 endplate_incl +0.40 endplate_lower_incl +0.02 spinous -0.20
+shapes_lean+0_x10_thick                    wall   +0.22 err  +0.06 (now  +0.23) endplate_incl -0.89 endplate_lower_incl -1.68 spinous +1.65
+shapes_lean+0_x10_thin                     wall   +0.02 err  +0.04 (now  -0.38) sag_right -0.23 sag_left +0.22 endplate_incl -0.07 endplate_lower_incl +0.41 spinous +1.39
+shapes_lean+0_x2_thick                     wall   -0.87 err  -0.28 (now  -5.66) endplate_incl +0.98 endplate_lower_incl -0.24 spinous -2.14
+shapes_lean+0_x2_thin                      wall   +0.01 err  +0.02 (now  -4.14) sag_right -0.83 endplate_incl -0.59 endplate_lower_incl +1.46 spinous +0.84
+shapes_lean+0_x5_thick                     wall   -0.64 err  +0.07 (now  -2.64) endplate_incl +2.37 endplate_lower_incl -2.82 spinous +1.64
+shapes_lean+0_x5_thin                      wall   -0.20 err  -0.19 (now  -1.11) sag_right +0.22 endplate_incl +0.07 endplate_lower_incl +0.73 spinous -1.63
+shapes_lean+0_y12_thick                    wall   -0.00 err  +0.00 (now  +0.39) endplate_incl +0.67 endplate_lower_incl -0.89 spinous -0.45
+shapes_lean+0_y12_thin                     wall   +0.03 err  +0.03 (now  +0.64) sag_right +0.17 sag_left -0.10 endplate_incl +0.16 endplate_lower_incl +0.28 spinous +0.00
+shapes_lean+4_aligned_thick                wall   +4.08 err  -0.12 (now  +1.60) endplate_incl +2.64 endplate_lower_incl +2.55 spinous -0.60
+shapes_lean+4_aligned_thin                 wall   +3.21 err  -0.17 (now  +0.13) sag_right -0.29 sag_left +1.14 endplate_incl +0.75 endplate_lower_incl -0.36 spinous -0.16
+shapes_lean+4_suite18_thick                wall   +3.69 err  -0.24 (now  -0.09) endplate_incl -0.74 endplate_lower_incl +0.33 spinous +1.06
+shapes_lean+4_suite18_thin                 wall   +3.96 err  -0.04 (now  -0.48) sag_right +0.16 sag_left +0.74 endplate_incl +0.63 endplate_lower_incl +0.45 spinous -0.25
+shapes_lean+4_t25_thick                    wall   +3.82 err  +0.41 (now  -0.21) endplate_incl +0.34 endplate_lower_incl +0.50 spinous +2.69
+shapes_lean+4_t25_thin                     wall   +3.85 err  -0.15 (now  +0.11) sag_right -0.12 sag_left +0.12 endplate_incl +0.32 endplate_lower_incl +0.22 spinous -0.68
+shapes_lean+4_x10_thick                    wall   +4.39 err  +0.23 (now  -1.05) endplate_incl -1.18 endplate_lower_incl -1.82 spinous +1.78
+shapes_lean+4_x10_thin                     wall   +3.10 err  -0.01 (now  +1.06) sag_right -0.23 sag_left +0.33 endplate_incl -0.42 endplate_lower_incl +0.06 spinous +0.75
+shapes_lean+4_x2_thick                     wall   +3.50 err  +0.14 (now  -2.01) endplate_incl +0.02 endplate_lower_incl -0.67 spinous -1.73
+shapes_lean+4_x2_thin                      wall   +3.33 err  -0.07 (now  -2.03) sag_right -0.19 sag_left +0.51 endplate_incl -0.52 endplate_lower_incl +1.60 spinous +1.79
+shapes_lean+4_x5_thick                     wall   +3.98 err  +0.19 (now  +0.87) endplate_incl +2.17 endplate_lower_incl -2.78 spinous +2.87
+shapes_lean+4_x5_thin                      wall   +4.20 err  +0.19 (now  +1.07) sag_right -0.25 sag_left -0.25 endplate_incl -0.57 endplate_lower_incl +0.36 spinous -0.66
+shapes_lean+4_y12_thick                    wall   +3.88 err  -0.12 (now  -0.12) endplate_incl +1.04 endplate_lower_incl -0.61 spinous -0.58
+shapes_lean+4_y12_thin                     wall   +3.32 err  -0.06 (now  +0.03) sag_right +0.00 sag_left +0.35 endplate_incl +0.10 endplate_lower_incl +0.60 spinous +0.08
+straight_lean+0_aligned_thick              wall   -0.61 err  +0.00 (now  +0.00) endplate_incl -0.01 endplate_lower_incl -0.00 spinous -2.17
+straight_lean+0_aligned_thin               wall   -0.00 err  -0.00 (now  +0.00) sag_left -0.00 endplate_incl +0.00 endplate_lower_incl +0.00 spinous +0.49
+straight_lean+0_suite18_thick              wall   +0.80 err  +0.79 (now  +0.07) endplate_incl -0.58 endplate_lower_incl -0.54 spinous -0.17
+straight_lean+0_suite18_thin               wall   -0.09 err  -0.09 (now  -0.11) sag_right +0.17 sag_left +0.72 endplate_incl -0.15 endplate_lower_incl +0.11 spinous +0.74
+straight_lean+0_t25_thick                  wall   +0.27 err  +0.26 (now  +0.13) endplate_incl -1.31 endplate_lower_incl -1.26 spinous -1.59
+straight_lean+0_t25_thin                   wall   -0.00 err  -0.00 (now  +0.11) sag_right -0.26 sag_left -1.42 endplate_incl +0.43 endplate_lower_incl -0.03 spinous +0.19
+straight_lean+0_x10_thick                  wall   +0.04 err  +0.12 (now  +0.24) endplate_incl -0.02 endplate_lower_incl -0.33 spinous +2.29
+straight_lean+0_x10_thin                   wall   -0.10 err  -0.08 (now  -0.20) sag_right -0.15 sag_left +0.41 endplate_incl +0.54 endplate_lower_incl +0.23 spinous -0.70
+straight_lean+0_x2_thick                   wall   -2.88 err  -0.25 (now  -4.89) endplate_incl +2.26 endplate_lower_incl +2.25 spinous +0.05
+straight_lean+0_x2_thin                    wall   +0.53 err  +0.59 (now  -1.72) sag_right -1.92 sag_left -1.20 endplate_incl -0.53 endplate_lower_incl -0.58 spinous +1.26
+straight_lean+0_x5_thick                   wall   +1.50 err  -0.08 (now  -0.01) endplate_incl +0.02 endplate_lower_incl +0.42 spinous -2.79
+straight_lean+0_x5_thin                    wall   +0.18 err  +0.15 (now  -0.96) sag_left -0.65 endplate_incl -0.80 endplate_lower_incl +0.42 spinous +0.59
+straight_lean+0_y12_thick                  wall   -0.48 err  +0.06 (now  +0.61) endplate_incl -1.50 endplate_lower_incl -0.19 spinous +0.62
+straight_lean+0_y12_thin                   wall   -0.09 err  -0.09 (now  +0.03) sag_right -0.13 endplate_incl +0.03 endplate_lower_incl +0.05 spinous -0.06
+straight_lean+5_aligned_thick              wall   +4.47 err  +0.14 (now  +0.53) endplate_incl -0.14 endplate_lower_incl -0.14 spinous -2.04
+straight_lean+5_aligned_thin               wall   +4.98 err  -0.02 (now  +0.57) sag_left +0.02 endplate_incl +0.02 endplate_lower_incl +0.02 spinous +0.47
+straight_lean+5_suite18_thick              wall   +4.64 err  -0.37 (now  +0.42) endplate_incl +1.40 endplate_lower_incl +2.50 spinous -1.36
+straight_lean+5_suite18_thin               wall   +5.05 err  +0.05 (now  +0.15) sag_right +0.02 sag_left -0.11 endplate_incl -0.06 endplate_lower_incl -0.15 spinous +0.70
+straight_lean+5_t25_thick                  wall   +5.05 err  +0.03 (now  -1.01) endplate_incl +0.42 endplate_lower_incl -1.81 spinous -1.83
+straight_lean+5_t25_thin                   wall   +4.88 err  -0.12 (now  -0.10) sag_right -0.38 sag_left -0.54 endplate_incl +0.14 endplate_lower_incl +0.14 spinous +0.07
+straight_lean+5_x10_thick                  wall   +4.95 err  +0.03 (now  +0.52) endplate_incl -0.29 endplate_lower_incl -0.24 spinous +2.42
+straight_lean+5_x10_thin                   wall   +5.03 err  +0.05 (now  +0.08) sag_right -0.27 sag_left +0.28 endplate_incl -0.18 endplate_lower_incl -0.17 spinous -0.58
+straight_lean+5_x2_thick                   wall   +1.90 err  -0.45 (now  -3.00) endplate_incl +2.45 endplate_lower_incl +2.44 spinous -0.15
+straight_lean+5_x2_thin                    wall   +4.74 err  -0.19 (now  -3.05) sag_right -1.06 sag_left -0.42 endplate_incl +0.26 endplate_lower_incl +0.21 spinous +0.73
+straight_lean+5_x5_thick                   wall   +6.84 err  -0.02 (now  +0.89) endplate_incl -0.07 endplate_lower_incl -0.11 spinous -3.33
+straight_lean+5_x5_thin                    wall   +5.04 err  +0.01 (now  -0.06) sag_left -0.50 endplate_incl -0.75 endplate_lower_incl +0.84 spinous +0.55
+straight_lean+5_y12_thick                  wall   +5.02 err  -0.00 (now  -0.52) endplate_incl -1.34 endplate_lower_incl -0.30 spinous +1.60
+straight_lean+5_y12_thin                   wall   +5.69 err  +0.69 (now  +2.04) sag_right +0.02 sag_left -1.07 endplate_incl -0.68 endplate_lower_incl -0.69 spinous +0.72
+straight_lean-5_aligned_thick              wall   -5.49 err  -0.08 (now  +1.49) endplate_incl +0.08 endplate_lower_incl +0.08 spinous -2.23
+straight_lean-5_aligned_thin               wall   -5.07 err  -0.07 (now  -0.55) sag_left +0.07 endplate_incl +0.07 endplate_lower_incl +0.07 spinous +0.42
+straight_lean-5_suite18_thick              wall   -5.27 err  -0.28 (now  -0.10) endplate_incl +1.75 endplate_lower_incl -3.78 spinous -1.27
+straight_lean-5_suite18_thin               wall   -4.92 err  +0.08 (now  +0.02) sag_right -0.02 sag_left +0.16 endplate_incl -0.26 endplate_lower_incl -0.07 spinous +0.97
+straight_lean-5_t25_thick                  wall   -5.11 err  -0.14 (now  -0.26) endplate_incl -0.17 endplate_lower_incl -0.14 spinous -1.98
+straight_lean-5_t25_thin                   wall   -4.99 err  +0.01 (now  +0.10) sag_right -0.34 sag_left -1.49 endplate_incl +0.08 endplate_lower_incl -0.02 spinous +0.20
+straight_lean-5_x10_thick                  wall   -5.13 err  -0.06 (now  -2.14) endplate_incl +0.12 endplate_lower_incl +0.04 spinous +2.13
+straight_lean-5_x10_thin                   wall   -5.05 err  -0.03 (now  -0.55) sag_right -0.20 sag_left +0.36 endplate_incl -1.31 endplate_lower_incl +0.18 spinous -0.66
+straight_lean-5_x2_thick                   wall   -6.98 err  +0.35 (now  -0.71) endplate_incl +1.65 endplate_lower_incl +1.65 spinous +0.70
+straight_lean-5_x2_thin                    wall   -5.02 err  +0.04 (now  +0.46) sag_right -1.45 sag_left -0.66 endplate_incl +0.01 endplate_lower_incl +0.02 spinous +0.71
+straight_lean-5_x5_thick                   wall   -3.57 err  +0.05 (now  +0.29) endplate_incl +0.14 endplate_lower_incl +0.26 spinous -2.51
+straight_lean-5_x5_thin                    wall   -4.90 err  +0.07 (now  -0.91) endplate_incl -0.45 endplate_lower_incl -1.02 spinous +0.01
+straight_lean-5_y12_thick                  wall   -5.16 err  -0.17 (now  -0.01) endplate_incl -1.08 endplate_lower_incl +0.21 spinous +0.77
+straight_lean-5_y12_thin                   wall   -5.11 err  -0.11 (now  -0.08) sag_right +0.43 sag_left +1.94 endplate_incl +0.08 endplate_lower_incl +0.01 spinous -0.08
+== thin: 49 configs, 49 read; |wall err| max 0.69 median 0.07 mean 0.11; current max 4.14 median 0.40
+   aligned  max  0.17 (current  0.57) over 7
+   suite18  max  0.09 (current  0.80) over 7
+   t25      max  0.15 (current  0.11) over 7
+   x10      max  0.10 (current  1.06) over 7
+   x2       max  0.59 (current  4.14) over 7
+   x5       max  0.19 (current  1.11) over 7
+   y12      max  0.69 (current  2.04) over 7
+   sagittal angle |err| max 1.94 over 81 readings
+== thick: 49 configs, 49 read; |wall err| max 0.79 median 0.12 mean 0.19; current max 5.66 median 0.39
+   aligned  max  0.14 (current  1.60) over 7
+   suite18  max  0.79 (current  0.77) over 7
+   t25      max  0.41 (current  1.01) over 7
+   x10      max  0.23 (current  2.14) over 7
+   x2       max  0.45 (current  5.66) over 7
+   x5       max  0.19 (current  2.64) over 7
+   y12      max  0.17 (current  0.61) over 7
+   sagittal angle |err| max nan over 0 readings

@@ -1,0 +1,95 @@
+{
+ "view": {
+  "rot_deg": [
+   20.0,
+   -10.0,
+   5.0
+  ],
+  "xyz_mm": [
+   -30.0,
+   650.0,
+   20.0
+  ],
+  "isocentre_mm": [
+   -3.206175605427134,
+   16.829552215660755,
+   -33.41141570935383
+  ],
+  "sdd": 1180.0,
+  "delx": 1.6,
+  "height": 176,
+  "width": 144,
+  "dely": 1.7,
+  "x0": 40.0,
+  "y0": -40.0,
+  "orthographic": false,
+  "orientation": "AP"
+ },
+ "from": {
+  "view": "view1.json",
+  "sha256": "b08ea348dc032d71cdae6652251307b86a9c50156b66bcbf3bb8f51170a50d74"
+ },
+ "n_samples": 500,
+ "canvas": 256,
+ "to_world": [
+  [
+   -0.9412930885989882,
+   -0.022734435055296327,
+   0.33682408883346515,
+   -249.9259373040432
+  ],
+  [
+   -0.3264969356853648,
+   -0.1923639971866008,
+   -0.9254165783983234,
+   612.4027000477421
+  ],
+  [
+   0.08583165117743129,
+   -0.9810602621904069,
+   0.17364817766693033,
+   -124.08657641372747
+  ],
+  [
+   0.0,
+   0.0,
+   0.0,
+   1.0
+  ]
+ ],
+ "intrinsics": [
+  [
+   737.5,
+   0.0,
+   97.0
+  ],
+  [
+   0.0,
+   694.1176470588235,
+   64.47058823529412
+  ],
+  [
+   0.0,
+   0.0,
+   1.0
+  ]
+ ],
+ "lines": {
+  "file": "lines.csv",
+  "sha256": "1d80e7190eadd929229c2a717aa6213e8cbbc12b4599c567e7c38658ecde4a65",
+  "study": null
+ },
+ "labels": {
+  "file": "0001.nii.gz",
+  "sha256": "31f680ed555294594128c9d1f527894d7069dae46fff130c2b998309441fd1cc",
+  "scheme": "verse"
+ },
+ "code": {
+  "morphoview/__init__.py": "eb1861892e50e858bc24bcf2b8955d624885b3abe0d7f96ca5e984bda4464370",
+  "morphoview/__main__.py": "a2a447f35498236b3295e43f5d7379f1cd33982f375bcbf3b6b90d712bd85787",
+  "morphoview/lines.py": "ccd24c1dde39e9cd74f6dc835b057c1bc9ed3472ba83b36ff9fd05732504fb8c",
+  "morphoview/projection.py": "a222bd8af0a595f781df8ca158f1013f7c02a50c7065a2760f2700199a095522",
+  "morphoview/render.py": "0824fbe4d6b1292ee2c66b0b925745933a526d913083683bb2de63077cdeb0f4",
+  "morphoview/shapes.py": "bd7afc0afa47fceb95a9dd76f04c04e5e2f318cd8016f67d7a5f7a887e235ae7"
+ }
+}

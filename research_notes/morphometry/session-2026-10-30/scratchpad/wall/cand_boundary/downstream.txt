@@ -1,0 +1,12 @@
+== thin
+  sag_right            current  3.32/0.44 (n 40) C  2.37/0.39 (n 40) C+risers  1.41/0.29 (n 40) | true wall  1.41/0.25
+  sag_left             current  3.42/0.73 (n 41) C  2.15/0.47 (n 41) C+risers  2.00/0.45 (n 41) | true wall  1.83/0.35
+  endplate_incl        current  3.56/0.46 (n 49) C  1.61/0.40 (n 49) C+risers  1.44/0.21 (n 49) | true wall  1.34/0.17
+  endplate_lower_incl  current  5.61/0.51 (n 49) C  2.35/0.22 (n 49) C+risers  2.20/0.15 (n 49) | true wall  1.53/0.08
+  spinous              current  3.31/0.53 (n 49) C  2.33/0.53 (n 49) C+risers  2.32/0.49 (n 49) | true wall  1.87/0.50
+== thick
+  sag_right            current   nan/ nan (n  0) C   nan/ nan (n  0) C+risers   nan/ nan (n  0) | true wall   nan/ nan
+  sag_left             current   nan/ nan (n  0) C   nan/ nan (n  0) C+risers   nan/ nan (n  0) | true wall   nan/ nan
+  endplate_incl        current  6.97/1.06 (n 49) C  4.02/0.96 (n 49) C+risers  3.59/1.11 (n 49) | true wall  2.53/0.92
+  endplate_lower_incl  current  6.96/0.73 (n 49) C  4.01/0.77 (n 49) C+risers  3.93/0.66 (n 49) | true wall  4.06/0.35
+  spinous              current  7.52/1.73 (n 49) C  6.15/1.76 (n 49) C+risers  5.60/1.71 (n 49) | true wall  5.67/1.80

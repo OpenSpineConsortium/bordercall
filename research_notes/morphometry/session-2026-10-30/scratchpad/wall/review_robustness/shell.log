@@ -1,0 +1,6 @@
+L3 shell 1.5 mm x2                   new +nan  old +0.76  {'why': "the wall's edges span 9.9 mm of a 19.9 mm window"}
+L3 shell 2.5 mm x2                   new +nan  old +1.50  {'why': '0 edges of the wall in the band'}
+L3 shell 4.0 mm x2                   new -0.15  old +1.29  {'edges': 240, 'span_mm': 15.08, 'parted': True, 'free_deg': 0.48}
+L3 shell 1.5 mm suite18              new +nan  old -19.59  {'why': '0 edges of the wall in the band'}
+L3 shell 2.5 mm suite18              new +nan  old -50.50  {'why': "the wall's edges span 1.4 mm of a 23.3 mm window"}
+L3 shell 4.0 mm suite18              new +0.43  old -44.03  {'edges': 221, 'span_mm': 18.71, 'parted': False, 'free_deg': 0.3}

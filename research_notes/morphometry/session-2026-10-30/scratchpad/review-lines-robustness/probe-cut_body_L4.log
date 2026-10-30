@@ -1,0 +1,1 @@
+cut_body_L4      measure+draw-volume 52 s, lines 0.4 s; verts ['L2', 'L3', 'L4']; discs [('L2', 'L3')]; flags []; statuses {'drawn': 47, 'not measured': 14}; levels with rows but no lines []

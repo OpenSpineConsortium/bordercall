@@ -1,0 +1,9 @@
+#!/bin/bash
+# The fake hpcworker, but its second --check (hpcw_submit's own, seconds after the gate's) is refused once,
+# as a busy controller refuses one, and nothing is queued.
+count=$FAKE/checks
+if [ "${1:-} ${2:-}" = "job submit" ] && printf '%s\n' "$@" | grep -qx -- --check; then
+  n=$(( $(cat "$count" 2>/dev/null || echo 0) + 1 )); echo "$n" > "$count"
+  if [ "$n" = 2 ]; then echo "HPCW-JOB refused morphometry_enhance reqp/requeue: Socket timed out"; exit 1; fi
+fi
+exec bash /home/user/SchwingNet/tests/fakes/hpcworker "$@"

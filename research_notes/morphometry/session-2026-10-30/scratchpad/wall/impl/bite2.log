@@ -1,0 +1,53 @@
+test_wall_on_the_staircase (morphometry.tests.test_morphometry.LeanedWall.test_wall_on_the_staircase) ... FAIL
+test_wall_past_the_notch (morphometry.tests.test_morphometry.BasivertebralNotch.test_wall_past_the_notch) ... FAIL
+test_end_plate_inclinations (morphometry.tests.test_morphometry.BasivertebralNotch.test_end_plate_inclinations) ... FAIL
+test_end_plate_inclinations (morphometry.tests.test_morphometry.ThickSlices.test_end_plate_inclinations)
+The plates are read rim to rim within a few tenths of a degree here; the wall they are ... FAIL
+
+======================================================================
+FAIL: test_wall_on_the_staircase (morphometry.tests.test_morphometry.LeanedWall.test_wall_on_the_staircase)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/bordercall/morphometry/tests/test_morphometry.py", line 367, in test_wall_on_the_staircase
+    self.assertLessEqual(abs(err), WALL_TOL_DEG, "the wall reads %.2f degrees off" % err)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 3.050494836244511 not less than or equal to 0.5 : the wall reads -3.05 degrees off
+
+======================================================================
+FAIL: test_wall_past_the_notch (morphometry.tests.test_morphometry.BasivertebralNotch.test_wall_past_the_notch)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/bordercall/morphometry/tests/test_morphometry.py", line 410, in test_wall_past_the_notch
+    self.assertLessEqual(abs(err), WALL_TOL_DEG, "the wall reads %.2f degrees off" % err)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 18.170725598645774 not less than or equal to 0.5 : the wall reads -18.17 degrees off
+
+======================================================================
+FAIL: test_end_plate_inclinations (morphometry.tests.test_morphometry.BasivertebralNotch.test_end_plate_inclinations)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/bordercall/morphometry/tests/test_morphometry.py", line 416, in test_end_plate_inclinations
+    self.assertLessEqual(abs(got[k] - want), TOL_DEG, "%s: %.2f against %.2f" % (k, got[k], want))
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 18.045446530899792 not less than or equal to 1.5 : endplate_incl: 18.05 against -0.00
+
+======================================================================
+FAIL: test_end_plate_inclinations (morphometry.tests.test_morphometry.ThickSlices.test_end_plate_inclinations)
+The plates are read rim to rim within a few tenths of a degree here; the wall they are
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/bordercall/morphometry/tests/test_morphometry.py", line 346, in test_end_plate_inclinations
+    self.assertLessEqual(abs(got - want), TOL_DEG, "%s: %.2f against %.2f" % (k, got, want))
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 4.550595205790323 not less than or equal to 1.5 : endplate_incl: 4.55 against -0.00
+
+----------------------------------------------------------------------
+Ran 4 tests in 143.997s
+
+FAILED (failures=4)
+failed 4 of 4 with the old reading
+
+real	2m24.628s
+user	1m57.569s
+sys	0m25.456s
+exit 0

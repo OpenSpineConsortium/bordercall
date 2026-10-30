@@ -1,0 +1,69 @@
+=== pedicle tests
+test_pedicles (morphometry.tests.test_morphometry.Straight.test_pedicles) ... ok
+test_pedicle_angles (morphometry.tests.test_morphometry.Shapes.test_pedicle_angles) ... ok
+test_interpedicular_at_the_isthmus (morphometry.tests.test_morphometry.LateralMass.test_interpedicular_at_the_isthmus) ... ok
+test_pedicle_without_the_mass (morphometry.tests.test_morphometry.LateralMass.test_pedicle_without_the_mass) ... ok
+test_a_vertebra_cut_by_the_volume (morphometry.tests.test_morphometry.WrongMasks.test_a_vertebra_cut_by_the_volume) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 211.719s
+
+OK
+--- trace straight
+== right
+surfaces: 63 columns spanning 7.5 mm; climb -0.0014 per mm
+  top: bone 103 air 132, margin 0.034, 0 across, slope -0.0084 per mm
+  bottom: bone 96 air 124, margin 0.021, 0 across, slope 0.0056 per mm
+out {'pedicle_w': np.float64(9.1), 'pedicle_h': 15.04, 'pedicle_area': np.float64(107.46), 'pedicle_angle_transverse': -0.62, 'pedicle_angle_sagittal': 0.19, 'pedicle_chord': 50.0} 
+== left
+surfaces: 58 columns spanning 6.9 mm; climb -0.0109 per mm
+  top: bone 90 air 112, margin 0.021, 0 across, slope -0.0309 per mm
+  bottom: bone 97 air 124, margin -0.019, 1 across, slope 0.0091 per mm
+out {'pedicle_w': np.float64(9.05), 'pedicle_h': 15.08, 'pedicle_area': np.float64(107.21), 'pedicle_angle_transverse': 0.52, 'pedicle_angle_sagittal': 0.73, 'pedicle_chord': 49.75} 
+band {'zc': np.float64(3.02), 'h': 15.06, 'yc': np.float64(-10.48), 'interpedicular': 21.8, 'interpedicular_max': 23.33, 'interpedicular_at': (-10.76802397302096, 3.0218372020400426, -10.830927426868001, 11.031788386659269), 'interpedicular_max_at': (-10.192544782068335, 6.730707529489839, -11.769394899933761, 11.560586942569714)}
+flags {}
+  pedicle_w                     9.075  truth    9.000
+  pedicle_h                    15.059  truth   15.000
+  pedicle_angle_transverse     -0.051  truth    0.000
+  pedicle_angle_sagittal        0.460  truth    0.000
+  pedicle_chord                49.875  truth   49.920
+  interpedicular               21.803  truth   22.000
+  interpedicular_max           23.330  truth   23.206
+--- trace shapes
+== right
+surfaces: 55 columns spanning 6.3 mm; climb -0.1078 per mm
+  top: bone 99 air 116, margin 0.002, 0 across, slope -0.0857 per mm
+  bottom: bone 90 air 107, margin 0.049, 0 across, slope -0.1299 per mm
+out {'pedicle_w': np.float64(8.8), 'pedicle_h': 14.95, 'pedicle_area': np.float64(103.27), 'pedicle_angle_transverse': 11.29, 'pedicle_angle_sagittal': 6.43, 'pedicle_chord': 51.0} 
+== left
+surfaces: 78 columns spanning 7.5 mm; climb -0.1073 per mm
+  top: bone 110 air 161, margin 0.018, 0 across, slope -0.1056 per mm
+  bottom: bone 111 air 154, margin 0.021, 0 across, slope -0.1089 per mm
+out {'pedicle_w': np.float64(9.42), 'pedicle_h': 14.95, 'pedicle_area': np.float64(110.62), 'pedicle_angle_transverse': 12.27, 'pedicle_angle_sagittal': 6.38, 'pedicle_chord': 50.75} 
+band {'zc': np.float64(3.21), 'h': 15.03, 'yc': np.float64(-9.79), 'interpedicular': 21.72, 'interpedicular_max': 23.25, 'interpedicular_at': (-8.926809310574917, 3.2075383470912477, -10.88190111115882, 10.777321119259664), 'interpedicular_max_at': (-10.076863455671628, 6.916615127484632, -11.697315515415355, 11.548354270069975)}
+flags {}
+  pedicle_w                     9.110  truth    9.000
+  pedicle_h                    14.947  truth   15.000
+  pedicle_angle_transverse     11.782  truth   12.000
+  pedicle_angle_sagittal        6.401  truth    6.000
+  pedicle_chord                50.875  truth   51.110
+  interpedicular               21.721  truth   21.799
+  interpedicular_max           23.246  truth   23.017
+--- trace mass
+== right
+surfaces: 42 columns spanning 4.0 mm; climb not read; the free pedicle spans 4.0 mm front to back: its sagittal angle is not read
+out {'pedicle_w': np.float64(9.46), 'pedicle_h': 15.12, 'pedicle_area': np.float64(112.43), 'pedicle_angle_transverse': -10.7, 'pedicle_angle_sagittal': nan, 'pedicle_chord': 45.5} the free pedicle spans 4.0 mm front to back: its sagittal angle is not read
+== left
+surfaces: 42 columns spanning 4.0 mm; climb not read; the free pedicle spans 4.0 mm front to back: its sagittal angle is not read
+out {'pedicle_w': np.float64(9.76), 'pedicle_h': 15.28, 'pedicle_area': np.float64(117.16), 'pedicle_angle_transverse': -1.06, 'pedicle_angle_sagittal': nan, 'pedicle_chord': 49.75} the free pedicle spans 4.0 mm front to back: its sagittal angle is not read
+band {'zc': np.float64(2.64), 'h': 15.2, 'yc': np.float64(-10.11), 'interpedicular': 21.76, 'interpedicular_max': 23.33, 'interpedicular_at': (-9.243225738582673, 5.109465535551258, -10.879120209359689, 10.77912323935955), 'interpedicular_max_at': (-9.818558289933495, -1.0722232174875477, -12.108251476754331, 11.222082712341226)}
+flags {'pedicle_right': 'the free pedicle spans 4.0 mm front to back: its sagittal angle is not read', 'pedicle_left': 'the free pedicle spans 4.0 mm front to back: its sagittal angle is not read'}
+  pedicle_w                     9.612  truth    9.000
+  pedicle_h                    15.205  truth   15.000
+  pedicle_angle_transverse     -5.881  truth    0.000
+  pedicle_angle_sagittal          nan  truth    0.000
+  pedicle_chord                47.625  truth   49.920
+  interpedicular               21.760  truth   22.000
+  interpedicular_max           23.330  truth   23.206
+
+[exited with code 0]

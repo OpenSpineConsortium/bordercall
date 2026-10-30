@@ -1,0 +1,55 @@
+straight_lean+0_aligned_thin: span 15.6 mm, measured width 6.54 deg
+   planes (0, -1, 0)   spacing 0.800 mm, sagittal angle to the wall  +0.00 deg, turn  -0.00, crossed 0.00 times; 2 atan(d/span) = 5.87 deg
+   planes (0, 1, 0)    spacing 0.800 mm, sagittal angle to the wall  +0.00 deg, turn  +0.00, crossed 0.00 times; 2 atan(d/span) = 5.87 deg
+   planes (-1, 4, 0)   spacing 0.194 mm, sagittal angle to the wall  +0.00 deg, turn -14.04, crossed 7.73 times; 2 atan(d/span) = 1.43 deg
+   planes (1, -4, 0)   spacing 0.194 mm, sagittal angle to the wall  +0.00 deg, turn -14.04, crossed 7.73 times; 2 atan(d/span) = 1.43 deg
+straight_lean+0_x2_thin: span 16.2 mm, measured width 2.89 deg
+   planes (0, -1, 0)   spacing 0.800 mm, sagittal angle to the wall  -2.00 deg, turn  -0.00, crossed 0.71 times; 2 atan(d/span) = 5.66 deg
+   planes (0, 1, 0)    spacing 0.800 mm, sagittal angle to the wall  -2.00 deg, turn  +0.00, crossed 0.71 times; 2 atan(d/span) = 5.66 deg
+   planes (-1, 2, 0)   spacing 0.358 mm, sagittal angle to the wall  -2.00 deg, turn -26.58, crossed 9.97 times; 2 atan(d/span) = 2.53 deg
+   planes (1, -2, 0)   spacing 0.358 mm, sagittal angle to the wall  -2.00 deg, turn -26.58, crossed 9.97 times; 2 atan(d/span) = 2.53 deg
+straight_lean+0_x2_thick: span 15.2 mm, measured width 4.92 deg
+   planes (0, -1, 0)   spacing 0.860 mm, sagittal angle to the wall  -2.00 deg, turn  -0.00, crossed 0.62 times; 2 atan(d/span) = 6.48 deg
+   planes (0, 1, 0)    spacing 0.860 mm, sagittal angle to the wall  -2.00 deg, turn  +0.00, crossed 0.62 times; 2 atan(d/span) = 6.48 deg
+   planes (0, -4, -1)  spacing 0.214 mm, sagittal angle to the wall  +2.92 deg, turn  -0.00, crossed 3.61 times; 2 atan(d/span) = 1.61 deg
+   planes (0, 4, 1)    spacing 0.214 mm, sagittal angle to the wall  +2.92 deg, turn  +0.00, crossed 3.61 times; 2 atan(d/span) = 1.61 deg
+straight_lean+0_x10_thick: span 16.2 mm, measured width 3.83 deg
+   planes (0, -2, -1)  spacing 0.424 mm, sagittal angle to the wall  -0.24 deg, turn  -0.00, crossed 0.16 times; 2 atan(d/span) = 3.00 deg
+   planes (0, 2, 1)    spacing 0.424 mm, sagittal angle to the wall  -0.24 deg, turn  +0.00, crossed 0.16 times; 2 atan(d/span) = 3.00 deg
+   planes (0, -3, -2)  spacing 0.279 mm, sagittal angle to the wall  +2.92 deg, turn  -0.00, crossed 2.95 times; 2 atan(d/span) = 1.98 deg
+   planes (0, 3, 2)    spacing 0.279 mm, sagittal angle to the wall  +2.92 deg, turn  +0.00, crossed 2.95 times; 2 atan(d/span) = 1.98 deg
+straight_lean+0_y12_thick: span 16.3 mm, measured width 4.78 deg
+   planes (0, -1, 0)   spacing 0.860 mm, sagittal angle to the wall  -4.22 deg, turn  -3.58, crossed 1.84 times; 2 atan(d/span) = 6.03 deg
+   planes (0, 1, 0)    spacing 0.860 mm, sagittal angle to the wall  -4.22 deg, turn  -3.58, crossed 1.84 times; 2 atan(d/span) = 6.03 deg
+   planes (0, -4, -1)  spacing 0.214 mm, sagittal angle to the wall  +0.61 deg, turn  -4.54, crossed 3.04 times; 2 atan(d/span) = 1.50 deg
+   planes (0, 4, 1)    spacing 0.214 mm, sagittal angle to the wall  +0.61 deg, turn  -4.54, crossed 3.04 times; 2 atan(d/span) = 1.50 deg
+straight_lean+0_suite18_thick: span 16.2 mm, measured width 3.38 deg
+   planes (0, -1, -1)  spacing 0.813 mm, sagittal angle to the wall  +1.23 deg, turn  -7.53, crossed 1.40 times; 2 atan(d/span) = 5.75 deg
+   planes (0, 1, 1)    spacing 0.813 mm, sagittal angle to the wall  +1.23 deg, turn  -7.53, crossed 1.40 times; 2 atan(d/span) = 5.75 deg
+   planes (-1, -4, -4) spacing 0.198 mm, sagittal angle to the wall  +1.89 deg, turn  +5.76, crossed 5.75 times; 2 atan(d/span) = 1.40 deg
+   planes (1, 4, 4)    spacing 0.198 mm, sagittal angle to the wall  +1.89 deg, turn  +5.76, crossed 5.75 times; 2 atan(d/span) = 1.40 deg
+straight_lean+5_aligned_thick: span 15.2 mm, measured width 6.54 deg
+   planes (0, -4, 1)   spacing 0.214 mm, sagittal angle to the wall  +0.08 deg, turn  -0.00, crossed 0.11 times; 2 atan(d/span) = 1.61 deg
+   planes (0, 4, -1)   spacing 0.214 mm, sagittal angle to the wall  +0.08 deg, turn  +0.00, crossed 0.11 times; 2 atan(d/span) = 1.61 deg
+   planes (0, -3, 1)   spacing 0.285 mm, sagittal angle to the wall  -1.54 deg, turn  -0.00, crossed 1.44 times; 2 atan(d/span) = 2.14 deg
+   planes (0, 3, -1)   spacing 0.285 mm, sagittal angle to the wall  -1.54 deg, turn  +0.00, crossed 1.44 times; 2 atan(d/span) = 2.14 deg
+straight_lean-5_aligned_thick: span 15.1 mm, measured width 1.24 deg
+   planes (0, -4, -1)  spacing 0.214 mm, sagittal angle to the wall  -0.08 deg, turn  -0.00, crossed 0.10 times; 2 atan(d/span) = 1.62 deg
+   planes (0, 4, 1)    spacing 0.214 mm, sagittal angle to the wall  -0.08 deg, turn  +0.00, crossed 0.10 times; 2 atan(d/span) = 1.62 deg
+   planes (0, -3, -1)  spacing 0.285 mm, sagittal angle to the wall  +1.54 deg, turn  -0.00, crossed 1.43 times; 2 atan(d/span) = 2.16 deg
+   planes (0, 3, 1)    spacing 0.285 mm, sagittal angle to the wall  +1.54 deg, turn  +0.00, crossed 1.43 times; 2 atan(d/span) = 2.16 deg
+straight_lean-5_x2_thick: span 15.1 mm, measured width 7.83 deg
+   planes (0, -3, -1)  spacing 0.285 mm, sagittal angle to the wall  -0.46 deg, turn  -0.00, crossed 0.42 times; 2 atan(d/span) = 2.16 deg
+   planes (0, 3, 1)    spacing 0.285 mm, sagittal angle to the wall  -0.46 deg, turn  +0.00, crossed 0.42 times; 2 atan(d/span) = 2.16 deg
+   planes (0, -2, -1)  spacing 0.424 mm, sagittal angle to the wall  +2.76 deg, turn  -0.00, crossed 1.72 times; 2 atan(d/span) = 3.21 deg
+   planes (0, 2, 1)    spacing 0.424 mm, sagittal angle to the wall  +2.76 deg, turn  +0.00, crossed 1.72 times; 2 atan(d/span) = 3.21 deg
+straight_lean+0_t25_thin: span 16.2 mm, measured width 0.29 deg
+   planes (-1, -3, -2) spacing 0.226 mm, sagittal angle to the wall  +3.16 deg, turn  +1.22, crossed 4.53 times; 2 atan(d/span) = 1.60 deg
+   planes (1, 3, 2)    spacing 0.226 mm, sagittal angle to the wall  +3.16 deg, turn  +1.22, crossed 4.53 times; 2 atan(d/span) = 1.60 deg
+   planes (-1, -2, -1) spacing 0.337 mm, sagittal angle to the wall  -2.63 deg, turn  +9.81, crossed 5.29 times; 2 atan(d/span) = 2.38 deg
+   planes (1, 2, 1)    spacing 0.337 mm, sagittal angle to the wall  -2.63 deg, turn  +9.81, crossed 5.29 times; 2 atan(d/span) = 2.38 deg
+straight_lean+0_x5_thin: span 16.2 mm, measured width 0.51 deg
+   planes (0, -1, 0)   spacing 0.800 mm, sagittal angle to the wall  -5.00 deg, turn  -0.00, crossed 1.77 times; 2 atan(d/span) = 5.66 deg
+   planes (0, 1, 0)    spacing 0.800 mm, sagittal angle to the wall  -5.00 deg, turn  +0.00, crossed 1.77 times; 2 atan(d/span) = 5.66 deg
+   planes (0, -4, -1)  spacing 0.196 mm, sagittal angle to the wall  +6.31 deg, turn  -0.00, crossed 9.13 times; 2 atan(d/span) = 1.39 deg
+   planes (0, 4, 1)    spacing 0.196 mm, sagittal angle to the wall  +6.31 deg, turn  +0.00, crossed 9.13 times; 2 atan(d/span) = 1.39 deg

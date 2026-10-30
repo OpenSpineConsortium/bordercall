@@ -1,0 +1,48 @@
+thin ped_z+2 x0      lean+0 orig     cap6 -0.26 f4.26      cap3 -0.01 f6.50p     half 6.00 | edges 120, beyond 5 mm up 12 (r -0.49) down 12 (r -0.11), inner r +0.04 | 8s
+thin ped_z+2 x0      lean+0 clip     cap6 +0.01 f4.09p     cap3 -0.00 f6.38p     half 6.00 | edges 120, beyond 5 mm up 12 (r -0.15) down 12 (r -0.15), inner r +0.04 | 7s
+thin ped_z+2 x0      lean+5 orig     cap6 -0.76 f1.81      cap3 +1.11 f7.02p     half 6.00 | edges 119, beyond 5 mm up 12 (r -0.48) down 11 (r +0.19), inner r +0.01 | 6s
+thin ped_z+2 x0      lean+5 clip     cap6 -0.10 f0.88      cap3 +1.05 f7.01p     half 6.00 | edges 119, beyond 5 mm up 8 (r +0.02) down 7 (r +0.12), inner r -0.01 | 7s
+thin ped_z+2 x0      lean-5 orig     cap6 -1.50 f0.93      cap3 -1.00 f2.53p     half 6.00 | edges 113, beyond 5 mm up 9 (r -0.66) down 8 (r +0.01), inner r +0.01 | 10s
+thin ped_z+2 x0      lean-5 clip     cap6 -0.55 f1.41      cap3 -1.58 f7.59p     half 6.00 | edges 120, beyond 5 mm up 8 (r +0.15) down 8 (r -0.05), inner r -0.01 | 10s
+thin ped_z+2 x2      lean+0 orig     cap6 -0.02 f0.74      cap3 +0.23 f2.54p     half 6.00 | edges 130, beyond 5 mm up 9 (r -1.00) down 13 (r -0.08), inner r +0.01 | 6s
+thin ped_z+2 x2      lean+0 clip     cap6 +0.15 f0.75p     cap3 -0.13 f4.58p     half 6.00 | edges 135, beyond 5 mm up 8 (r -0.05) down 10 (r -0.04), inner r +0.01 | 7s
+thin ped_z+2 x2      lean+5 orig     cap6 -0.72 f0.73      cap3 +0.05 f5.08p     half 6.00 | edges 135, beyond 5 mm up 12 (r -0.52) down 15 (r +0.07), inner r +0.02 | 6s
+thin ped_z+2 x2      lean+5 clip     cap6 -0.22 f0.78      cap3 +0.11 f1.53p     half 6.00 | edges 122, beyond 5 mm up 6 (r -0.72) down 6 (r -0.11), inner r +0.02 | 7s
+thin ped_z+2 x2      lean-5 orig     cap6 -0.28 f1.11      cap3 -0.09 f7.57p     half 6.00 | edges 134, beyond 5 mm up 12 (r -0.17) down 14 (r +0.12), inner r -0.01 | 6s
+thin ped_z+2 x2      lean-5 clip     cap6 +0.07 f0.87      cap3 -0.07 f2.08p     half 6.00 | edges 125, beyond 5 mm up 4 (r -0.22) down 6 (r -0.02), inner r +0.01 | 8s
+thin ped_z+2 x5      lean+0 orig     cap6 +0.25 f0.84      cap3 +1.32 f1.99p     half 6.00 | edges 131, beyond 5 mm up 10 (r -0.24) down 8 (r +0.19), inner r -0.00 | 11s
+thin ped_z+2 x5      lean+0 clip     cap6 +0.53 f0.89      cap3 +1.33 f2.01p     half 6.00 | edges 131, beyond 5 mm up 9 (r +0.01) down 9 (r +0.15), inner r -0.01 | 13s
+thin ped_z+2 x5      lean+5 orig     cap6 -0.60 f2.25      cap3 NAN (the lattice leaves the wall's slope free over 13.0 degrees, more than 9) half 6.00 | edges 128, beyond 5 mm up 16 (r -0.32) down 12 (r +0.22), inner r -0.02 | 8s
+thin ped_z+2 x5      lean+5 clip     cap6 +0.01 f4.48p     cap3 NAN (the lattice leaves the wall's slope free over 13.0 degrees, more than 9) half 6.00 | edges 127, beyond 5 mm up 15 (r +0.10) down 12 (r +0.10), inner r -0.03 | 10s
+thin ped_z+2 x5      lean-5 orig     cap6 -0.89 f0.73      cap3 -0.59 f1.76p     half 6.00 | edges 122, beyond 5 mm up 14 (r -0.20) down 12 (r +0.05), inner r +0.00 | 8s
+thin ped_z+2 x5      lean-5 clip     cap6 -0.42 f0.82      cap3 -0.60 f1.76p     half 6.00 | edges 122, beyond 5 mm up 15 (r +0.03) down 11 (r -0.03), inner r -0.00 | 7s
+thin ped_z+2 suite18 lean+0 orig     cap6 -0.59 f0.93      cap3 -0.43 f0.74p     half 6.00 | edges 122, beyond 5 mm up 8 (r -0.73) down 12 (r +0.00), inner r -0.00 | 6s
+thin ped_z+2 suite18 lean+0 clip     cap6 -0.26 f0.49      cap3 -0.44 f1.13p     half 6.00 | edges 122, beyond 5 mm up 12 (r -0.01) down 8 (r +0.01), inner r +0.00 | 8s
+thin ped_z+2 suite18 lean+5 orig     cap6 -1.13 f0.79      cap3 -0.87 f2.20p     half 6.00 | edges 122, beyond 5 mm up 10 (r -0.68) down 8 (r +0.11), inner r -0.00 | 6s
+thin ped_z+2 suite18 lean+5 clip     cap6 -0.57 f0.94      cap3 -1.08 f2.57p     half 6.00 | edges 123, beyond 5 mm up 10 (r +0.03) down 11 (r +0.04), inner r -0.01 | 8s
+thin ped_z+2 suite18 lean-5 orig     cap6 -0.87 f0.93      cap3 -0.22 f0.60p     half 6.00 | edges 121, beyond 5 mm up 11 (r -0.14) down 9 (r +0.12), inner r -0.00 | 7s
+thin ped_z+2 suite18 lean-5 clip     cap6 -0.30 f1.13      cap3 -0.22 f0.61p     half 6.00 | edges 121, beyond 5 mm up 11 (r +0.07) down 9 (r +0.04), inner r -0.01 | 8s
+thin ped_z-2 x0      lean+0 orig     cap6 +0.21 f4.45      cap3 -0.02 f5.88p     half 6.00 | edges 115, beyond 5 mm up 9 (r -0.10) down 10 (r -0.90), inner r +0.00 | 7s
+thin ped_z-2 x0      lean+0 clip     cap6 +0.02 f4.26p     cap3 +0.01 f6.48p     half 6.00 | edges 120, beyond 5 mm up 12 (r -0.15) down 12 (r -0.15), inner r +0.04 | 8s
+thin ped_z-2 x0      lean+5 orig     cap6 +0.44 f1.25      cap3 +1.14 f7.02p     half 6.00 | edges 120, beyond 5 mm up 12 (r +0.01) down 12 (r -0.14), inner r +0.00 | 6s
+thin ped_z-2 x0      lean+5 clip     cap6 -0.27 f1.41      cap3 +0.36 f6.87p     half 6.00 | edges 112, beyond 5 mm up 4 (r +0.09) down 4 (r -0.14), inner r +0.00 | 8s
+thin ped_z-2 x0      lean-5 orig     cap6 -0.22 f0.46      cap3 -1.53 f7.59p     half 6.00 | edges 120, beyond 5 mm up 12 (r +0.16) down 12 (r -0.47), inner r -0.00 | 6s
+thin ped_z-2 x0      lean-5 clip     cap6 -0.86 f0.57p     cap3 -0.78 f2.59p     half 6.00 | edges 111, beyond 5 mm up 4 (r -0.20) down 4 (r +0.15), inner r +0.00 | 8s
+thin ped_z-2 x2      lean+0 orig     cap6 +0.09 f0.93      cap3 -0.00 f3.57p     half 6.00 | edges 116, beyond 5 mm up 10 (r -0.36) down 10 (r -0.86), inner r +0.02 | 7s
+thin ped_z-2 x2      lean+0 clip     cap6 +0.10 f1.26      cap3 -0.33 f5.34p     half 6.00 | edges 120, beyond 5 mm up 8 (r +0.00) down 8 (r -0.13), inner r +0.01 | 7s
+thin ped_z-2 x2      lean+5 orig     cap6 +0.45 f1.41      cap3 -1.23 f4.45p     half 6.00 | edges 118, beyond 5 mm up 6 (r -0.31) down 8 (r -1.30), inner r -0.02 | 7s
+thin ped_z-2 x2      lean+5 clip     cap6 +0.50 f0.07p     cap3 -0.50 f4.12p     half 6.00 | edges 112, beyond 5 mm up 6 (r +0.08) down 8 (r -0.06), inner r +0.00 | 8s
+thin ped_z-2 x2      lean-5 orig     cap6 +0.31 f1.35      cap3 -0.54 f3.45p     half 6.00 | edges 116, beyond 5 mm up 10 (r -0.16) down 10 (r -0.87), inner r +0.00 | 7s
+thin ped_z-2 x2      lean-5 clip     cap6 -0.34 f0.50      cap3 NAN (the lattice leaves the wall's slope free over 9.1 degrees, more than 9) half 6.00 | edges 120, beyond 5 mm up 8 (r +0.14) down 8 (r +0.02), inner r -0.01 | 7s
+thin ped_z-2 x5      lean+0 orig     cap6 +0.89 f0.95      cap3 +0.86 f1.43p     half 6.00 | edges 132, beyond 5 mm up 12 (r +0.07) down 12 (r -0.60), inner r +0.00 | 6s
+thin ped_z-2 x5      lean+0 clip     cap6 +0.23 f0.78      cap3 +1.14 f1.63p     half 6.00 | edges 135, beyond 5 mm up 12 (r -0.06) down 15 (r +0.10), inner r -0.01 | 7s
+thin ped_z-2 x5      lean+5 orig     cap6 +0.45 f2.27p     cap3 NAN (the lattice leaves the wall's slope free over 11.4 degrees, more than 9) half 6.00 | edges 135, beyond 5 mm up 12 (r +0.21) down 15 (r -0.18), inner r -0.03 | 6s
+thin ped_z-2 x5      lean+5 clip     cap6 -0.00 f3.76p     cap3 +0.00 f5.02p     half 6.00 | edges 126, beyond 5 mm up 8 (r +0.05) down 10 (r +0.05), inner r -0.01 | 7s
+thin ped_z-2 x5      lean-5 orig     cap6 +0.01 f0.89      cap3 -0.71 f1.81p     half 6.00 | edges 132, beyond 5 mm up 15 (r -0.11) down 9 (r -0.94), inner r -0.00 | 6s
+thin ped_z-2 x5      lean-5 clip     cap6 -0.29 f1.18      cap3 -0.51 f1.79p     half 6.00 | edges 135, beyond 5 mm up 15 (r +0.03) down 12 (r -0.00), inner r -0.00 | 8s
+thin ped_z-2 suite18 lean+0 orig     cap6 +0.71 f0.70      cap3 -0.12 f0.62p     half 6.00 | edges 124, beyond 5 mm up 12 (r +0.10) down 9 (r -0.44), inner r +0.01 | 6s
+thin ped_z-2 suite18 lean+0 clip     cap6 -0.06 f0.15p     cap3 -0.33 f0.63p     half 6.00 | edges 125, beyond 5 mm up 13 (r +0.02) down 8 (r -0.02), inner r -0.00 | 7s
+thin ped_z-2 suite18 lean+5 orig     cap6 +0.30 f0.78      cap3 -0.68 f2.33p     half 6.00 | edges 132, beyond 5 mm up 11 (r +0.15) down 12 (r -0.19), inner r +0.00 | 6s
+thin ped_z-2 suite18 lean+5 clip     cap6 -0.36 f0.91      cap3 -0.81 f2.60p     half 6.00 | edges 131, beyond 5 mm up 9 (r +0.10) down 12 (r +0.04), inner r -0.01 | 7s
+thin ped_z-2 suite18 lean-5 orig     cap6 +0.46 f0.82      cap3 -0.19 f1.06p     half 6.00 | edges 121, beyond 5 mm up 10 (r +0.09) down 11 (r -0.61), inner r +0.00 | 6s
+thin ped_z-2 suite18 lean-5 clip     cap6 +0.23 f1.22      cap3 -0.17 f1.54p     half 6.00 | edges 121, beyond 5 mm up 11 (r +0.05) down 9 (r -0.01), inner r -0.00 | 8s

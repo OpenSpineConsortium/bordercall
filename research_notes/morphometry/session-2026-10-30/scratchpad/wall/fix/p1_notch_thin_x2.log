@@ -1,0 +1,4 @@
+thin x2 notch 5,6,4                          err   +0.25 share 0.21 gate  +2.49 parted True  across 0 free   1.11 fit   +1.87 why 
+thin x2 notch 8,6,5                          err   +0.33 share 0.00 gate  -3.78 parted True  across 0 free   0.46 fit   +1.94 why 
+thin x2 notch 8,8,5                          err   +1.30 share 0.64 gate  -5.07 parted True  across 1 free   0.69 fit   +0.01 why 
+thin x2 notch 5,6,4,-4                       err   +0.26 share 0.16 gate  -2.14 parted True  across 0 free   0.44 fit   +1.16 why 

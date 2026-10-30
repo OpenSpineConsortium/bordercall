@@ -1,0 +1,20 @@
+Hold the morphometry reruns and the covariates join to the reviewed gate rules
+
+The owner's count of 2026-10-30 14:33 UTC ("Three: enhance, verse, covariates") measures each
+set once more on the merged engine and joins the rows once more, so the gate now names each
+first job in MORPHOMETRY_RERUNS and COVARIATES_RERUNS, keeps the report and rows a rerun
+replaces under <set>/kept/<job>/, waits on a lost submission while Slurm holds it, and refuses
+the join while the two sets' reports name different code stamps. A run whose worker died still
+ends 0, so each set's joined rows are held to the code stamp and to the run's own count of the
+studies it chose. The join takes every earlier join it could be differenced against and
+withholds the blocks whose persons or readings differ by a few, since a cell could otherwise be
+read back to one person. These are the fixes of the review of e95e5fa, 15 findings.
+
+Committed on the owner's word of 20:06 UTC to push and hand off with no more checking, so
+scripts/check.sh and the tests were not run on this state before the push, and no job was
+sent (the owner's hold of 14:45 UTC stands). docs/checkpoints/2026-10-30-morphometry-lines/HANDOFF.md
+says what is left.
+
+Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01Pn5qEJbGG6tvpFq8R3s7FA
+

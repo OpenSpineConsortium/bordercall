@@ -1,0 +1,4 @@
+./time_engines.sh 3 old new 2>&1
+  PYX=$R/venv311-scipy$v/bin/python TAG=-py311-scipy$v ./time_engines.sh 1 old new
+
+[exited with code 0]

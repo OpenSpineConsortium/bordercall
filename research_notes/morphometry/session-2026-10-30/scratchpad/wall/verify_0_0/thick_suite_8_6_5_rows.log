@@ -1,0 +1,10 @@
+thick suite notch 8,6,5: wall err +29.49 edges 25 dropped 55 share 0.69 free 2.10 parted False fitted +29.50 why ''
+  endplate_incl                      -29.29 truth   -0.00
+  endplate_lower_incl                -29.18 truth   +0.00
+  wedge                               +0.11 truth   +0.00
+  pedicle_angle_sagittal               +nan truth   +0.00
+  pedicle_angle_sagittal_left          +nan truth   +0.00
+  pedicle_angle_sagittal_right         +nan truth   +0.00
+  spinous_angle                      +48.51 truth  +20.00
+  flag:pedicle_left                the lattice leaves the pedicle's climb free over 23 degrees, more than 9: the layers do not cut its surfaces a
+  flag:pedicle_right               the lattice leaves the pedicle's climb free over 24 degrees, more than 9: the layers do not cut its surfaces a

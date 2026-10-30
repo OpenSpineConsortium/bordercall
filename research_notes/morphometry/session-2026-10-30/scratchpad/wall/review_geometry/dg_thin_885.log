@@ -1,0 +1,12 @@
+as read: err +1.24 edges 71 dropped 85 span 11.4 free 1.12 parted False; canal line -28.82 deg, y0 -3.54 at z0 2.63
+window -8.1 to 8.1 mm, reach 5.16; edges with the gate open 412, inside the gate 100
+  z  -8.1.. -6.1: edges y median -40.00 (min -55.65 max  -5.33), line  +1.78, in gate 0 of 38
+  z  -6.1.. -4.1: edges y median -48.24 (min -53.36 max  -5.49), line  +0.68, in gate 0 of 52
+  z  -4.1.. -2.1: edges y median -41.38 (min -48.00 max  -1.00), line  -0.42, in gate 5 of 48
+  z  -2.1.. -0.1: edges y median -36.83 (min -41.80 max  -1.17), line  -1.52, in gate 5 of 49
+  z  -0.1.. +1.9: edges y median -28.45 (min -36.06 max  -0.86), line  -2.62, in gate 21 of 59
+  z  +1.9.. +3.9: edges y median -27.61 (min -31.29 max  -0.83), line  -3.72, in gate 26 of 62
+  z  +3.9.. +5.9: edges y median -27.06 (min -28.03 max  -5.29), line  -4.82, in gate 15 of 43
+  z  +5.9.. +7.9: edges y median -26.27 (min -27.43 max  -5.55), line  -5.92, in gate 23 of 52
+  z  +7.9.. +9.9: edges y median  -6.49 (min -26.74 max  -6.10), line  -7.02, in gate 5 of 9
+gate about a level line at the canal's median front (-4.87): err +3.81 edges 79 dropped 137 free 1.18 parted False

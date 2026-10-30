@@ -1,0 +1,18 @@
+.......................................................E.
+======================================================================
+ERROR: test_four_panels_draw_with_one_key_line_each (morphoview.tests.test_lines.Phantom.test_four_panels_draw_with_one_key_line_each)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/bordercall/morphoview/tests/test_lines.py", line 104, in test_four_panels_draw_with_one_key_line_each
+    fig = R.figure(v, self.lab, P.LEVEL_IDS["L3"], self.lines, "phantom")
+  File "/home/user/bordercall/morphoview/render.py", line 244, in figure
+    plt = FIG.style()
+  File "/home/user/bordercall/schwingcheck/figures.py", line 41, in style
+    import matplotlib
+ModuleNotFoundError: No module named 'matplotlib'
+
+----------------------------------------------------------------------
+Ran 57 tests in 73.275s
+
+FAILED (errors=1)
+fxr exit 1 in 77 s

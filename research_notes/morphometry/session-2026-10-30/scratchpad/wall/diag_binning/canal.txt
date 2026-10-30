@@ -1,0 +1,8 @@
+== straight_lean+0_x2_thin: canal line -2.58 deg, truth -0.07, error -2.51; pole line from the oracle -0.07 deg
+   z  -4.0 ex +0.08  z  -2.9 ex +0.11  z  -1.9 ex +0.15  z  -0.9 ex +0.18  z  +0.1 ex +0.22  z  +1.2 ex +0.25  z  +2.2 ex +0.29  z  +3.2 ex +0.32  z  +4.2 ex +0.36  z  +5.3 ex +0.39  z  +6.3 ex -0.37  z  +7.3 ex -0.34  z  +8.3 ex -0.30  z  +9.4 ex -0.27
+== straight_lean+0_x2_thick: canal line -7.13 deg, truth -2.63, error -4.50; pole line from the oracle -2.55 deg
+   z  -1.1 ex +0.38  z  +1.4 ex +0.44  z  +3.9 ex +0.53  z  +6.4 ex -0.22
+== straight_lean+0_x5_thin: canal line +0.19 deg, truth +0.03, error +0.16; pole line from the oracle +0.03 deg
+   z  -3.1 ex -0.37  z  -2.0 ex -0.28  z  -0.9 ex -0.19  z  +0.1 ex -0.10  z  +1.2 ex -0.02  z  +2.3 ex +0.07  z  +3.3 ex +0.16  z  +4.4 ex +0.24  z  +5.5 ex +0.33  z  +6.5 ex -0.38  z  +7.6 ex -0.29  z  +8.7 ex -0.21
+== shapes_lean+0_x2_thick: canal line -8.31 deg, truth -0.58, error -7.72; pole line from the oracle -0.58 deg
+   z -12.7 ex +24.06  z  -2.6 ex +0.36  z  -0.1 ex +0.44  z  +2.4 ex -0.33  z  +5.0 ex -0.24  z  +7.5 ex -0.16

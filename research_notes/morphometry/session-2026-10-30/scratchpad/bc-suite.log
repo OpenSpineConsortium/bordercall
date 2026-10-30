@@ -1,0 +1,83 @@
+......................................./home/user/bordercall/morphometry/__main__.py:107: ResourceWarning: unclosed file <_io.BufferedReader name='/home/user/bordercall/morphometry/__init__.py'>
+  h.update(name.encode() + b"\0" + open(os.path.join(folder, name), "rb").read())
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/user/bordercall/morphometry/__main__.py:107: ResourceWarning: unclosed file <_io.BufferedReader name='/home/user/bordercall/morphometry/__main__.py'>
+  h.update(name.encode() + b"\0" + open(os.path.join(folder, name), "rb").read())
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/user/bordercall/morphometry/__main__.py:107: ResourceWarning: unclosed file <_io.BufferedReader name='/home/user/bordercall/morphometry/anatomy.py'>
+  h.update(name.encode() + b"\0" + open(os.path.join(folder, name), "rb").read())
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/user/bordercall/morphometry/__main__.py:107: ResourceWarning: unclosed file <_io.BufferedReader name='/home/user/bordercall/morphometry/body.py'>
+  h.update(name.encode() + b"\0" + open(os.path.join(folder, name), "rb").read())
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/user/bordercall/morphometry/__main__.py:107: ResourceWarning: unclosed file <_io.BufferedReader name='/home/user/bordercall/morphometry/canal.py'>
+  h.update(name.encode() + b"\0" + open(os.path.join(folder, name), "rb").read())
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/user/bordercall/morphometry/__main__.py:107: ResourceWarning: unclosed file <_io.BufferedReader name='/home/user/bordercall/morphometry/column.py'>
+  h.update(name.encode() + b"\0" + open(os.path.join(folder, name), "rb").read())
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/user/bordercall/morphometry/__main__.py:107: ResourceWarning: unclosed file <_io.BufferedReader name='/home/user/bordercall/morphometry/measure.py'>
+  h.update(name.encode() + b"\0" + open(os.path.join(folder, name), "rb").read())
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/user/bordercall/morphometry/__main__.py:107: ResourceWarning: unclosed file <_io.BufferedReader name='/home/user/bordercall/morphometry/pedicle.py'>
+  h.update(name.encode() + b"\0" + open(os.path.join(folder, name), "rb").read())
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/user/bordercall/morphometry/__main__.py:107: ResourceWarning: unclosed file <_io.BufferedReader name='/home/user/bordercall/morphometry/pelvis.py'>
+  h.update(name.encode() + b"\0" + open(os.path.join(folder, name), "rb").read())
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/user/bordercall/morphometry/__main__.py:107: ResourceWarning: unclosed file <_io.BufferedReader name='/home/user/bordercall/morphometry/posterior.py'>
+  h.update(name.encode() + b"\0" + open(os.path.join(folder, name), "rb").read())
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/user/bordercall/morphometry/__main__.py:107: ResourceWarning: unclosed file <_io.BufferedReader name='/home/user/bordercall/scanimport/__init__.py'>
+  h.update(name.encode() + b"\0" + open(os.path.join(folder, name), "rb").read())
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/user/bordercall/morphometry/__main__.py:107: ResourceWarning: unclosed file <_io.BufferedReader name='/home/user/bordercall/scanimport/__main__.py'>
+  h.update(name.encode() + b"\0" + open(os.path.join(folder, name), "rb").read())
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/user/bordercall/morphometry/__main__.py:107: ResourceWarning: unclosed file <_io.BufferedReader name='/home/user/bordercall/scanimport/bridge.py'>
+  h.update(name.encode() + b"\0" + open(os.path.join(folder, name), "rb").read())
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/user/bordercall/morphometry/__main__.py:107: ResourceWarning: unclosed file <_io.BufferedReader name='/home/user/bordercall/scanimport/column.py'>
+  h.update(name.encode() + b"\0" + open(os.path.join(folder, name), "rb").read())
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/user/bordercall/morphometry/__main__.py:107: ResourceWarning: unclosed file <_io.BufferedReader name='/home/user/bordercall/scanimport/compare.py'>
+  h.update(name.encode() + b"\0" + open(os.path.join(folder, name), "rb").read())
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/user/bordercall/morphometry/__main__.py:107: ResourceWarning: unclosed file <_io.BufferedReader name='/home/user/bordercall/scanimport/edges.py'>
+  h.update(name.encode() + b"\0" + open(os.path.join(folder, name), "rb").read())
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/user/bordercall/morphometry/__main__.py:107: ResourceWarning: unclosed file <_io.BufferedReader name='/home/user/bordercall/scanimport/film.py'>
+  h.update(name.encode() + b"\0" + open(os.path.join(folder, name), "rb").read())
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/user/bordercall/morphometry/__main__.py:107: ResourceWarning: unclosed file <_io.BufferedReader name='/home/user/bordercall/scanimport/geometry.py'>
+  h.update(name.encode() + b"\0" + open(os.path.join(folder, name), "rb").read())
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/user/bordercall/morphometry/__main__.py:107: ResourceWarning: unclosed file <_io.BufferedReader name='/home/user/bordercall/scanimport/intensity.py'>
+  h.update(name.encode() + b"\0" + open(os.path.join(folder, name), "rb").read())
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/user/bordercall/morphometry/__main__.py:107: ResourceWarning: unclosed file <_io.BufferedReader name='/home/user/bordercall/scanimport/radiograph.py'>
+  h.update(name.encode() + b"\0" + open(os.path.join(folder, name), "rb").read())
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/user/bordercall/morphometry/__main__.py:107: ResourceWarning: unclosed file <_io.BufferedReader name='/home/user/bordercall/scanimport/readers.py'>
+  h.update(name.encode() + b"\0" + open(os.path.join(folder, name), "rb").read())
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/user/bordercall/morphometry/__main__.py:107: ResourceWarning: unclosed file <_io.BufferedReader name='/home/user/bordercall/scanimport/schemes.py'>
+  h.update(name.encode() + b"\0" + open(os.path.join(folder, name), "rb").read())
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/user/bordercall/morphometry/__main__.py:107: ResourceWarning: unclosed file <_io.BufferedReader name='/home/user/bordercall/scanimport/tiers.py'>
+  h.update(name.encode() + b"\0" + open(os.path.join(folder, name), "rb").read())
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/user/bordercall/morphometry/__main__.py:107: ResourceWarning: unclosed file <_io.BufferedReader name='/home/user/bordercall/scanimport/volume.py'>
+  h.update(name.encode() + b"\0" + open(os.path.join(folder, name), "rb").read())
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/user/bordercall/morphometry/__main__.py:109: ResourceWarning: unclosed file <_io.BufferedReader name='/home/user/bordercall/morphoview/lines.py'>
+  h.update(LINES_SOURCE.encode() + b"\0" + open(os.path.join(here, LINES_SOURCE), "rb").read())
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+../usr/lib/python3.13/multiprocessing/popen_fork.py:73: DeprecationWarning: This process (pid=10484) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  self.pid = os.fork()
+.....................
+----------------------------------------------------------------------
+Ran 62 tests in 772.934s
+
+OK
+EXIT 0

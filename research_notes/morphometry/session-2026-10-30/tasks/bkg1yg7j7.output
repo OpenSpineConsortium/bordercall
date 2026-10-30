@@ -1,0 +1,14 @@
+docs ok (2624 files)
+----------------------------------------------------------------------
+Ran 273 tests in 189.969s
+
+OK
+
+real	3m10.249s
+user	2m15.431s
+sys	0m56.180s
+Ran 39 tests in 2.438s
+
+OK (skipped=7)
+
+[exited with code 0]

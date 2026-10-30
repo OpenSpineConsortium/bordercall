@@ -1,0 +1,12 @@
+C5 thin x0 lean +0 ped_z +2 half 4.21        err   -0.01 share 0.00 gate  -3.51 parted True  across 0 free   5.54 fit   +1.44 why 
+C5 thin x0 lean +0 ped_z -2 half 4.23        err   -0.02 share 0.00 gate  -3.74 parted True  across 0 free   5.73 fit   -1.46 why 
+C5 thin x0 lean +5 ped_z +2 half 4.21        err   -0.18 share 0.00 gate  -3.02 parted True  across 0 free   5.75 fit   +6.63 why 
+C5 thin x0 lean +5 ped_z -2 half 4.21        err   -0.14 share 0.00 gate  -3.49 parted True  across 0 free   5.75 fit   +3.60 why 
+C5 thin x0 lean -5 ped_z +2 half 4.43        err   -0.92 share 0.00 gate  -2.99 parted True  across 0 free   1.35 fit   -4.61 why 
+C5 thin x0 lean -5 ped_z -2 half 4.40        err   -0.65 share 0.00 gate  -3.22 parted True  across 0 free   1.68 fit   -7.77 why 
+C5 thin x2 lean +0 ped_z +2 half 4.66        err   +0.33 share 0.00 gate  -2.97 parted True  across 0 free   2.33 fit   +4.87 why 
+C5 thin x2 lean +0 ped_z -2 half 4.67        err   +0.29 share 0.00 gate  -3.51 parted True  across 0 free   3.04 fit   +1.90 why 
+C5 thin x2 lean +5 ped_z +2 half 4.39        err   -0.22 share 0.00 gate  -2.58 parted True  across 0 free   0.93 fit   +9.61 why 
+C5 thin x2 lean +5 ped_z -2 half 4.68        err   +0.40 share 0.00 gate  -3.36 parted False across 0 free   1.24 fit   +7.58 why 
+C5 thin x2 lean -5 ped_z +2 half 4.39        err   +0.03 share 0.00 gate  -3.55 parted True  across 0 free   1.43 fit   -0.66 why 
+C5 thin x2 lean -5 ped_z -2 half 4.44        err   +0.08 share 0.00 gate  -3.31 parted True  across 0 free   1.52 fit   -3.75 why 

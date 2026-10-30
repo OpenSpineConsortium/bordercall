@@ -1,0 +1,13 @@
+thick suite notch 5,6,4                      err   +0.36 share 0.14 gate  -1.03 parted True  across 0 free   0.60 fit   +1.21 why 
+thick suite notch 5,6,4,-4                   err   +0.24 share 0.15 gate  +0.00 parted True  across 0 free   1.08 fit   +0.25 why 
+thick suite notch 8,6,5                      err    +nan share 0.51 gate   +nan parted None  across None free    nan fit    +nan why 51 per cent of the band's edges lie more than a step off the fitted surface, more than 40: a notch or a lip that holds so many is not told from the wall
+thick suite notch 8,8,4                      err    +nan share 0.62 gate   +nan parted None  across None free    nan fit    +nan why 62 per cent of the band's edges lie more than a step off the fitted surface, more than 40: a notch or a lip that holds so many is not told from the wall
+thick suite notch 8,8,5                      err    +nan share 0.54 gate   +nan parted None  across None free    nan fit    +nan why 54 per cent of the band's edges lie more than a step off the fitted surface, more than 40: a notch or a lip that holds so many is not told from the wall
+thick suite notch 5,10,4                     err   +0.36 share 0.30 gate  +1.44 parted True  across 0 free   0.60 fit   +1.26 why 
+thick x2 notch 8,8,5                         err  -29.73 share 0.40 gate  -0.11 parted False across 0 free   7.24 fit  -31.82 why 
+thick x2 notch 8,6,5                         err  -29.74 share 0.40 gate  -0.08 parted False across 0 free   7.24 fit  -31.82 why 
+thick x2 notch 5,6,4                         err   -0.08 share 0.17 gate  -0.94 parted True  across 0 free   1.14 fit   -2.07 why 
+thin x2 notch 5,6,4                          err   +0.25 share 0.16 gate  +2.53 parted True  across 0 free   0.43 fit   +1.92 why 
+thin x2 notch 8,6,5                          err   +0.33 share 0.00 gate  -3.78 parted True  across 0 free   0.46 fit   +1.94 why 
+thin x2 notch 8,8,5                          err    +nan share 0.64 gate   +nan parted None  across None free    nan fit    +nan why 64 per cent of the band's edges lie more than a step off the fitted surface, more than 40: a notch or a lip that holds so many is not told from the wall
+thin x2 notch 5,6,4,-4                       err   +0.26 share 0.09 gate  -2.14 parted True  across 0 free   0.44 fit   +1.16 why 

@@ -1,0 +1,6 @@
+C         thin  median 2.96 ms  max 4.30 ms over 49 configs
+C         thick median 1.30 ms  max 1.86 ms over 49 configs
+C+risers  thin  median 10.00 ms  max 13.13 ms over 49 configs
+C+risers  thick median 3.24 ms  max 4.76 ms over 49 configs
+current   thin  median 1.15 ms  max 1.71 ms over 49 configs
+current   thick median 0.35 ms  max 0.74 ms over 49 configs

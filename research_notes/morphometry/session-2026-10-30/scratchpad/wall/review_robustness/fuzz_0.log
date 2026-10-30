@@ -1,0 +1,14 @@
+trials 225 raised 0 refused 0 read 225
+  unflagged with |err| > 1.0: 77 of 198
+  unflagged with |err| > 1.5: 60 of 198
+  unflagged with |err| > 2.0: 52 of 198
+  unflagged with |err| > 3.0: 39 of 198
+  beyond the freedom itself: 78; beyond half of it: 114
+  straight_lean+0_aligned_thick            both  err +14.89 free 1.33
+  pitched_lean+0_suite18_thick             both  err -12.04 free 2.35
+  pitched_down_lean+0_x2_thick             drop  err -11.95 free 1.19
+  straight_lean+5_x5_thick                 both  err +9.96 free 0.73
+  shapes_lean+0_y12_thick                  both  err -9.49 free 1.18
+  pitched_down_lean+0_x2_thick             both  err -9.42 free 1.02
+  shapes_lean+0_t25_thick                  both  err +9.22 free 2.06
+  shapes_lean+4_x5_thick                   both  err +7.37 free 1.00

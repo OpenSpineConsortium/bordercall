@@ -1,0 +1,39 @@
+{
+ "mutant": "nobiweight",
+ "failures": [
+  "test_wall_on_the_staircase (morphometry.tests.test_morphometry.LeanedWall.test_wall_on_the_staircase)"
+ ],
+ "errors": [],
+ "readings": [
+  {
+   "level": "L3",
+   "slope_deg": -0.20631588006492815,
+   "edges": 173,
+   "dropped": 44,
+   "half_band_mm": 5.723569243643329,
+   "span_mm": 15.852716817849181,
+   "parted": true,
+   "fitted_deg": -0.4427641635247026,
+   "free_lo_deg": -0.20631588006492815,
+   "free_hi_deg": 0.14840148411647877,
+   "free_deg": 0.3547173641814069,
+   "rms_over_step": 0.2852844238631287,
+   "clamp_moved_deg": 0.23644828345977445
+  },
+  {
+   "level": "L3",
+   "slope_deg": 1.9353790830042783,
+   "edges": 191,
+   "dropped": 49,
+   "half_band_mm": 5.899006839569507,
+   "span_mm": 14.99212559655538,
+   "parted": true,
+   "fitted_deg": 1.9353790830042783,
+   "free_lo_deg": -1.3333650259094783,
+   "free_hi_deg": 5.200632419755242,
+   "free_deg": 6.5339974456647205,
+   "rms_over_step": 6.278836187557048e-16,
+   "clamp_moved_deg": 0.0
+  }
+ ]
+}

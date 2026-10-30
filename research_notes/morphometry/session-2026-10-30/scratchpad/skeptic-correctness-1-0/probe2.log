@@ -1,0 +1,53 @@
+== straight, the RunWithLines phantom
+L2 axis_turn 0.00 deg (column line to own axis); flags ['axis_one_plate']
+   frame vs phantom axes: x 0.32  y 0.32  z 0.03 deg; signs +1 +1 +1
+   origin to label centroid 0.0e+00 mm
+   real              ez  0.00 deg off | tests as written: handed True  axes True  | proposed fix True  | body_d_mid shares x,z True  signed True 
+      h_mid dx 0.0001, body_w_mid dy 0.0007 dz 0.0009, body_d_mid dx 0.0012 dz 0.0017, body y 10.82, origin 0.00 mm
+   m1 column line    ez  0.00 deg off | tests as written: handed True  axes True  | proposed fix False | body_d_mid shares x,z False signed True 
+      h_mid dx 0.0007, body_w_mid dy 0.3906 dz 0.0009, body_d_mid dx 0.2856 dz 0.0017, body y 10.82, origin 0.00 mm
+   m2 5 deg about x  ez  5.00 deg off | tests as written: handed True  axes True  | proposed fix True  | body_d_mid shares x,z False signed True 
+      h_mid dx 0.0001, body_w_mid dy 0.0014 dz 0.0009, body_d_mid dx 0.0012 dz 2.9578, body y 10.78, origin 0.00 mm
+   m7 origin 0       ez  0.00 deg off | tests as written: handed True  axes True  | proposed fix False | body_d_mid shares x,z True  signed True 
+      h_mid dx 0.0001, body_w_mid dy 0.0007 dz 0.0009, body_d_mid dx 0.0012 dz 0.0017, body y 16.96, origin 6.14 mm
+   m8 -x -y          ez  0.00 deg off | tests as written: handed True  axes True  | proposed fix False | body_d_mid shares x,z True  signed False
+      h_mid dx 0.0001, body_w_mid dy 0.0007 dz 0.0009, body_d_mid dx 0.0012 dz 0.0017, body y -10.82, origin 0.00 mm
+   m12 -x -z         ez  0.00 deg off | tests as written: handed True  axes True  | proposed fix True  | body_d_mid shares x,z True  signed False
+      h_mid dx 0.0001, body_w_mid dy 0.0007 dz 0.0009, body_d_mid dx 0.0012 dz 0.0017, body y 10.82, origin 0.00 mm
+   m9 origin +15y    ez  0.00 deg off | tests as written: handed True  axes True  | proposed fix False | body_d_mid shares x,z True  signed True 
+      h_mid dx 0.0001, body_w_mid dy 0.0007 dz 0.0009, body_d_mid dx 0.0012 dz 0.0017, body y -4.18, origin 15.00 mm
+L3 axis_turn 0.00 deg (column line to own axis); flags []
+   frame vs phantom axes: x 0.54  y 0.54  z 0.01 deg; signs +1 +1 +1
+   origin to label centroid 0.0e+00 mm
+   real              ez  0.00 deg off | tests as written: handed True  axes True  | proposed fix True  | body_d_mid shares x,z True  signed True 
+      h_mid dx 0.0004, body_w_mid dy 0.0024 dz 0.0004, body_d_mid dx 0.0009 dz 0.0012, body y 10.84, origin 0.00 mm
+   m1 column line    ez  0.00 deg off | tests as written: handed True  axes True  | proposed fix False | body_d_mid shares x,z False signed True 
+      h_mid dx 0.0009, body_w_mid dy 1.0893 dz 0.0004, body_d_mid dx 0.8003 dz 0.0012, body y 10.84, origin 0.00 mm
+   m2 5 deg about x  ez  5.00 deg off | tests as written: handed True  axes True  | proposed fix True  | body_d_mid shares x,z False signed True 
+      h_mid dx 0.0004, body_w_mid dy 0.0019 dz 0.0000, body_d_mid dx 0.0009 dz 2.9681, body y 10.81, origin 0.00 mm
+   m7 origin 0       ez  0.00 deg off | tests as written: handed True  axes True  | proposed fix False | body_d_mid shares x,z True  signed True 
+      h_mid dx 0.0004, body_w_mid dy 0.0024 dz 0.0004, body_d_mid dx 0.0009 dz 0.0012, body y 17.00, origin 37.55 mm
+   m8 -x -y          ez  0.00 deg off | tests as written: handed True  axes True  | proposed fix False | body_d_mid shares x,z True  signed False
+      h_mid dx 0.0004, body_w_mid dy 0.0024 dz 0.0004, body_d_mid dx 0.0009 dz 0.0012, body y -10.84, origin 0.00 mm
+   m12 -x -z         ez  0.00 deg off | tests as written: handed True  axes True  | proposed fix True  | body_d_mid shares x,z True  signed False
+      h_mid dx 0.0004, body_w_mid dy 0.0024 dz 0.0004, body_d_mid dx 0.0009 dz 0.0012, body y 10.84, origin 0.00 mm
+   m9 origin +15y    ez  0.00 deg off | tests as written: handed True  axes True  | proposed fix False | body_d_mid shares x,z True  signed True 
+      h_mid dx 0.0004, body_w_mid dy 0.0024 dz 0.0004, body_d_mid dx 0.0009 dz 0.0012, body y -4.16, origin 15.00 mm
+L4 axis_turn 0.00 deg (column line to own axis); flags ['axis_one_plate']
+   frame vs phantom axes: x 0.62  y 0.62  z 0.02 deg; signs +1 +1 +1
+   origin to label centroid 0.0e+00 mm
+   real              ez  0.00 deg off | tests as written: handed True  axes True  | proposed fix True  | body_d_mid shares x,z True  signed True 
+      h_mid dx 0.0013, body_w_mid dy 0.0015 dz 0.0017, body_d_mid dx 0.0009 dz 0.0006, body y 10.92, origin 0.00 mm
+   m1 column line    ez  0.00 deg off | tests as written: handed True  axes True  | proposed fix False | body_d_mid shares x,z False signed True 
+      h_mid dx 0.0014, body_w_mid dy 1.1628 dz 0.0017, body_d_mid dx 0.8478 dz 0.0006, body y 10.92, origin 0.00 mm
+   m2 5 deg about x  ez  5.00 deg off | tests as written: handed True  axes True  | proposed fix True  | body_d_mid shares x,z False signed True 
+      h_mid dx 0.0013, body_w_mid dy 0.0014 dz 0.0004, body_d_mid dx 0.0009 dz 2.9620, body y 10.88, origin 0.00 mm
+   m7 origin 0       ez  0.00 deg off | tests as written: handed True  axes True  | proposed fix False | body_d_mid shares x,z True  signed True 
+      h_mid dx 0.0013, body_w_mid dy 0.0015 dz 0.0017, body_d_mid dx 0.0009 dz 0.0006, body y 17.09, origin 74.30 mm
+   m8 -x -y          ez  0.00 deg off | tests as written: handed True  axes True  | proposed fix False | body_d_mid shares x,z True  signed False
+      h_mid dx 0.0013, body_w_mid dy 0.0015 dz 0.0017, body_d_mid dx 0.0009 dz 0.0006, body y -10.92, origin 0.00 mm
+   m12 -x -z         ez  0.00 deg off | tests as written: handed True  axes True  | proposed fix True  | body_d_mid shares x,z True  signed False
+      h_mid dx 0.0013, body_w_mid dy 0.0015 dz 0.0017, body_d_mid dx 0.0009 dz 0.0006, body y 10.92, origin 0.00 mm
+   m9 origin +15y    ez  0.00 deg off | tests as written: handed True  axes True  | proposed fix False | body_d_mid shares x,z True  signed True 
+      h_mid dx 0.0013, body_w_mid dy 0.0015 dz 0.0017, body_d_mid dx 0.0009 dz 0.0006, body y -4.08, origin 15.00 mm
+exit 0

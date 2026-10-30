@@ -1,0 +1,37 @@
+test_disc_at_the_centre (morphometry.tests.test_base.Joints.test_disc_at_the_centre) ... ok
+test_segment_angles (morphometry.tests.test_base.Joints.test_segment_angles) ... ok
+test_slip (morphometry.tests.test_base.Joints.test_slip) ... ok
+test_a_short_free_pedicle_reads_no_sagittal_angle (morphometry.tests.test_base.LateralMass.test_a_short_free_pedicle_reads_no_sagittal_angle)
+The foramen leaves the pedicle free over 4 mm front to back, under SAGITTAL_SPAN_MM. ... ok
+test_interpedicular_at_the_isthmus (morphometry.tests.test_base.LateralMass.test_interpedicular_at_the_isthmus) ... ok
+test_pedicle_without_the_mass (morphometry.tests.test_base.LateralMass.test_pedicle_without_the_mass) ... ok
+test_pedicle_under_the_process (morphometry.tests.test_base.Overhang.test_pedicle_under_the_process) ... ok
+test_incidence_and_its_parts (morphometry.tests.test_base.Pelvis.test_incidence_and_its_parts) ... ok
+test_sockets (morphometry.tests.test_base.Pelvis.test_sockets) ... ok
+test_pedicle_angles_and_size (morphometry.tests.test_base.PitchedDown.test_pedicle_angles_and_size) ... ok
+test_concavity_and_waist (morphometry.tests.test_base.Shapes.test_concavity_and_waist) ... ok
+test_pedicle_angles (morphometry.tests.test_base.Shapes.test_pedicle_angles) ... ok
+test_processes (morphometry.tests.test_base.Shapes.test_processes) ... ok
+test_wedge_and_heights (morphometry.tests.test_base.Shapes.test_wedge_and_heights) ... ok
+test_axis_follows_the_end_plates (morphometry.tests.test_base.Straight.test_axis_follows_the_end_plates) ... ok
+test_body (morphometry.tests.test_base.Straight.test_body) ... ok
+test_canal (morphometry.tests.test_base.Straight.test_canal) ... ok
+test_discs_and_segments (morphometry.tests.test_base.Straight.test_discs_and_segments) ... ok
+test_end_plate_angles_and_areas (morphometry.tests.test_base.Straight.test_end_plate_angles_and_areas) ... ok
+test_pedicles (morphometry.tests.test_base.Straight.test_pedicles) ... ok
+test_posterior_elements (morphometry.tests.test_base.Straight.test_posterior_elements) ... ok
+test_chords_across (morphometry.tests.test_base.ThickSlices.test_chords_across) ... ok
+test_heights_and_discs (morphometry.tests.test_base.ThickSlices.test_heights_and_discs) ... ok
+test_pedicle_sagittal_angle_is_refused_or_right (morphometry.tests.test_base.ThickSlices.test_pedicle_sagittal_angle_is_refused_or_right)
+On 2.5 mm layers the pedicle's surfaces cross too few layers over its span to pin its ... ok
+test_a_label_holding_half_a_neighbour (morphometry.tests.test_base.WrongMasks.test_a_label_holding_half_a_neighbour) ... ok
+test_a_vertebra_cut_by_the_volume (morphometry.tests.test_base.WrongMasks.test_a_vertebra_cut_by_the_volume) ... ok
+
+----------------------------------------------------------------------
+Ran 26 tests in 399.103s
+
+OK
+
+real	6m39.752s
+user	5m57.213s
+sys	0m37.935s

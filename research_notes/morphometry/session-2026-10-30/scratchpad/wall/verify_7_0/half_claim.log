@@ -1,0 +1,21 @@
+== thin: 49 read, 48 parted, truth inside the range on 48 of the parted
+   |err| > free/2: 13   |err| > free: 0
+   |err|/free: max 0.72 median 0.35
+   reading's place in the range (parted): min 0.00 median 0.53 max 1.00; at an end (<0.01 or >0.99): 22
+   shapes_lean+4_aligned_thin               err -0.18 free 0.25 range [ +3.21,  +3.45] read at 0.00 truth at 0.72 parted True
+   pitched_lean+0_x5_thin                   err +0.18 free 0.26 range [ -0.05,  +0.21] read at 1.00 truth at 0.30 parted True
+   pitched_down_lean+0_x5_thin              err +0.19 free 0.27 range [ -0.05,  +0.21] read at 1.00 truth at 0.30 parted True
+   straight_lean+0_x5_thin                  err +0.19 free 0.27 range [ -0.05,  +0.21] read at 1.00 truth at 0.30 parted True
+   downstream angle readings off by more than half the freedom: 143 of 228
+== thick: 49 read, 49 parted, truth inside the range on 49 of the parted
+   |err| > free/2: 9   |err| > free: 0
+   |err|/free: max 0.75 median 0.17
+   reading's place in the range (parted): min 0.00 median 0.50 max 1.00; at an end (<0.01 or >0.99): 8
+   straight_lean+5_suite18_thick            err -0.58 free 0.77 range [ +4.44,  +5.21] read at 0.00 truth at 0.75 parted True
+   straight_lean-5_x2_thick                 err +0.45 free 0.67 range [ -7.55,  -6.88] read at 1.00 truth at 0.33 parted True
+   shapes_lean+4_x10_thick                  err +0.21 free 0.33 range [ +4.11,  +4.45] read at 0.76 truth at 0.14 parted True
+   straight_lean+0_suite18_thick            err +0.36 free 0.60 range [ -0.23,  +0.37] read at 1.00 truth at 0.40 parted True
+   flagged shapes_lean+4_aligned_thick      err -0.12 free 4.54 half 2.27 downstream endplate_incl +2.65 endplate_lower_incl +2.56 spinous -0.61
+   flagged shapes_lean+4_x5_thick           err +0.68 free 3.28 half 1.64 downstream endplate_incl +1.68 endplate_lower_incl -3.27 spinous +3.36
+   flagged straight_lean+5_x5_thick         err +0.00 free 7.87 half 3.94 downstream endplate_incl -0.08 endplate_lower_incl -0.13 spinous -3.31
+   downstream angle readings off by more than half the freedom: 98 of 147

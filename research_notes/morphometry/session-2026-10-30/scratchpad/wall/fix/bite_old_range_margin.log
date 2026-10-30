@@ -1,0 +1,16 @@
+test_the_wall_is_read (morphometry.tests.test_morphometry.SpeckOnTheMargin.test_the_wall_is_read) ... FAIL
+
+======================================================================
+FAIL: test_the_wall_is_read (morphometry.tests.test_morphometry.SpeckOnTheMargin.test_the_wall_is_read)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/bordercall/morphometry/tests/test_morphometry.py", line 469, in test_the_wall_is_read
+    self.assertNotIn("why", info)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+AssertionError: 'why' unexpectedly found in {'edges': 240, 'dropped': 0, 'half_band_mm': 5.698902987689239, 'span_mm': 15.013349676465852, 'parted': True, 'across': 0, 'fitted_deg': 5.050073382978984, 'free_lo_deg': -90.0, 'free_hi_deg': 90.0, 'free_deg': 180.0, 'rms_over_step': 0.23079078086575455, 'why': "the lattice leaves the wall's slope free over 180.0 degrees, more than 9"}
+
+----------------------------------------------------------------------
+Ran 1 test in 15.657s
+
+FAILED (failures=1)
+old_range_margin: 1 run, 1 failed, 0 errors

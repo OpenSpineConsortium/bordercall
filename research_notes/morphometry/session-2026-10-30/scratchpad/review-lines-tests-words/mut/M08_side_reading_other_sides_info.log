@@ -1,0 +1,70 @@
+test_a_level_whose_drawing_fails_is_flagged_and_its_rows_stand (morphometry.tests.test_lines_export.Failing.test_a_level_whose_drawing_fails_is_flagged_and_its_rows_stand) ... ok
+test_a_study_that_fails_writes_empty_lines_and_is_measured_again (morphometry.tests.test_lines_export.Failing.test_a_study_that_fails_writes_empty_lines_and_is_measured_again) ... ok
+test_a_study_is_measured_once_and_again_only_where_its_files_are_not_current (morphometry.tests.test_lines_export.Resuming.test_a_study_is_measured_once_and_again_only_where_its_files_are_not_current) ... ok
+test_a_drawn_line_holds_the_rows_value (morphometry.tests.test_lines_export.RunWithLines.test_a_drawn_line_holds_the_rows_value) ... ok
+test_a_height_runs_up_its_frame_and_a_width_across_it (morphometry.tests.test_lines_export.RunWithLines.test_a_height_runs_up_its_frame_and_a_width_across_it) ... ok
+test_a_length_is_the_distance_between_its_ends (morphometry.tests.test_lines_export.RunWithLines.test_a_length_is_the_distance_between_its_ends) ... ok
+test_a_vertebra_the_edge_cuts_draws_nothing_its_rows_do_not_hold (morphometry.tests.test_lines_export.RunWithLines.test_a_vertebra_the_edge_cuts_draws_nothing_its_rows_do_not_hold)
+The edge runs through L4's body, whose every measure the rows leave empty: its lines say ... FAIL
+test_each_measured_vertebra_has_a_right_handed_frame (morphometry.tests.test_lines_export.RunWithLines.test_each_measured_vertebra_has_a_right_handed_frame) ... ok
+test_on_the_whole_column_every_line_is_drawn (morphometry.tests.test_lines_export.RunWithLines.test_on_the_whole_column_every_line_is_drawn) ... FAIL
+test_the_further_segments_ride_with_their_line (morphometry.tests.test_lines_export.RunWithLines.test_the_further_segments_ride_with_their_line) ... ok
+test_the_joined_files_hold_every_studys_files (morphometry.tests.test_lines_export.RunWithLines.test_the_joined_files_hold_every_studys_files) ... ok
+test_the_stamp_is_the_lines_own (morphometry.tests.test_lines_export.RunWithLines.test_the_stamp_is_the_lines_own) ... ok
+test_the_measures_reading_draws_what_reading_again_draws (morphometry.tests.test_lines_export.SameLines.test_the_measures_reading_draws_what_reading_again_draws) ... FAIL
+
+======================================================================
+FAIL: test_a_vertebra_the_edge_cuts_draws_nothing_its_rows_do_not_hold (morphometry.tests.test_lines_export.RunWithLines.test_a_vertebra_the_edge_cuts_draws_nothing_its_rows_do_not_hold)
+The edge runs through L4's body, whose every measure the rows leave empty: its lines say
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/claude-0/-home-user/cbdcd57f-bcf8-5a71-ab64-4f0b9fbdb74f/scratchpad/review-lines-tests-words/mut/M08_side_reading_other_sides_info/morphometry/tests/test_lines_export.py", line 152, in test_a_vertebra_the_edge_cuts_draws_nothing_its_rows_do_not_hold
+    self.assertTrue(all(r["status"] == "drawn" for r in above))
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true
+
+======================================================================
+FAIL: test_on_the_whole_column_every_line_is_drawn (morphometry.tests.test_lines_export.RunWithLines.test_on_the_whole_column_every_line_is_drawn)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/claude-0/-home-user/cbdcd57f-bcf8-5a71-ab64-4f0b9fbdb74f/scratchpad/review-lines-tests-words/mut/M08_side_reading_other_sides_info/morphometry/tests/test_lines_export.py", line 99, in test_on_the_whole_column_every_line_is_drawn
+    self.assertEqual(r["status"], "drawn", "%s %s %s" % (level, r["key"], r["status"]))
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'withheld: the construction gives 49.75 where the rows hold 50' != 'drawn'
+- withheld: the construction gives 49.75 where the rows hold 50
++ drawn
+ : L3 pedicle_chord_right withheld: the construction gives 49.75 where the rows hold 50
+
+======================================================================
+FAIL: test_the_measures_reading_draws_what_reading_again_draws (morphometry.tests.test_lines_export.SameLines.test_the_measures_reading_draws_what_reading_again_draws)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/claude-0/-home-user/cbdcd57f-bcf8-5a71-ab64-4f0b9fbdb74f/scratchpad/review-lines-tests-words/mut/M08_side_reading_other_sides_info/morphometry/tests/test_lines_export.py", line 264, in test_the_measures_reading_draws_what_reading_again_draws
+    np.testing.assert_array_equal(x.a, y.a)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "/tmp/claude-0/-home-user/cbdcd57f-bcf8-5a71-ab64-4f0b9fbdb74f/scratchpad/venv/lib/python3.13/site-packages/numpy/testing/_private/utils.py", line 1128, in assert_array_equal
+    assert_array_compare(operator.__eq__, actual, desired, err_msg=err_msg,
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                         verbose=verbose, header='Arrays are not equal',
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                         strict=strict)
+                         ^^^^^^^^^^^^^^
+  File "/tmp/claude-0/-home-user/cbdcd57f-bcf8-5a71-ab64-4f0b9fbdb74f/scratchpad/venv/lib/python3.13/site-packages/numpy/testing/_private/utils.py", line 988, in assert_array_compare
+    raise AssertionError(msg)
+AssertionError: 
+Arrays are not equal
+
+Mismatched elements: 3 / 3 (100%)
+Mismatch at indices:
+ [0]: 7.773308528866213 (ACTUAL), -13.968011483297005 (DESIRED)
+ [1]: 7.555947857962692 (ACTUAL), 8.774486626666127 (DESIRED)
+ [2]: -34.154333262719575 (ACTUAL), -31.96133711851594 (DESIRED)
+Max absolute difference among violations: 21.74132001
+Max relative difference among violations: 1.55650789
+ ACTUAL: array([  7.773309,   7.555948, -34.154333])
+ DESIRED: array([-13.968011,   8.774487, -31.961337])
+
+----------------------------------------------------------------------
+Ran 13 tests in 178.829s
+
+FAILED (failures=3)

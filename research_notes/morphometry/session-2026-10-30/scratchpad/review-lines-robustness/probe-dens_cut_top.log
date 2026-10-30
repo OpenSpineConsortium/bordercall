@@ -1,0 +1,1 @@
+dens_cut_top     measure+draw-volume 8 s, lines 0.1 s; verts ['C2', 'C3', 'C4']; discs [('C3', 'C4')]; flags []; statuses {'not measured': 8, 'drawn': 31}; levels with rows but no lines []

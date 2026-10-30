@@ -1,0 +1,2 @@
+thick x2 notch 8,8,5: err -29.73 edges 39 dropped 39 span 10.0 free  7.24 parted False fit -31.82 canal line +0.00 deg reach 5.27 why 
+thick x2 notch 6,8,5: err  -0.18 edges 57 dropped 21 span 12.5 free  2.99 parted True fit -2.27 canal line +0.00 deg reach 5.27 why 

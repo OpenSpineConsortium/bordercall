@@ -1,0 +1,9 @@
+test_beads_on_a_view_not_recorded_land_where_projected (morphoview.tests.test_projection.Live.test_beads_on_a_view_not_recorded_land_where_projected) ... ok
+test_flexray_renders_the_record_again (morphoview.tests.test_projection.Live.test_flexray_renders_the_record_again) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 39.487s
+
+OK
+
+[exited with code 0]

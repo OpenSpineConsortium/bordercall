@@ -1,0 +1,10 @@
+thick suite notch 8,6,5: window 16.2 mm (lo -8.0 hi 8.2), half band 5.74, reach 4.49, canal line -14.01 deg
+   edges 80: floor 26 (0.33), wall 51 (0.64), other 3; kept: floor 9 wall 15 other 1; fit +29.50 deg
+   kept floor edges' phantom z 1.8..2.7; kept wall edges' phantom z -7.0..-4.6
+   the same fit on the wall's edges alone: +1.07 deg
+   wall edges' phantom z -7.3..6.7
+thick suite notch 5,6,4: window 16.2 mm (lo -8.0 hi 8.2), half band 5.77, reach 4.51, canal line -11.78 deg
+   edges 81: floor 17 (0.21), wall 63 (0.78), other 1; kept: floor 0 wall 63 other 0; fit +1.21 deg
+   kept floor edges' phantom z none; kept wall edges' phantom z -7.3..6.7
+   the same fit on the wall's edges alone: +1.21 deg
+   wall edges' phantom z -7.3..6.7

@@ -1,0 +1,16 @@
+C5 thin x0 lean+0                        err -0.26 truth +1.45  0.010s  {'edges': 118, 'dropped': 2, 'half_band_mm': 6.0, 'span_mm': 7.07, 'parted': False, 'fitted_deg': 1.19, 'free_lo_deg': -0.67, 'free_hi_deg': 3.59, 'free_deg': 4.26, 'rms_over_step': 0.28}
+    rings 7 width 27.5 ap 14.4 body pts 5176 flags []
+C5 thin x0 lean+5                        err -0.76 truth +6.81  0.010s  {'edges': 117, 'dropped': 2, 'half_band_mm': 6.0, 'span_mm': 7.03, 'parted': False, 'fitted_deg': 6.05, 'free_lo_deg': 5.18, 'free_hi_deg': 6.99, 'free_deg': 1.81, 'rms_over_step': 0.31}
+    rings 7 width 27.7 ap 14.7 body pts 5132 flags []
+C5 thin x2 lean+0                        err -0.02 truth +4.54  0.015s  {'edges': 124, 'dropped': 6, 'half_band_mm': 6.0, 'span_mm': 8.22, 'parted': False, 'fitted_deg': 4.51, 'free_lo_deg': 3.93, 'free_hi_deg': 4.67, 'free_deg': 0.74, 'rms_over_step': 0.29}
+    rings 6 width 26.6 ap 14.8 body pts 5127 flags []
+C5 thin x2 lean+5                        err -0.72 truth +9.89  0.013s  {'edges': 133, 'dropped': 2, 'half_band_mm': 6.0, 'span_mm': 8.24, 'parted': False, 'fitted_deg': 9.16, 'free_lo_deg': 8.88, 'free_hi_deg': 9.61, 'free_deg': 0.73, 'rms_over_step': 0.31}
+    rings 6 width 28.3 ap 14.9 body pts 5125 flags ['body_foramina']
+C5 thin x5 lean+0                        err +0.25 truth -0.57  0.011s  {'edges': 129, 'dropped': 2, 'half_band_mm': 6.0, 'span_mm': 8.2, 'parted': False, 'fitted_deg': -0.32, 'free_lo_deg': -0.61, 'free_hi_deg': 0.23, 'free_deg': 0.84, 'rms_over_step': 0.31}
+    rings 6 width 27.2 ap 14.7 body pts 5097 flags []
+C5 thin x5 lean+5                        err -0.60 truth +4.83  0.011s  {'edges': 124, 'dropped': 4, 'half_band_mm': 6.0, 'span_mm': 8.11, 'parted': False, 'fitted_deg': 4.23, 'free_lo_deg': 2.59, 'free_hi_deg': 4.84, 'free_deg': 2.25, 'rms_over_step': 0.25}
+    rings 6 width 27.3 ap 15.0 body pts 5073 flags []
+C5 thin suite18 lean+0                   err -0.59 truth +2.24  0.010s  {'edges': 118, 'dropped': 4, 'half_band_mm': 6.0, 'span_mm': 8.38, 'parted': False, 'fitted_deg': 1.65, 'free_lo_deg': 1.03, 'free_hi_deg': 1.96, 'free_deg': 0.93, 'rms_over_step': 0.31}
+    rings 6 width 26.9 ap 14.8 body pts 5153 flags ['body_foramina']
+C5 thin suite18 lean+5                   err -1.13 truth +7.10  0.010s  {'edges': 117, 'dropped': 5, 'half_band_mm': 6.0, 'span_mm': 8.45, 'parted': False, 'fitted_deg': 5.97, 'free_lo_deg': 5.53, 'free_hi_deg': 6.32, 'free_deg': 0.79, 'rms_over_step': 0.31}
+    rings 5 width 26.2 ap 14.8 body pts 5091 flags ['body_foramina']

@@ -1,0 +1,20 @@
+all
+axis
+axis_one_plate
+axis_turn
+body
+body_foramina
+canal
+canal_ap_lateral_film
+cut
+dens
+error
+facets
+flags["pedicle_" + name]
+hips
+interpedicular_band
+labels
+pedicle_incl_sag
+pelvis
+pieces
+processes

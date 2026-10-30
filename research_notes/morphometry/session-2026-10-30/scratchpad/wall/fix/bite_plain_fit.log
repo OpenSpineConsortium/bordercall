@@ -1,0 +1,38 @@
+test_end_plate_inclinations (morphometry.tests.test_morphometry.BasivertebralNotch.test_end_plate_inclinations) ... FAIL
+test_the_fit_leaves_the_notch_out (morphometry.tests.test_morphometry.BasivertebralNotch.test_the_fit_leaves_the_notch_out)
+The fit itself, before the clamp, which on its own could hold a fit the notch pulled ... ERROR
+test_wall_past_the_notch (morphometry.tests.test_morphometry.BasivertebralNotch.test_wall_past_the_notch) ... FAIL
+
+======================================================================
+ERROR: test_the_fit_leaves_the_notch_out (morphometry.tests.test_morphometry.BasivertebralNotch.test_the_fit_leaves_the_notch_out)
+The fit itself, before the clamp, which on its own could hold a fit the notch pulled
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/bordercall/morphometry/tests/test_morphometry.py", line 475, in test_the_fit_leaves_the_notch_out
+    err = info["fitted_deg"] - truth
+          ~~~~^^^^^^^^^^^^^^
+KeyError: 'fitted_deg'
+
+======================================================================
+FAIL: test_end_plate_inclinations (morphometry.tests.test_morphometry.BasivertebralNotch.test_end_plate_inclinations)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/bordercall/morphometry/tests/test_morphometry.py", line 482, in test_end_plate_inclinations
+    self.assertLessEqual(abs(got[k] - want), TOL_DEG, "%s: %.2f against %.2f" % (k, got[k], want))
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: nan not less than or equal to 1.5 : endplate_incl: nan against -0.00
+
+======================================================================
+FAIL: test_wall_past_the_notch (morphometry.tests.test_morphometry.BasivertebralNotch.test_wall_past_the_notch)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/bordercall/morphometry/tests/test_morphometry.py", line 468, in test_wall_past_the_notch
+    self.assertLessEqual(abs(err), WALL_TOL_DEG, "the wall reads %.2f degrees off" % err)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: nan not less than or equal to 0.5 : the wall reads nan degrees off
+
+----------------------------------------------------------------------
+Ran 3 tests in 22.813s
+
+FAILED (failures=2, errors=1)
+plain_fit: 3 run, 2 failed, 1 errors

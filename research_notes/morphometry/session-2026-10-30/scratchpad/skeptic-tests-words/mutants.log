@@ -1,0 +1,44 @@
+G1_standing_part_not_previous -> SURVIVED | gate: rc=0 OK
+G2_keep_drops_facts_part -> SURVIVED | gate: rc=0 OK
+G3_keep_drops_whole_log -> KILLED | gate: rc=1 FAILED (errors=2)
+G4_no_rerun_pending -> KILLED | gate: rc=1 FAILED (failures=2)
+G5_no_stamp_compare -> KILLED | gate: rc=1 FAILED (failures=1)
+G9_set_no_gate_list_check -> SURVIVED | gate: rc=0 OK
+G10_set_marker_unwritable_ignored -> SURVIVED | gate: rc=0 OK
+G11_rerun_word_no_spaces -> KILLED | gate: rc=1 FAILED (failures=11)
+G12_set_no_rm_sent -> KILLED | gate: rc=1 FAILED (failures=3)
+G13_previous_unreadable_not_checked -> KILLED | gate: rc=1 FAILED (failures=1)
+G14_previous_any_digits -> KILLED | gate: rc=1 FAILED (failures=1)
+G15_previous_no_member_filter -> KILLED | gate: rc=1 FAILED (failures=5)
+G16_keep_check_skipped -> KILLED | gate: rc=1 FAILED (failures=1)
+G17_keep_even_failed -> KILLED | gate: rc=1 FAILED (errors=1)
+G18_lost_word_numbering -> KILLED | gate: rc=1 FAILED (failures=1)
+G19_set_no_root_passed -> KILLED | gate: rc=1 FAILED (failures=1, errors=1)
+G20_stamp_regex_loose -> KILLED | gate: rc=1 FAILED (failures=1)
+G21_part_move_dropped -> KILLED | gate: rc=1 FAILED (failures=1)
+S1_median_strictly_more_than_5 -> SURVIVED | gate: rc=0 OK
+S2_least_6 -> SURVIVED | gate: rc=0 OK
+S3_no_worker_died -> KILLED | gate: rc=1 FAILED (failures=1)
+S4_no_count_check -> KILLED | gate: rc=1 FAILED (failures=1)
+S5_no_foreign -> KILLED | gate: rc=1 FAILED (failures=1)
+S6_no_stamp_vs_count -> KILLED | gate: rc=1 FAILED (failures=1)
+S7_no_default_whole -> KILLED | gate: rc=1 FAILED (failures=1)
+S8_versions_no_scipy -> KILLED | gate: rc=1 FAILED (failures=1)
+S9_stamp_not_checked -> KILLED | gate: rc=1 FAILED (failures=1)
+S10_not_whole_still_tabled -> KILLED | gate: rc=1 FAILED (failures=1)
+C1_previous_any_name -> KILLED | join: rc=1 FAILED (failures=1)
+C2_previous_not_passed -> KILLED | join: rc=1 FAILED (failures=1)
+P1_mean_then_strict -> SURVIVED | join: rc=0 OK
+P2_r_then_strict -> SURVIVED | join: rc=0 OK
+P3_slope_then_strict -> KILLED | join: rc=1 FAILED (failures=1)
+P4_no_partial_check -> KILLED | join: rc=1 FAILED (failures=1)
+P5_keyerror_not_caught -> SURVIVED | join: rc=0 OK
+P6_texts_two_places -> SURVIVED | join: rc=0 OK
+P7_g_not_recomputed -> KILLED | join: rc=1 FAILED (failures=1)
+P8_few_inclusive -> KILLED | join: rc=1 FAILED (failures=1)
+P9_mixed_ge1 -> KILLED | join: rc=1 FAILED (failures=1)
+P10_stand_in_kept -> KILLED | join: rc=1 FAILED (failures=1)
+P11_no_blind -> KILLED | join: rc=1 FAILED (failures=1)
+P12_slope_ages_ignored -> SURVIVED | join: rc=0 OK
+P13_r_reading_one_side -> KILLED | join: rc=1 FAILED (failures=1)
+done

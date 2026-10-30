@@ -1,0 +1,8 @@
+x2       lean +5 thin  shape equal True, voxels differing 0 of 23945415, affine equal True
+x2       lean +5 thick shape equal True, voxels differing 0 of 8464918, affine equal True
+x2       lean -5 thin  shape equal True, voxels differing 0 of 23945415, affine equal True
+x2       lean -5 thick shape equal True, voxels differing 0 of 8464918, affine equal True
+suite18  lean +5 thin  shape equal True, voxels differing 0 of 32804200, affine equal True
+suite18  lean +5 thick shape equal True, voxels differing 0 of 11466126, affine equal True
+suite18  lean -5 thin  shape equal True, voxels differing 0 of 32804200, affine equal True
+suite18  lean -5 thick shape equal True, voxels differing 0 of 11466126, affine equal True

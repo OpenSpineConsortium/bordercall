@@ -1,0 +1,12 @@
+edges in the phantom frame: wall 113 (y -0.35..0.90), notch floor 67 (y 1.15..5.37), share 0.37
+half 5.73 reach 4.82 window -8.05..8.14 (16.2 mm) edges 180 canal line -23.56 deg
+start slope -23.99 deg tcost 205.265; biweight slope -29.15 deg tcost 284.415
+wall's own edges fitted alone: slope -0.41 deg, tcost over all 277.155 (kept h 135 of 180)
+biweight from the wall's fit: slope -0.53 deg tcost 274.470
+found fit: within a step 62 (wall 35, notch 27)
+edges in the phantom frame: wall 51 (y -0.39..0.88), notch floor 29 (y 1.28..5.39), share 0.36
+half 5.74 reach 4.49 window -8.04..8.16 (16.2 mm) edges 80 canal line -14.01 deg
+start slope +27.54 deg tcost 111.047; biweight slope +29.50 deg tcost 132.541
+wall's own edges fitted alone: slope +1.01 deg, tcost over all 134.134 (kept h 60 of 80)
+biweight from the wall's fit: slope +1.10 deg tcost 133.313
+found fit: within a step 25 (wall 15, notch 10)

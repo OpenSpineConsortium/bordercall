@@ -1,0 +1,5 @@
+drawn            axis 1 step [ 0 -1  0] d [-0.015 -0.799  0.027] err -0.097 edges 240 free 0.29 why 
+flip y           axis 1 step [0 1 0] d [-0.015 -0.799  0.027] err -0.097 edges 240 free 0.29 why 
+flip x,y,z       axis 1 step [0 1 0] d [-0.015 -0.799  0.027] err -0.097 edges 240 free 0.29 why 
+permute (1,0,2)  axis 0 step [-1  0  0] d [-0.015 -0.799  0.027] err -0.097 edges 240 free 0.29 why 
+permute (2,1,0)  axis 1 step [ 0 -1  0] d [-0.015 -0.799  0.027] err -0.097 edges 240 free 0.29 why 

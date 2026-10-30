@@ -1,0 +1,2 @@
+{"alpha": 90, "ct_sha256": "x", "grid_pose": 3, "pixels": 1024, "pose_id": 3, "sample_id": "s0001_p003", "seconds": 1.0, "split": "train", "subject_id": "s0001", "truth_sha256": {}, "y": 650, "z": -300}
+{"alpha": 0, "ct_sha256": "x", "grid_pose": 0, "pixels": 1024, "pose_id": 0, "sample_id": "s0001_p000", "seconds": 1.0, "split": "train", "subject_id": "s0001", "truth_sha256": {}, "y": 650, "z": -300}

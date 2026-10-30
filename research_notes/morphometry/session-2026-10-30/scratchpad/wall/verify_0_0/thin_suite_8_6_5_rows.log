@@ -1,0 +1,9 @@
+thin suite notch 8,6,5: wall err -29.15 edges 62 dropped 118 share 0.66 free 0.51 parted False fitted -29.15 why ''
+  endplate_incl                      +29.05 truth   -0.00
+  endplate_lower_incl                +29.61 truth   +0.00
+  wedge                               +0.56 truth   +0.00
+  pedicle_angle_sagittal               +nan truth   +0.00
+  pedicle_angle_sagittal_left        +29.07 truth   +0.00
+  pedicle_angle_sagittal_right         +nan truth   +0.00
+  spinous_angle                       -8.32 truth  +20.00
+  flag:pedicle_right               the pedicle's surfaces stand under 2 columns, too few to part them from the lattice
