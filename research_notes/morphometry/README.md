@@ -12,7 +12,7 @@ The package [morphometry/](../../morphometry/) measures a labelled CT: every ver
 
 ```
 python -m morphometry measure --labels 0004.nii.gz --scheme enhance --study 0004 --out rows.csv
-python -m morphometry run --masks DIR --scheme enhance --out DIR --workers 3 --max-slice 1.25
+python -m morphometry run --masks DIR --scheme enhance --out DIR --workers 3 --max-slice 1.25 [--lines]
 python -m morphometry compare --rows DIR/rows.csv --series series.csv --out DIR/compare.csv --max-slice 1.25
 python -m morphometry phantom
 python -m morphometry thicken --labels 0004.nii.gz --scheme enhance --study 0004 --to 2.5 5 --out thick.csv
@@ -20,7 +20,7 @@ python -m morphometry bench --slice 2.5
 python -m maskedge measure --ct CT.nii.gz --labels 0004.nii.gz --scheme enhance --study 0004 --out edge.csv
 ```
 
-`run` measures every mask in a folder whose coarsest spacing is at most `--max-slice`, one CSV per study, so a run cut short resumes; each CSV carries a stamp of the measuring code, and a study is measured again when the code has changed since. `compare` sets our values beside every row of the paper tables. `phantom`, `thicken` and `bench` are the checks below.
+`run` measures every mask in a folder whose coarsest spacing is at most `--max-slice`, one CSV per study, so a run cut short resumes; each CSV carries a stamp of the measuring code, and a study is measured again when the code has changed since. With `--lines`, `run` also writes each measure's line and each measured vertebra's frame beside its rows (lines/ID.csv and frames/ID.csv, joined as lines.csv and frames.csv): the line's two ends in the world's millimetres of the mask's affine, its rule, its panel, the value its construction gives beside the row's and whether it is drawn, withheld or not measured, built by [morphoview/lines.py](../../morphoview/lines.py) on the vertebrae the rows were read from; the frame is the vertebra's origin and its three axes in the same world. It is the export the latent shape prior's evaluation reads (PR 45, stage 1); such a run has a stamp of its own, over morphoview/lines.py too, and a level whose drawing fails is flagged (flag:lines) without losing a row. On the phantoms the drawing adds about 5 per cent to a study's time. `compare` sets our values beside every row of the paper tables. `phantom`, `thicken` and `bench` are the checks below.
 
 Each vertebra is read in its own frame: z starts on the column's line through the centroids of its whole neighbours and is turned once onto the vertebra's own axis, the bisector of its two end-plates' planes, each plate the body's face toward the neighbouring vertebra (the section on the axis, below); y points to the body, and the canal is the hole the slabs across the vertebra find. The body is the bone in front of the canal's anterior wall, cut along that wall's line as it leans through the canal's full rings, and in the neck clipped at the transverse foramina. Every module's docstring gives its definitions and the failures that shaped them; this note does not repeat them.
 

@@ -298,14 +298,27 @@ def march(v: A.Vertebra, c0: np.ndarray, d: np.ndarray) -> Optional[Tuple[float,
     return ts[a] - 0.5 * PED.MARCH_MM, ts[b] + 0.5 * PED.MARCH_MM
 
 
-def pedicles(v: A.Vertebra) -> List[Line]:
+def side_reading(v: A.Vertebra, side: int, name: str, zb: Tuple[float, float],
+                 ped: Optional[Dict[str, dict]], vals: Optional[Dict[str, float]]) -> Tuple[Dict[str, float], Optional[dict]]:
+    """One side's values and the reading they came from: pedicle.one_side read again, or, where
+    the measure's own reading and values are given, those, since one_side is the measure itself
+    and reading it again took two thirds of a study's drawing time on the phantom (8 of 11 s)."""
+    if ped is None or vals is None:
+        got, _, info = PED.one_side(v, side, zb)
+        return got, info
+    keys = ("pedicle_w", "pedicle_h", "pedicle_chord")
+    return {k: vals.get("%s_%s" % (k, name), NAN) for k in keys}, ped.get(name)
+
+
+def pedicles(v: A.Vertebra, ped: Optional[Dict[str, dict]] = None, vals: Optional[Dict[str, float]] = None) -> List[Line]:
     """Each side's width across its section at the pedicle's own middle height in that row, its
     height up the column at the middle of the section (pedicle.one_side), each in the row of
-    the isthmus rows nearest the median the measure takes, and the chord along the axis."""
+    the isthmus rows nearest the median the measure takes, and the chord along the axis, marched
+    again here whichever reading the side's values come from (side_reading)."""
     zb = CANAL.body_span(v)
     out = []
     for side, name in PED.SIDES:
-        got, _, info = PED.one_side(v, side, zb)
+        got, info = side_reading(v, side, name, zb, ped, vals)
         if info is None:
             continue
         m = info["map"]
@@ -347,10 +360,13 @@ def discs(U: A.Vertebra, L: A.Vertebra) -> List[Line]:
 
 # ---- all of them, checked ----------------------------------------------------------------------
 
-def vertebra_lines(v: A.Vertebra, ped: Dict[str, dict]) -> List[Line]:
+def vertebra_lines(v: A.Vertebra, ped: Dict[str, dict], vals: Optional[Dict[str, float]] = None) -> List[Line]:
+    """Every line of the vertebra; with the values morphometry.measure.vertebra_values gave, the
+    pedicles' lines are drawn on the reading those values came from (side_reading)."""
     out: List[Line] = []
-    for build in (heights, wedge, waist, panjabi_plates, least_depth, lateral_film, spinous, tp_span, pedicles):
+    for build in (heights, wedge, waist, panjabi_plates, least_depth, lateral_film, spinous, tp_span):
         out += build(v)
+    out += pedicles(v, ped, vals)
     out += interpedicular(v, ped)
     return out
 

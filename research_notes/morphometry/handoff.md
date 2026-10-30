@@ -1,3 +1,27 @@
+# Morphometry: the handoff of 2026-10-30, 15:00 UTC: the lines export
+
+Source: the thread "Run morphometry on gold tier 3 masks" in the claude.ai project symphony_5, on
+the owner's word of 14:28 UTC ("yes do all these": merge PR 44, re-pin the engine in SchwingNet,
+give a count) read with the other thread's note of 14:34 UTC, which asked that PR 45's stage 1
+export ride in the morphometry jobs. This pass read no real mask or CT and queued no grid job; at
+14:45 UTC the owner held the jobs until a resynthesis.
+
+- `python -m morphometry run --lines` writes, per study, lines/ID.csv and frames/ID.csv beside
+  rows/ID.csv, and joins them as lines.csv and frames.csv: every measure's line as
+  morphoview.lines builds it, on the vertebrae measure_volume built (measure_volume's new `keep`)
+  and checked against the values it wrote, its ends in world millimetres, and each measured
+  vertebra's frame. The lines and frames are written before the rows, so a rows file of the run's
+  stamp says they were written with it; a run with the lines has a stamp of its own, over
+  morphoview/lines.py too, so a study measured without them is measured again.
+- morphoview.lines.pedicles takes the measure's own reading of each side where it is given
+  (side_reading): pedicle.one_side is the measure itself, and reading it again took 8 of a study's
+  11 s of drawing on the phantom; the lines it gives are the same to the bit (SameLines).
+- On the phantoms (L2 to L4 at 0.8 by 0.8 by 1 mm, and the same cut through L4's body by the
+  volume's edge) every line of the whole column is drawn and holds its row's value, every length's
+  ends lie its value apart, each frame is right-handed and a height runs up its frame's z; a cut
+  body's lines all say not measured. 13 tests, morphometry/tests/test_lines_export.py.
+- Not done: the export on a real mask, which is grid work on the owner's count.
+
 # Morphometry: the handoff of 2026-10-30, 14:00 UTC
 
 Source: the thread "Run morphometry on gold tier 3 masks" in the claude.ai project symphony_5, on

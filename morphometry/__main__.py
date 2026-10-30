@@ -2,7 +2,7 @@
 means, check the phantom, and thin a fine mask's slices to see what thick slices do.
 
     python -m morphometry measure --labels 0001.nii.gz --scheme enhance --study 0001 --out rows.csv
-    python -m morphometry run --masks DIR --scheme enhance --out DIR --workers 3 [--max-slice 1.25]
+    python -m morphometry run --masks DIR --scheme enhance --out DIR --workers 3 [--max-slice 1.25] [--lines]
     python -m morphometry compare --rows DIR/rows.csv --series series.csv --out DIR/compare.csv
     python -m morphometry phantom
     python -m morphometry thicken --labels 0004.nii.gz --scheme enhance --study 0004 --to 2.5 --out thick.csv
@@ -30,6 +30,13 @@ from scanimport import volume as V
 from . import measure as M
 
 FIELDS = ["study", "level", "key", "value", "note"]
+# the lines file: one row per measure's line (morphoview.lines), its two ends in the world's
+# millimetres of the mask's affine, and one row more for each further segment a line carries
+# (the wedge's lower plate, Eisenstein's apex-to-apex line), named in part, with no value of its own
+LINE_FIELDS = ["study", "level", "key", "part", "rule", "panel", "value", "measured", "drawn", "status",
+               "ax", "ay", "az", "bx", "by", "bz"]
+# the frames file: each measured vertebra's frame, its origin and its three axes in the same world
+FRAME_FIELDS = ["study", "level", "ox", "oy", "oz", "exx", "exy", "exz", "eyx", "eyy", "eyz", "ezx", "ezy", "ezz"]
 # the paper-tables vocabulary's key -> ours, where the two name one measure. Panjabi's end-plate
 # wedge (endplate_wedge) is the sum of the two plates' inclinations, with its own sign, and is
 # not our wedge, the angle between the plates.
@@ -47,16 +54,28 @@ NOT_ADULT_PEOPLE = [("another species", re.compile(r"porcine", re.I)),
                     ("an example", re.compile(r"example|figure", re.I))]
 POOLED = ("pooled", "all", "not stated")
 SOURCES = ("morphometry", "scanimport")
+LINES_SOURCE = os.path.join("morphoview", "lines.py")
 
 
-def write_rows(rows: Iterable[Dict[str, object]], path: str) -> None:
+def number(v: object) -> object:
+    """A float to four places, as every value in the rows is written; not a number as empty."""
+    if isinstance(v, float):
+        return ("%.4f" % v) if math.isfinite(v) else ""
+    return v
+
+
+def write_rows(rows: Iterable[Dict[str, object]], path: str, fields: List[str] = FIELDS) -> None:
     with open(path, "w", newline="") as f:
-        w = csv.DictWriter(f, fieldnames=FIELDS, lineterminator="\n")
+        w = csv.DictWriter(f, fieldnames=fields, lineterminator="\n")
         w.writeheader()
         for r in rows:
-            v = r["value"]
-            w.writerow({**r, "value": ("%.4f" % v) if isinstance(v, float) and math.isfinite(v) else
-                        ("" if isinstance(v, float) else v)})
+            w.writerow({k: number(x) for k, x in r.items()})
+
+
+def write_atomic(rows: Iterable[Dict[str, object]], path: str, fields: List[str] = FIELDS) -> None:
+    tmp = path + ".part"
+    write_rows(rows, tmp, fields)
+    os.replace(tmp, path)
 
 
 def head_foot_axis(affine: np.ndarray) -> int:
@@ -74,9 +93,11 @@ def spacings(labels: str) -> Tuple[float, float]:
     return float(zooms[head_foot_axis(img.affine)]), float(max(zooms))
 
 
-def code_stamp() -> str:
-    """The sha256 of the measuring code, every source file of morphometry and scanimport but
-    their tests, so that rows another version of the code wrote are measured again."""
+def code_stamp(lines: bool = False) -> str:
+    """The sha256 of the code that writes a study's files, every source file of morphometry and
+    scanimport but their tests, and with the lines morphoview/lines.py too, so that files another
+    version of the code wrote are written again. A run with the lines has a stamp of its own, so
+    a study measured without them is measured again when they are asked for."""
     here = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     h = hashlib.sha256()
     for pkg in SOURCES:
@@ -84,6 +105,8 @@ def code_stamp() -> str:
         for name in sorted(os.listdir(folder)):
             if name.endswith(".py"):
                 h.update(name.encode() + b"\0" + open(os.path.join(folder, name), "rb").read())
+    if lines:
+        h.update(LINES_SOURCE.encode() + b"\0" + open(os.path.join(here, LINES_SOURCE), "rb").read())
     return h.hexdigest()[:16]
 
 
@@ -100,31 +123,95 @@ def cmd_measure(a) -> None:
     write_rows(rows, a.out)
 
 
-def one_study(job: Tuple[str, str, str, str, str]) -> Tuple[str, float, str]:
-    path, scheme, study, out, stamp = job
+def line_rows(study: str, ln) -> List[Dict[str, object]]:
+    """A line as its row, and a row for each further segment it carries."""
+    def row(part: str, a: np.ndarray, b: np.ndarray, value: object, measured: object) -> Dict[str, object]:
+        return {"study": study, "level": ln.level, "key": ln.key, "part": part, "rule": ln.rule, "panel": ln.panel,
+                "value": value, "measured": measured, "drawn": float(np.linalg.norm(b - a)), "status": ln.status,
+                "ax": float(a[0]), "ay": float(a[1]), "az": float(a[2]),
+                "bx": float(b[0]), "by": float(b[1]), "bz": float(b[2])}
+    out = [row("", ln.a, ln.b, float(ln.value), float(ln.measured))]
+    out += [row(name, a, b, "", "") for name, (a, b) in ln.extra.items()]
+    return out
+
+
+def frame_row(study: str, level: str, f: G.Frame) -> Dict[str, object]:
+    r: Dict[str, object] = {"study": study, "level": level}
+    for name, vec in (("o", f.origin), ("ex", f.ex), ("ey", f.ey), ("ez", f.ez)):
+        for axis, x in zip("xyz", vec):
+            r[name + axis] = float(x)
+    return r
+
+
+def study_lines(study: str, kept: dict) -> Tuple[List[Dict[str, object]], List[Dict[str, object]],
+                                                  List[Dict[str, object]]]:
+    """The lines of every measure the study's rows hold, on the vertebrae measure_volume built
+    and checked against the values it wrote (morphoview.lines.checked), the vertebrae's frames,
+    and a flag row for a level whose lines could not be built, so that a failure of the drawing
+    loses no row of the measuring."""
+    from morphoview import lines as LN
+    lines, frames, flags = [], [], []
+    verts = kept.get("verts", {})
+
+    def build(level: str, make) -> None:
+        try:
+            for ln in make():
+                lines.extend(line_rows(study, ln))
+        except Exception as e:                  # the drawing of one level must not lose the others
+            flags.append({"study": study, "level": level, "key": "flag:lines", "value": "",
+                          "note": "%s: %s" % (type(e).__name__, e)})
+
+    for lv, v in verts.items():
+        frames.append(frame_row(study, lv, v.frame))
+        vals = kept["values"][lv]
+        build(lv, lambda: LN.checked(LN.vertebra_lines(v, kept["peds"][lv], vals), vals))
+    for (a, b), vals in kept.get("discs", {}).items():
+        build("%s-%s" % (a, b), lambda: LN.checked(LN.discs(verts[a], verts[b]), vals))
+    return lines, frames, flags
+
+
+def side_paths(out: str) -> Tuple[str, str]:
+    """A study's lines and frames files beside its rows: DIR/rows/ID.csv gives DIR/lines/ID.csv
+    and DIR/frames/ID.csv."""
+    rows_dir, name = os.path.split(out)
+    top = os.path.dirname(rows_dir)
+    return os.path.join(top, "lines", name), os.path.join(top, "frames", name)
+
+
+def one_study(job: Tuple) -> Tuple[str, float, str]:
+    """Measure one study and write its rows, and with the lines its lines and frames first, so
+    that a rows file of this code's stamp says its lines and frames were written with it."""
+    path, scheme, study, out, stamp = job[:5]
+    with_lines = len(job) > 5 and bool(job[5])
     t0 = time.time()
+    kept: dict = {}
     try:
-        rows = M.measure_file(path, scheme, study)
+        rows = M.measure_file(path, scheme, study, keep=kept if with_lines else None)
         note = ""
     except KeyboardInterrupt:
         raise
     except BaseException as e:                  # one broken mask, SystemExit included, must not stop the run
-        rows, note = [], "%s: %s" % (type(e).__name__, e)
+        rows, note, kept = [], "%s: %s" % (type(e).__name__, e), {}
         rows.append({"study": study, "level": "study", "key": "flag:error", "value": "", "note": note})
+    if with_lines:
+        lines, frames, flags = study_lines(study, kept)
+        rows += flags
+        lines_path, frames_path = side_paths(out)
+        write_atomic(lines, lines_path, LINE_FIELDS)
+        write_atomic(frames, frames_path, FRAME_FIELDS)
     rows += study_rows(study, path, stamp)
     rows.append({"study": study, "level": "study", "key": "seconds", "value": time.time() - t0, "note": ""})
-    tmp = out + ".part"
-    write_rows(rows, tmp)
-    os.replace(tmp, out)
+    write_atomic(rows, out)
     return study, time.time() - t0, note
 
 
-def current(out: str, stamp: str) -> bool:
-    """Whether a study's CSV was written by this code and holds no error, so it need not be
-    measured again."""
-    if not os.path.exists(out):
+def current(out: str, stamp: str, with_lines: bool = False) -> bool:
+    """Whether a study's CSV was written by this code and holds no error, and with the lines
+    whether its lines and frames are there too, so it need not be measured again."""
+    if not os.path.exists(out) or (with_lines and not all(os.path.exists(p) for p in side_paths(out))):
         return False
-    rows = list(csv.DictReader(open(out, newline="")))
+    with open(out, newline="") as fh:
+        rows = list(csv.DictReader(fh))
     return (any(r["key"] == "code" and r["note"] == stamp for r in rows)
             and not any(r["key"] == "flag:error" for r in rows))
 
@@ -132,9 +219,14 @@ def current(out: str, stamp: str) -> bool:
 def cmd_run(a) -> None:
     """Every mask under --masks whose coarsest spacing is at most --max-slice, one CSV per study
     under --out/rows/, so a run cut short resumes where it stopped; rows.csv joins the studies
-    of this run's list at the end, and only those."""
-    os.makedirs(os.path.join(a.out, "rows"), exist_ok=True)
-    stamp = code_stamp()
+    of this run's list at the end, and only those. With --lines each study's lines and frames go
+    under --out/lines/ and --out/frames/ and are joined as lines.csv and frames.csv."""
+    folders = ("rows", "lines", "frames") if a.lines else ("rows",)
+    for name in folders:
+        os.makedirs(os.path.join(a.out, name), exist_ok=True)
+    if a.lines:
+        from morphoview import lines as _  # noqa: F401  fail here, before a study is measured
+    stamp = code_stamp(a.lines)
     chosen, jobs = [], []
     for name in sorted(os.listdir(a.masks)):
         if not name.endswith((".nii.gz", ".nii")):
@@ -147,11 +239,11 @@ def cmd_run(a) -> None:
             continue
         out = os.path.join(a.out, "rows", study + ".csv")
         chosen.append(out)
-        if not current(out, stamp):
-            jobs.append((path, a.scheme, study, out, stamp))
+        if not current(out, stamp, a.lines):
+            jobs.append((path, a.scheme, study, out, stamp, a.lines))
     if a.limit:
         jobs = jobs[:a.limit]
-        chosen = [c for c in chosen if current(c, stamp)] + [j[3] for j in jobs]
+        chosen = [c for c in chosen if current(c, stamp, a.lines)] + [j[3] for j in jobs]
     print("%d studies chosen, %d to measure, code %s" % (len(chosen), len(jobs), stamp), flush=True)
     try:
         with ProcessPoolExecutor(a.workers) as pool:
@@ -162,12 +254,16 @@ def cmd_run(a) -> None:
     except BrokenProcessPool as e:              # a worker killed, for memory or otherwise
         print("a worker died (%s): run again to measure what is left" % e, flush=True)
     join_rows([c for c in chosen if os.path.exists(c)], os.path.join(a.out, "rows.csv"))
+    if a.lines:
+        lines, frames = zip(*[side_paths(c) for c in chosen]) if chosen else ((), ())
+        join_rows([p for p in lines if os.path.exists(p)], os.path.join(a.out, "lines.csv"), LINE_FIELDS)
+        join_rows([p for p in frames if os.path.exists(p)], os.path.join(a.out, "frames.csv"), FRAME_FIELDS)
 
 
-def join_rows(paths: List[str], path: str) -> None:
+def join_rows(paths: List[str], path: str, fields: List[str] = FIELDS) -> None:
     with open(path, "w", newline="") as f:
         w = csv.writer(f, lineterminator="\n")
-        w.writerow(FIELDS)
+        w.writerow(fields)
         for name in sorted(paths):
             with open(name, newline="") as g:
                 for row in list(csv.reader(g))[1:]:
@@ -377,6 +473,8 @@ def main(argv: Optional[List[str]] = None) -> None:
     r.add_argument("--max-slice", type=float, default=None)
     r.add_argument("--studies", default="")
     r.add_argument("--limit", type=int, default=0)
+    r.add_argument("--lines", action="store_true",
+                   help="also write each measure's line and each vertebra's frame (morphoview.lines)")
     c = sub.add_parser("compare")
     c.add_argument("--rows", required=True)
     c.add_argument("--series", required=True)
