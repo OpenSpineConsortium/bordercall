@@ -107,14 +107,18 @@ half a pixel counted: the borders of so short a pedicle curve with the notch and
 their climb is theirs, not the pedicle's (study 0004's thoracic pedicles spanned 4.5 to 5.3 mm
 between the rows' places, a fifth of a millimetre or so less than this span counts, and climbed 40
 to 50 degrees); the chord then takes the axis level, and where the rows are too few for an axis at
-all the chord and the transverse angle are not read. Where the grid lies within a few degrees of
-the vertebra's own frame, as on most supine lumbar studies, the posterior wall's slope reads 1.8 to
-4.2 degrees off on the phantoms' vertical walls (body.posterior_wall_slope), and the sagittal
-angle takes that error with it (2.5 to 3.4 degrees high on the pitched phantoms at a tilt of 2
-degrees); that reading of the wall is the next to be traced. The chord is the length of
-bone the axis line through the isthmus crosses, from where it enters the posterior elements to
-where it leaves the body's anterior cortex, read by marching along the line voxel by voxel
-(Zindrick's screw path).
+all the chord and the transverse angle are not read. The posterior wall is read on the scan's own
+lattice from the vertebra's label (body.posterior_wall, which says how): on the clean phantom
+vertebrae that function names, whose labels part bone from air as a clean digitisation does, it
+read within 0.35 degrees on 1 mm slices and 0.79 on 2.5 mm, and its fit alone, which is all that
+stands where a label does not part, within 1.24 and 1.18; the reading it replaced, the hindmost
+body voxel of each layer, traced the lattice's staircase and erred up to 4.14 and 5.66, worst on
+grids within 2 degrees of the vertebra's frame, and the sagittal angle took that error with it.
+Where the wall is not read the sagittal angle is not either, with a note saying why. The canal
+line the body is cut from the arch along (anatomy.wall_slope) still traces that staircase and is
+the next to be fixed. The chord is the length of bone the axis line
+through the isthmus crosses, from where it enters the posterior elements to where it leaves the
+body's anterior cortex, read by marching along the line voxel by voxel (Zindrick's screw path).
 
 The interpedicular distance, the least between the pedicles' medial walls (Hinck, the
 paper-tables vocabulary), and Eisenstein's greatest interpedicular distance, the canal's width
@@ -592,13 +596,24 @@ def chord(v: Vertebra, c0: np.ndarray, d: np.ndarray) -> float:
 
 
 def wall_slope(v: Vertebra) -> float:
-    """dy/dz of the body's posterior wall (body.posterior_wall_slope), so that the sagittal angle
-    is taken against the plane square to the wall, as the end-plates' inclinations are, and not
-    against the column's line, which leans against a vertebra where its neighbours slip."""
+    """dy/dz of the body's posterior wall (body.posterior_wall), so that the sagittal angle is
+    taken against the plane square to the wall, as the end-plates' inclinations are, and not
+    against the column's line, which leans against a vertebra where its neighbours slip; NAN
+    where the wall is not read (wall_reading)."""
+    return wall_reading(v)[0]
+
+
+def wall_reading(v: Vertebra) -> Tuple[float, str]:
+    """The posterior wall's dy/dz, read on the scan's lattice on the body's points and the middle
+    of their x range, as body.inclinations reads it, so the vertebra keeps one reading for both
+    sides, the end-plates and the spinous process; and why it is not read, empty where it is. The
+    canal's line (anatomy.wall_slope), which the body's cut follows, still traces the lattice's
+    staircase and is the next to read this way."""
     B = v.body_pts
     if len(B) < G.MIN_CHORD_POINTS:
-        return 0.0
-    return BODY.posterior_wall_slope(v, B, 0.5 * (B[:, 0].min() + B[:, 0].max()))
+        return NAN, "too few body points to read the posterior wall on"
+    slope, info = BODY.posterior_wall(v, B, 0.5 * (B[:, 0].min() + B[:, 0].max()))
+    return slope, info.get("why", "")
 
 
 # ---- one side, both sides ----------------------------------------------------------------------
@@ -626,8 +641,11 @@ def one_side(v: Vertebra, side: int, zb: Tuple[float, float]) -> Tuple[Dict[str,
     taken, walls = axis_rows(m, rows, near, k, walls)
     rise, why, parted = climb(m, rows, near, walls, sec, hgt)
     d, note, reads = axis_from(rows, taken, walls, rise, side)
+    wall, wall_why = wall_reading(v)
     if reads == "transverse":
         note = why
+    elif reads == "both" and not math.isfinite(wall):
+        note = "the body's posterior wall is not read (%s): the sagittal angle, taken against it, is not" % wall_why
     level = np.array([d[0], d[1], 0.0]) / np.linalg.norm(d[:2])
     # A column up the frame's z crosses the pedicle's elliptic cylinder on the slant of the axis's
     # elevation, so the height is the run times its cosine, hypot(d[0], d[1]) for the unit axis;
@@ -640,7 +658,7 @@ def one_side(v: Vertebra, side: int, zb: Tuple[float, float]) -> Tuple[Dict[str,
     height = hgt * (pitch if reads == "both" else 1.0)
     out = {"pedicle_w": width, "pedicle_h": height, "pedicle_area": math.pi * width * height / 4.0,
            "pedicle_angle_transverse": math.degrees(math.atan2(side * d[0], -d[1])),
-           "pedicle_angle_sagittal": math.degrees(math.atan2(d[2], -d[1])) - math.degrees(math.atan(wall_slope(v)))}
+           "pedicle_angle_sagittal": math.degrees(math.atan2(d[2], -d[1])) - math.degrees(math.atan(wall))}
     c0 = np.array([rows[k]["x"], rows[k]["y"], rows[k]["z"]])
     out["pedicle_chord"] = chord(v, c0, d)
     if reads != "both":

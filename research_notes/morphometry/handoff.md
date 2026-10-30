@@ -1,3 +1,147 @@
+# Morphometry: the handoff of 2026-10-30, 14:00 UTC
+
+Source: the thread "Run morphometry on gold tier 3 masks" in the claude.ai project symphony_5, on
+the owner's "continue" of 01:15 UTC: item 1 of the list of 01:45 UTC below, the posterior wall's
+reading reworked on bordercall's branch claude/project-thread-e89pjg (draft PR 44), then put
+through an adversarial review and the findings fixed. The rework, the fixes and the wall's probe
+are in the commit that adds this section. This pass queued no grid job, and its code read no real
+mask or CT: every figure of the wall's is from phantoms. The verse run on the grid, sent at 08:25
+UTC on the engine pinned before this pass, is in its own section below.
+
+## What changed
+
+- body.posterior_wall reads the wall's slope on the scan's own lattice from the vertebra's whole
+  label: the last bone of each scan line in a band across the midline, a trimmed and reweighted
+  fit of the surface y = a + b z + c x + d x^2, and the slope clamped into the range of slopes whose
+  surfaces part the label's bone from its air. Its docstring says how, with every figure below;
+  pedicle.wall_reading and posterior.spinous_angle take the same reading, and where it is not read
+  the end-plates' inclinations, the pedicles' sagittal angles and the spinous angle are not either,
+  each flagged.
+- The review's fixes: the wall is refused where more than 40 per cent of the band's edges lie over
+  a step off the fit (WALL_DROPPED_SHARE), since a notch 8 mm wide, 6 tall and 5 deep read 29.2 and
+  29.5 degrees off with no flag; at C2 the window ends at the top of the canal's full rings, since
+  the dens put the reading up to 8.4 degrees off; whether the label parts is asked of a
+  widest-margin program first, since HiGHS's status 4 on the range's programs had been read as an
+  unbounded end (two of the 294 speck labels on 1 mm slices drew it, one of them refused for a
+  freedom of 180 degrees);
+  the clamp sets aside the one to three edges the fit leaves furthest across before it gives up, so
+  one speck of bone behind the wall no longer turns it off; the flag on a free wall says the angles
+  may be off by up to the freedom where the label parts, and that the freedom bounds nothing where it
+  does not; the words on the band (a half-width), the window, the gate and the canal line's two
+  causes (the staircase and a notch) are corrected in body.py, column.py, anatomy.py, pedicle.py and
+  the research note.
+- phantom.py draws a notch off mid-height (Vert.notch_z), a dens (Vert.dens_r and its kin) and
+  cervical-sized vertebrae (phantom.cervical, about a C5, the review's sizes, from no published
+  table). The tests add the clamp and the specks (LeanedWall), the notch drawn 4 mm below
+  mid-height, where a plain least-squares fit reads the wall 7.0 degrees off (BasivertebralNotch),
+  the speck that drew status 4 (SpeckOnTheMargin), the deep notch's refusal through measure_volume
+  (DeepNotch), the free wall's flag (FreeWall) and C2 with its dens (DensAtC2).
+
+## The phantom cache the wall's figures come from
+
+The figures in body.posterior_wall's docstring, its constants' comments and the research note
+were measured over a cache of phantom vertebrae. The cache and its score are kept as
+morphometry/tests/probe_wall.py (`build <dir>`, then `score <dir>`); the alterations, the specks and
+the probes were scratch scripts of this pass and are not kept, so they are described here closely
+enough to be written again:
+
+- The cache (probe_wall.py build): L2 to L4 drawn and L3 built as measure_volume builds it, for four
+  phantoms and their walls' leans: straight (upright, leaned 5 degrees forward and 5 back), pitched
+  (ped_s 10, upright), shapes (Ha 30, concavity 2, waist 0.92, ped_t 12, ped_s 6, facet 55, sp_angle
+  32; upright and leaned 4 forward) and pitched down (ped_s -8, ped_t 8, upright); on seven grids,
+  each the column's tilt and the grid's turn about z: aligned, 2, 5 and 10 degrees about x, 18
+  about (1, 0.3, 0) turned 7 (the suite's), 25 about (1, 0.3, 0) turned 15, and 12 about (0.3, 1,
+  0) turned 4; at 0.8 by 0.8 by 1 mm and 0.86 by 0.86 by 2.5 mm. That is 49 vertebrae a thickness,
+  98 in all. The lean is phantom.Vert.lean, the body's inside test sheared y less z tan(lean).
+- The score (probe_wall.py score): the wall's slope against the true lean taken into the frame the vertebra
+  was read in, and downstream the pedicles' sagittal angle, the end-plates' inclinations and the
+  spinous angle against their truths.
+- The alterations, twelve that keep the wall's slope, each drawn about the true wall:
+  notches 6 mm wide, 4 tall and 2 deep at mid-height and half-way to the window's top, and 5 by 6 by
+  4 at mid-height; a lip 1.5 mm proud, 16 mm across, from 3 mm inside the window's top up; an
+  osteophyte 3 mm proud at the upper end-plate, outside the window; an axial scallop 1 mm deep at the
+  midline, a cosine squared across 16 mm; a sagittal bow 0.8 mm deep at mid-height; six holes of 1 mm
+  radius 0.8 to 3 mm inside the wall; a segmenter's ragged edge, a smooth random field of 0.3 mm
+  over 3 mm and of 0.5 mm over 4 mm, whose own lean over a band 6 mm either side is reported beside
+  it; the wall's boundary voxels flipped at random, one in five; and the volume's last slice 30 per
+  cent of the body's height below its top.
+- The specks: one voxel of the label, not of the body, a step behind one of six edges
+  spread up the window near the midline, each in turn on each vertebra: 294 labels a thickness.
+- The probes: the notches of several sizes on the suite's grid and on the grid tilted 2 degrees,
+  the cervical C5 at leans of 0 and 5 either way with its pedicles 2 mm up or down, C2 with dens of
+  several shapes, and the canal line against the true wall over the cache.
+
+## What is verified, and what is not
+
+- The suite: `PYTHONPATH=. python -m unittest morphometry.tests.test_morphometry`, 39 tests, all
+  pass (428 s on four CPUs); `python -m unittest morphoview.tests.test_lines`, 10 tests, all pass.
+- score.py over the cache with body.posterior_wall as it stands: 49 of 49 read on each thickness,
+  within 0.35 degrees on 1 mm slices and 0.79 on 2.5 mm (medians 0.07 and 0.19), where the
+  hindmost-voxel reading erred up to 4.14 and 5.66; `python -m morphometry bench --slice 2.5` gives
+  the research note's table unchanged.
+- Each new test fails with its fix undone (the scratch script bite.py): a plain least-squares fit
+  (BasivertebralNotch, the wall refused for the 51 per cent it leaves off), the clamp left out
+  (LeanedWall's clamp and specks tests), no bound at C2 (DensAtC2, 8.08 degrees off), no set-aside
+  (LeanedWall's specks test, the label no longer parting), no dropped-share rule (DeepNotch, no
+  refusal) and wall_slope_range as it stood (SpeckOnTheMargin, free over 180 degrees and refused;
+  the other wall tests pass there, since only that speck draws status 4). The status depends on
+  HiGHS's tolerances, here scipy 1.18.1.
+
+- What the fixes leave: the band on a cervical body is the whole 6 mm either side, 12 of the
+  phantom's 17 mm, and the wall read within 1.47 degrees on 1 mm slices and 1.32 on 2.5 mm there; a
+  band of a quarter of the body's width read within 0.92 and 1.72 and was not taken. The gate is
+  still centred on the canal's line, which a notch leans (18.7 degrees through the 5 by 6 by 4 mm
+  notch at mid-height); re-centring it on the first fit hid the dropped share and let the deep notch
+  read 29.7 degrees off on 2.5 mm slices on the grid tilted 2 degrees, so the share's refusal stands
+  behind it instead. The share refuses some sound walls: the 5 by 10 by 4 mm notch on three of the
+  four grids and thicknesses probed, where on 1 mm slices on the suite's grid the reading without
+  the rule had been 0.19 degrees off. No flag is raised where the label does not part, since on the
+  cache that is all but 5 of the 294 readings with flipped voxels or a ragged edge and would say
+  little; the free wall's flag says what the freedom means in each case.
+- Nothing of this pass has been read on a real level; that happens on the grid once PR 44 is merged
+  and the engine re-pinned in SchwingNet, on a count of the owner's.
+
+## The verse run on the grid
+
+- Sent at 08:25 UTC by another session, on the owner's yes of 23:47 UTC and the count of 15:19 UTC
+  (two CPU jobs, enhance and verse): Slurm 40877151 on mem4, at SchwingNet 3abc2fa, with the engine
+  pinned before this pass (code stamp 81e732f142d3aa16). It ended COMPLETED, exit 0, at 12:21 UTC
+  after 3 h 55 min (sacct in the gate's status of 13:45 UTC). The cancel another session sent at
+  13:40 UTC found it ended and cancelled nothing.
+- Its report, read at 14:19 UTC with the gate word `morphometry verse`, which printed the report
+  that stood and queued nothing: VerSe's 374 masks measured in 821 s, one study flagged as an
+  error; TotalSegmentator's 159 admitted subjects stacked into int16 in VerSe's ids with none failed,
+  measured in 84 s, none flagged. Screening verdicts: VerSe 21 admitted, 6 to look at, 347 not
+  admitted; TotalSegmentator 154 admitted, 5 not. The per-level medians of the two sets agree within
+  about 1 mm: anterior body height at L3 29.8 and 29.5 mm, posterior (inset) 29.8 and 28.6, the
+  anterior-to-posterior index rising from about 0.90 to 0.93 at T6 to T8 to 1.13 and 1.14 at L5, as
+  thoracic wedging and L5's anterior height lead one to expect. The rows, facts and verdicts stay on
+  the grid under the morphometry root; only these aggregates left it.
+- Why it took long: measuring took about 15 minutes of the 3 h 55 min. The rest was the stacking of
+  TotalSegmentator's subjects, one at a time in a shell loop, and the screening, which the report
+  does not time apart. SchwingNet #498 (merged 13:54 UTC by another thread) stacks them in parallel
+  for any later run. The covariates join (job 40878978, another thread's) has read both sets' rows.
+- These rows come from the engine pinned in SchwingNet before PR 44 (bordercall 16f7b40, its
+  grid/bordercall/VENDORED at 3abc2fa), so none of this branch's readings is in them: the pedicles' sagittal angle, the end-plates' inclinations and the spinous
+  angle are taken against a posterior wall read by its hindmost voxels, which erred up to 4.1 and
+  5.7 degrees on the phantoms near the frame. The heights, widths and areas do not take that slope,
+  though the body's cut and the canal's lateral-film depth take the canal line, whose staircase item
+  3 below names. A run on the reworked engine waits for PR 44's merge, the re-pin and the owner's
+  count.
+
+## What is left, in order
+
+1. Mark PR 44 ready and merge once the owner says so, then re-pin the engine into SchwingNet
+   (`python3 tools/bordercall_vendor.py copy <clone>` from SchwingNet main) and close bordercall PR
+   41, the other thread's vendoring draft.
+2. On the grid, on the owner's count: the 229-spine sweep with the reworked engine, the wall's
+   refusals and flags counted by level beside the sagittal angle's.
+3. Read the canal's line on the lattice (anatomy.wall_slope), since it still sets the body's cut,
+   Panjabi's depths and the gate, and traces the staircase (up to 3.7 degrees off on 1 mm slices and
+   7.7 on 2.5 mm) and a notch's floor.
+4. The transverse angle's construction and the isthmus finder's two misses, as the list of 01:45 UTC
+   says.
+
 # Morphometry: the handoff of 2026-10-30, 01:45 UTC
 
 Source: the thread "Run morphometry on gold tier 3 masks" of the claude.ai project symphony_5. This
@@ -72,8 +216,9 @@ The grid, read at 08:59 UTC on 30 October from symphony-template's branch grid:
 
 ## What is left, in order
 
-1. Trace body.posterior_wall_slope on the grids aligned with the frame, since the sagittal angle and
-   the end-plates' inclinations both take its error there, and add a test on a grid tilted 2 degrees.
+1. Done in the pass of 14:00 UTC above: trace body.posterior_wall_slope on the grids aligned with the
+   frame, since the sagittal angle and the end-plates' inclinations both take its error there, and
+   add a test on a grid tilted 2 degrees.
 2. Mark PR 44 ready and merge once the owner says so, then re-pin the engine into SchwingNet
    (`python3 tools/bordercall_vendor.py copy <clone>` from SchwingNet main) and close bordercall PR 41,
    the other thread's vendoring draft.

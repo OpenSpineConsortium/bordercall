@@ -38,6 +38,33 @@ class Vert:
     Ha: float = 27.0
     concavity: float = 0.0
     waist: float = 1.0
+    # the posterior wall's lean in degrees, positive where it runs forward as it rises: the body
+    # is sheared about its mid-height, y less z tan(lean), as the wall-slope study of 30 October
+    # drew it (research_notes/morphometry/handoff.md, its section of that day), so the wall's
+    # dy/dz in this frame is tan(lean). The truths do not account for it:
+    # the inclinations, the pedicles' sagittal angle and the spinous angle are taken against the
+    # plane square to the wall and so move by the lean; the heights read from corner to corner
+    # lengthen by its secant; the canal's depths change with height, since the arch is not
+    # sheared; and in a column the two plates across a disc stand the body's height times
+    # tan(lean) apart front to back, which reads as a slip
+    lean: float = 0.0
+    # a basivertebral notch in the posterior wall on the midline, where the basivertebral veins
+    # leave the body: its width across, its height, its depth into the body from the wall, 0 for
+    # none, and its middle's height above the body's mid-height. The truths do not account for it
+    # either: the body's depth at mid-height and the canal's depths through the notch's height
+    # read it, and the canal's slabs there see the canal reach into the body
+    notch_w: float = 0.0
+    notch_h: float = 0.0
+    notch_d: float = 0.0
+    notch_z: float = 0.0
+    # a dens standing on the body's top, as C2's does: a cylinder of this radius whose back stands
+    # dens_y in front of the posterior wall where it leaves the body, rising dens_h above the
+    # body's posterior height and leaning back dens_lean degrees as it rises, 0 for none. The
+    # truths do not account for it; measure reads no upper end-plate, height or waist at C2
+    dens_r: float = 0.0
+    dens_h: float = 0.0
+    dens_y: float = 0.0
+    dens_lean: float = 0.0
     # the pedicles: the gap between their medial walls at the isthmus, their width and height
     # there, the isthmus centre's height and its distance behind the body's posterior wall, the
     # axis's transverse (medial) and sagittal angles in degrees, and how fast the pedicle swells
@@ -107,17 +134,46 @@ def lumbar(**kw) -> Vert:
     return replace(Vert(), **kw)
 
 
+# a cervical-sized vertebra, about a C5: a body 17 mm wide, 16 deep and 14 tall under a canal 24
+# wide, so the canal is wider than the body; small pedicles converging 45 degrees with a lateral
+# mass and its foramen, and the arch's parts scaled down to fit
+CERVICAL = dict(W=17.0, D=16.0, Hp=14.0, Ha=14.0, canal_w=24.0, ped_w=5.5, ped_h=7.0, ped_z=2.0, ped_back=4.0,
+                ped_t=45.0, mass_w=7.0, mass_h=10.0, foramen_d=5.5, pil_x=17.0, pil_y=-10.0, lam_t=4.0,
+                lam_ap_top=14.0, lam_slope=10.0, lam_top=6.0, lam_bot=-8.0, sap_x=18.0, sap_y=-11.0, sap_len=8.0,
+                sap_thk=4.0, sap_top=13.0, iap_x=17.0, iap_y=-13.0, iap_len=8.0, iap_thk=4.0, iap_bot=-13.0,
+                facet=80.0, TP=50.0, tp_y=-6.0, tp_thk=5.0, tp_z=1.0, tp_h=6.0, LS=18.0, sp_angle=20.0, sp_hw=2.5,
+                sp_hh=3.0)
+
+
+def cervical(**kw) -> Vert:
+    return replace(Vert(**CERVICAL), **kw)
+
+
 # ---- one vertebra -------------------------------------------------------------------------------
 
 def body_inside(q: np.ndarray, v: Vert) -> np.ndarray:
-    x, y, z = q[:, 0], q[:, 1], q[:, 2]
+    x, z = q[:, 0], q[:, 2]
+    y = q[:, 1] - z * math.tan(math.radians(v.lean)) if v.lean else q[:, 1]
     zt = v.Hp / 2 + (v.Ha - v.Hp) / 2 * (y / v.D)
     zb = -zt
     f = 1.0 - (1.0 - v.waist) * np.clip(1.0 - (2.0 * z / v.Hp) ** 2, 0.0, 1.0)
     a, b = v.W * f / 2, v.D * f / 2
     rho2 = (x / (v.W / 2)) ** 2 + ((y - v.D / 2) / (v.D / 2)) ** 2
     dip = v.concavity * np.clip(1.0 - rho2, 0.0, 1.0)
-    return ((x / a) ** 2 + ((y - b) / b) ** 2 <= 1.0) & (z <= zt - dip) & (z >= zb + dip)
+    inside = ((x / a) ** 2 + ((y - b) / b) ** 2 <= 1.0) & (z <= zt - dip) & (z >= zb + dip)
+    if v.notch_w > 0 and v.notch_h > 0 and v.notch_d > 0:
+        inside &= ~((np.abs(x) <= v.notch_w / 2) & (np.abs(z - v.notch_z) <= v.notch_h / 2) & (y <= v.notch_d))
+    if v.dens_r > 0 and v.dens_h > 0:
+        inside |= dens_inside(q, v)
+    return inside
+
+
+def dens_inside(q: np.ndarray, v: Vert) -> np.ndarray:
+    """The dens (Vert.dens_r), from a millimetre inside the body's top, so the two are one bone."""
+    x, y, z = q[:, 0], q[:, 1], q[:, 2]
+    rise = z - v.Hp / 2
+    yc = v.dens_y + v.dens_r - rise * math.tan(math.radians(v.dens_lean))
+    return (rise >= -1.0) & (rise <= v.dens_h) & (x ** 2 + (y - yc) ** 2 <= v.dens_r ** 2)
 
 
 def pedicle_axis(v: Vert, side: int) -> Tuple[np.ndarray, np.ndarray]:

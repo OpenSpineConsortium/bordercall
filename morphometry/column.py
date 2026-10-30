@@ -124,9 +124,13 @@ def wall_corner(v: Vertebra, top: bool) -> Optional[np.ndarray]:
     the midline, read in the end-plate's own frame: the wall the surface of v's voxels in the
     band across the middle, in front of the canal's middle and within WALL_END_MM of the plate,
     and the plate the body's extreme along the plate's normal. All of v's voxels there and not
-    only the body's: the body is cut from the arch along a line the canal's slabs give, which on
-    the joint phantom leans half as far as the wall does, and so still shaves the wall's end
-    where the column's line tilts against the vertebra's own axis."""
+    only the body's: the body is cut from the arch along the canal line (anatomy.wall_slope),
+    which leans on its own and so can shave the wall's end. It leans for two causes: it traces
+    the lattice's staircase as the old reading of the wall did, up to 3.7 degrees off the clean
+    walls of body.posterior_wall's cache on 1 mm slices and 7.7 on 2.5 mm, and the canal's slabs
+    through a notch in the wall read the notch's floor as the canal's front, which leaned it 18.7
+    degrees through a basivertebral notch 5 mm wide, 6 tall and 4 deep at mid-height. That line is
+    the next to be fixed."""
     f = plate_frame(v, top)
     ap = float(np.median([s.ap for s in v.full_rings()]))
     near = A.square_to_wall(v, v.loc)[:, 1] > v.wall_y0 - 0.5 * ap

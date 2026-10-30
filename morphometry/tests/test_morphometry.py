@@ -1,20 +1,28 @@
 """The extractors on phantoms whose every measure is known (phantom.py): a straight lumbar column
 at 0.8 by 0.8 by 1 mm tilted against the scanner, the same with its shape changed one part at a
-time, a column whose joints turn and slip, a pelvis, thick slices, and two masks a segmenter gets
-wrong. Linear measures must land within TOL_MM of the truth, angles within TOL_DEG and areas
-within TOL_SHARE, on 1 mm slices; the thick-slice case states its own, looser bounds, and why."""
+time, a column whose joints turn and slip, a pelvis, thick slices, a posterior wall leaned on a
+grid near the vertebra's frame, with specks of bone behind it and freed by thick slices, one with
+a basivertebral notch and one with a notch too deep to read past, a C2 with its dens, and two
+masks a segmenter gets wrong. Linear measures must land within TOL_MM of the truth, angles within
+TOL_DEG and areas within TOL_SHARE, on 1 mm slices, and the posterior wall's slope within
+WALL_TOL_DEG; the thick-slice case states its own, looser bounds, and why."""
+import copy
 import math
 import unittest
+from unittest import mock
 
 import numpy as np
 
-from morphometry import anatomy as A, measure as M
+from morphometry import anatomy as A, body as BODY, canal as CANAL, measure as M, pedicle as PED, posterior as POST
 from morphometry.tests import phantom as P
 from scanimport import geometry as G, volume as V, LEVELS
 
 TOL_MM = 0.75
 TOL_DEG = 1.5
 TOL_SHARE = 0.04
+# The posterior wall's slope on 1 mm slices: on the 49 phantoms on 1 mm slices that body.posterior_wall
+# names it erred 0.35 degrees at most.
+WALL_TOL_DEG = 0.5
 LUMBAR = ["L2", "L3", "L4"]
 
 
@@ -33,6 +41,70 @@ def measured(placed, levels, spacing=(0.8, 0.8, 1.0), grid_turn=((0.0, 0.0, 1.0)
     for r in M.measure_volume(lab, grid, names, "phantom", pelvis=pelvis is not None):
         out.setdefault(r["level"], {})[r["key"]] = r["value"] if not r["key"].startswith("flag") else r["note"]
     return out
+
+
+def built(placed, levels, level, spacing=(0.8, 0.8, 1.0), grid_turn=((0.0, 0.0, 1.0), 7.0),
+          strict=True) -> A.Vertebra:
+    """One level of the drawn phantom built as measure_volume builds it, for the readings its rows
+    do not carry: the column's line through the neighbours held whole, then anatomy.build."""
+    lab, aff = P.draw(placed, spacing=spacing, grid_turn=grid_turn, strict=strict)
+    grid = G.VoxelGrid(aff, lab.shape)
+    vox = V.vertebra_voxels(lab, {P.LEVEL_IDS[lv]: lv for lv in levels})
+    for lv in list(vox):
+        vox[lv], _ = M.main_piece(vox[lv])
+    order = [lv for lv in LEVELS if lv in vox]
+    cents = [grid.world(vox[lv].astype(float)).mean(0) for lv in order]
+    axes = dict(zip(order, M.column_line(cents, M.whole_levels(vox, order, lab.shape), grid.superior())))
+    return A.build(level, vox[level], grid, axes[level], V.touching_edge(vox[level], lab.shape),
+                   M.neighbours_of(vox, order, level))
+
+
+def wall_error(vert: A.Vertebra, placed, lean: float) -> float:
+    """Degrees by which the posterior wall's slope (body.posterior_wall) reads off the phantom's,
+    (0, tan lean, 1) in its own frame taken into the frame the vertebra was read in, so that the
+    frame's own error is not counted against the wall, which is read in that frame."""
+    B = vert.body_pts
+    slope, info = BODY.posterior_wall(vert, B, 0.5 * (B[:, 0].min() + B[:, 0].max()))
+    R = [pl for pl in placed if pl.level == vert.level][0].R
+    w = R @ np.array([0.0, math.tan(math.radians(lean)), 1.0])
+    truth = math.degrees(math.atan(float(vert.frame.ey @ w) / float(vert.frame.ez @ w)))
+    return BODY.degrees_of(slope) - truth
+
+
+def wall_reading(vert: A.Vertebra) -> tuple:
+    """body.posterior_wall's slope and record, read as every angle against the wall reads it."""
+    B = vert.body_pts
+    return BODY.posterior_wall(vert, B, 0.5 * (B[:, 0].min() + B[:, 0].max()))
+
+
+def speck_spots(vert: A.Vertebra, n: int) -> np.ndarray:
+    """The voxels a step behind n of the wall's edges spread up the window near the midline,
+    where a segmenter leaves a speck of bone in the canal."""
+    B = vert.body_pts
+    xc = 0.5 * (B[:, 0].min() + B[:, 0].max())
+    half, reach, lo, hi = BODY.wall_window(vert, B, xc)[0]
+    bone, _ = BODY.wall_edges(vert, xc, half, lo, hi, reach)
+    near = bone[np.abs(bone[:, 0] - xc) <= 0.5 * half]
+    near = near[np.argsort(near[:, 2])]
+    picked = near[np.linspace(0, len(near) - 1, n + 2).astype(int)[1:-1]]
+    _, step, _ = BODY.scan_step_back(vert)
+    return np.array([vert.idx[int(np.argmin(np.linalg.norm(vert.loc - q, axis=1)))] + step for q in picked])
+
+
+def with_specks(vert: A.Vertebra, added: np.ndarray) -> A.Vertebra:
+    """A copy of vert with these voxels added to the label and not to the body, read anew."""
+    out = copy.copy(vert)
+    for kept in ("_posterior_wall", "_box"):
+        out.__dict__.pop(kept, None)
+    out.idx = np.vstack([vert.idx, added])
+    out.loc = np.vstack([vert.loc, vert.frame.local(vert.grid.world(added.astype(float)))])
+    out.body = np.concatenate([vert.body, np.zeros(len(added), bool)])
+    return out
+
+
+def specked(vert: A.Vertebra, n: int) -> A.Vertebra:
+    """A copy of vert with a speck of bone behind each of n of the wall's edges (speck_spots)."""
+    return with_specks(vert, speck_spots(vert, n))
 
 
 class Straight(unittest.TestCase):
@@ -302,8 +374,209 @@ class ThickSlices(unittest.TestCase):
         got = self.rows["L3"]["pedicle_angle_sagittal"]
         self.assertTrue(not np.isfinite(got) or abs(got - self.truth["pedicle_angle_sagittal"]) <= 2 * TOL_DEG, got)
 
+    def test_end_plate_inclinations(self):
+        """The plates are read rim to rim within a few tenths of a degree here; the wall they are
+        taken against is what erred: read as each layer's most posterior point it stood 4.51
+        degrees off, and endplate_incl 4.55 off with it. Read on the scan's lattice
+        (body.posterior_wall) it stands 0.19 off."""
+        for k in ("endplate_incl", "endplate_lower_incl"):
+            got, want = self.rows["L3"][k], self.truth[k]
+            self.assertLessEqual(abs(got - want), TOL_DEG, "%s: %.2f against %.2f" % (k, got, want))
+
 
 THICK_MM = 2.6
+
+
+class LeanedWall(unittest.TestCase):
+    """The posterior wall leaned 5 degrees forward (phantom.Vert.lean) on 1 mm slices whose grid
+    lies 2 degrees off the vertebra's frame, as on most supine lumbar studies: the wall on the
+    lattice is a staircase whose last row steps back a pixel every few layers, and read as each
+    layer's most posterior point it stood 3.05 degrees off here. phantom.truth does not account
+    for the lean, so only the wall itself is asserted."""
+
+    @classmethod
+    def setUpClass(cls):
+        cls.lean = 5.0
+        cls.placed = P.straight(LUMBAR, P.lumbar(lean=cls.lean), tilt=((1.0, 0.0, 0.0), 2.0))
+        cls.vert = built(cls.placed, LUMBAR, "L3", grid_turn=((0.0, 0.0, 1.0), 0.0))
+
+    def test_wall_on_the_staircase(self):
+        err = wall_error(self.vert, self.placed, self.lean)
+        self.assertLessEqual(abs(err), WALL_TOL_DEG, "the wall reads %.2f degrees off" % err)
+
+    def test_the_clamp(self):
+        """The label parts bone from air along the wall, so the reading is clamped into the range
+        of slopes that part it: 0.10 degrees off here, where the fit alone read 0.41 off, within
+        WALL_TOL_DEG too, so only this test tells the clamp is there."""
+        slope, info = wall_reading(self.vert)
+        self.assertTrue(info["parted"])
+        self.assertTrue(info["free_lo_deg"] <= BODY.degrees_of(slope) <= info["free_hi_deg"], info)
+        err = wall_error(self.vert, self.placed, self.lean)
+        self.assertLessEqual(abs(err), 0.5 * WALL_TOL_DEG, "the clamped wall reads %.2f degrees off" % err)
+
+    def test_specks_behind_the_wall(self):
+        """A speck of bone behind the wall keeps the whole label from parting; the clamp sets aside
+        the one, two or at most body.WALL_ACROSS_MAX edges the fit leaves furthest across, so two
+        specks leave the reading as it was, where without the set-aside it fell back on the fit
+        alone. Past that the label is read as one that does not part, by the fit alone."""
+        clean = wall_error(self.vert, self.placed, self.lean)
+        two = specked(self.vert, 2)
+        self.assertTrue(wall_reading(two)[1]["parted"])
+        self.assertGreaterEqual(wall_reading(two)[1]["across"], 1)
+        self.assertAlmostEqual(wall_error(two, self.placed, self.lean), clean, places=6)
+        eight = specked(self.vert, 8)
+        self.assertFalse(wall_reading(eight)[1]["parted"])
+        err = wall_error(eight, self.placed, self.lean)
+        self.assertLessEqual(abs(err), TOL_DEG, "the wall that does not part reads %.2f degrees off" % err)
+
+    def test_a_wall_not_read_reads_no_angle_against_it(self):
+        """Where the wall is refused, the four angles taken against it are not read, each with
+        its reason, in place of the silent 0.0 the wall once stood in with; on this vertebra both
+        pedicles' climbs are read, so their sagittal angles are lost to the wall alone."""
+        vert = copy.copy(self.vert)
+        vert.__dict__.pop("_posterior_wall", None)
+        refused = (BODY.NAN, {"why": "a refusal the test makes"})
+        with mock.patch.object(BODY, "read_wall", return_value=refused):
+            body, body_flags = BODY.measures(vert)
+            ped, ped_flags, _ = PED.measures(vert, CANAL.body_span(vert))
+            post, post_flags = POST.measures(vert)
+        for k in ("endplate_incl", "endplate_lower_incl"):
+            self.assertFalse(np.isfinite(body[k]), k)
+        self.assertTrue(np.isfinite(body["wedge"]), "the wedge needs no wall")
+        self.assertIn("a refusal the test makes", body_flags["posterior_wall"])
+        for side in ("right", "left"):
+            self.assertFalse(np.isfinite(ped["pedicle_angle_sagittal_" + side]), side)
+            self.assertTrue(np.isfinite(ped["pedicle_angle_transverse_" + side]), side)
+            self.assertIn("posterior wall is not read", ped_flags["pedicle_" + side])
+        self.assertFalse(np.isfinite(post["spinous_angle"]))
+        self.assertIn("a refusal the test makes", post_flags["spinous"])
+
+
+class SpeckOnTheMargin(unittest.TestCase):
+    """The wall leaned 5 degrees on 1 mm slices whose grid lies 5 degrees off about x, with one
+    speck behind the second of six edges spread up the window: the edges' centres then part by a
+    margin of 8e-8 mm, under body.WALL_PART_MM, and HiGHS answers both of the range's programs with
+    no verdict (status 4). Read as unbounded ends, as they were, that left the wall free over 180
+    degrees and refused it; the widest margin says the label does not part, so the clamp sets the
+    speck's edge aside and reads the wall."""
+
+    def test_the_wall_is_read(self):
+        lean = 5.0
+        placed = P.straight(LUMBAR, P.lumbar(lean=lean), tilt=((1.0, 0.0, 0.0), 5.0))
+        clean = built(placed, LUMBAR, "L3", grid_turn=((0.0, 0.0, 1.0), 0.0))
+        vert = with_specks(clean, speck_spots(clean, 6)[1:2])
+        _, info = wall_reading(vert)
+        self.assertNotIn("why", info)
+        self.assertTrue(info["parted"])
+        self.assertGreaterEqual(info["across"], 1)
+        err = wall_error(vert, placed, lean)
+        self.assertLessEqual(abs(err), WALL_TOL_DEG, "the wall reads %.2f degrees off" % err)
+
+
+class BasivertebralNotch(unittest.TestCase):
+    """A notch 5 mm wide, 6 tall and 4 deep in the posterior wall on the midline, where the
+    basivertebral veins leave the body (phantom.Vert.notch_w), its middle 4 mm below the body's
+    mid-height. Its floor lies inside the gate about the canal's line (body.WALL_GATE_SHARE, 4.2
+    mm here), so its edges enter the fit, and the trimmed fit must leave them out: a plain
+    least-squares fit through the same edges reads the wall 7.0 degrees off here, and is refused
+    for the edges it leaves off, where with the notch at mid-height it read 0.26 off and told
+    nothing. The canal's slabs through the notch read its floor as the canal's front, and the
+    canal's line (anatomy.wall_slope) leans 6.1 degrees for it here and 18.7 with the notch at
+    mid-height, where the body cut along that line, read as each layer's most posterior point,
+    put the wall 18.2 degrees off, and the end-plates' inclinations with it."""
+
+    @classmethod
+    def setUpClass(cls):
+        cls.v = P.lumbar(notch_w=5.0, notch_h=6.0, notch_d=4.0, notch_z=-4.0)
+        cls.placed = P.straight(LUMBAR, cls.v)
+        cls.vert = built(cls.placed, LUMBAR, "L3")
+        cls.truth = P.truth(cls.v)
+
+    def test_wall_past_the_notch(self):
+        err = wall_error(self.vert, self.placed, 0.0)
+        self.assertLessEqual(abs(err), WALL_TOL_DEG, "the wall reads %.2f degrees off" % err)
+
+    def test_the_fit_leaves_the_notch_out(self):
+        """The fit itself, before the clamp, which on its own could hold a fit the notch pulled
+        within the range of slopes the rest of the label leaves."""
+        slope, info = wall_reading(self.vert)
+        self.assertNotIn("why", info)
+        truth = BODY.degrees_of(slope) - wall_error(self.vert, self.placed, 0.0)
+        err = info["fitted_deg"] - truth
+        self.assertLessEqual(abs(err), WALL_TOL_DEG, "the fit reads %.2f degrees off" % err)
+
+    def test_end_plate_inclinations(self):
+        got, flags = BODY.measures(self.vert)
+        for k in ("endplate_incl", "endplate_lower_incl"):
+            want = self.truth[k]
+            self.assertLessEqual(abs(got[k] - want), TOL_DEG, "%s: %.2f against %.2f" % (k, got[k], want))
+        self.assertNotIn("posterior_wall", flags)
+
+
+class DeepNotch(unittest.TestCase):
+    """A notch 8 mm wide, 6 tall and 5 deep at mid-height, on 2.5 mm slices, holds more than a
+    quarter of the band's edges, so the trimmed fit follows its floor: the wall read 29.5 degrees
+    off, with no flag, before body.WALL_DROPPED_SHARE. That fit leaves 69 per cent of the band's
+    edges more than a step off, so the wall is not read, and measure_volume says why and reads
+    none of the angles taken against it, through the path a real mask takes."""
+
+    @classmethod
+    def setUpClass(cls):
+        v = P.lumbar(notch_w=8.0, notch_h=6.0, notch_d=5.0)
+        cls.rows = measured(P.straight(LUMBAR, v), LUMBAR, spacing=(0.86, 0.86, 2.5))["L3"]
+
+    def test_the_wall_is_refused(self):
+        self.assertIn("per cent of the band's edges", self.rows["flag:posterior_wall"])
+        for k in ("endplate_incl", "endplate_lower_incl", "spinous_angle"):
+            self.assertFalse(np.isfinite(self.rows[k]), k)
+        self.assertIn("posterior wall is not read", self.rows["flag:spinous"])
+        self.assertTrue(np.isfinite(self.rows["wedge"]), "the wedge needs no wall")
+
+
+class FreeWall(unittest.TestCase):
+    """The wall leaned 5 degrees on 2.5 mm slices whose grid lies 5 degrees off the vertebra's
+    frame: the label parts, but its few layers leave the wall's slope free over 7.9 degrees, and
+    though the reading lands near the truth here, nothing says it would elsewhere in that range,
+    so measure_volume flags it and still reads the angles taken against it."""
+
+    @classmethod
+    def setUpClass(cls):
+        placed = P.straight(LUMBAR, P.lumbar(lean=5.0), tilt=((1.0, 0.0, 0.0), 5.0))
+        cls.rows = measured(placed, LUMBAR, spacing=(0.86, 0.86, 2.5), grid_turn=((0.0, 0.0, 1.0), 0.0))["L3"]
+
+    def test_the_freedom_is_flagged(self):
+        self.assertIn("may be off by up to that", self.rows["flag:posterior_wall_free"])
+        self.assertNotIn("flag:posterior_wall", self.rows)
+        for k in ("endplate_incl", "endplate_lower_incl"):
+            self.assertTrue(np.isfinite(self.rows[k]), k)
+
+    def test_the_flag_where_the_label_does_not_part(self):
+        """Where the label does not part, the freedom is a clean digitisation's and bounds
+        nothing, and the flag says so in place of a bound."""
+        flags = BODY.wall_flags({"free_deg": 2 * BODY.WALL_FREE_FLAG_DEG, "parted": False})
+        self.assertIn("bounds nothing", flags["posterior_wall_free"])
+        self.assertNotIn("up to that", flags["posterior_wall_free"])
+
+
+class DensAtC2(unittest.TestCase):
+    """C2 of cervical-sized vertebrae (phantom.cervical) with its dens (phantom.Vert.dens_r), its
+    back 1.5 mm in front of the posterior wall, on 1 mm slices whose grid lies 2 degrees off: the
+    middle of the height the body's points span runs up the dens, and read there the wall stood
+    8.1 degrees off, so at C2 the window ends at the top of the canal's full rings
+    (body.wall_window). The cervical phantom is drawn with strict off, since its neighbours' parts
+    meet in 169 voxels with or without the dens."""
+
+    @classmethod
+    def setUpClass(cls):
+        levels = ["C2", "C3", "C4"]
+        verts = {"C2": P.cervical(dens_r=4.5, dens_h=14.0, dens_y=1.5), "C3": P.cervical(), "C4": P.cervical()}
+        joints = {lv: P.Joint() for lv in levels[1:]}
+        cls.placed = P.chain(levels, verts, joints, R0=P.rotation((1.0, 0.0, 0.0), 2.0))
+        cls.vert = built(cls.placed, levels, "C2", grid_turn=((0.0, 0.0, 1.0), 0.0), strict=False)
+
+    def test_wall_below_the_dens(self):
+        err = wall_error(self.vert, self.placed, 0.0)
+        self.assertLessEqual(abs(err), WALL_TOL_DEG, "the wall reads %.2f degrees off" % err)
 
 
 class WrongMasks(unittest.TestCase):
