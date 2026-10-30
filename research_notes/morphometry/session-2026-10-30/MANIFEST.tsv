@@ -1,5 +1,5 @@
 path	bytes	sha256	where
-bc-main/.git	53	4685b865290c0408ff7e8855f4e1c71ac9e8dfc8ea380e22aaefdf4ced2058d5	pushed
+bc-main/.git	53	4685b865290c0408ff7e8855f4e1c71ac9e8dfc8ea380e22aaefdf4ced2058d5	not pushed: a git worktree's link file (gitdir: ...), which git would read as a repository inside this one
 bc-suite.log	8153	41a9349d26a066fda58df6324e39645a8bf6040f871e2659f743b649081be406	pushed
 chk_elev.py	1021	157797a3e48241909c79282b60bf62641d05a1ce1ad2297eaa90040452c6b1a0	pushed
 dl/flexray/flexray-1.0.2-py3-none-any.whl	358184	0745dfcbd2a988bd6cb3b0d6754e4d0e65b71c73eacec2be6fe802f16993d6b7	not pushed: third-party package source (flexray 1.0.2, nanodrr 0.1.5 and 0.1.7, roma 1.8.0), read for its camera code; pip download brings it back
@@ -11529,7 +11529,7 @@ skeptic-tests-words/sn/tests/fakes/hpcworker	4174	b060d136b253e64d0a294f710a4b44
 skeptic-tests-words/sn/tests/test_gate.py	509028	f69419469797e4064243a3c7a62522efa889ee470051a800d9d50f104078c50e	pushed
 skeptic-tests-words/sn/tests/test_gold3_covariates.py	65469	fc3309db23d8a20785f7fd01035f6871a8a0cfa6daf7fba627eae5552f0b258f	pushed
 skeptic-tests-words/sn/tools/gold3_covariates.py	62863	85737d851fdd4279195df081a0ccae253768f2f52e52c6f897bddce53e19049a	pushed
-sn-check/.git	54	427b3c2f80a41ea1bf897a38ec1a95b77356774a34d5cc0fa1ed5042af3a4277	pushed
+sn-check/.git	54	427b3c2f80a41ea1bf897a38ec1a95b77356774a34d5cc0fa1ed5042af3a4277	not pushed: a git worktree's link file (gitdir: ...), which git would read as a repository inside this one
 sn-check.log	536431	a0d99a66fad65193bc32c87590c28007a1488bd3f082a4b8e8cb71dcd6b2a3e6	pushed
 stamp.py	410	c72bcedcd638fa4f14a9d9d1bce4751646bf97738c4115d227e510ec0a1bdd19	pushed
 steep_check.py	778	270b9f41281bb954616ffbd01f4e5c92f6cb2b12ad60c3e866c597780c133a69	pushed

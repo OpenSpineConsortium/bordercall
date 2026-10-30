@@ -18,7 +18,7 @@ session hashed every file of its scratchpad as git hashes a blob to find them. C
 repository files are not listed, since their bytes are in the repositories.
 
 - scratchpad/: the session's own text files of up to 2 MB, under their scratchpad paths. There
-  are 1,727 of them.
+  are 1,725 of them.
   - review-*/ and skeptic-*/ are the review agents' working copies. Only the files an agent wrote
     or changed are here.
   - wall/ is the posterior wall's slope study: its runs, its candidates and the judges.
@@ -30,7 +30,9 @@ repository files are not listed, since their bytes are in the repositories.
   - edits/ and edit_*.py are the scripts that edited files.
   - refute*/ are the skeptics' attempts to refute findings.
   - proj-*/ and lines-try/ are the projection work's drafts and probes.
-  - merge/, merge2/ and sn-check/ are SchwingNet's trial merges and check runs.
+  - merge/ and merge2/ are SchwingNet's trial merges and merge2_gate_check.sh and sn-check.log
+    its check runs; bc-main/ and sn-check/ were git worktrees of the two repositories, whose
+    link files alone were the session's own and are left out.
   - The *-before-*.py files are copies of files before a change.
   - The *.log files are suite and probe runs.
 - tasks/: the logs of the session's 160 background commands.
