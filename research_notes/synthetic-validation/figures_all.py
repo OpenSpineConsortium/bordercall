@@ -924,6 +924,137 @@ def fig_sex_naming(records: str, out: str) -> List[str]:
         "sexes' difference. B, each paper held out on its own men and women, scored at its own temperature: %s." % reads))
 
 
+GOLD3_MEMBERS = (("autopet", "autoPET", "o", None), ("totalseg", "TotalSegmentator", "s", "white"))
+GOLD3_FAMILIES = ("every family", "body and end plate", "disc and foramen", "pedicle and canal")
+GOLD3_PROFILE = ("pedicle", "pedicle_w")
+
+
+GOLD3_COLUMNS = {"sex_g": ("card_sex_g", "sex_g_new_low", "sex_g_new_high"),
+                 "age_slope": ("card_age_slope", "age_new_low", "age_new_high")}
+
+
+def _gold3_rows(cells: List[dict], prefix: str) -> List[dict]:
+    """One row a measure: the card's interval for a new population's effect and its centre, and each
+    member's effect, each averaged over the levels both have."""
+    centre, low, high = GOLD3_COLUMNS[prefix]
+    out = []
+    for key in sorted({c["key"] for c in cells if c.get(prefix)}):
+        mine = [c for c in cells if c["key"] == key and c.get(prefix)]
+        row = {"key": key, "centre": float(np.mean([_num(c[centre]) for c in mine])),
+               "new_low": float(np.mean([_num(c[low]) for c in mine])),
+               "new_high": float(np.mean([_num(c[high]) for c in mine]))}
+        for member, *_ in GOLD3_MEMBERS:
+            got = [_num(c[prefix]) for c in mine if c["member"] == member]
+            row[member] = float(np.mean(got)) if got else float("nan")
+        out.append(row)
+    return sorted(out, key=lambda r: r["centre"])
+
+
+def _gold3_forest(ax, rows: List[dict], prefix: str, xlabel: str) -> List[dict]:
+    drawn = []
+    for i, r in enumerate(rows):
+        ax.plot([r["new_low"], r["new_high"]], [i, i], color=H.GREY, linewidth=3.0, solid_capstyle="butt",
+                label="the card's 95% interval for a new population" if i == 0 else None)
+        ax.plot([r["centre"]], [i], marker="|", markersize=7, color=H.INK, linestyle="none",
+                label="the card's centre" if i == 0 else None)
+        for member, name, marker, fill in GOLD3_MEMBERS:
+            ax.plot([r[member]], [i], marker=marker, markersize=3.5, color=H.INK, linestyle="none",
+                    markerfacecolor=fill or H.INK, label=name if i == 0 else None)
+        drawn.append(dict(r, panel=prefix))
+    ax.axvline(0, color=H.INK, linewidth=0.5, linestyle=":")
+    ax.set_yticks(range(len(rows)))
+    ax.set_yticklabels([r["key"] for r in rows], fontsize=6.0)
+    ax.set_xlabel(xlabel)
+    return drawn
+
+
+def fig_gold3(records: str, out: str) -> List[str]:
+    """Gold tier 3's real CTs on the bounds card (records/gold3): each test's pass rate by family of
+    measures against the bar of the papers held out, the sex contrast and the age slope by measure
+    against the card's interval for a new population, and the pedicle width along the column, where
+    the engine's values leave the papers'."""
+    folder = os.path.join(records, "gold3")
+    if not os.path.exists(os.path.join(folder, "gold3.json")):
+        return []
+    plt = H.style()
+    j = _read_json(os.path.join(folder, "gold3.json"))
+    cells = _read_csv(os.path.join(folder, "cells.csv"))
+    bar = j["bar"]
+    fig, axes = plt.subplots(2, 2, figsize=(11.0, 9.0))
+    drawn = []
+
+    a = axes[0][0]
+    labels = []
+    for t, test in enumerate(("mean", "sd", "step")):
+        for f, fam in enumerate(GOLD3_FAMILIES):
+            y = len(labels)
+            labels.append("%s, %s" % (test, fam))
+            for member, name, marker, fill in GOLD3_MEMBERS:
+                got = j["members"][member]["by_family"][fam].get(test)
+                if got:
+                    a.plot([got["rate"]], [y], marker=marker, markersize=4, color=H.INK, linestyle="none",
+                           markerfacecolor=fill or H.INK, label=name if y == 0 else None)
+                    drawn.append({"panel": "A", "member": member, "test": test, "family": fam, "made": got["made"],
+                                  "passed": got["passed"], "rate": got["rate"]})
+        ys = (t * len(GOLD3_FAMILIES) - 0.4, (t + 1) * len(GOLD3_FAMILIES) - 0.6)
+        a.plot([bar[test]["low"]] * 2, ys, color=H.INK, linewidth=1.0, linestyle="--",
+               label="the bar: 10th percentile of papers held out" if t == 0 else None)
+        a.plot([bar[test]["median"]] * 2, ys, color=H.INK, linewidth=0.6, linestyle=":",
+               label="their median" if t == 0 else None)
+        drawn.append({"panel": "A", "test": test, "bar_low": bar[test]["low"], "bar_median": bar[test]["median"]})
+    a.set_yticks(range(len(labels)))
+    a.set_yticklabels(labels, fontsize=6.0)
+    a.invert_yaxis()
+    a.set_xlim(0.3, 1.02)
+    a.set_xlabel("share of the cohort's cells or steps inside the card's interval (scored at %d people)" % j["reference_n"])
+    a.legend(loc="lower left", fontsize=6.0)
+    H.letter(a, "A", "real CTs pass on the body and end plates, fail the steps on discs and pedicles")
+
+    b = axes[0][1]
+    sex = _gold3_rows(cells, "sex_g")
+    drawn += _gold3_forest(b, sex, "sex_g", "men minus women, Hedges' g (mean over levels)")
+    b.legend(loc="lower right", fontsize=6.0)
+    s = {m: j["members"][m]["sex"] for m, *_ in GOLD3_MEMBERS}
+    H.letter(b, "B", "sex: inside at %d of %d and %d of %d cells; the cohorts' gaps a little smaller"
+             % (s["autopet"]["inside"], s["autopet"]["cells"], s["totalseg"]["inside"], s["totalseg"]["cells"]))
+
+    c = axes[1][0]
+    card = {r["level"]: r for r in _read_csv(os.path.join(records, "bounds", "bounds.csv"))
+            if r["kind"] == "all" and r["measure"] == GOLD3_PROFILE[0]}
+    levels = [lv for lv in LEVELS if lv in card or any(x["key"] == GOLD3_PROFILE[1] and x["level"] == lv for x in cells)]
+    x = np.arange(len(levels))
+    low = [_num(card[lv]["mean_low"]) if lv in card else float("nan") for lv in levels]
+    high = [_num(card[lv]["mean_high"]) if lv in card else float("nan") for lv in levels]
+    c.fill_between(x, low, high, color=H.INK, alpha=0.12, linewidth=0, label="the card's 95% interval for a new population's mean")
+    c.plot(x, [_num(card[lv]["mean"]) if lv in card else float("nan") for lv in levels], color=H.INK, linewidth=1.0,
+           label="the card's pooled mean")
+    for k, (member, name, marker, fill) in enumerate(GOLD3_MEMBERS):
+        got = {r["level"]: r for r in cells if r["member"] == member and r["key"] == GOLD3_PROFILE[1]}
+        ys = [_num(got[lv]["mean"]) if lv in got else float("nan") for lv in levels]
+        c.plot(x, ys, color=H.INK, marker=marker, markersize=3.5, markerfacecolor=fill or H.INK,
+               linestyle=("-", "--")[k], linewidth=0.8, label=name + ", the engine")
+        drawn += [{"panel": "C", "member": member, "level": lv, "mean": v} for lv, v in zip(levels, ys)]
+    drawn += [{"panel": "C", "level": lv, "card_low": lo, "card_high": hi} for lv, lo, hi in zip(levels, low, high)]
+    c.set_xticks(x)
+    c.set_xticklabels(levels, fontsize=6.5)
+    c.set_ylabel("pedicle width, mm")
+    c.legend(loc="upper left", fontsize=6.0)
+    H.letter(c, "C", "where the steps fail: the engine's pedicle width leaves the papers' at L3 to L5")
+
+    d = axes[1][1]
+    age = _gold3_rows(cells, "age_slope")
+    drawn += _gold3_forest(d, age, "age_slope", "change per decade of age, in SDs")
+    s = {m: j["members"][m]["age"] for m, *_ in GOLD3_MEMBERS}
+    H.letter(d, "D", "age: inside at %d of %d and %d of %d cells; the card's age spread is not identified"
+             % (s["autopet"]["inside"], s["autopet"]["cells"], s["totalseg"]["inside"], s["totalseg"]["cells"]))
+    fig.tight_layout()
+    H.write_csv(out, "fig20_gold3", drawn)
+    return H.save(fig, out, "fig20_gold3", (
+        "Two real gold tier 3 cohorts, measured by the engine, on the bounds card. A, pass rates by family "
+        "against the papers' bar. B, sex contrasts against the card's interval. C, the engine's pedicle width "
+        "along the column. D, age slopes."))
+
+
 def _auc(mu_a: float, sd_a: float, mu_b: float, sd_b: float) -> float:
     from scipy import stats
     z = stats.norm.cdf((mu_a - mu_b) / math.sqrt(sd_a ** 2 + sd_b ** 2))
@@ -931,4 +1062,4 @@ def _auc(mu_a: float, sd_a: float, mu_b: float, sd_b: float) -> float:
 
 
 FIGURES_ALL = (fig_tables, fig_relations, fig_state_space_all, fig_naming_measures, fig_spread_all, fig_strata, fig_select,
-               fig_exclusion, fig_covariates, fig_sex_naming, fig_bounds)
+               fig_exclusion, fig_covariates, fig_sex_naming, fig_bounds, fig_gold3)

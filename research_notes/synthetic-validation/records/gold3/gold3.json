@@ -1,0 +1,457 @@
+{
+ "bar": {
+  "mean": {
+   "least_rows": 20,
+   "low": 0.5842340425531916,
+   "low_quantile": 0.1,
+   "median": 0.8916666666666666,
+   "papers": 12,
+   "papers_named": "arockiaraj2025;bach2019;busscher2010;duman2026;frontphys2026;lien2007;masharawi2021;moncadahabib2025;olsewski1990;shin2024;tan2004;yadav2020",
+   "papers_with_any_row": 23,
+   "pooled": 0.7279693486590039
+  },
+  "sd": {
+   "least_rows": 20,
+   "low": 0.531,
+   "low_quantile": 0.1,
+   "median": 0.9066666666666667,
+   "papers": 10,
+   "papers_named": "arockiaraj2025;bach2019;busscher2010;duman2026;frontphys2026;lien2007;masharawi2021;moncadahabib2025;olsewski1990;shin2024",
+   "papers_with_any_row": 22,
+   "pooled": 0.8304347826086956
+  },
+  "step": {
+   "least_rows": 20,
+   "low": 0.89,
+   "low_quantile": 0.1,
+   "median": 0.927710843373494,
+   "papers": 7,
+   "papers_named": "busscher2010;frontphys2026;lien2007;masharawi2021;moncadahabib2025;tan2004;yadav2020",
+   "papers_with_any_row": 23,
+   "pooled": 0.9400544959128065
+  }
+ },
+ "bar_papers": [
+  "abbas2021",
+  "alonge2021",
+  "amonookuofi1982",
+  "amonookuofi1985",
+  "arockiaraj2025",
+  "bach2019",
+  "busscher2010",
+  "chaudhary2015",
+  "cizmic2023",
+  "duman2026",
+  "frontphys2026",
+  "griffith2016",
+  "hinck1966",
+  "hou1993",
+  "lien2007",
+  "masharawi2021",
+  "moncadahabib2025",
+  "olsewski1990",
+  "otsuki2021",
+  "shin2024",
+  "tan2004",
+  "yadav2020",
+  "yu2015"
+ ],
+ "bordercall_commit": "480175396c144123807ae3dfd6af84dba70a56e4",
+ "card_sha256": {
+  "bounds.csv": "d84eb3de575a60639b0a34e40a2b129698c9c32ca189eba157fe90d253faae6e",
+  "calibration.csv": "d38dd5f6e5520f318d8945042e2cc5a3cb2108e1ba3e034ee5c5db17e164fd05",
+  "gradients.csv": "122d85c6d9f54dd71ab3b7333e0502f27ceb9cea59671fd5ef6bc39fd19141e8"
+ },
+ "code": {
+  "figures.py": "9b4b29c4b350611e82736146656ff3924a828eb2a2f915dad02acd1d68d3a0de",
+  "figures_all.py": "5a2a19b2efb23f3107efba85709ca6a541d8c2495cf126ec78207d8ad413300a",
+  "render.py": "d4bc0d70416d843a6d019ffefe741cb0fe01013357027395c24448c01cc3a9d9",
+  "run.py": "724ce3b1e918ecfcf052b2b9e32b7b68d933db683446e8685781760653d4d87a",
+  "run_all.py": "8468121efdd7994dddbb7b2ea100b15c87d7b15bdb47ccbef25df5fc58fc09be",
+  "run_bounds.py": "e4790173287a1783318eb81c579ad5fc2d3c399818565d30b51d7fdaa46e6c7f",
+  "run_covariates.py": "c77b7a434e66ed28e0983852640fdaca853da4113f2d63add58877c8918c2d17",
+  "run_gold3.py": "95403f34ec7c8de502f01f92c4ce82ae259b13e28b66463e6ac7640c88760e95",
+  "run_select.py": "54b19c50c9a4dde891941f999016b5eed0c2823742e0363c77d3fda72cb3155b",
+  "run_sex_naming.py": "fb25d5e5d4fc31241b01cbbab572632b360a4beb2b0092d32e5e9eebe5ae9e09",
+  "run_strata.py": "99321722eff809ea70c72fd19c40084179d7e26f5fb2d0591a16ada8ebb779d2",
+  "snapshot.py": "c09b0eab7e839f02b0fc6b0fd35a6e5c55f231a1cc6073110e7994fb663f2f89",
+  "subgroups_run.py": "1901cf59f7106a4e3240e98fc2918c100cf91f11af2e0673d8f7fe4eb47dc64b",
+  "synthval/all_measures.py": "32b83cb8e5c5bc0a4e86ba5e6cb4e6867880f79ad0e00e3dd3b175d3558ba9b0",
+  "synthval/bounds.py": "3ecd5ebaf66b2cdff46916a8528ec9a023103438819e2f20ad50b6af3f23216c",
+  "synthval/covariates.py": "53a8bb0c90f3274bd5062d9b6f6e473cc51d1200a28477ffc4a7043ddbff0fd7",
+  "synthval/gold3.py": "9216dbabf9abb3c990426fbea2af7f70488e5c8d19b5c1d884b0cadd629771d3",
+  "synthval/house.py": "396822b88fcb46e9533162f8a46b8e2443c1d58ac15d1f40e2d0eb4f5653323a",
+  "synthval/literature.py": "daae8caf8798de4414d333cda44c681e4a601e75e5256cc5787a8f44c0795fd4",
+  "synthval/naming.py": "b9416b1c743ea68011699dc268f6208f1ebedefb2a84716349e8e3a354430db9",
+  "synthval/papers_table.py": "f33f9f7704cd182e37a74a534110c876f8a67a616805c57b675f69ce28aeb778",
+  "synthval/pooling.py": "292c34f8de6eadb40681f68143d35943eaf6c61130df2f5b778a40e2e0763df0",
+  "synthval/population.py": "83a502cd421b2727e5d165bbab0578527a9b5d245f4ef09c1f2ac24daa040f17",
+  "synthval/power.py": "4deef25fec9f5cc2efd56634057b3f17f4df0d23a0f67d01a145c5ca3dec444e",
+  "synthval/qi.py": "4e5ad50dbd18264980ba522ab2f328b9bbefb45a8b3f868280b28225c7fd8c82",
+  "synthval/references.py": "9791c7b46af7d0be381e130e7743b8b47e283fc1c9e3d2411a188e982482aeec",
+  "synthval/register.py": "c60230105dd467e0f6747cdf49b87309cdac90207e3158158d3f034beab49931",
+  "synthval/relations.py": "7350f76d09bd75bab5078eeb38a3015ff49c7fc0b982ff6a3ebcbe0bf12cbeec",
+  "synthval/select.py": "cb586875607df7b89fa0eae44c77c9e5edb25d543833f2d9c968036a905dd1a1",
+  "synthval/sex_naming.py": "54a2f690cfb3e6c09ceb4a6282fc8e6e3c7d532e1e940f5370742cf3ecb23ae8",
+  "synthval/strata.py": "df6a124f19fc57ef68c5cbe96b6253dbc298543ce84a4b5bda86ec5e12125ced",
+  "synthval/structure.py": "b04037b0ae7537454d9ac98d551ffa32a7149697328eacb1056c1a69c91e0cac",
+  "synthval/subgroups.py": "7bc86a8424246836d1fb1794cf00afcb4c2b44fa1d6d6305515ecef246a75c6c",
+  "synthval/sweep.py": "77ee7e7a8ab6f251096a6a03ab69ea36c7ae47670843f610364266f112e46b87",
+  "synthval/tan.py": "fb5fc08c453b7633233e4246f0366ab3c57f5c235d4a83f155e06099761358a6",
+  "synthval/validate.py": "480b4cc85debc474aa51422e7d97405663dc74995f1bab8d600ec04c8aac6877",
+  "tables.py": "e7ac2d9237377bf658a701076c71c25606f87932986440c519e2bdf7140efbed",
+  "tan_strata.py": "dc3e4408e29c23e8dc337e01f83d2344cce89790d129447847271afcdb4c3d66",
+  "tests/test_all_measures.py": "10c3a1fc9b856a7de821faf756a2d5df36b860ede5165698b67c8169bef595eb",
+  "tests/test_bounds.py": "0b6db6ecea5898c331392623f9f258a4759982d7f2cde4ba4b4de58331967270",
+  "tests/test_covariates.py": "80b816145ea6488fd9c9fb2c328309721f5dc49dfca331daaf19519c24415107",
+  "tests/test_gold3.py": "cd94399feaf0e2e45cda289ff06a9bc6f3987441a90292a15d9ef0649ebb2344",
+  "tests/test_select.py": "d0b640280b5759ca330eb0e83cf8c48dc7a9a8edb4540f45ed63b8efe95c0966",
+  "tests/test_sex_naming.py": "12e085e61aed58f5a0b8679eace613d91a41756f49870795f1171cdfc30a7bdd",
+  "tests/test_strata.py": "eb58a84d53aabb4b1db1832f55a84c81bc0e4efd822f54f5d0ef076b9a62ec63",
+  "tests/test_subgroups.py": "2134cfad0179dff118f9583ad9516eb23967784e77f54d47e47ac747804dcec8",
+  "tests/test_synthval.py": "906725ba40a3e9588e2a259c5504dbb37242312af09b5274b70e4a83e7be0bb2"
+ },
+ "command": "python3 -I run_gold3.py --out records/gold3",
+ "fill": [
+  "fill enhance_pet autoPET: persons 867 of 979 studies; sex 861 (99.3 %), M 481, F 380; age 867 (100.0 %), adults 863, under 18 4 in no table, above 110 read as unknown 0; in the tables 857, of",
+  "fill enhance_pet Leipzig: persons 380 of 380 studies; sex 0 (0.0 %), M 0, F 0; age 0 (0.0 %), adults 0, under 18 0 in no table, above 110 read as unknown 0; in the tables 0, of unknown age 0",
+  "fill enhance_pet Careggi: persons 198 of 198 studies; sex 0 (0.0 %), M 0, F 0; age 0 (0.0 %), adults 0, under 18 0 in no table, above 110 read as unknown 0; in the tables 0, of unknown age 0",
+  "fill verse: persons 21 of 21 studies; sex 0 (0.0 %), M 0, F 0; age 21 (100.0 %), adults 21, under 18 0 in no table, above 110 read as unknown 0; in the tables 0, of unknown age 0",
+  "fill totalseg: persons 159 of 159 studies; sex 158 (99.4 %), M 85, F 73; age 155 (97.5 %), adults 130, under 18 25 in no table, above 110 read as unknown 3; in the tables 133, of unknown age 3",
+  "member autopet: persons 857, lines 271, left out 3 where neither sex reached 5",
+  "member verse: persons 0, lines 0, left out 274 where neither sex reached 5",
+  "member totalseg: persons 133, lines 263, left out 11 where neither sex reached 5"
+ ],
+ "members": {
+  "autopet": {
+   "age": {
+    "cells": 33,
+    "inside": 18,
+    "mean_z": -0.5575675973817339,
+    "rms_z": 2.1363987302709506,
+    "share_inside": 0.5454545454545454
+   },
+   "by_family": {
+    "body and end plate": {
+     "mean": {
+      "made": 81,
+      "passed": 49,
+      "rate": 0.6049382716049383
+     },
+     "sd": {
+      "made": 58,
+      "passed": 45,
+      "rate": 0.7758620689655172
+     },
+     "step": {
+      "made": 69,
+      "passed": 65,
+      "rate": 0.9420289855072463
+     }
+    },
+    "disc and foramen": {
+     "mean": {
+      "made": 27,
+      "passed": 22,
+      "rate": 0.8148148148148148
+     },
+     "sd": {
+      "made": 27,
+      "passed": 23,
+      "rate": 0.8518518518518519
+     },
+     "step": {
+      "made": 19,
+      "passed": 14,
+      "rate": 0.7368421052631579
+     }
+    },
+    "every family": {
+     "mean": {
+      "made": 172,
+      "passed": 109,
+      "rate": 0.6337209302325582
+     },
+     "sd": {
+      "made": 139,
+      "passed": 107,
+      "rate": 0.7697841726618705
+     },
+     "step": {
+      "made": 144,
+      "passed": 116,
+      "rate": 0.8055555555555556
+     }
+    },
+    "pedicle and canal": {
+     "mean": {
+      "made": 64,
+      "passed": 38,
+      "rate": 0.59375
+     },
+     "sd": {
+      "made": 54,
+      "passed": 39,
+      "rate": 0.7222222222222222
+     },
+     "step": {
+      "made": 56,
+      "passed": 37,
+      "rate": 0.6607142857142857
+     }
+    }
+   },
+   "name": "autoPET (ENHANCE.PET)",
+   "sex": {
+    "cells": 123,
+    "inside": 103,
+    "mean_z": -0.24019432261065593,
+    "rms_z": 1.3412535307055806,
+    "share_inside": 0.8373983739837398
+   },
+   "summary": {
+    "made": 520,
+    "mean_square_z": 4.736577034819944,
+    "mean_square_z_by_test": {
+     "mean": 7.249598231184569,
+     "sd": 3.0884615895719625,
+     "step": 3.325802042561291
+    },
+    "nominal": 0.95,
+    "passed": 395,
+    "rate": 0.7596153846153846,
+    "reference_n": 40,
+    "short_cells": 0,
+    "tests": {
+     "mean": {
+      "made": 172,
+      "passed": 109,
+      "rate": 0.6337209302325582
+     },
+     "sd": {
+      "made": 139,
+      "passed": 107,
+      "rate": 0.7697841726618705
+     },
+     "sex": {
+      "made": 65,
+      "passed": 63,
+      "rate": 0.9692307692307692
+     },
+     "step": {
+      "made": 144,
+      "passed": 116,
+      "rate": 0.8055555555555556
+     }
+    },
+    "verdict": {
+     "bar": "the 10th percentile of the kind's held-out papers' own rates, one paper one vote, over the papers with 20 rows or more of the test (bar_of), the median beside it",
+     "passed": false,
+     "tests": {
+      "mean": {
+       "at_or_above_median": false,
+       "low": 0.5842340425531916,
+       "made": 172,
+       "median": 0.8916666666666666,
+       "papers": 12,
+       "passed": true,
+       "rate": 0.6337209302325582
+      },
+      "sd": {
+       "at_or_above_median": false,
+       "low": 0.531,
+       "made": 139,
+       "median": 0.9066666666666667,
+       "papers": 10,
+       "passed": true,
+       "rate": 0.7697841726618705
+      },
+      "step": {
+       "at_or_above_median": false,
+       "low": 0.89,
+       "made": 144,
+       "median": 0.927710843373494,
+       "papers": 7,
+       "passed": false,
+       "rate": 0.8055555555555556
+      }
+     },
+     "why": "fails its bar on: step"
+    }
+   }
+  },
+  "totalseg": {
+   "age": {
+    "cells": 37,
+    "inside": 29,
+    "mean_z": 0.385118077109887,
+    "rms_z": 1.5782052416318737,
+    "share_inside": 0.7837837837837838
+   },
+   "by_family": {
+    "body and end plate": {
+     "mean": {
+      "made": 81,
+      "passed": 56,
+      "rate": 0.691358024691358
+     },
+     "sd": {
+      "made": 58,
+      "passed": 43,
+      "rate": 0.7413793103448276
+     },
+     "step": {
+      "made": 69,
+      "passed": 68,
+      "rate": 0.9855072463768116
+     }
+    },
+    "disc and foramen": {
+     "mean": {
+      "made": 31,
+      "passed": 27,
+      "rate": 0.8709677419354839
+     },
+     "sd": {
+      "made": 31,
+      "passed": 24,
+      "rate": 0.7741935483870968
+     },
+     "step": {
+      "made": 23,
+      "passed": 15,
+      "rate": 0.6521739130434783
+     }
+    },
+    "every family": {
+     "mean": {
+      "made": 176,
+      "passed": 120,
+      "rate": 0.6818181818181818
+     },
+     "sd": {
+      "made": 143,
+      "passed": 105,
+      "rate": 0.7342657342657343
+     },
+     "step": {
+      "made": 148,
+      "passed": 120,
+      "rate": 0.8108108108108109
+     }
+    },
+    "pedicle and canal": {
+     "mean": {
+      "made": 64,
+      "passed": 37,
+      "rate": 0.578125
+     },
+     "sd": {
+      "made": 54,
+      "passed": 38,
+      "rate": 0.7037037037037037
+     },
+     "step": {
+      "made": 56,
+      "passed": 37,
+      "rate": 0.6607142857142857
+     }
+    }
+   },
+   "name": "TotalSegmentator",
+   "sex": {
+    "cells": 127,
+    "inside": 116,
+    "mean_z": -0.6957992736637038,
+    "rms_z": 1.2000225541583287,
+    "share_inside": 0.9133858267716536
+   },
+   "summary": {
+    "made": 536,
+    "mean_square_z": 4.427118973570499,
+    "mean_square_z_by_test": {
+     "mean": 5.743880618158875,
+     "sd": 3.9383759827045957,
+     "step": 3.3334716644236795
+    },
+    "nominal": 0.95,
+    "passed": 413,
+    "rate": 0.7705223880597015,
+    "reference_n": 40,
+    "short_cells": 0,
+    "tests": {
+     "mean": {
+      "made": 176,
+      "passed": 120,
+      "rate": 0.6818181818181818
+     },
+     "sd": {
+      "made": 143,
+      "passed": 105,
+      "rate": 0.7342657342657343
+     },
+     "sex": {
+      "made": 69,
+      "passed": 68,
+      "rate": 0.9855072463768116
+     },
+     "step": {
+      "made": 148,
+      "passed": 120,
+      "rate": 0.8108108108108109
+     }
+    },
+    "verdict": {
+     "bar": "the 10th percentile of the kind's held-out papers' own rates, one paper one vote, over the papers with 20 rows or more of the test (bar_of), the median beside it",
+     "passed": false,
+     "tests": {
+      "mean": {
+       "at_or_above_median": false,
+       "low": 0.5842340425531916,
+       "made": 176,
+       "median": 0.8916666666666666,
+       "papers": 12,
+       "passed": true,
+       "rate": 0.6818181818181818
+      },
+      "sd": {
+       "at_or_above_median": false,
+       "low": 0.531,
+       "made": 143,
+       "median": 0.9066666666666667,
+       "papers": 10,
+       "passed": true,
+       "rate": 0.7342657342657343
+      },
+      "step": {
+       "at_or_above_median": false,
+       "low": 0.89,
+       "made": 148,
+       "median": 0.927710843373494,
+       "papers": 7,
+       "passed": false,
+       "rate": 0.8108108108108109
+      }
+     },
+     "why": "fails its bar on: step"
+    }
+   }
+  }
+ },
+ "not_scored": [
+  "VerSe: the join read no person's sex (fill verse: sex 0), so its 21 persons enter no table",
+  "ENHANCE.PET's Leipzig and Careggi: their releases carry no sex or age",
+  "the age slope is a record and no test: check() makes none, the card's spread for it being not identified (bounds.json, covariate_borrowing)"
+ ],
+ "numpy": "2.5.4",
+ "python": "3.13.17",
+ "readings": {
+  "age": "each sex's slope per decade over its SD, the sexes pooled by inverse variance; the card's slopes are over the within-band SD, a little narrower than a sex's SD over every age",
+  "mean, sd": "the two sexes pooled from their moments, against the card's interval for a new population, widened by the sampling error of reference_n people, as check() scores a cohort",
+  "sex": "the sign where the card's interval for a new population's contrast clears zero (check()'s test); inside: g within that interval widened by its own variance, at every cell",
+  "step": "the pooled means' difference, its sampling variance from the levels' pooled SDs and the covariance the within-sex correlations with the level above and the sexes' shift give"
+ },
+ "reference_n": 40,
+ "report_sha256": "fce85681e8e6c9247bcfe072530de60241f8e532f7ffd00594eb9ad3396e13f9",
+ "source": "SchwingNet gate word `morphometry covariates`, job 40878978 on zfh15 at SchwingNet c656299, 2026-10-30 13:08 UTC, read back by the reads covread-1 and covread-2 and joined"
+}

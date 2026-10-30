@@ -4,11 +4,11 @@ Drawn by `python3 -I figures.py --records records --out figures` from the record
 `python3 -I run.py --out records` (bordercall 560bd00). Each figure's numbers are its CSV; its caption is its .caption.txt.
 The three renders are drawn by render.py from the generator itself, seed 2029, 4000 people.
 
-Drawn at bordercall 58729db, from and by:
+Drawn at bordercall 4801753, from and by:
 
 - records/RECORD.json, sha256 8229f63cad6bc1ddf0ecc53c9faa6602bb4d79b590165b4c4cd80f5d614c9df1
 - figures.py, sha256 9b4b29c4b350611e82736146656ff3924a828eb2a2f915dad02acd1d68d3a0de
-- figures_all.py, sha256 2eeb0079af29feebf0e8302bce06b894a6521173df012d3f5e8adfcd6f4c3c80
+- figures_all.py, sha256 5a2a19b2efb23f3107efba85709ca6a541d8c2495cf126ec78207d8ad413300a
 - render.py, sha256 d4bc0d70416d843a6d019ffefe741cb0fe01013357027395c24448c01cc3a9d9
 - synthval/house.py, sha256 396822b88fcb46e9533162f8a46b8e2443c1d58ac15d1f40e2d0eb4f5653323a
 - schwingcheck/figures.py, sha256 3908d42cc8e93c839d8ddca5bf06591af281e1490d775483e20535a0908b0576
@@ -203,6 +203,15 @@ The bounds card. A, one measure's interval for a new population's mean; a flatte
 - fig19_bounds.csv, sha256 0468e27e4f7c9ec8d7a87ae21d9dda181b16c138f5562c39cfe046f5672eb64b
 - fig19_bounds.pdf, sha256 4bf29ee1d3eab01d36d2677db081a61c8178b214cda28c02bdbe952d0d27a5de
 - fig19_bounds.png, sha256 133ff100fb182eeb90bba28bf415cb6efef1afeee58a7fbbf238778c852a01c7
+
+## fig20_gold3
+
+Two real gold tier 3 cohorts, measured by the engine, on the bounds card. A, pass rates by family against the papers' bar. B, sex contrasts against the card's interval. C, the engine's pedicle width along the column. D, age slopes.
+
+- fig20_gold3.caption.txt, sha256 0386e85fa5afeef30736b987bf94d7d74ee6907a657466374c7bdd54b67aca69
+- fig20_gold3.csv, sha256 5b56540af49ae11e7c6fe1e8e4a65684fdb07b2252c48fe4799649aff613e5a9
+- fig20_gold3.pdf, sha256 00037ea485aecdbe49a0b8cafd9a1eb40adc298514077b10ee3fd784336af9bb
+- fig20_gold3.png, sha256 f20217625afe34ba43d3b3c52721b97dcd17c77457ef834cf70e51a372f68b29
 
 ## render1_axial
 

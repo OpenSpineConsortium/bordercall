@@ -84,6 +84,8 @@ PAGE = [
      figure("fig18_sex_naming", "Log-score gain from conditioning on sex, synthetic and held out by paper")),
     ("bounds", "Bounds for a generative model", blocks(notes["bounds"]) +
      figure("fig19_bounds", "The card's interval for an unseen domain, and each cohort's pass rates against the step threshold")),
+    ("gold3", "Real CTs on the card", blocks(notes["gold3"]) +
+     figure("fig20_gold3", "Two real cohorts on the card: pass rates by feature family, the sex effect, the engine's pedicle width, the age slope")),
     ("shift", "Distribution shift, measured", figure("fig14_strata", "Each paper held out: the rule built on the others, scored on it")),
     ("features", "Features and robustness", figure("fig12_naming_measures", "Accuracy against the number of measures the rule reads") +
      figure("fig5_naming", "Accuracy across the generator's hyperparameters")),
@@ -95,7 +97,7 @@ PAGE = [
     ("reproduce", "Reproduce", blocks(notes["reproduce"])),
 ]
 unnoted = [n for _, _, body in PAGE for n in [] if n not in notes["figures"]]
-for name in ("fig15_select", "fig16_exclusion", "fig17_covariates", "fig18_sex_naming", "fig19_bounds", "fig14_strata", "fig12_naming_measures", "fig5_naming", "fig1_means", "fig2_spread", "fig7_quality"):
+for name in ("fig15_select", "fig16_exclusion", "fig17_covariates", "fig18_sex_naming", "fig19_bounds", "fig20_gold3", "fig14_strata", "fig12_naming_measures", "fig5_naming", "fig1_means", "fig2_spread", "fig7_quality"):
     if name not in notes["figures"]:
         raise SystemExit("figure with no note in report/ml_notes.json: %s" % name)
 

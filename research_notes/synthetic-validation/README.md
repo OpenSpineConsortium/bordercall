@@ -265,6 +265,15 @@ stand; a later snapshot is cut with `python3 -I snapshot.py --write <commit>` an
    contrasts, the gain is 1.9 points at one body, 1.1 at two and none at three. Which population a
    person comes from matters about five times more than the sex (figure fig18_sex_naming, section
    Naming told the person's sex).
+17. **Real CTs on the card: gold tier 3's two cohorts pass on the body and end plates and on the sex
+   contrasts, and fail the steps where the engine's disc and pedicle measures leave the papers'.** The
+   gold tier 3 join on the grid (SchwingNet's job 40878978) printed each sex's moments for autoPET's 857
+   adults and TotalSegmentator's 133, measured by the engine. Scored as a generator is, at 40 people a
+   cell, both pass the means and SDs and fail the steps (0.81 and 0.81 against the bar's 0.89); on the
+   body and end-plate measures their steps pass at 0.94 and 0.99, on the discs at 0.74 and 0.65, on the
+   pedicles and canal at 0.66, where the engine's pedicle width reaches 27 mm at L5 against the papers'
+   15. Their sex contrasts lie inside the card's interval for a new population at 103 of 123 and 116 of
+   127 cells, a little smaller than the papers' (figure fig20_gold3, section Real CTs on the card).
 
 ## What was compared
 
@@ -1911,7 +1920,13 @@ plus or minus 1.96 sqrt(SE^2 + tau^2), the interval for its SD, the sex contrast
 covariates.py reads, and the step from each level to the next read inside each paper first, so a
 paper's own shift falls out of it. Naming lives on the steps, so the steps decide: check() scores a
 generated cohort cell by cell and passes it only where its step pass rate reaches the bar and no other
-test with a bar falls short of its own; the rate over every test decides nothing.
+test with a bar falls short of its own; the rate over every test decides nothing. A measure of the
+cohort that the card does not hold is scored on nothing and named in the summary (measures_not_on_card)
+and in the verdict's why: the card keys the pedicle's width as pedicle, after the reread, so a cohort
+keyed pedicle_w:mean would otherwise be scored with no pedicle test and say nothing (the auto-anatomist
+thread's catch of 2026-10-30). Of schwingcheck's generator's measures, 22 are not on the card, each one
+no paper prints (the facets' areas, heights and angles, the uncovertebral and costovertebral joints, the
+pars), not a name apart (bounds.json's checks).
 
 The bar is real populations held out: each of 33 papers left out in turn and scored on the card of the
 rest as a cohort is scored, the bar the 10th percentile of their own pass rates over the papers with
@@ -1941,6 +1956,52 @@ each person's sex given, as a check that men and women differ in the papers' dir
 interval for a new population's contrast clears zero. What it cannot bound, and says so: one person's
 correlation across measures or levels (no paper prints it), the anomalies (an L6 or a T13 goes
 unscored, and a lumbar rib's L1 is held to the ordinary L1), and a population no paper sampled.
+
+## Real CTs on the card
+
+The gold tier 3 join (SchwingNet's gate word `morphometry covariates`, job 40878978 of 2026-10-30)
+printed, for two cohorts the morphometry engine measured, each sex's count, mean and SD at every
+measure and level from T10 to L5, Hedges' g, the correlation with the level above within each sex and
+the age slope (records/gold3/report.txt, aggregates alone; the per-person tables stay on the grid).
+synthval/gold3.py scores them on the card from those moments as check() scores a generator: the sexes
+pooled for the means and SDs, each step's sampling variance from the two levels' pooled SDs and the
+covariance that the within-sex correlations and the sexes' shift give, every cell at 40 people
+(run_gold3.py, records/gold3). They are real people measured by the engine, so they are what a
+generator measured by the same engine should look like. VerSe's 21 persons are not scored, since the
+join read no sex for them, nor ENHANCE.PET's Leipzig and Careggi, whose releases carry none.
+
+| family of measures, scored at 40 people | autoPET means | SDs | steps | TotalSegmentator means | SDs | steps |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| body and end plate | 0.60 | 0.78 | 0.94 | 0.69 | 0.74 | 0.99 |
+| disc and foramen | 0.81 | 0.85 | 0.74 | 0.87 | 0.77 | 0.65 |
+| pedicle and canal | 0.59 | 0.72 | 0.66 | 0.58 | 0.70 | 0.66 |
+| every family | 0.63 | 0.77 | 0.81 | 0.68 | 0.73 | 0.81 |
+| the bar, real papers held out | 0.58 | 0.53 | 0.89 | 0.58 | 0.53 | 0.89 |
+
+Both cohorts fail on the steps, and the failure follows the engine's families, not the people: the
+body and end-plate steps pass above the bar, the discs' and the pedicles' fall below it. The pedicle
+measures leave the papers' from L3 down: the engine's pedicle width reaches 27 mm at L5 against the
+papers' 15, its chord falls to 27 mm against 44 and its transverse angle to -16 degrees against +23,
+and its chord and angle are missing for nearly half the men at L4 and L5 (262 and 251 of 478) (figure
+fig20_gold3, C). The end plates pass their steps but not their means: the engine's widths and depths
+sit 5 to 9 mm above the papers' and their SDs 1.6 to 3.6 times the middle of the card's SD interval
+(by_measure.csv), which a definition (the mask's outer rim against a caliper's) would explain and which
+this note does not test.
+
+The sex contrasts are the card's: g lies inside the interval for a new population at 103 of 123 cells
+for autoPET and 116 of 127 for TotalSegmentator, and has the papers' sign at 63 of 65 and 68 of 69 of
+the cells where that interval clears zero. The cohorts' contrasts run a little smaller (mean z -0.24
+and -0.70, root mean square 1.34 and 1.20, so the card's intervals are a little narrow), most on the
+body heights (h_ant's g 0.38 against Duman 2026's 1.21), where the engine's SDs run above the papers'
+and a noisier measure shrinks g. The age slopes, which the card makes no test on, lie inside at 18 of
+33 and 29 of 37 cells: the card's spread between populations for them is the zero its two donor papers
+give, and these cohorts say it is wider.
+
+So for a generator: the card can judge the body and end-plate steps and the sex contrasts of a cohort
+the engine measures today; a disc or pedicle step it fails says as much about the engine as about the
+generator until the engine's pedicle measures below L2 are mended; and the gold cohorts themselves,
+measured by the same engine, are a second bound beside the papers' that shares the engine's
+definitions.
 
 ## Figures and renders
 
@@ -1982,6 +2043,10 @@ mnemonics.py starts it at the canal's posterior wall.
 - fig19_bounds: the bounds card, one measure's interval for a new population's mean down the column with
   a flattened and a reversed lumbar gradient, and each cohort's pass rate by test beside the step bar
   (figures_all.py, from records/bounds).
+- fig20_gold3: gold tier 3's two real cohorts on the card, each test's pass rate by family of measures
+  against the papers' bar, the sex contrast and the age slope by measure against the card's interval for
+  a new population, and the engine's pedicle width down the column beside the card's (figures_all.py,
+  from records/gold3 and records/bounds).
 - render1_axial, render2_column, render3_solid: L3 from above, the lumbar column from in front, and the
   column as solids, Panjabi's means beside synthetic people.
 
@@ -1998,6 +2063,7 @@ python3 -I figures.py --records records --out figures
 python3 -I run_covariates.py --out records/covariates   # covariates both ways, seconds
 python3 -I run_bounds.py --out records/bounds           # the bounds card, about four minutes
 python3 -I run_sex_naming.py --out records/sex_naming   # naming told the sex, about half an hour; --quick too
+python3 -I run_gold3.py --out records/gold3             # gold tier 3's cohorts on the card, a second
 python3 -I tan_strata.py --out records/tan-strata --quick       # Tan's population apart, the record in place; --tables 8 is the full run, about 25 minutes
 python3 -I subgroups_run.py --out records/subgroups              # the populations apart, a few seconds
 python3 -I tables.py --records records --write README.md --write MEASURES.md
@@ -2023,7 +2089,7 @@ sends the final rerun to the grid, which rewrites both records.
 
 - run.py writes records/, run_all.py records/all/, run_strata.py records/strata/, run_select.py
   records/select/, run_covariates.py records/covariates/, run_bounds.py records/bounds/, run_sex_naming.py
-  records/sex_naming/; tan_strata.py writes records/tan-strata/ (Tan's
+  records/sex_naming/, run_gold3.py records/gold3/ (from the grid's report there); tan_strata.py writes records/tan-strata/ (Tan's
   population apart); subgroups_run.py writes records/subgroups/ (the populations apart); figures.py,
   figures_all.py and render.py draw figures/; tables.py writes the tables above and MEASURES.md;
   snapshot.py cuts and checks data/.
@@ -2035,14 +2101,14 @@ sends the final rerun to the grid, which rewrites both records.
   strata.py, every paper its own population and the rule predicted for one more; select.py, the rule
   chosen by held-out prediction, a paper's exclusion among its candidates; covariates.py, sex, age and
   body size read both ways from what the papers print apart; bounds.py, the card a generator's cohort is
-  scored on; sex_naming.py, naming told the person's sex.
+  scored on; sex_naming.py, naming told the person's sex; gold3.py, gold tier 3's cohorts on the card.
 - data/: the snapshot of the reread's series and SOURCE.json; populations.csv, the register of the
   cohorts; series_all.csv, vocabulary.csv and SOURCE_ALL.json, the whole reread for the second part.
 - MEASURES.md: every key of the vocabulary with what became of it, written from records/all.
 - tests/test_synthval.py: the code against what its docstrings say; tests/test_subgroups.py: the register
   and the subgroups; tests/test_all_measures.py: the second part's; tests/test_strata.py: the strata's;
   tests/test_select.py: the selection's; tests/test_covariates.py: the covariates'; tests/test_bounds.py:
-  the card's; tests/test_sex_naming.py: naming told the sex.
+  the card's; tests/test_sex_naming.py: naming told the sex; tests/test_gold3.py: gold tier 3 on the card.
 - report/: build.py writes the stats page and build_ml.py the page for a machine-learning reader, each
   from its notes file (notes.json, ml_notes.json), both ignored outputs rebuilt by one command.
 
@@ -2053,6 +2119,10 @@ sends the final rerun to the grid, which rewrites both records.
   out reading draws persons from each paper's printed tables, so it tests what the papers print, not
   their people; the gold tier 3 join (SchwingNet's job 40878978) is the first data with each person's
   sex beside their measures.
+- The gold tier 3 cohorts are read as the moments the grid printed, not as persons: a step's pairing
+  comes from the within-sex correlations with the level above, and the engine's measures are matched to
+  the papers' by name; why the engine's pedicle measures fail below L2, and whether its end plates are
+  a definition apart, is not examined here.
 - The bounds card bounds what papers of about 40 people can show: a cohort is scored as if it had 40,
   so a break smaller than such a paper's sampling error passes, and the card cannot bound one person's
   correlation across levels, the anomalies or a population no paper sampled.

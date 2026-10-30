@@ -27,7 +27,8 @@
   papers has none, and a kind's held-out card is built from that kind's papers alone;
 - check() gives each test a verdict against its bar and the cohort one that fails where the steps
   fail, however high the pooled rate, no verdict where the steps have no bar or the card no
-  calibration, and a kind its own bar;
+  calibration, and a kind its own bar; a measure of the cohort the card does not hold is named in
+  the summary and the verdict's why, never passed over;
 - a cohort given as rows reads as the same cohort given as columns, and a written card, with each
   kind's bar, reads back to the same check;
 - on the snapshot, every paper's card has strata.between's spread to the bit, a t interval is never
@@ -205,6 +206,17 @@ class Toy(unittest.TestCase):
         big, ref = B.check(centre, self.card, reference_n=None), B.check(centre, self.card)
         self.assertEqual(ref["summary"]["reference_n"], B.REFERENCE_N)
         self.assertTrue(all(abs(a["mean_z"]) >= abs(b["mean_z"]) - 1e-12 for a, b in zip(big["cells"], ref["cells"])))
+
+    def test_a_measure_the_card_does_not_hold_is_named_not_passed_over(self):
+        rng = np.random.default_rng(44)
+        centre = B.simulate(self.card, B.ALL, 200, rng, centre=True)
+        renamed = np.array([m + ":mean" for m in centre.measure], dtype=object)
+        got = B.check(B.Cohort(measure=renamed, level=centre.level, value=centre.value, person=centre.person),
+                      self.card)["summary"]
+        self.assertEqual(got["made"], 0)
+        self.assertEqual(got["measures_not_on_card"], sorted({m + ":mean" for m in centre.measure}))
+        self.assertIn("not on the card", got["verdict"]["why"])
+        self.assertEqual(B.check(centre, self.card)["summary"]["measures_not_on_card"], [])
 
     def test_means_moved_far_off_fail_the_mean_test_and_keep_the_steps(self):
         rng = np.random.default_rng(31)
