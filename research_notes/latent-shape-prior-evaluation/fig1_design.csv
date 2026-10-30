@@ -1,0 +1,67 @@
+arm,metric,mark
+A rules (as now),value MAE and limits of agreement,scored
+A rules (as now),naming on 3-body fields,scored
+A rules (as now),coverage at 1 and 2 spreads (gate),scored
+A rules (as now),sharpness of the spread (gate),scored
+A rules (as now),landmark distance and its tail,reported
+A rules (as now),drawability E1,reported
+A rules (as now),attributability E2,reported
+A rules (as now),mode nameability E3,reported
+A rules (as now),transparency E4,reported
+A rules (as now),spread by step,reported
+A rules (as now),latency a crop,reported
+B latent,value MAE and limits of agreement,scored
+B latent,naming on 3-body fields,scored
+B latent,coverage at 1 and 2 spreads (gate),scored
+B latent,sharpness of the spread (gate),scored
+B latent,landmark distance and its tail,reported
+B latent,drawability E1,reported
+B latent,attributability E2,reported
+B latent,mode nameability E3,reported
+B latent,transparency E4,reported
+B latent,spread by step,reported
+B latent,latency a crop,reported
+C hybrid,value MAE and limits of agreement,scored
+C hybrid,naming on 3-body fields,scored
+C hybrid,coverage at 1 and 2 spreads (gate),scored
+C hybrid,sharpness of the spread (gate),scored
+C hybrid,landmark distance and its tail,reported
+C hybrid,drawability E1,reported
+C hybrid,attributability E2,reported
+C hybrid,mode nameability E3,reported
+C hybrid,transparency E4,reported
+C hybrid,spread by step,reported
+C hybrid,latency a crop,reported
+"C0 latent, no prior",value MAE and limits of agreement,scored
+"C0 latent, no prior",naming on 3-body fields,scored
+"C0 latent, no prior",coverage at 1 and 2 spreads (gate),scored
+"C0 latent, no prior",sharpness of the spread (gate),scored
+"C0 latent, no prior",landmark distance and its tail,reported
+"C0 latent, no prior",drawability E1,reported
+"C0 latent, no prior",attributability E2,reported
+"C0 latent, no prior",mode nameability E3,reported
+"C0 latent, no prior",transparency E4,reported
+"C0 latent, no prior",spread by step,reported
+"C0 latent, no prior",latency a crop,reported
+D heatmap with PDM penalty,value MAE and limits of agreement,scored
+D heatmap with PDM penalty,naming on 3-body fields,scored
+D heatmap with PDM penalty,coverage at 1 and 2 spreads (gate),scored
+D heatmap with PDM penalty,sharpness of the spread (gate),scored
+D heatmap with PDM penalty,landmark distance and its tail,reported
+D heatmap with PDM penalty,drawability E1,reported
+D heatmap with PDM penalty,attributability E2,reported
+D heatmap with PDM penalty,mode nameability E3,reported
+D heatmap with PDM penalty,transparency E4,reported
+D heatmap with PDM penalty,spread by step,reported
+D heatmap with PDM penalty,latency a crop,reported
+E values direct,value MAE and limits of agreement,scored
+E values direct,naming on 3-body fields,scored
+E values direct,coverage at 1 and 2 spreads (gate),scored
+E values direct,sharpness of the spread (gate),scored
+E values direct,landmark distance and its tail,
+E values direct,drawability E1,
+E values direct,attributability E2,reported
+E values direct,mode nameability E3,
+E values direct,transparency E4,reported
+E values direct,spread by step,reported
+E values direct,latency a crop,reported
