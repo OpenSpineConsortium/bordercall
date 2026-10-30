@@ -1,5 +1,5 @@
 """Run with PYTHONPATH set to the repository. Trace the pedicle reading (pedicle.py v3) on a phantom's L3 or on a real study's levels:
-the profile row by row, the isthmus, the run, the axis and the band between the pedicles.
+the profile row by row, the isthmus, the axis, the parted surfaces and the band between the pedicles.
 
   trace_v3.py phantom <straight|mass|shapes>
   trace_v3.py real <labels.nii.gz> <L5,C5,...>
@@ -61,13 +61,22 @@ def trace(lab, grid, names, levels, truth):
             k, near, walls0 = got
             sec = float(np.median([rows[i]["w"] for i in near]))
             hgt = float(np.median([rows[i]["h"] for i in near]))
-            taken, walls, mids = PED.axis_rows(m, rows, near, k, sec, hgt, walls0)
+            taken, walls = PED.axis_rows(m, rows, near, k, walls0)
+            rise, why, parted = PED.climb(m, rows, near, walls, sec, hgt)
             a = PED.CANAL.smoothed_values(np.array([r["w"] * r["h"] for r in rows]))
             for i, r in enumerate(rows):
                 mark = "*" if i == k else ("n" if i in near else ("t" if i in taken else " "))
-                print("  %s y=%6.2f u0=%6.2f u1=%6.2f w=%5.2f z=%6.2f h=%5.2f area=%6.1f run=%.2f..%.2f wall=%s mid=%s" % (
+                print("  %s y=%6.2f u0=%6.2f u1=%6.2f w=%5.2f z=%6.2f h=%5.2f area=%6.1f run=%.2f..%.2f wall=%s" % (
                     mark, r["y"], r["u0"], r["u1"], r["w"], r["z"], r["h"], a[i], r["run"][0], r["run"][1],
-                    "%.2f" % walls[i] if i in walls else "-", "%.2f" % mids[i] if i in mids else "-"))
+                    "%.2f" % walls[i] if i in walls else "-"))
+            print("surfaces: %d columns spanning %.1f mm; climb %s%s" % (
+                len(parted["columns"]), parted["span"], "%.4f per mm" % rise if np.isfinite(rise) else "not read", "; " + why if why else ""))
+            for name in ("top", "bottom"):
+                if name in parted:
+                    rec = parted[name]
+                    print("  %s: bone %d air %d%s" % (name, rec["bone"], rec["air"],
+                          ", margin %.3f, %d across, slope %.4f per mm" % (rec["margin"], rec["across"], rec["coefficients"][1])
+                          if "margin" in rec else ""))
             out, note, info = PED.one_side(vert, side, zb)
             print("out", {kk: round(x, 2) for kk, x in out.items()}, note)
             if info:

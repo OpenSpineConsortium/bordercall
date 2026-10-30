@@ -34,11 +34,11 @@ for lv in levels:
     for side, name in PED.SIDES:
         m = PED.SideMap(v, side)
         rows = PED.profile(m, zs)
-        got = PED.isthmus(rows, v)
+        got = PED.isthmus(rows, v, m)
         if got is None:
             print(lv, name, "no isthmus")
             continue
-        k, near = got
+        k, near, _ = got
         print("=====", lv, name, "near", near, "k", k)
         ys, walls, mids, mids_min, lats, lats_min = [], [], [], [], [], []
         for i in near:

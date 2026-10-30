@@ -183,8 +183,11 @@ def across_walls(v: A.Vertebra, s: A.CanalSlab) -> Optional[Tuple[float, float, 
 def interpedicular(v: A.Vertebra, ped: Dict[str, dict]) -> List[Line]:
     """The least and the greatest width between the pedicles (canal.measures): between the
     pedicles' own walls where both were found (pedicle.canal_between), in the layer of the three
-    its smoothed value came from; else the hole's width through its middle over the middle
-    rings, in the ring of the three the least came from."""
+    its smoothed value came from and the row nearest the median there, drawn as a median since
+    the least is the median over the rows about the isthmus and no one row's gap need equal it
+    (on the straight phantom the row drawn reads 0.06 mm over the median); else the hole's width
+    through its middle over the middle rings, in the ring of the three the least came from, whose
+    width is the value itself."""
     band = PED.band(ped)
     if band is not None and np.isfinite(band.get("interpedicular", NAN)):
         out = []
@@ -194,7 +197,7 @@ def interpedicular(v: A.Vertebra, ped: Dict[str, dict]) -> List[Line]:
                 continue
             y, z, x0, x1 = at
             a, b = world(v, (x0, y, z), (x1, y, z))
-            out.append(Line(key, v.level, float(band[key]), a, b, "length", "axial_canal"))
+            out.append(Line(key, v.level, float(band[key]), a, b, "median", "axial_canal"))
         return out
     sel = CANAL.middle_rings(v.full_rings(), CANAL.body_span(v))
     if not sel:

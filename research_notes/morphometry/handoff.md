@@ -1,3 +1,85 @@
+# Morphometry: the handoff of 2026-10-30, 00:10 UTC
+
+Source: the thread "Run morphometry on gold tier 3 masks" of the claude.ai project symphony_5, which took
+PR 44 over from the thread "Advance morphometry" (the handoff of 23:10 UTC, below) on the owner's word
+of 2026-10-29 23:36 UTC ("do these two"), his rule of 23:41 UTC that the measuring runs on the grid and
+not in the cloud, and his yes of 23:47 UTC to sending `schwingnet-morphometry-verse` once the enhance
+job is gone. Everything below is pushed to bordercall's branch claude/project-thread-e89pjg, draft PR 44.
+
+## What changed since 23:10 UTC, and what is verified
+
+- The sagittal angle (morphometry/pedicle.py: columns, lattice_under, parting, climb; the module's
+  docstring says why): it is no longer the slope of the middles of one column a row, which the raster
+  quantised (a layer of 1.24 mm over the isthmus rows' 7.5 mm is 9 degrees, so the suite read 3.1
+  against 0 and 8.3 against 6). Each of the pedicle's two surfaces is now parted from the scan's own
+  lattice over the isthmus rows: under the columns across the middle half of each row's section whose
+  run is the pedicle's (within HEIGHT_SHARE of the isthmus's height, which keeps out the columns under
+  the articular process's base and the body's corner), the voxel centres within 1.5 layers of that
+  column's surface, bone and air, are parted by the surface z = a + b y + c x' + d x'^2 of widest
+  margin, a linear program (scipy.optimize.linprog, no new dependency), x' the place across the section
+  from its middle so that the ellipse's crown goes into the quadratic; the climb is the mean of the two
+  surfaces' b, along the pedicle's centre line. The centres on both sides of a surface bracket it
+  wherever the layers cut it at another phase, which under a tilted grid they do across the columns,
+  so the bracket is far tighter than one column's layer. Where no one surface parts the centres (more
+  than a tenth lie across the best, a least-crossing program) the angle is not read, with a note. The
+  rows beyond the isthmus (the walls' extension, which the transverse angle keeps) are not taken for
+  the climb: under them the pillar's and the body's corner's bone stood about the surface, the margin
+  went negative and the climb read 10 degrees off on the straight phantom. The sagittal angle is now
+  atan2 of the climb against the horizontal length of the axis (it was against the y component alone,
+  a difference under 0.1 degrees at 12 degrees of convergence), and the height's pitch correction the
+  cosine of that angle.
+- Verified on the phantoms over five tilts and turns of the grid, five phantoms, L3's two sides (the
+  prototype of this pass, run before the code was written into pedicle.py and then as the module's own
+  trace): the straight column (truth 0) reads between -1.5 and +0.7 degrees where the pushed code read
+  -8.8 to +4.8; the shapes column (truth 6) 5.2 to 6.5 where it read 4.8 to 11.4; a column pitched 10
+  degrees 8.2 to 10.9 where it read 10.8 to 20.3; one pitched -8 with 8 degrees of convergence -6.8 to
+  -9.4 where it read -1.5 to -9.5; every reading whose columns span 5.5 mm or more within 1.8 degrees
+  of the truth, most within 1. At the suite's tilt the module's trace reads 0.46 on the straight
+  column and 6.40 on the shapes column; the lateral-mass column's columns span 4.0 mm and its angle is
+  not read, as before. The transverse angles, widths, heights, chords and interpedicular distances are
+  as the fourth pass read them, since nothing of their construction changed.
+- One reading of the fifty found no isthmus at all (the pitched column's right side at a tilt of 12
+  degrees about (0.3, 1, 0) with the grid turned 4), a failure of the profile, not of the climb, left
+  for a later pass.
+- The suite: `PYTHONPATH=. python -m unittest morphometry.tests.test_morphometry`, 22 tests, all pass
+  (279 s on four CPUs; 20 of 22 passed on the pushed code). `python -m unittest
+  morphoview.tests.test_lines`, 10 tests, all pass, after one fix of the fourth pass's work: the
+  interpedicular lines drawn from the band failed test_a_length_is_the_distance_between_its_ends
+  on the pushed code too (21.863 drawn against 21.803), since the least distance is the median
+  over the rows about the isthmus and the line is drawn in the row nearest it, so those two lines
+  now carry the rule median, as the pedicle's width and height do (morphoview/lines.py).
+- morphometry/tests/trace_pedicle.py prints the parted surfaces (columns, span, each surface's counts,
+  margin, centres across and slope) in place of the middles; morphometry/tests/probe_axis.py called
+  isthmus with two arguments where it takes three since the fourth pass, and runs again.
+
+## The grid
+
+The owner's rule of 23:41 UTC: the measuring runs on the grid, never in the cloud; no mask comes into a
+container. The enhance job, Slurm 40872077 (queued 22:47 UTC), stood PENDING on a dependency at 23:02
+and at 23:44 UTC (the status reads metaflow-smoke-status-2302 and morphometry-status-20261029T2345Z on
+symphony-template's branch grid), behind the runs that held the checkout when it was queued. The next
+status read is scheduled for 01:19 UTC on 30 October, then further apart; the moment status shows the
+job gone, `schwingnet-morphometry-verse` goes through grid-accounts.yml (action job) on the owner's
+yes of 23:47 UTC and his count of 15:19 UTC, and its time and Slurm id are written here. Both sets run
+the engine pinned in SchwingNet main, without the pedicle rework; the rework reaches the grid only
+once PR 44 is merged, the engine re-pinned (`python3 tools/bordercall_vendor.py copy <clone>` from
+SchwingNet main) and a run queued on a count of the owner's.
+
+## What is left, in order
+
+1. The adversarial review of this pass into PR 44's body (the review of the fifth pass is being
+   written as this handoff is), then mark ready and merge once the owner says so, and re-pin the
+   engine into SchwingNet; close bordercall PR 41, the other thread's vendoring draft.
+2. On the grid, on the owner's count: the 229-spine sweep with the reworked engine and the renders of
+   study 0004 at C5, T1, T8, L3, L4 and L5, the level medians of the pedicle angles beside Zindrick's
+   and Panjabi's, the flags counted (L5 and the neck); the facet pairing that fails at four of six
+   levels of 0004, the discs' corner heights (L3-L4 1.6 mm behind, T8-T9 1.0 in front) and C5's
+   upper end-plate depth (9.8 against 16.7), all found by the fourth pass's 0004 measure, are traced
+   on those renders. None of it runs in a container.
+3. The transverse angle's construction (the canal wall's angle over a few rows) stays the open
+   problem the fourth pass named; the isthmus finder's one miss above.
+
+
 # Morphometry: the handoff of 2026-10-29, 23:10 UTC
 
 Source: the thread "Advance morphometry", written on the owner's word of 23:06 UTC ("im about to

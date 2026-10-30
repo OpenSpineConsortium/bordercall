@@ -74,17 +74,29 @@ not jut in (CORNER_MM), so that a short pedicle still gets a baseline, and the t
 is the line's angle to the midsagittal plane, positive where the pedicles converge toward the
 front, read where the rows taken span AXIS_SPAN_MM. It is the angle of the canal's wall along
 the pedicle, which under-reads the pedicle's bisector where the lateral cortex flares, so the
-research note sets the level medians beside the papers'. Up, the axis follows the middle of the
-height run: the isthmus rows' own, and in a row taken beyond them the column half the isthmus's
-section out from its wall, where that column's height is within HEIGHT_SHARE of the isthmus's,
-since the pedicle's top and bottom surfaces run on past its free lateral length, between the
-notches, to the pillar. The sagittal angle is the climb's angle to the transverse plane,
-positive where the posterior end is higher, taken against the plane square to the body's
-posterior wall (wall_slope), read where the rows with a middle span SAGITTAL_SPAN_MM front to
-back: the borders of so short a pedicle curve with the notch and the process, and the centres'
-climb is theirs, not the pedicle's (study 0004's thoracic pedicles span 4.5 to 5.3 mm and
-climbed 40 to 50 degrees); the chord then takes the axis level, and where the rows are too few
-for an axis at all the chord and the transverse angle are not read. The chord is the length of
+research note sets the level medians beside the papers'. Up, the axis follows the pedicle's top and
+bottom surfaces over the isthmus rows, each parted from the scan's own lattice (climb): in
+every isthmus row the columns across the middle half of the section whose run is the pedicle's,
+within HEIGHT_SHARE of the isthmus's height, say to a layer where each surface lies (columns),
+and the voxel centres within SURFACE_LAYERS of it under those columns, bone and air, are parted
+by the surface z = a + b y + c x' + d x'^2 of widest margin (parting, a linear program), x' the
+place across the section from its middle, so that the ellipse's crown goes into the quadratic
+and b is the climb along the pedicle's centre line; the pedicle's climb is the mean of its two
+surfaces'. One column's surfaces step with the raster: the fourth pass read the middle of one
+column a row and fitted the middles' line, which on the phantoms' 7.5 mm baseline, with layers
+of 1.24 mm, read 3 and 8 degrees where 0 and 6 are drawn, one layer over that baseline being 9
+degrees; the centres on both sides of a surface bracket it wherever the layers cut it at another
+phase, and under the columns of a tilted grid they do. The rows beyond the isthmus are not taken
+for the climb: under them the pillar's and the body's corner's bone stands about the surface and
+no one surface parts it (on the straight phantom the margin went negative and the climb read 10
+degrees), and a surface the lattice does not part, more than VIOLATED_SHARE of its centres lying
+across the best one, is not read. The sagittal angle is the climb's angle to the transverse
+plane, positive where the posterior end is higher, taken against the plane square to the body's
+posterior wall (wall_slope), read where the columns span SAGITTAL_SPAN_MM front to back: the
+borders of so short a pedicle curve with the notch and the process, and their climb is theirs,
+not the pedicle's (study 0004's thoracic pedicles span 4.5 to 5.3 mm and climbed 40 to 50
+degrees); the chord then takes the axis level, and where the rows are too few for an axis at all
+the chord and the transverse angle are not read. The chord is the length of
 bone the axis line through the isthmus crosses, from where it enters the posterior elements to
 where it leaves the body's anterior cortex, read by marching along the line voxel by voxel
 (Zindrick's screw path).
@@ -111,6 +123,7 @@ import math
 from typing import Dict, List, Optional, Tuple
 
 import numpy as np
+from scipy.optimize import linprog
 
 from scanimport import geometry as G
 
@@ -124,6 +137,10 @@ ANCHOR_SHARE = 0.25           # each row is read at the body's median height and
 OUTLIER_SHARE = 0.25          # an isthmus row whose width or height is further than this share from the others' is not the pedicle's
 CORNER_MM = 1.0               # a row whose medial wall stands this much nearer the midline than the isthmus rows' is the body's corner or the lamina
 HEIGHT_SHARE = 0.35           # a column whose height is further than this share from the isthmus's is not the pedicle's
+SURFACE_LAYERS = 1.5          # a surface is parted from the voxel centres within this many layers of it under each column
+MIN_COLUMNS = 6               # the surfaces are parted under no fewer columns
+MIN_PARTED = 4                # a surface is parted from at least this many centres of bone and as many of air
+VIOLATED_SHARE = 0.1          # a surface more of whose centres than this share lie across the best one is not read
 WALL_FIT_MM = 1.0             # the axis takes a row whose medial wall lies within this of the line through the isthmus rows' walls
 AXIS_SPAN_MM = 2.0            # the transverse angle needs the walls to span this front to back
 SAGITTAL_SPAN_MM = 5.5
@@ -335,20 +352,17 @@ def wall_line(rows: List[dict], near: List[int], walls: Dict[int, float]) -> np.
     return np.array([0.0, float(np.median(ws))])
 
 
-def axis_rows(m: SideMap, rows: List[dict], near: List[int], k: int, sec: float, hgt: float,
-              walls: Dict[int, float]) -> Tuple[List[int], Dict[int, float], Dict[int, float]]:
-    """The rows the axis is read on and their medial walls, with the heights of the pedicle's
-    middle in the rows that give one: the isthmus rows, each with its own wall, extended
-    forward and back row by row while the next row's wall, read over the isthmus row's layers,
-    lies within WALL_FIT_MM of the isthmus rows' line (wall_line) and stands no further in than
-    CORNER_MM from their median, up to the body's posterolateral corner in front and the
-    lamina or the articular process behind, where the wall steps off the line or juts in. An
-    extended row's middle height comes from the column half the isthmus's section out from
-    its wall, and counts where that column's height is within HEIGHT_SHARE of the isthmus's."""
+def axis_rows(m: SideMap, rows: List[dict], near: List[int], k: int,
+              walls: Dict[int, float]) -> Tuple[List[int], Dict[int, float]]:
+    """The rows the axis is read across on, and their medial walls: the isthmus rows, each
+    with its own wall, extended forward and back row by row while the next row's wall, read
+    over the isthmus row's layers, lies within WALL_FIT_MM of the isthmus rows' line
+    (wall_line) and stands no further in than CORNER_MM from their median, up to the body's
+    posterolateral corner in front and the lamina or the articular process behind, where the
+    wall steps off the line or juts in."""
     v = m.v
     taken = list(near)
     walls = dict(walls)
-    mids = {i: rows[i]["z"] for i in taken}
     line = wall_line(rows, near, walls)
     floor = float(np.median([walls[i] for i in near])) - CORNER_MM
     layers = layers_of(v, rows[k]["run"])
@@ -360,31 +374,127 @@ def axis_rows(m: SideMap, rows: List[dict], near: List[int], k: int, sec: float,
                 break
             taken.append(i)
             walls[i] = wall
-            run = height_run(v, m.x_of(wall + 0.5 * sec), rows[i]["y"], rows[k]["z"])
-            if run is not None and abs((run[1] - run[0]) - hgt) <= HEIGHT_SHARE * hgt:
-                mids[i] = 0.5 * (run[0] + run[1])
             i += step
-    return sorted(taken), walls, mids
+    return sorted(taken), walls
 
 
-def axis_from(rows: List[dict], taken: List[int], walls: Dict[int, float], mids: Dict[int, float], side: int) -> Tuple[np.ndarray, str, str]:
-    """The axis pointing back through the rows taken, a note where they are too few for an
-    axis or for its sagittal angle, and which of its angles were read: "both", "transverse",
-    or "neither" where the axis is taken front to back and stands for nothing measured."""
+def columns(m: SideMap, rows: List[dict], near: List[int], sec: float, hgt: float) -> np.ndarray:
+    """The columns the pedicle's surfaces are read under: across the middle half of each
+    isthmus row's section, a pixel apart, those whose run through the row's middle is the
+    pedicle's, within HEIGHT_SHARE of the isthmus's height, as (x, y, bottom, top); the others
+    stand under the articular process or the body's corner, whose bone joins the pedicle's run."""
+    v = m.v
+    out = []
+    for i in near:
+        r = rows[i]
+        for u in np.arange(r["u0"] + 0.25 * sec, r["u0"] + 0.75 * sec + 1e-9, v.fx):
+            x = m.x_of(float(u))
+            run = height_run(v, x, r["y"], r["z"])
+            if run is not None and abs((run[1] - run[0]) - hgt) <= HEIGHT_SHARE * hgt:
+                out.append((x, r["y"], run[0], run[1]))
+    return np.array(out, float).reshape(-1, 4)
+
+
+def lattice_under(m: SideMap, cols: np.ndarray, line: np.ndarray, sec: float,
+                  top: bool) -> Tuple[np.ndarray, np.ndarray, np.ndarray]:
+    """The scan's voxel centres under the columns within SURFACE_LAYERS of each column's own
+    surface, the top or the bottom: their frame coordinates, their place across the section
+    from its middle, and whether each is the vertebra's bone. A centre belongs to the nearest
+    column, within half a pixel across and a quarter of a pixel front to back, the rows being
+    half a pixel apart; a centre beyond the volume counts as air, as is_bone reads it."""
+    v = m.v
+    xs, ys = cols[:, 0], cols[:, 1]
+    zs = cols[:, 3] if top else cols[:, 2]
+    pad = (SURFACE_LAYERS + 1.0) * v.fz
+    corners = np.array([[x, y, z] for x in (xs.min() - v.pixel, xs.max() + v.pixel)
+                        for y in (ys.min() - v.pixel, ys.max() + v.pixel) for z in (zs.min() - pad, zs.max() + pad)])
+    inv = np.linalg.inv(np.asarray(v.grid.affine, float))
+    cijk = v.points_world(corners) @ inv[:3, :3].T + inv[:3, 3]
+    lo, hi = np.floor(cijk.min(0)).astype(int) - 1, np.ceil(cijk.max(0)).astype(int) + 1
+    ijk = np.stack(np.meshgrid(*[np.arange(lo[a], hi[a] + 1) for a in range(3)], indexing="ij"), -1).reshape(-1, 3)
+    q = v.frame.local(v.grid.world(ijk.astype(float)))
+    apart = np.maximum(np.abs(q[:, :1] - xs[None, :]) / (0.5 * v.pixel),
+                       np.abs(q[:, 1:2] - ys[None, :]) / (0.25 * v.pixel + 1e-6))
+    j = np.argmin(apart, axis=1)
+    keep = (apart[np.arange(len(q)), j] <= 1.0) & (np.abs(q[:, 2] - zs[j]) <= SURFACE_LAYERS * v.fz)
+    q, ijk = q[keep], ijk[keep]
+    across = m.side * (q[:, 0] - v.midline) - (np.polyval(line, q[:, 1]) + 0.5 * sec)
+    return q, across, v.is_bone(ijk)
+
+
+def parting(y: np.ndarray, across: np.ndarray, z: np.ndarray, bone: np.ndarray, top: bool) -> Optional[dict]:
+    """The surface z = a + b y + c x' + d x'^2 that parts the bone from the air with the widest
+    margin, bone below it and air above for the top and the other way for the bottom, as a
+    linear program over the margin; where no such surface parts them, the margin being
+    negative, the one with the least total crossing instead (a linear program over the
+    crossings), with how many centres lie across it. Returns the coefficients, the margin and
+    the count of centres across, or None where the programs find no surface."""
+    F = np.column_stack([np.ones_like(y), y, across, across ** 2])
+    sign = np.where(bone, -1.0, 1.0) if top else np.where(bone, 1.0, -1.0)
+    n = len(y)
+    res = linprog(c=[0.0, 0.0, 0.0, 0.0, -1.0], A_ub=np.column_stack([sign[:, None] * F, np.ones(n)]),
+                  b_ub=sign * z, bounds=[(None, None)] * 5, method="highs")
+    if not res.success:
+        return None
+    coef, margin = np.asarray(res.x[:4], float), float(res.x[4])
+    if margin >= 0.0:
+        return {"coefficients": coef, "margin": margin, "across": 0}
+    res = linprog(c=np.concatenate([np.zeros(4), np.ones(n)]),
+                  A_ub=np.column_stack([sign[:, None] * F, -np.eye(n)]), b_ub=sign * z,
+                  bounds=[(None, None)] * 4 + [(0.0, None)] * n, method="highs")
+    if not res.success:
+        return None
+    crossing = np.asarray(res.x[4:], float)
+    return {"coefficients": np.asarray(res.x[:4], float), "margin": margin, "across": int((crossing > 1e-9).sum())}
+
+
+def climb(m: SideMap, rows: List[dict], near: List[int], walls: Dict[int, float], sec: float,
+          hgt: float) -> Tuple[float, str, dict]:
+    """The pedicle's climb front to back along its centre line, dz per mm of y, the mean of
+    its top and bottom surfaces' (parting); NAN with a note where it is not read: too few
+    columns, columns spanning less than SAGITTAL_SPAN_MM, too few centres about a surface, or
+    a surface more of whose centres than VIOLATED_SHARE lie across the best one. The record
+    carries the columns, their span and each surface's coefficients, margin and counts, for
+    the trace."""
+    v = m.v
+    cols = columns(m, rows, near, sec, hgt)
+    record: dict = {"columns": cols, "span": float(np.ptp(cols[:, 1])) + 0.5 * v.pixel if len(cols) else 0.0}
+    if len(cols) < MIN_COLUMNS:
+        return NAN, "the pedicle's surfaces stand under %d columns, too few to part them from the lattice" % len(cols), record
+    if record["span"] < SAGITTAL_SPAN_MM:
+        return NAN, "the free pedicle spans %.1f mm front to back: its sagittal angle is not read" % record["span"], record
+    line = wall_line(rows, near, walls)
+    slopes = []
+    for top, name in ((True, "top"), (False, "bottom")):
+        q, across, bone = lattice_under(m, cols, line, sec, top)
+        n_bone, n_air = int(bone.sum()), int((~bone).sum())
+        record[name] = {"bone": n_bone, "air": n_air}
+        if min(n_bone, n_air) < MIN_PARTED:
+            return NAN, ("the pedicle's %s surface has %d centres of bone and %d of air about it: not parted"
+                         % (name, n_bone, n_air)), record
+        got = parting(q[:, 1], across, q[:, 2], bone, top)
+        if got is None:
+            return NAN, "no surface parts the bone from the air about the pedicle's %s" % name, record
+        record[name].update(got)
+        if got["across"] > VIOLATED_SHARE * len(q):
+            return NAN, ("the bone and the air about the pedicle's %s are not parted by one surface: %d of %d centres "
+                         "lie across the best" % (name, got["across"], len(q))), record
+        slopes.append(float(got["coefficients"][1]))
+    return 0.5 * (slopes[0] + slopes[1]), "", record
+
+
+def axis_from(rows: List[dict], taken: List[int], walls: Dict[int, float], rise: float,
+              side: int) -> Tuple[np.ndarray, str, str]:
+    """The axis pointing back through the rows taken: across, the walls' line; up, the climb
+    where it was read (climb), else level. With it a note where the rows are too few for an
+    axis, which is then taken front to back and stands for nothing measured, and which of its
+    angles were read: "both", "transverse", or "neither"."""
     y = np.array([rows[i]["y"] for i in taken])
     if len(taken) < 3 or np.ptp(y) < AXIS_SPAN_MM:
         return np.array([0.0, -1.0, 0.0]), "the free pedicle is too short to give an axis: taken front to back", "neither"
     across = np.polyfit(y, side * np.array([walls[i] for i in taken]), 1)[0]
-    with_z = [i for i in taken if i in mids]
-    yz = np.array([rows[i]["y"] for i in with_z])
-    if len(with_z) < 3 or np.ptp(yz) < SAGITTAL_SPAN_MM:
-        d = np.array([across, 1.0, 0.0])
-        note = "the free pedicle spans %.1f mm front to back: its sagittal angle is not read" % (np.ptp(yz) if len(yz) else 0.0)
-        reads = "transverse"
-    else:
-        d = np.array([across, 1.0, np.polyfit(yz, np.array([mids[i] for i in with_z]), 1)[0]])
-        note, reads = "", "both"
-    return -d / np.linalg.norm(d), note, reads
+    d = np.array([across, 1.0, rise if np.isfinite(rise) else 0.0])
+    return -d / np.linalg.norm(d), "", "both" if np.isfinite(rise) else "transverse"
 
 
 def chord(v: Vertebra, c0: np.ndarray, d: np.ndarray) -> float:
@@ -442,15 +552,18 @@ def one_side(v: Vertebra, side: int, zb: Tuple[float, float]) -> Tuple[Dict[str,
     if sec > PEDICLE_MAX_MM.get(v.level[:1], 20.0):
         return {}, ("no row shows the pedicle free of what joins it laterally, the transverse process's root or "
                     "the lateral mass: its section reads %.0f mm" % sec), None
-    taken, walls, mids = axis_rows(m, rows, near, k, sec, hgt, walls)
-    d, note, reads = axis_from(rows, taken, walls, mids, side)
+    taken, walls = axis_rows(m, rows, near, k, walls)
+    rise, why, parted = climb(m, rows, near, walls, sec, hgt)
+    d, note, reads = axis_from(rows, taken, walls, rise, side)
+    if reads == "transverse":
+        note = why
     level = np.array([d[0], d[1], 0.0]) / np.linalg.norm(d[:2])
-    pitch = abs(d[1]) / math.hypot(d[1], d[2])
+    pitch = math.hypot(d[0], d[1])       # the cosine of the sagittal angle, d being a unit vector
     width = sec * abs(level[1])
     height = hgt * (pitch if reads == "both" else 1.0)
     out = {"pedicle_w": width, "pedicle_h": height, "pedicle_area": math.pi * width * height / 4.0,
            "pedicle_angle_transverse": math.degrees(math.atan2(side * d[0], -d[1])),
-           "pedicle_angle_sagittal": math.degrees(math.atan2(d[2], -d[1])) - math.degrees(math.atan(wall_slope(v)))}
+           "pedicle_angle_sagittal": math.degrees(math.atan2(d[2], pitch)) - math.degrees(math.atan(wall_slope(v)))}
     c0 = np.array([rows[k]["x"], rows[k]["y"], rows[k]["z"]])
     out["pedicle_chord"] = chord(v, c0, d)
     if reads != "both":
@@ -459,7 +572,7 @@ def one_side(v: Vertebra, side: int, zb: Tuple[float, float]) -> Tuple[Dict[str,
         out["pedicle_angle_transverse"] = out["pedicle_chord"] = NAN
     info = {"centre": c0, "axis": d, "eh": np.array([0.0, 0.0, 1.0]), "height": hgt, "rows": rows, "isthmus": k,
             "near": near, "taken": taken,
-            "walls": walls, "mids": mids, "map": m,
+            "walls": walls, "parted": parted, "map": m,
             "width_row": nearest(rows, near, lambda r: r["w"], sec),
             "height_row": nearest(rows, near, lambda r: r["h"], hgt)}
     return out, note, info
