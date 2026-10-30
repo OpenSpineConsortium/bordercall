@@ -4,7 +4,8 @@ calibration of the spread (autoanatomist/calibrate.py).
     python -m unittest tests.test_autoanatomist_blocks -v          # from the repository's root
 
 The defaults are the smoke run's numbers, held to train.py's, smoke.py's, ladder.py's, gates.py's,
-model.py's and optax.adamw's constants, which the blocks spell as literals so as to import no JAX;
+model.py's and optax.adamw's constants, which the blocks spell as literals so as to import no JAX, and
+the architecture's choices are model.ARCHITECTURES' names;
 every spelling of one configuration has one digest and a word is refused in words; the anneal over
 a run's length gives Schedule's (w, lambda) to the bit, each kind places the ramps as it says, and a
 continued anneal carries on from where it stood to the ends by the step named; the calibration's
@@ -42,8 +43,10 @@ class TheBlocks(unittest.TestCase):
         b = B.parse("optimiser=sgd lr=0.00100 clip=1 warmup=5 batch=3 knee=1 spread_floor=0.25 w_naming=0 naming=off "
                     "schedule=w-first lam_span=0.1:0.5 w_span=0.5:0.9 lam_fixed=0.5 w_fixed=0 anneal=900 "
                     "intensity=gain-offset-noise normalise=clip-zscore widths=8:16:32 groups=4 blur_mm=2 "
-                    "threshold_hu=150 threshold_width_hu=30 calibrate=quantile coverage=0.9 seed=3")
+                    "threshold_hu=150 threshold_width_hu=30 calibrate=quantile coverage=0.9 seed=3 architecture=plain-unet")
         self.assertEqual(B.parse(b.words()), b)
+        self.assertEqual(b.architecture, "plain-unet")
+        self.assertIn("architecture=plain-unet", b.words())
         self.assertIn("lr=0.001", b.words())                         # spelled canonically, not as written
         self.assertIn("naming=off", b.words())
         self.assertIn("widths=8:16:32", b.words())
@@ -71,7 +74,8 @@ class TheBlocks(unittest.TestCase):
                             ("lr=0", "above 0.0"), ("lr=nan", "finite"), ("coverage=1", "below 1.0"),
                             ("lam_fixed=1.5", "at most 1.0"), ("lam_span=0.5:0.4", "0 <= a < b <= 1"),
                             ("lam_span=0.5", "0 <= a < b <= 1"), ("widths=8:16", "three whole numbers"),
-                            ("widths=8:0:16", "at least 1"), ("schedule=cosine", "lambda-then-w, joint, w-first or fixed")]:
+                            ("widths=8:0:16", "at least 1"), ("schedule=cosine", "lambda-then-w, joint, w-first or fixed"),
+                            ("architecture=unet", "residual-unet, plain-unet or probe")]:
             with self.assertRaises(ValueError, msg=words) as cm:
                 B.parse(words)
             self.assertIn(said, str(cm.exception), words)
@@ -83,6 +87,8 @@ class TheBlocks(unittest.TestCase):
             self.assertIn(k.name + " (", text)
         self.assertIn("default adamw", text)
         self.assertIn("default 16:32:64", text)
+        self.assertIn("default residual-unet", text)
+        self.assertEqual(len(B.TABLE), 31)
         self.assertEqual(B.DEFAULTS.weights(), {"landmark": 1.0, "spread": 0.1, "value": 1.0, "feature": 1.0, "naming": 0.1})
         self.assertEqual(B.DEFAULTS.rungs(), {"bone_hu": 200.0, "width_hu": 60.0, "blur_max_mm": 4.0})
 
@@ -93,7 +99,7 @@ class TheDefaultsAreTheSmokeRun(unittest.TestCase):
         import optax
         from autoanatomist import blocks as B
         from autoanatomist import gates, ladder, smoke, train
-        from autoanatomist.model import Config
+        from autoanatomist.model import ARCHITECTURES, DEFAULT_ARCHITECTURE, Config
         d = B.DEFAULTS
         self.assertEqual(d.weights(), train.LOSS_WEIGHTS)
         self.assertEqual(d.knee, train.HUBER_KNEE_MM)
@@ -106,6 +112,9 @@ class TheDefaultsAreTheSmokeRun(unittest.TestCase):
         self.assertEqual(d.threshold_width_hu, ladder.THRESHOLD_WIDTH_HU)
         self.assertEqual(d.threshold_hu, gates.BONE_HU)
         self.assertEqual((d.widths, d.groups, d.normalise), (Config().widths, Config().groups, Config().normalise))
+        self.assertEqual(d.architecture, Config().architecture)
+        self.assertEqual(d.architecture, DEFAULT_ARCHITECTURE)
+        self.assertEqual(B.KEYS["architecture"].choices, tuple(ARCHITECTURES))
         self.assertEqual(d.weight_decay, inspect.signature(optax.adamw).parameters["weight_decay"].default)
         self.assertEqual(d.seed, smoke.SEEDS["run"])
 
