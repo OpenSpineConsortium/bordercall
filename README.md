@@ -204,7 +204,7 @@ python run.py exact --outdir ../records/exact-2026-10-26             # exact.jso
 python run.py exact-supplement --outdir ../records/exact-2026-10-26  # supplement.json, 879 s
 python run.py exact-figures --json ../records/exact-2026-10-26/exact.json --outdir ../records/exact-2026-10-26/figures
 python run.py exact-slide-figures --json ../records/exact-2026-10-26/exact.json --outdir ../records/exact-2026-10-26/slide-figures
-cd .. && python3 -m unittest discover -s tests                       # 243 tests, about two minutes
+cd .. && python3 -m unittest discover -s tests                       # 345 tests, about twenty minutes
 ```
 
 To name one field, run this from the repository's root. Here the three bodies carry Panjabi's means at T11, T12 and L1:
