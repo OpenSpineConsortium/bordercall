@@ -12931,14 +12931,13 @@
    "panjabi_mean": 10.35,
    "panjabi_sd": 2.0784609690826525,
    "panjabi_step_per_level": 0.7000000000000002,
-   "pool_i2": 0.9845885002111198,
-   "pool_k": 2,
-   "pool_mean": 13.148299483323905,
+   "pool_i2": 0.0,
+   "pool_k": 1,
+   "pool_mean": 10.35,
    "pool_papers": [
-    "panjabi",
-    "masharawi2021"
+    "panjabi"
    ],
-   "pool_tau": 3.895838533763431,
+   "pool_tau": 0.0,
    "sources": [
     {
      "cohort": "control",
@@ -12952,7 +12951,7 @@
      "sd": 2.39938,
      "sex": "all",
      "technique": "ct_axial_2d",
-     "vs_panjabi": "close"
+     "vs_panjabi": "differs"
     },
     {
      "cohort": "ds",
@@ -12966,7 +12965,7 @@
      "sd": 1.85804,
      "sex": "all",
      "technique": "ct_axial_2d",
-     "vs_panjabi": "close"
+     "vs_panjabi": "differs"
     }
    ]
   },
@@ -12976,14 +12975,13 @@
    "panjabi_mean": 11.25,
    "panjabi_sd": 2.9444863728670914,
    "panjabi_step_per_level": 1.7500000000000009,
-   "pool_i2": 0.9651682121749903,
-   "pool_k": 2,
-   "pool_mean": 13.741761489019774,
+   "pool_i2": 0.0,
+   "pool_k": 1,
+   "pool_mean": 11.25,
    "pool_papers": [
-    "panjabi",
-    "masharawi2021"
+    "panjabi"
    ],
-   "pool_tau": 3.3726846916352855,
+   "pool_tau": 0.0,
    "sources": [
     {
      "cohort": "control",
@@ -12997,7 +12995,7 @@
      "sd": 2.21947,
      "sex": "all",
      "technique": "ct_axial_2d",
-     "vs_panjabi": "close"
+     "vs_panjabi": "differs"
     },
     {
      "cohort": "ds",
@@ -13011,7 +13009,7 @@
      "sd": 1.90811,
      "sex": "all",
      "technique": "ct_axial_2d",
-     "vs_panjabi": "close"
+     "vs_panjabi": "differs"
     }
    ]
   },
@@ -13021,14 +13019,13 @@
    "panjabi_mean": 13.850000000000001,
    "panjabi_sd": 2.7712812921102037,
    "panjabi_step_per_level": 1.7249999999999996,
-   "pool_i2": 0.9345935017457785,
-   "pool_k": 2,
-   "pool_mean": 15.60648889154358,
+   "pool_i2": 0.0,
+   "pool_k": 1,
+   "pool_mean": 13.850000000000001,
    "pool_papers": [
-    "panjabi",
-    "masharawi2021"
+    "panjabi"
    ],
-   "pool_tau": 2.290030084228369,
+   "pool_tau": 0.0,
    "sources": [
     {
      "cohort": "control",
@@ -13042,7 +13039,7 @@
      "sd": 2.16823,
      "sex": "all",
      "technique": "ct_axial_2d",
-     "vs_panjabi": "close"
+     "vs_panjabi": "differs"
     },
     {
      "cohort": "ds",
@@ -13056,7 +13053,7 @@
      "sd": 1.81699,
      "sex": "all",
      "technique": "ct_axial_2d",
-     "vs_panjabi": "close"
+     "vs_panjabi": "differs"
     }
    ]
   },
@@ -13066,14 +13063,13 @@
    "panjabi_mean": 14.7,
    "panjabi_sd": 2.7712812921102037,
    "panjabi_step_per_level": 0.875,
-   "pool_i2": 0.8826256374705661,
-   "pool_k": 2,
-   "pool_mean": 16.056742511630492,
+   "pool_i2": 0.0,
+   "pool_k": 1,
+   "pool_mean": 14.7,
    "pool_papers": [
-    "panjabi",
-    "masharawi2021"
+    "panjabi"
    ],
-   "pool_tau": 1.6558021349904701,
+   "pool_tau": 0.0,
    "sources": [
     {
      "cohort": "control",
@@ -13087,7 +13083,7 @@
      "sd": 2.11181,
      "sex": "all",
      "technique": "ct_axial_2d",
-     "vs_panjabi": "close"
+     "vs_panjabi": "differs"
     },
     {
      "cohort": "ds",
@@ -13101,7 +13097,7 @@
      "sd": 2.58627,
      "sex": "all",
      "technique": "ct_axial_2d",
-     "vs_panjabi": "close"
+     "vs_panjabi": "differs"
     }
    ]
   },
@@ -13111,14 +13107,13 @@
    "panjabi_mean": 15.600000000000001,
    "panjabi_sd": 2.25166604983954,
    "panjabi_step_per_level": 0.9000000000000021,
-   "pool_i2": 0.9261335963950867,
-   "pool_k": 2,
-   "pool_mean": 17.064904137289005,
+   "pool_i2": 0.0,
+   "pool_k": 1,
+   "pool_mean": 15.600000000000001,
    "pool_papers": [
-    "panjabi",
-    "masharawi2021"
+    "panjabi"
    ],
-   "pool_tau": 1.934293155197524,
+   "pool_tau": 0.0,
    "sources": [
     {
      "cohort": "control",
@@ -13132,7 +13127,7 @@
      "sd": 2.95234,
      "sex": "all",
      "technique": "ct_axial_2d",
-     "vs_panjabi": "close"
+     "vs_panjabi": "differs"
     },
     {
      "cohort": "ds",
@@ -13146,7 +13141,7 @@
      "sd": 3.43849,
      "sex": "all",
      "technique": "ct_axial_2d",
-     "vs_panjabi": "close"
+     "vs_panjabi": "differs"
     }
    ]
   },
@@ -15894,9 +15889,9 @@
    "panjabi_mean": 15.850000000000001,
    "panjabi_sd": 2.68467875173176,
    "panjabi_step_per_level": 0.8499999999999996,
-   "pool_i2": 0.9977861030246578,
-   "pool_k": 12,
-   "pool_mean": 14.54843843335547,
+   "pool_i2": 0.9975889229975543,
+   "pool_k": 13,
+   "pool_mean": 14.719628197644965,
    "pool_papers": [
     "panjabi",
     "arockiaraj2025",
@@ -15906,12 +15901,13 @@
     "masharawi2021",
     "moncadahabib2025",
     "olsewski1990",
+    "otsuki2021",
     "robertson2000",
     "tan2004",
     "yu2015",
     "zindrick1987"
    ],
-   "pool_tau": 2.9648624233369048,
+   "pool_tau": 2.9643330286999627,
    "sources": [
     {
      "cohort": "saudi_ct",
@@ -16153,7 +16149,7 @@
      "sd": 2.7,
      "sex": "all",
      "technique": "microct_isthmus_dimensions",
-     "vs_panjabi": "differs"
+     "vs_panjabi": "close"
     },
     {
      "cohort": "auckland_drybone",
@@ -16415,9 +16411,9 @@
    "panjabi_mean": 14.95,
    "panjabi_sd": 1.8359738560230099,
    "panjabi_step_per_level": 0.7250000000000014,
-   "pool_i2": 0.9981065100097525,
-   "pool_k": 12,
-   "pool_mean": 14.212400997586817,
+   "pool_i2": 0.9979390602440374,
+   "pool_k": 13,
+   "pool_mean": 14.331112094062274,
    "pool_papers": [
     "panjabi",
     "arockiaraj2025",
@@ -16427,12 +16423,13 @@
     "masharawi2021",
     "moncadahabib2025",
     "olsewski1990",
+    "otsuki2021",
     "robertson2000",
     "tan2004",
     "yu2015",
     "zindrick1987"
    ],
-   "pool_tau": 3.2311501971404843,
+   "pool_tau": 3.226887812572983,
    "sources": [
     {
      "cohort": "saudi_ct",
@@ -16674,7 +16671,7 @@
      "sd": 1.7,
      "sex": "all",
      "technique": "microct_isthmus_dimensions",
-     "vs_panjabi": "differs"
+     "vs_panjabi": "close"
     },
     {
      "cohort": "auckland_drybone",
@@ -16936,9 +16933,9 @@
    "panjabi_mean": 14.399999999999999,
    "panjabi_sd": 2.1477430013854075,
    "panjabi_step_per_level": 0.8000000000000007,
-   "pool_i2": 0.9977257779509623,
-   "pool_k": 11,
-   "pool_mean": 13.879248249780087,
+   "pool_i2": 0.9975129223479536,
+   "pool_k": 12,
+   "pool_mean": 14.035967151246565,
    "pool_papers": [
     "panjabi",
     "arockiaraj2025",
@@ -16947,12 +16944,13 @@
     "masharawi2021",
     "moncadahabib2025",
     "olsewski1990",
+    "otsuki2021",
     "robertson2000",
     "tan2004",
     "yu2015",
     "zindrick1987"
    ],
-   "pool_tau": 3.5137592929748807,
+   "pool_tau": 3.509295761832315,
    "sources": [
     {
      "cohort": "saudi_ct",
@@ -17180,7 +17178,7 @@
      "sd": 1.7,
      "sex": "all",
      "technique": "microct_isthmus_dimensions",
-     "vs_panjabi": "differs"
+     "vs_panjabi": "close"
     },
     {
      "cohort": "auckland_drybone",
@@ -24797,9 +24795,9 @@
    "panjabi_mean": 14.05,
    "panjabi_sd": 1.1085125168440815,
    "panjabi_step_per_level": 4.225000000000001,
-   "pool_i2": 0.9901175038064862,
-   "pool_k": 12,
-   "pool_mean": 11.528198480478434,
+   "pool_i2": 0.9909963842275604,
+   "pool_k": 11,
+   "pool_mean": 11.618264958692382,
    "pool_papers": [
     "panjabi",
     "arockiaraj2025",
@@ -24808,13 +24806,12 @@
     "masharawi2021",
     "moncadahabib2025",
     "olsewski1990",
-    "otsuki2021",
     "robertson2000",
     "tan2004",
     "yu2015",
     "zindrick1987"
    ],
-   "pool_tau": 2.059730680346584,
+   "pool_tau": 2.1103392520927406,
    "sources": [
     {
      "cohort": "saudi_ct",
@@ -25042,7 +25039,7 @@
      "sd": 0.8,
      "sex": "all",
      "technique": "microct_isthmus_dimensions",
-     "vs_panjabi": "close"
+     "vs_panjabi": "differs"
     },
     {
      "cohort": "auckland_drybone",
@@ -25304,9 +25301,9 @@
    "panjabi_mean": 18.6,
    "panjabi_sd": 3.568024663591887,
    "panjabi_step_per_level": 4.550000000000001,
-   "pool_i2": 0.9925364728018033,
-   "pool_k": 12,
-   "pool_mean": 15.755990891189334,
+   "pool_i2": 0.9930940233054851,
+   "pool_k": 11,
+   "pool_mean": 16.11383425302236,
    "pool_papers": [
     "panjabi",
     "arockiaraj2025",
@@ -25315,13 +25312,12 @@
     "masharawi2021",
     "moncadahabib2025",
     "olsewski1990",
-    "otsuki2021",
     "robertson2000",
     "tan2004",
     "yu2015",
     "zindrick1987"
    ],
-   "pool_tau": 3.1415354864971783,
+   "pool_tau": 3.1459120332093526,
    "sources": [
     {
      "cohort": "saudi_ct",
@@ -25563,7 +25559,7 @@
      "sd": 1.7,
      "sex": "all",
      "technique": "microct_isthmus_dimensions",
-     "vs_panjabi": "close"
+     "vs_panjabi": "differs"
     },
     {
      "cohort": "auckland_drybone",
@@ -29458,11 +29454,11 @@
    },
    "technique": "ct_axial_workstation",
    "widened_source": {
-    "exact": 322,
+    "exact": 315,
     "fields": 1000,
     "named": 0,
     "named_right": 0,
-    "within_one": 497
+    "within_one": 494
    },
    "widened_spread": {
     "pedicle_incl_sag": 5.5218391822703605,
@@ -29505,11 +29501,11 @@
    },
    "technique": "ct_axial_workstation",
    "widened_source": {
-    "exact": 323,
+    "exact": 315,
     "fields": 600,
     "named": 0,
     "named_right": 0,
-    "within_one": 424
+    "within_one": 420
    },
    "widened_spread": {
     "pedicle_incl_sag": 5.5218391822703605,
@@ -29552,11 +29548,11 @@
    },
    "technique": "ct_axial_workstation",
    "widened_source": {
-    "exact": 182,
+    "exact": 181,
     "fields": 200,
     "named": 1,
     "named_right": 1,
-    "within_one": 193
+    "within_one": 192
    },
    "widened_spread": {
     "pedicle_incl_sag": 5.5218391822703605,
@@ -30106,11 +30102,11 @@
    },
    "technique": "mdct-axial-pedicle",
    "widened_source": {
-    "exact": 0,
+    "exact": 1,
     "fields": 400,
     "named": 0,
     "named_right": 0,
-    "within_one": 5
+    "within_one": 7
    },
    "widened_spread": {
     "pedicle_incl_sag": 5.134471466024563,
@@ -30243,7 +30239,7 @@
     "fields": 800,
     "named": 0,
     "named_right": 0,
-    "within_one": 230
+    "within_one": 233
    },
    "widened_spread": {
     "pedicle_h": 0.13023135299131786
@@ -30287,7 +30283,7 @@
     "fields": 400,
     "named": 0,
     "named_right": 0,
-    "within_one": 140
+    "within_one": 142
    },
    "widened_spread": {
     "pedicle_h": 0.13023135299131786
@@ -30915,11 +30911,11 @@
    },
    "technique": "vernier_caliper_dry_bone",
    "widened_source": {
-    "exact": 368,
+    "exact": 362,
     "fields": 1800,
     "named": 0,
     "named_right": 0,
-    "within_one": 878
+    "within_one": 866
    },
    "widened_spread": {
     "pedicle_h": 0.13023135299131786,
@@ -30966,11 +30962,11 @@
    },
    "technique": "vernier_caliper_dry_bone",
    "widened_source": {
-    "exact": 463,
+    "exact": 451,
     "fields": 1400,
     "named": 0,
     "named_right": 0,
-    "within_one": 850
+    "within_one": 842
    },
    "widened_spread": {
     "pedicle_h": 0.13023135299131786,
@@ -31017,7 +31013,7 @@
    },
    "technique": "vernier_caliper_dry_bone",
    "widened_source": {
-    "exact": 356,
+    "exact": 351,
     "fields": 1000,
     "named": 1,
     "named_right": 1,
@@ -31370,11 +31366,11 @@
    },
    "technique": "dry_caliper",
    "widened_source": {
-    "exact": 736,
+    "exact": 729,
     "fields": 3400,
     "named": 11,
     "named_right": 11,
-    "within_one": 1521
+    "within_one": 1517
    },
    "widened_spread": {
     "pedicle_h": 0.14389993427841286,
@@ -31429,11 +31425,11 @@
    },
    "technique": "dry_caliper",
    "widened_source": {
-    "exact": 916,
+    "exact": 921,
     "fields": 3000,
-    "named": 17,
-    "named_right": 17,
-    "within_one": 1823
+    "named": 18,
+    "named_right": 18,
+    "within_one": 1827
    },
    "widened_spread": {
     "pedicle_h": 0.14389993427841286,
@@ -31488,11 +31484,11 @@
    },
    "technique": "dry_caliper",
    "widened_source": {
-    "exact": 1118,
+    "exact": 1121,
     "fields": 2600,
-    "named": 24,
-    "named_right": 24,
-    "within_one": 1992
+    "named": 25,
+    "named_right": 25,
+    "within_one": 1995
    },
    "widened_spread": {
     "pedicle_h": 0.14389993427841286,
@@ -31692,38 +31688,36 @@
    "measures": [
     "canal_ap",
     "canal_w",
-    "facet_w_sup",
     "pedicle_w"
    ],
    "panjabi": {
-    "exact": 445,
+    "exact": 396,
     "fields": 1000,
     "named": 60,
     "named_right": 60,
-    "within_one": 644
+    "within_one": 580
    },
    "paper": "masharawi2021",
    "places": 5,
    "sex": "all",
    "source": {
-    "exact": 106,
+    "exact": 96,
     "fields": 1000,
-    "named": 12,
-    "named_right": 12,
-    "within_one": 247
+    "named": 9,
+    "named_right": 7,
+    "within_one": 279
    },
    "technique": "ct_axial_2d",
    "widened_source": {
-    "exact": 200,
+    "exact": 208,
     "fields": 1000,
-    "named": 12,
-    "named_right": 12,
-    "within_one": 425
+    "named": 6,
+    "named_right": 5,
+    "within_one": 478
    },
    "widened_spread": {
     "canal_ap": 0.11790442662539778,
     "canal_w": 0.09541330622613352,
-    "facet_w_sup": null,
     "pedicle_w": 0.13072155556817203
    },
    "width": 1
@@ -31743,38 +31737,36 @@
    "measures": [
     "canal_ap",
     "canal_w",
-    "facet_w_sup",
     "pedicle_w"
    ],
    "panjabi": {
-    "exact": 444,
+    "exact": 407,
     "fields": 600,
-    "named": 82,
-    "named_right": 82,
-    "within_one": 532
+    "named": 78,
+    "named_right": 78,
+    "within_one": 505
    },
    "paper": "masharawi2021",
    "places": 3,
    "sex": "all",
    "source": {
-    "exact": 117,
+    "exact": 139,
     "fields": 600,
-    "named": 26,
-    "named_right": 17,
-    "within_one": 254
+    "named": 9,
+    "named_right": 9,
+    "within_one": 230
    },
    "technique": "ct_axial_2d",
    "widened_source": {
-    "exact": 205,
+    "exact": 254,
     "fields": 600,
-    "named": 14,
-    "named_right": 12,
-    "within_one": 393
+    "named": 7,
+    "named_right": 6,
+    "within_one": 429
    },
    "widened_spread": {
     "canal_ap": 0.11790442662539778,
     "canal_w": 0.09541330622613352,
-    "facet_w_sup": null,
     "pedicle_w": 0.13072155556817203
    },
    "width": 3
@@ -31794,38 +31786,36 @@
    "measures": [
     "canal_ap",
     "canal_w",
-    "facet_w_sup",
     "pedicle_w"
    ],
    "panjabi": {
     "exact": 183,
     "fields": 200,
-    "named": 115,
-    "named_right": 115,
-    "within_one": 196
+    "named": 102,
+    "named_right": 102,
+    "within_one": 195
    },
    "paper": "masharawi2021",
    "places": 1,
    "sex": "all",
    "source": {
-    "exact": 64,
+    "exact": 63,
     "fields": 200,
-    "named": 25,
-    "named_right": 11,
-    "within_one": 108
+    "named": 18,
+    "named_right": 17,
+    "within_one": 93
    },
    "technique": "ct_axial_2d",
    "widened_source": {
-    "exact": 102,
+    "exact": 108,
     "fields": 200,
-    "named": 19,
-    "named_right": 16,
-    "within_one": 141
+    "named": 24,
+    "named_right": 24,
+    "within_one": 163
    },
    "widened_spread": {
     "canal_ap": 0.11790442662539778,
     "canal_w": 0.09541330622613352,
-    "facet_w_sup": null,
     "pedicle_w": 0.13072155556817203
    },
    "width": 5
@@ -31909,11 +31899,11 @@
    },
    "technique": "ct_parasagittal_2d",
    "widened_source": {
-    "exact": 10,
+    "exact": 15,
     "fields": 600,
     "named": 0,
     "named_right": 0,
-    "within_one": 37
+    "within_one": 39
    },
    "widened_spread": {
     "pedicle_h": 0.13023135299131786
@@ -31954,7 +31944,7 @@
    },
    "technique": "ct_parasagittal_2d",
    "widened_source": {
-    "exact": 7,
+    "exact": 8,
     "fields": 200,
     "named": 0,
     "named_right": 0,
@@ -31980,38 +31970,36 @@
    "measures": [
     "canal_ap",
     "canal_w",
-    "facet_w_sup",
     "pedicle_w"
    ],
    "panjabi": {
-    "exact": 447,
+    "exact": 385,
     "fields": 1000,
-    "named": 67,
-    "named_right": 67,
-    "within_one": 616
+    "named": 65,
+    "named_right": 65,
+    "within_one": 597
    },
    "paper": "masharawi2021",
    "places": 5,
    "sex": "all",
    "source": {
-    "exact": 173,
+    "exact": 182,
     "fields": 1000,
-    "named": 5,
-    "named_right": 5,
-    "within_one": 361
+    "named": 12,
+    "named_right": 8,
+    "within_one": 384
    },
    "technique": "ct_axial_2d",
    "widened_source": {
-    "exact": 249,
+    "exact": 290,
     "fields": 1000,
-    "named": 1,
-    "named_right": 1,
-    "within_one": 524
+    "named": 9,
+    "named_right": 9,
+    "within_one": 561
    },
    "widened_spread": {
     "canal_ap": 0.11790442662539778,
     "canal_w": 0.09541330622613352,
-    "facet_w_sup": null,
     "pedicle_w": 0.13072155556817203
    },
    "width": 1
@@ -32031,38 +32019,36 @@
    "measures": [
     "canal_ap",
     "canal_w",
-    "facet_w_sup",
     "pedicle_w"
    ],
    "panjabi": {
-    "exact": 442,
+    "exact": 410,
     "fields": 600,
-    "named": 99,
-    "named_right": 99,
-    "within_one": 526
+    "named": 79,
+    "named_right": 79,
+    "within_one": 498
    },
    "paper": "masharawi2021",
    "places": 3,
    "sex": "all",
    "source": {
-    "exact": 146,
+    "exact": 162,
     "fields": 600,
-    "named": 33,
-    "named_right": 16,
-    "within_one": 293
+    "named": 20,
+    "named_right": 19,
+    "within_one": 271
    },
    "technique": "ct_axial_2d",
    "widened_source": {
-    "exact": 226,
+    "exact": 282,
     "fields": 600,
-    "named": 11,
-    "named_right": 11,
-    "within_one": 437
+    "named": 9,
+    "named_right": 9,
+    "within_one": 462
    },
    "widened_spread": {
     "canal_ap": 0.11790442662539778,
     "canal_w": 0.09541330622613352,
-    "facet_w_sup": null,
     "pedicle_w": 0.13072155556817203
    },
    "width": 3
@@ -32082,38 +32068,36 @@
    "measures": [
     "canal_ap",
     "canal_w",
-    "facet_w_sup",
     "pedicle_w"
    ],
    "panjabi": {
-    "exact": 189,
+    "exact": 182,
     "fields": 200,
-    "named": 113,
-    "named_right": 113,
+    "named": 101,
+    "named_right": 101,
     "within_one": 196
    },
    "paper": "masharawi2021",
    "places": 1,
    "sex": "all",
    "source": {
-    "exact": 76,
+    "exact": 88,
     "fields": 200,
-    "named": 32,
-    "named_right": 23,
-    "within_one": 146
+    "named": 19,
+    "named_right": 18,
+    "within_one": 118
    },
    "technique": "ct_axial_2d",
    "widened_source": {
-    "exact": 119,
+    "exact": 138,
     "fields": 200,
-    "named": 14,
+    "named": 13,
     "named_right": 13,
-    "within_one": 175
+    "within_one": 186
    },
    "widened_spread": {
     "canal_ap": 0.11790442662539778,
     "canal_w": 0.09541330622613352,
-    "facet_w_sup": null,
     "pedicle_w": 0.13072155556817203
    },
    "width": 5
@@ -32197,11 +32181,11 @@
    },
    "technique": "ct_parasagittal_2d",
    "widened_source": {
-    "exact": 7,
+    "exact": 8,
     "fields": 600,
     "named": 0,
     "named_right": 0,
-    "within_one": 21
+    "within_one": 24
    },
    "widened_spread": {
     "pedicle_h": 0.13023135299131786
@@ -32242,7 +32226,7 @@
    },
    "technique": "ct_parasagittal_2d",
    "widened_source": {
-    "exact": 3,
+    "exact": 5,
     "fields": 200,
     "named": 0,
     "named_right": 0,
@@ -32290,11 +32274,11 @@
    },
    "technique": "ct_mpr_pacs_calipers",
    "widened_source": {
-    "exact": 282,
+    "exact": 276,
     "fields": 1000,
     "named": 0,
     "named_right": 0,
-    "within_one": 653
+    "within_one": 651
    },
    "widened_spread": {
     "h_post": 0.1039424179763809,
@@ -32341,11 +32325,11 @@
    },
    "technique": "ct_mpr_pacs_calipers",
    "widened_source": {
-    "exact": 273,
+    "exact": 268,
     "fields": 600,
     "named": 1,
     "named_right": 1,
-    "within_one": 509
+    "within_one": 508
    },
    "widened_spread": {
     "h_post": 0.1039424179763809,
@@ -32392,10 +32376,10 @@
    },
    "technique": "ct_mpr_pacs_calipers",
    "widened_source": {
-    "exact": 127,
+    "exact": 124,
     "fields": 200,
-    "named": 3,
-    "named_right": 3,
+    "named": 2,
+    "named_right": 2,
     "within_one": 195
    },
    "widened_spread": {
@@ -32442,11 +32426,11 @@
    },
    "technique": "direct_caliper_microscope",
    "widened_source": {
-    "exact": 315,
+    "exact": 320,
     "fields": 1000,
-    "named": 52,
-    "named_right": 52,
-    "within_one": 482
+    "named": 51,
+    "named_right": 51,
+    "within_one": 486
    },
    "widened_spread": {
     "pedicle_h": 0.13023135299131786,
@@ -32491,11 +32475,11 @@
    },
    "technique": "direct_caliper_microscope",
    "widened_source": {
-    "exact": 287,
+    "exact": 286,
     "fields": 600,
-    "named": 68,
-    "named_right": 68,
-    "within_one": 415
+    "named": 65,
+    "named_right": 65,
+    "within_one": 417
    },
    "widened_spread": {
     "pedicle_h": 0.13023135299131786,
@@ -32540,11 +32524,11 @@
    },
    "technique": "direct_caliper_microscope",
    "widened_source": {
-    "exact": 184,
+    "exact": 183,
     "fields": 200,
-    "named": 54,
-    "named_right": 54,
-    "within_one": 194
+    "named": 53,
+    "named_right": 53,
+    "within_one": 193
    },
    "widened_spread": {
     "pedicle_h": 0.13023135299131786,
@@ -32588,11 +32572,11 @@
    },
    "technique": "cadaver_ap_radiograph",
    "widened_source": {
-    "exact": 271,
+    "exact": 279,
     "fields": 1000,
     "named": 3,
     "named_right": 3,
-    "within_one": 485
+    "within_one": 488
    },
    "widened_spread": {
     "pedicle_h": 0.13023135299131786,
@@ -32635,11 +32619,11 @@
    },
    "technique": "cadaver_ap_radiograph",
    "widened_source": {
-    "exact": 256,
+    "exact": 264,
     "fields": 600,
     "named": 3,
     "named_right": 3,
-    "within_one": 378
+    "within_one": 387
    },
    "widened_spread": {
     "pedicle_h": 0.13023135299131786,
@@ -32682,10 +32666,10 @@
    },
    "technique": "cadaver_ap_radiograph",
    "widened_source": {
-    "exact": 146,
+    "exact": 144,
     "fields": 200,
-    "named": 2,
-    "named_right": 2,
+    "named": 3,
+    "named_right": 3,
     "within_one": 189
    },
    "widened_spread": {
@@ -32865,11 +32849,11 @@
    },
    "technique": "direct_caliper_microscope",
    "widened_source": {
-    "exact": 317,
+    "exact": 319,
     "fields": 1000,
     "named": 62,
     "named_right": 62,
-    "within_one": 475
+    "within_one": 476
    },
    "widened_spread": {
     "pedicle_h": 0.13023135299131786,
@@ -32914,11 +32898,11 @@
    },
    "technique": "direct_caliper_microscope",
    "widened_source": {
-    "exact": 284,
+    "exact": 290,
     "fields": 600,
     "named": 54,
     "named_right": 54,
-    "within_one": 353
+    "within_one": 360
    },
    "widened_spread": {
     "pedicle_h": 0.13023135299131786,
@@ -32963,10 +32947,10 @@
    },
    "technique": "direct_caliper_microscope",
    "widened_source": {
-    "exact": 187,
+    "exact": 188,
     "fields": 200,
-    "named": 60,
-    "named_right": 60,
+    "named": 59,
+    "named_right": 59,
     "within_one": 192
    },
    "widened_spread": {
@@ -33011,11 +32995,11 @@
    },
    "technique": "patient_ap_radiograph",
    "widened_source": {
-    "exact": 221,
+    "exact": 225,
     "fields": 1000,
     "named": 0,
     "named_right": 0,
-    "within_one": 424
+    "within_one": 423
    },
    "widened_spread": {
     "pedicle_h": 0.13023135299131786,
@@ -33058,11 +33042,11 @@
    },
    "technique": "patient_ap_radiograph",
    "widened_source": {
-    "exact": 186,
+    "exact": 188,
     "fields": 600,
     "named": 2,
     "named_right": 2,
-    "within_one": 322
+    "within_one": 326
    },
    "widened_spread": {
     "pedicle_h": 0.13023135299131786,
@@ -33107,9 +33091,9 @@
    "widened_source": {
     "exact": 97,
     "fields": 200,
-    "named": 4,
-    "named_right": 4,
-    "within_one": 142
+    "named": 3,
+    "named_right": 3,
+    "within_one": 146
    },
    "widened_spread": {
     "pedicle_h": 0.13023135299131786,
@@ -33213,41 +33197,41 @@
    "levels": [
     "L1",
     "L2",
-    "L3",
-    "L4",
-    "L5"
+    "L3"
    ],
    "measures": [
     "pedicle_area",
+    "pedicle_h",
     "pedicle_w"
    ],
    "panjabi": {
-    "exact": 361,
-    "fields": 1000,
-    "named": 64,
-    "named_right": 64,
-    "within_one": 542
-   },
-   "paper": "otsuki2021",
-   "places": 5,
-   "sex": "all",
-   "source": {
-    "exact": 174,
-    "fields": 1000,
+    "exact": 113,
+    "fields": 600,
     "named": 0,
     "named_right": 0,
-    "within_one": 414
+    "within_one": 254
+   },
+   "paper": "otsuki2021",
+   "places": 3,
+   "sex": "all",
+   "source": {
+    "exact": 100,
+    "fields": 600,
+    "named": 0,
+    "named_right": 0,
+    "within_one": 259
    },
    "technique": "microct_isthmus_dimensions",
    "widened_source": {
-    "exact": 239,
-    "fields": 1000,
-    "named": 2,
-    "named_right": 2,
-    "within_one": 450
+    "exact": 34,
+    "fields": 600,
+    "named": 0,
+    "named_right": 0,
+    "within_one": 148
    },
    "widened_spread": {
     "pedicle_area": null,
+    "pedicle_h": 0.13023135299131786,
     "pedicle_w": 0.13072155556817203
    },
    "width": 1
@@ -33260,41 +33244,41 @@
    "levels": [
     "L1",
     "L2",
-    "L3",
-    "L4",
-    "L5"
+    "L3"
    ],
    "measures": [
     "pedicle_area",
+    "pedicle_h",
     "pedicle_w"
    ],
    "panjabi": {
-    "exact": 379,
-    "fields": 600,
-    "named": 73,
-    "named_right": 73,
-    "within_one": 476
-   },
-   "paper": "otsuki2021",
-   "places": 3,
-   "sex": "all",
-   "source": {
-    "exact": 103,
-    "fields": 600,
+    "exact": 78,
+    "fields": 200,
     "named": 0,
     "named_right": 0,
-    "within_one": 243
+    "within_one": 127
+   },
+   "paper": "otsuki2021",
+   "places": 1,
+   "sex": "all",
+   "source": {
+    "exact": 81,
+    "fields": 200,
+    "named": 0,
+    "named_right": 0,
+    "within_one": 143
    },
    "technique": "microct_isthmus_dimensions",
    "widened_source": {
-    "exact": 230,
-    "fields": 600,
-    "named": 2,
-    "named_right": 2,
-    "within_one": 405
+    "exact": 38,
+    "fields": 200,
+    "named": 0,
+    "named_right": 0,
+    "within_one": 104
    },
    "widened_spread": {
     "pedicle_area": null,
+    "pedicle_h": 0.13023135299131786,
     "pedicle_w": 0.13072155556817203
    },
    "width": 3
@@ -33312,37 +33296,35 @@
     "L5"
    ],
    "measures": [
-    "pedicle_area",
-    "pedicle_w"
+    "pedicle_area"
    ],
    "panjabi": {
-    "exact": 173,
+    "exact": 123,
     "fields": 200,
-    "named": 102,
-    "named_right": 102,
-    "within_one": 193
+    "named": 0,
+    "named_right": 0,
+    "within_one": 145
    },
    "paper": "otsuki2021",
    "places": 1,
    "sex": "all",
    "source": {
-    "exact": 67,
+    "exact": 160,
     "fields": 200,
-    "named": 6,
-    "named_right": 6,
-    "within_one": 85
+    "named": 9,
+    "named_right": 9,
+    "within_one": 166
    },
    "technique": "microct_isthmus_dimensions",
    "widened_source": {
-    "exact": 148,
+    "exact": 163,
     "fields": 200,
-    "named": 15,
-    "named_right": 15,
-    "within_one": 160
+    "named": 12,
+    "named_right": 12,
+    "within_one": 170
    },
    "widened_spread": {
-    "pedicle_area": null,
-    "pedicle_w": 0.13072155556817203
+    "pedicle_area": null
    },
    "width": 5
   },
@@ -33381,11 +33363,11 @@
    },
    "technique": "coaxial_radiograph_wire",
    "widened_source": {
-    "exact": 253,
+    "exact": 260,
     "fields": 1000,
     "named": 119,
     "named_right": 97,
-    "within_one": 524
+    "within_one": 527
    },
    "widened_spread": {
     "pedicle_h": 0.13023135299131786,
@@ -33428,11 +33410,11 @@
    },
    "technique": "coaxial_radiograph_wire",
    "widened_source": {
-    "exact": 241,
+    "exact": 248,
     "fields": 600,
-    "named": 78,
-    "named_right": 69,
-    "within_one": 454
+    "named": 79,
+    "named_right": 70,
+    "within_one": 462
    },
    "widened_spread": {
     "pedicle_h": 0.13023135299131786,
@@ -33475,10 +33457,10 @@
    },
    "technique": "coaxial_radiograph_wire",
    "widened_source": {
-    "exact": 186,
+    "exact": 187,
     "fields": 200,
-    "named": 71,
-    "named_right": 71,
+    "named": 72,
+    "named_right": 72,
     "within_one": 192
    },
    "widened_spread": {
@@ -33549,11 +33531,11 @@
    },
    "technique": "direct_contact_3d_digitiser",
    "widened_source": {
-    "exact": 1217,
+    "exact": 1218,
     "fields": 3000,
     "named": 20,
     "named_right": 13,
-    "within_one": 2500
+    "within_one": 2501
    },
    "widened_spread": {
     "canal_ap": 0.10653757552638136,
@@ -33642,8 +33624,8 @@
    "widened_source": {
     "exact": 1425,
     "fields": 2600,
-    "named": 347,
-    "named_right": 307,
+    "named": 346,
+    "named_right": 306,
     "within_one": 2385
    },
    "widened_spread": {
@@ -33731,7 +33713,7 @@
    },
    "technique": "direct_contact_3d_digitiser",
    "widened_source": {
-    "exact": 1442,
+    "exact": 1443,
     "fields": 2200,
     "named": 530,
     "named_right": 501,
@@ -34056,11 +34038,11 @@
    },
    "technique": "direct_caliper",
    "widened_source": {
-    "exact": 303,
+    "exact": 305,
     "fields": 1000,
-    "named": 28,
-    "named_right": 28,
-    "within_one": 504
+    "named": 30,
+    "named_right": 30,
+    "within_one": 503
    },
    "widened_spread": {
     "pedicle_h": 0.13023135299131786,
@@ -34103,11 +34085,11 @@
    },
    "technique": "direct_caliper",
    "widened_source": {
-    "exact": 283,
+    "exact": 290,
     "fields": 600,
-    "named": 19,
-    "named_right": 19,
-    "within_one": 429
+    "named": 23,
+    "named_right": 23,
+    "within_one": 431
    },
    "widened_spread": {
     "pedicle_h": 0.13023135299131786,
@@ -34152,8 +34134,8 @@
    "widened_source": {
     "exact": 182,
     "fields": 200,
-    "named": 20,
-    "named_right": 20,
+    "named": 24,
+    "named_right": 24,
     "within_one": 193
    },
    "widened_spread": {
@@ -34197,11 +34179,11 @@
    },
    "technique": "direct_caliper",
    "widened_source": {
-    "exact": 304,
+    "exact": 313,
     "fields": 1000,
     "named": 10,
     "named_right": 10,
-    "within_one": 497
+    "within_one": 501
    },
    "widened_spread": {
     "pedicle_h": 0.13023135299131786,
@@ -34244,11 +34226,11 @@
    },
    "technique": "direct_caliper",
    "widened_source": {
-    "exact": 279,
+    "exact": 282,
     "fields": 600,
-    "named": 19,
-    "named_right": 19,
-    "within_one": 426
+    "named": 20,
+    "named_right": 20,
+    "within_one": 429
    },
    "widened_spread": {
     "pedicle_h": 0.13023135299131786,
@@ -34293,8 +34275,8 @@
    "widened_source": {
     "exact": 179,
     "fields": 200,
-    "named": 20,
-    "named_right": 20,
+    "named": 19,
+    "named_right": 19,
     "within_one": 189
    },
    "widened_spread": {
@@ -34338,11 +34320,11 @@
    },
    "technique": "direct_caliper",
    "widened_source": {
-    "exact": 309,
+    "exact": 314,
     "fields": 1000,
     "named": 32,
     "named_right": 32,
-    "within_one": 503
+    "within_one": 504
    },
    "widened_spread": {
     "pedicle_h": 0.13023135299131786,
@@ -34385,11 +34367,11 @@
    },
    "technique": "direct_caliper",
    "widened_source": {
-    "exact": 262,
+    "exact": 265,
     "fields": 600,
-    "named": 34,
-    "named_right": 34,
-    "within_one": 412
+    "named": 33,
+    "named_right": 33,
+    "within_one": 416
    },
    "widened_spread": {
     "pedicle_h": 0.13023135299131786,
@@ -34432,11 +34414,11 @@
    },
    "technique": "direct_caliper",
    "widened_source": {
-    "exact": 190,
+    "exact": 191,
     "fields": 200,
-    "named": 24,
-    "named_right": 24,
-    "within_one": 197
+    "named": 27,
+    "named_right": 27,
+    "within_one": 198
    },
    "widened_spread": {
     "pedicle_h": 0.13023135299131786,
@@ -34479,11 +34461,11 @@
    },
    "technique": "direct_caliper",
    "widened_source": {
-    "exact": 320,
+    "exact": 318,
     "fields": 1000,
-    "named": 16,
-    "named_right": 16,
-    "within_one": 504
+    "named": 18,
+    "named_right": 18,
+    "within_one": 507
    },
    "widened_spread": {
     "pedicle_h": 0.13023135299131786,
@@ -34526,10 +34508,10 @@
    },
    "technique": "direct_caliper",
    "widened_source": {
-    "exact": 284,
+    "exact": 287,
     "fields": 600,
-    "named": 26,
-    "named_right": 26,
+    "named": 28,
+    "named_right": 28,
     "within_one": 420
    },
    "widened_spread": {
@@ -34573,11 +34555,11 @@
    },
    "technique": "direct_caliper",
    "widened_source": {
-    "exact": 187,
+    "exact": 188,
     "fields": 200,
     "named": 26,
     "named_right": 26,
-    "within_one": 193
+    "within_one": 194
    },
    "widened_spread": {
     "pedicle_h": 0.13023135299131786,
@@ -34620,11 +34602,11 @@
    },
    "technique": "direct_caliper",
    "widened_source": {
-    "exact": 308,
+    "exact": 314,
     "fields": 1000,
-    "named": 25,
-    "named_right": 25,
-    "within_one": 500
+    "named": 27,
+    "named_right": 27,
+    "within_one": 502
    },
    "widened_spread": {
     "pedicle_h": 0.13023135299131786,
@@ -34667,11 +34649,11 @@
    },
    "technique": "direct_caliper",
    "widened_source": {
-    "exact": 263,
+    "exact": 271,
     "fields": 600,
     "named": 33,
     "named_right": 33,
-    "within_one": 439
+    "within_one": 444
    },
    "widened_spread": {
     "pedicle_h": 0.13023135299131786,
@@ -34716,9 +34698,9 @@
    "widened_source": {
     "exact": 185,
     "fields": 200,
-    "named": 39,
-    "named_right": 39,
-    "within_one": 192
+    "named": 42,
+    "named_right": 42,
+    "within_one": 193
    },
    "widened_spread": {
     "pedicle_h": 0.13023135299131786,
@@ -34761,11 +34743,11 @@
    },
    "technique": "direct_caliper",
    "widened_source": {
-    "exact": 306,
+    "exact": 309,
     "fields": 1000,
-    "named": 13,
-    "named_right": 13,
-    "within_one": 502
+    "named": 15,
+    "named_right": 15,
+    "within_one": 501
    },
    "widened_spread": {
     "pedicle_h": 0.13023135299131786,
@@ -34808,11 +34790,11 @@
    },
    "technique": "direct_caliper",
    "widened_source": {
-    "exact": 289,
+    "exact": 291,
     "fields": 600,
-    "named": 14,
-    "named_right": 14,
-    "within_one": 414
+    "named": 16,
+    "named_right": 16,
+    "within_one": 415
    },
    "widened_spread": {
     "pedicle_h": 0.13023135299131786,
@@ -34859,7 +34841,7 @@
     "fields": 200,
     "named": 10,
     "named_right": 10,
-    "within_one": 182
+    "within_one": 183
    },
    "widened_spread": {
     "pedicle_h": 0.13023135299131786,
@@ -34902,11 +34884,11 @@
    },
    "technique": "direct_caliper",
    "widened_source": {
-    "exact": 292,
+    "exact": 284,
     "fields": 1000,
-    "named": 30,
-    "named_right": 30,
-    "within_one": 499
+    "named": 35,
+    "named_right": 35,
+    "within_one": 495
    },
    "widened_spread": {
     "pedicle_h": 0.13023135299131786,
@@ -34949,11 +34931,11 @@
    },
    "technique": "direct_caliper",
    "widened_source": {
-    "exact": 263,
+    "exact": 272,
     "fields": 600,
-    "named": 40,
-    "named_right": 40,
-    "within_one": 429
+    "named": 42,
+    "named_right": 42,
+    "within_one": 436
    },
    "widened_spread": {
     "pedicle_h": 0.13023135299131786,
@@ -34996,11 +34978,11 @@
    },
    "technique": "direct_caliper",
    "widened_source": {
-    "exact": 187,
+    "exact": 188,
     "fields": 200,
     "named": 31,
     "named_right": 31,
-    "within_one": 193
+    "within_one": 194
    },
    "widened_spread": {
     "pedicle_h": 0.13023135299131786,
@@ -35043,11 +35025,11 @@
    },
    "technique": "direct_caliper",
    "widened_source": {
-    "exact": 306,
+    "exact": 313,
     "fields": 1000,
-    "named": 20,
-    "named_right": 20,
-    "within_one": 490
+    "named": 23,
+    "named_right": 23,
+    "within_one": 487
    },
    "widened_spread": {
     "pedicle_h": 0.13023135299131786,
@@ -35090,11 +35072,11 @@
    },
    "technique": "direct_caliper",
    "widened_source": {
-    "exact": 270,
+    "exact": 277,
     "fields": 600,
-    "named": 21,
-    "named_right": 21,
-    "within_one": 396
+    "named": 22,
+    "named_right": 22,
+    "within_one": 401
    },
    "widened_spread": {
     "pedicle_h": 0.13023135299131786,
@@ -35137,11 +35119,11 @@
    },
    "technique": "direct_caliper",
    "widened_source": {
-    "exact": 186,
+    "exact": 185,
     "fields": 200,
-    "named": 13,
-    "named_right": 13,
-    "within_one": 191
+    "named": 16,
+    "named_right": 16,
+    "within_one": 192
    },
    "widened_spread": {
     "pedicle_h": 0.13023135299131786,
@@ -35184,11 +35166,11 @@
    },
    "technique": "direct_caliper",
    "widened_source": {
-    "exact": 305,
+    "exact": 308,
     "fields": 1000,
-    "named": 28,
-    "named_right": 28,
-    "within_one": 505
+    "named": 29,
+    "named_right": 29,
+    "within_one": 506
    },
    "widened_spread": {
     "pedicle_h": 0.13023135299131786,
@@ -35231,11 +35213,11 @@
    },
    "technique": "direct_caliper",
    "widened_source": {
-    "exact": 272,
+    "exact": 281,
     "fields": 600,
-    "named": 42,
-    "named_right": 42,
-    "within_one": 437
+    "named": 47,
+    "named_right": 47,
+    "within_one": 441
    },
    "widened_spread": {
     "pedicle_h": 0.13023135299131786,
@@ -35278,11 +35260,11 @@
    },
    "technique": "direct_caliper",
    "widened_source": {
-    "exact": 192,
+    "exact": 191,
     "fields": 200,
-    "named": 26,
-    "named_right": 26,
-    "within_one": 195
+    "named": 25,
+    "named_right": 25,
+    "within_one": 196
    },
    "widened_spread": {
     "pedicle_h": 0.13023135299131786,
@@ -35325,11 +35307,11 @@
    },
    "technique": "direct_caliper",
    "widened_source": {
-    "exact": 301,
+    "exact": 296,
     "fields": 1000,
-    "named": 8,
-    "named_right": 8,
-    "within_one": 439
+    "named": 9,
+    "named_right": 9,
+    "within_one": 436
    },
    "widened_spread": {
     "pedicle_h": 0.13023135299131786,
@@ -35374,9 +35356,9 @@
    "widened_source": {
     "exact": 247,
     "fields": 600,
-    "named": 12,
-    "named_right": 12,
-    "within_one": 339
+    "named": 14,
+    "named_right": 14,
+    "within_one": 335
    },
    "widened_spread": {
     "pedicle_h": 0.13023135299131786,
@@ -35421,9 +35403,9 @@
    "widened_source": {
     "exact": 168,
     "fields": 200,
-    "named": 8,
-    "named_right": 8,
-    "within_one": 187
+    "named": 11,
+    "named_right": 11,
+    "within_one": 189
    },
    "widened_spread": {
     "pedicle_h": 0.13023135299131786,
@@ -35466,10 +35448,10 @@
    },
    "technique": "direct_caliper",
    "widened_source": {
-    "exact": 305,
+    "exact": 306,
     "fields": 1000,
-    "named": 41,
-    "named_right": 41,
+    "named": 45,
+    "named_right": 45,
     "within_one": 526
    },
    "widened_spread": {
@@ -35513,11 +35495,11 @@
    },
    "technique": "direct_caliper",
    "widened_source": {
-    "exact": 281,
+    "exact": 282,
     "fields": 600,
-    "named": 36,
-    "named_right": 36,
-    "within_one": 457
+    "named": 37,
+    "named_right": 37,
+    "within_one": 459
    },
    "widened_spread": {
     "pedicle_h": 0.13023135299131786,
@@ -35562,8 +35544,8 @@
    "widened_source": {
     "exact": 188,
     "fields": 200,
-    "named": 23,
-    "named_right": 23,
+    "named": 26,
+    "named_right": 26,
     "within_one": 195
    },
    "widened_spread": {
@@ -35607,11 +35589,11 @@
    },
    "technique": "direct_caliper",
    "widened_source": {
-    "exact": 318,
+    "exact": 317,
     "fields": 1000,
-    "named": 12,
-    "named_right": 12,
-    "within_one": 506
+    "named": 15,
+    "named_right": 15,
+    "within_one": 501
    },
    "widened_spread": {
     "pedicle_h": 0.13023135299131786,
@@ -35654,11 +35636,11 @@
    },
    "technique": "direct_caliper",
    "widened_source": {
-    "exact": 280,
+    "exact": 285,
     "fields": 600,
-    "named": 24,
-    "named_right": 24,
-    "within_one": 404
+    "named": 25,
+    "named_right": 25,
+    "within_one": 406
    },
    "widened_spread": {
     "pedicle_h": 0.13023135299131786,
@@ -35705,7 +35687,7 @@
     "fields": 200,
     "named": 18,
     "named_right": 18,
-    "within_one": 194
+    "within_one": 193
    },
    "widened_spread": {
     "pedicle_h": 0.13023135299131786,
@@ -35748,11 +35730,11 @@
    },
    "technique": "direct_caliper",
    "widened_source": {
-    "exact": 298,
+    "exact": 302,
     "fields": 1000,
-    "named": 36,
-    "named_right": 36,
-    "within_one": 497
+    "named": 38,
+    "named_right": 38,
+    "within_one": 494
    },
    "widened_spread": {
     "pedicle_h": 0.13023135299131786,
@@ -35795,11 +35777,11 @@
    },
    "technique": "direct_caliper",
    "widened_source": {
-    "exact": 273,
+    "exact": 274,
     "fields": 600,
     "named": 36,
     "named_right": 36,
-    "within_one": 423
+    "within_one": 429
    },
    "widened_spread": {
     "pedicle_h": 0.13023135299131786,
@@ -35842,10 +35824,10 @@
    },
    "technique": "direct_caliper",
    "widened_source": {
-    "exact": 189,
+    "exact": 188,
     "fields": 200,
-    "named": 26,
-    "named_right": 26,
+    "named": 28,
+    "named_right": 28,
     "within_one": 195
    },
    "widened_spread": {
@@ -35889,11 +35871,11 @@
    },
    "technique": "direct_caliper",
    "widened_source": {
-    "exact": 311,
+    "exact": 308,
     "fields": 1000,
-    "named": 13,
-    "named_right": 13,
-    "within_one": 480
+    "named": 15,
+    "named_right": 15,
+    "within_one": 478
    },
    "widened_spread": {
     "pedicle_h": 0.13023135299131786,
@@ -35938,8 +35920,8 @@
    "widened_source": {
     "exact": 255,
     "fields": 600,
-    "named": 16,
-    "named_right": 16,
+    "named": 17,
+    "named_right": 17,
     "within_one": 371
    },
    "widened_spread": {
@@ -35983,11 +35965,11 @@
    },
    "technique": "direct_caliper",
    "widened_source": {
-    "exact": 175,
+    "exact": 176,
     "fields": 200,
-    "named": 19,
-    "named_right": 19,
-    "within_one": 182
+    "named": 18,
+    "named_right": 18,
+    "within_one": 183
    },
    "widened_spread": {
     "pedicle_h": 0.13023135299131786,
@@ -36030,11 +36012,11 @@
    },
    "technique": "direct_caliper",
    "widened_source": {
-    "exact": 298,
+    "exact": 302,
     "fields": 1000,
-    "named": 41,
-    "named_right": 41,
-    "within_one": 512
+    "named": 42,
+    "named_right": 42,
+    "within_one": 514
    },
    "widened_spread": {
     "pedicle_h": 0.13023135299131786,
@@ -36077,11 +36059,11 @@
    },
    "technique": "direct_caliper",
    "widened_source": {
-    "exact": 278,
+    "exact": 283,
     "fields": 600,
-    "named": 28,
-    "named_right": 28,
-    "within_one": 436
+    "named": 30,
+    "named_right": 30,
+    "within_one": 440
    },
    "widened_spread": {
     "pedicle_h": 0.13023135299131786,
@@ -36124,11 +36106,11 @@
    },
    "technique": "direct_caliper",
    "widened_source": {
-    "exact": 195,
+    "exact": 196,
     "fields": 200,
     "named": 40,
     "named_right": 40,
-    "within_one": 195
+    "within_one": 196
    },
    "widened_spread": {
     "pedicle_h": 0.13023135299131786,
@@ -36185,11 +36167,11 @@
    },
    "technique": "pooled_film_and_ct",
    "widened_source": {
-    "exact": 902,
+    "exact": 913,
     "fields": 3400,
     "named": 46,
     "named_right": 46,
-    "within_one": 1835
+    "within_one": 1841
    },
    "widened_spread": {
     "pedicle_h": 0.10821441744979414,
@@ -36248,11 +36230,11 @@
    },
    "technique": "pooled_film_and_ct",
    "widened_source": {
-    "exact": 981,
+    "exact": 990,
     "fields": 3000,
-    "named": 65,
-    "named_right": 65,
-    "within_one": 1926
+    "named": 63,
+    "named_right": 63,
+    "within_one": 1927
    },
    "widened_spread": {
     "pedicle_h": 0.10821441744979414,
@@ -36311,11 +36293,11 @@
    },
    "technique": "pooled_film_and_ct",
    "widened_source": {
-    "exact": 1150,
+    "exact": 1152,
     "fields": 2600,
-    "named": 71,
-    "named_right": 71,
-    "within_one": 2072
+    "named": 70,
+    "named_right": 70,
+    "within_one": 2073
    },
    "widened_spread": {
     "pedicle_h": 0.10821441744979414,

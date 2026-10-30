@@ -6,16 +6,14 @@ quality (../../clinical-reread/HANDOFF.md, step 2, parts a, b and c). Confidenti
 no grid job, nothing fetched.
 
 Reviewed on 2026-10-30 (thread "Finish the clinical reread", project symphony_5): one reader checked 84 claims of
-this page against the files and the tools, rerunning the sampler, the comparison and the plausibility rule, and
-found 11 wrong or imprecise; another checked 71 claims of it and of mapping_audit.csv against the papers' pages and
-found 8. A refuter for each tried to show every finding wrong, reproducing the files from commit 66576c5 (the
-validation, before the fixes) and 1119506 (the mapping audit with them), and held all 19; they are corrected here
-and in the reasons of mapping_audit.csv. The papers support all 17 held fixes and the named judgements on their
-values and definitions, and no correction changes a key, a level or a grade. Left for the owner: Abbas 2021's seven
-cells that still carry the old note; Bach 2019's eight interbody cells, whose note says the level was set to L5-S1
-while their map_note still says it was kept at the printed level; Mitra 2002's L5 female pedicle height 18.5, a flag
-on today's series that no checker has read on the page; and Robertson 2000's pedicle axis within 7.5 deg of vertical
-at L1 to L3, which may bear on reading all five of Irie 2021's pedicle_h series as differs. The record is
+this page against the files and the tools, rerunning the sampler, the comparison and the plausibility rule, and found
+11 wrong or imprecise; another checked 71 claims of it and of mapping_audit.csv against the papers' pages and found
+8. A refuter for each tried to show every finding wrong, reproducing the files from commit 66576c5 (the validation,
+before the fixes) and 1119506 (the mapping audit with them), and held all 19; they are corrected here and in the
+reasons of mapping_audit.csv. The papers support all 17 held fixes and the named judgements on their values and
+definitions, and no correction changes a key, a level or a grade. The four items it left for the owner were settled
+on 2026-10-30 (Decided, below): Abbas 2021's seven cells and Bach 2019's eight carry the corrected note, Mitra 2002's
+18.5 is as printed, and Irie 2021's pedicle heights are close at L1 to L3. The record is
 [review/](../../prior-art-measurement/review/README.md).
 
 ## The blind re-read (step 2a)
@@ -56,17 +54,19 @@ Rerun: `python3 -I tools/validation_sample.py data/readings <out>`, readers over
 
 ## The plausibility flags (step 2b)
 
-tools/plausibility.py over data/series.csv (3,760 series) and the cohorts files: an outlier beyond four scaled
-median absolute deviations of the other papers' means at the same measure and level (among series standing to
-Panjabi's definition the same way, four other papers at least), an SD above the mean of a size, a count above the
-cohort's people, and a step between neighbouring levels against the direction four or more other papers agree on, at
-least half their median step. flags.csv is the run as it stood before the fix of 2026-10-29 to Irie 2021's (file
+tools/plausibility.py over data/series.csv (3,760 series) and the cohorts files: an outlier beyond four scaled median
+absolute deviations of the other papers' means at the same measure and level (among series standing to Panjabi's
+definition the same way, four other papers at least), an SD above the mean of a size, a count above the cohort's
+people, and a step between neighbouring levels against the direction four or more other papers agree on, at least
+half their median step. flags.csv is the run as it stood before the fix of 2026-10-29 to Irie 2021's (file
 otsuki2021) isthmus diameters, its pedicle_h series then graded close: 116 flags over 24 papers, 69 outliers and 47
 reversals, 35 of them on values a paper quotes from another study; no SD above its mean and no count above its
-cohort's people, which the four review rounds had already caught. The Rerun line on today's series.csv gives the
-same totals with one flag changed: Irie 2021's L5 longitudinal diameter 24.2 leaves with its stratum, Mitra 2002's
-L5 female roentgenogram pedicle height 18.5 enters (4.9 scaled MADs from 50 other papers' means) and has no row in
-flags_checked.csv, and 31 pedicle_h outliers carry new medians and MADs.
+cohort's people, which the four review rounds had already caught. The Rerun line on today's series.csv gives the same
+totals with one flag changed: Irie 2021's L5 longitudinal diameter 24.2 leaves with its stratum, Mitra 2002's L5
+female roentgenogram pedicle height 18.5 enters (4.9 scaled MADs from 50 other papers' means) and has no row in
+flags_checked.csv (read on the page on 2026-10-30: as printed, the mean of two specimens), and, with Irie 2021's
+pedicle heights close at L1 to L3 since the decisions of 2026-10-30, 7 pedicle_h outliers at L4 and L5 carry new
+medians and MADs.
 
 Four checkers, each a share of the papers, found every flagged cell in the readings and read it again from the page
 at 300 dpi (flags_checked.csv, one row a flag with the printed value and the page): 116 record_right, no
@@ -106,7 +106,8 @@ changed a note (Abbas 2021's on three of the ten cells that carry it); Alonge 20
   isthmus)" is the longest diameter of the isthmus section perpendicular to the pedicle axis (pp. 3 to 4, Fig. 2),
   oblique to the vertical at L4 and L5 by Robertson 2000's coaxial view (axis 31.0 to 55.0 deg there, under 8 deg at
   L1 to L3; Table 1, p. 711), so at L5 it exceeds the vertical extent (24.2 mm against Panjabi's PDH 19.6); its
-  pedicle_h rows are therefore differs, not close: five series leave the comparison, the one fix that reaches it.
+  pedicle_h rows are therefore differs, not close: five series left the comparison, the one fix that reaches it;
+  since 2026-10-30 that holds at L4 and L5 only, the section being upright at L1 to L3 (Decided, below).
 - Bach 2019's "maximum height of the interbody space" is printed L4/5 but is Figure 8's L5/S1 (8.900 and 8.566; the
   Results give L5/S1 women 8.6 +/- 1.8): level L5-S1. Hou 1993's Discussion "depth of pedicle parallel to the
   midline" (p. 1852) prints L1 but 50.3 and 48.6 are Table 3's L2 LI means (p. 1853): level L2.
@@ -118,28 +119,18 @@ changed a note (Abbas 2021's on three of the ten cells that carry it); Alonge 20
   21.25 and 21 percent, p. 380) as the 2.77 percent row already did, take factor 0.01 to the ratio disc_index's unit
   is.
 - Masharawi 2021's "DS more sagittal than control" 10 deg is Table 2's L4 inter-facet difference, the angle between
-  the two joint lines: keyed other with the TIFA rows, not facet_angle_axial.
-- Yu 2015's two "PH difference" cells name their level (L1 for 2.07 mm, L2 for 0.94) in the note; Abbas 2021's note
-  that the Results and the Discussion assigned the shares to opposite groups was wrong: the three Results cells for
-  the controls' share now say the passages agree (mapping audit of 2026-10-29), while the two Results cells for the
-  stenosis band and the five Discussion cells (the stenosis share and both bands) still carry the old note and wait
-  for the same correction; Alonge 2021's Table 3 and 4 notes already said one reading per patient at the level, so
-  nothing changed there.
+  the two joint lines: keyed other with the TIFA rows, not facet_angle_axial. - Yu 2015's two "PH difference" cells
+  name their level (L1 for 2.07 mm, L2 for 0.94) in the note; Abbas 2021's note that the Results and the Discussion
+  assigned the shares to opposite groups was wrong: the three Results cells for the controls' share now say the
+  passages agree (mapping audit of 2026-10-29), while the two Results cells for the stenosis band and the five
+  Discussion cells (the stenosis share and both bands) carried the old note until 2026-10-30, when they took the same
+  correction; Alonge 2021's Table 3 and 4 notes already said one reading per patient at the level, so nothing changed
+  there.
 
-The 41 judgements stand as mapped, each with what the other reading would rest on, and these reach the comparison if
-read the other way: Chen 2011's end-plate sagittal diameter (differs by the authors' own words setting it apart from
-Panjabi, p. 1819; close by its landmarks, the rims on the midsagittal plane, where Busscher 2010's same chord is
-graded same); Alonge 2021's canal AP diameter (same, where Abbas 2021's and Ahmed 2019's are close); Olsewski 1990's
-sagittal pedicle angle (differs, since Panjabi's PDIt is drawn from the plane square to the posterior wall and
-Olsewski's from the end-plate line in the opposite sense; close if Panjabi's drawing is read as schematic);
-Arockiaraj 2025's pedicle height (close by "superior and inferior cortex at the isthmus", or the inner height by its
-values, 4.49 to 7.55 mm under the Dzierzanowski, Kadioglu, Zindrick and Olsewski series and only 0.65 to 2.14 mm
-under Makino's endosteal heights (printed as Takahiro et al., Table 3, p. 317)); Busscher 2010's pedicle angle (its
-line is pinned at the anterior body midline, not the pedicle axis); Amonoo-Kuofi 1985's body AP diameter (maximum or
-mid-waist, the Methods say both). The owner's word settles these; none was changed. Two findings outside the
-readings: the vocabulary's own definition of spinous_length ("from the posterior wall of the canal") matches neither
-Panjabi nor Tan 2004, and Bonczar 2024's Figure 2 swaps the words of its end-plate width and depth, where the
-readings key by value (31 to 34 mm cannot be a lumbar end-plate's mediolateral span).
+The 41 judgements were decided on 2026-10-30 (Decided, below). Two findings outside the readings: the vocabulary's
+own definition of spinous_length ("from the posterior wall of the canal") matches neither Panjabi nor Tan 2004, and
+Bonczar 2024's Figure 2 swaps the words of its end-plate width and depth, where the readings key by value (31 to 34
+mm cannot be a lumbar end-plate's mediolateral span).
 
 Rerun: the sheet was built from data/readings/ as they stood before the 17 fixes, one row per distinct
 measure_label, key, factor, units, canonical units, technique and vs_panjabi of the paper's own values, the keys
@@ -148,10 +139,40 @@ cells, since 13 of its rows changed with the fixes: eleven stand in their correc
 limits as canal_w, Kunkel 2011's six percent rows at factor 0.01 and unit ratio, Irie 2021's two as differs) and
 Masharawi 2021's two deltas, now keyed other, leave it; the audits and refutations are readers' work.
 
+## Decided on 2026-10-30
+
+The owner left the 41 judgements to the session ("Can you decide?", 2026-10-30). They are 21 questions, of which
+seven change what enters the comparison. One rule decided all of them: the key follows the paper's words, then its
+figure, a value only breaking a tie the two leave; the grade is same or close where the landmarks, plane and sense
+are Panjabi's and the construction moves the value little, differs where they or the construction move it materially;
+what stays open is kept out of the comparison; like is graded like, and a grade may differ by level where the
+geometry does. For each of the seven a judge read the pages and a checker tried to refute any decision that changed
+the sheet or was not certain; the checker overturned one (Busscher 2010). Robertson 2000's bearing on Irie 2021, the
+one owner item that was a judgement, went through the same two steps. Each row's decision is in the fix column of
+mapping_audit.csv.
+
+| Question | Decided | Cells |
+| --- | --- | ---: |
+| Masharawi 2021, facet width | differs, was close: an axial chord of the joint line against Panjabi's face-on facet, 1.2 to 6.7 mm above his | 89 |
+| Irie 2021, pedicle height | close at L1 to L3, was differs: the section is within 7.5 deg of upright there (Robertson 2000), so the major axis is the height to 0.15 mm | 6 |
+| Irie 2021, pedicle width | differs at L4, L5 and the average, was close: the same tilt leaves the minor axis 3 to 9 mm short of the width | 8 |
+| Busscher 2010, PedA | close, kept: 0 to 3 deg at T10 to T12 (Fig. 8b) rule out a line pinned at the anterior midline, so it is the pedicle axis | 8 |
+| Arockiaraj 2025, pedicle height | close, kept: Fig. 3A draws it between the outer outlines of the notches | 135 |
+| Amonoo-Kuofi 1985, body depth | body_d_mid, kept: "measured at mid-waist level" (p. 72) | 20 |
+| Chen 2011, end-plate diameter | differs, kept: the authors set it apart from the border-to-border extent Panjabi took | 60 |
+| Olsewski 1990, sagittal angle | differs, kept: the end-plate line against the transverse plane, drawn in opposite senses | 129 |
+| Alonge 2021, canal depth | same, kept: Panjabi's SCD landmarks, graded as the other CT papers with them | 138 |
+
+The other 14 questions stand as read: every reading of them keeps the cells out of the comparison, and each map_note
+already names the other. Alongside, Abbas 2021's seven cells and Bach 2019's eight took the corrected note,
+and Mitra 2002's L5 female radiograph pedicle height was read on the page: 18.5 as printed, the mean of two
+specimens.
+
 ## What this does and does not show
 
 The numbers in the readings are the numbers on the pages, to within one cell in 120 at worst; no value a rule finds
 implausible is a misread; and of 765 mappings, the refuters held 17 flags, 13 of them a fault the paper settles
 (eleven in a key, level, factor or grade, two in a note), one of them reaching the comparison, with 41 open to a
-second reading that the owner settles. What it does not show is whether a paper's own number is right, which no
-re-read of its page can tell.
+second reading, decided on 2026-10-30 by one rule, which took Masharawi 2021's facet widths out of the comparison and
+brought Irie 2021's upright pedicle heights in. What it does not show is whether a paper's own number is right, which
+no re-read of its page can tell.

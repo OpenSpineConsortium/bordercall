@@ -72,6 +72,15 @@ no checker has read on the page, and Robertson 2000's pedicle axis near vertical
 all five of Irie 2021's pedicle_h series as differs), listed at the top of ../paper-tables/validation/README.md; and
 the merge. No grid job ran and nothing was fetched into git.
 
+Decisions of 2026-10-30 (same thread), on the owner's "Can you decide?": the 41 mapping judgements and the four
+validation items are decided and applied by one rule, each consequential one read on the page by a judge and checked
+by a refuter (../paper-tables/validation/README.md, Decided on 2026-10-30; the fix column of
+../paper-tables/validation/mapping_audit.csv). Masharawi 2021's facet widths moved from close to differs (89 cells,
+ten series out of the comparison); Irie 2021's pedicle heights are close at L1 to L3 and its pedicle widths differ at
+L4 and L5; the rest stood as read, with notes corrected for Busscher 2010, Arockiaraj 2025, Abbas 2021 and Bach 2019,
+and Mitra 2002's 18.5 read on the page as printed. data/series.csv, the comparison record and the results page were
+remade in a throwaway environment from requirements-schwingcheck.txt, no grid job.
+
 1. **Fix the second review's data findings and rerun.** (Done, above; kept as the record of what was asked.) Take each finding of
    ../paper-tables/review/round-2-findings.json that both refuters confirmed, or that is unverified, reproduce it,
    fix tools/series.py or the cohorts file, then remake data/series.csv
