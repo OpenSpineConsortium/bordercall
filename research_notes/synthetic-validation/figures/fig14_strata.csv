@@ -1,0 +1,119 @@
+panel,paper,arm,width,loss,half_width_95,pi_low,pi_high,reading,loss_pooled,loss_se,populations,precision_mean,precision_min,answered_mean,population
+A,chaudhary2015,merged: the others pooled,3,1.23333,1.50715,,,,,,,,,,
+A,amonookuofi1985,merged: the others pooled,3,1.63333,1.55867,,,,,,,,,,
+A,cizmic2023,merged: the others pooled,3,1.66667,1.27338,,,,,,,,,,
+A,abbas2021,merged: the others pooled,3,2.76667,1.60395,,,,,,,,,,
+A,hinck1966,merged: the others pooled,3,2.96667,1.53725,,,,,,,,,,
+A,amonookuofi1982,merged: the others pooled,3,5.23333,1.97871,,,,,,,,,,
+A,hou1993,merged: the others pooled,3,5.33333,1.44161,,,,,,,,,,
+A,olsewski1990,merged: the others pooled,3,7.23333,1.4615,,,,,,,,,,
+A,masharawi2021,merged: the others pooled,3,8.86667,1.96886,,,,,,,,,,
+A,alonge2021,merged: the others pooled,3,9.03333,1.92087,,,,,,,,,,
+A,bach2019,merged: the others pooled,3,10,1.83724,,,,,,,,,,
+A,griffith2016,merged: the others pooled,3,11.5667,1.80509,,,,,,,,,,
+A,shin2024,merged: the others pooled,3,11.9333,1.90779,,,,,,,,,,
+A,yu2015,merged: the others pooled,3,12.3,1.92895,,,,,,,,,,
+A,lien2007,merged: the others pooled,3,14.2333,1.54224,,,,,,,,,,
+A,moncadahabib2025,merged: the others pooled,3,14.8,2.0926,,,,,,,,,,
+A,arockiaraj2025,merged: the others pooled,3,16.3667,1.51039,,,,,,,,,,
+A,tan2004,merged: the others pooled,3,19.1,1.55603,,,,,,,,,,
+A,yadav2020,merged: the others pooled,3,20,2.31104,,,,,,,,,,
+A,busscher2010,merged: the others pooled,3,24.8667,2.04574,,,,,,,,,,
+A,otsuki2021,merged: the others pooled,3,29.4667,2.01317,,,,,,,,,,
+A,frontphys2026,merged: the others pooled,3,31.8667,2.39463,,,,,,,,,,
+A,"pooled, one more population",merged: the others pooled,3,11.9093,,-6.83112,30.6498,,,,,,,,
+A,chaudhary2015,"predicted: the others pooled, SD widened by tau",3,1.76667,1.71726,,,,,,,,,,
+A,amonookuofi1985,"predicted: the others pooled, SD widened by tau",3,3.4,1.64015,,,,,,,,,,
+A,cizmic2023,"predicted: the others pooled, SD widened by tau",3,2.46667,1.3657,,,,,,,,,,
+A,abbas2021,"predicted: the others pooled, SD widened by tau",3,5.96667,1.75998,,,,,,,,,,
+A,hinck1966,"predicted: the others pooled, SD widened by tau",3,3.33333,1.52458,,,,,,,,,,
+A,amonookuofi1982,"predicted: the others pooled, SD widened by tau",3,4.26667,1.94305,,,,,,,,,,
+A,hou1993,"predicted: the others pooled, SD widened by tau",3,7.33333,1.63493,,,,,,,,,,
+A,olsewski1990,"predicted: the others pooled, SD widened by tau",3,10.8667,1.92993,,,,,,,,,,
+A,masharawi2021,"predicted: the others pooled, SD widened by tau",3,6.73333,1.85252,,,,,,,,,,
+A,alonge2021,"predicted: the others pooled, SD widened by tau",3,4.4,1.59656,,,,,,,,,,
+A,bach2019,"predicted: the others pooled, SD widened by tau",3,6.56667,1.65905,,,,,,,,,,
+A,griffith2016,"predicted: the others pooled, SD widened by tau",3,8.23333,1.7195,,,,,,,,,,
+A,shin2024,"predicted: the others pooled, SD widened by tau",3,16.1333,1.97373,,,,,,,,,,
+A,yu2015,"predicted: the others pooled, SD widened by tau",3,7.16667,1.68281,,,,,,,,,,
+A,lien2007,"predicted: the others pooled, SD widened by tau",3,15.1333,1.9056,,,,,,,,,,
+A,moncadahabib2025,"predicted: the others pooled, SD widened by tau",3,17.0333,2.21269,,,,,,,,,,
+A,arockiaraj2025,"predicted: the others pooled, SD widened by tau",3,22.1333,1.56756,,,,,,,,,,
+A,tan2004,"predicted: the others pooled, SD widened by tau",3,18.5,1.48336,,,,,,,,,,
+A,yadav2020,"predicted: the others pooled, SD widened by tau",3,21.2333,2.28054,,,,,,,,,,
+A,busscher2010,"predicted: the others pooled, SD widened by tau",3,29.9333,2.10352,,,,,,,,,,
+A,otsuki2021,"predicted: the others pooled, SD widened by tau",3,25.4667,1.82827,,,,,,,,,,
+A,frontphys2026,"predicted: the others pooled, SD widened by tau",3,32.6667,2.49044,,,,,,,,,,
+A,"pooled, one more population","predicted: the others pooled, SD widened by tau",3,12.2875,,-7.4727,32.0478,,,,,,,,
+B,,merged: the others pooled,1,,,,,every measure the paper prints,8.94832,1.41263,22,,,,
+B,,merged: the others pooled,2,,,,,every measure the paper prints,11.6344,1.77191,22,,,,
+B,,merged: the others pooled,3,,,,,every measure the paper prints,11.9093,1.88312,22,,,,
+B,,"predicted: the others pooled, SD widened by tau",1,,,,,every measure the paper prints,8.70382,1.50944,22,,,,
+B,,"predicted: the others pooled, SD widened by tau",2,,,,,every measure the paper prints,12.0149,1.97349,22,,,,
+B,,"predicted: the others pooled, SD widened by tau",3,,,,,every measure the paper prints,12.2875,1.98483,22,,,,
+B,,merged: the others pooled,1,,,,,the pedicle's width and height,8.41444,1.59705,9,,,,
+B,,merged: the others pooled,2,,,,,the pedicle's width and height,10.2997,2.14499,9,,,,
+B,,merged: the others pooled,3,,,,,the pedicle's width and height,10.8177,1.72069,9,,,,
+B,,"predicted: the others pooled, SD widened by tau",1,,,,,the pedicle's width and height,6.97464,1.27173,9,,,,
+B,,"predicted: the others pooled, SD widened by tau",2,,,,,the pedicle's width and height,8.90131,1.77308,9,,,,
+B,,"predicted: the others pooled, SD widened by tau",3,,,,,the pedicle's width and height,10.4963,2.04111,9,,,,
+C,,merged: the others pooled,1,,,,,every measure the paper prints,,,,0.93239,0.496894,0.0388,
+C,,merged: the others pooled,2,,,,,every measure the paper prints,,,,0.941195,0.513191,0.0638409,
+C,,merged: the others pooled,3,,,,,every measure the paper prints,,,,0.939692,0.604101,0.101955,
+C,,"predicted: the others pooled, SD widened by tau",1,,,,,every measure the paper prints,,,,0.97071,0.727273,0.0159273,
+C,,"predicted: the others pooled, SD widened by tau",2,,,,,every measure the paper prints,,,,0.970086,0.790323,0.0218977,
+C,,"predicted: the others pooled, SD widened by tau",3,,,,,every measure the paper prints,,,,0.958578,0.769231,0.0367424,
+C,,merged: the others pooled,1,,,,,a population drawn from the model,,,,0.955079,0.84,0.043,
+C,,merged: the others pooled,2,,,,,a population drawn from the model,,,,0.871378,0.621554,0.156781,
+C,,merged: the others pooled,3,,,,,a population drawn from the model,,,,0.884422,0.576446,0.2295,
+C,,"predicted: the others pooled, SD widened by tau",1,,,,,a population drawn from the model,,,,1,1,0.0017,
+C,,"predicted: the others pooled, SD widened by tau",2,,,,,a population drawn from the model,,,,1,1,0.0035625,
+C,,"predicted: the others pooled, SD widened by tau",3,,,,,a population drawn from the model,,,,1,1,0.0143333,
+D,,merged: the others pooled,1,20.2,,,,,,,,,,,population 0
+D,,merged: the others pooled,2,22.05,,,,,,,,,,,population 0
+D,,merged: the others pooled,3,17.6667,,,,,,,,,,,population 0
+D,,merged: the others pooled,1,25.9,,,,,,,,,,,population 1
+D,,merged: the others pooled,2,37.425,,,,,,,,,,,population 1
+D,,merged: the others pooled,3,41.2,,,,,,,,,,,population 1
+D,,merged: the others pooled,1,32.64,,,,,,,,,,,population 2
+D,,merged: the others pooled,2,51.4,,,,,,,,,,,population 2
+D,,merged: the others pooled,3,55.1667,,,,,,,,,,,population 2
+D,,merged: the others pooled,1,20.58,,,,,,,,,,,population 3
+D,,merged: the others pooled,2,30.175,,,,,,,,,,,population 3
+D,,merged: the others pooled,3,27.6333,,,,,,,,,,,population 3
+D,,merged: the others pooled,1,24.72,,,,,,,,,,,population 4
+D,,merged: the others pooled,2,31.675,,,,,,,,,,,population 4
+D,,merged: the others pooled,3,21.4667,,,,,,,,,,,population 4
+D,,merged: the others pooled,1,25.14,,,,,,,,,,,population 5
+D,,merged: the others pooled,2,32.4,,,,,,,,,,,population 5
+D,,merged: the others pooled,3,29.9333,,,,,,,,,,,population 5
+D,,merged: the others pooled,1,23.78,,,,,,,,,,,population 6
+D,,merged: the others pooled,2,28.775,,,,,,,,,,,population 6
+D,,merged: the others pooled,3,17.7333,,,,,,,,,,,population 6
+D,,merged: the others pooled,1,17.56,,,,,,,,,,,population 7
+D,,merged: the others pooled,2,25.6,,,,,,,,,,,population 7
+D,,merged: the others pooled,3,20.1667,,,,,,,,,,,population 7
+D,,"predicted: the others pooled, SD widened by tau",1,22.44,,,,,,,,,,,population 0
+D,,"predicted: the others pooled, SD widened by tau",2,25.6,,,,,,,,,,,population 0
+D,,"predicted: the others pooled, SD widened by tau",3,18.8667,,,,,,,,,,,population 0
+D,,"predicted: the others pooled, SD widened by tau",1,23.48,,,,,,,,,,,population 1
+D,,"predicted: the others pooled, SD widened by tau",2,35.175,,,,,,,,,,,population 1
+D,,"predicted: the others pooled, SD widened by tau",3,37,,,,,,,,,,,population 1
+D,,"predicted: the others pooled, SD widened by tau",1,28.66,,,,,,,,,,,population 2
+D,,"predicted: the others pooled, SD widened by tau",2,41.7,,,,,,,,,,,population 2
+D,,"predicted: the others pooled, SD widened by tau",3,35.9,,,,,,,,,,,population 2
+D,,"predicted: the others pooled, SD widened by tau",1,19.22,,,,,,,,,,,population 3
+D,,"predicted: the others pooled, SD widened by tau",2,29.175,,,,,,,,,,,population 3
+D,,"predicted: the others pooled, SD widened by tau",3,22.0667,,,,,,,,,,,population 3
+D,,"predicted: the others pooled, SD widened by tau",1,16.16,,,,,,,,,,,population 4
+D,,"predicted: the others pooled, SD widened by tau",2,22.95,,,,,,,,,,,population 4
+D,,"predicted: the others pooled, SD widened by tau",3,17.5333,,,,,,,,,,,population 4
+D,,"predicted: the others pooled, SD widened by tau",1,17.02,,,,,,,,,,,population 5
+D,,"predicted: the others pooled, SD widened by tau",2,19.75,,,,,,,,,,,population 5
+D,,"predicted: the others pooled, SD widened by tau",3,18.6,,,,,,,,,,,population 5
+D,,"predicted: the others pooled, SD widened by tau",1,23.88,,,,,,,,,,,population 6
+D,,"predicted: the others pooled, SD widened by tau",2,27.175,,,,,,,,,,,population 6
+D,,"predicted: the others pooled, SD widened by tau",3,18.3,,,,,,,,,,,population 6
+D,,"predicted: the others pooled, SD widened by tau",1,12.76,,,,,,,,,,,population 7
+D,,"predicted: the others pooled, SD widened by tau",2,16.4,,,,,,,,,,,population 7
+D,,"predicted: the others pooled, SD widened by tau",3,12.9,,,,,,,,,,,population 7

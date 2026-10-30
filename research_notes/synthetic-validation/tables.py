@@ -4,7 +4,7 @@
     python3 -I tables.py --records records --check README.md --check MEASURES.md    # fail when one differs
 
 The first part's tables read records/; the second part's, named all_*, read records/all, which
-run_all.py writes.
+run_all.py writes; strata reads records/strata, which run_strata.py writes.
 
 A table sits in README.md between `<!-- table NAME -->` and `<!-- end NAME -->`; each NAME is
 one function below. The prose around the tables quotes their numbers and is checked by hand; the
@@ -580,13 +580,70 @@ def t_all_measures(rec: str) -> str:
                   "variants", "what became of it"], rows, right=4, text=(0, 1, 2, 3, 9, 10))
 
 
+def t_strata(rec: str) -> str:
+    """Every paper its own population: the rule built on the others, scored on each (records/strata)."""
+    rs = rec_strata(rec)
+    j = read_json(rs, "strata.json")
+    merged, predicted = "merged: the others pooled", "predicted: the others pooled, SD widened by tau"
+    short = {merged: "merged", predicted: "predicted"}
+    pooled = j["pooled"]
+
+    def row_of(reading, arm, w):
+        return next(r for r in pooled if r["reading"] == reading and r["arm"] == arm and r["width"] == w)
+
+    def interval(r):
+        return "-" if r["pi_low"] is None else "%s to %s" % (f(r["pi_low"], 1), f(r["pi_high"], 1))
+    rows = []
+    for reading in dict.fromkeys(r["reading"] for r in pooled):
+        for w in j["sizes"]["widths"]:
+            m, p = row_of(reading, merged, w), row_of(reading, predicted, w)
+            rows.append([reading, w, m["papers"], "%s (%s)" % (f(m["loss_pooled"], 1), f(m["loss_se"], 1)), interval(m), f(m["tau_between_papers"], 1),
+                         "%s (%s)" % (f(p["loss_pooled"], 1), f(p["loss_se"], 1)), interval(p), f(p["tau_between_papers"], 1)])
+    t1 = table(["reading", "bodies", "populations", "merged: loss (SE)", "one more population", "spread",
+                "predicted: loss (SE)", "one more population", "spread"], rows, right=1, text=(0,))
+    rows = []
+    for reading in dict.fromkeys(r["reading"] for r in pooled):
+        for w in j["sizes"]["widths"]:
+            m, p = row_of(reading, merged, w), row_of(reading, predicted, w)
+            rows.append([reading, w, pct(m["exact_mean"]), pct(m["answered_mean"]), "%s (%s)" % (pct(m["precision_mean"], 0), pct(m["precision_min"], 0)),
+                         pct(p["exact_mean"]), pct(p["answered_mean"]), "%s (%s)" % (pct(p["precision_mean"], 0), pct(p["precision_min"], 0))])
+    t2 = table(["reading", "bodies", "merged: exact (%)", "answered at 0.99 (%)", "right there, mean (least) (%)",
+                "predicted: exact (%)", "answered at 0.99 (%)", "right there, mean (least) (%)"], rows, right=1, text=(0,))
+    loo = read_csv(rs, "loo.csv")
+    rows = []
+    w3 = max(j["sizes"]["widths"])
+    papers = sorted({r["paper"] for r in loo}, key=lambda p: -num(next(r["loss"] for r in loo if r["paper"] == p and r["arm"] == merged and int(r["width"]) == w3)))
+    for paper in papers:
+        m = next(r for r in loo if r["paper"] == paper and r["arm"] == merged and int(r["width"]) == w3)
+        p = next(r for r in loo if r["paper"] == paper and r["arm"] == predicted and int(r["width"]) == w3)
+        own = next(r for r in loo if r["paper"] == paper and r["arm"] == "own table" and int(r["width"]) == w3)
+        rows.append([paper, m["n_measures"], "%d of %d" % (int(m["cells_with_own_sd"]), int(m["cells"])), f(m["people"], 0),
+                     pct(own["exact"]), "%s (%s)" % (f(m["loss"], 1), f(m["loss_se"], 1)), pct(m["answered"]), pct(m["precision"], 0),
+                     "%s (%s)" % (f(p["loss"], 1), f(p["loss_se"], 1)), pct(p["answered"]), pct(p["precision"], 0)])
+    t3 = table(["paper left out", "measures", "cells with its own SD", "people", "own table: exact (%)", "merged: loss (SE)",
+                "answered at 0.99 (%)", "right (%)", "predicted: loss (SE)", "answered at 0.99 (%)", "right (%)"], rows, right=1, text=(0, 2))
+    c = j["cells"]
+    rows = [["placed cells", c["placed"]], ["  with a tau of their own (three series or more)", c["tau_from"].get("own", 0)],
+            ["  taking their measure's median tau over SD", c["tau_from"].get("the measure's median", 0)],
+            ["  taking every cell's median, %s" % f(c["borrowed_f_overall"]), c["tau_from"].get("every cell's median", 0)],
+            ["predictive SD over the within SD, quartiles", " / ".join(f(x) for x in c["predictive_over_sd_quartiles"])],
+            ["share of the spread one shift through a measure carries (the first part's split)", pct(j["share_of_spread_as_one_shift"], 0) + "%"],
+            ["columns drawn a population / populations drawn from the model", "%d / %d" % (j["sizes"]["columns"], j["sizes"]["tables"])]]
+    t4 = table(["the strata", "count"], rows)
+    return t1 + "\n\n" + t2 + "\n\n" + t3 + "\n\n" + t4
+
+
+def rec_strata(rec: str) -> str:
+    return os.path.join(rec, "strata")
+
+
 TABLES: Dict[str, Callable[[str], str]] = {
     "selection": t_selection, "means": t_means, "by_measure": t_by_measure, "structure": t_structure,
     "quality": t_quality, "state_space": t_state_space, "grid": t_grid, "naming": t_naming, "spread": t_spread,
     "part_c": t_part_c, "gold": t_gold, "assumptions": t_assumptions,
     "all_inventory": t_all_inventory, "all_cells": t_all_cells, "all_state_space": t_all_state_space, "all_axes": t_all_axes,
     "all_quality": t_all_quality, "all_relations": t_all_relations, "all_naming": t_all_naming, "all_spread": t_all_spread,
-    "all_measures": t_all_measures}
+    "all_measures": t_all_measures, "strata": t_strata}
 MARK = re.compile(r"(<!-- table (\w+) -->\n)(.*?)(<!-- end \2 -->)", re.S)
 
 

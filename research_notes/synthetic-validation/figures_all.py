@@ -12,7 +12,10 @@ the first part's eight.
   correlation and the indicators, with each table's nearest point;
 - fig12_naming_measures: exact naming against the number of measures the rule reads, over the whole
   column and over the lumbar run;
-- fig13_spread_all: the spread between published series, tau over the cell's SD, by measure.
+- fig13_spread_all: the spread between published series, tau over the cell's SD, by measure;
+- fig14_strata: every paper its own population (synthval/strata.py, records/strata): the rule built on
+  the others scored on each paper, the pooled loss and the interval for one more population, the
+  promise at 0.99, and populations drawn from the random-effects model.
 """
 from __future__ import annotations
 
@@ -312,4 +315,125 @@ def fig_spread_all(records: str, out: str) -> List[str]:
         "the series differ among themselves by a person's SD."))
 
 
-FIGURES_ALL = (fig_tables, fig_relations, fig_state_space_all, fig_naming_measures, fig_spread_all)
+# ----- figure 14: every paper its own population ------------------------------------------------------
+
+MERGED, PREDICTED, OWN = "merged: the others pooled", "predicted: the others pooled, SD widened by tau", "own table"
+ARM_LABEL = {MERGED: "merged: the others pooled", PREDICTED: "predicted: widened by tau"}
+
+
+def _strata(records: str, name: str) -> str:
+    return os.path.join(records, "strata", name)
+
+
+def fig_strata(records: str, out: str) -> List[str]:
+    plt = H.style()
+    loo = _read_csv(_strata(records, "loo.csv"))
+    drawn_pop = _read_csv(_strata(records, "new_populations.csv"))
+    j = _read_json(_strata(records, "strata.json"))
+    pooled = j["pooled"]
+    widths = [int(w) for w in j["sizes"]["widths"]]
+    w_main = max(widths)
+    readings = list(dict.fromkeys(r["reading"] for r in pooled))
+    fig, axes = plt.subplots(2, 2, figsize=(10.0, 7.4), gridspec_kw={"height_ratios": [1.5, 1.0]})
+    drawn = []
+
+    def pooled_row(reading, arm, w):
+        return next(r for r in pooled if r["reading"] == reading and r["arm"] == arm and r["width"] == w)
+
+    # A: every paper left out, at the widest field: its loss under each rule, and the pooled loss with the interval for one more.
+    a = axes[0, 0]
+    papers = sorted({r["paper"] for r in loo},
+                    key=lambda p: _num(next(r["loss"] for r in loo if r["paper"] == p and r["arm"] == MERGED and int(r["width"]) == w_main)))
+    for j_, arm in enumerate((MERGED, PREDICTED)):
+        st = H.SERIES_STYLE[j_]
+        ys = list(range(len(papers)))
+        xs = [_num(next(r["loss"] for r in loo if r["paper"] == p and r["arm"] == arm and int(r["width"]) == w_main)) for p in papers]
+        es = [1.96 * _num(next(r["loss_se"] for r in loo if r["paper"] == p and r["arm"] == arm and int(r["width"]) == w_main)) for p in papers]
+        a.errorbar(xs, [y + (0.18 if j_ else -0.18) for y in ys], xerr=es, color=H.INK, linestyle="none", marker=st["marker"],
+                   markerfacecolor=st["markerfacecolor"], markersize=4, elinewidth=0.6, label=ARM_LABEL[arm])
+        pr = pooled_row(readings[0], arm, w_main)
+        y0 = len(papers) + 0.6 + (0.3 if j_ else 0)
+        lo, hi = _num(pr["pi_low"]), _num(pr["pi_high"])
+        a.plot([lo, hi], [y0, y0], color=H.INK, linewidth=0.6, linestyle=st["linestyle"])
+        a.plot([pr["loss_pooled"]], [y0], color=H.INK, linestyle="none", marker="D", markerfacecolor=st["markerfacecolor"], markersize=5)
+        drawn += [{"panel": "A", "paper": p, "arm": arm, "width": w_main, "loss": x, "half_width_95": e} for p, x, e in zip(papers, xs, es)]
+        drawn.append({"panel": "A", "paper": "pooled, one more population", "arm": arm, "width": w_main,
+                      "loss": pr["loss_pooled"], "pi_low": lo, "pi_high": hi})
+    labels = ["%s (%s)" % (p, next(r["n_measures"] for r in loo if r["paper"] == p)) for p in papers] + ["one more population"]
+    a.set_yticks(list(range(len(papers))) + [len(papers) + 0.75])
+    a.set_yticklabels(labels, fontsize=6.5)
+    a.axvline(0, color=H.INK, linewidth=0.6, linestyle=":")
+    a.set_xlabel("loss against the paper's own table (points named exactly, %d bodies)" % w_main)
+    a.legend(loc="lower right", fontsize=6.5)
+    H.letter(a, "A", "each paper left out, on its own measures (count); the diamond is the pooled loss")
+
+    # B: the pooled loss by width, the two leave-one-out readings and each rule (the model's is D).
+    b = axes[0, 1]
+    k = 0
+    for ri, reading in enumerate(readings[:2]):
+        for j_, arm in enumerate((MERGED, PREDICTED)):
+            rows = [pooled_row(reading, arm, w) for w in widths]
+            st = dict(H.SERIES_STYLE[k % len(H.SERIES_STYLE)])
+            xs = [w + (k - 2.5) * 0.05 for w in widths]
+            b.errorbar(xs, [r["loss_pooled"] for r in rows], yerr=[1.96 * (r["loss_se"] or 0.0) for r in rows], color=H.INK,
+                       elinewidth=0.6, label="%s, %s" % (reading, ARM_LABEL[arm].split(":")[0]), **st)
+            drawn += [{"panel": "B", "reading": reading, "arm": arm, "width": w, "loss_pooled": r["loss_pooled"], "loss_se": r["loss_se"],
+                       "populations": r["papers"]} for w, r in zip(widths, rows)]
+            k += 1
+    b.set_xticks(widths)
+    b.set_xlabel("bodies in the field (L1 to L5)")
+    b.set_ylabel("pooled loss (points named exactly)")
+    b.set_ylim(0, None)
+    b.legend(loc="lower right", fontsize=6)
+    H.letter(b, "B", "the pooled loss over the papers left out, bars 95% of its SE")
+
+    # C: the promise at 0.99 on the papers and on the model's populations: how often right, the mean over the
+    # populations, the least as a whisker.
+    c = axes[1, 0]
+    k = 0
+    for ri, reading in enumerate((readings[0], readings[-1])):
+        for j_, arm in enumerate((MERGED, PREDICTED)):
+            rows = [pooled_row(reading, arm, w) for w in widths]
+            st = dict(H.SERIES_STYLE[k % len(H.SERIES_STYLE)])
+            xs = [w + (k - 2.5) * 0.05 for w in widths]
+            ys = [100 * (r["precision_mean"] if r["precision_mean"] is not None else float("nan")) for r in rows]
+            lows = [100 * (r["precision_min"] if r["precision_min"] is not None else float("nan")) for r in rows]
+            c.errorbar(xs, ys, yerr=[[y - l for y, l in zip(ys, lows)], [0] * len(ys)], color=H.INK, elinewidth=0.6,
+                       label="%s, %s" % (reading, ARM_LABEL[arm].split(":")[0]), **st)
+            drawn += [{"panel": "C", "reading": reading, "arm": arm, "width": w, "precision_mean": r["precision_mean"],
+                       "precision_min": r["precision_min"], "answered_mean": r["answered_mean"]} for w, r in zip(widths, rows)]
+            k += 1
+    c.axhline(99, color=H.INK, linewidth=0.6, linestyle=":")
+    c.set_xticks(widths)
+    c.set_xlabel("bodies in the field (L1 to L5)")
+    c.set_ylabel("answers at 0.99 that are right (%)")
+    c.set_ylim(40, 101)
+    c.legend(loc="lower right", fontsize=6)
+    H.letter(c, "C", "the promise at 0.99: the mean over the populations, the whisker down to the least")
+
+    # D: populations drawn from the random-effects model itself: each one's loss, and the two rules.
+    d = axes[1, 1]
+    pops = list(dict.fromkeys(r["paper"] for r in drawn_pop))
+    for j_, arm in enumerate((MERGED, PREDICTED)):
+        st = dict(H.SERIES_STYLE[j_])
+        for pi, p in enumerate(pops):
+            ys = [_num(next(r["loss"] for r in drawn_pop if r["paper"] == p and r["arm"] == arm and int(r["width"]) == w)) for w in widths]
+            d.plot([w + (j_ - 0.5) * 0.06 for w in widths], ys, color=H.GREY, linewidth=0.5, linestyle=st["linestyle"], marker=st["marker"],
+                   markerfacecolor=st["markerfacecolor"], markersize=2.5, markeredgecolor=H.GREY)
+            drawn += [{"panel": "D", "population": p, "arm": arm, "width": w, "loss": y} for w, y in zip(widths, ys)]
+        rows = [pooled_row(readings[-1], arm, w) for w in widths]
+        d.plot([w + (j_ - 0.5) * 0.06 for w in widths], [r["loss_pooled"] for r in rows], color=H.INK, label=ARM_LABEL[arm], **st)
+    d.set_xticks(widths)
+    d.set_xlabel("bodies in the field (L1 to L5)")
+    d.set_ylabel("loss (points named exactly)")
+    d.legend(loc="upper left", fontsize=6.5)
+    H.letter(d, "D", "%d populations drawn from the model on the seven (grey), and the pooled loss" % len(pops))
+    fig.tight_layout()
+    H.write_csv(out, "fig14_strata", drawn)
+    return H.save(fig, out, "fig14_strata", (
+        "Every paper its own population. A, the rule built on the other papers, pooled, scored on each paper's "
+        "population at three bodies, the diamond's line the interval for one more population; B, the pooled loss "
+        "by field width and reading; C, whether answers at 0.99 stay right; D, populations drawn from the random-effects model."))
+
+
+FIGURES_ALL = (fig_tables, fig_relations, fig_state_space_all, fig_naming_measures, fig_spread_all, fig_strata)

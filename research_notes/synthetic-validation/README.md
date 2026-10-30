@@ -118,6 +118,24 @@ stand; a later snapshot is cut with `python3 -I snapshot.py --write <commit>` an
    The series of the 14 measures pooled from three or more differ by a median 1.07 of a person's SD
    (tables all_inventory to all_spread, figures fig9_tables to fig13_spread_all).
 
+9. **Every paper its own population: a rule built on the others loses about 9 points at one body and 12 at
+   three, and widening its SDs by tau keeps its answers at 0.99 honest but names nothing better.** The
+   owner's word of 2026-10-29: keep the populations separate and predict as a meta-analysis predicts. Each
+   of 22 papers is left out in turn and the rule built on the others' random-effects pool is scored on
+   columns drawn from that paper's own means over L1 to L5, on the measures it prints at every lumbar
+   level: it loses a pooled 8.9 points of exact naming at one body and 11.9 at three against the paper's
+   own table, with a spread between papers of 6.6 to 8.8 points, so one more population is predicted to
+   lose between nothing and about 30 (frontphys2026, Otsuki, Busscher, Yadav and Tan lose 19 to 32 points,
+   Chaudhary, Amonoo-Kuofi, Cizmic and Abbas under 3). The same rule with every SD widened for a population
+   it has not seen, sqrt(sd^2 + tau^2 + SE^2), 1.50 times the within SD at the median, loses the same
+   (a paired difference of 0.4 points, SD 3.1 over the papers), since the loss is the shift of the means
+   and no SD undoes it; what it changes is the promise: at three bodies it answers at 0.99 on 3.7% of
+   fields against 10.2% and is right on 96% of them against 94%, 77% against 60% on the worst paper, and
+   on the nine papers that print the pedicle's width and height it is right on 100% (least 98%) against 98%
+   (least 93%). On populations drawn from the random-effects model itself the merged rule's answers at
+   0.99 fall to 87 to 88% right (least 58%) and the widened rule's stay at 100%. Three real populations
+   stay under 90% under either rule (Busscher 2010, frontphys2026, Yadav 2020), their means far from the
+   others' and their SDs narrower than the pool's (tables strata, figure fig14_strata).
 ## What was compared
 
 **The generator.** schwingcheck draws each value as s^p (mu + sd (rho z + sqrt(1 - rho^2) e)) + error n:
@@ -954,6 +972,129 @@ between half a scan and 1.2 for eight of the fourteen.
 | h_mid | the papers' own | 2 | 0.23 | 28.5 |
 <!-- end all_spread -->
 
+## Every paper its own population
+
+The owner's word of 2026-10-29, 23:43 UTC: keep the populations separate and predict as a meta-analysis
+predicts, never merge them all together. The pooling above already does the first half: every cell of
+the papers' table pools its series by random effects (pooling.py's REML tau, Higgins's prediction interval
+for one more population's mean), so the papers are combined as a meta-analysis combines them. The tables B
+and C then keep only the pooled mean and the within-person SD, so a population drawn from them, and the
+rule built on them, merges every paper into one and drops tau. synthval/strata.py keeps each paper a
+population of its own, the stratum a paper (a cohort, a sex or a variable of the population register
+pull request 43 builds is the same code with another grouping), and asks what the rule built on the
+others does on it, over the lumbar run L1 to L5 where most of the papers print, on three readings, each
+paired on the same fields (run_strata.py, records/strata, 1,000 columns a population):
+
+- every paper left out in turn, scored on the measures it prints at every lumbar level that the other
+  papers still pool there and that carry a modelled error (22 papers, 1 to 15 measures each), on columns
+  drawn from its own means, with its own SD where it prints a certain one and the others' pooled SD where
+  not (Tan's 75 cells);
+- the nine papers that print the pedicle's width and height at every lumbar level, scored on those two
+  alone, so every population is read on the same measures;
+- eight populations drawn from the random-effects model itself on the seven SPINEPS measures, each
+  cell's pooled mean moved by the spread of one more population's mean, sqrt(tau^2 + SE^2), 82% of that
+  variance as one shift through the whole measure and the rest cell by cell, the split the first part
+  calibrated.
+
+Each population is named by three rules on the same fields: its own table, the loss's zero; the others'
+random-effects pool with the within SD, as tables B and C hold it (merged); and the same means with every
+SD widened for a population the rule has not seen, sqrt(sd^2 + tau^2 + SE^2) (predicted). A cell with
+three series or more has a tau of its own (81 of 694); one with fewer takes its measure's median tau
+over SD from the cells that have one (205), else every cell's median, 1.07 (408), and the record says
+which. The widened SD is 1.46 to 1.53 times the within SD over the quartiles of cells. The per-paper
+losses are then combined by random effects as a meta-analysis combines studies, giving the loss one more
+population is predicted to bring and its interval.
+
+<!-- table strata -->
+| reading | bodies | populations | merged: loss (SE) | one more population | spread | predicted: loss (SE) | one more population | spread |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| every measure the paper prints | 1 | 22 | 8.9 (1.4) | -5.1 to 23.0 | 6.6 | 8.7 (1.5) | -6.3 to 23.7 | 7.0 |
+| every measure the paper prints | 2 | 22 | 11.6 (1.8) | -6.0 to 29.3 | 8.3 | 12.0 (2.0) | -7.6 to 31.7 | 9.2 |
+| every measure the paper prints | 3 | 22 | 11.9 (1.9) | -6.8 to 30.6 | 8.8 | 12.3 (2.0) | -7.5 to 32.0 | 9.3 |
+| the pedicle's width and height | 1 | 9 | 8.4 (1.6) | -3.4 to 20.2 | 4.7 | 7.0 (1.3) | -2.4 to 16.3 | 3.7 |
+| the pedicle's width and height | 2 | 9 | 10.3 (2.1) | -5.6 to 26.2 | 6.4 | 8.9 (1.8) | -4.2 to 22.0 | 5.3 |
+| the pedicle's width and height | 3 | 9 | 10.8 (1.7) | -1.9 to 23.5 | 5.1 | 10.5 (2.0) | -4.6 to 25.6 | 6.1 |
+| a population drawn from the model | 1 | 8 | 23.8 (1.6) | 12.0 to 35.6 | 4.5 | 20.5 (1.8) | 7.3 to 33.6 | 5.1 |
+| a population drawn from the model | 2 | 8 | 32.4 (3.2) | 9.3 to 55.6 | 8.9 | 27.2 (2.9) | 6.0 to 48.4 | 8.2 |
+| a population drawn from the model | 3 | 8 | 28.9 (4.7) | -5.5 to 63.2 | 13.2 | 22.6 (3.1) | -0.3 to 45.6 | 8.8 |
+
+| reading | bodies | merged: exact (%) | answered at 0.99 (%) | right there, mean (least) (%) | predicted: exact (%) | answered at 0.99 (%) | right there, mean (least) (%) |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| every measure the paper prints | 1 | 39.7 | 3.9 | 93 (50) | 40.0 | 1.6 | 97 (73) |
+| every measure the paper prints | 2 | 49.3 | 6.4 | 94 (51) | 49.0 | 2.2 | 97 (79) |
+| every measure the paper prints | 3 | 60.8 | 10.2 | 94 (60) | 60.4 | 3.7 | 96 (77) |
+| the pedicle's width and height | 1 | 40.6 | 3.5 | 98 (90) | 42.0 | 1.8 | 100 (96) |
+| the pedicle's width and height | 2 | 51.9 | 4.6 | 98 (92) | 53.3 | 2.2 | 100 (97) |
+| the pedicle's width and height | 3 | 62.3 | 6.2 | 98 (93) | 62.6 | 2.9 | 100 (98) |
+| a population drawn from the model | 1 | 47.6 | 4.3 | 96 (84) | 51.0 | 0.2 | 100 (100) |
+| a population drawn from the model | 2 | 56.4 | 15.7 | 87 (62) | 61.5 | 0.4 | 100 (100) |
+| a population drawn from the model | 3 | 67.1 | 22.9 | 88 (58) | 73.3 | 1.4 | 100 (100) |
+
+| paper left out | measures | cells with its own SD | people | own table: exact (%) | merged: loss (SE) | answered at 0.99 (%) | right (%) | predicted: loss (SE) | answered at 0.99 (%) | right (%) |
+| --- | ---: | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| frontphys2026 | 5 | 25 of 25 | 20 | 87.4 | 31.9 (1.2) | 5.6 | 86 | 32.7 (1.3) | 0.2 | 86 |
+| otsuki2021 | 3 | 15 of 15 | 6 | 88.7 | 29.5 (1.0) | 16.9 | 92 | 25.5 (0.9) | 14.9 | 96 |
+| busscher2010 | 3 | 15 of 15 | 6 | 86.6 | 24.9 (1.0) | 3.2 | 86 | 29.9 (1.1) | 1.3 | 77 |
+| yadav2020 | 5 | 25 of 25 | 302 | 70.7 | 20.0 (1.2) | 42.3 | 60 | 21.2 (1.2) | 5.1 | 77 |
+| tan2004 | 15 | 0 of 75 | 10 | 97.3 | 19.1 (0.8) | 43.1 | 94 | 18.5 (0.8) | 20.2 | 100 |
+| arockiaraj2025 | 4 | 20 of 20 | 300 | 84.7 | 16.4 (0.8) | 16.1 | 100 | 22.1 (0.8) | 2.5 | 100 |
+| moncadahabib2025 | 6 | 30 of 30 | 37 | 75.0 | 14.8 (1.1) | 9.7 | 92 | 17.0 (1.1) | 0.9 | 96 |
+| lien2007 | 4 | 20 of 20 | 15 | 83.7 | 14.2 (0.8) | 16.8 | 98 | 15.1 (1.0) | 8.2 | 99 |
+| yu2015 | 2 | 10 of 10 | 503 | 77.5 | 12.3 (1.0) | 12.4 | 99 | 7.2 (0.9) | 4.7 | 100 |
+| shin2024 | 4 | 20 of 20 | 2800 | 71.9 | 11.9 (1.0) | 1.2 | 100 | 16.1 (1.0) | 0.0 | - |
+| griffith2016 | 3 | 15 of 15 | 1080 | 72.5 | 11.6 (0.9) | 8.5 | 98 | 8.2 (0.9) | 0.0 | 100 |
+| bach2019 | 4 | 20 of 20 | 240 | 72.4 | 10.0 (0.9) | 2.6 | 100 | 6.6 (0.8) | 0.0 | 100 |
+| alonge2021 | 2 | 10 of 10 | 120 | 66.2 | 9.0 (1.0) | 5.3 | 97 | 4.4 (0.8) | 0.2 | 100 |
+| masharawi2021 | 5 | 25 of 25 | 50 | 71.5 | 8.9 (1.0) | 12.0 | 91 | 6.7 (0.9) | 5.0 | 97 |
+| olsewski1990 | 4 | 20 of 20 | 49 | 81.1 | 7.2 (0.7) | 22.9 | 98 | 10.9 (1.0) | 15.9 | 98 |
+| hou1993 | 2 | 10 of 10 | 40 | 74.0 | 5.3 (0.7) | 1.6 | 100 | 7.3 (0.8) | 0.6 | 100 |
+| amonookuofi1982 | 1 | 5 of 5 | 290 | 55.5 | 5.2 (1.0) | 0.0 | - | 4.3 (1.0) | 0.0 | - |
+| hinck1966 | 1 | 5 of 5 | 90 | 50.3 | 3.0 (0.8) | 0.4 | 92 | 3.3 (0.8) | 0.3 | 100 |
+| abbas2021 | 2 | 10 of 10 | 180 | 62.4 | 2.8 (0.8) | 0.2 | 100 | 6.0 (0.9) | 0.0 | - |
+| cizmic2023 | 2 | 10 of 10 | 200 | 64.7 | 1.7 (0.6) | 2.3 | 100 | 2.5 (0.7) | 0.2 | 100 |
+| amonookuofi1985 | 1 | 5 of 5 | 122 | 54.9 | 1.6 (0.8) | 0.0 | - | 3.4 (0.8) | 0.0 | - |
+| chaudhary2015 | 1 | 5 of 5 | 300 | 51.2 | 1.2 (0.8) | 1.3 | 95 | 1.8 (0.9) | 0.8 | 100 |
+
+| the strata | count |
+| --- | ---: |
+| placed cells | 694 |
+|   with a tau of their own (three series or more) | 81 |
+|   taking their measure's median tau over SD | 205 |
+|   taking every cell's median, 1.07 | 408 |
+| predictive SD over the within SD, quartiles | 1.46 / 1.50 / 1.53 |
+| share of the spread one shift through a measure carries (the first part's split) | 82% |
+| columns drawn a population / populations drawn from the model | 1000 / 8 |
+<!-- end strata -->
+
+The first table's loss is in points of fields named exactly, the pooled mean over the papers (its SE), the
+interval for one more population (Higgins's, on the spread between papers), and that spread; the second
+the promise at 0.99; the third each paper at three bodies; the fourth where the taus came from.
+
+A rule built on the other papers loses a pooled 8.9 points at one body, 11.6 at two and 11.9 at three
+against the paper's own table, a spread between papers of 6.6 to 8.8 points, so one more population is
+predicted to lose anywhere from nothing to about 30: frontphys2026, Otsuki 2021, Busscher 2010, Yadav 2020
+and Tan 2004 lose 19 to 32 points at three bodies, Chaudhary 2015, Amonoo-Kuofi 1985, Cizmic 2023 and
+Abbas 2021 under 3; the loss follows how far a paper's means sit from the others' and not how many
+measures it prints (Tan's 15 lose 19, Otsuki's 3 lose 30). Widening every SD by tau changes exact naming
+by a paired 0.4 points (SD 3.1 over the 22 papers; 1.4 points better on the pedicle pair at one body,
+within its SE): the loss is the shift of the means, and no SD undoes a shift. What the widening changes is
+the promise at 0.99. The merged rule answers at 0.99 on 3.9, 6.4 and 10.2% of fields at one, two and three
+bodies and is right on 93 to 94% of those answers, on 60% of Yadav 2020's 1,268 at three bodies; the
+widened rule answers on 1.6, 2.2 and 3.7% and is right on 96 to 97%, 77% at worst. On the pedicle pair,
+read on the same two measures for every population, it is right on 100% of its answers (least 98%)
+against 98% (least 93%). On the populations drawn from the model itself, which are what the widened SD
+assumes, the merged rule's answers fall to 87 to 88% right at two and three bodies (58% on one
+population) and the widened rule's stay at 100% at every width, while it names 3 to 6 points more of
+them exactly. Those drawn populations lose 24 to 32 points, more than any pooled reading of the real
+papers, since the seven's lumbar cells rest mostly on Tan alone and take the borrowed tau of 1.07 SD, and
+the model moves every cell by it; a real paper's loss sits inside the model's interval but near its
+bottom. Three real populations stay under 90% right under either rule, Busscher 2010 (86 and 77%),
+frontphys2026 (86 and 86%) and Yadav 2020 (60 and 77%): their means sit far from the others' and their
+own SDs are narrower than the pool's, so a field of theirs looks like a neighbouring level with
+confidence, and a wider SD cannot undo it. A rule that holds the strata themselves, a mixture over
+populations rather than one widened table, is the next thing to try, and whether schwingcheck's rule
+should carry the widened SD is the owner's to choose; this note changes neither.
+
 ## Figures and renders
 
 figures/FIGURES.md lists each with its caption, its CSV, the sha256 of every file and the abbreviations
@@ -972,6 +1113,9 @@ mnemonics.py starts it at the canal's posterior wall.
 - fig8_assumptions: the errors and prevalences the generator assumes, beside the papers'.
 - fig9_tables, fig10_relations, fig11_state_space_all, fig12_naming_measures, fig13_spread_all: the second
   part, every measure of the reread (figures_all.py, drawn by figures.py with the rest).
+- fig14_strata: every paper its own population, the rule built on the others scored on each, the pooled
+  loss with its interval for one more population, the promise at 0.99 and the populations drawn from the
+  random-effects model (figures_all.py, from records/strata).
 - render1_axial, render2_column, render3_solid: L3 from above, the lumbar column from in front, and the
   column as solids, Panjabi's means beside synthetic people.
 
@@ -982,6 +1126,7 @@ From this folder, with the Python that holds bordercall's pinned packages (requi
 ```
 python3 -I run.py --out records                    # every record, about ten minutes on 4 CPUs
 python3 -I run_all.py --out records/all            # the second part, about half an hour; --quick smoke-tests it
+python3 -I run_strata.py --out records/strata      # every paper its own population, about two minutes; --quick too
 python3 -I figures.py --records records --out figures
 python3 -I tables.py --records records --write README.md --write MEASURES.md
 python3 -I tables.py --records records --check README.md --check MEASURES.md   # exit 1 when a table differs
@@ -994,24 +1139,27 @@ snapshot.py, synthval/ and the tests, read before the run starts. The run is det
 the same bytes in every record but RECORD.json's seconds. records/all/RECORD_ALL.json records the second
 part's run the same way, with the whole snapshot's digests from data/SOURCE_ALL.json. The grid search
 of the second part also runs as a Slurm array on the grid, one task a point, with a merge that writes the
-same records (grid/README.md). As committed on 2026-10-29 the records are a container's, and the code
+same records (grid/README.md). records/strata/strata.json records the strata reading the same way, with
+its own seeds and sizes; it reads the first part's records/power.json for the split's share and runs in
+about two minutes, so it is not sent to the grid. As committed on 2026-10-29 the records are a container's, and the code
 digests in RECORD.json and RECORD_ALL.json predate the last changes to run.py, run_all.py and
 synthval/all_measures.py (the array's --point and merge, no number changed); the owner's word of 23:03 UTC
 sends the final rerun to the grid, which rewrites both records.
 
 ## Files
 
-- run.py writes records/, run_all.py records/all/; figures.py, figures_all.py and render.py draw
-  figures/; tables.py writes the tables above and MEASURES.md; snapshot.py cuts and checks data/.
+- run.py writes records/, run_all.py records/all/, run_strata.py records/strata/; figures.py,
+  figures_all.py and render.py draw figures/; tables.py writes the tables above and MEASURES.md;
+  snapshot.py cuts and checks data/.
 - synthval/: literature.py (the selection), pooling.py, population.py, validate.py, structure.py, qi.py,
   sweep.py, naming.py, power.py, references.py (the papers' errors and prevalences), house.py; for the
   second part papers_table.py (the vocabulary, the variants, the three tables), relations.py and
-  all_measures.py.
+  all_measures.py; strata.py, every paper its own population and the rule predicted for one more.
 - data/: the snapshot of the reread's series and SOURCE.json; series_all.csv, vocabulary.csv and
   SOURCE_ALL.json, the whole reread for the second part.
 - MEASURES.md: every key of the vocabulary with what became of it, written from records/all.
 - tests/test_synthval.py: 31 tests of the code against what its docstrings say; tests/test_all_measures.py:
-  25 of the second part's.
+  25 of the second part's; tests/test_strata.py: 13 of the strata's.
 
 ## What this note does not do
 
@@ -1030,3 +1178,9 @@ sends the final rerun to the grid, which rewrites both records.
   and its duplicated rows; a table drawn from its own means and SDs can be read for self-consistency
   and for what the relations between measures allow, never for a match to the papers, which the first
   part made.
+- The strata reading is a quick lumbar run, 1,000 columns a population on 4 CPUs, not the grid search,
+  which stays as it is until the owner sends it (his word of 2026-10-29: no large rerun while the
+  populations move); 613 of its 694 cells borrow a tau, and a paper's population is its printed means
+  with the pool's SD where its own is uncertain, so it reads what the papers print, not their people.
+  It splits by paper; the population register of pull request 43 (country, ancestry, specimen, age, sex)
+  gives strata_of another grouping, and no subgroup is read here.
