@@ -18,6 +18,7 @@ import json
 import math
 import os
 import re
+import statistics
 import sys
 from typing import Callable, Dict, List, Sequence
 
@@ -645,14 +646,9 @@ def rec_strata(rec: str) -> str:
     return os.path.join(rec, "strata")
 
 
-def t_select(rec: str) -> str:
-    """Choosing the rule by held-out prediction: every candidate on the held-out populations
-    (records/select)."""
-    rs = os.path.join(rec, "select")
-    j = read_json(rs, "select.json")
+def _candidates_table(j: dict, order: Sequence[str]) -> str:
+    """One row a candidate and width over the held-out populations, as select.summarise gives it."""
     summary = j["summary"]
-    widths = j["sizes"]["widths"]
-    order = ["own table"] + list(j["candidates"])
 
     def row_of(candidate, w):
         return next(r for r in summary if r["candidate"] == candidate and r["width"] == w)
@@ -660,7 +656,7 @@ def t_select(rec: str) -> str:
     def pm(x, se, digits=3):
         return "%s (%s)" % (f(x, digits), f(se, digits)) if se is not None and math.isfinite(se) else f(x, digits)
     rows = []
-    for w in widths:
+    for w in j["sizes"]["widths"]:
         for c in order:
             r = row_of(c, w)
             rows.append([c, w, pm(r["log_loss_mean"], r["log_score_se"]),
@@ -669,8 +665,17 @@ def t_select(rec: str) -> str:
                          pm(100 * r["exact_mean"], 100 * r["exact_se"], 1),
                          "-" if c in ("plain", "own table") else "%s (%s)" % (f(100 * r["exact_vs_plain"], 1), f(100 * r["exact_vs_plain_se"], 1)),
                          f(r["ece_pooled"], 3), pct(r["answered_mean"]), pct(r["precision_pooled"], 0)])
-    t1 = table(["candidate", "bodies", "log loss (SE)", "log loss minus plain (SE)", "beats plain", "accuracy % (SE)", "accuracy minus plain (SE)",
-                "calibration error", "answered at 0.99 (%)", "right (%)"], rows, right=1, text=(0,))
+    return table(["candidate", "bodies", "log loss (SE)", "log loss minus plain (SE)", "beats plain", "accuracy % (SE)", "accuracy minus plain (SE)",
+                  "calibration error", "answered at 0.99 (%)", "right (%)"], rows, right=1, text=(0,))
+
+
+def t_select(rec: str) -> str:
+    """Choosing the rule by held-out prediction: the five candidates of select.CORE on the held-out
+    populations (records/select)."""
+    rs = os.path.join(rec, "select")
+    j = read_json(rs, "select.json")
+    widths = j["sizes"]["widths"]
+    t1 = _candidates_table(j, ["own table"] + list(j.get("core", j["candidates"])))
     choices = read_csv(rs, "choices.csv")
     rows = []
     for ch in sorted(choices, key=lambda c: c["paper"]):
@@ -686,13 +691,41 @@ def t_select(rec: str) -> str:
     return t1 + "\n\n" + t2 + "\n\n" + t3
 
 
+def t_exclusion(rec: str) -> str:
+    """Leaving a paper out, scored held out (records/select): the exclusion candidates beside plain
+    and tempered, each population a drop moves at the widest field, and the temperatures chosen."""
+    rs = os.path.join(rec, "select")
+    j = read_json(rs, "select.json")
+    widths = j["sizes"]["widths"]
+    w_main = max(widths)
+    t1 = _candidates_table(j, ["plain", "tempered"] + list(j["exclusion"]))
+    drops = [n for n in j["exclusion"] if not n.endswith(", tempered")]
+    per = {(r["candidate"], r["paper"]): r for r in read_csv(rs, "scores.csv") if int(r["width"]) == w_main}
+    papers = sorted({p for _, p in per})
+    rows = []
+    for p in papers:
+        moved = [num(per[d, p]["log_score_vs_plain"]) for d in drops]
+        if max(abs(x) for x in moved) >= 0.0005:
+            rows.append([p] + [f(x, 3) for x in moved] + [per[drops[0], p]["n_measures"]])
+    t2 = table(["paper held out"] + ["%s: log score minus plain at %d bodies" % (d, w_main) for d in drops] + ["measures"], rows, right=1, text=(0,))
+    choices = read_csv(rs, "choices.csv")
+    rows = []
+    for b in j["bases"]:
+        col = "t_%d" if b == "plain" else "t_" + re.sub(r"[^a-z0-9]+", "_", b.lower()).strip("_") + "_%d"
+        rows.append([b] + ["%s (%s to %s)" % (f(statistics.median([num(c[col % w]) for c in choices]), 1),
+                                              f(min(num(c[col % w]) for c in choices), 1), f(max(num(c[col % w]) for c in choices), 1))
+                           for w in widths])
+    t3 = table(["rule the temperature is read on"] + ["T at %d, median (range)" % w for w in widths], rows, text=(0,))
+    return t1 + "\n\n" + t2 + "\n\n" + t3
+
+
 TABLES: Dict[str, Callable[[str], str]] = {
     "selection": t_selection, "means": t_means, "by_measure": t_by_measure, "structure": t_structure,
     "quality": t_quality, "state_space": t_state_space, "grid": t_grid, "naming": t_naming, "spread": t_spread,
     "part_c": t_part_c, "gold": t_gold, "assumptions": t_assumptions,
     "all_inventory": t_all_inventory, "all_cells": t_all_cells, "all_state_space": t_all_state_space, "all_axes": t_all_axes,
     "all_quality": t_all_quality, "all_relations": t_all_relations, "all_naming": t_all_naming, "all_spread": t_all_spread,
-    "all_measures": t_all_measures, "strata": t_strata, "select": t_select}
+    "all_measures": t_all_measures, "strata": t_strata, "select": t_select, "exclusion": t_exclusion}
 MARK = re.compile(r"(<!-- table (\w+) -->\n)(.*?)(<!-- end \2 -->)", re.S)
 
 

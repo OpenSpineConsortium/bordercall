@@ -39,11 +39,10 @@ def figure(name, alt):
                inline(note["how_to_read"].strip()), inline(note["what_it_shows"].strip())))
 
 
-def result_table():
+def result_table(order):
     """The candidates on the held-out populations, from the selection's record: one row a candidate
     and width, the mean over the populations with its SE."""
     rows = []
-    order = ["own table"] + list(select["candidates"])
     for w in select["sizes"]["widths"]:
         for c in order:
             r = next(x for x in select["summary"] if x["candidate"] == c and x["width"] == w)
@@ -73,8 +72,13 @@ for f in os.listdir(os.path.join(NOTE, "figures")):
 PAGE = [
     ("task", "The task, the model and the data", blocks(notes["task"])),
     ("protocol", "Evaluation protocol", blocks(notes["protocol"])),
-    ("result", "Result: the candidates on held-out populations", blocks(notes["result"]) + result_table() +
+    ("result", "Result: the candidates on held-out populations", blocks(notes["result"]) +
+     result_table(["own table"] + list(select.get("core", select["candidates"]))) +
      figure("fig15_select", "Candidates on the held-out populations, calibration, the two knobs swept, and the winner against plain")),
+    ("exclusion", "Dropping a training population, scored held out", blocks(notes["exclusion"]) +
+     result_table(["plain", "tempered"] + list(select["exclusion"])) +
+     figure("fig16_exclusion", "Each exclusion candidate against plain, per population, and calibration")),
+    ("project", "Where this sits in the project", blocks(notes["project"])),
     ("shift", "Distribution shift, measured", figure("fig14_strata", "Each paper held out: the rule built on the others, scored on it")),
     ("features", "Features and robustness", figure("fig12_naming_measures", "Accuracy against the number of measures the rule reads") +
      figure("fig5_naming", "Accuracy across the generator's hyperparameters")),
@@ -86,7 +90,7 @@ PAGE = [
     ("reproduce", "Reproduce", blocks(notes["reproduce"])),
 ]
 unnoted = [n for _, _, body in PAGE for n in [] if n not in notes["figures"]]
-for name in ("fig15_select", "fig14_strata", "fig12_naming_measures", "fig5_naming", "fig1_means", "fig2_spread", "fig7_quality"):
+for name in ("fig15_select", "fig16_exclusion", "fig14_strata", "fig12_naming_measures", "fig5_naming", "fig1_means", "fig2_spread", "fig7_quality"):
     if name not in notes["figures"]:
         raise SystemExit("figure with no note in report/ml_notes.json: %s" % name)
 

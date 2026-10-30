@@ -15,6 +15,10 @@
   and on a toy pool whose populations spread wider than the within SD picks a factor above 1;
 - the candidates are scored on the same fields, the own table loses nothing to itself, and the
   tempered candidate names exactly what plain names;
+- leaving a paper out pools the cells over the rest, changes nothing on the fold that holds that
+  paper out, and keeps plain's value where no third paper prints a cell, counted; one vote per
+  population takes the geometric mean of the others' own SDs and keeps plain's means; each base's
+  temperature is chosen on its own rule;
 - summarise gives each population equal weight, the winner is the best mean log score, and the
   difference from plain is paired.
 """
@@ -156,6 +160,51 @@ class Select(unittest.TestCase):
         self.assertTrue(all(b["candidate"] in {SEL.OWN} | set(SEL.CANDIDATES) for b in bins))
         for cand in (SEL.OWN,) + SEL.CANDIDATES:
             self.assertEqual(sum(b["fields"] for b in bins if b["candidate"] == cand and b["width"] == 1), 100)
+
+    def test_leaving_a_paper_out_pools_the_rest_and_keeps_plain_where_nothing_is_left(self):
+        plain = ST.others_table(self.cells, "a", self.keys, VOC, ({}, float("nan")), False)
+        gone, kept = SEL.without_table(self.cells, "a", self.keys, VOC, "d")
+        self.assertEqual(kept, 0)
+        dropped = ST.others_table(SEL.drop_paper(self.cells, "d"), "a", self.keys, VOC, ({}, float("nan")), False)
+        np.testing.assert_allclose(gone.mu, dropped.mu)
+        np.testing.assert_allclose(gone.sd, dropped.sd)
+        self.assertFalse(np.allclose(gone.mu, plain.mu))
+        same, kept = SEL.without_table(self.cells, "a", self.keys, VOC, "a")
+        np.testing.assert_allclose(same.mu, plain.mu)
+        np.testing.assert_allclose(same.sd, plain.sd)
+        two = ST.strata_of(papers({"a": 0.0, "b": 1.0}) + papers({"z": 0.5}, keys=("canal_ap",)))
+        alone, kept = SEL.without_table(two, "a", ["canal_ap", "h_ant"], VOC, "b")
+        self.assertEqual(kept, len(LUMBAR))      # h_ant is printed by a and b alone: plain's value is kept
+        np.testing.assert_allclose(alone.mu[1], ST.others_table(two, "a", ["h_ant"], VOC, ({}, float("nan")), False).mu[0])
+
+    def test_one_vote_per_population_is_the_geometric_mean_of_the_others_sds(self):
+        cells = ST.strata_of([series(p, "canal_ap", lv, 17.0 + i, sd=sd, n=n)
+                              for p, sd, n in (("a", 2.0, 30.0), ("big", 4.0, 300.0), ("small", 1.0, 20.0))
+                              for i, lv in enumerate(LUMBAR)])
+        plain = ST.others_table(cells, "a", ["canal_ap"], VOC, ({}, float("nan")), False)
+        vote, kept = SEL.one_vote_table(cells, "a", ["canal_ap"], VOC)
+        self.assertEqual(kept, 0)
+        np.testing.assert_allclose(vote.sd, 2.0)                 # sqrt(4 x 1), whatever the sizes
+        np.testing.assert_allclose(vote.mu, plain.mu)
+        self.assertEqual(SEL.base_table(cells, "a", ["canal_ap"], VOC, SEL.ONE_VOTE)[0].sd.tolist(), vote.sd.tolist())
+
+    def test_every_base_gets_a_temperature_of_its_own_and_a_tempered_candidate(self):
+        self.assertEqual(SEL.tempered_name(SEL.PLAIN), SEL.TEMPERED)
+        self.assertEqual(set(SEL.CANDIDATES), set(SEL.CORE) | set(SEL.EXCLUSION))
+        for base in SEL.BASES[1:]:
+            self.assertIn(base, SEL.EXCLUSION)
+            self.assertIn(SEL.tempered_name(base), SEL.EXCLUSION)
+        cells = ST.strata_of(papers({"a": 0.0, "b": 1.2, "yadav2020": -1.2, "d": 2.0, "frontphys2026": -2.0}))
+        choice = SEL.inner_choice(cells, "a", self.keys, VOC, (1,), columns=10, seed=3, k_grid=(1.0,), t_grid=(0.5, 1.0, 2.0))
+        self.assertEqual(sorted(choice["t_by"]), sorted(SEL.BASES))
+        self.assertEqual(choice["t_by"][SEL.PLAIN], choice["t"])
+        for b in SEL.BASES:
+            self.assertEqual(choice["t_by"][b][1], max((0.5, 1.0, 2.0), key=lambda t: choice["t_curves"][b, t, 1]))
+        rows = SEL.score_paper(cells, "yadav2020", self.keys, VOC, 10, (1,), choice, seed=5, k_grid=(1.0,), t_grid=(1.0,))[0]
+        by = {r["candidate"]: r for r in rows}
+        self.assertEqual(by["without yadav2020"]["log_score"], by[SEL.PLAIN]["log_score"])   # held out, so never read anyway
+        self.assertEqual(by["without yadav2020, tempered"]["exact"], by[SEL.PLAIN]["exact"])
+        self.assertEqual(by["without frontphys2026, tempered"]["temperature"], choice["t_by"]["without frontphys2026"][1])
 
     def test_summarise_weighs_each_population_once_and_the_winner_is_the_best_log_score(self):
         def row(cand, w, paper, ls, ex, d_ls, d_ex):

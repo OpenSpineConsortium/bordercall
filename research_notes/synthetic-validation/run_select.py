@@ -5,8 +5,10 @@
 
 Run from this folder with the Python that holds bordercall's pinned packages, after run_strata.py's
 snapshot check passes (the same snapshot, the same cells, the same populations on the same seeds).
-Every paper of the strata's leave-one-out is held out in turn; the five candidates are built on the
-other papers, the SD factor and the temperature set by a second leave-one-out inside them, and all
+Every paper of the strata's leave-one-out is held out in turn; the candidates (select.CANDIDATES: the
+five of select.CORE, and the rule without each paper of select.EXCLUDABLE and with one vote per
+population, each plain and tempered) are built on the other papers, the SD factor and the
+temperatures set by a second leave-one-out inside them, and all
 are scored on the held-out population at one, two and three bodies on the same fields: scores.csv
 (one row a paper, width and candidate, the own table beside them), bins.csv (the calibration curve's
 bins per paper), k_curve.csv and t_curve.csv (the held-out scores at every factor and temperature,
@@ -88,8 +90,11 @@ def main(argv=None) -> int:
                   "rule": "a paper's columns on SEED_COLUMNS + its index among the papers sorted by name, as the strata draw them; "
                           "an inner fold's on that + 1000 + the fold's index"},
         "grids": {"k": list(SEL.K_GRID), "temperature": list(SEL.T_GRID)},
-        "candidates": list(SEL.CANDIDATES), "papers": papers,
-        "choices": {c["paper"]: {"k": c["k"], "t": {str(w): c["t_%d" % w] for w in WIDTHS}, "inner_folds": c["inner_folds"]} for c in got["choices"]},
+        "candidates": list(SEL.CANDIDATES), "core": list(SEL.CORE), "exclusion": list(SEL.EXCLUSION),
+        "excludable": list(SEL.EXCLUDABLE), "bases": list(SEL.BASES), "papers": papers,
+        "choices": {c["paper"]: {"k": c["k"], "t": {str(w): c["t_%d" % w] for w in WIDTHS},
+                                 "t_by": {b: {str(w): c["t_%s_%d" % (SEL.slug(b), w)] for w in WIDTHS} for b in SEL.BASES[1:]},
+                                 "inner_folds": c["inner_folds"]} for c in got["choices"]},
         "summary": summary, "winner": won,
         "python": platform.python_version(), "numpy": np.__version__, "seconds": round(time.time() - started),
         "code": code})

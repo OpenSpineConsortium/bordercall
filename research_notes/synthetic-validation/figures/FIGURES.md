@@ -4,11 +4,11 @@ Drawn by `python3 -I figures.py --records records --out figures` from the record
 `python3 -I run.py --out records` (bordercall 560bd00). Each figure's numbers are its CSV; its caption is its .caption.txt.
 The three renders are drawn by render.py from the generator itself, seed 2029, 4000 people.
 
-Drawn at bordercall f313dd8, from and by:
+Drawn at bordercall a02959f, from and by:
 
 - records/RECORD.json, sha256 8229f63cad6bc1ddf0ecc53c9faa6602bb4d79b590165b4c4cd80f5d614c9df1
 - figures.py, sha256 df7e5d8794c0a291faf0b536769e7035a78817b03b24e7d397cda8e82db6281d
-- figures_all.py, sha256 b6890f20cde88191a56df5be8ea6bce7fb548f272862e33c2364475301524476
+- figures_all.py, sha256 7c2b0ad427ff7ed973a7789dd9eeff5845f57dd11f7cdb674360618511be6f21
 - render.py, sha256 d4bc0d70416d843a6d019ffefe741cb0fe01013357027395c24448c01cc3a9d9
 - synthval/house.py, sha256 396822b88fcb46e9533162f8a46b8e2443c1d58ac15d1f40e2d0eb4f5653323a
 - schwingcheck/figures.py, sha256 3908d42cc8e93c839d8ddca5bf06591af281e1490d775483e20535a0908b0576
@@ -149,6 +149,24 @@ Choosing the rule by held-out prediction, every paper held out in turn. A and B,
 - fig15_select.csv, sha256 cb5b3a33d11a26fd3cf4c7ca901582234c832567bfda1ccd53598bbac9e2f0ba
 - fig15_select.pdf, sha256 dc368c06dda9da5d088a777bd63bec8b19f6849ee225ee604611993ac6f19bae
 - fig15_select.png, sha256 ae8c161edbbd4ee26674ba91f14735b2d279579868e72a94507848fc895db048
+
+## fig16_exclusion
+
+Leaving a paper out, scored held out. A and B, each exclusion candidate against the plain rule, paired over the held-out populations; C, population by population at three bodies; D, calibration. Dropping either end-plate paper costs the populations that share its measures; the temperature carries the gain.
+
+- fig16_exclusion.caption.txt, sha256 abe33aed58c89ea1317713c9e406dd0cd9220d2d3fb7606a0098da24a8c5dcf2
+- fig16_exclusion.csv, sha256 5757c409b6f0330da929e7f2aa6a36d9cf83edb1b704432ad6754bba4d9367eb
+- fig16_exclusion.pdf, sha256 c1f9eb058d0c11b2a5a6634ef6abb39350b8e58416905d1fcad54684934778d2
+- fig16_exclusion.png, sha256 586efde700d258275ac9294b7aced1eb7b9798578d0c33742c2670cb86df49f0
+
+## fig17_covariates
+
+Covariates read from what the papers print apart. A, sex; B, age and body size, each within its paper and the papers pooled; C, how well one measure tells men from women; D, how much of a measure sex or age explains, in the population and held out by paper.
+
+- fig17_covariates.caption.txt, sha256 abbdf969cb55cb2973adac85a1c0b8aeba3d1ff448fc940d084fe14da85664e8
+- fig17_covariates.csv, sha256 9a59f4f62c90561946679e2ed2ed5bbf57cfcbbc1f660642124898bc537b9e79
+- fig17_covariates.pdf, sha256 874e79c944ae5929fc8dcbbdb200f2d4f94123c90d9b34d08982d41d70107129
+- fig17_covariates.png, sha256 7496ffbdffea1cc429ae81b14945f9871adb8cb51c4eeb6031c077f0aa6132c4
 
 ## render1_axial
 

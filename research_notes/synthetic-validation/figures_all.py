@@ -465,7 +465,7 @@ def fig_select(records: str, out: str) -> List[str]:
     choices = _read_csv(_select(records, "choices.csv"))
     widths = [int(w) for w in j["sizes"]["widths"]]
     w_main = max(widths)
-    candidates = ["own table"] + list(j["candidates"])
+    candidates = ["own table"] + list(j.get("core", j["candidates"]))
     won = j["winner"]["by_log_score"]
     fig, axes = plt.subplots(2, 3, figsize=(12.0, 7.6))
     drawn = []
@@ -560,4 +560,190 @@ def fig_select(records: str, out: str) -> List[str]:
         "choices as ticks; F, the winner against the plain rule, population by population."))
 
 
-FIGURES_ALL = (fig_tables, fig_relations, fig_state_space_all, fig_naming_measures, fig_spread_all, fig_strata, fig_select)
+EXCLUSION_TICK = {"tempered": "tempered", "without yadav2020": "without Yadav", "without yadav2020, tempered": "without Yadav,\ntempered",
+                  "without frontphys2026": "without Front.\nPhys. 2026", "without frontphys2026, tempered": "without Front. Phys.\n2026, tempered",
+                  "one vote per population": "one vote per\npopulation", "one vote per population, tempered": "one vote,\ntempered"}
+
+
+def fig_exclusion(records: str, out: str) -> List[str]:
+    """Whether leaving a paper out of the prior predicts the other populations better (the owner's
+    choice of 2026-10-30, "Score exclusion held out"): each exclusion candidate against plain,
+    paired by population, and population by population where the drops differ from plain."""
+    plt = H.style()
+    j = _read_json(_select(records, "select.json"))
+    if "exclusion" not in j:
+        return []
+    summary = j["summary"]
+    scores = _read_csv(_select(records, "scores.csv"))
+    widths = [int(w) for w in j["sizes"]["widths"]]
+    w_main = max(widths)
+    names = ["tempered"] + list(j["exclusion"])
+    fig, axes = plt.subplots(2, 2, figsize=(10.5, 8.2))
+    drawn = []
+
+    def srow(candidate, w):
+        return next(r for r in summary if r["candidate"] == candidate and r["width"] == w)
+
+    ys = list(range(len(names)))[::-1]
+    for ax, key, se_key, scale, label, letter, note in (
+            (axes[0, 0], "log_score_vs_plain", "log_score_vs_plain_se", 1.0, "log score minus plain (nats, right is better)", "A",
+             "mean over the %d held-out populations, paired, bars one SE" % j["sizes"]["populations"]),
+            (axes[0, 1], "exact_vs_plain", "exact_vs_plain_se", 100.0, "accuracy minus plain (points, right is better)", "B",
+             "the same populations; a temperature never moves the named level")):
+        for wi, w in enumerate(widths):
+            st = dict(H.SERIES_STYLE[wi])
+            st["linestyle"] = "none"
+            xs = [scale * srow(n, w)[key] for n in names]
+            es = [scale * (srow(n, w)[se_key] or 0.0) for n in names]
+            ax.errorbar(xs, [y + (1 - wi) * 0.18 for y in ys], xerr=es, color=H.INK, elinewidth=0.6, markersize=4,
+                        label="%d bod%s" % (w, "y" if w == 1 else "ies"), **st)
+            drawn += [{"panel": letter, "candidate": n, "width": w, key: x, se_key: e} for n, x, e in zip(names, xs, es)]
+        ax.axvline(0, color=H.INK, linewidth=0.6, linestyle=":")
+        ax.set_yticks(ys)
+        ax.set_yticklabels([EXCLUSION_TICK[n] for n in names], fontsize=6.5)
+        ax.set_xlabel(label)
+        ax.legend(loc="upper left", fontsize=6.5)
+        H.letter(ax, letter, note)
+
+    # C: population by population, each untempered drop against plain at the widest field.
+    c = axes[1, 0]
+    drops = [n for n in j["exclusion"] if not n.endswith(", tempered")]
+    papers = sorted({r["paper"] for r in scores})
+    per = {(r["candidate"], r["paper"]): r for r in scores if int(r["width"]) == w_main}
+    order = sorted(papers, key=lambda p: min(_num(per[d, p]["log_score_vs_plain"]) for d in drops))[::-1]
+    for di, d in enumerate(drops):
+        st = dict(H.SERIES_STYLE[di])
+        st["linestyle"] = "none"
+        xs = [_num(per[d, p]["log_score_vs_plain"]) for p in order]
+        c.plot(xs, [i + (1 - di) * 0.22 for i in range(len(order))], color=H.INK, markersize=3.5,
+               label=EXCLUSION_TICK[d].replace("\n", " "), **st)
+        drawn += [{"panel": "C", "candidate": d, "width": w_main, "paper": p, "log_score_vs_plain": x} for p, x in zip(order, xs)]
+    c.axvline(0, color=H.INK, linewidth=0.6, linestyle=":")
+    c.set_yticks(list(range(len(order))))
+    c.set_yticklabels(order, fontsize=6)
+    c.set_xlabel("log score minus plain at %d bodies (nats, right is better)" % w_main)
+    c.legend(loc="lower left", fontsize=6.5)
+    H.letter(c, "C", "each held-out population; a drop changes nothing on a population whose measures it does not reach")
+
+    # D: calibration of every candidate, the pooled ECE.
+    d = axes[1, 1]
+    every = ["plain"] + names
+    for wi, w in enumerate(widths):
+        st = dict(H.SERIES_STYLE[wi])
+        st["linestyle"] = "none"
+        xs = [srow(n, w)["ece_pooled"] for n in every]
+        d.plot(xs, [y + (1 - wi) * 0.18 for y in range(len(every))[::-1]], color=H.INK, markersize=4,
+               label="%d bod%s" % (w, "y" if w == 1 else "ies"), **st)
+        drawn += [{"panel": "D", "candidate": n, "width": w, "ece_pooled": x} for n, x in zip(every, xs)]
+    d.set_yticks(list(range(len(every)))[::-1])
+    d.set_yticklabels([EXCLUSION_TICK.get(n, n) for n in every], fontsize=6.5)
+    d.set_xlim(left=0)
+    d.set_xlabel("expected calibration error, all populations pooled (lower is better)")
+    d.legend(loc="lower right", fontsize=6.5)
+    H.letter(d, "D", "how far the stated probability sits from the hit rate")
+    fig.tight_layout()
+    H.write_csv(out, "fig16_exclusion", drawn)
+    return H.save(fig, out, "fig16_exclusion", (
+        "Leaving a paper out, scored held out. A and B, each exclusion candidate against the plain rule, paired over the "
+        "held-out populations; C, population by population at three bodies; D, calibration. Dropping either end-plate "
+        "paper costs the populations that share its measures; the temperature carries the gain."))
+
+
+def _covariates(records: str, name: str) -> str:
+    return os.path.join(records, "covariates", name)
+
+
+def fig_covariates(records: str, out: str) -> List[str]:
+    """Covariates both ways from what the papers print apart (records/covariates): the effects of sex,
+    age and body size on each measure, pooled within papers first; how well one measure tells the
+    sexes apart; and how much of a measure sex or age explains, in the population and held out."""
+    if not os.path.exists(_covariates(records, "effects.csv")):
+        return []
+    plt = H.style()
+    effects = _read_csv(_covariates(records, "effects.csv"))
+    held = _read_csv(_covariates(records, "held_out.csv"))
+    contrasts = _read_csv(_covariates(records, "contrasts.csv"))
+    fig, axes = plt.subplots(2, 2, figsize=(11.0, 8.4))
+    drawn = []
+
+    def forest(ax, rows, label_of, style_of):
+        rows = sorted(rows, key=lambda r: _num(r["mean"]))
+        for i, r in enumerate(rows):
+            m, lo, hi = _num(r["mean"]), _num(r["ci_low"]), _num(r["ci_high"])
+            st = dict(style_of(r), linestyle="none")
+            ax.errorbar([m], [i], xerr=[[m - lo], [hi - m]], color=H.INK, elinewidth=0.7, markersize=4, **st)
+            drawn.append({"panel": ax.get_label(), "variable": r["variable"], "measure": r["measure"], "mean": m, "ci_low": lo,
+                          "ci_high": hi, "papers": int(_num(r["papers"]))})
+        ax.set_yticks(list(range(len(rows))))
+        ax.set_yticklabels([label_of(r) for r in rows], fontsize=6.5)
+        ax.axvline(0, color=H.INK, linewidth=0.6, linestyle=":")
+
+    a = axes[0, 0]
+    a.set_label("A")
+    forest(a, [r for r in effects if r["variable"] == "sex"],
+           lambda r: "%s (%s)" % (r["measure"], r["papers_named"].replace(";", ", ")), lambda r: dict(H.SERIES_STYLE[0]))
+    a.set_xlabel("men minus women, in within-sex SDs (Hedges' g), 95% interval")
+    H.letter(a, "A", "sex, each paper's own men against its own women, papers pooled")
+
+    b = axes[0, 1]
+    b.set_label("B")
+    order = ("age", "body height", "body weight")
+    style = {v: dict(H.SERIES_STYLE[i]) for i, v in enumerate(order)}
+    unit = {"age": "per decade", "body height": "per 100 mm", "body weight": "per 10 kg"}
+    forest(b, [r for r in effects if r["variable"] in order],
+           lambda r: "%s, %s (%s)" % (r["measure"], r["variable"], r["papers_named"].replace(";", ", ")), lambda r: style[r["variable"]])
+    b.set_xlabel("change in within-band SDs (%s), 95%% interval" % ", ".join("%s %s" % (v, unit[v]) for v in order))
+    H.letter(b, "B", "age and body size, each paper's own bands, papers pooled")
+
+    c = axes[1, 0]
+    measures = sorted({r["measure"] for r in contrasts})
+    for i, m in enumerate(measures):
+        own = [r for r in contrasts if r["measure"] == m]
+        aucs = [_auc(_num(r["mean_male"]), _num(r["sd_male"]), _num(r["mean_female"]), _num(r["sd_female"])) for r in own]
+        c.plot(aucs, [i + 0.12] * len(aucs), color=H.INK, marker="o", markersize=3, linestyle="none", alpha=0.6,
+               label="in the population" if i == 0 else None)
+        ho = [_num(r["auc_transfer"]) for r in held if r["variable"] == "sex" and r["measure"] == m]
+        c.plot(ho, [i - 0.12] * len(ho), color=H.INK, marker="s", markerfacecolor="white", markersize=3, linestyle="none",
+               label="held out, effect from other papers" if i == 0 else None)
+        drawn += [{"panel": "C", "measure": m, "auc_own": x} for x in aucs] + [{"panel": "C", "measure": m, "auc_held_out": x} for x in ho]
+    c.axvline(0.5, color=H.INK, linewidth=0.6, linestyle=":")
+    c.set_yticks(list(range(len(measures))))
+    c.set_yticklabels(measures, fontsize=6.5)
+    c.set_xlim(0.3, 1.0)
+    c.set_xlabel("AUC of telling men from women by this one measure at one level (0.5 is chance)")
+    c.legend(loc="lower left", fontsize=6.5)
+    H.letter(c, "C", "shape to sex: one point a printed stratum")
+
+    d = axes[1, 1]
+    keys = sorted({(r["variable"], r["measure"]) for r in held})
+    for i, (v, m) in enumerate(keys):
+        rs = [r for r in held if r["variable"] == v and r["measure"] == m]
+        own = [_num(r["r2_own"]) for r in rs]
+        tr = [_num(r["r2_transfer"]) for r in rs]
+        d.plot(own, [i + 0.12] * len(own), color=H.INK, marker="o", markersize=3, linestyle="none", alpha=0.6,
+               label="the population's own split" if i == 0 else None)
+        d.plot(tr, [i - 0.12] * len(tr), color=H.INK, marker="s", markerfacecolor="white", markersize=3, linestyle="none",
+               label="held out, effect from other papers" if i == 0 else None)
+        drawn += [{"panel": "D", "variable": v, "measure": m, "r2_own": o, "r2_held_out": t} for o, t in zip(own, tr)]
+    d.axvline(0, color=H.INK, linewidth=0.6, linestyle=":")
+    d.set_yticks(list(range(len(keys))))
+    d.set_yticklabels(["%s from %s" % (m, v) for v, m in keys], fontsize=6.5)
+    d.set_xlabel("share of the measure's variance explained (R^2; below 0 is worse than ignoring it)")
+    d.legend(loc="lower right", fontsize=6.5)
+    H.letter(d, "D", "covariate to shape, where another paper prints the same measure")
+    fig.tight_layout()
+    H.write_csv(out, "fig17_covariates", drawn)
+    return H.save(fig, out, "fig17_covariates", (
+        "Covariates read from what the papers print apart. A, sex; B, age and body size, each within its paper and the "
+        "papers pooled; C, how well one measure tells men from women; D, how much of a measure sex or age explains, in "
+        "the population and held out by paper."))
+
+
+def _auc(mu_a: float, sd_a: float, mu_b: float, sd_b: float) -> float:
+    from scipy import stats
+    z = stats.norm.cdf((mu_a - mu_b) / math.sqrt(sd_a ** 2 + sd_b ** 2))
+    return float(max(z, 1.0 - z))
+
+
+FIGURES_ALL = (fig_tables, fig_relations, fig_state_space_all, fig_naming_measures, fig_spread_all, fig_strata, fig_select,
+               fig_exclusion, fig_covariates)

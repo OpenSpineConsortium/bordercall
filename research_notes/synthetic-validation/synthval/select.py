@@ -28,6 +28,18 @@ papers). The candidates:
   averaging over the populations seen), so each population keeps its own shape instead of being
   merged into the pool.
 
+Whether a paper should be left out of the prior is answered the same way (the owner's choice of
+2026-10-30, 03:05 UTC, "Score exclusion held out", over excluding Yadav 2020 by eye): each paper of
+EXCLUDABLE gives a candidate, PLAIN built as if that paper had never been read ("without <paper>"),
+and ONE_VOTE pools every cell's SD as the geometric mean of the other populations' own SDs, each
+population one vote whatever its size, the answer to two papers disagreeing on a spread without
+choosing between them. Each of these, with PLAIN, is also scored tempered, its temperature per
+width set by the same inner leave-one-out on its own rule ("<base>, tempered"; PLAIN's is TEMPERED).
+Leaving a paper out changes nothing on the fold that holds it out, where PLAIN already never reads
+it, so its candidate scores that fold as PLAIN does; a cell no third paper prints keeps PLAIN's
+value, counted in the record as fallback_cells, so every candidate scores the same measures on the
+same fields.
+
 The scores, on every field of every column drawn from the held-out paper's own table, the same
 fields for every candidate: the top-1 accuracy (exact naming), the log score, the mean log posterior
 probability of the true place (its negative is the log loss, in nats), the expected calibration error
@@ -47,6 +59,7 @@ SE over the populations.
 from __future__ import annotations
 
 import math
+import re
 from dataclasses import replace
 from typing import Dict, List, Optional, Sequence, Tuple
 
@@ -63,7 +76,20 @@ from .papers_table import Table
 from .population import GENERATOR, Population, Settings, draw_table
 
 OWN, PLAIN, WIDENED, SCALED, TEMPERED, MIXTURE = "own table", "plain", "widened by tau", "scaled SD", "tempered", "mixture"
-CANDIDATES = (PLAIN, WIDENED, SCALED, TEMPERED, MIXTURE)
+CORE = (PLAIN, WIDENED, SCALED, TEMPERED, MIXTURE)
+EXCLUDABLE = ("yadav2020", "frontphys2026")     # the two papers that disagree on the end-plate spread
+ONE_VOTE = "one vote per population"
+WITHOUT = {"without %s" % p: p for p in EXCLUDABLE}
+BASES = (PLAIN,) + tuple(WITHOUT) + (ONE_VOTE,)  # the rules a temperature is read on
+
+
+def tempered_name(base: str) -> str:
+    """The candidate that is `base` with its log evidence divided by its own inner temperature."""
+    return TEMPERED if base == PLAIN else "%s, tempered" % base
+
+
+EXCLUSION = tuple(name for base in BASES[1:] for name in (base, tempered_name(base)))
+CANDIDATES = CORE + EXCLUSION
 K_GRID = (0.7, 0.85, 1.0, 1.2, 1.45, 1.75, 2.1, 2.5, 3.0)      # SD factors, log-spaced about 1; 1 is PLAIN
 T_GRID = (0.5, 0.7, 1.0, 1.4, 2.0, 2.8, 4.0, 5.6, 8.0)         # temperatures; 1 is the exact posterior
 INNER_COLUMNS = 150
@@ -164,6 +190,53 @@ def scaled(table: Table, k: float) -> Table:
     return replace(table, name="%s, SD x %.3g" % (table.name, k), sd=table.sd * float(k))
 
 
+def without_table(cells: Sequence[ST.Cell], paper: Optional[str], keys: Sequence[str], vocabulary: Dict[str, dict],
+                  dropped: str, levels: Sequence[str] = LUMBAR) -> Tuple[Table, int]:
+    """PLAIN as if `dropped` had never been read: each cell pooled over the papers but `paper` and
+    `dropped`, with the pool's REML mean and SD as PLAIN's are made; a cell no third paper prints
+    keeps PLAIN's value, and how many did is returned beside the table."""
+    plain = ST.others_table(cells, paper, keys, vocabulary, ({}, float("nan")), False, levels)
+    by = ST.cells_by_key(cells)
+    mu, sd, kept = plain.mu.copy(), plain.sd.copy(), 0
+    for j, key in enumerate(keys):
+        for i, lv in enumerate(levels):
+            rest = [s for st in by[key, lv].strata if st.paper not in (paper, dropped) for s in st.series]
+            if not rest:
+                kept += 1
+                continue
+            pool = ST._pool(rest)
+            mu[j, i], sd[j, i] = pool.mean, pool.sd
+    return replace(plain, name="%s, %s left out" % (plain.name, dropped), mu=mu, sd=sd), kept
+
+
+def one_vote_table(cells: Sequence[ST.Cell], paper: Optional[str], keys: Sequence[str], vocabulary: Dict[str, dict],
+                   levels: Sequence[str] = LUMBAR) -> Tuple[Table, int]:
+    """PLAIN's means with every cell's SD the geometric mean of the other populations' own SDs
+    (strata.Stratum.sd, certain alone), each population one vote whatever its size; a cell where no
+    other population has an SD of its own keeps PLAIN's, and how many did is returned beside it."""
+    plain = ST.others_table(cells, paper, keys, vocabulary, ({}, float("nan")), False, levels)
+    by = ST.cells_by_key(cells)
+    sd, kept = plain.sd.copy(), 0
+    for j, key in enumerate(keys):
+        for i, lv in enumerate(levels):
+            own = [st.sd for st in by[key, lv].strata if st.paper != paper and math.isfinite(st.sd) and st.sd > 0]
+            if not own:
+                kept += 1
+                continue
+            sd[j, i] = float(math.exp(np.mean(np.log(own))))
+    return replace(plain, name="%s, one vote per population" % plain.name, sd=sd), kept
+
+
+def base_table(cells: Sequence[ST.Cell], paper: Optional[str], keys: Sequence[str], vocabulary: Dict[str, dict],
+               base: str, levels: Sequence[str] = LUMBAR) -> Tuple[Table, int]:
+    """The table of one of BASES built without `paper`, and its fallback cells."""
+    if base == PLAIN:
+        return ST.others_table(cells, paper, keys, vocabulary, ({}, float("nan")), False, levels), 0
+    if base == ONE_VOTE:
+        return one_vote_table(cells, paper, keys, vocabulary, levels)
+    return without_table(cells, paper, keys, vocabulary, WITHOUT[base], levels)
+
+
 def component_tables(cells: Sequence[ST.Cell], paper: Optional[str], keys: Sequence[str], vocabulary: Dict[str, dict],
                      levels: Sequence[str] = LUMBAR) -> Dict[str, Table]:
     """The mixture's components, one per other paper that prints any of `keys` over `levels`: the
@@ -211,7 +284,8 @@ def inner_choice(cells: Sequence[ST.Cell], paper: str, keys: Sequence[str], voca
     of `keys` is held out of the rest in turn, its population drawn on `columns` columns, the rule
     built on the rest at every k of the grid and scored by the log score at every width; k is the
     one with the best mean log score over the folds and widths, and T, read on the k = 1 rule, the
-    best per width over the folds. The folds' means are the record."""
+    best per width over the folds; each of BASES gets its own T the same way, on its own rule
+    (t_by, PLAIN's being t). The folds' means are the record."""
     training = drop_paper(cells, paper)
     folds = []
     for j, other in enumerate(sorted({s.paper for c in training for s in c.strata})):
@@ -225,24 +299,33 @@ def inner_choice(cells: Sequence[ST.Cell], paper: str, keys: Sequence[str], voca
         own, _ = ST.paper_table(training, other, mine, vocabulary, levels)
         pool = ST.others_table(training, other, mine, vocabulary, borrowed, False, levels)
         pop = draw_table(own, settings, columns, seed + 1000 + j)
+        bases = {b: base_table(training, other, mine, vocabulary, b, levels)[0] for b in BASES if b != PLAIN}
         by_k = {k: [] for k in k_grid}
-        by_t = {(t, w): [] for t in t_grid for w in widths}
+        by_t = {(b, t, w): [] for b in BASES for t in t_grid for w in widths}
         for w in widths:
             for k in k_grid:
                 logev, truth, group = log_evidence(pop, scaled(pool, k), w, settings)
                 by_k[k].append(scores(logev, truth, group)["log_score"])
                 if k == 1.0:
                     for t in t_grid:
-                        by_t[t, w].append(scores(logev, truth, group, t)["log_score"])
+                        by_t[PLAIN, t, w].append(scores(logev, truth, group, t)["log_score"])
+            for b, table in bases.items():
+                logev = log_evidence(pop, table, w, settings)[0]
+                for t in t_grid:
+                    by_t[b, t, w].append(scores(logev, truth, group, t)["log_score"])
         folds.append({"paper": other, "n_measures": len(mine), "k": {k: float(np.mean(v)) for k, v in by_k.items()},
-                      "t": {(t, w): float(v[0]) for (t, w), v in by_t.items()}})
+                      "t": {(t, w): float(by_t[PLAIN, t, w][0]) for t in t_grid for w in widths},
+                      "t_by": {key: float(v[0]) for key, v in by_t.items()}})
     if not folds:
-        return {"k": 1.0, "t": {w: 1.0 for w in widths}, "folds": [], "k_curve": {}, "t_curve": {}}
+        flat = {w: 1.0 for w in widths}
+        return {"k": 1.0, "t": flat, "t_by": {b: dict(flat) for b in BASES}, "folds": [], "k_curve": {}, "t_curve": {}, "t_curves": {}}
     k_curve = {k: float(np.mean([f["k"][k] for f in folds])) for k in k_grid}
-    t_curve = {(t, w): float(np.mean([f["t"][t, w] for f in folds])) for t in t_grid for w in widths}
+    t_curves = {key: float(np.mean([f["t_by"][key] for f in folds])) for key in folds[0]["t_by"]}
+    t_curve = {(t, w): t_curves[PLAIN, t, w] for t in t_grid for w in widths}
     k_best = max(k_grid, key=lambda k: k_curve[k])
-    t_best = {w: max(t_grid, key=lambda t: t_curve[t, w]) for w in widths}
-    return {"k": float(k_best), "t": t_best, "folds": folds, "k_curve": k_curve, "t_curve": t_curve}
+    t_by = {b: {w: max(t_grid, key=lambda t: t_curves[b, t, w]) for w in widths} for b in BASES}
+    return {"k": float(k_best), "t": t_by[PLAIN], "t_by": t_by, "folds": folds, "k_curve": k_curve, "t_curve": t_curve,
+            "t_curves": t_curves}
 
 
 # ---- the outer leave-one-out: the candidates scored -------------------------------------------------
@@ -263,6 +346,8 @@ def score_paper(cells: Sequence[ST.Cell], paper: str, keys: Sequence[str], vocab
     plain = ST.others_table(cells, paper, keys, vocabulary, borrowed, False, levels)
     widened = ST.others_table(cells, paper, keys, vocabulary, borrowed, True, levels)
     components = component_tables(cells, paper, keys, vocabulary, levels)
+    bases = {b: base_table(cells, paper, keys, vocabulary, b, levels) for b in BASES if b != PLAIN}
+    t_by = choice.get("t_by") or {PLAIN: choice["t"]}
     pop = draw_table(own, settings, columns, seed)
     rows, bins, k_rows, t_rows = [], [], [], []
     for w in widths:
@@ -282,13 +367,19 @@ def score_paper(cells: Sequence[ST.Cell], paper: str, keys: Sequence[str], vocab
             sc = scores(ev_plain, truth, group, t)
             t_rows.append({"paper": paper, "width": w, "temperature": t, "log_score": sc["log_score"], "exact": sc["exact"], "ece": sc["ece"]})
         got[MIXTURE] = scores(mixture_evidence([log_evidence(pop, t, w, settings)[0] for t in components.values()]), truth, group)
+        temperature, fallback = {TEMPERED: choice["t"][w]}, {}
+        for b, (table, kept) in bases.items():
+            ev = log_evidence(pop, table, w, settings)[0]
+            t_b = t_by.get(b, choice["t"])[w]
+            got[b], got[tempered_name(b)] = scores(ev, truth, group), scores(ev, truth, group, t_b)
+            temperature[tempered_name(b)], fallback[b], fallback[tempered_name(b)] = t_b, kept, kept
         for name, sc in got.items():
             loss, loss_se = ST.paired_loss(got[OWN]["_hit"], sc["_hit"], group)
             regret = got[OWN]["_lp"] - sc["_lp"]
             rows.append(dict(record(sc), candidate=name, width=w, paper=paper, n_measures=len(keys), measures=";".join(keys),
                              cells_with_own_sd=own_sd, cells=len(keys) * len(levels), components=len(components),
-                             k=choice["k"] if name == SCALED else (1.0 if name in (PLAIN, TEMPERED) else float("nan")),
-                             temperature=choice["t"][w] if name == TEMPERED else 1.0,
+                             k=choice["k"] if name == SCALED else (1.0 if name in (PLAIN, TEMPERED) + EXCLUSION else float("nan")),
+                             temperature=temperature.get(name, 1.0), fallback_cells=fallback.get(name, 0),
                              loss=loss, loss_se=loss_se, regret=float(regret.mean()), regret_se=S.clustered_se(regret, group),
                              log_score_vs_plain=sc["log_score"] - got[PLAIN]["log_score"],
                              log_score_vs_plain_se=S.clustered_se(sc["_lp"] - got[PLAIN]["_lp"], group),
@@ -321,10 +412,18 @@ def select(cells: Sequence[ST.Cell], vocabulary: Dict[str, dict], columns: int, 
         t_rows += tr
         choices.append({"paper": paper, "n_measures": len(keys), "k": choice["k"],
                         **{"t_%d" % w: choice["t"][w] for w in widths},
+                        **{"t_%s_%d" % (slug(b), w): choice["t_by"][b][w] for b in BASES[1:] for w in widths},
                         "inner_folds": len(choice["folds"]), "inner_columns": inner_columns,
                         **{"inner_log_score_k_%g" % k: choice["k_curve"].get(k, float("nan")) for k in k_grid},
-                        **{"inner_log_score_t_%g_%d" % (t, w): choice["t_curve"].get((t, w), float("nan")) for t in t_grid for w in widths}})
+                        **{"inner_log_score_t_%g_%d" % (t, w): choice["t_curve"].get((t, w), float("nan")) for t in t_grid for w in widths},
+                        **{"inner_log_score_t_%s_%g_%d" % (slug(b), t, w): choice["t_curves"].get((b, t, w), float("nan"))
+                           for b in BASES[1:] for t in t_grid for w in widths}})
     return {"scores": rows, "bins": bins, "k_curve": k_rows, "t_curve": t_rows, "choices": choices}
+
+
+def slug(base: str) -> str:
+    """A base's name as a record's column takes it."""
+    return re.sub(r"[^a-z0-9]+", "_", base.lower()).strip("_")
 
 
 # ---- over the populations -------------------------------------------------------------------------
@@ -394,11 +493,12 @@ def winner(summary: Sequence[dict], widths: Sequence[int] = (1, 2, 3)) -> dict:
     accuracy, each with its paired difference from PLAIN at every width."""
     def mean_over(name, key):
         return float(np.mean([r[key] for r in summary if r["candidate"] == name and r["width"] in widths]))
-    by_log = max(CANDIDATES, key=lambda c: mean_over(c, "log_score_mean"))
-    by_exact = max(CANDIDATES, key=lambda c: mean_over(c, "exact_mean"))
+    held = [c for c in CANDIDATES if any(r["candidate"] == c for r in summary)]
+    by_log = max(held, key=lambda c: mean_over(c, "log_score_mean"))
+    by_exact = max(held, key=lambda c: mean_over(c, "exact_mean"))
     out = {"by_log_score": by_log, "by_accuracy": by_exact,
-           "log_score_over_widths": {c: mean_over(c, "log_score_mean") for c in CANDIDATES},
-           "exact_over_widths": {c: mean_over(c, "exact_mean") for c in CANDIDATES}}
+           "log_score_over_widths": {c: mean_over(c, "log_score_mean") for c in held},
+           "exact_over_widths": {c: mean_over(c, "exact_mean") for c in held}}
     for which, name in (("by_log_score", by_log), ("by_accuracy", by_exact)):
         out[which + "_vs_plain"] = [{"width": r["width"], "log_score": r["log_score_vs_plain"], "log_score_se": r["log_score_vs_plain_se"],
                                      "exact": r["exact_vs_plain"], "exact_se": r["exact_vs_plain_se"], "wins": r["wins_vs_plain"],

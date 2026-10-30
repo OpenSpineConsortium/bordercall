@@ -82,7 +82,8 @@ PAGE = [
         ("fig12_naming_measures", "Exact naming by the rule built on more measures"),
         ("fig13_spread_all", "The spread between published series on every measure")]),
     ("strata", "Every paper its own population", [("fig14_strata", "The rule built on the other papers, scored on each")]),
-    ("select", "Choosing the rule by held-out prediction", [("fig15_select", "Every candidate on the held-out populations, and the winner")]),
+    ("select", "Choosing the rule by held-out prediction", [("fig15_select", "Every candidate on the held-out populations, and the winner"),
+                                                             ("fig16_exclusion", "Leaving a paper out, scored on the other populations")]),
     ("renders", "Renders", [
         ("render1_axial", "L3 from above"),
         ("render2_column", "The lumbar column from in front"),
