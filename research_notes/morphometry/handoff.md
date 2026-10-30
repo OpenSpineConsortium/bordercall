@@ -55,8 +55,20 @@ No grid job was sent in this pass, and no real mask was read in a container.
 - Nothing of this pass has been read on a real level; that happens on the grid once PR 44 is merged
   and the engine re-pinned in SchwingNet, on a count of the owner's.
 
-The grid, as of this pass: the enhance job, Slurm 40872077, stood PENDING on its dependency at 01:16
-UTC; `schwingnet-morphometry-verse` waits for status to show it gone (the section The grid, below).
+The grid, read at 08:59 UTC on 30 October from symphony-template's branch grid:
+
+- The enhance job, Slurm 40872077 on mem4, ran from 05:17 to 05:58 UTC and exited 0 (40:48 elapsed).
+  Its report (logs/job-schwingnet-morphometry-enhance.json, read at 08:24 UTC): 1597 ENHANCE.PET masks
+  measured in 2248 s by code stamp 81e732f142d3aa16 at SchwingNet 6b243e7, which is the engine pinned
+  before this rework; 6 studies flagged error; the screening admitted 1561 and refused 36. The rows,
+  facts and verdicts stay on the grid under /rs/rs_grp_oschome/go2432/morphometry/enhance/. The level
+  medians of the heights hold the expected shape: the thoracic bodies wedge (the index 0.90 at T7,
+  0.91 at T6 and T8), L5 is taller in front (1.15), and 62 studies carry an L6.
+- `schwingnet-morphometry-verse` was sent at 08:24:46 UTC by another session (run 333 of
+  grid-accounts.yml, request morphometry-verse-20261030T0826Z), on the owner's yes of 23:47 UTC: Slurm
+  40877151, submitted at 08:25:37 UTC. This thread did not send it again; the gate refuses a second
+  morphometry job while one is live, and the same word sent once the job has ended reads its report,
+  logs/MORPHOMETRY-verse.md.
 
 ## What is left, in order
 
