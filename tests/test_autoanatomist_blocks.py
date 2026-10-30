@@ -74,7 +74,7 @@ class TheBlocks(unittest.TestCase):
                             ("lr=0", "above 0.0"), ("lr=nan", "finite"), ("coverage=1", "below 1.0"),
                             ("lam_fixed=1.5", "at most 1.0"), ("lam_span=0.5:0.4", "0 <= a < b <= 1"),
                             ("lam_span=0.5", "0 <= a < b <= 1"), ("widths=8:16", "three whole numbers"),
-                            ("widths=8:0:16", "at least 1"), ("schedule=cosine", "lambda-then-w, joint, w-first or fixed"),
+                            ("widths=8:0:16", "at least 1"), ("schedule=cosine", "lambda-then-w, joint, w-first, fixed, cyclic or adaptive"),
                             ("architecture=unet", "residual-unet, plain-unet or probe")]:
             with self.assertRaises(ValueError, msg=words) as cm:
                 B.parse(words)
@@ -88,7 +88,8 @@ class TheBlocks(unittest.TestCase):
         self.assertIn("default adamw", text)
         self.assertIn("default 16:32:64", text)
         self.assertIn("default residual-unet", text)
-        self.assertEqual(len(B.TABLE), 34)                      # 31 at the first count, then w_mask, objective and w_name
+        self.assertEqual(len(B.TABLE), 40)                      # 31 at the first count, then w_mask, objective and w_name,
+                                                                # then the second screen's six (tests/test_autoanatomist_arms.py)
         self.assertEqual(B.DEFAULTS.weights(), {"landmark": 1.0, "spread": 0.1, "value": 1.0, "feature": 1.0, "naming": 0.1,
                                                  "mask": 1.0, "name": 0.1})
         self.assertEqual(B.DEFAULTS.rungs(), {"bone_hu": 200.0, "width_hu": 60.0, "blur_max_mm": 4.0})
