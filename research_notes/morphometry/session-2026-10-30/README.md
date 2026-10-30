@@ -49,6 +49,19 @@ repository files are not listed, since their bytes are in the repositories.
   - The two review-runtime ones: Python 3.11, with scipy 1.13.1 and 1.15.3.
 - MANIFEST.tsv: every one of the session's 12,244 own files, with its bytes, its sha256 and
   whether it was pushed, or why not.
+- scratch-commits/: the five commits of the session's scratch clones of SchwingNet that no remote
+  held, kept as text since the clones' object databases are binary and were not pushed. Each
+  clone forked from e95e5fa, the pin at bordercall ee495d5, now on SchwingNet's branch
+  claude/project-thread-gv744i.
+  - sn2-2b6e307.patch: the gate fixes as the review of 18:03 UTC read them, which SchwingNet's
+    1c5e76a replaced.
+  - merge2-f19c420.patch and merge-d5b3fb6.patch: the working tree's fixes as two trial merges
+    took them, at 19:02 and 18:56 UTC.
+  - merge2-2617786.remerge.diff and merge-a1264cc.remerge.diff: those trial merges with
+    SchwingNet's main at 69371c2, as `git show --remerge-diff` prints them, which is each
+    merge's conflict resolution alone; the rest of each merge is main's own history.
+  `git am` applies a .patch onto e95e5fa. Their contents are superseded: the work is in
+  SchwingNet's 1c5e76a and df667a1.
 
 ## What was not pushed, and why
 
