@@ -21,13 +21,17 @@ softer shapes, then HU thresholding), not a published schedule.
 The schedules (Schedule) run lambda from 0 to 1 over the middle of the training steps and the
 fusion weight w from 1 to 0 after it, each by a half cosine over its span, the two spans
 overlapping by a tenth of the steps, so most of the degradation comes before the branch is taken
-away, and at the end the network reads the CT alone (w = 0), with no mask asked for.
+away, and at the end the network reads the CT alone (w = 0), with no mask asked for. Anneal is
+the same schedule in absolute steps for a session that carries on (session.py): its spans are
+shares of a stated number of steps rather than of one run's length, its kind places the two
+ramps (blocks.py's schedule), and continue_anneal rebases both ramps from wherever they stand to
+their ends by a later step, which is how a continued run anneals further without starting over.
 """
 from __future__ import annotations
 
 import math
-from dataclasses import dataclass
-from typing import Tuple
+from dataclasses import dataclass, replace
+from typing import Optional, Tuple
 
 import jax.numpy as jnp
 
@@ -35,6 +39,8 @@ from . import gates
 
 BLUR_MAX_MM = 4.0
 THRESHOLD_WIDTH_HU = 60.0
+LAMBDA_END, W_END = 1.0, 0.0            # where every anneal ends: the CT alone, no mask asked for
+KINDS = ("lambda-then-w", "joint", "w-first", "fixed")
 
 
 def smoothstep(u):
@@ -85,3 +91,64 @@ class Schedule:
         """(w, lambda) at a step."""
         t = step / max(self.steps - 1, 1)
         return 1.0 - self.ramp(t, self.w_span), self.ramp(t, self.lam_span)
+
+
+@dataclass(frozen=True)
+class Anneal:
+    """lambda and w in absolute steps, a session's schedule: over `steps` steps, lambda from 0 to
+    LAMBDA_END and w from 1 to W_END by half cosines over spans that are shares of the steps, placed
+    by the kind (lambda-then-w: lambda over lam_span and w over w_span, Schedule's numbers to the
+    bit when steps is the run's length; joint: both over lam_span; w-first: the spans swapped, so
+    the earlier one is w's; fixed: w_fixed and lam_fixed throughout) and, once continued, both from
+    where they stood at that step to their ends by the step named. as_record and from_record carry
+    it as plain numbers (session.json)."""
+    kind: str = "lambda-then-w"
+    steps: int = 1
+    lam_span: Tuple[float, float] = (0.15, 0.55)
+    w_span: Tuple[float, float] = (0.45, 0.85)
+    lam_fixed: float = 0.0
+    w_fixed: float = 1.0
+    rebased: Optional[dict] = None          # {"from": step, "until": step, "w": w then, "lam": lambda then}
+
+    def __post_init__(self):
+        if self.kind not in KINDS:
+            raise ValueError("schedule takes %s, not %r" % (", ".join(KINDS), self.kind))
+        if self.steps < 1:
+            raise ValueError("an anneal takes at least one step, not %r" % self.steps)
+
+    def spans(self) -> Tuple[Tuple[float, float], Tuple[float, float]]:
+        """(w's span, lambda's span) by the kind."""
+        if self.kind == "lambda-then-w":
+            return self.w_span, self.lam_span
+        if self.kind == "joint":
+            return self.lam_span, self.lam_span
+        return self.lam_span, self.w_span
+
+    def at(self, step: int) -> Tuple[float, float]:
+        """(w, lambda) at a step."""
+        if self.rebased is not None:
+            r = self.rebased
+            u = (step - r["from"]) / max(r["until"] - r["from"], 1e-12)
+            h = Schedule.ramp(u, (0.0, 1.0))
+            return r["w"] + (W_END - r["w"]) * h, r["lam"] + (LAMBDA_END - r["lam"]) * h
+        if self.kind == "fixed":
+            return self.w_fixed, self.lam_fixed
+        w_span, lam_span = self.spans()
+        t = step / max(self.steps - 1, 1)
+        return 1.0 - Schedule.ramp(t, w_span), Schedule.ramp(t, lam_span)
+
+    def continued(self, step: int, until: int) -> "Anneal":
+        """The anneal rebased at `step`: both ramps from (w, lambda) there to their ends by `until`."""
+        if until <= step:
+            raise ValueError("continue_anneal needs a step after the current one (%d), not %r" % (step, until))
+        w, lam = self.at(step)
+        return replace(self, rebased={"from": int(step), "until": int(until), "w": float(w), "lam": float(lam)})
+
+    def as_record(self) -> dict:
+        return {"kind": self.kind, "steps": self.steps, "lam_span": list(self.lam_span), "w_span": list(self.w_span),
+                "lam_fixed": self.lam_fixed, "w_fixed": self.w_fixed, "rebased": self.rebased}
+
+    @staticmethod
+    def from_record(d: dict) -> "Anneal":
+        return Anneal(kind=d["kind"], steps=int(d["steps"]), lam_span=tuple(d["lam_span"]), w_span=tuple(d["w_span"]),
+                      lam_fixed=float(d["lam_fixed"]), w_fixed=float(d["w_fixed"]), rebased=d.get("rebased"))
