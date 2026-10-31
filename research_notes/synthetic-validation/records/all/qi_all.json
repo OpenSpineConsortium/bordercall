@@ -1,0 +1,2057 @@
+[
+ {
+  "cells": 782,
+  "measures": 42,
+  "person": {
+   "any": 1.0,
+   "any but floor": 1.0,
+   "box": 0.99475,
+   "convex": 0.77125,
+   "floor": 0.86425,
+   "inside": 0.03525,
+   "necessary": 0.73975,
+   "outside": 0.0,
+   "past": 0.0,
+   "positive": 0.0,
+   "sign": 0.728,
+   "sign or inside": 0.73975,
+   "within": 0.0
+  },
+  "relations": [
+   {
+    "flagged": null,
+    "indicator": "within",
+    "measures": "pedicle_w_inner; pedicle",
+    "missing": "pedicle_w_inner",
+    "relation": "inner width within the pedicle",
+    "tested": 0,
+    "why": "the cancellous core lies inside the cortex"
+   },
+   {
+    "flagged": null,
+    "indicator": "within",
+    "measures": "pedicle_h_inner; pedicle_h",
+    "missing": "pedicle_h_inner",
+    "relation": "inner height within the pedicle",
+    "tested": 0,
+    "why": "the cancellous core lies inside the cortex"
+   },
+   {
+    "flagged": null,
+    "indicator": "within",
+    "measures": "pedicle_cortex [medial]; pedicle_w_inner; pedicle",
+    "missing": "pedicle_cortex [medial]; pedicle_w_inner",
+    "relation": "cortex and core within the pedicle",
+    "tested": 0,
+    "why": "the width is the two walls and the core together, so the medial wall and the core are less than it"
+   },
+   {
+    "flagged": null,
+    "indicator": "past",
+    "measures": "pedicle_length [proper]; pedicle_chord [along the axis]",
+    "missing": "pedicle_length [proper]; pedicle_chord [along the axis]",
+    "relation": "the chord runs past the pedicle",
+    "tested": 0,
+    "why": "the screw path reaches the anterior cortex of the body, beyond the pedicle proper"
+   },
+   {
+    "flagged": null,
+    "indicator": "past",
+    "measures": "pedicle_length [to the ligament]; pedicle_chord [along the axis]",
+    "missing": "pedicle_length [to the ligament]; pedicle_chord [along the axis]",
+    "relation": "the chord runs past the ligament",
+    "tested": 0,
+    "why": "the posterior longitudinal ligament lies on the body's back wall, before its anterior cortex"
+   },
+   {
+    "flagged": null,
+    "indicator": "outside",
+    "measures": "interpedicular; pedicle; pedicle; transverse_width",
+    "missing": "interpedicular",
+    "relation": "the pedicles inside the transverse processes",
+    "tested": 0,
+    "why": "the transverse processes arise lateral to the pedicles, which stand lateral to the canal"
+   },
+   {
+    "flagged": null,
+    "indicator": "box",
+    "measures": "body_area; body_w; body_d [through the pedicles]",
+    "missing": "body_area; body_w; body_d [through the pedicles]",
+    "relation": "body section inside its box",
+    "tested": 0,
+    "why": "a plane region lies inside the rectangle of its extents; the body section is nearly symmetric and convex"
+   },
+   {
+    "flagged": null,
+    "indicator": "box",
+    "measures": "foramen_area; foramen_w [body to facet]; foramen_h",
+    "missing": "foramen_area; foramen_w [body to facet]; foramen_h",
+    "relation": "foramen inside its box",
+    "tested": 0,
+    "why": "a plane region lies inside the rectangle of its extents; the foramen is not symmetric, so no convex bound"
+   },
+   {
+    "flagged": null,
+    "indicator": "positive",
+    "measures": "canal_index [areas]",
+    "missing": "canal_index [areas]",
+    "relation": "a ratio above zero",
+    "tested": 0,
+    "why": "a ratio of two positive areas is positive"
+   }
+  ],
+  "setting": "generator",
+  "table": "Panjabi's, every measure",
+  "table_letter": "A",
+  "tests": {
+   "box": 440000,
+   "convex": 176000,
+   "floor": 2640000,
+   "inside": 88000,
+   "outside": 0,
+   "past": 0,
+   "positive": 0,
+   "sign": 2640000,
+   "within": 0
+  },
+  "vertebra": {
+   "any": 0.4602045454545455,
+   "any but floor": 0.434375,
+   "box": 0.32186363636363635,
+   "convex": 0.10293181818181818,
+   "floor": 0.09515909090909092,
+   "inside": 0.0016022727272727274,
+   "necessary": 0.062,
+   "outside": 0.0,
+   "past": 0.0,
+   "positive": 0.0,
+   "sign": 0.06047727272727273,
+   "sign or inside": 0.062,
+   "within": 0.0
+  }
+ },
+ {
+  "cells": 782,
+  "measures": 42,
+  "person": {
+   "any": 0.99825,
+   "any but floor": 0.995,
+   "box": 0.97,
+   "convex": 0.29125,
+   "floor": 0.82675,
+   "inside": 0.02475,
+   "necessary": 0.6785,
+   "outside": 0.0,
+   "past": 0.0,
+   "positive": 0.0,
+   "sign": 0.66825,
+   "sign or inside": 0.6785,
+   "within": 0.0
+  },
+  "relations": [
+   {
+    "flagged": null,
+    "indicator": "within",
+    "measures": "pedicle_w_inner; pedicle",
+    "missing": "pedicle_w_inner",
+    "relation": "inner width within the pedicle",
+    "tested": 0,
+    "why": "the cancellous core lies inside the cortex"
+   },
+   {
+    "flagged": null,
+    "indicator": "within",
+    "measures": "pedicle_h_inner; pedicle_h",
+    "missing": "pedicle_h_inner",
+    "relation": "inner height within the pedicle",
+    "tested": 0,
+    "why": "the cancellous core lies inside the cortex"
+   },
+   {
+    "flagged": null,
+    "indicator": "within",
+    "measures": "pedicle_cortex [medial]; pedicle_w_inner; pedicle",
+    "missing": "pedicle_cortex [medial]; pedicle_w_inner",
+    "relation": "cortex and core within the pedicle",
+    "tested": 0,
+    "why": "the width is the two walls and the core together, so the medial wall and the core are less than it"
+   },
+   {
+    "flagged": null,
+    "indicator": "past",
+    "measures": "pedicle_length [proper]; pedicle_chord [along the axis]",
+    "missing": "pedicle_length [proper]; pedicle_chord [along the axis]",
+    "relation": "the chord runs past the pedicle",
+    "tested": 0,
+    "why": "the screw path reaches the anterior cortex of the body, beyond the pedicle proper"
+   },
+   {
+    "flagged": null,
+    "indicator": "past",
+    "measures": "pedicle_length [to the ligament]; pedicle_chord [along the axis]",
+    "missing": "pedicle_length [to the ligament]; pedicle_chord [along the axis]",
+    "relation": "the chord runs past the ligament",
+    "tested": 0,
+    "why": "the posterior longitudinal ligament lies on the body's back wall, before its anterior cortex"
+   },
+   {
+    "flagged": null,
+    "indicator": "outside",
+    "measures": "interpedicular; pedicle; pedicle; transverse_width",
+    "missing": "interpedicular",
+    "relation": "the pedicles inside the transverse processes",
+    "tested": 0,
+    "why": "the transverse processes arise lateral to the pedicles, which stand lateral to the canal"
+   },
+   {
+    "flagged": null,
+    "indicator": "box",
+    "measures": "body_area; body_w; body_d [through the pedicles]",
+    "missing": "body_area; body_w; body_d [through the pedicles]",
+    "relation": "body section inside its box",
+    "tested": 0,
+    "why": "a plane region lies inside the rectangle of its extents; the body section is nearly symmetric and convex"
+   },
+   {
+    "flagged": null,
+    "indicator": "box",
+    "measures": "foramen_area; foramen_w [body to facet]; foramen_h",
+    "missing": "foramen_area; foramen_w [body to facet]; foramen_h",
+    "relation": "foramen inside its box",
+    "tested": 0,
+    "why": "a plane region lies inside the rectangle of its extents; the foramen is not symmetric, so no convex bound"
+   },
+   {
+    "flagged": null,
+    "indicator": "positive",
+    "measures": "canal_index [areas]",
+    "missing": "canal_index [areas]",
+    "relation": "a ratio above zero",
+    "tested": 0,
+    "why": "a ratio of two positive areas is positive"
+   }
+  ],
+  "setting": "size_removed",
+  "table": "Panjabi's, every measure",
+  "table_letter": "A",
+  "tests": {
+   "box": 440000,
+   "convex": 176000,
+   "floor": 2640000,
+   "inside": 88000,
+   "outside": 0,
+   "past": 0,
+   "positive": 0,
+   "sign": 2640000,
+   "within": 0
+  },
+  "vertebra": {
+   "any": 0.2957840909090909,
+   "any but floor": 0.2672272727272727,
+   "box": 0.2116590909090909,
+   "convex": 0.017863636363636363,
+   "floor": 0.08127272727272727,
+   "inside": 0.001125,
+   "necessary": 0.051647727272727276,
+   "outside": 0.0,
+   "past": 0.0,
+   "positive": 0.0,
+   "sign": 0.05056818181818182,
+   "sign or inside": 0.051647727272727276,
+   "within": 0.0
+  }
+ },
+ {
+  "cells": 782,
+  "measures": 42,
+  "person": {
+   "any": 0.99975,
+   "any but floor": 0.99975,
+   "box": 0.99125,
+   "convex": 0.69075,
+   "floor": 0.85375,
+   "inside": 0.03125,
+   "necessary": 0.72325,
+   "outside": 0.0,
+   "past": 0.0,
+   "positive": 0.0,
+   "sign": 0.7125,
+   "sign or inside": 0.72325,
+   "within": 0.0
+  },
+  "relations": [
+   {
+    "flagged": null,
+    "indicator": "within",
+    "measures": "pedicle_w_inner; pedicle",
+    "missing": "pedicle_w_inner",
+    "relation": "inner width within the pedicle",
+    "tested": 0,
+    "why": "the cancellous core lies inside the cortex"
+   },
+   {
+    "flagged": null,
+    "indicator": "within",
+    "measures": "pedicle_h_inner; pedicle_h",
+    "missing": "pedicle_h_inner",
+    "relation": "inner height within the pedicle",
+    "tested": 0,
+    "why": "the cancellous core lies inside the cortex"
+   },
+   {
+    "flagged": null,
+    "indicator": "within",
+    "measures": "pedicle_cortex [medial]; pedicle_w_inner; pedicle",
+    "missing": "pedicle_cortex [medial]; pedicle_w_inner",
+    "relation": "cortex and core within the pedicle",
+    "tested": 0,
+    "why": "the width is the two walls and the core together, so the medial wall and the core are less than it"
+   },
+   {
+    "flagged": null,
+    "indicator": "past",
+    "measures": "pedicle_length [proper]; pedicle_chord [along the axis]",
+    "missing": "pedicle_length [proper]; pedicle_chord [along the axis]",
+    "relation": "the chord runs past the pedicle",
+    "tested": 0,
+    "why": "the screw path reaches the anterior cortex of the body, beyond the pedicle proper"
+   },
+   {
+    "flagged": null,
+    "indicator": "past",
+    "measures": "pedicle_length [to the ligament]; pedicle_chord [along the axis]",
+    "missing": "pedicle_length [to the ligament]; pedicle_chord [along the axis]",
+    "relation": "the chord runs past the ligament",
+    "tested": 0,
+    "why": "the posterior longitudinal ligament lies on the body's back wall, before its anterior cortex"
+   },
+   {
+    "flagged": null,
+    "indicator": "outside",
+    "measures": "interpedicular; pedicle; pedicle; transverse_width",
+    "missing": "interpedicular",
+    "relation": "the pedicles inside the transverse processes",
+    "tested": 0,
+    "why": "the transverse processes arise lateral to the pedicles, which stand lateral to the canal"
+   },
+   {
+    "flagged": null,
+    "indicator": "box",
+    "measures": "body_area; body_w; body_d [through the pedicles]",
+    "missing": "body_area; body_w; body_d [through the pedicles]",
+    "relation": "body section inside its box",
+    "tested": 0,
+    "why": "a plane region lies inside the rectangle of its extents; the body section is nearly symmetric and convex"
+   },
+   {
+    "flagged": null,
+    "indicator": "box",
+    "measures": "foramen_area; foramen_w [body to facet]; foramen_h",
+    "missing": "foramen_area; foramen_w [body to facet]; foramen_h",
+    "relation": "foramen inside its box",
+    "tested": 0,
+    "why": "a plane region lies inside the rectangle of its extents; the foramen is not symmetric, so no convex bound"
+   },
+   {
+    "flagged": null,
+    "indicator": "positive",
+    "measures": "canal_index [areas]",
+    "missing": "canal_index [areas]",
+    "relation": "a ratio above zero",
+    "tested": 0,
+    "why": "a ratio of two positive areas is positive"
+   }
+  ],
+  "setting": "size_removed, scale_sd 0.035",
+  "table": "Panjabi's, every measure",
+  "table_letter": "A",
+  "tests": {
+   "box": 440000,
+   "convex": 176000,
+   "floor": 2640000,
+   "inside": 88000,
+   "outside": 0,
+   "past": 0,
+   "positive": 0,
+   "sign": 2640000,
+   "within": 0
+  },
+  "vertebra": {
+   "any": 0.4151818181818182,
+   "any but floor": 0.389375,
+   "box": 0.29195454545454547,
+   "convex": 0.07776136363636364,
+   "floor": 0.09,
+   "inside": 0.0014204545454545455,
+   "necessary": 0.059272727272727276,
+   "outside": 0.0,
+   "past": 0.0,
+   "positive": 0.0,
+   "sign": 0.057920454545454546,
+   "sign or inside": 0.059272727272727276,
+   "within": 0.0
+  }
+ },
+ {
+  "cells": 782,
+  "measures": 42,
+  "person": {
+   "any": 0.62525,
+   "any but floor": 0.519,
+   "box": 0.42725,
+   "convex": 0.06925,
+   "floor": 0.3,
+   "inside": 0.0,
+   "necessary": 0.1105,
+   "outside": 0.0,
+   "past": 0.0,
+   "positive": 0.0,
+   "sign": 0.1105,
+   "sign or inside": 0.1105,
+   "within": 0.0
+  },
+  "relations": [
+   {
+    "flagged": null,
+    "indicator": "within",
+    "measures": "pedicle_w_inner; pedicle",
+    "missing": "pedicle_w_inner",
+    "relation": "inner width within the pedicle",
+    "tested": 0,
+    "why": "the cancellous core lies inside the cortex"
+   },
+   {
+    "flagged": null,
+    "indicator": "within",
+    "measures": "pedicle_h_inner; pedicle_h",
+    "missing": "pedicle_h_inner",
+    "relation": "inner height within the pedicle",
+    "tested": 0,
+    "why": "the cancellous core lies inside the cortex"
+   },
+   {
+    "flagged": null,
+    "indicator": "within",
+    "measures": "pedicle_cortex [medial]; pedicle_w_inner; pedicle",
+    "missing": "pedicle_cortex [medial]; pedicle_w_inner",
+    "relation": "cortex and core within the pedicle",
+    "tested": 0,
+    "why": "the width is the two walls and the core together, so the medial wall and the core are less than it"
+   },
+   {
+    "flagged": null,
+    "indicator": "past",
+    "measures": "pedicle_length [proper]; pedicle_chord [along the axis]",
+    "missing": "pedicle_length [proper]; pedicle_chord [along the axis]",
+    "relation": "the chord runs past the pedicle",
+    "tested": 0,
+    "why": "the screw path reaches the anterior cortex of the body, beyond the pedicle proper"
+   },
+   {
+    "flagged": null,
+    "indicator": "past",
+    "measures": "pedicle_length [to the ligament]; pedicle_chord [along the axis]",
+    "missing": "pedicle_length [to the ligament]; pedicle_chord [along the axis]",
+    "relation": "the chord runs past the ligament",
+    "tested": 0,
+    "why": "the posterior longitudinal ligament lies on the body's back wall, before its anterior cortex"
+   },
+   {
+    "flagged": null,
+    "indicator": "outside",
+    "measures": "interpedicular; pedicle; pedicle; transverse_width",
+    "missing": "interpedicular",
+    "relation": "the pedicles inside the transverse processes",
+    "tested": 0,
+    "why": "the transverse processes arise lateral to the pedicles, which stand lateral to the canal"
+   },
+   {
+    "flagged": null,
+    "indicator": "box",
+    "measures": "body_area; body_w; body_d [through the pedicles]",
+    "missing": "body_area; body_w; body_d [through the pedicles]",
+    "relation": "body section inside its box",
+    "tested": 0,
+    "why": "a plane region lies inside the rectangle of its extents; the body section is nearly symmetric and convex"
+   },
+   {
+    "flagged": null,
+    "indicator": "box",
+    "measures": "foramen_area; foramen_w [body to facet]; foramen_h",
+    "missing": "foramen_area; foramen_w [body to facet]; foramen_h",
+    "relation": "foramen inside its box",
+    "tested": 0,
+    "why": "a plane region lies inside the rectangle of its extents; the foramen is not symmetric, so no convex bound"
+   },
+   {
+    "flagged": null,
+    "indicator": "positive",
+    "measures": "canal_index [areas]",
+    "missing": "canal_index [areas]",
+    "relation": "a ratio above zero",
+    "tested": 0,
+    "why": "a ratio of two positive areas is positive"
+   }
+  ],
+  "setting": "nearest the papers (32 measures)",
+  "table": "Panjabi's, every measure",
+  "table_letter": "A",
+  "tests": {
+   "box": 440000,
+   "convex": 176000,
+   "floor": 2640000,
+   "inside": 88000,
+   "outside": 0,
+   "past": 0,
+   "positive": 0,
+   "sign": 2640000,
+   "within": 0
+  },
+  "vertebra": {
+   "any": 0.08211363636363636,
+   "any but floor": 0.06906818181818182,
+   "box": 0.05726136363636364,
+   "convex": 0.006329545454545455,
+   "floor": 0.019,
+   "inside": 0.0,
+   "necessary": 0.006193181818181818,
+   "outside": 0.0,
+   "past": 0.0,
+   "positive": 0.0,
+   "sign": 0.006193181818181818,
+   "sign or inside": 0.006193181818181818,
+   "within": 0.0
+  }
+ },
+ {
+  "cells": 782,
+  "measures": 42,
+  "person": {
+   "any": 0.9285,
+   "any but floor": 0.91325,
+   "box": 0.7935,
+   "convex": 0.328,
+   "floor": 0.581,
+   "inside": 0.01375,
+   "necessary": 0.45175,
+   "outside": 0.0,
+   "past": 0.0,
+   "positive": 0.0,
+   "sign": 0.448,
+   "sign or inside": 0.45175,
+   "within": 0.0
+  },
+  "relations": [
+   {
+    "flagged": null,
+    "indicator": "within",
+    "measures": "pedicle_w_inner; pedicle",
+    "missing": "pedicle_w_inner",
+    "relation": "inner width within the pedicle",
+    "tested": 0,
+    "why": "the cancellous core lies inside the cortex"
+   },
+   {
+    "flagged": null,
+    "indicator": "within",
+    "measures": "pedicle_h_inner; pedicle_h",
+    "missing": "pedicle_h_inner",
+    "relation": "inner height within the pedicle",
+    "tested": 0,
+    "why": "the cancellous core lies inside the cortex"
+   },
+   {
+    "flagged": null,
+    "indicator": "within",
+    "measures": "pedicle_cortex [medial]; pedicle_w_inner; pedicle",
+    "missing": "pedicle_cortex [medial]; pedicle_w_inner",
+    "relation": "cortex and core within the pedicle",
+    "tested": 0,
+    "why": "the width is the two walls and the core together, so the medial wall and the core are less than it"
+   },
+   {
+    "flagged": null,
+    "indicator": "past",
+    "measures": "pedicle_length [proper]; pedicle_chord [along the axis]",
+    "missing": "pedicle_length [proper]; pedicle_chord [along the axis]",
+    "relation": "the chord runs past the pedicle",
+    "tested": 0,
+    "why": "the screw path reaches the anterior cortex of the body, beyond the pedicle proper"
+   },
+   {
+    "flagged": null,
+    "indicator": "past",
+    "measures": "pedicle_length [to the ligament]; pedicle_chord [along the axis]",
+    "missing": "pedicle_length [to the ligament]; pedicle_chord [along the axis]",
+    "relation": "the chord runs past the ligament",
+    "tested": 0,
+    "why": "the posterior longitudinal ligament lies on the body's back wall, before its anterior cortex"
+   },
+   {
+    "flagged": null,
+    "indicator": "outside",
+    "measures": "interpedicular; pedicle; pedicle; transverse_width",
+    "missing": "interpedicular",
+    "relation": "the pedicles inside the transverse processes",
+    "tested": 0,
+    "why": "the transverse processes arise lateral to the pedicles, which stand lateral to the canal"
+   },
+   {
+    "flagged": null,
+    "indicator": "box",
+    "measures": "body_area; body_w; body_d [through the pedicles]",
+    "missing": "body_area; body_w; body_d [through the pedicles]",
+    "relation": "body section inside its box",
+    "tested": 0,
+    "why": "a plane region lies inside the rectangle of its extents; the body section is nearly symmetric and convex"
+   },
+   {
+    "flagged": null,
+    "indicator": "box",
+    "measures": "foramen_area; foramen_w [body to facet]; foramen_h",
+    "missing": "foramen_area; foramen_w [body to facet]; foramen_h",
+    "relation": "foramen inside its box",
+    "tested": 0,
+    "why": "a plane region lies inside the rectangle of its extents; the foramen is not symmetric, so no convex bound"
+   },
+   {
+    "flagged": null,
+    "indicator": "positive",
+    "measures": "canal_index [areas]",
+    "missing": "canal_index [areas]",
+    "relation": "a ratio above zero",
+    "tested": 0,
+    "why": "a ratio of two positive areas is positive"
+   }
+  ],
+  "setting": "nearest the papers (A)",
+  "table": "Panjabi's, every measure",
+  "table_letter": "A",
+  "tests": {
+   "box": 440000,
+   "convex": 176000,
+   "floor": 2640000,
+   "inside": 88000,
+   "outside": 0,
+   "past": 0,
+   "positive": 0,
+   "sign": 2640000,
+   "within": 0
+  },
+  "vertebra": {
+   "any": 0.31739772727272725,
+   "any but floor": 0.2923522727272727,
+   "box": 0.20934090909090908,
+   "convex": 0.055715909090909094,
+   "floor": 0.08447727272727273,
+   "inside": 0.0006477272727272727,
+   "necessary": 0.055670454545454544,
+   "outside": 0.0,
+   "past": 0.0,
+   "positive": 0.0,
+   "sign": 0.055136363636363636,
+   "sign or inside": 0.055670454545454544,
+   "within": 0.0
+  }
+ },
+ {
+  "cells": 694,
+  "measures": 53,
+  "person": {
+   "any": 1.0,
+   "any but floor": 1.0,
+   "box": 1.0,
+   "convex": 0.054,
+   "floor": 0.90375,
+   "inside": 0.0,
+   "necessary": 0.9465,
+   "outside": 0.4415,
+   "past": 0.0,
+   "positive": 0.0,
+   "sign": 0.0915,
+   "sign or inside": 0.0915,
+   "within": 0.87575
+  },
+  "relations": [
+   {
+    "flagged": 0.24445,
+    "indicator": "within",
+    "measures": "pedicle_w_inner; pedicle",
+    "missing": "",
+    "relation": "inner width within the pedicle",
+    "tested": 20000,
+    "why": "the cancellous core lies inside the cortex"
+   },
+   {
+    "flagged": 0.08505,
+    "indicator": "within",
+    "measures": "pedicle_h_inner; pedicle_h",
+    "missing": "",
+    "relation": "inner height within the pedicle",
+    "tested": 20000,
+    "why": "the cancellous core lies inside the cortex"
+   },
+   {
+    "flagged": 0.3685,
+    "indicator": "within",
+    "measures": "pedicle_cortex [medial]; pedicle_w_inner; pedicle",
+    "missing": "",
+    "relation": "cortex and core within the pedicle",
+    "tested": 20000,
+    "why": "the width is the two walls and the core together, so the medial wall and the core are less than it"
+   },
+   {
+    "flagged": 0.0,
+    "indicator": "past",
+    "measures": "pedicle_length [proper]; pedicle_chord [along the axis]",
+    "missing": "",
+    "relation": "the chord runs past the pedicle",
+    "tested": 20000,
+    "why": "the screw path reaches the anterior cortex of the body, beyond the pedicle proper"
+   },
+   {
+    "flagged": 0.0,
+    "indicator": "past",
+    "measures": "pedicle_length [to the ligament]; pedicle_chord [along the axis]",
+    "missing": "",
+    "relation": "the chord runs past the ligament",
+    "tested": 20000,
+    "why": "the posterior longitudinal ligament lies on the body's back wall, before its anterior cortex"
+   },
+   {
+    "flagged": 0.026965909090909092,
+    "indicator": "outside",
+    "measures": "interpedicular; pedicle; pedicle; transverse_width",
+    "missing": "",
+    "relation": "the pedicles inside the transverse processes",
+    "tested": 88000,
+    "why": "the transverse processes arise lateral to the pedicles, which stand lateral to the canal"
+   },
+   {
+    "flagged": 0.00815,
+    "indicator": "convex",
+    "measures": "body_area; body_w; body_d [through the pedicles]",
+    "missing": "",
+    "relation": "body section inside its box (convex bound)",
+    "tested": 20000,
+    "why": "a plane region lies inside the rectangle of its extents; the body section is nearly symmetric and convex"
+   },
+   {
+    "flagged": 0.309,
+    "indicator": "box",
+    "measures": "body_area; body_w; body_d [through the pedicles]",
+    "missing": "",
+    "relation": "body section inside its box",
+    "tested": 20000,
+    "why": "a plane region lies inside the rectangle of its extents; the body section is nearly symmetric and convex"
+   },
+   {
+    "flagged": 0.38266913345667286,
+    "indicator": "box",
+    "measures": "foramen_area; foramen_w [body to facet]; foramen_h",
+    "missing": "",
+    "relation": "foramen inside its box",
+    "tested": 19999,
+    "why": "a plane region lies inside the rectangle of its extents; the foramen is not symmetric, so no convex bound"
+   },
+   {
+    "flagged": 0.0,
+    "indicator": "positive",
+    "measures": "canal_index [areas]",
+    "missing": "",
+    "relation": "a ratio above zero",
+    "tested": 20000,
+    "why": "a ratio of two positive areas is positive"
+   }
+  ],
+  "setting": "generator",
+  "table": "the papers'",
+  "table_letter": "B",
+  "tests": {
+   "box": 303999,
+   "convex": 196000,
+   "floor": 3960000,
+   "inside": 88000,
+   "outside": 88000,
+   "past": 40000,
+   "positive": 20000,
+   "sign": 3960000,
+   "within": 60000
+  },
+  "vertebra": {
+   "any": 0.4739318181818182,
+   "any but floor": 0.452125,
+   "box": 0.40192045454545455,
+   "convex": 0.0026136363636363636,
+   "floor": 0.09169318181818181,
+   "inside": 0.0,
+   "necessary": 0.124625,
+   "outside": 0.026965909090909092,
+   "past": 0.0,
+   "positive": 0.0,
+   "sign": 0.004386363636363636,
+   "sign or inside": 0.004386363636363636,
+   "within": 0.09642045454545455
+  }
+ },
+ {
+  "cells": 694,
+  "measures": 53,
+  "person": {
+   "any": 1.0,
+   "any but floor": 1.0,
+   "box": 1.0,
+   "convex": 0.0015,
+   "floor": 0.902,
+   "inside": 0.0,
+   "necessary": 0.92125,
+   "outside": 0.3105,
+   "past": 0.0,
+   "positive": 0.0,
+   "sign": 0.078,
+   "sign or inside": 0.078,
+   "within": 0.853
+  },
+  "relations": [
+   {
+    "flagged": 0.2322,
+    "indicator": "within",
+    "measures": "pedicle_w_inner; pedicle",
+    "missing": "",
+    "relation": "inner width within the pedicle",
+    "tested": 20000,
+    "why": "the cancellous core lies inside the cortex"
+   },
+   {
+    "flagged": 0.05435,
+    "indicator": "within",
+    "measures": "pedicle_h_inner; pedicle_h",
+    "missing": "",
+    "relation": "inner height within the pedicle",
+    "tested": 20000,
+    "why": "the cancellous core lies inside the cortex"
+   },
+   {
+    "flagged": 0.36275,
+    "indicator": "within",
+    "measures": "pedicle_cortex [medial]; pedicle_w_inner; pedicle",
+    "missing": "",
+    "relation": "cortex and core within the pedicle",
+    "tested": 20000,
+    "why": "the width is the two walls and the core together, so the medial wall and the core are less than it"
+   },
+   {
+    "flagged": 0.0,
+    "indicator": "past",
+    "measures": "pedicle_length [proper]; pedicle_chord [along the axis]",
+    "missing": "",
+    "relation": "the chord runs past the pedicle",
+    "tested": 20000,
+    "why": "the screw path reaches the anterior cortex of the body, beyond the pedicle proper"
+   },
+   {
+    "flagged": 0.0,
+    "indicator": "past",
+    "measures": "pedicle_length [to the ligament]; pedicle_chord [along the axis]",
+    "missing": "",
+    "relation": "the chord runs past the ligament",
+    "tested": 20000,
+    "why": "the posterior longitudinal ligament lies on the body's back wall, before its anterior cortex"
+   },
+   {
+    "flagged": 0.015329545454545455,
+    "indicator": "outside",
+    "measures": "interpedicular; pedicle; pedicle; transverse_width",
+    "missing": "",
+    "relation": "the pedicles inside the transverse processes",
+    "tested": 88000,
+    "why": "the transverse processes arise lateral to the pedicles, which stand lateral to the canal"
+   },
+   {
+    "flagged": 0.0003,
+    "indicator": "convex",
+    "measures": "body_area; body_w; body_d [through the pedicles]",
+    "missing": "",
+    "relation": "body section inside its box (convex bound)",
+    "tested": 20000,
+    "why": "a plane region lies inside the rectangle of its extents; the body section is nearly symmetric and convex"
+   },
+   {
+    "flagged": 0.2098,
+    "indicator": "box",
+    "measures": "body_area; body_w; body_d [through the pedicles]",
+    "missing": "",
+    "relation": "body section inside its box",
+    "tested": 20000,
+    "why": "a plane region lies inside the rectangle of its extents; the body section is nearly symmetric and convex"
+   },
+   {
+    "flagged": 0.3617180859042952,
+    "indicator": "box",
+    "measures": "foramen_area; foramen_w [body to facet]; foramen_h",
+    "missing": "",
+    "relation": "foramen inside its box",
+    "tested": 19999,
+    "why": "a plane region lies inside the rectangle of its extents; the foramen is not symmetric, so no convex bound"
+   },
+   {
+    "flagged": 0.0,
+    "indicator": "positive",
+    "measures": "canal_index [areas]",
+    "missing": "",
+    "relation": "a ratio above zero",
+    "tested": 20000,
+    "why": "a ratio of two positive areas is positive"
+   }
+  ],
+  "setting": "size_removed",
+  "table": "the papers'",
+  "table_letter": "B",
+  "tests": {
+   "box": 303999,
+   "convex": 196000,
+   "floor": 3960000,
+   "inside": 88000,
+   "outside": 88000,
+   "past": 40000,
+   "positive": 20000,
+   "sign": 3960000,
+   "within": 60000
+  },
+  "vertebra": {
+   "any": 0.3312272727272727,
+   "any but floor": 0.3009545454545455,
+   "box": 0.2455,
+   "convex": 6.818181818181818e-05,
+   "floor": 0.08997727272727273,
+   "inside": 0.0,
+   "necessary": 0.10770454545454546,
+   "outside": 0.015329545454545455,
+   "past": 0.0,
+   "positive": 0.0,
+   "sign": 0.003715909090909091,
+   "sign or inside": 0.003715909090909091,
+   "within": 0.09073863636363637
+  }
+ },
+ {
+  "cells": 694,
+  "measures": 53,
+  "person": {
+   "any": 1.0,
+   "any but floor": 1.0,
+   "box": 1.0,
+   "convex": 0.0225,
+   "floor": 0.9045,
+   "inside": 0.0,
+   "necessary": 0.9405,
+   "outside": 0.3955,
+   "past": 0.0,
+   "positive": 0.0,
+   "sign": 0.087,
+   "sign or inside": 0.087,
+   "within": 0.8715
+  },
+  "relations": [
+   {
+    "flagged": 0.24105,
+    "indicator": "within",
+    "measures": "pedicle_w_inner; pedicle",
+    "missing": "",
+    "relation": "inner width within the pedicle",
+    "tested": 20000,
+    "why": "the cancellous core lies inside the cortex"
+   },
+   {
+    "flagged": 0.07785,
+    "indicator": "within",
+    "measures": "pedicle_h_inner; pedicle_h",
+    "missing": "",
+    "relation": "inner height within the pedicle",
+    "tested": 20000,
+    "why": "the cancellous core lies inside the cortex"
+   },
+   {
+    "flagged": 0.367,
+    "indicator": "within",
+    "measures": "pedicle_cortex [medial]; pedicle_w_inner; pedicle",
+    "missing": "",
+    "relation": "cortex and core within the pedicle",
+    "tested": 20000,
+    "why": "the width is the two walls and the core together, so the medial wall and the core are less than it"
+   },
+   {
+    "flagged": 0.0,
+    "indicator": "past",
+    "measures": "pedicle_length [proper]; pedicle_chord [along the axis]",
+    "missing": "",
+    "relation": "the chord runs past the pedicle",
+    "tested": 20000,
+    "why": "the screw path reaches the anterior cortex of the body, beyond the pedicle proper"
+   },
+   {
+    "flagged": 0.0,
+    "indicator": "past",
+    "measures": "pedicle_length [to the ligament]; pedicle_chord [along the axis]",
+    "missing": "",
+    "relation": "the chord runs past the ligament",
+    "tested": 20000,
+    "why": "the posterior longitudinal ligament lies on the body's back wall, before its anterior cortex"
+   },
+   {
+    "flagged": 0.022375,
+    "indicator": "outside",
+    "measures": "interpedicular; pedicle; pedicle; transverse_width",
+    "missing": "",
+    "relation": "the pedicles inside the transverse processes",
+    "tested": 88000,
+    "why": "the transverse processes arise lateral to the pedicles, which stand lateral to the canal"
+   },
+   {
+    "flagged": 0.0043,
+    "indicator": "convex",
+    "measures": "body_area; body_w; body_d [through the pedicles]",
+    "missing": "",
+    "relation": "body section inside its box (convex bound)",
+    "tested": 20000,
+    "why": "a plane region lies inside the rectangle of its extents; the body section is nearly symmetric and convex"
+   },
+   {
+    "flagged": 0.2929,
+    "indicator": "box",
+    "measures": "body_area; body_w; body_d [through the pedicles]",
+    "missing": "",
+    "relation": "body section inside its box",
+    "tested": 20000,
+    "why": "a plane region lies inside the rectangle of its extents; the body section is nearly symmetric and convex"
+   },
+   {
+    "flagged": 0.3777188859442972,
+    "indicator": "box",
+    "measures": "foramen_area; foramen_w [body to facet]; foramen_h",
+    "missing": "",
+    "relation": "foramen inside its box",
+    "tested": 19999,
+    "why": "a plane region lies inside the rectangle of its extents; the foramen is not symmetric, so no convex bound"
+   },
+   {
+    "flagged": 0.0,
+    "indicator": "positive",
+    "measures": "canal_index [areas]",
+    "missing": "",
+    "relation": "a ratio above zero",
+    "tested": 20000,
+    "why": "a ratio of two positive areas is positive"
+   }
+  ],
+  "setting": "size_removed, scale_sd 0.035",
+  "table": "the papers'",
+  "table_letter": "B",
+  "tests": {
+   "box": 303999,
+   "convex": 196000,
+   "floor": 3960000,
+   "inside": 88000,
+   "outside": 88000,
+   "past": 40000,
+   "positive": 20000,
+   "sign": 3960000,
+   "within": 60000
+  },
+  "vertebra": {
+   "any": 0.4078977272727273,
+   "any but floor": 0.38395454545454544,
+   "box": 0.3331590909090909,
+   "convex": 0.0010454545454545454,
+   "floor": 0.09060227272727273,
+   "inside": 0.0,
+   "necessary": 0.1187159090909091,
+   "outside": 0.022375,
+   "past": 0.0,
+   "positive": 0.0,
+   "sign": 0.004159090909090909,
+   "sign or inside": 0.004159090909090909,
+   "within": 0.09503409090909092
+  }
+ },
+ {
+  "cells": 694,
+  "measures": 53,
+  "person": {
+   "any": 0.99975,
+   "any but floor": 0.99825,
+   "box": 0.991,
+   "convex": 0.0,
+   "floor": 0.86675,
+   "inside": 0.0,
+   "necessary": 0.67225,
+   "outside": 0.192,
+   "past": 0.0,
+   "positive": 0.0,
+   "sign": 0.00425,
+   "sign or inside": 0.00425,
+   "within": 0.542
+  },
+  "relations": [
+   {
+    "flagged": 0.1067,
+    "indicator": "within",
+    "measures": "pedicle_w_inner; pedicle",
+    "missing": "",
+    "relation": "inner width within the pedicle",
+    "tested": 20000,
+    "why": "the cancellous core lies inside the cortex"
+   },
+   {
+    "flagged": 0.0112,
+    "indicator": "within",
+    "measures": "pedicle_h_inner; pedicle_h",
+    "missing": "",
+    "relation": "inner height within the pedicle",
+    "tested": 20000,
+    "why": "the cancellous core lies inside the cortex"
+   },
+   {
+    "flagged": 0.2818,
+    "indicator": "within",
+    "measures": "pedicle_cortex [medial]; pedicle_w_inner; pedicle",
+    "missing": "",
+    "relation": "cortex and core within the pedicle",
+    "tested": 20000,
+    "why": "the width is the two walls and the core together, so the medial wall and the core are less than it"
+   },
+   {
+    "flagged": 0.0,
+    "indicator": "past",
+    "measures": "pedicle_length [proper]; pedicle_chord [along the axis]",
+    "missing": "",
+    "relation": "the chord runs past the pedicle",
+    "tested": 20000,
+    "why": "the screw path reaches the anterior cortex of the body, beyond the pedicle proper"
+   },
+   {
+    "flagged": 0.0,
+    "indicator": "past",
+    "measures": "pedicle_length [to the ligament]; pedicle_chord [along the axis]",
+    "missing": "",
+    "relation": "the chord runs past the ligament",
+    "tested": 20000,
+    "why": "the posterior longitudinal ligament lies on the body's back wall, before its anterior cortex"
+   },
+   {
+    "flagged": 0.009454545454545455,
+    "indicator": "outside",
+    "measures": "interpedicular; pedicle; pedicle; transverse_width",
+    "missing": "",
+    "relation": "the pedicles inside the transverse processes",
+    "tested": 88000,
+    "why": "the transverse processes arise lateral to the pedicles, which stand lateral to the canal"
+   },
+   {
+    "flagged": 0.0,
+    "indicator": "convex",
+    "measures": "body_area; body_w; body_d [through the pedicles]",
+    "missing": "",
+    "relation": "body section inside its box (convex bound)",
+    "tested": 20000,
+    "why": "a plane region lies inside the rectangle of its extents; the body section is nearly symmetric and convex"
+   },
+   {
+    "flagged": 0.1773,
+    "indicator": "box",
+    "measures": "body_area; body_w; body_d [through the pedicles]",
+    "missing": "",
+    "relation": "body section inside its box",
+    "tested": 20000,
+    "why": "a plane region lies inside the rectangle of its extents; the body section is nearly symmetric and convex"
+   },
+   {
+    "flagged": 0.2891,
+    "indicator": "box",
+    "measures": "foramen_area; foramen_w [body to facet]; foramen_h",
+    "missing": "",
+    "relation": "foramen inside its box",
+    "tested": 20000,
+    "why": "a plane region lies inside the rectangle of its extents; the foramen is not symmetric, so no convex bound"
+   },
+   {
+    "flagged": 0.0,
+    "indicator": "positive",
+    "measures": "canal_index [areas]",
+    "missing": "",
+    "relation": "a ratio above zero",
+    "tested": 20000,
+    "why": "a ratio of two positive areas is positive"
+   }
+  ],
+  "setting": "nearest the papers (32 measures)",
+  "table": "the papers'",
+  "table_letter": "B",
+  "tests": {
+   "box": 304000,
+   "convex": 196000,
+   "floor": 3960000,
+   "inside": 88000,
+   "outside": 88000,
+   "past": 40000,
+   "positive": 20000,
+   "sign": 3960000,
+   "within": 60000
+  },
+  "vertebra": {
+   "any": 0.329625,
+   "any but floor": 0.29551136363636366,
+   "box": 0.25181818181818183,
+   "convex": 0.0,
+   "floor": 0.0785,
+   "inside": 0.0,
+   "necessary": 0.07552272727272727,
+   "outside": 0.009454545454545455,
+   "past": 0.0,
+   "positive": 0.0,
+   "sign": 0.0002159090909090909,
+   "sign or inside": 0.0002159090909090909,
+   "within": 0.06598863636363636
+  }
+ },
+ {
+  "cells": 694,
+  "measures": 53,
+  "person": {
+   "any": 0.99975,
+   "any but floor": 0.9995,
+   "box": 0.99075,
+   "convex": 0.01175,
+   "floor": 0.875,
+   "inside": 0.0,
+   "necessary": 0.83625,
+   "outside": 0.32975,
+   "past": 0.0,
+   "positive": 0.0,
+   "sign": 0.073,
+   "sign or inside": 0.073,
+   "within": 0.67375
+  },
+  "relations": [
+   {
+    "flagged": 0.2015,
+    "indicator": "within",
+    "measures": "pedicle_w_inner; pedicle",
+    "missing": "",
+    "relation": "inner width within the pedicle",
+    "tested": 20000,
+    "why": "the cancellous core lies inside the cortex"
+   },
+   {
+    "flagged": 0.04945,
+    "indicator": "within",
+    "measures": "pedicle_h_inner; pedicle_h",
+    "missing": "",
+    "relation": "inner height within the pedicle",
+    "tested": 20000,
+    "why": "the cancellous core lies inside the cortex"
+   },
+   {
+    "flagged": 0.34695,
+    "indicator": "within",
+    "measures": "pedicle_cortex [medial]; pedicle_w_inner; pedicle",
+    "missing": "",
+    "relation": "cortex and core within the pedicle",
+    "tested": 20000,
+    "why": "the width is the two walls and the core together, so the medial wall and the core are less than it"
+   },
+   {
+    "flagged": 0.0,
+    "indicator": "past",
+    "measures": "pedicle_length [proper]; pedicle_chord [along the axis]",
+    "missing": "",
+    "relation": "the chord runs past the pedicle",
+    "tested": 20000,
+    "why": "the screw path reaches the anterior cortex of the body, beyond the pedicle proper"
+   },
+   {
+    "flagged": 0.0,
+    "indicator": "past",
+    "measures": "pedicle_length [to the ligament]; pedicle_chord [along the axis]",
+    "missing": "",
+    "relation": "the chord runs past the ligament",
+    "tested": 20000,
+    "why": "the posterior longitudinal ligament lies on the body's back wall, before its anterior cortex"
+   },
+   {
+    "flagged": 0.020125,
+    "indicator": "outside",
+    "measures": "interpedicular; pedicle; pedicle; transverse_width",
+    "missing": "",
+    "relation": "the pedicles inside the transverse processes",
+    "tested": 88000,
+    "why": "the transverse processes arise lateral to the pedicles, which stand lateral to the canal"
+   },
+   {
+    "flagged": 0.00205,
+    "indicator": "convex",
+    "measures": "body_area; body_w; body_d [through the pedicles]",
+    "missing": "",
+    "relation": "body section inside its box (convex bound)",
+    "tested": 20000,
+    "why": "a plane region lies inside the rectangle of its extents; the body section is nearly symmetric and convex"
+   },
+   {
+    "flagged": 0.26645,
+    "indicator": "box",
+    "measures": "body_area; body_w; body_d [through the pedicles]",
+    "missing": "",
+    "relation": "body section inside its box",
+    "tested": 20000,
+    "why": "a plane region lies inside the rectangle of its extents; the body section is nearly symmetric and convex"
+   },
+   {
+    "flagged": 0.3504675233761688,
+    "indicator": "box",
+    "measures": "foramen_area; foramen_w [body to facet]; foramen_h",
+    "missing": "",
+    "relation": "foramen inside its box",
+    "tested": 19999,
+    "why": "a plane region lies inside the rectangle of its extents; the foramen is not symmetric, so no convex bound"
+   },
+   {
+    "flagged": 0.0,
+    "indicator": "positive",
+    "measures": "canal_index [areas]",
+    "missing": "",
+    "relation": "a ratio above zero",
+    "tested": 20000,
+    "why": "a ratio of two positive areas is positive"
+   }
+  ],
+  "setting": "nearest the papers (B)",
+  "table": "the papers'",
+  "table_letter": "B",
+  "tests": {
+   "box": 303999,
+   "convex": 196000,
+   "floor": 3960000,
+   "inside": 88000,
+   "outside": 88000,
+   "past": 40000,
+   "positive": 20000,
+   "sign": 3960000,
+   "within": 60000
+  },
+  "vertebra": {
+   "any": 0.4235909090909091,
+   "any but floor": 0.3980909090909091,
+   "box": 0.34594318181818184,
+   "convex": 0.0006363636363636364,
+   "floor": 0.09028409090909091,
+   "inside": 0.0,
+   "necessary": 0.10915909090909091,
+   "outside": 0.020125,
+   "past": 0.0,
+   "positive": 0.0,
+   "sign": 0.004522727272727273,
+   "sign or inside": 0.004522727272727273,
+   "within": 0.0868409090909091
+  }
+ },
+ {
+  "cells": 1054,
+  "measures": 75,
+  "person": {
+   "any": 1.0,
+   "any but floor": 1.0,
+   "box": 0.9995,
+   "convex": 0.78875,
+   "floor": 0.98475,
+   "inside": 0.02525,
+   "necessary": 0.95875,
+   "outside": 0.57475,
+   "past": 0.0,
+   "positive": 0.0,
+   "sign": 0.73325,
+   "sign or inside": 0.74125,
+   "within": 0.65075
+  },
+  "relations": [
+   {
+    "flagged": 0.12935,
+    "indicator": "within",
+    "measures": "pedicle_w_inner; pedicle",
+    "missing": "",
+    "relation": "inner width within the pedicle",
+    "tested": 20000,
+    "why": "the cancellous core lies inside the cortex"
+   },
+   {
+    "flagged": 0.04115,
+    "indicator": "within",
+    "measures": "pedicle_h_inner; pedicle_h",
+    "missing": "",
+    "relation": "inner height within the pedicle",
+    "tested": 20000,
+    "why": "the cancellous core lies inside the cortex"
+   },
+   {
+    "flagged": 0.19515,
+    "indicator": "within",
+    "measures": "pedicle_cortex [medial]; pedicle_w_inner; pedicle",
+    "missing": "",
+    "relation": "cortex and core within the pedicle",
+    "tested": 20000,
+    "why": "the width is the two walls and the core together, so the medial wall and the core are less than it"
+   },
+   {
+    "flagged": 0.0,
+    "indicator": "past",
+    "measures": "pedicle_length [proper]; pedicle_chord [along the axis]",
+    "missing": "",
+    "relation": "the chord runs past the pedicle",
+    "tested": 20000,
+    "why": "the screw path reaches the anterior cortex of the body, beyond the pedicle proper"
+   },
+   {
+    "flagged": 0.0,
+    "indicator": "past",
+    "measures": "pedicle_length [to the ligament]; pedicle_chord [along the axis]",
+    "missing": "",
+    "relation": "the chord runs past the ligament",
+    "tested": 20000,
+    "why": "the posterior longitudinal ligament lies on the body's back wall, before its anterior cortex"
+   },
+   {
+    "flagged": 0.045636363636363635,
+    "indicator": "outside",
+    "measures": "interpedicular; pedicle; pedicle; transverse_width",
+    "missing": "",
+    "relation": "the pedicles inside the transverse processes",
+    "tested": 88000,
+    "why": "the transverse processes arise lateral to the pedicles, which stand lateral to the canal"
+   },
+   {
+    "flagged": 0.0085,
+    "indicator": "convex",
+    "measures": "body_area; body_w; body_d [through the pedicles]",
+    "missing": "",
+    "relation": "body section inside its box (convex bound)",
+    "tested": 20000,
+    "why": "a plane region lies inside the rectangle of its extents; the body section is nearly symmetric and convex"
+   },
+   {
+    "flagged": 0.3018,
+    "indicator": "box",
+    "measures": "body_area; body_w; body_d [through the pedicles]",
+    "missing": "",
+    "relation": "body section inside its box",
+    "tested": 20000,
+    "why": "a plane region lies inside the rectangle of its extents; the body section is nearly symmetric and convex"
+   },
+   {
+    "flagged": 0.3766188309415471,
+    "indicator": "box",
+    "measures": "foramen_area; foramen_w [body to facet]; foramen_h",
+    "missing": "",
+    "relation": "foramen inside its box",
+    "tested": 19999,
+    "why": "a plane region lies inside the rectangle of its extents; the foramen is not symmetric, so no convex bound"
+   },
+   {
+    "flagged": 0.0,
+    "indicator": "positive",
+    "measures": "canal_index [areas]",
+    "missing": "",
+    "relation": "a ratio above zero",
+    "tested": 20000,
+    "why": "a ratio of two positive areas is positive"
+   }
+  ],
+  "setting": "generator",
+  "table": "Panjabi's and the papers'",
+  "table_letter": "C",
+  "tests": {
+   "box": 479999,
+   "convex": 196000,
+   "floor": 5192000,
+   "inside": 88000,
+   "outside": 88000,
+   "past": 40000,
+   "positive": 20000,
+   "sign": 5192000,
+   "within": 60000
+  },
+  "vertebra": {
+   "any": 0.5943977272727273,
+   "any but floor": 0.5513863636363636,
+   "box": 0.4083522727272727,
+   "convex": 0.1049659090909091,
+   "floor": 0.17925,
+   "inside": 0.001159090909090909,
+   "necessary": 0.15520454545454546,
+   "outside": 0.045636363636363635,
+   "past": 0.0,
+   "positive": 0.0,
+   "sign": 0.061681818181818185,
+   "sign or inside": 0.06269318181818181,
+   "within": 0.051397727272727275
+  }
+ },
+ {
+  "cells": 1054,
+  "measures": 75,
+  "person": {
+   "any": 1.0,
+   "any but floor": 1.0,
+   "box": 0.9965,
+   "convex": 0.287,
+   "floor": 0.97825,
+   "inside": 0.0185,
+   "necessary": 0.9405,
+   "outside": 0.51525,
+   "past": 0.0,
+   "positive": 0.0,
+   "sign": 0.6655,
+   "sign or inside": 0.67325,
+   "within": 0.61375
+  },
+  "relations": [
+   {
+    "flagged": 0.1191,
+    "indicator": "within",
+    "measures": "pedicle_w_inner; pedicle",
+    "missing": "",
+    "relation": "inner width within the pedicle",
+    "tested": 20000,
+    "why": "the cancellous core lies inside the cortex"
+   },
+   {
+    "flagged": 0.0272,
+    "indicator": "within",
+    "measures": "pedicle_h_inner; pedicle_h",
+    "missing": "",
+    "relation": "inner height within the pedicle",
+    "tested": 20000,
+    "why": "the cancellous core lies inside the cortex"
+   },
+   {
+    "flagged": 0.18195,
+    "indicator": "within",
+    "measures": "pedicle_cortex [medial]; pedicle_w_inner; pedicle",
+    "missing": "",
+    "relation": "cortex and core within the pedicle",
+    "tested": 20000,
+    "why": "the width is the two walls and the core together, so the medial wall and the core are less than it"
+   },
+   {
+    "flagged": 0.0,
+    "indicator": "past",
+    "measures": "pedicle_length [proper]; pedicle_chord [along the axis]",
+    "missing": "",
+    "relation": "the chord runs past the pedicle",
+    "tested": 20000,
+    "why": "the screw path reaches the anterior cortex of the body, beyond the pedicle proper"
+   },
+   {
+    "flagged": 0.0,
+    "indicator": "past",
+    "measures": "pedicle_length [to the ligament]; pedicle_chord [along the axis]",
+    "missing": "",
+    "relation": "the chord runs past the ligament",
+    "tested": 20000,
+    "why": "the posterior longitudinal ligament lies on the body's back wall, before its anterior cortex"
+   },
+   {
+    "flagged": 0.03685227272727273,
+    "indicator": "outside",
+    "measures": "interpedicular; pedicle; pedicle; transverse_width",
+    "missing": "",
+    "relation": "the pedicles inside the transverse processes",
+    "tested": 88000,
+    "why": "the transverse processes arise lateral to the pedicles, which stand lateral to the canal"
+   },
+   {
+    "flagged": 0.00015,
+    "indicator": "convex",
+    "measures": "body_area; body_w; body_d [through the pedicles]",
+    "missing": "",
+    "relation": "body section inside its box (convex bound)",
+    "tested": 20000,
+    "why": "a plane region lies inside the rectangle of its extents; the body section is nearly symmetric and convex"
+   },
+   {
+    "flagged": 0.2038,
+    "indicator": "box",
+    "measures": "body_area; body_w; body_d [through the pedicles]",
+    "missing": "",
+    "relation": "body section inside its box",
+    "tested": 20000,
+    "why": "a plane region lies inside the rectangle of its extents; the body section is nearly symmetric and convex"
+   },
+   {
+    "flagged": 0.35691784589229464,
+    "indicator": "box",
+    "measures": "foramen_area; foramen_w [body to facet]; foramen_h",
+    "missing": "",
+    "relation": "foramen inside its box",
+    "tested": 19999,
+    "why": "a plane region lies inside the rectangle of its extents; the foramen is not symmetric, so no convex bound"
+   },
+   {
+    "flagged": 0.0,
+    "indicator": "positive",
+    "measures": "canal_index [areas]",
+    "missing": "",
+    "relation": "a ratio above zero",
+    "tested": 20000,
+    "why": "a ratio of two positive areas is positive"
+   }
+  ],
+  "setting": "size_removed",
+  "table": "Panjabi's and the papers'",
+  "table_letter": "C",
+  "tests": {
+   "box": 479999,
+   "convex": 196000,
+   "floor": 5192000,
+   "inside": 88000,
+   "outside": 88000,
+   "past": 40000,
+   "positive": 20000,
+   "sign": 5192000,
+   "within": 60000
+  },
+  "vertebra": {
+   "any": 0.459,
+   "any but floor": 0.4028409090909091,
+   "box": 0.30575,
+   "convex": 0.017420454545454545,
+   "floor": 0.16419318181818182,
+   "inside": 0.000840909090909091,
+   "necessary": 0.1320568181818182,
+   "outside": 0.03685227272727273,
+   "past": 0.0,
+   "positive": 0.0,
+   "sign": 0.05123863636363636,
+   "sign or inside": 0.05201136363636363,
+   "within": 0.04609090909090909
+  }
+ },
+ {
+  "cells": 1054,
+  "measures": 75,
+  "person": {
+   "any": 1.0,
+   "any but floor": 1.0,
+   "box": 0.99875,
+   "convex": 0.70725,
+   "floor": 0.9835,
+   "inside": 0.02275,
+   "necessary": 0.95325,
+   "outside": 0.56225,
+   "past": 0.0,
+   "positive": 0.0,
+   "sign": 0.70975,
+   "sign or inside": 0.717,
+   "within": 0.64075
+  },
+  "relations": [
+   {
+    "flagged": 0.1264,
+    "indicator": "within",
+    "measures": "pedicle_w_inner; pedicle",
+    "missing": "",
+    "relation": "inner width within the pedicle",
+    "tested": 20000,
+    "why": "the cancellous core lies inside the cortex"
+   },
+   {
+    "flagged": 0.0378,
+    "indicator": "within",
+    "measures": "pedicle_h_inner; pedicle_h",
+    "missing": "",
+    "relation": "inner height within the pedicle",
+    "tested": 20000,
+    "why": "the cancellous core lies inside the cortex"
+   },
+   {
+    "flagged": 0.19135,
+    "indicator": "within",
+    "measures": "pedicle_cortex [medial]; pedicle_w_inner; pedicle",
+    "missing": "",
+    "relation": "cortex and core within the pedicle",
+    "tested": 20000,
+    "why": "the width is the two walls and the core together, so the medial wall and the core are less than it"
+   },
+   {
+    "flagged": 0.0,
+    "indicator": "past",
+    "measures": "pedicle_length [proper]; pedicle_chord [along the axis]",
+    "missing": "",
+    "relation": "the chord runs past the pedicle",
+    "tested": 20000,
+    "why": "the screw path reaches the anterior cortex of the body, beyond the pedicle proper"
+   },
+   {
+    "flagged": 0.0,
+    "indicator": "past",
+    "measures": "pedicle_length [to the ligament]; pedicle_chord [along the axis]",
+    "missing": "",
+    "relation": "the chord runs past the ligament",
+    "tested": 20000,
+    "why": "the posterior longitudinal ligament lies on the body's back wall, before its anterior cortex"
+   },
+   {
+    "flagged": 0.043602272727272726,
+    "indicator": "outside",
+    "measures": "interpedicular; pedicle; pedicle; transverse_width",
+    "missing": "",
+    "relation": "the pedicles inside the transverse processes",
+    "tested": 88000,
+    "why": "the transverse processes arise lateral to the pedicles, which stand lateral to the canal"
+   },
+   {
+    "flagged": 0.0056,
+    "indicator": "convex",
+    "measures": "body_area; body_w; body_d [through the pedicles]",
+    "missing": "",
+    "relation": "body section inside its box (convex bound)",
+    "tested": 20000,
+    "why": "a plane region lies inside the rectangle of its extents; the body section is nearly symmetric and convex"
+   },
+   {
+    "flagged": 0.28515,
+    "indicator": "box",
+    "measures": "body_area; body_w; body_d [through the pedicles]",
+    "missing": "",
+    "relation": "body section inside its box",
+    "tested": 20000,
+    "why": "a plane region lies inside the rectangle of its extents; the body section is nearly symmetric and convex"
+   },
+   {
+    "flagged": 0.3723186159307965,
+    "indicator": "box",
+    "measures": "foramen_area; foramen_w [body to facet]; foramen_h",
+    "missing": "",
+    "relation": "foramen inside its box",
+    "tested": 19999,
+    "why": "a plane region lies inside the rectangle of its extents; the foramen is not symmetric, so no convex bound"
+   },
+   {
+    "flagged": 0.0,
+    "indicator": "positive",
+    "measures": "canal_index [areas]",
+    "missing": "",
+    "relation": "a ratio above zero",
+    "tested": 20000,
+    "why": "a ratio of two positive areas is positive"
+   }
+  ],
+  "setting": "size_removed, scale_sd 0.035",
+  "table": "Panjabi's and the papers'",
+  "table_letter": "C",
+  "tests": {
+   "box": 479999,
+   "convex": 196000,
+   "floor": 5192000,
+   "inside": 88000,
+   "outside": 88000,
+   "past": 40000,
+   "positive": 20000,
+   "sign": 5192000,
+   "within": 60000
+  },
+  "vertebra": {
+   "any": 0.5590227272727273,
+   "any but floor": 0.5126818181818181,
+   "box": 0.3814772727272727,
+   "convex": 0.07936363636363636,
+   "floor": 0.17369318181818183,
+   "inside": 0.001034090909090909,
+   "necessary": 0.14892045454545455,
+   "outside": 0.043602272727272726,
+   "past": 0.0,
+   "positive": 0.0,
+   "sign": 0.058477272727272725,
+   "sign or inside": 0.059397727272727276,
+   "within": 0.049977272727272724
+  }
+ },
+ {
+  "cells": 1054,
+  "measures": 75,
+  "person": {
+   "any": 0.991,
+   "any but floor": 0.9085,
+   "box": 0.8275,
+   "convex": 0.067,
+   "floor": 0.908,
+   "inside": 0.0005,
+   "necessary": 0.458,
+   "outside": 0.20425,
+   "past": 0.0,
+   "positive": 0.0,
+   "sign": 0.106,
+   "sign or inside": 0.1065,
+   "within": 0.21975
+  },
+  "relations": [
+   {
+    "flagged": 0.02945,
+    "indicator": "within",
+    "measures": "pedicle_w_inner; pedicle",
+    "missing": "",
+    "relation": "inner width within the pedicle",
+    "tested": 20000,
+    "why": "the cancellous core lies inside the cortex"
+   },
+   {
+    "flagged": 0.0029,
+    "indicator": "within",
+    "measures": "pedicle_h_inner; pedicle_h",
+    "missing": "",
+    "relation": "inner height within the pedicle",
+    "tested": 20000,
+    "why": "the cancellous core lies inside the cortex"
+   },
+   {
+    "flagged": 0.07585,
+    "indicator": "within",
+    "measures": "pedicle_cortex [medial]; pedicle_w_inner; pedicle",
+    "missing": "",
+    "relation": "cortex and core within the pedicle",
+    "tested": 20000,
+    "why": "the width is the two walls and the core together, so the medial wall and the core are less than it"
+   },
+   {
+    "flagged": 0.0,
+    "indicator": "past",
+    "measures": "pedicle_length [proper]; pedicle_chord [along the axis]",
+    "missing": "",
+    "relation": "the chord runs past the pedicle",
+    "tested": 20000,
+    "why": "the screw path reaches the anterior cortex of the body, beyond the pedicle proper"
+   },
+   {
+    "flagged": 0.0,
+    "indicator": "past",
+    "measures": "pedicle_length [to the ligament]; pedicle_chord [along the axis]",
+    "missing": "",
+    "relation": "the chord runs past the ligament",
+    "tested": 20000,
+    "why": "the posterior longitudinal ligament lies on the body's back wall, before its anterior cortex"
+   },
+   {
+    "flagged": 0.01475,
+    "indicator": "outside",
+    "measures": "interpedicular; pedicle; pedicle; transverse_width",
+    "missing": "",
+    "relation": "the pedicles inside the transverse processes",
+    "tested": 88000,
+    "why": "the transverse processes arise lateral to the pedicles, which stand lateral to the canal"
+   },
+   {
+    "flagged": 0.0,
+    "indicator": "convex",
+    "measures": "body_area; body_w; body_d [through the pedicles]",
+    "missing": "",
+    "relation": "body section inside its box (convex bound)",
+    "tested": 20000,
+    "why": "a plane region lies inside the rectangle of its extents; the body section is nearly symmetric and convex"
+   },
+   {
+    "flagged": 0.17425,
+    "indicator": "box",
+    "measures": "body_area; body_w; body_d [through the pedicles]",
+    "missing": "",
+    "relation": "body section inside its box",
+    "tested": 20000,
+    "why": "a plane region lies inside the rectangle of its extents; the body section is nearly symmetric and convex"
+   },
+   {
+    "flagged": 0.28585,
+    "indicator": "box",
+    "measures": "foramen_area; foramen_w [body to facet]; foramen_h",
+    "missing": "",
+    "relation": "foramen inside its box",
+    "tested": 20000,
+    "why": "a plane region lies inside the rectangle of its extents; the foramen is not symmetric, so no convex bound"
+   },
+   {
+    "flagged": 0.0,
+    "indicator": "positive",
+    "measures": "canal_index [areas]",
+    "missing": "",
+    "relation": "a ratio above zero",
+    "tested": 20000,
+    "why": "a ratio of two positive areas is positive"
+   }
+  ],
+  "setting": "nearest the papers (32 measures)",
+  "table": "Panjabi's and the papers'",
+  "table_letter": "C",
+  "tests": {
+   "box": 480000,
+   "convex": 196000,
+   "floor": 5192000,
+   "inside": 88000,
+   "outside": 88000,
+   "past": 40000,
+   "positive": 20000,
+   "sign": 5192000,
+   "within": 60000
+  },
+  "vertebra": {
+   "any": 0.23711363636363636,
+   "any but floor": 0.18331818181818182,
+   "box": 0.14753409090909092,
+   "convex": 0.0057954545454545455,
+   "floor": 0.09485227272727273,
+   "inside": 2.2727272727272726e-05,
+   "necessary": 0.03859090909090909,
+   "outside": 0.01475,
+   "past": 0.0,
+   "positive": 0.0,
+   "sign": 0.006045454545454546,
+   "sign or inside": 0.006068181818181818,
+   "within": 0.01780681818181818
+  }
+ },
+ {
+  "cells": 1054,
+  "measures": 75,
+  "person": {
+   "any": 0.997,
+   "any but floor": 0.9865,
+   "box": 0.94275,
+   "convex": 0.3395,
+   "floor": 0.921,
+   "inside": 0.01175,
+   "necessary": 0.7755,
+   "outside": 0.35225,
+   "past": 0.0,
+   "positive": 0.0,
+   "sign": 0.43425,
+   "sign or inside": 0.4375,
+   "within": 0.42325
+  },
+  "relations": [
+   {
+    "flagged": 0.09555,
+    "indicator": "within",
+    "measures": "pedicle_w_inner; pedicle",
+    "missing": "",
+    "relation": "inner width within the pedicle",
+    "tested": 20000,
+    "why": "the cancellous core lies inside the cortex"
+   },
+   {
+    "flagged": 0.0212,
+    "indicator": "within",
+    "measures": "pedicle_h_inner; pedicle_h",
+    "missing": "",
+    "relation": "inner height within the pedicle",
+    "tested": 20000,
+    "why": "the cancellous core lies inside the cortex"
+   },
+   {
+    "flagged": 0.159,
+    "indicator": "within",
+    "measures": "pedicle_cortex [medial]; pedicle_w_inner; pedicle",
+    "missing": "",
+    "relation": "cortex and core within the pedicle",
+    "tested": 20000,
+    "why": "the width is the two walls and the core together, so the medial wall and the core are less than it"
+   },
+   {
+    "flagged": 0.0,
+    "indicator": "past",
+    "measures": "pedicle_length [proper]; pedicle_chord [along the axis]",
+    "missing": "",
+    "relation": "the chord runs past the pedicle",
+    "tested": 20000,
+    "why": "the screw path reaches the anterior cortex of the body, beyond the pedicle proper"
+   },
+   {
+    "flagged": 0.0,
+    "indicator": "past",
+    "measures": "pedicle_length [to the ligament]; pedicle_chord [along the axis]",
+    "missing": "",
+    "relation": "the chord runs past the ligament",
+    "tested": 20000,
+    "why": "the posterior longitudinal ligament lies on the body's back wall, before its anterior cortex"
+   },
+   {
+    "flagged": 0.03147727272727273,
+    "indicator": "outside",
+    "measures": "interpedicular; pedicle; pedicle; transverse_width",
+    "missing": "",
+    "relation": "the pedicles inside the transverse processes",
+    "tested": 88000,
+    "why": "the transverse processes arise lateral to the pedicles, which stand lateral to the canal"
+   },
+   {
+    "flagged": 0.0027,
+    "indicator": "convex",
+    "measures": "body_area; body_w; body_d [through the pedicles]",
+    "missing": "",
+    "relation": "body section inside its box (convex bound)",
+    "tested": 20000,
+    "why": "a plane region lies inside the rectangle of its extents; the body section is nearly symmetric and convex"
+   },
+   {
+    "flagged": 0.25665,
+    "indicator": "box",
+    "measures": "body_area; body_w; body_d [through the pedicles]",
+    "missing": "",
+    "relation": "body section inside its box",
+    "tested": 20000,
+    "why": "a plane region lies inside the rectangle of its extents; the body section is nearly symmetric and convex"
+   },
+   {
+    "flagged": 0.34585,
+    "indicator": "box",
+    "measures": "foramen_area; foramen_w [body to facet]; foramen_h",
+    "missing": "",
+    "relation": "foramen inside its box",
+    "tested": 20000,
+    "why": "a plane region lies inside the rectangle of its extents; the foramen is not symmetric, so no convex bound"
+   },
+   {
+    "flagged": 0.0,
+    "indicator": "positive",
+    "measures": "canal_index [areas]",
+    "missing": "",
+    "relation": "a ratio above zero",
+    "tested": 20000,
+    "why": "a ratio of two positive areas is positive"
+   }
+  ],
+  "setting": "nearest the papers (C)",
+  "table": "Panjabi's and the papers'",
+  "table_letter": "C",
+  "tests": {
+   "box": 480000,
+   "convex": 196000,
+   "floor": 5192000,
+   "inside": 88000,
+   "outside": 88000,
+   "past": 40000,
+   "positive": 20000,
+   "sign": 5192000,
+   "within": 60000
+  },
+  "vertebra": {
+   "any": 0.4615681818181818,
+   "any but floor": 0.4129090909090909,
+   "box": 0.30004545454545456,
+   "convex": 0.05580681818181818,
+   "floor": 0.16660227272727274,
+   "inside": 0.0005681818181818182,
+   "necessary": 0.12373863636363637,
+   "outside": 0.03147727272727273,
+   "past": 0.0,
+   "positive": 0.0,
+   "sign": 0.055375,
+   "sign or inside": 0.055875,
+   "within": 0.039875
+  }
+ }
+]

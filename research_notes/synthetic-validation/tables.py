@@ -1,7 +1,10 @@
 """The README's tables, written from the records run.py wrote.
 
-    python3 -I tables.py --records records --write README.md    # rewrite every marked table
-    python3 -I tables.py --records records --check README.md    # fail when one differs
+    python3 -I tables.py --records records --write README.md --write MEASURES.md    # rewrite every marked table
+    python3 -I tables.py --records records --check README.md --check MEASURES.md    # fail when one differs
+
+The first part's tables read records/; the second part's, named all_*, read records/all, which
+run_all.py writes; strata reads records/strata, which run_strata.py writes.
 
 A table sits in README.md between `<!-- table NAME -->` and `<!-- end NAME -->`; each NAME is
 one function below. The prose around the tables quotes their numbers and is checked by hand; the
@@ -15,6 +18,7 @@ import json
 import math
 import os
 import re
+import statistics
 import sys
 from typing import Callable, Dict, List, Sequence
 
@@ -369,6 +373,352 @@ def t_assumptions(rec: str) -> str:
     return "\n\n".join((t1, t2, t3))
 
 
+# ---- the second part: every measure of the reread (records/all, written by run_all.py) --------------
+
+TABLE_LETTERS = {"Panjabi's, every measure": "A", "the papers'": "B", "Panjabi's and the papers'": "C"}
+RELATION_GROUPS = ("sign", "inside", "within", "past", "outside", "positive", "box", "convex", "floor")
+ALL_UNIONS = ("sign or inside", "necessary", "any but floor", "any")
+
+
+def rec_all(rec: str) -> str:
+    return os.path.join(rec, "all")
+
+
+def letter_of(row: dict) -> str:
+    return row.get("table_letter") or TABLE_LETTERS.get(row.get("table", ""), row.get("table", ""))
+
+
+def t_all_inventory(rec: str) -> str:
+    """The 106 keys of the reread's vocabulary, by what became of each, and the three tables."""
+    inv = read_csv(rec_all(rec), "inventory.csv")
+    sel = read_json(rec_all(rec), "selection_all.json")
+    of_v = [r for r in inv if r["of_a_vertebra"] == "True"]
+    drawn = [r for r in of_v if not r["why_not_drawn"]]
+    panjabi = [r for r in of_v if r["panjabi"] == "True"]
+    rows = [["keys in the vocabulary", len(inv)],
+            ["  not a measure of one vertebra (the subjects, a prevalence, a reliability, an alignment)", len(inv) - len(of_v)],
+            ["  measures of a vertebra", len(of_v)],
+            ["    Panjabi prints them", len(panjabi)],
+            ["      with a spread, so a table can hold them", sum(1 for r in panjabi if "no spread" not in r["why_not_drawn"])],
+            ["      the generator's 32", sum(1 for r in panjabi if r["in_generator"] == "True")],
+            ["      as a mean with no spread", sum(1 for r in panjabi if "no spread" in r["why_not_drawn"])],
+            ["    with a usable series in the papers", sum(1 for r in of_v if num(r["series"]) > 0)],
+            ["      of them Panjabi's", sum(1 for r in panjabi if num(r["series"]) > 0)],
+            ["      of them the papers' own", sum(1 for r in of_v if r["panjabi"] != "True" and num(r["series"]) > 0)],
+            ["    no paper of the 39 prints a series", sum(1 for r in of_v if r["why_not_drawn"].startswith("no paper"))],
+            ["    rows, but no series with a mean, an SD and a count", sum(1 for r in of_v if r["why_not_drawn"].startswith("no series"))],
+            ["    split into variants (papers_table.VARIANTS)", len(sel["variants"])],
+            ["    drawn in some table", len(drawn)]]
+    t1 = table(["the vocabulary", "keys"], rows, text=(0,))
+    rows = []
+    for name in ("table panjabi", "table papers", "table both"):
+        t = sel[name]
+        rows.append([t["letter"], t["name"], t["measures"], t["cells"], t["complete_C3_L5"], t["complete_L1_L5"],
+                     ", ".join("%s %d" % kv for kv in sorted(t["kinds"].items()))])
+    t2 = table(["table", "measures", "count", "cells (measure, level)", "complete C3 to L5", "complete L1 to L5", "by kind"],
+               rows, right=2, text=(1, 6))
+    return t1 + "\n\n" + t2
+
+
+def t_all_cells(rec: str) -> str:
+    """Where the papers' placed cells come from."""
+    sel = read_json(rec_all(rec), "selection_all.json")
+    rows = [["rows of the whole snapshot", sel["rows"]], ["series formed", sel["series"]],
+            ["series with a mean, an SD and a count of two or more", sel["usable"]],
+            ["papers behind them", sel["papers"]],
+            ["cells (measure, level as printed) pooled", sel["cells_pooled"]],
+            ["cells placed at a level of C3 to L5", sel["cells_placed"]]]
+    for k, v in sorted(sel["cells_placed_by_sd_from"].items()):
+        rows.append(["  SD %s" % k, v])
+    for k, v in sorted(sel["cells_placed_by_modality"].items()):
+        rows.append(["  pooled from %s" % k, v])
+    by_k = sel["cells_placed_by_k"]
+    rows.append(["  one series / two / three or more", "%d / %d / %d" % (
+        by_k.get("1", 0), by_k.get("2", 0), sum(v for k, v in by_k.items() if int(k) >= 3))])
+    rows.append(["cells pooled but placed nowhere (a disc or foramen against one vertebra, a level past L5)",
+                 sel["cells_pooled"] - sel["cells_placed"]])
+    for k, v in sorted(sel["cells_unplaced_by_key"].items()):
+        rows.append(["  %s" % k, v])
+    return table(["the papers' cells", "count"], rows, text=(0,))
+
+
+def _points(rows: Sequence[dict], letter: str, name: str) -> dict:
+    got = [r for r in rows if letter_of(r) == letter and r["name"] == name]
+    return got[0] if got else {}
+
+
+def _nearest(rec: str, letter: str) -> dict:
+    grid = [r for r in read_csv(rec_all(rec), "grid_all.csv") if letter_of(r) == letter]
+    return min(grid, key=lambda r: num(r["distance"])) if grid else {}
+
+
+def t_all_state_space(rec: str) -> str:
+    """Each table's generator point and its nearest grid point."""
+    ss = read_csv(rec_all(rec), "state_space_all.csv")
+    rows = []
+    for letter in ("A", "B", "C"):
+        for label, p in (("generator", _points(ss, letter, "generator")), ("nearest", _nearest(rec, letter))):
+            if not p:
+                continue
+            gr = median([num(p[k]) for k in p if k.startswith("griffith ")])
+            rows.append([letter, label, "%s / %s / %s / %s" % (f(p["scale_sd"], 3), f(p["sd_scale"]), f(p["rho"]), f(p["r_between"])),
+                         f(p["sd_ratio_true"]), f(p["sd_ratio_measured"]), f(p["neighbour_r"]), f(gr),
+                         pct(p["qi vertebra necessary"]), pct(p["qi vertebra any but floor"]), pct(p["qi vertebra any"]),
+                         pct(p["qi person any but floor"], 0), f(p.get("distance"), 3)])
+    return table(["table", "point", "scale_sd / sd_scale / rho / r_between", "SD ratio, true", "measured", "neighbour r",
+                  "median Griffith-pair r", "necessary (% vertebrae)", "any but floor (% vertebrae)", "any (% vertebrae)",
+                  "any but floor (% people)", "distance"], rows, right=3, text=(1, 2))
+
+
+def t_all_axes(rec: str) -> str:
+    """One axis at a time on table C: the spread, the correlations and the indicators."""
+    ss = [r for r in read_csv(rec_all(rec), "state_space_all.csv") if letter_of(r) == "C"]
+    rows = [[r["name"], f(r["sd_ratio_true"]), f(r["sd_ratio_measured"]), f(r["neighbour_r"]),
+             f(median([num(r[k]) for k in r if k.startswith("griffith ")])), pct(r["qi vertebra necessary"]),
+             pct(r["qi vertebra within"]), pct(r["qi vertebra outside"]), pct(r["qi vertebra any but floor"]),
+             pct(r["qi person any but floor"], 0)] for r in ss]
+    return table(["point (table C)", "SD ratio, true", "measured", "neighbour r", "median Griffith-pair r",
+                  "necessary (% vertebrae)", "within", "outside", "any but floor (% vertebrae)", "any but floor (% people)"],
+                 rows)
+
+
+def _quality_rows(rec: str):
+    return read_json(rec_all(rec), "qi_all.json")
+
+
+def t_all_quality(rec: str) -> str:
+    """Every indicator group and union on each table at each setting."""
+    q = _quality_rows(rec)
+    rows = []
+    for e in q:
+        v, p = e["vertebra"], e["person"]
+        rows.append([TABLE_LETTERS.get(e["table"], e["table"]), e["setting"], e["measures"],
+                     "%s / %s" % (pct_fine(v["sign or inside"]), pct(p["sign or inside"], 0)),
+                     "%s / %s" % (pct_fine(v["necessary"]), pct(p["necessary"], 0)),
+                     "%s / %s" % (pct(v["box"]), pct(p["box"], 0)), "%s / %s" % (pct(v["convex"]), pct(p["convex"], 0)),
+                     "%s / %s" % (pct(v["any but floor"]), pct(p["any but floor"], 0)),
+                     "%s / %s" % (pct(v["floor"]), pct(p["floor"], 0)), "%s / %s" % (pct(v["any"]), pct(p["any"], 0))])
+    return table(["table", "setting (% of vertebrae / % of people)", "measures", "sign or inside", "necessary (with within, past, outside, positive)",
+                  "box", "convex", "any but floor", "floor", "any"], rows, right=2, text=(1,))
+
+
+def t_all_relations(rec: str) -> str:
+    """The relations between the papers' measures and Panjabi's, on table C at the generator and at its nearest point."""
+    q = [e for e in _quality_rows(rec) if TABLE_LETTERS.get(e["table"]) == "C"]
+    gen = next(e for e in q if e["setting"] == "generator")
+    near = next(e for e in q if e["setting"].startswith("nearest the papers (C)"))
+    rows = []
+    for a, b in zip(gen["relations"], near["relations"]):
+        tested = a["tested"]
+        rows.append([a["relation"], a["indicator"], a["measures"].replace(";", ","),
+                     "not held: %s" % a["missing"] if a["missing"] else tested,
+                     pct_fine(a["flagged"]) if tested else "-", pct_fine(b["flagged"]) if tested else "-", a["why"]])
+    return table(["relation", "indicator", "measures", "vertebrae tested", "flagged at the generator (%)",
+                  "at C's nearest point (%)", "why it must hold"], rows, right=3, text=(0, 1, 2, 6))
+
+
+def t_all_naming(rec: str) -> str:
+    """The rule on columns drawn from table C, built on subsets complete over the run scored."""
+    rows = read_csv(rec_all(rec), "naming_all.csv")
+    settings = []
+    for r in rows:
+        if r["setting"] not in settings:
+            settings.append(r["setting"])
+    out = []
+    for run in ("C3-L5", "L1-L5"):
+        labels = []
+        for r in rows:
+            if r["run"] == run and r["measures"] not in labels:
+                labels.append(r["measures"])
+        widths = sorted({int(num(r["width"])) for r in rows if r["run"] == run})
+        for label in labels:
+            line = [run, label]
+            for st in settings:
+                got = [r for r in rows if r["run"] == run and r["measures"] == label and r["setting"] == st]
+                line.append(got[0]["n_measures"] if got else "-")
+                for w in widths:
+                    g = [r for r in got if int(num(r["width"])) == w]
+                    line.append("%s (%s)" % (pct(g[0]["exact"]), pct(g[0]["precision"], 0)) if g else "-")
+            out.append(line)
+    head = ["run", "measures"]
+    for st in settings:
+        head += ["%s: n" % st] + ["%d bod%s" % (w, "y" if w == 1 else "ies") for w in sorted({int(num(r["width"])) for r in rows})]
+    left = sorted({r["no_modelled_error"] for r in rows if r.get("no_modelled_error")})
+    note = ("\n\nEach cell is the share of fields named exactly, and in parentheses the share of its answers at 0.99 that are"
+            " right. The widths are 1, 3 and 9 bodies over C3 to L5 and 1, 3 and 5 over L1 to L5, so the last column"
+            " of each setting reads 9 or 5 by the run. Left out of every subset, having no modelled error: %s."
+            % (", ".join(left) if left else "none"))
+    return table(head, out, right=2, text=(0, 1)) + note
+
+
+def t_all_spread(rec: str) -> str:
+    """power.py's part B on every pooled cell of every measure."""
+    sp = read_json(rec_all(rec), "spread_all.json")
+    rows = [[k, v["cells"], v["measures"], f(v["median_f"]), "%s to %s" % (f(v["q1_f"]), f(v["q3_f"])), pct(v["share_f_over_half"], 0)]
+            for k, v in sp["summary"].items()]
+    t1 = table(["spread between series, tau / the cell's SD", "cells (3 series or more)", "measures", "median", "quartiles",
+                "cells over 0.5 (%)"], rows, right=1, text=(0,))
+    cells = read_csv(rec_all(rec), "spread_all.csv")
+    rows = []
+    for k, v in sorted(sp["by_measure"].items(), key=lambda kv: -kv[1]["median_f"]):
+        mine = [c for c in cells if c["measure"] == k]
+        rows.append([k, "Panjabi's" if mine and mine[0]["panjabi"] == "True" else "the papers' own", v["cells"], f(v["median_f"]),
+                     f(median([num(c["worth_scans"]) for c in mine]), 1)])
+    t2 = table(["measure", "whose", "cells", "median tau / SD", "worth of an infinite pool, scans (median)"], rows, right=2, text=(0, 1))
+    return t1 + "\n\n" + t2
+
+
+def t_all_measures(rec: str) -> str:
+    """MEASURES.md: every key of the vocabulary with what became of it."""
+    inv = read_csv(rec_all(rec), "inventory.csv")
+    rows = []
+    for r in inv:
+        why = r["why_not_drawn"] or ("drawn: A %s, B %s, C %s cells" % (r["cells A"], r["cells B"], r["cells C"]))
+        rows.append([r["key"], r["kind"], "yes" if r["panjabi"] == "True" else "", "yes" if r["in_generator"] == "True" else "",
+                     r["rows"], r["series"], r["papers"], r["pooled_cells"], r["pooled_cells_k3"],
+                     r["variants"].replace(";", ", "), why])
+    return table(["key", "kind", "Panjabi", "generator", "rows", "usable series", "papers", "cells pooled", "with 3 series or more",
+                  "variants", "what became of it"], rows, right=4, text=(0, 1, 2, 3, 9, 10))
+
+
+def t_strata(rec: str) -> str:
+    """Every paper its own population: the rule built on the others, scored on each (records/strata)."""
+    rs = rec_strata(rec)
+    j = read_json(rs, "strata.json")
+    merged, predicted = "merged: the others pooled", "predicted: the others pooled, SD widened by tau"
+    sd_only = "own means, the others' SD"
+    pooled = j["pooled"]
+
+    def row_of(reading, arm, w):
+        return next((r for r in pooled if r["reading"] == reading and r["arm"] == arm and r["width"] == w), None)
+
+    def interval(r):
+        return "-" if r["pi_low"] is None else "%s to %s" % (f(r["pi_low"], 1), f(r["pi_high"], 1))
+    rows = []
+    for reading in dict.fromkeys(r["reading"] for r in pooled):
+        for w in j["sizes"]["widths"]:
+            m, p, s = row_of(reading, merged, w), row_of(reading, predicted, w), row_of(reading, sd_only, w)
+            rows.append([reading, w, m["populations"], "%s (%s)" % (f(m["loss_pooled"], 1), f(m["loss_se"], 1)), interval(m), f(m["tau_between_populations"], 1),
+                         "%s (%s)" % (f(p["loss_pooled"], 1), f(p["loss_se"], 1)), interval(p), f(p["tau_between_populations"], 1),
+                         "%s (%s)" % (f(s["loss_pooled"], 1), f(s["loss_se"], 1)) if s else "-"])
+    t1 = table(["reading", "bodies", "populations", "merged: loss (SE)", "one more population", "spread",
+                "predicted: loss (SE)", "one more population", "spread", "the others' SD alone: loss (SE)"], rows, right=1, text=(0,))
+    rows = []
+    for reading in dict.fromkeys(r["reading"] for r in pooled):
+        for w in j["sizes"]["widths"]:
+            m, p = row_of(reading, merged, w), row_of(reading, predicted, w)
+            rows.append([reading, w, pct(m["exact_mean"]), pct(m["answered_mean"]), pct(m["precision_pooled"], 0),
+                         "%s (%s)" % (pct(m["precision_mean"], 0), pct(m["precision_min"], 0)),
+                         pct(p["exact_mean"]), pct(p["answered_mean"]), pct(p["precision_pooled"], 0),
+                         "%s (%s)" % (pct(p["precision_mean"], 0), pct(p["precision_min"], 0))])
+    t2 = table(["reading", "bodies", "merged: exact (%)", "answered at 0.99 (%)", "right, over the answers (%)", "right, mean over the populations (least) (%)",
+                "predicted: exact (%)", "answered at 0.99 (%)", "right, over the answers (%)", "right, mean over the populations (least) (%)"], rows, right=1, text=(0,))
+    loo = read_csv(rs, "loo.csv")
+    rows = []
+    w3 = max(j["sizes"]["widths"])
+    # sorted by name first, so two papers with one loss keep one order whatever the set's order was
+    papers = sorted(sorted({r["paper"] for r in loo}), key=lambda p: -num(next(r["loss"] for r in loo if r["paper"] == p and r["arm"] == merged and int(r["width"]) == w3)))
+    for paper in papers:
+        m = next(r for r in loo if r["paper"] == paper and r["arm"] == merged and int(r["width"]) == w3)
+        p = next(r for r in loo if r["paper"] == paper and r["arm"] == predicted and int(r["width"]) == w3)
+        own = next(r for r in loo if r["paper"] == paper and r["arm"] == "own table" and int(r["width"]) == w3)
+        s = next(r for r in loo if r["paper"] == paper and r["arm"] == sd_only and int(r["width"]) == w3)
+        rows.append([paper, m["n_measures"], "%d of %d" % (int(m["cells_with_own_sd"]), int(m["cells"])), f(m["people"], 0),
+                     f(m["own_sd_over_pool"], 2),
+                     pct(own["exact"]), "%s (%s)" % (f(m["loss"], 1), f(m["loss_se"], 1)), pct(m["answered"]), pct(m["precision"], 0),
+                     "%s (%s)" % (f(p["loss"], 1), f(p["loss_se"], 1)), pct(p["answered"]), pct(p["precision"], 0),
+                     "%s (%s)" % (f(s["loss"], 1), f(s["loss_se"], 1))])
+    t3 = table(["paper left out", "measures", "cells with its own SD", "people", "its SD over the others'", "own table: exact (%)", "merged: loss (SE)",
+                "answered at 0.99 (%)", "right (%)", "predicted: loss (SE)", "answered at 0.99 (%)", "right (%)", "the others' SD alone: loss (SE)"],
+               rows, right=1, text=(0, 2))
+    c = j["cells"]
+    rows = [["placed cells", c["placed"]], ["  with a tau of their own (three series or more)", c["tau_from"].get("own", 0)],
+            ["  taking their measure's median tau over SD", c["tau_from"].get("the measure's median", 0)],
+            ["  taking every cell's median, %s" % f(c["borrowed_f_overall"]), c["tau_from"].get("every cell's median", 0)],
+            ["predictive SD over the within SD, quartiles", " / ".join(f(x) for x in c["predictive_over_sd_quartiles"])],
+            ["share of the spread one shift through a measure carries (the first part's split)", pct(j["share_of_spread_as_one_shift"], 0) + "%"],
+            ["columns drawn a population / populations drawn from the model", "%d / %d" % (j["sizes"]["columns"], j["sizes"]["tables"])]]
+    t4 = table(["the strata", "value"], rows)
+    return t1 + "\n\n" + t2 + "\n\n" + t3 + "\n\n" + t4
+
+
+def rec_strata(rec: str) -> str:
+    return os.path.join(rec, "strata")
+
+
+def _candidates_table(j: dict, order: Sequence[str]) -> str:
+    """One row a candidate and width over the held-out populations, as select.summarise gives it."""
+    summary = j["summary"]
+
+    def row_of(candidate, w):
+        return next(r for r in summary if r["candidate"] == candidate and r["width"] == w)
+
+    def pm(x, se, digits=3):
+        return "%s (%s)" % (f(x, digits), f(se, digits)) if se is not None and math.isfinite(se) else f(x, digits)
+    rows = []
+    for w in j["sizes"]["widths"]:
+        for c in order:
+            r = row_of(c, w)
+            rows.append([c, w, pm(r["log_loss_mean"], r["log_score_se"]),
+                         "-" if c == "plain" else "%s (%s)" % (f(-r["log_score_vs_plain"], 3), f(r["log_score_vs_plain_se"], 3)) if c != "own table" else "-",
+                         "-" if c in ("plain", "own table") else "%d of %d" % (r["wins_vs_plain"], r["populations"]),
+                         pm(100 * r["exact_mean"], 100 * r["exact_se"], 1),
+                         "-" if c in ("plain", "own table") else "%s (%s)" % (f(100 * r["exact_vs_plain"], 1), f(100 * r["exact_vs_plain_se"], 1)),
+                         f(r["ece_pooled"], 3), pct(r["answered_mean"]), pct(r["precision_pooled"], 0)])
+    return table(["candidate", "bodies", "log loss (SE)", "log loss minus plain (SE)", "beats plain", "accuracy % (SE)", "accuracy minus plain (SE)",
+                  "calibration error", "answered at 0.99 (%)", "right (%)"], rows, right=1, text=(0,))
+
+
+def t_select(rec: str) -> str:
+    """Choosing the rule by held-out prediction: the five candidates of select.CORE on the held-out
+    populations (records/select)."""
+    rs = os.path.join(rec, "select")
+    j = read_json(rs, "select.json")
+    widths = j["sizes"]["widths"]
+    t1 = _candidates_table(j, ["own table"] + list(j.get("core", j["candidates"])))
+    choices = read_csv(rs, "choices.csv")
+    rows = []
+    for ch in sorted(choices, key=lambda c: c["paper"]):
+        rows.append([ch["paper"], ch["n_measures"], ch["inner_folds"], f(num(ch["k"]), 2)] + [f(num(ch["t_%d" % w]), 1) for w in widths])
+    t2 = table(["paper held out", "measures", "inner folds", "SD factor k"] + ["T at %d" % w for w in widths], rows, right=1, text=(0,))
+    won = j["winner"]
+    rows = [["winner by held-out log score", won["by_log_score"]], ["winner by held-out accuracy", won["by_accuracy"]],
+            ["populations held out / columns a population / columns an inner fold",
+             "%d / %d / %d" % (j["sizes"]["populations"], j["sizes"]["columns"], j["sizes"]["inner_columns"])],
+            ["the SD factor's grid", ", ".join("%g" % k for k in j["grids"]["k"])],
+            ["the temperature's grid", ", ".join("%g" % t for t in j["grids"]["temperature"])]]
+    t3 = table(["the selection", "value"], rows)
+    return t1 + "\n\n" + t2 + "\n\n" + t3
+
+
+def t_exclusion(rec: str) -> str:
+    """Leaving a paper out, scored held out (records/select): the exclusion candidates beside plain
+    and tempered, each population a drop moves at the widest field, and the temperatures chosen."""
+    rs = os.path.join(rec, "select")
+    j = read_json(rs, "select.json")
+    widths = j["sizes"]["widths"]
+    w_main = max(widths)
+    t1 = _candidates_table(j, ["plain", "tempered"] + list(j["exclusion"]))
+    drops = [n for n in j["exclusion"] if not n.endswith(", tempered")]
+    per = {(r["candidate"], r["paper"]): r for r in read_csv(rs, "scores.csv") if int(r["width"]) == w_main}
+    papers = sorted({p for _, p in per})
+    rows = []
+    for p in papers:
+        moved = [num(per[d, p]["log_score_vs_plain"]) for d in drops]
+        if max(abs(x) for x in moved) >= 0.0005:
+            rows.append([p] + [f(x, 3) for x in moved] + [per[drops[0], p]["n_measures"]])
+    t2 = table(["paper held out"] + ["%s: log score minus plain at %d bodies" % (d, w_main) for d in drops] + ["measures"], rows, right=1, text=(0,))
+    choices = read_csv(rs, "choices.csv")
+    rows = []
+    for b in j["bases"]:
+        col = "t_%d" if b == "plain" else "t_" + re.sub(r"[^a-z0-9]+", "_", b.lower()).strip("_") + "_%d"
+        rows.append([b] + ["%s (%s to %s)" % (f(statistics.median([num(c[col % w]) for c in choices]), 1),
+                                              f(min(num(c[col % w]) for c in choices), 1), f(max(num(c[col % w]) for c in choices), 1))
+                           for w in widths])
+    t3 = table(["rule the temperature is read on"] + ["T at %d, median (range)" % w for w in widths], rows, text=(0,))
+    return t1 + "\n\n" + t2 + "\n\n" + t3
+
+
 def t_tan(rec: str) -> str:
     """Tan 2004 apart from the rest (synthval/tan.py; records/tan-strata, written by tan_strata.py): the
     spread, the rule's loss by arm and the prediction for one more population."""
@@ -508,10 +858,52 @@ def t_subgroups(rec: str) -> str:
     return "\n\n".join((t1, t2, t3, t4, note))
 
 
+def t_covariates(rec: str) -> str:
+    """Covariates both ways from what the papers print apart (records/covariates): every effect pooled
+    across papers, the held-out reading per paper, and what the reread gives to read them from."""
+    rc = os.path.join(rec, "covariates")
+    j = read_json(rc, "covariates.json")
+    unit = {"sex": "men minus women, within-sex SDs", "age": "within-band SDs per decade",
+            "body height": "within-band SDs per 100 mm", "body weight": "within-band SDs per 10 kg"}
+    rows = []
+    for e in sorted(read_csv(rc, "effects.csv"), key=lambda e: (e["variable"] != "sex", e["variable"], -num(e["mean"]))):
+        pi = "%s to %s" % (f(num(e["pi_low"]), 2), f(num(e["pi_high"]), 2)) if math.isfinite(num(e["pi_low"])) else "-"
+        rows.append([e["variable"], e["measure"], unit[e["variable"]], "%s (%s to %s)" % (f(num(e["mean"]), 2), f(num(e["ci_low"]), 2), f(num(e["ci_high"]), 2)),
+                     pi, e["papers"], e["cells"], e["strata"], e["papers_named"].replace(";", ", ")])
+    t1 = table(["covariate", "measure", "effect in", "pooled effect (95% interval)", "interval for one more paper", "papers", "cells",
+                "strata", "papers named"], rows, right=5, text=(0, 1, 2, 8))
+    held = read_csv(rc, "held_out.csv")
+    rows = []
+    for v in sorted({r["variable"] for r in held}):
+        for p in sorted({r["paper"] for r in held if r["variable"] == v}):
+            rs = [r for r in held if r["variable"] == v and r["paper"] == p]
+            med = lambda k: statistics.median(num(r[k]) for r in rs)  # noqa: E731
+            rows.append([v, p, ", ".join(sorted({r["measure"] for r in rs})), len(rs), f(med("auc_transfer"), 2), f(med("auc_own"), 2),
+                         f(med("r2_transfer"), 2), f(med("r2_own"), 2),
+                         f(med("log_loss_transfer"), 3) if v == "sex" else "-", f(med("log_loss_own"), 3) if v == "sex" else "-"])
+    t2 = table(["covariate", "paper held out", "measures", "strata", "AUC held out", "AUC own split", "R^2 held out", "R^2 own split",
+                "log loss held out", "log loss own split"], rows, right=3, text=(0, 1, 2))
+    c = j["counts"]
+    printed = sum(1 for r in read_csv(rc, "contrasts.csv") if r["sd_from"] == "printed")
+    rows = [["sex: strata printed for both sexes, %d with each sex's SD and %d by means alone (papers)"
+             % (printed, c["sex_contrasts"] - printed), "%d (%s)" % (c["sex_contrasts"], ", ".join(c["sex_papers"]))],
+            ["age: series over two or more adult bands (papers)", "%d (%s)" % (c["age_series"], ", ".join(c["age_papers"]))],
+            ["body height and body weight: series over bands (papers)", "%d and %d (%s)" % (c["body_height_series"], c["body_weight_series"],
+                                                                                          ", ".join(c["body_height_papers"]))],
+            ["strata and series scored held out", str(c["held_out"])],
+            ["log loss of the base rate (equal men and women)", f(math.log(2.0), 3)]]
+    t3 = table(["what the reread gives", "value"], rows)
+    return "\n\n".join((t1, t2, t3))
+
+
 TABLES: Dict[str, Callable[[str], str]] = {
     "selection": t_selection, "means": t_means, "by_measure": t_by_measure, "structure": t_structure,
     "quality": t_quality, "state_space": t_state_space, "grid": t_grid, "naming": t_naming, "spread": t_spread,
-    "part_c": t_part_c, "gold": t_gold, "assumptions": t_assumptions, "tan": t_tan, "subgroups": t_subgroups}
+    "part_c": t_part_c, "gold": t_gold, "assumptions": t_assumptions, "tan": t_tan, "subgroups": t_subgroups,
+    "all_inventory": t_all_inventory, "all_cells": t_all_cells, "all_state_space": t_all_state_space, "all_axes": t_all_axes,
+    "all_quality": t_all_quality, "all_relations": t_all_relations, "all_naming": t_all_naming, "all_spread": t_all_spread,
+    "all_measures": t_all_measures, "strata": t_strata, "select": t_select, "exclusion": t_exclusion,
+    "covariates": t_covariates}
 MARK = re.compile(r"(<!-- table (\w+) -->\n)(.*?)(<!-- end \2 -->)", re.S)
 
 
@@ -526,16 +918,14 @@ def render(text: str, records: str) -> str:
 def main(argv=None) -> int:
     ap = argparse.ArgumentParser(description=__doc__.split("\n")[0])
     ap.add_argument("--records", default=os.path.join(HERE, "records"))
-    ap.add_argument("--write")
-    ap.add_argument("--check")
+    ap.add_argument("--write", action="append", default=[], help="a file whose marked tables are rewritten; may repeat")
+    ap.add_argument("--check", action="append", default=[], help="a file whose marked tables are compared; may repeat")
     ap.add_argument("--print", dest="show", action="store_true")
     args = ap.parse_args(argv)
     if args.show:
         for name, fn in TABLES.items():
             print("## %s\n\n%s\n" % (name, fn(args.records)))
-    for path, write in ((args.write, True), (args.check, False)):
-        if not path:
-            continue
+    for path, write in [(p, True) for p in args.write] + [(p, False) for p in args.check]:
         with open(path, encoding="utf-8") as fh:
             text = fh.read()
         new = render(text, args.records)

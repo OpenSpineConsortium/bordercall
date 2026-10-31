@@ -1,0 +1,1 @@
+Covariates read from what the papers print apart. A, sex; B, age and body size, each within its paper and the papers pooled; C, how well one measure tells men from women; D, how much of a measure sex or age explains, in the population and held out by paper.

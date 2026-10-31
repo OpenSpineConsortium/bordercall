@@ -1,0 +1,49 @@
+panel,run,setting,width,measures,n_measures,exact,exact_se
+A,C3-L5,generator,1,the seven,7,0.4735,0.00261362
+A,C3-L5,generator,1,the generator's 32,32,0.872477,0.00143656
+A,C3-L5,generator,1,every complete measure of C,35,0.889545,0.00138805
+A,C3-L5,generator,3,the seven,7,0.727575,0.00283517
+A,C3-L5,generator,3,the generator's 32,32,0.98295,0.00077537
+A,C3-L5,generator,3,every complete measure of C,35,0.988575,0.000634871
+A,C3-L5,generator,9,the seven,7,0.962286,0.00201018
+A,C3-L5,generator,9,the generator's 32,32,1,0
+A,C3-L5,generator,9,every complete measure of C,35,1,0
+A,C3-L5,nearest the papers (C),1,the seven,7,0.508636,0.00388765
+A,C3-L5,nearest the papers (C),1,the generator's 32,32,0.824386,0.00280876
+A,C3-L5,nearest the papers (C),1,every complete measure of C,35,0.832341,0.00283615
+A,C3-L5,nearest the papers (C),3,the seven,7,0.8135,0.00263056
+A,C3-L5,nearest the papers (C),3,the generator's 32,32,0.988175,0.000634161
+A,C3-L5,nearest the papers (C),3,every complete measure of C,35,0.991825,0.00051097
+A,C3-L5,nearest the papers (C),9,the seven,7,0.995571,0.000621124
+A,C3-L5,nearest the papers (C),9,the generator's 32,32,1,0
+A,C3-L5,nearest the papers (C),9,every complete measure of C,35,1,0
+B,L1-L5,generator,1,the seven,7,0.4912,0.00478881
+B,L1-L5,generator,1,the generator's 32,32,0.9229,0.00269099
+B,L1-L5,generator,1,every complete measure of A,33,0.9256,0.00258373
+B,L1-L5,generator,1,every complete measure of B,49,0.9543,0.00205131
+B,L1-L5,generator,1,every complete measure of C,62,0.9757,0.00150861
+B,L1-L5,generator,3,the seven,7,0.772833,0.00608911
+B,L1-L5,generator,3,the generator's 32,32,0.998667,0.000470578
+B,L1-L5,generator,3,every complete measure of A,33,0.998833,0.000440296
+B,L1-L5,generator,3,every complete measure of B,49,0.999333,0.000333083
+B,L1-L5,generator,3,every complete measure of C,62,1,0
+B,L1-L5,generator,5,the seven,7,1,0
+B,L1-L5,generator,5,the generator's 32,32,1,0
+B,L1-L5,generator,5,every complete measure of A,33,1,0
+B,L1-L5,generator,5,every complete measure of B,49,1,0
+B,L1-L5,generator,5,every complete measure of C,62,1,0
+B,L1-L5,nearest the papers (C),1,the seven,7,0.5162,0.00477495
+B,L1-L5,nearest the papers (C),1,the generator's 32,32,0.8713,0.00397442
+B,L1-L5,nearest the papers (C),1,every complete measure of A,33,0.8738,0.00397803
+B,L1-L5,nearest the papers (C),1,every complete measure of B,49,0.8936,0.0035897
+B,L1-L5,nearest the papers (C),1,every complete measure of C,62,0.9215,0.00305836
+B,L1-L5,nearest the papers (C),3,the seven,7,0.867,0.00491605
+B,L1-L5,nearest the papers (C),3,the generator's 32,32,1,0
+B,L1-L5,nearest the papers (C),3,every complete measure of A,33,1,0
+B,L1-L5,nearest the papers (C),3,every complete measure of B,49,1,0
+B,L1-L5,nearest the papers (C),3,every complete measure of C,62,1,0
+B,L1-L5,nearest the papers (C),5,the seven,7,1,0
+B,L1-L5,nearest the papers (C),5,the generator's 32,32,1,0
+B,L1-L5,nearest the papers (C),5,every complete measure of A,33,1,0
+B,L1-L5,nearest the papers (C),5,every complete measure of B,49,1,0
+B,L1-L5,nearest the papers (C),5,every complete measure of C,62,1,0

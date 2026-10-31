@@ -1,0 +1,45 @@
+panel,setting,relation,indicator,tested,flagged,table,union,vertebrae,persons
+A,generator,inner width within the pedicle,within,20000,0.12935,,,,
+A,generator,inner height within the pedicle,within,20000,0.04115,,,,
+A,generator,cortex and core within the pedicle,within,20000,0.19515,,,,
+A,generator,the chord runs past the pedicle,past,20000,0,,,,
+A,generator,the chord runs past the ligament,past,20000,0,,,,
+A,generator,the pedicles inside the transverse processes,outside,88000,0.0456364,,,,
+A,generator,body section inside its box (convex bound),convex,20000,0.0085,,,,
+A,generator,body section inside its box,box,20000,0.3018,,,,
+A,generator,foramen inside its box,box,19999,0.376619,,,,
+A,generator,a ratio above zero,positive,20000,0,,,,
+A,C's nearest point,inner width within the pedicle,within,20000,0.09555,,,,
+A,C's nearest point,inner height within the pedicle,within,20000,0.0212,,,,
+A,C's nearest point,cortex and core within the pedicle,within,20000,0.159,,,,
+A,C's nearest point,the chord runs past the pedicle,past,20000,0,,,,
+A,C's nearest point,the chord runs past the ligament,past,20000,0,,,,
+A,C's nearest point,the pedicles inside the transverse processes,outside,88000,0.0314773,,,,
+A,C's nearest point,body section inside its box (convex bound),convex,20000,0.0027,,,,
+A,C's nearest point,body section inside its box,box,20000,0.25665,,,,
+A,C's nearest point,foramen inside its box,box,19999,0.34585,,,,
+A,C's nearest point,a ratio above zero,positive,20000,0,,,,
+B,generator,,,,,A,sign or inside,0.062,0.73975
+B,generator,,,,,A,necessary,0.062,0.73975
+B,generator,,,,,A,any but floor,0.434375,1
+B,generator,,,,,A,any,0.460205,1
+B,nearest,,,,,A,sign or inside,0.0556705,0.45175
+B,nearest,,,,,A,necessary,0.0556705,0.45175
+B,nearest,,,,,A,any but floor,0.292352,0.91325
+B,nearest,,,,,A,any,0.317398,0.9285
+B,generator,,,,,B,sign or inside,0.00438636,0.0915
+B,generator,,,,,B,necessary,0.124625,0.9465
+B,generator,,,,,B,any but floor,0.452125,1
+B,generator,,,,,B,any,0.473932,1
+B,nearest,,,,,B,sign or inside,0.00452273,0.073
+B,nearest,,,,,B,necessary,0.109159,0.83625
+B,nearest,,,,,B,any but floor,0.398091,0.9995
+B,nearest,,,,,B,any,0.423591,0.99975
+B,generator,,,,,C,sign or inside,0.0626932,0.74125
+B,generator,,,,,C,necessary,0.155205,0.95875
+B,generator,,,,,C,any but floor,0.551386,1
+B,generator,,,,,C,any,0.594398,1
+B,nearest,,,,,C,sign or inside,0.055875,0.4375
+B,nearest,,,,,C,necessary,0.123739,0.7755
+B,nearest,,,,,C,any but floor,0.412909,0.9865
+B,nearest,,,,,C,any,0.461568,0.997

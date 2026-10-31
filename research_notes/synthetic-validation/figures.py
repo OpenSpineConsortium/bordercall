@@ -28,6 +28,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path[:0] = [HERE]
 
 import render as R  # noqa: E402
+import figures_all as FA  # noqa: E402  (after render, which puts the repository on sys.path)
 from synthval import house as H  # noqa: E402
 
 LUMBAR = ("L1", "L2", "L3", "L4", "L5")
@@ -870,7 +871,7 @@ def fig_subgroups(records: str, out: str) -> List[str]:
 
 
 FIGURES = (fig_means, fig_spread, fig_structure, fig_state_space, fig_naming, fig_power, fig_quality, fig_assumptions,
-           fig_tan, fig_subgroups)
+           fig_tan, fig_subgroups) + FA.FIGURES_ALL
 
 
 def sha(path: str) -> str:
@@ -878,7 +879,7 @@ def sha(path: str) -> str:
         return hashlib.sha256(fh.read()).hexdigest()
 
 
-DRAWN_BY = ("figures.py", "render.py", "synthval/house.py", "../../schwingcheck/figures.py")
+DRAWN_BY = ("figures.py", "figures_all.py", "render.py", "synthval/house.py", "../../schwingcheck/figures.py")
 
 
 def write_index(records: str, out: str, written: Dict[str, List[str]]) -> str:

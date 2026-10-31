@@ -1,0 +1,142 @@
+{
+ "by_measure": {
+  "canal_ap": {
+   "cells": 5,
+   "measures": 1,
+   "median_f": 1.0607663859977856,
+   "q1_f": 0.9589174194519532,
+   "q3_f": 1.1797119870568131,
+   "share_f_over_half": 1.0
+  },
+  "canal_area": {
+   "cells": 5,
+   "measures": 1,
+   "median_f": 1.1083841531312735,
+   "q1_f": 1.0674347119638317,
+   "q3_f": 1.2735818803026635,
+   "share_f_over_half": 1.0
+  },
+  "canal_w": {
+   "cells": 5,
+   "measures": 1,
+   "median_f": 0.9536314865666607,
+   "q1_f": 0.942463136504985,
+   "q3_f": 0.9940444348930175,
+   "share_f_over_half": 1.0
+  },
+  "endplate": {
+   "cells": 5,
+   "measures": 1,
+   "median_f": 1.525318427868467,
+   "q1_f": 1.4284517862550097,
+   "q3_f": 1.5491035841006462,
+   "share_f_over_half": 1.0
+  },
+  "endplate_lower": {
+   "cells": 5,
+   "measures": 1,
+   "median_f": 1.2841248006989134,
+   "q1_f": 1.246850427658866,
+   "q3_f": 1.4939648299036288,
+   "share_f_over_half": 1.0
+  },
+  "foramen_h": {
+   "cells": 5,
+   "measures": 1,
+   "median_f": 0.43587838405051904,
+   "q1_f": 0.3486290955956609,
+   "q3_f": 0.4491369278817146,
+   "share_f_over_half": 0.0
+  },
+  "h_ant": {
+   "cells": 7,
+   "measures": 1,
+   "median_f": 1.6055994784841177,
+   "q1_f": 1.2952109130477125,
+   "q3_f": 1.8347987626014337,
+   "share_f_over_half": 1.0
+  },
+  "h_mid": {
+   "cells": 2,
+   "measures": 1,
+   "median_f": 0.2323867986390044,
+   "q1_f": 0.19859121371944208,
+   "q3_f": 0.26618238355856677,
+   "share_f_over_half": 0.0
+  },
+  "h_post": {
+   "cells": 7,
+   "measures": 1,
+   "median_f": 1.1866065035539446,
+   "q1_f": 1.109302921394658,
+   "q3_f": 1.6021729603929724,
+   "share_f_over_half": 1.0
+  },
+  "interpedicular": {
+   "cells": 5,
+   "measures": 1,
+   "median_f": 0.31560339068748366,
+   "q1_f": 0.20767893912191057,
+   "q3_f": 0.5429856863492306,
+   "share_f_over_half": 0.4
+  },
+  "pedicle_chord [along the axis]": {
+   "cells": 5,
+   "measures": 1,
+   "median_f": 0.9778625765085761,
+   "q1_f": 0.9764763055157518,
+   "q3_f": 0.9941889578886874,
+   "share_f_over_half": 1.0
+  },
+  "pedicle_h": {
+   "cells": 9,
+   "measures": 1,
+   "median_f": 1.2377303333585676,
+   "q1_f": 0.7225377782662484,
+   "q3_f": 1.2757846343944053,
+   "share_f_over_half": 0.8888888888888888
+  },
+  "pedicle_incl_sag": {
+   "cells": 7,
+   "measures": 1,
+   "median_f": 2.7767340606098156,
+   "q1_f": 1.281698539730394,
+   "q3_f": 4.655383308176583,
+   "share_f_over_half": 1.0
+  },
+  "pedicle_w": {
+   "cells": 9,
+   "measures": 1,
+   "median_f": 0.5667817040384917,
+   "q1_f": 0.2758024077857019,
+   "q3_f": 0.7189731385213735,
+   "share_f_over_half": 0.5555555555555556
+  }
+ },
+ "summary": {
+  "all": {
+   "cells": 81,
+   "measures": 14,
+   "median_f": 1.0674347119638317,
+   "q1_f": 0.7189731385213735,
+   "q3_f": 1.3789589675921008,
+   "share_f_over_half": 0.8148148148148148
+  },
+  "panjabi's measures": {
+   "cells": 57,
+   "measures": 9,
+   "median_f": 1.1541995490575416,
+   "q1_f": 0.8991153036829495,
+   "q3_f": 1.4284517862550097,
+   "share_f_over_half": 0.9122807017543859
+  },
+  "the papers' own": {
+   "cells": 24,
+   "measures": 5,
+   "median_f": 0.7593728167516463,
+   "q1_f": 0.34400147665361797,
+   "q3_f": 1.1570849920670063,
+   "share_f_over_half": 0.5833333333333334
+  }
+ }
+}

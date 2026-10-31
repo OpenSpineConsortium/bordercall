@@ -355,10 +355,12 @@ def power(out, series, columns, tables):
 
 def code_digests() -> dict:
     """The sha256 of every Python file of this folder (the run, the figures, the renders, the
-    tables, the snapshot, synthval/ and the tests), read before the run starts."""
+    tables, the snapshot, synthval/ and the tests; not report/, the page builder), read before the
+    run starts."""
     code = {}
     for folder, dirs, files in os.walk(HERE):
-        dirs[:] = sorted(d for d in dirs if d not in ("__pycache__", "records") and not d.startswith("."))
+        # report/ holds the page builder, which computes no number, so a change to the page needs no rerun.
+        dirs[:] = sorted(d for d in dirs if d not in ("__pycache__", "records", "report") and not d.startswith("."))
         for f in sorted(files):
             if f.endswith(".py"):
                 name = os.path.relpath(os.path.join(folder, f), HERE).replace(os.sep, "/")
@@ -373,7 +375,8 @@ def record(out, args, started, code):
                            text=True).stdout.strip()
     digests = {}
     for name in sorted(os.listdir(out)):
-        if name != "RECORD.json":
+        # The second part's records live in a folder of their own under out, with a record of their own.
+        if name != "RECORD.json" and os.path.isfile(os.path.join(out, name)):
             with open(os.path.join(out, name), "rb") as fh:
                 digests[name] = hashlib.sha256(fh.read()).hexdigest()
     with open(L.SOURCE, encoding="utf-8") as fh:

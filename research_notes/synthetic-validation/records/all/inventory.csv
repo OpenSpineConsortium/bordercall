@@ -1,0 +1,107 @@
+key,kind,units,panjabi,in_generator,of_a_vertebra,definition,rows,rows_own,rows_differs,series,papers,papers_list,pooled_cells,pooled_cells_k3,variants,variant_why,cells A,cells B,cells C,why_not_drawn
+endplate,length,mm,True,True,True,upper end-plate width: the distance between the lateral ends of the superior end-plate,115,62,16,36,4,frontphys2026;tan2004;tang2016;yadav2020,22,5,,,22,21,22,
+endplate_depth,length,mm,True,True,True,upper end-plate depth: the anteroposterior extent of the superior end-plate,106,68,17,42,4,gilad1985;tan2004;tang2016;yadav2020,23,0,,,22,22,22,
+endplate_lower,length,mm,True,True,True,lower end-plate width: the distance between the lateral ends of the inferior end-plate,103,58,17,36,4,frontphys2026;tan2004;tang2016;yadav2020,22,5,,,22,22,22,
+endplate_lower_depth,length,mm,True,True,True,lower end-plate depth: the anteroposterior extent of the inferior end-plate,109,64,17,42,4,gilad1985;tan2004;tang2016;yadav2020,23,0,,,22,22,22,
+h_post,length,mm,True,True,True,posterior vertebral body height: the distance between the end-plates at the posterior wall,112,112,6,76,7,busscher2010;duman2026;frontphys2026;gilad1985;kunkel2011;moncadahabib2025;tan2004,22,7,,,22,22,22,
+endplate_area,area,mm2,True,True,True,upper end-plate surface area,40,30,0,25,2,tan2004;tang2016,23,0,,,22,22,22,
+endplate_lower_area,area,mm2,True,True,True,lower end-plate surface area,45,29,0,24,2,tan2004;tang2016,22,0,,,22,22,22,
+endplate_incl,angle,deg,True,True,True,upper end-plate inclination to the transverse plane,27,27,0,22,1,tan2004,22,0,,,22,22,22,
+endplate_lower_incl,angle,deg,True,True,True,lower end-plate inclination to the transverse plane,27,27,5,22,1,tan2004,22,0,,,22,22,22,
+endplate_wedge,angle,deg,True,False,True,"wedge angle: the sum of the upper and lower end-plate inclinations to the transverse plane, printed by the thoracic paper as a mean with no standard error",0,0,0,0,0,,0,0,,,0,0,0,"Panjabi: printed as a mean with no spread, so no rule can take it"
+canal_w,length,mm,True,True,True,spinal canal width: the transverse diameter of the canal at the level of the pedicles,180,123,10,47,6,ahmed2019;alonge2021;cizmic2023;griffith2016;masharawi2021;tan2004,22,5,,,22,22,22,
+canal_ap,length,mm,True,True,True,spinal canal depth: the anteroposterior diameter of the canal in the midline,273,163,0,70,10,abbas2021;ahmed2019;alonge2021;amonookuofi1985;cizmic2023;griffith2016;italianmri;masharawi2021;tan2004;yadav2020,23,5,,,22,22,22,
+canal_area,area,mm2,True,True,True,spinal canal cross-sectional area,67,67,0,32,3,abbas2021;griffith2016;tan2004,22,5,,,22,22,22,
+pedicle_w,length,mm,True,True,True,pedicle width: the smallest transverse diameter of the pedicle,444,246,0,109,12,arockiaraj2025;duman2026;hou1993;lien2007;masharawi2021;moncadahabib2025;olsewski1990;otsuki2021;robertson2000;tan2004;yu2015;zindrick1987,22,9,,,22,22,22,
+pedicle_h,length,mm,True,True,True,pedicle height: the smallest craniocaudal diameter of the pedicle,360,219,0,109,12,arockiaraj2025;duman2026;hou1993;lien2007;masharawi2021;moncadahabib2025;olsewski1990;otsuki2021;robertson2000;tan2004;yu2015;zindrick1987,22,9,,,22,22,22,
+pedicle_area,area,mm2,True,True,True,pedicle cross-sectional area at its narrowest,37,37,5,27,2,otsuki2021;tan2004,22,0,,,22,22,22,
+pedicle_incl_sag,angle,deg,True,True,True,pedicle axis inclination to the sagittal plane,161,116,0,79,7,arockiaraj2025;duman2026;lien2007;moncadahabib2025;olsewski1990;tan2004;zindrick1987,22,7,,,22,22,22,
+pedicle_incl_trans,angle,deg,True,True,True,pedicle axis inclination to the transverse plane,137,117,61,56,3,lien2007;tan2004;zindrick1987,22,0,,,22,22,22,
+spinous_length,length,mm,True,True,True,spinous process length: from the posterior wall of the canal to the tip of the process,27,27,5,22,1,tan2004,22,0,,,22,22,22,
+transverse_width,length,mm,True,True,True,transverse process width: from the tip of one transverse process to the tip of the other,27,27,0,22,1,tan2004,22,0,,,22,22,22,
+pars_area,area,mm2,True,False,True,pars interarticularis cross-sectional area,0,0,0,0,0,,0,0,,,15,0,15,
+uncovertebral_area_upper,area,mm2,True,False,True,"uncovertebral joint surface area, upper joint",0,0,0,0,0,,0,0,,,5,0,5,
+uncovertebral_area_lower,area,mm2,True,False,True,"uncovertebral joint surface area, lower joint",0,0,0,0,0,,0,0,,,5,0,5,
+uncovertebral_incl_frontal_upper,angle,deg,True,False,True,"uncovertebral joint inclination to the frontal plane, upper joint",0,0,0,0,0,,0,0,,,5,0,5,
+uncovertebral_incl_sag_upper,angle,deg,True,False,True,"uncovertebral joint inclination to the sagittal plane, upper joint",0,0,0,0,0,,0,0,,,5,0,5,
+uncovertebral_incl_frontal_lower,angle,deg,True,False,True,"uncovertebral joint inclination to the frontal plane, lower joint",0,0,0,0,0,,0,0,,,5,0,5,
+uncovertebral_incl_sag_lower,angle,deg,True,False,True,"uncovertebral joint inclination to the sagittal plane, lower joint",0,0,0,0,0,,0,0,,,5,0,5,
+costovertebral_area_upper,area,mm2,True,False,True,"costovertebral articulation surface area, upper (superior) demifacet",0,0,0,0,0,,0,0,,,12,0,12,
+costovertebral_area_lower,area,mm2,True,False,True,"costovertebral articulation surface area, lower (inferior) demifacet",0,0,0,0,0,,0,0,,,10,0,10,
+costovertebral_area,area,mm2,True,False,True,"costovertebral articulation surface area, the total per rib",0,0,0,0,0,,0,0,,,0,0,0,"Panjabi: printed as a mean with no spread, so no rule can take it"
+costotransverse_area,area,mm2,True,False,True,costotransverse articulation surface area,0,0,0,0,0,,0,0,,,11,0,11,
+rib_articulation_area,area,mm2,True,False,True,"costovertebral and costotransverse articulation area, the total per rib",0,0,0,0,0,,0,0,,,0,0,0,"Panjabi: printed as a mean with no spread, so no rule can take it"
+facet_w_sup,length,mm,True,True,True,superior facet width: the transverse extent of the superior articular facet,10,10,0,5,1,masharawi2021,5,0,,,22,5,22,
+facet_w_inf,length,mm,True,True,True,inferior facet width,0,0,0,0,0,,0,0,,,22,0,22,
+facet_h_sup,length,mm,True,True,True,superior facet height: the craniocaudal extent of the superior articular facet,0,0,0,0,0,,0,0,,,22,0,22,
+facet_h_inf,length,mm,True,True,True,inferior facet height,0,0,0,0,0,,0,0,,,22,0,22,
+facet_area_sup,area,mm2,True,True,True,superior facet surface area,0,0,0,0,0,,0,0,,,22,0,22,
+facet_area_inf,area,mm2,True,True,True,inferior facet surface area,0,0,0,0,0,,0,0,,,22,0,22,
+interfacet_w_sup,length,mm,True,True,True,superior interfacet width: from the centre of the right superior facet to the centre of the left,0,0,0,0,0,,0,0,,,22,0,22,
+interfacet_w_inf,length,mm,True,True,True,inferior interfacet width,0,0,0,0,0,,0,0,,,22,0,22,
+interfacet_h,length,mm,True,True,True,interfacet height: from the centre of the superior facet to the centre of the inferior facet of the same side,0,0,0,0,0,,0,0,,,22,0,22,
+facet_trans_sup,angle,deg,True,True,True,superior facet angle to the transverse plane,0,0,0,0,0,,0,0,,,22,0,22,
+facet_trans_inf,angle,deg,True,True,True,inferior facet angle to the transverse plane,0,0,0,0,0,,0,0,,,22,0,22,
+facet_sag_sup,angle,deg,True,True,True,superior facet angle to the sagittal plane (the right side negative by the paper's convention),0,0,0,0,0,,0,0,,,22,0,22,
+facet_sag_inf,angle,deg,True,True,True,inferior facet angle to the sagittal plane,0,0,0,0,0,,0,0,,,22,0,22,
+facet_card_x_sup,angle,deg,True,False,True,card angle of the superior facet normal about the X axis,0,0,0,0,0,,0,0,,,0,0,0,"Panjabi: printed as a mean with no spread, so no rule can take it"
+facet_card_x_inf,angle,deg,True,False,True,card angle of the inferior facet normal about the X axis,0,0,0,0,0,,0,0,,,0,0,0,"Panjabi: printed as a mean with no spread, so no rule can take it"
+facet_card_y_sup,angle,deg,True,False,True,card angle of the superior facet normal about the Y axis,0,0,0,0,0,,0,0,,,0,0,0,"Panjabi: printed as a mean with no spread, so no rule can take it"
+facet_card_y_inf,angle,deg,True,False,True,card angle of the inferior facet normal about the Y axis,0,0,0,0,0,,0,0,,,0,0,0,"Panjabi: printed as a mean with no spread, so no rule can take it"
+h_ant,length,mm,False,False,True,anterior vertebral body height: between the end-plates at the anterior wall,122,122,0,82,7,busscher2010;duman2026;frontphys2026;gilad1985;kunkel2011;moncadahabib2025;tan2004,23,7,,,0,22,22,
+h_mid,length,mm,False,False,True,middle (central) vertebral body height: between the end-plates at the body's centre,57,57,0,31,3,busscher2010;duman2026;frontphys2026,22,2,,,0,22,22,
+h_lat,length,mm,False,False,True,"lateral vertebral body height (right, left or their mean), between the end-plates at the side wall",0,0,0,0,0,,0,0,,,0,0,0,no paper of the 39 prints a series
+body_w_mid,length,mm,False,False,True,"vertebral body width at mid-height (the waist), transverse",50,50,0,5,1,abbas2021,5,0,,,0,5,5,
+body_d_mid,length,mm,False,False,True,"vertebral body depth at mid-height (the waist), anteroposterior, midline",62,62,0,11,2,abbas2021;italianmri,6,0,,,0,5,5,
+body_w,length,mm,False,False,True,"vertebral body width where the paper does not say upper, lower or mid-height",7,6,0,5,1,moncadahabib2025,5,0,,,0,5,5,
+body_d,length,mm,False,False,True,"vertebral body depth where the paper does not say upper, lower or mid-height",12,12,0,11,2,chen2011;moncadahabib2025,11,0,body_d [end-plates' mean]; body_d [through the pedicles],"Chen's is the mean of the two end-plates' sagittal diameters, Moncada's the depth on the axial slice through the pedicles",0,11,11,
+body_area,area,mm2,False,False,True,vertebral body cross-sectional area where the paper does not say which end-plate or level of the body,45,45,0,5,1,griffith2016,5,0,,,0,5,5,
+wedge,angle,deg,False,False,True,body wedge angle: the angle between the upper and lower end-plates in the sagittal plane,0,0,0,0,0,,0,0,,,0,0,0,no paper of the 39 prints a series
+body_index,ratio,ratio,False,False,True,a ratio of body dimensions (e.g. anterior to posterior height); the note says which,0,0,0,0,0,,0,0,,,0,0,0,no paper of the 39 prints a series
+endplate_concavity,length,mm,False,False,True,"end-plate concavity depth (upper, lower or which, in the note)",7,7,0,0,0,,0,0,,,0,0,0,"no series with a mean, an SD and a count of two or more passes the rules"
+disc_h_ant,length,mm,False,False,True,intervertebral disc height at the anterior margin,139,139,0,23,3,bach2019;kunkel2011;shin2024,18,0,,,0,18,18,
+disc_h_mid,length,mm,False,False,True,intervertebral disc height at the middle (centre),173,173,0,45,4,bach2019;busscher2010;kunkel2011;shin2024,40,0,,,0,18,18,
+disc_h_post,length,mm,False,False,True,intervertebral disc height at the posterior margin,139,139,0,23,3,bach2019;kunkel2011;shin2024,18,0,,,0,18,18,
+disc_h_mean,length,mm,False,False,True,intervertebral disc height as a mean of several points or an area over a length,310,310,0,29,3,bach2019;twomey1985;yadav2020,24,0,disc_h_mean [area over depth]; disc_h_mean [not defined]; disc_h_mean [three points]; disc_h_mean [two rims],"Bach prints three points and the two rims' mean, Kunkel the rims' mean, Twomey the median section's area over its depth, Yadav a height he does not define",0,17,17,
+disc_index,ratio,ratio,False,False,True,"a disc ratio (e.g. disc height over body depth, or disc to body height); the note says which",20,20,0,0,0,,0,0,,,0,0,0,"no series with a mean, an SD and a count of two or more passes the rules"
+disc_w,length,mm,False,False,True,disc transverse width,5,3,0,3,1,tang2016,3,0,,,0,3,3,
+disc_d,length,mm,False,False,True,disc anteroposterior depth,55,53,0,3,1,tang2016,3,0,,,0,3,3,
+interpedicular,length,mm,False,False,True,interpedicular distance: the smallest distance between the medial walls of the pedicles (Panjabi's canal width is the closest),296,211,0,54,3,amonookuofi1982;chaudhary2015;hinck1966,22,5,,,0,22,22,
+canal_index,ratio,ratio,False,False,True,"a canal ratio (e.g. Torg-Pavlov canal to body ratio, or canal shape index); the note says which",35,35,0,5,1,griffith2016,5,0,,"Alonge's Torg ratio is of depths, Griffith's of the canal's and the body's areas",0,5,5,
+lateral_recess,length,mm,False,False,True,lateral recess depth or width,17,7,0,7,1,yadav2020,7,0,,,0,6,6,
+foramen_h,length,mm,False,False,True,intervertebral foramen height,105,105,0,16,3,bach2019;masharawi2021;shin2024,6,5,,,0,6,6,
+foramen_w,length,mm,False,False,True,intervertebral foramen width (anteroposterior),22,22,0,17,3,amonookuofi1985;shin2024;yadav2020,17,0,foramen_w [body to facet]; foramen_w [not defined]; foramen_w [the notch],"Amonoo-Kuofi spans the inferior vertebral notch of the dry vertebra, Shin the posterior body to the inferior articular facet, Yadav gives no landmarks",0,10,10,
+foramen_area,area,mm2,False,False,True,intervertebral foramen area,5,5,0,5,1,shin2024,5,0,,,0,5,5,
+pedicle_w_outer,length,mm,False,False,True,pedicle outer (cortex to cortex) width where the paper separates outer from inner,0,0,0,0,0,,0,0,,,0,0,0,no paper of the 39 prints a series
+pedicle_w_inner,length,mm,False,False,True,"pedicle inner (endosteal, cancellous) width",10,5,0,5,1,makino2012,5,0,,,0,5,5,
+pedicle_h_outer,length,mm,False,False,True,pedicle outer height,0,0,0,0,0,,0,0,,,0,0,0,no paper of the 39 prints a series
+pedicle_h_inner,length,mm,False,False,True,pedicle inner (endosteal) height,10,5,0,5,1,makino2012,5,0,,,0,5,5,
+pedicle_chord,length,mm,False,False,True,pedicle axis or screw path length: from the posterior entry point through the pedicle to the anterior cortex of the body,159,95,0,63,7,arockiaraj2025;duman2026;hou1993;moncadahabib2025;olsewski1990;tan2004;zindrick1987,26,5,pedicle_chord [along the axis]; pedicle_chord [parallel to the midline],"Hou's Length I runs parallel to the body's sagittal diameter, the others along the pedicle's own axis",0,26,26,
+pedicle_length,length,mm,False,False,True,pedicle length proper (from the lamina junction to the body),29,19,0,10,2,arockiaraj2025;masharawi2021,10,0,pedicle_length [proper]; pedicle_length [to the ligament],"Masharawi and Moncada take the pedicle proper, Arockiaraj the entry point to the posterior longitudinal ligament, Krag the screw path beside the canal",0,10,10,
+pedicle_cortex,length,mm,False,False,True,"pedicle cortical wall thickness (which wall, in the note)",16,10,0,5,1,otsuki2021,5,0,,"Mitra's is the medial or the lateral wall, Otsuki's the medial wall",0,5,5,
+pedicle_angle_transverse,angle,deg,False,False,True,"pedicle transverse (medial) angle in the axial plane, to the midsagittal plane (Panjabi's pedicle_incl_sag measures the same direction)",0,0,0,0,0,,0,0,,,0,0,0,no paper of the 39 prints a series
+pedicle_angle_sagittal,angle,deg,False,False,True,"pedicle sagittal (cranial-caudal) angle in the sagittal plane, to the end-plate or transverse plane (Panjabi's pedicle_incl_trans measures the same direction)",0,0,0,0,0,,0,0,,,0,0,0,no paper of the 39 prints a series
+lamina_thickness,length,mm,False,False,True,lamina thickness,0,0,0,0,0,,0,0,,,0,0,0,no paper of the 39 prints a series
+lamina_h,length,mm,False,False,True,lamina height,0,0,0,0,0,,0,0,,,0,0,0,no paper of the 39 prints a series
+lamina_w,length,mm,False,False,True,lamina width or length,0,0,0,0,0,,0,0,,,0,0,0,no paper of the 39 prints a series
+lamina_angle,angle,deg,False,False,True,lamina angle,20,20,0,10,1,abbas2021,10,0,lamina_angle [between the laminae]; lamina_angle [to the body],Abbas's interlaminar angle (axial) and his lamina's inclination to the body (parasagittal) are two angles,0,10,10,
+pars_w,length,mm,False,False,True,pars interarticularis width or thickness,0,0,0,0,0,,0,0,,,0,0,0,no paper of the 39 prints a series
+spinous_h,length,mm,False,False,True,spinous process height,0,0,0,0,0,,0,0,,,0,0,0,no paper of the 39 prints a series
+spinous_angle,angle,deg,False,False,True,spinous process angle,13,13,0,0,0,,0,0,,"Busscher's is to a line square to the body's axis, Gilad's to the lower end-plate",0,0,0,"no series with a mean, an SD and a count of two or more passes the rules"
+transverse_length,length,mm,False,False,True,"one transverse process's length (right, left or mean)",0,0,0,0,0,,0,0,,,0,0,0,no paper of the 39 prints a series
+transverse_h,length,mm,False,False,True,transverse process height or thickness,0,0,0,0,0,,0,0,,,0,0,0,no paper of the 39 prints a series
+facet_angle_axial,angle,deg,False,False,True,"facet joint orientation in the axial plane, to the midsagittal (or coronal) plane; the note says which reference and convention",10,10,0,5,1,masharawi2021,5,0,,,0,5,5,
+facet_angle_sagittal,angle,deg,False,False,True,facet joint orientation in the sagittal plane,0,0,0,0,0,,0,0,,,0,0,0,no paper of the 39 prints a series
+facet_tropism,angle,deg,False,False,True,facet tropism: the difference between left and right facet angles,0,0,0,0,0,,0,0,,,0,0,0,no paper of the 39 prints a series
+facet_gap,length,mm,False,False,True,facet joint space width,0,0,0,0,0,,0,0,,,0,0,0,no paper of the 39 prints a series
+rib,other,as printed,False,False,False,any rib or costal measure; the note says which,0,0,0,0,0,,0,0,,,0,0,0,not a measure of one vertebra (other)
+sacrum,other,as printed,False,False,False,any sacral or pelvic measure; the note says which,0,0,0,0,0,,0,0,,,0,0,0,not a measure of one vertebra (other)
+alignment,angle,deg,False,False,False,"a curvature or alignment angle over several levels (lordosis, kyphosis, Cobb, sacral slope)",0,0,0,0,0,,0,0,,,0,0,0,not a measure of one vertebra (angle)
+subject_age,years,years,False,False,False,the age of the subjects,0,0,0,0,0,,0,0,,,0,0,0,not a measure of one vertebra (years)
+subject_height,length,mm,False,False,False,the stature of the subjects (cm or m),0,0,0,0,0,,0,0,,,0,0,0,not a measure of one vertebra (length)
+subject_weight,other,as printed,False,False,False,the weight of the subjects (kg),0,0,0,0,0,,0,0,,,0,0,0,not a measure of one vertebra (other)
+subject_bmi,other,as printed,False,False,False,body mass index,0,0,0,0,0,,0,0,,,0,0,0,not a measure of one vertebra (other)
+subject_count,count,count,False,False,False,"a count of subjects, specimens, vertebrae or cases (the note says of what)",0,0,0,0,0,,0,0,,,0,0,0,not a measure of one vertebra (count)
+prevalence,percent,%,False,False,False,"a count or share of an anomaly, variant or finding (the note says which)",0,0,0,0,0,,0,0,,,0,0,0,not a measure of one vertebra (percent)
+reliability,other,as printed,False,False,False,"an ICC, kappa, repeat difference or other reliability figure",0,0,0,0,0,,0,0,,,0,0,0,not a measure of one vertebra (other)
+other,other,as printed,False,False,False,a value no key above fits: the note says what it is,0,0,0,0,0,,0,0,,,0,0,0,not a measure of one vertebra (other)
