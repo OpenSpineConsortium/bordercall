@@ -1,7 +1,7 @@
 """Gold tier 3's real CTs on the bounds card: two cohorts measured by the morphometry engine, scored
 as check() scores a generator, from the per-sex moments the grid printed.
 
-SchwingNet's gate word `morphometry covariates` (job 40878978, 2026-10-30, at SchwingNet c656299)
+SchwingNet's gate word `morphometry covariates` (job 40902924, 2026-10-31, at SchwingNet 9c160a9)
 joined the engine's rows for every admitted gold tier 3 CT with each person's sex and age and
 printed, for each member, measure and level, the men's and the women's count, mean and SD, Hedges'
 g and its variance, the correlation with the level above within each sex, and the age slope per
@@ -199,7 +199,10 @@ def card_steps(card: B.Card) -> List[dict]:
 def not_scored(moments: Dict[Tuple[str, str, str], Moments], card: B.Card, member: str) -> dict:
     """What the member's report holds that the score leaves out, each with why: engine keys no
     paper of the card prints, measures the card holds under another definition, the card's film and
-    MRI cells at the member's levels, and the cells whose one sex's mean the report withholds."""
+    MRI cells at the member's levels, and the cells whose one sex's mean the report withholds; and
+    what the score would make that the report does not hold: the card's cells of bone and CT on an
+    engine key at a level the report prints for some key but not for this one (cells_not_printed),
+    since a sex short of 5 people, or an engine that reads the measure on too few, prints none."""
     mine = {(k, lv) for m, k, lv in moments if m == member}
     keys = {k for k, _ in mine}
     engine_keys = set(CARD_TO_ENGINE.values())
@@ -212,10 +215,15 @@ def not_scored(moments: Dict[Tuple[str, str, str], Moments], card: B.Card, membe
     withheld = sorted("%s %s" % (k, m.level_printed) for (mb, k, lv), m in moments.items()
                       if mb == member and k in engine_keys and lv != RANGE
                       and not (math.isfinite(m.mean_m) and math.isfinite(m.mean_f)))
+    missing, levels = {}, {lv for _, lv in mine}
+    for c in card_cells(card):
+        if c["level"] in levels and (CARD_TO_ENGINE[c["measure"]], c["level"]) not in mine:
+            missing.setdefault(c["measure"], []).append(c["level"])
     return {"keys_not_on_card": sorted(keys - engine_keys - set(DEFINITION_DIFFERS)),
             "definition_differs": {k: why for k, why in DEFINITION_DIFFERS.items() if k in keys},
             "cells_not_ct": [{"measure": m, "modality": mod, "levels": lvs} for (m, mod), lvs in sorted(other.items())],
-            "withheld_cells": withheld}
+            "withheld_cells": withheld,
+            "cells_not_printed": [{"measure": m, "levels": lvs} for m, lvs in sorted(missing.items())]}
 
 
 def _cell_row(member: str, c: dict, m: Moments, at: float) -> Tuple[dict, List[dict]]:
