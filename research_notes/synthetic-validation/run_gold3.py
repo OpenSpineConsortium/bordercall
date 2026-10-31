@@ -4,7 +4,7 @@
 
 Run from this folder with the Python that holds bordercall's pinned packages, after run_bounds.py
 has written records/bounds. Reads records/gold3/report.txt, the report of SchwingNet's gate word
-`morphometry covariates` as the grid printed it (job 40878978 of 2026-10-30, read back in two pages
+`morphometry covariates` as the grid printed it (job 40902924 of 2026-10-31, on the engine pinned with #44, read back in two pages
 and joined, aggregates alone), and the card. Writes cells.csv (each member, measure and level: the
 pooled count, mean and SD, each sex's mean, the card's intervals, the mean, SD and sex verdicts and
 the age slope's record), steps.csv (each member's steps against the card's), by_measure.csv (each
@@ -36,8 +36,9 @@ from run import code_digests, log, write_csv, write_json  # noqa: E402
 
 REPORT = os.path.join(HERE, "records", "gold3", "report.txt")
 CARD = os.path.join(HERE, "records", "bounds")
-SOURCE = ("SchwingNet gate word `morphometry covariates`, job 40878978 on zfh15 at SchwingNet c656299, "
-          "2026-10-30 13:08 UTC, read back by the reads covread-1 and covread-2 and joined")
+SOURCE = ("SchwingNet gate word `morphometry covariates`, job 40902924 on zfh15 at SchwingNet 9c160a9, "
+          "2026-10-31 04:42 UTC, over rows of measuring code 1cee7ea83e4c28db, read back in two pages "
+          "(the second by the read covariates-page2-0547) and joined")
 
 
 def sha256(path: str) -> str:

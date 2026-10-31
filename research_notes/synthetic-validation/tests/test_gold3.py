@@ -184,6 +184,13 @@ class ScoreTest(unittest.TestCase):
         self.assertEqual(got["summary"]["not_scored"]["withheld_cells"], ["h_ant L2"])
         self.assertNotIn("h_ant", {s["measure"] for s in got["steps"]})
 
+    def test_a_card_cell_the_report_prints_no_line_for_is_named(self):
+        moments = toy_moments()
+        del moments["autopet", "canal_ap", "L2"]
+        got = G3.score(moments, toy_card(), "autopet")
+        self.assertEqual(got["summary"]["not_scored"]["cells_not_printed"], [{"measure": "canal_ap", "levels": ["L2"]}])
+        self.assertEqual(G3.score(toy_moments(), toy_card(), "autopet")["summary"]["not_scored"]["cells_not_printed"], [])
+
     def test_a_cell_short_of_reference_n_is_left_out_and_counted(self):
         got = G3.score(toy_moments(n=(20, 15)), toy_card(), "autopet")
         self.assertEqual(got["cells"], [])

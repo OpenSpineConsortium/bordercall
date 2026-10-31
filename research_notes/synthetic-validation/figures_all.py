@@ -1009,7 +1009,7 @@ def fig_gold3(records: str, out: str) -> List[str]:
     a.set_xlim(min(0.3, math.floor(10 * min(rates)) / 10 - 0.05), 1.02)
     a.set_xlabel("share of the cohort's cells or steps inside the card's interval (scored at %d people)" % j["reference_n"])
     a.legend(loc="lower left", fontsize=6.0)
-    H.letter(a, "A", "real CTs pass the body and end-plate steps, fail the steps on discs and pedicles")
+    H.letter(a, "A", "real CTs pass the body and end-plate steps; the pedicle and canal steps near the bar, the discs' fail")
 
     b = axes[0][1]
     sex = _gold3_rows(cells, "sex_g")
@@ -1040,7 +1040,7 @@ def fig_gold3(records: str, out: str) -> List[str]:
     c.set_xticklabels(levels, fontsize=6.5)
     c.set_ylabel("pedicle width, mm")
     c.legend(loc="upper left", fontsize=6.0)
-    H.letter(c, "C", "the engine's pedicle width: about 2 mm wide at T10 to T12, breaking away from L3")
+    H.letter(c, "C", "the engine's pedicle width (PR 44): 1 to 2 mm wide at T10 to T12, inside the band from L1")
 
     d = axes[1][1]
     age = _gold3_rows(cells, "age_slope")

@@ -265,17 +265,20 @@ stand; a later snapshot is cut with `python3 -I snapshot.py --write <commit>` an
    contrasts, the gain is 1.9 points at one body, 1.1 at two and none at three. Which population a
    person comes from matters about five times more than the sex (figure fig18_sex_naming, section
    Naming told the person's sex).
-17. **Real CTs on the card: gold tier 3's two cohorts pass the body and end-plate steps and keep the
-   sex contrasts' sign, and fail the steps on the discs and the pedicles.** The gold tier 3 join on the
-   grid (SchwingNet's job 40878978) printed each sex's moments for autoPET's 857 adults and
-   TotalSegmentator's 133, measured by the engine. Scored as a generator is, at 40 people a cell, both
-   pass the means and SDs and fail the steps (0.79 and 0.83 against the bar's 0.89); their body and
-   end-plate steps pass at 0.94 and 0.99, their discs' at 0.74 and 0.65, their pedicles' and canal's at
-   0.64 and 0.70. The pedicles leave the papers' at T10 to T12 and from L3 down (27 mm wide at L5
-   against 15), the known defects of the engine pinned before bordercall PR 44; the disc failures, at
-   the step to L4-L5 and at T10 to T12, are unexplained, and the first may be the people's age. Their sex contrasts have the papers' sign
-   at 127 of 130 cells and lie inside the card's interval for a new population at 93 of 118 and 99 of
-   122, a little smaller than the papers' (figure fig20_gold3, section Real CTs on the card).
+17. **Real CTs on the card: on the engine with PR 44's pedicles, TotalSegmentator's cohort passes the
+   card and autoPET's falls four steps short.** The gold tier 3 join on the grid (SchwingNet's job
+   40902924 of 2026-10-31, over rows the engine pinned at bordercall PR 44 measured) printed each sex's
+   moments for autoPET's 857 adults and TotalSegmentator's 133. Scored as a generator is, at 40 people a
+   cell, both pass the means and SDs; their steps pass at 0.87 and 0.91 against the bar's 0.89 (129 of
+   149, four short of it, and 135 of 149). Their body and end-plate steps pass at 0.94 and 0.99, their
+   discs' at 0.79 and 0.77, their pedicles' and canal's at 0.81 and 0.86, against 0.64 and 0.70 on the
+   engine before PR 44. The pedicles and the canal still leave the papers' at T10 to T12, the pedicle 5
+   to 7 mm too high there and its chord 7 to 13 mm too long; the engine now reads no pedicle sagittal
+   angle on these masks for 5 people of a sex, so that measure is not scored. The disc failures, at
+   T10-T11 and at the step from L3-L4 to L4-L5, are unexplained, and the second may be the people's age.
+   Their sex contrasts have the papers' sign at 125 of 127 cells and lie inside the card's interval for
+   a new population at 93 of 116 and 96 of 117, a little smaller than the papers' (figure fig20_gold3,
+   section Real CTs on the card).
 
 ## What was compared
 
@@ -1962,8 +1965,9 @@ unscored, and a lumbar rib's L1 is held to the ordinary L1), and a population no
 
 ## Real CTs on the card
 
-The gold tier 3 join (SchwingNet's gate word `morphometry covariates`, job 40878978 of 2026-10-30)
-printed, for two cohorts the morphometry engine measured, each sex's count, mean and SD at every
+The gold tier 3 join (SchwingNet's gate word `morphometry covariates`, job 40902924 of 2026-10-31, at
+SchwingNet 9c160a9, over rows of measuring code 1cee7ea83e4c28db: the engine pinned at bordercall PR
+44) printed, for two cohorts the morphometry engine measured, each sex's count, mean and SD at every
 measure and level from T10 to L5, Hedges' g, the correlation with the level above within each sex and
 the age slope (records/gold3/report.txt, aggregates alone; the per-person tables stay on the grid).
 synthval/gold3.py scores them on the card from those moments as check() scores a generator: the sexes
@@ -1982,39 +1986,43 @@ the tip, where the engine's runs from the canal's posterior wall (paper-tables/v
 mapping_audit.csv); h_post_inset, wedge and lamina_thickness, which no paper of the card prints; and
 the cells whose one sex's mean the report withholds (its disc_h_mean is shown only where its persons
 are each of its three heights'), four of autoPET's disc_h_mean cells and so all its disc_h_mean steps,
-and TotalSegmentator's disc_h_mean at T11-T12 and three of its pedicle's sagittal angles.
+and TotalSegmentator's disc_h_mean at T11-T12 and its foramen at L4-L5. The card's cells at a level the
+report prints for other measures but not for this one are named too (cells_not_printed): the L5-S1
+disc and foramen, which the join does not print, and the pedicle's sagittal angle at every level, which
+the engine with PR 44's pedicles reads, against the body's posterior wall, on too few of these people
+for 5 of a sex (the join before it printed it for autoPET's T10 to L5).
 
 | family of measures, scored at 40 people | autoPET means | SDs | steps | TotalSegmentator means | SDs | steps |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: |
 | body and end plate | 0.60 | 0.78 | 0.94 | 0.69 | 0.74 | 0.99 |
-| disc and foramen | 0.81 | 0.85 | 0.74 | 0.87 | 0.77 | 0.65 |
-| pedicle and canal | 0.58 | 0.60 | 0.64 | 0.65 | 0.65 | 0.70 |
+| disc and foramen | 0.89 | 0.74 | 0.79 | 1.00 | 0.77 | 0.77 |
+| pedicle and canal | 0.68 | 0.76 | 0.81 | 0.68 | 0.76 | 0.86 |
 | posterior elements (transverse width) | 0.12 | - | 0.71 | 0.12 | - | 0.86 |
-| every family | 0.60 | 0.72 | 0.79 | 0.68 | 0.72 | 0.83 |
+| every family | 0.65 | 0.76 | 0.87 | 0.71 | 0.75 | 0.91 |
 | the bar, real papers held out | 0.58 | 0.53 | 0.89 | 0.58 | 0.53 | 0.89 |
 
-Both cohorts fail on the steps, at 123 of 156 and 128 of 155, and pass the means and SDs, autoPET's
-means with three cells to spare (113 of 187 against the bar's 0.584). The body and end-plate steps pass above the
-bar; the discs', the pedicles' and the canal's fall below it. Only the pedicles' failures have a known
-cause in the engine.
+TotalSegmentator's cohort passes every test, its steps at 135 of 149; autoPET's passes the means and
+SDs and fails the steps at 129 of 149, four short of the bar's 0.89. The join before this one, over rows
+the engine measured before bordercall PR 44's rework, failed both on the steps (123 of 156 and 128 of
+155), its pedicles' and canal's at 0.64 and 0.70: the rework, which reads the pedicle from the canal,
+takes its width at the isthmus and flags an L5 whose transverse process's root is fused to the pedicle,
+moved them to 0.81 and 0.86. The body and end-plate steps did not move; the discs' rose a little (0.74
+and 0.65 before), the engine's disc plates having changed in the same rework.
 
-The pedicle and canal measures leave the papers' at both ends of the range, not below L2 alone: their
-means fail at 19 of 27 cells at T10 to T12, 2 of 18 at L1 and L2 and 9 of 26 at L3 to L5 for autoPET
-(17 of 25, 0 of 16 and 6 of 24 for TotalSegmentator), and their steps most from L3 down. The engine's
-pedicle runs about 2 mm wider than the papers' at T10 to T12 and breaks away from L3, reaching 27 mm at
-L5 against 15 (figure fig20_gold3, C); its height runs 3 to 7 mm above the papers' at every level,
-failing at T10 to T12 and passing below only inside the card's wide lumbar intervals; its sagittal
-angle reads 32 to 42 degrees at T10 to T12 against 7 to 9, and its transverse angle turns to -5 at
-T12 against +8 and to -17 at L5 against +23 (-13 for TotalSegmentator); its chord falls to 27 mm at L5
-against 44 and is read at L4 and L5 for only 262 and 251 men of the 478 whose bodies autoPET measured
-at T10, the angle for 262 and 271; and the thoracic canal is about 4 mm wider. These are the engine's known pedicle
-defects: the join ran the engine pinned before bordercall PR 44's rework, which reads the pedicle from
-the canal, takes its width at the isthmus, flags an L5 whose transverse process's root is fused to the
-pedicle and says the transverse angle is not to be trusted on real masks.
+The pedicle and canal measures still leave the papers' at T10 to T12: their means fail at 18 of 24
+cells there for autoPET and 17 of 24 for TotalSegmentator, against none of 16 at L1 and L2 and 2 of 22
+and 2 of 19 at L3 to L5. At T10 to T12 the engine's pedicle runs 1 to 2 mm wider than the papers', its
+height 5 to 7 mm higher (19.5 to 21.4 mm against 13.6 to 15.1 for autoPET), its chord 7 to 13 mm longer
+(44 to 45 mm against 32 to 37) and the canal 4 mm wider; from L1 down they pass. The transverse angle
+passes at T10 to T12 and L1 and L2 and fails at L3 and L4 (5.0 and 1.8 degrees against 13.5 and 15.0
+for autoPET). The L5 pedicle, which the rework flags where the transverse process's root is fused to it,
+is read for 86 of autoPET's adults (811 at L5's canal) and for too few of TotalSegmentator's to print;
+the sagittal angle is not printed at all (above). The steps that still fail on the pedicle and canal
+are, for autoPET, the canal's area at T10 to T12, its width from L2 down, the pedicle's width and area
+at the step into L5, its chord at the steps into L1 and L4 and its height at the step into T12.
 
 The disc steps that fail are T10-T11 to T11-T12 and L3-L4 to L4-L5: the engine's L4-L5 disc is lower
-than its L3-L4 disc (mid height -1.56 and -1.41 mm against the papers' +0.44), and its L4-L5 foramen
-falls further below the L3-L4's than the papers' does. Nothing here tells the engine from the people for the discs. The L4-L5 disc is where these
+than its L3-L4 disc (mid height -1.61 and -1.60 mm against the papers' +0.44). Nothing here tells the engine from the people for the discs. The L4-L5 disc is where these
 people's discs narrow fastest with age (mid height -0.64 mm a decade in autoPET's men and -0.41 in its
 women, against -0.27 and -0.33 at L3-L4), as an older cohort's degenerating discs would; scoring the
 steps within age bands would test it, and needs the per-person table on the grid.
@@ -2159,13 +2167,14 @@ sends the final rerun to the grid, which rewrites both records.
 - The sex-naming reading is exploratory and not pre-registered: its comparisons were set here, after the
   covariates were read, and its synthetic split is a model of the papers' contrasts, not people. The held
   out reading draws persons from each paper's printed tables, so it tests what the papers print, not
-  their people; the gold tier 3 join (SchwingNet's job 40878978) is the first data with each person's
+  their people; the gold tier 3 join (SchwingNet's jobs 40878978 and 40902924) is the first data with each person's
   sex beside their measures.
 - The gold tier 3 cohorts are read as the moments the grid printed, not as persons: a step's pairing
   comes from the within-sex correlations with the level above, and the engine's measures are matched to
   the papers' by name and definition; whether the disc steps fail for the engine or for the people's
-  age, and whether the end-plate widths are a definition apart, is not examined here, and the pedicles'
-  failures wait for the join run again on the engine with PR 44's pedicles.
+  age, and whether the end-plate widths are a definition apart, is not examined here; the pedicles'
+  failures at T10 to T12 remain on the engine with PR 44's pedicles, and its sagittal angle is read on
+  too few of these people to score.
 - The bounds card bounds what papers of about 40 people can show: a cohort is scored as if it had 40,
   so a break smaller than such a paper's sampling error passes, and the card cannot bound one person's
   correlation across levels, the anomalies or a population no paper sampled.
