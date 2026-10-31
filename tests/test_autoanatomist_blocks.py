@@ -75,7 +75,7 @@ class TheBlocks(unittest.TestCase):
                             ("lam_fixed=1.5", "at most 1.0"), ("lam_span=0.5:0.4", "0 <= a < b <= 1"),
                             ("lam_span=0.5", "0 <= a < b <= 1"), ("widths=8:16", "three whole numbers"),
                             ("widths=8:0:16", "at least 1"), ("schedule=cosine", "lambda-then-w, joint, w-first, fixed, cyclic or adaptive"),
-                            ("architecture=unet", "residual-unet, plain-unet or probe")]:
+                            ("architecture=unet", "residual-unet, plain-unet, probe, transunet or unetr")]:
             with self.assertRaises(ValueError, msg=words) as cm:
                 B.parse(words)
             self.assertIn(said, str(cm.exception), words)

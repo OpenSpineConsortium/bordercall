@@ -4,9 +4,10 @@ voxels at 6 mm and two phantoms of three levels.
 
     python -m unittest tests.test_autoanatomist_probe -v        # from the repository's root, in the venv
 
-Each of the three architectures gives the fusion frame's shapes from either branch, its CT-only
+Each of the five architectures gives the fusion frame's shapes from either branch, its CT-only
 path is the fused pass at w 0 to the bit, and it trains through a session with finite losses; the
-residual and the plain network each lower the loss in one step and are two different sizes. The
+residual and the plain network and the two transformers each lower the loss in one step, and
+the residual is larger than the plain. The
 probe has two parameters, the CT branch's tau and sigma, and its mask path, the mask branch and the
 decoder, has none: its landmark error is one number whatever the seed, to the bit, and training
 leaves it as it was. At lambda 1 the ladder's own soft threshold of the CT is what the mask branch
@@ -88,7 +89,7 @@ class TheArchitectures(unittest.TestCase):
         from autoanatomist import blocks as B
         from autoanatomist import model as Mo
         from autoanatomist import session as Se
-        self.assertEqual(tuple(Mo.ARCHITECTURES), ("residual-unet", "plain-unet", "probe"))
+        self.assertEqual(tuple(Mo.ARCHITECTURES), ("residual-unet", "plain-unet", "probe", "transunet", "unetr"))
         self.assertEqual(Mo.DEFAULT_ARCHITECTURE, "residual-unet")
         self.assertEqual(Mo.DEFAULT_ARCHITECTURE, B.DEFAULTS.architecture)
         for name, arch in Mo.ARCHITECTURES.items():
@@ -123,7 +124,7 @@ class TheArchitectures(unittest.TestCase):
         from autoanatomist import model as Mo
         from autoanatomist import train as T
         sizes = {}
-        for name in ("residual-unet", "plain-unet"):
+        for name in ("residual-unet", "plain-unet", "transunet", "unetr"):
             cfg = tiny_config(name)
             m = Mo.Model(cfg, nnx.Rngs(1))
             sizes[name] = Mo.count_parameters(m)
