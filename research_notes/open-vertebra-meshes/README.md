@@ -6,11 +6,13 @@ Source: the thread "Train on randomized spine phantoms", 2026-10-30, step 3 of #
 
 No open source publishes Panjabi's 3D landmarks (end-plate corners, pedicle, canal, transverse and spinous points) per person across C3 to L5. Every corner-point landmark set confirmed is 2D radiographs (rows 15 and 16 below). So the landmarks of step 4 (#55) are made, not downloaded: our own measurement code places them, and a template only carries them.
 
-The template for #55, in order:
+The template for #55, in order, as greg's two words settle it: at 21:44 UTC on 2026-10-30 he kept the gold tier for the population prior alone ("i shouldnt use the gold tier spine data for anything other than population spine data with correlations between the levels"), and at 00:09 UTC on 2026-10-31 he cleared both open models whatever their licence ("i dont care about licenses use these if they help").
 
-1. Our own gold tier masks: TotalSegmentator v2.0.1 is CC BY 4.0 (row 3), commercial use allowed, and its admitted subjects are already on the grid with the morphometry engine's rows. Per level, the subject nearest the population mean under the fitted prior gives the template, meshed from its mask, its landmarks the engine's own constructions. Nothing leaves the grid, as the corpora rule asks.
-2. The UPF thoracolumbar repository (row 5, CC BY 4.0, 87.3 MB for the 42 patients' STL): one hexahedral template with the same node ids in every model, T1 to L5, so correspondence across people and levels comes free. Its posterior elements are the template's, not the person's (EOS reconstructions). A fetch on the grid under the size rule.
-3. Meng et al. 2020 (row 1): the only open model with correspondence over C1 to L5 and one shape space across levels, but for non-commercial use only. SchwingNet's licence classes (data/licences.json) are loosened only by the owner, so it waits for greg's word and is never mixed into a commercial recipe.
+1. Meng et al. 2020 (row 1): the only open model with correspondence over C1 to L5 and one shape space across levels, its 24 artist-made templates the "ideal" vertebrae greg asked for at 23:21 UTC. Each level's mean shape is that level's template, and its shape space gives variety beyond the seven drawn measures. Non-commercial; greg's word clears it here, and data/licences.json in SchwingNet records the class when a phantom made from it enters a recipe there.
+2. The UPF thoracolumbar repository (row 5, CC BY 4.0, 87.3 MB for the 42 patients' STL): one hexahedral template with the same node ids in every model, T1 to L5, so correspondence across people and levels comes free. Its posterior elements are the template's, not the person's (EOS reconstructions).
+3. phantom.py's frustum, the analytic stand-in the tests use.
+
+The gold tier masks are not templates, by the first word. Both open models are fetched on GitHub's runner, since this container's proxy refuses zenodo.org and gitlab.inria.fr: .github/workflows/meshes.yml runs fetch.py and commits what it brings to the branch `meshes`.
 
 VerSe is CC BY-SA 4.0 (row 2): a template derived from it carries the share-alike, so it is a second choice to TotalSegmentator for the same use. LumASe (row 6, CC BY 4.0) gives seven region labels on 663 lumbar vertebrae, from which the pedicle and process points can be checked by rule; BodyParts3D (row 8) is one hand-refined man, a template and not a population.
 
