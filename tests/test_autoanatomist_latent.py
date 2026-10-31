@@ -324,5 +324,25 @@ class TheModelAndTheSession(unittest.TestCase):
         self.assertTrue(np.all(np.isfinite(E)) and np.all(np.isfinite(dE)) and np.all((0.0 <= E) & (E <= 1.0)))
 
 
+    def test_the_transformers_take_the_mask_objective_and_come_back_from_disk(self):
+        from autoanatomist import blocks as B
+        from autoanatomist import session as S
+        for name in ("transunet", "unetr"):
+            s = S.Session.new(B.parse(WORDS + " architecture=" + name), keys=self.cfg.keys, shape=self.cfg.shape,
+                              spacing=self.cfg.spacing)
+            self.assertEqual((s.cfg.architecture, s.cfg.objective), (name, "mask"))
+            rows = s.train(self.ex, 4)
+            for r in rows:
+                for k in ("total", "mask", "feature", "name", "dice"):
+                    self.assertTrue(np.isfinite(r[k]), (name, k, r))
+            self.assertLess(rows[-1]["total"], rows[0]["total"], name)
+            lat = s.latents(self.ex)
+            self.assertEqual(lat.shape, (6, 8), name)
+            with tempfile.TemporaryDirectory() as d:
+                s.save(d)
+                back = S.Session.load(d)
+                self.assertEqual(back.cfg.architecture, name)
+                np.testing.assert_array_equal(back.latents(self.ex), lat)
+
 if __name__ == "__main__":
     unittest.main()
