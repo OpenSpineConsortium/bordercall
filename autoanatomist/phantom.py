@@ -58,6 +58,7 @@ class Level:
     TP: float = 78.0
     LS: float = 26.0
     T: float = ARCH_MM
+    shape: Optional[object] = field(default=None, compare=False, repr=False)   # template.Warp, or the frustum
 
     @classmethod
     def from_values(cls, name: str, v: Dict[str, float]) -> "Level":
@@ -73,8 +74,15 @@ class Level:
 
     @property
     def reach(self) -> float:
-        return math.sqrt((self.TP / 2) ** 2 + max(self.D_top, self.D_bot, self.CD + self.T + self.LS) ** 2
-                         + (self.H / 2) ** 2)
+        own = math.sqrt((self.TP / 2) ** 2 + max(self.D_top, self.D_bot, self.CD + self.T + self.LS) ** 2
+                        + (self.H / 2) ** 2)
+        return own if self.shape is None else max(own, self.shape.reach)
+
+
+def with_shape(lv: Level, shape) -> Level:
+    """lv drawn by another shape (template.Warp) in place of the frustum, its values unchanged."""
+    import dataclasses
+    return dataclasses.replace(lv, shape=shape)
 
 
 def draw_levels(phenotype: str = "typical", seed: int = 0, start: str = "L1", count: int = 4,
@@ -156,15 +164,24 @@ def parts(q: np.ndarray, lv: Level) -> Dict[str, np.ndarray]:
     return {"body": body, "canal": canal, "arch": arch, "tp": tp, "spinous": spin}
 
 
-def tissue(q: np.ndarray, lv: Level, half_gaps: Tuple[float, float]) -> np.ndarray:
-    """Hounsfield units at local points of one vertebra's segment: soft tissue, the disc inside the
-    nearer end-plate's outline out to the segment's edge, CSF in the canal, the processes, the body
-    a cortical shell round a trabecular core."""
+def tissue_outside(q: np.ndarray, lv: Level, half_gaps: Tuple[float, float]) -> np.ndarray:
+    """Hounsfield units round a vertebra: soft tissue, and the disc inside the nearer end-plate's
+    outline out to the segment's edge."""
     out = np.full(len(q), SOFT)
     z = q[:, 2]
     up, down = half_gaps
     disc = plate_ellipse(q, lv) & (z <= lv.H / 2 + up) & (z >= -lv.H / 2 - down) & (np.abs(z) > lv.H / 2)
     out[disc] = DISC
+    return out
+
+
+def tissue(q: np.ndarray, lv: Level, half_gaps: Tuple[float, float]) -> np.ndarray:
+    """Hounsfield units at local points of one vertebra's segment: soft tissue, the disc inside the
+    nearer end-plate's outline out to the segment's edge, CSF in the canal, the processes, the body
+    a cortical shell round a trabecular core; a level with a shape takes the shape's own."""
+    if lv.shape is not None:
+        return lv.shape.tissue(q, lv, half_gaps)
+    out = tissue_outside(q, lv, half_gaps)
     p = parts(q, lv)
     out[p["canal"]] = CSF
     out[p["arch"] | p["tp"] | p["spinous"]] = ARCH
@@ -174,6 +191,8 @@ def tissue(q: np.ndarray, lv: Level, half_gaps: Tuple[float, float]) -> np.ndarr
 
 
 def solid(q: np.ndarray, lv: Level) -> np.ndarray:
+    if lv.shape is not None:
+        return lv.shape.solid(q)
     p = parts(q, lv)
     return p["body"] | p["arch"] | p["tp"] | p["spinous"]
 
@@ -204,11 +223,17 @@ def layout(levels: Sequence[Level], tilt, bends: Optional[Sequence[Tuple[Sequenc
 def render(levels: Sequence[Level], spacing=(1.0, 1.0, 1.0), tilt=((1.0, 0.3, 0.0), 12.0),
            bends: Optional[Sequence[Tuple[Sequence[float], float]]] = None,
            grid_turn=((0.0, 0.0, 1.0), 9.0), margin: float = 10.0, sub: int = 2, blur_mm: float = 0.6,
-           noise_hu: float = 0.0, seed: int = 7, with_ct: bool = True) -> Phantom:
+           noise_hu: float = 0.0, seed: int = 7, with_ct: bool = True,
+           offset: Sequence[float] = (0.0, 0.0, 0.0)) -> Phantom:
     """The column's mask and, unless with_ct is False, its CT, on one grid (the module's
-    docstring); bends tilt each level about an axis across the column, (axis, degrees)."""
+    docstring); bends tilt each level about an axis across the column, (axis, degrees). The grid's
+    origin sits on its own lattice, so offset, a shift of the whole column in millimetres, is what
+    moves the anatomy against the voxels (template.py reads a template at several such phases)."""
     levels = list(levels)
     ez, centres, rots, cuts, half = layout(levels, tilt, bends)
+    shift = np.asarray(offset, float)
+    centres = centres + shift[None, :]
+    cuts = cuts + float(shift @ ez)
     reach = max(lv.reach for lv in levels) + 2.0
     radius = reach + 0.5 * margin
     top = centres[0] + ez * (levels[0].H / 2 + half[0, 0])
