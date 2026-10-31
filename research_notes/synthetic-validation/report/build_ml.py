@@ -12,7 +12,8 @@ reads report/ml_notes.json (the prose and one note a figure), writes report/ml.h
 figures beside it (both ignored by git); the page is then published to the owner's private artifact by
 a session's Artifact tool, with the figures as its files, under a link of its own beside the stats
 page's: https://claude.ai/artifact/13LehVRhuCUB4r4hNC2b3H (2026-10-30, symphony_3). A session of
-another account publishes a new link and records it here."""
+another account publishes a new link and records it here: https://claude.ai/artifact/WqZ3ZMpZsGKPhwVx87F7ns
+(2026-10-31, the owner's local session, at 3c43361 with the gold tier 3 card of PR 66)."""
 import html
 import json
 import os
