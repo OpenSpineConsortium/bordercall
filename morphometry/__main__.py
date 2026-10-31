@@ -121,6 +121,20 @@ def code_stamp(lines: bool = False) -> str:
     return h.hexdigest()[:16]
 
 
+def read_ct_map(path: str) -> Dict[str, str]:
+    """study -> CT path from a file of study<TAB>path lines; {} without one. A CT that is not on disk is left out,
+    so its study is measured on its labels alone."""
+    if not path:
+        return {}
+    out = {}
+    with open(path) as f:
+        for line in f:
+            parts = line.rstrip("\n").split("\t")
+            if len(parts) >= 2 and parts[0] and os.path.isfile(parts[1]):
+                out[parts[0]] = parts[1]
+    return out
+
+
 def read_bytes(path: str) -> bytes:
     with open(path, "rb") as f:
         return f.read()
@@ -220,10 +234,11 @@ def one_study(job: Tuple) -> Tuple[str, float, str]:
     that a rows file of this code's stamp says its lines and frames were written with it."""
     path, scheme, study, out, stamp = job[:5]
     with_lines = len(job) > 5 and bool(job[5])
+    ct_path = job[6] if len(job) > 6 else ""
     t0 = time.time()
     kept: dict = {}
     try:
-        rows = M.measure_file(path, scheme, study, keep=kept if with_lines else None)
+        rows = M.measure_file(path, scheme, study, keep=kept if with_lines else None, ct_path=ct_path)
         note = ""
     except KeyboardInterrupt:
         raise
@@ -275,6 +290,7 @@ def cmd_run(a) -> None:
     if a.lines:
         from morphoview import lines as _  # noqa: F401  fail here, before a study is measured
     stamp = code_stamp(a.lines)
+    cts = read_ct_map(a.ct_map)
     chosen, jobs = [], []
     for name in sorted(os.listdir(a.masks)):
         if not name.endswith((".nii.gz", ".nii")):
@@ -288,7 +304,7 @@ def cmd_run(a) -> None:
         out = os.path.join(a.out, "rows", study + ".csv")
         chosen.append(out)
         if not current(out, stamp, a.lines):
-            jobs.append((path, a.scheme, study, out, stamp, a.lines))
+            jobs.append((path, a.scheme, study, out, stamp, a.lines, cts.get(study, "")))
     if a.limit:
         jobs = jobs[:a.limit]
         chosen = [c for c in chosen if current(c, stamp, a.lines)] + [j[3] for j in jobs]
@@ -525,6 +541,8 @@ def main(argv: Optional[List[str]] = None) -> None:
     r.add_argument("--max-slice", type=float, default=None)
     r.add_argument("--studies", default="")
     r.add_argument("--limit", type=int, default=0)
+    r.add_argument("--ct-map", default="",
+                   help="a file of study<TAB>CT path lines: the CTs the masks were drawn on, so the canal is read on them too")
     r.add_argument("--lines", action="store_true",
                    help="also write the lines of the measures morphoview.lines draws and each vertebra's frame")
     c = sub.add_parser("compare")

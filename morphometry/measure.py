@@ -23,8 +23,10 @@ from . import anatomy as A
 from . import body as BODY
 from . import canal as CANAL
 from . import column as COL
+from . import ct_canal as CTC
 from . import pedicle as PED
 from . import pelvis as PELVIS
+from . import plates as PLATES
 from . import posterior as POST
 
 NAN = float("nan")
@@ -51,7 +53,7 @@ def derived(vals: Dict[str, float]) -> Dict[str, float]:
                                        vals.get("body_d_mid", NAN) * vals.get("body_w_mid", NAN))}
 
 
-def vertebra_values(v: A.Vertebra) -> Tuple[Dict[str, float], Dict[str, str], Dict[str, dict]]:
+def vertebra_values(v: A.Vertebra, ct=None) -> Tuple[Dict[str, float], Dict[str, str], Dict[str, dict]]:
     vals = {k: v.panjabi.get(k, NAN) for k in PANJABI}
     vals["axis_offset"] = A.axis_offset(v)
     vals["plate_offset"] = A.plate_offset(v)
@@ -68,6 +70,12 @@ def vertebra_values(v: A.Vertebra) -> Tuple[Dict[str, float], Dict[str, str], Di
     vals.update(got)
     flags.update(f)
     got, f = POST.measures(v)
+    vals.update(got)
+    flags.update(f)
+    got, f = PLATES.measures(v)
+    vals.update(got)
+    flags.update(f)
+    got, f = CTC.measures(v, ct)
     vals.update(got)
     flags.update(f)
     if v.touching.any():
@@ -186,7 +194,7 @@ def column_line(cents: List[np.ndarray], whole: List[bool], superior: np.ndarray
 
 
 def measure_volume(vol: np.ndarray, grid: G.VoxelGrid, names: Dict[int, str], study: str,
-                   pelvis: bool = True, keep: Optional[dict] = None) -> List[Dict[str, object]]:
+                   pelvis: bool = True, keep: Optional[dict] = None, ct=None) -> List[Dict[str, object]]:
     """The study's rows. Where `keep` is given it is filled with what the rows were read from, so
     that the lines of the measures (morphoview.lines) are drawn on the same vertebrae and checked
     against the same values: "verts" and "peds" by level, "values" by level, and "discs", the
@@ -220,7 +228,7 @@ def measure_volume(vol: np.ndarray, grid: G.VoxelGrid, names: Dict[int, str], st
         if not A.usable(v):
             rows += rows_of(study, lv, {}, v.flags)
             continue
-        vals, flags, ped = vertebra_values(v)
+        vals, flags, ped = vertebra_values(v, ct)
         rows += rows_of(study, lv, vals, flags)
         verts[lv], peds[lv], depths[lv], values[lv] = v, ped, vals.get("endplate_depth", NAN), vals
     measured = [lv for lv in LEVELS if lv in verts]
@@ -238,9 +246,12 @@ def measure_volume(vol: np.ndarray, grid: G.VoxelGrid, names: Dict[int, str], st
     return rows
 
 
-def measure_file(labels: str, scheme: str, study: str, keep: Optional[dict] = None) -> List[Dict[str, object]]:
+def measure_file(labels: str, scheme: str, study: str, keep: Optional[dict] = None,
+                 ct_path: str = "") -> List[Dict[str, object]]:
+    """The study's rows; with ct_path, the CT the labels were drawn on, the canal read on it too (ct_canal)."""
     vol, grid, names, problems, _ = V.read_labels(labels, scheme)
-    rows = measure_volume(vol, grid, names, study, pelvis=(scheme == "enhance"), keep=keep)
+    ct = CTC.load(ct_path) if ct_path else None
+    rows = measure_volume(vol, grid, names, study, pelvis=(scheme == "enhance"), keep=keep, ct=ct)
     for p in problems:
         rows.append({"study": study, "level": "study", "key": "flag:labels", "value": "", "note": p})
     return rows
