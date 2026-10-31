@@ -1,0 +1,1 @@
+The spread of the synthetic population against the published series: each cell's measured SD over the pooled published SD (bone and CT, Tan's SDs left out). One means the papers' spread; Panjabi's own SDs are shown beside the three settings of the generator. B keeps the levels that four measures or more reach.

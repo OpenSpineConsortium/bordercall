@@ -1,0 +1,50 @@
+# The open vertebra models of research_notes/open-vertebra-meshes, brought to the branch meshes.
+# A cloud session's proxy refuses zenodo.org and gitlab.inria.fr; GitHub's runner reaches both, so it
+# runs fetch.py there and commits what the script wrote to the branch meshes, which a session then
+# fetches like any other branch. greg cleared both sources on 2026-10-31 at 00:09 UTC ("i dont care
+# about licenses use these if they help"). Started by hand only: list first, then upf or meng.
+name: Open vertebra meshes
+run-name: "Open vertebra meshes: ${{ inputs.what }}"
+on:
+  workflow_dispatch:
+    inputs:
+      what:
+        description: "list (names and sizes), upf (the 42 patients' meshes) or meng (the full spine model)"
+        type: choice
+        options: [list, upf, meng]
+        default: list
+permissions:
+  contents: write
+concurrency:
+  group: meshes
+  cancel-in-progress: false
+jobs:
+  fetch:
+    if: github.event.repository.private == true
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - name: Open the branch meshes, or start it
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if git fetch --depth 1 origin meshes; then
+            git worktree add -B meshes out FETCH_HEAD
+          else
+            git worktree add --detach out
+            git -C out switch --orphan meshes
+          fi
+      - name: Fetch
+        env:
+          WHAT: ${{ inputs.what }}
+        run: python3 research_notes/open-vertebra-meshes/fetch.py "$WHAT" out
+      - name: Commit and push
+        env:
+          WHAT: ${{ inputs.what }}
+        run: |
+          cd out
+          git add -A
+          if git diff --cached --quiet; then echo "nothing new"; exit 0; fi
+          git commit -q -m "meshes: $WHAT"
+          git push origin HEAD:refs/heads/meshes

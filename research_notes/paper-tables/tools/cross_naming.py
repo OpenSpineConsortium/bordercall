@@ -50,6 +50,7 @@ from __future__ import annotations
 
 import argparse
 import csv
+import hashlib
 import json
 import math
 import os
@@ -108,12 +109,16 @@ def series_id(r: dict) -> Tuple[str, ...]:
 
 def tables_of(series: Sequence[dict], base: Sequence[str], allowed=SAME) -> Dict[tuple, Dict[str, Dict[str, tuple]]]:
     """{series id: {key: {level: (mean, sd, n)}}} for this paper's own subjects, on Panjabi's
-    measures, at the rule's levels, where the definition is allowed and an SD above zero is known;
-    a second value for one cell stops the run (ValueError) instead of replacing the first."""
+    measures, at the rule's levels, where the definition is allowed, an SD above zero is known and
+    the count is two or more, as one_per_paper asks of a pool member, since a series of one person
+    or of no stated count is no population to draw fields from (Duman 2026's age bands print no n;
+    Olsewski 1990's L2 CT cell, two pedicles of one man beside three women's, pools with them to
+    one series of four people and stays); a second value for one cell stops the run (ValueError)
+    instead of replacing the first."""
     out: Dict[tuple, Dict[str, Dict[str, tuple]]] = {}
     for r in series:
         if (r["source_of_values"] != "this paper" or r["key"] not in base or r["level"] not in LEVELS
-                or r["sd"] is None or r["sd"] <= 0 or r["vs_panjabi"] not in allowed):
+                or r["sd"] is None or r["sd"] <= 0 or not r["n"] or r["n"] < 2 or r["vs_panjabi"] not in allowed):
             continue
         cells = out.setdefault(series_id(r), {}).setdefault(r["key"], {})
         # series.py writes a cell either for both sexes or pooled from them, never both. people()
@@ -218,11 +223,27 @@ def stated(entry: dict) -> bool:
                 or "inference" in entry.get("what", "").lower())
 
 
+# The clauses of a shared entry's "with" that name a paper of the list only to rule it out, or as
+# the readers' guess: "not krag1988" (Robertson 2000, p. 709: its Krag et al [24] is Spine 1989),
+# "not gilad1985 by its year" (Chen 2011, p. 1814), "not amonookuofi1982 or amonookuofi1985" and
+# "not twomey1985" (Kunkel 2011, p. 377: the 1991 and 1987 papers), and "(Inference: zindrick1987)"
+# (Mitra 2002, p. 453). A clause runs to the next semicolon or parenthesis. results.py's sharing
+# table reads the same field with the same parser, so the two never disagree on who names whom.
+RULED_OUT = re.compile(r"\(\s*inference\b[^)]*\)|\binference\b[^;()]*|\bnot\b[^;()]*", re.I)
+
+
+def named_in(text, ids):
+    """The ids a shared entry's "with" names as the paper's own word, each as a whole word."""
+    kept = RULED_OUT.sub(" ", text)
+    return sorted(p for p in ids if re.search(r"\b%s\b" % re.escape(p), kept))
+
+
 def read_contains(cohorts_dir: str) -> Dict[str, List[str]]:
     """{paper: the other sources whose subjects its values hold}, from the papers' own words: a
     cohorts file's shared entry that says the data were pooled or the subjects are the same, and
-    names a paper of the set or Panjabi. An entry the reader marked as inference does not count,
-    since the owner's rule takes papers as independent unless their text says otherwise."""
+    names a paper of the set or Panjabi, not one it names only to rule out (RULED_OUT). An entry
+    the reader marked as inference does not count, since the owner's rule takes papers as
+    independent unless their text says otherwise."""
     if not cohorts_dir:
         return {}
     papers = {name.split(".")[0] for name in os.listdir(cohorts_dir) if name.endswith(".cohorts.json")}
@@ -232,8 +253,9 @@ def read_contains(cohorts_dir: str) -> Dict[str, List[str]]:
         for entry in record.get("shared", []):
             if entry.get("what") not in ("data pooled", "subjects") or not stated(entry):
                 continue
-            named = set(re.findall(r"\b([a-z]+[0-9]{4}[a-z]?)\b", entry.get("with", "")))
-            if "panjabi" in entry.get("with", "").lower():
+            kept = RULED_OUT.sub(" ", entry.get("with", ""))
+            named = set(re.findall(r"\b([a-z]+[0-9]{4}[a-z]?)\b", kept))
+            if "panjabi" in kept.lower():
                 named.add(PANJABI)
             named = {n if n in papers else PANJABI for n in named if n in papers or n.startswith(PANJABI)} - {paper}
             if named:
@@ -363,10 +385,13 @@ def widened_table(series: Sequence[dict], base, mu, sd, leave_out: str, kinds: S
 def transport(series, pool, base, mu, sd, noise, power, n_fields: int, seed: int, processes: int = 1,
               log=print, contains: Dict[str, List[str]] = None) -> List[dict]:
     """Every series' transport rows, the series spread over `processes` worker processes; the
-    draws of each series come from a stream of its own (the seed, its place in the sorted list
-    and the width), so the record does not depend on how many processes ran it."""
+    draws of each series come from a stream of its own (the seed, a digest of the series' id and
+    the width, stream_of), so the record depends neither on how many processes ran it nor on which
+    other series are in the run: a series added or dropped moves no other series' draws. Until
+    round 4 the stream took the series' place in the sorted list, and dropping eight series moved
+    125 of 160 rows with no change in their inputs (review/round-4.md)."""
     tables = sorted(tables_of(series, base).items())
-    jobs = [(t_i, sid, table, series, n_fields, seed, contains) for t_i, (sid, table) in enumerate(tables)]
+    jobs = [(stream_of(sid), sid, table, series, n_fields, seed, contains) for sid, table in tables]
     if processes > 1:
         import multiprocessing as mp
         with mp.get_context("fork").Pool(processes) as workers:
@@ -382,8 +407,13 @@ def transport(series, pool, base, mu, sd, noise, power, n_fields: int, seed: int
     return out
 
 
+def stream_of(sid: Tuple[str, ...]) -> int:
+    """A number of the series' id alone, the first eight bytes of its SHA-256, to seed its draws by."""
+    return int.from_bytes(hashlib.sha256("|".join(sid).encode()).digest()[:8], "big")
+
+
 def one_source(job) -> List[dict]:
-    t_i, sid, table, series, n_fields, seed, contains = job
+    stream, sid, table, series, n_fields, seed, contains = job
     pool, base, mu, sd, noise, power = panjabi_table()
     kinds = [m.kind for m in pool]
     widened = widened_table(series, base, mu, sd, sid[0], kinds, contains)
@@ -395,7 +425,7 @@ def one_source(job) -> List[dict]:
         idx = [base.index(k) for k in keys]
         mu_b = np.array([[table[k][LEVELS[i]][0] for i in run] for k in keys])
         sd_b = np.array([[table[k][LEVELS[i]][1] for i in run] for k in keys])
-        rng = np.random.default_rng([seed, t_i, width])
+        rng = np.random.default_rng([seed, stream, width])
         from_source = draw(mu_b, sd_b, noise[idx], power[idx], n_fields, rng)
         from_panjabi = draw(mu[idx][:, run], sd[idx][:, run], noise[idx], power[idx], n_fields, rng)
         rule_p = namer(mu[idx], sd[idx], noise[idx], power[idx], width)
@@ -434,17 +464,26 @@ def main(argv=None) -> int:
     ap.add_argument("--fields", type=int, default=100, help="fields drawn per place, per source and per width")
     ap.add_argument("--seed", type=int, default=2026)
     ap.add_argument("--processes", type=int, default=1)
-    ap.add_argument("--cohorts", default="", help="the folder of <paper>.cohorts.json files, for the subjects papers share")
+    # Required: the cohorts files say which cohorts are not human and which papers hold another's
+    # subjects, and a run without them let the pig spines into every comparison while the page
+    # still said they were out.
+    ap.add_argument("--cohorts", required=True,
+                    help="the folder of <paper>.cohorts.json files, for the subjects papers share and the animals")
     ap.add_argument("--leave-out", default="", help="measures, comma-separated, that no series is compared or named on")
     a = ap.parse_args(argv)
     not_human = read_not_human(a.cohorts)
     animals = set(not_human)
     left_out = sorted(k for k in a.leave_out.split(",") if k)
-    series = [r for r in read_series(a.series) if (r["paper"], r["cohort"]) not in animals and r["key"] not in left_out]
+    every = read_series(a.series)
+    # A misspelt key would leave nothing out while the record, and the page from it, said it had.
+    unknown = sorted(set(left_out) - {r["key"] for r in every})
+    if unknown:
+        ap.error("--leave-out names no series: %s" % ", ".join(unknown))
+    series = [r for r in every if (r["paper"], r["cohort"]) not in animals and r["key"] not in left_out]
     contains = read_contains(a.cohorts)
     pool, base, mu, sd, noise, power = panjabi_table()
     record = {"command": "python research_notes/paper-tables/tools/cross_naming.py %s %s --fields %d --seed %d%s%s"
-                         % (a.series, a.out, a.fields, a.seed, " --cohorts %s" % a.cohorts if a.cohorts else "",
+                         % (a.series, a.out, a.fields, a.seed, " --cohorts %s" % a.cohorts,
                             " --leave-out %s" % ",".join(left_out) if left_out else ""),
               "settings": {"rho": RHO, "scale_sd": SCALE_SD, "claim": CLAIM, "widths": list(WIDTHS), "floor": FLOOR,
                            "definitions_named": list(SAME)},

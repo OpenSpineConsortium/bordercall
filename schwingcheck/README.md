@@ -149,6 +149,19 @@ The whole likelihood is one matrix product per block of fields: the sums the She
 
 Each measure is drawn with its own power of the size and its own error (`power`, and `noise_mm` as one value per measure), and floored at 0.5 only where it scales with the size, since an angle may be negative; with every power 1 the columns are the archive's bit for bit. Given the patients' sizes (`scale`), no size is drawn and the stream starts at the offsets, so further measures can be drawn for the same patients from a stream of their own, leaving the first measures' columns as they were. That holds at `r_between` 0, the default: at any other, the further measures' offsets are drawn apart from the first measures' and do not correlate with them as one call's would. The build-up study of step e draws the record's seven so and adds the rest. `floor=False` draws with no floor at all, as the build-up study draws the specimens of its re-estimated tables, which carry no error (curve.estimated_table); the `Columns` say so in their `meta`, and the floor's count (`columns.floor_hits`) finds nothing in them.
 
+## The correlation prior
+
+The generator's correlation is assumed: two levels of one measure correlate at rho squared, 0.25
+at the default rho 0.5, and two measures not at all at r_between 0. correlation.py fits it from
+whole real spines instead (greg's choice of 2026-10-30, thread "Train on randomized spine
+phantoms"): a matrix normal on each cell's z score, one correlation between levels and one between
+measures, by Dutilleul's flip-flop on complete spines, shrunk 5 per cent toward the identity, one
+prior per population. `draw_columns(..., correlation=prior)` draws with it and keeps each cell's
+mean and SD; without it the stream is the archive's to the bit. L6 borrows L5's row and T13
+T12's. `python -m schwingcheck.correlation fit` reads the morphometry engine's rows.csv and
+`compare` scores held-out spines in nats against the assumed structure. Not yet fitted on the
+gold tier: rows.csv is on the grid. tests/test_schwingcheck_correlation.py (12 tests).
+
 ## The scores and the records
 
 `score.summary` and `score.claims` are the archive's `exact.summary` and `exact.claims_summary` with the same keys, so a rate here means what it meant in the record: the share named exactly with its standard error clustered by column, within one, the Bayes error predicted and counted, the log loss, the share answered and the precision at 0.9, 0.99 and 0.999, the 99 per cent set's size and coverage, the mapping quality, the calibration, the rates by true start and by true centre, the landmark windows, the confusion of offsets, and the claims about the middle body (the cuts, the regions, the shortest interval).

@@ -1,0 +1,166 @@
+kind,paper,test,made,passed,rate,mean_square_z,within_r,step_rule,specimens
+all,abbas2021,mean,15,15,1.0,1.2230022166831387,0.0,"root mean square by measure, the measures' median",living
+all,abbas2021,sd,15,15,1.0,0.3501179143411435,0.0,"root mean square by measure, the measures' median",living
+all,abbas2021,step,12,12,1.0,0.5588403760697873,0.0,"root mean square by measure, the measures' median",living
+all,abbas2021,all,42,42,1.0,0.7214972971000402,0.0,"root mean square by measure, the measures' median",living
+all,alonge2021,mean,10,10,1.0,0.36288097332627256,0.0,"root mean square by measure, the measures' median",living
+all,alonge2021,sd,10,9,0.9,1.4218868448371944,0.0,"root mean square by measure, the measures' median",living
+all,alonge2021,step,8,7,0.875,1.2782241884544292,0.0,"root mean square by measure, the measures' median",living
+all,alonge2021,all,28,26,0.9285714285714286,1.0026239889025035,0.0,"root mean square by measure, the measures' median",living
+all,amonookuofi1982,mean,5,2,0.4,11.380811675936723,0.0,"root mean square by measure, the measures' median",not in the register
+all,amonookuofi1982,sd,5,4,0.8,1.9882875727597416,0.0,"root mean square by measure, the measures' median",not in the register
+all,amonookuofi1982,step,4,4,1.0,0.3825920688958804,0.0,"root mean square by measure, the measures' median",not in the register
+all,amonookuofi1982,all,14,10,0.7142857142857143,4.883990322790417,0.0,"root mean square by measure, the measures' median",not in the register
+all,amonookuofi1985,mean,5,5,1.0,0.011388736108575385,0.0,"root mean square by measure, the measures' median",dry bone
+all,amonookuofi1985,sd,5,3,0.6,5.016765065675907,0.0,"root mean square by measure, the measures' median",dry bone
+all,amonookuofi1985,step,4,4,1.0,0.2491650992335928,0.0,"root mean square by measure, the measures' median",dry bone
+all,amonookuofi1985,all,14,12,0.8571428571428571,1.8669592432754847,0.0,"root mean square by measure, the measures' median",dry bone
+all,arockiaraj2025,mean,20,15,0.75,3.240564383691649,0.0,"root mean square by measure, the measures' median",living
+all,arockiaraj2025,sd,20,11,0.55,4.573800610841625,0.0,"root mean square by measure, the measures' median",living
+all,arockiaraj2025,step,16,16,1.0,0.5289825319456216,0.0,"root mean square by measure, the measures' median",living
+all,arockiaraj2025,all,56,42,0.75,2.941982507174918,0.0,"root mean square by measure, the measures' median",living
+all,bach2019,mean,20,20,1.0,0.191480841539957,0.0,"root mean square by measure, the measures' median",not in the register
+all,bach2019,sd,20,20,1.0,0.19965107809510121,0.0,"root mean square by measure, the measures' median",not in the register
+all,bach2019,step,16,16,1.0,0.253067191327739,0.0,"root mean square by measure, the measures' median",not in the register
+all,bach2019,all,56,56,1.0,0.2119948831061605,0.0,"root mean square by measure, the measures' median",not in the register
+all,busscher2010,mean,51,24,0.47058823529411764,7.856303965899764,0.0,"root mean square by measure, the measures' median",cadaver
+all,busscher2010,sd,21,16,0.7619047619047619,1.8880960701556508,0.0,"root mean square by measure, the measures' median",cadaver
+all,busscher2010,step,48,47,0.9791666666666666,0.7750591056223559,0.0,"root mean square by measure, the measures' median",cadaver
+all,busscher2010,all,120,87,0.725,3.979369640033581,0.0,"root mean square by measure, the measures' median",cadaver
+all,chaudhary2015,mean,5,5,1.0,0.43537512747316487,0.0,"root mean square by measure, the measures' median",not in the register
+all,chaudhary2015,sd,5,5,1.0,1.1713851191303963,0.0,"root mean square by measure, the measures' median",not in the register
+all,chaudhary2015,step,4,4,1.0,0.4970889915985905,0.0,"root mean square by measure, the measures' median",not in the register
+all,chaudhary2015,all,14,14,1.0,0.7158683713865834,0.0,"root mean square by measure, the measures' median",not in the register
+all,cizmic2023,mean,10,8,0.8,2.501217190396969,0.0,"root mean square by measure, the measures' median",living
+all,cizmic2023,sd,10,10,1.0,0.17419330811743444,0.0,"root mean square by measure, the measures' median",living
+all,cizmic2023,step,8,7,0.875,0.6657498293314903,0.0,"root mean square by measure, the measures' median",living
+all,cizmic2023,all,28,25,0.8928571428571429,1.1457179864212843,0.0,"root mean square by measure, the measures' median",living
+all,duman2026,mean,25,18,0.72,7.911328195798699,0.0,"root mean square by measure, the measures' median",living
+all,duman2026,sd,24,21,0.875,14.485106567075292,0.0,"root mean square by measure, the measures' median",living
+all,duman2026,step,18,15,0.8333333333333334,8.576205108760256,0.0,"root mean square by measure, the measures' median",living
+all,duman2026,all,67,54,0.8059701492537313,10.444738126305358,0.0,"root mean square by measure, the measures' median",living
+all,frontphys2026,mean,25,25,1.0,0.6382945936005594,0.0,"root mean square by measure, the measures' median",living
+all,frontphys2026,sd,25,9,0.36,10.676928131796565,0.0,"root mean square by measure, the measures' median",living
+all,frontphys2026,step,20,20,1.0,0.6536524417258962,0.0,"root mean square by measure, the measures' median",living
+all,frontphys2026,all,70,54,0.7714285714285715,4.227908813849228,0.0,"root mean square by measure, the measures' median",living
+all,griffith2016,mean,15,15,1.0,0.26165278380329243,0.0,"root mean square by measure, the measures' median",living
+all,griffith2016,sd,15,11,0.7333333333333333,1.9626552892611648,0.0,"root mean square by measure, the measures' median",living
+all,griffith2016,step,12,10,0.8333333333333334,6.535497206742527,0.0,"root mean square by measure, the measures' median",living
+all,griffith2016,all,42,36,0.8571428571428571,2.661680656592314,0.0,"root mean square by measure, the measures' median",living
+all,hinck1966,mean,5,5,1.0,0.20197766221592706,0.0,"root mean square by measure, the measures' median",not in the register
+all,hinck1966,sd,5,5,1.0,0.2139730049384306,0.0,"root mean square by measure, the measures' median",not in the register
+all,hinck1966,step,4,4,1.0,0.6088904572277533,0.0,"root mean square by measure, the measures' median",not in the register
+all,hinck1966,all,14,14,1.0,0.3225225117630572,0.0,"root mean square by measure, the measures' median",not in the register
+all,hou1993,mean,18,15,0.8333333333333334,2.1830246386151053,0.0,"root mean square by measure, the measures' median",dry bone
+all,hou1993,sd,18,18,1.0,0.3715528171682857,0.0,"root mean square by measure, the measures' median",dry bone
+all,hou1993,step,16,16,1.0,0.4955780199252977,0.0,"root mean square by measure, the measures' median",dry bone
+all,hou1993,all,52,49,0.9423076923076923,1.0367623562097266,0.0,"root mean square by measure, the measures' median",dry bone
+all,lien2007,mean,68,51,0.75,2.63482107659971,0.0,"root mean square by measure, the measures' median",dry bone
+all,lien2007,sd,25,25,1.0,0.23541019861632295,0.0,"root mean square by measure, the measures' median",dry bone
+all,lien2007,step,64,62,0.96875,0.8410382427959154,0.0,"root mean square by measure, the measures' median",dry bone
+all,lien2007,all,157,138,0.8789808917197452,1.5215257051791529,0.0,"root mean square by measure, the measures' median",dry bone
+all,masharawi2021,mean,25,25,1.0,0.28711898803754576,0.0,"root mean square by measure, the measures' median",living
+all,masharawi2021,sd,25,22,0.88,1.6051924230912424,0.0,"root mean square by measure, the measures' median",living
+all,masharawi2021,step,20,18,0.9,1.5863576533856691,0.0,"root mean square by measure, the measures' median",living
+all,masharawi2021,all,70,65,0.9285714285714286,1.1290705477990444,0.0,"root mean square by measure, the measures' median",living
+all,moncadahabib2025,mean,30,30,1.0,0.6274051269228721,0.0,"root mean square by measure, the measures' median",living
+all,moncadahabib2025,sd,30,28,0.9333333333333333,1.3837347460305942,0.0,"root mean square by measure, the measures' median",living
+all,moncadahabib2025,step,24,21,0.875,1.2359807173439006,0.0,"root mean square by measure, the measures' median",living
+all,moncadahabib2025,all,84,79,0.9404761904761905,1.0714015881530665,0.0,"root mean square by measure, the measures' median",living
+all,olsewski1990,mean,20,17,0.85,2.9188309149035105,0.0,"root mean square by measure, the measures' median",cadaver;living
+all,olsewski1990,sd,20,19,0.95,1.0936848635463838,0.0,"root mean square by measure, the measures' median",cadaver;living
+all,olsewski1990,step,14,13,0.9285714285714286,1.897971465239387,0.0,"root mean square by measure, the measures' median",cadaver;living
+all,olsewski1990,all,54,49,0.9074074074074074,1.9781836311546168,0.0,"root mean square by measure, the measures' median",cadaver;living
+all,otsuki2021,mean,15,12,0.8,1.8979358866378417,0.0,"root mean square by measure, the measures' median",cadaver
+all,otsuki2021,sd,10,10,1.0,0.9023239719005517,0.0,"root mean square by measure, the measures' median",cadaver
+all,otsuki2021,step,12,10,0.8333333333333334,2.0467653856587513,0.0,"root mean square by measure, the measures' median",cadaver
+all,otsuki2021,all,37,32,0.8648648648648649,1.677120612066977,0.0,"root mean square by measure, the measures' median",cadaver
+all,shin2024,mean,20,20,1.0,0.1937870695899781,0.0,"root mean square by measure, the measures' median",not in the register
+all,shin2024,sd,20,20,1.0,0.13200629344447012,0.0,"root mean square by measure, the measures' median",not in the register
+all,shin2024,step,16,16,1.0,0.16390044030569303,0.0,"root mean square by measure, the measures' median",not in the register
+all,shin2024,all,56,56,1.0,0.16318346974250095,0.0,"root mean square by measure, the measures' median",not in the register
+all,tan2004,mean,188,107,0.5691489361702128,7.815805947213621,0.0,"root mean square by measure, the measures' median",dry bone
+all,tan2004,step,166,154,0.927710843373494,1.6716646226376224,0.0,"root mean square by measure, the measures' median",dry bone
+all,tan2004,all,354,261,0.7372881355932204,4.9346549306045375,0.0,"root mean square by measure, the measures' median",dry bone
+all,yadav2020,mean,30,28,0.9333333333333333,0.6812237429046827,0.0,"root mean square by measure, the measures' median",living
+all,yadav2020,sd,15,7,0.4666666666666667,7.758712592979964,0.0,"root mean square by measure, the measures' median",living
+all,yadav2020,step,25,23,0.92,1.8974446827603737,0.0,"root mean square by measure, the measures' median",living
+all,yadav2020,all,70,58,0.8285714285714286,2.6321931178692757,0.0,"root mean square by measure, the measures' median",living
+all,yu2015,mean,10,10,1.0,1.0083881256673748,0.0,"root mean square by measure, the measures' median",dry bone
+all,yu2015,sd,10,10,1.0,0.3769718715081954,0.0,"root mean square by measure, the measures' median",dry bone
+all,yu2015,step,8,5,0.625,8.342871099077065,0.0,"root mean square by measure, the measures' median",dry bone
+all,yu2015,all,28,25,0.8928571428571429,2.878448884441865,0.0,"root mean square by measure, the measures' median",dry bone
+cadaver,busscher2010,mean,26,24,0.9230769230769231,1.4604341225387887,0.0,"root mean square by measure, the measures' median",cadaver
+cadaver,busscher2010,sd,26,23,0.8846153846153846,1.2828562298540709,0.0,"root mean square by measure, the measures' median",cadaver
+cadaver,busscher2010,step,24,23,0.9583333333333334,0.9927448435745863,0.0,"root mean square by measure, the measures' median",cadaver
+cadaver,busscher2010,all,76,70,0.9210526315789473,1.2519924395790054,0.0,"root mean square by measure, the measures' median",cadaver
+cadaver,olsewski1990,mean,10,8,0.8,4.556351879753147,0.0,"root mean square by measure, the measures' median",cadaver;living
+cadaver,olsewski1990,sd,10,9,0.9,0.7996057273922753,0.0,"root mean square by measure, the measures' median",cadaver;living
+cadaver,olsewski1990,step,8,7,0.875,3.0892174012221285,0.0,"root mean square by measure, the measures' median",cadaver;living
+cadaver,olsewski1990,all,28,24,0.8571428571428571,2.795475545758259,0.0,"root mean square by measure, the measures' median",cadaver;living
+cadaver,otsuki2021,mean,10,9,0.9,1.1560319537435693,0.0,"root mean square by measure, the measures' median",cadaver
+cadaver,otsuki2021,sd,10,9,0.9,0.7902785888311498,0.0,"root mean square by measure, the measures' median",cadaver
+cadaver,otsuki2021,step,8,7,0.875,1.8352581934712855,0.0,"root mean square by measure, the measures' median",cadaver
+cadaver,otsuki2021,all,28,25,0.8928571428571429,1.2194703919113383,0.0,"root mean square by measure, the measures' median",cadaver
+dry bone,amonookuofi1985,mean,5,0,0.0,9.010678903695268,0.0,"root mean square by measure, the measures' median",dry bone
+dry bone,amonookuofi1985,step,4,4,1.0,0.28614013208177985,0.0,"root mean square by measure, the measures' median",dry bone
+dry bone,amonookuofi1985,all,9,4,0.4444444444444444,5.133106116311497,0.0,"root mean square by measure, the measures' median",dry bone
+dry bone,hou1993,mean,18,17,0.9444444444444444,0.9115494699707978,0.0,"root mean square by measure, the measures' median",dry bone
+dry bone,hou1993,sd,18,18,1.0,0.31928434776235176,0.0,"root mean square by measure, the measures' median",dry bone
+dry bone,hou1993,step,16,15,0.9375,0.8524578770597315,0.0,"root mean square by measure, the measures' median",dry bone
+dry bone,hou1993,all,52,50,0.9615384615384616,0.6883525913875462,0.0,"root mean square by measure, the measures' median",dry bone
+dry bone,lien2007,mean,68,51,0.75,2.7419899924817956,0.0,"root mean square by measure, the measures' median",dry bone
+dry bone,lien2007,sd,18,18,1.0,0.11932836577463408,0.0,"root mean square by measure, the measures' median",dry bone
+dry bone,lien2007,step,64,61,0.953125,0.9111594455377481,0.0,"root mean square by measure, the measures' median",dry bone
+dry bone,lien2007,all,150,130,0.8666666666666667,1.6461162305808092,0.0,"root mean square by measure, the measures' median",dry bone
+dry bone,tan2004,mean,73,44,0.6027397260273972,11.473132128629915,0.0,"root mean square by measure, the measures' median",dry bone
+dry bone,tan2004,step,68,61,0.8970588235294118,2.9694644098127876,0.0,"root mean square by measure, the measures' median",dry bone
+dry bone,tan2004,all,141,105,0.7446808510638298,7.372072519554989,0.0,"root mean square by measure, the measures' median",dry bone
+dry bone,yu2015,mean,10,8,0.8,2.3185021037388642,0.0,"root mean square by measure, the measures' median",dry bone
+dry bone,yu2015,sd,10,10,1.0,0.621917679829153,0.0,"root mean square by measure, the measures' median",dry bone
+dry bone,yu2015,step,8,8,1.0,0.965004826246949,0.0,"root mean square by measure, the measures' median",dry bone
+dry bone,yu2015,all,28,26,0.9285714285714286,1.3258655873448484,0.0,"root mean square by measure, the measures' median",dry bone
+living,abbas2021,mean,15,15,1.0,0.8962920998417252,0.0,"root mean square by measure, the measures' median",living
+living,abbas2021,sd,15,14,0.9333333333333333,0.7679947016850932,0.0,"root mean square by measure, the measures' median",living
+living,abbas2021,step,12,12,1.0,0.511857050428087,0.0,"root mean square by measure, the measures' median",living
+living,abbas2021,all,42,41,0.9761904761904762,0.740633014953317,0.0,"root mean square by measure, the measures' median",living
+living,alonge2021,mean,10,10,1.0,0.21556819431818566,0.0,"root mean square by measure, the measures' median",living
+living,alonge2021,sd,10,9,0.9,1.3817219431304417,0.0,"root mean square by measure, the measures' median",living
+living,alonge2021,step,8,7,0.875,1.2387126515046127,0.0,"root mean square by measure, the measures' median",living
+living,alonge2021,all,28,26,0.9285714285714286,0.924378663804399,0.0,"root mean square by measure, the measures' median",living
+living,arockiaraj2025,mean,20,19,0.95,1.0926178286158088,0.0,"root mean square by measure, the measures' median",living
+living,arockiaraj2025,sd,20,9,0.45,7.152084658419902,0.0,"root mean square by measure, the measures' median",living
+living,arockiaraj2025,step,16,16,1.0,0.23357600632992284,0.0,"root mean square by measure, the measures' median",living
+living,arockiaraj2025,all,56,44,0.7857142857142857,3.0112726043213027,0.0,"root mean square by measure, the measures' median",living
+living,cizmic2023,mean,10,8,0.8,2.6051612384484377,0.0,"root mean square by measure, the measures' median",living
+living,cizmic2023,sd,10,10,1.0,0.155613657264493,0.0,"root mean square by measure, the measures' median",living
+living,cizmic2023,step,8,8,1.0,0.5777551199419924,0.0,"root mean square by measure, the measures' median",living
+living,cizmic2023,all,28,26,0.9285714285714286,1.151063925595187,0.0,"root mean square by measure, the measures' median",living
+living,duman2026,mean,12,7,0.5833333333333334,4.105187444833114,0.0,"root mean square by measure, the measures' median",living
+living,duman2026,sd,12,10,0.8333333333333334,24.266150687875353,0.0,"root mean square by measure, the measures' median",living
+living,duman2026,step,6,4,0.6666666666666666,12.49748399007242,0.0,"root mean square by measure, the measures' median",living
+living,duman2026,all,30,21,0.7,13.84803205109787,0.0,"root mean square by measure, the measures' median",living
+living,frontphys2026,mean,22,22,1.0,0.2753545480005866,0.0,"root mean square by measure, the measures' median",living
+living,frontphys2026,sd,22,8,0.36363636363636365,11.29687217470745,0.0,"root mean square by measure, the measures' median",living
+living,frontphys2026,step,17,17,1.0,0.5742569259478575,0.0,"root mean square by measure, the measures' median",living
+living,frontphys2026,all,61,47,0.7704918032786885,4.333628780994924,0.0,"root mean square by measure, the measures' median",living
+living,griffith2016,mean,15,15,1.0,0.7442621376056012,0.0,"root mean square by measure, the measures' median",living
+living,griffith2016,sd,15,11,0.7333333333333333,2.010816776809814,0.0,"root mean square by measure, the measures' median",living
+living,griffith2016,step,12,10,0.8333333333333334,10.74820961584706,0.0,"root mean square by measure, the measures' median",living
+living,griffith2016,all,42,36,0.8571428571428571,4.054873788247522,0.0,"root mean square by measure, the measures' median",living
+living,masharawi2021,mean,20,19,0.95,0.8085197154554183,0.0,"root mean square by measure, the measures' median",living
+living,masharawi2021,sd,20,14,0.7,3.1603449374011907,0.0,"root mean square by measure, the measures' median",living
+living,masharawi2021,step,16,14,0.875,1.6960056925673819,0.0,"root mean square by measure, the measures' median",living
+living,masharawi2021,all,56,47,0.8392857142857143,1.9020247167537552,0.0,"root mean square by measure, the measures' median",living
+living,moncadahabib2025,mean,30,28,0.9333333333333333,0.8450826285210202,0.0,"root mean square by measure, the measures' median",living
+living,moncadahabib2025,sd,30,28,0.9333333333333333,1.0785127023349035,0.0,"root mean square by measure, the measures' median",living
+living,moncadahabib2025,step,24,23,0.9583333333333334,0.7800352393442157,0.0,"root mean square by measure, the measures' median",living
+living,moncadahabib2025,all,84,79,0.9404761904761905,0.9098655436897487,0.0,"root mean square by measure, the measures' median",living
+living,olsewski1990,mean,8,8,1.0,0.584401498323021,0.0,"root mean square by measure, the measures' median",cadaver;living
+living,olsewski1990,sd,8,8,1.0,0.8014831775287707,0.0,"root mean square by measure, the measures' median",cadaver;living
+living,olsewski1990,step,6,5,0.8333333333333334,2.342395191926191,0.0,"root mean square by measure, the measures' median",cadaver;living
+living,olsewski1990,all,22,21,0.9545454545454546,1.1427931162896128,0.0,"root mean square by measure, the measures' median",cadaver;living
+living,yadav2020,mean,25,16,0.64,4.386535379229625,0.0,"root mean square by measure, the measures' median",living
+living,yadav2020,sd,25,17,0.68,4.841570978298983,0.0,"root mean square by measure, the measures' median",living
+living,yadav2020,step,18,14,0.7777777777777778,2.486491229311072,0.0,"root mean square by measure, the measures' median",living
+living,yadav2020,all,68,47,0.6911764705882353,4.050875015673743,0.0,"root mean square by measure, the measures' median",living

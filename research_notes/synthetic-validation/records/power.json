@@ -1,0 +1,976 @@
+{
+ "calibrated_median_f": {
+  "main": {
+   "literature": {
+    "calibrated_median": 1.2799143278816283,
+    "cells": 57,
+    "expected_median_if_true_were_observed": 1.040443300799962,
+    "observed_median": 1.1541995490575416,
+    "worth_scans_at_calibrated": 0.7871565743755756,
+    "worth_scans_observed": 0.9679682847521084
+   },
+   "panjabi": {
+    "calibrated_median": 0.9190168260570246,
+    "cells": 57,
+    "expected_median_if_true_were_observed": 0.7464514880419089,
+    "observed_median": 0.8285591228051421,
+    "worth_scans_at_calibrated": 1.3797327192597173,
+    "worth_scans_observed": 1.6974417592023623
+   },
+   "panjabi, the seven only": {
+    "calibrated_median": 0.9770943296355787,
+    "cells": 27,
+    "expected_median_if_true_were_observed": 0.7788958202488447,
+    "observed_median": 0.8725793775742531,
+    "worth_scans_at_calibrated": 1.2028030875632914,
+    "worth_scans_observed": 1.508195465557328
+   }
+  },
+  "same definition only": {
+   "literature": {
+    "calibrated_median": 1.0373627573830762,
+    "cells": 17,
+    "expected_median_if_true_were_observed": 0.8243434451579408,
+    "observed_median": 0.9247555859560755,
+    "worth_scans_at_calibrated": 1.1473523430423458,
+    "worth_scans_observed": 1.4437905158459936
+   },
+   "panjabi": {
+    "calibrated_median": 0.9780836312647452,
+    "cells": 17,
+    "expected_median_if_true_were_observed": 0.7778362052681593,
+    "observed_median": 0.8723445490891064,
+    "worth_scans_at_calibrated": 1.1510964507268375,
+    "worth_scans_observed": 1.4470635128413751
+   }
+  },
+  "without tan2004": {
+   "literature": {
+    "calibrated_median": 0.8792357080045614,
+    "cells": 34,
+    "expected_median_if_true_were_observed": 0.7453076961132961,
+    "observed_median": 0.8098553874666862,
+    "worth_scans_at_calibrated": 1.57316363783517,
+    "worth_scans_observed": 1.8542555323996008
+   },
+   "panjabi": {
+    "calibrated_median": 0.6874880034630162,
+    "cells": 34,
+    "expected_median_if_true_were_observed": 0.5838312003146658,
+    "observed_median": 0.6337170949519328,
+    "worth_scans_at_calibrated": 2.359919339323853,
+    "worth_scans_observed": 2.7773880486620035
+   }
+  }
+ },
+ "gold": [
+  {
+   "against_panjabi_12_least_mean_shift": 1.5442728895502966,
+   "against_panjabi_12_least_sd_ratio": 2.4196395251193743,
+   "expected: a rib on the first lumbar-type body": 0.2784,
+   "expected: four lumbar segments (sacralised L5), a ceiling": 0.2172,
+   "expected: no twelfth rib, one side or both": 0.5112,
+   "expected: of which a true L6": 0.05399999999999999,
+   "expected: six lumbar-type segments (L6 or lumbarised S1)": 0.2976,
+   "least_mean_shift_154_cells": 1.806062668005012,
+   "least_mean_shift_one_cell": 0.8886542652934868,
+   "least_sd_ratio": 1.771019678487167,
+   "neighbour_r_half_width": 0.46904798655477814,
+   "persons": 12
+  },
+  {
+   "against_panjabi_12_least_mean_shift": 1.479862601953911,
+   "against_panjabi_12_least_sd_ratio": 2.204284655484582,
+   "expected: a rib on the first lumbar-type body": 0.3944,
+   "expected: four lumbar segments (sacralised L5), a ceiling": 0.30770000000000003,
+   "expected: no twelfth rib, one side or both": 0.7242,
+   "expected: of which a true L6": 0.0765,
+   "expected: six lumbar-type segments (L6 or lumbarised S1)": 0.4216,
+   "least_mean_shift_154_cells": 1.3481767089561962,
+   "least_mean_shift_one_cell": 0.7238580380076352,
+   "least_sd_ratio": 1.6082711212700391,
+   "neighbour_r_half_width": 0.3825793917845791,
+   "persons": 17
+  },
+  {
+   "against_panjabi_12_least_mean_shift": 1.38620154771924,
+   "against_panjabi_12_least_sd_ratio": 1.9076375226706581,
+   "expected: a rib on the first lumbar-type body": 1.16,
+   "expected: four lumbar segments (sacralised L5), a ceiling": 0.905,
+   "expected: no twelfth rib, one side or both": 2.13,
+   "expected: of which a true L6": 0.22499999999999998,
+   "expected: six lumbar-type segments (L6 or lumbarised S1)": 1.24,
+   "least_mean_shift_154_cells": 0.6718282307607277,
+   "least_mean_shift_one_cell": 0.40418300213604463,
+   "least_sd_ratio": 1.31621218928211,
+   "neighbour_r_half_width": 0.21288422231919799,
+   "persons": 50
+  },
+  {
+   "against_panjabi_12_least_mean_shift": 1.3574617960560609,
+   "against_panjabi_12_least_sd_ratio": 1.8180916581268818,
+   "expected: a rib on the first lumbar-type body": 3.2943999999999996,
+   "expected: four lumbar segments (sacralised L5), a ceiling": 2.5702000000000003,
+   "expected: no twelfth rib, one side or both": 6.0492,
+   "expected: of which a true L6": 0.6389999999999999,
+   "expected: six lumbar-type segments (L6 or lumbarised S1)": 3.5216,
+   "least_mean_shift_154_cells": 0.3810361119709353,
+   "least_mean_shift_one_cell": 0.23671998782086529,
+   "least_sd_ratio": 1.1777810419367944,
+   "neighbour_r_half_width": 0.12438928509503519,
+   "persons": 142
+  },
+  {
+   "against_panjabi_12_least_mean_shift": 1.3558355763460033,
+   "against_panjabi_12_least_sd_ratio": 1.8130081705124603,
+   "expected: a rib on the first lumbar-type body": 3.6887999999999996,
+   "expected: four lumbar segments (sacralised L5), a ceiling": 2.8779000000000003,
+   "expected: no twelfth rib, one side or both": 6.7734,
+   "expected: of which a true L6": 0.7154999999999999,
+   "expected: six lumbar-type segments (L6 or lumbarised S1)": 3.9432,
+   "least_mean_shift_154_cells": 0.3591820931657994,
+   "least_mean_shift_one_cell": 0.22354175107929417,
+   "least_sd_ratio": 1.1673331553762356,
+   "neighbour_r_half_width": 0.11744672545175219,
+   "persons": 159
+  },
+  {
+   "against_panjabi_12_least_mean_shift": 1.3495001771569484,
+   "against_panjabi_12_least_sd_ratio": 1.7931698885030718,
+   "expected: a rib on the first lumbar-type body": 6.959999999999999,
+   "expected: four lumbar segments (sacralised L5), a ceiling": 5.430000000000001,
+   "expected: no twelfth rib, one side or both": 12.78,
+   "expected: of which a true L6": 1.3499999999999999,
+   "expected: six lumbar-type segments (L6 or lumbarised S1)": 7.4399999999999995,
+   "least_mean_shift_154_cells": 0.25893492804058515,
+   "least_mean_shift_one_cell": 0.16227123648595326,
+   "least_sd_ratio": 1.1196134639399655,
+   "neighbour_r_half_width": 0.08520378242990029,
+   "persons": 300
+  },
+  {
+   "against_panjabi_12_least_mean_shift": 1.3445554850014045,
+   "against_panjabi_12_least_sd_ratio": 1.7776407490478885,
+   "expected: a rib on the first lumbar-type body": 23.2,
+   "expected: four lumbar segments (sacralised L5), a ceiling": 18.1,
+   "expected: no twelfth rib, one side or both": 42.6,
+   "expected: of which a true L6": 4.5,
+   "expected: six lumbar-type segments (L6 or lumbarised S1)": 24.8,
+   "least_mean_shift_154_cells": 0.14074633048714513,
+   "least_mean_shift_one_cell": 0.08867907559426723,
+   "least_sd_ratio": 1.064155147322845,
+   "neighbour_r_half_width": 0.04653952673456463,
+   "persons": 1000
+  },
+  {
+   "against_panjabi_12_least_mean_shift": 1.3435024916586433,
+   "against_panjabi_12_least_sd_ratio": 1.7743276754427946,
+   "expected: a rib on the first lumbar-type body": 46.4,
+   "expected: four lumbar segments (sacralised L5), a ceiling": 36.2,
+   "expected: no twelfth rib, one side or both": 85.2,
+   "expected: of which a true L6": 9.0,
+   "expected: six lumbar-type segments (L6 or lumbarised S1)": 49.6,
+   "least_mean_shift_154_cells": 0.09936137248096266,
+   "least_mean_shift_one_cell": 0.0626753893678545,
+   "least_sd_ratio": 1.0450413473463966,
+   "neighbour_r_half_width": 0.032888995919336944,
+   "persons": 2000
+  }
+ ],
+ "old_part_b": {
+  "cells": 86,
+  "measures": 10,
+  "median_f": 0.39,
+  "source": "research_notes/cadaver-power/README.md, part B (between_studies.json, f_low)",
+  "studies": 14
+ },
+ "panjabi_sd_ratio": 1.5106570706041373,
+ "split": {
+  "all": {
+   "calibration_steps": 6,
+   "distances": 297,
+   "level_sd": 0.41447865917995536,
+   "level_sd_calibrated": 0.439603346930104,
+   "series_measures": 54,
+   "shift_sd": 0.8462820586143334,
+   "shift_sd_calibrated": 0.9398647504259373,
+   "total": 0.9423300279881394,
+   "total_calibrated": 1.0375918521872456
+  },
+  "same definition only": {
+   "calibration_steps": 6,
+   "distances": 68,
+   "level_sd": 0.34288805912058007,
+   "level_sd_calibrated": 0.38987034302498585,
+   "series_measures": 13,
+   "shift_sd": 0.8007981047905368,
+   "shift_sd_calibrated": 0.8998059519197441,
+   "total": 0.8711198687457392,
+   "total_calibrated": 0.9806373618624863
+  },
+  "without tan2004": {
+   "calibration_steps": 5,
+   "distances": 194,
+   "level_sd": 0.4159373061242072,
+   "level_sd_calibrated": 0.44764034948116116,
+   "series_measures": 39,
+   "shift_sd": 0.7539021139352998,
+   "shift_sd_calibrated": 0.833582969215056,
+   "total": 0.861029755596156,
+   "total_calibrated": 0.946172526048503
+  }
+ },
+ "split_recovery": {
+  "mean": {
+   "level_sd": 0.3816094173619869,
+   "level_sd_calibrated": 0.40295886023700006,
+   "shift_sd": 0.8105622654723911,
+   "shift_sd_calibrated": 0.9125924618728224
+  },
+  "sd_of_one_estimate": {
+   "level_sd": 0.021405168063127887,
+   "level_sd_calibrated": 0.026622850952818113,
+   "shift_sd": 0.08231374044708123,
+   "shift_sd_calibrated": 0.09259127749889455
+  },
+  "standard_error": {
+   "level_sd": 0.0043693116344318194,
+   "level_sd_calibrated": 0.005434366694381111,
+   "shift_sd": 0.016802221909603524,
+   "shift_sd_calibrated": 0.018900115375394426
+  },
+  "trials": 24,
+  "truth": {
+   "level_sd": 0.4,
+   "shift_sd": 0.9
+  }
+ },
+ "spread": {
+  "main": {
+   "all": {
+    "f_literature": {
+     "at_zero": 0,
+     "cells": 57,
+     "median": 1.1541995490575416,
+     "q1": 0.8991153036829495,
+     "q3": 1.4284517862550097
+    },
+    "f_panjabi": {
+     "at_zero": 0,
+     "cells": 57,
+     "median": 0.8285591228051421,
+     "q1": 0.6076458350389639,
+     "q3": 1.108478187988126
+    },
+    "worth_scans": {
+     "at_zero": 0,
+     "cells": 57,
+     "median": 0.9679682847521084,
+     "q1": 0.6240387844753075,
+     "q3": 1.4707254575695694
+    },
+    "worth_scans_panjabi_sd": {
+     "at_zero": 0,
+     "cells": 57,
+     "median": 1.6974417592023623,
+     "q1": 0.9625919103419016,
+     "q3": 3.080301098151575
+    }
+   },
+   "canal_ap": {
+    "f_literature": {
+     "at_zero": 0,
+     "cells": 5,
+     "median": 1.0607663859977856,
+     "q1": 0.9589174194519532,
+     "q3": 1.1797119870568131
+    },
+    "f_panjabi": {
+     "at_zero": 0,
+     "cells": 5,
+     "median": 0.9985064238238637,
+     "q1": 0.8706888408573288,
+     "q3": 1.0905772426357299
+    },
+    "worth_scans": {
+     "at_zero": 0,
+     "cells": 5,
+     "median": 1.1862645437782067,
+     "q1": 0.9679682847521084,
+     "q3": 1.3283200354696476
+    },
+    "worth_scans_panjabi_sd": {
+     "at_zero": 0,
+     "cells": 5,
+     "median": 1.3005475123433796,
+     "q1": 1.090222365927893,
+     "q3": 1.5639631225715447
+    }
+   },
+   "canal_area": {
+    "f_literature": {
+     "at_zero": 0,
+     "cells": 5,
+     "median": 1.1083841531312735,
+     "q1": 1.0674347119638317,
+     "q3": 1.2735818803026635
+    },
+    "f_panjabi": {
+     "at_zero": 0,
+     "cells": 5,
+     "median": 1.144762476165045,
+     "q1": 0.946517359921097,
+     "q3": 1.2911033706818773
+    },
+    "worth_scans": {
+     "at_zero": 0,
+     "cells": 5,
+     "median": 0.9650017484363209,
+     "q1": 0.6676079881190725,
+     "q3": 0.9915792241115912
+    },
+    "worth_scans_panjabi_sd": {
+     "at_zero": 0,
+     "cells": 5,
+     "median": 0.8770158289851401,
+     "q1": 0.6425739628552104,
+     "q3": 1.2672132519800863
+    }
+   },
+   "canal_w": {
+    "f_literature": {
+     "at_zero": 0,
+     "cells": 5,
+     "median": 0.9536314865666607,
+     "q1": 0.942463136504985,
+     "q3": 0.9940444348930175
+    },
+    "f_panjabi": {
+     "at_zero": 0,
+     "cells": 5,
+     "median": 1.123877067860036,
+     "q1": 0.879006586218625,
+     "q3": 1.3409400782017136
+    },
+    "worth_scans": {
+     "at_zero": 0,
+     "cells": 5,
+     "median": 1.2104099818582497,
+     "q1": 1.135408173144535,
+     "q3": 1.3397786650841064
+    },
+    "worth_scans_panjabi_sd": {
+     "at_zero": 0,
+     "cells": 5,
+     "median": 0.9527755849008634,
+     "q1": 0.6159822548844672,
+     "q3": 1.508195465557328
+    }
+   },
+   "endplate": {
+    "f_literature": {
+     "at_zero": 0,
+     "cells": 5,
+     "median": 1.525318427868467,
+     "q1": 1.4284517862550097,
+     "q3": 1.5491035841006462
+    },
+    "f_panjabi": {
+     "at_zero": 0,
+     "cells": 5,
+     "median": 0.8725793775742531,
+     "q1": 0.7657551616781915,
+     "q3": 1.0103412601407493
+    },
+    "worth_scans": {
+     "at_zero": 0,
+     "cells": 5,
+     "median": 0.5788923398212067,
+     "q1": 0.5396012088395314,
+     "q3": 0.6240387844753075
+    },
+    "worth_scans_panjabi_sd": {
+     "at_zero": 0,
+     "cells": 5,
+     "median": 1.4547121102411327,
+     "q1": 1.1287138525513363,
+     "q3": 1.839332649968506
+    }
+   },
+   "endplate_lower": {
+    "f_literature": {
+     "at_zero": 0,
+     "cells": 5,
+     "median": 1.2841248006989134,
+     "q1": 1.246850427658866,
+     "q3": 1.4939648299036288
+    },
+    "f_panjabi": {
+     "at_zero": 0,
+     "cells": 5,
+     "median": 0.6789888054056782,
+     "q1": 0.6076458350389639,
+     "q3": 0.9076719801368389
+    },
+    "worth_scans": {
+     "at_zero": 0,
+     "cells": 5,
+     "median": 0.733294035508594,
+     "q1": 0.5948250597652646,
+     "q3": 0.7381525020997864
+    },
+    "worth_scans_panjabi_sd": {
+     "at_zero": 0,
+     "cells": 5,
+     "median": 2.2639911235130694,
+     "q1": 1.264663188338129,
+     "q3": 2.855096108021558
+    }
+   },
+   "h_post": {
+    "f_literature": {
+     "at_zero": 0,
+     "cells": 7,
+     "median": 1.1866065035539446,
+     "q1": 1.109302921394658,
+     "q3": 1.6021729603929724
+    },
+    "f_panjabi": {
+     "at_zero": 0,
+     "cells": 7,
+     "median": 0.7498027450685902,
+     "q1": 0.6686000926243126,
+     "q3": 0.914134405420787
+    },
+    "worth_scans": {
+     "at_zero": 0,
+     "cells": 7,
+     "median": 0.9014309783316162,
+     "q1": 0.48175781852875277,
+     "q3": 0.9662911715288476
+    },
+    "worth_scans_panjabi_sd": {
+     "at_zero": 0,
+     "cells": 7,
+     "median": 1.9429527348084559,
+     "q1": 1.3112894118172918,
+     "q3": 2.4180462462391556
+    }
+   },
+   "pedicle_h": {
+    "f_literature": {
+     "at_zero": 0,
+     "cells": 9,
+     "median": 1.2377303333585676,
+     "q1": 0.7225377782662484,
+     "q3": 1.2757846343944053
+    },
+    "f_panjabi": {
+     "at_zero": 0,
+     "cells": 9,
+     "median": 0.791717939687691,
+     "q1": 0.5479989590134546,
+     "q3": 1.1606275380944393
+    },
+    "worth_scans": {
+     "at_zero": 0,
+     "cells": 9,
+     "median": 0.8729840103388364,
+     "q1": 0.8340486047216411,
+     "q3": 2.7946476818817563
+    },
+    "worth_scans_panjabi_sd": {
+     "at_zero": 0,
+     "cells": 9,
+     "median": 1.8167085859543075,
+     "q1": 0.9625919103419016,
+     "q3": 5.4128962688332365
+    }
+   },
+   "pedicle_incl_sag": {
+    "f_literature": {
+     "at_zero": 0,
+     "cells": 7,
+     "median": 2.7767340606098156,
+     "q1": 1.281698539730394,
+     "q3": 4.655383308176583
+    },
+    "f_panjabi": {
+     "at_zero": 0,
+     "cells": 7,
+     "median": 0.650527453014589,
+     "q1": 0.5394513742631736,
+     "q3": 1.482356997196642
+    },
+    "worth_scans": {
+     "at_zero": 0,
+     "cells": 7,
+     "median": 0.30308878972548275,
+     "q1": 0.1744721607121581,
+     "q3": 1.3175348552849169
+    },
+    "worth_scans_panjabi_sd": {
+     "at_zero": 0,
+     "cells": 7,
+     "median": 2.512358858951629,
+     "q1": 1.1833408961651912,
+     "q3": 4.162405578343605
+    }
+   },
+   "pedicle_w": {
+    "f_literature": {
+     "at_zero": 0,
+     "cells": 9,
+     "median": 0.5667817040384917,
+     "q1": 0.2758024077857019,
+     "q3": 0.7189731385213735
+    },
+    "f_panjabi": {
+     "at_zero": 0,
+     "cells": 9,
+     "median": 0.3901224924781087,
+     "q1": 0.1712382643524219,
+     "q3": 0.5171824881876051
+    },
+    "worth_scans": {
+     "at_zero": 0,
+     "cells": 9,
+     "median": 3.978346225698905,
+     "q1": 2.588521677347702,
+     "q3": 21.197603906861236
+    },
+    "worth_scans_panjabi_sd": {
+     "at_zero": 0,
+     "cells": 9,
+     "median": 7.22448918342244,
+     "q1": 4.604052455106795,
+     "q3": 41.15151515535897
+    }
+   },
+   "seven": {
+    "f_literature": {
+     "at_zero": 0,
+     "cells": 27,
+     "median": 1.1866065035539446,
+     "q1": 1.0035644789140745,
+     "q3": 1.509641628886048
+    },
+    "f_panjabi": {
+     "at_zero": 0,
+     "cells": 27,
+     "median": 0.8725793775742531,
+     "q1": 0.6908087598510579,
+     "q3": 1.0648383491117785
+    },
+    "worth_scans": {
+     "at_zero": 0,
+     "cells": 27,
+     "median": 0.9056526936148132,
+     "q1": 0.5868586997932357,
+     "q3": 1.1608363584613708
+    },
+    "worth_scans_panjabi_sd": {
+     "at_zero": 0,
+     "cells": 27,
+     "median": 1.508195465557328,
+     "q1": 1.0716195393527512,
+     "q3": 2.2284155377196377
+    }
+   }
+  },
+  "same definition only": {
+   "all": {
+    "f_literature": {
+     "at_zero": 0,
+     "cells": 17,
+     "median": 0.9247555859560755,
+     "q1": 0.6593709996694226,
+     "q3": 1.3181462066099452
+    },
+    "f_panjabi": {
+     "at_zero": 0,
+     "cells": 17,
+     "median": 0.8723445490891064,
+     "q1": 0.7939884817834717,
+     "q3": 1.0261788793321045
+    },
+    "worth_scans": {
+     "at_zero": 0,
+     "cells": 17,
+     "median": 1.4437905158459936,
+     "q1": 0.7252779013767241,
+     "q3": 2.4414751755534985
+    },
+    "worth_scans_panjabi_sd": {
+     "at_zero": 0,
+     "cells": 17,
+     "median": 1.4470635128413751,
+     "q1": 1.0949400288887752,
+     "q3": 1.848474588363441
+    }
+   },
+   "canal_ap": {
+    "f_literature": {
+     "at_zero": 0,
+     "cells": 5,
+     "median": 0.9247555859560755,
+     "q1": 0.8762484640862848,
+     "q3": 1.086086469693679
+    },
+    "f_panjabi": {
+     "at_zero": 0,
+     "cells": 5,
+     "median": 0.9718822777361192,
+     "q1": 0.9036974878391975,
+     "q3": 1.1076081780890517
+    },
+    "worth_scans": {
+     "at_zero": 0,
+     "cells": 5,
+     "median": 1.4448940674166662,
+     "q1": 1.0895780135462503,
+     "q3": 1.4834337534201847
+    },
+    "worth_scans_panjabi_sd": {
+     "at_zero": 0,
+     "cells": 5,
+     "median": 1.3727789889629816,
+     "q1": 1.0569529171007177,
+     "q3": 1.4517984057795281
+    }
+   },
+   "canal_w": {
+    "f_literature": {
+     "at_zero": 0,
+     "cells": 5,
+     "median": 0.541372390899217,
+     "q1": 0.5080040284625078,
+     "q3": 0.5522202403632889
+    },
+    "f_panjabi": {
+     "at_zero": 0,
+     "cells": 5,
+     "median": 0.6346636540508784,
+     "q1": 0.5175853497755372,
+     "q3": 0.8723445490891064
+    },
+    "worth_scans": {
+     "at_zero": 0,
+     "cells": 5,
+     "median": 3.917083570796323,
+     "q1": 3.604580854268999,
+     "q3": 4.492021512046847
+    },
+    "worth_scans_panjabi_sd": {
+     "at_zero": 0,
+     "cells": 5,
+     "median": 2.987727493548567,
+     "q1": 1.4554954104191165,
+     "q3": 4.349886635654127
+    }
+   },
+   "h_post": {
+    "f_literature": {
+     "at_zero": 0,
+     "cells": 7,
+     "median": 1.4958469620915689,
+     "q1": 1.2605097236821954,
+     "q3": 1.9034431079621965
+    },
+    "f_panjabi": {
+     "at_zero": 0,
+     "cells": 7,
+     "median": 0.8694740859351614,
+     "q1": 0.8351571104177644,
+     "q3": 1.0089870719204905
+    },
+    "worth_scans": {
+     "at_zero": 0,
+     "cells": 7,
+     "median": 0.540154391086153,
+     "q1": 0.3787020255969638,
+     "q3": 0.7692744188445657
+    },
+    "worth_scans_panjabi_sd": {
+     "at_zero": 0,
+     "cells": 7,
+     "median": 1.4449173389668402,
+     "q1": 1.0549851062497964,
+     "q3": 1.5541970576799877
+    }
+   },
+   "seven": {
+    "f_literature": {
+     "at_zero": 0,
+     "cells": 17,
+     "median": 0.9247555859560755,
+     "q1": 0.6593709996694226,
+     "q3": 1.3181462066099452
+    },
+    "f_panjabi": {
+     "at_zero": 0,
+     "cells": 17,
+     "median": 0.8723445490891064,
+     "q1": 0.7939884817834717,
+     "q3": 1.0261788793321045
+    },
+    "worth_scans": {
+     "at_zero": 0,
+     "cells": 17,
+     "median": 1.4437905158459936,
+     "q1": 0.7252779013767241,
+     "q3": 2.4414751755534985
+    },
+    "worth_scans_panjabi_sd": {
+     "at_zero": 0,
+     "cells": 17,
+     "median": 1.4470635128413751,
+     "q1": 1.0949400288887752,
+     "q3": 1.848474588363441
+    }
+   }
+  },
+  "without tan2004": {
+   "all": {
+    "f_literature": {
+     "at_zero": 0,
+     "cells": 34,
+     "median": 0.8098553874666862,
+     "q1": 0.7087921568497759,
+     "q3": 1.1537590676928053
+    },
+    "f_panjabi": {
+     "at_zero": 0,
+     "cells": 34,
+     "median": 0.6337170949519328,
+     "q1": 0.4815275310604344,
+     "q3": 0.8825991567280114
+    },
+    "worth_scans": {
+     "at_zero": 0,
+     "cells": 34,
+     "median": 1.8542555323996008,
+     "q1": 1.1376465345980287,
+     "q3": 2.6150009837295816
+    },
+    "worth_scans_panjabi_sd": {
+     "at_zero": 0,
+     "cells": 34,
+     "median": 2.7773880486620035,
+     "q1": 1.4835396772827658,
+     "q3": 4.980149389935934
+    }
+   },
+   "canal_ap": {
+    "f_literature": {
+     "at_zero": 0,
+     "cells": 5,
+     "median": 0.7890109379873915,
+     "q1": 0.7270534073272865,
+     "q3": 0.8522359067740503
+    },
+    "f_panjabi": {
+     "at_zero": 0,
+     "cells": 5,
+     "median": 0.7427012209730288,
+     "q1": 0.6282154450295392,
+     "q3": 0.7878440631967951
+    },
+    "worth_scans": {
+     "at_zero": 0,
+     "cells": 5,
+     "median": 2.144149191777488,
+     "q1": 1.8547844931282962,
+     "q3": 2.3106411908455486
+    },
+    "worth_scans_panjabi_sd": {
+     "at_zero": 0,
+     "cells": 5,
+     "median": 2.350713348118624,
+     "q1": 2.0890431744905307,
+     "q3": 2.9527363460173692
+    }
+   },
+   "canal_w": {
+    "f_literature": {
+     "at_zero": 0,
+     "cells": 5,
+     "median": 0.8037146298457146,
+     "q1": 0.8032677116358784,
+     "q3": 0.8159961450876577
+    },
+    "f_panjabi": {
+     "at_zero": 0,
+     "cells": 5,
+     "median": 0.8916101481544922,
+     "q1": 0.7610546854075985,
+     "q3": 1.1838201480295518
+    },
+    "worth_scans": {
+     "at_zero": 0,
+     "cells": 5,
+     "median": 1.8040128629809367,
+     "q1": 1.7872511616141318,
+     "q3": 1.842645406631373
+    },
+    "worth_scans_panjabi_sd": {
+     "at_zero": 0,
+     "cells": 5,
+     "median": 1.5138339245304526,
+     "q1": 0.790342778385455,
+     "q3": 2.011917466672964
+    }
+   },
+   "h_post": {
+    "f_literature": {
+     "at_zero": 0,
+     "cells": 5,
+     "median": 0.7161795539847744,
+     "q1": 0.5528992429732946,
+     "q3": 0.7258208821873084
+    },
+    "f_panjabi": {
+     "at_zero": 0,
+     "cells": 5,
+     "median": 0.38682910975973356,
+     "q1": 0.3666580485724407,
+     "q3": 0.48419419282298887
+    },
+    "worth_scans": {
+     "at_zero": 0,
+     "cells": 5,
+     "median": 2.4745833746734314,
+     "q1": 2.2731599702512617,
+     "q3": 3.8576400669033495
+    },
+    "worth_scans_panjabi_sd": {
+     "at_zero": 0,
+     "cells": 5,
+     "median": 7.20778542624951,
+     "q1": 4.559171694784024,
+     "q3": 8.125195935342346
+    }
+   },
+   "pedicle_h": {
+    "f_literature": {
+     "at_zero": 0,
+     "cells": 7,
+     "median": 1.3366543710312742,
+     "q1": 1.0264469160159304,
+     "q3": 1.5345124942471866
+    },
+    "f_panjabi": {
+     "at_zero": 0,
+     "cells": 7,
+     "median": 1.0501625935647323,
+     "q1": 0.8103189131340758,
+     "q3": 1.4904290982807593
+    },
+    "worth_scans": {
+     "at_zero": 0,
+     "cells": 7,
+     "median": 0.7609725960679756,
+     "q1": 0.5926994973979804,
+     "q3": 1.7150461299772848
+    },
+    "worth_scans_panjabi_sd": {
+     "at_zero": 0,
+     "cells": 7,
+     "median": 1.1033209195154463,
+     "q1": 0.6483019491723594,
+     "q3": 2.0649079897050604
+    }
+   },
+   "pedicle_incl_sag": {
+    "f_literature": {
+     "at_zero": 0,
+     "cells": 5,
+     "median": 1.5186716180878053,
+     "q1": 1.1570765489497907,
+     "q3": 2.728463576514107
+    },
+    "f_panjabi": {
+     "at_zero": 0,
+     "cells": 5,
+     "median": 0.5632754673144391,
+     "q1": 0.5543381997258792,
+     "q3": 0.6392187448743265
+    },
+    "worth_scans": {
+     "at_zero": 0,
+     "cells": 5,
+     "median": 1.0584396260324562,
+     "q1": 0.2910458801707133,
+     "q3": 1.415951928357691
+    },
+    "worth_scans_panjabi_sd": {
+     "at_zero": 0,
+     "cells": 5,
+     "median": 3.7766542718483325,
+     "q1": 2.6020397513066373,
+     "q3": 3.923275002088959
+    }
+   },
+   "pedicle_w": {
+    "f_literature": {
+     "at_zero": 0,
+     "cells": 7,
+     "median": 0.6682802443162452,
+     "q1": 0.37413758305449485,
+     "q3": 0.7491688157019818
+    },
+    "f_panjabi": {
+     "at_zero": 0,
+     "cells": 7,
+     "median": 0.47476815659217964,
+     "q1": 0.2547306502243045,
+     "q3": 0.6681024131274093
+    },
+    "worth_scans": {
+     "at_zero": 0,
+     "cells": 7,
+     "median": 3.00980772396603,
+     "q1": 2.4249256567314945,
+     "q3": 16.77292605342305
+    },
+    "worth_scans_panjabi_sd": {
+     "at_zero": 0,
+     "cells": 7,
+     "median": 5.463421665141056,
+     "q1": 3.296958441593387,
+     "q3": 32.16037748074066
+    }
+   },
+   "seven": {
+    "f_literature": {
+     "at_zero": 0,
+     "cells": 15,
+     "median": 0.7890109379873915,
+     "q1": 0.7210002180860414,
+     "q3": 0.834116025930854
+    },
+    "f_panjabi": {
+     "at_zero": 0,
+     "cells": 15,
+     "median": 0.6282154450295392,
+     "q1": 0.49021669977473703,
+     "q3": 0.8397271056756437
+    },
+    "worth_scans": {
+     "at_zero": 0,
+     "cells": 15,
+     "median": 1.9255631801091802,
+     "q1": 1.8165499402111664,
+     "q3": 2.3926122827594902
+    },
+    "worth_scans_panjabi_sd": {
+     "at_zero": 0,
+     "cells": 15,
+     "median": 2.9527363460173692,
+     "q1": 1.7628756956017082,
+     "q3": 4.49749699889273
+    }
+   }
+  }
+ }
+}

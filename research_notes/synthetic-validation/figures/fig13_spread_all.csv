@@ -1,0 +1,15 @@
+measure,panjabi,cells,median_f,median_worth_scans
+pedicle_incl_sag,True,7,2.77673,0.129697
+h_ant,False,7,1.6056,0.480348
+endplate,True,5,1.52532,0.578892
+endplate_lower,True,5,1.28412,0.733294
+pedicle_h,True,9,1.23773,0.872984
+h_post,True,7,1.18661,0.901431
+canal_area,True,5,1.10838,0.965002
+canal_ap,True,5,1.06077,1.18626
+pedicle_chord [along the axis],False,5,0.977863,1.09174
+canal_w,True,5,0.953631,1.21041
+pedicle_w,True,9,0.566782,3.11292
+foramen_h,False,5,0.435878,6.16144
+interpedicular,False,5,0.315603,11.9423
+h_mid,False,2,0.232387,28.5216

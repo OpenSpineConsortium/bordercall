@@ -1,0 +1,766 @@
+paper,measure_label,key,factor,units,canonical_units,technique,vs_panjabi,cells,tables,pdf_pages,audit
+abbas2021,Vertebral body length (VL),body_d_mid,1,mm,mm,ct_axial_body,none,48,Table 1; Text: Abstract,1; 4,fits
+abbas2021,Vertebral body length (VL),body_d_mid,1,not printed,not printed,ct_axial_body,none,10,Table 1,4,fits
+abbas2021,Vertebral body width (VW),body_w_mid,1,mm,mm,ct_axial_body,none,40,Table 1,4,fits
+abbas2021,Vertebral body width (VW),body_w_mid,1,not printed,not printed,ct_axial_body,none,10,Table 1,4,fits
+abbas2021,Bony canal anterior-posterior diameter (AP),canal_ap,1,not printed,mm,ct_axial_canal,close,46,Table 2; Text: Abstract,1; 5,fits
+abbas2021,Bony canal anterior-posterior diameter (AP),canal_ap,1,not printed,not printed,ct_axial_canal,close,10,Table 2,5,fits
+abbas2021,Bony canal mediolateral diameter (ML),canal_w,1,not printed,mm,ct_axial_canal,differs,40,Table 2,5,fits
+abbas2021,Bony canal mediolateral diameter (ML),canal_w,1,not printed,not printed,ct_axial_canal,differs,10,Table 2,5,fits
+abbas2021,Bony canal cross-section area (CSA),canal_area,1,not printed,mm2,ct_axial_canal,close,40,Table 2,5,fits
+abbas2021,Bony canal cross-section area (CSA),canal_area,1,not printed,not printed,ct_axial_canal,close,10,Table 2,5,fits
+abbas2021,Percentage of subjects by bony canal AP diameter band,canal_ap,1,%,%,ct_axial_canal,close,30,Table 3,5,fits
+abbas2021,Interlaminar angle (ILA),lamina_angle,1,not printed,deg,ct_axial_interlaminar_angle,none,40,Table 4,6,fits
+abbas2021,Interlaminar angle (ILA),lamina_angle,1,not printed,not printed,ct_axial_interlaminar_angle,none,10,Table 4,6,fits
+abbas2021,Laminar inclination (LI),lamina_angle,1,not printed,deg,ct_parasagittal_laminar_inclination,none,40,Table 4,6,fits
+abbas2021,Laminar inclination (LI),lamina_angle,1,not printed,not printed,ct_parasagittal_laminar_inclination,none,10,Table 4,6,fits
+abbas2021,"Bony canal AP diameter, share of controls in range",canal_ap,1,%,%,ct_axial_canal,close,1,Text: Results,3,fits
+abbas2021,"Bony canal AP diameter, share of controls in range",canal_ap,1,mm,mm,ct_axial_canal,close,2,Text: Results,3,fits
+abbas2021,"Bony canal AP diameter, share of stenosis group in range",canal_ap,1,mm,mm,ct_axial_canal,close,2,Text: Results,3,fits
+abbas2021,Vertebral body length (VL),body_d_mid,1,not printed,mm,ct_axial_body,none,2,Text: Abstract,1,fits
+abbas2021,Bony canal anterior-posterior diameter (AP),canal_ap,1,mm,mm,ct_axial_canal,close,9,Text: Abstract; Text: Discussion; Text: Methods,1; 2; 3,fits
+abbas2021,Lumbar scoliosis,alignment,1,deg,deg,scoliosis_criterion,none,1,Text: Methods,2,fits
+abbas2021,Bony canal anterior-posterior diameter (AP),canal_ap,1,%,%,ct_axial_canal,close,1,Text: Discussion,3,fits
+ahmed2019,Mid-sagittal (antero-posterior) diameter of lumbar canal,canal_ap,1,mm,mm,mri_t2_midsagittal_diameter,close,35,Table 1; Table 3,2; 5,fits
+ahmed2019,Mid-sagittal (antero-posterior) diameter of lumbar canal,canal_ap,1,not printed,not printed,mri_t2_midsagittal_diameter,close,5,Table 1,2,fits
+ahmed2019,Transverse diameter of lumbar canal (interpedicular distance),canal_w,1,mm,mm,mri_t2_axial_interpedicular,close,35,Table 2; Table No.4,4; 5,fits
+ahmed2019,Transverse diameter of lumbar canal (interpedicular distance),canal_w,1,not printed,not printed,mri_t2_axial_interpedicular,close,5,Table 2,4,fits
+ahmed2019,Mid-sagittal diameter of lumbar canal,canal_ap,10,cm,mm,mri_t2_midsagittal_diameter,close,5,Figure 1,3,fits
+ahmed2019,Transverse diameter of lumbar canal (interpedicular distance),canal_w,10,cm,mm,mri_t2_axial_interpedicular,close,1,Figure 2,3,fits
+ahmed2019,Sex difference in mean transverse diameter (male minus female),canal_w,1,mm,mm,mri_t2_axial_interpedicular,close,5,Text: Discussion; Text: Results,3; 4,fits
+ahn2001,Interpediculate distance (IPD),interpedicular,1,count,count,ap_radiograph_ipd,none,5,Table,2,fits
+ahn2001,Interpediculate distance (IPD),interpedicular,1,mm,mm,ap_radiograph_ipd,none,15,Table; Text: Results,2,fits
+ahn2001,Interpediculate distance (IPD) Marfan vs normal,interpedicular,1,not printed,not printed,cutoff_normal_model,none,5,Table,2,fits
+ahn2001,Cut-off value of IPD,interpedicular,1,mm,mm,cutoff_normal_model,none,6,Table; Text: Discussion,2; 4,fits
+ahn2001,Lumbar scoliosis exclusion threshold,alignment,1,deg,deg,none,none,2,Text: Patients and methods,1; 2,flag
+ahn2001,Cut-off values against the means of normal and Marfan IPD,interpedicular,1,not printed,not printed,cutoff_normal_model,none,1,Table,2,fits
+alonge2021,Antero-posterior diameter (APD),canal_ap,1,count,count,ct_midsagittal_apd,same,13,Table 1; Table 3,5,flag
+alonge2021,Antero-posterior diameter (APD),canal_ap,1,not printed,mm,ct_midsagittal_apd,same,104,Table 1; Table 3,5,flag
+alonge2021,Antero-posterior diameter (APD),canal_ap,1,not printed,not printed,ct_midsagittal_apd,same,3,Table 1,5,flag
+alonge2021,Transverse diameter (TD),canal_w,1,count,count,ct_axial_td,close,13,Table 2; Table 4,5; 6,flag
+alonge2021,Transverse diameter (TD),canal_w,1,not printed,mm,ct_axial_td,close,104,Table 2; Table 4,5; 6,flag
+alonge2021,Transverse diameter (TD),canal_w,1,not printed,not printed,ct_axial_td,close,3,Table 2,5,flag
+alonge2021,Antero-posterior diameter (APD),canal_ap,1,mm,mm,ct_midsagittal_apd,same,18,Text: Abstract; Text: Conclusion; Text: Discussion; Text: Results,1; 5; 6; 7,flag
+alonge2021,Transverse diameter (TD),canal_w,1,mm,mm,ct_axial_td,close,10,Text: Abstract; Text: Conclusion; Text: Discussion; Text: Results,1; 5; 7,flag
+alonge2021,Vertebral Torg ratio (APD/VAPD),canal_index,1,ratio,ratio,ct_midsagittal_apd,none,7,Text: Abstract; Text: Results,1; 5; 6,fits
+amonookuofi1982,Interpedicular distance,interpedicular,1,mm,mm,ap_film_vernier,none,40,Table 1; Table 2; Table 4,4; 5; 7,fits
+amonookuofi1982,Interpedicular distance,interpedicular,1,not printed,mm,ap_film_vernier,none,10,Table 1,4,fits
+amonookuofi1982,Pedicle index,pedicle_area,1,not printed,mm2,ap_film_vernier,differs,20,Table 3,6,flag
+amonookuofi1982,Width of vertebral body (transverse diameter at the waist),body_w_mid,1,mm,mm,ap_film_vernier,none,10,Table 4,7,fits
+amonookuofi1982,Canal/body ratio (interpedicular distance / width of body),canal_index,1,not printed,ratio,ap_film_vernier,none,10,Table 4,7,fits
+amonookuofi1982,"Interpedicular distance, male minus female mean",interpedicular,1,mm,mm,ap_film_vernier,none,1,Text: Observations,3,fits
+amonookuofi1982,Canal:body ratio,canal_index,1,not printed,ratio,ap_film_vernier,none,1,Text: Discussion,8,fits
+amonookuofi1985,Mean sagittal diameter of the lumbar spinal canal,canal_ap,1,mm,mm,dry_bone_vernier,close,20,Table 1,3,fits
+amonookuofi1985,"Sagittal diameter of the lumbar canal, 95% tolerance range",canal_ap,1,mm,mm,dry_bone_vernier,close,20,Table 2,5,fits
+amonookuofi1985,Mean lumbar sagittal diameter,canal_ap,1,mm,mm,dry_bone_vernier,close,10,Table 3,5,fits
+amonookuofi1985,Mean sagittal diameter of canal,canal_ap,1,mm,mm,dry_bone_vernier,close,10,Table 4,6,fits
+amonookuofi1985,Mean anteroposterior (AP) diameter of vertebral body,body_d_mid,1,mm,mm,dry_bone_vernier,none,10,Table 4,6,flag
+amonookuofi1985,Ratio of mean canal sagittal diameter to mean body AP diameter,canal_index,1,not printed,ratio,dry_bone_vernier,none,10,Table 4,6,fits
+amonookuofi1985,Anteroposterior diameter of the inferior vertebral notch,foramen_w,1,mm,mm,dry_bone_vernier,none,20,Table 5,6,flag
+amonookuofi1985,Anteroposterior diameter of inferior vertebral notch,foramen_w,1,mm,mm,dry_bone_vernier,none,10,Table 6,7,flag
+amonookuofi1985,Anteroposterior diameter of vertebral body,body_d_mid,1,mm,mm,dry_bone_vernier,none,10,Table 6,7,flag
+amonookuofi1985,Midsagittal diameter of the canal,canal_ap,1,mm,mm,dry_bone_vernier,close,6,Text: Observations,5,fits
+arockiaraj2025,Transverse pedicle diameter (TPD),pedicle_w,1,mm,mm,ct_axial_workstation,close,118,Table 1; Table 2; Table 3; Text: Abstract; Text: Discussion; Text: Results,1; 4; 5; 6,fits
+arockiaraj2025,Transverse pedicle diameter (TPD),pedicle_w,1,not printed,not printed,ct_axial_workstation,close,25,Table 1; Table 2,4; 5,fits
+arockiaraj2025,Chord length (CL),pedicle_chord,1,mm,mm,ct_axial_workstation,none,110,Table 1; Table 2; Table 3; Text: Abstract; Text: Discussion; Text: Results,1; 4; 5; 6; 7,fits
+arockiaraj2025,Chord length (CL),pedicle_chord,1,not printed,not printed,ct_axial_workstation,none,25,Table 1; Table 2,4; 5,fits
+arockiaraj2025,Pedicle length,pedicle_length,1,mm,mm,ct_axial_workstation,none,100,Table 1; Table 2; Table 3,4; 5; 6,flag
+arockiaraj2025,Pedicle length,pedicle_length,1,not printed,not printed,ct_axial_workstation,none,25,Table 1; Table 2,4; 5,flag
+arockiaraj2025,Axis of pedicle,pedicle_incl_sag,1,deg,deg,ct_axial_workstation,close,90,Table 1; Table 2,4; 5,fits
+arockiaraj2025,Axis of pedicle,pedicle_incl_sag,1,not printed,not printed,ct_axial_workstation,close,25,Table 1; Table 2,4; 5,fits
+arockiaraj2025,Height of pedicle,pedicle_h,1,mm,mm,ct_sagittal_pedicle_height,close,90,Table 1; Table 2,4; 5,flag
+arockiaraj2025,Height of pedicle,pedicle_h,1,not printed,not printed,ct_sagittal_pedicle_height,close,25,Table 1; Table 2,4; 5,flag
+arockiaraj2025,Pedicle height,pedicle_h,1,mm,mm,ct_sagittal_pedicle_height,close,10,Table 3,6,flag
+arockiaraj2025,Pedicle axis,pedicle_incl_sag,1,deg,deg,ct_axial_workstation,close,10,Table 3,6,fits
+arockiaraj2025,Length of the pedicle,pedicle_length,1,mm,mm,ct_axial_workstation,none,2,Text: Abstract,1,flag
+arockiaraj2025,Height of the pedicle (PH),pedicle_h,1,mm,mm,ct_sagittal_pedicle_height,close,10,Text: Abstract; Text: Results,1; 5,flag
+arockiaraj2025,Pedicle axis angle,pedicle_incl_sag,1,deg,deg,ct_axial_workstation,close,12,Text: Abstract; Text: Discussion; Text: Results,1; 5; 7,fits
+arockiaraj2025,Pedicle length (PL),pedicle_length,1,mm,mm,ct_axial_workstation,none,8,Text: Results,5,flag
+arockiaraj2025,"Pedicle axis angle, increase per vertebra",pedicle_incl_sag,1,deg,deg,ct_axial_workstation,close,2,Text: Discussion; Text: Results,5; 7,fits
+arockiaraj2025,"Pedicle axis angle, increase",pedicle_incl_sag,1,deg,deg,ct_axial_workstation,close,2,Text: Discussion; Text: Results,5; 7,fits
+bach2019,Anterior disc height,disc_h_ant,1,mm,mm,ct3d_midsagittal_disc_height,none,192,Table 2; Table 3; Table 6,5; 6; 8,fits
+bach2019,Middle disc height,disc_h_mid,1,mm,mm,ct3d_midsagittal_disc_height,none,192,Table 2; Table 3; Table 6,5; 6; 8,fits
+bach2019,Posterior disc height,disc_h_post,1,mm,mm,ct3d_midsagittal_disc_height,none,192,Table 2; Table 3; Table 6,5; 6; 8,fits
+bach2019,Average disc height,disc_h_mean,1,mm,mm,ct3d_midsagittal_disc_height,none,168,Table 2; Table 3,5; 6,fits
+bach2019,AP Avg disc height (average of only anterior and posterior),disc_h_mean,1,mm,mm,ct3d_midsagittal_disc_height_ap_average,none,168,Table 2; Table 3,5; 6,fits
+bach2019,Foraminal height (FH),foramen_h,1,not printed,mm,ct3d_foraminal_height,none,504,Table 4; Table 5,7,fits
+bach2019,Foraminal height average,foramen_h,1,not printed,mm,ct3d_foraminal_height,none,24,Table 6,8,fits
+bach2019,Foraminal height average,foramen_h,1,not printed,not printed,ct3d_foraminal_height,none,6,Table 6,8,fits
+bach2019,Anterior disc height,disc_h_ant,1,not printed,not printed,ct3d_midsagittal_disc_height,none,18,Table 6; Table 7,8; 9,fits
+bach2019,Middle disc height,disc_h_mid,1,not printed,not printed,ct3d_midsagittal_disc_height,none,30,Table 6; Table 7; Table 8,8; 9,fits
+bach2019,Posterior disc height,disc_h_post,1,not printed,not printed,ct3d_midsagittal_disc_height,none,30,Table 6; Table 7; Table 8,8; 9,fits
+bach2019,Average disc height,disc_h_mean,1,mm,mm,ct3d_midsagittal_disc_height_ap_average,none,24,Table 6,8,fits
+bach2019,Average disc height,disc_h_mean,1,not printed,not printed,ct3d_midsagittal_disc_height_ap_average,none,6,Table 6,8,fits
+bach2019,Average disc height,disc_h_mean,1,not printed,not printed,ct3d_midsagittal_disc_height,none,24,Table 7; Table 8,9,fits
+bach2019,Anterior-posterior average disc height,disc_h_mean,1,not printed,not printed,ct3d_midsagittal_disc_height_ap_average,none,24,Table 7; Table 8,9,fits
+bach2019,Average foraminal height (FH),foramen_h,1,not printed,not printed,ct3d_foraminal_height,none,24,Table 7; Table 8,9,fits
+bach2019,Average disc height (heading as printed; see note),disc_h_ant,1,not printed,not printed,ct3d_midsagittal_disc_height,none,12,Table 8,9,fits
+bach2019,T12/L1 Disc Height (chart title),disc_h_mean,1,mm,mm,ct3d_midsagittal_disc_height,none,16,Figure 2,3,fits
+bach2019,L1/L2 Disc Height (chart title),disc_h_mean,1,mm,mm,ct3d_midsagittal_disc_height,none,16,Figure 3,3,fits
+bach2019,L2/L3 Disc Height (chart title),disc_h_mean,1,mm,mm,ct3d_midsagittal_disc_height,none,16,Figure 4,3,fits
+bach2019,L3/L4 Disc Height (chart title),disc_h_mean,1,mm,mm,ct3d_midsagittal_disc_height,none,16,Figure 5,4,fits
+bach2019,L4/L5 Disc Height (chart title),disc_h_mean,1,mm,mm,ct3d_midsagittal_disc_height,none,16,Figure 6,4,fits
+bach2019,L5/S1 Disc Height (chart title),disc_h_mean,1,mm,mm,ct3d_midsagittal_disc_height,none,16,Figure 7,4,fits
+bach2019,Overall Average Disc Height (chart title),disc_h_mean,1,mm,mm,ct3d_midsagittal_disc_height,none,12,Figure 8,8,fits
+bach2019,Average lumbar disc height,disc_h_mean,1,mm,mm,ct3d_midsagittal_disc_height,none,48,Text: Abstract; Text: Results,1; 3,fits
+bach2019,Maximum height of the interbody space,disc_h_mean,1,mm,mm,ct3d_midsagittal_disc_height,none,8,Text: Abstract; Text: Conclusions,1; 12,flag
+bach2019,Largest average intervertebral disc height in the study,disc_h_mean,1,mm,mm,ct3d_midsagittal_disc_height,none,2,Text: Discussion,8,flag
+bonczar2024,End-plate depth upper (EPDU),endplate_depth,1,mm,mm,meta_pool,close,20,Table 2; Table 3; Table 4; Table 5; Table 6,5; 6; 7; 8; 9,flag
+bonczar2024,End-plate depth upper (EPDU),endplate_depth,1,not printed,mm,meta_pool,close,10,Table 2; Table 3; Table 4; Table 5; Table 6,5; 6; 7; 8; 9,flag
+bonczar2024,End-plate depth upper (EPDU),endplate_depth,1,not printed,not printed,meta_pool,close,5,Table 2; Table 3; Table 4; Table 5; Table 6,5; 6; 7; 8; 9,flag
+bonczar2024,End-plate width upper (EPWU),endplate,1,mm,mm,meta_pool,close,20,Table 2; Table 3; Table 4; Table 5; Table 6,5; 6; 7; 8; 9,flag
+bonczar2024,End-plate width upper (EPWU),endplate,1,not printed,mm,meta_pool,close,10,Table 2; Table 3; Table 4; Table 5; Table 6,5; 6; 7; 8; 9,flag
+bonczar2024,End-plate width upper (EPWU),endplate,1,not printed,not printed,meta_pool,close,5,Table 2; Table 3; Table 4; Table 5; Table 6,5; 6; 7; 8; 9,flag
+bonczar2024,End-plate depth lower (EPDL),endplate_lower_depth,1,mm,mm,meta_pool,close,20,Table 2; Table 3; Table 4; Table 5; Table 6,5; 6; 7; 8; 9,flag
+bonczar2024,End-plate depth lower (EPDL),endplate_lower_depth,1,not printed,mm,meta_pool,close,10,Table 2; Table 3; Table 4; Table 5; Table 6,5; 6; 7; 8; 9,flag
+bonczar2024,End-plate depth lower (EPDL),endplate_lower_depth,1,not printed,not printed,meta_pool,close,5,Table 2; Table 3; Table 4; Table 5; Table 6,5; 6; 7; 8; 9,flag
+bonczar2024,End-plate width lower (EPWL),endplate_lower,1,mm,mm,meta_pool,close,20,Table 2; Table 3; Table 4; Table 5; Table 6,5; 6; 7; 8; 9,flag
+bonczar2024,End-plate width lower (EPWL),endplate_lower,1,not printed,mm,meta_pool,close,10,Table 2; Table 3; Table 4; Table 5; Table 6,5; 6; 7; 8; 9,flag
+bonczar2024,End-plate width lower (EPWL),endplate_lower,1,not printed,not printed,meta_pool,close,5,Table 2; Table 3; Table 4; Table 5; Table 6,5; 6; 7; 8; 9,flag
+bonczar2024,Vertebral body height anterior (VBHA),h_ant,1,mm,mm,meta_pool,none,20,Table 2; Table 3; Table 4; Table 5; Table 6,5; 6; 7; 8; 9,fits
+bonczar2024,Vertebral body height anterior (VBHA),h_ant,1,not printed,mm,meta_pool,none,10,Table 2; Table 3; Table 4; Table 5; Table 6,5; 6; 7; 8; 9,fits
+bonczar2024,Vertebral body height anterior (VBHA),h_ant,1,not printed,not printed,meta_pool,none,5,Table 2; Table 3; Table 4; Table 5; Table 6,5; 6; 7; 8; 9,fits
+bonczar2024,Vertebral body height posterior (VBHP),h_post,1,mm,mm,meta_pool,close,20,Table 2; Table 3; Table 4; Table 5; Table 6,5; 6; 7; 8; 9,fits
+bonczar2024,Vertebral body height posterior (VBHP),h_post,1,not printed,mm,meta_pool,close,10,Table 2; Table 3; Table 4; Table 5; Table 6,5; 6; 7; 8; 9,fits
+bonczar2024,Vertebral body height posterior (VBHP),h_post,1,not printed,not printed,meta_pool,close,5,Table 2; Table 3; Table 4; Table 5; Table 6,5; 6; 7; 8; 9,fits
+bonczar2024,End-plate area upper (EPAU),endplate_area,1,mm2,mm2,meta_pool,close,20,Table 2; Table 3; Table 4; Table 5; Table 6,5; 6; 7; 8; 9,fits
+bonczar2024,End-plate area upper (EPAU),endplate_area,1,not printed,mm2,meta_pool,close,10,Table 2; Table 3; Table 4; Table 5; Table 6,5; 6; 7; 8; 9,fits
+bonczar2024,End-plate area upper (EPAU),endplate_area,1,not printed,not printed,meta_pool,close,5,Table 2; Table 3; Table 4; Table 5; Table 6,5; 6; 7; 8; 9,fits
+bonczar2024,End-plate area lower (EPAL),endplate_lower_area,1,mm2,mm2,meta_pool,close,20,Table 2; Table 3; Table 4; Table 5; Table 6,5; 6; 7; 8; 9,fits
+bonczar2024,End-plate area lower (EPAL),endplate_lower_area,1,not printed,mm2,meta_pool,close,10,Table 2; Table 3; Table 4; Table 5; Table 6,5; 6; 7; 8; 9,fits
+bonczar2024,End-plate area lower (EPAL),endplate_lower_area,1,not printed,not printed,meta_pool,close,5,Table 2; Table 3; Table 4; Table 5; Table 6,5; 6; 7; 8; 9,fits
+bonczar2024,End-plate inclination transverse plane upper,endplate_incl,1,deg,deg,meta_pool,close,20,Table 2; Table 3; Table 4; Table 5; Table 6,5; 6; 7; 8; 9,fits
+bonczar2024,End-plate inclination transverse plane upper,endplate_incl,1,not printed,deg,meta_pool,close,10,Table 2; Table 3; Table 4; Table 5; Table 6,5; 6; 7; 8; 9,fits
+bonczar2024,End-plate inclination transverse plane upper,endplate_incl,1,not printed,not printed,meta_pool,close,5,Table 2; Table 3; Table 4; Table 5; Table 6,5; 6; 7; 8; 9,fits
+bonczar2024,End-plate inclination transverse plane lower,endplate_lower_incl,1,deg,deg,meta_pool,differs,20,Table 2; Table 3; Table 4; Table 5; Table 6,5; 6; 7; 8; 9,fits
+bonczar2024,End-plate inclination transverse plane lower,endplate_lower_incl,1,not printed,deg,meta_pool,differs,10,Table 2; Table 3; Table 4; Table 5; Table 6,5; 6; 7; 8; 9,fits
+bonczar2024,End-plate inclination transverse plane lower,endplate_lower_incl,1,not printed,not printed,meta_pool,differs,5,Table 2; Table 3; Table 4; Table 5; Table 6,5; 6; 7; 8; 9,fits
+bonczar2024,Spinal canal width (SCW),canal_w,1,mm,mm,meta_pool,close,20,Table 2; Table 3; Table 4; Table 5; Table 6,5; 6; 7; 8; 9,fits
+bonczar2024,Spinal canal width (SCW),canal_w,1,not printed,mm,meta_pool,close,10,Table 2; Table 3; Table 4; Table 5; Table 6,5; 6; 7; 8; 9,fits
+bonczar2024,Spinal canal width (SCW),canal_w,1,not printed,not printed,meta_pool,close,5,Table 2; Table 3; Table 4; Table 5; Table 6,5; 6; 7; 8; 9,fits
+bonczar2024,Spinal canal depth (SCD),canal_ap,1,mm,mm,meta_pool,close,20,Table 2; Table 3; Table 4; Table 5; Table 6,5; 6; 7; 8; 9,fits
+bonczar2024,Spinal canal depth (SCD),canal_ap,1,not printed,mm,meta_pool,close,10,Table 2; Table 3; Table 4; Table 5; Table 6,5; 6; 7; 8; 9,fits
+bonczar2024,Spinal canal depth (SCD),canal_ap,1,not printed,not printed,meta_pool,close,5,Table 2; Table 3; Table 4; Table 5; Table 6,5; 6; 7; 8; 9,fits
+bonczar2024,Spinal canal area (SCA),canal_area,1,mm2,mm2,meta_pool,close,20,Table 2; Table 3; Table 4; Table 5; Table 6,5; 6; 7; 8; 9,fits
+bonczar2024,Spinal canal area (SCA),canal_area,1,not printed,mm2,meta_pool,close,10,Table 2; Table 3; Table 4; Table 5; Table 6,5; 6; 7; 8; 9,fits
+bonczar2024,Spinal canal area (SCA),canal_area,1,not printed,not printed,meta_pool,close,5,Table 2; Table 3; Table 4; Table 5; Table 6,5; 6; 7; 8; 9,fits
+bonczar2024,Pedicle width (PW),pedicle_w,1,mm,mm,meta_pool,close,60,Table 2; Table 3; Table 4; Table 5; Table 6,5; 6; 7; 8; 9,fits
+bonczar2024,Pedicle width (PW),pedicle_w,1,not printed,mm,meta_pool,close,30,Table 2; Table 3; Table 4; Table 5; Table 6,5; 6; 7; 8; 9,fits
+bonczar2024,Pedicle width (PW),pedicle_w,1,not printed,not printed,meta_pool,close,15,Table 2; Table 3; Table 4; Table 5; Table 6,5; 6; 7; 8; 9,fits
+bonczar2024,Pedicle height (PH),pedicle_h,1,mm,mm,meta_pool,close,60,Table 2; Table 3; Table 4; Table 5; Table 6,5; 6; 7; 8; 9,fits
+bonczar2024,Pedicle height (PH),pedicle_h,1,not printed,mm,meta_pool,close,30,Table 2; Table 3; Table 4; Table 5; Table 6,5; 6; 7; 8; 9,fits
+bonczar2024,Pedicle height (PH),pedicle_h,1,not printed,not printed,meta_pool,close,15,Table 2; Table 3; Table 4; Table 5; Table 6,5; 6; 7; 8; 9,fits
+bonczar2024,Pedicle area (PA),pedicle_area,1,mm2,mm2,meta_pool,close,40,Table 2; Table 3; Table 4; Table 5; Table 6,5; 6; 7; 8; 9,fits
+bonczar2024,Pedicle area (PA),pedicle_area,1,not printed,mm2,meta_pool,close,20,Table 2; Table 3; Table 4; Table 5; Table 6,5; 6; 7; 8; 9,fits
+bonczar2024,Pedicle area (PA),pedicle_area,1,not printed,not printed,meta_pool,close,10,Table 2; Table 3; Table 4; Table 5; Table 6,5; 6; 7; 8; 9,fits
+bonczar2024,Pedicle inclination sagittal plane (PIS),pedicle_incl_sag,1,deg,deg,meta_pool,close,20,Table 2; Table 3; Table 4; Table 5; Table 6,5; 6; 7; 8; 9,flag
+bonczar2024,Pedicle inclination sagittal plane (PIS),pedicle_incl_sag,1,not printed,deg,meta_pool,close,10,Table 2; Table 3; Table 4; Table 5; Table 6,5; 6; 7; 8; 9,flag
+bonczar2024,Pedicle inclination sagittal plane (PIS),pedicle_incl_sag,1,not printed,not printed,meta_pool,close,5,Table 2; Table 3; Table 4; Table 5; Table 6,5; 6; 7; 8; 9,flag
+bonczar2024,Pedicle inclination transverse plane (PIT),pedicle_incl_trans,1,deg,deg,meta_pool,differs,40,Table 2; Table 3; Table 4; Table 5; Table 6,5; 6; 7; 8; 9,fits
+bonczar2024,Pedicle inclination transverse plane (PIT),pedicle_incl_trans,1,not printed,deg,meta_pool,differs,20,Table 2; Table 3; Table 4; Table 5; Table 6,5; 6; 7; 8; 9,fits
+bonczar2024,Pedicle inclination transverse plane (PIT),pedicle_incl_trans,1,not printed,not printed,meta_pool,differs,10,Table 2; Table 3; Table 4; Table 5; Table 6,5; 6; 7; 8; 9,fits
+bonczar2024,Pedicle inclination sagittal plane (PIS),pedicle_incl_sag,1,deg,deg,meta_pool,differs,20,Table 2; Table 3; Table 4; Table 5; Table 6,5; 6; 7; 8; 9,flag
+bonczar2024,Pedicle inclination sagittal plane (PIS),pedicle_incl_sag,1,not printed,deg,meta_pool,differs,10,Table 2; Table 3; Table 4; Table 5; Table 6,5; 6; 7; 8; 9,flag
+bonczar2024,Pedicle inclination sagittal plane (PIS),pedicle_incl_sag,1,not printed,not printed,meta_pool,differs,5,Table 2; Table 3; Table 4; Table 5; Table 6,5; 6; 7; 8; 9,flag
+bonczar2024,Spinous process length (SPL),spinous_length,1,mm,mm,meta_pool,differs,20,Table 2; Table 3; Table 4; Table 5; Table 6,5; 6; 7; 8; 9,flag
+bonczar2024,Spinous process length (SPL),spinous_length,1,not printed,mm,meta_pool,differs,10,Table 2; Table 3; Table 4; Table 5; Table 6,5; 6; 7; 8; 9,flag
+bonczar2024,Spinous process length (SPL),spinous_length,1,not printed,not printed,meta_pool,differs,5,Table 2; Table 3; Table 4; Table 5; Table 6,5; 6; 7; 8; 9,flag
+bonczar2024,Transverse process width,transverse_width,1,mm,mm,meta_pool,close,20,Table 2; Table 3; Table 4; Table 5; Table 6,5; 6; 7; 8; 9,fits
+bonczar2024,Transverse process width,transverse_width,1,not printed,mm,meta_pool,close,10,Table 2; Table 3; Table 4; Table 5; Table 6,5; 6; 7; 8; 9,fits
+bonczar2024,Transverse process width,transverse_width,1,not printed,not printed,meta_pool,close,5,Table 2; Table 3; Table 4; Table 5; Table 6,5; 6; 7; 8; 9,fits
+bonczar2024,Anterior vertebral body height,h_ant,1,mm,mm,meta_pool,none,40,Table 7,10,fits
+bonczar2024,Anterior vertebral body height,h_ant,1,not printed,mm,meta_pool,none,20,Table 7,10,fits
+bonczar2024,Anterior vertebral body height,h_ant,1,not printed,not printed,meta_pool,none,10,Table 7,10,fits
+bonczar2024,Interpedicular distance,interpedicular,1,mm,mm,meta_pool,none,40,Table 7,10,fits
+bonczar2024,Interpedicular distance,interpedicular,1,not printed,mm,meta_pool,none,20,Table 7,10,fits
+bonczar2024,Interpedicular distance,interpedicular,1,not printed,not printed,meta_pool,none,10,Table 7,10,fits
+busscher2010,Cervical lordosis,alignment,1,deg,deg,ct_mpr_per_vertebra,none,4,Table 2,4,fits
+busscher2010,Thoracic kyphosis,alignment,1,deg,deg,ct_mpr_per_vertebra,none,4,Table 2,4,fits
+busscher2010,Lumbar lordosis,alignment,1,deg,deg,ct_mpr_per_vertebra,none,4,Table 2,4,fits
+busscher2010,Vertebral body height anterior (VBHa),h_ant,1,mm,mm,ct_mpr_per_vertebra,none,100,Table 3,4,fits
+busscher2010,Vertebral body height central (VBHc),h_mid,1,mm,mm,ct_mpr_per_vertebra,none,100,Table 3,4,fits
+busscher2010,Vertebral body height posterior (VBHp),h_post,1,mm,mm,ct_mpr_per_vertebra,same,100,Table 3,4,fits
+busscher2010,Intervertebral disc height (IDH),disc_h_mid,1,mm,mm,ct_mpr_per_vertebra,none,100,Table 3,4,flag
+busscher2010,VBHa,h_ant,1,not printed,mm,ct_mpr_per_vertebra,none,8,Table 4; Table 5,5,fits
+busscher2010,VBhc,h_mid,1,not printed,mm,ct_mpr_per_vertebra,none,8,Table 4; Table 5,5,fits
+busscher2010,VBHp,h_post,1,not printed,mm,ct_mpr_per_vertebra,same,8,Table 4; Table 5,5,fits
+busscher2010,UEPW,endplate,1,not printed,mm,ct_mpr_per_vertebra,close,8,Table 4; Table 5,5,fits
+busscher2010,UEPD,endplate_depth,1,not printed,mm,ct_mpr_per_vertebra,same,8,Table 4; Table 5,5,flag
+busscher2010,LEPW,endplate_lower,1,not printed,mm,ct_mpr_per_vertebra,close,8,Table 4; Table 5,5,fits
+busscher2010,LEPD,endplate_lower_depth,1,not printed,mm,ct_mpr_per_vertebra,same,8,Table 4; Table 5,5,flag
+busscher2010,IDH,disc_h_mid,1,not printed,mm,ct_mpr_per_vertebra,none,8,Table 4; Table 5,5,fits
+busscher2010,SCW,canal_w,1,not printed,mm,ct_mpr_per_vertebra,close,8,Table 4; Table 5,5,fits
+busscher2010,SCD,canal_ap,1,not printed,mm,ct_mpr_per_vertebra,same,8,Table 4; Table 5,5,fits
+busscher2010,TPL,transverse_width,1,not printed,mm,ct_mpr_per_vertebra,same,8,Table 4; Table 5,5,fits
+busscher2010,SPL,spinous_length,1,not printed,mm,ct_mpr_per_vertebra,differs,8,Table 4; Table 5,5,fits
+busscher2010,SPA,spinous_angle,1,not printed,deg,ct_mpr_per_vertebra,none,8,Table 4; Table 5,5,fits
+busscher2010,PedW,pedicle_w,1,not printed,mm,ct_mpr_per_vertebra,close,8,Table 4; Table 5,5,fits
+busscher2010,PedH,pedicle_h,1,not printed,mm,ct_mpr_per_vertebra,close,8,Table 4; Table 5,5,fits
+busscher2010,PedA,pedicle_incl_sag,1,not printed,deg,ct_mpr_per_vertebra,close,8,Table 4; Table 5,5,flag
+busscher2010,SCW/UEPW,canal_index,1,not printed,ratio,ct_mpr_per_vertebra,none,8,Table 4; Table 5,5,fits
+busscher2010,SCD/UEPD,canal_index,1,not printed,ratio,ct_mpr_per_vertebra,none,8,Table 4; Table 5,5,fits
+busscher2010,IDH/UEPW,disc_index,1,not printed,ratio,ct_mpr_per_vertebra,none,8,Table 4; Table 5,5,fits
+busscher2010,Upper end-plate width (UEPW),endplate,1,mm,mm,ct_mpr_per_vertebra,close,4,Text: Results,5,fits
+busscher2010,Upper end-plate depth (UEPD),endplate_depth,1,mm,mm,ct_mpr_per_vertebra,same,4,Text: Results,5,flag
+busscher2010,Spinous processus angle (SPA),spinous_angle,1,deg,deg,ct_mpr_per_vertebra,none,2,Text: Results,7,fits
+busscher2010,Intervertebral disc height (IDH),disc_h_mid,1,ratio,ratio,ct_mpr_per_vertebra,none,1,Text: Discussion,8,flag
+chaudhary2015,Interpedicular distance (IPD),interpedicular,1,mm,mm,ap_film_scale,none,40,Table I,2,fits
+chaudhary2015,Interpedicular distance (IPD),interpedicular,1,not printed,not printed,ap_film_scale,none,5,Table I,2,fits
+chaudhary2015,Mean transverse diameter of spinal canal,interpedicular,1,mm,mm,ap_film_scale,none,10,Table II,3,fits
+chen2011,Average sagittal diameter (aSD),body_d,1,mm,mm,ct_mpr_pacs_endplate,none,24,Table 2,4,fits
+chen2011,Segmental mean aSD,body_d,1,mm,mm,ct_mpr_pacs_endplate,none,8,Table 2,4,fits
+chen2011,Segmental mean aSD,body_d,1,not printed,not printed,ct_mpr_pacs_endplate,none,6,Table 2,4,fits
+chen2011,Transverse diameter (TD),endplate_lower,1,mm,mm,ct_mpr_pacs_endplate,differs,20,Table 3,5,fits
+chen2011,Transverse diameter (TD),endplate,1,mm,mm,ct_mpr_pacs_endplate,differs,20,Table 3,5,fits
+chen2011,Transverse diameter (TD),endplate,1,not printed,not printed,ct_mpr_pacs_endplate,differs,8,Table 3,5,fits
+chen2011,Sagittal diameter of endplate (SD),body_d,1,mm,mm,cadaver_midsagittal_photo,none,2,Table 4,5,fits
+chen2011,Sagittal diameter of endplate (SD),body_d,1,mm,mm,ct_mpr_pacs_endplate,none,2,Table 4,5,fits
+chen2011,Sagittal diameter of endplate (SD),endplate_lower_depth,1,mm,mm,ct_mpr_pacs_endplate,differs,20,Table 5,6,flag
+chen2011,Sagittal diameter of endplate (SD),endplate_depth,1,mm,mm,ct_mpr_pacs_endplate,differs,20,Table 5,6,flag
+chen2011,Transverse diameter of endplate (TD),endplate_lower,1,mm,mm,ct_mpr_pacs_endplate,differs,20,Table 5,6,fits
+chen2011,Transverse diameter of endplate (TD),endplate,1,mm,mm,ct_mpr_pacs_endplate,differs,20,Table 5,6,fits
+chen2011,"Mean aSD, lumbar (L1-L3) minus thoracic (T10-T12)",body_d,1,mm,mm,ct_mpr_pacs_endplate,none,1,Text: Results,3,fits
+chen2011,Distance on midsagittal CT (2D),endplate_concavity,1,mm,mm,ct_mpr_pacs_endplate,none,1,Figure 2,3,fits
+chen2011,Distance on midsagittal CT (2D),endplate_depth,1,mm,mm,ct_mpr_pacs_endplate,differs,1,Figure 2,3,fits
+cizmic2023,Midsagittal diameter (MSG),canal_ap,1,not printed,mm,cizmic-ct-syngo,same,45,Table 3,3,fits
+cizmic2023,Interpedicular diameter (IP),canal_w,1,mm,mm,cizmic-ct-syngo,close,45,Table 4,3,fits
+cizmic2023,Midsagittal diameter (MSGD canal),canal_ap,1,count,count,cizmic-ct-syngo,same,10,Table 5,3,fits
+cizmic2023,Midsagittal diameter (MSGD canal),canal_ap,1,not printed,mm,cizmic-ct-syngo,same,40,Table 5,3,fits
+cizmic2023,Interpedicular diameter (IPD canal),canal_w,1,count,count,cizmic-ct-syngo,close,10,Table 5,3,fits
+cizmic2023,Interpedicular diameter (IPD canal),canal_w,1,not printed,mm,cizmic-ct-syngo,close,40,Table 5,3,fits
+cizmic2023,Midsagittal diameter,canal_ap,1,not printed,mm,cizmic-ct-syngo,same,30,Table 6; Table 7; Table 8,4,fits
+cizmic2023,"Midsagittal diameter, our study vs Tobin et al.",canal_ap,1,not printed,not printed,cizmic-ct-syngo,same,5,Table 6,4,fits
+cizmic2023,"Midsagittal diameter, our study vs J. F. Griffith et al.",canal_ap,1,not printed,not printed,cizmic-ct-syngo,same,5,Table 7,4,fits
+cizmic2023,"Midsagittal diameter, our study vs Uttam Yadu et al.",canal_ap,1,not printed,not printed,cizmic-ct-syngo,same,5,Table 8,4,fits
+cizmic2023,Interpedicular diameter,canal_w,1,not printed,mm,cizmic-ct-syngo,close,21,Table 10; Table 9; Text: Conclusion,5; 6,fits
+cizmic2023,"Interpedicular diameter, our study vs J. F. Griffith et al.",canal_w,1,not printed,not printed,cizmic-ct-syngo,close,5,Table 9,5,fits
+cizmic2023,"Interpedicular diameter, our study vs M.M. Alam et al.",canal_w,1,not printed,not printed,cizmic-ct-syngo,close,5,Table 10,5,fits
+cizmic2023,"Interpedicular diameter, mean",canal_w,1,not printed,mm,cizmic-ct-syngo,close,5,Table 11,5,fits
+cizmic2023,"Interpedicular diameter, our study vs Urrutia V.E. et al.",canal_w,1,not printed,not printed,cizmic-ct-syngo,close,5,Table 11,5,fits
+cizmic2023,Midsagittal diameter (MSG),canal_ap,1,mm,mm,cizmic-ct-syngo,same,2,Text: Abstract,1,fits
+cizmic2023,Interpedicular diameter (IPD),canal_w,1,mm,mm,cizmic-ct-syngo,close,2,Text: Abstract,1,fits
+cizmic2023,Midsagittal diameter,canal_ap,1,mm,mm,cizmic-ct-syngo,same,14,Text: Conclusion; Text: Discussion; Text: Results,3; 6,fits
+cizmic2023,Interpedicular diameter,canal_w,1,mm,mm,cizmic-ct-syngo,close,35,Text: Conclusion; Text: Discussion; Text: Results,3; 5; 6,fits
+duman2026,Anterior corpus height (ACH),h_ant,1,mm,mm,mdct-sagittal-corpus-heights,none,33,Figure 2; Table 1,5; 7,fits
+duman2026,Anterior corpus height (ACH),h_ant,1,not printed,not printed,mdct-sagittal-corpus-heights,none,4,Table 1,7,fits
+duman2026,Middle corpus height (MCH),h_mid,1,mm,mm,mdct-sagittal-corpus-heights,none,33,Figure 2; Table 1,5; 7,fits
+duman2026,Middle corpus height (MCH),h_mid,1,not printed,not printed,mdct-sagittal-corpus-heights,none,4,Table 1,7,fits
+duman2026,Posterior corpus height (PCH),h_post,1,mm,mm,mdct-sagittal-corpus-heights,same,33,Figure 2; Table 1,5; 7,fits
+duman2026,Posterior corpus height (PCH),h_post,1,not printed,not printed,mdct-sagittal-corpus-heights,same,4,Table 1,7,fits
+duman2026,Transverse pedicle diameter (TPD),pedicle_w,1,mm,mm,mdct-axial-pedicle,close,122,Figure 2; Table 2; Table 3; Table 4,5; 8,fits
+duman2026,Transverse pedicle diameter (TPD),pedicle_w,1,not printed,not printed,mdct-axial-pedicle,close,16,Table 2; Table 3; Table 4,8,fits
+duman2026,Sagittal pedicle diameter (SPD),pedicle_h,1,mm,mm,mdct-sagittal-pedicle-height,close,16,Table 2,8,flag
+duman2026,Sagittal pedicle diameter (SPD),pedicle_h,1,not printed,not printed,mdct-sagittal-pedicle-height,close,4,Table 2,8,flag
+duman2026,Transverse pedicle angle (TPA),pedicle_incl_sag,1,deg,deg,mdct-axial-pedicle,close,18,Figure 2; Table 2,5; 8,fits
+duman2026,Transverse pedicle angle (TPA),pedicle_incl_sag,1,not printed,not printed,mdct-axial-pedicle,close,4,Table 2,8,fits
+duman2026,Pedicle length (PL),pedicle_chord,1,mm,mm,mdct-axial-pedicle,none,10,Figure 2; Table 3,5; 8,fits
+duman2026,Pedicle length (PL),pedicle_chord,1,not printed,not printed,mdct-axial-pedicle,none,1,Table 3,8,fits
+duman2026,Scoliosis Cobb angle exclusion threshold,alignment,1,deg,deg,none,none,1,Figure 1,4,fits
+duman2026,"Sagittal pedicle diameter (SPD, pedicle height PH)",pedicle_h,1,mm,mm,mdct-sagittal-pedicle-height,close,1,Figure 2,5,flag
+duman2026,Hypoplastic rib length threshold,rib,1,cm,cm,mdct-rib-anomaly-read,none,1,Text: Methods,5,fits
+duman2026,Age-group difference in TPD,pedicle_w,1,mm,mm,mdct-axial-pedicle,close,1,Text: Discussion,14,fits
+eisenstein1977,Canal antero-posterior/mid-sagittal diameter (A.P.),canal_ap,1,mm,mm,caliper_dry_bone,close,30,Table I,2,fits
+eisenstein1977,Canal interpedicular diameter (I.P.),canal_w,1,mm,mm,caliper_dry_bone,close,25,Table I,2,fits
+eisenstein1977,Body antero-posterior/mid-sagittal diameter (A.P.),body_d_mid,1,mm,mm,caliper_dry_bone,none,30,Table I,2,fits
+eisenstein1977,Body transverse diameter (T.V.),body_w_mid,1,mm,mm,caliper_dry_bone,none,30,Table I,2,fits
+eisenstein1977,Canal transverse diameter (T.V.),canal_w,1,mm,mm,caliper_dry_bone,close,5,Table I,2,fits
+eisenstein1977,Canal transverse (interpedicular) diameter,canal_w,1,mm,mm,caliper_dry_bone,close,7,Table II; Text: Results,2; 3,fits
+eisenstein1977,"Canal transverse (interpedicular) diameter, range of normal",canal_w,1,mm,mm,caliper_dry_bone,close,12,Table II,3,fits
+eisenstein1977,"Canal transverse (interpedicular) diameter, lower limit of normal",canal_w,1,mm,mm,caliper_dry_bone,close,1,Table II,3,fits
+eisenstein1977,"Canal transverse (interpedicular) diameter, lower limit of normal",interpedicular,1,mm,mm,radiograph_ap,none,1,Table II,3,flag
+eisenstein1977,Canal antero-posterior (midsagittal) diameter,canal_ap,1,mm,mm,caliper_dry_bone,close,6,Table III,3,fits
+eisenstein1977,"Canal antero-posterior (midsagittal) diameter, range of normal",canal_ap,1,mm,mm,caliper_dry_bone,close,12,Table III,3,fits
+eisenstein1977,"Canal antero-posterior (midsagittal) diameter, lower limit of normal",canal_ap,1,mm,mm,caliper_dry_bone,close,1,Table III,3,fits
+eisenstein1977,"Canal antero-posterior (midsagittal) diameter, lower limit of normal",canal_ap,1,mm,mm,radiograph_lateral,differs,1,Table III,3,fits
+eisenstein1977,"Canal mid-sagittal diameter, lower limit of normal",canal_ap,1,mm,mm,radiograph_lateral,differs,3,Text: Abstract; Text: Discussion; Text: Results,1; 3; 7,fits
+eisenstein1977,"Canal transverse diameter, lower limit of normal",interpedicular,1,mm,mm,radiograph_ap,none,2,Text: Abstract; Text: Conclusions,1; 8,flag
+eisenstein1977,"Canal transverse diameter, lower limit of normal",canal_w,1,mm,mm,caliper_dry_bone,close,2,Text: Discussion; Text: Results,2; 6,fits
+eisenstein1977,"Canal transverse diameter, smallest observed",canal_w,1,mm,mm,caliper_dry_bone,close,2,Text: Discussion; Text: Results,2; 6,fits
+eisenstein1977,Canal mid-sagittal diameter,canal_ap,1,mm,mm,caliper_dry_bone,close,1,Text: Results,2,fits
+eisenstein1977,"Canal mid-sagittal diameter, lower limit of normal",canal_ap,1,mm,mm,caliper_dry_bone,close,2,Text: Discussion; Text: Results,2; 6,fits
+eisenstein1977,"Canal mid-sagittal diameter, smallest observed",canal_ap,1,mm,mm,caliper_dry_bone,close,2,Text: Discussion; Text: Results,2; 6,fits
+eisenstein1977,"Canal interpedicular diameter, lower limit of normal",interpedicular,1,mm,mm,radiograph_ap,none,2,Text: Discussion; Text: Results,3; 7,flag
+eisenstein1977,"Canal antero-posterior diameter, lower limit of normal",canal_ap,1,mm,mm,radiograph_lateral,differs,1,Text: Conclusions,8,fits
+frontphys2026,Anterior vertebral body height (VBHa),h_ant,1,mm,mm,ct_mpr_morphometry,none,10,Table 2,5,fits
+frontphys2026,Middle vertebral body height (VBHm),h_mid,1,mm,mm,ct_mpr_morphometry,none,10,Table 2,5,fits
+frontphys2026,Posterior vertebral body height (VBHp),h_post,1,mm,mm,ct_mpr_morphometry,same,10,Table 2,5,fits
+frontphys2026,Superior endplate width (EPWu),endplate,1,mm,mm,ct_mpr_morphometry,close,10,Table 2,5,flag
+frontphys2026,Inferior endplate width (EPWl),endplate_lower,1,mm,mm,ct_mpr_morphometry,close,10,Table 2,5,flag
+frontphys2026,"Middle vertebral body height (VBHm), by line position",h_mid,1,mm,mm,ct_mpr_morphometry,none,1,Figure 1,3,fits
+frontphys2026,"Anterior vertebral body height (VBHa), by line position",h_ant,1,mm,mm,ct_mpr_morphometry,none,1,Figure 1,3,fits
+frontphys2026,"Posterior vertebral body height (VBHp), by line position",h_post,1,mm,mm,ct_mpr_morphometry,same,1,Figure 1,3,fits
+frontphys2026,"Superior endplate width (EPWu), by line position",endplate_depth,1,mm,mm,ct_mpr_morphometry,close,1,Figure 1,3,flag
+frontphys2026,"Inferior endplate width (EPWl), by line position",endplate_lower_depth,1,mm,mm,ct_mpr_morphometry,close,1,Figure 1,3,flag
+frontphys2026,Endplate width for cage sizing,endplate,1,mm,mm,ct_mpr_morphometry,close,2,Text: Discussion 4.3,7,fits
+gilad1985,Inferior width of vertebral body (a),endplate_lower_depth,1,mm,mm,lateral_cervical_film_caliper,close,12,Table 1,4,fits
+gilad1985,Anterior height of vertebral body (b),h_ant,1,mm,mm,lateral_cervical_film_caliper,none,12,Table 1,4,fits
+gilad1985,Superior width of vertebral body (c),endplate_depth,1,mm,mm,lateral_cervical_film_caliper,differs,2,Table 1,4,fits
+gilad1985,Posterior height of vertebral body (d),h_post,1,mm,mm,lateral_cervical_film_caliper,differs,12,Table 1,4,fits
+gilad1985,Superior width of vertebral body (c),endplate_depth,1,mm,mm,lateral_cervical_film_caliper,close,10,Table 1,4,fits
+gilad1985,Inferior width of vertebral body (a),endplate_lower_depth,1,mm,mm,lateral_lumbar_film_caliper,close,10,Table 1,4,fits
+gilad1985,Anterior height of vertebral body (b),h_ant,1,mm,mm,lateral_lumbar_film_caliper,none,10,Table 1,4,fits
+gilad1985,Superior width of vertebral body (c),endplate_depth,1,mm,mm,lateral_lumbar_film_caliper,close,10,Table 1,4,fits
+gilad1985,Posterior height of vertebral body (d),h_post,1,mm,mm,lateral_lumbar_film_caliper,close,10,Table 1,4,fits
+gilad1985,Angular inclination of the spinous process (alpha),spinous_angle,1,deg,deg,lateral_cervical_film_caliper,none,6,Table 2,4,fits
+gilad1985,Angular inclination of the spinous process (alpha),spinous_angle,1,deg,deg,lateral_lumbar_film_caliper,none,5,Table 2,4,fits
+griffith2016,Pearson correlation: Spinal canal CSA L1-L5 with Age,canal_area,1,not printed,not printed,ct_midpedicle_semiauto,close,4,Table 1,4,fits
+griffith2016,Pearson correlation: Spinal canal CSA L1-L5 with Height,canal_area,1,not printed,not printed,ct_midpedicle_semiauto,close,4,Table 1,4,fits
+griffith2016,Pearson correlation: Spinal canal CSA L1-L5 with Weight,canal_area,1,not printed,not printed,ct_midpedicle_semiauto,close,4,Table 1,4,fits
+griffith2016,Pearson correlation: Spinal canal CSA L1-L5 with BMI,canal_area,1,not printed,not printed,ct_midpedicle_semiauto,close,4,Table 1,4,fits
+griffith2016,Pearson correlation: Spinal canal depth L1-L5 with Age,canal_ap,1,not printed,not printed,ct_midpedicle_semiauto,same,4,Table 1,4,fits
+griffith2016,Pearson correlation: Spinal canal depth L1-L5 with Height,canal_ap,1,not printed,not printed,ct_midpedicle_semiauto,same,4,Table 1,4,fits
+griffith2016,Pearson correlation: Spinal canal depth L1-L5 with Weight,canal_ap,1,not printed,not printed,ct_midpedicle_semiauto,same,4,Table 1,4,fits
+griffith2016,Pearson correlation: Spinal canal depth L1-L5 with BMI,canal_ap,1,not printed,not printed,ct_midpedicle_semiauto,same,4,Table 1,4,fits
+griffith2016,Pearson correlation: Spinal canal depth L1-L5 with SC CSA L1-L5,canal_ap,1,not printed,not printed,ct_midpedicle_semiauto,same,4,Table 1,4,fits
+griffith2016,Pearson correlation: Spinal canal width L1-L5 with Age,canal_w,1,not printed,not printed,ct_midpedicle_semiauto,same,4,Table 1,4,fits
+griffith2016,Pearson correlation: Spinal canal width L1-L5 with Height,canal_w,1,not printed,not printed,ct_midpedicle_semiauto,same,4,Table 1,4,fits
+griffith2016,Pearson correlation: Spinal canal width L1-L5 with Weight,canal_w,1,not printed,not printed,ct_midpedicle_semiauto,same,4,Table 1,4,fits
+griffith2016,Pearson correlation: Spinal canal width L1-L5 with BMI,canal_w,1,not printed,not printed,ct_midpedicle_semiauto,same,4,Table 1,4,fits
+griffith2016,Pearson correlation: Spinal canal width L1-L5 with SC CSA L1-L5,canal_w,1,not printed,not printed,ct_midpedicle_semiauto,same,4,Table 1,4,fits
+griffith2016,Pearson correlation: Spinal canal width L1-L5 with Spinal canal depth L1-L5,canal_w,1,not printed,not printed,ct_midpedicle_semiauto,same,4,Table 1,4,fits
+griffith2016,Pearson correlation: Vertebral body CSA L1-L5 with Age,body_area,1,not printed,not printed,ct_midpedicle_semiauto,none,4,Table 1,4,fits
+griffith2016,Pearson correlation: Vertebral body CSA L1-L5 with Height,body_area,1,not printed,not printed,ct_midpedicle_semiauto,none,4,Table 1,4,fits
+griffith2016,Pearson correlation: Vertebral body CSA L1-L5 with Weight,body_area,1,not printed,not printed,ct_midpedicle_semiauto,none,4,Table 1,4,fits
+griffith2016,Pearson correlation: Vertebral body CSA L1-L5 with BMI,body_area,1,not printed,not printed,ct_midpedicle_semiauto,none,4,Table 1,4,fits
+griffith2016,Pearson correlation: Vertebral body CSA L1-L5 with SC CSA L1-L5,body_area,1,not printed,not printed,ct_midpedicle_semiauto,none,4,Table 1,4,fits
+griffith2016,Pearson correlation: Vertebral body CSA L1-L5 with Spinal canal depth L1-L5,body_area,1,not printed,not printed,ct_midpedicle_semiauto,none,4,Table 1,4,fits
+griffith2016,Pearson correlation: Vertebral body CSA L1-L5 with Spinal canal width L1-L5,body_area,1,not printed,not printed,ct_midpedicle_semiauto,none,4,Table 1,4,fits
+griffith2016,Pearson correlation: SC CSA/VB CSA L1-L5 with Age,canal_index,1,not printed,not printed,ct_midpedicle_semiauto,none,4,Table 1,4,fits
+griffith2016,Pearson correlation: SC CSA/VB CSA L1-L5 with Height,canal_index,1,not printed,not printed,ct_midpedicle_semiauto,none,4,Table 1,4,fits
+griffith2016,Pearson correlation: SC CSA/VB CSA L1-L5 with Weight,canal_index,1,not printed,not printed,ct_midpedicle_semiauto,none,4,Table 1,4,fits
+griffith2016,Pearson correlation: SC CSA/VB CSA L1-L5 with BMI,canal_index,1,not printed,not printed,ct_midpedicle_semiauto,none,4,Table 1,4,fits
+griffith2016,Pearson correlation: SC CSA/VB CSA L1-L5 with SC CSA L1-L5,canal_index,1,not printed,not printed,ct_midpedicle_semiauto,none,4,Table 1,4,fits
+griffith2016,Pearson correlation: SC CSA/VB CSA L1-L5 with Spinal canal depth L1-L5,canal_index,1,not printed,not printed,ct_midpedicle_semiauto,none,4,Table 1,4,fits
+griffith2016,Pearson correlation: SC CSA/VB CSA L1-L5 with Spinal canal width L1-L5,canal_index,1,not printed,not printed,ct_midpedicle_semiauto,none,4,Table 1,4,fits
+griffith2016,Pearson correlation: SC CSA/VB CSA L1-L5 with VB CSA L1-L5,canal_index,1,not printed,not printed,ct_midpedicle_semiauto,none,4,Table 1,4,fits
+griffith2016,"Spinal canal CSA (mid-pedicular, CT)",canal_area,1,not printed,mm2,ct_midpedicle_semiauto,close,24,Table 2,5,fits
+griffith2016,"Spinal canal CSA (mid-pedicular, CT)",canal_area,1,not printed,not printed,ct_midpedicle_semiauto,close,6,Table 2,5,fits
+griffith2016,Spinal canal depth (anteroposterior diameter),canal_ap,1,not printed,mm,ct_midpedicle_semiauto,same,24,Table 3,5,fits
+griffith2016,Spinal canal depth (anteroposterior diameter),canal_ap,1,not printed,not printed,ct_midpedicle_semiauto,same,6,Table 3,5,fits
+griffith2016,"Spinal canal width (transverse diameter, interpedicular)",canal_w,1,not printed,mm,ct_midpedicle_semiauto,same,24,Table 4,5,fits
+griffith2016,"Spinal canal width (transverse diameter, interpedicular)",canal_w,1,not printed,not printed,ct_midpedicle_semiauto,same,6,Table 4,5,fits
+griffith2016,Vertebral body CSA,body_area,1,not printed,mm2,ct_midpedicle_semiauto,none,144,Table 5; Table 7; Table S5,5; 7; 14,fits
+griffith2016,Vertebral body CSA,body_area,1,not printed,not printed,ct_midpedicle_semiauto,none,24,Table 5; Table S5,5; 14,fits
+griffith2016,Spinal canal CSA/vertebral body CSA ratio,canal_index,1,ratio,ratio,ct_midpedicle_semiauto,none,24,Table 6,6,fits
+griffith2016,Spinal canal CSA/vertebral body CSA ratio,canal_index,1,not printed,not printed,ct_midpedicle_semiauto,none,6,Table 6,6,fits
+griffith2016,Adjusted spinal canal CSA,canal_area,1,not printed,mm2,ct_midpedicle_semiauto,close,24,Table S1,10,fits
+griffith2016,Adjusted spinal canal CSA,canal_area,1,not printed,not printed,ct_midpedicle_semiauto,close,6,Table S1,10,fits
+griffith2016,Adjusted spinal canal depth (anteroposterior diameter),canal_ap,1,not printed,mm,ct_midpedicle_semiauto,same,24,Table S2,10,fits
+griffith2016,Adjusted spinal canal depth (anteroposterior diameter),canal_ap,1,not printed,not printed,ct_midpedicle_semiauto,same,6,Table S2,10,fits
+griffith2016,Adjusted spinal canal width (transverse diameter),canal_w,1,not printed,mm,ct_midpedicle_semiauto,same,24,Table S3,10,fits
+griffith2016,Adjusted spinal canal width (transverse diameter),canal_w,1,not printed,not printed,ct_midpedicle_semiauto,same,6,Table S3,10,fits
+griffith2016,Adjusted vertebral body CSA,body_area,1,not printed,mm2,ct_midpedicle_semiauto,none,24,Table S4,14,fits
+griffith2016,Adjusted vertebral body CSA,body_area,1,not printed,not printed,ct_midpedicle_semiauto,none,6,Table S4,14,fits
+griffith2016,Adjusted spinal canal CSA/vertebral body CSA ratio,canal_index,1,ratio,ratio,ct_midpedicle_semiauto,none,24,Table S6,14,fits
+griffith2016,Adjusted spinal canal CSA/vertebral body CSA ratio,canal_index,1,not printed,not printed,ct_midpedicle_semiauto,none,6,Table S6,14,fits
+griffith2016,Spinal canal CSA,canal_area,1,not printed,mm2,ct_midpedicle_semiauto,close,48,Table 7,7,fits
+griffith2016,Spinal canal depth,canal_ap,1,not printed,mm,ct_midpedicle_semiauto,same,48,Table 7,7,fits
+griffith2016,Spinal canal width,canal_w,1,not printed,mm,ct_midpedicle_semiauto,same,48,Table 7,7,fits
+griffith2016,Spinal canal CSA/vertebral body CSA,canal_index,1,ratio,ratio,ct_midpedicle_semiauto,none,48,Table 7,7,fits
+griffith2016,"Spinal canal CSA, 25th percentile",canal_area,1,mm2,mm2,ct_midpedicle_semiauto,close,10,Figure S1,11,fits
+griffith2016,"Spinal canal depth, 25th percentile",canal_ap,1,mm,mm,ct_midpedicle_semiauto,same,10,Figure S2,12,fits
+griffith2016,"Spinal canal width, 25th percentile",canal_w,1,mm,mm,ct_midpedicle_semiauto,same,10,Figure S3,13,fits
+griffith2016,Spinal canal CSA relative to vertebral body CSA,canal_index,1,ratio,ratio,ct_midpedicle_semiauto,none,1,Text: Results: Spinal canal CSA/vertebral body CSA,6,fits
+griffith2016,Anteroposterior diameter marking the lowest 25%,canal_ap,1,mm,mm,ct_midpedicle_semiauto,same,2,Text: Discussion,8,fits
+griffith2016,Mid-vertebral spinal canal CSA marking the smallest 25%,canal_area,1,mm2,mm2,ct_midpedicle_semiauto,close,2,Text: Discussion,8,fits
+hinck1966,Interpediculate distance (IPD),interpedicular,1,mm,mm,ap_spine_film_caliper,none,704,Table IA; Table IB; Table IC; Table II,2; 3; 4; 5,fits
+hinck1966,Interpediculate distance (IPD),interpedicular,1,count,count,ap_spine_film_caliper,none,176,Table II,5,fits
+hinck1966,Tolerance range (90 per cent) of IPD,interpedicular,1,mm,mm,ap_spine_film_caliper,none,352,Table III,6,fits
+hinck1966,"Mean IPD, male minus female",interpedicular,1,mm,mm,ap_spine_film_caliper,none,1,Text: Results,3,fits
+hinck1966,"Increase in mean IPD from age 3, 4, 5 to age 9, 10",interpedicular,1,mm,mm,ap_spine_film_caliper,none,1,Text: Results,4,fits
+hinck1966,"Increase in mean IPD from age 9, 10 to age 13, 14",interpedicular,1,mm,mm,ap_spine_film_caliper,none,1,Text: Results,4,fits
+hinck1966,"Average increase in mean IPD from age 3, 4, 5 to age 9, 10",interpedicular,1,mm,mm,ap_spine_film_caliper,none,1,Text: Results,4,fits
+hou1993,Pedicle width (A),pedicle_w,1,mm,mm,vernier_caliper_dry_bone,close,54,Table 1,3,fits
+hou1993,Pedicle height (B),pedicle_h,1,mm,mm,vernier_caliper_dry_bone,close,54,Table 2,3,fits
+hou1993,Pedicle length LI,pedicle_chord,1,mm,mm,vernier_caliper_dry_bone,none,54,Table 3,4,fits
+hou1993,Pedicle length LII,pedicle_chord,1,mm,mm,vernier_caliper_dry_bone,none,36,Table 3,4,fits
+hou1993,Pedicle width,pedicle_w,1,mm,mm,vernier_caliper_dry_bone,close,8,Text: Abstract,1,fits
+hou1993,Pedicle cephalad-caudad diameter,pedicle_h,1,mm,mm,vernier_caliper_dry_bone,close,8,Text: Abstract,1,fits
+hou1993,Pedicle medial-lateral diameter (width),pedicle_w,1,mm,mm,vernier_caliper_dry_bone,close,8,Text: Results,2,fits
+hou1993,Pedicle cephalo-caudad diameter (height),pedicle_h,1,mm,mm,vernier_caliper_dry_bone,close,10,Text: Results,2,fits
+hou1993,Pedicle depth (Length I),pedicle_chord,1,mm,mm,vernier_caliper_dry_bone,none,4,Text: Results,2,fits
+hou1993,Minimal pedicle width,pedicle_w,1,mm,mm,vernier_caliper_dry_bone,close,3,Text: Discussion,3,flag
+hou1993,Minimal pedicle height,pedicle_h,1,mm,mm,vernier_caliper_dry_bone,close,2,Text: Discussion,3,fits
+hou1993,Pedicle depth parallel to the midline,pedicle_chord,1,mm,mm,vernier_caliper_dry_bone,none,2,Text: Discussion,3,flag
+italianmri,Sagittal spinal canal diameter (SCD) cutoff,canal_ap,1,mm,mm,sagittal_mri,close,4,Text: Abstract,1,fits
+italianmri,Anterior-posterior diameter of the vertebral body (VBD),body_d_mid,1,mm,mm,sagittal_mri,none,6,Figure 2,3,fits
+italianmri,Anteroposterior diameter of the spinal canal (SCD),canal_ap,1,mm,mm,sagittal_mri,close,6,Figure 2,3,fits
+italianmri,Sagittal spinal canal diameter (SCD),canal_ap,1,mm,mm,sagittal_mri,close,66,Figure 5; Table 2; Text: Results,4; 5,flag
+italianmri,Sagittal spinal canal diameter (SCD),canal_ap,1,not printed,not printed,sagittal_mri,close,6,Table 2,4,flag
+italianmri,Sagittal vertebral body diameter (VBD),body_d_mid,1,mm,mm,sagittal_mri,none,36,Table 3,4,flag
+italianmri,Sagittal vertebral body diameter (VBD),body_d_mid,1,not printed,not printed,sagittal_mri,none,6,Table 3,4,flag
+krag1988,Chord length along 0 deg axis,pedicle_chord,1,%,%,ct_midpedicle_film,none,91,Table 1; Text: Results,3,fits
+krag1988,Chord length along 15 deg axis,pedicle_chord,1,%,%,ct_midpedicle_film,none,91,Table 1; Text: Results,3,fits
+krag1988,Pedicle diameter perpendicular to pedicle axis,pedicle_w,1,count,count,ct_midpedicle_film,close,63,Table 2,4,fits
+krag1988,Pedicle diameter perpendicular to pedicle axis,pedicle_w,1,%,%,ct_midpedicle_film,close,38,Table 2,4,fits
+krag1988,Pedicle diameter perpendicular to pedicle axis,pedicle_w,1,mm,mm,ct_midpedicle_film,close,1,Table 2,4,fits
+krag1988,Chord length along 0 deg axis,pedicle_chord,1,mm,mm,ct_midpedicle_film,none,1,Text: Results,3,fits
+krag1988,Chord length along 15 deg axis,pedicle_chord,1,mm,mm,ct_midpedicle_film,none,1,Text: Results,3,fits
+krag1988,Chord length along 0 and 15 deg axes (both pooled),pedicle_chord,1,%,%,ct_midpedicle_film,none,1,Text: Results,3,fits
+krag1988,Pedicle length (facet corrected),pedicle_length,1,mm,mm,ct_midpedicle_film,none,5,Text: Results,3,flag
+krag1988,"Vertebral body length (line A to anterior cortex, AP midline)",body_d,1,mm,mm,ct_midpedicle_film,none,1,Text: Results,3,fits
+krag1988,Pedicle diameter,pedicle_w,1,mm,mm,ct_midpedicle_film,close,2,Text: Results,3,fits
+krag1988,Pedicle diameter perpendicular to 0 deg axis,pedicle_w,1,mm,mm,ct_midpedicle_film,differs,1,Text: Results,4,fits
+krag1988,Pedicle axis angle relative to sagittal plane,pedicle_incl_sag,1,deg,deg,ct_midpedicle_film,close,6,Text: Results,4,fits
+kunkel2011,Anterior disc height (ADH),disc_h_ant,1,mm,mm,sagittal_section_caliper,none,28,Table 1; Text: Results,4; 6,fits
+kunkel2011,Anterior disc height (ADH),disc_h_ant,1,mm,mm,lateral_contact_radiograph,none,36,Table 1,4,fits
+kunkel2011,Anterior disc height (ADH),disc_h_ant,1,%,%,lateral_contact_radiograph,none,12,Table 1,4,fits
+kunkel2011,Posterior disc height (PDH),disc_h_post,1,mm,mm,sagittal_section_caliper,none,24,Table 1,4,fits
+kunkel2011,Posterior disc height (PDH),disc_h_post,1,mm,mm,lateral_contact_radiograph,none,36,Table 1,4,fits
+kunkel2011,Posterior disc height (PDH),disc_h_post,1,%,%,lateral_contact_radiograph,none,12,Table 1,4,fits
+kunkel2011,Middle disc height (MDH),disc_h_mid,1,mm,mm,sagittal_section_caliper,none,24,Table 1,4,fits
+kunkel2011,Average disc height,disc_h_mean,1,mm,mm,sagittal_section_caliper,none,16,Table 1; Text: Results,4; 6,fits
+kunkel2011,Vertebral body height anterior (VBHA),h_ant,1,mm,mm,lateral_contact_radiograph,none,26,Table 2,5,fits
+kunkel2011,Vertebral body height posterior (VBHP),h_post,1,mm,mm,lateral_contact_radiograph,close,26,Table 2,5,fits
+kunkel2011,Relative disc height index (I1),disc_index,1,not printed,ratio,indices_and_regressions_on_level_means,none,12,Table 3,5,fits
+kunkel2011,Disc : vertebral body height ratio,disc_index,1,not printed,ratio,indices_and_regressions_on_level_means,none,12,Table 3,5,fits
+kunkel2011,Disc convexity index (I2),disc_index,1,not printed,ratio,indices_and_regressions_on_level_means,none,12,Table 3,5,fits
+kunkel2011,% MDH to average disc height,disc_index,1,%,%,indices_and_regressions_on_level_means,none,12,Table 3,5,fits
+kunkel2011,Disc antero-posterior wedging index (I3),disc_index,1,not printed,ratio,indices_and_regressions_on_level_means,none,12,Table 3,5,fits
+kunkel2011,Disc : body height ratio,disc_index,1,not printed,ratio,indices_and_regressions_on_level_means,none,6,Figure 3; Text: Discussion; Text: Results,6; 10,fits
+kunkel2011,Disc convexity (% MDH to average disc height),disc_index,0.01,%,ratio,indices_and_regressions_on_level_means,none,3,Figure 3,6,flag
+kunkel2011,Radiographic ADH shorter than anatomical,disc_h_ant,1,%,%,lateral_contact_radiograph,none,2,Text: Abstract; Text: Results,1; 6,fits
+kunkel2011,Radiographic PDH shorter than anatomical,disc_h_post,1,%,%,lateral_contact_radiograph,none,2,Text: Abstract; Text: Results,1; 6,fits
+kunkel2011,Disc thickness,disc_h_ant,1,mm,mm,sagittal_section_caliper,none,2,Text: Abstract,1,fits
+kunkel2011,MDH greater than average disc height,disc_index,1,%,%,indices_and_regressions_on_level_means,none,1,Text: Abstract,1,fits
+kunkel2011,Increase in anatomical PDH,disc_index,1,%,%,indices_and_regressions_on_level_means,none,1,Text: Results,6,flag
+kunkel2011,MDH higher than average disc height,disc_index,1,%,%,indices_and_regressions_on_level_means,none,1,Text: Results,6,fits
+kunkel2011,MDH as percent of average disc height,disc_index,1,%,%,indices_and_regressions_on_level_means,none,1,Text: Results,6,fits
+kunkel2011,ADH greater than PDH,disc_index,1,%,%,indices_and_regressions_on_level_means,none,1,Text: Results,6,fits
+kunkel2011,Difference between ADH and PDH,disc_index,0.01,%,ratio,indices_and_regressions_on_level_means,none,1,Text: Results,6,flag
+lien2007,Pedicle width,pedicle_w,1,mm,mm,dry_caliper,close,68,Table 1,4,fits
+lien2007,Pedicle height,pedicle_h,1,mm,mm,dry_caliper,close,70,Table 1; Text: Results,4,fits
+lien2007,Transverse angle,pedicle_incl_sag,1,deg,deg,dry_goniometer,close,70,Table 2; Text: Results,4,fits
+lien2007,Sagittal angle,pedicle_incl_trans,1,deg,deg,dry_goniometer,close,70,Table 2; Text: Results,4; 5,fits
+lien2007,Pedicle width (widest),pedicle_w,1,mm,mm,dry_caliper,close,1,Text: Results,4,fits
+lien2007,Pedicle width (narrowest),pedicle_w,1,mm,mm,dry_caliper,close,2,Text: Results,4,fits
+lien2007,Pedicle height (largest),pedicle_h,1,mm,mm,dry_caliper,close,2,Text: Results,4,fits
+lien2007,Pedicle height (smallest),pedicle_h,1,mm,mm,dry_caliper,close,1,Text: Results,4,fits
+makino2012,Transverse pedicle width (TPW),pedicle_w_inner,1,mm,mm,tpw_axial_mpr,none,10,Table 1,3,fits
+makino2012,Sagittal pedicle width (SPW),pedicle_h_inner,1,mm,mm,spw_sagittal_mpr,none,10,Table 1,3,fits
+makino2012,Pedicles with TPW of 8 mm or more,pedicle_w_inner,1,count,count,tpw_axial_mpr,none,2,Text: Discussion,4,fits
+makino2012,Lumbar scoliosis angle (exclusion threshold),alignment,1,deg,deg,none,none,1,Text: Materials and methods,2,fits
+masharawi2021,"Transverse facet angle (TFA), example image",facet_angle_axial,1,deg,deg,ct_axial_2d,none,2,Figure 1,3,flag
+masharawi2021,"Vertebral canal length (VCL), example image",canal_ap,10,cm,mm,ct_axial_2d,same,1,Figure 1,3,fits
+masharawi2021,"Vertebral canal width (VCW), example image",canal_w,10,cm,mm,ct_axial_2d,same,1,Figure 1,3,fits
+masharawi2021,"Facet width (FW), example image",facet_w_sup,10,cm,mm,ct_axial_2d,close,2,Figure 1,3,flag
+masharawi2021,"Vertebral foramen height (VFH), example image",foramen_h,10,cm,mm,ct_parasagittal_2d,none,1,Figure 1,3,fits
+masharawi2021,"Pedicle height (PH), example image",pedicle_h,1,mm,mm,ct_parasagittal_2d,close,1,Figure 1,3,fits
+masharawi2021,"Facet width, Left Width (FW)",facet_w_sup,1,mm,mm,ct_axial_2d,close,40,Table 2,6,flag
+masharawi2021,"Facet width, Right Width (FW)",facet_w_sup,1,mm,mm,ct_axial_2d,close,40,Table 2,6,flag
+masharawi2021,Left Transverse facet angle (TFA),facet_angle_axial,1,deg,deg,ct_axial_2d,none,40,Table 2,6,flag
+masharawi2021,Right Transverse facet angle (TFA),facet_angle_axial,1,deg,deg,ct_axial_2d,none,40,Table 2,6,flag
+masharawi2021,Vertebral canal length (VCL),canal_ap,1,mm,mm,ct_axial_2d,same,40,Table 4,9,fits
+masharawi2021,Vertebral canal width (VCW),canal_w,1,mm,mm,ct_axial_2d,same,40,Table 4,9,fits
+masharawi2021,Vertebral foramen height (VFH),foramen_h,1,mm,mm,ct_parasagittal_2d,none,40,Table 4,9,fits
+masharawi2021,"Pedicle height, Left height (PH)",pedicle_h,1,mm,mm,ct_parasagittal_2d,close,40,Table 5,11,fits
+masharawi2021,"Pedicle height, Right height (PH)",pedicle_h,1,mm,mm,ct_parasagittal_2d,close,40,Table 5,11,fits
+masharawi2021,"Pedicle length, Left Length (PL)",pedicle_length,1,mm,mm,ct_axial_2d,none,40,Table 5,11,fits
+masharawi2021,"Pedicle length, Right Length (PL)",pedicle_length,1,mm,mm,ct_axial_2d,none,40,Table 5,11,fits
+masharawi2021,"Pedicle width, Left Width (PW)",pedicle_w,1,mm,mm,ct_axial_2d,close,40,Table 5,11,fits
+masharawi2021,"Pedicle width, Right Width (PW)",pedicle_w,1,mm,mm,ct_axial_2d,close,40,Table 5,11,fits
+masharawi2021,Pedicle width (PW),pedicle_w,1,mm,mm,ct_axial_2d,close,5,Table 6,12,fits
+masharawi2021,Pedicle height (PH),pedicle_h,1,mm,mm,ct_parasagittal_2d,close,5,Table 6,12,fits
+masharawi2021,"Intervertebral foramen height, difference DS shorter than control (Delta range)",foramen_h,1,mm,mm,ct_parasagittal_2d,none,2,Text: Abstract,1,fits
+masharawi2021,"Facet width, difference DS wider than control (Delta)",facet_w_sup,1,mm,mm,ct_axial_2d,close,2,Text: Abstract,1,flag
+masharawi2021,"Facet orientation, DS more sagittal than control (Delta)",facet_angle_axial,1,deg,deg,ct_axial_2d,none,1,Text: Abstract,1,flag
+masharawi2021,"Facet width, increase L1 to L5 (Delta L1-L5)",facet_w_sup,1,mm,mm,ct_axial_2d,close,1,Text: Results,4,flag
+masharawi2021,"Transverse facet angle, decrease L1 to L2",facet_angle_axial,1,deg,deg,ct_axial_2d,none,1,Text: Results,4,flag
+masharawi2021,"Transverse facet angle, increase L2 to L5 (Delta L2-L5)",facet_angle_axial,1,deg,deg,ct_axial_2d,none,2,Text: Results,4,flag
+masharawi2021,"Facet width, DS narrower than control (Delta)",facet_w_sup,1,mm,mm,ct_axial_2d,close,1,Text: Results,4,flag
+masharawi2021,"Facet width, DS wider than control (Delta)",facet_w_sup,1,mm,mm,ct_axial_2d,close,3,Text: Results,4; 5,flag
+masharawi2021,"Facet angle and inter-facet angle, DS more sagittal than control (Delta)",facet_angle_axial,1,deg,deg,ct_axial_2d,none,1,Text: Results,5,flag
+masharawi2021,"Intervertebral foramen height, decrease towards L5-S1",foramen_h,1,mm,mm,ct_parasagittal_2d,none,1,Text: Results,5,fits
+masharawi2021,"Superior vertebral canal width, increase towards L5",canal_w,1,mm,mm,ct_axial_2d,same,1,Text: Results,5,fits
+masharawi2021,"Superior vertebral canal length, decrease L1 towards L3",canal_ap,1,mm,mm,ct_axial_2d,same,1,Text: Results,5,fits
+masharawi2021,"Intervertebral foramen height, DS shorter than control (Delta range)",foramen_h,1,mm,mm,ct_parasagittal_2d,none,2,Text: Results,5,fits
+masharawi2021,"Pedicle height, decrease L1 to L2",pedicle_h,1,mm,mm,ct_parasagittal_2d,close,1,Text: Results,5,fits
+masharawi2021,"Pedicle height, decrease along the lumbar spine",pedicle_h,1,mm,mm,ct_parasagittal_2d,close,2,Text: Results,5,fits
+masharawi2021,"Pedicle length, decrease along the lumbar spine",pedicle_length,1,mm,mm,ct_axial_2d,none,1,Text: Results,5,fits
+masharawi2021,"Pedicle width, increase L3 to L5",pedicle_w,1,mm,mm,ct_axial_2d,close,1,Text: Results,5,fits
+masharawi2021,"Pedicle width, DS smaller than control (Delta)",pedicle_w,1,mm,mm,ct_axial_2d,close,2,Text: Results,7,fits
+masharawi2021,"Pedicle length, DS greater than control (Delta)",pedicle_length,1,mm,mm,ct_axial_2d,none,5,Text: Results,7,fits
+masharawi2021,"Pedicle height, DS greater than control (Delta)",pedicle_h,1,mm,mm,ct_parasagittal_2d,close,3,Text: Results,7,fits
+masharawi2021,"Pedicle width, DS greater than control (Delta)",pedicle_w,1,mm,mm,ct_axial_2d,close,1,Text: Results,7,fits
+mitra2002,Transverse diameter (TD),pedicle_w,1,not printed,mm,direct_sectioned,close,10,Table 1,3,fits
+mitra2002,Transverse diameter (TD),pedicle_w,1,not printed,mm,ct_axial_midpedicle,close,10,Table 1,3,fits
+mitra2002,Transverse angle (TA),pedicle_incl_sag,1,not printed,deg,direct_sectioned,close,10,Table 1,3,fits
+mitra2002,Transverse angle (TA),pedicle_incl_sag,1,not printed,deg,ct_axial_midpedicle,close,10,Table 1,3,fits
+mitra2002,Chord length (CL),pedicle_chord,1,not printed,mm,direct_sectioned,none,10,Table 1,3,fits
+mitra2002,Chord length (CL),pedicle_chord,1,not printed,mm,ct_axial_midpedicle,none,10,Table 1,3,fits
+mitra2002,Sagittal diameter (SD),pedicle_h,1,not printed,mm,direct_intact_column,close,10,Table 2,3,fits
+mitra2002,Sagittal diameter (SD),pedicle_h,1,not printed,mm,specimen_roentgenogram,close,10,Table 2,3,fits
+mitra2002,Sagittal angle (SA),pedicle_incl_trans,1,not printed,deg,direct_intact_column,differs,10,Table 2,3,fits
+mitra2002,Sagittal angle (SA),pedicle_incl_trans,1,not printed,deg,specimen_roentgenogram,differs,10,Table 2,3,fits
+mitra2002,Lateral cortical thickness,pedicle_cortex,1,not printed,mm,ct_axial_midpedicle,none,5,Table 2,3,fits
+mitra2002,Medial cortical thickness,pedicle_cortex,1,not printed,mm,ct_axial_midpedicle,none,5,Table 2,3,fits
+mitra2002,Transverse angle,pedicle_incl_sag,1,deg,deg,direct_sectioned,close,5,Text: Abstract; Text: Discussion; Text: Results,1; 2; 4,fits
+mitra2002,Chord length,pedicle_chord,1,mm,mm,direct_sectioned,none,2,Text: Abstract,1,fits
+mitra2002,Sagittal diameter,pedicle_h,1,mm,mm,direct_intact_column,close,2,Text: Results,2,fits
+mitra2002,Sagittal angle,pedicle_incl_trans,1,deg,deg,direct_intact_column,differs,4,Text: Results,2,fits
+mitra2002,Transverse diameter,pedicle_w,1,mm,mm,direct_sectioned,close,6,Text: Abstract; Text: Discussion; Text: Results,1; 2; 5,fits
+mitra2002,Transverse diameter,pedicle_w,1,cm,mm,direct_sectioned,close,1,Text: Results,2,fits
+mitra2002,Transverse diameter,pedicle_w,1,cm,mm,ct_axial_midpedicle,close,2,Text: Results,4,fits
+mitra2002,Sagittal angle,pedicle_incl_trans,1,deg,deg,specimen_roentgenogram,differs,5,Text: Discussion; Text: Results,4; 6,fits
+mitra2002,Transverse angle (pedicle axis obliquity),pedicle_incl_sag,1,deg,deg,direct_sectioned,close,1,Text: Discussion,6,fits
+mitra2002,Chord length,pedicle_chord,1,cm,mm,direct_sectioned,none,1,Text: Results,3,fits
+moncadahabib2025,Anterior vertebral body height (AH),h_ant,0.1,not printed,mm,ct_mpr_pacs_calipers,none,24,Table 1; Table 3,4; 6,fits
+moncadahabib2025,Vertebral body length (CL),body_d,0.1,not printed,mm,ct_mpr_pacs_calipers,none,24,Table 1; Table 3,4; 6,fits
+moncadahabib2025,Vertebral body width (CW),body_w,0.1,not printed,mm,ct_mpr_pacs_calipers,none,24,Table 1; Table 3,4; 6,fits
+moncadahabib2025,Posterior vertebral body height (PH),h_post,0.1,not printed,mm,ct_mpr_pacs_calipers,close,24,Table 1; Table 3,4; 6,fits
+moncadahabib2025,Left pedicle transverse angle (LPA),pedicle_incl_sag,1,not printed,deg,ct_mpr_pacs_calipers,close,24,Table 2; Table 3,5; 6,fits
+moncadahabib2025,Left pedicle height (LPH),pedicle_h,1,not printed,mm,ct_mpr_pacs_calipers,close,24,Table 2; Table 3,5; 6,fits
+moncadahabib2025,Left pedicle length (LPL),pedicle_chord,1,not printed,mm,ct_mpr_pacs_calipers,none,24,Table 2; Table 3,5; 6,fits
+moncadahabib2025,Left pedicle width (LPW),pedicle_w,1,not printed,mm,ct_mpr_pacs_calipers,close,24,Table 2; Table 3,5; 6,fits
+moncadahabib2025,Right pedicle transverse angle (RPA),pedicle_incl_sag,1,not printed,deg,ct_mpr_pacs_calipers,close,24,Table 2; Table 3,5; 6,fits
+moncadahabib2025,Right pedicle height (RPH),pedicle_h,1,not printed,mm,ct_mpr_pacs_calipers,close,24,Table 2; Table 3,5; 6,fits
+moncadahabib2025,Right pedicle length (RPL),pedicle_chord,1,not printed,mm,ct_mpr_pacs_calipers,none,24,Table 2; Table 3,5; 6,fits
+moncadahabib2025,Right pedicle width (RPW),pedicle_w,1,not printed,mm,ct_mpr_pacs_calipers,close,24,Table 2; Table 3,5; 6,fits
+moncadahabib2025,Right pedicle height (RPH),pedicle_h,1,not printed,not printed,ct_mpr_pacs_calipers,close,3,Table 3; Table 4,6,fits
+moncadahabib2025,Right pedicle width (RPW),pedicle_w,1,not printed,not printed,ct_mpr_pacs_calipers,close,3,Table 3; Table 4,6,fits
+moncadahabib2025,Right pedicle length (RPL),pedicle_chord,1,not printed,not printed,ct_mpr_pacs_calipers,none,3,Table 3; Table 4,6,fits
+moncadahabib2025,Right pedicle transverse angle (RPA),pedicle_incl_sag,1,not printed,not printed,ct_mpr_pacs_calipers,close,3,Table 3; Table 4,6,fits
+moncadahabib2025,Left pedicle height (LPH),pedicle_h,1,not printed,not printed,ct_mpr_pacs_calipers,close,3,Table 3; Table 4,6,fits
+moncadahabib2025,Left pedicle width (LPW),pedicle_w,1,not printed,not printed,ct_mpr_pacs_calipers,close,3,Table 3; Table 4,6,fits
+moncadahabib2025,Left pedicle length (LPL),pedicle_chord,1,not printed,not printed,ct_mpr_pacs_calipers,none,3,Table 3; Table 4,6,fits
+moncadahabib2025,Left pedicle transverse angle (LPA),pedicle_incl_sag,1,not printed,not printed,ct_mpr_pacs_calipers,close,3,Table 3; Table 4,6,fits
+moncadahabib2025,Vertebral body length (CL),body_d,1,not printed,not printed,ct_mpr_pacs_calipers,none,1,Table 3,6,fits
+moncadahabib2025,Vertebral body width (CW),body_w,1,not printed,not printed,ct_mpr_pacs_calipers,none,1,Table 3,6,fits
+moncadahabib2025,Anterior vertebral body height (AH),h_ant,1,not printed,not printed,ct_mpr_pacs_calipers,none,1,Table 3,6,fits
+moncadahabib2025,Posterior vertebral body height (PH),h_post,1,not printed,not printed,ct_mpr_pacs_calipers,close,1,Table 3,6,fits
+moncadahabib2025,Transverse pedicle angle,pedicle_incl_sag,1,deg,deg,ct_mpr_pacs_calipers,close,5,Figure 1; Text: Results,2; 4,fits
+moncadahabib2025,Pedicle width,pedicle_w,1,mm,mm,ct_mpr_pacs_calipers,close,2,Figure 1,2,fits
+moncadahabib2025,Pedicle height (as the legend names it),pedicle_length,1,mm,mm,ct_mpr_pacs_calipers,none,1,Figure 1,2,flag
+moncadahabib2025,Pedicle length (as the legend names it),body_d,1,mm,mm,ct_mpr_pacs_calipers,none,1,Figure 1,2,flag
+moncadahabib2025,Vertebral body width,body_w,1,mm,mm,ct_mpr_pacs_calipers,none,4,Figure 1,2,fits
+moncadahabib2025,Sagittal pedicle angle,pedicle_incl_trans,1,deg,deg,ct_mpr_pacs_calipers,differs,2,Figure 1,2,flag
+moncadahabib2025,Vertebral body height,h_mid,1,mm,mm,ct_mpr_pacs_calipers,none,2,Figure 1,2,fits
+moncadahabib2025,Pedicle height,pedicle_length,1,mm,mm,ct_mpr_pacs_calipers,none,1,Figure 1,2,flag
+moncadahabib2025,Pedicle length,body_d,1,mm,mm,ct_mpr_pacs_calipers,none,1,Figure 1,2,flag
+moncadahabib2025,Anterior vertebral body height (AH),h_ant,1,mm,mm,ct_mpr_pacs_calipers,none,2,Text: Results,3,fits
+moncadahabib2025,Vertebral body length (CL),body_d,1,mm,mm,ct_mpr_pacs_calipers,none,2,Text: Results,3,fits
+moncadahabib2025,Vertebral body width (CW),body_w,1,mm,mm,ct_mpr_pacs_calipers,none,2,Text: Results,3,fits
+moncadahabib2025,Posterior vertebral body height (PH),h_post,1,mm,mm,ct_mpr_pacs_calipers,close,2,Text: Results,3,fits
+moncadahabib2025,Pedicle height (PH),pedicle_h,1,mm,mm,ct_mpr_pacs_calipers,close,3,Text: Results,4,fits
+moncadahabib2025,Pedicle length (PL),pedicle_chord,1,mm,mm,ct_mpr_pacs_calipers,none,4,Text: Results,4,fits
+moncadahabib2025,Pedicle width (PW),pedicle_w,1,mm,mm,ct_mpr_pacs_calipers,close,4,Text: Results,4,fits
+moncadahabib2025,Right pedicle width (PW),pedicle_w,1,mm,mm,ct_mpr_pacs_calipers,close,2,Text: Results,5,fits
+moncadahabib2025,Right pedicle length (PL),pedicle_chord,1,mm,mm,ct_mpr_pacs_calipers,none,2,Text: Results,5,fits
+moncadahabib2025,Left pedicle width (PW),pedicle_w,1,mm,mm,ct_mpr_pacs_calipers,close,2,Text: Results,5,fits
+moncadahabib2025,Left pedicle length (PL),pedicle_chord,1,mm,mm,ct_mpr_pacs_calipers,none,2,Text: Results,5,fits
+moncadahabib2025,Right pedicle height,pedicle_h,1,not printed,not printed,ct_mpr_pacs_calipers,close,1,Text: Results,6,fits
+moncadahabib2025,Left pedicle height,pedicle_h,1,not printed,not printed,ct_mpr_pacs_calipers,close,1,Text: Results,6,fits
+moncadahabib2025,Right pedicle transverse angle,pedicle_incl_sag,1,not printed,not printed,ct_mpr_pacs_calipers,close,1,Text: Results,6,fits
+moncadahabib2025,Left pedicle transverse angle,pedicle_incl_sag,1,not printed,not printed,ct_mpr_pacs_calipers,close,1,Text: Results,6,fits
+olsewski1990,Transverse diameter,pedicle_w,1,mm,mm,direct_caliper_microscope,close,30,Table I; Table II,4,fits
+olsewski1990,Transverse diameter,pedicle_w,1,count,count,direct_caliper_microscope,close,15,Table I; Table II,4,fits
+olsewski1990,Sagittal diameter,pedicle_h,1,mm,mm,direct_caliper_microscope,close,30,Table I; Table II,4,fits
+olsewski1990,Sagittal diameter,pedicle_h,1,count,count,direct_caliper_microscope,close,15,Table I; Table II,4,fits
+olsewski1990,Transverse angle,pedicle_incl_sag,1,deg,deg,direct_caliper_microscope,close,32,Table I; Table II; Text: Results,4; 5,fits
+olsewski1990,Transverse angle,pedicle_incl_sag,1,count,count,direct_caliper_microscope,close,15,Table I; Table II,4,fits
+olsewski1990,Posterior-to-anterior distance,pedicle_chord,1,mm,mm,direct_caliper_microscope,none,34,Table I; Table II; Text: Results,4; 5,fits
+olsewski1990,Posterior-to-anterior distance,pedicle_chord,1,count,count,direct_caliper_microscope,none,15,Table I; Table II,4,fits
+olsewski1990,Sagittal angle,pedicle_incl_trans,1,deg,deg,direct_caliper_microscope,differs,46,Table I; Table II; Text: Results,4; 5,fits
+olsewski1990,Sagittal angle,pedicle_incl_trans,1,count,count,direct_caliper_microscope,differs,18,Table I; Table II,4,fits
+olsewski1990,Sagittal angle,pedicle_incl_trans,-1,deg,deg,direct_caliper_microscope,differs,1,Table I,4,fits
+olsewski1990,Transverse diameter,pedicle_w,1,mm,mm,cadaver_ap_radiograph,close,10,Table II,4,fits
+olsewski1990,Transverse diameter,pedicle_w,1,count,count,cadaver_ap_radiograph,close,5,Table II,4,fits
+olsewski1990,Sagittal diameter,pedicle_h,1,mm,mm,cadaver_ap_radiograph,close,10,Table II,4,fits
+olsewski1990,Sagittal diameter,pedicle_h,1,count,count,cadaver_ap_radiograph,close,5,Table II,4,fits
+olsewski1990,Transverse angle,pedicle_incl_sag,1,deg,deg,cadaver_transverse_radiograph,close,10,Table II,4,fits
+olsewski1990,Transverse angle,pedicle_incl_sag,1,count,count,cadaver_transverse_radiograph,close,5,Table II,4,fits
+olsewski1990,Posterior-to-anterior distance,pedicle_chord,1,mm,mm,cadaver_transverse_radiograph,none,10,Table II,4,fits
+olsewski1990,Posterior-to-anterior distance,pedicle_chord,1,count,count,cadaver_transverse_radiograph,none,5,Table II,4,fits
+olsewski1990,Sagittal angle,pedicle_incl_trans,1,deg,deg,cadaver_lateral_radiograph,differs,16,Table II; Text: Results,4; 5,fits
+olsewski1990,Sagittal angle,pedicle_incl_trans,1,count,count,cadaver_lateral_radiograph,differs,6,Table II,4,fits
+olsewski1990,Transverse diameter,pedicle_w,1,mm,mm,patient_ap_radiograph,close,20,Table III,5,fits
+olsewski1990,Transverse diameter,pedicle_w,1,count,count,patient_ap_radiograph,close,10,Table III,5,fits
+olsewski1990,Sagittal diameter,pedicle_h,1,mm,mm,patient_ap_radiograph,close,20,Table III,5,fits
+olsewski1990,Sagittal diameter,pedicle_h,1,count,count,patient_ap_radiograph,close,10,Table III,5,fits
+olsewski1990,Transverse angle,pedicle_incl_sag,1,deg,deg,patient_ct,close,18,Table III,5,fits
+olsewski1990,Transverse angle,pedicle_incl_sag,1,count,count,patient_ct,close,8,Table III,5,fits
+olsewski1990,Sagittal angle,pedicle_incl_trans,1,deg,deg,patient_lateral_radiograph,differs,24,Table III; Text: Results,5; 6,fits
+olsewski1990,Sagittal angle,pedicle_incl_trans,1,count,count,patient_lateral_radiograph,differs,10,Table III,5,fits
+olsewski1990,Posterior-to-anterior distance,pedicle_chord,1,mm,mm,patient_ct,none,18,Table III,5,fits
+olsewski1990,Posterior-to-anterior distance,pedicle_chord,1,count,count,patient_ct,none,8,Table III,5,fits
+olsewski1990,"Sagittal angle, cephalad mean",pedicle_incl_trans,1,deg,deg,direct_caliper_microscope,differs,4,Text: Results,5,flag
+olsewski1990,"Sagittal angle, caudad mean",pedicle_incl_trans,1,deg,deg,direct_caliper_microscope,differs,2,Text: Results,5,flag
+olsewski1990,"Sagittal angle, cephalad mean",pedicle_incl_trans,1,deg,deg,patient_lateral_radiograph,differs,2,Text: Results,6,flag
+otsuki2021,Transverse diameter (minor axis of isthmus),pedicle_w,1,mm,mm,microct_isthmus_dimensions,close,12,Table 2,6,fits
+otsuki2021,Transverse diameter (minor axis of isthmus),pedicle_w,1,not printed,not printed,microct_isthmus_dimensions,close,3,Table 2,6,fits
+otsuki2021,Longitudinal diameter (major axis of isthmus),pedicle_h,1,mm,mm,microct_isthmus_dimensions,close,12,Table 2,6,flag
+otsuki2021,Longitudinal diameter (major axis of isthmus),pedicle_h,1,not printed,not printed,microct_isthmus_dimensions,close,5,Table 2,6,flag
+otsuki2021,Medial wall thickness,pedicle_cortex,1,mm,mm,microct_isthmus_dimensions,none,12,Table 2,6,fits
+otsuki2021,Lateral wall thickness,pedicle_cortex,1,mm,mm,microct_isthmus_dimensions,none,12,Table 2,6,fits
+otsuki2021,Lateral wall thickness,pedicle_cortex,1,not printed,not printed,microct_isthmus_dimensions,none,3,Table 2,6,fits
+otsuki2021,Cranial wall thickness,pedicle_cortex,1,mm,mm,microct_isthmus_dimensions,none,12,Table 2,6,fits
+otsuki2021,Cranial wall thickness,pedicle_cortex,1,not printed,not printed,microct_isthmus_dimensions,none,9,Table 2,6,fits
+otsuki2021,Caudal wall thickness,pedicle_cortex,1,mm,mm,microct_isthmus_dimensions,none,12,Table 2,6,fits
+otsuki2021,Caudal wall thickness,pedicle_cortex,1,not printed,not printed,microct_isthmus_dimensions,none,6,Table 2,6,fits
+otsuki2021,Whole cross section area of isthmus,pedicle_area,1,mm2,mm2,microct_isthmus_dimensions,close,12,Table 2,6,fits
+otsuki2021,Whole cross section area of isthmus,pedicle_area,1,not printed,not printed,microct_isthmus_dimensions,close,5,Table 2,6,fits
+robertson2000,Height,pedicle_h,1,mm,mm,coaxial_radiograph_wire,close,20,Table 1,3,fits
+robertson2000,Width,pedicle_w,1,mm,mm,coaxial_radiograph_wire,close,20,Table 1,3,flag
+robertson2000,Offset of S1 medial radiologic cortical image lateral to (inside) the wire,sacrum,1,mm,mm,s1_oblique_pa_wire,none,2,Text: Results,4,fits
+robertson2000,Pedicle height,pedicle_h,1,mm,mm,coaxial_radiograph_wire,close,1,Text: Discussion,5,fits
+robertson2000,Pedicle width,pedicle_w,1,mm,mm,coaxial_radiograph_wire,close,1,Text: Discussion,5,flag
+shin2024,Anterior disc space height (DSH),disc_h_ant,1,mm,mm,ct_sagittal_dsh,none,73,Table 2; Table 4; Table 5; Text: Abstract; Text: Discussion; Text: Results,1; 3; 4; 5,fits
+shin2024,Middle disc space height (DSH),disc_h_mid,1,mm,mm,ct_sagittal_dsh,none,72,Table 2; Table 4; Table 5; Text: Abstract; Text: Results,1; 3; 4,fits
+shin2024,Posterior disc space height (DSH),disc_h_post,1,mm,mm,ct_sagittal_dsh,none,72,Table 2; Table 4; Table 5; Text: Abstract; Text: Results,1; 3; 4,fits
+shin2024,Anterior disc space height (DSH),disc_h_ant,1,not printed,mm,ct_sagittal_dsh,none,30,Table 3,4,fits
+shin2024,Anterior disc space height (DSH),disc_h_ant,1,not printed,not printed,ct_sagittal_dsh,none,20,Table 3; Table 4; Table 5,4,fits
+shin2024,Middle disc space height (DSH),disc_h_mid,1,not printed,mm,ct_sagittal_dsh,none,30,Table 3,4,fits
+shin2024,Middle disc space height (DSH),disc_h_mid,1,not printed,not printed,ct_sagittal_dsh,none,20,Table 3; Table 4; Table 5,4,fits
+shin2024,Posterior disc space height (DSH),disc_h_post,1,not printed,mm,ct_sagittal_dsh,none,30,Table 3,4,fits
+shin2024,Posterior disc space height (DSH),disc_h_post,1,not printed,not printed,ct_sagittal_dsh,none,20,Table 3; Table 4; Table 5,4,fits
+shin2024,Sagittal anterior-to-posterior width (Sagittal AP),foramen_w,1,mm,mm,ct_sagittal_nfd,none,20,Table 6,5,fits
+shin2024,Axial anterior-to-posterior width (Axial AP),foramen_w,1,mm,mm,ct_axial_nfd,none,20,Table 6,5,fits
+shin2024,Neuroforaminal height (NFH),foramen_h,1,mm,mm,ct_sagittal_nfd,none,20,Table 6,5,fits
+shin2024,Neuroforaminal area (Area),foramen_area,1,mm,mm2,ct_sagittal_nfd,none,20,Table 6,5,fits
+shin2024,Anterior DSH with Left Sagittal AP,disc_h_ant,1,not printed,not printed,ct_sagittal_dsh,none,5,Table 7,5,fits
+shin2024,Anterior DSH with Left Axial AP,disc_h_ant,1,not printed,not printed,ct_sagittal_dsh,none,5,Table 7,5,fits
+shin2024,Anterior DSH with Left NFH,disc_h_ant,1,not printed,not printed,ct_sagittal_dsh,none,5,Table 7,5,fits
+shin2024,Anterior DSH with Left Area,disc_h_ant,1,not printed,not printed,ct_sagittal_dsh,none,5,Table 7,5,fits
+shin2024,Anterior DSH with Right Sagittal AP,disc_h_ant,1,not printed,not printed,ct_sagittal_dsh,none,5,Table 7,5,fits
+shin2024,Anterior DSH with Right Axial AP,disc_h_ant,1,not printed,not printed,ct_sagittal_dsh,none,5,Table 7,5,fits
+shin2024,Anterior DSH with Right NFH,disc_h_ant,1,not printed,not printed,ct_sagittal_dsh,none,5,Table 7,5,fits
+shin2024,Anterior DSH with Right Area,disc_h_ant,1,not printed,not printed,ct_sagittal_dsh,none,5,Table 7,5,fits
+shin2024,Anterior DSH with Height,disc_h_ant,1,not printed,not printed,ct_sagittal_dsh,none,5,Table 7,5,fits
+shin2024,Anterior DSH with Weight,disc_h_ant,1,not printed,not printed,ct_sagittal_dsh,none,5,Table 7,5,fits
+shin2024,Anterior DSH with BMI,disc_h_ant,1,not printed,not printed,ct_sagittal_dsh,none,5,Table 7,5,fits
+shin2024,Middle DSH with Left Sagittal AP,disc_h_mid,1,not printed,not printed,ct_sagittal_dsh,none,5,Table 7,5,fits
+shin2024,Middle DSH with Left Axial AP,disc_h_mid,1,not printed,not printed,ct_sagittal_dsh,none,5,Table 7,5,fits
+shin2024,Middle DSH with Left NFH,disc_h_mid,1,not printed,not printed,ct_sagittal_dsh,none,5,Table 7,5,fits
+shin2024,Middle DSH with Left Area,disc_h_mid,1,not printed,not printed,ct_sagittal_dsh,none,5,Table 7,5,fits
+shin2024,Middle DSH with Right Sagittal AP,disc_h_mid,1,not printed,not printed,ct_sagittal_dsh,none,5,Table 7,5,fits
+shin2024,Middle DSH with Right Axial AP,disc_h_mid,1,not printed,not printed,ct_sagittal_dsh,none,5,Table 7,5,fits
+shin2024,Middle DSH with Right NFH,disc_h_mid,1,not printed,not printed,ct_sagittal_dsh,none,5,Table 7,5,fits
+shin2024,Middle DSH with Right Area,disc_h_mid,1,not printed,not printed,ct_sagittal_dsh,none,5,Table 7,5,fits
+shin2024,Middle DSH with Height,disc_h_mid,1,not printed,not printed,ct_sagittal_dsh,none,5,Table 7,5,fits
+shin2024,Middle DSH with Weight,disc_h_mid,1,not printed,not printed,ct_sagittal_dsh,none,5,Table 7,5,fits
+shin2024,Middle DSH with BMI,disc_h_mid,1,not printed,not printed,ct_sagittal_dsh,none,5,Table 7,5,fits
+shin2024,Posterior DSH with Left Sagittal AP,disc_h_post,1,not printed,not printed,ct_sagittal_dsh,none,5,Table 7,5,fits
+shin2024,Posterior DSH with Left Axial AP,disc_h_post,1,not printed,not printed,ct_sagittal_dsh,none,5,Table 7,5,fits
+shin2024,Posterior DSH with Left NFH,disc_h_post,1,not printed,not printed,ct_sagittal_dsh,none,5,Table 7,5,fits
+shin2024,Posterior DSH with Left Area,disc_h_post,1,not printed,not printed,ct_sagittal_dsh,none,5,Table 7,5,fits
+shin2024,Posterior DSH with Right Sagittal AP,disc_h_post,1,not printed,not printed,ct_sagittal_dsh,none,5,Table 7,5,fits
+shin2024,Posterior DSH with Right Axial AP,disc_h_post,1,not printed,not printed,ct_sagittal_dsh,none,5,Table 7,5,fits
+shin2024,Posterior DSH with Right NFH,disc_h_post,1,not printed,not printed,ct_sagittal_dsh,none,5,Table 7,5,fits
+shin2024,Posterior DSH with Right Area,disc_h_post,1,not printed,not printed,ct_sagittal_dsh,none,5,Table 7,5,fits
+shin2024,Posterior DSH with Height,disc_h_post,1,not printed,not printed,ct_sagittal_dsh,none,5,Table 7,5,fits
+shin2024,Posterior DSH with Weight,disc_h_post,1,not printed,not printed,ct_sagittal_dsh,none,5,Table 7,5,fits
+shin2024,Posterior DSH with BMI,disc_h_post,1,not printed,not printed,ct_sagittal_dsh,none,5,Table 7,5,fits
+shin2024,Anterior disc space height (DSH),disc_h_ant,1,count,count,ct_sagittal_dsh,none,2,Text: Abstract; Text: Results,1; 3,fits
+shin2024,Middle disc space height (DSH),disc_h_mid,1,count,count,ct_sagittal_dsh,none,2,Text: Abstract; Text: Results,1; 3,fits
+shin2024,Posterior disc space height (DSH),disc_h_post,1,count,count,ct_sagittal_dsh,none,2,Text: Abstract; Text: Results,1; 3,fits
+tan2004,Upper end-plate width (EPWu),endplate,1,mm,mm,direct_contact_3d_digitiser,same,44,Table 1,4; 5,fits
+tan2004,Lower end-plate width (EPWl),endplate_lower,1,mm,mm,direct_contact_3d_digitiser,same,44,Table 1,4; 5,fits
+tan2004,Upper end-plate depth (EPDu),endplate_depth,1,mm,mm,direct_contact_3d_digitiser,same,44,Table 1,4; 5,fits
+tan2004,Lower end-plate depth (EPDl),endplate_lower_depth,1,mm,mm,direct_contact_3d_digitiser,same,44,Table 1,4; 5,fits
+tan2004,Anterior vertebral body height (VBHa),h_ant,1,mm,mm,direct_contact_3d_digitiser,none,44,Table 1,4; 5,flag
+tan2004,Posterior vertebral body height (VBHp),h_post,1,mm,mm,direct_contact_3d_digitiser,same,44,Table 1,4; 5,fits
+tan2004,Spinal canal width (SCW),canal_w,1,mm,mm,direct_contact_3d_digitiser,same,47,Table 1; Text: Results,4; 5; 6,fits
+tan2004,Spinal canal depth (SCD),canal_ap,1,mm,mm,direct_contact_3d_digitiser,same,46,Table 1; Text: Results,4; 5; 6,flag
+tan2004,"Pedicle height, left (PDHl)",pedicle_h,1,mm,mm,direct_contact_3d_digitiser,same,44,Table 1,4; 5,fits
+tan2004,"Pedicle height, right (PDHr)",pedicle_h,1,mm,mm,direct_contact_3d_digitiser,same,44,Table 1,4; 5,fits
+tan2004,"Pedicle width, left (PDWl)",pedicle_w,1,mm,mm,direct_contact_3d_digitiser,same,44,Table 1,4; 5,fits
+tan2004,"Pedicle width, right (PDWr)",pedicle_w,1,mm,mm,direct_contact_3d_digitiser,same,44,Table 1,4; 5,fits
+tan2004,Pedicle length (PL),pedicle_chord,1,mm,mm,direct_contact_3d_digitiser,none,40,Table 1; Text: Discussion,4; 5; 9,fits
+tan2004,Spinous process length (SPL),spinous_length,1,mm,mm,direct_contact_3d_digitiser,same,44,Table 1,4; 5,flag
+tan2004,Transverse process width (TPW),transverse_width,1,mm,mm,direct_contact_3d_digitiser,same,45,Table 1; Text: Results,4; 5; 6,fits
+tan2004,Upper end-plate area (EPAu),endplate_area,1,mm2,mm2,direct_contact_3d_digitiser,same,45,Table 1; Text: Results,4; 5; 7,fits
+tan2004,Lower end-plate area (EPAl),endplate_lower_area,1,mm2,mm2,direct_contact_3d_digitiser,same,45,Table 1; Text: Results,4; 5; 7,fits
+tan2004,Spinal canal area (SCA),canal_area,1,mm2,mm2,direct_contact_3d_digitiser,same,47,Table 1; Text: Discussion; Text: Results,4; 5; 7; 8,fits
+tan2004,"Pedicle cross-sectional area, left (PDAl)",pedicle_area,1,mm2,mm2,direct_contact_3d_digitiser,same,44,Table 1,4; 5,fits
+tan2004,"Pedicle cross-sectional area, right (PDAr)",pedicle_area,1,mm2,mm2,direct_contact_3d_digitiser,same,44,Table 1,4; 5,fits
+tan2004,Upper end-plate transverse inclination (EPItu),endplate_incl,1,deg,deg,direct_contact_3d_digitiser,same,44,Table 1,4; 5,fits
+tan2004,Lower end-plate transverse inclination (EPItl),endplate_lower_incl,1,deg,deg,direct_contact_3d_digitiser,same,44,Table 1,4; 5,fits
+tan2004,"Pedicle sagittal inclination, left (PDIsl)",pedicle_incl_sag,1,deg,deg,direct_contact_3d_digitiser,close,44,Table 1,4; 5,fits
+tan2004,"Pedicle sagittal inclination, right (PDIsr)",pedicle_incl_sag,1,deg,deg,direct_contact_3d_digitiser,close,44,Table 1,4; 5,fits
+tan2004,"Pedicle transverse inclination, left (PDItl)",pedicle_incl_trans,1,deg,deg,direct_contact_3d_digitiser,same,44,Table 1,4; 5,fits
+tan2004,"Pedicle transverse inclination, right (PDItr)",pedicle_incl_trans,1,deg,deg,direct_contact_3d_digitiser,same,44,Table 1,4; 5,fits
+tan2004,Spinal canal width (SCW),canal_ap,1,mm,mm,direct_contact_3d_digitiser,same,1,Text: Results,6,flag
+tan2004,Pedicle height (PDH),pedicle_h,1,mm,mm,direct_contact_3d_digitiser,same,2,Text: Results,6,fits
+tan2004,Pedicle width (PDW),pedicle_w,1,mm,mm,direct_contact_3d_digitiser,same,1,Text: Results,6,fits
+tan2004,Pedicle sagittal inclination (PDIs),pedicle_incl_sag,1,not printed,deg,direct_contact_3d_digitiser,close,1,Text: Results,7,fits
+tan2004,Pedicle sagittal inclination (PDIs),pedicle_incl_sag,1,deg,deg,direct_contact_3d_digitiser,close,4,Text: Discussion; Text: Results,7; 9,fits
+tan2004,Pedicle transverse inclination (PDIt),pedicle_incl_trans,1,deg,deg,direct_contact_3d_digitiser,same,2,Text: Results,7,fits
+tang2016,"Cross-sectional area, cranial endplate (CSA_CrEP)",endplate_lower_area,1,count,count,mri_t2_oblique_transverse,close,9,Table 4,5,fits
+tang2016,"Cross-sectional area, cranial endplate (CSA_CrEP)",endplate_lower_area,100,cm2,mm2,mri_t2_oblique_transverse,close,36,Table 4,5,fits
+tang2016,"Anteroposterior diameter, cranial endplate (APD_CrEP)",endplate_lower_depth,1,count,count,mri_t2_oblique_transverse,close,9,Table 4,5,fits
+tang2016,"Anteroposterior diameter, cranial endplate (APD_CrEP)",endplate_lower_depth,10,cm,mm,mri_t2_oblique_transverse,close,36,Table 4,5,fits
+tang2016,"Frontal diameter, cranial endplate (FD_CrEP)",endplate_lower,1,count,count,mri_t2_oblique_transverse,close,9,Table 4,5,fits
+tang2016,"Frontal diameter, cranial endplate (FD_CrEP)",endplate_lower,10,cm,mm,mri_t2_oblique_transverse,close,36,Table 4,5,fits
+tang2016,"Anteroposterior diameter, disc (APD_IVD)",disc_d,1,count,count,mri_t2_oblique_transverse,none,9,Table 4,5,fits
+tang2016,"Anteroposterior diameter, disc (APD_IVD)",disc_d,10,cm,mm,mri_t2_oblique_transverse,none,36,Table 4,5,fits
+tang2016,"Frontal diameter, disc (FD_IVD)",disc_w,1,count,count,mri_t2_oblique_transverse,none,9,Table 4,5,fits
+tang2016,"Frontal diameter, disc (FD_IVD)",disc_w,10,cm,mm,mri_t2_oblique_transverse,none,36,Table 4,5,fits
+tang2016,"Cross-sectional area, caudal endplate (CSA_CaEP)",endplate_area,1,count,count,mri_t2_oblique_transverse,close,9,Table 4,5,fits
+tang2016,"Cross-sectional area, caudal endplate (CSA_CaEP)",endplate_area,100,cm2,mm2,mri_t2_oblique_transverse,close,36,Table 4,5,fits
+tang2016,"Anteroposterior diameter, caudal endplate (APD_CaEP)",endplate_depth,1,count,count,mri_t2_oblique_transverse,close,9,Table 4,5,fits
+tang2016,"Anteroposterior diameter, caudal endplate (APD_CaEP)",endplate_depth,10,cm,mm,mri_t2_oblique_transverse,close,36,Table 4,5,fits
+tang2016,"Frontal diameter, caudal endplate (FD_CaEP)",endplate,1,count,count,mri_t2_oblique_transverse,close,9,Table 4,5,fits
+tang2016,"Frontal diameter, caudal endplate (FD_CaEP)",endplate,10,cm,mm,mri_t2_oblique_transverse,close,36,Table 4,5,fits
+twomey1985,Mean antero-posterior diameter of disc,disc_d,1,mm,mm,caliper-intact-disc,none,50,Table 1,1,fits
+twomey1985,True average disc height (area of median section / antero-posterior diameter),disc_h_mean,1,not printed,mm,image-analyser-median-area,none,40,Table 2,2,fits
+twomey1985,True average disc height (area of median section / antero-posterior diameter),disc_h_mean,1,not printed,not printed,image-analyser-median-area,none,6,Table 2,2,fits
+twomey1985,Disc convexity index (mid-disc height / (anterior + posterior disc heights)),disc_index,1,not printed,ratio,caliper-midsagittal-heights,none,20,Table 3,2,fits
+twomey1985,"Disc convexity index, young vs old",disc_index,1,not printed,not printed,caliper-midsagittal-heights,none,1,Table 3,2,fits
+twomey1985,Increase in antero-posterior disc diameter with age,disc_d,1,%,%,caliper-intact-disc,none,2,Text: Results,2,flag
+vanderhouwen2009,"Endplate depth, sagittal plane, point 4 (anterior), inferior endplate",endplate_concavity,-1,mm,mm,ct_mpr_endplate_points,none,6,Figure 2,5,fits
+vanderhouwen2009,"Endplate depth, sagittal plane, point 3 (middle), inferior endplate",endplate_concavity,-1,mm,mm,ct_mpr_endplate_points,none,6,Figure 2,5,fits
+vanderhouwen2009,"Endplate depth, sagittal plane, point 2 (posterior), inferior endplate",endplate_concavity,-1,mm,mm,ct_mpr_endplate_points,none,6,Figure 2,5,fits
+vanderhouwen2009,"Endplate depth, frontal plane, point 7 (right), inferior endplate",endplate_concavity,-1,mm,mm,ct_mpr_endplate_points,none,6,Figure 2,5,fits
+vanderhouwen2009,"Endplate depth, frontal plane, point 8 (middle), inferior endplate",endplate_concavity,-1,mm,mm,ct_mpr_endplate_points,none,6,Figure 2,5,fits
+vanderhouwen2009,"Endplate depth, frontal plane, point 9 (left), inferior endplate",endplate_concavity,-1,mm,mm,ct_mpr_endplate_points,none,6,Figure 2,5,fits
+vanderhouwen2009,"Endplate sagittal diameter, rim to rim (points 1 to 5), inferior endplate",endplate_lower_depth,1,mm,mm,ct_mpr_endplate_points,differs,6,Figure 2,5,fits
+vanderhouwen2009,"Endplate transverse diameter, rim to rim (points 6 to 10), inferior endplate",endplate_lower,1,mm,mm,ct_mpr_endplate_points,differs,6,Figure 2,5,fits
+vanderhouwen2009,"Endplate depth, sagittal plane, point 4 (anterior), superior endplate",endplate_concavity,1,mm,mm,ct_mpr_endplate_points,none,6,Figure 2,5,fits
+vanderhouwen2009,"Endplate depth, sagittal plane, point 3 (middle), superior endplate",endplate_concavity,1,mm,mm,ct_mpr_endplate_points,none,6,Figure 2,5,fits
+vanderhouwen2009,"Endplate depth, sagittal plane, point 2 (posterior), superior endplate",endplate_concavity,1,mm,mm,ct_mpr_endplate_points,none,6,Figure 2,5,fits
+vanderhouwen2009,"Endplate depth, frontal plane, point 7 (right), superior endplate",endplate_concavity,1,mm,mm,ct_mpr_endplate_points,none,6,Figure 2,5,fits
+vanderhouwen2009,"Endplate depth, frontal plane, point 8 (middle), superior endplate",endplate_concavity,1,mm,mm,ct_mpr_endplate_points,none,6,Figure 2,5,fits
+vanderhouwen2009,"Endplate depth, frontal plane, point 9 (left), superior endplate",endplate_concavity,1,mm,mm,ct_mpr_endplate_points,none,6,Figure 2,5,fits
+vanderhouwen2009,"Endplate sagittal diameter, rim to rim (points 1 to 5), superior endplate",endplate_depth,1,mm,mm,ct_mpr_endplate_points,differs,6,Figure 2,5,fits
+vanderhouwen2009,"Endplate transverse diameter, rim to rim (points 6 to 10), superior endplate",endplate,1,mm,mm,ct_mpr_endplate_points,differs,6,Figure 2,5,fits
+vanderhouwen2009,"Median endplate depth, inferior endplate",endplate_lower_depth,1,mm,mm,ct_mpr_endplate_points,differs,12,Table 2,7,fits
+vanderhouwen2009,"Median endplate depth, inferior endplate",endplate_lower_depth,1,not printed,not printed,ct_mpr_endplate_points,differs,6,Table 2,7,fits
+vanderhouwen2009,"Median endplate width, inferior endplate",endplate_lower,1,mm,mm,ct_mpr_endplate_points,differs,12,Table 2,7,fits
+vanderhouwen2009,"Median endplate width, inferior endplate",endplate_lower,1,not printed,not printed,ct_mpr_endplate_points,differs,6,Table 2,7,fits
+vanderhouwen2009,"Median endplate depth, superior endplate",endplate_depth,1,mm,mm,ct_mpr_endplate_points,differs,12,Table 2,7,fits
+vanderhouwen2009,"Median endplate depth, superior endplate",endplate_depth,1,not printed,not printed,ct_mpr_endplate_points,differs,6,Table 2,7,fits
+vanderhouwen2009,"Median endplate width, superior endplate",endplate,1,mm,mm,ct_mpr_endplate_points,differs,12,Table 2,7,fits
+vanderhouwen2009,"Median endplate width, superior endplate",endplate,1,not printed,not printed,ct_mpr_endplate_points,differs,6,Table 2,7,fits
+vanderhouwen2009,"Individual endplate depth, largest (middle, inferior endplate)",endplate_concavity,1,mm,mm,ct_mpr_endplate_points,none,1,Text: Results,4,fits
+vanderhouwen2009,"Individual endplate depth, smallest (anterior, superior endplate)",endplate_concavity,1,mm,mm,ct_mpr_endplate_points,none,1,Text: Results,4,fits
+vanderhouwen2009,"Endplate sagittal diameter, about constant across endplates",endplate_depth,1,mm,mm,ct_mpr_endplate_points,differs,2,Text: Results,6,fits
+vanderhouwen2009,"Endplate sagittal diameter, smallest (inferior endplate)",endplate_lower_depth,1,mm,mm,ct_mpr_endplate_points,differs,1,Text: Discussion,6,fits
+vanderhouwen2009,"Endplate sagittal diameter, largest (inferior endplate)",endplate_lower_depth,1,mm,mm,ct_mpr_endplate_points,differs,1,Text: Discussion,6,fits
+yadav2020,Spinal canal depth (SCD),canal_ap,1,mm,mm,yadav-ct-axial-fig1,same,28,Table 2,3,fits
+yadav2020,Lateral recess diameter (LRD),lateral_recess,1,mm,mm,yadav-ct-axial-fig1,none,56,Table 2,3,fits
+yadav2020,Intervertebral foramen diameter (IVFD),foramen_w,1,mm,mm,yadav-ct-undefined,none,56,Table 2,3,flag
+yadav2020,Upper vertebral width (UVW),endplate,1,mm,mm,yadav-ct-axial-fig1,close,28,Table 3,4,fits
+yadav2020,Upper vertebral depth (UVD),endplate_depth,1,mm,mm,yadav-ct-axial-fig1,close,28,Table 3,4,fits
+yadav2020,Lower vertebral width (LVW),endplate_lower,1,mm,mm,yadav-ct-axial-fig1,close,24,Table 3,4,fits
+yadav2020,Lower vertebral depth (LVD),endplate_lower_depth,1,mm,mm,yadav-ct-axial-fig1,close,24,Table 3,4,fits
+yadav2020,Intervertebral disc height (IVDH),disc_h_mean,1,mm,mm,yadav-ct-undefined,none,28,Table 3,4,flag
+yadav2020,Lower vertebral width (LVW),endplate_lower,1,mm,mm,yadav-ct-axial-fig1,differs,4,Table 3,4,fits
+yadav2020,Lower vertebral depth (LVD),endplate_lower_depth,1,mm,mm,yadav-ct-axial-fig1,differs,4,Table 3,4,fits
+yadav2020,Spinal canal anteroposterior diameter,canal_ap,1,not printed,mm,yadav-ct-axial-fig1,same,20,Table 4,5,fits
+yadav2020,Lateral recess diameter,lateral_recess,1,not printed,mm,yadav-ct-axial-fig1,none,40,Table 5,5,fits
+yadav2020,Upper vertebral width,endplate,1,not printed,mm,yadav-ct-axial-fig1,close,20,Table 6,6,fits
+yadav2020,Lower vertebral width,endplate_lower,1,not printed,mm,yadav-ct-axial-fig1,close,20,Table 7,6,fits
+yadav2020,Upper vertebral depth (anteroposterior diameter),endplate_depth,1,not printed,mm,yadav-ct-axial-fig1,close,20,Table 8,7,fits
+yadav2020,"Lateral recess diameter (LRD), maximum",lateral_recess,1,mm,mm,yadav-ct-axial-fig1,none,3,Text: Results,3,fits
+yu2015,Pedicle height (PH),pedicle_h,1,mm,mm,direct_caliper,close,176,Table 3; Table 4; Table 5; Text: Abstract; Text: Results,1; 2; 4; 5; 7,fits
+yu2015,Pedicle height (PH),pedicle_h,1,not printed,not printed,direct_caliper,close,25,Table 3; Table 4,4; 5,fits
+yu2015,Pedicle width (PW),pedicle_w,1,mm,mm,direct_caliper,close,172,Table 3; Table 4; Table 5; Text: Abstract; Text: Results,1; 2; 4; 5; 7,fits
+yu2015,Pedicle width (PW),pedicle_w,1,not printed,not printed,direct_caliper,close,25,Table 3; Table 4,4; 5,fits
+yu2015,PH difference,pedicle_h,1,mm,mm,direct_caliper,close,2,Text: Discussion,6,flag
+yu2015,PW difference,pedicle_w,1,mm,mm,direct_caliper,close,2,Text: Discussion,6,fits
+zindrick1987,Transverse pedicle isthmus width,pedicle_w,1,mm,mm,pooled_film_and_ct,close,85,Table 1,2,fits
+zindrick1987,Sagittal pedicle isthmus width,pedicle_h,1,mm,mm,pooled_film_and_ct,close,85,Table 2,3,fits
+zindrick1987,Transverse pedicle angle,pedicle_incl_sag,1,deg,deg,pooled_film_and_ct,close,85,Table 3,4,fits
+zindrick1987,Sagittal pedicle angle,pedicle_incl_trans,1,deg,deg,pooled_film_and_ct,close,85,Table 4,5,fits
+zindrick1987,Depth to anterior cortex through pedicle axis,pedicle_chord,1,mm,mm,pooled_film_and_ct,none,85,Table 5,6,fits
+zindrick1987,Depth to anterior cortex along line parallel to midline axis of vertebral body,pedicle_chord,1,mm,mm,pooled_film_and_ct,none,85,Table 5,6,fits

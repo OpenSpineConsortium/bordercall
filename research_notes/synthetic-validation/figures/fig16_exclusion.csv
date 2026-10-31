@@ -1,0 +1,133 @@
+panel,candidate,width,log_score_vs_plain,log_score_vs_plain_se,exact_vs_plain,exact_vs_plain_se,paper,ece_pooled
+A,tempered,1,0.0898759,0.048685,,,,
+A,without yadav2020,1,-0.0527799,0.051233,,,,
+A,"without yadav2020, tempered",1,0.0812768,0.0494747,,,,
+A,without frontphys2026,1,0.00426275,0.0223706,,,,
+A,"without frontphys2026, tempered",1,0.0855229,0.0531219,,,,
+A,one vote per population,1,-0.00330011,0.00230342,,,,
+A,"one vote per population, tempered",1,0.0896418,0.0486162,,,,
+A,tempered,2,0.116259,0.0646879,,,,
+A,without yadav2020,2,-0.0435383,0.0389947,,,,
+A,"without yadav2020, tempered",2,0.115869,0.0647644,,,,
+A,without frontphys2026,2,-0.0130401,0.0170687,,,,
+A,"without frontphys2026, tempered",2,0.111104,0.0677912,,,,
+A,one vote per population,2,-0.00236388,0.00501587,,,,
+A,"one vote per population, tempered",2,0.114874,0.0648994,,,,
+A,tempered,3,0.107538,0.0587506,,,,
+A,without yadav2020,3,-0.0408102,0.0366028,,,,
+A,"without yadav2020, tempered",3,0.107658,0.0589912,,,,
+A,without frontphys2026,3,-0.0255791,0.0142246,,,,
+A,"without frontphys2026, tempered",3,0.0958639,0.0578766,,,,
+A,one vote per population,3,-0.00568198,0.00491723,,,,
+A,"one vote per population, tempered",3,0.106055,0.0588621,,,,
+B,tempered,1,,,0,0,,
+B,without yadav2020,1,,,-0.458182,0.468604,,
+B,"without yadav2020, tempered",1,,,-0.458182,0.468604,,
+B,without frontphys2026,1,,,-0.525455,0.264828,,
+B,"without frontphys2026, tempered",1,,,-0.525455,0.264828,,
+B,one vote per population,1,,,-0.130909,0.0477861,,
+B,"one vote per population, tempered",1,,,-0.130909,0.0477861,,
+B,tempered,2,,,0,0,,
+B,without yadav2020,2,,,-0.277273,0.218131,,
+B,"without yadav2020, tempered",2,,,-0.277273,0.218131,,
+B,without frontphys2026,2,,,-0.684091,0.357581,,
+B,"without frontphys2026, tempered",2,,,-0.684091,0.357581,,
+B,one vote per population,2,,,-0.0329545,0.0789951,,
+B,"one vote per population, tempered",2,,,-0.0329545,0.0789951,,
+B,tempered,3,,,0,0,,
+B,without yadav2020,3,,,-0.133333,0.0864288,,
+B,"without yadav2020, tempered",3,,,-0.133333,0.0864288,,
+B,without frontphys2026,3,,,-0.701515,0.371252,,
+B,"without frontphys2026, tempered",3,,,-0.701515,0.371252,,
+B,one vote per population,3,,,-0.0469697,0.0918952,,
+B,"one vote per population, tempered",3,,,-0.0469697,0.0918952,,
+C,without yadav2020,3,0,,,,yadav2020,
+C,without yadav2020,3,0,,,,shin2024,
+C,without yadav2020,3,0.000615398,,,,griffith2016,
+C,without yadav2020,3,0,,,,bach2019,
+C,without yadav2020,3,0,,,,amonookuofi1982,
+C,without yadav2020,3,0.000271437,,,,abbas2021,
+C,without yadav2020,3,0,,,,hinck1966,
+C,without yadav2020,3,-0.00157528,,,,amonookuofi1985,
+C,without yadav2020,3,0,,,,otsuki2021,
+C,without yadav2020,3,0,,,,arockiaraj2025,
+C,without yadav2020,3,0,,,,hou1993,
+C,without yadav2020,3,-0.00568905,,,,cizmic2023,
+C,without yadav2020,3,0.00109185,,,,alonge2021,
+C,without yadav2020,3,0,,,,yu2015,
+C,without yadav2020,3,0,,,,olsewski1990,
+C,without yadav2020,3,0,,,,chaudhary2015,
+C,without yadav2020,3,0,,,,lien2007,
+C,without yadav2020,3,-0.00548127,,,,masharawi2021,
+C,without yadav2020,3,0,,,,moncadahabib2025,
+C,without yadav2020,3,0,,,,busscher2010,
+C,without yadav2020,3,-0.0815129,,,,tan2004,
+C,without yadav2020,3,-0.805544,,,,frontphys2026,
+C,without frontphys2026,3,0.00161461,,,,yadav2020,
+C,without frontphys2026,3,0,,,,shin2024,
+C,without frontphys2026,3,0,,,,griffith2016,
+C,without frontphys2026,3,0,,,,bach2019,
+C,without frontphys2026,3,0,,,,amonookuofi1982,
+C,without frontphys2026,3,0,,,,abbas2021,
+C,without frontphys2026,3,0,,,,hinck1966,
+C,without frontphys2026,3,0,,,,amonookuofi1985,
+C,without frontphys2026,3,0,,,,otsuki2021,
+C,without frontphys2026,3,0,,,,arockiaraj2025,
+C,without frontphys2026,3,0,,,,hou1993,
+C,without frontphys2026,3,0,,,,cizmic2023,
+C,without frontphys2026,3,0,,,,alonge2021,
+C,without frontphys2026,3,0,,,,yu2015,
+C,without frontphys2026,3,0,,,,olsewski1990,
+C,without frontphys2026,3,0,,,,chaudhary2015,
+C,without frontphys2026,3,0,,,,lien2007,
+C,without frontphys2026,3,0,,,,masharawi2021,
+C,without frontphys2026,3,-0.156346,,,,moncadahabib2025,
+C,without frontphys2026,3,-0.194186,,,,busscher2010,
+C,without frontphys2026,3,-0.213824,,,,tan2004,
+C,without frontphys2026,3,0,,,,frontphys2026,
+C,one vote per population,3,0.00095008,,,,yadav2020,
+C,one vote per population,3,0.000119738,,,,shin2024,
+C,one vote per population,3,0.00258608,,,,griffith2016,
+C,one vote per population,3,0.00184265,,,,bach2019,
+C,one vote per population,3,0.00142627,,,,amonookuofi1982,
+C,one vote per population,3,-4.09761e-05,,,,abbas2021,
+C,one vote per population,3,-0.000126046,,,,hinck1966,
+C,one vote per population,3,0.000574814,,,,amonookuofi1985,
+C,one vote per population,3,-0.0024682,,,,otsuki2021,
+C,one vote per population,3,-0.00341329,,,,arockiaraj2025,
+C,one vote per population,3,-0.00495028,,,,hou1993,
+C,one vote per population,3,-0.00113715,,,,cizmic2023,
+C,one vote per population,3,-0.00712184,,,,alonge2021,
+C,one vote per population,3,-0.00952941,,,,yu2015,
+C,one vote per population,3,-0.0143238,,,,olsewski1990,
+C,one vote per population,3,-0.0157396,,,,chaudhary2015,
+C,one vote per population,3,-0.0248292,,,,lien2007,
+C,one vote per population,3,-0.0257606,,,,masharawi2021,
+C,one vote per population,3,0.0590665,,,,moncadahabib2025,
+C,one vote per population,3,0.0204859,,,,busscher2010,
+C,one vote per population,3,-0.071007,,,,tan2004,
+C,one vote per population,3,-0.0316082,,,,frontphys2026,
+D,plain,1,,,,,,0.0940998
+D,tempered,1,,,,,,0.0195824
+D,without yadav2020,1,,,,,,0.106324
+D,"without yadav2020, tempered",1,,,,,,0.0218081
+D,without frontphys2026,1,,,,,,0.0996553
+D,"without frontphys2026, tempered",1,,,,,,0.0189599
+D,one vote per population,1,,,,,,0.096837
+D,"one vote per population, tempered",1,,,,,,0.0193866
+D,plain,2,,,,,,0.109707
+D,tempered,2,,,,,,0.0371889
+D,without yadav2020,2,,,,,,0.118217
+D,"without yadav2020, tempered",2,,,,,,0.0341838
+D,without frontphys2026,2,,,,,,0.117444
+D,"without frontphys2026, tempered",2,,,,,,0.0332798
+D,one vote per population,2,,,,,,0.111044
+D,"one vote per population, tempered",2,,,,,,0.0346634
+D,plain,3,,,,,,0.101165
+D,tempered,3,,,,,,0.0386676
+D,without yadav2020,3,,,,,,0.107042
+D,"without yadav2020, tempered",3,,,,,,0.0355502
+D,without frontphys2026,3,,,,,,0.107232
+D,"without frontphys2026, tempered",3,,,,,,0.0399792
+D,one vote per population,3,,,,,,0.103392
+D,"one vote per population, tempered",3,,,,,,0.0326873

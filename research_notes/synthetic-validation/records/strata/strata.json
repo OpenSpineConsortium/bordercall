@@ -1,0 +1,869 @@
+{
+ "arms": [
+  "own table",
+  "merged: the others pooled",
+  "predicted: the others pooled, SD widened by tau",
+  "own means, the others' SD"
+ ],
+ "bordercall_commit": "e4d9ffe579ebf691e6c3a4fc3c5d8417ce41e889",
+ "cells": {
+  "borrowed_f_by_measure": {
+   "canal_ap": 1.0607663859977856,
+   "canal_area": 1.1083841531312735,
+   "canal_w": 0.9536314865666607,
+   "endplate": 1.525318427868467,
+   "endplate_lower": 1.2841248006989134,
+   "foramen_h": 0.43587838405051904,
+   "h_ant": 1.6055994784841177,
+   "h_mid": 0.2323867986390044,
+   "h_post": 1.1866065035539446,
+   "interpedicular": 0.31560339068748366,
+   "pedicle": 0.5667817040384917,
+   "pedicle_chord [along the axis]": 0.9778625765085761,
+   "pedicle_h": 1.2377303333585676,
+   "pedicle_incl_sag:mean": 2.7767340606098156
+  },
+  "borrowed_f_overall": 1.0674347119638317,
+  "min_series_for_tau": 3,
+  "placed": 694,
+  "predictive_over_sd_quartiles": [
+   1.7084572058856724,
+   1.8199360049034552,
+   1.8381604197160313
+  ],
+  "tau_from": {
+   "every cell's median": 408,
+   "own": 81,
+   "the measure's median": 205
+  }
+ },
+ "code": {
+  "figures.py": "df7e5d8794c0a291faf0b536769e7035a78817b03b24e7d397cda8e82db6281d",
+  "figures_all.py": "33b6b827b1a1fc7e920f6775c5009f0adae8122e564b8796a994570adc53e286",
+  "render.py": "d4bc0d70416d843a6d019ffefe741cb0fe01013357027395c24448c01cc3a9d9",
+  "run.py": "724ce3b1e918ecfcf052b2b9e32b7b68d933db683446e8685781760653d4d87a",
+  "run_all.py": "8468121efdd7994dddbb7b2ea100b15c87d7b15bdb47ccbef25df5fc58fc09be",
+  "run_strata.py": "99321722eff809ea70c72fd19c40084179d7e26f5fb2d0591a16ada8ebb779d2",
+  "snapshot.py": "c09b0eab7e839f02b0fc6b0fd35a6e5c55f231a1cc6073110e7994fb663f2f89",
+  "synthval/all_measures.py": "32b83cb8e5c5bc0a4e86ba5e6cb4e6867880f79ad0e00e3dd3b175d3558ba9b0",
+  "synthval/house.py": "396822b88fcb46e9533162f8a46b8e2443c1d58ac15d1f40e2d0eb4f5653323a",
+  "synthval/literature.py": "bd3a6a6adf1d7242df3d7d08d2e29dda75a3a1f80589f9f3520d4b7bd0679821",
+  "synthval/naming.py": "b9416b1c743ea68011699dc268f6208f1ebedefb2a84716349e8e3a354430db9",
+  "synthval/papers_table.py": "dff787fd7a3a52929cd9e7560f0af4b551c01772fa74fd8b639c99854360cce7",
+  "synthval/pooling.py": "292c34f8de6eadb40681f68143d35943eaf6c61130df2f5b778a40e2e0763df0",
+  "synthval/population.py": "83a502cd421b2727e5d165bbab0578527a9b5d245f4ef09c1f2ac24daa040f17",
+  "synthval/power.py": "4deef25fec9f5cc2efd56634057b3f17f4df0d23a0f67d01a145c5ca3dec444e",
+  "synthval/qi.py": "4e5ad50dbd18264980ba522ab2f328b9bbefb45a8b3f868280b28225c7fd8c82",
+  "synthval/references.py": "9791c7b46af7d0be381e130e7743b8b47e283fc1c9e3d2411a188e982482aeec",
+  "synthval/relations.py": "7350f76d09bd75bab5078eeb38a3015ff49c7fc0b982ff6a3ebcbe0bf12cbeec",
+  "synthval/strata.py": "df6a124f19fc57ef68c5cbe96b6253dbc298543ce84a4b5bda86ec5e12125ced",
+  "synthval/structure.py": "b04037b0ae7537454d9ac98d551ffa32a7149697328eacb1056c1a69c91e0cac",
+  "synthval/sweep.py": "77ee7e7a8ab6f251096a6a03ab69ea36c7ae47670843f610364266f112e46b87",
+  "synthval/validate.py": "480b4cc85debc474aa51422e7d97405663dc74995f1bab8d600ec04c8aac6877",
+  "tables.py": "3d59c6392f12fc8497764bfaa88a86434375a9dcd5301a5450a19aba9496837a",
+  "tests/test_all_measures.py": "10c3a1fc9b856a7de821faf756a2d5df36b860ede5165698b67c8169bef595eb",
+  "tests/test_strata.py": "eb58a84d53aabb4b1db1832f55a84c81bc0e4efd822f54f5d0ef076b9a62ec63",
+  "tests/test_synthval.py": "499ce0c89803f50a2f88ccfad444d72e15201f2d1920dbfcc695a887c49832ca"
+ },
+ "command": "python3 -I run_strata.py --out records/strata",
+ "common": {
+  "keys": [
+   "pedicle",
+   "pedicle_h"
+  ],
+  "papers": [
+   "arockiaraj2025",
+   "hou1993",
+   "lien2007",
+   "masharawi2021",
+   "moncadahabib2025",
+   "olsewski1990",
+   "otsuki2021",
+   "tan2004",
+   "yu2015"
+  ]
+ },
+ "loss_se_floor": 0.1,
+ "model_keys": [
+  "endplate",
+  "endplate_depth",
+  "endplate_lower",
+  "endplate_lower_depth",
+  "h_post",
+  "canal_w",
+  "canal_ap"
+ ],
+ "numpy": "2.5.4",
+ "papers": {
+  "abbas2021": {
+   "cells": 10,
+   "cells_with_own_sd": 10,
+   "measures": [
+    "canal_ap",
+    "canal_area"
+   ],
+   "n_measures": 2,
+   "people": 180.0
+  },
+  "alonge2021": {
+   "cells": 10,
+   "cells_with_own_sd": 10,
+   "measures": [
+    "canal_ap",
+    "canal_w"
+   ],
+   "n_measures": 2,
+   "people": 120.0
+  },
+  "amonookuofi1982": {
+   "cells": 5,
+   "cells_with_own_sd": 5,
+   "measures": [
+    "interpedicular"
+   ],
+   "n_measures": 1,
+   "people": 290.0
+  },
+  "amonookuofi1985": {
+   "cells": 5,
+   "cells_with_own_sd": 5,
+   "measures": [
+    "canal_ap"
+   ],
+   "n_measures": 1,
+   "people": 122.0
+  },
+  "arockiaraj2025": {
+   "cells": 20,
+   "cells_with_own_sd": 20,
+   "measures": [
+    "pedicle",
+    "pedicle_chord [along the axis]",
+    "pedicle_h",
+    "pedicle_incl_sag:mean"
+   ],
+   "n_measures": 4,
+   "people": 300.0
+  },
+  "bach2019": {
+   "cells": 20,
+   "cells_with_own_sd": 20,
+   "measures": [
+    "disc_h_ant",
+    "disc_h_mid",
+    "disc_h_post",
+    "foramen_h"
+   ],
+   "n_measures": 4,
+   "people": 240.0
+  },
+  "busscher2010": {
+   "cells": 15,
+   "cells_with_own_sd": 15,
+   "measures": [
+    "h_ant",
+    "h_mid",
+    "h_post"
+   ],
+   "n_measures": 3,
+   "people": 6.0
+  },
+  "chaudhary2015": {
+   "cells": 5,
+   "cells_with_own_sd": 5,
+   "measures": [
+    "interpedicular"
+   ],
+   "n_measures": 1,
+   "people": 300.0
+  },
+  "cizmic2023": {
+   "cells": 10,
+   "cells_with_own_sd": 10,
+   "measures": [
+    "canal_ap",
+    "canal_w"
+   ],
+   "n_measures": 2,
+   "people": 200.0
+  },
+  "frontphys2026": {
+   "cells": 25,
+   "cells_with_own_sd": 25,
+   "measures": [
+    "endplate",
+    "endplate_lower",
+    "h_ant",
+    "h_mid",
+    "h_post"
+   ],
+   "n_measures": 5,
+   "people": 20.0
+  },
+  "griffith2016": {
+   "cells": 15,
+   "cells_with_own_sd": 15,
+   "measures": [
+    "canal_ap",
+    "canal_area",
+    "canal_w"
+   ],
+   "n_measures": 3,
+   "people": 1080.0
+  },
+  "hinck1966": {
+   "cells": 5,
+   "cells_with_own_sd": 5,
+   "measures": [
+    "interpedicular"
+   ],
+   "n_measures": 1,
+   "people": 90.2
+  },
+  "hou1993": {
+   "cells": 10,
+   "cells_with_own_sd": 10,
+   "measures": [
+    "pedicle",
+    "pedicle_h"
+   ],
+   "n_measures": 2,
+   "people": 40.0
+  },
+  "lien2007": {
+   "cells": 20,
+   "cells_with_own_sd": 20,
+   "measures": [
+    "pedicle",
+    "pedicle_h",
+    "pedicle_incl_sag:mean",
+    "pedicle_incl_trans:mean"
+   ],
+   "n_measures": 4,
+   "people": 15.0
+  },
+  "masharawi2021": {
+   "cells": 25,
+   "cells_with_own_sd": 25,
+   "measures": [
+    "canal_ap",
+    "canal_w",
+    "foramen_h",
+    "pedicle",
+    "pedicle_h"
+   ],
+   "n_measures": 5,
+   "people": 50.0
+  },
+  "moncadahabib2025": {
+   "cells": 30,
+   "cells_with_own_sd": 30,
+   "measures": [
+    "h_ant",
+    "h_post",
+    "pedicle",
+    "pedicle_chord [along the axis]",
+    "pedicle_h",
+    "pedicle_incl_sag:mean"
+   ],
+   "n_measures": 6,
+   "people": 37.0
+  },
+  "olsewski1990": {
+   "cells": 20,
+   "cells_with_own_sd": 20,
+   "measures": [
+    "pedicle",
+    "pedicle_chord [along the axis]",
+    "pedicle_h",
+    "pedicle_incl_sag:mean"
+   ],
+   "n_measures": 4,
+   "people": 48.55
+  },
+  "otsuki2021": {
+   "cells": 15,
+   "cells_with_own_sd": 15,
+   "measures": [
+    "pedicle",
+    "pedicle_area:mean",
+    "pedicle_h"
+   ],
+   "n_measures": 3,
+   "people": 6.0
+  },
+  "shin2024": {
+   "cells": 20,
+   "cells_with_own_sd": 20,
+   "measures": [
+    "disc_h_ant",
+    "disc_h_mid",
+    "disc_h_post",
+    "foramen_h"
+   ],
+   "n_measures": 4,
+   "people": 2800.0
+  },
+  "tan2004": {
+   "cells": 75,
+   "cells_with_own_sd": 0,
+   "measures": [
+    "canal_ap",
+    "canal_area",
+    "canal_w",
+    "endplate",
+    "endplate_depth",
+    "endplate_lower",
+    "endplate_lower_depth",
+    "h_ant",
+    "h_post",
+    "pedicle",
+    "pedicle_area:mean",
+    "pedicle_chord [along the axis]",
+    "pedicle_h",
+    "pedicle_incl_sag:mean",
+    "pedicle_incl_trans:mean"
+   ],
+   "n_measures": 15,
+   "people": 10.0
+  },
+  "yadav2020": {
+   "cells": 25,
+   "cells_with_own_sd": 25,
+   "measures": [
+    "canal_ap",
+    "endplate",
+    "endplate_depth",
+    "endplate_lower",
+    "endplate_lower_depth"
+   ],
+   "n_measures": 5,
+   "people": 302.0
+  },
+  "yu2015": {
+   "cells": 10,
+   "cells_with_own_sd": 10,
+   "measures": [
+    "pedicle",
+    "pedicle_h"
+   ],
+   "n_measures": 2,
+   "people": 503.0
+  }
+ },
+ "pooled": [
+  {
+   "answered_mean": 0.03658181818181818,
+   "arm": "merged: the others pooled",
+   "exact_mean": 0.3979818181818182,
+   "loss_max": 25.759999999999998,
+   "loss_mean": 8.857272727272727,
+   "loss_median": 7.4399999999999995,
+   "loss_min": 0.02,
+   "loss_pooled": 8.845860233915392,
+   "loss_se": 1.431128587400427,
+   "pi_high": 23.088903511495843,
+   "pi_low": -5.397183043665061,
+   "populations": 22,
+   "precision_mean": 0.9517096995140033,
+   "precision_min": 0.5483146067415731,
+   "precision_pooled": 0.9174950298210736,
+   "reading": "every measure the paper prints",
+   "tau_between_populations": 6.676377049826401,
+   "width": 1
+  },
+  {
+   "answered_mean": 0.06364772727272727,
+   "arm": "merged: the others pooled",
+   "exact_mean": 0.49028409090909086,
+   "loss_max": 30.7,
+   "loss_mean": 11.848863636363633,
+   "loss_median": 9.75,
+   "loss_min": 0.8500000000000001,
+   "loss_pooled": 11.83464906673155,
+   "loss_se": 1.7395436544041638,
+   "pi_high": 29.144584230001836,
+   "pi_low": -5.475286096538735,
+   "populations": 22,
+   "precision_mean": 0.9413073338972169,
+   "precision_min": 0.5237698081734778,
+   "precision_pooled": 0.8714515265131226,
+   "reading": "every measure the paper prints",
+   "tau_between_populations": 8.11391699142938,
+   "width": 2
+  },
+  {
+   "answered_mean": 0.10054545454545454,
+   "arm": "merged: the others pooled",
+   "exact_mean": 0.602060606060606,
+   "loss_max": 32.86666666666667,
+   "loss_mean": 12.19090909090909,
+   "loss_median": 10.350000000000001,
+   "loss_min": 2.0666666666666664,
+   "loss_pooled": 12.172400837344634,
+   "loss_se": 1.8062534915248694,
+   "pi_high": 30.14032701134378,
+   "pi_low": -5.795525336654512,
+   "populations": 22,
+   "precision_mean": 0.941304708119765,
+   "precision_min": 0.6270358306188925,
+   "precision_pooled": 0.8945147679324894,
+   "reading": "every measure the paper prints",
+   "tau_between_populations": 8.4222203068334,
+   "width": 3
+  },
+  {
+   "answered_mean": 0.015045454545454546,
+   "arm": "predicted: the others pooled, SD widened by tau",
+   "exact_mean": 0.3983363636363636,
+   "loss_max": 23.200000000000003,
+   "loss_mean": 8.821818181818182,
+   "loss_median": 6.870000000000001,
+   "loss_min": 0.44,
+   "loss_pooled": 8.809363977963208,
+   "loss_se": 1.4325272622315555,
+   "pi_high": 23.06782150615092,
+   "pi_low": -5.449093550224504,
+   "populations": 22,
+   "precision_mean": 0.9683407020738634,
+   "precision_min": 0.6310679611650486,
+   "precision_pooled": 0.9438066465256798,
+   "reading": "every measure the paper prints",
+   "tau_between_populations": 6.683634607116019,
+   "width": 1
+  },
+  {
+   "answered_mean": 0.027284090909090907,
+   "arm": "predicted: the others pooled, SD widened by tau",
+   "exact_mean": 0.48986363636363633,
+   "loss_max": 32.9,
+   "loss_mean": 11.890909090909092,
+   "loss_median": 7.449999999999999,
+   "loss_min": 1.6500000000000001,
+   "loss_pooled": 11.874924262430305,
+   "loss_se": 1.8894690181712264,
+   "pi_high": 30.69224167461638,
+   "pi_low": -6.94239314975577,
+   "populations": 22,
+   "precision_mean": 0.9631565571752988,
+   "precision_min": 0.5388967468175389,
+   "precision_pooled": 0.8575593502707205,
+   "reading": "every measure the paper prints",
+   "tau_between_populations": 8.820826148459307,
+   "width": 2
+  },
+  {
+   "answered_mean": 0.04650000000000001,
+   "arm": "predicted: the others pooled, SD widened by tau",
+   "exact_mean": 0.6040606060606062,
+   "loss_max": 30.2,
+   "loss_mean": 11.990909090909092,
+   "loss_median": 7.75,
+   "loss_min": 2.6333333333333333,
+   "loss_pooled": 11.97199442804745,
+   "loss_se": 1.8029984102671825,
+   "pi_high": 29.902815232162176,
+   "pi_low": -5.958826376067277,
+   "populations": 22,
+   "precision_mean": 0.946439220122929,
+   "precision_min": 0.6059225512528473,
+   "precision_pooled": 0.8784620397523624,
+   "reading": "every measure the paper prints",
+   "tau_between_populations": 8.404725788368303,
+   "width": 3
+  },
+  {
+   "answered_mean": 0.03673636363636363,
+   "arm": "own means, the others' SD",
+   "exact_mean": 0.4645909090909091,
+   "loss_max": 13.420000000000002,
+   "loss_mean": 2.1963636363636363,
+   "loss_median": 0.69,
+   "loss_min": -0.1,
+   "loss_pooled": 2.165559773173437,
+   "loss_se": 0.7259233025951489,
+   "pi_high": 9.354986788112637,
+   "pi_low": -5.023867241765762,
+   "populations": 22,
+   "precision_mean": 0.9704152964248732,
+   "precision_min": 0.582089552238806,
+   "precision_pooled": 0.9408562237070032,
+   "reading": "every measure the paper prints",
+   "tau_between_populations": 3.3692590405425147,
+   "width": 1
+  },
+  {
+   "answered_mean": 0.07769318181818181,
+   "arm": "own means, the others' SD",
+   "exact_mean": 0.5708181818181818,
+   "loss_max": 19.05,
+   "loss_mean": 3.795454545454545,
+   "loss_median": 1.45,
+   "loss_min": -0.025,
+   "loss_pooled": 3.7573370608474006,
+   "loss_se": 1.1726571523786489,
+   "pi_high": 15.41681538705145,
+   "pi_low": -7.90214126535665,
+   "populations": 22,
+   "precision_mean": 0.9621159765478771,
+   "precision_min": 0.5254596888260255,
+   "precision_pooled": 0.8919116571595729,
+   "reading": "every measure the paper prints",
+   "tau_between_populations": 5.465099128405843,
+   "width": 2
+  },
+  {
+   "answered_mean": 0.13143939393939397,
+   "arm": "own means, the others' SD",
+   "exact_mean": 0.6832727272727271,
+   "loss_max": 18.23333333333333,
+   "loss_mean": 4.069696969696969,
+   "loss_median": 1.9666666666666666,
+   "loss_min": -0.2,
+   "loss_pooled": 4.018666367027857,
+   "loss_se": 1.1658129945230853,
+   "pi_high": 15.59046101909193,
+   "pi_low": -7.553128285036216,
+   "populations": 22,
+   "precision_mean": 0.9668808189748489,
+   "precision_min": 0.6291148500365764,
+   "precision_pooled": 0.9299135446685879,
+   "reading": "every measure the paper prints",
+   "tau_between_populations": 5.423575437850066,
+   "width": 3
+  },
+  {
+   "answered_mean": 0.03368888888888889,
+   "arm": "merged: the others pooled",
+   "exact_mean": 0.4082,
+   "loss_max": 19.0,
+   "loss_mean": 8.464444444444444,
+   "loss_median": 8.12,
+   "loss_min": 2.64,
+   "loss_pooled": 8.453752630461159,
+   "loss_se": 1.582116015750389,
+   "pi_high": 20.160616989082797,
+   "pi_low": -3.2531117281604782,
+   "populations": 9,
+   "precision_mean": 0.9794533857376221,
+   "precision_min": 0.8901734104046243,
+   "precision_pooled": 0.9379947229551451,
+   "reading": "the pedicle's width and height",
+   "tau_between_populations": 4.691233898468502,
+   "width": 1
+  },
+  {
+   "answered_mean": 0.044583333333333336,
+   "arm": "merged: the others pooled",
+   "exact_mean": 0.5088055555555555,
+   "loss_max": 26.674999999999997,
+   "loss_mean": 10.419444444444444,
+   "loss_median": 7.475,
+   "loss_min": 5.0,
+   "loss_pooled": 10.408345647338482,
+   "loss_se": 2.208090498719861,
+   "pi_high": 26.80583428613664,
+   "pi_low": -5.989142991459676,
+   "populations": 9,
+   "precision_mean": 0.9826526488036436,
+   "precision_min": 0.9063893016344725,
+   "precision_pooled": 0.9514018691588785,
+   "reading": "the pedicle's width and height",
+   "tau_between_populations": 6.57355588385479,
+   "width": 2
+  },
+  {
+   "answered_mean": 0.059888888888888894,
+   "arm": "merged: the others pooled",
+   "exact_mean": 0.611925925925926,
+   "loss_max": 24.2,
+   "loss_mean": 11.170370370370371,
+   "loss_median": 9.733333333333333,
+   "loss_min": 5.666666666666666,
+   "loss_pooled": 11.16688011672115,
+   "loss_se": 1.8241092579550564,
+   "pi_high": 24.627709883595614,
+   "pi_low": -2.293949650153312,
+   "populations": 9,
+   "precision_mean": 0.9841515569716015,
+   "precision_min": 0.9284603421461898,
+   "precision_pooled": 0.9604205318491033,
+   "reading": "the pedicle's width and height",
+   "tau_between_populations": 5.39241824585998,
+   "width": 3
+  },
+  {
+   "answered_mean": 0.01637777777777778,
+   "arm": "predicted: the others pooled, SD widened by tau",
+   "exact_mean": 0.42153333333333337,
+   "loss_max": 13.600000000000001,
+   "loss_mean": 7.131111111111112,
+   "loss_median": 7.000000000000001,
+   "loss_min": 1.68,
+   "loss_pooled": 7.115292601687214,
+   "loss_se": 1.3971459934522659,
+   "pi_high": 17.42803611374567,
+   "pi_low": -3.1974509103712414,
+   "populations": 9,
+   "precision_mean": 0.9927741632275404,
+   "precision_min": 0.9635036496350365,
+   "precision_pooled": 0.9782903663500678,
+   "reading": "the pedicle's width and height",
+   "tau_between_populations": 4.131413864990141,
+   "width": 1
+  },
+  {
+   "answered_mean": 0.019722222222222224,
+   "arm": "predicted: the others pooled, SD widened by tau",
+   "exact_mean": 0.5218333333333333,
+   "loss_max": 17.9,
+   "loss_mean": 9.116666666666665,
+   "loss_median": 8.1,
+   "loss_min": 2.4,
+   "loss_pooled": 9.097396813326945,
+   "loss_se": 1.8796429745801568,
+   "pi_high": 23.02190837264384,
+   "pi_low": -4.827114745989949,
+   "populations": 9,
+   "precision_mean": 0.9955919395465995,
+   "precision_min": 0.964735516372796,
+   "precision_pooled": 0.9802816901408451,
+   "reading": "the pedicle's width and height",
+   "tau_between_populations": 5.580633890047483,
+   "width": 2
+  },
+  {
+   "answered_mean": 0.02774074074074074,
+   "arm": "predicted: the others pooled, SD widened by tau",
+   "exact_mean": 0.6176296296296296,
+   "loss_max": 22.066666666666666,
+   "loss_mean": 10.6,
+   "loss_median": 7.3999999999999995,
+   "loss_min": 2.7666666666666666,
+   "loss_pooled": 10.587346314044172,
+   "loss_se": 2.2350030787479533,
+   "pi_high": 27.161135619646547,
+   "pi_low": -5.986442991558203,
+   "populations": 9,
+   "precision_mean": 0.9961340206185567,
+   "precision_min": 0.9690721649484536,
+   "precision_pooled": 0.9839786381842457,
+   "reading": "the pedicle's width and height",
+   "tau_between_populations": 6.643166405971889,
+   "width": 3
+  },
+  {
+   "answered_mean": 0.03364444444444445,
+   "arm": "own means, the others' SD",
+   "exact_mean": 0.48506666666666665,
+   "loss_max": 3.04,
+   "loss_mean": 0.7777777777777778,
+   "loss_median": 0.6,
+   "loss_min": -0.08,
+   "loss_pooled": 0.7255497837689353,
+   "loss_se": 0.30089983519182345,
+   "pi_high": 2.77654217263714,
+   "pi_low": -1.3254426050992698,
+   "populations": 9,
+   "precision_mean": 0.9880795555878366,
+   "precision_min": 0.9372693726937269,
+   "precision_pooled": 0.9795244385733157,
+   "reading": "the pedicle's width and height",
+   "tau_between_populations": 0.8134994697870461,
+   "width": 1
+  },
+  {
+   "answered_mean": 0.05108333333333334,
+   "arm": "own means, the others' SD",
+   "exact_mean": 0.6041666666666666,
+   "loss_max": 3.3000000000000003,
+   "loss_mean": 0.8833333333333333,
+   "loss_median": 0.575,
+   "loss_min": 0.0,
+   "loss_pooled": 0.7867657074590406,
+   "loss_se": 0.29327382213320674,
+   "pi_high": 2.729082230892449,
+   "pi_low": -1.1555508159743682,
+   "populations": 9,
+   "precision_mean": 0.9863385551045462,
+   "precision_min": 0.9288025889967637,
+   "precision_pooled": 0.9782490483958673,
+   "reading": "the pedicle's width and height",
+   "tau_between_populations": 0.767266749584,
+   "width": 2
+  },
+  {
+   "answered_mean": 0.08537037037037037,
+   "arm": "own means, the others' SD",
+   "exact_mean": 0.7128148148148148,
+   "loss_max": 3.5999999999999996,
+   "loss_mean": 1.0814814814814815,
+   "loss_median": 0.8666666666666666,
+   "loss_min": 0.0,
+   "loss_pooled": 0.9764891926722948,
+   "loss_se": 0.3362249342183586,
+   "pi_high": 3.188862210538925,
+   "pi_low": -1.235883825194335,
+   "populations": 9,
+   "precision_mean": 0.986441902486095,
+   "precision_min": 0.9311475409836065,
+   "precision_pooled": 0.9809110629067245,
+   "reading": "the pedicle's width and height",
+   "tau_between_populations": 0.8731118732655819,
+   "width": 3
+  },
+  {
+   "answered_mean": 0.044349999999999994,
+   "arm": "merged: the others pooled",
+   "exact_mean": 0.47630000000000006,
+   "loss_max": 34.22,
+   "loss_mean": 24.900000000000002,
+   "loss_median": 25.67,
+   "loss_min": 18.060000000000002,
+   "loss_pooled": 24.9036569553399,
+   "loss_se": 1.728083760481135,
+   "pi_high": 37.460919127599595,
+   "pi_low": 12.34639478308021,
+   "populations": 8,
+   "precision_mean": 0.9406160466850098,
+   "precision_min": 0.6896551724137931,
+   "precision_pooled": 0.9785794813979707,
+   "reading": "a population drawn from the model",
+   "tau_between_populations": 4.832177189552502,
+   "width": 1
+  },
+  {
+   "answered_mean": 0.1605,
+   "arm": "merged: the others pooled",
+   "exact_mean": 0.5623125,
+   "loss_max": 52.65,
+   "loss_mean": 33.478125000000006,
+   "loss_median": 32.4625,
+   "loss_min": 22.6,
+   "loss_pooled": 33.48749456379581,
+   "loss_se": 3.192689377602993,
+   "pi_high": 56.84513117098028,
+   "pi_low": 10.12985795661135,
+   "populations": 8,
+   "precision_mean": 0.8663301144610458,
+   "precision_min": 0.6288782816229117,
+   "precision_pooled": 0.8327492211838006,
+   "reading": "a population drawn from the model",
+   "tau_between_populations": 8.996015481110295,
+   "width": 2
+  },
+  {
+   "answered_mean": 0.23575000000000002,
+   "arm": "merged: the others pooled",
+   "exact_mean": 0.6715833333333333,
+   "loss_max": 55.166666666666664,
+   "loss_mean": 29.166666666666668,
+   "loss_median": 25.8,
+   "loss_min": 16.5,
+   "loss_pooled": 29.16848705448359,
+   "loss_se": 4.7396219017828365,
+   "pi_high": 63.897398841031574,
+   "pi_low": -5.560424732064391,
+   "populations": 8,
+   "precision_mean": 0.8816840419466261,
+   "precision_min": 0.5918635170603674,
+   "precision_pooled": 0.8561329091551785,
+   "reading": "a population drawn from the model",
+   "tau_between_populations": 13.378190423044261,
+   "width": 3
+  },
+  {
+   "answered_mean": 0.0015249999999999999,
+   "arm": "predicted: the others pooled, SD widened by tau",
+   "exact_mean": 0.51055,
+   "loss_max": 29.86,
+   "loss_mean": 21.475,
+   "loss_median": 21.5,
+   "loss_min": 14.180000000000001,
+   "loss_pooled": 21.471876572649613,
+   "loss_se": 1.7588430725989572,
+   "pi_high": 34.25417951357057,
+   "pi_low": 8.689573631728656,
+   "populations": 8,
+   "precision_mean": 1.0,
+   "precision_min": 1.0,
+   "precision_pooled": 1.0,
+   "reading": "a population drawn from the model",
+   "tau_between_populations": 4.918850516461916,
+   "width": 1
+  },
+  {
+   "answered_mean": 0.00353125,
+   "arm": "predicted: the others pooled, SD widened by tau",
+   "exact_mean": 0.61584375,
+   "loss_max": 42.55,
+   "loss_mean": 28.125,
+   "loss_median": 26.65,
+   "loss_min": 18.275,
+   "loss_pooled": 28.120735141191332,
+   "loss_se": 2.8707193148972885,
+   "pi_high": 49.09714544520131,
+   "pi_low": 7.144324837181351,
+   "populations": 8,
+   "precision_mean": 1.0,
+   "precision_min": 1.0,
+   "precision_pooled": 1.0,
+   "reading": "a population drawn from the model",
+   "tau_between_populations": 8.07765670550125,
+   "width": 2
+  },
+  {
+   "answered_mean": 0.014166666666666668,
+   "arm": "predicted: the others pooled, SD widened by tau",
+   "exact_mean": 0.7340416666666667,
+   "loss_max": 37.8,
+   "loss_mean": 22.920833333333334,
+   "loss_median": 18.916666666666668,
+   "loss_min": 14.233333333333334,
+   "loss_pooled": 22.91032062382452,
+   "loss_se": 3.178353499390502,
+   "pi_high": 46.15415302938145,
+   "pi_low": -0.33351178173240115,
+   "populations": 8,
+   "precision_mean": 1.0,
+   "precision_min": 1.0,
+   "precision_pooled": 1.0,
+   "reading": "a population drawn from the model",
+   "tau_between_populations": 8.951751696986532,
+   "width": 3
+  }
+ ],
+ "python": "3.13.17",
+ "seconds": 136,
+ "seeds": {
+  "columns": 4105,
+  "rule": "a paper's columns on SEED_COLUMNS + its index among the papers sorted by name; a drawn population's on SEED_COLUMNS + its index",
+  "tables": 4106
+ },
+ "share_of_spread_as_one_shift": 0.8204981722522741,
+ "sizes": {
+  "columns": 1000,
+  "tables": 8,
+  "widths": [
+   1,
+   2,
+   3
+  ]
+ },
+ "snapshot": {
+  "branch": "main",
+  "commit": "6409164c62138a1fab30e638a1de38ad2f6c45a4",
+  "sha256": "24ce47909aaefdb64f7930ea03cdf6df14307c044748b9ba91aefbd390bd9f62"
+ },
+ "split": {
+  "calibration_steps": 6,
+  "distances": 297,
+  "level_sd": 0.41447865917995536,
+  "level_sd_calibrated": 0.439603346930104,
+  "series_measures": 54,
+  "shift_sd": 0.8462820586143334,
+  "shift_sd_calibrated": 0.9398647504259373,
+  "total": 0.9423300279881394,
+  "total_calibrated": 1.0375918521872456
+ }
+}

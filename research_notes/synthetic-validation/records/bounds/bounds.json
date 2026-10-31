@@ -1,0 +1,3944 @@
+{
+ "bordercall_commit": "2231c89d0f6580897a2c82a364d02ef960e1b65d",
+ "borrowed": {
+  "age_slope_tau": {
+   "by_measure": {
+    "pedicle_w": 0.0
+   },
+   "cells": 47,
+   "donor_cells": 2,
+   "donor_papers": [
+    "duman2026",
+    "yu2015"
+   ],
+   "donor_taus_of_zero": 2,
+   "donors": "cells with two papers, since no cell has three",
+   "overall": 0.0,
+   "rule": "root mean square by measure, the measures' median"
+  },
+  "log_sd_tau": {
+   "by_measure": {
+    "canal_ap": 0.21526802826990032,
+    "canal_w": 0.0502553633547588,
+    "foramen_h": 0.1818598956282164,
+    "h_ant": 0.47797221716515204,
+    "h_mid": 0.534179283861473,
+    "h_post": 0.16888474782648571,
+    "interpedicular": 0.2947592384653151,
+    "pedicle": 0.27804945981021606,
+    "pedicle_chord [along the axis]": 0.36065542408053336,
+    "pedicle_h": 0.2760625663496719,
+    "pedicle_incl_sag:mean": 0.3336943860212529
+   },
+   "overall": 0.27804945981021606,
+   "rule": "root mean square by measure, the measures' median"
+  },
+  "mean_tau_over_sd": {
+   "by_measure": {
+    "canal_ap": 1.0607663859977856,
+    "canal_area": 1.1083841531312735,
+    "canal_w": 0.9536314865666607,
+    "endplate": 1.525318427868467,
+    "endplate_lower": 1.2841248006989134,
+    "foramen_h": 0.43587838405051904,
+    "h_ant": 1.6055994784841177,
+    "h_mid": 0.2323867986390044,
+    "h_post": 1.1866065035539446,
+    "interpedicular": 0.31560339068748366,
+    "pedicle": 0.5667817040384917,
+    "pedicle_chord [along the axis]": 0.9778625765085761,
+    "pedicle_h": 1.2377303333585676,
+    "pedicle_incl_sag:mean": 2.7767340606098156
+   },
+   "overall": 1.0674347119638317,
+   "rule": "median by measure, every item's median, strata.median_f, over the cells with three series or more"
+  },
+  "sex_g_tau": {
+   "by_measure": {
+    "body_d_mid": 0.4548186115683293,
+    "canal_ap": 0.25043431739069083,
+    "canal_w": 0.12691094768667202,
+    "pedicle_chord": 0.28441783933183756,
+    "pedicle_h": 0.25112889432517066,
+    "pedicle_incl_sag": 0.22591426196193706,
+    "pedicle_w": 0.36709411467444447
+   },
+   "cells": 184,
+   "donor_cells": 32,
+   "donor_papers": [
+    "abbas2021",
+    "ahmed2019",
+    "alonge2021",
+    "amonookuofi1985",
+    "arockiaraj2025",
+    "cizmic2023",
+    "duman2026",
+    "eisenstein1977",
+    "griffith2016",
+    "hou1993",
+    "italianmri",
+    "masharawi2021",
+    "olsewski1990",
+    "yadav2020",
+    "yu2015"
+   ],
+   "donor_taus_of_zero": 2,
+   "donors": "cells with 3 papers or more",
+   "overall": 0.25112889432517066,
+   "rule": "root mean square by measure, the measures' median"
+  },
+  "step_tau_over_sd": {
+   "by_measure": {
+    "canal_ap": 0.26228420984766265,
+    "canal_area": 0.08313688168835211,
+    "canal_w": 0.22835845609262698,
+    "endplate": 0.2531668320534744,
+    "endplate_lower": 0.40950735369673325,
+    "foramen_h": 0.1258763153209471,
+    "h_ant": 0.08400924949857863,
+    "h_mid": 0.05355014223776917,
+    "h_post": 0.0964392455214041,
+    "interpedicular": 0.1418991405309427,
+    "pedicle": 0.3686282541399575,
+    "pedicle_chord [along the axis]": 0.20544220837215768,
+    "pedicle_h": 0.5155460852556619,
+    "pedicle_incl_sag:mean": 1.1080030818211448
+   },
+   "overall": 0.21690033223239233,
+   "rule": "root mean square by measure, the measures' median",
+   "within_r": 0.0
+  }
+ },
+ "borrowing": {
+  "held_out_step_coverage": {
+   "means' rule": {
+    "made": 539,
+    "passed": 500,
+    "rate": 0.9276437847866419
+   },
+   "steps' rule": {
+    "made": 539,
+    "passed": 504,
+    "rate": 0.935064935064935
+   }
+  },
+  "held_out_step_coverage_at_r": 0.0,
+  "means": {
+   "rule": "median by measure, every item's median, strata.median_f, over the cells with three series or more",
+   "why": "kept so that every paper's card has strata.between's spread to the bit, as the rest of the note reads a cell's spread"
+  },
+  "step_over_mean_width": {
+   "three papers or more, where neither borrows": {
+    "cells": 81,
+    "least_papers": 3,
+    "mean_half_width_over_sd_median": 2.3877197049232,
+    "paired_ratio_median": 0.20291490685055252,
+    "paired_steps": 67,
+    "ratio_of_medians": 0.14802025985573602,
+    "step_half_width_over_sd_median": 0.3534308911853934,
+    "steps": 67
+   },
+   "under the means' rule": {
+    "cells": 694,
+    "least_papers": 1,
+    "mean_half_width_over_sd_median": 2.98033907218019,
+    "paired_ratio_median": 0.3147892459380139,
+    "paired_steps": 635,
+    "ratio_of_medians": 0.30510022905113965,
+    "step_half_width_over_sd_median": 0.909302133572237,
+    "steps": 635
+   },
+   "under the steps' rule": {
+    "cells": 694,
+    "least_papers": 1,
+    "mean_half_width_over_sd_median": 2.98033907218019,
+    "paired_ratio_median": 0.35160836487798025,
+    "paired_steps": 635,
+    "ratio_of_medians": 0.3515402551076864,
+    "step_half_width_over_sd_median": 1.0477091577416293,
+    "steps": 635
+   }
+  },
+  "steps": {
+   "rule": "root mean square by measure, the measures' median",
+   "why": "REML puts a tau of exactly zero on many steps of three to nine papers, and a median of such zeros would lend a one-paper step no spread at all; the mean of tau^2 keeps what the steps with a spread say, and one vote a measure keeps one method-bound measure from setting every other's"
+  }
+ },
+ "calibration": {
+  "bar": {
+   "mean": {
+    "least_rows": 20,
+    "low": 0.5842340425531916,
+    "low_quantile": 0.1,
+    "median": 0.8916666666666666,
+    "papers": 12,
+    "papers_named": "arockiaraj2025;bach2019;busscher2010;duman2026;frontphys2026;lien2007;masharawi2021;moncadahabib2025;olsewski1990;shin2024;tan2004;yadav2020",
+    "papers_with_any_row": 23,
+    "pooled": 0.7279693486590039
+   },
+   "sd": {
+    "least_rows": 20,
+    "low": 0.531,
+    "low_quantile": 0.1,
+    "median": 0.9066666666666667,
+    "papers": 10,
+    "papers_named": "arockiaraj2025;bach2019;busscher2010;duman2026;frontphys2026;lien2007;masharawi2021;moncadahabib2025;olsewski1990;shin2024",
+    "papers_with_any_row": 22,
+    "pooled": 0.8304347826086956
+   },
+   "step": {
+    "least_rows": 20,
+    "low": 0.89,
+    "low_quantile": 0.1,
+    "median": 0.927710843373494,
+    "papers": 7,
+    "papers_named": "busscher2010;frontphys2026;lien2007;masharawi2021;moncadahabib2025;tan2004;yadav2020",
+    "papers_with_any_row": 23,
+    "pooled": 0.9400544959128065
+   }
+  },
+  "bar_rule": {
+   "used": "the check's: papers with 20 rows or more of the test, one paper one vote, Tan 2004 among them; a test with fewer than 5 such papers has no bar",
+   "why_20_rows": "a paper's rate over a few rows is mostly binomial noise (eight rows move it in steps of 0.125), so the low quantile of every paper's rate is set by papers of few rows (every paper's step bar, 0.833, by yu2015 (8 rows, 0.625), duman2026 (18 rows, 0.833), griffith2016 (12 rows, 0.833), otsuki2021 (12 rows, 0.833)) and sits below what a population scores, while a generated cohort is scored on hundreds of rows; only papers whose rate rests on 20 rows vote",
+   "why_not_weighted": "weighting each paper by its rows gives the share of rows passed, which the paper of the most rows sets (mean: tan2004, 188 of 635 rows; sd: moncadahabib2025, 30 of 353 rows; step: tan2004, 166 of 539 rows), while a generated cohort is one population and is set beside populations' rates",
+   "why_tan2004_stays": "Tan 2004 is a real population of the card's domain held out like any other, one vote among the papers of 20 rows; its SDs are uncertain (literature.DISPERSION_UNCERTAIN) and give it no SD row, and its means are read against the rest's pooled SD (strata.py), so the uncertainty does not reach the rows it votes with; leaving out the paper whose rows fail most would choose the reference populations by their outcome and hold a generator to a bar a real population fails. The bar without it stands beside (bars)"
+  },
+  "bars": {
+   "with tan2004": {
+    "every paper with a row of the test, each weighted by its rows": {
+     "mean": {
+      "low": 0.5691489361702128,
+      "median": 0.75,
+      "papers": 23,
+      "rows": 635
+     },
+     "sd": {
+      "low": 0.4666666666666667,
+      "median": 0.9333333333333333,
+      "papers": 22,
+      "rows": 353
+     },
+     "step": {
+      "low": 0.875,
+      "median": 0.927710843373494,
+      "papers": 23,
+      "rows": 539
+     }
+    },
+    "every paper with a row of the test, one paper one vote whatever its rows (the rule the bar had before)": {
+     "mean": {
+      "low": 0.5993191489361702,
+      "median": 1.0,
+      "papers": 23
+     },
+     "sd": {
+      "low": 0.555,
+      "median": 0.9416666666666667,
+      "papers": 22
+     },
+     "step": {
+      "low": 0.8333333333333334,
+      "median": 0.96875,
+      "papers": 23
+     }
+    },
+    "the check's: papers with 20 rows or more of the test, one paper one vote": {
+     "mean": {
+      "low": 0.5842340425531916,
+      "median": 0.8916666666666666,
+      "papers": 12
+     },
+     "sd": {
+      "low": 0.531,
+      "median": 0.9066666666666667,
+      "papers": 10
+     },
+     "step": {
+      "low": 0.89,
+      "median": 0.927710843373494,
+      "papers": 7
+     }
+    }
+   },
+   "without tan2004": {
+    "every paper with a row of the test, each weighted by its rows": {
+     "mean": {
+      "low": 0.47058823529411764,
+      "median": 0.85,
+      "papers": 22,
+      "rows": 447
+     },
+     "sd": {
+      "low": 0.4666666666666667,
+      "median": 0.9333333333333333,
+      "papers": 22,
+      "rows": 353
+     },
+     "step": {
+      "low": 0.8333333333333334,
+      "median": 0.96875,
+      "papers": 22,
+      "rows": 373
+     }
+    },
+    "every paper with a row of the test, one paper one vote whatever its rows (the rule the bar had before)": {
+     "mean": {
+      "low": 0.723,
+      "median": 1.0,
+      "papers": 22
+     },
+     "sd": {
+      "low": 0.555,
+      "median": 0.9416666666666667,
+      "papers": 22
+     },
+     "step": {
+      "low": 0.8333333333333334,
+      "median": 0.9739583333333333,
+      "papers": 22
+     }
+    },
+    "the check's: papers with 20 rows or more of the test, one paper one vote": {
+     "mean": {
+      "low": 0.72,
+      "median": 0.9333333333333333,
+      "papers": 11
+     },
+     "sd": {
+      "low": 0.531,
+      "median": 0.9066666666666667,
+      "papers": 10
+     },
+     "step": {
+      "low": 0.8875,
+      "median": 0.944375,
+      "papers": 6
+     }
+    }
+   }
+  },
+  "kinds": {
+   "cadaver": {
+    "bar": {
+     "mean": {
+      "least_rows": 20,
+      "low_quantile": 0.1,
+      "papers": 1,
+      "papers_with_any_row": 3
+     },
+     "sd": {
+      "least_rows": 20,
+      "low_quantile": 0.1,
+      "papers": 1,
+      "papers_with_any_row": 3
+     },
+     "step": {
+      "least_rows": 20,
+      "low_quantile": 0.1,
+      "papers": 1,
+      "papers_with_any_row": 3
+     }
+    },
+    "bars": {
+     "with tan2004": {
+      "every paper with a row of the test, each weighted by its rows": {
+       "mean": {
+        "low": 0.8,
+        "median": 0.9230769230769231,
+        "papers": 3,
+        "rows": 46
+       },
+       "sd": {
+        "low": 0.8846153846153846,
+        "median": 0.8846153846153846,
+        "papers": 3,
+        "rows": 46
+       },
+       "step": {
+        "low": 0.875,
+        "median": 0.9583333333333334,
+        "papers": 3,
+        "rows": 40
+       }
+      },
+      "every paper with a row of the test, one paper one vote whatever its rows (the rule the bar had before)": {
+       "mean": {
+        "low": 0.8200000000000001,
+        "median": 0.9,
+        "papers": 3
+       },
+       "sd": {
+        "low": 0.8876923076923077,
+        "median": 0.9,
+        "papers": 3
+       },
+       "step": {
+        "low": 0.875,
+        "median": 0.875,
+        "papers": 3
+       }
+      },
+      "the check's: papers with 20 rows or more of the test, one paper one vote": {
+       "mean": {
+        "papers": 1
+       },
+       "sd": {
+        "papers": 1
+       },
+       "step": {
+        "papers": 1
+       }
+      }
+     },
+     "without tan2004": {
+      "every paper with a row of the test, each weighted by its rows": {
+       "mean": {
+        "low": 0.8,
+        "median": 0.9230769230769231,
+        "papers": 3,
+        "rows": 46
+       },
+       "sd": {
+        "low": 0.8846153846153846,
+        "median": 0.8846153846153846,
+        "papers": 3,
+        "rows": 46
+       },
+       "step": {
+        "low": 0.875,
+        "median": 0.9583333333333334,
+        "papers": 3,
+        "rows": 40
+       }
+      },
+      "every paper with a row of the test, one paper one vote whatever its rows (the rule the bar had before)": {
+       "mean": {
+        "low": 0.8200000000000001,
+        "median": 0.9,
+        "papers": 3
+       },
+       "sd": {
+        "low": 0.8876923076923077,
+        "median": 0.9,
+        "papers": 3
+       },
+       "step": {
+        "low": 0.875,
+        "median": 0.875,
+        "papers": 3
+       }
+      },
+      "the check's: papers with 20 rows or more of the test, one paper one vote": {
+       "mean": {
+        "papers": 1
+       },
+       "sd": {
+        "papers": 1
+       },
+       "step": {
+        "papers": 1
+       }
+      }
+     }
+    },
+    "papers_with_rows": 3,
+    "rows_by_test": {
+     "mean": 46,
+     "sd": 46,
+     "step": 40
+    }
+   },
+   "dry bone": {
+    "bar": {
+     "mean": {
+      "least_rows": 20,
+      "low_quantile": 0.1,
+      "papers": 2,
+      "papers_with_any_row": 5
+     },
+     "sd": {
+      "least_rows": 20,
+      "low_quantile": 0.1,
+      "papers": 0,
+      "papers_with_any_row": 3
+     },
+     "step": {
+      "least_rows": 20,
+      "low_quantile": 0.1,
+      "papers": 2,
+      "papers_with_any_row": 5
+     }
+    },
+    "bars": {
+     "with tan2004": {
+      "every paper with a row of the test, each weighted by its rows": {
+       "mean": {
+        "low": 0.6027397260273972,
+        "median": 0.75,
+        "papers": 5,
+        "rows": 174
+       },
+       "sd": {
+        "low": 1.0,
+        "median": 1.0,
+        "papers": 3,
+        "rows": 46
+       },
+       "step": {
+        "low": 0.8970588235294118,
+        "median": 0.9375,
+        "papers": 5,
+        "rows": 160
+       }
+      },
+      "every paper with a row of the test, one paper one vote whatever its rows (the rule the bar had before)": {
+       "mean": {
+        "low": 0.2410958904109589,
+        "median": 0.75,
+        "papers": 5
+       },
+       "sd": {
+        "low": 1.0,
+        "median": 1.0,
+        "papers": 3
+       },
+       "step": {
+        "low": 0.913235294117647,
+        "median": 0.953125,
+        "papers": 5
+       }
+      },
+      "the check's: papers with 20 rows or more of the test, one paper one vote": {
+       "mean": {
+        "papers": 2
+       },
+       "sd": {
+        "papers": 0
+       },
+       "step": {
+        "papers": 2
+       }
+      }
+     },
+     "without tan2004": {
+      "every paper with a row of the test, each weighted by its rows": {
+       "mean": {
+        "low": 0.75,
+        "median": 0.75,
+        "papers": 4,
+        "rows": 101
+       },
+       "sd": {
+        "low": 1.0,
+        "median": 1.0,
+        "papers": 3,
+        "rows": 46
+       },
+       "step": {
+        "low": 0.9375,
+        "median": 0.953125,
+        "papers": 4,
+        "rows": 92
+       }
+      },
+      "every paper with a row of the test, one paper one vote whatever its rows (the rule the bar had before)": {
+       "mean": {
+        "low": 0.22500000000000003,
+        "median": 0.775,
+        "papers": 4
+       },
+       "sd": {
+        "low": 1.0,
+        "median": 1.0,
+        "papers": 3
+       },
+       "step": {
+        "low": 0.9421875,
+        "median": 0.9765625,
+        "papers": 4
+       }
+      },
+      "the check's: papers with 20 rows or more of the test, one paper one vote": {
+       "mean": {
+        "papers": 1
+       },
+       "sd": {
+        "papers": 0
+       },
+       "step": {
+        "papers": 1
+       }
+      }
+     }
+    },
+    "papers_with_rows": 5,
+    "rows_by_test": {
+     "mean": 174,
+     "sd": 46,
+     "step": 160
+    }
+   },
+   "living": {
+    "bar": {
+     "mean": {
+      "least_rows": 20,
+      "low": 0.7573333333333334,
+      "low_quantile": 0.1,
+      "median": 0.95,
+      "papers": 5,
+      "papers_named": "arockiaraj2025;frontphys2026;masharawi2021;moncadahabib2025;yadav2020",
+      "papers_with_any_row": 11,
+      "pooled": 0.8888888888888888
+     },
+     "sd": {
+      "least_rows": 20,
+      "low": 0.3981818181818182,
+      "low_quantile": 0.1,
+      "median": 0.68,
+      "papers": 5,
+      "papers_named": "arockiaraj2025;frontphys2026;masharawi2021;moncadahabib2025;yadav2020",
+      "papers_with_any_row": 11,
+      "pooled": 0.6495726495726496
+     },
+     "step": {
+      "least_rows": 20,
+      "low_quantile": 0.1,
+      "papers": 1,
+      "papers_with_any_row": 11
+     }
+    },
+    "bars": {
+     "with tan2004": {
+      "every paper with a row of the test, each weighted by its rows": {
+       "mean": {
+        "low": 0.64,
+        "median": 0.95,
+        "papers": 11,
+        "rows": 187
+       },
+       "sd": {
+        "low": 0.36363636363636365,
+        "median": 0.7333333333333333,
+        "papers": 11,
+        "rows": 187
+       },
+       "step": {
+        "low": 0.7777777777777778,
+        "median": 0.9583333333333334,
+        "papers": 11,
+        "rows": 143
+       }
+      },
+      "every paper with a row of the test, one paper one vote whatever its rows (the rule the bar had before)": {
+       "mean": {
+        "low": 0.64,
+        "median": 0.95,
+        "papers": 11
+       },
+       "sd": {
+        "low": 0.45,
+        "median": 0.8333333333333334,
+        "papers": 11
+       },
+       "step": {
+        "low": 0.7777777777777778,
+        "median": 0.875,
+        "papers": 11
+       }
+      },
+      "the check's: papers with 20 rows or more of the test, one paper one vote": {
+       "mean": {
+        "low": 0.7573333333333334,
+        "median": 0.95,
+        "papers": 5
+       },
+       "sd": {
+        "low": 0.3981818181818182,
+        "median": 0.68,
+        "papers": 5
+       },
+       "step": {
+        "papers": 1
+       }
+      }
+     },
+     "without tan2004": {
+      "every paper with a row of the test, each weighted by its rows": {
+       "mean": {
+        "low": 0.64,
+        "median": 0.95,
+        "papers": 11,
+        "rows": 187
+       },
+       "sd": {
+        "low": 0.36363636363636365,
+        "median": 0.7333333333333333,
+        "papers": 11,
+        "rows": 187
+       },
+       "step": {
+        "low": 0.7777777777777778,
+        "median": 0.9583333333333334,
+        "papers": 11,
+        "rows": 143
+       }
+      },
+      "every paper with a row of the test, one paper one vote whatever its rows (the rule the bar had before)": {
+       "mean": {
+        "low": 0.64,
+        "median": 0.95,
+        "papers": 11
+       },
+       "sd": {
+        "low": 0.45,
+        "median": 0.8333333333333334,
+        "papers": 11
+       },
+       "step": {
+        "low": 0.7777777777777778,
+        "median": 0.875,
+        "papers": 11
+       }
+      },
+      "the check's: papers with 20 rows or more of the test, one paper one vote": {
+       "mean": {
+        "low": 0.7573333333333334,
+        "median": 0.95,
+        "papers": 5
+       },
+       "sd": {
+        "low": 0.3981818181818182,
+        "median": 0.68,
+        "papers": 5
+       },
+       "step": {
+        "papers": 1
+       }
+      }
+     }
+    },
+    "papers_with_rows": 11,
+    "rows_by_test": {
+     "mean": 187,
+     "sd": 187,
+     "step": 143
+    }
+   },
+   "mixed": {
+    "bar": {},
+    "bars": {
+     "with tan2004": {
+      "every paper with a row of the test, each weighted by its rows": {},
+      "every paper with a row of the test, one paper one vote whatever its rows (the rule the bar had before)": {},
+      "the check's: papers with 20 rows or more of the test, one paper one vote": {}
+     },
+     "without tan2004": {
+      "every paper with a row of the test, each weighted by its rows": {},
+      "every paper with a row of the test, one paper one vote whatever its rows (the rule the bar had before)": {},
+      "the check's: papers with 20 rows or more of the test, one paper one vote": {}
+     }
+    },
+    "papers_with_rows": 0,
+    "rows_by_test": {
+     "mean": 0,
+     "sd": 0,
+     "step": 0
+    }
+   },
+   "rule": "each paper of the kind left out in turn, the kind's card built from the kind's other papers with the spreads they cannot read borrowed from every other paper (as build builds a kind's card), at the same r and steps' rule; the bar as every paper's"
+  },
+  "lowest_overall_of_five_rows_or_more": [
+   {
+    "made": 14,
+    "paper": "amonookuofi1982",
+    "passed": 10,
+    "rate": 0.7142857142857143
+   },
+   {
+    "made": 120,
+    "paper": "busscher2010",
+    "passed": 87,
+    "rate": 0.725
+   },
+   {
+    "made": 354,
+    "paper": "tan2004",
+    "passed": 261,
+    "rate": 0.7372881355932204
+   },
+   {
+    "made": 56,
+    "paper": "arockiaraj2025",
+    "passed": 42,
+    "rate": 0.75
+   },
+   {
+    "made": 70,
+    "paper": "frontphys2026",
+    "passed": 54,
+    "rate": 0.7714285714285715
+   },
+   {
+    "made": 67,
+    "paper": "duman2026",
+    "passed": 54,
+    "rate": 0.8059701492537313
+   }
+  ],
+  "not_calibrated": "the sex test: a sign test made only where the interval for a new population's contrast clears zero, so it carries no pass rate a held-out paper's is set beside and enters no verdict; how often a held-out paper's own sign agrees at such cells, under either borrowing rule, is covariate_borrowing's held_out_signs",
+  "papers_left_out": 33,
+  "papers_with_no_row": [
+   "ahmed2019",
+   "chen2011",
+   "gilad1985",
+   "italianmri",
+   "kunkel2011",
+   "makino2012",
+   "robertson2000",
+   "tang2016",
+   "twomey1985",
+   "zindrick1987"
+  ],
+  "papers_with_rows": 23,
+  "pooled": {
+   "all": {
+    "made": 1527,
+    "passed": 1284,
+    "rate": 0.8408644400785854
+   },
+   "mean": {
+    "made": 635,
+    "passed": 482,
+    "rate": 0.7590551181102362
+   },
+   "sd": {
+    "made": 353,
+    "passed": 298,
+    "rate": 0.8441926345609065
+   },
+   "step": {
+    "made": 539,
+    "passed": 504,
+    "rate": 0.935064935064935
+   }
+  },
+  "pooled_without_tan2004": {
+   "all": {
+    "made": 1173,
+    "passed": 1023,
+    "rate": 0.8721227621483376
+   },
+   "mean": {
+    "made": 447,
+    "passed": 375,
+    "rate": 0.8389261744966443
+   },
+   "sd": {
+    "made": 353,
+    "passed": 298,
+    "rate": 0.8441926345609065
+   },
+   "step": {
+    "made": 373,
+    "passed": 350,
+    "rate": 0.938337801608579
+   }
+  },
+  "rule": "each paper left out in turn; the card of every paper together built from the rest alone; the left-out paper's own strata scored on it as check() scores a cohort, each widened by its own sampling error; the bar is the median and the 10th percentile of the papers' own rates, one paper one vote, over the papers with 20 rows or more of the test",
+  "step_rule": "root mean square by measure, the measures' median",
+  "within_r": 0.0
+ },
+ "checks": {
+  "centre": {
+   "by_measure_worst": [
+    {
+     "failed": 2,
+     "made": 49,
+     "measure": "canal_ap",
+     "passed": 47,
+     "rate": 0.9591836734693877
+    },
+    {
+     "failed": 2,
+     "made": 39,
+     "measure": "pedicle_chord [along the axis]",
+     "passed": 37,
+     "rate": 0.9487179487179487
+    },
+    {
+     "failed": 1,
+     "made": 48,
+     "measure": "canal_area",
+     "passed": 47,
+     "rate": 0.9791666666666666
+    },
+    {
+     "failed": 1,
+     "made": 48,
+     "measure": "canal_w",
+     "passed": 47,
+     "rate": 0.9791666666666666
+    },
+    {
+     "failed": 1,
+     "made": 65,
+     "measure": "h_mid",
+     "passed": 64,
+     "rate": 0.9846153846153847
+    },
+    {
+     "failed": 1,
+     "made": 60,
+     "measure": "pedicle_incl_sag:mean",
+     "passed": 59,
+     "rate": 0.9833333333333333
+    },
+    {
+     "failed": 1,
+     "made": 60,
+     "measure": "pedicle_incl_trans:mean",
+     "passed": 59,
+     "rate": 0.9833333333333333
+    },
+    {
+     "failed": 0,
+     "made": 14,
+     "measure": "body_area",
+     "passed": 14,
+     "rate": 1.0
+    },
+    {
+     "failed": 0,
+     "made": 17,
+     "measure": "body_d [end-plates' mean]",
+     "passed": 17,
+     "rate": 1.0
+    },
+    {
+     "failed": 0,
+     "made": 14,
+     "measure": "body_d [through the pedicles]",
+     "passed": 14,
+     "rate": 1.0
+    },
+    {
+     "failed": 0,
+     "made": 14,
+     "measure": "body_d_mid",
+     "passed": 14,
+     "rate": 1.0
+    },
+    {
+     "failed": 0,
+     "made": 14,
+     "measure": "body_w",
+     "passed": 14,
+     "rate": 1.0
+    }
+   ],
+   "summary": {
+    "made": 1731,
+    "mean_square_z": 0.08064804306620489,
+    "mean_square_z_by_test": {
+     "mean": 0.0007669896442816809,
+     "sd": 0.015779635809372184,
+     "step": 0.20901741439228586
+    },
+    "measures_not_on_card": [],
+    "nominal": 0.95,
+    "passed": 1722,
+    "rate": 0.9948006932409013,
+    "reference_n": 40,
+    "short_cells": 0,
+    "tests": {
+     "mean": {
+      "made": 694,
+      "passed": 694,
+      "rate": 1.0
+     },
+     "sd": {
+      "made": 402,
+      "passed": 402,
+      "rate": 1.0
+     },
+     "step": {
+      "made": 635,
+      "passed": 626,
+      "rate": 0.9858267716535433
+     }
+    },
+    "verdict": {
+     "bar": "the 10th percentile of the kind's held-out papers' own rates, one paper one vote, over the papers with 20 rows or more of the test (bar_of), the median beside it",
+     "passed": true,
+     "tests": {
+      "mean": {
+       "at_or_above_median": true,
+       "low": 0.5842340425531916,
+       "made": 694,
+       "median": 0.8916666666666666,
+       "papers": 12,
+       "passed": true,
+       "rate": 1.0
+      },
+      "sd": {
+       "at_or_above_median": true,
+       "low": 0.531,
+       "made": 402,
+       "median": 0.9066666666666667,
+       "papers": 10,
+       "passed": true,
+       "rate": 1.0
+      },
+      "step": {
+       "at_or_above_median": true,
+       "low": 0.89,
+       "made": 635,
+       "median": 0.927710843373494,
+       "papers": 7,
+       "passed": true,
+       "rate": 0.9858267716535433
+      }
+     },
+     "why": "the step test and every test with a bar at or above its bar"
+    }
+   }
+  },
+  "drawn": {
+   "mean_square_z_by_test_median": {
+    "mean": 0.9503278251819656,
+    "sd": 0.9126896092769998,
+    "step": 1.4863095399857178
+   },
+   "mean_square_z_median": 1.1411033279726377,
+   "paired_t": {
+    "note": "the same populations under Higgins's t interval where a cell has three series or a step three papers, z elsewhere",
+    "populations_where_t_passes_at_least_as_often": 200,
+    "t_minus_z": {
+     "mean": 0.004841498559077784,
+     "sd": 0.0,
+     "step": 0.005236220472440989
+    },
+    "tests": {
+     "mean": {
+      "made": 138800,
+      "passed": 133191,
+      "rate": 0.9595893371757925
+     },
+     "sd": {
+      "made": 80400,
+      "passed": 77106,
+      "rate": 0.9590298507462687
+     },
+     "step": {
+      "made": 127000,
+      "passed": 116623,
+      "rate": 0.9182913385826772
+     }
+    }
+   },
+   "people": 300,
+   "population_rate_min": 0.8838821490467937,
+   "population_rate_quartiles": [
+    0.9324090121317158,
+    0.9433853264009243,
+    0.950895436164067
+   ],
+   "population_verdicts": {
+    "failed": 25,
+    "no verdict": 0,
+    "passed": 175
+   },
+   "populations": 200,
+   "populations_at_or_above_each_tests_bar": {
+    "mean": {
+     "made": 200,
+     "passed": 200,
+     "rate": 1.0
+    },
+    "sd": {
+     "made": 200,
+     "passed": 200,
+     "rate": 1.0
+    },
+    "step": {
+     "made": 200,
+     "passed": 175,
+     "rate": 0.875
+    }
+   },
+   "rate": 0.9404477180820335,
+   "seed": 4201,
+   "steps_the_model_cannot_honour": {
+    "made": 37600,
+    "passed": 30237,
+    "rate": 0.8041755319148937
+   },
+   "steps_the_model_honours": {
+    "made": 89400,
+    "passed": 85721,
+    "rate": 0.9588478747203579
+   },
+   "tests": {
+    "mean": {
+     "made": 138800,
+     "passed": 132519,
+     "rate": 0.9547478386167148
+    },
+    "sd": {
+     "made": 80400,
+     "passed": 77106,
+     "rate": 0.9590298507462687
+    },
+    "step": {
+     "made": 127000,
+     "passed": 115958,
+     "rate": 0.9130551181102362
+    }
+   },
+   "verdict_of_the_pooled_rates": {
+    "bar": "the 10th percentile of the kind's held-out papers' own rates, one paper one vote, over the papers with 20 rows or more of the test (bar_of), the median beside it",
+    "passed": true,
+    "tests": {
+     "mean": {
+      "at_or_above_median": true,
+      "low": 0.5842340425531916,
+      "made": 138800,
+      "median": 0.8916666666666666,
+      "papers": 12,
+      "passed": true,
+      "rate": 0.9547478386167148
+     },
+     "sd": {
+      "at_or_above_median": true,
+      "low": 0.531,
+      "made": 80400,
+      "median": 0.9066666666666667,
+      "papers": 10,
+      "passed": true,
+      "rate": 0.9590298507462687
+     },
+     "step": {
+      "at_or_above_median": false,
+      "low": 0.89,
+      "made": 127000,
+      "median": 0.927710843373494,
+      "papers": 7,
+      "passed": true,
+      "rate": 0.9130551181102362
+     }
+    },
+    "why": "the step test and every test with a bar at or above its bar"
+   },
+   "why_below_the_step_bar": "simulate keeps each level's spread of a new population's mean (between) and correlates adjacent levels so that their difference has the step's spread; at 188 of the card's 635 steps the two levels' betweens differ by more than the step's own, and since the SD of a difference is at least the difference of the SDs, no correlation gives both levels their spread and the step its own (incoherent_spreads), so the drawn steps there spread wider than the step's interval and pass at 0.804, against 0.959 on the other 447. The betweens differ because each is read in its own level's SD, a new population's mean spreading about 1.54 of the level's SD (median over those steps' two levels; 1.52 over the others'), while a step's spread is 0.55 of the pair's mean SD (0.48): two adjacent levels whose pooled SDs differ by more than about 0.36 of their mean, the ratio of the two spreads, have betweens further apart than the step's spread, and at those steps the two SDs differ by a median 0.42 of their mean, against 0.10 at the others. The borrowing does not set them apart: 100 of them join two cells that both borrow every cell's median tau. Real populations held out are not drawn from the levels' spreads and pass the held-out steps at 0.935 pooled (calibration), so the shortfall is the drawing model's, which no population of populations can honour on those steps, not a property of the steps' bar"
+  },
+  "flattened lumbar": {
+   "lumbar_means": {
+    "made": 259,
+    "passed": 252,
+    "rate": 0.972972972972973
+   },
+   "lumbar_sds": {
+    "made": 230,
+    "passed": 230,
+    "rate": 1.0
+   },
+   "lumbar_steps": {
+    "made": 236,
+    "passed": 158,
+    "rate": 0.6694915254237288
+   },
+   "other_steps": {
+    "made": 399,
+    "passed": 394,
+    "rate": 0.9874686716791979
+   },
+   "step_rate_against_every_bar": {
+    "every paper with a row of the test, each weighted by its rows, with tan2004": {
+     "at_or_above": false,
+     "low": 0.875
+    },
+    "every paper with a row of the test, each weighted by its rows, without tan2004": {
+     "at_or_above": true,
+     "low": 0.8333333333333334
+    },
+    "every paper with a row of the test, one paper one vote whatever its rows (the rule the bar had before), with tan2004": {
+     "at_or_above": true,
+     "low": 0.8333333333333334
+    },
+    "every paper with a row of the test, one paper one vote whatever its rows (the rule the bar had before), without tan2004": {
+     "at_or_above": true,
+     "low": 0.8333333333333334
+    },
+    "the check's: papers with 20 rows or more of the test, one paper one vote, with tan2004": {
+     "at_or_above": false,
+     "low": 0.89
+    },
+    "the check's: papers with 20 rows or more of the test, one paper one vote, without tan2004": {
+     "at_or_above": false,
+     "low": 0.8875
+    }
+   },
+   "summary": {
+    "made": 1731,
+    "mean_square_z": 0.748188009674763,
+    "mean_square_z_by_test": {
+     "mean": 0.21180733373844796,
+     "sd": 0.015779635809372184,
+     "step": 1.7980720339167935
+    },
+    "measures_not_on_card": [],
+    "nominal": 0.95,
+    "passed": 1641,
+    "rate": 0.9480069324090121,
+    "reference_n": 40,
+    "short_cells": 0,
+    "tests": {
+     "mean": {
+      "made": 694,
+      "passed": 687,
+      "rate": 0.9899135446685879
+     },
+     "sd": {
+      "made": 402,
+      "passed": 402,
+      "rate": 1.0
+     },
+     "step": {
+      "made": 635,
+      "passed": 552,
+      "rate": 0.8692913385826772
+     }
+    },
+    "verdict": {
+     "bar": "the 10th percentile of the kind's held-out papers' own rates, one paper one vote, over the papers with 20 rows or more of the test (bar_of), the median beside it",
+     "passed": false,
+     "tests": {
+      "mean": {
+       "at_or_above_median": true,
+       "low": 0.5842340425531916,
+       "made": 694,
+       "median": 0.8916666666666666,
+       "papers": 12,
+       "passed": true,
+       "rate": 0.9899135446685879
+      },
+      "sd": {
+       "at_or_above_median": true,
+       "low": 0.531,
+       "made": 402,
+       "median": 0.9066666666666667,
+       "papers": 10,
+       "passed": true,
+       "rate": 1.0
+      },
+      "step": {
+       "at_or_above_median": false,
+       "low": 0.89,
+       "made": 635,
+       "median": 0.927710843373494,
+       "papers": 7,
+       "passed": false,
+       "rate": 0.8692913385826772
+      }
+     },
+     "why": "fails its bar on: step"
+    }
+   },
+   "touched": "every measure's L1 to L5 means set to their run's mean, the spread kept"
+  },
+  "generator, measured": {
+   "by_measure_worst": [
+    {
+     "failed": 27,
+     "made": 60,
+     "measure": "pedicle_incl_trans:mean",
+     "passed": 33,
+     "rate": 0.55
+    },
+    {
+     "failed": 22,
+     "made": 43,
+     "measure": "transverse_width",
+     "passed": 21,
+     "rate": 0.4883720930232558
+    },
+    {
+     "failed": 20,
+     "made": 60,
+     "measure": "pedicle",
+     "passed": 40,
+     "rate": 0.6666666666666666
+    },
+    {
+     "failed": 19,
+     "made": 49,
+     "measure": "canal_ap",
+     "passed": 30,
+     "rate": 0.6122448979591837
+    },
+    {
+     "failed": 17,
+     "made": 48,
+     "measure": "canal_w",
+     "passed": 31,
+     "rate": 0.6458333333333334
+    },
+    {
+     "failed": 17,
+     "made": 49,
+     "measure": "endplate_depth",
+     "passed": 32,
+     "rate": 0.6530612244897959
+    },
+    {
+     "failed": 17,
+     "made": 43,
+     "measure": "endplate_lower_incl",
+     "passed": 26,
+     "rate": 0.6046511627906976
+    },
+    {
+     "failed": 17,
+     "made": 60,
+     "measure": "pedicle_incl_sag:mean",
+     "passed": 43,
+     "rate": 0.7166666666666667
+    },
+    {
+     "failed": 16,
+     "made": 49,
+     "measure": "endplate_lower",
+     "passed": 33,
+     "rate": 0.673469387755102
+    },
+    {
+     "failed": 14,
+     "made": 49,
+     "measure": "endplate_lower_depth",
+     "passed": 35,
+     "rate": 0.7142857142857143
+    },
+    {
+     "failed": 12,
+     "made": 48,
+     "measure": "canal_area",
+     "passed": 36,
+     "rate": 0.75
+    },
+    {
+     "failed": 11,
+     "made": 65,
+     "measure": "h_post",
+     "passed": 54,
+     "rate": 0.8307692307692308
+    }
+   ],
+   "steps_on_one_paper": {
+    "made": 277,
+    "passed": 235,
+    "rate": 0.8483754512635379
+   },
+   "steps_on_two_papers_or_more": {
+    "made": 122,
+    "passed": 109,
+    "rate": 0.8934426229508197
+   },
+   "summary": {
+    "made": 962,
+    "mean_square_z": 3.3724757290755862,
+    "mean_square_z_by_test": {
+     "mean": 3.9681055935119756,
+     "sd": 4.730667524358659,
+     "step": 2.262548796927543
+    },
+    "measures_not_on_card": [
+     "costotransverse_area:mean",
+     "costovertebral_area_lower:mean",
+     "costovertebral_area_upper:mean",
+     "facet_area_inf:mean",
+     "facet_area_sup:mean",
+     "facet_h_inf:mean",
+     "facet_h_sup:mean",
+     "facet_sag_inf:mean",
+     "facet_sag_sup:mean",
+     "facet_trans_inf:mean",
+     "facet_trans_sup:mean",
+     "facet_w_inf:mean",
+     "interfacet_h:mean",
+     "interfacet_w_inf",
+     "interfacet_w_sup",
+     "pars_area:mean",
+     "uncovertebral_area_lower:mean",
+     "uncovertebral_area_upper:mean",
+     "uncovertebral_incl_frontal_lower",
+     "uncovertebral_incl_frontal_upper",
+     "uncovertebral_incl_sag_lower",
+     "uncovertebral_incl_sag_upper"
+    ],
+    "nominal": 0.95,
+    "passed": 721,
+    "rate": 0.7494802494802495,
+    "reference_n": 40,
+    "short_cells": 0,
+    "tests": {
+     "mean": {
+      "made": 422,
+      "passed": 296,
+      "rate": 0.7014218009478673
+     },
+     "sd": {
+      "made": 141,
+      "passed": 81,
+      "rate": 0.574468085106383
+     },
+     "step": {
+      "made": 399,
+      "passed": 344,
+      "rate": 0.8621553884711779
+     }
+    },
+    "verdict": {
+     "bar": "the 10th percentile of the kind's held-out papers' own rates, one paper one vote, over the papers with 20 rows or more of the test (bar_of), the median beside it",
+     "passed": false,
+     "tests": {
+      "mean": {
+       "at_or_above_median": false,
+       "low": 0.5842340425531916,
+       "made": 422,
+       "median": 0.8916666666666666,
+       "papers": 12,
+       "passed": true,
+       "rate": 0.7014218009478673
+      },
+      "sd": {
+       "at_or_above_median": false,
+       "low": 0.531,
+       "made": 141,
+       "median": 0.9066666666666667,
+       "papers": 10,
+       "passed": true,
+       "rate": 0.574468085106383
+      },
+      "step": {
+       "at_or_above_median": false,
+       "low": 0.89,
+       "made": 399,
+       "median": 0.927710843373494,
+       "papers": 7,
+       "passed": false,
+       "rate": 0.8621553884711779
+      }
+     },
+     "why": "fails its bar on: step; 22 of the cohort's measures are not on the card: costotransverse_area:mean, costovertebral_area_lower:mean, costovertebral_area_upper:mean, facet_area_inf:mean, facet_area_sup:mean, ..."
+    }
+   }
+  },
+  "generator, true": {
+   "by_measure_worst": [
+    {
+     "failed": 23,
+     "made": 60,
+     "measure": "pedicle_incl_trans:mean",
+     "passed": 37,
+     "rate": 0.6166666666666667
+    },
+    {
+     "failed": 22,
+     "made": 43,
+     "measure": "endplate_lower_incl",
+     "passed": 21,
+     "rate": 0.4883720930232558
+    },
+    {
+     "failed": 22,
+     "made": 43,
+     "measure": "transverse_width",
+     "passed": 21,
+     "rate": 0.4883720930232558
+    },
+    {
+     "failed": 19,
+     "made": 49,
+     "measure": "canal_ap",
+     "passed": 30,
+     "rate": 0.6122448979591837
+    },
+    {
+     "failed": 17,
+     "made": 48,
+     "measure": "canal_w",
+     "passed": 31,
+     "rate": 0.6458333333333334
+    },
+    {
+     "failed": 17,
+     "made": 49,
+     "measure": "endplate_depth",
+     "passed": 32,
+     "rate": 0.6530612244897959
+    },
+    {
+     "failed": 17,
+     "made": 60,
+     "measure": "pedicle",
+     "passed": 43,
+     "rate": 0.7166666666666667
+    },
+    {
+     "failed": 17,
+     "made": 60,
+     "measure": "pedicle_incl_sag:mean",
+     "passed": 43,
+     "rate": 0.7166666666666667
+    },
+    {
+     "failed": 16,
+     "made": 49,
+     "measure": "endplate_lower",
+     "passed": 33,
+     "rate": 0.673469387755102
+    },
+    {
+     "failed": 14,
+     "made": 49,
+     "measure": "endplate_lower_depth",
+     "passed": 35,
+     "rate": 0.7142857142857143
+    },
+    {
+     "failed": 13,
+     "made": 48,
+     "measure": "canal_area",
+     "passed": 35,
+     "rate": 0.7291666666666666
+    },
+    {
+     "failed": 10,
+     "made": 46,
+     "measure": "endplate",
+     "passed": 36,
+     "rate": 0.782608695652174
+    }
+   ],
+   "steps_on_one_paper": {
+    "made": 277,
+    "passed": 227,
+    "rate": 0.8194945848375451
+   },
+   "steps_on_two_papers_or_more": {
+    "made": 122,
+    "passed": 106,
+    "rate": 0.8688524590163934
+   },
+   "summary": {
+    "made": 962,
+    "mean_square_z": 3.502989735136152,
+    "mean_square_z_by_test": {
+     "mean": 4.07694843757139,
+     "sd": 3.985958169613908,
+     "step": 2.7252726381711545
+    },
+    "measures_not_on_card": [
+     "costotransverse_area:mean",
+     "costovertebral_area_lower:mean",
+     "costovertebral_area_upper:mean",
+     "facet_area_inf:mean",
+     "facet_area_sup:mean",
+     "facet_h_inf:mean",
+     "facet_h_sup:mean",
+     "facet_sag_inf:mean",
+     "facet_sag_sup:mean",
+     "facet_trans_inf:mean",
+     "facet_trans_sup:mean",
+     "facet_w_inf:mean",
+     "interfacet_h:mean",
+     "interfacet_w_inf",
+     "interfacet_w_sup",
+     "pars_area:mean",
+     "uncovertebral_area_lower:mean",
+     "uncovertebral_area_upper:mean",
+     "uncovertebral_incl_frontal_lower",
+     "uncovertebral_incl_frontal_upper",
+     "uncovertebral_incl_sag_lower",
+     "uncovertebral_incl_sag_upper"
+    ],
+    "nominal": 0.95,
+    "passed": 724,
+    "rate": 0.7525987525987526,
+    "reference_n": 40,
+    "short_cells": 0,
+    "tests": {
+     "mean": {
+      "made": 422,
+      "passed": 295,
+      "rate": 0.6990521327014217
+     },
+     "sd": {
+      "made": 141,
+      "passed": 96,
+      "rate": 0.6808510638297872
+     },
+     "step": {
+      "made": 399,
+      "passed": 333,
+      "rate": 0.8345864661654135
+     }
+    },
+    "verdict": {
+     "bar": "the 10th percentile of the kind's held-out papers' own rates, one paper one vote, over the papers with 20 rows or more of the test (bar_of), the median beside it",
+     "passed": false,
+     "tests": {
+      "mean": {
+       "at_or_above_median": false,
+       "low": 0.5842340425531916,
+       "made": 422,
+       "median": 0.8916666666666666,
+       "papers": 12,
+       "passed": true,
+       "rate": 0.6990521327014217
+      },
+      "sd": {
+       "at_or_above_median": false,
+       "low": 0.531,
+       "made": 141,
+       "median": 0.9066666666666667,
+       "papers": 10,
+       "passed": true,
+       "rate": 0.6808510638297872
+      },
+      "step": {
+       "at_or_above_median": false,
+       "low": 0.89,
+       "made": 399,
+       "median": 0.927710843373494,
+       "papers": 7,
+       "passed": false,
+       "rate": 0.8345864661654135
+      }
+     },
+     "why": "fails its bar on: step; 22 of the cohort's measures are not on the card: costotransverse_area:mean, costovertebral_area_lower:mean, costovertebral_area_upper:mean, facet_area_inf:mean, facet_area_sup:mean, ..."
+    }
+   }
+  },
+  "generator, true, by kind": {
+   "all": {
+    "made": 962,
+    "mean_square_z": 3.502989735136152,
+    "mean_square_z_by_test": {
+     "mean": 4.07694843757139,
+     "sd": 3.985958169613908,
+     "step": 2.7252726381711545
+    },
+    "measures_not_on_card": [
+     "costotransverse_area:mean",
+     "costovertebral_area_lower:mean",
+     "costovertebral_area_upper:mean",
+     "facet_area_inf:mean",
+     "facet_area_sup:mean",
+     "facet_h_inf:mean",
+     "facet_h_sup:mean",
+     "facet_sag_inf:mean",
+     "facet_sag_sup:mean",
+     "facet_trans_inf:mean",
+     "facet_trans_sup:mean",
+     "facet_w_inf:mean",
+     "interfacet_h:mean",
+     "interfacet_w_inf",
+     "interfacet_w_sup",
+     "pars_area:mean",
+     "uncovertebral_area_lower:mean",
+     "uncovertebral_area_upper:mean",
+     "uncovertebral_incl_frontal_lower",
+     "uncovertebral_incl_frontal_upper",
+     "uncovertebral_incl_sag_lower",
+     "uncovertebral_incl_sag_upper"
+    ],
+    "nominal": 0.95,
+    "passed": 724,
+    "rate": 0.7525987525987526,
+    "reference_n": 40,
+    "short_cells": 0,
+    "tests": {
+     "mean": {
+      "made": 422,
+      "passed": 295,
+      "rate": 0.6990521327014217
+     },
+     "sd": {
+      "made": 141,
+      "passed": 96,
+      "rate": 0.6808510638297872
+     },
+     "step": {
+      "made": 399,
+      "passed": 333,
+      "rate": 0.8345864661654135
+     }
+    },
+    "verdict": {
+     "bar": "the 10th percentile of the kind's held-out papers' own rates, one paper one vote, over the papers with 20 rows or more of the test (bar_of), the median beside it",
+     "passed": false,
+     "tests": {
+      "mean": {
+       "at_or_above_median": false,
+       "low": 0.5842340425531916,
+       "made": 422,
+       "median": 0.8916666666666666,
+       "papers": 12,
+       "passed": true,
+       "rate": 0.6990521327014217
+      },
+      "sd": {
+       "at_or_above_median": false,
+       "low": 0.531,
+       "made": 141,
+       "median": 0.9066666666666667,
+       "papers": 10,
+       "passed": true,
+       "rate": 0.6808510638297872
+      },
+      "step": {
+       "at_or_above_median": false,
+       "low": 0.89,
+       "made": 399,
+       "median": 0.927710843373494,
+       "papers": 7,
+       "passed": false,
+       "rate": 0.8345864661654135
+      }
+     },
+     "why": "fails its bar on: step; 22 of the cohort's measures are not on the card: costotransverse_area:mean, costovertebral_area_lower:mean, costovertebral_area_upper:mean, facet_area_inf:mean, facet_area_sup:mean, ..."
+    }
+   },
+   "cadaver": {
+    "made": 121,
+    "mean_square_z": 1.742751997358678,
+    "mean_square_z_by_test": {
+     "mean": 2.4224547059207544,
+     "sd": 1.9559714526110061,
+     "step": 0.7291646762720572
+    },
+    "measures_not_on_card": [
+     "canal_ap",
+     "canal_area",
+     "canal_w",
+     "costotransverse_area:mean",
+     "costovertebral_area_lower:mean",
+     "costovertebral_area_upper:mean",
+     "endplate",
+     "endplate_area",
+     "endplate_depth",
+     "endplate_incl",
+     "endplate_lower",
+     "endplate_lower_area",
+     "endplate_lower_depth",
+     "endplate_lower_incl",
+     "facet_area_inf:mean",
+     "facet_area_sup:mean",
+     "facet_h_inf:mean",
+     "facet_h_sup:mean",
+     "facet_sag_inf:mean",
+     "facet_sag_sup:mean",
+     "facet_trans_inf:mean",
+     "facet_trans_sup:mean",
+     "facet_w_inf:mean",
+     "facet_w_sup:mean",
+     "interfacet_h:mean",
+     "interfacet_w_inf",
+     "interfacet_w_sup",
+     "pars_area:mean",
+     "pedicle_incl_trans:mean",
+     "spinous_length",
+     "transverse_width",
+     "uncovertebral_area_lower:mean",
+     "uncovertebral_area_upper:mean",
+     "uncovertebral_incl_frontal_lower",
+     "uncovertebral_incl_frontal_upper",
+     "uncovertebral_incl_sag_lower",
+     "uncovertebral_incl_sag_upper"
+    ],
+    "nominal": 0.95,
+    "passed": 102,
+    "rate": 0.8429752066115702,
+    "reference_n": 40,
+    "short_cells": 0,
+    "tests": {
+     "mean": {
+      "made": 42,
+      "passed": 32,
+      "rate": 0.7619047619047619
+     },
+     "sd": {
+      "made": 42,
+      "passed": 34,
+      "rate": 0.8095238095238095
+     },
+     "step": {
+      "made": 37,
+      "passed": 36,
+      "rate": 0.972972972972973
+     }
+    },
+    "verdict": {
+     "bar": "the 10th percentile of the kind's held-out papers' own rates, one paper one vote, over the papers with 20 rows or more of the test (bar_of), the median beside it",
+     "passed": null,
+     "tests": {
+      "mean": {
+       "made": 42,
+       "papers": 1,
+       "passed": null,
+       "rate": 0.7619047619047619,
+       "why": "no bar: fewer than 5 of the kind's held-out papers have 20 rows or more of this test (calibration)"
+      },
+      "sd": {
+       "made": 42,
+       "papers": 1,
+       "passed": null,
+       "rate": 0.8095238095238095,
+       "why": "no bar: fewer than 5 of the kind's held-out papers have 20 rows or more of this test (calibration)"
+      },
+      "step": {
+       "made": 37,
+       "papers": 1,
+       "passed": null,
+       "rate": 0.972972972972973,
+       "why": "no bar: fewer than 5 of the kind's held-out papers have 20 rows or more of this test (calibration)"
+      }
+     },
+     "why": "the step test has no verdict: no bar: fewer than 5 of the kind's held-out papers have 20 rows or more of this test (calibration); 37 of the cohort's measures are not on the card: canal_ap, canal_area, canal_w, costotransverse_area:mean, costovertebral_area_lower:mean, ..."
+    }
+   },
+   "dry bone": {
+    "made": 884,
+    "mean_square_z": 3.9501595759903596,
+    "mean_square_z_by_test": {
+     "mean": 4.850878174078773,
+     "sd": 5.336015266385992,
+     "step": 2.7454345071203314
+    },
+    "measures_not_on_card": [
+     "costotransverse_area:mean",
+     "costovertebral_area_lower:mean",
+     "costovertebral_area_upper:mean",
+     "facet_area_inf:mean",
+     "facet_area_sup:mean",
+     "facet_h_inf:mean",
+     "facet_h_sup:mean",
+     "facet_sag_inf:mean",
+     "facet_sag_sup:mean",
+     "facet_trans_inf:mean",
+     "facet_trans_sup:mean",
+     "facet_w_inf:mean",
+     "facet_w_sup:mean",
+     "interfacet_h:mean",
+     "interfacet_w_inf",
+     "interfacet_w_sup",
+     "pars_area:mean",
+     "uncovertebral_area_lower:mean",
+     "uncovertebral_area_upper:mean",
+     "uncovertebral_incl_frontal_lower",
+     "uncovertebral_incl_frontal_upper",
+     "uncovertebral_incl_sag_lower",
+     "uncovertebral_incl_sag_upper"
+    ],
+    "nominal": 0.95,
+    "passed": 627,
+    "rate": 0.7092760180995475,
+    "reference_n": 40,
+    "short_cells": 0,
+    "tests": {
+     "mean": {
+      "made": 416,
+      "passed": 258,
+      "rate": 0.6201923076923077
+     },
+     "sd": {
+      "made": 73,
+      "passed": 39,
+      "rate": 0.5342465753424658
+     },
+     "step": {
+      "made": 395,
+      "passed": 330,
+      "rate": 0.8354430379746836
+     }
+    },
+    "verdict": {
+     "bar": "the 10th percentile of the kind's held-out papers' own rates, one paper one vote, over the papers with 20 rows or more of the test (bar_of), the median beside it",
+     "passed": null,
+     "tests": {
+      "mean": {
+       "made": 416,
+       "papers": 2,
+       "passed": null,
+       "rate": 0.6201923076923077,
+       "why": "no bar: fewer than 5 of the kind's held-out papers have 20 rows or more of this test (calibration)"
+      },
+      "sd": {
+       "made": 73,
+       "papers": 0,
+       "passed": null,
+       "rate": 0.5342465753424658,
+       "why": "no bar: fewer than 5 of the kind's held-out papers have 20 rows or more of this test (calibration)"
+      },
+      "step": {
+       "made": 395,
+       "papers": 2,
+       "passed": null,
+       "rate": 0.8354430379746836,
+       "why": "no bar: fewer than 5 of the kind's held-out papers have 20 rows or more of this test (calibration)"
+      }
+     },
+     "why": "the step test has no verdict: no bar: fewer than 5 of the kind's held-out papers have 20 rows or more of this test (calibration); 23 of the cohort's measures are not on the card: costotransverse_area:mean, costovertebral_area_lower:mean, costovertebral_area_upper:mean, facet_area_inf:mean, facet_area_sup:mean, ..."
+    }
+   },
+   "living": {
+    "made": 248,
+    "mean_square_z": 2.6808411724803767,
+    "mean_square_z_by_test": {
+     "mean": 2.433691593782973,
+     "sd": 3.1501166150732716,
+     "step": 2.409354005496999
+    },
+    "measures_not_on_card": [
+     "costotransverse_area:mean",
+     "costovertebral_area_lower:mean",
+     "costovertebral_area_upper:mean",
+     "endplate_incl",
+     "endplate_lower_incl",
+     "facet_area_inf:mean",
+     "facet_area_sup:mean",
+     "facet_h_inf:mean",
+     "facet_h_sup:mean",
+     "facet_sag_inf:mean",
+     "facet_sag_sup:mean",
+     "facet_trans_inf:mean",
+     "facet_trans_sup:mean",
+     "facet_w_inf:mean",
+     "interfacet_h:mean",
+     "interfacet_w_inf",
+     "interfacet_w_sup",
+     "pars_area:mean",
+     "pedicle_area:mean",
+     "pedicle_incl_trans:mean",
+     "spinous_length",
+     "transverse_width",
+     "uncovertebral_area_lower:mean",
+     "uncovertebral_area_upper:mean",
+     "uncovertebral_incl_frontal_lower",
+     "uncovertebral_incl_frontal_upper",
+     "uncovertebral_incl_sag_lower",
+     "uncovertebral_incl_sag_upper"
+    ],
+    "nominal": 0.95,
+    "passed": 214,
+    "rate": 0.8629032258064516,
+    "reference_n": 40,
+    "short_cells": 0,
+    "tests": {
+     "mean": {
+      "made": 88,
+      "passed": 82,
+      "rate": 0.9318181818181818
+     },
+     "sd": {
+      "made": 88,
+      "passed": 69,
+      "rate": 0.7840909090909091
+     },
+     "step": {
+      "made": 72,
+      "passed": 63,
+      "rate": 0.875
+     }
+    },
+    "verdict": {
+     "bar": "the 10th percentile of the kind's held-out papers' own rates, one paper one vote, over the papers with 20 rows or more of the test (bar_of), the median beside it",
+     "passed": null,
+     "tests": {
+      "mean": {
+       "at_or_above_median": false,
+       "low": 0.7573333333333334,
+       "made": 88,
+       "median": 0.95,
+       "papers": 5,
+       "passed": true,
+       "rate": 0.9318181818181818
+      },
+      "sd": {
+       "at_or_above_median": true,
+       "low": 0.3981818181818182,
+       "made": 88,
+       "median": 0.68,
+       "papers": 5,
+       "passed": true,
+       "rate": 0.7840909090909091
+      },
+      "step": {
+       "made": 72,
+       "papers": 1,
+       "passed": null,
+       "rate": 0.875,
+       "why": "no bar: fewer than 5 of the kind's held-out papers have 20 rows or more of this test (calibration)"
+      }
+     },
+     "why": "the step test has no verdict: no bar: fewer than 5 of the kind's held-out papers have 20 rows or more of this test (calibration); 28 of the cohort's measures are not on the card: costotransverse_area:mean, costovertebral_area_lower:mean, costovertebral_area_upper:mean, endplate_incl, endplate_lower_incl, ..."
+    }
+   },
+   "mixed": {
+    "made": 200,
+    "mean_square_z": 0.9702630741670925,
+    "mean_square_z_by_test": {
+     "mean": 0.538754202610549,
+     "sd": 1.640949387182859,
+     "step": 0.7161370426166673
+    },
+    "measures_not_on_card": [
+     "canal_ap",
+     "canal_area",
+     "canal_w",
+     "costotransverse_area:mean",
+     "costovertebral_area_lower:mean",
+     "costovertebral_area_upper:mean",
+     "endplate",
+     "endplate_area",
+     "endplate_depth",
+     "endplate_incl",
+     "endplate_lower",
+     "endplate_lower_area",
+     "endplate_lower_depth",
+     "endplate_lower_incl",
+     "facet_area_inf:mean",
+     "facet_area_sup:mean",
+     "facet_h_inf:mean",
+     "facet_h_sup:mean",
+     "facet_sag_inf:mean",
+     "facet_sag_sup:mean",
+     "facet_trans_inf:mean",
+     "facet_trans_sup:mean",
+     "facet_w_inf:mean",
+     "facet_w_sup:mean",
+     "h_post",
+     "interfacet_h:mean",
+     "interfacet_w_inf",
+     "interfacet_w_sup",
+     "pars_area:mean",
+     "pedicle_area:mean",
+     "spinous_length",
+     "transverse_width",
+     "uncovertebral_area_lower:mean",
+     "uncovertebral_area_upper:mean",
+     "uncovertebral_incl_frontal_lower",
+     "uncovertebral_incl_frontal_upper",
+     "uncovertebral_incl_sag_lower",
+     "uncovertebral_incl_sag_upper"
+    ],
+    "nominal": 0.95,
+    "passed": 188,
+    "rate": 0.94,
+    "reference_n": 40,
+    "short_cells": 0,
+    "tests": {
+     "mean": {
+      "made": 68,
+      "passed": 68,
+      "rate": 1.0
+     },
+     "sd": {
+      "made": 68,
+      "passed": 59,
+      "rate": 0.8676470588235294
+     },
+     "step": {
+      "made": 64,
+      "passed": 61,
+      "rate": 0.953125
+     }
+    },
+    "verdict": {
+     "bar": "the 10th percentile of the kind's held-out papers' own rates, one paper one vote, over the papers with 20 rows or more of the test (bar_of), the median beside it",
+     "passed": null,
+     "tests": {
+      "mean": {
+       "made": 68,
+       "papers": 0,
+       "passed": null,
+       "rate": 1.0,
+       "why": "no bar: fewer than 5 of the kind's held-out papers have 20 rows or more of this test (calibration)"
+      },
+      "sd": {
+       "made": 68,
+       "papers": 0,
+       "passed": null,
+       "rate": 0.8676470588235294,
+       "why": "no bar: fewer than 5 of the kind's held-out papers have 20 rows or more of this test (calibration)"
+      },
+      "step": {
+       "made": 64,
+       "papers": 0,
+       "passed": null,
+       "rate": 0.953125,
+       "why": "no bar: fewer than 5 of the kind's held-out papers have 20 rows or more of this test (calibration)"
+      }
+     },
+     "why": "the step test has no verdict: no bar: fewer than 5 of the kind's held-out papers have 20 rows or more of this test (calibration); 38 of the cohort's measures are not on the card: canal_ap, canal_area, canal_w, costotransverse_area:mean, costovertebral_area_lower:mean, ..."
+    }
+   }
+  },
+  "nearest the papers, measured": {
+   "by_measure_worst": [
+    {
+     "failed": 23,
+     "made": 49,
+     "measure": "canal_ap",
+     "passed": 26,
+     "rate": 0.5306122448979592
+    },
+    {
+     "failed": 23,
+     "made": 43,
+     "measure": "transverse_width",
+     "passed": 20,
+     "rate": 0.46511627906976744
+    },
+    {
+     "failed": 22,
+     "made": 60,
+     "measure": "pedicle_incl_trans:mean",
+     "passed": 38,
+     "rate": 0.6333333333333333
+    },
+    {
+     "failed": 19,
+     "made": 48,
+     "measure": "canal_w",
+     "passed": 29,
+     "rate": 0.6041666666666666
+    },
+    {
+     "failed": 18,
+     "made": 49,
+     "measure": "endplate_depth",
+     "passed": 31,
+     "rate": 0.6326530612244898
+    },
+    {
+     "failed": 18,
+     "made": 43,
+     "measure": "endplate_lower_incl",
+     "passed": 25,
+     "rate": 0.5813953488372093
+    },
+    {
+     "failed": 16,
+     "made": 48,
+     "measure": "canal_area",
+     "passed": 32,
+     "rate": 0.6666666666666666
+    },
+    {
+     "failed": 15,
+     "made": 49,
+     "measure": "endplate_lower_depth",
+     "passed": 34,
+     "rate": 0.6938775510204082
+    },
+    {
+     "failed": 15,
+     "made": 60,
+     "measure": "pedicle",
+     "passed": 45,
+     "rate": 0.75
+    },
+    {
+     "failed": 14,
+     "made": 49,
+     "measure": "endplate_lower",
+     "passed": 35,
+     "rate": 0.7142857142857143
+    },
+    {
+     "failed": 14,
+     "made": 60,
+     "measure": "pedicle_incl_sag:mean",
+     "passed": 46,
+     "rate": 0.7666666666666667
+    },
+    {
+     "failed": 11,
+     "made": 43,
+     "measure": "spinous_length",
+     "passed": 32,
+     "rate": 0.7441860465116279
+    }
+   ],
+   "steps_on_one_paper": {
+    "made": 277,
+    "passed": 220,
+    "rate": 0.7942238267148014
+   },
+   "steps_on_two_papers_or_more": {
+    "made": 122,
+    "passed": 99,
+    "rate": 0.8114754098360656
+   },
+   "summary": {
+    "made": 962,
+    "mean_square_z": 3.6438025611419405,
+    "mean_square_z_by_test": {
+     "mean": 4.394601234284354,
+     "sd": 2.2130444827360205,
+     "step": 3.355331004723736
+    },
+    "measures_not_on_card": [
+     "costotransverse_area:mean",
+     "costovertebral_area_lower:mean",
+     "costovertebral_area_upper:mean",
+     "facet_area_inf:mean",
+     "facet_area_sup:mean",
+     "facet_h_inf:mean",
+     "facet_h_sup:mean",
+     "facet_sag_inf:mean",
+     "facet_sag_sup:mean",
+     "facet_trans_inf:mean",
+     "facet_trans_sup:mean",
+     "facet_w_inf:mean",
+     "interfacet_h:mean",
+     "interfacet_w_inf",
+     "interfacet_w_sup",
+     "pars_area:mean",
+     "uncovertebral_area_lower:mean",
+     "uncovertebral_area_upper:mean",
+     "uncovertebral_incl_frontal_lower",
+     "uncovertebral_incl_frontal_upper",
+     "uncovertebral_incl_sag_lower",
+     "uncovertebral_incl_sag_upper"
+    ],
+    "nominal": 0.95,
+    "passed": 734,
+    "rate": 0.762993762993763,
+    "reference_n": 40,
+    "short_cells": 0,
+    "tests": {
+     "mean": {
+      "made": 422,
+      "passed": 297,
+      "rate": 0.7037914691943128
+     },
+     "sd": {
+      "made": 141,
+      "passed": 118,
+      "rate": 0.8368794326241135
+     },
+     "step": {
+      "made": 399,
+      "passed": 319,
+      "rate": 0.7994987468671679
+     }
+    },
+    "verdict": {
+     "bar": "the 10th percentile of the kind's held-out papers' own rates, one paper one vote, over the papers with 20 rows or more of the test (bar_of), the median beside it",
+     "passed": false,
+     "tests": {
+      "mean": {
+       "at_or_above_median": false,
+       "low": 0.5842340425531916,
+       "made": 422,
+       "median": 0.8916666666666666,
+       "papers": 12,
+       "passed": true,
+       "rate": 0.7037914691943128
+      },
+      "sd": {
+       "at_or_above_median": false,
+       "low": 0.531,
+       "made": 141,
+       "median": 0.9066666666666667,
+       "papers": 10,
+       "passed": true,
+       "rate": 0.8368794326241135
+      },
+      "step": {
+       "at_or_above_median": false,
+       "low": 0.89,
+       "made": 399,
+       "median": 0.927710843373494,
+       "papers": 7,
+       "passed": false,
+       "rate": 0.7994987468671679
+      }
+     },
+     "why": "fails its bar on: step; 22 of the cohort's measures are not on the card: costotransverse_area:mean, costovertebral_area_lower:mean, costovertebral_area_upper:mean, facet_area_inf:mean, facet_area_sup:mean, ..."
+    }
+   }
+  },
+  "nearest the papers, true": {
+   "by_measure_worst": [
+    {
+     "failed": 25,
+     "made": 43,
+     "measure": "endplate_lower_incl",
+     "passed": 18,
+     "rate": 0.4186046511627907
+    },
+    {
+     "failed": 24,
+     "made": 49,
+     "measure": "canal_ap",
+     "passed": 25,
+     "rate": 0.5102040816326531
+    },
+    {
+     "failed": 24,
+     "made": 43,
+     "measure": "transverse_width",
+     "passed": 19,
+     "rate": 0.4418604651162791
+    },
+    {
+     "failed": 22,
+     "made": 60,
+     "measure": "pedicle_incl_trans:mean",
+     "passed": 38,
+     "rate": 0.6333333333333333
+    },
+    {
+     "failed": 21,
+     "made": 48,
+     "measure": "canal_w",
+     "passed": 27,
+     "rate": 0.5625
+    },
+    {
+     "failed": 18,
+     "made": 49,
+     "measure": "endplate_depth",
+     "passed": 31,
+     "rate": 0.6326530612244898
+    },
+    {
+     "failed": 17,
+     "made": 48,
+     "measure": "canal_area",
+     "passed": 31,
+     "rate": 0.6458333333333334
+    },
+    {
+     "failed": 17,
+     "made": 60,
+     "measure": "pedicle",
+     "passed": 43,
+     "rate": 0.7166666666666667
+    },
+    {
+     "failed": 15,
+     "made": 49,
+     "measure": "endplate_lower_depth",
+     "passed": 34,
+     "rate": 0.6938775510204082
+    },
+    {
+     "failed": 14,
+     "made": 49,
+     "measure": "endplate_lower",
+     "passed": 35,
+     "rate": 0.7142857142857143
+    },
+    {
+     "failed": 12,
+     "made": 60,
+     "measure": "pedicle_incl_sag:mean",
+     "passed": 48,
+     "rate": 0.8
+    },
+    {
+     "failed": 11,
+     "made": 43,
+     "measure": "spinous_length",
+     "passed": 32,
+     "rate": 0.7441860465116279
+    }
+   ],
+   "steps_on_one_paper": {
+    "made": 277,
+    "passed": 207,
+    "rate": 0.7472924187725631
+   },
+   "steps_on_two_papers_or_more": {
+    "made": 122,
+    "passed": 94,
+    "rate": 0.7704918032786885
+   },
+   "summary": {
+    "made": 962,
+    "mean_square_z": 4.25504556429488,
+    "mean_square_z_by_test": {
+     "mean": 4.553338639079588,
+     "sd": 2.244661755671038,
+     "step": 4.649994034111458
+    },
+    "measures_not_on_card": [
+     "costotransverse_area:mean",
+     "costovertebral_area_lower:mean",
+     "costovertebral_area_upper:mean",
+     "facet_area_inf:mean",
+     "facet_area_sup:mean",
+     "facet_h_inf:mean",
+     "facet_h_sup:mean",
+     "facet_sag_inf:mean",
+     "facet_sag_sup:mean",
+     "facet_trans_inf:mean",
+     "facet_trans_sup:mean",
+     "facet_w_inf:mean",
+     "interfacet_h:mean",
+     "interfacet_w_inf",
+     "interfacet_w_sup",
+     "pars_area:mean",
+     "uncovertebral_area_lower:mean",
+     "uncovertebral_area_upper:mean",
+     "uncovertebral_incl_frontal_lower",
+     "uncovertebral_incl_frontal_upper",
+     "uncovertebral_incl_sag_lower",
+     "uncovertebral_incl_sag_upper"
+    ],
+    "nominal": 0.95,
+    "passed": 716,
+    "rate": 0.7442827442827443,
+    "reference_n": 40,
+    "short_cells": 0,
+    "tests": {
+     "mean": {
+      "made": 422,
+      "passed": 293,
+      "rate": 0.6943127962085308
+     },
+     "sd": {
+      "made": 141,
+      "passed": 122,
+      "rate": 0.8652482269503546
+     },
+     "step": {
+      "made": 399,
+      "passed": 301,
+      "rate": 0.7543859649122807
+     }
+    },
+    "verdict": {
+     "bar": "the 10th percentile of the kind's held-out papers' own rates, one paper one vote, over the papers with 20 rows or more of the test (bar_of), the median beside it",
+     "passed": false,
+     "tests": {
+      "mean": {
+       "at_or_above_median": false,
+       "low": 0.5842340425531916,
+       "made": 422,
+       "median": 0.8916666666666666,
+       "papers": 12,
+       "passed": true,
+       "rate": 0.6943127962085308
+      },
+      "sd": {
+       "at_or_above_median": false,
+       "low": 0.531,
+       "made": 141,
+       "median": 0.9066666666666667,
+       "papers": 10,
+       "passed": true,
+       "rate": 0.8652482269503546
+      },
+      "step": {
+       "at_or_above_median": false,
+       "low": 0.89,
+       "made": 399,
+       "median": 0.927710843373494,
+       "papers": 7,
+       "passed": false,
+       "rate": 0.7543859649122807
+      }
+     },
+     "why": "fails its bar on: step; 22 of the cohort's measures are not on the card: costotransverse_area:mean, costovertebral_area_lower:mean, costovertebral_area_upper:mean, facet_area_inf:mean, facet_area_sup:mean, ..."
+    }
+   }
+  },
+  "reversed lumbar": {
+   "lumbar_means": {
+    "made": 253,
+    "passed": 221,
+    "rate": 0.8735177865612648
+   },
+   "lumbar_sds": {
+    "made": 224,
+    "passed": 212,
+    "rate": 0.9464285714285714
+   },
+   "lumbar_steps": {
+    "made": 229,
+    "passed": 105,
+    "rate": 0.4585152838427948
+   },
+   "other_steps": {
+    "made": 399,
+    "passed": 394,
+    "rate": 0.9874686716791979
+   },
+   "step_rate_against_every_bar": {
+    "every paper with a row of the test, each weighted by its rows, with tan2004": {
+     "at_or_above": false,
+     "low": 0.875
+    },
+    "every paper with a row of the test, each weighted by its rows, without tan2004": {
+     "at_or_above": false,
+     "low": 0.8333333333333334
+    },
+    "every paper with a row of the test, one paper one vote whatever its rows (the rule the bar had before), with tan2004": {
+     "at_or_above": false,
+     "low": 0.8333333333333334
+    },
+    "every paper with a row of the test, one paper one vote whatever its rows (the rule the bar had before), without tan2004": {
+     "at_or_above": false,
+     "low": 0.8333333333333334
+    },
+    "the check's: papers with 20 rows or more of the test, one paper one vote, with tan2004": {
+     "at_or_above": false,
+     "low": 0.89
+    },
+    "the check's: papers with 20 rows or more of the test, one paper one vote, without tan2004": {
+     "at_or_above": false,
+     "low": 0.8875
+    }
+   },
+   "summary": {
+    "made": 1712,
+    "mean_square_z": 2.287637332384385,
+    "mean_square_z_by_test": {
+     "mean": 0.6948527479586537,
+     "sd": 0.46951889813295294,
+     "step": 5.179055635009338
+    },
+    "measures_not_on_card": [],
+    "nominal": 0.95,
+    "passed": 1539,
+    "rate": 0.8989485981308412,
+    "reference_n": 40,
+    "short_cells": 0,
+    "tests": {
+     "mean": {
+      "made": 688,
+      "passed": 656,
+      "rate": 0.9534883720930233
+     },
+     "sd": {
+      "made": 396,
+      "passed": 384,
+      "rate": 0.9696969696969697
+     },
+     "step": {
+      "made": 628,
+      "passed": 499,
+      "rate": 0.7945859872611465
+     }
+    },
+    "verdict": {
+     "bar": "the 10th percentile of the kind's held-out papers' own rates, one paper one vote, over the papers with 20 rows or more of the test (bar_of), the median beside it",
+     "passed": false,
+     "tests": {
+      "mean": {
+       "at_or_above_median": true,
+       "low": 0.5842340425531916,
+       "made": 688,
+       "median": 0.8916666666666666,
+       "papers": 12,
+       "passed": true,
+       "rate": 0.9534883720930233
+      },
+      "sd": {
+       "at_or_above_median": true,
+       "low": 0.531,
+       "made": 396,
+       "median": 0.9066666666666667,
+       "papers": 10,
+       "passed": true,
+       "rate": 0.9696969696969697
+      },
+      "step": {
+       "at_or_above_median": false,
+       "low": 0.89,
+       "made": 628,
+       "median": 0.927710843373494,
+       "papers": 7,
+       "passed": false,
+       "rate": 0.7945859872611465
+      }
+     },
+     "why": "fails its bar on: step"
+    }
+   },
+   "touched": "L1 to L5 reversed in every measure"
+  },
+  "settings": {
+   "generator": {
+    "blend": 0.5,
+    "error_scale": 1.0,
+    "floor": true,
+    "loadings": [],
+    "name": "generator",
+    "phi": 0.0,
+    "r_between": 0.0,
+    "rho": 0.5,
+    "scale_sd": 0.07,
+    "sd_mode": "printed",
+    "sd_scale": 1.0
+   },
+   "nearest the papers": {
+    "blend": 0.5,
+    "error_scale": 1.0,
+    "floor": true,
+    "loadings": [],
+    "name": "nearest the papers",
+    "phi": 0.0,
+    "r_between": 0.2,
+    "rho": 0.9,
+    "scale_sd": 0.035,
+    "sd_mode": "printed",
+    "sd_scale": 0.6
+   }
+  }
+ },
+ "code": {
+  "figures.py": "9b4b29c4b350611e82736146656ff3924a828eb2a2f915dad02acd1d68d3a0de",
+  "figures_all.py": "8b44c36166de6ddf66a75c96a0d2a48f7cc94c129c4e8fe06dd1568f8998fd86",
+  "render.py": "d4bc0d70416d843a6d019ffefe741cb0fe01013357027395c24448c01cc3a9d9",
+  "run.py": "724ce3b1e918ecfcf052b2b9e32b7b68d933db683446e8685781760653d4d87a",
+  "run_all.py": "8468121efdd7994dddbb7b2ea100b15c87d7b15bdb47ccbef25df5fc58fc09be",
+  "run_bounds.py": "e4790173287a1783318eb81c579ad5fc2d3c399818565d30b51d7fdaa46e6c7f",
+  "run_covariates.py": "c77b7a434e66ed28e0983852640fdaca853da4113f2d63add58877c8918c2d17",
+  "run_gold3.py": "6af30ddb8a349c347a88e99afd32053fdcc103153e27eb4ab0b0f868a9d74f8c",
+  "run_select.py": "54b19c50c9a4dde891941f999016b5eed0c2823742e0363c77d3fda72cb3155b",
+  "run_sex_naming.py": "fb25d5e5d4fc31241b01cbbab572632b360a4beb2b0092d32e5e9eebe5ae9e09",
+  "run_strata.py": "99321722eff809ea70c72fd19c40084179d7e26f5fb2d0591a16ada8ebb779d2",
+  "snapshot.py": "c09b0eab7e839f02b0fc6b0fd35a6e5c55f231a1cc6073110e7994fb663f2f89",
+  "subgroups_run.py": "1901cf59f7106a4e3240e98fc2918c100cf91f11af2e0673d8f7fe4eb47dc64b",
+  "synthval/all_measures.py": "32b83cb8e5c5bc0a4e86ba5e6cb4e6867880f79ad0e00e3dd3b175d3558ba9b0",
+  "synthval/bounds.py": "d72a78bdce20c03198d6465a0315f881f8ebff5fe35901d0ec82924bc070a0dc",
+  "synthval/covariates.py": "53a8bb0c90f3274bd5062d9b6f6e473cc51d1200a28477ffc4a7043ddbff0fd7",
+  "synthval/gold3.py": "5720d0be3b7bc1171833f3e49484bddafa0a6b5a2c2679311217c55d5decfa64",
+  "synthval/house.py": "396822b88fcb46e9533162f8a46b8e2443c1d58ac15d1f40e2d0eb4f5653323a",
+  "synthval/literature.py": "daae8caf8798de4414d333cda44c681e4a601e75e5256cc5787a8f44c0795fd4",
+  "synthval/naming.py": "b9416b1c743ea68011699dc268f6208f1ebedefb2a84716349e8e3a354430db9",
+  "synthval/papers_table.py": "f33f9f7704cd182e37a74a534110c876f8a67a616805c57b675f69ce28aeb778",
+  "synthval/pooling.py": "292c34f8de6eadb40681f68143d35943eaf6c61130df2f5b778a40e2e0763df0",
+  "synthval/population.py": "83a502cd421b2727e5d165bbab0578527a9b5d245f4ef09c1f2ac24daa040f17",
+  "synthval/power.py": "4deef25fec9f5cc2efd56634057b3f17f4df0d23a0f67d01a145c5ca3dec444e",
+  "synthval/qi.py": "4e5ad50dbd18264980ba522ab2f328b9bbefb45a8b3f868280b28225c7fd8c82",
+  "synthval/references.py": "9791c7b46af7d0be381e130e7743b8b47e283fc1c9e3d2411a188e982482aeec",
+  "synthval/register.py": "c60230105dd467e0f6747cdf49b87309cdac90207e3158158d3f034beab49931",
+  "synthval/relations.py": "7350f76d09bd75bab5078eeb38a3015ff49c7fc0b982ff6a3ebcbe0bf12cbeec",
+  "synthval/select.py": "cb586875607df7b89fa0eae44c77c9e5edb25d543833f2d9c968036a905dd1a1",
+  "synthval/sex_naming.py": "54a2f690cfb3e6c09ceb4a6282fc8e6e3c7d532e1e940f5370742cf3ecb23ae8",
+  "synthval/strata.py": "df6a124f19fc57ef68c5cbe96b6253dbc298543ce84a4b5bda86ec5e12125ced",
+  "synthval/structure.py": "b04037b0ae7537454d9ac98d551ffa32a7149697328eacb1056c1a69c91e0cac",
+  "synthval/subgroups.py": "7bc86a8424246836d1fb1794cf00afcb4c2b44fa1d6d6305515ecef246a75c6c",
+  "synthval/sweep.py": "77ee7e7a8ab6f251096a6a03ab69ea36c7ae47670843f610364266f112e46b87",
+  "synthval/tan.py": "fb5fc08c453b7633233e4246f0366ab3c57f5c235d4a83f155e06099761358a6",
+  "synthval/validate.py": "480b4cc85debc474aa51422e7d97405663dc74995f1bab8d600ec04c8aac6877",
+  "tables.py": "e7ac2d9237377bf658a701076c71c25606f87932986440c519e2bdf7140efbed",
+  "tan_strata.py": "dc3e4408e29c23e8dc337e01f83d2344cce89790d129447847271afcdb4c3d66",
+  "tests/test_all_measures.py": "10c3a1fc9b856a7de821faf756a2d5df36b860ede5165698b67c8169bef595eb",
+  "tests/test_bounds.py": "bc6339eadcec629ca41731c7cfd2c383100dd55b100e10c5e0eb3b0525ff9518",
+  "tests/test_covariates.py": "80b816145ea6488fd9c9fb2c328309721f5dc49dfca331daaf19519c24415107",
+  "tests/test_gold3.py": "0e7d39f87f865857ddcaa83410aa5b7104cccf859700091cdc62032fa574cc38",
+  "tests/test_select.py": "d0b640280b5759ca330eb0e83cf8c48dc7a9a8edb4540f45ed63b8efe95c0966",
+  "tests/test_sex_naming.py": "12e085e61aed58f5a0b8679eace613d91a41756f49870795f1171cdfc30a7bdd",
+  "tests/test_strata.py": "eb58a84d53aabb4b1db1832f55a84c81bc0e4efd822f54f5d0ef076b9a62ec63",
+  "tests/test_subgroups.py": "2134cfad0179dff118f9583ad9516eb23967784e77f54d47e47ac747804dcec8",
+  "tests/test_synthval.py": "906725ba40a3e9588e2a259c5504dbb37242312af09b5274b70e4a83e7be0bb2"
+ },
+ "command": "python3 -I run_bounds.py --out records/bounds",
+ "counts": {
+  "all": {
+   "abs_step_over_sd_quartiles": [
+    0.2677148235969897,
+    0.5973190913722538,
+    1.0408162198704909
+   ],
+   "cells": 694,
+   "cells_on_one_series": 477,
+   "cells_with_age_slope": 58,
+   "cells_with_age_slope_whose_new_population_interval_clears_zero": 41,
+   "cells_with_age_slope_whose_pooled_interval_clears_zero": 41,
+   "cells_with_own_sd_tau": 56,
+   "cells_with_own_tau": 81,
+   "cells_with_own_tau_on_fewer_than_three_papers": 0,
+   "cells_with_sd_interval": 402,
+   "cells_with_sex_contrast": 222,
+   "cells_with_sex_contrast_on_one_paper": 108,
+   "cells_with_sex_contrast_whose_new_population_interval_clears_zero": 110,
+   "cells_with_sex_contrast_whose_pooled_interval_clears_zero": 150,
+   "mean_half_width_over_sd_quartiles": [
+    2.7150252402353154,
+    2.98033907218019,
+    3.022999777014637
+   ],
+   "measures": 53,
+   "of_them_on_a_tau_of_zero": 3,
+   "of_them_on_an_age_tau_of_zero": 41,
+   "predictive_over_sd_quartiles": [
+    1.7084572058856724,
+    1.8199360049034552,
+    1.8381604197160313
+   ],
+   "sd_interval_high_over_low_quartiles": [
+    4.687919489285075,
+    4.9109969476033175,
+    5.4420131536674425
+   ],
+   "step_half_width_over_sd_quartiles": [
+    0.6553358217089031,
+    1.0477091577416293,
+    1.0811939331092661
+   ],
+   "steps": 635,
+   "steps_on_one_paper": 462,
+   "steps_with_own_tau": 67,
+   "steps_with_own_tau_of_zero": 22
+  },
+  "cadaver": {
+   "abs_step_over_sd_quartiles": [
+    0.32090163934426297,
+    0.6249576047338607,
+    1.0338641767614423
+   ],
+   "cells": 132,
+   "cells_on_one_series": 122,
+   "cells_with_age_slope": 0,
+   "cells_with_age_slope_whose_new_population_interval_clears_zero": 0,
+   "cells_with_age_slope_whose_pooled_interval_clears_zero": 0,
+   "cells_with_own_sd_tau": 0,
+   "cells_with_own_tau": 0,
+   "cells_with_own_tau_on_fewer_than_three_papers": 0,
+   "cells_with_sd_interval": 132,
+   "cells_with_sex_contrast": 20,
+   "cells_with_sex_contrast_on_one_paper": 20,
+   "cells_with_sex_contrast_whose_new_population_interval_clears_zero": 3,
+   "cells_with_sex_contrast_whose_pooled_interval_clears_zero": 13,
+   "mean_half_width_over_sd_quartiles": [
+    2.9803390721801897,
+    2.980339072180191,
+    3.385037833568778
+   ],
+   "measures": 12,
+   "of_them_on_a_tau_of_zero": 0,
+   "of_them_on_an_age_tau_of_zero": 0,
+   "predictive_over_sd_quartiles": [
+    1.8199360049034552,
+    1.8199360049034556,
+    1.9956794971186385
+   ],
+   "sd_interval_high_over_low_quartiles": [
+    5.078906360007596,
+    5.078906360007598,
+    18.641081165133638
+   ],
+   "step_half_width_over_sd_quartiles": [
+    0.7940782374619221,
+    1.1631549060564685,
+    1.2110698553053891
+   ],
+   "steps": 120,
+   "steps_on_one_paper": 112,
+   "steps_with_own_tau": 0,
+   "steps_with_own_tau_of_zero": 0
+  },
+  "dry bone": {
+   "abs_step_over_sd_quartiles": [
+    0.3162278445336998,
+    0.7659738669754039,
+    1.3057899114253337
+   ],
+   "cells": 469,
+   "cells_on_one_series": 396,
+   "cells_with_age_slope": 10,
+   "cells_with_age_slope_whose_new_population_interval_clears_zero": 8,
+   "cells_with_age_slope_whose_pooled_interval_clears_zero": 8,
+   "cells_with_own_sd_tau": 10,
+   "cells_with_own_tau": 18,
+   "cells_with_own_tau_on_fewer_than_three_papers": 0,
+   "cells_with_sd_interval": 87,
+   "cells_with_sex_contrast": 46,
+   "cells_with_sex_contrast_on_one_paper": 36,
+   "cells_with_sex_contrast_whose_new_population_interval_clears_zero": 6,
+   "cells_with_sex_contrast_whose_pooled_interval_clears_zero": 19,
+   "mean_half_width_over_sd_quartiles": [
+    3.004911183734462,
+    3.022999777014637,
+    3.134180875250686
+   ],
+   "measures": 23,
+   "of_them_on_a_tau_of_zero": 0,
+   "of_them_on_an_age_tau_of_zero": 8,
+   "predictive_over_sd_quartiles": [
+    1.8304236261930205,
+    1.8381604197160313,
+    1.8860092422427472
+   ],
+   "sd_interval_high_over_low_quartiles": [
+    4.410451475242063,
+    5.475498380767678,
+    5.530091457374869
+   ],
+   "step_half_width_over_sd_quartiles": [
+    1.045275556174498,
+    1.0691154066362243,
+    1.1199771649165884
+   ],
+   "steps": 444,
+   "steps_on_one_paper": 376,
+   "steps_with_own_tau": 16,
+   "steps_with_own_tau_of_zero": 11
+  },
+  "living": {
+   "abs_step_over_sd_quartiles": [
+    0.25806451612903136,
+    0.47454487702016507,
+    0.713588736140465
+   ],
+   "cells": 185,
+   "cells_on_one_series": 128,
+   "cells_with_age_slope": 9,
+   "cells_with_age_slope_whose_new_population_interval_clears_zero": 5,
+   "cells_with_age_slope_whose_pooled_interval_clears_zero": 5,
+   "cells_with_own_sd_tau": 33,
+   "cells_with_own_tau": 33,
+   "cells_with_own_tau_on_fewer_than_three_papers": 0,
+   "cells_with_sd_interval": 185,
+   "cells_with_sex_contrast": 145,
+   "cells_with_sex_contrast_on_one_paper": 87,
+   "cells_with_sex_contrast_whose_new_population_interval_clears_zero": 73,
+   "cells_with_sex_contrast_whose_pooled_interval_clears_zero": 100,
+   "mean_half_width_over_sd_quartiles": [
+    2.6620721132373433,
+    2.9623824658630364,
+    2.971733442257321
+   ],
+   "measures": 32,
+   "of_them_on_a_tau_of_zero": 5,
+   "of_them_on_an_age_tau_of_zero": 5,
+   "predictive_over_sd_quartiles": [
+    1.6866260394461237,
+    1.8122884108679203,
+    1.816269178456381
+   ],
+   "sd_interval_high_over_low_quartiles": [
+    4.642577722868639,
+    4.736452061608199,
+    4.910996947603319
+   ],
+   "step_half_width_over_sd_quartiles": [
+    0.5248695847479201,
+    0.63573506408736,
+    0.7177661004824107
+   ],
+   "steps": 149,
+   "steps_on_one_paper": 104,
+   "steps_with_own_tau": 25,
+   "steps_with_own_tau_of_zero": 7
+  },
+  "mixed": {
+   "abs_step_over_sd_quartiles": [
+    0.16666666666666607,
+    0.34848484848484873,
+    0.7408668730650156
+   ],
+   "cells": 85,
+   "cells_on_one_series": 85,
+   "cells_with_age_slope": 0,
+   "cells_with_age_slope_whose_new_population_interval_clears_zero": 0,
+   "cells_with_age_slope_whose_pooled_interval_clears_zero": 0,
+   "cells_with_own_sd_tau": 0,
+   "cells_with_own_tau": 0,
+   "cells_with_own_tau_on_fewer_than_three_papers": 0,
+   "cells_with_sd_interval": 85,
+   "cells_with_sex_contrast": 0,
+   "cells_with_sex_contrast_on_one_paper": 0,
+   "cells_with_sex_contrast_whose_new_population_interval_clears_zero": 0,
+   "cells_with_sex_contrast_whose_pooled_interval_clears_zero": 0,
+   "mean_half_width_over_sd_quartiles": [
+    2.7301105981565725,
+    2.981873178361304,
+    3.450750774590968
+   ],
+   "measures": 5,
+   "of_them_on_a_tau_of_zero": 0,
+   "of_them_on_an_age_tau_of_zero": 0,
+   "predictive_over_sd_quartiles": [
+    1.7147035355564413,
+    1.8205900181877583,
+    2.0247634533313037
+   ],
+   "sd_interval_high_over_low_quartiles": [
+    5.028819087190839,
+    5.165440251901401,
+    6.897696111908666
+   ],
+   "step_half_width_over_sd_quartiles": [
+    0.7924455074873434,
+    1.1374947823541517,
+    1.5248805629224753
+   ],
+   "steps": 80,
+   "steps_on_one_paper": 80,
+   "steps_with_own_tau": 0,
+   "steps_with_own_tau_of_zero": 0
+  }
+ },
+ "covariate_borrowing": {
+  "age": {
+   "note": "every donor cell's REML tau is exactly zero (2 of 2, cells with two papers, since no cell has three; duman2026, yu2015), so either rule lends a spread of zero and every interval for a new population's age slope on fewer than 3 papers is its pooled interval: the spread between populations is not identified there, whichever rule is used; check() makes no test on the age slope",
+   "only under the means' rule": [],
+   "only under the steps' rule": [],
+   "under both": 33,
+   "under the means' rule": {
+    "base_cells": 33,
+    "base_cells_named": [
+     "body_area L1",
+     "body_area L2",
+     "body_area L3",
+     "body_area L4",
+     "body_area L5",
+     "disc_h_ant L2",
+     "disc_h_ant L3",
+     "disc_h_ant L4",
+     "disc_h_ant L5",
+     "disc_h_mean L2",
+     "disc_h_mean L3",
+     "disc_h_mean L4",
+     "disc_h_mean L5",
+     "disc_h_mid L1",
+     "disc_h_mid L2",
+     "disc_h_mid T12",
+     "disc_h_post L2",
+     "disc_h_post L3",
+     "disc_h_post L4",
+     "foramen_h L1",
+     "foramen_h L2",
+     "foramen_h L3",
+     "foramen_h L4",
+     "foramen_h L5",
+     "foramen_h T12",
+     "pedicle_h L1",
+     "pedicle_h L2",
+     "pedicle_h L3",
+     "pedicle_h L4",
+     "pedicle_h L5",
+     "pedicle_w L3",
+     "pedicle_w L4",
+     "pedicle_w L5"
+    ],
+    "cells": 41,
+    "of_them_on_a_borrowed_tau": 41,
+    "of_them_on_a_tau_of_zero": 41
+   },
+   "under the steps' rule (the card's)": {
+    "base_cells": 33,
+    "base_cells_named": [
+     "body_area L1",
+     "body_area L2",
+     "body_area L3",
+     "body_area L4",
+     "body_area L5",
+     "disc_h_ant L2",
+     "disc_h_ant L3",
+     "disc_h_ant L4",
+     "disc_h_ant L5",
+     "disc_h_mean L2",
+     "disc_h_mean L3",
+     "disc_h_mean L4",
+     "disc_h_mean L5",
+     "disc_h_mid L1",
+     "disc_h_mid L2",
+     "disc_h_mid T12",
+     "disc_h_post L2",
+     "disc_h_post L3",
+     "disc_h_post L4",
+     "foramen_h L1",
+     "foramen_h L2",
+     "foramen_h L3",
+     "foramen_h L4",
+     "foramen_h L5",
+     "foramen_h T12",
+     "pedicle_h L1",
+     "pedicle_h L2",
+     "pedicle_h L3",
+     "pedicle_h L4",
+     "pedicle_h L5",
+     "pedicle_w L3",
+     "pedicle_w L4",
+     "pedicle_w L5"
+    ],
+    "cells": 41,
+    "of_them_on_a_borrowed_tau": 41,
+    "of_them_on_a_tau_of_zero": 41
+   }
+  },
+  "borrowed": {
+   "under the means' rule": {
+    "age_slope_tau": {
+     "by_measure": {
+      "pedicle_w": 0.0
+     },
+     "cells": 47,
+     "donor_cells": 2,
+     "donor_papers": [
+      "duman2026",
+      "yu2015"
+     ],
+     "donor_taus_of_zero": 2,
+     "donors": "cells with two papers, since no cell has three",
+     "overall": 0.0,
+     "rule": "median by measure, every item's median"
+    },
+    "sex_g_tau": {
+     "by_measure": {
+      "body_d_mid": 0.10210339841775473,
+      "canal_ap": 0.25255393290224765,
+      "canal_w": 0.07745727507117166,
+      "pedicle_chord": 0.22406570826939556,
+      "pedicle_h": 0.2549331139462436,
+      "pedicle_incl_sag": 0.17306684578559234,
+      "pedicle_w": 0.3741809430102613
+     },
+     "cells": 184,
+     "donor_cells": 32,
+     "donor_papers": [
+      "abbas2021",
+      "ahmed2019",
+      "alonge2021",
+      "amonookuofi1985",
+      "arockiaraj2025",
+      "cizmic2023",
+      "duman2026",
+      "eisenstein1977",
+      "griffith2016",
+      "hou1993",
+      "italianmri",
+      "masharawi2021",
+      "olsewski1990",
+      "yadav2020",
+      "yu2015"
+     ],
+     "donor_taus_of_zero": 2,
+     "donors": "cells with 3 papers or more",
+     "overall": 0.24349788989921756,
+     "rule": "median by measure, every item's median"
+    }
+   },
+   "under the steps' rule (the card's)": {
+    "age_slope_tau": {
+     "by_measure": {
+      "pedicle_w": 0.0
+     },
+     "cells": 47,
+     "donor_cells": 2,
+     "donor_papers": [
+      "duman2026",
+      "yu2015"
+     ],
+     "donor_taus_of_zero": 2,
+     "donors": "cells with two papers, since no cell has three",
+     "overall": 0.0,
+     "rule": "root mean square by measure, the measures' median"
+    },
+    "sex_g_tau": {
+     "by_measure": {
+      "body_d_mid": 0.4548186115683293,
+      "canal_ap": 0.25043431739069083,
+      "canal_w": 0.12691094768667202,
+      "pedicle_chord": 0.28441783933183756,
+      "pedicle_h": 0.25112889432517066,
+      "pedicle_incl_sag": 0.22591426196193706,
+      "pedicle_w": 0.36709411467444447
+     },
+     "cells": 184,
+     "donor_cells": 32,
+     "donor_papers": [
+      "abbas2021",
+      "ahmed2019",
+      "alonge2021",
+      "amonookuofi1985",
+      "arockiaraj2025",
+      "cizmic2023",
+      "duman2026",
+      "eisenstein1977",
+      "griffith2016",
+      "hou1993",
+      "italianmri",
+      "masharawi2021",
+      "olsewski1990",
+      "yadav2020",
+      "yu2015"
+     ],
+     "donor_taus_of_zero": 2,
+     "donors": "cells with 3 papers or more",
+     "overall": 0.25112889432517066,
+     "rule": "root mean square by measure, the measures' median"
+    }
+   }
+  },
+  "rule": "root mean square by measure, the measures' median",
+  "sex": {
+   "held_out_signs": {
+    "rule": "each paper with a sex contrast left out, the card's contrasts read from the rest, and at each cell whose interval for a new population's contrast clears zero there, whether the left-out paper's own contrast has the sign",
+    "under the means' rule": {
+     "made": 111,
+     "on_a_borrowed_tau": {
+      "made": 48,
+      "passed": 48,
+      "rate": 1.0
+     },
+     "paper_median": 1.0,
+     "papers": 20,
+     "passed": 108,
+     "rate": 0.972972972972973
+    },
+    "under the steps' rule (the card's)": {
+     "made": 110,
+     "on_a_borrowed_tau": {
+      "made": 47,
+      "passed": 47,
+      "rate": 1.0
+     },
+     "paper_median": 1.0,
+     "papers": 20,
+     "passed": 107,
+     "rate": 0.9727272727272728
+    }
+   },
+   "only under the means' rule": [],
+   "only under the steps' rule": [],
+   "under both": 92,
+   "under the means' rule": {
+    "base_cells": 92,
+    "base_cells_named": [
+     "body_area L1",
+     "body_area L2",
+     "body_area L3",
+     "body_area L4",
+     "body_area L5",
+     "body_d L1",
+     "body_d L2",
+     "body_d L3",
+     "body_d T10",
+     "body_d T11",
+     "body_d T12",
+     "body_d_mid L1",
+     "body_d_mid L3",
+     "body_d_mid L4",
+     "body_d_mid L5",
+     "body_w_mid L1",
+     "body_w_mid L2",
+     "body_w_mid L3",
+     "body_w_mid L4",
+     "body_w_mid L5",
+     "canal_w L1",
+     "canal_w L2",
+     "canal_w L3",
+     "canal_w L4",
+     "canal_w L5",
+     "disc_d L3",
+     "disc_d L4",
+     "disc_d L5",
+     "disc_h_ant L1",
+     "disc_h_ant L2",
+     "disc_h_ant L3",
+     "disc_h_ant T12",
+     "disc_h_mean L1",
+     "disc_h_mean L2",
+     "disc_h_mean L3",
+     "disc_h_mean L4",
+     "disc_h_mean L5",
+     "disc_h_mean T12",
+     "disc_w L3",
+     "disc_w L4",
+     "disc_w L5",
+     "endplate L1",
+     "endplate L2",
+     "endplate L3",
+     "endplate L4",
+     "endplate L5",
+     "endplate T12",
+     "endplate_area L4",
+     "endplate_area L5",
+     "endplate_depth L1",
+     "endplate_depth L4",
+     "endplate_depth L5",
+     "endplate_depth T12",
+     "endplate_lower L3",
+     "endplate_lower L4",
+     "endplate_lower L5",
+     "endplate_lower T12",
+     "endplate_lower_area L3",
+     "endplate_lower_area L4",
+     "endplate_lower_area L5",
+     "endplate_lower_depth L3",
+     "endplate_lower_depth L4",
+     "endplate_lower_depth L5",
+     "endplate_lower_depth T12",
+     "facet_w_sup L3",
+     "h_ant L1",
+     "h_ant L2",
+     "h_ant T11",
+     "h_ant T12",
+     "h_mid L1",
+     "h_mid L2",
+     "h_mid T11",
+     "h_mid T12",
+     "h_post L1",
+     "h_post L2",
+     "h_post T11",
+     "h_post T12",
+     "interpedicular L1",
+     "interpedicular L3",
+     "lateral_recess L1",
+     "lateral_recess L2",
+     "lateral_recess T12",
+     "pedicle_chord L1",
+     "pedicle_chord L2",
+     "pedicle_chord L4",
+     "pedicle_chord L5",
+     "pedicle_h L2",
+     "pedicle_h L3",
+     "pedicle_h L4",
+     "pedicle_h L5",
+     "pedicle_incl_sag L2",
+     "pedicle_w L3"
+    ],
+    "cells": 110,
+    "of_them_on_a_borrowed_tau": 87,
+    "of_them_on_a_tau_of_zero": 3
+   },
+   "under the steps' rule (the card's)": {
+    "base_cells": 92,
+    "base_cells_named": [
+     "body_area L1",
+     "body_area L2",
+     "body_area L3",
+     "body_area L4",
+     "body_area L5",
+     "body_d L1",
+     "body_d L2",
+     "body_d L3",
+     "body_d T10",
+     "body_d T11",
+     "body_d T12",
+     "body_d_mid L1",
+     "body_d_mid L3",
+     "body_d_mid L4",
+     "body_d_mid L5",
+     "body_w_mid L1",
+     "body_w_mid L2",
+     "body_w_mid L3",
+     "body_w_mid L4",
+     "body_w_mid L5",
+     "canal_w L1",
+     "canal_w L2",
+     "canal_w L3",
+     "canal_w L4",
+     "canal_w L5",
+     "disc_d L3",
+     "disc_d L4",
+     "disc_d L5",
+     "disc_h_ant L1",
+     "disc_h_ant L2",
+     "disc_h_ant L3",
+     "disc_h_ant T12",
+     "disc_h_mean L1",
+     "disc_h_mean L2",
+     "disc_h_mean L3",
+     "disc_h_mean L4",
+     "disc_h_mean L5",
+     "disc_h_mean T12",
+     "disc_w L3",
+     "disc_w L4",
+     "disc_w L5",
+     "endplate L1",
+     "endplate L2",
+     "endplate L3",
+     "endplate L4",
+     "endplate L5",
+     "endplate T12",
+     "endplate_area L4",
+     "endplate_area L5",
+     "endplate_depth L1",
+     "endplate_depth L4",
+     "endplate_depth L5",
+     "endplate_depth T12",
+     "endplate_lower L3",
+     "endplate_lower L4",
+     "endplate_lower L5",
+     "endplate_lower T12",
+     "endplate_lower_area L3",
+     "endplate_lower_area L4",
+     "endplate_lower_area L5",
+     "endplate_lower_depth L3",
+     "endplate_lower_depth L4",
+     "endplate_lower_depth L5",
+     "endplate_lower_depth T12",
+     "facet_w_sup L3",
+     "h_ant L1",
+     "h_ant L2",
+     "h_ant T11",
+     "h_ant T12",
+     "h_mid L1",
+     "h_mid L2",
+     "h_mid T11",
+     "h_mid T12",
+     "h_post L1",
+     "h_post L2",
+     "h_post T11",
+     "h_post T12",
+     "interpedicular L1",
+     "interpedicular L3",
+     "lateral_recess L1",
+     "lateral_recess L2",
+     "lateral_recess T12",
+     "pedicle_chord L1",
+     "pedicle_chord L2",
+     "pedicle_chord L4",
+     "pedicle_chord L5",
+     "pedicle_h L2",
+     "pedicle_h L3",
+     "pedicle_h L4",
+     "pedicle_h L5",
+     "pedicle_incl_sag L2",
+     "pedicle_w L3"
+    ],
+    "cells": 110,
+    "of_them_on_a_borrowed_tau": 87,
+    "of_them_on_a_tau_of_zero": 3
+   }
+  },
+  "why": "the steps' rule, as the steps borrow: a donor cell's REML tau is exactly zero where its few papers agree within their error, and a median over such cells lends a cell of one paper no spread at all, so its sign is tested on that paper alone; the root mean square keeps what the donors with a spread say, one vote a measure"
+ },
+ "kind_variable": "the register's specimen (data/populations.csv); every paper together is 'all'",
+ "kinds": [
+  "all",
+  "cadaver",
+  "dry bone",
+  "living",
+  "mixed"
+ ],
+ "kinds_with_no_sex_or_age_cell": [
+  "mixed"
+ ],
+ "not on the card": {
+  "anomalies schwingcheck generates": {
+   "phenotypes": [
+    "six_lumbar: an L6 whose mean is L5's plus half the L4 to L5 step, with L5's SD; the L6 is unscored, the L1 to L5 are typical bodies and scored as such",
+    "t13: a T13 between T12 and L1, its mean and SD blended from theirs; the T13 is unscored, and the step the card holds from T12 to L1, adjacent in a typical column, is scored though two steps join them here",
+    "lumbar_rib: the L1 blended toward T12 and still named L1, so scored against a typical L1's cell and the card's steps into and out of L1",
+    "no_rib_t12: the T12 blended toward L1 and still named T12, so scored against a typical T12's cell and the card's steps into and out of T12",
+    "four_lumbar: the column without L5, its L1 to L4 named as a typical column's and scored against their cells and steps; no L5 and no L4 to L5 step is scored"
+   ],
+   "where": "schwingcheck/columns.py, PHENOTYPES, phenotype_levels, _profile and profiles",
+   "why": "the records hold no series of a transitional or anomalous group (no row of data/series_all.csv names one), and the only rows at an L6 or a T13 are Busscher 2010's porcine ones (data/series_all.csv, cohort porcine_landrace: disc_h_mid, h_ant, h_mid and h_post at both levels and the end plate's width and depth at L6, ten rows), which the selection drops as not human (synthval/literature.py, rule 2), so the card has no cell or step at an L6 or a T13. check() reads a cohort's bodies by their level names, so a generator's anomalous bodies that keep an ordinary name are scored against the ordinary cells and steps, the wrong bound rather than none, and only the L6 and the T13 go unscored"
+  },
+  "within-person structure of adjacent levels": {
+   "could_bound_it": [
+    {
+     "gives": "the mean and SD of the absolute differences between adjacent vertebrae in six shape metrics",
+     "source": "Hipp 2022, NHANES II films (7,364 lumbar, 9,662 cervical)"
+    },
+    {
+     "gives": "mean ratios of body heights between every pair of levels from T1 to L5, by sex",
+     "source": "Palm 2025, 262 people, TotalSegmentator on CT"
+    },
+    {
+     "gives": "a body's posterior height predicted from up to four adjacent bodies, T4 to L4",
+     "source": "EVOS, Ismail 1999, 13,562 people"
+    },
+    {
+     "gives": "each body's posterior height as a ratio to the body above and the body below",
+     "source": "J Bone Miner Res 1994;9:1895-1907, three European centres"
+    }
+   ],
+   "in_the_records": false,
+   "where": "SchwingNet docs/research/morphometry-beyond-the-42-papers.md, line 63 (where within-person correlations could come from) and lines 137 to 153 (the published summaries, Hipp 2022 at line 139, and line 151: no covariance of Panjabi-type measures across the whole column from 200 or more people was found), as the note stood at SchwingNet commit cdb0cce",
+   "why": "no paper in the records prints the correlation of one person's two adjacent levels, so a paper's step variance takes it as the parameter r, chosen by held-out coverage (step_r), and simulate draws people independent at every cell"
+  }
+ },
+ "numpy": "2.5.4",
+ "python": "3.13.17",
+ "reference_n_measured": {
+  "median": 44.125,
+  "papers": {
+   "arockiaraj2025": 300.0,
+   "bach2019": 240.0,
+   "busscher2010": 6.0,
+   "duman2026": 517.0,
+   "frontphys2026": 20.0,
+   "lien2007": 15.0,
+   "masharawi2021": 50.0,
+   "moncadahabib2025": 37.0,
+   "olsewski1990": 38.25,
+   "shin2024": 2100.0,
+   "tan2004": 10.0,
+   "yadav2020": 302.0
+  },
+  "reference_n": 40
+ },
+ "rules": {
+  "bar": "each of the mean, SD and step tests' pass rate against the 10th percentile of the kind's held-out papers' own rates, over the papers with 20 rows or more of the test, a test with fewer than 5 such papers having no bar (calibration.bar_rule)",
+  "cohort_sampling": "every interval widened by the cohort's own sampling error",
+  "min_series_for_tau": 3,
+  "nominal": 0.95,
+  "sex_test": "the cohort's men minus women has the papers' sign where the 95% interval for a new population's contrast, tau included and borrowed below three papers under the covariates' rule (covariate_borrowing), excludes zero; it carries no bar and enters no verdict",
+  "tau_counts": {
+   "mean": "series: a paper printing several cohorts gives several, the row's k; its papers are the row's papers",
+   "sd": "populations, one a paper (the strata)",
+   "sex and age": "papers",
+   "step": "papers"
+  },
+  "verdict": "a test passes at or above its bar; the cohort fails where any test with a bar fails and passes only where the step test was made and passes its bar, since naming lives on the steps; the pass rate over every test decides nothing (bounds.verdict)",
+  "z": 1.96
+ },
+ "seconds": 191,
+ "seeds": {
+  "centre": 4202,
+  "drawn": 4201,
+  "generator": 11
+ },
+ "series_not_in_register": [
+  "amonookuofi1982/ilorin_ap_films",
+  "bach2019/usf_ct240",
+  "chaudhary2015/sonepat_ap_films",
+  "chen2011/chongqing_ct83",
+  "hinck1966/oregon_ap_spine_films",
+  "makino2012/osaka_degenerative_ct",
+  "shin2024/shin700",
+  "twomey1985/cadavers-204"
+ ],
+ "sizes": {
+  "people_centre": 1000,
+  "people_drawn": 300,
+  "people_generator": 2000,
+  "populations": 200
+ },
+ "snapshot": {
+  "branch": "main",
+  "commit": "6409164c62138a1fab30e638a1de38ad2f6c45a4",
+  "sha256": "24ce47909aaefdb64f7930ea03cdf6df14307c044748b9ba91aefbd390bd9f62"
+ },
+ "snapshot_sexes": {
+  "commit": "6409164c62138a1fab30e638a1de38ad2f6c45a4",
+  "rows": 1522,
+  "sha256": "80025cef4d5b49c5641eca00aa2f20312d94d0576cc1f89bcea8b020f571bd34"
+ },
+ "step_r": {
+  "at_the_grids_edge": true,
+  "bounds_py_default": 0.0,
+  "caveat": "the left-out paper's own step variance is read at the card's r, so a smaller r widens the test as well as the card and coverage alone cannot tell a right r from a lenient one; the sensitivity reads the paper's own at every r of its set apart (held_out_steps_by_test_r)",
+  "chosen": 0.0,
+  "default_matches": true,
+  "grid": [
+   {
+    "means_rule": {
+     "made": 539,
+     "passed": 500,
+     "rate": 0.9276437847866419
+    },
+    "paper_low": 0.89,
+    "paper_median": 0.927710843373494,
+    "r": 0.0,
+    "steps_rule": {
+     "made": 539,
+     "passed": 504,
+     "rate": 0.935064935064935
+    }
+   },
+   {
+    "means_rule": {
+     "made": 539,
+     "passed": 494,
+     "rate": 0.9165120593692022
+    },
+    "paper_low": 0.878,
+    "paper_median": 0.9216867469879518,
+    "r": 0.1,
+    "steps_rule": {
+     "made": 539,
+     "passed": 499,
+     "rate": 0.9257884972170687
+    }
+   },
+   {
+    "means_rule": {
+     "made": 539,
+     "passed": 492,
+     "rate": 0.9128014842300557
+    },
+    "paper_low": 0.878,
+    "paper_median": 0.9216867469879518,
+    "r": 0.2,
+    "steps_rule": {
+     "made": 539,
+     "passed": 499,
+     "rate": 0.9257884972170687
+    }
+   },
+   {
+    "means_rule": {
+     "made": 539,
+     "passed": 489,
+     "rate": 0.9072356215213359
+    },
+    "paper_low": 0.845,
+    "paper_median": 0.9096385542168675,
+    "r": 0.3,
+    "steps_rule": {
+     "made": 539,
+     "passed": 494,
+     "rate": 0.9165120593692022
+    }
+   },
+   {
+    "means_rule": {
+     "made": 539,
+     "passed": 489,
+     "rate": 0.9072356215213359
+    },
+    "paper_low": 0.845,
+    "paper_median": 0.9036144578313253,
+    "r": 0.4,
+    "steps_rule": {
+     "made": 539,
+     "passed": 494,
+     "rate": 0.9165120593692022
+    }
+   },
+   {
+    "means_rule": {
+     "made": 539,
+     "passed": 486,
+     "rate": 0.9016697588126159
+    },
+    "paper_low": 0.829,
+    "paper_median": 0.9036144578313253,
+    "r": 0.5,
+    "steps_rule": {
+     "made": 539,
+     "passed": 490,
+     "rate": 0.9090909090909091
+    }
+   },
+   {
+    "means_rule": {
+     "made": 539,
+     "passed": 484,
+     "rate": 0.8979591836734694
+    },
+    "paper_low": 0.829,
+    "paper_median": 0.9,
+    "r": 0.6,
+    "steps_rule": {
+     "made": 539,
+     "passed": 488,
+     "rate": 0.9053803339517625
+    }
+   },
+   {
+    "means_rule": {
+     "made": 539,
+     "passed": 481,
+     "rate": 0.8923933209647495
+    },
+    "paper_low": 0.813,
+    "paper_median": 0.9,
+    "r": 0.7,
+    "steps_rule": {
+     "made": 539,
+     "passed": 485,
+     "rate": 0.8998144712430427
+    }
+   },
+   {
+    "means_rule": {
+     "made": 539,
+     "passed": 476,
+     "rate": 0.8831168831168831
+    },
+    "paper_low": 0.804,
+    "paper_median": 0.875,
+    "r": 0.8,
+    "steps_rule": {
+     "made": 539,
+     "passed": 482,
+     "rate": 0.8942486085343229
+    }
+   },
+   {
+    "means_rule": {
+     "made": 539,
+     "passed": 469,
+     "rate": 0.8701298701298701
+    },
+    "paper_low": 0.7716666666666667,
+    "paper_median": 0.8734939759036144,
+    "r": 0.9,
+    "steps_rule": {
+     "made": 539,
+     "passed": 479,
+     "rate": 0.8886827458256029
+    }
+   }
+  ],
+  "rule": "the r of the grid whose held-out step coverage, pooled over every held-out step under the steps' borrowing rule, is nearest the nominal 0.95, the smaller r where two are as near",
+  "sensitivity": [
+   {
+    "borrowed_overall_tau_over_sd": 0.21690033223239233,
+    "generator_true_steps": {
+     "made": 399,
+     "passed": 333,
+     "rate": 0.8345864661654135
+    },
+    "half_width_over_sd_median": 1.0477091577416293,
+    "held_out_paper_low": 0.89,
+    "held_out_paper_median": 0.927710843373494,
+    "held_out_steps": {
+     "made": 539,
+     "passed": 504,
+     "rate": 0.935064935064935
+    },
+    "held_out_steps_borrowed_tau": {
+     "made": 331,
+     "passed": 316,
+     "rate": 0.9546827794561934
+    },
+    "held_out_steps_by_test_r": {
+     "0.0": {
+      "made": 539,
+      "passed": 504,
+      "rate": 0.935064935064935
+     },
+     "0.5": {
+      "made": 539,
+      "passed": 493,
+      "rate": 0.9146567717996289
+     },
+     "0.8": {
+      "made": 539,
+      "passed": 478,
+      "rate": 0.8868274582560297
+     }
+    },
+    "held_out_steps_own_tau": {
+     "made": 208,
+     "passed": 188,
+     "rate": 0.9038461538461539
+    },
+    "own_tau": 67,
+    "own_tau_half_width_over_sd_median": 0.3534308911853934,
+    "own_tau_of_zero": 22,
+    "r": 0.0,
+    "steps": 635
+   },
+   {
+    "borrowed_overall_tau_over_sd": 0.251204667799814,
+    "generator_true_steps": {
+     "made": 399,
+     "passed": 328,
+     "rate": 0.8220551378446115
+    },
+    "half_width_over_sd_median": 0.9220757479901517,
+    "held_out_paper_low": 0.829,
+    "held_out_paper_median": 0.9036144578313253,
+    "held_out_steps": {
+     "made": 539,
+     "passed": 490,
+     "rate": 0.9090909090909091
+    },
+    "held_out_steps_borrowed_tau": {
+     "made": 331,
+     "passed": 305,
+     "rate": 0.9214501510574018
+    },
+    "held_out_steps_by_test_r": {
+     "0.0": {
+      "made": 539,
+      "passed": 499,
+      "rate": 0.9257884972170687
+     },
+     "0.5": {
+      "made": 539,
+      "passed": 490,
+      "rate": 0.9090909090909091
+     },
+     "0.8": {
+      "made": 539,
+      "passed": 480,
+      "rate": 0.8905380333951762
+     }
+    },
+    "held_out_steps_own_tau": {
+     "made": 208,
+     "passed": 185,
+     "rate": 0.8894230769230769
+    },
+    "own_tau": 67,
+    "own_tau_half_width_over_sd_median": 0.41998437439975,
+    "own_tau_of_zero": 13,
+    "r": 0.5,
+    "steps": 635
+   },
+   {
+    "borrowed_overall_tau_over_sd": 0.2719866323181883,
+    "generator_true_steps": {
+     "made": 399,
+     "passed": 326,
+     "rate": 0.8170426065162907
+    },
+    "half_width_over_sd_median": 0.8487384517470309,
+    "held_out_paper_low": 0.804,
+    "held_out_paper_median": 0.875,
+    "held_out_steps": {
+     "made": 539,
+     "passed": 482,
+     "rate": 0.8942486085343229
+    },
+    "held_out_steps_borrowed_tau": {
+     "made": 331,
+     "passed": 300,
+     "rate": 0.9063444108761329
+    },
+    "held_out_steps_by_test_r": {
+     "0.0": {
+      "made": 539,
+      "passed": 503,
+      "rate": 0.9332096474953617
+     },
+     "0.5": {
+      "made": 539,
+      "passed": 493,
+      "rate": 0.9146567717996289
+     },
+     "0.8": {
+      "made": 539,
+      "passed": 482,
+      "rate": 0.8942486085343229
+     }
+    },
+    "held_out_steps_own_tau": {
+     "made": 208,
+     "passed": 182,
+     "rate": 0.875
+    },
+    "own_tau": 67,
+    "own_tau_half_width_over_sd_median": 0.49387914910418546,
+    "own_tau_of_zero": 8,
+    "r": 0.8,
+    "steps": 635
+   }
+  ],
+  "variance": "a paper's step variance is sd_a^2 / n_a + sd_b^2 / n_b - 2 r sd_a sd_b / max(n_a, n_b)"
+ },
+ "steps_whose_ends_spread_apart_more_than_the_step": {
+  "coherent": {
+   "level_between_over_sd_median": 1.516190531763939,
+   "sd_difference_over_mean_sd_median": 0.09785932721712547,
+   "step_between_over_sd_median": 0.48319004128621085,
+   "steps": 447
+  },
+  "count": 188,
+  "incoherent": {
+   "level_between_over_sd_median": 1.542346825007468,
+   "sd_difference_over_mean_sd_median": 0.41748097722057886,
+   "step_between_over_sd_median": 0.5496284815836474,
+   "steps": 188
+  },
+  "incoherent_by_tau_sources": {
+   "every cell's median and every cell's median": 100,
+   "own and own": 31,
+   "own and the measure's median": 10,
+   "the measure's median and the measure's median": 47
+  },
+  "meaning": "no population of populations has both levels' spreads of a new population's mean and the step's own spread, since the SD of a difference is at least the difference of the SDs; checks.drawn.why_below_the_step_bar says what it does to populations drawn from the card",
+  "of": 635,
+  "rule": "the two levels' betweens differ by more than the step's (incoherent_spreads)"
+ },
+ "steps_whose_pooled_means_sit_off_the_step": {
+  "count": 19,
+  "of": 635,
+  "rule": "|coherence| above 1.96",
+  "steps": [
+   {
+    "coherence": 3.1910571632863824,
+    "k": 1,
+    "lower": "T12",
+    "mean_difference": 2.535526611017934,
+    "measure": "canal_ap",
+    "step": 0.5999999999999996,
+    "upper": "T11"
+   },
+   {
+    "coherence": 4.362538500441573,
+    "k": 2,
+    "lower": "L1",
+    "mean_difference": 1.9813465911999426,
+    "measure": "canal_ap",
+    "step": -0.36789644958147955,
+    "upper": "T12"
+   },
+   {
+    "coherence": 3.4277150880723517,
+    "k": 1,
+    "lower": "L1",
+    "mean_difference": 75.4300294902593,
+    "measure": "canal_area",
+    "step": 22.19999999999999,
+    "upper": "T12"
+   },
+   {
+    "coherence": -3.188333527964647,
+    "k": 3,
+    "lower": "L4",
+    "mean_difference": 15.708396195977684,
+    "measure": "canal_area",
+    "step": 22.692156921928184,
+    "upper": "L3"
+   },
+   {
+    "coherence": 2.489691201951514,
+    "k": 1,
+    "lower": "L1",
+    "mean_difference": 3.8547306004033786,
+    "measure": "canal_w",
+    "step": 1.5,
+    "upper": "T12"
+   },
+   {
+    "coherence": -2.2487123132137667,
+    "k": 1,
+    "lower": "L1",
+    "mean_difference": 0.35700780933208565,
+    "measure": "disc_h_post",
+    "step": 1.1062899999999996,
+    "upper": "T12"
+   },
+   {
+    "coherence": -1.987714026618717,
+    "k": 1,
+    "lower": "L1",
+    "mean_difference": 1.2448182013125102,
+    "measure": "foramen_h",
+    "step": 1.9991000000000003,
+    "upper": "T12"
+   },
+   {
+    "coherence": -3.2131837312412928,
+    "k": 3,
+    "lower": "T12",
+    "mean_difference": 1.5798122123215066,
+    "measure": "h_ant",
+    "step": 2.009439371894148,
+    "upper": "T11"
+   },
+   {
+    "coherence": -7.134237086661053,
+    "k": 2,
+    "lower": "L1",
+    "mean_difference": -0.23904801954369503,
+    "measure": "h_mid",
+    "step": 1.2446274086903968,
+    "upper": "T12"
+   },
+   {
+    "coherence": 2.996270335817842,
+    "k": 2,
+    "lower": "L5",
+    "mean_difference": 0.3221121327261649,
+    "measure": "h_mid",
+    "step": -0.628215408519348,
+    "upper": "L4"
+   },
+   {
+    "coherence": -2.2914509837558508,
+    "k": 1,
+    "lower": "L1",
+    "mean_difference": 0.5226774979491395,
+    "measure": "interpedicular",
+    "step": 1.7450694444444466,
+    "upper": "T12"
+   },
+   {
+    "coherence": -1.9820777307450508,
+    "k": 3,
+    "lower": "L4",
+    "mean_difference": 1.2820606824373009,
+    "measure": "interpedicular",
+    "step": 1.5134818171419135,
+    "upper": "L3"
+   },
+   {
+    "coherence": -6.200890973028281,
+    "k": 9,
+    "lower": "L3",
+    "mean_difference": 1.3504556816060278,
+    "measure": "pedicle",
+    "step": 1.749968896245058,
+    "upper": "L2"
+   },
+   {
+    "coherence": 4.174184781349202,
+    "k": 1,
+    "lower": "T11",
+    "mean_difference": 2.4112441688594686,
+    "measure": "pedicle_chord [along the axis]",
+    "step": -1.8000000000000043,
+    "upper": "T10"
+   },
+   {
+    "coherence": -3.8767433189132676,
+    "k": 1,
+    "lower": "T12",
+    "mean_difference": -5.51124416885947,
+    "measure": "pedicle_chord [along the axis]",
+    "step": -1.2999999999999972,
+    "upper": "T11"
+   },
+   {
+    "coherence": 4.279803161012135,
+    "k": 3,
+    "lower": "L2",
+    "mean_difference": 2.299536401827133,
+    "measure": "pedicle_chord [along the axis]",
+    "step": 1.2118293792604675,
+    "upper": "L1"
+   },
+   {
+    "coherence": -3.3543674300823456,
+    "k": 4,
+    "lower": "T12",
+    "mean_difference": 0.20734928820819576,
+    "measure": "pedicle_h",
+    "step": 0.4888605190850949,
+    "upper": "T11"
+   },
+   {
+    "coherence": 2.7920563621965835,
+    "k": 2,
+    "lower": "T11",
+    "mean_difference": 5.53172419253168,
+    "measure": "pedicle_incl_sag:mean",
+    "step": -1.3105276286229068,
+    "upper": "T10"
+   },
+   {
+    "coherence": 3.2718700500724114,
+    "k": 1,
+    "lower": "T1",
+    "mean_difference": 3.384426035521412,
+    "measure": "pedicle_incl_trans:mean",
+    "step": -0.40000000000000036,
+    "upper": "C7"
+   }
+  ]
+ }
+}

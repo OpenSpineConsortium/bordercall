@@ -55,13 +55,26 @@ paper's mapping against its Methods.
 - data/cohorts/<id>.cohorts.json: its cohorts, techniques and every stated or inferred sharing, with the page. A
   cohort that is not human carries "species" (Busscher 2010's and van der Houwen 2009's pig spines), and
   tools/cross_naming.py leaves it out of everything.
-- data/series.csv: tools/series.py over all 39, 4,357 series. Two misprints are left out: Tan 2004's L3 lower
-  end-plate area, printed 172.0 mm2 between 1,090.9 and 1,199.3, and Robertson 2000's left L3 pedicle height,
-  printed with an SD of 13.0 mm where every other is 2.5 to 3.9. Two rounds of independent readers checked
+- data/series.csv: tools/series.py over all 39, 3,760 series. Three misprints are left out: Tan 2004's L3 lower
+  end-plate area, printed 172.0 mm2 between 1,090.9 and 1,199.3, Robertson 2000's left L3 pedicle height,
+  printed with an SD of 13.0 mm where every other is 2.5 to 3.9, and Hou 1993's T9 cumulative pedicle height,
+  12.9 mm outside its sexes' 12.2 and 12.5. Griffith 2016's model-adjusted estimates and its quartiles chosen by
+  the measure, and Shin 2024's covariate-adjusted Tables 4 and 5, are no populations and make no series; the counts a paper prints for pedicles, end-plates or a range
+  of levels are brought to people (series.py's docstring says how). Four rounds of independent readers checked
   series.py, cross_naming.py and results.py against the pages and the records, and each fault they found was fixed
   and checked again (tools/code_review.js, code_fix.js and code_fix_2.js, Workflow scripts).
-- [review/](review/README.md): what the two review rounds found, and round 2's findings with the refuters'
-  verdicts; the round 2 findings that change data/series.csv or the record come in the next pull request.
+- [validation/](validation/README.md): the validation the owner asked for on 2026-10-29 (../clinical-reread/HANDOFF.md,
+  step 2). tools/validation_sample.py draws the blind re-read sample (468 cells, twelve a paper, seed 2026), ten
+  readers read them from the page images without the record, and tools/validation_compare.py gives the rate: 0
+  record faults in 468, Wilson interval 0.0 to 0.8 percent. tools/plausibility.py flags outliers and level
+  reversals against the other papers (116 flags, every one the paper's own number on its page). The mapping audit
+  (step 2c) read all 765 distinct mappings against the papers: 109 flagged, 17 held and fixed (Otsuki 2021's
+  isthmus major axis is not Panjabi's pedicle height, the one fix that reaches the comparison), and 41 judgements
+  the papers leave open, decided on 2026-10-30 by one rule (validation/README.md): Masharawi 2021's facet widths
+  leave the comparison and Irie 2021's (filed as otsuki2021) pedicle heights at L1 to L3 rejoin it.
+- [review/](review/README.md): what the four review rounds found, and round 2's findings with the refuters'
+  verdicts and, for each fixed, its resolution; the data findings were fixed on 2026-10-29 and the comparison
+  rerun, then a third and a fourth round read the result (pull request 39).
 - data/cross_naming.json and results/: the comparison with Panjabi (step 5) at 200 fields a setting, seed 2026, with
   all 32 of Panjabi's measures scored as printed, the owner's choice of 2026-10-29 though the two end-plate
   inclinations' lumbar row repeats the cervical one (../panjabi-endplate-inclination.md), and the evaluation written

@@ -1,0 +1,695 @@
+measure,kind,source,level,mean,sd,error,power
+canal_ap,length,papers,C3,10.3,0.948683,1.0,1.0
+canal_ap,length,papers,C4,10.3,0.948683,1.0,1.0
+canal_ap,length,papers,C5,10.3,0.948683,1.0,1.0
+canal_ap,length,papers,C6,10.3,0.948683,1.0,1.0
+canal_ap,length,papers,C7,11.0,0.632456,1.0,1.0
+canal_ap,length,papers,T1,11.6,0.948683,1.0,1.0
+canal_ap,length,papers,T2,11.7,0.632456,1.0,1.0
+canal_ap,length,papers,T3,12.0,0.632456,1.0,1.0
+canal_ap,length,papers,T4,11.8,0.632456,1.0,1.0
+canal_ap,length,papers,T5,11.5,0.632456,1.0,1.0
+canal_ap,length,papers,T6,11.6,0.632456,1.0,1.0
+canal_ap,length,papers,T7,11.9,0.316228,1.0,1.0
+canal_ap,length,papers,T8,11.9,0.632456,1.0,1.0
+canal_ap,length,papers,T9,11.8,0.632456,1.0,1.0
+canal_ap,length,papers,T10,11.9,0.948683,1.0,1.0
+canal_ap,length,papers,T11,11.8,0.632456,1.0,1.0
+canal_ap,length,papers,T12,14.335526611017935,1.37554,1.0,1.0
+canal_ap,length,papers,L1,16.316873202217877,1.6426926877264052,1.0,1.0
+canal_ap,length,papers,L2,15.40206303785329,1.697254353113932,1.0,1.0
+canal_ap,length,papers,L3,14.554068071787428,1.7282143489937771,1.0,1.0
+canal_ap,length,papers,L4,14.894969608628687,2.1251582101852313,1.0,1.0
+canal_ap,length,papers,L5,16.02009840595641,2.743235028603895,1.0,1.0
+canal_area,area,papers,C3,149.7,28.4605,16.611556336958195,2.0
+canal_area,area,papers,C4,159.9,26.5631,16.611556336958195,2.0
+canal_area,area,papers,C5,166.8,25.2982,16.611556336958195,2.0
+canal_area,area,papers,C6,163.7,32.2552,16.611556336958195,2.0
+canal_area,area,papers,C7,167.5,21.1873,16.611556336958195,2.0
+canal_area,area,papers,T1,169.4,14.2302,16.611556336958195,2.0
+canal_area,area,papers,T2,145.7,6.32456,16.611556336958195,2.0
+canal_area,area,papers,T3,145.4,9.17061,16.611556336958195,2.0
+canal_area,area,papers,T4,140.1,10.7517,16.611556336958195,2.0
+canal_area,area,papers,T5,141.5,10.7517,16.611556336958195,2.0
+canal_area,area,papers,T6,144.8,11.7004,16.611556336958195,2.0
+canal_area,area,papers,T7,144.2,7.90569,16.611556336958195,2.0
+canal_area,area,papers,T8,148.1,13.5978,16.611556336958195,2.0
+canal_area,area,papers,T9,145.9,17.0763,16.611556336958195,2.0
+canal_area,area,papers,T10,142.3,19.2899,16.611556336958195,2.0
+canal_area,area,papers,T11,148.6,12.9653,16.611556336958195,2.0
+canal_area,area,papers,T12,177.8,17.3925,16.611556336958195,2.0
+canal_area,area,papers,L1,253.2300294902593,44.462036772544835,16.611556336958195,2.0
+canal_area,area,papers,L2,240.78253211145383,45.4972591102217,16.611556336958195,2.0
+canal_area,area,papers,L3,230.666567859721,54.38833496179754,16.611556336958195,2.0
+canal_area,area,papers,L4,246.37496405569868,56.28875122338069,16.611556336958195,2.0
+canal_area,area,papers,L5,292.3141027375486,74.48441907007789,16.611556336958195,2.0
+canal_w,length,papers,C3,19.2,1.26491,1.0,1.0
+canal_w,length,papers,C4,19.3,1.58114,1.0,1.0
+canal_w,length,papers,C5,20.3,1.26491,1.0,1.0
+canal_w,length,papers,C6,20.6,1.26491,1.0,1.0
+canal_w,length,papers,C7,19.7,1.26491,1.0,1.0
+canal_w,length,papers,T1,17.7,0.948683,1.0,1.0
+canal_w,length,papers,T2,15.2,0.948683,1.0,1.0
+canal_w,length,papers,T3,14.2,0.948683,1.0,1.0
+canal_w,length,papers,T4,13.5,0.948683,1.0,1.0
+canal_w,length,papers,T5,13.6,0.948683,1.0,1.0
+canal_w,length,papers,T6,13.8,0.948683,1.0,1.0
+canal_w,length,papers,T7,13.9,1.26491,1.0,1.0
+canal_w,length,papers,T8,14.1,0.948683,1.0,1.0
+canal_w,length,papers,T9,14.2,1.26491,1.0,1.0
+canal_w,length,papers,T10,14.2,1.26491,1.0,1.0
+canal_w,length,papers,T11,15.3,0.632456,1.0,1.0
+canal_w,length,papers,T12,17.9,0.948683,1.0,1.0
+canal_w,length,papers,L1,21.754730600403377,2.3005428816346494,1.0,1.0
+canal_w,length,papers,L2,22.06931969712658,2.2939118700104144,1.0,1.0
+canal_w,length,papers,L3,22.692240672407365,2.4594824398410955,1.0,1.0
+canal_w,length,papers,L4,24.16200808133208,3.150288618874274,1.0,1.0
+canal_w,length,papers,L5,28.158402091872397,4.112224991488694,1.0,1.0
+endplate,length,papers,C3,13.8,0.316228,1.0,1.0
+endplate,length,papers,C4,14.7,0.316228,1.0,1.0
+endplate,length,papers,C5,14.9,0.316228,1.0,1.0
+endplate,length,papers,C7,19.0,0.316228,1.0,1.0
+endplate,length,papers,T1,24.7,0.632456,1.0,1.0
+endplate,length,papers,T2,23.6,0.632456,1.0,1.0
+endplate,length,papers,T3,23.3,1.26491,1.0,1.0
+endplate,length,papers,T4,22.5,0.948683,1.0,1.0
+endplate,length,papers,T5,23.3,0.948683,1.0,1.0
+endplate,length,papers,T6,23.7,0.948683,1.0,1.0
+endplate,length,papers,T7,24.6,0.948683,1.0,1.0
+endplate,length,papers,T8,25.9,1.58114,1.0,1.0
+endplate,length,papers,T9,27.0,0.948683,1.0,1.0
+endplate,length,papers,T10,28.8,1.26491,1.0,1.0
+endplate,length,papers,T11,31.6,0.948683,1.0,1.0
+endplate,length,papers,T12,35.262419239354784,3.08738,1.0,1.0
+endplate,length,papers,L1,38.97736171681521,1.9127235020677253,1.0,1.0
+endplate,length,papers,L2,40.96882959514221,1.6979696161074722,1.0,1.0
+endplate,length,papers,L3,42.76019920193269,1.495543528532682,1.0,1.0
+endplate,length,papers,L4,44.974243938762044,1.841483711385944,1.0,1.0
+endplate,length,papers,L5,46.623431979937834,3.5812373700151925,1.0,1.0
+endplate_area,area,papers,C3,154.7,12.0167,29.53059668806916,2.0
+endplate_area,area,papers,C4,169.2,15.4952,29.53059668806916,2.0
+endplate_area,area,papers,C5,187.4,20.871,29.53059668806916,2.0
+endplate_area,area,papers,C6,210.5,31.6228,29.53059668806916,2.0
+endplate_area,area,papers,C7,220.8,28.4605,29.53059668806916,2.0
+endplate_area,area,papers,T1,304.8,43.6394,29.53059668806916,2.0
+endplate_area,area,papers,T2,347.6,33.2039,29.53059668806916,2.0
+endplate_area,area,papers,T3,352.9,22.7684,29.53059668806916,2.0
+endplate_area,area,papers,T4,373.6,16.4438,29.53059668806916,2.0
+endplate_area,area,papers,T5,408.7,34.4688,29.53059668806916,2.0
+endplate_area,area,papers,T6,452.1,49.6478,29.53059668806916,2.0
+endplate_area,area,papers,T7,477.5,48.0666,29.53059668806916,2.0
+endplate_area,area,papers,T8,552.6,59.767,29.53059668806916,2.0
+endplate_area,area,papers,T9,587.9,62.9293,29.53059668806916,2.0
+endplate_area,area,papers,T10,640.6,71.1512,29.53059668806916,2.0
+endplate_area,area,papers,T11,706.6,66.4078,29.53059668806916,2.0
+endplate_area,area,papers,T12,795.6,65.7754,29.53059668806916,2.0
+endplate_area,area,papers,L1,889.8,79.0569,29.53059668806916,2.0
+endplate_area,area,papers,L2,984.0,101.193,29.53059668806916,2.0
+endplate_area,area,papers,L3,1117.7,90.1249,29.53059668806916,2.0
+endplate_area,area,papers,L4,1151.8,64.1942,29.53059668806916,2.0
+endplate_area,area,papers,L5,1127.3,77.4758,29.53059668806916,2.0
+endplate_depth,length,papers,C3,13.6,0.316228,1.0,1.0
+endplate_depth,length,papers,C4,14.0,0.316228,1.0,1.0
+endplate_depth,length,papers,C5,14.3,0.316228,1.0,1.0
+endplate_depth,length,papers,C6,14.6,0.632456,1.0,1.0
+endplate_depth,length,papers,C7,15.1,0.632456,1.0,1.0
+endplate_depth,length,papers,T1,14.9,0.948683,1.0,1.0
+endplate_depth,length,papers,T2,16.3,0.632456,1.0,1.0
+endplate_depth,length,papers,T3,18.0,0.632456,1.0,1.0
+endplate_depth,length,papers,T4,18.9,0.948683,1.0,1.0
+endplate_depth,length,papers,T5,20.5,0.632456,1.0,1.0
+endplate_depth,length,papers,T6,21.8,0.632456,1.0,1.0
+endplate_depth,length,papers,T7,22.7,0.948683,1.0,1.0
+endplate_depth,length,papers,T8,23.3,0.948683,1.0,1.0
+endplate_depth,length,papers,T9,24.4,1.26491,1.0,1.0
+endplate_depth,length,papers,T10,25.4,1.26491,1.0,1.0
+endplate_depth,length,papers,T11,25.4,0.948683,1.0,1.0
+endplate_depth,length,papers,T12,26.400995373297746,2.71645,1.0,1.0
+endplate_depth,length,papers,L1,27.699301920750038,2.65607,1.0,1.0
+endplate_depth,length,papers,L2,28.987913623148245,3.08351,1.0,1.0
+endplate_depth,length,papers,L3,30.334911265327097,2.9231,1.0,1.0
+endplate_depth,length,papers,L4,30.902578880999332,2.35566,1.0,1.0
+endplate_depth,length,papers,L5,31.17627667170249,2.48075,1.0,1.0
+endplate_incl,angle,papers,C3,5.0,12.9653,3.0,0.0
+endplate_incl,angle,papers,C4,5.2,16.4438,3.0,0.0
+endplate_incl,angle,papers,C5,7.1,3.79473,3.0,0.0
+endplate_incl,angle,papers,C6,5.8,1.89737,3.0,0.0
+endplate_incl,angle,papers,C7,5.8,2.52982,3.0,0.0
+endplate_incl,angle,papers,T1,7.2,2.21359,3.0,0.0
+endplate_incl,angle,papers,T2,3.9,1.26491,3.0,0.0
+endplate_incl,angle,papers,T3,3.2,1.89737,3.0,0.0
+endplate_incl,angle,papers,T4,1.5,0.632456,3.0,0.0
+endplate_incl,angle,papers,T5,1.4,1.26491,3.0,0.0
+endplate_incl,angle,papers,T6,1.0,0.632456,3.0,0.0
+endplate_incl,angle,papers,T7,2.1,1.58114,3.0,0.0
+endplate_incl,angle,papers,T8,2.2,0.632456,3.0,0.0
+endplate_incl,angle,papers,T9,1.6,1.26491,3.0,0.0
+endplate_incl,angle,papers,T10,1.4,0.632456,3.0,0.0
+endplate_incl,angle,papers,T11,3.4,2.21359,3.0,0.0
+endplate_incl,angle,papers,T12,4.5,2.21359,3.0,0.0
+endplate_incl,angle,papers,L1,1.8,1.26491,3.0,0.0
+endplate_incl,angle,papers,L2,3.4,1.26491,3.0,0.0
+endplate_incl,angle,papers,L3,1.9,0.948683,3.0,0.0
+endplate_incl,angle,papers,L4,3.7,1.89737,3.0,0.0
+endplate_incl,angle,papers,L5,6.9,2.84605,3.0,0.0
+endplate_lower,length,papers,C3,14.3,0.316228,1.0,1.0
+endplate_lower,length,papers,C4,15.0,0.316228,1.0,1.0
+endplate_lower,length,papers,C5,15.9,0.316228,1.0,1.0
+endplate_lower,length,papers,C6,19.5,0.632456,1.0,1.0
+endplate_lower,length,papers,C7,20.3,0.632456,1.0,1.0
+endplate_lower,length,papers,T1,27.1,1.26491,1.0,1.0
+endplate_lower,length,papers,T2,25.3,1.26491,1.0,1.0
+endplate_lower,length,papers,T3,24.4,1.26491,1.0,1.0
+endplate_lower,length,papers,T4,25.0,1.26491,1.0,1.0
+endplate_lower,length,papers,T5,23.8,0.316228,1.0,1.0
+endplate_lower,length,papers,T6,24.8,1.58114,1.0,1.0
+endplate_lower,length,papers,T7,26.8,0.948683,1.0,1.0
+endplate_lower,length,papers,T8,27.9,1.26491,1.0,1.0
+endplate_lower,length,papers,T9,29.2,1.26491,1.0,1.0
+endplate_lower,length,papers,T10,31.9,0.632456,1.0,1.0
+endplate_lower,length,papers,T11,35.3,0.632456,1.0,1.0
+endplate_lower,length,papers,T12,37.339355321836514,3.3361,1.0,1.0
+endplate_lower,length,papers,L1,41.7660176493435,2.1864276418744564,1.0,1.0
+endplate_lower,length,papers,L2,43.50355337986747,1.9397899149325855,1.0,1.0
+endplate_lower,length,papers,L3,45.915027315011045,1.7471188924977736,1.0,1.0
+endplate_lower,length,papers,L4,47.54857527853006,2.6032625149738533,1.0,1.0
+endplate_lower,length,papers,L5,47.54210480501386,1.4598995433854505,1.0,1.0
+endplate_lower_area,area,papers,C3,216.8,31.939,31.470189133171335,2.0
+endplate_lower_area,area,papers,C4,241.5,33.5201,31.470189133171335,2.0
+endplate_lower_area,area,papers,C5,286.4,32.5715,31.470189133171335,2.0
+endplate_lower_area,area,papers,C6,316.3,23.4009,31.470189133171335,2.0
+endplate_lower_area,area,papers,C7,340.0,32.5715,31.470189133171335,2.0
+endplate_lower_area,area,papers,T1,372.8,36.05,31.470189133171335,2.0
+endplate_lower_area,area,papers,T2,399.2,39.5285,31.470189133171335,2.0
+endplate_lower_area,area,papers,T3,387.1,28.4605,31.470189133171335,2.0
+endplate_lower_area,area,papers,T4,420.0,21.1873,31.470189133171335,2.0
+endplate_lower_area,area,papers,T5,450.0,42.3745,31.470189133171335,2.0
+endplate_lower_area,area,papers,T6,506.9,47.4342,31.470189133171335,2.0
+endplate_lower_area,area,papers,T7,543.0,53.1263,31.470189133171335,2.0
+endplate_lower_area,area,papers,T8,610.3,62.9293,31.470189133171335,2.0
+endplate_lower_area,area,papers,T9,645.0,67.0403,31.470189133171335,2.0
+endplate_lower_area,area,papers,T10,715.7,60.0833,31.470189133171335,2.0
+endplate_lower_area,area,papers,T11,803.0,66.4078,31.470189133171335,2.0
+endplate_lower_area,area,papers,T12,877.7,78.1083,31.470189133171335,2.0
+endplate_lower_area,area,papers,L1,1009.8,94.8683,31.470189133171335,2.0
+endplate_lower_area,area,papers,L2,1090.9,85.0653,31.470189133171335,2.0
+endplate_lower_area,area,papers,L3,1385.0,214.0,31.470189133171335,2.0
+endplate_lower_area,area,papers,L4,1199.3,112.261,31.470189133171335,2.0
+endplate_lower_area,area,papers,L5,1054.1,66.4078,31.470189133171335,2.0
+endplate_lower_depth,length,papers,C3,15.1,0.632456,1.0,1.0
+endplate_lower_depth,length,papers,C4,15.2,1.26491,1.0,1.0
+endplate_lower_depth,length,papers,C5,15.1,0.948683,1.0,1.0
+endplate_lower_depth,length,papers,C6,15.7,0.948683,1.0,1.0
+endplate_lower_depth,length,papers,C7,15.6,0.948683,1.0,1.0
+endplate_lower_depth,length,papers,T1,15.8,0.632456,1.0,1.0
+endplate_lower_depth,length,papers,T2,17.7,0.948683,1.0,1.0
+endplate_lower_depth,length,papers,T3,19.0,0.632456,1.0,1.0
+endplate_lower_depth,length,papers,T4,20.0,0.948683,1.0,1.0
+endplate_lower_depth,length,papers,T5,21.6,0.948683,1.0,1.0
+endplate_lower_depth,length,papers,T6,23.0,0.632456,1.0,1.0
+endplate_lower_depth,length,papers,T7,23.5,0.948683,1.0,1.0
+endplate_lower_depth,length,papers,T8,24.7,1.26491,1.0,1.0
+endplate_lower_depth,length,papers,T9,25.5,1.26491,1.0,1.0
+endplate_lower_depth,length,papers,T10,26.2,0.948683,1.0,1.0
+endplate_lower_depth,length,papers,T11,26.9,0.632456,1.0,1.0
+endplate_lower_depth,length,papers,T12,27.307307547339697,2.80415,1.0,1.0
+endplate_lower_depth,length,papers,L1,28.55799090652636,3.22913,1.0,1.0
+endplate_lower_depth,length,papers,L2,29.718227835485234,2.63109,1.0,1.0
+endplate_lower_depth,length,papers,L3,30.503509514926403,2.48187,1.0,1.0
+endplate_lower_depth,length,papers,L4,30.941684306276542,3.31831,1.0,1.0
+endplate_lower_depth,length,papers,L5,29.9198524566895,2.81655,1.0,1.0
+endplate_lower_incl,angle,papers,C3,3.3,1.58114,3.0,0.0
+endplate_lower_incl,angle,papers,C4,3.5,2.21359,3.0,0.0
+endplate_lower_incl,angle,papers,C5,2.7,0.948683,3.0,0.0
+endplate_lower_incl,angle,papers,C6,4.2,1.26491,3.0,0.0
+endplate_lower_incl,angle,papers,C7,5.1,1.58114,3.0,0.0
+endplate_lower_incl,angle,papers,T1,-2.9,1.26491,3.0,0.0
+endplate_lower_incl,angle,papers,T2,-3.0,1.58114,3.0,0.0
+endplate_lower_incl,angle,papers,T3,-1.8,0.948683,3.0,0.0
+endplate_lower_incl,angle,papers,T4,-4.1,1.89737,3.0,0.0
+endplate_lower_incl,angle,papers,T5,-2.6,1.26491,3.0,0.0
+endplate_lower_incl,angle,papers,T6,-3.8,1.26491,3.0,0.0
+endplate_lower_incl,angle,papers,T7,-3.2,1.26491,3.0,0.0
+endplate_lower_incl,angle,papers,T8,-2.2,1.89737,3.0,0.0
+endplate_lower_incl,angle,papers,T9,-2.6,1.26491,3.0,0.0
+endplate_lower_incl,angle,papers,T10,-3.0,0.632456,3.0,0.0
+endplate_lower_incl,angle,papers,T11,-3.2,0.948683,3.0,0.0
+endplate_lower_incl,angle,papers,T12,-3.1,0.948683,3.0,0.0
+endplate_lower_incl,angle,papers,L1,-2.6,1.26491,3.0,0.0
+endplate_lower_incl,angle,papers,L2,-1.1,0.632456,3.0,0.0
+endplate_lower_incl,angle,papers,L3,1.8,0.316228,3.0,0.0
+endplate_lower_incl,angle,papers,L4,3.2,1.89737,3.0,0.0
+endplate_lower_incl,angle,papers,L5,10.5,2.52982,3.0,0.0
+facet_w_sup:mean,length,papers,L1,15.9025,2.39938,1.0,1.0
+facet_w_sup:mean,length,papers,L2,16.105,2.21947,1.0,1.0
+facet_w_sup:mean,length,papers,L3,17.2,2.16823,1.0,1.0
+facet_w_sup:mean,length,papers,L4,17.1925,2.11181,1.0,1.0
+facet_w_sup:mean,length,papers,L5,18.4425,2.95234,1.0,1.0
+h_post,length,papers,C3,13.12542735232458,1.1,1.0,1.0
+h_post,length,papers,C4,12.925505059473776,1.1,1.0,1.0
+h_post,length,papers,C5,12.722988508298574,1.0,1.0,1.0
+h_post,length,papers,C6,12.587179498562872,0.8,1.0,1.0
+h_post,length,papers,C7,13.851016253266126,0.7,1.0,1.0
+h_post,length,papers,T1,16.386805561721555,1.0,1.0,1.0
+h_post,length,papers,T2,17.141452999041917,0.8,1.0,1.0
+h_post,length,papers,T3,17.435271324712435,1.0,1.0,1.0
+h_post,length,papers,T4,18.179166672832668,1.2,1.0,1.0
+h_post,length,papers,T5,18.65797102092684,1.6,1.0,1.0
+h_post,length,papers,T6,19.288652476253425,2.0,1.0,1.0
+h_post,length,papers,T7,19.86083332767822,1.7,1.0,1.0
+h_post,length,papers,T8,20.220918361576416,1.5,1.0,1.0
+h_post,length,papers,T9,20.79941519971774,2.0,1.0,1.0
+h_post,length,papers,T10,22.168817209074753,1.6,1.0,1.0
+h_post,length,papers,T11,23.113459134881808,2.1199970429582278,1.0,1.0
+h_post,length,papers,T12,24.524376352589634,1.6259672385453652,1.0,1.0
+h_post,length,papers,L1,25.89293236612509,1.9271924150006736,1.0,1.0
+h_post,length,papers,L2,26.720300856147475,2.249965419455462,1.0,1.0
+h_post,length,papers,L3,26.325015401417538,1.998381848677704,1.0,1.0
+h_post,length,papers,L4,25.161257624636892,2.3618087680586926,1.0,1.0
+h_post,length,papers,L5,22.845737536520204,2.7859195588432946,1.0,1.0
+pedicle_area:mean,area,papers,C3,28.05,3.16228,9.800074783215807,2.0
+pedicle_area:mean,area,papers,C4,28.25,2.84605,9.800074783215807,2.0
+pedicle_area:mean,area,papers,C5,27.95,3.47851,9.800074783215807,2.0
+pedicle_area:mean,area,papers,C6,31.2,4.42719,9.800074783215807,2.0
+pedicle_area:mean,area,papers,C7,32.9,6.64078,9.800074783215807,2.0
+pedicle_area:mean,area,papers,T1,56.5,10.4355,9.800074783215807,2.0
+pedicle_area:mean,area,papers,T2,48.05,9.17061,9.800074783215807,2.0
+pedicle_area:mean,area,papers,T3,38.45,6.95701,9.800074783215807,2.0
+pedicle_area:mean,area,papers,T4,32.2,5.05964,9.800074783215807,2.0
+pedicle_area:mean,area,papers,T5,33.6,7.11512,9.800074783215807,2.0
+pedicle_area:mean,area,papers,T6,34.1,3.95285,9.800074783215807,2.0
+pedicle_area:mean,area,papers,T7,38.35,5.05964,9.800074783215807,2.0
+pedicle_area:mean,area,papers,T8,42.9,4.74342,9.800074783215807,2.0
+pedicle_area:mean,area,papers,T9,51.2,11.7004,9.800074783215807,2.0
+pedicle_area:mean,area,papers,T10,72.95,11.5423,9.800074783215807,2.0
+pedicle_area:mean,area,papers,T11,93.05,10.1193,9.800074783215807,2.0
+pedicle_area:mean,area,papers,T12,95.55,9.17061,9.800074783215807,2.0
+pedicle_area:mean,area,papers,L1,76.3656824022,43.8,9.800074783215807,2.0
+pedicle_area:mean,area,papers,L2,77.36792835121952,35.7,9.800074783215807,2.0
+pedicle_area:mean,area,papers,L3,100.6647591683877,26.4,9.800074783215807,2.0
+pedicle_area:mean,area,papers,L4,126.684000689319,13.6,9.800074783215807,2.0
+pedicle_area:mean,area,papers,L5,178.78934288112896,37.1,9.800074783215807,2.0
+pedicle_h,length,papers,C3,6.75,0.632456,1.0,1.0
+pedicle_h,length,papers,C4,6.65,0.632456,1.0,1.0
+pedicle_h,length,papers,C5,6.1,0.790569,1.0,1.0
+pedicle_h,length,papers,C6,6.0,0.632456,1.0,1.0
+pedicle_h,length,papers,C7,6.3,0.474342,1.0,1.0
+pedicle_h,length,papers,T1,8.56893378441264,1.05,1.0,1.0
+pedicle_h,length,papers,T2,9.908958292318395,0.85,1.0,1.0
+pedicle_h,length,papers,T3,10.101527730651862,1.15,1.0,1.0
+pedicle_h,length,papers,T4,9.707318866316058,1.1,1.0,1.0
+pedicle_h,length,papers,T5,9.79144442256981,1.15,1.0,1.0
+pedicle_h,length,papers,T6,9.524743602549897,1.15,1.0,1.0
+pedicle_h,length,papers,T7,9.926960803899844,1.25,1.0,1.0
+pedicle_h,length,papers,T8,10.518500059193599,1.35,1.0,1.0
+pedicle_h,length,papers,T9,12.064027150928926,1.2228564583311554,1.0,1.0
+pedicle_h,length,papers,T10,13.610270340057992,1.4655434889240948,1.0,1.0
+pedicle_h,length,papers,T11,14.885390341719877,1.416874700419795,1.0,1.0
+pedicle_h,length,papers,T12,15.092739629928072,1.476063208016858,1.0,1.0
+pedicle_h,length,papers,L1,14.141117371585858,1.6676216220040485,1.0,1.0
+pedicle_h,length,papers,L2,13.774926467184967,1.7216042615192406,1.0,1.0
+pedicle_h,length,papers,L3,13.344925037944893,1.6724382782847667,1.0,1.0
+pedicle_h,length,papers,L4,13.307485137382619,1.8276748770704039,1.0,1.0
+pedicle_h,length,papers,L5,14.657319390006476,2.1487227227867973,1.0,1.0
+pedicle_incl_sag:mean,angle,papers,C3,41.25,3.16228,3.0,0.0
+pedicle_incl_sag:mean,angle,papers,C4,41.45,3.79473,3.0,0.0
+pedicle_incl_sag:mean,angle,papers,C5,42.2,4.11096,3.0,0.0
+pedicle_incl_sag:mean,angle,papers,C6,40.2,6.16644,3.0,0.0
+pedicle_incl_sag:mean,angle,papers,C7,30.45,3.16228,3.0,0.0
+pedicle_incl_sag:mean,angle,papers,T1,26.29091680786792,4.3,3.0,0.0
+pedicle_incl_sag:mean,angle,papers,T2,21.831178718959855,3.65,3.0,0.0
+pedicle_incl_sag:mean,angle,papers,T3,17.747278961593366,3.6,3.0,0.0
+pedicle_incl_sag:mean,angle,papers,T4,15.793045629101762,3.0,3.0,0.0
+pedicle_incl_sag:mean,angle,papers,T5,13.959199875753713,2.85,3.0,0.0
+pedicle_incl_sag:mean,angle,papers,T6,11.327878980727878,2.25,3.0,0.0
+pedicle_incl_sag:mean,angle,papers,T7,9.971737221369493,1.95,3.0,0.0
+pedicle_incl_sag:mean,angle,papers,T8,2.6410379716430805,1.35,3.0,0.0
+pedicle_incl_sag:mean,angle,papers,T9,2.9157531393893508,1.95,3.0,0.0
+pedicle_incl_sag:mean,angle,papers,T10,1.9152054283712434,1.4,3.0,0.0
+pedicle_incl_sag:mean,angle,papers,T11,7.446929620902924,2.1427712671862955,3.0,0.0
+pedicle_incl_sag:mean,angle,papers,T12,8.382720719916431,2.216915369606725,3.0,0.0
+pedicle_incl_sag:mean,angle,papers,L1,12.391828558578716,2.795832768599814,3.0,0.0
+pedicle_incl_sag:mean,angle,papers,L2,13.355738648392954,2.551128392146073,3.0,0.0
+pedicle_incl_sag:mean,angle,papers,L3,13.513904101877507,2.499005365542026,3.0,0.0
+pedicle_incl_sag:mean,angle,papers,L4,14.969791199816184,3.1698353601277884,3.0,0.0
+pedicle_incl_sag:mean,angle,papers,L5,22.545001064393645,4.686170664862012,3.0,0.0
+pedicle_incl_trans:mean,angle,papers,C3,-5.65,3.16228,3.0,0.0
+pedicle_incl_trans:mean,angle,papers,C4,-4.3,2.84605,3.0,0.0
+pedicle_incl_trans:mean,angle,papers,C5,3.75,2.68794,3.0,0.0
+pedicle_incl_trans:mean,angle,papers,C6,5.4,3.63662,3.0,0.0
+pedicle_incl_trans:mean,angle,papers,C7,4.45,2.21359,3.0,0.0
+pedicle_incl_trans:mean,angle,papers,T1,7.834426035521412,2.05,3.0,0.0
+pedicle_incl_trans:mean,angle,papers,T2,13.080512716978205,3.3,3.0,0.0
+pedicle_incl_trans:mean,angle,papers,T3,12.239905244803598,2.45,3.0,0.0
+pedicle_incl_trans:mean,angle,papers,T4,9.79087714146284,2.15,3.0,0.0
+pedicle_incl_trans:mean,angle,papers,T5,12.05443486302761,2.5,3.0,0.0
+pedicle_incl_trans:mean,angle,papers,T6,11.388260110076748,2.35,3.0,0.0
+pedicle_incl_trans:mean,angle,papers,T7,9.541085896912476,1.9,3.0,0.0
+pedicle_incl_trans:mean,angle,papers,T8,10.111995936156996,2.35,3.0,0.0
+pedicle_incl_trans:mean,angle,papers,T9,8.830118287352072,1.8,3.0,0.0
+pedicle_incl_trans:mean,angle,papers,T10,8.549149678739456,2.0,3.0,0.0
+pedicle_incl_trans:mean,angle,papers,T11,8.04809095954,1.65,3.0,0.0
+pedicle_incl_trans:mean,angle,papers,T12,7.253944904010312,1.55,3.0,0.0
+pedicle_incl_trans:mean,angle,papers,L1,2.21909677054509,1.65,3.0,0.0
+pedicle_incl_trans:mean,angle,papers,L2,1.6496052594374273,1.2,3.0,0.0
+pedicle_incl_trans:mean,angle,papers,L3,0.625710117546023,0.75,3.0,0.0
+pedicle_incl_trans:mean,angle,papers,L4,-1.6950821548486037,0.7,3.0,0.0
+pedicle_incl_trans:mean,angle,papers,L5,-2.0522614035773867,0.75,3.0,0.0
+pedicle,length,papers,C3,4.45,0.632456,1.0,1.0
+pedicle,length,papers,C4,4.55,0.632456,1.0,1.0
+pedicle,length,papers,C5,4.8,0.474342,1.0,1.0
+pedicle,length,papers,C6,5.25,0.632456,1.0,1.0
+pedicle,length,papers,C7,5.65,0.632456,1.0,1.0
+pedicle,length,papers,T1,7.51241878915938,1.15,1.0,1.0
+pedicle,length,papers,T2,5.7149999667036,0.75,1.0,1.0
+pedicle,length,papers,T3,4.312499972253,0.75,1.0,1.0
+pedicle,length,papers,T4,3.755666633370266,0.65,1.0,1.0
+pedicle,length,papers,T5,3.8750000492179573,0.75,1.0,1.0
+pedicle,length,papers,T6,4.212708314835334,0.95,1.0,1.0
+pedicle,length,papers,T7,4.432378837739031,1.05,1.0,1.0
+pedicle,length,papers,T8,4.560994047813595,1.15,1.0,1.0
+pedicle,length,papers,T9,5.354341051889582,1.1594496002984362,1.0,1.0
+pedicle,length,papers,T10,6.172971590976379,1.3990094778494135,1.0,1.0
+pedicle,length,papers,T11,7.426044494551122,1.4168907566584892,1.0,1.0
+pedicle,length,papers,T12,7.980508227839915,1.6052965699220503,1.0,1.0
+pedicle,length,papers,L1,7.251121279337788,1.719887508666848,1.0,1.0
+pedicle,length,papers,L2,7.710909096602525,1.6737941441229616,1.0,1.0
+pedicle,length,papers,L3,9.061364778208553,1.8965743035311264,1.0,1.0
+pedicle,length,papers,L4,10.892441507534826,1.9335258472935248,1.0,1.0
+pedicle,length,papers,L5,14.655490231515309,2.668878791630625,1.0,1.0
+spinous_length,length,papers,C3,25.6,1.58114,1.0,1.0
+spinous_length,length,papers,C4,30.3,1.26491,1.0,1.0
+spinous_length,length,papers,C5,33.6,3.16228,1.0,1.0
+spinous_length,length,papers,C6,40.5,4.74342,1.0,1.0
+spinous_length,length,papers,C7,46.9,3.47851,1.0,1.0
+spinous_length,length,papers,T1,48.3,2.52982,1.0,1.0
+spinous_length,length,papers,T2,48.3,1.58114,1.0,1.0
+spinous_length,length,papers,T3,49.0,2.52982,1.0,1.0
+spinous_length,length,papers,T4,48.4,2.52982,1.0,1.0
+spinous_length,length,papers,T5,49.8,2.52982,1.0,1.0
+spinous_length,length,papers,T6,50.7,3.16228,1.0,1.0
+spinous_length,length,papers,T7,51.8,2.84605,1.0,1.0
+spinous_length,length,papers,T8,51.9,2.84605,1.0,1.0
+spinous_length,length,papers,T9,51.5,2.84605,1.0,1.0
+spinous_length,length,papers,T10,49.8,2.84605,1.0,1.0
+spinous_length,length,papers,T11,48.4,3.47851,1.0,1.0
+spinous_length,length,papers,T12,48.5,3.16228,1.0,1.0
+spinous_length,length,papers,L1,51.5,2.84605,1.0,1.0
+spinous_length,length,papers,L2,54.4,2.52982,1.0,1.0
+spinous_length,length,papers,L3,57.6,2.52982,1.0,1.0
+spinous_length,length,papers,L4,55.1,2.84605,1.0,1.0
+spinous_length,length,papers,L5,50.6,2.84605,1.0,1.0
+transverse_width,length,papers,C3,41.4,2.52982,1.0,1.0
+transverse_width,length,papers,C4,44.9,2.52982,1.0,1.0
+transverse_width,length,papers,C5,47.6,3.16228,1.0,1.0
+transverse_width,length,papers,C6,48.4,2.84605,1.0,1.0
+transverse_width,length,papers,C7,53.8,3.16228,1.0,1.0
+transverse_width,length,papers,T1,63.8,3.16228,1.0,1.0
+transverse_width,length,papers,T2,57.5,2.21359,1.0,1.0
+transverse_width,length,papers,T3,51.3,2.84605,1.0,1.0
+transverse_width,length,papers,T4,49.8,3.16228,1.0,1.0
+transverse_width,length,papers,T5,49.7,3.16228,1.0,1.0
+transverse_width,length,papers,T6,50.2,2.84605,1.0,1.0
+transverse_width,length,papers,T7,49.7,1.89737,1.0,1.0
+transverse_width,length,papers,T8,47.8,2.52982,1.0,1.0
+transverse_width,length,papers,T9,47.9,0.632456,1.0,1.0
+transverse_width,length,papers,T10,45.4,1.89737,1.0,1.0
+transverse_width,length,papers,T11,43.0,2.84605,1.0,1.0
+transverse_width,length,papers,T12,41.0,1.58114,1.0,1.0
+transverse_width,length,papers,L1,53.6,4.74342,1.0,1.0
+transverse_width,length,papers,L2,64.3,4.74342,1.0,1.0
+transverse_width,length,papers,L3,71.4,6.00833,1.0,1.0
+transverse_width,length,papers,L4,67.7,4.42719,1.0,1.0
+transverse_width,length,papers,L5,71.3,7.90569,1.0,1.0
+body_area,area,papers,L1,1081.35,196.688,45.03445637969548,2.0
+body_area,area,papers,L2,1151.7,203.437,45.03445637969548,2.0
+body_area,area,papers,L3,1271.95,218.721,45.03445637969548,2.0
+body_area,area,papers,L4,1381.7,230.896,45.03445637969548,2.0
+body_area,area,papers,L5,1568.95,265.671,45.03445637969548,2.0
+body_d [end-plates' mean],length,papers,T10,25.9614,2.9786,1.0,1.0
+body_d [end-plates' mean],length,papers,T11,25.8096,2.96273,1.0,1.0
+body_d [end-plates' mean],length,papers,T12,26.0651,3.12923,1.0,1.0
+body_d [end-plates' mean],length,papers,L1,27.5687,3.02034,1.0,1.0
+body_d [end-plates' mean],length,papers,L2,27.7096,3.078,1.0,1.0
+body_d [end-plates' mean],length,papers,L3,27.4614,3.40179,1.0,1.0
+body_d [through the pedicles],length,papers,L1,29.43,3.19,1.0,1.0
+body_d [through the pedicles],length,papers,L2,30.77,3.43,1.0,1.0
+body_d [through the pedicles],length,papers,L3,31.66,3.11,1.0,1.0
+body_d [through the pedicles],length,papers,L4,31.8,2.68,1.0,1.0
+body_d [through the pedicles],length,papers,L5,32.43,3.62,1.0,1.0
+body_d_mid,length,papers,L1,28.15,2.98277,1.0,1.0
+body_d_mid,length,papers,L2,27.8,3.97037,1.0,1.0
+body_d_mid,length,papers,L3,30.95,2.8281,1.0,1.0
+body_d_mid,length,papers,L4,31.4,2.73223,1.0,1.0
+body_d_mid,length,papers,L5,31.7,2.46315,1.0,1.0
+body_w,length,papers,L1,40.26,4.53,1.0,1.0
+body_w,length,papers,L2,42.16,4.29,1.0,1.0
+body_w,length,papers,L3,44.02,4.5,1.0,1.0
+body_w,length,papers,L4,45.52,4.69,1.0,1.0
+body_w,length,papers,L5,49.54,5.68,1.0,1.0
+body_w_mid,length,papers,L1,37.35,3.54947,1.0,1.0
+body_w_mid,length,papers,L2,38.85,3.38898,1.0,1.0
+body_w_mid,length,papers,L3,40.8,3.47879,1.0,1.0
+body_w_mid,length,papers,L4,42.75,3.45012,1.0,1.0
+body_w_mid,length,papers,L5,47.05,4.14166,1.0,1.0
+canal_index [areas],ratio,papers,L1,0.255,0.0606032,0.0,0.0
+canal_index [areas],ratio,papers,L2,0.225,0.0558862,0.0,0.0
+canal_index [areas],ratio,papers,L3,0.195,0.0476792,0.0,0.0
+canal_index [areas],ratio,papers,L4,0.195,0.0476792,0.0,0.0
+canal_index [areas],ratio,papers,L5,0.205,0.0502265,0.0,0.0
+disc_d,length,papers,L3,38.6,3.0,1.0,1.0
+disc_d,length,papers,L4,38.6,3.1,1.0,1.0
+disc_d,length,papers,L5,37.6,3.6,1.0,1.0
+disc_h_ant,length,papers,C7,4.5,0.79,1.0,1.0
+disc_h_ant,length,papers,T1,4.5,0.77,1.0,1.0
+disc_h_ant,length,papers,T2,3.4,0.97,1.0,1.0
+disc_h_ant,length,papers,T3,3.3,0.3,1.0,1.0
+disc_h_ant,length,papers,T4,3.0,0.74,1.0,1.0
+disc_h_ant,length,papers,T5,3.5,0.37,1.0,1.0
+disc_h_ant,length,papers,T6,4.1,0.35,1.0,1.0
+disc_h_ant,length,papers,T7,4.2,0.97,1.0,1.0
+disc_h_ant,length,papers,T8,5.6,1.17,1.0,1.0
+disc_h_ant,length,papers,T9,5.4,1.74,1.0,1.0
+disc_h_ant,length,papers,T10,7.2,1.21,1.0,1.0
+disc_h_ant,length,papers,T11,6.0,1.14,1.0,1.0
+disc_h_ant,length,papers,T12,5.48217,1.48147,1.0,1.0
+disc_h_ant,length,papers,L1,6.174092053292665,1.7641515067084328,1.0,1.0
+disc_h_ant,length,papers,L2,7.181971787700589,1.8581419642241048,1.0,1.0
+disc_h_ant,length,papers,L3,8.260978531268037,1.9340817236720806,1.0,1.0
+disc_h_ant,length,papers,L4,9.789696295856357,2.19037549156933,1.0,1.0
+disc_h_ant,length,papers,L5,11.169339150515878,2.7254510954016347,1.0,1.0
+disc_h_mean [area over depth],length,papers,L1,8.079137617850622,2.0058728501059626,1.0,1.0
+disc_h_mean [area over depth],length,papers,L2,9.248994795637707,1.758679491107515,1.0,1.0
+disc_h_mean [area over depth],length,papers,L3,9.37773500011608,1.9364505946211965,1.0,1.0
+disc_h_mean [area over depth],length,papers,L4,10.23438194523784,2.0796240207861225,1.0,1.0
+disc_h_mean [area over depth],length,papers,L5,9.569528442224312,2.2175865848397676,1.0,1.0
+disc_h_mean [three points],length,papers,T12,5.16333,1.02675,1.0,1.0
+disc_h_mean [three points],length,papers,L1,6.29958,1.22698,1.0,1.0
+disc_h_mean [three points],length,papers,L2,7.445,1.37925,1.0,1.0
+disc_h_mean [three points],length,papers,L3,8.09958,1.44956,1.0,1.0
+disc_h_mean [three points],length,papers,L4,8.81792,1.6344,1.0,1.0
+disc_h_mean [three points],length,papers,L5,8.69083,1.71147,1.0,1.0
+disc_h_mean [two rims],length,papers,T12,4.49054,1.08079,1.0,1.0
+disc_h_mean [two rims],length,papers,L1,5.64683,1.24229,1.0,1.0
+disc_h_mean [two rims],length,papers,L2,6.61233,1.34182,1.0,1.0
+disc_h_mean [two rims],length,papers,L3,7.27237,1.39596,1.0,1.0
+disc_h_mean [two rims],length,papers,L4,8.1725,1.63965,1.0,1.0
+disc_h_mean [two rims],length,papers,L5,8.43171,1.77574,1.0,1.0
+disc_h_mid,length,papers,C7,5.6,0.63,1.0,1.0
+disc_h_mid,length,papers,T1,5.7,0.66,1.0,1.0
+disc_h_mid,length,papers,T2,5.8,0.79,1.0,1.0
+disc_h_mid,length,papers,T3,4.4,0.8,1.0,1.0
+disc_h_mid,length,papers,T4,5.0,0.61,1.0,1.0
+disc_h_mid,length,papers,T5,4.7,0.91,1.0,1.0
+disc_h_mid,length,papers,T6,5.5,0.45,1.0,1.0
+disc_h_mid,length,papers,T7,5.3,0.58,1.0,1.0
+disc_h_mid,length,papers,T8,6.1,0.89,1.0,1.0
+disc_h_mid,length,papers,T9,5.5,0.9,1.0,1.0
+disc_h_mid,length,papers,T10,6.7,1.18,1.0,1.0
+disc_h_mid,length,papers,T11,6.5,1.15,1.0,1.0
+disc_h_mid,length,papers,T12,6.37071,1.21229,1.0,1.0
+disc_h_mid,length,papers,L1,7.121719515688852,1.483667722085522,1.0,1.0
+disc_h_mid,length,papers,L2,8.490463974070597,1.6667867861863055,1.0,1.0
+disc_h_mid,length,papers,L3,9.27171779120153,1.6666722804016714,1.0,1.0
+disc_h_mid,length,papers,L4,9.71041013119109,1.7578275218748416,1.0,1.0
+disc_h_mid,length,papers,L5,8.675069589485256,1.9535350482528062,1.0,1.0
+disc_h_post,length,papers,C7,4.5,0.51,1.0,1.0
+disc_h_post,length,papers,T1,4.3,0.62,1.0,1.0
+disc_h_post,length,papers,T2,3.5,0.99,1.0,1.0
+disc_h_post,length,papers,T3,3.2,0.49,1.0,1.0
+disc_h_post,length,papers,T4,3.3,0.45,1.0,1.0
+disc_h_post,length,papers,T5,3.6,0.47,1.0,1.0
+disc_h_post,length,papers,T6,4.1,0.65,1.0,1.0
+disc_h_post,length,papers,T7,3.6,0.9,1.0,1.0
+disc_h_post,length,papers,T8,5.0,0.91,1.0,1.0
+disc_h_post,length,papers,T9,4.2,1.1,1.0,1.0
+disc_h_post,length,papers,T10,5.8,1.0,1.0,1.0
+disc_h_post,length,papers,T11,4.8,1.26,1.0,1.0
+disc_h_post,length,papers,T12,3.49892,0.932898,1.0,1.0
+disc_h_post,length,papers,L1,3.8559278093320857,1.1495183720508773,1.0,1.0
+disc_h_post,length,papers,L2,4.698053971169113,1.2421163852022004,1.0,1.0
+disc_h_post,length,papers,L3,5.192049212020586,1.3790969308100782,1.0,1.0
+disc_h_post,length,papers,L4,5.442490310209512,1.447928656420985,1.0,1.0
+disc_h_post,length,papers,L5,4.521442383922817,1.4100396234341974,1.0,1.0
+disc_w,length,papers,L3,52.2,4.2,1.0,1.0
+disc_w,length,papers,L4,52.9,4.3,1.0,1.0
+disc_w,length,papers,L5,52.1,4.9,1.0,1.0
+facet_angle_axial,angle,papers,L1,32.9425,7.75815,3.0,0.0
+facet_angle_axial,angle,papers,L2,30.73,8.21385,3.0,0.0
+facet_angle_axial,angle,papers,L3,33.7,8.78287,3.0,0.0
+facet_angle_axial,angle,papers,L4,38.7525,9.88477,3.0,0.0
+facet_angle_axial,angle,papers,L5,44.92,11.3767,3.0,0.0
+foramen_area,area,papers,L1,132.255,34.69,14.61463170044354,2.0
+foramen_area,area,papers,L2,141.535,37.66,14.61463170044354,2.0
+foramen_area,area,papers,L3,143.86,40.625,14.61463170044354,2.0
+foramen_area,area,papers,L4,137.565,37.92,14.61463170044354,2.0
+foramen_area,area,papers,L5,124.655,35.49,14.61463170044354,2.0
+foramen_h,length,papers,T12,15.7678,1.78667,1.0,1.0
+foramen_h,length,papers,L1,17.01261820131251,2.0627205261779635,1.0,1.0
+foramen_h,length,papers,L2,18.1999325317059,2.420998583661334,1.0,1.0
+foramen_h,length,papers,L3,17.88313085265457,2.5499148574694463,1.0,1.0
+foramen_h,length,papers,L4,16.9744606238112,2.357162503815647,1.0,1.0
+foramen_h,length,papers,L5,14.428808703619746,2.249018181624748,1.0,1.0
+foramen_w [body to facet],length,papers,L1,9.605,2.09,1.0,1.0
+foramen_w [body to facet],length,papers,L2,9.335,2.01,1.0,1.0
+foramen_w [body to facet],length,papers,L3,9.19,2.165,1.0,1.0
+foramen_w [body to facet],length,papers,L4,8.68,2.18,1.0,1.0
+foramen_w [body to facet],length,papers,L5,8.92,2.48,1.0,1.0
+foramen_w [the notch],length,papers,L1,8.55328,1.14986,1.0,1.0
+foramen_w [the notch],length,papers,L2,8.18852,1.1586,1.0,1.0
+foramen_w [the notch],length,papers,L3,7.5,1.22859,1.0,1.0
+foramen_w [the notch],length,papers,L4,7.52951,1.13536,1.0,1.0
+foramen_w [the notch],length,papers,L5,7.10574,0.943381,1.0,1.0
+h_ant,length,papers,C3,12.095039689586539,0.7,1.0,1.0
+h_ant,length,papers,C4,12.179166660519806,1.3,1.0,1.0
+h_ant,length,papers,C5,11.47872807796407,1.1,1.0,1.0
+h_ant,length,papers,C6,12.206712955108642,0.5,1.0,1.0
+h_ant,length,papers,C7,13.44981482139188,0.5,1.0,1.0
+h_ant,length,papers,T1,15.039259260903524,0.8,1.0,1.0
+h_ant,length,papers,T2,16.011261269260395,1.4,1.0,1.0
+h_ant,length,papers,T3,16.898263882998148,0.8,1.0,1.0
+h_ant,length,papers,T4,17.290705129628048,0.8,1.0,1.0
+h_ant,length,papers,T5,16.93632479391371,3.2,1.0,1.0
+h_ant,length,papers,T6,17.09722223044356,3.0,1.0,1.0
+h_ant,length,papers,T7,17.432801424736912,1.1,1.0,1.0
+h_ant,length,papers,T8,17.947916659597777,2.8,1.0,1.0
+h_ant,length,papers,T9,18.910544223727236,1.6,1.0,1.0
+h_ant,length,papers,T10,20.37097700661916,1.6,1.0,1.0
+h_ant,length,papers,T11,20.64281055740419,2.048455069860056,1.0,1.0
+h_ant,length,papers,T12,22.222622769725696,2.3204349909991597,1.0,1.0
+h_ant,length,papers,L1,23.769640973970617,1.9999250546220873,1.0,1.0
+h_ant,length,papers,L2,24.92665890656185,2.138924946252688,1.0,1.0
+h_ant,length,papers,L3,25.688918707171908,1.6367810542910513,1.0,1.0
+h_ant,length,papers,L4,25.57716808719284,1.5566416162597607,1.0,1.0
+h_ant,length,papers,L5,26.35858961346162,1.3916743927031006,1.0,1.0
+h_mid,length,papers,C3,12.6,0.7,1.0,1.0
+h_mid,length,papers,C4,12.4,1.4,1.0,1.0
+h_mid,length,papers,C5,12.1,2.1,1.0,1.0
+h_mid,length,papers,C6,12.2,1.9,1.0,1.0
+h_mid,length,papers,C7,14.3,2.0,1.0,1.0
+h_mid,length,papers,T1,16.1,0.5,1.0,1.0
+h_mid,length,papers,T2,16.7,0.9,1.0,1.0
+h_mid,length,papers,T3,17.5,0.4,1.0,1.0
+h_mid,length,papers,T4,17.9,0.8,1.0,1.0
+h_mid,length,papers,T5,17.6,2.5,1.0,1.0
+h_mid,length,papers,T6,18.1,2.5,1.0,1.0
+h_mid,length,papers,T7,19.3,1.6,1.0,1.0
+h_mid,length,papers,T8,19.8,1.2,1.0,1.0
+h_mid,length,papers,T9,21.3,1.2,1.0,1.0
+h_mid,length,papers,T10,22.2,1.6,1.0,1.0
+h_mid,length,papers,T11,22.62723302109509,1.880771727345072,1.0,1.0
+h_mid,length,papers,T12,24.139954593124425,1.991509893003822,1.0,1.0
+h_mid,length,papers,L1,23.90090657358073,2.3168340278772668,1.0,1.0
+h_mid,length,papers,L2,24.890029030596406,2.2232002291784623,1.0,1.0
+h_mid,length,papers,L3,24.934242424242424,1.1497175757828024,1.0,1.0
+h_mid,length,papers,L4,23.714409606404274,2.0816653733672457,1.0,1.0
+h_mid,length,papers,L5,24.03652173913044,1.0727346358318393,1.0,1.0
+interpedicular,length,papers,C3,27.920010157440323,1.6847590608109981,1.0,1.0
+interpedicular,length,papers,C4,28.77765237020316,1.7285703056001966,1.0,1.0
+interpedicular,length,papers,C5,29.32596071733561,1.8715153331935168,1.0,1.0
+interpedicular,length,papers,C6,29.251363522641988,1.9677970962471252,1.0,1.0
+interpedicular,length,papers,C7,27.89351081530782,2.0524359347045977,1.0,1.0
+interpedicular,length,papers,T1,23.568712632968403,1.7530307827715927,1.0,1.0
+interpedicular,length,papers,T2,20.162903064789855,1.6064480096290878,1.0,1.0
+interpedicular,length,papers,T3,18.62199074074074,1.4465626399345972,1.0,1.0
+interpedicular,length,papers,T4,17.956582633053223,1.4954402700027085,1.0,1.0
+interpedicular,length,papers,T5,17.549556657124906,1.536714006720926,1.0,1.0
+interpedicular,length,papers,T6,17.300000000000004,1.5599898756889754,1.0,1.0
+interpedicular,length,papers,T7,17.438235294117646,1.5229003219169888,1.0,1.0
+interpedicular,length,papers,T8,17.813636363636363,1.5236215628800287,1.0,1.0
+interpedicular,length,papers,T9,18.234701625341085,1.5596665040939202,1.0,1.0
+interpedicular,length,papers,T10,18.74020294757188,1.585630490632823,1.0,1.0
+interpedicular,length,papers,T11,20.122354914726206,1.7854459579975976,1.0,1.0
+interpedicular,length,papers,T12,23.031584666055483,1.9138303187553514,1.0,1.0
+interpedicular,length,papers,L1,23.554262164004623,2.433162443469997,1.0,1.0
+interpedicular,length,papers,L2,24.10612769699879,2.176440158386739,1.0,1.0
+interpedicular,length,papers,L3,24.93762589941628,2.2970938182112124,1.0,1.0
+interpedicular,length,papers,L4,26.21968658185358,2.639771326979021,1.0,1.0
+interpedicular,length,papers,L5,29.453279170659005,3.471056585079865,1.0,1.0
+lamina_angle [between the laminae],angle,papers,L1,115.0,10.0223,3.0,0.0
+lamina_angle [between the laminae],angle,papers,L2,114.0,9.19619,3.0,0.0
+lamina_angle [between the laminae],angle,papers,L3,110.5,10.7781,3.0,0.0
+lamina_angle [between the laminae],angle,papers,L4,100.0,11.1511,3.0,0.0
+lamina_angle [between the laminae],angle,papers,L5,96.0,10.6726,3.0,0.0
+lamina_angle [to the body],angle,papers,L1,24.55,4.92029,3.0,0.0
+lamina_angle [to the body],angle,papers,L2,27.95,5.72237,3.0,0.0
+lamina_angle [to the body],angle,papers,L3,32.7,5.65942,3.0,0.0
+lamina_angle [to the body],angle,papers,L4,40.9,6.14572,3.0,0.0
+lamina_angle [to the body],angle,papers,L5,48.25,7.22057,3.0,0.0
+lateral_recess,length,papers,T12,10.6991,1.77961,1.0,1.0
+lateral_recess,length,papers,L1,10.6177,1.57734,1.0,1.0
+lateral_recess,length,papers,L2,9.99036,1.37271,1.0,1.0
+lateral_recess,length,papers,L3,9.00086,0.994663,1.0,1.0
+lateral_recess,length,papers,L4,8.47487,0.8929,1.0,1.0
+lateral_recess,length,papers,L5,7.67871,0.645118,1.0,1.0
+pedicle_chord [along the axis],length,papers,T1,30.4,1.58114,1.0,1.0
+pedicle_chord [along the axis],length,papers,T2,27.5,1.26491,1.0,1.0
+pedicle_chord [along the axis],length,papers,T3,28.6,1.26491,1.0,1.0
+pedicle_chord [along the axis],length,papers,T4,27.6,0.948683,1.0,1.0
+pedicle_chord [along the axis],length,papers,T5,31.2,1.26491,1.0,1.0
+pedicle_chord [along the axis],length,papers,T6,30.3,1.26491,1.0,1.0
+pedicle_chord [along the axis],length,papers,T7,35.0,2.21359,1.0,1.0
+pedicle_chord [along the axis],length,papers,T8,34.3,1.89737,1.0,1.0
+pedicle_chord [along the axis],length,papers,T9,32.7,1.89737,1.0,1.0
+pedicle_chord [along the axis],length,papers,T10,34.6,1.58114,1.0,1.0
+pedicle_chord [along the axis],length,papers,T11,37.01124416885947,2.17,1.0,1.0
+pedicle_chord [along the axis],length,papers,T12,31.5,1.89737,1.0,1.0
+pedicle_chord [along the axis],length,papers,L1,43.78431197496991,3.939935762480616,1.0,1.0
+pedicle_chord [along the axis],length,papers,L2,46.08384837679704,4.25479125882519,1.0,1.0
+pedicle_chord [along the axis],length,papers,L3,46.24781952535589,4.294179565762634,1.0,1.0
+pedicle_chord [along the axis],length,papers,L4,46.24901321563911,4.568148946098578,1.0,1.0
+pedicle_chord [along the axis],length,papers,L5,43.62230391058982,4.770472934051401,1.0,1.0
+pedicle_chord [parallel to the midline],length,papers,T9,38.6,3.0,1.0,1.0
+pedicle_chord [parallel to the midline],length,papers,T10,38.8,2.9,1.0,1.0
+pedicle_chord [parallel to the midline],length,papers,T11,39.0,3.6,1.0,1.0
+pedicle_chord [parallel to the midline],length,papers,T12,42.9,5.2,1.0,1.0
+pedicle_chord [parallel to the midline],length,papers,L1,49.5,3.4,1.0,1.0
+pedicle_chord [parallel to the midline],length,papers,L2,49.7,3.4,1.0,1.0
+pedicle_chord [parallel to the midline],length,papers,L3,49.4,3.4,1.0,1.0
+pedicle_chord [parallel to the midline],length,papers,L4,47.3,3.4,1.0,1.0
+pedicle_chord [parallel to the midline],length,papers,L5,43.6,4.4,1.0,1.0
+pedicle_cortex [medial],length,papers,L1,0.8,0.2,1.0,1.0
+pedicle_cortex [medial],length,papers,L2,0.8,0.2,1.0,1.0
+pedicle_cortex [medial],length,papers,L3,0.8,0.2,1.0,1.0
+pedicle_cortex [medial],length,papers,L4,1.3,0.5,1.0,1.0
+pedicle_cortex [medial],length,papers,L5,1.3,0.6,1.0,1.0
+pedicle_h_inner,length,papers,L1,11.89,1.57,1.0,1.0
+pedicle_h_inner,length,papers,L2,10.44,1.75,1.0,1.0
+pedicle_h_inner,length,papers,L3,10.23,1.63,1.0,1.0
+pedicle_h_inner,length,papers,L4,9.36,1.36,1.0,1.0
+pedicle_h_inner,length,papers,L5,8.95,1.54,1.0,1.0
+pedicle_length [proper],length,papers,L1,6.92,1.32262,1.0,1.0
+pedicle_length [proper],length,papers,L2,5.9275,1.41727,1.0,1.0
+pedicle_length [proper],length,papers,L3,4.3625,1.36135,1.0,1.0
+pedicle_length [proper],length,papers,L4,3.4325,1.4534,1.0,1.0
+pedicle_length [proper],length,papers,L5,2.7075,1.01545,1.0,1.0
+pedicle_length [to the ligament],length,papers,L1,16.01,1.27,1.0,1.0
+pedicle_length [to the ligament],length,papers,L2,14.63,1.16,1.0,1.0
+pedicle_length [to the ligament],length,papers,L3,13.42,1.17,1.0,1.0
+pedicle_length [to the ligament],length,papers,L4,12.18,1.12,1.0,1.0
+pedicle_length [to the ligament],length,papers,L5,9.93,1.31,1.0,1.0
+pedicle_w_inner,length,papers,L1,5.46,1.69,1.0,1.0
+pedicle_w_inner,length,papers,L2,5.76,1.73,1.0,1.0
+pedicle_w_inner,length,papers,L3,7.25,1.82,1.0,1.0
+pedicle_w_inner,length,papers,L4,9.01,1.91,1.0,1.0
+pedicle_w_inner,length,papers,L5,12.86,2.47,1.0,1.0

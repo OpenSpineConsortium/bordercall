@@ -32,6 +32,7 @@ import numpy as np
 from scanimport import schemes
 from scanimport.tests.phantom import ARCH, AIR, CORTEX, CORTEX_MM, CSF, DISC, SOFT, TRABECULAR, rotation, grid_about
 from schwingcheck import columns as C
+from schwingcheck import correlation as CORR
 from schwingcheck import measures as SM
 
 SHAPE_MEASURES = ["endplate", "endplate_depth", "endplate_lower", "endplate_lower_depth", "h_post", "canal_w",
@@ -76,12 +77,21 @@ class Level:
                          + (self.H / 2) ** 2)
 
 
-def draw_levels(phenotype: str = "typical", seed: int = 0, start: str = "L1", count: int = 4) -> List[Level]:
+def draw_levels(phenotype: str = "typical", seed: int = 0, start: str = "L1", count: int = 4,
+                correlation: Optional[CORR.Prior] = None, scale_sd: Optional[float] = None) -> List[Level]:
     """`count` consecutive levels from `start` down one column of the generator's, with no
-    measurement error: the anatomy of one synthetic patient."""
+    measurement error: the anatomy of one synthetic patient. correlation, a prior fitted from real
+    spines (schwingcheck/correlation.py), draws every level and measure of the column jointly from
+    it, never one at a time (greg, 2026-10-30 23:30 UTC); the shape measures it was not fitted on
+    are added by CORR.widen. It must name every level of the column, so a cervical phantom needs a
+    prior fitted from C3. scale_sd, when given, replaces the generator's spread of the patient's
+    size, 0 drawing every column at size 1."""
     ms = SM.select(SHAPE_MEASURES)
     ref = SM.reference(ms)
-    cols = C.draw_columns(ref, [phenotype], seed, 1, SHAPE_MEASURES, noise_mm=0.0, power=SM.powers(ms))
+    extra = {} if scale_sd is None else {"scale_sd": float(scale_sd)}
+    if correlation is not None:
+        extra["correlation"] = CORR.widen(correlation, SHAPE_MEASURES)
+    cols = C.draw_columns(ref, [phenotype], seed, 1, SHAPE_MEASURES, noise_mm=0.0, power=SM.powers(ms), **extra)
     names = cols.levels[0]
     if start not in names:
         raise ValueError("a %s column has no %s; its levels are %s" % (phenotype, start, ", ".join(names)))

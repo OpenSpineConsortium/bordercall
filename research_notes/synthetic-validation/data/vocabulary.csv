@@ -1,0 +1,107 @@
+key,kind,units,panjabi,mnemonic,definition
+endplate,length,mm,yes,EPWu,upper end-plate width: the distance between the lateral ends of the superior end-plate
+endplate_depth,length,mm,yes,EPDu,upper end-plate depth: the anteroposterior extent of the superior end-plate
+endplate_lower,length,mm,yes,EPWl,lower end-plate width: the distance between the lateral ends of the inferior end-plate
+endplate_lower_depth,length,mm,yes,EPDl,lower end-plate depth: the anteroposterior extent of the inferior end-plate
+h_post,length,mm,yes,VBHp,posterior vertebral body height: the distance between the end-plates at the posterior wall
+endplate_area,area,mm2,yes,EPAu,upper end-plate surface area
+endplate_lower_area,area,mm2,yes,EPAl,lower end-plate surface area
+endplate_incl,angle,deg,yes,EPItu,upper end-plate inclination to the transverse plane
+endplate_lower_incl,angle,deg,yes,EPItl,lower end-plate inclination to the transverse plane
+endplate_wedge,angle,deg,yes,EPIt,"wedge angle: the sum of the upper and lower end-plate inclinations to the transverse plane, printed by the thoracic paper as a mean with no standard error"
+canal_w,length,mm,yes,SCW,spinal canal width: the transverse diameter of the canal at the level of the pedicles
+canal_ap,length,mm,yes,SCD,spinal canal depth: the anteroposterior diameter of the canal in the midline
+canal_area,area,mm2,yes,SCA,spinal canal cross-sectional area
+pedicle_w,length,mm,yes,PDWr,pedicle width: the smallest transverse diameter of the pedicle
+pedicle_h,length,mm,yes,PDHr,pedicle height: the smallest craniocaudal diameter of the pedicle
+pedicle_area,area,mm2,yes,PDAr,pedicle cross-sectional area at its narrowest
+pedicle_incl_sag,angle,deg,yes,PDIsr,pedicle axis inclination to the sagittal plane
+pedicle_incl_trans,angle,deg,yes,PDItr,pedicle axis inclination to the transverse plane
+spinous_length,length,mm,yes,SPL,spinous process length: from the posterior wall of the canal to the tip of the process
+transverse_width,length,mm,yes,TPW,transverse process width: from the tip of one transverse process to the tip of the other
+pars_area,area,mm2,yes,PIAr,pars interarticularis cross-sectional area
+uncovertebral_area_upper,area,mm2,yes,UJAru,"uncovertebral joint surface area, upper joint"
+uncovertebral_area_lower,area,mm2,yes,UJArl,"uncovertebral joint surface area, lower joint"
+uncovertebral_incl_frontal_upper,angle,deg,yes,UJIfu,"uncovertebral joint inclination to the frontal plane, upper joint"
+uncovertebral_incl_sag_upper,angle,deg,yes,UJIsu,"uncovertebral joint inclination to the sagittal plane, upper joint"
+uncovertebral_incl_frontal_lower,angle,deg,yes,UJIfl,"uncovertebral joint inclination to the frontal plane, lower joint"
+uncovertebral_incl_sag_lower,angle,deg,yes,UJIsl,"uncovertebral joint inclination to the sagittal plane, lower joint"
+costovertebral_area_upper,area,mm2,yes,CVAur,"costovertebral articulation surface area, upper (superior) demifacet"
+costovertebral_area_lower,area,mm2,yes,CVAlr,"costovertebral articulation surface area, lower (inferior) demifacet"
+costovertebral_area,area,mm2,yes,CVA,"costovertebral articulation surface area, the total per rib"
+costotransverse_area,area,mm2,yes,CTAr,costotransverse articulation surface area
+rib_articulation_area,area,mm2,yes,CVA + CTA,"costovertebral and costotransverse articulation area, the total per rib"
+facet_w_sup,length,mm,yes,FCWsr,superior facet width: the transverse extent of the superior articular facet
+facet_w_inf,length,mm,yes,FCWir,inferior facet width
+facet_h_sup,length,mm,yes,FCHsr,superior facet height: the craniocaudal extent of the superior articular facet
+facet_h_inf,length,mm,yes,FCHir,inferior facet height
+facet_area_sup,area,mm2,yes,FCAsr,superior facet surface area
+facet_area_inf,area,mm2,yes,FCAir,inferior facet surface area
+interfacet_w_sup,length,mm,yes,IFWs,superior interfacet width: from the centre of the right superior facet to the centre of the left
+interfacet_w_inf,length,mm,yes,IFWi,inferior interfacet width
+interfacet_h,length,mm,yes,IFHr,interfacet height: from the centre of the superior facet to the centre of the inferior facet of the same side
+facet_trans_sup,angle,deg,yes,Tsr,superior facet angle to the transverse plane
+facet_trans_inf,angle,deg,yes,Tir,inferior facet angle to the transverse plane
+facet_sag_sup,angle,deg,yes,Ssr,superior facet angle to the sagittal plane (the right side negative by the paper's convention)
+facet_sag_inf,angle,deg,yes,Sir,inferior facet angle to the sagittal plane
+facet_card_x_sup,angle,deg,yes,CAXsr,card angle of the superior facet normal about the X axis
+facet_card_x_inf,angle,deg,yes,CAXir,card angle of the inferior facet normal about the X axis
+facet_card_y_sup,angle,deg,yes,CAYsr,card angle of the superior facet normal about the Y axis
+facet_card_y_inf,angle,deg,yes,CAYir,card angle of the inferior facet normal about the Y axis
+h_ant,length,mm,no,,anterior vertebral body height: between the end-plates at the anterior wall
+h_mid,length,mm,no,,middle (central) vertebral body height: between the end-plates at the body's centre
+h_lat,length,mm,no,,"lateral vertebral body height (right, left or their mean), between the end-plates at the side wall"
+body_w_mid,length,mm,no,,"vertebral body width at mid-height (the waist), transverse"
+body_d_mid,length,mm,no,,"vertebral body depth at mid-height (the waist), anteroposterior, midline"
+body_w,length,mm,no,,"vertebral body width where the paper does not say upper, lower or mid-height"
+body_d,length,mm,no,,"vertebral body depth where the paper does not say upper, lower or mid-height"
+body_area,area,mm2,no,,vertebral body cross-sectional area where the paper does not say which end-plate or level of the body
+wedge,angle,deg,no,,body wedge angle: the angle between the upper and lower end-plates in the sagittal plane
+body_index,ratio,ratio,no,,a ratio of body dimensions (e.g. anterior to posterior height); the note says which
+endplate_concavity,length,mm,no,,"end-plate concavity depth (upper, lower or which, in the note)"
+disc_h_ant,length,mm,no,,intervertebral disc height at the anterior margin
+disc_h_mid,length,mm,no,,intervertebral disc height at the middle (centre)
+disc_h_post,length,mm,no,,intervertebral disc height at the posterior margin
+disc_h_mean,length,mm,no,,intervertebral disc height as a mean of several points or an area over a length
+disc_index,ratio,ratio,no,,"a disc ratio (e.g. disc height over body depth, or disc to body height); the note says which"
+disc_w,length,mm,no,,disc transverse width
+disc_d,length,mm,no,,disc anteroposterior depth
+interpedicular,length,mm,no,,interpedicular distance: the smallest distance between the medial walls of the pedicles (Panjabi's canal width is the closest)
+canal_index,ratio,ratio,no,,"a canal ratio (e.g. Torg-Pavlov canal to body ratio, or canal shape index); the note says which"
+lateral_recess,length,mm,no,,lateral recess depth or width
+foramen_h,length,mm,no,,intervertebral foramen height
+foramen_w,length,mm,no,,intervertebral foramen width (anteroposterior)
+foramen_area,area,mm2,no,,intervertebral foramen area
+pedicle_w_outer,length,mm,no,,pedicle outer (cortex to cortex) width where the paper separates outer from inner
+pedicle_w_inner,length,mm,no,,"pedicle inner (endosteal, cancellous) width"
+pedicle_h_outer,length,mm,no,,pedicle outer height
+pedicle_h_inner,length,mm,no,,pedicle inner (endosteal) height
+pedicle_chord,length,mm,no,,pedicle axis or screw path length: from the posterior entry point through the pedicle to the anterior cortex of the body
+pedicle_length,length,mm,no,,pedicle length proper (from the lamina junction to the body)
+pedicle_cortex,length,mm,no,,"pedicle cortical wall thickness (which wall, in the note)"
+pedicle_angle_transverse,angle,deg,no,,"pedicle transverse (medial) angle in the axial plane, to the midsagittal plane (Panjabi's pedicle_incl_sag measures the same direction)"
+pedicle_angle_sagittal,angle,deg,no,,"pedicle sagittal (cranial-caudal) angle in the sagittal plane, to the end-plate or transverse plane (Panjabi's pedicle_incl_trans measures the same direction)"
+lamina_thickness,length,mm,no,,lamina thickness
+lamina_h,length,mm,no,,lamina height
+lamina_w,length,mm,no,,lamina width or length
+lamina_angle,angle,deg,no,,lamina angle
+pars_w,length,mm,no,,pars interarticularis width or thickness
+spinous_h,length,mm,no,,spinous process height
+spinous_angle,angle,deg,no,,spinous process angle
+transverse_length,length,mm,no,,"one transverse process's length (right, left or mean)"
+transverse_h,length,mm,no,,transverse process height or thickness
+facet_angle_axial,angle,deg,no,,"facet joint orientation in the axial plane, to the midsagittal (or coronal) plane; the note says which reference and convention"
+facet_angle_sagittal,angle,deg,no,,facet joint orientation in the sagittal plane
+facet_tropism,angle,deg,no,,facet tropism: the difference between left and right facet angles
+facet_gap,length,mm,no,,facet joint space width
+rib,other,as printed,no,,any rib or costal measure; the note says which
+sacrum,other,as printed,no,,any sacral or pelvic measure; the note says which
+alignment,angle,deg,no,,"a curvature or alignment angle over several levels (lordosis, kyphosis, Cobb, sacral slope)"
+subject_age,years,years,no,,the age of the subjects
+subject_height,length,mm,no,,the stature of the subjects (cm or m)
+subject_weight,other,as printed,no,,the weight of the subjects (kg)
+subject_bmi,other,as printed,no,,body mass index
+subject_count,count,count,no,,"a count of subjects, specimens, vertebrae or cases (the note says of what)"
+prevalence,percent,%,no,,"a count or share of an anomaly, variant or finding (the note says which)"
+reliability,other,as printed,no,,"an ICC, kappa, repeat difference or other reliability figure"
+other,other,as printed,no,,a value no key above fits: the note says what it is
