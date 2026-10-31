@@ -3,6 +3,8 @@
 # runs fetch.py there and commits what the script wrote to the branch meshes, which a session then
 # fetches like any other branch. greg cleared both sources on 2026-10-31 at 00:09 UTC ("i dont care
 # about licenses use these if they help"). Started by hand only: list first, then upf or meng.
+# NumPy (below 2, which reads a Python 2 pickle's arrays as written) keeps UPF's STL files as indexed
+# meshes and reduces Meng's model with extract_meng.py.
 name: Open vertebra meshes
 run-name: "Open vertebra meshes: ${{ inputs.what }}"
 on:
@@ -35,10 +37,18 @@ jobs:
             git worktree add --detach out
             git -C out switch --orphan meshes
           fi
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: NumPy, for UPF's meshes and Meng's arrays
+        run: python -m pip install --quiet "numpy<2"
       - name: Fetch
         env:
           WHAT: ${{ inputs.what }}
-        run: python3 research_notes/open-vertebra-meshes/fetch.py "$WHAT" out
+        run: python research_notes/open-vertebra-meshes/fetch.py "$WHAT" out
+      - name: Reduce Meng's two large pickles to files one commit can hold
+        if: inputs.what == 'meng'
+        run: python research_notes/open-vertebra-meshes/extract_meng.py /tmp/meng/code/models out/meng/model
       - name: Commit and push
         env:
           WHAT: ${{ inputs.what }}
